@@ -157,9 +157,9 @@ mv $RPM_BUILD_DIR/issabelpbx/amp_conf/htdocs/admin/.htaccess   $RPM_BUILD_ROOT/v
 cp %{SOURCE6} $RPM_BUILD_ROOT/etc/asterisk.issabel/
 
 # CDR dump as CSV
-mkdir -p $RPM_BUILD_ROOT/var/log/asterisk/cdr-csv/
+#mkdir -p $RPM_BUILD_ROOT/var/log/asterisk/cdr-csv/
 #chown -R asterisk.asterisk $RPM_BUILD_ROOT/var/log/asterisk/
-touch $RPM_BUILD_ROOT/var/log/asterisk/cdr-csv/Master.csv
+#touch $RPM_BUILD_ROOT/var/log/asterisk/cdr-csv/Master.csv
 
 # IssabelPBX change the file /var/www/html/index.php (this is issabel file).
 # File /etc/pbx/aver.flag is a flag for prevent it.
@@ -651,12 +651,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-, asterisk, asterisk)
 /etc/asterisk.issabel/*
-/var/www/html/*
-/var/log/asterisk/*
+/var/www/html/admin
+/var/www/html/config.php
+#/var/log/asterisk/*
 #%config(noreplace) /var/www/html/admin/modules/fw_fop/op_buttons_additional.cfg
 #%config(noreplace) /var/www/html/admin/modules/fw_fop/op_buttons_custom.cfg
 /var/lib/asterisk/*
-%config(noreplace) /var/log/asterisk/cdr-csv/Master.csv
+#%config(noreplace) /var/log/asterisk/cdr-csv/Master.csv
 %config(noreplace) /etc/amportal.conf
 %defattr(-, root, root)
 /etc/rc.d
