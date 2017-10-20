@@ -1,0 +1,201 @@
+# IssabelPBX language template
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Cannot write to file"
+msgstr ""
+
+msgid "Music on Hold"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Uploading and management of sound files (wav, mp3) to be used for on-hold "
+"music."
+msgstr ""
+
+msgid "Convert Music Files to WAV"
+msgstr ""
+
+msgid "System Setup"
+msgstr ""
+
+msgid ""
+"When set to false, the MP3 files can be loaded and WAV files converted to "
+"MP3 in the MoH module. The default behavior of true assumes you have mpg123 "
+"loaded as well as sox and will convert MP3 files to WAV. This is highly "
+"recommended as MP3 files heavily tax the system and can cause instability on "
+"a busy phone system"
+msgstr ""
+
+msgid "Add Music Category"
+msgstr ""
+
+msgid "Add Streaming Category"
+msgstr ""
+
+msgid "default"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid ""
+"sox failed to convert file and original could not be copied as a fall back"
+msgstr ""
+
+msgid "On Hold Music"
+msgstr ""
+
+msgid "Category Name:"
+msgstr ""
+
+msgid ""
+"Allows you to Set up Different Categories for music on hold.  This is useful "
+"if you would like to specify different Hold Music or Commercials for various "
+"ACD Queues."
+msgstr ""
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "Please enter a valid Category Name"
+msgstr ""
+
+msgid ""
+"Categories: \\\"none\\\" and \\\"default\\\" are reserved names. Please "
+"enter a different name"
+msgstr ""
+
+msgid "Application:"
+msgstr ""
+
+msgid ""
+"This is the \"application=\" line used to provide the streaming details to "
+"Asterisk. See information on musiconhold.conf configuration for different "
+"audio and Internet streaming source options."
+msgstr ""
+
+msgid "Optional Format:"
+msgstr ""
+
+msgid ""
+"Optional value for \"format=\" line used to provide the format to Asterisk. "
+"This should be a format understood by Asterisk such as ulaw, and is specific "
+"to the streaming application you are using. See information on musiconhold."
+"conf configuration for different audio and Internet streaming source options."
+msgstr ""
+
+msgid "Please enter a streaming application command and arguments"
+msgstr ""
+
+msgid "Category:"
+msgstr ""
+
+#, php-format
+msgid "Delete Music Category %s"
+msgstr ""
+
+#, php-format
+msgid "Delete Streaming Category"
+msgstr ""
+
+msgid "Edit Streaming Category"
+msgstr ""
+
+msgid "Upload a .wav or .mp3 file:"
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "Please wait until the page loads. Your file is being processed."
+msgstr ""
+
+msgid "Volume 150%"
+msgstr ""
+
+msgid "Volume 125%"
+msgstr ""
+
+msgid "Volume 100%"
+msgstr ""
+
+msgid "Volume 75%"
+msgstr ""
+
+msgid "Volume 50%"
+msgstr ""
+
+msgid "Volume 25%"
+msgstr ""
+
+msgid "Volume 10%"
+msgstr ""
+
+msgid "Volume Adjustment"
+msgstr ""
+
+msgid ""
+"The volume adjustment is a linear value. Since loudness is logarithmic, the "
+"linear level will be less of an adjustment. You should test out the "
+"installed music to assure it is at the correct volume. This feature will "
+"convert MP3 files to WAV files. If you do not have mpg123 installed, you can "
+"set the parameter: <strong>Convert Music Files to WAV</strong> to false in "
+"Advanced Settings"
+msgstr ""
+
+msgid "Do not encode wav to mp3"
+msgstr ""
+
+msgid "Disable Random Play"
+msgstr ""
+
+msgid "Enable Random Play"
+msgstr ""
+
+msgid "Error Processing"
+msgstr ""
+
+msgid "No file provided"
+msgstr ""
+
+msgid "Please select a file to upload"
+msgstr ""
+
+msgid "Check"
+msgstr ""
+
+msgid "in"
+msgstr ""
+
+msgid "This is not a fatal error, your Music on Hold may still work."
+msgstr ""
+
+msgid "Completed processing"
+msgstr ""
+
+msgid ""
+"You must have at least one file for On Hold Music.  Please upload one before "
+"deleting this one."
+msgstr ""
+
+msgid "Deleted"
+msgstr ""
+
+#, php-format
+msgid "Error Deleting %s"
+msgstr ""

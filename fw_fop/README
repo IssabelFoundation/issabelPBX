@@ -1,0 +1,196 @@
+Asterisk Flash Operator Panel
+Copyright (c) 2006 Nicolás Gudiño.  All rights reserved.
+http://www.asternic.org
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+For complete and up to date documentation, please visit the web page
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+What is Flash Operator Panel?
+-----------------------------
+
+The Flash Operator panel is a 'switchboard' application for the Asterisk PBX
+system. It displays information about your Asterisk PBX activity in real
+time via a standard web browser with Flash plugin. The display and button
+layout is configurable, you can have more than a 100 buttons on the screen
+at once. 
+
+You can see at a glance:
+
+   * What extensions are busy, ringing or available
+   * Who is talking and to whom (clid, context, priority)
+   * SIP registration status and reachability 
+   * Meetme room status (number of users) in the room
+   * Queue status (number of users waiting)
+   * Parked extensions
+   * Call duration Timers
+   * Logged in Agents
+
+You can perform these actions:
+
+   * Hang-up a channel (double click the colored dot on the button)
+   * Transfer a call leg via drag&drop (drag the phone icon on a button to
+     another button)
+   * Originate calls via drag&drop
+   * Drag an available extension to an ongoing conversation and conference
+     the three together. 
+   * Change the callerid text to something meaningfull when transferring or
+     originating a call
+   * Mute/Unmute meetme participants
+
+Requirements
+------------
+
+* You need PERL and basic knowledge on how to use Asterisk.
+
+* You have to add a user to asterisk's manager.conf and reload asterisk for
+  the changes to take effect.
+
+* For the conference buttons, message waiting indication and automatic three
+  way conferences, you need asterisk CVS-HEAD as of 5/25/2004
+
+* You need flash player versions 7 and up
+
+* You also need to define in your dialplan the conferences in a proper way 
+  and in their own context, as explained in op_server.cfg comments.
+
+* If you plan to use the "Info" box to set the callerid text when
+  transferring or originating a call, you need to modify your dialplan. See
+  extensions.conf.sample
+
+* You also need to be wary, as English is not my first language.
+
+
+Install
+-------
+
+1) Untar de package on a suiteable place, for example /usr/local
+  (if you are reading this you probably already done that)
+
+2) Copy the files in the 'flash' or 'dhtml' subdirectory to a suitable place 
+   on your web server. If your web root is /var/www/html, you can create a 
+   subdirectory 'panel' and copy the files there. The base files required
+   for the flash client are index.html and operator_panel.swf, you can also
+   copy the help files for your language.
+
+   There are several ways (index files) to load the flash applet, try them
+   out. You can modify the file help-xx.html files to your liking.
+
+   The dhtml panel allows you to use javascript/dhtml to desing your own
+   layout. But the client is limited to monitoring (you cannot perform
+   actions yet)
+
+3) Edit op_server.cfg and change the appropriate parameters for your setup. 
+
+   "flash_dir" parameter must be the exact location of the directory where
+   the html and swf files are placed (where you copied the files from step
+   2 above)
+
+   The rest of the parameters are well commented in the cfg file, basically
+   you have to set the manager host, user and password. (Be sure to enable
+   the manager in /etc/asterisk/manager.conf)
+
+4) Edit op_buttons.cfg to suit your needs. The file is commented and its
+   self explanatory.
+
+5) Edit op_style.cfg to suit your needs. You can change the button size and
+   colors, icon placement and size, etc. DO NOT modify the variable names,
+   just the value after the equal sign and DO NOT use spaces. With proper
+   adjusting, you can have more than a 100 buttons on the screen.
+
+   You can change the toolbar layout by changing the number after the
+   variable show_???. Each one represents a possible element in the toolbar.
+   A value of 0 disables that element. A number represents the order in the
+   toolbar it will be displayed, number one being the leftmost part of the
+   toolbar. In the example configuration, all the toolbar elements are
+   displayed in correlative order. Eg: if you do not want to display a DEBUG
+   button, set the 'show_btn_debug' to 0. You can translate the text of the
+   toolbar in the corresponding variables.
+
+      --!! Please note !!---------------------------------------------------
+      If you want to transfer an available channel to an already connected
+      call, you have to configure your dialplan correctly and have the
+      context properly defined, if you don't do that you will experience
+      hanged channels and asterisk lockups. Thats because when you redirect
+      a call within the asterisk manager with an incorrect contexts,
+      asterisk does not handle the error gracefully.
+       --!!-----------------------------------------------------------------
+
+
+International Characters
+------------------------
+
+If you want to display foreign characters in button labels, you have to save
+the configuration file with UTF-8 encoding. To convert the file to UTF-8
+utilizing vi and the command line just perform:
+
+vi -c ":wq! ++enc=utf8" op_buttons.cfg
+
+
+Running
+-------
+
+The op_server.pl must run on the same computer as the web server, but not
+necesarily on the machine where asterisk is installed.
+
+When started, it writes the file 'variables.txt' to the http directory where
+the flash applet is installed with configuration data. It must have
+permissions to write to that directory.
+
+You can run it daemonized using -d as its command line argument. There are
+some example init scripts in the directory inits
+
+If you want to start the server when the machine starts, you can add a line
+similar to the following to your rc.local file (you have to replace the
+values between '*' with the ones for your system, if you do not want to run
+the op_server.pl as root, just su to that user:
+
+(cd */path/*; su *operator-user* -c */path/*op_server.pl & )
+
+Or better yet, use one of the init scripts provided.
+
+
+Security
+--------
+
+Its not meant to be secure. You should take provisions yourself, like
+limiting who can connect by means of .htaccess files, firewall rules, etc.
+There is basic encryption for messages sent from the server to the client,
+and the security code is sent with MD5. It will hide sensitive information
+from the casual observer, but its not strong enough to send credit card
+information. 
+
+
+How to use it
+-------------
+
+Click the HELP button when running the Flash Operator Panel. Experiment.
+Drag icons, move your mouse around. Click and double click when the arrow
+turns into a hand.
+
+
+Support
+-------
+
+For support or submitting bug reports, features requests, etc, please
+subscribe to the mailing list by sending an empty email to
+operator_panel-subscribe@lists.house.com.ar
+
+Donations
+---------
+
+If you like the program, or have feature requests, you can contribute to the
+cause by donating via paypal. Click the donate button on the webpage. You can
+also contact me for custom works, or asterisk consultancy.
+
+Thanks!
+
+
+Credits
+-------
+
+MD5 Algorithm. Copyright:  
+(C) 1991-2, RSA Data Security, Inc. Created 1991. All rights reserved.
+
+TEA Encryption algorithm:  
+Copyright (c) 2000, Peter J Billam c/o P J B Computing, www.pjb.com.au

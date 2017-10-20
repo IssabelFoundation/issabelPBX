@@ -1,0 +1,1010 @@
+#!/usr/bin/php -q
+<?php
+
+//include bootstrapper
+$bootstrap_settings['issabelpbx_auth'] = false;
+if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc/issabelpbx.conf')) {
+    include_once('/etc/asterisk/issabelpbx.conf');
+}
+
+if (!$bootstrap_settings['astman_connected']) {
+  fatal(sprintf(_("Unable to connect to Asterisk Manager from %s, aborting"),__FILE__));
+}
+
+$issabelpbx_conf =& issabelpbx_conf::create();
+
+class connectdirs {
+
+    var $nt;
+    var $symlink_dirs;
+    var $cp_dirs;
+
+    var $cp_errors = '';
+    var $symlink_error_modules = '';
+    var $symlink_notice_modules = '';
+
+    function &create() {
+        static $obj;
+        if (!isset($obj)) {
+            $obj = new connectdirs();
+        }
+        return $obj;
+    }
+
+    function connectdirs() {
+    global $amp_conf;
+    global $db;
+    $this->symlink_dirs['bin']            = $amp_conf['AMPBIN'];
+    $this->symlink_dirs['etc']            = $amp_conf['ASTETCDIR'];
+    $this->symlink_dirs['images']         = $amp_conf['AMPWEBROOT'] . "/admin/images";
+    $this->symlink_dirs['ari/modules']    = $amp_conf['AMPWEBROOT'] . "/recordings/modules";
+    $this->symlink_dirs['ari/theme']     = $amp_conf['AMPWEBROOT'] . "/recordings/theme";
+    $this->symlink_dirs['ari/js']        = $amp_conf['AMPWEBROOT'] . "/recordings/theme/js";
+    $this->symlink_dirs['ari/images']    = $amp_conf['AMPWEBROOT'] . "/recordings/theme/images";
+
+    $this->symlink_sound_dirs['sounds']         = $amp_conf['ASTVARLIBDIR'] . '/sounds';
+
+    $this->cp_dirs['agi-bin']             = $amp_conf['ASTAGIDIR'];
+
+    $this->nt = notifications::create($db);
+    }
+
+  function symlink_assets($module) {
+    global $amp_conf;
+
+    // e.g. /var/www/html/admin/modules/ringgroups/assets
+    // e.g. /var/www/html/admin/assets/ringgroups
+    //
+    $dir = $amp_conf['AMPWEBROOT'] . '/admin/modules/' . $module . '/assets';
+    $targetdir = $amp_conf['AMPWEBROOT'] . "/admin/assets/" . $module;
+
+    // if assets does not exists in the module then unlinkk it in assets had it
+    // been there already.
+    //
+    if (!is_dir($dir)) {
+      if (is_link($targetdir)) {
+        $this->err_unlink($targetdir);
+      }
+      return;
+    } elseif (!is_link($targetdir)) {
+      // The assets dir exists in the module but no symlink to it, so do that now
+      // e.g. ln -s /var/www/html/admin/modules/ringgroups/assets /var/www/html/admin/assets/ringgroups
+      //
+      if (!symlink($dir, $targetdir)) {
+        issabelpbx_log(FPBX_LOG_ERROR, "Can Not $dir to $targetdir");
+      }
+
+    }
+  }
+
+  function symlink_sound_dirs($moduledir) {
+    $language_dirs = array();
+    foreach ($this->symlink_sound_dirs as $subdir => $targetdir) {
+          $dir = addslash($moduledir).$subdir;
+          if (is_dir($dir)) {
+              $d = opendir($dir);
+              while ($file = readdir($d)) {
+                  if ($file[0] != '.') {
+            // If this is a directory, then put it on the list of language directories to process
+            // otherwise symlink it
+            //
+            if (is_dir(addslash($dir).$file)) {
+              $language_dirs[] = $file;
+            } else {
+              $this->do_symlink(addslash($dir).$file, addslash($targetdir).$file, $subdir, $moduledir);
+            }
+                  }
+              }
+              closedir($d);
+        // Now if we have any langauge directories, then check if they are installed on the target and
+        // if so symlink them over.
+        foreach ($language_dirs as $lang) {
+          if (is_dir(addslash($targetdir).$lang)) {
+                  $d = opendir(addslash($dir).$lang);
+            while ($file = readdir($d)) {
+                      if ($file[0] != '.') {
+                $this->do_symlink(addslash($dir).addslash($lang).$file, addslash($targetdir).addslash($lang).$file, $subdir, $moduledir);
+              }
+            }
+          } else {
+            out("found language dir $lang for ".basename($moduledir).", not installed on system, skipping");
+          }
+        }
+          }
+      }
+  }
+
+  function symlink_subdirs($moduledir) {
+    foreach ($this->symlink_dirs as $subdir => $targetdir) {
+          $dir = addslash($moduledir).$subdir;
+          if (is_dir($dir)) {
+              $d = opendir($dir);
+              while ($file = readdir($d)) {
+                  if ($file[0] != '.') {
+            $this->do_symlink(addslash($dir).$file, addslash($targetdir).$file, $subdir, $moduledir);
+                  }
+              }
+              closedir($d);
+          }
+      }
+  }
+
+  function do_symlink($src, $dest, $subdir, $moduledir) {
+    global $amp_conf;
+    if (file_exists_wrapper($dest)) {
+      if ((!is_link($dest) || readlink($dest) != $src) && (md5_file($src) == md5_file($dest))) {
+        // dbug('retrieve-conf', "Can't symlink $src to $dest but files are the same so ignoring");
+      } else if (!is_link($dest)) {
+        //If the symlink error is coming from the etc directory then we move those files to backup
+        if(preg_match('/^'.str_replace("/","\/",$amp_conf['ASTETCDIR']).'/',$dest) && is_writable($dest)) {
+            if(!file_exists($amp_conf['ASTETCDIR'].'/backup')) {
+                mkdir($amp_conf['ASTETCDIR'].'/backup');
+            }
+            $f = $amp_conf['ASTETCDIR'].'/backup/'.basename($dest).".bk.".time();
+            rename($dest,$f);
+            if (!symlink($src, $dest)) {
+                issabelpbx_log(FPBX_LOG_ERROR, 'Cannot symlink '.$src.' to '.$dest.'. Check Permissions?');
+            } else {
+                $this->symlink_notice_modules .= "<br />&nbsp;&nbsp;&nbsp;".$dest;
+            }
+        } else {
+            issabelpbx_log(FPBX_LOG_ERROR, $dest.' already exists, and is not a symlink!');
+            $this->symlink_error_modules .= "<br />&nbsp;&nbsp;&nbsp;".$dest." from ".basename($moduledir)."/".$subdir." (Already exists, not a link)";
+        }
+      } else if (readlink($dest) != $src) {
+        //users need to be aware of symlink conflicts. We should attempt to resolve them properly though. So lets do that.
+        issabelpbx_log(FPBX_LOG_ERROR, $dest.' already exists, and is linked to something else!');
+        $this->symlink_error_modules .= "<br />&nbsp;&nbsp;&nbsp;".$dest." from ".basename($moduledir)."/".$subdir." (Already exists, linked to something else)";
+      }
+    } else {
+      if (!symlink($src, $dest)) {
+        issabelpbx_log(FPBX_LOG_ERROR, 'Cannot symlink '.$src.' to '.$dest.'. Check Permissions?');
+      }
+    }
+  }
+
+  function symlink_check_errors() {
+    global $amp_conf;
+    if ($this->symlink_error_modules) {
+        $this->nt->add_error('retrieve_conf', 'SYMLINK', _("Symlink from modules failed"), sprintf(_("retrieve_conf failed to sym link: %s<br \>This can result in FATAL failures to your PBX. If the target file exists and not identical, the symlink will not occur and you should rename the target file to allow the automatic sym link to occur and remove this error, unless this is an intentional customization."),$this->symlink_error_modules));
+    } else {
+        $this->nt->delete('retrieve_conf', 'SYMLINK');
+    }
+    if($this->symlink_notice_modules) {
+        $this->nt->add_notice('retrieve_conf', 'SYMLINKNOTICE', _("Symlink Conflict Resolved"),sprintf(_("retrieve_conf resolved a symlink with %s<br \>This is a notice to let you know that the original file was moved to %s, there is nothing more you need to do"),$this->symlink_notice_modules,$amp_conf['ASTETCDIR'].'/backup'));
+    }
+  }
+
+  function cp_subdirs($moduledir) {
+    foreach ($this->cp_dirs as $subdir => $targetdir) {
+          $dir = addslash($moduledir).$subdir;
+          if(is_dir($dir)){
+              foreach(listdir($dir) as $idx => $file){
+                  $sourcefile = $file;
+                  $filesubdir=str_replace($dir.'/', '', $file);
+                  $targetfile = addslash($targetdir).$filesubdir;
+
+                  if (file_exists_wrapper($targetfile)) {
+                      if (is_link($targetfile)) {
+              if (!$this->err_unlink($targetfile)) {
+                              issabelpbx_log(FPBX_LOG_ERROR, "$targetfile is a symblolic link, failed to unlink!");
+                              break;
+                          }
+                      }
+                  }
+                  // OK, now either the file is a regular file or isn't there, so proceed
+                  //
+          if ($this->err_copy($sourcefile,$targetfile)) {
+                      // copy was successful, make sure it has execute permissions
+                      chmod($targetfile,0754);
+                  } else {
+                      issabelpbx_log(FPBX_LOG_ERROR, "$targetfile failed to copy from module directory");
+                  }
+              }
+          }
+      }
+  }
+  function cp_check_errors() {
+    if ($this->cp_errors) {
+      $this->nt->add_error('retrieve_conf', 'CPAGIBIN', _("Failed to copy from module agi-bin"), sprintf(_("Retrieve conf failed to copy file(s) from a module's agi-bin dir: %s"),$this->cp_errors));
+      } else {
+      $this->nt->delete('retrieve_conf', 'CPAGIBIN');
+      }
+  }
+  function add_cp_error($string) {
+    $this->cp_errors .= $string;
+  }
+
+  // wrap copy with error handler
+  //
+    function err_copy($source, $dest) {
+        $ret = false;
+        set_error_handler("report_errors");
+          //if were copying a directory, just mkdir the directory
+        if (!is_link($dest) && !is_dir($dest)) {
+            if(is_dir($source)){
+                $ret = mkdir($dest,0754);
+            }elseif(copy($source, $dest)) {
+                $ret = chmod($dest,0754);
+            }
+        }
+        restore_error_handler();
+        return $ret;
+      }
+
+  // wrap unlink with error handler
+  //
+  function err_unlink($dest) {
+      set_error_handler("report_errors");
+      $ret = unlink($dest);
+      restore_error_handler();
+      return $ret;
+  }
+}
+
+// I don't think this can be part of the class since it is called by an
+// error function as a callback (otherwise, can move it into above).
+//
+function report_errors($errno, $errstr, $errfile, $errline) {
+  global $db;
+  $escaped_string = $db->escapeSimple($errstr);
+    issabelpbx_log(FPBX_LOG_ERROR, "php reported: '$escaped_string' after copy or unlink attempt!");
+  $conn_dirs = connectdirs::create();
+  $conn_dirs->add_cp_error($errstr."\n");
+}
+
+//define("ASTERISK_CONF", "/etc/asterisk/asterisk.conf");
+define("WARNING_BANNER", _(";--------------------------------------------------------------------------------;\n; Do NOT edit this file as it is auto-generated by IssabelPBX. All modifications ;\n; to this file must be done via the web gui. There are alternative files to make ;\n; custom modifications, details at: http://issabel.org/configuration_files       ;\n;--------------------------------------------------------------------------------;\n;\n\n"));
+
+function showHelp() {
+    out(_("Optional parameters:"),false);
+    out(_("  --help, -h, -?           Show this help"),false);
+    out(_("  --debug                  Enable debug output"),false);
+    out(_("  --dry-run                Don't actually do anything"),false);
+}
+
+/** Adds a trailing slash to a directory, if it doesn't already have one
+ */
+function addslash($dir) {
+    return (($dir[ strlen($dir)-1 ] == '/') ? $dir : $dir.'/');
+}
+
+
+/********************************************************************************************************************/
+
+$dryrun = false;
+$run_install = false;
+$skip_registry_checks = false;
+
+// **** Make sure we have PEAR's GetOpts.php, and include it if we need to parse
+//
+if ($argc > 1) {
+  outn(_("Checking for PEAR Console::Getopt.."));
+  if (! @ include("Console/Getopt.php")) {
+      out(_("FAILED"));
+      fatal(sprintf(_("PEAR must be installed (requires Console/Getopt.php). Include path: %s"), ini_get("include_path")),true);
+  }
+  out(_("OK"));
+
+  // **** Parse out command-line options
+  $shortopts = "h?u:p:";
+  $longopts = array("help","debug","dry-run","run-install","amportalconf=","skip-registry-checks");
+
+  $args = Console_Getopt::getopt(Console_Getopt::readPHPArgv(), $shortopts, $longopts);
+  if (is_object($args)) {
+      // assume it's PEAR_ERROR
+      out($args->message);
+      exit(255);
+  }
+
+  foreach ($args[0] as $arg) {
+      switch ($arg[0]) {
+          case "--help": case "h": case "?":
+              showHelp();
+              exit(10);
+          break;
+          case "--dry-run":
+              out(_("Dry-run only, no files will be written"),false);
+              $dryrun = true;
+          break;
+          case "--debug":
+        // set to false temporarily, not with issabelpbx_conf as we don't want it subsequently committed
+        //
+        $amp_conf['FPBXDBUGDISABLE'] = false;
+              debug(_("Debug mode enabled"),false);
+          break;
+          case "--run-install":
+              $run_install = true;
+              out(_("Running module install.php and install.sql scripts"),true);
+          break;
+          case "--amportalconf":
+              $amportalconf = $arg[1];
+              out(sprintf(_("Using %s configuration file"), $amportalconf),false);
+          break;
+          case "--skip-registry-checks":
+              $skip_registry_checks = true;
+              out(_("Skipping extension and destination registry checks"),true);
+          break;
+      }
+  }
+}
+
+// Define the notification class for logging to the dashboard
+//
+$nt = notifications::create($db);
+$con_dirs = connectdirs::create();
+
+/*
+*/
+// Check and increase php memory_limit if needed and if allowed on the system
+// TODO: should all be in bootstrap
+$current_memory_limit = rtrim(ini_get('memory_limit'),'M');
+$proper_memory_limit = '100';
+if ($current_memory_limit < $proper_memory_limit) {
+    if (ini_set('memory_limit',$proper_memory_limit.'M') !== false) {
+        $nt->add_notice('core', 'MEMLIMIT', _("Memory Limit Changed"), sprintf(_("Your memory_limit, %sM, is set too low and has been increased to %sM. You may want to change this in you php.ini config file"),$current_memory_limit,$proper_memory_limit));
+    } else {
+        $nt->add_warning('core', 'MEMERR', _("Low Memory Limit"), sprintf(_("Your memory_limit, %sM, is set too low and may cause problems. IssabelPBX is not able to change this on your system. You should increase this to %sM in you php.ini config file"),$current_memory_limit,$proper_memory_limit));
+    }
+} else {
+    $nt->delete('core', 'MEMLIMIT');
+}
+
+
+//Putting the core module last, to move outbound-allroutes
+// last in from-internals-additional
+if (array_key_exists('core', $active_modules)) {
+        $core_tmp = $active_modules['core'];
+        unset($active_modules['core']);
+        $active_modules['core'] = $core_tmp;
+}
+
+// include any module global functions
+// $active_modules is provided by bootstrap now
+//
+if(is_array($active_modules)){
+    foreach($active_modules as $key => $module) {
+
+        $module_list[] = $key;
+
+        if ($run_install) module_install($key);
+
+        // create symlinks for files in appropriate sub directories
+        // don't symlink framework files, it is a special case module that happens to have
+        // some conflicting names
+        //
+    switch ($key) {
+      // TODO: these will go away once repositories are up-to-date but leave until 2.10
+      //       at that time the modtype tag will determine this
+      case 'framework':
+      case 'fw_ari':
+      case 'fw_langpacks':
+      break;
+      default:
+        if (isset($module['modtype']) && $module['modtype'] == 'framework') {
+          // don't copy or symlink from framework type modules as they are not real modules
+          break;
+        }
+        $con_dirs->symlink_subdirs( $amp_conf['AMPWEBROOT'].'/admin/modules/'.$key );
+        $con_dirs->symlink_sound_dirs( $amp_conf['AMPWEBROOT'].'/admin/modules/'.$key );
+        $con_dirs->symlink_assets($key);
+        $con_dirs->cp_subdirs( $amp_conf['AMPWEBROOT'].'/admin/modules/'.$key );
+      break;
+        }
+    }
+}
+
+// Now that we have done all the symlinks and copies, we check and report if there were any errors
+//
+$con_dirs->symlink_check_errors();
+$con_dirs->cp_check_errors();
+
+//once we have all the connected files in place, lets compress the css
+if ($amp_conf['DISABLE_CSS_AUTOGEN'] != true) {
+    compress_framework_css();
+}
+
+// create an object of the extensions class
+require_once($amp_conf['AMPWEBROOT']."/admin/libraries/extensions.class.php");
+$ext = new extensions;
+
+if ($amp_conf['DISABLECUSTOMCONTEXTS']) {
+  $ext->disableCustomContexts(true);
+}
+
+// create objects for any module classes
+// currently only 1 class can be declared per module, not sure if that will be an issue
+if(isset($module_list) && is_array($module_list)){
+    foreach($module_list as $active_module) {
+        $classname = $active_module."_conf";
+        if(class_exists($classname)) {
+            ${$classname} = new $classname;
+        }
+    }
+}
+
+$engineinfo = engine_getinfo();
+if($engineinfo['version'] == 0){
+    fatal(_("retreive_conf failed to get engine information and cannot configure up a softwitch with out it. Error: {$engineinfo['engine']}"),true);
+}
+// was setting these variables before, assume we still need them
+$engine = $engineinfo['engine'];
+$version = $engineinfo['version'];
+$chan_dahdi = ast_with_dahdi();
+
+// If BROWSER_STATS is set to true (default) and we have never provided a notice (NOTICE_BROWSER_STATS false) then do so one time only so
+// they are aware and can choose to opt out.
+if (!$amp_conf['NOTICE_BROWSER_STATS'] && $amp_conf['BROWSER_STATS']) {
+  $nt->add_notice('framework', 'BROWSER_STATS', _("Collecting Anonymous Browser Stats"), _("The IssabelPBX project is collecting anonymous browser statistics using google analytics. These are used to focus development efforts based on real user input. All information is anonymous. You can disable this in Advanced Settings with the Browser Stats setting."));
+  $issabelpbx_conf->set_conf_values(array('NOTICE_BROWSER_STATS' => true), true, true);
+}
+
+
+if (!$issabelpbx_conf->conf_setting_exists('AST_FUNC_DEVICE_STATE')) {
+  // AST_FUNC_DEVICE_STATE
+  //
+  $set['value'] = '';
+  $set['defaultval'] =& $set['value'];
+  $set['options'] = '';
+  $set['readonly'] = 1;
+  $set['hidden'] = 1;
+  $set['level'] = 10;
+  $set['module'] = '';
+  $set['category'] = 'Internal Use';
+  $set['emptyok'] = 1;
+  $set['name'] = 'Asterisk Function DEVICE_STATE';
+  $set['description'] = "Set to the function name if the function is present in this Asterisk install";
+  $set['type'] = CONF_TYPE_TEXT;
+  $issabelpbx_conf->define_conf_setting('AST_FUNC_DEVICE_STATE',$set);
+}
+if (!$issabelpbx_conf->conf_setting_exists('AST_FUNC_EXTENSION_STATE')) {
+  // AST_FUNC_EXTENSION_STATE
+  //
+  $set['value'] = '';
+  $set['defaultval'] =& $set['value'];
+  $set['options'] = '';
+  $set['readonly'] = 1;
+  $set['hidden'] = 1;
+  $set['level'] = 10;
+  $set['module'] = '';
+  $set['category'] = 'Internal Use';
+  $set['emptyok'] = 1;
+  $set['name'] = 'Asterisk Function EXTENSION_STATE';
+  $set['description'] = "Set to the function name if the function is present in this Asterisk install";
+  $set['type'] = CONF_TYPE_TEXT;
+  $issabelpbx_conf->define_conf_setting('AST_FUNC_EXTENSION_STATE',$set);
+}
+if (!$issabelpbx_conf->conf_setting_exists('AST_FUNC_PRESENCE_STATE')) {
+  // AST_FUNC_PRESENCE_STATE
+  //
+  $set['value'] = '';
+  $set['defaultval'] =& $set['value'];
+  $set['options'] = '';
+  $set['readonly'] = 1;
+  $set['hidden'] = 1;
+  $set['level'] = 10;
+  $set['module'] = '';
+  $set['category'] = 'Internal Use';
+  $set['emptyok'] = 1;
+  $set['name'] = 'Asterisk Function PRESENCE_STATE';
+  $set['description'] = "Set to the function name if the function is present in this Asterisk install";
+  $set['type'] = CONF_TYPE_TEXT;
+  $issabelpbx_conf->define_conf_setting('AST_FUNC_PRESENCE_STATE',$set);
+}
+if (!$issabelpbx_conf->conf_setting_exists('AST_FUNC_SHARED')) {
+  // AST_FUNC_SHARED
+  //
+  $set['value'] = '';
+  $set['defaultval'] =& $set['value'];
+  $set['options'] = '';
+  $set['readonly'] = 1;
+  $set['hidden'] = 1;
+  $set['level'] = 10;
+  $set['module'] = '';
+  $set['category'] = 'Internal Use';
+  $set['emptyok'] = 1;
+  $set['name'] = 'Asterisk Function SHARED';
+  $set['description'] = "Set to the function name if the function is present in this Asterisk install";
+  $set['type'] = CONF_TYPE_TEXT;
+  $issabelpbx_conf->define_conf_setting('AST_FUNC_SHARED',$set);
+}
+if (!$issabelpbx_conf->conf_setting_exists('AST_FUNC_CONNECTEDLINE')) {
+  // AST_FUNC_CONNECTEDLINE
+  //
+  $set['value'] = '';
+  $set['defaultval'] =& $set['value'];
+  $set['options'] = '';
+  $set['readonly'] = 1;
+  $set['hidden'] = 1;
+  $set['level'] = 10;
+  $set['module'] = '';
+  $set['category'] = 'Internal Use';
+  $set['emptyok'] = 1;
+  $set['name'] = 'Asterisk Function CONNECTEDLINE';
+  $set['description'] = "Set to the function name if the function is present in this Asterisk install";
+  $set['type'] = CONF_TYPE_TEXT;
+  $issabelpbx_conf->define_conf_setting('AST_FUNC_CONNECTEDLINE',$set);
+}
+if (!$issabelpbx_conf->conf_setting_exists('AST_FUNC_MASTER_CHANNEL')) {
+  // AST_FUNC_MASTER_CHANNEL
+  //
+  $set['value'] = '';
+  $set['defaultval'] =& $set['value'];
+  $set['options'] = '';
+  $set['readonly'] = 1;
+  $set['hidden'] = 1;
+  $set['level'] = 10;
+  $set['module'] = '';
+  $set['category'] = 'Internal Use';
+  $set['emptyok'] = 1;
+  $set['name'] = 'Asterisk Function MASTER_CHANNEL';
+  $set['description'] = "Set to the function name if the function is present in this Asterisk install";
+  $set['type'] = CONF_TYPE_TEXT;
+  $issabelpbx_conf->define_conf_setting('AST_FUNC_MASTER_CHANNEL',$set);
+}
+if (!$issabelpbx_conf->conf_setting_exists('AST_APP_VQA')) {
+  // AST_APP_VQA
+  //
+  $set['value'] = '';
+  $set['defaultval'] =& $set['value'];
+  $set['options'] = '';
+  $set['readonly'] = 1;
+  $set['hidden'] = 1;
+  $set['level'] = 10;
+  $set['module'] = '';
+  $set['category'] = 'Internal Use';
+  $set['emptyok'] = 1;
+  $set['name'] = 'Asterisk Application VQA';
+  $set['description'] = "Set to the application name if the application is present in this Asterisk install";
+  $set['type'] = CONF_TYPE_TEXT;
+  $issabelpbx_conf->define_conf_setting('AST_APP_VQA',$set);
+}
+// Since modules can be loaded in a current version, we check these each time
+// DEVICE_STATE exists in two flavors, DEVSTATE and DEVICE_STATE, the latter is the official one
+// but back ports exists with the former with both.
+//
+if ($astman->func_exists('DEVICE_STATE')) {
+  $update_arr['AST_FUNC_DEVICE_STATE'] = 'DEVICE_STATE';
+} else {
+  $update_arr['AST_FUNC_DEVICE_STATE'] = $astman->func_exists('DEVSTATE') ? 'DEVSTATE' : '';
+  // If they don't have DEVICE_STATE loaded in some form, force USEDEVSTATE off
+  if ($amp_conf['USEDEVSTATE'] && !$update_arr['AST_FUNC_DEVICE_STATE']) {
+    $update_arr['USEDEVSTATE'] = false;
+  }
+}
+$func_arr = array('EXTENSION_STATE', 'PRESENCE_STATE', 'SHARED', 'CONNECTEDLINE', 'MASTER_CHANNEL');
+foreach ($func_arr as $func) {
+  $update_arr['AST_FUNC_'.$func] = $astman->func_exists($func) ? $func : '';
+}
+
+$app_arr = array('VQA');
+foreach ($app_arr as $app) {
+  $update_arr['AST_APP_'.$app] = $astman->app_exists($app) ? $app : '';
+}
+$issabelpbx_conf->set_conf_values($update_arr, true, true);
+
+$nt = notifications::create($db);
+
+$conf_change = _("Conference Room App Changed");
+$conf_change_desc = _("Your Conference Room App (ASTCONFAPP) was automatically changed from %s to %s because %s is not installed on your Asterisk installation");
+
+$conf_missing = _("No Conference Room App");
+$conf_missing_desc = _("Neither app_meetme nor app_confbridge is configured in Asterisk, conferencing, paging and other functionality will not work properly");
+
+if ($amp_conf['ASTCONFAPP'] == 'app_meetme' && !$astman->app_exists('meetme')) {
+    if ($astman->app_exists('confbridge')) {
+        $issabelpbx_conf->set_conf_values(array('ASTCONFAPP' => 'app_confbridge'), true, true);
+      $nt->add_notice('framework', 'ASTCONFAPPCHG', $conf_change, sprintf($conf_change_desc,'app_meetme','app_confbridge','app_meetme'));
+        $nt->delete('framework', 'ASTCONFAPPMISSING');
+    } else {
+        $nt->add_error('framework', 'ASTCONFAPPMISSING', $conf_missing, $conf_missing_desc);
+    }
+} elseif ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && !$astman->app_exists('confbridge')) {
+    if ($astman->app_exists('meetme')) {
+        $issabelpbx_conf->set_conf_values(array('ASTCONFAPP' => 'app_meetme'), true, true);
+      $nt->add_notice('framework', 'ASTCONFAPPCHG', $conf_change, sprintf($conf_change_desc,'app_confbridge','app_meetme','app_confbridge'));
+        $nt->delete('framework', 'ASTCONFAPPMISSING');
+    } else {
+        $nt->add_error('framework', 'ASTCONFAPPMISSING', $conf_missing, $conf_missing_desc);
+    }
+} else {
+    $nt->delete('framework', 'ASTCONFAPPMISSING');
+}
+
+// Check for and report any extension conflicts
+//
+
+$extens_ok = true;
+$dests_ok = true;
+
+$my_hash = array_flip($module_list);
+$my_prob_extens = $skip_registry_checks ? false : framework_list_extension_conflicts($my_hash);
+
+if (empty($my_prob_extens)) {
+    $nt->delete('retrieve_conf', 'XTNCONFLICT');
+} else {
+    $previous = null;
+    $str = null;
+    $count = 0;
+    foreach ($my_prob_extens as $extens) {
+        foreach ($extens as $exten => $details) {
+            if ($exten != $previous) {
+                $str .=  "Extension: $exten:<br />";
+                $count++;
+            }
+            $str .= sprintf("%8s: %s<br />",$details['status'], $details['description']);
+            $previous = $exten;
+        }
+    }
+    $nt->add_error('retrieve_conf', 'XTNCONFLICT', sprintf(_("There are %s conflicting extensions"),$count), $str);
+    $extens_ok = false;
+}
+
+// Check for and report any bogus destinations
+//
+$my_probs = $skip_registry_checks ? false : framework_list_problem_destinations($my_hash, !$amp_conf['CUSTOMASERROR']);
+
+if (empty($my_probs)) {
+    $nt->delete('retrieve_conf', 'BADDEST');
+} else {
+    $results = array();
+    $count = 0;
+    $str = null;
+    foreach ($my_probs as $problem) {
+        //print_r($problem);
+        $results[$problem['status']][] = $problem['description'];
+        $count++;
+    }
+    foreach ($results as $status => $subjects) {
+        $str .= sprintf(_("DEST STATUS: %s%s"),$status,"\n");
+        foreach ($subjects as $subject) {
+            //$str .= $subject."<br />";
+            $str .= "   ".$subject."\n";
+        }
+    }
+    $nt->add_error('retrieve_conf', 'BADDEST', sprintf(_("There are %s bad destinations"),$count), $str);
+    $dests_ok = false;
+}
+
+if ((!$extens_ok && $amp_conf['XTNCONFLICTABORT']) || (!$dests_ok && $amp_conf['BADDESTABORT'])) {
+    out(_("Aborting reload because extension conflicts or bad destinations"));
+    exit(20);
+}
+
+// Generate an extension map of all extensions on the system
+framework_set_extmap();
+
+// run all of the *_get_config and _hookGet_config functions, which will populate the appropriate objects
+if(isset($active_modules) && is_array($active_modules)){
+    foreach($active_modules as $module => $mod_data) {
+
+        $prioritymethods = array();
+
+        //dbug($module, $mod_data);
+        //get dynamic functions
+        if (isset($mod_data['methods'], $mod_data['methods']['get_config'])){
+            foreach ($mod_data['methods']['get_config'] as $pri => $methods) {
+                $funclist[$pri] = isset($funclist[$pri])
+                        ? $funclist[$pri]
+                        : array();
+                foreach($methods as $method) {
+                    $funclist[$pri][] = $method;
+                    //Since we have a priority method, add it to the prioritymethod array
+                    //    We check this array to ensure we aren't adding duplicate methods to the
+                    //    funclist
+                    $prioritymethods[] = $method;
+                }
+            }
+        }
+
+        //get hardcoded functions
+        $getconf = $module."_get_config";
+        $hookgetconf = $module."_hookGet_config";
+        //Check to ensure we aren't trying to add a duplicate get_config method
+        //    that's been added at a different priority
+        if (function_exists($getconf) && !in_array($getconf, $prioritymethods)) {
+            $funclist[100][] = $getconf;
+        }
+        if (function_exists($hookgetconf)) {
+            $funclist[600][] = $hookgetconf;
+        }
+
+    }
+
+    //sort the list based in priority
+    ksort($funclist);
+
+    //flatten the aray - will respect priority
+    $functions = array();
+    array_walk_recursive($funclist,
+        create_function('$a', 'global $functions; $functions[] = $a;'));
+
+    //run functions if they exists
+    foreach ($functions as $function) {
+        if (function_exists($function)) {
+            $function($engine);
+        }
+    }
+}
+
+// extensions_additional.conf
+// create the from-internal-additional contexts so other can add to it
+$ext->add('from-internal-additional', 'h', '', new ext_hangup(''));
+$ext->add('from-internal-noxfer-additional', 'h', '', new ext_hangup(''));
+//echo $ext->get_filename();
+//echo $ext->generateConf();
+write_file($ext->get_filename(),$ext->generateConf());
+
+// now we write out our conf files for modules
+// check for any objects for each of the active modules
+// ** conferences is an example of a module that write a conf
+if(isset($module_list) && is_array($module_list)){
+    foreach($module_list as $active_module) {
+        $classname = $active_module."_conf";
+        if(class_exists($classname) && get_class(${$classname}) !== false) {
+            //echo ${$classname}->get_filename();
+            //echo ${$classname}->generateConf();
+
+            // if the module returns an array, it wants to write multiple files
+            // ** pinsets is an example of a module that does this
+            if (is_array(${$classname}->get_filename())) {
+                foreach(${$classname}->get_filename() as $modconf) {
+                    if (isset(${$classname}->use_warning_banner)) {
+                        write_file($modconf,
+                                    ${$classname}->generateConf($modconf),
+                                    ${$classname}->use_warning_banner);
+                    } else {
+                        write_file($modconf,${$classname}->generateConf($modconf));
+                    }
+                }
+            } else {
+                if (isset(${$classname}->use_warning_banner)) {
+                    write_file(${$classname}->get_filename(),
+                                ${$classname}->generateConf(),
+                                ${$classname}->use_warning_banner);
+                } else {
+                    write_file(${$classname}->get_filename(), ${$classname}->generateConf());
+                }
+            }
+        }
+    }
+}
+// Now we write on amportal.conf if it is writable, which allows legacy applications in the
+// eco-system to take advantage of the settings.
+// we write out the error message here instead of in issabelpbx_settings so that we don't hit the db every single page load
+//
+if ($issabelpbx_conf->amportal_canwrite()) {
+  file_put_contents('/etc/amportal.conf',$issabelpbx_conf->amportal_generate(true));
+  $nt->delete('framework', 'AMPORTAL_NO_WRITE');
+} elseif (!$nt->exists('framework', 'AMPORTAL_NO_WRITE')) {
+  $nt->add_error('framework', 'AMPORTAL_NO_WRITE', _("amportal.conf not writeable"), _("Your amportal.conf file is not writeable. IssabelPBX is running in a crippled mode until changed. You can run 'amportal chown' from the Linux command line to rectify this."),true);
+}
+
+// Let's move some more of our checks to retrieve_conf so that we are not constantly checking these on page loads
+//
+
+// Warn about default Manager Interface Password
+//
+if ($amp_conf['AMPMGRPASS'] == $issabelpbx_conf->get_conf_default_setting('AMPMGRPASS')) {
+  if (!$nt->exists('core', 'AMPMGRPASS')) {
+      $nt->add_warning('core', 'AMPMGRPASS', _("Default Asterisk Manager Password Used"), _("You are using the default Asterisk Manager password that is widely known, you should set a secure password"));
+  }
+} else {
+    $nt->delete('core', 'AMPMGRPASS');
+}
+
+// Warn about default ARI Admin Password
+//
+if ($amp_conf['ARI_ADMIN_PASSWORD'] == $issabelpbx_conf->get_conf_default_setting('ARI_ADMIN_PASSWORD')) {
+  if (!$nt->exists('ari', 'ARI_ADMIN_PASSWORD')) {
+      $nt->add_warning('ari', 'ARI_ADMIN_PASSWORD', _("Default ARI Admin password Used"), _("You are using the default ARI Admin password that is widely known, you should change to a new password. Do this in Advanced Settings"));
+  }
+} else {
+    $nt->delete('ari', 'ARI_ADMIN_PASSWORD');
+}
+
+// Warn about default Database Password
+//
+if ($amp_conf['AMPDBPASS'] == $issabelpbx_conf->get_conf_default_setting('AMPDBPASS')) {
+  if (!$nt->exists('core', 'AMPDBPASS')) {
+      $nt->add_warning('core', 'AMPDBPASS', _("Default SQL Password Used"), _("You are using the default SQL password that is widely known, you should set a secure password"));
+  }
+} else {
+    $nt->delete('core', 'AMPDBPASS');
+}
+
+// Warn if in deviceanduser mode and not using DYNAMICHINTS
+//
+if ($amp_conf['AMPEXTENSIONS'] == 'deviceanduser' && !$amp_conf['DYNAMICHINTS']) {
+  if (!$nt->exists('framework', 'NO_DYNAMICHINTS')) {
+      $nt->add_warning('framework', 'NO_DYNAMICHINTS', _("Device & User Hints Issue"), _("You are set to Device and User mode but are not set to 'Dynamically Generate Hints' which can result in improper phone state behavior. This can be changed on the Advanced Settings page, check the tooltip for specific configuration details."));
+  }
+} else {
+    $nt->delete('framework', 'NO_DYNAMICHINTS');
+}
+
+function write_file($filename,$contents,$use_warning_banner=true) {
+    global $asterisk_conf;
+    if (isset($filename) && !empty($filename)) {
+        if ($fd = fopen(addslash($asterisk_conf['astetcdir']).$filename, "w")) {
+            if ($use_warning_banner) {
+                fwrite($fd, WARNING_BANNER );
+            }
+            fwrite($fd, $contents);
+            fclose($fd);
+        }
+    }
+}
+
+/* file_exists_wrapper()
+ * wrapper for file_exists() with the following additonal functionality.
+ * if the file is a symlink, it will check if the link exists and if not
+ * it will try to remove this file. It returns a false (file does not exists)
+ * if the file is successfully removed, true if not. If not a symlink, just
+ * returns file_exists()
+ */
+function file_exists_wrapper($string) {
+    if (is_link($string)) {
+        $linkinfo = readlink($string);
+        if ($linkinfo === false) {
+            //TODO: throw error?
+            return !unlink($string);
+        } else {
+            if (file_exists($linkinfo)) {
+                return true;
+            } else {
+                return !unlink($string);
+            }
+        }
+    } else {
+        return file_exists($string);
+    }
+}
+
+//based on: http://snippets.dzone.com/posts/show/155
+function listdir($directory, $recursive=true) {
+    $array_items = array();
+        if ($handle = opendir($directory)) {
+            while (false !== ($file = readdir($handle))) {
+                if ($file != "." && $file != "..") {
+                    if (is_dir($directory. "/" . $file)) {
+                        if($recursive) {
+                            $array_items = array_merge($array_items, listdir($directory. "/" . $file, $recursive));
+                        }
+                    $file = $directory . "/" . $file;
+                    $array_items[] = preg_replace("/\/\//si", "/", $file);
+                }else{
+                    $file = $directory . "/" . $file;
+                    $array_items[] = preg_replace("/\/\//si", "/", $file);
+                }
+            }
+        }
+        closedir($handle);
+    }
+    return array_reverse($array_items);//reverse so that we get directories BEFORE the files that are in them
+}
+
+/** Check if there is a job running, if one is found then all is good, if one is not found, it will be added and a
+ *  notification will be sent.
+ */
+function install_cron_scheduler() {
+    global $amp_conf;
+    global $nt;
+
+    // crontab appears to return an error when no entries, os only fail if error returned AND a list of entries.
+    // Don't know if this will ever happen, but a failure and a list could indicate something wrong.
+    //
+    $outlines = array();
+    exec("/usr/bin/crontab -l", $outlines, $ret);
+    if ($ret && count($outlines)) {
+        $nt->add_error('retrieve_conf', 'CRONMGR', _("Failed to check crontab for cron manager"), sprintf(_("crontab returned %s error code when checking for crontab entries to start issabelpbx-cron-scheduler.php crontab manager"),$ret));
+    } else {
+        $nt->delete('retrieve_conf', 'CRONMGR');
+        $outlines2 = preg_grep("/issabelpbx-cron-scheduler.php/",$outlines);
+        $cnt = count($outlines2);
+        switch ($cnt) {
+            case 0:
+                /** grab any other cronjobs that are running as asterisk and NOT associated with backups
+                 *  this code was taken from the backup module for the most part. But seems to work...
+                 */
+                $outlines = array();
+                exec("/usr/bin/crontab -l | grep -v ^#\ DO\ NOT | grep -v ^#\ \( |  grep -v issabelpbx-cron-scheduler.php", $outlines, $ret);
+                $crontab_entry = "";
+                foreach ($outlines as $line) {
+                    $crontab_entry .= $line."\n";
+                }
+                // schedule to run hourly, at a random time. The random time is explicit to accomodate things like module_admin online update checking
+                // since we will want a random access to the server. In the case of module_admin, that will also be scheduled randomly within the hour
+                // that it is to run
+                //
+                $crontab_entry .= rand(0,59)." * * * * ".$amp_conf['AMPBIN']."/issabelpbx-cron-scheduler.php";
+                system("/bin/echo '$crontab_entry' | /usr/bin/crontab -");
+                break;
+            case 1:
+                // already running, nothing to do
+                break;
+            default:
+                // error, there should never be more than one running
+                echo "TODO: deal with error here\n";
+                $nt->add_error('retrieve_conf', 'CRONMGR', _("Multiple issabelpbx-cron-scheduler.php running"), sprintf(_("There were %s issabelpbx-cron-scheduler.php instances running. There should be only 1."),$cnt));
+        }
+    }
+}
+
+// Check and install the issabelpbx-cron-scheduler.php manager
+//
+install_cron_scheduler();
+
+
+// run retrieve_conf_post_custom
+// If the following file exists, it will be run. This allows customization to be run automatically after the normal
+// processing. Caution should be taken using this as it is only deisgned for expert usage. Errors in the code will
+// have bad consequences and can cripple the system.
+//
+if ($amp_conf['AMPLOCALBIN']) {
+$post_custom = $amp_conf['AMPLOCALBIN'].'/retrieve_conf_post_custom';
+    if (file_exists($post_custom)) {
+        outn(sprintf(_("Found script %s, executing.."), $post_custom));
+        include($post_custom);
+        out(_("OK"));
+    }
+}
+
+/* As of Asterisk 1.4.16 or there abouts, a missing #include file will make the reload fail. So
+   we need to make sure that we have such for everything that is in our configs. We will simply
+     look for the #include statements and touch the files vs. trying to inventory everything we may
+     need and then forgetting something.
+*/
+
+$output = array();
+exec("grep '#include' ".$amp_conf['ASTETCDIR']."/*.conf | sed 's/;.*//; s/#include//'",$output,$retcode);
+if ($retcode != 0) {
+    error("Error code $retcode: trying to search for missing #include files");
+}
+
+foreach($output as $file) {
+    if (trim($file) == '') {
+        continue;
+    }
+    $parse1 = explode(':',$file);
+    $parse2 = explode(';',$parse1[1]);
+    $rawfile = trim($parse2[0]);
+    if ($rawfile == '') {
+        continue;
+    }
+
+    $target = ($rawfile[0] == '/') ? $rawfile : $amp_conf['ASTETCDIR']."/$rawfile";
+
+    if (!file_exists($target)) {
+        $output = array();
+        exec("touch $target", $output, $retcode);
+        if ($retcode != 0) {
+            error("Error code $retcode: trying to create empty file $target");
+        }
+    }
+}
+
+// Some later versions of Aserisk require the existence of a cdr.conf file or no CDR
+// incuding MySQL logging will work (see #3940)
+//
+$target = $amp_conf['ASTETCDIR']."/cdr.conf";
+if (!file_exists($target)) {
+  $output = array();
+  exec("touch $target", $output, $retcode);
+  if ($retcode != 0) {
+      error("Error code $retcode: trying to create empty file $target");
+  }
+}
+
+// **** Set reload flag for AMP admin
+needreload();
+if (isset($amp_conf["AMPWEBADDRESS"]) && $amp_conf["AMPWEBADDRESS"])
+{
+    out(sprintf(_("Please update your modules and reload Asterisk by visiting %s"), "http://".$amp_conf["AMPWEBADDRESS"]."/admin"),false);
+}
+else
+{
+    out(_("Please update your modules and reload Asterisk by browsing to your server."),false);
+}
+    $nt->delete('retrieve_conf', 'FATAL');
+?>

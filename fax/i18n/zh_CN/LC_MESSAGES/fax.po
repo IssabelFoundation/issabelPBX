@@ -1,0 +1,413 @@
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX Chimsese language for fax
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2010-08-19 11:48+0800\n"
+"Last-Translator: voip88_chris <voip88@hotmail.com>\n"
+"Language-Team: voip88.com \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Fax Configuration"
+msgstr "传真设置"
+
+msgid "Settings"
+msgstr ""
+
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr "为呼入传真增加设置，选项，界面"
+
+#, php-format
+msgid "Fax user %s"
+msgstr "传真用户"
+
+#, php-format
+msgid "Inbound Fax Detection: %s (%s)"
+msgstr "传真呼入检测"
+
+msgid "Fax"
+msgstr "传真"
+
+msgid ""
+"ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
+"generated.<br>This module requires Fax for Asterisk or spandsp based app_fax "
+"or app_rxfax to function."
+msgstr ""
+
+msgid ""
+"ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
+"generated!<br>This module has detected that Fax for Asterisk is installed "
+"without a license.<br>At least one license is required (it is available for "
+"free) and must be installed."
+msgstr ""
+
+msgid "Enabled"
+msgstr "启用"
+
+msgid "Enable this user to receive faxes"
+msgstr "允许这个用户接收传真"
+
+msgid "Fax Email"
+msgstr "传真邮件"
+
+msgid ""
+"Enter an email address where faxes sent to this extension will be delivered."
+msgstr "输入分机发送传真的邮件地址"
+
+msgid "Please Enter a valid email address for fax delivery."
+msgstr "传真发生需要有效的邮件地址"
+
+msgid "Fax Recipient"
+msgstr "传真接收者"
+
+msgid "Dahdi"
+msgstr "dahdi通道"
+
+msgid "Zaptel"
+msgstr "zaptel通道"
+
+msgid ""
+"\"You have selected Fax Detection on this route. Please select a valid "
+"destination to route calls detected as faxes to.\""
+msgstr ""
+
+msgid "Fax Detect"
+msgstr "传真检测"
+
+msgid "Detect Faxes"
+msgstr "检测传真"
+
+msgid "Attempt to detect faxes on this DID."
+msgstr ""
+
+msgid ""
+"No: No attempts are made to auto-determine the call type; all calls sent to "
+"destination below. Use this option if this DID is used exclusively for voice "
+"OR fax."
+msgstr ""
+
+msgid ""
+"Yes: try to auto determine the type of call; route to the fax destination if "
+"call is a fax, otherwise send to regular destination. Use this option if you "
+"receive both voice and fax calls on this line"
+msgstr ""
+
+msgid ""
+"Legacy: Same as YES, only you can enter an email address as the destination. "
+"This option is ONLY for supporting migrated legacy fax routes. You should "
+"upgrade this route by choosing YES, and selecting a valid destination!"
+msgstr ""
+
+msgid ""
+"No fax detection methods found or no valid license. Faxing cannot be enabled."
+msgstr ""
+
+msgid "No"
+msgstr "否"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "Legacy"
+msgstr ""
+
+msgid "Fax Detection type"
+msgstr "传真检测格式"
+
+msgid "Type of fax detection to use."
+msgstr "被使用的传真检测格式"
+
+msgid "use "
+msgstr "：使用"
+
+msgid ""
+" fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
+msgstr "传真检测，要求faxdetect 设置成 incoming 或者 both"
+
+msgid ""
+"Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
+"'faxdetect=yes' in the sip config files"
+msgstr ""
+
+msgid ""
+"NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
+"and recognized by asterisk"
+msgstr ""
+
+msgid "NVFax"
+msgstr ""
+
+msgid "Sip"
+msgstr "SIP协议"
+
+msgid "Fax Detection Time"
+msgstr "传真检测时间"
+
+msgid "How long to wait and try to detect fax. Please note that callers to a "
+msgstr ""
+
+msgid ""
+" channel will hear ringing for this amount of time (i.e. the system wont "
+"\"answer\" the call, it will just play ringing)"
+msgstr ""
+
+msgid "Fax Email Destination"
+msgstr "传真邮件目的地"
+
+msgid ""
+"Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
+"version of IssabelPBX, you can now set the fax destination from a list of "
+"destinations. Extensions/Users can be fax enabled in the user/extension "
+"screen and set an email address there. This will create a new destination "
+"type that can be selected. To upgrade this option to the full destination "
+"list, select YES to Detect Faxes and select a destination. After clicking "
+"submit, this route will be upgraded. This Legacy option will no longer be "
+"available after the change, it is provided to handle legacy migrations from "
+"previous versions of IssabelPBX only."
+msgstr ""
+
+msgid "Fax Destination"
+msgstr "传真目的地"
+
+msgid "Where to send the call if we detect that its a fax"
+msgstr ""
+
+msgid "Dial System FAX"
+msgstr "拨系统传真"
+
+msgid "Migrating fax_incoming table..."
+msgstr ""
+
+msgid "WARINING: fax_incoming table may still be using the 2.6 schema!"
+msgstr ""
+
+msgid "Successfully migrated fax_incoming table!"
+msgstr ""
+
+msgid "Moving simu_fax feature code from core.."
+msgstr ""
+
+msgid "duplicate, removing old from core.."
+msgstr ""
+
+msgid "unknown error"
+msgstr "不清楚的错误"
+
+msgid "removed"
+msgstr "已移动"
+
+msgid "done"
+msgstr "完成"
+
+msgid "Updating simu_fax in miscdest table.."
+msgstr "正在更新在miscdest列表的sium_fax"
+
+msgid "not needed"
+msgstr "不需要"
+
+msgid "Checking if legacy fax needs migrating.."
+msgstr "检查如果旧的传真需要合并"
+
+msgid "starting migration"
+msgstr "开始合并"
+
+msgid "migrating defaults.."
+msgstr "正在合并默认的"
+
+msgid "failed"
+msgstr "失败"
+
+msgid "migrated"
+msgstr "合并"
+
+#, php-format
+msgid "Removing field %s from incoming table.."
+msgstr "从呼入的列表中移动值"
+
+msgid "not present"
+msgstr "当前没有"
+
+msgid "Removing old globals.."
+msgstr ""
+
+msgid "Checking for failed migrations.."
+msgstr "检查失败的合并"
+
+msgid ""
+"The following Inbound Routes had FAX processing that failed migration "
+"because they were accessing a device with no associated user. They have been "
+"disabled and will need to be updated. Click delete icon on the right to "
+"remove this notice."
+msgstr ""
+
+msgid "blank"
+msgstr "空白"
+
+#, php-format
+msgid "%s FAX Migrations Failed"
+msgstr "传真合成失败"
+
+#, php-format
+msgid "%s FAX Migrations Failed, check notification panel for details"
+msgstr ""
+
+msgid "all migrations succeeded successfully"
+msgstr "所有合并成功"
+
+msgid "No Inbound Routes to migrate"
+msgstr "无呼入路由合并"
+
+msgid "already done"
+msgstr "已经完成"
+
+msgid "Fax Options"
+msgstr "传真选项"
+
+msgid "Fax Presentation Options"
+msgstr "传真格式选项"
+
+msgid "Default Fax header"
+msgstr "默认传真头"
+
+msgid ""
+"Header information that is passed to remote side of the fax transmission and "
+"is printed on top of every page. This usually contains the name of the "
+"person or entity sending the fax."
+msgstr ""
+
+msgid "Default Local Station Identifier"
+msgstr "默认终端"
+
+msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
+msgstr ""
+
+msgid "Outgoing Email address:"
+msgstr "出局邮件地址"
+
+msgid ""
+"Email address that faxes appear to come from if 'system default' has been "
+"chosen as the default fax extension."
+msgstr ""
+
+msgid "Fax Feature Code Options"
+msgstr "传真快捷键选项"
+
+msgid "Email address:"
+msgstr "邮件地址"
+
+msgid ""
+"Email address that faxes are sent to when using the \"Dial System Fax\" "
+"feature code. This is also the default email for fax detection in legacy "
+"mode, if there are routes still running in this mode that do not have email "
+"addresses specified."
+msgstr ""
+
+msgid "Fax Transport Options"
+msgstr "传真传输选项"
+
+msgid "Error Correction Mode"
+msgstr "错误纠正模式"
+
+msgid ""
+"Error Correction Mode (ECM) option is used to specify whether\n"
+"\t\t\t\t to use ecm mode or not."
+msgstr "错误纠正模式选项是用来检测是否使用ECM的"
+
+msgid "Maximum transfer rate"
+msgstr "最大传输速度"
+
+msgid "Maximum transfer rate used during fax rate negotiation."
+msgstr ""
+
+msgid "Minimum transfer rate"
+msgstr "最小传输速度"
+
+msgid "Minimum transfer rate used during fax rate negotiation."
+msgstr ""
+
+msgid "Modem"
+msgstr "modem"
+
+msgid "Modem Type."
+msgstr "modem型号"
+
+msgid "Fax Receive Options"
+msgstr "传真接收选项"
+
+msgid "Default fax instance:"
+msgstr "默认传真对象"
+
+msgid ""
+"Select 'system default' to have the system act as a fax instance. You can "
+"then route faxes to this instance and avoid having to route faxes to an "
+"instance associated with a specific entity. This can be the system using "
+"Asterisk's internal capabilities or it can be an external extension, such as "
+"a physical fax machine"
+msgstr ""
+
+msgid "disabled"
+msgstr "关闭"
+
+msgid "system default"
+msgstr "系统默认"
+
+msgid "Default Recipient Email address:"
+msgstr "默认的接收邮件地址"
+
+msgid ""
+"Email address used if 'system default' has been chosen as the default fax "
+"extension."
+msgstr "如果系统默认作为默认的传真分机的话，需要有邮件地址"
+
+msgid "Fax Module Options"
+msgstr "传真模块选项"
+
+msgid "Always Allow Legacy Mode"
+msgstr "总是允许旧的模式"
+
+msgid ""
+"In earlier versions, it was possible to provide an email address with the "
+"incoming FAX detection to route faxes that were being handled by fax-to-"
+"email detection. This has been deprecated in favor of Extension/User FAX "
+"destinations where an email address can be provided. During migration, the "
+"old email address remains present for routes configured this way but goes "
+"away once 'properly' configured. This options forces the Legacy Mode to "
+"always be present as an option."
+msgstr ""
+
+msgid "Always Generate Detection Code"
+msgstr ""
+
+msgid ""
+"When no fax modules are detected the module will not generate any detection "
+"dialplan by default. If the system is being used with phyical FAX devices, "
+"hylafax + iaxmodem, or other outside fax setups you can force the dialplan "
+"to be generated here."
+msgstr ""
+
+msgid "Submit"
+msgstr "提交"
+
+#~ msgid "Basic"
+#~ msgstr "基本设置"

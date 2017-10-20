@@ -1,0 +1,1189 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for queues
+# Copyright (C) 2008, 2009, 2010, 2011 Bandwith.com
+# Hebrew version for Queues IssabelPBX Module.
+# Copyright (C) 2011
+# This file is distributed under the same license as the PACKAGE package.
+# Isaac Gal <gal@allegronet.co.il>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-09-25 12:15+0200\n"
+"Last-Translator: Moshe Brevda <mbrevda => gmail ! com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"Warning, there are compound recordings configured in one or more Queue "
+"configurations. Queues can not play these so they have been truncated to the "
+"first sound file. You should correct this problem.<br />Details:<br /><br />"
+msgstr ""
+"הזהרה, ישנם הקלטות שמוגדרות להשמעה באחד או יותר מהתורים שמכילותמספר קבצי קול "
+"מחוברים, מודול התורים אינו יכול להשמיע את הקבצים האלוועליך ליצור הקלטות "
+"מערכת שאינן מכילות חיבור של מספר קבצי קול.<br />Details:<br /><br />"
+
+#, php-format
+msgid "Queue - %s (%s): %s<br />"
+msgstr ""
+
+msgid "Compound Recordings in Queues Detected"
+msgstr "אותרו הקלטות מערכת מחוברות"
+
+#, php-format
+msgid "Queue %s : %s"
+msgstr "תור %s : %s"
+
+#, php-format
+msgid "Queue: %s"
+msgstr "תור: %s"
+
+msgid "seconds"
+msgstr "שניות"
+
+msgid "day"
+msgstr "יום"
+
+msgid "hour"
+msgstr "שעה"
+
+msgid "hours"
+msgstr "שעות"
+
+msgid "minute"
+msgstr "דקה"
+
+msgid "minutes"
+msgstr "דקות"
+
+msgid "second"
+msgstr "שניה"
+
+msgid "Bad Queue Number, can not be blank"
+msgstr "מספר התור שגוי ואינו יכול להיות ריק"
+
+msgid "INUSE"
+msgstr "בשימוש כרגע"
+
+#, php-format
+msgid "Queue: %s (%s)"
+msgstr ""
+
+msgid "Agent Announce Msg"
+msgstr "הודעה שתושמע לנציג"
+
+#, php-format
+msgid "IVR Announce: %s"
+msgstr ""
+
+msgid "Use State"
+msgstr ""
+
+msgid "Ignore State"
+msgstr ""
+
+#, fuzzy
+msgid "Extension Options"
+msgstr "שלוחה בלבד"
+
+msgid "Queue State Detection"
+msgstr ""
+
+msgid ""
+"If this extension is part of a Queue then the Queue will attempt to use the "
+"user's extension state or device state information when determining if this "
+"queue member should be called. In some uncommon situations such as a Follow-"
+"Me with no physical device, or some virtual extension scenarios, the state "
+"information will indicate that this member is not available when they are. "
+"Setting this to 'Ignore State' will make the Queue ignore all state "
+"information thus always trying to contact this member. Certain side affects "
+"can occur when this route is taken due to the nature of how Queues handle "
+"Local channels, such as subsequent transfers will continue to show the "
+"member as busy until the original call is terminated. In most cases, this "
+"SHOULD BE set to 'Use State'."
+msgstr ""
+
+msgid "Checking for legacy queues table.."
+msgstr "בודק האם ישנה טבלה ישנה..."
+
+msgid "NO table found, no migration to do just create tables"
+msgstr "לא אותרה טבלה ישנה, אין צורך לבצע שדרוג. מייצר טבלה חדשה"
+
+msgid "OK"
+msgstr "תקין"
+
+msgid "Creating queues_details.."
+msgstr "יוצר פרטים לתורים"
+
+msgid "already exists"
+msgstr "כבר קיים"
+
+msgid "ERROR: could not create table"
+msgstr "שגיאה: לא ניתן ליצור טבלה"
+
+msgid "Migrating to queues_details.."
+msgstr "מבצעה שדרוג לטבלת התורים"
+
+msgid "ERROR: could not migrate to queues_details"
+msgstr "שגיאה: לא ניתן לבצע שדרוג לטבלת התורים"
+
+msgid "Creating queues_config.."
+msgstr "יוצר הגדרות תורים"
+
+msgid "Migrating data to queues_config.."
+msgstr "מבצע שידרוג לנתונים"
+
+msgid "ERROR: accessing queues table obtaining context info, aborting"
+msgstr "שגיאה: לא ניתן לקרוא טבלת נתונים. מבטל בקשה"
+
+msgid "ERROR: accessing queues table obtaining rtone info, aborting"
+msgstr "שגיאה: לא ניתן לקרוא טבלת נתונים. מבטל בקשה"
+
+msgid "ERROR: accessing queues table obtaining id list, aborting"
+msgstr "שגיאה: לא ניתן לקרוא טבלת נתונים. מבטל בקשה"
+
+#, php-format
+msgid "ERROR: inserting data for row %s: %s.."
+msgstr ""
+
+msgid "ERROR were encountered"
+msgstr "המערכת נתקלה במספר שגיאות"
+
+msgid "Dropping old queues table.."
+msgstr "מוחק טבלת תורים ישנה"
+
+#, php-format
+msgid "WARNING FAILED %s"
+msgstr "אזהרה נכשל %s"
+
+msgid "removing queues data extensions table.."
+msgstr "מסיר טבלת תורים ישנים"
+
+msgid "checking for qregex field.."
+msgstr "בודק נתונים"
+
+msgid "Checking if recordings need migration.."
+msgstr "בודק האם הקלטות המערכת צריכות לעבור שדרוג"
+
+msgid "migrating"
+msgstr "משדרג"
+
+msgid "adding agentannounce_id field.."
+msgstr "מוסיף שדה הודעה לנציג"
+
+msgid "fatal error"
+msgstr "שגיאה חמורה"
+
+msgid "ok"
+msgstr "תקין"
+
+msgid "adding joinannounce_id field.."
+msgstr "מוסיף שדה הודעה למתקשר"
+
+msgid "migrate agentannounce to ids.."
+msgstr "מייבא הגדרת הודעה לנציג"
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "היגרו %s ערכים"
+
+msgid "migrate joinannounce to ids.."
+msgstr ""
+
+msgid "dropping agentannounce field.."
+msgstr ""
+
+msgid "no agentannounce field???"
+msgstr ""
+
+msgid "dropping joinannounce field.."
+msgstr ""
+
+msgid "no joinannounce field???"
+msgstr ""
+
+msgid "already migrated"
+msgstr "כבר בוצע"
+
+msgid "checking for queuewait field.."
+msgstr "בודק שדה זמן המתנה"
+
+msgid "checking for use_queue_context field.."
+msgstr ""
+
+msgid "checking for togglehint field.."
+msgstr ""
+
+#, fuzzy
+msgid "checking for qnoanswer field.."
+msgstr "בודק נתונים"
+
+#, fuzzy
+msgid "checking for callconfirm field.."
+msgstr "בודק נתונים"
+
+#, fuzzy
+msgid "checking for callconfirm_id field.."
+msgstr "בודק נתונים"
+
+#, fuzzy
+msgid "checking for monitor_type field.."
+msgstr "בודק נתונים"
+
+#, fuzzy
+msgid "checking for monitor_heard field.."
+msgstr "בודק נתונים"
+
+#, fuzzy
+msgid "checking for monitor_spoken field.."
+msgstr "בודק נתונים"
+
+msgid "Warning! Extension"
+msgstr "אזהרה! שלוחה"
+
+msgid "is not allowed for your account."
+msgstr "אינה מורשית עבור חשבונך."
+
+msgid "Add Queue"
+msgstr "הוסף תור"
+
+msgid "Queue"
+msgstr "תור"
+
+msgid "deleted"
+msgstr "נמחק"
+
+msgid "Delete Queue"
+msgstr "מחק תור"
+
+msgid "Conflicting Extensions"
+msgstr "התנגשות בין שלוחות"
+
+msgid "Queue:"
+msgstr "תור:"
+
+msgid "Edit Queue"
+msgstr "ערוך תור"
+
+msgid "Queue Number:"
+msgstr "מספר התור"
+
+msgid ""
+"Use this number to dial into the queue, or transfer callers to this number "
+"to put them into the queue.<br><br>Agents will dial this queue number plus * "
+"to log onto the queue, and this queue number plus ** to log out of the queue."
+"<br><br>For example, if the queue number is 123:<br><br><b>123* = log "
+"in<br>123** = log out</b>"
+msgstr ""
+"השתמש במספר זה כדי לחייג לתוך תור זה, או העבר מתקשרים למספר זה כדי להכניסם "
+"אל התור.<br /><br />נציגי שירות יחייגו למספר תור זה ולאחריו כוכבית כדי "
+"להיכנס לרשימת הנציגים אשר יכולים לקבל שיחות, ואת מספר התור עם שתי כוכביות "
+"אחריו כדי לצאת מהתור.<br /><br />לדוגמא, אם מספר התור הוא 123:<br /><br /"
+"><b>123* = כניסה לשירות בתור<br />123** = יציאה מהשירות בתור</b>"
+
+msgid "Queue Name:"
+msgstr "שם התור:"
+
+msgid "Give this queue a brief name to help you identify it."
+msgstr "תן לתור זה שם קצר כדי לעזור לך לזהות אותו."
+
+msgid "Queue Password:"
+msgstr "סיסמא לתור"
+
+msgid ""
+"You can require agents to enter a password before they can log in to this "
+"queue.<br><br>This setting is optional."
+msgstr ""
+"אתה יכול לדרוש שנציגי שירות יכניסו סיסמא לפני שהם יכולים להתחיל לתת שירות "
+"לתור.<br /><br />הגדרה זו היא רשות."
+
+#, fuzzy
+msgid "Queue No Answer:"
+msgstr "מספר התור"
+
+msgid ""
+"If checked, the queue will not answer the call. Under most circumstance you "
+"should always have the queue answering calls. If not, then it's possible "
+"that recordings and MoH will not be heard by the waiting callers since early "
+"media capabilities vary and are inconsistent. Some cases where it may be "
+"desired to not answer a call is when using Strict Join Empty queue policies "
+"where the caller will not be admitted to the queue unless there is a queue "
+"member immediately available to take the call."
+msgstr ""
+
+msgid "Generate Device Hints:"
+msgstr ":Device Hints צור"
+
+msgid ""
+"If checked, individual hints and dialplan will be generated for each SIP and "
+"IAX2 device that could be part of this queue. These are used in conjunction "
+"with programmable BLF phone buttons to log into and out of a queue and "
+"generate BLF status as to the current state. The format of the hints is<br /"
+"><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle "
+"feature code, ddd is the device number (typically the same as the extension "
+"number) and qqq is this queue's number."
+msgstr ""
+
+msgid "Call Confirm:"
+msgstr ""
+
+msgid ""
+"If checked, any queue member that is actually an outside telephone number, "
+"or any extensions Follow-Me or call forwarding that are pursued and leave "
+"the PBX will be forced into Call Confirmation mode where the member must "
+"acknowledge the call before it is answered and delivered.."
+msgstr ""
+
+#, fuzzy
+msgid "Call Confirm Announce:"
+msgstr "הרכז מיקום בתור למתקשר"
+
+msgid ""
+"Announcement played to the Queue Memeber announcing the Queue call and "
+"requesting confirmation prior to answering. If set to default, the standard "
+"call confirmation default message will be played unless the member is "
+"reached through a Follow-Me and there is an alternate message provided in "
+"the Follow-Me. This message will override any other message specified.."
+"<br><br>To add additional recordings please use the \"System Recordings\" "
+"MENU."
+msgstr ""
+
+#, fuzzy
+msgid "Default"
+msgstr "ברירת מחדל"
+
+#, fuzzy
+msgid "Call Confirm Announcement:"
+msgstr "הכרזת הצטרפות:"
+
+#, fuzzy
+msgid ""
+"Announcement played to anyone using an external follow-me to receive the "
+"queue call.<br><br>You must install and enable the \"Systems Recordings\" "
+"Module to edit this option"
+msgstr ""
+"הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />אתה חייב להתקין ולהפעיל "
+"את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
+
+msgid "CID Name Prefix:"
+msgstr "קידומת לזיהוי מתקשר"
+
+#, fuzzy
+msgid ""
+"You can optionally prefix the CallerID name of callers to the queue. ie: If "
+"you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
+"John Doe\" on the extensions that ring."
+msgstr ""
+"אתה יכול (אך אינך חייב) להקדים את השם בזיהוי השיחה של המתקשרים לתור. לדוגמא: "
+"אם תקדים ב-\"Sales:\", אזי שיחה ממישהו ששמו John Doe תוצג בטלפון כך: "
+"\"Sales: John Doe\" בשלוחות שתצלצלנה."
+
+msgid "Wait Time Prefix:"
+msgstr "קידומת לזמן ההמתנה"
+
+msgid ""
+"When set to Yes, the CID Name will be prefixed with the total wait time in "
+"the queue so the answering agent is aware how long they have waited. It will "
+"be rounded to the nearest minute, in the form of Mnn: where nn is the number "
+"of minutes."
+msgstr ""
+
+msgid ""
+"If the call is subsequently transferred, the wait time will reflect the time "
+"since it first entered the queue or reset if the call is transferred to "
+"another queue with this feature set."
+msgstr ""
+
+msgid "Yes"
+msgstr "כן"
+
+msgid "No"
+msgstr "לא"
+
+msgid "Alert Info"
+msgstr "Alert Info"
+
+msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+msgstr ""
+
+msgid "Static Agents"
+msgstr "נציגים קבועים"
+
+msgid ""
+"Static agents are extensions that are assumed to always be on the queue.  "
+"Static agents do not need to 'log in' to the queue, and cannot 'log out' of "
+"the queue.<br><br>List extensions to ring, one per line.<br><br>You can "
+"include an extension on a remote system, or an external number (Outbound "
+"Routing must contain a valid route for external numbers). You can put a \","
+"\" after the agent followed by a penalty value, see Asterisk documentation "
+"concerning penalties.<br /><br /> An advanced mode has been added which "
+"allows you to prefix an agent number with S, X, Z, D or A. This will force "
+"the agent number to be dialed as an Asterisk device of type SIP, IAX2, ZAP, "
+"DAHDi or Agent respectively. This mode is for advanced users and can cause "
+"known issues in IssabelPBX as you are by-passing the normal dialplan. If your "
+"'Agent Restrictions' are not set to 'Extension Only' you will have problems "
+"with subsequent transfers to voicemail and other issues may also exist. "
+"(Channel Agent is deprecated starting with Asterisk 1.4 and gone in 1.6+.)"
+msgstr ""
+
+msgid "Extension Quick Pick"
+msgstr "בחירת שלוחה מרשימה"
+
+msgid ""
+"Choose an extension to append to the end of the static agents list above."
+msgstr "בחר שלוחה להוספה לסוף רשימת השלוחות הקבועות"
+
+msgid "(pick extension)"
+msgstr "(בחר שלוחה)"
+
+msgid "Dynamic Members"
+msgstr "נציגים דינמיים"
+
+msgid ""
+"Dynamic Members are extensions or callback numbers that can log in and out "
+"of the queue. When a member logs in to a queue, their penalty in the queue "
+"will be as specified here. Extensions included here will NOT automatically "
+"be logged in to the queue."
+msgstr ""
+
+msgid ""
+"Choose an extension to append to the end of the dynamic member list above."
+msgstr "בחר שלוחה להוספה לסוף רשימת הנציגים הדינמיים לתור"
+
+msgid "Restrict Dynamic Agents"
+msgstr "הגבלת נציגים דינמיים"
+
+msgid ""
+"Restrict dynamic queue member logins to only those listed in the Dynamic "
+"Members list above. When set to Yes, members not listed will be DENIED "
+"ACCESS to the queue."
+msgstr ""
+
+msgid "Agent Restrictions"
+msgstr "הגבלת נציגים"
+
+msgid ""
+"When set to 'Call as Dialed' the queue will call an extension just as if the "
+"queue were another user. Any Follow-Me or Call Forward states active on the "
+"extension will result in the queue call following these call paths. This "
+"behavior has been the standard queue behavior on past IssabelPBX versions. <br /"
+">When set to 'No Follow-Me or Call Forward', all agents that are extensions "
+"on the system will be limited to ringing their extensions only. Follow-Me "
+"and Call Forward settings will be ignored. Any other agent will be called as "
+"dialed. This behavior is similar to how extensions are dialed in ringgroups. "
+"<br />When set to 'Extensions Only' the queue will dial Extensions as "
+"described for 'No Follow-Me or Call Forward'. Any other number entered for "
+"an agent that is NOT a valid extension will be ignored. No error checking is "
+"provided when entering a static agent or when logging on as a dynamic agent, "
+"the call will simply be blocked when the queue tries to call it. For dynamic "
+"agents, see the 'Agent Regex Filter' to provide some validation."
+msgstr ""
+
+msgid "Call as Dialed"
+msgstr ""
+
+msgid "No Follow-Me or Call Forward"
+msgstr ""
+
+msgid "Extensions Only"
+msgstr "שלוחה בלבד"
+
+#, fuzzy
+msgid "General Queue Options"
+msgstr "אפשרויות תור"
+
+msgid "Ring Strategy:"
+msgstr "אסטרטגיית צלצול"
+
+msgid "ringall"
+msgstr "צלצל לכולם"
+
+msgid "ring all available agents until one answers (default)"
+msgstr "צלצל לכל נציגי השירות הזמינים עד שאחד מהם יענה (ברירת המחדל)"
+
+msgid "roundrobin"
+msgstr "סיבובי"
+
+msgid "take turns ringing each available agent"
+msgstr "עובר בצורה סיבובית בין כל הנציגים הזמינים"
+
+msgid "leastrecent"
+msgstr "הכי פחות אחרון"
+
+msgid "ring agent which was least recently called by this queue"
+msgstr "צלצל לנציג שאליו צלצלו בפעם האחרונה הכי מוקדם מבין כולם"
+
+msgid "fewestcalls"
+msgstr "הכי מעט שיחות"
+
+msgid "ring the agent with fewest completed calls from this queue"
+msgstr "צלצל לנציג שהשלים הכי מעט שיחות בתור זה"
+
+msgid "random"
+msgstr "אקראי"
+
+msgid "ring random agent"
+msgstr "צלצל לנציג אקראי"
+
+msgid "rrmemory"
+msgstr "סיבובי עם זיכרון"
+
+msgid "round robin with memory, remember where we left off last ring pass"
+msgstr "כמו סיבובי, אבל עם זיכרון - זוכר היכן הופסק בפעם האחרונה וממשיך משם"
+
+msgid "rrordered"
+msgstr ""
+
+msgid ""
+"same as rrmemory, except the queue member order from config file is preserved"
+msgstr ""
+
+msgid "linear"
+msgstr "לינארי - כלומר לפי סדר ההופעה של הנציגים"
+
+msgid ""
+"rings agents in the order specified, for dynamic agents in the order they "
+"logged in"
+msgstr "חייג לנציגים לפי הסדר, לנציגים דינאמים חייג לפי סדר ההתחברות לתור"
+
+msgid "wrandom"
+msgstr "אקראי עם התחשבות בעונש"
+
+msgid ""
+"random using the member's penalty as a weighting factor, see asterisk "
+"documentation for specifics"
+msgstr ""
+
+msgid "Autofill:"
+msgstr "מלא באופן אוטומטי"
+
+msgid ""
+"Starting with Asterisk 1.4, if this is checked, and multiple agents are "
+"available, Asterisk will send one call to each waiting agent (depending on "
+"the ring strategy). Otherwise, it will hold all calls while it tries to find "
+"an agent for the top call in the queue making other calls wait. This was the "
+"behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk "
+"documentation for more details of this feature."
+msgstr ""
+
+msgid "Skip Busy Agents:"
+msgstr "דלג על נציגים תפוסים"
+
+msgid ""
+"When set to 'Yes' agents who are on an occupied phone will be skipped as if "
+"the line were returning busy. This means that Call Waiting or multi-line "
+"phones will not be presented with the call and in the various hunt style "
+"ring strategies, the next agent will be attempted. <br />When set to 'Yes + "
+"(ringinuse=no)' the queue configuration flag 'ringinuse=no' is set for this "
+"queue in addition to the phone's device status being monitored. This results "
+"in the queue tracking remote agents (agents who are a remote PSTN phone, "
+"called through Follow-Me, and other means) as well as PBX connected agents, "
+"so the queue will not attempt to send another call if they are already on a "
+"call from any queue. <br />When set to 'Queue calls only (ringinuse=no)' the "
+"queue configuration flag 'ringinuse=no' is set for this queue also but the "
+"device status of locally connected agents is not monitored. The behavior is "
+"to limit an agent belonging to one or more queues to a single queue call. If "
+"they are occupied from other calls, such as outbound calls they initiated, "
+"the queue will consider them available and ring them since the device state "
+"is not monitored with this option. <br /><br />WARNING: When using the "
+"settings that set the 'ringinuse=no' flag, there is a NEGATIVE side effect. "
+"An agent who transfers a queue call will remain unavailable by any queue "
+"until that call is terminated as the call still appears as 'inuse' to the "
+"queue UNLESS 'Agent Restrictions' is set to 'Extensions Only'."
+msgstr ""
+
+msgid "Yes + (ringinuse=no)"
+msgstr ""
+
+msgid "Queue calls only (ringinuse=no)"
+msgstr ""
+
+msgid "Queue Weight"
+msgstr "משקל התור"
+
+msgid ""
+"Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
+"queue will deliver its calls first if there are agents common to both queues."
+msgstr ""
+
+msgid "Music on Hold Class:"
+msgstr "קטגורית המוזיקה בהמתנה לתור זה:"
+
+msgid ""
+"Music (or Commercial) played to the caller while they wait in line for an "
+"available agent. Choose \"inherit\" if you want the MoH class to be what is "
+"currently selected, such as by the inbound route.<br><br>  This music is "
+"defined in the \"Music on Hold\" Menu."
+msgstr ""
+
+msgid "inherit"
+msgstr "קבל בירושה"
+
+msgid "none"
+msgstr "ללא"
+
+msgid "default"
+msgstr "ברירת מחדל"
+
+msgid "Ringing Instead of MoH:"
+msgstr "צלצול במקום מוזיקה בהתנה"
+
+msgid ""
+"Enabling this option make callers hear a ringing tone instead of Music on "
+"Hold.<br/>Enabling this ignores any Music on Hold Class selected as well as "
+"ignoring any configured periodic announcements configured."
+msgstr ""
+
+msgid "Join Announcement:"
+msgstr "הכרזת הצטרפות:"
+
+#, fuzzy
+msgid ""
+"Announcement played to callers once prior to joining the queue.<br><br>To "
+"add additional recordings please use the \"System Recordings\" MENU"
+msgstr ""
+"הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />כדי להוסיף הקלטות נוספות, "
+"אנא השתמש <em>בתפריט</em> \"הקלטות מערכת\" שבצד שמאל"
+
+msgid "None"
+msgstr "אין"
+
+msgid ""
+"Announcement played to callers once prior to joining the queue.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />אתה חייב להתקין ולהפעיל "
+"את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
+
+msgid "Call Recording:"
+msgstr "הקלטת השיחות"
+
+msgid ""
+"Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
+"monitor)"
+msgstr ""
+"שיחות נכנסות לנציגים יכולות להיות מוקלטות. (נשמר ל /var/spool/asterisk/"
+"monitor)"
+
+msgid "wav49"
+msgstr "wav49"
+
+msgid "wav"
+msgstr "wav"
+
+msgid "gsm"
+msgstr "gsm"
+
+#, fuzzy
+msgid "Recording Mode:"
+msgstr "הקלטת השיחות"
+
+msgid ""
+"Choose to 'Include Hold Time' in the recording so it starts as soon as they "
+"enter the queue, or to defer recording until 'After Answered' and the call "
+"is bridged with a queue member."
+msgstr ""
+
+#, fuzzy
+msgid "Include Hold Time"
+msgstr "הכרז זמן המתנה:"
+
+msgid "After Answered"
+msgstr ""
+
+msgid "Caller Volume Adjustment:"
+msgstr ""
+
+msgid "Adjust the recording volume of the caller."
+msgstr ""
+
+msgid "No Adjustment"
+msgstr ""
+
+#, fuzzy
+msgid "Agent Volume Adjustment:"
+msgstr "הכרזה לנציג:"
+
+msgid "Adjust the recording volume of the queue member (Agent)."
+msgstr ""
+
+msgid "Mark calls answered elsewhere:"
+msgstr ""
+
+msgid ""
+"Enabling this option, all calls are marked as 'answered elsewhere' when "
+"cancelled. The effect is that missed queue calls are *not* shown on the "
+"phone (if the phone supports it)"
+msgstr ""
+
+msgid "Timing & Agent Options"
+msgstr ""
+
+msgid "Max Wait Time:"
+msgstr "זמן המתנה מקסימלי"
+
+msgid ""
+"The maximum number of seconds a caller can wait in a queue before being "
+"pulled out.  (0 for unlimited)."
+msgstr ""
+"הזמן המקסימלי בשניות שהמשתמש יכול להמתין בתור לפני שהוא יוצא משם על ידי "
+"המערכת. (0 עבור ללא הגבלה)"
+
+msgid "Unlimited"
+msgstr "ללא הגבלה"
+
+#, fuzzy
+msgid "Max Wait Time Mode:"
+msgstr "זמן המתנה מקסימלי"
+
+msgid ""
+"Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
+"caller is hit, they will be pulled out of the queue immediately. In 'Loose' "
+"mode, if a queue member is currently ringing with this call, then we will "
+"wait until the queue stops ringing this queue member or otherwise the call "
+"is rejected by the queue member before taking the caller out of the queue. "
+"This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + "
+"'Agent Timeout' combined."
+msgstr ""
+
+msgid "Strict"
+msgstr "מוגבל"
+
+msgid "Loose"
+msgstr ""
+
+msgid "Agent Timeout:"
+msgstr "זמן מקסימלי לחיוג לנציג"
+
+msgid ""
+"The number of seconds an agent's phone can ring before we consider it a "
+"timeout. Unlimited or other timeout values may still be limited by system "
+"ringtime or individual extension defaults."
+msgstr ""
+
+#, fuzzy
+msgid "Agent Timeout Restart:"
+msgstr "זמן מקסימלי לחיוג לנציג"
+
+msgid ""
+"If timeoutrestart is set to yes, then the time out for an agent to answer is "
+"reset if a BUSY or CONGESTION is received. This can be useful if agents are "
+"able to cancel a call with reject or similar."
+msgstr ""
+
+msgid "Retry:"
+msgstr "ניסיון חוזר:"
+
+msgid ""
+"The number of seconds we wait before trying all the phones again. Choosing "
+"\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
+"as the first attempted agent times-out, additional agents will not be "
+"attempted."
+msgstr ""
+
+msgid "No Retry"
+msgstr "ללא ניסיון חוזר"
+
+msgid "Wrap-Up-Time:"
+msgstr "זמן המתנה בין שיחה שהסתיימה לשיחה חדשה"
+
+msgid ""
+"After a successful call, how many seconds to wait before sending a "
+"potentially free agent another call (default is 0, or no delay) If using "
+"Asterisk 1.6+, you can also set the 'Honor Wrapup Time Across Queues' "
+"setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
+"this is honored across queues for members logged on to multiple queues."
+msgstr ""
+
+#, fuzzy
+msgid "Member Delay:"
+msgstr "סטטוס bmhd:"
+
+msgid ""
+"If you wish to have a delay before the member is connected to the caller (or "
+"before the member hears any announcement messages), set this to the number "
+"of seconds to delay."
+msgstr ""
+
+msgid "Agent Announcement:"
+msgstr "הכרזה לנציג:"
+
+#, fuzzy
+msgid ""
+"Announcement played to the Agent prior to bridging in the caller <br><br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\".<br><br>To add additional recordings "
+"please use the \"System Recordings\" MENU. Compound recordings composed of 2 "
+"or more sound files are not displayed as options since this feature can not "
+"accept such recordings."
+msgstr ""
+"הכרזה המושמעת לנציג השירות לפני קישורו אל המתקשר<br /><br />לדוגמא: \"השיחה "
+"הבאה מגיעה מתור המכירות\" או\"שיחה זו מגיעה מתור התמיכה הטכנית\".<br /><br /"
+">אתה חייב להתקין ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
+
+msgid ""
+"Announcement played to the Agent prior to bridging in the caller <br><br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\".<br><br>You must install and enable the "
+"\"Systems Recordings\" Module to edit this option"
+msgstr ""
+"הכרזה המושמעת לנציג השירות לפני קישורו אל המתקשר<br /><br />לדוגמא: \"השיחה "
+"הבאה מגיעה מתור המכירות\" או\"שיחה זו מגיעה מתור התמיכה הטכנית\".<br /><br /"
+">אתה חייב להתקין ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
+
+msgid "Report Hold Time:"
+msgstr "דווח זמן המתנה:"
+
+msgid ""
+"If you wish to report the caller's hold time to the member before they are "
+"connected to the caller, set this to yes."
+msgstr ""
+
+msgid "Capacity Options"
+msgstr ""
+
+msgid "Max Callers:"
+msgstr "מספר ממתינים מקסימלי"
+
+msgid "Maximum number of people waiting in the queue (0 for unlimited)"
+msgstr "מספר אנשים מקסימלי שיכולים להמתין בתור (0 ללא הגבלה)"
+
+msgid "No Max"
+msgstr ""
+
+msgid ""
+"Determines if new callers will be admitted to the Queue, if not, the "
+"failover destination will be immediately pursued. The options include:"
+msgstr ""
+
+msgid "Always allows the caller to join the Queue."
+msgstr ""
+
+msgid ""
+"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
+"phone then don't admit them. If agents are inuse or ringing someone else, "
+"caller will still be admitted."
+msgstr ""
+
+#, fuzzy
+msgid "Ultra Strict"
+msgstr "מוגבל"
+
+msgid ""
+"Same as Strict plus a queue member must be able to answer the phone 'now' to "
+"let them in. Simply speaking, any 'available' agents that could answer but "
+"are currently on the phone or ringing on behalf of another caller will be "
+"considered unavailable."
+msgstr ""
+
+msgid ""
+"Callers will not be admitted if all agents are paused, show an invalid state "
+"for their device, or have penalty values less then QUEUE_MAX_PENALTY (not "
+"currently set in IssabelPBX dialplan)."
+msgstr ""
+
+msgid ""
+"Same as No except Callers will be admitted if their are paused agents who "
+"could become available."
+msgstr ""
+
+msgid "Join Empty:"
+msgstr "אפשר כניסה לתור ריק:"
+
+msgid ""
+"Determines if callers should be exited prematurely from the queue in "
+"situations where it appears no one is currently available to take the call. "
+"The options include:"
+msgstr ""
+
+msgid ""
+"Callers will exit if all agents are paused, show an invalid state for their "
+"device or have penalty values less then QUEUE_MAX_PENALTY (not currently set "
+"in IssabelPBX dialplan).."
+msgstr ""
+
+msgid ""
+"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
+"phone then have them leave the queue. If agents are inuse or ringing someone "
+"else, caller will still be held."
+msgstr ""
+
+msgid ""
+"Same as Strict plus a queue member must be able to answer the phone 'now' to "
+"let them remain. Simply speaking, any 'available' agents that could answer "
+"but are currently on the phone or ringing on behalf of another caller will "
+"be considered unavailable."
+msgstr ""
+
+msgid ""
+"Same as Yes except Callers will remain in the Queue if their are paused "
+"agents who could become available."
+msgstr ""
+
+msgid ""
+"Never have a caller leave the Queue until the Max Wait Time has expired."
+msgstr ""
+
+#, fuzzy
+msgid "Leave Empty:"
+msgstr "יציאה מתור ללא נציג"
+
+msgid "Penalty Members Limit:"
+msgstr ""
+
+msgid ""
+"Asterisk: penaltymemberslimit. A limit can be set to disregard penalty "
+"settings, allowing all members to be tried, when the queue has too few "
+"members.  No penalty will be weighed in if there are only X or fewer queue "
+"members."
+msgstr ""
+
+msgid "Honor Penalties"
+msgstr ""
+
+msgid "Caller Position Announcements"
+msgstr "הרכז מיקום בתור למתקשר"
+
+msgid "Frequency:"
+msgstr "תדירות:"
+
+msgid ""
+"How often to announce queue position and estimated holdtime (0 to Disable "
+"Announcements)."
+msgstr ""
+
+msgid "Announce Position:"
+msgstr "הכרז מיקום:"
+
+msgid "Announce position of caller in the queue?"
+msgstr "הכרז למתקשר את מיקומו בתור?"
+
+msgid "Announce Hold Time:"
+msgstr "הכרז זמן המתנה:"
+
+msgid ""
+"Should we include estimated hold time in position announcements?  Either "
+"yes, no, or only once; hold time will not be announced if <1 minute"
+msgstr ""
+"האם אנו אמורים לכלול את זמן ההמתנה המשוער בהכרזות? האפשרויות הן כן, לא, או "
+"פעם אחת; זמן ההמתנה לא יוכרז אם הוא קטן מדקה אחת"
+
+msgid "Once"
+msgstr "פעם אחת"
+
+msgid "Periodic Announcements"
+msgstr "הודעה תקופתית"
+
+msgid "IVR Break Out Menu:"
+msgstr "נתב שיחות ליציאה מההמתנה בתור"
+
+msgid ""
+"You can optionally present an existing IVR as a 'break out' menu."
+"<br><br>This IVR must only contain single-digit 'dialed options'. The "
+"Recording set for the IVR will be played at intervals specified in 'Repeat "
+"Frequency', below."
+msgstr ""
+
+msgid "Menu ID "
+msgstr "מזהה התפריט"
+
+msgid "(**) ERRORS"
+msgstr "(**) ישנם מספר שגיאות"
+
+msgid "(**) Warning Potential Errors"
+msgstr "(**) זהירות שגיאות אפשריות"
+
+msgid ""
+"ERROR: You have selected an IVR's that use Announcements created from "
+"compound sound files. The Queue is not able to play these announcements. "
+"This IVR's recording will be truncated to use only the first sound file. You "
+"can correct the problem by selecting a different announcement for this IVR "
+"that is not from a compound sound file. The IVR itself can play such files, "
+"but the Queue subsystem can not"
+msgstr ""
+
+msgid ""
+"Earlier versions of this module allowed such queues to be chosen, once "
+"changing this setting, it will no longer appear as an option"
+msgstr ""
+
+msgid "Repeat Frequency:"
+msgstr "תדירות השמעה חוזרת"
+
+msgid ""
+"How often to announce a voice menu to the caller (0 to Disable "
+"Announcements)."
+msgstr "בכל כמה זמן להשמיע למקשר את ההכרזה (0 לביטול ההכרזה כליל)"
+
+msgid "Events, Stats and Advanced"
+msgstr ""
+
+msgid "Event When Called:"
+msgstr ""
+
+msgid ""
+"When this option is set to YES, the following manager events will be "
+"generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
+msgstr ""
+"אם אפשרות זאת מוגדרת ל'כן', אירועי המנהל הבאים יווצרו: AgentCalled, "
+"AgentDump, AgentConnect ו-AgentComplete."
+
+#, fuzzy
+msgid "Member Status Event:"
+msgstr "סטטוס bmhd:"
+
+#, fuzzy
+msgid ""
+"When set to YES, the following manager event will be generated: "
+"QueueMemberStatus"
+msgstr ""
+"אם אפשרות זאת מוגדרת ל'כן', אירועי המנהל הבאים יווצרו: AgentCalled, "
+"AgentDump, AgentConnect ו-AgentComplete."
+
+msgid "Service Level:"
+msgstr "רמת השרות"
+
+msgid ""
+"Used for service level statistics (calls answered within service level time "
+"frame)"
+msgstr ""
+
+msgid "Agent Regex Filter"
+msgstr "פילטר להתחברות נציג"
+
+msgid ""
+"Provides an optional regex expression that will be applied against the agent "
+"callback number. If the callback number does not pass the regex filter then "
+"it will be treated as invalid. This can be used to restrict agents to "
+"extensions within a range, not allow callbacks to include keys like *, or "
+"any other use that may be appropriate. An example input might be:<br />^([2-"
+"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
+"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"key.<br />WARNING: make sure you understand what you are doing or otherwise "
+"leave this blank!"
+msgstr ""
+
+msgid "Fail Over Destination"
+msgstr "יעד שיש להיכשל אליו"
+
+msgid "Submit Changes"
+msgstr "החל שינויים"
+
+msgid ""
+"Using a Regex filter is fairly advanced, please confirm you know what you "
+"are doing or leave this blank"
+msgstr ""
+
+msgid "Queue Number must not be blank"
+msgstr "מספר התור אינו יכול להיות ריק"
+
+msgid ""
+"Queue name must not be blank and must contain only alpha-numeric characters"
+msgstr "שם התור אינו יכול להיות ריק, כמו כן חייב להכיל אותיות ומספרים בלבד"
+
+msgid "Queues"
+msgstr "תורים"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Creates a queue where calls are placed on hold and answered on a first-in, "
+"first-out basis. Many options are available, including ring strategy for "
+"agents, caller announcements, max wait times, etc."
+msgstr ""
+
+msgid "Persistent Members"
+msgstr ""
+
+#, fuzzy
+msgid "Queues Module"
+msgstr "תורים"
+
+msgid ""
+"Queues: persistentmembers. Store each dynamic member in each queue in the "
+"astdb so that when asterisk is restarted, each member will be automatically "
+"read into their recorded queues."
+msgstr ""
+
+msgid "Honor Wrapup Time Across Queues"
+msgstr ""
+
+msgid ""
+"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
+"lastcall and calls received be the same in members logged in more than one "
+"queue. This is useful to make the queue respect the wrapuptime of another "
+"queue for a shared member."
+msgstr ""
+
+msgid "Set Agent Name in CDR dstchannel"
+msgstr ""
+
+msgid ""
+"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
+"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
+"with an agent name, which is set if available at the login time with "
+"AddQueueMember membername parameter, or with static members."
+msgstr ""
+
+msgid "Use MixMonitor for Recordings"
+msgstr ""
+
+msgid ""
+"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
+"application instead of Monitor so the concept of 'joining/mixing' the in/out "
+"files now goes away when this is enabled."
+msgstr ""
+
+#, fuzzy
+msgid "Hide Queue No Answer Option"
+msgstr "אפשרויות תור"
+
+msgid ""
+"It is possible for a queue to NOT Answer a call and still enter callers to "
+"the queue. The normal behavior is that all  allers are answered before "
+"entering the queue. If the call is not answered, it is possible that some "
+"early media delivery would still allow callers to hear recordings, MoH, etc. "
+"but this can be inconsistent and vary. Because of the volatility of this "
+"option, it is not displayed by default. If a queue is set to not answer, the "
+"setting will be displayed for that queue regardless of this setting."
+msgstr ""
+
+msgid "Asterisk Queues Patch 15168 Installed"
+msgstr ""
+
+msgid ""
+"Setting this flag will generate the required dialplan to integrate with the "
+"following Asterisk patch: <b>https://issues.asterisk.org/view.php?id=15168</"
+"b>. This setting is obsolete on Asterisk 1.8+ systems where the hint state "
+"is now standard and always used. This asterisk patch is only available on "
+"Asterisk 1.4, trying to use this setting on Asterisk 1.6 will break some "
+"queue behavior and should be avoided"
+msgstr ""
+
+#~ msgid ""
+#~ "After a successful call, how many seconds to wait before sending a "
+#~ "potentially free agent another call (default is 0, or no delay)"
+#~ msgstr ""
+#~ "אחרי שיחה מוצלחת, כמה שניות להמתין לפני ששולחים נציג פנוי באופן פוטנציאלי "
+#~ "אל השיחה הבאה (ברירת המחדל היא 0, או ללא המתנה)"
+
+#~ msgid "Inbound Call Control"
+#~ msgstr "זרימת שיחות נכנסות"

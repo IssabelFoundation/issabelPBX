@@ -1,0 +1,185 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for disa
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.0.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-05 19:32+0900\n"
+"PO-Revision-Date: 2014-02-19 22:16+0200\n"
+"Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
+"Language-Team: Japanese <http://example.com/projects/freepbx/disa/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+msgid "Add DISA"
+msgstr "DISAを追加"
+
+msgid "deleted"
+msgstr "削除されました"
+
+#, php-format
+msgid "Delete DISA %s"
+msgstr "DISA %s を削除"
+
+msgid ""
+"DISA is used to allow people from the outside world to call into your PBX "
+"and then be able to dial out of the PBX so it appears that their call is "
+"coming from the office which can be handy when traveling. You can set a "
+"destination in an IVR that points to the DISA or set a DID. Make sure you "
+"password protect this to keep people from dialing in and using your PBX to "
+"make calls out."
+msgstr ""
+"DISAを使うと外にいてもPBXに電話を掛けることができ、そしてPBXから電話の発信も"
+"できます。そうすると、電話はオフィスから掛けられてきたように見えます。旅行に"
+"行く時に便利な機能です。DISAに指すIVRの宛先またはDIDの設定ができます。他の人"
+"に自分のPBXを使われないようにパスワードを設定してください。"
+
+msgid "Edit DISA"
+msgstr "DISAを編集"
+
+msgid "DISA name:"
+msgstr "DISA名："
+
+msgid "Give this DISA a brief name to help you identify it."
+msgstr "このDISAを識別しやすい簡潔な名前を入力。"
+
+msgid "PIN"
+msgstr "PIN"
+
+msgid "The user will be prompted for this number."
+msgstr "ユーザーが入力するPIN番号。"
+
+msgid "If you wish to have multiple PIN's, separate them with commas"
+msgstr "もし複数のPINを入力したい場合はカンマで区切ります。"
+
+msgid "Response Timeout"
+msgstr "応答タイムアウト"
+
+msgid ""
+"The maximum amount of time it will wait before hanging up if the user has "
+"dialed an incomplete or invalid number. Default of 10 seconds"
+msgstr ""
+"ユーザーが不完全、間違えた番号を入力した際に、切断するまで待つ最大時間。デ"
+"フォルト10秒"
+
+msgid "Digit Timeout"
+msgstr "デジットタイムアウト"
+
+msgid ""
+"The maximum amount of time permitted between digits when the user is typing "
+"in an extension. Default of 5"
+msgstr ""
+"ユーザーが内線をタイプする際に許可された桁の入力の最大入力時間間隔。デフォル"
+"ト5"
+
+msgid "Require Confirmation"
+msgstr "確認要求"
+
+msgid ""
+"Require Confirmation before prompting for password. Used when your PSTN "
+"connection appears to answer the call immediately"
+msgstr ""
+"パスワード入力を促す前に確認を要求する。PSTN接続がコールに対して即座に応答す"
+"るような場合に使用します。"
+
+msgid "Caller ID"
+msgstr "発信者ID"
+
+msgid ""
+"(Optional) When using this DISA, the users CallerID will be set to this. "
+"Format is \"User Name\" <5551234>"
+msgstr ""
+"(オプション)このDISAを使用した際に、ユーザーの発信者番号がここで指定した値に"
+"設定されます。フォーマットは\"ユーザー名\"<5551234>"
+
+msgid "Context"
+msgstr "コンテキスト"
+
+msgid ""
+"(Experts Only) Sets the context that calls will originate from. Leave this "
+"as from-internal unless you know what you're doing."
+msgstr "(上級者向け)"
+
+msgid "Allow Hangup"
+msgstr "切断を許可"
+
+#, php-format
+msgid ""
+"Allow the current call to be disconnected and dial tone presented for a new "
+"call by pressing the Hangup feature code: %s while in a call"
+msgstr ""
+"コール中に切断のキーコード: %s を押すことにより、現在のコールを切断して新しい"
+"コールに出るためにダイヤルトーンを許可します。"
+
+msgid "Submit Changes"
+msgstr "変更を適用"
+
+msgid "Please enter a valid DISA Name"
+msgstr "有効なDISA名を入力してください。"
+
+msgid "Please enter a valid DISA PIN"
+msgstr "有効なDISA PINを入力してください。"
+
+msgid "Please enter a valid Caller ID or leave it blank"
+msgstr "有効な発信者IDを入力するか、空白のままにしてください。"
+
+msgid "Context cannot be blank"
+msgstr "コンテキストを空にすることはできません。"
+
+#, php-format
+msgid "DISA: %s"
+msgstr "DISA: %s"
+
+msgid "DISA"
+msgstr "DISA"
+
+msgid "Applications"
+msgstr "アプリケーション"
+
+msgid ""
+"DISA Allows you 'Direct Inward System Access'. This gives you the ability to "
+"have an option on an IVR that gives you a dial tone, and you're able to dial "
+"out from the IssabelPBX machine as if you were connected to a standard "
+"extension. It appears as a Destination."
+msgstr ""
+"DISAによって'ダイレクト・イン・システム・アクセス'機能が可能となります。DISA"
+"を使用することにより、IVRのオプション経由でダイヤルトーンを入力すれば、PBXに"
+"接続された通常の内線と同じようにIssabelPBXから外部へダイヤル発信することが可能に"
+"なります。DISAは宛先として表示されます。"

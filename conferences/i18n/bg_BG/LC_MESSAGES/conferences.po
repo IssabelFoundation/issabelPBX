@@ -1,0 +1,327 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2008, 2009 Chavdar Iliev <chavdar_75@yahoo.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2010-01-23 00:00+0200\n"
+"Last-Translator: \n"
+"Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Conferences"
+msgstr "Конференции"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Allow creation of conference rooms (meet-me) where multiple people can talk "
+"together."
+msgstr ""
+
+#, php-format
+msgid "Conference Room %s : %s"
+msgstr "Стая за Конференции %s : %s"
+
+#, php-format
+msgid "Conference: %s"
+msgstr "Конференция: %s"
+
+msgid "Conference: "
+msgstr "Конференция: "
+
+msgid "Checking if music field present.."
+msgstr ""
+
+msgid "adding music field.."
+msgstr ""
+
+msgid "fatal error"
+msgstr "фатална грешка"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "already present"
+msgstr ""
+
+msgid "Checking if recordings need migration.."
+msgstr "Проверка дали записите имат нужда от преместване.."
+
+msgid "migrating"
+msgstr "преместване"
+
+msgid "adding joinmsg_id field.."
+msgstr "добаване на joinmsg_id поле.."
+
+msgid "migrate to recording ids.."
+msgstr "преместване към recording ids.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "преместени %s въвеждания"
+
+msgid "dropping joinmsg field.."
+msgstr "премахване на поле joinmsg.."
+
+msgid "no joinmsg field???"
+msgstr "няма joinmsg поле???"
+
+msgid "already migrated"
+msgstr "вече са преместени"
+
+msgid "Checking for users field.."
+msgstr ""
+
+msgid "adding.."
+msgstr ""
+
+msgid "FATAL error"
+msgstr ""
+
+msgid "Warning! Extension"
+msgstr "Внимание! Вътрешна Линия"
+
+msgid "is not allowed for your account."
+msgstr "не е разрешена за вашия акаунт."
+
+msgid "Add Conference"
+msgstr "Добави Конференция"
+
+msgid "Conference"
+msgstr "Конференция"
+
+msgid "deleted"
+msgstr "изтрита"
+
+msgid "Conference:"
+msgstr "Конференция:"
+
+#, php-format
+msgid "Delete Conference %s"
+msgstr "Изтрий Конференция %s"
+
+msgid "Conflicting Extensions"
+msgstr "Вътрешни Линии в Конфликт"
+
+msgid "Edit Conference"
+msgstr "Редактирай Конференция"
+
+msgid "Conference Number:"
+msgstr "Конференция Номер:"
+
+msgid "Use this number to dial into the conference."
+msgstr "Използва този номер за набиране на конференцията."
+
+msgid "Conference Name:"
+msgstr "Име на Конференция:"
+
+msgid "Give this conference a brief name to help you identify it."
+msgstr ""
+"Дайте на тази конференция описващо име за да ви помогне при идентифицирането."
+
+msgid "User PIN:"
+msgstr "Потребителски PIN:"
+
+msgid ""
+"You can require callers to enter a password before they can enter this "
+"conference.<br><br>This setting is optional.<br><br>If either PIN is "
+"entered, the user will be prompted to enter a PIN."
+msgstr ""
+"Можете да изисквате от обаждащите се да въведат парола преди да се "
+"присъединят към конференцията.<br><br>Тази настройка не е задължителна."
+"<br><br>Ако е въведен PIN, потребителите ще бъдат помолени да въведат PIN."
+
+msgid "Admin PIN:"
+msgstr "Администраторски PIN:"
+
+msgid ""
+"Enter a PIN number for the admin user.<br><br>This setting is optional "
+"unless the 'leader wait' option is in use, then this PIN will identify the "
+"leader."
+msgstr ""
+"Въведете PIN номер за потребител админ.<br><br>Тази настройка не е "
+"задължителна освен ако 'изчакване на водещия' опцията се използва, тогава "
+"този PIN ще идентифицира водещия."
+
+msgid "Conference Options"
+msgstr "Опции на Конференция"
+
+msgid "Join Message:"
+msgstr "Съобщение при Влизане:"
+
+msgid ""
+"Message to be played to the caller before joining the conference.<br><br>To "
+"add additional recordings please use the \"System Recordings\" MENU to the "
+"left"
+msgstr ""
+"Съобщение което ще се възпроизведе на обаждащия се преди да се присъедини "
+"към конференцията.<br><br>За да добавите допълнителни записи използвайте "
+"меню \"Системни Записи\" отляво."
+
+msgid "None"
+msgstr "Няма"
+
+msgid ""
+"Message to be played to the caller before joining the conference.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Съобщение което ще се възпроизведе на обаждащия се преди да се присъедини "
+"към конференцията.<br><br>Трябва да сте инсталирали и разрешили Модул "
+"\"Системни Записи\" за да редактирате тази опция."
+
+msgid "Leader Wait:"
+msgstr "Изчакване на Водещия:"
+
+msgid ""
+"Wait until the conference leader (admin user) arrives before starting the "
+"conference"
+msgstr ""
+"Изчаква докато водещия на конференцията (потребител админ) се включи преди "
+"да стартира конференцията."
+
+msgid "No"
+msgstr "Не"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "Talker Optimization:"
+msgstr ""
+
+msgid ""
+"Turns on talker optimization. With talker optimization, Asterisk treats "
+"talkers who\n"
+"are not speaking as being muted, meaning that no encoding is done on "
+"transmission\n"
+"and that received audio that is not registered as talking is omitted, "
+"causing no\n"
+"buildup in background noise."
+msgstr ""
+
+msgid "Talker Detection:"
+msgstr ""
+
+msgid ""
+"Sets talker detection. Asterisk will sends events on the Manager Interface "
+"identifying\n"
+"the channel that is talking. The talker will also be identified on the "
+"output of\n"
+"the meetme list CLI command."
+msgstr ""
+
+msgid "Quiet Mode:"
+msgstr "Тих Режим:"
+
+msgid "Quiet mode (do not play enter/leave sounds)"
+msgstr "Тих режим (не възпроизвежда влизане/излизане съобщения)."
+
+msgid "User Count:"
+msgstr "Брене на Потребителите:"
+
+msgid "Announce user(s) count on joining conference"
+msgstr "Известява за броя на потребителите при влизане в конференцията."
+
+msgid "User join/leave:"
+msgstr "Потребител влиза/излиза:"
+
+msgid "Announce user join/leave"
+msgstr "Известява за влизане/излизане на потребител"
+
+msgid "Music on Hold:"
+msgstr "Музика при Задържане:"
+
+msgid "Enable Music On Hold when the conference has a single caller"
+msgstr ""
+"Разрешава Музика при Задържане когато конференцията има само един обаждащ се."
+
+msgid "Music on Hold Class:"
+msgstr ""
+
+msgid ""
+"Music (or Commercial) played to the caller while they wait in line for the "
+"conference to start. Choose \"inherit\" if you want the MoH class to be what "
+"is currently selected, such as by the inbound route.<br><br>  This music is "
+"defined in the \"Music on Hold\" to the left."
+msgstr ""
+
+msgid "inherit"
+msgstr ""
+
+msgid "default"
+msgstr ""
+
+msgid "Allow Menu:"
+msgstr "Позволи Меню:"
+
+msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
+msgstr ""
+"Представя Меню (потребител или администратор) когато '*' е получена "
+"('изпрати' към меню)."
+
+msgid "Record Conference:"
+msgstr "Записвай Конференция:"
+
+msgid "Record the conference call"
+msgstr "Записва конференцията."
+
+msgid "Maximum Participants:"
+msgstr ""
+
+msgid "Maximum Number of users allowed to join this conference."
+msgstr ""
+
+msgid "No Limit"
+msgstr ""
+
+msgid "Mute on Join:"
+msgstr ""
+
+msgid ""
+"Mute everyone when they initially join the conference. Please note that if "
+"you do not have 'Leader Wait' set to yes you must have 'Allow Menu' set to "
+"Yes to unmute yourself"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr "Приеми Промените"
+
+msgid "Please enter a valid Conference Number"
+msgstr "Моля въведете правилен Номер на Конференция."
+
+msgid "Please enter a valid Conference Name"
+msgstr "Моля въведете правилно Име на Конференция"
+
+msgid ""
+"You must set an admin PIN for the Conference Leader when selecting the "
+"leader wait option"
+msgstr ""
+"Трбва да въведете администраторски PIN за Водещия на Конференцията когато "
+"избирате опция изчакване на водещия"
+
+msgid ""
+"You must set Allow Menu to Yes when not using a Leader or Admin in your "
+"conference, otherwise you will be unable to unmute yourself"
+msgstr ""

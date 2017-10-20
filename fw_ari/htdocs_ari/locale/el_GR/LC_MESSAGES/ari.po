@@ -1,0 +1,1079 @@
+# Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Elias Sofronas <esofronas@gmail.com>, 2005.
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-05-05 21:29+0200\n"
+"PO-Revision-Date: 2005-11-14 10:06+0200\n"
+"Last-Translator: Elias Sofronas <esofronas@gmail.com>\n"
+"Language-Team: English <en@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: includes/asi.php:46
+msgid "Asterisk Call Manager not responding"
+msgstr "Ο διαχειριστής κλήσεων Asterisk δεν αποκρίνεται"
+
+#: includes/asi.php:54
+msgid "Asterisk authentication failed:"
+msgstr "Η πιστοποίηση στο Asterisk απέτυχε:"
+
+#: includes/asi.php:96 includes/asi.php:111 includes/asi.php:130
+#: includes/asi.php:144
+#, fuzzy
+msgid "Asterisk command not understood"
+msgstr "Η εντολή Asterisk επαναφόρτωσης δεν αναγνωρίστηκε"
+
+#: includes/bootstrap.php:116
+#, php-format
+msgid "Too many files in %s. Not all files processed"
+msgstr ""
+
+#: includes/bootstrap.php:125
+#, php-format
+msgid "Too many directories in %s. Not all files processed"
+msgstr ""
+
+#: includes/bootstrap.php:228
+msgid "ARI requires a version of PHP 4.3 or later"
+msgstr ""
+
+#: includes/bootstrap.php:247
+msgid ""
+"PHP PEAR must be installed.  Visit http://pear.php.net for help with "
+"installation."
+msgstr ""
+
+#: includes/common.php:201 includes/common.php:221
+#, fuzzy
+msgid "ARI does not appear to have access to the Asterisk Manager."
+msgstr "Αδύνατη η σύνδεση στον Asterisk Manager"
+
+#: includes/common.php:202 includes/common.php:222
+msgid ""
+"Check the ARI 'main.conf.php' configuration file to set the Asterisk Manager "
+"Account."
+msgstr ""
+
+#: includes/common.php:203 includes/common.php:223
+msgid "Check /etc/asterisk/manager.conf for a proper Asterisk Manager Account"
+msgstr ""
+
+#: includes/common.php:204 includes/common.php:224
+msgid ""
+"make sure [general] enabled = yes and a 'permit=' line for localhost or the "
+"webserver."
+msgstr ""
+
+#: includes/common.php:241 includes/common.php:256
+#, fuzzy
+msgid "Check AMP installation, asterisk, and ARI main.conf"
+msgstr ""
+"Ελέγχτε την εγκατάσταση του AMP, την βάση δεδομένων του asterisk, ή το ARI "
+"main.conf"
+
+#: includes/common.php:400
+msgid "Logout"
+msgstr "Αποσύνδεση"
+
+#: includes/common.php:405
+msgid "Page Not Found."
+msgstr "Η σελίδα δεν βρέθηκε"
+
+#: includes/display.php:92
+msgid "Search"
+msgstr "Εύρεση"
+
+#: includes/display.php:135
+msgid "Searched for"
+msgstr "Εύρεση για"
+
+#: includes/display.php:139
+#, fuzzy, php-format
+msgid "Results %d - %d of %d"
+msgstr "Αποτελέσματα"
+
+#: includes/display.php:141
+#, fuzzy, php-format
+msgid "Results %d"
+msgstr "Αποτελέσματα"
+
+#: includes/display.php:195
+msgid "First"
+msgstr "Πρώτο"
+
+#: includes/display.php:208
+msgid "Last"
+msgstr "Τελευταίο"
+
+#: includes/login.php:194 includes/login.php:266 includes/login.php:278
+msgid "Incorrect Username or Password"
+msgstr "Λάθος όνομα χρήστη ή κωδικός"
+
+#: includes/login.php:410 includes/login.php:418
+msgid "Login"
+msgstr "Θυρίδα"
+
+#: includes/login.php:426
+msgid "Password"
+msgstr "Κωδικός"
+
+#: includes/login.php:435
+msgid "Submit"
+msgstr "Είσοδος"
+
+#: includes/login.php:443
+msgid "Remember Password"
+msgstr "Απομνημόνευση Κωδικού"
+
+#: includes/login.php:458
+#, fuzzy
+msgid "Use your <b>Voicemail Mailbox and Password</b>"
+msgstr "Θυρίδα Τηλεφωνητή και Κωδικό"
+
+#: includes/login.php:459
+msgid "This is the same password used for the phone"
+msgstr "Αυτό είναι ο ίδιος κωδικός που χρησιμοποιήθηκε για το τηλέφωνο"
+
+#: includes/login.php:461
+msgid ""
+"For password maintenance or assistance, contact your Phone System "
+"Administrator."
+msgstr ""
+"Για αλλαγή κωδικού ή υποστήριξη, επικοινωνήστε με τον Διαχειριστή του "
+"συστήματος"
+
+#: includes/main.conf.php:151
+msgid "INBOX"
+msgstr "ΕΣΕΡΧΟΜΕΝΑ"
+
+#: includes/main.conf.php:153
+msgid "Family"
+msgstr "ΟΙΚΟΓΕΝΕΙΑ"
+
+#: includes/main.conf.php:155
+msgid "Friends"
+msgstr "ΦΙΛΟΙ"
+
+#: includes/main.conf.php:157
+msgid "Old"
+msgstr "ΠΑΛΙΑ"
+
+#: includes/main.conf.php:159
+msgid "Work"
+msgstr "ΔΟΥΛΕΙΑ"
+
+#: includes/main.conf.php:238
+msgid "Call Forward All Activate"
+msgstr ""
+
+#: includes/main.conf.php:239
+msgid "Call Forward All Deactivate"
+msgstr ""
+
+#: includes/main.conf.php:240
+msgid "Call Forward All Prompting Deactivate"
+msgstr ""
+
+#: includes/main.conf.php:241
+msgid "Call Forward Busy Activate"
+msgstr ""
+
+#: includes/main.conf.php:242
+msgid "Call Forward Busy Deactivate"
+msgstr ""
+
+#: includes/main.conf.php:243
+msgid "Call Forward Busy Prompting Deactivate"
+msgstr ""
+
+#: includes/main.conf.php:244
+msgid "Call Forward No Answer/Unavailable Activate"
+msgstr ""
+
+#: includes/main.conf.php:245
+msgid "Call Forward No Answer/Unavailable Deactivate"
+msgstr ""
+
+#: includes/main.conf.php:246
+msgid "Call Waiting - Activate"
+msgstr ""
+
+#: includes/main.conf.php:247
+msgid "Call Waiting - Deactivate"
+msgstr ""
+
+#: includes/main.conf.php:248
+msgid "Do-Not-Disturb Activate"
+msgstr ""
+
+#: includes/main.conf.php:249
+msgid "Do-Not-Disturb Deactivate"
+msgstr ""
+
+#: includes/main.conf.php:250
+msgid "My Voicemail"
+msgstr ""
+
+#: includes/main.conf.php:251
+msgid "Dial Voicemail"
+msgstr ""
+
+#: misc/callme_page.php:54
+msgid "The call was terminated."
+msgstr ""
+
+#: modules/callmonitor.module:36 modules/callmonitor.module:276
+msgid "Call Monitor"
+msgstr "Παρακολούθηση Κλήσεων"
+
+#: modules/callmonitor.module:72 modules/voicemail.module:169
+msgid "One or more messages must be selected before clicking delete."
+msgstr ""
+
+#: modules/callmonitor.module:136
+#, php-format
+msgid "Path is not a directory: %s"
+msgstr ""
+
+#: modules/callmonitor.module:151 modules/voicemail.module:467
+msgid "delete"
+msgstr "διαγραφή"
+
+#: modules/callmonitor.module:157
+#, fuzzy
+msgid "duration"
+msgstr "Διάρκεια"
+
+#: modules/callmonitor.module:160
+#, fuzzy
+msgid "ignore"
+msgstr "κανένα"
+
+#: modules/callmonitor.module:169 modules/voicemail.module:492
+msgid "Date"
+msgstr "Ημερομηνία"
+
+#: modules/callmonitor.module:171 modules/voicemail.module:494
+msgid "Time"
+msgstr "Ώρα"
+
+#: modules/callmonitor.module:173 modules/voicemail.module:496
+msgid "Caller ID"
+msgstr "Ταυτότητα Καλούντος"
+
+#: modules/callmonitor.module:175
+msgid "Source"
+msgstr "Πηγή"
+
+#: modules/callmonitor.module:177
+msgid "Destination"
+msgstr "Προορισμός"
+
+#: modules/callmonitor.module:179
+msgid "Context"
+msgstr "Περιεχόμενο"
+
+#: modules/callmonitor.module:181 modules/voicemail.module:502
+msgid "Duration"
+msgstr "Διάρκεια"
+
+#: modules/callmonitor.module:212
+msgid "Monitor"
+msgstr "Παρακολούθηση"
+
+#: modules/callmonitor.module:233 modules/voicemail.module:554
+msgid "Play"
+msgstr ""
+
+#: modules/callmonitor.module:234 modules/voicemail.module:535
+#: modules/voicemail.module:558
+msgid "Download"
+msgstr ""
+
+#: modules/callmonitor.module:278
+#, fuzzy, php-format
+msgid "Call Monitor for %s (%s)"
+msgstr "Παρακολούθηση Κλήσεων"
+
+#: modules/callmonitor.module:347 modules/voicemail.module:703
+msgid "select"
+msgstr "επιλογή"
+
+#: modules/callmonitor.module:348 modules/voicemail.module:704
+msgid "all"
+msgstr "όλα"
+
+#: modules/callmonitor.module:349 modules/voicemail.module:705
+msgid "none"
+msgstr "κανένα"
+
+#: modules/callmonitor.module:573
+msgid "Only deletes recording files, not cdr log"
+msgstr ""
+
+#: modules/featurecodes.module:36 modules/featurecodes.module:63
+msgid "Feature Codes"
+msgstr ""
+
+#: modules/featurecodes.module:65
+#, php-format
+msgid " for %s (%s)"
+msgstr ""
+
+#: modules/featurecodes.module:72
+msgid "Handset Feature Code"
+msgstr ""
+
+#: modules/featurecodes.module:75
+msgid "Action"
+msgstr ""
+
+#: modules/featurecodes.module:111
+msgid "description"
+msgstr ""
+
+#: modules/followme.module:43
+msgid "Follow Me"
+msgstr ""
+
+#: modules/followme.module:100
+msgid ""
+"Your Follow-Me has been disabled, REFRESH your browser to remove this message"
+msgstr ""
+
+#: modules/followme.module:101 modules/VmX.module:116
+#, php-format
+msgid ""
+"Check with your Telephone System Administrator if you think there is a "
+"problem"
+msgstr ""
+
+#: modules/followme.module:118
+msgid "Follow-Me pre-ring time not changed"
+msgstr ""
+
+#: modules/followme.module:119 modules/followme.module:142
+#, php-format
+msgid "Number %s must be an integer number of seconds"
+msgstr ""
+
+#: modules/followme.module:141
+msgid "Follow-Me list ring time not changed"
+msgstr ""
+
+#: modules/followme.module:185
+msgid "Follow-Me list must contain at least one valid number"
+msgstr ""
+
+#: modules/followme.module:186
+#, php-format
+msgid "The following: %s is not valid"
+msgstr ""
+
+#: modules/followme.module:291 modules/followme.module:342
+#: modules/phonefeatures.module:360 modules/settings.module:847
+#: modules/settings.module:858
+#, fuzzy
+msgid "Enable"
+msgstr "στο πεδίο"
+
+#: modules/followme.module:292
+msgid ""
+"Dial-by-name Directory, IVR, and internal \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tcalls will ring the numbers in the FollowMe \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tList. Any IssabelPBX routes that directly \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\treference a FollowMe are unaffected by this \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tenable/disable setting."
+msgstr ""
+
+#: modules/followme.module:302
+msgid "Follow Me List:"
+msgstr ""
+
+#: modules/followme.module:303
+#, php-format
+msgid "Extensions and outside numbers to ring next."
+msgstr ""
+
+#: modules/followme.module:304
+#, php-format
+msgid "Include %s to keep it ringing."
+msgstr ""
+
+#: modules/followme.module:310
+#, php-format
+msgid "Ring %s First For:"
+msgstr ""
+
+#: modules/followme.module:311
+#, php-format
+msgid "Time to ring extension %s before ringing the %s Follow Me List %s"
+msgstr ""
+
+#: modules/followme.module:321 modules/followme.module:334
+msgid "seconds"
+msgstr ""
+
+#: modules/followme.module:324
+msgid "Ring Followme List for:"
+msgstr ""
+
+#: modules/followme.module:324
+msgid "Time to ring the Follow Me List."
+msgstr ""
+
+#: modules/followme.module:339
+msgid "Use Confirmation:"
+msgstr ""
+
+#: modules/followme.module:339
+msgid ""
+"Outside lines that are part of the Follow Me List will be called and offered "
+"a menu:<br/><br/> \"You have an incoming call. Press 1 to accept or 2 to "
+"decline.\"<br/><br/> This keeps calls from ending up in external voicemail. "
+"Make sure that the List Ring Time is long enough to allow for you to hear "
+"and react to this message."
+msgstr ""
+
+#: modules/followme.module:354
+msgid "Followme Settings"
+msgstr ""
+
+#: modules/followme.module:356
+#, php-format
+msgid "Followme Settings for %s (%s)"
+msgstr ""
+
+#: modules/followme.module:382 modules/phonefeatures.module:182
+#: modules/settings.module:1199 modules/VmX.module:413
+msgid "Update"
+msgstr "Ανανέωση"
+
+#: modules/phonefeatures.module:25 modules/phonefeatures.module:97
+#: modules/phonefeatures.module:165
+msgid "Phone Features"
+msgstr ""
+
+#: modules/phonefeatures.module:99
+msgid "Call Waiting"
+msgstr ""
+
+#: modules/phonefeatures.module:100
+msgid "Do Not Disturb"
+msgstr ""
+
+#: modules/phonefeatures.module:151
+msgid "Call Forwarding"
+msgstr ""
+
+#: modules/phonefeatures.module:153
+msgid "Unconditional:"
+msgstr ""
+
+#: modules/phonefeatures.module:154
+msgid "Unavailable:"
+msgstr ""
+
+#: modules/phonefeatures.module:155
+msgid "Busy:"
+msgstr ""
+
+#: modules/phonefeatures.module:167
+#, php-format
+msgid "Phone Features for %s (%s)"
+msgstr ""
+
+#: modules/phonefeatures.module:326
+msgid "Call forward number not changed"
+msgstr ""
+
+#: modules/phonefeatures.module:327 modules/VmX.module:148
+#: modules/VmX.module:181 modules/VmX.module:201
+#, php-format
+msgid ""
+"Number %s must contain dial numbers (characters like '(', '-', and ')' are "
+"ok)"
+msgstr ""
+
+#: modules/phonefeatures.module:422
+msgid "Call Screening:"
+msgstr ""
+
+#: modules/phonefeatures.module:422
+msgid ""
+"Call Screening requires external callers to say their name, which will be "
+"played back to the user and allow the user to accept or reject the call.  "
+"Screening with memory only verifies a caller for their caller-id once. "
+"Screening without memory always requires a caller to say their name. Either "
+"mode will always announce the caller based on the last introduction saved "
+"with that callerid. If any user on the system uses the memory option, when "
+"that user is called, the caller will be required to re-introduce themselves "
+"and all users on the system will have that new introduction associated with "
+"the caller's CallerId."
+msgstr ""
+
+#: modules/phonefeatures.module:425
+msgid "Disable"
+msgstr ""
+
+#: modules/phonefeatures.module:426
+msgid "Screen Caller: No Memory"
+msgstr ""
+
+#: modules/phonefeatures.module:427
+msgid "Screen Caller: Memory"
+msgstr ""
+
+#: modules/settings.module:44
+msgid "Attach voicemail to email"
+msgstr ""
+
+#: modules/settings.module:45
+msgid "Option to attach audio file to email."
+msgstr ""
+
+#: modules/settings.module:60
+msgid "Number of deleted messages to backup"
+msgstr ""
+
+#: modules/settings.module:61
+msgid ""
+"The maximum number of messages that are backed up in the Deleted folder. "
+"This may be 0-9999."
+msgstr ""
+
+#: modules/settings.module:76
+msgid "Delete voicemail after emailed"
+msgstr ""
+
+#: modules/settings.module:77
+msgid ""
+"When enabled the message will be deleted from the voicemailbox after the "
+"notification email is sent. This allows receiving voicemail via email alone, "
+"rather than having the voicemail available from the Web interface or by "
+"telephone. CAUTION: Attach voicemail to email must be enabled, OTHERWISE "
+"YOUR MESSAGES WILL BE LOST FOREVER."
+msgstr ""
+
+#: modules/settings.module:92
+msgid "Say envelope (date/time)"
+msgstr ""
+
+#: modules/settings.module:93
+msgid ""
+"When enabled the voicemail system will play the message envelope (date/time) "
+"before playing the voicemail message. This setting does not affect the "
+"operation of the envelope option in the advanced voicemail menu."
+msgstr ""
+
+#: modules/settings.module:161
+msgid "Maximum number of messages"
+msgstr ""
+
+#: modules/settings.module:162
+msgid ""
+"Maximum number of messages per folder. It may be up to 9999. The default "
+"value is 100."
+msgstr ""
+
+#: modules/settings.module:169
+msgid "Maximum message length"
+msgstr ""
+
+#: modules/settings.module:170
+msgid "Maximum length allowed for a voicemail message (in seconds)."
+msgstr ""
+
+#: modules/settings.module:176
+msgid "Move heard messages"
+msgstr ""
+
+#: modules/settings.module:177
+msgid "Automatically move heard messages to the Old folder."
+msgstr ""
+
+#: modules/settings.module:192
+msgid "Review recording"
+msgstr ""
+
+#: modules/settings.module:193
+msgid "Allow caller to review their voicemail before saving it."
+msgstr ""
+
+#: modules/settings.module:199
+msgid "Say caller ID"
+msgstr ""
+
+#: modules/settings.module:200
+msgid ""
+"After announcing the message date and time, play back the caller's telephone "
+"number before each message."
+msgstr ""
+
+#: modules/settings.module:206
+msgid "Say duration"
+msgstr ""
+
+#: modules/settings.module:207
+msgid "Announce the message duration before playing the message."
+msgstr ""
+
+#: modules/settings.module:213
+msgid "Say duration minimum"
+msgstr ""
+
+#: modules/settings.module:214
+msgid ""
+"Do not announce message duration for messages shorter than this number of "
+"minutes."
+msgstr ""
+
+#: modules/settings.module:229
+msgid "Email from"
+msgstr ""
+
+#: modules/settings.module:230
+msgid "Who the e-mail notification should appear to come from."
+msgstr ""
+
+#: modules/settings.module:236
+msgid "Temporary greeting warning"
+msgstr ""
+
+#: modules/settings.module:237
+msgid "Warn user when a temporary greeting is active."
+msgstr ""
+
+#: modules/settings.module:252
+msgid "Change attachment volume"
+msgstr ""
+
+#: modules/settings.module:253
+msgid ""
+"Change volume of message before attaching it to an email. Values less than "
+"1.0 decrease volume, greater than 1.0 increase volume."
+msgstr ""
+
+#: modules/settings.module:342
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: modules/settings.module:407 modules/settings.module:412
+#: modules/settings.module:417 modules/settings.module:422
+#: modules/settings.module:431 modules/settings.module:436
+msgid "Voicemail password not changed"
+msgstr "Ο κωδικός του τηλεφωνητή δεν άλλαξε"
+
+#: modules/settings.module:408
+msgid "Password and password confirm must not be blank"
+msgstr "Ο κωδικός και η επιβεβαίωση κωδικού δεν πρέπει να είναι κενά"
+
+#: modules/settings.module:413
+#, fuzzy, php-format
+msgid "Passwords must be all numbers and greater than %d digits"
+msgstr "Οι κωδικοί πρέπει να είναι μόνο 4 αριθμοί"
+
+#: modules/settings.module:418
+#, fuzzy, php-format
+msgid "Passwords must be all numbers and only %d digits"
+msgstr "Οι κωδικοί πρέπει να είναι μόνο 4 αριθμοί"
+
+#: modules/settings.module:423
+msgid "Password and password confirm do not match"
+msgstr "Ο κωδικός και η επιβεβαίωση κωδικού δεν συμφωνούν"
+
+#: modules/settings.module:432 modules/settings.module:437
+#: modules/settings.module:482 modules/settings.module:487
+#, fuzzy, php-format
+msgid "%s does not exist or is not writable"
+msgstr "Δεν υπάρχει ή δεν είναι εγγράψιμο"
+
+#: modules/settings.module:472
+#, fuzzy
+msgid "Voicemail email and pager address not changed"
+msgstr "Ο κωδικός του τηλεφωνητή δεν άλλαξε"
+
+#: modules/settings.module:481 modules/settings.module:486
+#, fuzzy
+msgid "Voicemail email settings not changed"
+msgstr "Ο κωδικός του τηλεφωνητή δεν άλλαξε"
+
+#: modules/settings.module:745
+msgid "Language:"
+msgstr "Γλώσσα:"
+
+#: modules/settings.module:755
+#, fuzzy, php-format
+msgid "Passwords must be all numbers and only %s digits"
+msgstr "Οι κωδικοί πρέπει να είναι μόνο 4 αριθμοί"
+
+#: modules/settings.module:758
+#, fuzzy, php-format
+msgid "Passwords must be all numbers and at least %s digits"
+msgstr "Οι κωδικοί πρέπει να είναι μόνο 4 αριθμοί"
+
+#: modules/settings.module:763
+msgid "Password Settings"
+msgstr ""
+
+#: modules/settings.module:767
+#, fuzzy
+msgid "Voicemail Password:"
+msgstr "Κωδικός Τηλεφωνητή"
+
+#: modules/settings.module:773
+msgid "Enter again to confirm:"
+msgstr "Εισάγετε ξανά για επιβεβαίωση:"
+
+#: modules/settings.module:841
+msgid "Email Address:"
+msgstr ""
+
+#: modules/settings.module:841
+msgid "Email a notification, including audio file if indicated below."
+msgstr ""
+
+#: modules/settings.module:852
+msgid "Pager Email Address:"
+msgstr ""
+
+#: modules/settings.module:852
+msgid "Email a short notification"
+msgstr ""
+
+#: modules/settings.module:948
+msgid "Call Me Number:"
+msgstr ""
+
+#: modules/settings.module:948
+msgid ""
+"Call Me Number can be any dialable number, such as an extension or a "
+"cellphone."
+msgstr ""
+
+#: modules/settings.module:983
+msgid "Audio Format:"
+msgstr "Ποιότητα Ήχου:"
+
+#: modules/settings.module:986
+msgid "Default"
+msgstr ""
+
+#: modules/settings.module:987
+msgid "Best Quality"
+msgstr "Μέγιστη Ποιότητα"
+
+#: modules/settings.module:988
+msgid "Smallest Download"
+msgstr "Μικρότερο Download"
+
+#: modules/settings.module:999
+msgid "Notification Settings"
+msgstr ""
+
+#: modules/settings.module:1007
+msgid "Web Playback Settings"
+msgstr ""
+
+#: modules/settings.module:1015
+msgid "Phone Playback Settings"
+msgstr ""
+
+#: modules/settings.module:1022
+msgid "Caller Settings"
+msgstr ""
+
+#: modules/settings.module:1029
+msgid "Mailbox Storage Settings"
+msgstr ""
+
+#: modules/settings.module:1036
+msgid "IMAP Mail Settings"
+msgstr ""
+
+#: modules/settings.module:1043
+msgid "Other Voicemail Settings"
+msgstr ""
+
+#: modules/settings.module:1084
+msgid "Call Monitor Settings"
+msgstr "Ρυθμίσεις Παρακολούθησης Κλήσεων"
+
+#: modules/settings.module:1087
+msgid "Record INCOMING:"
+msgstr "Ηχογράφηση ΕΙΣΕΡΧΟΜΕΝΟΥ:"
+
+#: modules/settings.module:1089 modules/settings.module:1097
+msgid "Always"
+msgstr "Πάντα"
+
+#: modules/settings.module:1090 modules/settings.module:1098
+msgid "Never"
+msgstr "Ποτέ"
+
+#: modules/settings.module:1091 modules/settings.module:1099
+msgid "On-Demand"
+msgstr "Επιτόπου"
+
+#: modules/settings.module:1095
+msgid "Record OUTGOING:"
+msgstr "Ηχογράφηση ΕΞΕΡΧΟΜΕΝΟΥ:"
+
+#: modules/settings.module:1156
+#, fuzzy, php-format
+msgid "Settings for %s (%s)"
+msgstr "Ρυθμίσεις για"
+
+#: modules/VmX.module:58
+msgid "VmX&#8482 Locator"
+msgstr ""
+
+#: modules/VmX.module:115
+msgid ""
+"Your Premium VmX Locator service has been disabled, REFRESH your browser to "
+"remove this message"
+msgstr ""
+
+#: modules/VmX.module:147
+msgid "Option 0 not changed"
+msgstr ""
+
+#: modules/VmX.module:180
+msgid "Option 1 not changed"
+msgstr ""
+
+#: modules/VmX.module:200
+msgid "Option 2 not changed"
+msgstr ""
+
+#: modules/VmX.module:300
+msgid "Use When:"
+msgstr ""
+
+#: modules/VmX.module:300
+msgid ""
+"Menu options below are available during your personal voicemail greeting "
+"playback. <br/><br/>Check both to use at all times."
+msgstr ""
+
+#: modules/VmX.module:302
+msgid "unavailable"
+msgstr ""
+
+#: modules/VmX.module:304
+msgid "busy"
+msgstr ""
+
+#: modules/VmX.module:308
+msgid "Voicemail Instructions:"
+msgstr ""
+
+#: modules/VmX.module:308
+msgid "Uncheck to play a beep after your personal voicemail greeting."
+msgstr ""
+
+#: modules/VmX.module:311
+msgid "Standard voicemail prompts."
+msgstr ""
+
+#: modules/VmX.module:319
+msgid "Press 0:"
+msgstr ""
+
+#: modules/VmX.module:319
+msgid ""
+"Pressing 0 during your personal voicemail greeting goes to the Operator. \n"
+"\t\t\t\t\tUncheck to enter another destination here."
+msgstr ""
+
+#: modules/VmX.module:327
+msgid "Go To Operator"
+msgstr ""
+
+#: modules/VmX.module:331
+msgid "Press 1:"
+msgstr ""
+
+#: modules/VmX.module:334
+msgid ""
+"The remaining options can have internal extensions, ringgroups, queues and "
+"external numbers that may be rung. It is often used to include your cell "
+"phone. You should run a test to make sure that the number is functional any "
+"time a change is made so you don't leave a caller stranded or receiving "
+"invalid number messages."
+msgstr ""
+
+#: modules/VmX.module:336
+msgid ""
+"Enter an alternate number here, then change your personal voicemail greeting "
+"to let callers know to press 1 to reach that number. <br/><br/>If you'd like "
+"to use your Follow Me List, check \"Send to Follow Me\" and disable Follow "
+"Me above."
+msgstr ""
+
+#: modules/VmX.module:349
+msgid "Send to Follow-Me"
+msgstr ""
+
+#: modules/VmX.module:357
+msgid "Press 2:"
+msgstr ""
+
+#: modules/VmX.module:357
+msgid ""
+"Use any extensions, ringgroups, queues or external numbers. <br/><br/"
+">Remember to re-record your personal voicemail greeting and include "
+"instructions. Run a test to make sure that the number is functional."
+msgstr ""
+
+#: modules/VmX.module:371
+#, php-format
+msgid "VmX Locator&#8482; Settings for %s (%s)"
+msgstr ""
+
+#: modules/voicemail.module:51
+msgid "Voicemail"
+msgstr "Τηλεφωνητής"
+
+#: modules/voicemail.module:176
+msgid "A folder must be selected before the message can be moved."
+msgstr "Πρέπει να επιλεχθεί ένας κατάλογος πρίν μεταφερεθεί το μύνημα."
+
+#: modules/voicemail.module:185
+msgid "One or more messages must be selected before clicking move_to."
+msgstr ""
+
+#: modules/voicemail.module:194
+msgid "An extension must be selected before the message can be forwarded."
+msgstr "Πρέπει να επιλεχθεί Θυρίδα παραλήπτη πρίν προωθηθεί το μύνημα."
+
+#: modules/voicemail.module:202
+msgid "One or more messages must be selected before clicking forward_to."
+msgstr ""
+
+#: modules/voicemail.module:209
+msgid ""
+"You must enter one or more email addresses (comma-separated) before clicking "
+"email_to."
+msgstr ""
+
+#: modules/voicemail.module:222
+msgid "Warning: "
+msgstr ""
+
+#: modules/voicemail.module:222
+msgid "is not a valid email address"
+msgstr ""
+
+#: modules/voicemail.module:271
+msgid "The file type was not recognized."
+msgstr ""
+
+#: modules/voicemail.module:307
+msgid "Warning: Could not access voicemail.conf.  Using default mailer."
+msgstr ""
+
+#: modules/voicemail.module:319
+msgid "Mail operation failed"
+msgstr ""
+
+#: modules/voicemail.module:323
+msgid "No valid email address given.  Please try again."
+msgstr ""
+
+#: modules/voicemail.module:327
+msgid "One or more messages must be selected before clicking email_to."
+msgstr ""
+
+#: modules/voicemail.module:470
+msgid "move_to"
+msgstr "μετακίνηση"
+
+#: modules/voicemail.module:473
+#, fuzzy
+msgid "Folder"
+msgstr "Κατάλογοι"
+
+#: modules/voicemail.module:477
+msgid "forward_to"
+msgstr "προώθηση"
+
+#: modules/voicemail.module:484
+msgid "email_to"
+msgstr ""
+
+#: modules/voicemail.module:498
+msgid "Priority"
+msgstr "Προτεραιότητα"
+
+#: modules/voicemail.module:500
+msgid "Orig Mailbox"
+msgstr "Αρχικός Κατάλογος Μυνημάτων"
+
+#: modules/voicemail.module:532
+msgid "Playback"
+msgstr ""
+
+#: modules/voicemail.module:556
+msgid "Play message at: "
+msgstr ""
+
+#: modules/voicemail.module:561
+msgid "Voicemail recording(s) was not found."
+msgstr "Δεν βρέθηκαν εγγραφή(ές) στον τηλεφωνητή."
+
+#: modules/voicemail.module:562
+#, php-format
+msgid ""
+"On settings page, change voicemail audio format.  It is currently set to %s"
+msgstr ""
+
+#: modules/voicemail.module:592
+#, fuzzy
+msgid "Voicemail Login not found."
+msgstr "Δεν βρέθηκε πρόσβαση για θυρίδα μυνημάτων"
+
+#: modules/voicemail.module:593
+msgid "No access to voicemail"
+msgstr "Καμία πρόσβαση στον τηλεφωνητή"
+
+#: modules/voicemail.module:599
+msgid "No Voicemail Recordings for Admin"
+msgstr "Δεν Υπάρχουν Εγγραφές Μυνημάτων για τον Διαχειριστή"
+
+#: modules/voicemail.module:615
+#, fuzzy, php-format
+msgid "Voicemail for %s (%s)"
+msgstr "Τηλεφωνητής"
+
+#: modules/voicemail.module:637
+msgid "Calling: "
+msgstr ""
+
+#: modules/voicemail.module:638
+msgid ". Please wait patiently..."
+msgstr ""
+
+#: modules/voicemail.module:914
+#, fuzzy, php-format
+msgid "Could not create mailbox folder %s on the server"
+msgstr "Αδύνατη η δημιουργία καταλόγου μυνημάτων"
+
+#: modules/voicemail.module:966
+#, php-format
+msgid "Permission denied on folder %s or %s"
+msgstr ""
+
+#: theme/page.tpl.php:49
+msgid "Folders"
+msgstr "Κατάλογοι"
+
+#: theme/page.tpl.php:79
+msgid "Original work based on ARI from Littlejohn Consulting"
+msgstr ""

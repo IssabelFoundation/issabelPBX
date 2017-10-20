@@ -1,0 +1,312 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-07-10 09:30+0100\n"
+"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
+"Language-Team: Français <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "Missing Sound file auto-created from migration of %s module"
+msgstr "Fichier Son auto-créé lors de la migration du module %s MANQUANT"
+
+#, php-format
+msgid "Non-Existent Recording in module %s"
+msgstr "Enregistrement Non-Existant dans le module %s"
+
+#, php-format
+msgid ""
+"The %s referenced a recording file listed below that does not exists. An "
+"entry has been generated, named %s, with the referenced file(s) but you "
+"should confirm that it really works and the real files exist. The file(s) "
+"referenced: %s "
+msgstr ""
+"Le %s a référencé un fichier d'enregistrement listé ci-dessous qui n'existe "
+"pas. Une entrée a été générée, nommée %s, avec le(s) fichier(s) référencé(s) "
+"mais vous devriez confirmer le bon fonctionnement et confirmer que les "
+"fichiers existent. Le(s) fichier(s) référencé(s) : %s "
+
+msgid "No long description available"
+msgstr "Pas de description longue disponible"
+
+msgid "Recordings"
+msgstr "Enregistrements"
+
+msgid "Save Recording"
+msgstr "Sauvegarder les Enregistrements"
+
+msgid "Check Recording"
+msgstr "Contrôler les Enregistrements"
+
+msgid "checking for fcode field.."
+msgstr "contrôle du champ fcode..."
+
+msgid "OK"
+msgstr "OK"
+
+msgid "already exists"
+msgstr "existe déjà"
+
+msgid "checking for fcode_pass field.."
+msgstr "contrôle du champ fcode_field..."
+
+msgid "** MISSING FEATURE CODE **"
+msgstr "** Code de Caractéristique Manquant **"
+
+msgid "Failed to create"
+msgstr "Echec lors de la Création"
+
+msgid "[ERROR] The Recorded File Does Not exists:"
+msgstr "[ERREUR] Le fichier Enregistré n'existe Pas :"
+
+msgid "[ERROR] SAVING RECORDING:"
+msgstr "[ERREUR] LORS DE LA SAUVEGARDE DE L'ENREGISTREMENT :"
+
+msgid "Make sure you have entered a proper name"
+msgstr "Assurez-vous d'avoir entré un nom correct"
+
+msgid "[ERROR] REMOVING TEMPORARY RECORDING:"
+msgstr "[ERREUR] LORS DE LA SUPPRESSION DE L'ENREGISTREMENT TEMPORAIRE :"
+
+msgid "Make sure Asterisk is not running as root "
+msgstr "Assurez-vous qu'Asterisk ne tourne pas en root"
+
+msgid "System Recording"
+msgstr "Enregistrement Système"
+
+msgid "Saved"
+msgstr "Sauvegardé"
+
+msgid "Unable to locate"
+msgstr "Localisation impossible"
+
+msgid "with a a valid suffix"
+msgstr "avec un suffixe valide"
+
+msgid "Updated"
+msgstr "Mis à Jour"
+
+msgid "System Recordings"
+msgstr "Enregistrements Systèmes"
+
+msgid "Add Recording"
+msgstr "Ajouter Enregistrement"
+
+msgid "Step 1: Record or upload"
+msgstr "Etape 1 : Enregistrer ou uploader"
+
+msgid "Using your phone,"
+msgstr "En utilisant votre téléphone,"
+
+msgid " dial"
+msgstr " numérotez"
+
+msgid "Start speaking at the tone. Press # when finished."
+msgstr ""
+
+msgid "and speak the message you wish to record. Press # when finished."
+msgstr ""
+
+msgid ""
+"If you wish to make and verify recordings from your phone, please enter your "
+"extension number here:"
+msgstr ""
+"Si vous voulez faire et vérifier des enregistrements à partir de votre "
+"téléphone, veuillez entrer votre numéro d'extension ici :"
+
+msgid "Go"
+msgstr "Go"
+
+msgid ""
+"Alternatively, upload a recording in any supported asterisk format. Note "
+"that if you're using .wav, (eg, recorded with Microsoft Recorder) the file "
+"<b>must</b> be PCM Encoded, 16 Bits, at 8000Hz"
+msgstr ""
+"De manière alternative, uplodez un enregistrement dans un format supporté "
+"par Asterisk.Notez que si vous utilisez des .wav (par exemple enregistrés "
+"avec Microsoft Recorder) le fichier <b>doit</b> être Encodé en PCM, 16 Bits, "
+"à 8000Hz"
+
+msgid "Upload"
+msgstr "Uploader"
+
+msgid "Please wait until the page reloads."
+msgstr "Veuillez patienter pendant le rechargement de la page."
+
+msgid "Successfully uploaded"
+msgstr "Uploadé avec Succès"
+
+msgid "Step 2: Verify"
+msgstr "Etape 2 : Vérifier"
+
+msgid "After recording or uploading,"
+msgstr "Après avoir enregistré ou uploadé,"
+
+msgid "dial"
+msgstr ""
+
+msgid "to listen to your recording."
+msgstr "pour écouter votre enregistrement."
+
+msgid "If you wish to re-record your message, dial"
+msgstr "Si vous voulez réenregistrer votre message, tapez"
+
+msgid "Step 3: Name"
+msgstr "Etape 3 : Nom"
+
+msgid "Step 2: Name"
+msgstr "Etape 2 : Nom"
+
+msgid "Name this Recording"
+msgstr "Nommer cet Enregistrement"
+
+msgid "Click \"SAVE\" when you are satisfied with your recording"
+msgstr ""
+"Cliquez sur \"Sauvegarder\" lorsque vous êtes satisfait de votre "
+"enregistrement"
+
+msgid "Save"
+msgstr "Sauvegarder"
+
+msgid "Edit Recording"
+msgstr "Editer Enregistrement"
+
+msgid "Usage List"
+msgstr "Liste d'Utilisation"
+
+msgid ""
+"This recording is being used in the following instances. You can not remove "
+"this recording while being used. To re-record, you can enable and use the "
+"feature code below if allowed."
+msgstr ""
+"Cet enregistrement est utilisé dans les instances suivantes. Vous ne pouvez "
+"pas supprimer cet enregistrement pendant qu'il est utilisé. Pour "
+"réenregistrer, vous pouvez activer et utiliser le code de caractéristique ci-"
+"dessous si autorisé."
+
+msgid "Remove Recording"
+msgstr "Supprimer Enregistrement"
+
+msgid "Note, does not delete file from computer"
+msgstr "Note : ne supprime pas le fichier de l'ordinateur"
+
+msgid "Change Name"
+msgstr "Changer le Nom"
+
+msgid "This changes the short name, visible on the right, of this recording"
+msgstr "Change le nom court, visible sur la droite, de cet enregistrement"
+
+msgid "Descriptive Name"
+msgstr "Nom Descriptif"
+
+msgid ""
+"This is displayed, as a hint, when selecting this recording in Queues, "
+"Digital Receptionist, etc"
+msgstr ""
+"Affiché comme une suggestion lors de la sélection de cet enregistrement dans "
+"les Files d'Attente, Réceptionniste Numérique, etc..."
+
+msgid "Link to Feature Code"
+msgstr "Lien vers Code de Caractéristique"
+
+msgid ""
+"Check this box to create an options feature code that will allow this "
+"recording to be changed directly."
+msgstr ""
+"Cochez cette case pour créer un code de caractéristique optionnel qui "
+"permettra de changer cet enregistrement directement."
+
+#, php-format
+msgid "Optional Feature Code %s"
+msgstr "Code de Caractéristique optionnel %s"
+
+msgid "Feature Code Password"
+msgstr "Mot de Passe du Code de Caractéristique"
+
+msgid ""
+"Optional password to protect access to this feature code which allows a user "
+"to re-record it."
+msgstr ""
+"Mot de passe optionnel pour protéger l'accès à ce code de caractéristique "
+"qui permet à l'utilisateur de le réenregistrer."
+
+msgid "Direct Access Feature Code Not Available"
+msgstr "Accès Direct au Code de Caractéristique Indispondible"
+
+msgid ""
+"Direct Access Feature Codes for recordings are not available for built in "
+"system recordings or compound recordings made of multiple individual ones."
+msgstr ""
+"L'Accès Direct aux Codes de Caractéristique pour les enregistrements ne sont "
+"pas disponibles pour les systèmes d'enregistrement intégrés ou pour les "
+"enregistrements composés de plusieurs enregistrements individuels."
+
+msgid "Files"
+msgstr "Fichiers"
+
+msgid "Built-in Recordings"
+msgstr "Enregistrements intégrés"
+
+msgid "Please enter a valid Name for this System Recording"
+msgstr "Veuillez entrer un Nom valide pour cet Enregistrement Système"
+
+msgid "Select System Recording:"
+msgstr "Sélectionner Enregistrement Système :"
+
+msgid "Click here to play this recording"
+msgstr "Cliquez ici pour jouer cet enregistrement"
+
+msgid "Move Up"
+msgstr "Monter"
+
+msgid "Move Down"
+msgstr "Descendre"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+#, php-format
+msgid "No compatible wav, mp3 or gsm format found to play:<br /><br />%s"
+msgstr "Pas de format wav, mp3 ou gsm trouvé pour jouer :<br /><br />%s"
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"Creates and manages system recordings, used by many other modules (eg, IVR)."
+msgstr ""
+
+msgid "Recordings Crypt Key"
+msgstr ""
+
+msgid "System Setup"
+msgstr ""
+
+msgid ""
+"Crypt key used by this recordings module when accessing the recording files. "
+"Change from the default of "
+msgstr ""
+
+msgid " if desired."
+msgstr ""

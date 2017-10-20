@@ -1,0 +1,359 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX Swedish language for directory
+# Copyright (C) 2010 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX Directory\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2010-06-22 22:30+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team:  <mickecamino@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Directory"
+msgstr "Katalog"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Tied to a Directory allowing all entries in that directory to be dialed "
+"directly, as they appear in the directory"
+msgstr ""
+
+msgid "Add Directory"
+msgstr "Lägg till katalog"
+
+#, php-format
+msgid "Edit Directory: %s"
+msgstr ""
+
+msgid "[SYSTEM DEFAULT]"
+msgstr ""
+
+#, php-format
+msgid "Delete Directory %s"
+msgstr "Ta bort katalog %s"
+
+msgid "Directory General Options"
+msgstr ""
+
+msgid "Directory Name"
+msgstr "Katalognamn"
+
+msgid "Name of this directory."
+msgstr "Ge denna katalog ett beskrivande namn"
+
+msgid "Directory Description"
+msgstr "Beskrivning"
+
+msgid "Description of this directory."
+msgstr "Ge en meningsfull beskrivning för denna katalog"
+
+msgid "CallerID Name Prefix"
+msgstr "Prefix för nummerpresentation"
+
+msgid "Prefix to be appended to current CallerID Name."
+msgstr "Skriv in ett prefix att lägga till befintlig nummerpresentation"
+
+msgid "Alert Info"
+msgstr "Alert Info"
+
+msgid ""
+"ALERT_INFO to be sent when called from this Directory. Can be used for "
+"distinctive ring for SIP devices."
+msgstr ""
+
+msgid "Directory Options (DTMF)"
+msgstr ""
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Announcement"
+msgstr "Välkomsthälsning"
+
+msgid "Greeting to be played on entry to the directory."
+msgstr ""
+
+msgid "Invalid Retries"
+msgstr "Ogiltiga försök"
+
+msgid ""
+"Number of times to retry when receiving an invalid/unmatched response from "
+"the caller"
+msgstr ""
+"Antal gånger att försöka vid ogiltigt/icke matchat försök från uppringaren"
+
+msgid "Invalid Retry Recording"
+msgstr "Meddelande vid ogiltiga försök"
+
+msgid ""
+"Prompt to be played when an invalid/unmatched response is received, before "
+"prompting the caller to try again"
+msgstr ""
+"Meddelande att spela upp vid ogiltigt/icke matchat försök från uppringaren, "
+"spelas upp innan uppringaren ombeds försöka igen"
+
+msgid "Invalid Recording"
+msgstr "Ogiltigt meddelande"
+
+msgid ""
+"Prompt to be played before sending the caller to an alternate destination "
+"due to the caller pressing 0 or receiving the maximum amount of invalid/"
+"unmatched responses (as determined by Invalid Retries)"
+msgstr ""
+"Meddelande att spela upp för uppringaren innan samtalet skickas till "
+"alternativ destination då uppringaren slagit 0 eller det maximala antalet "
+"ogiltiga försök (angivet i fältet Ogiltiga försök)"
+
+msgid "Invalid Destination"
+msgstr "Destination för ogiltigt svar"
+
+msgid "Destination to send the call to after Invalid Recording is played."
+msgstr ""
+"Destination att skicka samtalet till efter Ogiltigt meddelande spelats upp"
+
+msgid "Return to IVR"
+msgstr "Återgå till IVR"
+
+msgid ""
+"When selected, if the call passed through an IVR that had \"Return to IVR\" "
+"selected, the call will be returned there instead of the Invalid destination."
+msgstr ""
+"När detta val är aktiverat kommer samtalet, om uppringaren kommer från en "
+"IVR som har \"Återgå till IVR\" valt, att returneras dit i stället för "
+"Destination vid ogiltigt svar."
+
+msgid "Announce Extension"
+msgstr "Meddela anknytning"
+
+msgid ""
+"When checked, the extension number being transferred to will be announced "
+"prior to the transfer"
+msgstr ""
+
+msgid "Directory&nbsp;Entries"
+msgstr "Katalogval"
+
+msgid "Name"
+msgstr ""
+
+msgid "Name Announcement"
+msgstr ""
+
+msgid "Dial"
+msgstr ""
+
+msgid "Choose One"
+msgstr "Välj en"
+
+msgid "All Users"
+msgstr "Alla användare"
+
+msgid "Custom"
+msgstr "Anpassad"
+
+msgid "Add new entry."
+msgstr "Lägg till ny post."
+
+msgid "Voicemail Greeting"
+msgstr "Välkomstmeddelande för röstbrevlåda"
+
+msgid "Text to Speech"
+msgstr "Text-till-tal"
+
+msgid "Spell Name"
+msgstr "Stava namn"
+
+msgid "System Recordings:"
+msgstr "Systeminspelning:"
+
+#, php-format
+msgid "Edit %s: %s"
+msgstr "Redigera %s: %s"
+
+msgid "remove"
+msgstr "ta bort"
+
+msgid "Click here to remove this entry"
+msgstr "Klicka här för att ta bort posten"
+
+msgid "Exclude"
+msgstr "Exkludera"
+
+msgid "Include"
+msgstr "Inkludera"
+
+msgid "Default Group Inclusion"
+msgstr "Inkludera i standardgrupp"
+
+msgid "Default Directory"
+msgstr "Standardkatalog"
+
+msgid ""
+"You can include or exclude this extension/user from being part of the "
+"default directory when creating or editing."
+msgstr ""
+"Du kan inkludera eller exkludera denna anknytning/användare från att vara "
+"med i standardkatalogen."
+
+#, php-format
+msgid "Directory: %s "
+msgstr "Katalog: %s "
+
+#, php-format
+msgid "Directory %s: "
+msgstr "Katalog %s: "
+
+#, php-format
+msgid "Directory: %s"
+msgstr "Katalog: %s"
+
+msgid "Adding directory tables if needed"
+msgstr ""
+
+msgid "Can not create table: "
+msgstr ""
+
+msgid "adding say_extension field to directory_details.."
+msgstr "lägger till fältet say_extension till tabellen directory_details.."
+
+msgid "fatal error"
+msgstr "allvarligt fel"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "dropping valid_details field.."
+msgstr "tar bort fältet valid_details.."
+
+msgid "no valid_recording field???"
+msgstr "inget fält med namnet valid_recording???"
+
+msgid "cannot add field e_id to table directory_entries \n"
+msgstr ""
+
+msgid "e_id added to table directory_entries"
+msgstr ""
+
+msgid "cannot set e_id for directory_id = "
+msgstr ""
+
+msgid "id"
+msgstr ""
+
+msgid ". Please resubmit this directory manually to correct this issue."
+msgstr ""
+
+msgid "Migrating Directory"
+msgstr ""
+
+msgid ""
+"Error migrating to new directory! ERROR: Could not create new Directory."
+msgstr ""
+
+msgid ""
+"Error migrating to new directory! ERROR: Could not populate new Directory "
+msgstr ""
+
+msgid "Setting migrated directory as default"
+msgstr ""
+
+msgid ""
+"Error migrating to new directory! ERROR: Unable to mark Directory as "
+"migrated. Migration will probably be run again at next install/upgrade of "
+"this module. "
+msgstr ""
+
+msgid "Migration Complete!"
+msgstr ""
+
+msgid "Submit"
+msgstr "Spara ändringar"
+
+msgid "none"
+msgstr ""
+
+msgid "Add a new Directory"
+msgstr "Lägg till ny katalog"
+
+msgid "Directory Options"
+msgstr "Katalogval"
+
+msgid ""
+"When checked, this becomes the default directory and replaces any other "
+"directory as the default directory. This has the effect of exposing entries "
+"for this directory into the Extension/User page"
+msgstr ""
+"Om detta val aktiveras kommer denna katalog att bli standardkatalog och "
+"kommer att ersätta standardkatalogen om den är definierad. Detta val visar "
+"även ett val för katalogen för Anknytningar/Användare"
+
+msgid "dropping directory_details, directory_entries.."
+msgstr "tar bort tabellerna directory_details, directory_entries.."
+
+msgid "deleting default_directory and migration tracking keys.."
+msgstr ""
+
+#~ msgid "Inbound Call Control"
+#~ msgstr "Inkommande samtal"
+
+#~ msgid "Greeting to be played on entry to the directory"
+#~ msgstr "Välkomsthälsning som ska spelas upp vid anslutning till katalogen"
+
+#~ msgid ""
+#~ "ALERT_INFO to be sent when called from this Directory. Can be used for "
+#~ "ditinctive ring for SIP devices."
+#~ msgstr ""
+#~ "Alert Info att skickas när uppringning sker från denna katalog. Detta kan "
+#~ "användas för att få en speciell ringsignal på SIP enheter."
+
+#~ msgid ""
+#~ "When checked, the extension number being transfered to will be announced "
+#~ "prior to the transfer"
+#~ msgstr ""
+#~ "När detta val är aktiverat kommer anknytningsnumret att meddelas innan "
+#~ "samtalet kopplas"
+
+#~ msgid "Adding directory_details table if needed..."
+#~ msgstr "Skapar tabell directory_details om detta behövs..."
+
+#~ msgid "failed"
+#~ msgstr "misslyckades"
+
+#~ msgid "Can not create `directory_details` table: "
+#~ msgstr "Kunde inte skapa tabellen `directory_details`:"
+
+#~ msgid "Adding directory_entries table if needed..."
+#~ msgstr "Skapar tabellen directory_entries om detta behövs..."
+
+#~ msgid "Can not create `directory_entries` table: "
+#~ msgstr "Kunde inte skapa tabellen `directory_entries`:"
+
+#~ msgid ""
+#~ "An Error occurred trying to contact the server adding a row, no reply."
+#~ msgstr ""
+#~ "Ett fel uppstod när servern kontaktades för att lägga till ny post, inget "
+#~ "svar."

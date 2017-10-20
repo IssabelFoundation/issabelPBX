@@ -1,0 +1,77 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - módulo blacklist module spanish translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-22 01:08+0100\n"
+"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Blacklist"
+msgstr "Lista negra"
+
+msgid "Admin"
+msgstr ""
+
+msgid "Blacklist a number"
+msgstr "Añadir un número a la lista negra"
+
+msgid "Remove a number from the blacklist"
+msgstr "Eliminar un número de la lista negra"
+
+msgid "Blacklist the last caller"
+msgstr "Añadir a la lista negra el último número llamado"
+
+msgid "Blacklist entry"
+msgstr "Elemento de la lista negra"
+
+msgid "deleted"
+msgstr "eliminada"
+
+msgid "Blacklist entries"
+msgstr "Elementos de la lista negra"
+
+msgid "Number/CallerID"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Number"
+msgstr "Número"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Add or replace entry"
+msgstr "Añadir o modificar elemento"
+
+msgid "Number/CallerID:"
+msgstr ""
+
+msgid "Enter the number/CallerID you want to block"
+msgstr ""
+
+msgid "Description:"
+msgstr ""
+
+msgid "Enter a description for the number you want to block"
+msgstr ""
+
+msgid "Block Unknown/Blocked Caller ID:"
+msgstr ""
+
+msgid "Check here to catch Unknown/Blocked Caller ID"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr "Enviar cambios"

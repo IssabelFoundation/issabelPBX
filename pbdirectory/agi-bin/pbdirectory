@@ -1,0 +1,408 @@
+#!/usr/bin/env php
+<?php
+//	License for all code of this IssabelPBX module can be found in the license file inside the module directory
+//	Copyright 2006-2014 Schmooze Com Inc.
+//
+
+/* --------WARNING---------
+ * 
+ * This script is auto-copied from an included module and will get overwritten.
+ * If you modify it, you must change it to read only, in the agi-bin directory,
+ * to keep it from getting changed.
+ */
+
+// set to 1 to say "zed" instead of "zee"
+define("SAY_ZED",0);
+
+/******************************************************************************/
+
+define("DEBUG", 0);
+
+define("DIR_LAST", 0);
+define("DIR_FIRST", 1);
+define("DIR_ANY", 2);
+
+define("NUM_DIGITS", 3);
+define("MAX_REPEAT", 2); // how many times can we repeat the menu before hanging up?
+
+// ordinal values of digits
+define("D_0",48);
+define("D_1",49);
+define("D_2",50);
+define("D_3",51);
+define("D_4",52);
+define("D_5",53);
+define("D_6",54);
+define("D_7",55);
+define("D_8",56);
+define("D_9",57);
+define("D_POUND",35);
+define("D_STAR",42);
+
+include("phpagi.php");
+
+function get_var( $agi, $value)
+{
+	$r = $agi->get_variable( $value );
+	
+	if ($r['result'] == 1)
+	{
+		$result = $r['data'];
+		return $result;
+	}
+	else
+		return '';
+}
+
+function output(&$var) {
+	if (DEBUG) {
+		global $logfile;
+		
+		if (!isset($logfile)) return false;
+		
+		ob_start();
+		var_dump($var);
+		$output = ob_get_contents();
+		ob_end_clean();
+		fwrite($logfile, $output);
+	}
+}
+
+function phonebook_list() {
+
+	global $ampmgruser, $ampmgrpass;
+
+	$numbers = array();
+	$astman = new AGI_AsteriskManager();
+	if ($res = $astman->connect("127.0.0.1", $ampmgruser , $ampmgrpass)) {
+		$list = $astman->database_show();
+		foreach ($list as $k => $v)	{
+			if (strstr($k, 'cidname')) {
+				$split = explode("/",$k);
+				$ext = $split[2];
+				$numbers[$ext] = $v;
+			} 
+		}
+
+		if (is_array($numbers))
+			natcasesort($numbers);
+
+		return $numbers;
+	} else {
+		fatal("Cannot connect to Asterisk Manager with ".$ampmgruser."/".$ampmgrpass);
+	}
+
+}
+
+/** Play a bunch of files, optionally accepting input and looping
+ * @param $files		The file/files to play (for multiple files, pass array)
+ * @param $escape_digits	The DTMF tones that can be pressed & returned, ie, "123*"
+ * @param $timeout		The timeout waiting for a digit, or 0 to not wait at all.
+ * @param $max_digits		Maximum number of digits to get. **NOT IMPLEMENTED YET.. 1 only**
+ * @param $loop			False for no loop, or an integer >0 being the number of times to loop. 
+ * @param $loopreturn		Value to return when the loop expires
+*/
+function stream_multiple($files, $escape_digits = "", $timeout = 0, $max_digits = 1, $loop = false, $loopreturn = 0) {
+	global $agi;
+	
+	if (!is_array($files)) {
+		$files = array($files);
+	}
+	
+	$i = 0;
+	do {
+		foreach ($files as $file) {
+			$agi->verbose("-- Playing '".$file."' (language 'en')");
+			$r = $agi->stream_file($file, $escape_digits);
+			$agi->conlog("stream_multiple: $file returned ".$r["result"]);
+			switch ($r["result"]) {
+				case 0: // they did nothing
+				break;
+				case -1: // they hungup
+					$agi->verbose("remote user hungup");
+					return -1;
+				break;
+				default: // they pressed a key
+					return $r["result"];
+				break;
+			}
+		}
+		
+		if ($timeout > 0) {
+			$r = $agi->wait_for_digit($timeout);
+			if (($r["result"] != 0) || (!$loop)) {
+				// return only if the reult is not 0 (timeout)
+				// or we're not doing a loop
+				return $r["result"];
+			}
+		}
+		
+		if ($loop && (++$i > $loop)) {
+			return $loopreturn;
+		}
+	} while ($loop);
+	
+	return 0;
+}
+
+/** If $file.(wav|WAV|gsm|GSM) exists
+ */
+function sound_file_exists($file) {
+	global $agi;
+	
+	foreach (array("gsm","GSM","wav","WAV") as $ext) {
+		if (file_exists($file.".".$ext)) {
+			$agi->verbose("Found ".$file.".".$ext, 2);
+			return true;
+		}
+	}
+	return false;
+}
+
+function string_to_digits($string) {
+	$out = "";
+	
+	for($i=0; $i<strlen($string); $i++) {
+		switch (strtoupper($string[$i])) {
+			case '1':
+				$out .= '1';
+			break;
+			case '2': case 'A': case 'B': case 'C':
+				$out .= '2';
+			break;
+			case '3': case 'D': case 'E': case 'F':
+				$out .= '3';
+			break;
+			case '4': case 'G': case 'H': case 'I':
+				$out .= '4';
+			break;
+			case '5': case 'J': case 'K': case 'L':
+				$out .= '5';
+			break;
+			case '6': case 'M': case 'N': case 'O':
+				$out .= '6';
+			break;
+			case '7': case 'P': case 'Q': case 'R': case 'S':
+				$out .= '7';
+			break;
+			case '8': case 'T': case 'U': case 'V':
+				$out .= '8';
+			break;
+			case '9': case 'W': case 'X': case 'Y': case 'Z':
+				$out .= '9';
+			break;
+		}
+		
+		if ($i+1 == NUM_DIGITS) break;
+	}
+	
+	return $out;
+}
+
+function say_alpha($string,$escape_digits) {
+	$string = strtolower($string);
+	$files = array();
+	
+	for($i=0; $i<strlen($string); $i++) {
+		if (('a' <= $string[$i]) && ($string[$i] <= 'z')) {
+		
+			if (($string[$i] == 'z') && SAY_ZED) {
+				$files[] = "letters/zed";
+			} else {
+				$files[] = "letters/".$string[$i];
+			}
+			
+		} else if (('1' <= $string[$i]) && ($string[$i] <= '0')) {
+			$files[] = "digits/".$string[$i];
+			
+		} else {
+			switch ($string[$i]) {
+				case "@": $files[] = "letters/at"; break;
+				case "-": $files[] = "letters/dash"; break;
+				case "$": $files[] = "letters/dollar"; break;
+				case ".": $files[] = "letters/dot"; break;
+				case "=": $files[] = "letters/equals"; break;
+				case "!": $files[] = "letters/exclaimation-point"; break;
+				case "+": $files[] = "letters/plus"; break;
+				case "/": case "\\": $files[] = "letters/slash"; break;
+				case " ": $files[] = "letters/space"; break;
+			}
+		}
+	}
+	
+	return stream_multiple($files,$escape_digits);
+}
+
+function do_directory($type, &$directory, $say_exten, $operator) {
+	global $agi;
+
+	$agi->conlog('starting directory');
+	
+	$escape_digits = "1*";
+	if ($operator) $escape_digits .= "0";
+
+	$agi->stream_file("pbdirectory-welcome-to-phonebook");
+	
+	switch ($type) {
+		case DIR_FIRST: $intro = "pbdirectory-first-three-letters-entry"; break;
+		case DIR_ANY: $intro = "pbdirectory-first-three-letters-entry"; break;
+	}
+
+	if (DEBUG) $agi->verbose("start loop");
+	
+	$loop = 0;
+	while ($loop < MAX_REPEAT) {
+		if (DEBUG) $agi->verbose("loop = ".$loop);
+		$r = $agi->get_data($intro, 4000, NUM_DIGITS);
+		
+		if (($r["result"] == "0") && $operator) {
+			// operator
+			$agi->verbose("Dropping to operator");
+			// switch to o,1 in the current context
+			$agi->set_extension("o");
+			$agi->set_priority("1");
+			// exiting application immediately!
+			exit(0);
+		}
+		$digits = $r["result"];
+		
+		usleep(500); // pause a bit, so digit presses get cleared
+		
+		if ($digits !== "") {
+			// they entered SOMETHING, reset our loop
+			$loop = 0;
+		}
+		
+		$i = 0;
+		$digit = false;
+		if (isset($directory[$digits]) && isset($directory[$digits][$i])) {
+			$loop = 0; // reset loop counter
+			do {
+				$match = & $directory[$digits][$i];
+				
+				sleep(1);
+				//TODO: check if festival is available, say the name that way
+				$digit = say_alpha($match["name"],$escape_digits);
+				
+				if (!$digit) {
+					$digit = stream_multiple(array("pbdirectory-if-correct-press","digits/1","pbdirectory-if-incorrect-press","digits/star"), $escape_digits, 3000);
+				}
+				
+				switch ($digit) {
+					case D_1: // dial this
+						if ($say_exten) {
+							$agi->stream_file("try-extension");
+							$agi->say_digits($match["number"]);
+						}
+						$agi->conlog("Dial ".$match["number"]);
+						
+						$agi->set_variable('dialnumber', $match['number']);
+						exit(0);
+					break;
+					case D_STAR: // not correct
+						$i += 1;
+					break;
+					case D_0: // operator
+						if ($operator) {
+							$agi->verbose("Dropping to operator");
+							// switch to o,1 in the current context
+							$agi->set_extension("o");
+							$agi->set_priority("1");
+							// exiting application immediately!
+							exit(0);
+						}
+					break;
+					case -1: // hungup
+						$agi->conlog("User hungup");
+						exit(1);
+					break;
+					case 0: // no response
+						$loop++;
+					break;
+					case -2: // loop timed out
+						$agi->stream_file("goodbye");
+						$agi->hangup();
+						exit(0);
+					break;
+				}
+				
+				if ($digit !== 0) {
+					$loop = 0;
+				}
+				$digit = false;
+			} while (isset($directory[$digits][$i]) && ($loop < MAX_REPEAT));
+			
+			if (!isset($directory[$digits][$i])) {
+				$agi->stream_file("dir-nomore");
+				$loop = 0; // reset our loop counter so it doesn't hangup
+			}
+		} else if (!empty($digits) || ($digits === "0")) {
+			// strict type checking as they may have entered "0" (string) which is empty()
+			$agi->stream_file("dir-nomatch");
+		} // else, we timed out
+		
+		$loop++;
+	}
+}
+
+/******************************************************************************/
+$agi = new AGI;
+
+$ampmgruser  = get_var( $agi, "AMPMGRUSER" );
+$ampmgrpass  = get_var( $agi, "AMPMGRPASS" );
+
+if (DEBUG) $logfile = fopen("/tmp/pbdirectory.log","w");
+
+$phonebook = phonebook_list();
+
+$operator = false;
+$dir_type = DIR_FIRST;
+$say_exten = false;
+
+if (isset($argv[1])) {
+	for($i=0; $i<strlen($argv[1]); $i++) {
+		switch ($argv[1][$i]) {
+			case "f": case "F": 
+				$dir_type = DIR_FIRST;
+			break;
+			case "a": case "a": 
+				$dir_type = DIR_ANY;
+			break;
+			case "o": case "O": 
+				$operator = true;
+			break;
+			case "e": case "E": 
+				$say_exten = true;
+			break;
+		}
+	}
+}
+
+$directory = array();
+foreach ($phonebook as $number=>$name) {
+	$names = explode(' ',$name);
+		
+	switch ($dir_type) {
+		case DIR_FIRST: // first name only
+			$digits = string_to_digits($names[0]);
+			$directory[$digits][] = array("number"=>$number, "name"=>$name);
+		break;
+		case DIR_ANY: // all names
+			foreach ($names as $temp) {
+				$digits = string_to_digits($temp);
+				$directory[$digits][] = array("number"=>$number, "name"=>$name);
+			}
+		break;
+	}
+}
+
+if (DEBUG) {
+	output($argv);
+	output($dir_type);
+	output($directory);
+}
+
+$agi->verbose('test');
+do_directory($dir_type, $directory, $say_exten, $operator);
+	
+?>

@@ -1,0 +1,184 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language for announcement
+# Copyright (C) 2009, 2010 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBXannouncement\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-10-10 20:20+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+msgid "Announcements"
+msgstr "Meddelanden"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Plays back one of the system recordings (optionally allowing the user to "
+"skip it) and then goes to another destination."
+msgstr ""
+"Spelar upp en av systeminspelningarn (valbart om uppringaren ska kunna hoppa "
+"över det) för att sedan gå till en annan destination."
+
+#, php-format
+msgid "Announcement: %s"
+msgstr "Meddelande: %s"
+
+msgid "Checking if recordings need migration.."
+msgstr "Kontrollerar om inspelningar behöver migreras.."
+
+msgid "migrating"
+msgstr "migrerar"
+
+msgid "adding recording_id field.."
+msgstr "lägger till fältet recording_id"
+
+msgid "fatal error"
+msgstr "allvarligt fel"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "migrate to recording ids.."
+msgstr "migrerar till recording ids.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "migrerade %s poster"
+
+msgid "dropping recording field.."
+msgstr "kastar fältet recording.."
+
+msgid "no recording field???"
+msgstr "inget fält som heter recording???"
+
+msgid "already migrated"
+msgstr "redan migrerad"
+
+msgid "Add Announcement"
+msgstr "Lägg till meddelande"
+
+msgid "Edit Announcement"
+msgstr "Redigera meddelande"
+
+msgid "Description"
+msgstr "Beskrivning"
+
+msgid "The name of this announcement"
+msgstr "Kortfattat namn för detta meddelande"
+
+msgid "Recording"
+msgstr "Inspelning"
+
+msgid ""
+"Message to be played.<br>To add additional recordings use the \"System "
+"Recordings\" MENU to the left"
+msgstr ""
+"Meddelande att spela upp.<br>För att lägga till fler inspelade meddelande "
+"väljer du \"Systeminspelningar\" i menyn till vänster."
+
+msgid "None"
+msgstr "Ingen"
+
+msgid "Repeat"
+msgstr "Repetera"
+
+msgid ""
+"Key to press that will allow for the message to be replayed. If you choose "
+"this option there will be a short delay inserted after the message. If a "
+"longer delay is needed it should be incorporated into the recording."
+msgstr ""
+"Tangent att trycka för att repetera meddelandet. Om du väljer detta kommer "
+"en kort paus att läggas till efter meddelandet. Om en längre paus behövs, "
+"spela in det i meddelandet."
+
+msgid "Disable"
+msgstr "Avaktivera"
+
+msgid "Allow Skip"
+msgstr "Tillåt hoppa över"
+
+msgid "If the caller is allowed to press a key to skip the message."
+msgstr ""
+"Om uppringaren ska tillåtas att trycka en tangent för att hoppa över "
+"meddelandet."
+
+msgid "Return to IVR"
+msgstr "Återgå till den digitala receptionisten"
+
+msgid ""
+"If this announcement came from an IVR and this box is checked, the "
+"destination below will be ignored and instead it will return to the calling "
+"IVR. Otherwise, the destination below will be taken. Don't check if not "
+"using in this mode. <br>The IVR return location will be to the last IVR in "
+"the call chain that was called so be careful to only check when needed. For "
+"example, if an IVR directs a call to another destination which eventually "
+"calls this announcement and this box is checked, it will return to that IVR "
+"which may not be the expected behavior."
+msgstr ""
+"Om detta meddelande kom från den digitala receptionisten och detta val "
+"aktiveras, kommer destinationen nedan att ignoreras och återgång kommer att "
+"ske till den anropande digitala receptionisten. Annars kommer destinationen "
+"nedan att anropas. Aktivera inte detta om du inte använder detta läge."
+"<br>Returpunkten kommer att bli till den sist valda punkten i den Digitala "
+"receptionisten så var noga med att bara aktivera detta val när det behövs. T."
+"ex. om en Digital receptionist skickar samtalet till en destination som "
+"anropar detta meddelande och detta val är aktiverat kommer samtalet att "
+"återgå till den Digitala receptionisten och du har skapat en liten loop."
+
+msgid "Don't Answer Channel"
+msgstr "Svara inte denna kanal"
+
+msgid ""
+"Check this to keep the channel from explicitly being answered. When checked, "
+"the message will be played and if the channel is not already answered it "
+"will be delivered as early media if the channel supports that. When not "
+"checked, the channel is answered followed by a 1 second delay. When using an "
+"announcement from an IVR or other sources that have already answered the "
+"channel, that 1 second delay may not be desired."
+msgstr ""
+"Aktivera denna för att hindra att kanalen uttryckligen svaras. När detta är "
+"aktiverat kommer meddelandet att spelas upp och om kanalen inte redan har "
+"svarats kommer det att levereras som tidigt media om kanalen stöder det. När "
+"valet inte är aktiverat kommer kanalen att svaras med en efterföljande paus "
+"på 1 sekund. När du använder ett meddelande från en Digital receptionist "
+"(IVR) eller annan källa som redan har svarat kanalen är kanske denna paus "
+"inte önskad."
+
+msgid "Destination after playback"
+msgstr "Destination efter uppspelning"
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+msgid "Delete"
+msgstr "Ta bort"
+
+msgid "Invalid description specified"
+msgstr "Ogiltig beskrivning"
+
+#~ msgid "Inbound Call Control"
+#~ msgstr "Inkommande samtal"

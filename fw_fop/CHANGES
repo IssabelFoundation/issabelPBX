@@ -1,0 +1,1213 @@
+Version .29
+
+2008-05-29 13:26 +0000 [r77]  root <root@localhost>:
+
+        * trunk/op_server.pl, trunk/ming-source/operator_panel.pl: Fix -
+          prefix in extension when using wildcard server
+
+2008-05-14 11:39 +0000 [r76]  root <root@localhost>:
+
+        * trunk/op_server.pl: Remove some debug print lines
+
+2008-05-07 18:52 +0000 [r75]  root <root@localhost>:
+
+        * trunk/op_server.pl: Add new event for dhtml client
+
+2008-05-06 14:19 +0000 [r74]  root <root@localhost>:
+
+        * trunk/op_buttons.cfg: Fix regexp sample in op_buttons.cfg
+
+2008-04-10 19:44 +0000 [r73]  root <root@localhost>:
+
+        * trunk/op_server.pl: Serve policy file from server to make new
+          flash clients happy. Also formatting fixes using perltidy and
+          line lenght of 140
+
+Version .28
+
+2008-03-30 [r70]  
+
+	* Remove dhtmltooltip and replace with wz_tooltip
+
+2008-02-19 [r69]  
+
+	* Add sample crossdomain.xml file needed by some flash players
+
+2008-01-28 [r68]  
+
+	* New langague added 'gallego'
+
+2007-12-04 [r67]  
+
+	* Fix reverse transfer for park
+
+2007-11-29 [r66]  
+
+	* Add extra event for meetmejoin because sometimes there are no
+	  newexten events when redirecting to meetme in attendant transfers
+
+2007-11-29 [r65]  
+
+	* Add support for channel in voicemailext, so you can use it to
+	  launch a macro via local when double clicking on the mailbox icon
+
+2007-11-29 [r64]  
+
+	* Add parkexten and parktimeout to op_server.cfg and support for
+	  Park command via manager together with updates for Asterisk 1.4
+	  compatibility.
+
+2007-11-29 [r63]  
+
+	* Make it work with asterisk 1.4 originateresponse change (for
+	  attendant transfers)
+
+2007-11-23 [r62]  
+
+	* add SpyExt command and drop action to arrow
+
+2007-11-07 [r61]  
+
+	* Honour label_extent when renaming label
+
+2007-08-13 [r60]  
+
+	* Fix 'waiting on queue' for normal buttons and some formatting
+	  fixes
+
+2007-08-06 [r59]  
+
+	* Fix clidtext for queue summary buttons
+
+2007-08-06 [r58]  
+
+	* Add support for QUEUE_PRIO for queue join events
+
+2007-08-06 [r57]  
+
+	* Fix for groupcount and timers
+
+2007-08-06 [r56]  
+
+	* Fix timer issue
+
+2007-08-02 [r55]  
+
+	* Remove delay in syswrite because it makes asterisk 1.2.7 unhappy
+
+2007-08-02 [r54]  
+
+	* Example new buttons config for groupcount
+
+2007-08-02 [r53]  
+
+	* Ooops! Format clid fixed
+
+2007-08-02 [r52]  
+
+	* Ooops! Set version to 0.30
+
+2007-08-02 [r51]  
+
+	* no_label_counter in op_buttons.cfg (prevents counting on multiple
+	  position labels). Fixes on groupcount. Added count to
+	  op_buttons.cfg to set number of sessions for group_count buttons
+
+2007-07-17 [r50]  
+
+	* Fix restrict for panel_context
+
+2007-07-17 [r49]  
+
+	* Fix flash client for multiple passvars values
+
+2007-06-29 [r48]  
+
+	* Added optional amportal.conf parsing
+
+2007-06-28 [r47]  
+
+	* Added date variables replacement for monitor_filename (%Y %m %d
+	  %h %i %s)
+
+2007-06-21 [r46]  
+
+	* Add Monitoring to FOP actions by single clicking on the arrow
+
+2007-06-15 [r45]  
+
+	* Add 1ms delay to syswrite, it makes some asterisk versions
+	  happier
+
+2007-05-30 [r44]  
+
+	* Add include support to op_server.cfg
+
+2007-05-14 [r43]  
+
+	* Add passvars parameter to op_server.cfg to pass extra values to
+	  popups
+
+2007-05-14 [r42]  
+
+	* Support for patched valetparking
+
+2007-04-30 [r41]  
+
+	* Fix for regexp buttons when coupled with Local channels
+
+2007-04-27 [r40]  
+
+	* Remove AsyncGoto from channel name so parking with zap works
+	  better.
+
+2007-04-27 [r39]  
+
+	* More split optimizations
+
+2007-04-27 [r37-38]  
+
+	* Proper debug instead of print
+
+	* Slight change to redhat init script in preparation of .spec
+
+2007-04-26 [r36]  
+
+	* Russian language files. Thanks Eugene Malikov.
+
+2007-04-26 [r35]  
+
+	* recompute_queues optimizations and some perl tidyup
+
+2007-04-26 [r34]  
+
+	* More regexp optimizations and debugs
+
+2007-04-26 [r33]  
+
+	* Remove unused vars and optimize erase_instances_for_trunk_buttons
+
+2007-04-26 [r32]  
+
+	* Remove more unused vars
+
+2007-04-26 [r31]  
+
+	* Remove unused var and optimize some regexps
+
+2007-04-24 [r30]  
+
+	* Fix split contexto order. Replace nada with undef. Fix
+	  recompute_queues states
+
+2007-04-23 [r29]  
+
+	* Improve and optimize perl splits. Use warnings pragma instead of
+	  -w.
+
+2007-04-19 [r28]  
+
+	* Change nonblocking perl perl code (LINworks GmbH)
+
+2007-04-19 [r27]  
+
+	* Improve perl code (LINworks GmbH)
+
+2007-04-19 [r26]  
+
+	* Improve perl code (LINworks GmbH)
+
+2007-04-13 [r25]  
+
+	* Fixed persistent clid-label for recompute queues
+
+2007-03-23 [r23-24]  
+
+	* Fix on flash client for unregistration events
+
+	* Registration caching to not flood flash clients with repited
+	  registered events. Changed debug level for digest_event_block and
+	  try to make some sense out of it
+
+2007-03-23 [r22]  
+
+	* Starting with digest_event_block clean ups
+
+2007-03-23 [r21]  
+
+	* Fix voicemail count (ticket #1)
+
+2007-03-20 [r20]  
+
+	* Fix Did/Trunk free routine and remove debug lines
+
+2007-03-20 [r19]  
+
+	* Fix trunk matching for CLID and DID buttons
+
+2007-03-20 [r18]  
+
+	* Add (experimental) DID buttons for matching IssabelPBX FROM_DID
+	  lines
+
+2007-03-20 [r17]  
+
+	* Trunkify CLID buttons
+
+2007-03-19 [r12]  
+
+	* Make clid on busy buttons show up when 1st load instead of
+	  permanent text
+
+2007-03-16 [r11]  
+
+	* Add onData prototype (commented) into the flash client... will
+	  experiment to see if it is faster than standard flash XML
+	  processing
+
+2007-03-16 [r10]  
+
+	* refactoring of digest_event_block, first pass...
+
+2007-03-16 [r9]  
+
+	* If/elseif refactoring plus fixing newexten duplication in
+	  procesabloque
+
+2007-03-16 [r8]  
+
+	* Refactoring if-elseif, setting clid on newexten prio 1 for
+	  showing dialed number. Changing settext to setclid
+
+2007-03-15 [r7]  
+
+	* Set svn version to op_server.pl
+
+2007-03-15 [r6]  nicolas:
+
+	* Update docs
+
+2007-03-14 [r5]  
+
+	* Update documentation. Make settext to be persistent overriding
+	  callerid values sent by regular states. Do not default to state
+	  up for events without state
+
+2007-03-14 [r4]  
+
+	* Reorganize svn, remove compiled flash movies from repository
+
+2007-03-14 [r3]  
+
+	* fix autosip crash after asterisk restart
+
+
+Version .27
+
+Mon Feb 26 20:33:03 ART 2007  nicolas@house.com.ar
+  * sample config update with alarm
+
+Mon Feb 26 20:31:40 ART 2007  nicolas@house.com.ar
+  * new .swf
+
+Mon Feb 26 20:31:05 ART 2007  nicolas@house.com.ar
+  * timer alarms for buttons
+
+Mon Feb 26 19:23:48 ART 2007  nicolas@house.com.ar
+  * queuestatus fixes
+
+Mon Feb 26 19:19:36 ART 2007  nicolas@house.com.ar
+  * multiserver mionitoring, no security code fixes, userevent updates for 1.4, doc updates
+
+Tue Jan 23 19:09:50 ART 2007  nicolas@house.com.ar
+  * some callerid modifications
+
+Tue Jan 23 17:35:10 ART 2007  nicolas@house.com.ar
+  * reload when asterisk reload
+
+Fri Jan 19 16:22:12 ART 2007  nicolas@house.com.ar
+  * callerid name in clidformat and some documentation updates
+
+Fri Dec 22 20:57:39 ART 2006  nicolas@house.com.ar
+  * Exception for mISDN sessions
+
+Thu Dec 21 20:18:28 ART 2006  nicolas@house.com.ar
+  * updated CHANGES
+
+Thu Dec 21 20:16:08 ART 2006  nicolas@house.com.ar
+  * restructure some if blocks, formatting fixes
+
+Thu Dec 21 20:14:51 ART 2006  nicolas@house.com.ar
+  * fix big memory leak
+
+Thu Dec 21 20:08:27 ART 2006  nicolas@house.com.ar
+  * updated swf back to new version
+
+Mon Dec 11 12:23:31 ART 2006  nicolas@house.com.ar
+  * link fix
+
+Mon Nov 20 11:40:40 ART 2006  nicolas@house.com.ar
+  * defaults to free after fopledcolor
+
+Fri Nov 17 21:02:38 ART 2006  nicolas@house.com.ar
+  * update docs and binary swf
+
+Fri Nov 17 21:00:38 ART 2006  nicolas@house.com.ar
+  * fix event order to give precedence to astdb fopledcolors
+
+Fri Nov 17 21:00:04 ART 2006  nicolas@house.com.ar
+  * update docs on astdbkey and groupcount features
+
+Fri Nov 17 20:58:56 ART 2006  nicolas@house.com.ar
+  * update ming source for flash client adding images and textexten
+
+Fri Nov 17 20:57:07 ART 2006  nicolas@house.com.ar
+  * add park support to dhtml panel (thanks Jeremy)
+
+Thu Nov 16 14:46:07 ART 2006  nicolas@house.com.ar
+  * add CHANGES file that was somewhat forgotten
+
+Thu Nov 16 14:43:18 ART 2006  nicolas@house.com.ar
+  * Improve Autosip buttons
+
+Tue Nov 14 14:18:57 ART 2006  nicolas@house.com.ar
+  * fix groupcount outbound label
+
+Mon Nov 13 20:57:26 ART 2006  nicolas@house.com.ar
+  * groupcount example button
+
+Mon Nov 13 20:47:37 ART 2006  nicolas@house.com.ar
+  * add norwegian lang
+
+Mon Nov 13 20:46:29 ART 2006  nicolas@house.com.ar
+  * doc formatting fix
+
+Mon Nov 13 20:46:05 ART 2006  nicolas@house.com.ar
+  * assorted fixes
+
+Mon Nov 13 20:45:37 ART 2006  nicolas@house.com.ar
+  * groupcount button feature
+
+Mon Nov 13 20:44:52 ART 2006  nicolas@house.com.ar
+  * add image primitive
+
+Mon Nov 13 20:43:03 ART 2006  nicolas@house.com.ar
+  * lang updates
+
+Mon Nov 13 20:41:47 ART 2006  nicolas@house.com.ar
+  * docs update
+
+Fri Oct 20 15:46:47 ART 2006  nicolas@house.com.ar
+  * add images
+
+Wed Oct 11 18:29:05 ART 2006  nicolas@house.com.ar
+  * config doc and style update
+
+Wed Oct 11 18:22:26 ART 2006  nicolas@house.com.ar
+  * config and lang updates
+
+Wed Oct 11 18:19:17 ART 2006  nicolas@house.com.ar
+  * Agent fixes
+
+Mon Oct  9 17:37:19 ART 2006  nicolas@house.com.ar
+  * Fix ASTDB
+
+Mon Oct  9 17:36:54 ART 2006  nicolas@house.com.ar
+  * new swf
+
+Thu Sep 14 19:00:16 ART 2006  nicolas@house.com.ar
+  * clidname
+
+Mon Aug 28 16:55:23 ART 2006  nicolas@house.com.ar
+  * comment config
+
+Sat Sep  9 13:13:42 ART 2006  nicolas@house.com.ar
+  * Fix reverse transfer for trunk buttons
+
+Sat Sep  9 13:13:29 ART 2006  nicolas@house.com.ar
+  * typo in dhtml panel
+
+Sat Sep  9 13:12:55 ART 2006  nicolas@house.com.ar
+  * doc update
+
+Mon Aug 28 16:45:20 ART 2006  nicolas@house.com.ar
+  * Assorted patches, show borders, paused, attendant transfers
+
+Thu Jun  1 10:12:09 ART 2006  nicolas@house.com.ar
+  * auto_sip buttons entry in doc and config
+
+Thu Jun  1 10:08:18 ART 2006  nicolas@house.com.ar
+  * fix warning when computing queue positions
+
+Thu Jun  1 10:07:27 ART 2006  nicolas@house.com.ar
+  * add queue_object hash to keep track of agent status per queue (talking, ready, unavailable)
+
+Thu Jun  1 10:06:02 ART 2006  nicolas@house.com.ar
+  * first pass at auto_sip buttons
+
+Thu Jun  1 10:04:31 ART 2006  nicolas@house.com.ar
+  * fix crash on meetme transfers to voicemail
+
+Thu Jun  1 09:59:22 ART 2006  nicolas@house.com.ar
+  * rename hash to better name and remove some comments for queue-agents
+
+Thu Jun  1 09:57:16 ART 2006  nicolas@house.com.ar
+  * flash client optimization on debug window
+
+Fri May 19 17:41:26 ART 2006  nicolas@house.com.ar
+  * tovoicemail fix and label renaming fix
+
+Fri May 19 17:39:43 ART 2006  nicolas@house.com.ar
+  * queue position fix
+
+
+Version .26
+
+Tue May  9 19:24:08 ART 2006  nicolas@house.com.ar
+  * New dhtml client
+
+Tue May  9 15:05:22 ART 2006  nicolas@house.com.ar
+  * assorted client fixes, removed scriptable actions for now,
+    add side scrolling when you have buttons that do not fit
+    on the screen.
+
+Tue May  9 15:03:27 ART 2006  nicolas@house.com.ar
+  * remove scriptable actions and assorted bug fixes
+
+Sat Apr 29 15:41:14 ART 2006  nicolas@house.com.ar
+  * ming client updates
+
+Sat Apr 29 15:40:06 ART 2006  nicolas@house.com.ar
+  * formatting fixes. Add includes to op_style.cfg
+
+Sat Apr 29 13:04:58 ART 2006  nicolas@house.com.ar
+  * set clid format on link event
+
+Sat Apr 29 13:04:43 ART 2006  nicolas@house.com.ar
+  * fix auto counters when using regexp butons
+
+Sat Apr 29 13:03:25 ART 2006  nicolas@house.com.ar
+  * scriptable actions, tovoicemail actions, formatting fixes
+
+Sat Apr 29 12:58:54 ART 2006  nicolas@house.com.ar
+  * includes style, simplify read configs, formatting fixes, removed comments
+
+Sat Apr 29 12:57:22 ART 2006  nicolas@house.com.ar
+  * log fake events
+
+Sat Apr 29 12:52:48 ART 2006  nicolas@house.com.ar
+  * transfer to voicemail
+
+Sat Apr 29 11:40:50 ART 2006  nicolas@house.com.ar
+  * agent status updates, paused and some formatting fixes
+
+Sat Apr 29 11:13:04 ART 2006  nicolas@house.com.ar
+  * clid privacy per button
+
+Sat Apr 29 11:02:16 ART 2006  nicolas@house.com.ar
+  * background jpg for buttons
+
+Thu Mar 23 14:47:57 ART 2006  nicolas@house.com.ar
+  * remove duplicated code
+
+Thu Mar 23 14:47:18 ART 2006  nicolas@house.com.ar
+  * suse init fixes
+
+Thu Mar 23 14:46:39 ART 2006  nicolas@house.com.ar
+  * configurable dimm/alpha
+
+Thu Mar 16 16:14:36 ART 2006  nicolas@house.com.ar
+  tagged 0.26
+
+Version .25
+
+Mon Mar 13 17:01:23 ART 2006  nicolas@house.com.ar
+  * documentation updates
+
+Mon Mar 13 16:56:00 ART 2006  nicolas@house.com.ar
+  * queueagent optimizations
+
+Fri Mar 10 17:33:25 ART 2006  nicolas@house.com.ar
+  * clean internal state when connecting to server
+
+Fri Mar 10 17:07:09 ART 2006  nicolas@house.com.ar
+  * add_server_to_fake_events
+  We need to add the server header to fake events!
+
+Fri Mar 10 17:06:44 ART 2006  nicolas@house.com.ar
+  * formatting_fixes
+
+Fri Mar 10 17:05:03 ART 2006  nicolas@house.com.ar
+  * update docs
+
+Mon Feb 27 19:40:37 ART 2006  nicolas@house.com.ar
+  * updated docs
+
+Mon Feb 27 19:27:28 ART 2006  nicolas@house.com.ar
+  * do not send settimer for nonexistant queues
+
+Mon Feb 27 19:25:36 ART 2006  nicolas@house.com.ar
+  * Clear counter when there are no calls in queue
+
+Mon Feb 27 17:27:41 ART 2006  nicolas@house.com.ar
+  * restrict to channel name same as mybutton
+
+Tue Feb 21 17:26:13 ART 2006  nicolas@house.com.ar
+  * fix meetme sccp
+
+Tue Feb 21 16:09:02 ART 2006  nicolas@house.com.ar
+  * Catalan language
+
+Mon Feb 20 16:10:40 ART 2006  nicolas@house.com.ar
+  * suse_init
+
+Mon Feb 20 15:55:22 ART 2006  nicolas@house.com.ar
+  * link_buttons
+  Add url and target to the button definition so you can hyperlink
+  to anything you want from any button.
+  Also added the enable_label_background that sets the background
+  color on the labels to the led colors depeding on state.
+
+Thu Feb  2 17:51:42 ART 2006  nicolas@house.com.ar
+  * listen_addr
+  Add listen_addr parameter to select the ip address the server will bind to
+
+Tue Jan 31 20:49:13 ART 2006  nicolas@house.com.ar
+  * NewSwf
+
+Tue Jan 31 20:47:11 ART 2006  nicolas@house.com.ar
+  * fontfix
+  Fix several font issues on the flash client
+
+Tue Jan 31 20:41:04 ART 2006  nicolas@house.com.ar
+  * Remove channel from queue hash on rename.. fix for queue buttons
+
+Tue Jan 31 20:32:40 ART 2006  nicolas@house.com.ar
+  * Ignore <MASQ> & <ZOMBIE> from trunk sessions, fix TRUNK problem.
+
+Tue Dec 27 00:33:17 ART 2005  nicolas@house.com.ar
+  * Fixed trunk sticky problem
+
+  - Fixed choppig the last character from op_server.cfg
+    when there was no end of line
+
+  - Fixed text on buttons when using crypto and the text
+    was empty
+
+  - Changed the mute/unmute to gray out a button when muted
+
+  - Fixed agentlogoff for channels with a hypen in the name
+
+  - New states for sccp, thanks to Laurent Mele
+
+  - New parameter to pass to operator_panel.swf: nohighligh. If set
+    to 1, button highlighting when mouse over will be disabled.
+
+  - New LEGEND attributes: URL, TARGET, NO_BASE64. Url for making an
+    hyperlink out of the legend to that url, TARGET to use that html
+    target when clicking the hyperlink, and NO_BASE64 to not convert
+    the legend to base64 (it is not useful at all) 
+
+  - Drag&Drop channels into queues. Just drag an unused button into a 
+    queue button and it will be added to that queue. If dragged again,
+    it will remove it from that queue.  
+
+  - astmanproxy support
+
+  - Added Meetme participants buttons (they show each participant)
+
+  - Added Queue position buttons (they show each position on a queue, 
+    with the corresponding timer and callerid)
+
+  - Added queue_hide option in op_server.cfg. If set, queue position
+    buttons won't be displayed if they are unused (so you only see 
+    the actual number of people waiting on the queue)
+
+  - Fixed bugs for queue positions when reloading
+
+  - Fixed timers when reloading
+
+.24
+ Sep 12 2005:
+
+  - Small bugfix, the security code is now working for everybody
+
+  - Added swedish translation
+
+  - Improved efficiency of regexp button matching
+
+.23
+ Sep 9 2005:
+
+  - FOP now tries to keep track of the number of agents logged into
+    each queue, and displays that info in the queue detailed status box.
+
+  - Added Mask filter for manager events. The new parameter 
+    is "event_mask" and should be written just below each server
+    definition. View op_server.cfg for a sample. 
+
+  - Added Queue Position status. Just change your queue buttons to use
+    more than one position. Then, instead of having a summary button for
+    your queue you will have each button position occupied by the person 
+    waiting  in that same position on your queue. You can drag them as any
+    other button to transfer.
+
+  - Internationalization support. 'language' configuration directive
+    in op_server.cfg and op_lang_XX.cfg files and help_XX.html
+
+  - Support for command line parameters, start the server with --help
+    to see the list of supported options
+
+  - The web_hostname and port settings in op_server.cfg are now optional
+    If omited it will connect to the same host where the .swf resides and
+    port 4445
+
+  - Added restriction for mybutton to FOP_Popup userevent, just add the
+    (optional) Button parameter with the button position (that must be
+    set in the client's mybutton parameter)
+
+      UserEvent(FOP_Popup|URL: page.php?e=${EXTEN}^Target: top^Button: 1)
+
+  - Added font and shadow color parameters for button labels, text
+    legends, clid and timer. In op_style.cfg you have 4 optional new
+    parameters:
+
+        label_font_color = 000000
+        label_shadow_color = FFFFFF
+        clid_font_color = 000000
+        timer_font_color = 4000FF
+
+    You have to put the hex color code for each one. To change the color of
+    a legend use the parameter:
+
+        font_color = FF0000
+
+  - Improved debian init script. Thanks to Tzafir Cohen.
+
+  - It uses a lot less CPU than previous versions on heavy asterisk boxes
+
+  - Improved support for parking when using native sip transfers
+
+  - Minor bugfixes
+
+.22
+ Jun 9 2005:
+  
+  - Minor bugfixes
+
+.21
+ May 29 2005:
+
+  - You can use 'transparent' as a fade_color for a button in 
+    op_style.cfg. That button will only display its borders, with
+    no background color. You can use the background.jpg in creative
+    ways now.
+
+  - The restrict input parameter can be set to a channel name
+    instead of just the button possition. The restricted button
+    will be hightlithed.
+
+  - Added margintop and marginleft to the input parameters taken by
+    operator_panel.swf, to set the global margins for the swf object.
+    You can experiment by loading the .swf file directly like:
+    operator_panel.swf?margintop=20&marginleft=40
+
+  - Added voicemail_extension parameter to op_server.cfg. If set,
+    FOP will originate a call to that extension when double clicking
+    on the MWI icon.
+
+  - Added version checking between client & server
+
+  - You can disable the icon for a button by using icon=0
+
+  - Added support for Zap DND state. You have to define the 'dnd'
+    family in op_astdb.cfg
+
+  - Added astdb checks. See op_astdb.cfg and extensions.conf.sample
+    for details. You can check for day/time mode or anything that its
+    stored on asterisk db.
+
+  - Changed the PARKXXX buttons to PARK/XXX for consistency. The old
+    syntax will still work fine.
+
+  - Added monitoring for callerid instead of channel name. Use
+    [CLID/XXXXXX] as the button name in op_buttons.cfg. Its experimental
+    Commands like originates and others might not work. This kind
+    of button will work with CVS-HEAD and without using the dial 'o'
+    flag.
+
+  - Added persistent security code. It remembers your last input so
+    you don't have to complete it the next time you open FOP.
+
+  - Added Panel_Context=* to op_buttons.cfg files, with it, that entry
+    will be added to every panel context defined.
+
+  - Fixed callerid on CVS-HEAD, now it works without using
+    the dial 'o' flag
+
+  - Added agent status. It displays Idle status an its
+    timers, and refresh queue statistics after each agent
+    call. Set agent_status to 1 in op_server.cfg
+
+  - Added the option to change the led color from asterisk's
+    dialplan:
+
+    exten => 1,1,UserEvent(FOP_ledcolor|Color: 0x0000FF^State: 0)
+
+    The color can be any hex value. The State is:
+
+       0 for available status (channel not in use)
+       1 for busy status (channel in use)
+       2 for agent status (channel not in use and logged in agent)
+
+  - Added the option to fire screen pops from asterisk's
+    dialplan:
+
+    exten => 1,1,UserEvent(FOP_Popup|URL: page.php?e=${EXTEN}^Target: top)
+
+  - Removed some DOWN status events that were redundant
+
+  - Added callerid name in screen popups, look at the
+    mypage.php sample in the html directory 
+
+  - Initial Status is fetched from op_server.pl memory
+    instead of querying asterisk every time. Saves lots
+    of asterisk resources and speeds things up
+
+  - Fixed infobox bug when a button has multiple matches
+
+  - Background image. Just place a background.jpg file
+    in the same directory as the .swf file and it will
+    be displayed as the background. The canvas size is
+    996x600
+
+  - REGEXP buttons. Wildcard buttons are discarded in
+    favor of the more powerful REGEXP buttons. If you
+    use wildcard buttons, replace them with a REGEXP
+    (Ex: if you have [SIP/*] change it to [_SIP/.*])
+
+  - The security code is now optional (leave it blank
+    in op_server.cfg for no security code when performing 
+    actions)
+
+  - Added absolute timeout for transferred calls
+
+  - Added the option to restart asterisk instead of reload
+    the panel when hitting the reload button (enable_restart
+    in op_server.cfg)
+
+  - Reworked some button matching routines, now it should
+    support Modem[i4l], oh323/* and mISDN
+
+.20
+ Feb 22 2005:
+
+  - Added support for monitoring multiple asterisk servers
+
+  - Added wildcard buttons (IAX2/*)
+
+  - Added Park Slot buttons (PARK701)
+
+  - Barge Muted (barge_muted in op_server.cfg)
+        Will start the 3rd leg muted when barging in
+
+  - CallerID Privacy (clid_privacy in op_server.cfg)
+        Will hide the callerid number in the buttons
+
+  - Show IP address of peers (show_ip in op_server.cfg)
+        Will show the ip address of peers in their buttons
+
+  - Text legends (LEGEND primitive in op_buttons.cfg)
+
+  - Highlight of linked buttons
+
+  - Added Mailbox parameter to the button definition
+
+  - You can specify a channel name in the dial parameter
+    when using click-to-dial features, thus making it easier
+    to implement
+
+.19
+ Nov 04 2004:
+
+  - Improved call details, now there is a queue/agent information
+    window and last call details window.
+
+  - Bugfixes and visual layout tweaks. You can set the highlight color, etc.
+
+  - You can define a distinct style per panel context. See op_style.cfg
+
+  - You can include files in op_buttons.cfg with the keyword 'include =>'
+
+  - The swf client is compressed and much smaller.
+
+  - When op_server.pl recconects, it close flash clients connections to
+    force a reconnect and update on their status.
+
+.18
+ Oct 29 2004:
+
+  - Ming client is now the default, the new features work with
+    that client only.
+
+  - Led color configurable via op_style.cfg
+
+  - More label renaming options 
+    (rename to agent name, rename queuememebers, etc)
+
+  - Option to change led color for logged in agents
+
+  - New click to dial feature, accesible via javascript
+    (examples in the html subdir)
+
+  - Ability to draw rectangles (see op_buttons.cfg for examples)
+
+  - Added polling for IAX presence 
+
+.17
+ Oct 21 2004:
+
+  - Mostly a bug fix release. Fixed the reload button in the ming client.
+
+  - Added polling of agents status on connect 
+
+  - Initial take on showing detail info on each agent
+
+.16
+ Oct 20 2004:
+
+  - Bug fixes: parked channel feature works again, ringing state too.
+
+  - Encryption is now optional, you can enable or disable it by changing
+    enable_crypto in op_style.cfg (while is this parameter in op_style
+    you may ask? well, the client has the ability to request encryption or
+    not, op_style.cfg sets not only visual parameters, but any client
+    parameter. I might change the configuration file name to op_client.cfg
+    in the future. Without encryption the client uses less CPU.
+
+  - Include the option for polling voicemail status together with sip
+    peers (poll_voicemail in op_server.cfg)
+
+  - New feature: ability to rename button labels when agents log in (
+    rename_label_agentlogin and rename_label_callbacklogin inside
+    op_server.cfg)
+
+  - New Ming client included. Ming is a library for generating .swf files
+    with wrappers in several languages. I used the perl wrapper to produce
+    a complete client. The source is included in the ming-source directory
+    The precompiled .swf file is in the html directory together with the
+    native flash client. Further development might be done exclusively in
+    Ming.
+
+  - The Ming client treats fonts a little diferent. If you enable 
+    use_embed_fonts in op_style.cfg, then all the font_family values will
+    be overriden by the only embedded font in the .swf. The
+    embedded font looks uniform compared to system (or browser) fonts. You 
+    *can* use any font_family available in your platform: just disable the 
+    use of embed fonts and select the family for each legend in a button.. 
+    but you might end up with chopped text depending of the type of font 
+    you use.
+
+
+.15
+ Oct 1st 2004:
+
+  - New configuration file format, there is an utility to convert
+    your old configuration to the new format. See UPGRADE, and don't
+    forget to backup first. Be sure to run the utility only with
+    old configuration files, use it once and then remove it just in
+    case.
+
+  - Fixed MessageWaiting when channel was in another context
+
+  - MD5 Authentication to Asterisk Manager (md5_auth in op_server.cfg)
+  
+  - Improved context handling in general. Now you can have a security
+    code for each context, as well as meetme rooms to use for bargein.
+
+  - There is no more auto_conf_exten for finding an empty meetme for
+    barge-ins. You now have to specify the rooms available for that
+    feature with the parameter barge_rooms in op_server.cfg
+
+  - Timers are now polled from Asterisk on initial connect. (If you open
+    the panel when a conversation was going, you will see the real duration
+    of the call)
+
+  - TEA Encryption for messages sent from server to client. MD5 used for
+    hashing the password.
+
+  - Many cosmetical changes to the flash movie, as well as optimizations
+    and rewrites. There are new icons, animations, etc.
+
+  - More information available when a call is disconnected, including
+    queue status information (completed calls, average holdtime, etc)
+    To get the info double click on the arrow when a call is finished.
+
+  - Added ability to mute/unmute meetme participants by clicking on the
+    arrow.
+
+  - Supports for register/unregister/unreachable/lagged realtime events
+    for SIP and IAX peers
+
+  - You can restrict the drag and drop commands to one button only, see
+    index-restrict.html in the html subdirectory
+
+.14
+ Jul 28th 2004:
+
+  - You can run the op_server.pl dettached from the console by starting it
+    with the parameter '-d'. There are sample init scripts in the init 
+    directory for redhat and debian.
+
+  - You can now drag a parked channel and transfer it to an available 
+    extension just like any other transfer.
+
+  - Changed to work well with Asterisk RC1 (IAX2 channel names have changed
+    from "IAX2[ext@context]" to IAX2/ext@context. Your IAX2 channels in 
+    op_buttons.cfg must be renamed if you use RC1. If you do not user RC1,
+    it might work as before, but I have not tested it.
+
+  - The flash side has a lot of improvements and changes. The fonts _sans
+    and _serif are now embedded, so they will look consistent in different
+    client computers (the tradeoff is a bigger swf file). When a channel is 
+    offline, the label text will also be grayed out. When dragging an icon, 
+    there is now visual feedback for the destination button. Added transparent
+    mask to the icons to make drag easier. If the client looses connection to
+    the op_server.pl, it will try to reconnect by itself (it does not work 
+    on linux, its a flash bug).
+
+  - Also in the flash side, there are new elements. A little arrow showing 
+    the direction of the call. And if you double click that little arrow 
+    after a call is made, you can see the last call status. The new parameters
+    for op_style.cfg are described in UPGRADE
+
+  - There is a new parameter in op_server.cfg: clid_format
+    You can choose the format for the caller id to be presented in the client
+    The letter 'x' will be replaced with a number, any other text will be
+    preserved. 
+
+.13
+ Jul 12th 2004:
+
+  - Fixed an annoying bug that prevented the initial status to be displayed
+    (the context for wich the panel request events was sent after the
+    status events, so they were ignored by the flash client)
+
+  - Fixed another annoying bug, the clid text was of an incorrect height,
+    and the drag and drop was erratic because of this
+
+  - Improved the parking display on the channels. Now you have a flashing
+    led and a text in the button itself
+
+  - Added a timer with the duration of a call to each button
+
+  - Still more bugs to clean on the trunk feature, please report feedback
+    on the mailing list..
+
+.12
+ Jul 5th 2004:
+
+  - Added a caller id display on the button itself
+
+  - The status of meetme and queues is queried on initial connect
+
+  - The event handling was rewriten. Now the flash client receives the
+    events for its own context (in previous versions, the events were
+    broadcasted to all clients)
+
+  - Cleaned the debug output a bit. 
+
+  - You can send a USR1 signal to the server and look at some state 
+    variables.
+
+  
+.11
+ Jun 29th 2004:
+
+  - Added 'trunk' buttons. You can define many buttons for just one user.
+    It is not well tested, as I do not have the means to test it. It might
+    introduce bugs!
+
+  - Added CRM software integration. You can monitor a button, and when it
+    rings, a web page is requested in the url and target you specify, with
+    the clid sent as a GET variable.
+
+  - The debug option in op_server.cfg has changed. See the UPGRADE file or
+    the online documentation, or the comments on op_server.cfg
+  
+.10
+ Jun 22th 2004:
+
+  - Added Contexts for the panel. You can have one server and several 
+    different panels.
+
+  - Added 'Parked calls' as a status for a defined channel/button
+
+  - Fixed important bugs (MWI with contexts not working, transfers not
+    working in particular situations)
+
+  - Totally new webpage, for up to date documentation, go there
+
+  - You can send a HUP signal to op_server.pl and it will rewrite the
+    configuration files for the flash applet.
+
+  - New RELOAD button in flash, it will reread the server configuration 
+    and refresh the display.
+
+.09 
+ Jun 8th 2004:
+
+  - Added Message Waiting count. When passing the mouse over the envelope
+    icon the status shows the New and Old messages in that mailbox
+
+  - The server sets the CallerID when originating a call.
+  
+  - Changed the debug parameter in op_server.cfg to a bitmap for greater 
+    control off debug output.
+    
+  - Changed the way it handles extension numbers (column number 4) in 
+    op_buttons.cfg. Now you can specify the context where the extension 
+    resides by using the syntax:
+    
+      extension@context  
+    
+    If the extension is not reachable from the default context, you must 
+    specify its context there.
+    
+  - Changed the way it handles IAX2 channels. To specify an IAX channel you 
+    have to specify its name only, without '@context', eg: 
+    
+      IAX2[john]
+     
+
+.08
+ Jun 2nd 2004:
+
+  - Added "Extra Info" Input box
+
+      You can write any text you want in that box. When transferring or 
+      originating a call, that text will be used as the callerid text for
+      that call. This way you can pass usefull information to the person
+      you are transferring the call. In order for this feature to work you
+      need to modify your dialplan ("extensions.conf"). There is an example
+      extensions.conf provided.
+
+  - Configurable layout of the toolbar
+
+      The bar at the top of the flash applet is now configurable. There are
+      new parameters in op_style.cfg to adjust the layout:
+
+        clid_label=Extra Info:
+        security_label=Security Code:
+        btn_help_label=Help
+        btn_log_label=Debug
+        show_security_code=1
+        show_clid_info=2
+        show_status=3
+        show_btn_help=4
+        show_btn_debug=5
+
+      The numbers in the show_xxx varialbes indicates the position in the 
+      toolbar. If you do not want to display an element, set it to 0. 
+
+  - Added HELP button and text to the flash movie
+
+      You can add a help.txt file in the same directory as the flash movie
+      on your webserver. This file will be displayed inside the help window
+      of the flash movie. You can use basic html tags. You *must* start the
+      file with the words "text="
+       
+.07
+  May 19th 2004:
+
+  - Added conference buttons
+
+      The channel column (first one) in op_buttons.cfg must be named with 
+      the number of the meetme conference. Eg: you have a meetme conference
+      number 901, the name of the channel must be '901'. Look at the example
+      config.
+
+  - Added tranfer of an empty channel to an already connected call and 
+    automatically conference the three parties together
+
+      You have two new parameters in op_server.cfg:
+
+        auto_conference_extension
+        conference_context 
+
+      Set them up and look at op_server.cfg for an example configuration for 
+      asterisk in extensions.conf and meetme.conf
+
+  - Added origination of calls
+
+      You can drag an available button to another available button. This
+      will originate a call from the first channel to the extension defined
+      in the desintation button.
+
+  - More readable output log for op_server.pl
+
+.06
+  May 12th 2004
+
+  - Added voicemail notification: 
+
+      There is a new parameter in op_buttons.cfg. The last column has the 
+      voicemail context of the extension. You can leave it blank and it will 
+      not check/show the voicemail status for that button (if its a queue 
+      button or an extension without voicemail on). 
+
+      You also have three new parameters in op_style.cfg:
+
+        mail_margin_left
+        mail_margin_top
+        mail_scale
+
+      to set the placement and size of the voicemail icon in the button.
+
+.05
+  Apr 17th 2004
+
+  - Fixed a typo that prevented the applet from working.
+
+.04
+  Apr 16th 2004
+
+    - Changed configuration files
+
+        The configuration files are different: in version .03 the
+        op_server.cfg had the button configuration and layout. In version
+        .04 that information is stored in op_buttons.cfg. There are 2 new
+        parameters in op_buttons.cfg, extension and icon.
+
+        op_server.cfg is now used for the parameters of the op_server
+        itself, like port to listent to, security code, debug level. You
+        don't have to modify op_server.pl anymore. All configuration is done
+        in the cfg files.
+
+        There is a new configuration file: op_style.cfg with the style and
+        size of the buttons.
+
+     - Added Queues buttons
+
+         You can display call queues on a button. Just put the name
+         of the queue as the channel name.
+
+     - Reconnection to Asterisk Manager port
+
+         The op_server now tries to reconnect to Asterisk Manager
+         port in case of disconnection. So if you restart Asterisk
+         you don't need to restart the op_server.pl, it will reconnect
+         by itself.
+
+     - Totally redone flash movie: operator_panel3.swf
+     
+         The flash applet in version .04 is totally rewriten. IÏt 
+         has no bitmaps. All graphics are vector based, so you can
+         change the style and sizes without loosing detail. There
+         is no timer or status on each button in order to save space.
+         You can see the status of a channel by passing the mouse
+         over the red oval.
+
+         The new op_server.pl is compatible with the flash applet
+         of previous versions (operator_panel.swf), with fixed 24 
+         buttons display, timers, and scrolling info on each channel.

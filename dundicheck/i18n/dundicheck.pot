@@ -1,0 +1,67 @@
+# IssabelPBX language template
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "DUNDi Lookup Registry"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"This module will check all configured and enabled DUNDi trunks as part of "
+"the extension registry function, and report back conflicts if\t\tother sites "
+"have the same extensions. This does not filter against the route patterns - "
+"it will take any number being created and\t\treport a conflict if that trunk "
+"could be used to call that number."
+msgstr ""
+
+#, php-format
+msgid "DUNDi Lookup"
+msgstr ""
+
+msgid "DUNDi: "
+msgstr ""
+
+#, php-format
+msgid "DUNDi Information: %s"
+msgstr ""
+
+#, php-format
+msgid ""
+"The number you are trying to use, %s, is currently available from one of the "
+"DUNDi routes you have configured on your system. As a result you cannot use "
+"this number on this system. Even if the route configuration does not pass "
+"this number you will still be blocked from creating it. If this is not an "
+"error, then you will have to un-publish this number on your remote DUNDi "
+"setup, disable the DUNDi trunk in question, or disable this module to avoid "
+"the checks. Otherwise, remove %s from the remote system before creating this "
+"one."
+msgstr ""
+
+msgid "No matches found"
+msgstr ""
+
+#, php-format
+msgid "Results from DUNDi trunk: %s"
+msgstr ""
+
+msgid "Lookup Number:"
+msgstr ""
+
+msgid "Lookup Another Number:"
+msgstr ""
+
+msgid "Lookup"
+msgstr ""

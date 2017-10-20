@@ -1,0 +1,13 @@
+input.validation-error {
+	border:2px solid red;
+}
+div.sip-errors {
+	border:3px solid red;
+	background-repeat: repeat-x;
+}
+div.sip-errors p {
+	text-align:center;
+	color:red;
+	font-weight:bold;
+	text-decoration:underline;
+}

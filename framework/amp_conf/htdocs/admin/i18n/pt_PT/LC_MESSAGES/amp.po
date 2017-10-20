@@ -1,0 +1,5427 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <fmvillares@ciudad.com.ar>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: GpwmPOT-Creation-Date: 2005-08-17 10:15-0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-10 07:39+1000\n"
+"PO-Revision-Date: 2005-08-20 15:30-0300\n"
+"Last-Translator: Grupo de Pesquisa Web Midia <http://gpwm.devin.com.br>\n"
+"Language-Team: Português\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../core/page.did.php:70
+msgid " (toggle sort)"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1179
+msgid ""
+" The modules in the Extended repository are less common and may receive "
+"lower levels of support. The Unsupported repository has modules that are not "
+"supported by the IssabelPBX team but may receive some level of support by the "
+"authors."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:76
+msgid ""
+" error(s) occurred, you should view the notification log on the dashboard or "
+"main screen to check for more details."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:86
+msgid " extension number already in use by: "
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:536
+#, php-format
+msgid "%s %s will be disabled"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:486
+#, php-format
+msgid "%s %s will be downgraded to online version %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:499
+#, php-format
+msgid "%s %s will be downloaded and installed"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:526
+#, php-format
+msgid "%s %s will be enabled"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:514
+#, php-format
+msgid "%s %s will be installed and enabled"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:483
+#, php-format
+msgid "%s %s will be re-installed to online version %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:547
+#, php-format
+msgid "%s %s will be uninstalled"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:512
+#, php-format
+msgid "%s %s will be upgraded to %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:480
+#, php-format
+msgid "%s %s will be upgraded to online version %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:301
+#, php-format
+msgid "%s (Cur v. %s) should be upgraded to v. %s to fix security issues: %s\n"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:273
+#, php-format
+msgid "%s (current: %s)"
+msgstr ""
+
+#: ../core/page.trunks.php:410
+#, php-format
+msgid "%s Channel %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:232
+#, php-format
+msgid "%s New modules are available"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:119
+#, php-format
+msgid "%s admins"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:171
+#, php-format
+msgid "%s already exists"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:532
+#, php-format
+msgid ""
+"%s cannot be disabled because the following modules depend on it: %s Please "
+"disable those modules first then try again."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:522
+#, php-format
+msgid ""
+"%s cannot be enabled: %s Please try again after the dependencies have been "
+"installed."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:495
+#: amp_conf/htdocs/admin/page.modules.php:507
+#, php-format
+msgid ""
+"%s cannot be installed: %s Please try again after the dependencies have been "
+"installed."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:543
+#, php-format
+msgid ""
+"%s cannot be uninstalled because the following modules depend on it: %s "
+"Please disable those modules first then try again."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:474
+#: amp_conf/htdocs/admin/page.modules.php:507
+#, php-format
+msgid ""
+"%s cannot be upgraded: %s Please try again after the dependencies have been "
+"installed."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:402
+#, php-format
+msgid "%s disabled successfully"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:393
+#, php-format
+msgid "%s enabled successfully"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:371
+#: amp_conf/htdocs/admin/page.modules.php:383
+#, php-format
+msgid "%s installed successfully"
+msgstr ""
+
+#: ../core/install.php:812
+#, php-format
+msgid "%s prepared"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:412
+#, php-format
+msgid "%s uninstalled successfully"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:698
+#, php-format
+msgid "%s version %s or below is required, you have %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:711
+#, php-format
+msgid "%s version %s or higher is required, you have %s"
+msgstr ""
+
+#: install.php:8
+#, php-format
+msgid "'cp -rf' from src: '%s' to dst: '%s'...details follow"
+msgstr ""
+
+#: ../core/page.trunks.php:773
+msgid "(ie. NXXNXXXXXX for US/CAN 10-digit dialing, NXXXXXX for 7-digit)"
+msgstr ""
+"(EX. NXXNXXXXXX para discado de US/CAN de 10-digitos, NXXXXXX para 7-digitos)"
+
+#: ../core/page.routing.php:655 ../core/page.trunks.php:690
+msgid "(pick one)"
+msgstr "(pick one)"
+
+#: amp_conf/htdocs/admin/libraries/featurecodes.functions.php:70
+msgid "** MISSING FEATURE CODE **"
+msgstr ""
+
+#: ../core/page.routing.php:566 ../core/page.trunks.php:677
+msgid "+ Add More Dial Pattern Fields"
+msgstr ""
+
+#: ../core/page.routing.php:472
+msgid "---No Change---"
+msgstr ""
+
+#: ../core/page.routing.php:455
+msgid "---Permanent Route---"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/beta_notice.php:8
+msgid "-This page is currently BETA-"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:175
+msgid "/etc/asterisk/issabelpbx.conf already exists"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:173
+msgid "/etc/issabelpbx.conf already exists"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:112
+msgid "0 admins"
+msgstr ""
+
+#: ../core/page.routing.php:625
+msgid "011."
+msgstr ""
+
+#: ../core/page.routing.php:619
+msgid "1800NXXXXXX,1888NXXXXXX,1877NXXXXXX,1866NXXXXXX,1855NXXXXXX,1844NXXXXXX"
+msgstr ""
+
+#: ../core/page.routing.php:622
+msgid "1NXXNXXXXXX"
+msgstr ""
+
+#: ../core/page.routing.php:628
+msgid "411,311"
+msgstr ""
+
+#: ../core/page.routing.php:631
+msgid "911"
+msgstr ""
+
+#: amp_conf/bin/libissabelpbx.confgen.php:15
+#: amp_conf/bin/libissabelpbx.confgen.php:105
+#: amp_conf/bin/libissabelpbx.confgen.php:187
+#: amp_conf/bin/libissabelpbx.confgen.php:251
+msgid ""
+"; do not edit this file, this is an auto-generated file by issabelpbx\n"
+"; all modifications must be done from the web gui\n"
+"\n"
+msgstr ""
+
+#: ../core/page.advancedsettings.php:43
+msgid "<b>IMPORTANT:</b> Use extreme caution when making changes!"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:695
+#, php-format
+msgid "A %s version below %s is required, you have %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:701
+#, php-format
+msgid "A %s version newer than %s required, you have %s"
+msgstr ""
+
+#: ../core/page.routing.php:497
+msgid ""
+"A Dial Pattern is a unique set of digits that will select this route and "
+"send the call to the designated trunks. If a dialed pattern matches this "
+"route, no subsequent routes will be tried. If Time Groups are enabled, "
+"subsequent routes will be checked for matches outside of the designated time"
+"(s)."
+msgstr ""
+
+#: ../core/page.did.php:318
+msgid "A Slash ('/') is never a valid DID. Please remove it and try again"
+msgstr ""
+
+#: ../core/functions.inc.php:7197
+msgid "A description for this DID, such as \"Fax\""
+msgstr ""
+
+#: ../core/functions.inc.php:7198
+msgid ""
+"A direct DID that is associated with this extension. The DID should be in "
+"the same format as provided by the provider (e.g. full number, 4 digits for "
+"10x4, etc).<br><br>Format should be: <b>XXXXXXXXXX</b><br><br>.An optional "
+"CID can also be associated with this DID by setting the next box"
+msgstr ""
+
+#: ../core/functions.inc.php:4431 ../core/functions.inc.php:4521
+msgid "A route for this DID/CID already exists!"
+msgstr ""
+
+#: ../core/functions.inc.php:5461 ../core/functions.inc.php:5782
+#, php-format
+msgid "A route with this DID/CID: %s/%s already exists"
+msgstr ""
+
+#: ../core/page.dahdichandids.php:86
+msgid "A useful description describing this channel"
+msgstr ""
+
+#: ../core/functions.inc.php:7095
+msgid "A user will enter this password when logging onto a device."
+msgstr ""
+
+#: ../core/page.did.php:211
+msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+msgstr ""
+
+#: ../core/page.ampusers.php:242
+msgid "ALL SECTIONS"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:1353
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:1366
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:1393
+#, php-format
+msgid "AMI failure details:"
+msgstr ""
+
+#: ../core/page.advancedsettings.php:94
+#, php-format
+msgid "Acceptable Values: %s - %s"
+msgstr ""
+
+#: ../core/page.ampusers.php:187
+msgid "Access Restrictions"
+msgstr "Restrições De Acesso"
+
+#: ../core/functions.inc.php:7390 ../core/functions.inc.php:7445
+#: ../core/functions.inc.php:7490 ../core/functions.inc.php:7638
+msgid "Accountcode for this device."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:832
+msgid "Action"
+msgstr "Ação"
+
+#: amp_conf/htdocs/admin/functions.inc.php:438
+msgid "Add"
+msgstr "Adicionar"
+
+#: ../core/functions.inc.php:7751
+#, php-format
+msgid "Add %s Device"
+msgstr ""
+
+#: ../core/functions.inc.php:7753
+#, php-format
+msgid "Add %s Extension"
+msgstr ""
+
+#: ../core/page.trunks.php:464
+#, php-format
+msgid "Add %s Trunk"
+msgstr ""
+
+#: ../core/page.ampusers.php:147
+msgid "Add Administrator"
+msgstr ""
+
+#: ../core/page.dahdichandids.php:42 ../core/page.dahdichandids.php:74
+msgid "Add Channel"
+msgstr ""
+
+#: ../core/page.trunks.php:360
+msgid "Add Custom Trunk"
+msgstr "Adicionar um canal personalizado"
+
+#: ../core/page.dahdichandids.php:63
+msgid "Add DAHDI Channel"
+msgstr ""
+
+#: ../core/page.trunks.php:350
+msgid "Add DAHDi Trunk"
+msgstr ""
+
+#: ../core/page.trunks.php:359
+msgid "Add DUNDi Trunk"
+msgstr ""
+
+#: ../core/functions.inc.php:7714 ../core/page.ampusers.php:237
+msgid "Add Device"
+msgstr ""
+
+#: ../core/page.trunks.php:358
+msgid "Add ENUM Trunk"
+msgstr "Adicionar um canal ENUM"
+
+#: ../core/functions.inc.php:7085 ../core/page.ampusers.php:237
+msgid "Add Extension"
+msgstr "Adicionar Ramal"
+
+#: ../core/page.trunks.php:351
+msgid "Add IAX2 Trunk"
+msgstr "Adicionar um canal IAX2"
+
+#: ../core/functions.inc.php:7199
+msgid "Add Inbound CID"
+msgstr ""
+
+#: ../core/functions.inc.php:7198
+msgid "Add Inbound DID"
+msgstr ""
+
+#: ../core/page.did.php:74 ../core/page.did.php:148 ../core/page.did.php:179
+#: ../core/page.did.php:190
+msgid "Add Incoming Route"
+msgstr ""
+
+#: ../core/page.routing.php:323 ../core/page.routing.php:369
+msgid "Add Route"
+msgstr "Agregar Rota"
+
+#: ../core/page.trunks.php:349
+msgid "Add SIP Trunk"
+msgstr "Adicionar um canal SIP"
+
+#: ../core/page.routing.php:749 ../core/page.trunks.php:299
+msgid "Add Trunk"
+msgstr "Adicionar canal"
+
+#: ../core/functions.inc.php:7087 ../core/page.ampusers.php:102
+msgid "Add User"
+msgstr "Adicionar Usuário"
+
+#: ../core/functions.inc.php:7064
+msgid "Add User/Extension"
+msgstr ""
+
+#: ../core/functions.inc.php:7199
+msgid ""
+"Add a CID for more specific DID + CID routing. A DID must be specified in "
+"the above Add DID box. In addition to standard dial sequences, you can also "
+"put Private, Blocked, Unknown, Restricted, Anonymous and Unavailable in "
+"order to catch these special cases if the Telco transmits them."
+msgstr ""
+
+#: ../core/page.trunks.php:346
+msgid "Add a Trunk"
+msgstr "Adicionar um canal"
+
+#: ../core/functions.inc.php:7716
+msgid "Add an Extension"
+msgstr "Adicionar Ramal"
+
+#: ../core/page.trunks.php:355
+msgid "Add mISDN Trunk"
+msgstr ""
+
+#: amp_conf/htdocs/admin/helpers/issabelpbx_helpers.php:114
+#, php-format
+msgid "Add new %s &#133"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:76
+msgid ""
+"Add your email here to receive important security and module updates. The "
+"email address you provide is NEVER transmitted to the IssabelPBX remote "
+"servers. The email is ONLY used by your local PBX to send notifications of "
+"updates that are available as well as IMPORTANT Security Notifications. It "
+"is STRONGLY advised that you keep this enabled and keep updated of these "
+"important notifications to avoid costly security vulnerabilities."
+msgstr ""
+
+#: ../core/install.php:483
+msgid "Added pmmaxretries and pmminlength"
+msgstr ""
+
+#: ../core/page.routing.php:488
+msgid "Additional Settings"
+msgstr ""
+
+#: ../core/functions.inc.php:7673
+msgid "Adhoc"
+msgstr ""
+
+#: amp.i18n.php:54
+msgid "Admin"
+msgstr ""
+
+#: ../core/page.ampusers.php:208
+msgid ""
+"Admin Access<span>Select the Admin Sections this user should have access to."
+"</span>"
+msgstr ""
+"Acesso Administrativo<span>Selecione o nivel de acesso que este usuário "
+"deverá ter.</span>"
+
+#: amp_conf/htdocs/admin/views/obe.php:54
+msgid "Admin Email address"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/obe.php:30
+msgid "Admin password"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/obe.php:20
+msgid "Admin user name"
+msgstr ""
+
+#: amp.i18n.php:52
+msgid "Administrators"
+msgstr ""
+
+#: amp.i18n.php:48
+msgid "Advanced Settings"
+msgstr ""
+
+#: ../core/page.did.php:211
+msgid "Alert Info"
+msgstr ""
+
+#: ../core/functions.inc.php:7591
+msgid "All - TCP Primary"
+msgstr ""
+
+#: ../core/functions.inc.php:7592
+msgid "All - TLS Primary"
+msgstr ""
+
+#: ../core/functions.inc.php:7590
+msgid "All - UDP Primary"
+msgstr ""
+
+#: ../core/functions.inc.php:7594
+msgid "All - WS Primary"
+msgstr ""
+
+#: ../core/page.did.php:75
+msgid "All DIDs"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:983
+msgid "All available modules are up-to-date and installed."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:411
+msgid ""
+"All settings can be set from the Advanced Settings page accessible in IssabelPBX"
+msgstr ""
+
+#: ../core/page.trunks.php:528
+msgid "Allow Any CID"
+msgstr ""
+
+#: ../core/functions.inc.php:7486 ../core/functions.inc.php:7634
+msgid ""
+"Allow specific codecs, separated by the '&' sign and in priority order. E.g. "
+"'ulaw&g729'. Codecs allowed in the general settings will also be allowed "
+"unless removed with the 'disallow' directive."
+msgstr ""
+
+#: upgrades/2.8.0/custom-context.php:55
+#: upgrades/2.8.0rc1/custom-context.php:55
+msgid "Already Migrated!"
+msgstr ""
+
+#: ../core/functions.inc.php:6927 ../core/functions.inc.php:6931
+#: ../core/functions.inc.php:6965
+msgid "Always"
+msgstr "Sempre"
+
+#: ../core/page.trunks.php:683 ../core/page.trunks.php:691
+msgid "Always dial with prefix"
+msgstr ""
+
+#: amp_conf/bin/issabelpbx-cron-scheduler.php:59
+#, php-format
+msgid "An attempt to send email to: %s with online update status failed"
+msgstr ""
+
+#: ../core/page.did.php:244
+msgid ""
+"An optional delay to wait before processing this route. Setting this value "
+"will delay the channel from answering the call. This may be handy if "
+"external fax equipment or security systems are installed in parallel and you "
+"would like them to be able to seize the line."
+msgstr ""
+
+#: ../core/page.routing.php:313
+msgid ""
+"An unknown error occurred repositioning routes, refresh your browser to see "
+"the current correct route positions"
+msgstr ""
+
+#: ../core/functions.inc.php:7211
+msgid "Any DID"
+msgstr ""
+
+#: amp.i18n.php:30
+msgid "Applications"
+msgstr ""
+
+#: ../core/page.ampusers.php:232
+msgid "Apply Changes Bar"
+msgstr "Barra de Confirmação de alterações"
+
+#: amp_conf/htdocs/admin/views/menu.php:168
+msgid "Apply Config"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:88
+msgid ""
+"Are you sure you don't want to provide an email address where update "
+"notifications will be sent. This email will never be transmitted off the "
+"PBX. It is used to send update and security notifications when they are "
+"detected."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:87
+msgid ""
+"Are you sure you want to disable automatic update notifications? This could "
+"leave your system at risk to serious security vulnerabilities. Enabling "
+"update notifications will NOT automatically install them but will make sure "
+"you are informed as soon as they are available."
+msgstr ""
+
+#: ../core/page.trunks.php:716
+msgid "Are you sure you want to disable this trunk in all routes it is used?"
+msgstr ""
+
+#: ../core/functions.inc.php:7196
+msgid "Assigned DID/CID"
+msgstr ""
+
+#: ../core/functions.inc.php:7165
+msgid "Asterisk Dial Options"
+msgstr ""
+
+#: ../core/page.trunks.php:566
+msgid ""
+"Asterisk Dial command options to be used when calling out this trunk. To "
+"override the Advanced Settings default, check the box and then provide the "
+"required options for this trunk"
+msgstr ""
+
+#: ../core/install.php:13
+msgid "Asterisk General Call Pickup"
+msgstr ""
+
+#: ../core/page.trunks.php:566
+msgid "Asterisk Trunk Dial Options"
+msgstr ""
+
+#: ../core/functions.inc.php:7477 ../core/functions.inc.php:7569
+msgid "Asterisk connection type, usually friend for endpoints."
+msgstr ""
+
+#: ../core/functions.inc.php:7358 ../core/functions.inc.php:7405
+#: ../core/functions.inc.php:7468 ../core/functions.inc.php:7543
+msgid ""
+"Asterisk context this device will send calls to. Only change this is you "
+"know what you are doing."
+msgstr ""
+
+#: ../core/functions.inc.php:7642
+msgid ""
+"Asterisk dialplan extension to reach voicemail for this device. Some devices "
+"use this to auto-program the voicemail button on the endpoint. If left "
+"blank, the default vmexten setting is automatically configured by the "
+"voicemail module. Only change this on devices that may have special needs."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/welcome_nomanager.php:7
+msgid "Asterisk may not be running."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:827
+msgid "Attention"
+msgstr ""
+
+#: ../core/page.ampusers.php:166
+msgid ""
+"Authorization Type is not set to 'database' in Advanced Setting - note that "
+"this module is not currently providing access control, and changing "
+"passwords here or adding users will have no effect unless Authorization Type "
+"is set to 'database'."
+msgstr ""
+
+#: ../core/functions.inc.php:7502 ../core/functions.inc.php:7518
+msgid "Auto"
+msgstr ""
+
+#: amp_conf/htdocs/admin/functions.inc.php:229
+msgid ""
+"Auto set ZAP2DAHDICOMPAT to true because we are running a version of "
+"Asterisk greater than 1.4.21"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1196
+msgid "Basic"
+msgstr ""
+
+#: ../core/page.routing.php:474
+#, php-format
+msgid "Before %s"
+msgstr ""
+
+#: ../core/page.trunks.php:529
+msgid "Block Foreign CIDs"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:704
+#: amp_conf/htdocs/admin/page.modules.php:788
+msgid "Broken"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:143
+msgid "Bulgarian"
+msgstr ""
+
+#: ../core/functions.inc.php:799 ../core/functions.inc.php:7266
+msgid "Busy"
+msgstr ""
+
+#: ../core/functions.inc.php:7265
+msgid "Busy Voicemail if Enabled"
+msgstr ""
+
+#: ../core/functions.inc.php:7130
+msgid "CID Num Alias"
+msgstr ""
+
+#: ../core/page.trunks.php:522
+msgid "CID Options"
+msgstr ""
+
+#: ../core/functions.inc.php:7258 ../core/functions.inc.php:7267
+#: ../core/functions.inc.php:7272
+msgid "CID Prefix"
+msgstr ""
+
+#: ../core/page.did.php:205
+msgid "CID Priority Route"
+msgstr ""
+
+#: ../core/page.did.php:215
+msgid "CID name prefix"
+msgstr "Nome do prefixo CID"
+
+#: ../core/install.php:970
+msgid "CRITICAL ERROR"
+msgstr ""
+
+#: ../core/functions.inc.php:7176
+msgid "Call Forward Ring Time"
+msgstr ""
+
+#: ../core/functions.inc.php:994
+msgid "Call Recording Module Not Enabled"
+msgstr ""
+
+#: ../core/functions.inc.php:7193
+msgid "Call Screening"
+msgstr ""
+
+#: ../core/functions.inc.php:7193
+msgid ""
+"Call Screening requires external callers to say their name, which will be "
+"played back to the user and allow the user to accept or reject the call.  "
+"Screening with memory only verifies a caller for their CallerID once. "
+"Screening without memory always requires a caller to say their name. Either "
+"mode will always announce the caller based on the last introduction saved "
+"with that CallerID. If any user on the system uses the memory option, when "
+"that user is called, the caller will be required to re-introduce themselves "
+"and all users on the system will have that new introduction associated with "
+"the caller's CallerID."
+msgstr ""
+
+#: ../core/functions.inc.php:7188
+msgid "Call Waiting"
+msgstr ""
+
+#: ../core/functions.inc.php:7240
+msgid ""
+"Call recording policy priority relative to other extensions when there is a "
+"conflict between an extension wanting recording and the other not wanting "
+"it. The higher of the two determines the policy, on a tie the global policy "
+"(caller or callee) determines the policy."
+msgstr ""
+
+#: ../core/page.routing.php:516
+msgid "CallerID"
+msgstr ""
+
+#: ../core/page.did.php:200
+msgid "CallerID Number"
+msgstr ""
+
+#: ../core/page.trunks.php:513
+msgid ""
+"CallerID for calls placed out on this trunk<br><br>Format: <b>&lt;#######&gt;"
+"</b>. You can also use the format: \"hidden\" <b>&lt;#######&gt;</b> to hide "
+"the CallerID sent out over Digital lines if supported (E1/T1/J1/BRI/SIP/IAX)."
+msgstr ""
+
+#: ../core/page.routing.php:506
+msgid "CallerID:"
+msgstr ""
+
+#: ../core/functions.inc.php:7392 ../core/functions.inc.php:7447
+#: ../core/functions.inc.php:7628
+msgid ""
+"Callgroup(s) that this device is part of, can be one or more callgroups, e."
+"g. '1,3-5' would be in groups 1,3,4,5."
+msgstr ""
+
+#: ../core/functions.inc.php:2259
+#, php-format
+msgid "Calling Out Route: %s"
+msgstr ""
+
+#: upgrades/2.8.0alpha2/tables.php:54
+msgid "Can not create trunk_dialpatterns table"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:598
+#: amp_conf/htdocs/admin/views/footer.php:79
+msgid "Cancel"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/welcome_nomanager.php:5
+msgid "Cannot connect to Asterisk Manager with "
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1321
+#, php-format
+msgid "Cannot delete directory %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1223
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1252
+msgid "Cannot disable: The following modules depend on this one: "
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1113
+msgid "Cannot find module"
+msgstr ""
+
+#: amp_conf/bin/libissabelpbx.confgen.php:109
+msgid "Cannot write IAX configurations"
+msgstr ""
+
+#: amp_conf/bin/libissabelpbx.confgen.php:113
+msgid "Cannot write IAX registrations"
+msgstr ""
+
+#: amp_conf/bin/libissabelpbx.confgen.php:255
+msgid "Cannot write Queues configurations"
+msgstr ""
+
+#: amp_conf/bin/libissabelpbx.confgen.php:27
+msgid "Cannot write SIP configurations"
+msgstr ""
+
+#: amp_conf/bin/libissabelpbx.confgen.php:31
+msgid "Cannot write SIP registrations"
+msgstr ""
+
+#: ../core/install.php:10
+msgid "ChanSpy"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:938
+#, php-format
+msgid "Change Log for version %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:937
+msgid "Changelog"
+msgstr ""
+
+#: ../core/page.dahdichandids.php:79
+msgid "Channel"
+msgstr ""
+
+#: ../core/page.trunks.php:320
+#, php-format
+msgid "Channel %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1215
+msgid "Check Online"
+msgstr ""
+
+#: ../core/page.trunks.php:586
+msgid "Check this to disable this trunk in all routes where it is used."
+msgstr ""
+
+#: ../core/page.trunks.php:581
+msgid "Check to always try next trunk"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/tables.php:40 upgrades/2.9.0alpha1/tables.php:56
+#: ../core/install.php:495 ../core/install.php:511
+#, php-format
+msgid "Checking for %s field.."
+msgstr ""
+
+#: ../core/install.php:807
+msgid "Checking for General Setting migrations.."
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:19
+msgid "Checking for issabelpbx_settings table.."
+msgstr ""
+
+#: upgrades/2.9.0alpha1/tables.php:37
+msgid "Checking for schema changes for core's users table."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1181
+msgid ""
+"Checking for updates will transmit your IssabelPBX, Distro, Asterisk and PHP "
+"version numbers along with a unique but random identifier. This is used to "
+"provide proper update information and track version usage to focus "
+"development and maintenance efforts. No private information is transmitted."
+msgstr ""
+
+#: ../core/install.php:149
+msgid "Checking if directdids need migrating.."
+msgstr ""
+
+#: ../core/install.php:476
+msgid "Checking if privacy manager options exists.."
+msgstr ""
+
+#: upgrades/2.6.0beta1/tables.php:278 ../core/install.php:432
+msgid "Checking if trunk table migration required.."
+msgstr ""
+
+#: upgrades/2.8.0alpha2/tables.php:51
+msgid "Checking if trunk_dialpatterns table exists.."
+msgstr ""
+
+#: upgrades/2.6.0beta1/tables.php:331 upgrades/2.8.0alpha2/tables.php:167
+msgid "Checking if trunks_dialpatterns table exists.."
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:106
+msgid "Checking number of admin users.."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:144
+msgid "Chinese"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1178
+msgid ""
+"Choose the repositories that you want to check for new modules. Any updates "
+"available for modules you have on your system will be detected even if the "
+"repository is not checked. If you are installing a new system, you may want "
+"to start with the Basic repository and update all modules, then go back and "
+"review the others."
+msgstr ""
+
+#: ../core/page.did.php:299
+msgid "Clear Destination & Submit"
+msgstr ""
+
+#: ../core/page.trunks.php:678
+msgid "Clear all Fields"
+msgstr ""
+
+#: ../core/page.trunks.php:653 ../core/page.trunks.php:666
+#: ../core/page.trunks.php:1057
+msgid "Click here to insert a new pattern"
+msgstr ""
+
+#: ../core/page.routing.php:546 ../core/page.routing.php:559
+#: ../core/page.routing.php:807 ../core/page.trunks.php:654
+#: ../core/page.trunks.php:667 ../core/page.trunks.php:1058
+msgid "Click here to remove this pattern"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:279
+msgid "Click to configure Update Notifications"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:77
+msgid "Close"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1208
+msgid "Commercial"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:593
+msgid "Confirm"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/obe.php:65
+msgid "Confirm Email address"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/obe.php:42
+msgid "Confirm Password"
+msgstr ""
+
+#: ../core/functions.inc.php:7113
+msgid "Conflicting Extensions"
+msgstr ""
+
+#: ../core/functions.inc.php:798
+msgid "Congestion"
+msgstr ""
+
+#: amp.i18n.php:40
+msgid "Connectivity"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:78
+msgid "Continue"
+msgstr ""
+
+#: ../core/page.trunks.php:578
+msgid "Continue if Busy"
+msgstr ""
+
+#: upgrades/2.8.0/custom-context.php:86
+#: upgrades/2.8.0rc1/custom-context.php:87
+msgid "Continuing..."
+msgstr ""
+
+#: ../core/page.trunks.php:547
+msgid ""
+"Controls the maximum number of outbound channels (simultaneous calls) that "
+"can be used on this trunk. Inbound calls are not counted against the "
+"maximum. Leave blank to specify no maximum."
+msgstr ""
+
+#: ../core/page.trunks.php:543
+#, php-format
+msgid ""
+"Controls the maximum number of outbound channels (simultaneous calls) that "
+"can be used on this trunk. To count inbound calls against this maximum, use "
+"the auto-generated context: %s as the inbound trunk's context. (see "
+"extensions_additional.conf) Leave blank to specify no maximum."
+msgstr ""
+
+#: ../core/install.php:879
+msgid "Converting IAX notransfer to transfer if needed.."
+msgstr ""
+
+#: amp.i18n.php:28 ../core/install.php:6
+msgid "Core"
+msgstr ""
+
+#: upgrades/2.9.0beta2/logger_migrate.php:73
+#, php-format
+msgid "Could not delete %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:872
+#: amp_conf/htdocs/admin/libraries/module.functions.php:994
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1079
+#, php-format
+msgid "Could not move %s to %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1119
+msgid "Could not read module.xml"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:854
+#: amp_conf/htdocs/admin/libraries/module.functions.php:976
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1061
+#, php-format
+msgid "Could not remove %s to install new version"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:868
+#: amp_conf/htdocs/admin/libraries/module.functions.php:990
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1075
+#, php-format
+msgid "Could not remove old module %s to install new version"
+msgstr ""
+
+#: ../core/install.php:971
+msgid ""
+"Could not rename table, if no dahdichandids table present FATAL errors will "
+"occur"
+msgstr ""
+
+#: amp_conf/htdocs/admin/functions.inc.php:360
+#: amp_conf/htdocs/admin/functions.inc.php:419
+#, php-format
+msgid "Could not run %s script."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:859
+#: amp_conf/htdocs/admin/libraries/module.functions.php:981
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1066
+#, php-format
+msgid "Could not untar %s to %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/welcome.php:9
+msgid "Critical"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/cronmanager.class.php:156
+#, php-format
+msgid "Cronmanager encountered %s Errors"
+msgstr ""
+
+#: ../core/functions.inc.php:7165
+msgid ""
+"Cryptic Asterisk Dial Options, check to customize for this extension or un-"
+"check to use system defaults set in Advanced Options. These will not apply "
+"to trunk options which are configured with the trunk."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer_content.php:34
+#, php-format
+msgid "Current module licensed under %s"
+msgstr ""
+
+#: upgrades/2.8.0/custom-context.php:53
+#: upgrades/2.8.0rc1/custom-context.php:53
+msgid "Custom Context Migration aborted"
+msgstr ""
+
+#: ../core/page.trunks.php:915
+msgid "Custom Dial String"
+msgstr "String de chamada personalizada"
+
+#: amp_conf/htdocs/admin/views/footer.php:92
+msgid ""
+"Custom Goto contexts must contain the string \"custom-\".  ie: custom-app,s,1"
+msgstr ""
+
+#: amp.i18n.php:42
+msgid "DAHDI Channel DIDs"
+msgstr ""
+
+#: ../core/page.dahdichandids.php:66
+msgid ""
+"DAHDI Channel DIDs allow you to assign a DID to specific DAHDI Channels. You "
+"can supply the same DID to multiple channels. This would be a common "
+"scenario if you have multiple POTS lines that are on a hunt group from your "
+"provider. You MUST assign the channel's context to from-analog for these "
+"settings to have effect. It will be a line that looks like:<br /><br /"
+">context = from-analog<br /><br />in your chan_dahdi.conf configuration "
+"effecting the specified channel(s). Once you have assigned DIDs you can use "
+"standard Inbound Routes with the specified DIDs to route your calls."
+msgstr ""
+
+#: ../core/page.trunks.php:873
+msgid "DAHDi Identifier"
+msgstr ""
+
+#: ../core/page.trunks.php:873
+msgid ""
+"DAHDi channels are referenced either by a group number or channel number "
+"(which is defined in chan_dahdi.conf).  <br><br>The default setting is "
+"<b>g0</b> (group zero)."
+msgstr ""
+
+#: ../core/page.trunks.php:412
+msgid "DAHDi compatibility Mode"
+msgstr ""
+
+#: ../core/page.trunks.php:464
+msgid "DAHDi compatibility mode"
+msgstr ""
+
+#: ../core/functions.inc.php:7416
+msgid "DAHDi echocancel setting, see DAHDi documentation for details."
+msgstr ""
+
+#: ../core/functions.inc.php:7411
+msgid "DAHDi immediate mode setting, see DAHDi documentation for details."
+msgstr ""
+
+#: ../core/functions.inc.php:7414
+msgid ""
+"DAHDi signalling, usually fxo_ks when connected to an analog phone. Some "
+"special applications or channel bank connections may require fxs_ks or other "
+"valid settings. See DAHDi and card documentation for details."
+msgstr ""
+
+#: ../core/page.dahdichandids.php:90
+msgid "DID"
+msgstr ""
+
+#: ../core/functions.inc.php:7207
+msgid "DID / CID"
+msgstr ""
+
+#: ../core/functions.inc.php:7197
+msgid "DID Description"
+msgstr ""
+
+#: ../core/page.did.php:196
+msgid "DID Number"
+msgstr "Numero DID"
+
+#: ../core/page.did.php:317
+msgid ""
+"DID information is normally just an incoming telephone number or for "
+"advanced users, a valid Asterisk Dial Pattern\\n\\nYou have entered a non "
+"standard DID pattern.\\n\\nAre you sure this is correct?"
+msgstr ""
+
+#: ../core/page.dahdichandids.php:112
+msgid ""
+"DID information is normally just an incoming telephone number.\\n\\nYou have "
+"entered a non standard DID pattern.\\n\\nAre you sure this is correct?"
+msgstr ""
+
+#: ../core/page.trunks.php:927
+msgid "DUNDi Mapping"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1018
+msgid "Date Fixed"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1017
+msgid "Date Reported"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:958
+msgid "Debug"
+msgstr ""
+
+#: ../core/functions.inc.php:6963 ../core/functions.inc.php:6964
+#: ../core/page.did.php:230
+msgid "Default"
+msgstr "Opição padrão"
+
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:1376
+msgid "Default Asterisk Manager Password Used"
+msgstr ""
+
+#: ../core/functions.inc.php:7788
+msgid "Default User"
+msgstr ""
+
+#: ../core/page.advancedsettings.php:88
+#, php-format
+msgid "Default Value: %s"
+msgstr ""
+
+#: ../core/page.did.php:200
+msgid ""
+"Define the CallerID Number to be matched on incoming calls.<br><br>Leave "
+"this field blank to match any or no CID info. In addition to standard dial "
+"sequences, you can also put Private, Blocked, Unknown, Restricted, Anonymous "
+"and Unavailable in order to catch these special cases if the Telco transmits "
+"them."
+msgstr ""
+
+#: ../core/page.trunks.php:915
+msgid "Define the custom Dial String.  Include the token"
+msgstr "Definir uma string de chamada personalizada."
+
+#: ../core/page.did.php:196
+msgid ""
+"Define the expected DID Number if your trunk passes DID on incoming calls. "
+"<br><br>Leave this blank to match calls with any or no DID info.<br><br>You "
+"can also use a pattern match (eg _2[345]X) to match a range of numbers"
+msgstr ""
+
+#: ../core/page.dahdichandids.php:96
+msgid "Delete"
+msgstr "Deletar"
+
+#: ../core/functions.inc.php:7732
+#, php-format
+msgid "Delete Device %s"
+msgstr ""
+
+#: ../core/functions.inc.php:7040
+#, php-format
+msgid "Delete Extension %s"
+msgstr ""
+
+#: ../core/page.did.php:154 ../core/page.routing.php:379
+#, php-format
+msgid "Delete Route %s"
+msgstr ""
+
+#: ../core/page.trunks.php:413
+#, php-format
+msgid "Delete Trunk %s"
+msgstr ""
+
+#: ../core/functions.inc.php:7052
+#, php-format
+msgid "Delete User %s"
+msgstr ""
+
+#: ../core/page.ampusers.php:129
+#, php-format
+msgid "Delete User: %s"
+msgstr ""
+
+#: ../core/install.php:852
+msgid "Deleting unused globals.."
+msgstr ""
+
+#: ../core/page.ampusers.php:192
+msgid ""
+"Department Name<span>Restrict this user's view of Digital Receptionist menus "
+"and System Recordings to only those for this department.</span>"
+msgstr ""
+"Nome do Departamento<span>Restringe a visualização desses usuários no Menu "
+"Digital de Recepção (URA)e gravações de Sistema para o seu departamento.</"
+"span>"
+
+#: ../core/page.ampusers.php:270
+msgid "Department name cannot have a space"
+msgstr "O nome do departamento nao pode ter nenhum espaço"
+
+#: amp_conf/htdocs/admin/page.modules.php:915
+#: amp_conf/htdocs/admin/page.modules.php:1016 ../core/functions.inc.php:7785
+#: ../core/page.dahdichandids.php:86 ../core/page.did.php:192
+msgid "Description"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:924
+#, php-format
+msgid "Description for version %s"
+msgstr ""
+
+#: ../core/page.trunks.php:506
+msgid "Descriptive Name for this Trunk"
+msgstr ""
+
+#: ../core/page.trunks.php:522
+msgid ""
+"Determines what CIDs will be allowed out this trunk. IMPORTANT: EMERGENCY "
+"CIDs defined on an extension/device will ALWAYS be used if this trunk is "
+"part of an EMERGENCY Route regardless of these settings.<br />Allow Any CID: "
+"all CIDs including foreign CIDS from forwarded external calls will be "
+"transmitted.<br />Block Foreign CIDs: blocks any CID that is the result of a "
+"forwarded call from off the system. CIDs defined for extensions/users are "
+"transmitted.<br />Remove CNAM: this will remove CNAM from any CID sent out "
+"this trunk<br />Force Trunk CID: Always use the CID defined for this trunk "
+"except if part of any EMERGENCY Route with an EMERGENCY CID defined for the "
+"extension/device."
+msgstr ""
+
+#: ../core/functions.inc.php:7719 ../core/functions.inc.php:7729
+#: ../core/page.devices.php:8
+msgid "Device"
+msgstr ""
+
+#: ../core/functions.inc.php:7783
+msgid "Device ID"
+msgstr ""
+
+#: ../core/functions.inc.php:7779
+msgid "Device Info"
+msgstr ""
+
+#: ../core/functions.inc.php:7797
+msgid "Device Options"
+msgstr ""
+
+#: ../core/functions.inc.php:7787
+msgid "Device Type"
+msgstr ""
+
+#: amp.i18n.php:36
+msgid "Devices"
+msgstr ""
+
+#: ../core/functions.inc.php:7787
+msgid ""
+"Devices can be fixed or adhoc. Fixed devices are always associated to the "
+"same extension/user. Adhoc devices can be logged into and logged out of by "
+"users."
+msgstr ""
+
+#: ../core/page.routing.php:496
+msgid "Dial Patterns that will use this Route"
+msgstr ""
+
+#: ../core/page.trunks.php:682
+msgid "Dial Rules Wizards"
+msgstr ""
+
+#: ../core/page.routing.php:898 ../core/page.trunks.php:1141
+msgid "Dial pattern is invalid"
+msgstr ""
+
+#: ../core/page.routing.php:573
+msgid "Dial patterns wizards"
+msgstr ""
+
+#: ../core/page.trunks.php:610
+msgid "Dialed Number Manipulation Rules"
+msgstr ""
+
+#: ../core/page.routing.php:503
+msgid ""
+"Digits to prepend to a successful match. If the dialed number matches the "
+"patterns specified by the subsequent columns, then this will be prepended "
+"before sending to the trunks."
+msgstr ""
+
+#: ../core/page.trunks.php:617
+msgid ""
+"Digits to prepend upon a successful match. If the dialed number matches the "
+"patterns in the <b>prefix</b> and <b>match pattern</b> boxes, this will be "
+"prepended before sending to the trunk."
+msgstr ""
+
+#: ../core/install.php:12
+msgid "Directed Call Pickup"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:905 ../core/functions.inc.php:6940
+#: ../core/functions.inc.php:6945 ../core/functions.inc.php:6949
+#: ../core/functions.inc.php:6954 ../core/functions.inc.php:6958
+#: ../core/page.trunks.php:589
+msgid "Disable"
+msgstr ""
+
+#: ../core/page.trunks.php:586
+msgid "Disable Trunk"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:781
+msgid "Disabled"
+msgstr "Desabilitado"
+
+#: amp_conf/htdocs/admin/page.modules.php:776
+#, php-format
+msgid "Disabled; Newer than online version (%s)"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:774
+#, php-format
+msgid "Disabled; Online upgrade available (%s)"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:785
+#, php-format
+msgid "Disabled; Pending upgrade to %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:778
+msgid "Disabled; up to date"
+msgstr ""
+
+#: ../core/functions.inc.php:7484 ../core/functions.inc.php:7632
+msgid ""
+"Disallowed codecs. Set this to all to remove all codecs defined in the "
+"general settings and then specify specific codecs separated by '&' on the "
+"'allow' setting, or just disallow specific codecs separated by '&'."
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:155 ../core/install.php:867
+#, php-format
+msgid "Discontinued logging type %s changing to %s.."
+msgstr ""
+
+#: ../core/functions.inc.php:7128
+msgid "Display Name"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:403
+msgid ""
+"Do NOT edit this file as it is auto-generated by IssabelPBX. All modifications "
+"to"
+msgstr ""
+
+#: ../core/functions.inc.php:6932
+msgid "Don't Care"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1099
+msgid "Done."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:859
+#, php-format
+msgid "Download %s, keep Disabled"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:678
+#: amp_conf/htdocs/admin/page.modules.php:994
+msgid "Download all"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:845
+msgid "Download and Install"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:873
+#: amp_conf/htdocs/admin/page.modules.php:895
+#, php-format
+msgid "Download and Upgrade to %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:360
+#, php-format
+msgid "Downloading %s"
+msgstr ""
+
+#: ../core/page.routing.php:329
+msgid "Drag up or down to reposition, click to choose"
+msgstr ""
+
+#: ../core/page.routing.php:766
+msgid "Duplicate Route"
+msgstr ""
+
+#: ../core/page.trunks.php:1003
+msgid "Duplicate Trunk"
+msgstr ""
+
+#: upgrades/2.8.0alpha2/tables.php:117
+msgid "ERROR - could not drop table"
+msgstr ""
+
+#: upgrades/2.10.0beta3/migration.php:48
+msgid "ERROR connectng to CDR DB to migrate, not done!"
+msgstr ""
+
+#: ../core/install.php:193
+msgid ""
+"ERROR: could not access user table to migrate directdids to incoming table, "
+"aborting"
+msgstr ""
+
+#: ../core/install.php:953
+msgid ""
+"ERROR: could not insert previous value for ALLOW_SIP_ANON, it may already "
+"exist"
+msgstr ""
+
+#: upgrades/2.11.0rc1/migration.php:21
+msgid ""
+"ERROR: could not insert previous values for rpt.conf, they may already exist"
+msgstr ""
+
+#: ../core/install.php:173
+#, php-format
+msgid "ERROR: failed to insert %s for user %s"
+msgstr ""
+
+#: ../core/install.php:32
+#, php-format
+msgid "ERROR: trying to check if %s already in use"
+msgstr ""
+
+#: ../core/functions.inc.php:7425
+msgid ""
+"Echo training requirements of this card. See DAHDi documentation for details."
+msgstr ""
+
+#: ../core/functions.inc.php:7374
+msgid ""
+"Echo training requirements of this card. See Zap documentation for details."
+msgstr ""
+
+#: ../core/page.did.php:172
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: ../core/page.did.php:172
+#, php-format
+msgid "Edit %s %s (%s)"
+msgstr ""
+
+#: ../core/page.trunks.php:412
+#, php-format
+msgid "Edit %s Trunk"
+msgstr "Editar canal %s"
+
+#: ../core/page.ampusers.php:117
+msgid "Edit Administrator"
+msgstr ""
+
+#: ../core/page.dahdichandids.php:74
+msgid "Edit Channel"
+msgstr ""
+
+#: ../core/page.dahdichandids.php:61
+msgid "Edit DAHDI Channel: "
+msgstr ""
+
+#: ../core/functions.inc.php:7738
+#, php-format
+msgid "Edit Default User: %s"
+msgstr ""
+
+#: ../core/functions.inc.php:7085
+msgid "Edit Extension"
+msgstr ""
+
+#: ../core/functions.inc.php:7738
+#, php-format
+msgid "Edit Fixed User: %s"
+msgstr ""
+
+#: ../core/page.did.php:190
+msgid "Edit Incoming Route"
+msgstr ""
+
+#: ../core/page.routing.php:345 ../core/page.routing.php:363
+msgid "Edit Route"
+msgstr "Editar Rota"
+
+#: ../core/functions.inc.php:7087
+msgid "Edit User"
+msgstr ""
+
+#: ../core/functions.inc.php:7147
+msgid "Edit:"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:84
+msgid "Email"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/view.functions.php:543
+msgid "Emaill addresses dont match"
+msgstr ""
+
+#: ../core/page.routing.php:425 ../core/page.routing.php:662
+msgid "Emergency"
+msgstr ""
+
+#: ../core/functions.inc.php:7786 ../core/functions.inc.php:7791
+msgid "Emergency CID"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:1027
+msgid "Empty value not allowed for this field"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:851 ../core/functions.inc.php:6941
+#: ../core/functions.inc.php:6944 ../core/functions.inc.php:6955
+#: ../core/page.trunks.php:601
+msgid "Enable"
+msgstr "Ativar"
+
+#: ../core/functions.inc.php:7239
+msgid ""
+"Enable or disable the ability to do on demand (one-touch) recording. The "
+"overall calling policy rules still apply and if calls are already being "
+"recorded they can not be paused."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:805
+msgid "Enabled"
+msgstr "Habilitado"
+
+#: amp_conf/htdocs/admin/page.modules.php:799
+msgid "Enabled and up to date"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:803
+msgid "Enabled; Not available online"
+msgstr ""
+
+#: ../core/functions.inc.php:7194
+msgid ""
+"Enabling Pinless Dialing will allow this extension to bypass any pin codes "
+"normally required on outbound calls"
+msgstr ""
+
+#: ../core/functions.inc.php:7480
+msgid "Endpoint port number to use, usually 4569."
+msgstr ""
+
+#: ../core/functions.inc.php:7580
+msgid ""
+"Endpoint port number to use, usually 5060. Some 2 ports devices such as ATA "
+"may used 5061 for the second port."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:142
+msgid "English"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/welcome.php:12
+msgid "Error"
+msgstr ""
+
+#: ../core/functions.inc.php:5833
+msgid "Error Duplicate Channel Entry"
+msgstr ""
+
+#: ../core/install.php:1011
+msgid "Error converting zap to dahdi in devices table and AstDB"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1030
+#, php-format
+msgid "Error creating temporary directory: %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1328
+#, php-format
+msgid "Error deleting directory %s (code %d)"
+msgstr ""
+
+#: ../core/page.routing.php:278 ../core/page.trunks.php:280
+msgid "Error fetching prefix list for: "
+msgstr "Error obtendo lista de prefixos para:"
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1011
+msgid ""
+"Error finding uploaded file - check your PHP and/or web server configuration"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:929
+#: amp_conf/htdocs/admin/libraries/module.functions.php:932
+#, php-format
+msgid "Error opening %s for reading"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:887
+#, php-format
+msgid "Error opening %s for writing"
+msgstr ""
+
+#: upgrades/2.10.0beta3/migration.php:35
+msgid "Error parsing cdr_mysql.conf no migration done"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1084
+#, php-format
+msgid "Error removing temporary directory: %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1039
+msgid "Error untaring uploaded file. Must be a tar or tar+gzip file"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1179
+#, php-format
+msgid "Error updating database. Command was: %s; error was: %s "
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1275
+msgid "Error updating database: "
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:398
+#, php-format
+msgid "Error(s) disabling %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:362
+#, php-format
+msgid "Error(s) downloading %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:389
+#, php-format
+msgid "Error(s) enabling %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:367
+#: amp_conf/htdocs/admin/page.modules.php:379
+#, php-format
+msgid "Error(s) installing %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:408
+#, php-format
+msgid "Error(s) uninstalling %s"
+msgstr ""
+
+#: ../core/page.routing.php:598 ../core/page.trunks.php:746
+msgid ""
+"Error: Cannot continue!\\n\\nPrefix lookup requires cURL support in PHP on "
+"the server. Please install or enable cURL support in your PHP installation "
+"to use this function. See http://www.php.net/curl for more information."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:89
+msgid "Error: Did not receive valid response from server"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:564
+msgid "Errors with selection:"
+msgstr ""
+
+#: amp_conf/htdocs/admin/functions.inc.php:359
+#: amp_conf/htdocs/admin/functions.inc.php:418
+#, php-format
+msgid "Exit code was %s and output was: %s"
+msgstr ""
+
+#: ../core/functions.inc.php:7434
+msgid ""
+"Experimental and un-reliable setting to try and detect a busy signal, number "
+"of iterations to conclude busy. See DAHDi documentation for details."
+msgstr ""
+
+#: ../core/functions.inc.php:7381
+msgid ""
+"Experimental and un-reliable setting to try and detect a busy signal, number "
+"of iterations to conclude busy. See Zap documentation for details."
+msgstr ""
+
+#: ../core/functions.inc.php:7431
+msgid ""
+"Experimental and un-reliable setting to try and detect a busy signal. See "
+"DAHDi documentation for details."
+msgstr ""
+
+#: ../core/functions.inc.php:7379
+msgid ""
+"Experimental and un-reliable setting to try and detect a busy signal. See "
+"Zap documentation for details."
+msgstr ""
+
+#: ../core/functions.inc.php:7440
+msgid ""
+"Experimental and un-reliable setting to try and detect call progress tones. "
+"See DAHDi documentation for details."
+msgstr ""
+
+#: ../core/functions.inc.php:7386
+msgid ""
+"Experimental and un-reliable setting to try and detect call progress tones. "
+"See Zap documentation for details."
+msgstr ""
+
+#: ../core/page.routing.php:671 ../core/page.trunks.php:843
+msgid "Export Dialplans as CSV"
+msgstr ""
+
+#: ../core/page.trunks.php:843
+#, php-format
+msgid ""
+"Export patterns as a CSV file with headers listed as: %s, %s and %s in the "
+"first row."
+msgstr ""
+
+#: ../core/page.routing.php:671
+#, php-format
+msgid ""
+"Export patterns as a CSV file with headers listed as: %s, %s, %s and %s in "
+"the first row."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1200
+msgid "Extended"
+msgstr ""
+
+#: ../core/functions.inc.php:7038 ../core/page.did.php:169
+#: ../core/page.extensions.php:9
+msgid "Extension"
+msgstr "Ramal"
+
+#: amp_conf/htdocs/admin/libraries/usage_registry.functions.php:53
+msgid "Extension Numbering Duplicate Conflict Detected"
+msgstr ""
+
+#: ../core/functions.inc.php:7159 ../core/functions.inc.php:7790
+msgid "Extension Options"
+msgstr ""
+
+#: ../core/page.ampusers.php:199
+msgid ""
+"Extension Range<span>Restrict this user's view to only Extensions, Ring "
+"Groups, and Queues within this range.</span>"
+msgstr ""
+"Campo de Extenção<span>Restringe deste usuário á grupos internos de camadas, "
+"e filas dentro do campo indicado.</span>"
+
+#: ../core/functions.inc.php:7123
+msgid "Extension number conflict, please choose another."
+msgstr ""
+
+#: amp.i18n.php:32
+msgid "Extensions"
+msgstr "Ramais"
+
+#: upgrades/2.8.0/modules-conf.php:41 upgrades/2.8.0/modules-conf.php:55
+msgid "FAILED"
+msgstr ""
+
+#: upgrades/2.8.0/custom-context.php:85
+#: upgrades/2.8.0rc1/custom-context.php:86
+msgid "FAILED to migrating Custom Context route "
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:196
+#, php-format
+msgid "FATAL error writing  %s"
+msgstr ""
+
+#: upgrades/2.8.0alpha2/tables.php:109
+msgid "FATAL, migration failed"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:1364
+#, php-format
+msgid "Failed changing AMI password to [%s], internal failure details follow:"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:1351
+#, php-format
+msgid "Failed changing AMI user to [%s], internal failure details follow:"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:1391
+#, php-format
+msgid ""
+"Failed changing AMI writetimout to [%s], internal failure details follow:"
+msgstr ""
+
+#: amp_conf/bin/libissabelpbx.confgen.php:109
+#, php-format
+msgid "Failed creating/overwriting IAX extensions file: %s"
+msgstr ""
+
+#: amp_conf/bin/libissabelpbx.confgen.php:113
+#, php-format
+msgid "Failed creating/overwriting IAX registrations file: %s"
+msgstr ""
+
+#: amp_conf/bin/libissabelpbx.confgen.php:255
+#, php-format
+msgid "Failed creating/overwriting Queues extensions file: %s"
+msgstr ""
+
+#: amp_conf/bin/libissabelpbx.confgen.php:27
+#, php-format
+msgid "Failed creating/overwriting SIP extensions file: %s"
+msgstr ""
+
+#: amp_conf/bin/libissabelpbx.confgen.php:31
+#, php-format
+msgid "Failed creating/overwriting SIP registrations file: %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:906
+#, php-format
+msgid "Failed download module tarball from %s, server may be down"
+msgstr ""
+
+#: upgrades/2.5.0/removefiles.php:21
+msgid "Failed to Remove"
+msgstr ""
+
+#: upgrades/2.5.0/removefiles.php:30
+msgid "Failed to Remove directory"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:485
+#, php-format
+msgid "Failed to get remote file, mirror site may be down: %s"
+msgstr ""
+
+#: ../core/functions.inc.php:6898
+#, php-format
+msgid ""
+"Failed to open %s for writing, aborting attempt to write the country "
+"indications. The file may be readonly or the permissions may be incorrect."
+msgstr ""
+
+#: upgrades/2.10.1/migration.php:66
+msgid "Failed to read manager file to add writetimeout"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:1410
+msgid ""
+"Failed to reload AMI, manual reload will be necessary, try: [asterisk -rx "
+"'module reload manager']"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1151
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1165
+msgid "Failed to run installation scripts"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1279
+msgid "Failed to run un-installation scripts"
+msgstr ""
+
+#: amp_conf/bin/issabelpbx-cron-scheduler.php:59
+msgid "Failed to send online update email"
+msgstr ""
+
+#: ../core/functions.inc.php:6899
+msgid "Failed to write indications.conf"
+msgstr ""
+
+#: ../core/page.advancedsettings.php:87 ../core/page.advancedsettings.php:133
+msgid "False"
+msgstr ""
+
+#: ../core/install.php:856
+msgid "Fatal DB error trying to delete globals, trying to carry on"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:631
+#, php-format
+msgid "File %s must exist."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:960
+#, php-format
+msgid "File Integrity failed for %s - aborting"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1016
+msgid "File must be in tar or tar+gzip (.tar, .tgz or .tar.gz) format"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1021
+msgid ""
+"Filename not in correct format: must be modulename-version.[tar|tar.gz|tgz] "
+"(eg. custommodule-0.1.tgz)"
+msgstr ""
+
+#: ../core/page.routing.php:466
+#, php-format
+msgid "First before %s"
+msgstr ""
+
+#: ../core/functions.inc.php:7672
+msgid "Fixed"
+msgstr ""
+
+#: ../core/functions.inc.php:7788
+msgid ""
+"Fixed devices will always mapped to this user.  Adhoc devices will be mapped "
+"to this user by default.<br><br>If selecting 'New User', a new User "
+"Extension of the same Device ID will be set as the Default User."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:921
+#, php-format
+msgid "Fixes Vulnerabilities: %s"
+msgstr ""
+
+#: ../core/page.ampusers.php:268
+msgid "For security reasons, you cannot use the department name default"
+msgstr ""
+"Por razões de segurança, não se pode usar o nome default/padrão para el "
+"departamento"
+
+#: amp_conf/htdocs/admin/page.modules.php:897
+#, php-format
+msgid "Force Download and Downgrade to %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:897
+#, php-format
+msgid "Force Download and Install %s"
+msgstr ""
+
+#: ../core/page.trunks.php:531
+msgid "Force Trunk CID"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:497
+#, php-format
+msgid "Forced %s to true"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:586
+msgid "Forced downgrades and re-installs:"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer_content.php:28
+msgid "IssabelPBX"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/login.php:32
+msgid "IssabelPBX Administration"
+msgstr ""
+
+#: ../core/page.advancedsettings.php:42
+msgid "IssabelPBX Advanced Settings"
+msgstr ""
+
+#: amp.i18n.php:56
+msgid "IssabelPBX Support"
+msgstr ""
+
+#: ../core/page.trunks.php:472
+msgid ""
+"IssabelPBX offers limited support for DUNDi trunks and additional manual "
+"configuration is required. The trunk name should correspond to the "
+"[mappings] section of the remote dundi.conf systems. For example, you may "
+"have a mapping on the remote system, and corresponding configurations in "
+"dundi.conf locally, that looks as follows:<br /><br />[mappings]<br />priv "
+"=> dundi-extens,0,IAX2,priv:${SECRET}@218.23.42.26/${NUMBER},nopartial<br /"
+"><br />In this example, you would create this trunk and name it priv. You "
+"would then create the corresponding IAX2 trunk with proper settings to work "
+"with DUNDi. This can be done by making an IAX2 trunk in IssabelPBX or by using "
+"the iax_custom.conf file.<br />The dundi-extens context in this example must "
+"be created in extensions_custom.conf. This can simply include contexts such "
+"as ext-local, ext-intercom-users, ext-paging and so forth to provide access "
+"to the corresponding extensions and features provided by these various "
+"contexts and generated by IssabelPBX."
+msgstr ""
+
+#: amp_conf/bin/issabelpbx-cron-scheduler.php:56
+msgid "IssabelPBX: New Online Updates Available"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:146
+msgid "French"
+msgstr ""
+
+#: ../core/functions.inc.php:7585
+msgid "Frequency in seconds to send qualify messages to the endpoint."
+msgstr ""
+
+#: ../core/page.advancedsettings.php:99
+#, php-format
+msgid "Friendly Name: %s"
+msgstr ""
+
+#: ../core/page.did.php:77
+msgid "General DIDs"
+msgstr ""
+
+#: ../core/page.ampusers.php:160 ../core/page.trunks.php:501
+msgid "General Settings"
+msgstr "Configurações Gerais"
+
+#: ../core/install.php:850
+msgid "General Settings migrated"
+msgstr ""
+
+#: ../core/functions.inc.php:7662
+msgid "Generic DAHDi Device"
+msgstr ""
+
+#: ../core/functions.inc.php:7661
+msgid "Generic IAX2 Device"
+msgstr ""
+
+#: ../core/functions.inc.php:7660
+msgid "Generic SIP Device"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:145
+msgid "German"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/login.php:41
+msgid "Get Support"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:932
+#, php-format
+msgid "Get help for %s"
+msgstr ""
+
+#: ../core/page.trunks.php:939
+msgid "Give this trunk a unique name.  Example: myiaxtel"
+msgstr "Insira neste campo apenas um nome. Exemplo: miteliax"
+
+#: ../core/functions.inc.php:7783
+msgid ""
+"Give your device a unique integer ID.  The device will use this ID to "
+"authenticate to the system."
+msgstr ""
+
+#: ../core/functions.inc.php:797
+msgid "Hangup"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:147
+msgid "Hebrew"
+msgstr ""
+
+#: ../core/functions.inc.php:7470 ../core/functions.inc.php:7546
+msgid "Host settings for this device, almost always dynamic for endpoints."
+msgstr ""
+
+#: ../core/functions.inc.php:7388 ../core/functions.inc.php:7443
+#: ../core/functions.inc.php:7488 ../core/functions.inc.php:7636
+msgid ""
+"How to dial this device, this should not be changed unless you know what you "
+"are doing."
+msgstr ""
+
+#: ../core/functions.inc.php:7653
+msgid ""
+"How to dial this device. This will be device specific. For example, a custom "
+"device which is really a remote SIP URI might be configured such as SIP/"
+"joe@somedomain.com"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:148
+msgid "Hungarian"
+msgstr ""
+
+#: ../core/functions.inc.php:7503
+msgid ""
+"IAX security setting. See IAX documentation and device compatibility for "
+"details."
+msgstr ""
+
+#: ../core/functions.inc.php:7465
+msgid "IAX transfer capabilities, see the Asterisk documentation for details."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1013
+msgid "ID"
+msgstr ""
+
+#: ../core/functions.inc.php:7496 ../core/functions.inc.php:7646
+msgid ""
+"IP Address range to allow access to, in the form of network/netmask. This "
+"can be a very useful security option when dealing with remote extensions "
+"that are at a known location (such as a branch office) or within a known ISP "
+"range for some home office situations."
+msgstr ""
+
+#: ../core/functions.inc.php:7494 ../core/functions.inc.php:7644
+msgid "IP Address range to deny access to, in the form of network/netmask."
+msgstr ""
+
+#: ../core/page.routing.php:506
+msgid ""
+"If CallerID is supplied, the dialed number will only match the prefix + "
+"match pattern if the CallerID being transmitted matches this. When "
+"extensions make outbound calls, the CallerID will be their extension number "
+"and NOT their Outbound CID. The above special matching sequences can be used "
+"for CallerID matching similar to other number matches."
+msgstr ""
+
+#: ../core/page.routing.php:755
+msgid ""
+"If all the trunks fail because of Asterisk 'CONGESTION' dialstatus you can "
+"optionally go to a destination such as a unique recorded message or anywhere "
+"else. This destination will NOT be engaged if the trunk is reporting busy, "
+"invalid numbers or anything else that would imply the trunk was able to make "
+"an 'intelligent' choice about the number that was dialed. The 'Normal "
+"Congestion' behavior is to play the 'All Circuits Busy' recording or other "
+"options configured in the Route Congestion Messages module when installed."
+msgstr ""
+
+#: ../core/page.routing.php:413
+msgid ""
+"If checked the extension's Outbound CID will be ignored in favor of this "
+"CID. The extension's Emergency CID will still be used if the route is an "
+"Emergency Route and the Extension has a defined Emergency CID."
+msgstr ""
+
+#: ../core/page.trunks.php:597
+msgid ""
+"If checked, supply the name of a custom AGI Script that will be called to "
+"report, log, email or otherwise take some action on trunk failures that are "
+"not caused by either NOANSWER or CANCEL."
+msgstr ""
+
+#: ../core/page.did.php:251
+msgid ""
+"If no CallerID has been received, Privacy Manager will ask the caller to "
+"enter their phone number. If an user/extension has Call Screening enabled, "
+"the incoming caller will be be prompted to say their name when the call "
+"reaches the user/extension."
+msgstr ""
+
+#: ../core/page.routing.php:454
+msgid ""
+"If this route should only be available during certain times then Select a "
+"Time Group created under Time Groups. The route will be ignored outside of "
+"times specified in that Time Group. If left as default of Permanent Route "
+"then it will always be available."
+msgstr ""
+
+#: ../core/functions.inc.php:7131
+msgid ""
+"If you want to support direct sip dialing of users internally or through "
+"anonymous sip calls, you can supply a friendly name that can be used in "
+"addition to the users extension to call them."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/welcome.php:55
+#, php-format
+msgid ""
+"If you're having any problems, you can also use the <a href='%s'>Online "
+"Support</a> \n"
+"module (<b>you need to install this through the <a href='%s'>Module "
+"Repository</a> first</b>)\n"
+"to talk to other users and the developers in real time. Click on <a href='%"
+"s'>Start IRC</a>,\n"
+"when the module is installed, to start a Java IRC client."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/welcome.php:37
+msgid ""
+"If you're new to IssabelPBX, Welcome. Here are some quick instructions to get "
+"you started"
+msgstr ""
+
+#: ../core/functions.inc.php:7517
+msgid "In band audio"
+msgstr ""
+
+#: ../core/page.trunks.php:423
+msgid "In use by"
+msgstr "Em uso de"
+
+#: ../core/install.php:15
+msgid "In-Call Asterisk Attended Transfer"
+msgstr ""
+
+#: ../core/install.php:14
+msgid "In-Call Asterisk Blind Transfer"
+msgstr ""
+
+#: ../core/install.php:17
+msgid "In-Call Asterisk Disconnect Code"
+msgstr ""
+
+#: ../core/install.php:16
+msgid "In-Call Asterisk Toggle Call Recording"
+msgstr ""
+
+#: ../core/functions.inc.php:7235
+msgid "Inbound External Calls"
+msgstr ""
+
+#: ../core/functions.inc.php:7237
+msgid "Inbound Internal Calls"
+msgstr ""
+
+#: ../core/functions.inc.php:5343
+#, php-format
+msgid "Inbound Route: %s (%s)"
+msgstr ""
+
+#: amp.i18n.php:38
+msgid "Inbound Routes"
+msgstr ""
+
+#: ../core/page.trunks.php:956
+msgid "Incoming Settings"
+msgstr "Informações de Entrada"
+
+#: ../core/page.routing.php:661
+msgid "Information"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/obe.php:8
+msgid "Initial setup"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:75
+msgid "Initialize issabelpbx_conf settings.."
+msgstr ""
+
+#: ../core/install.php:955
+msgid "Inserted ALLOW_SIP_ANON fine"
+msgstr ""
+
+#: upgrades/2.11.0rc1/migration.php:23
+msgid "Inserted interim RTPSTART and RTPEND settings"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:842
+#: amp_conf/htdocs/admin/page.modules.php:883
+msgid "Install"
+msgstr "Instalar"
+
+#: ../core/functions.inc.php:6950
+msgid "Intercom"
+msgstr ""
+
+#: ../core/functions.inc.php:7191
+msgid "Internal Auto Answer"
+msgstr ""
+
+#: ../core/page.advancedsettings.php:97
+#, php-format
+msgid "Internal Name: %s"
+msgstr ""
+
+#: ../core/page.routing.php:660
+msgid "International"
+msgstr ""
+
+#: ../core/page.routing.php:426
+msgid "Intra-Company"
+msgstr ""
+
+#: ../core/page.trunks.php:522
+msgid ""
+"Intra-Company Routes will always trasmit an extension's internal number and "
+"name."
+msgstr ""
+
+#: ../core/page.did.php:319
+msgid "Invalid CallerID prefix."
+msgstr ""
+
+#: ../core/functions.inc.php:5817 ../core/page.dahdichandids.php:110
+msgid "Invalid Channel Number, must be numeric and not blank"
+msgstr ""
+
+#: ../core/page.trunks.php:1169
+msgid "Invalid Custom Dial String entered"
+msgstr ""
+
+#: ../core/functions.inc.php:5821 ../core/page.dahdichandids.php:111
+msgid "Invalid DID, must be a non-blank DID"
+msgstr ""
+
+#: ../core/page.trunks.php:1166
+msgid "Invalid Dial Rules"
+msgstr ""
+
+#: ../core/page.trunks.php:1165
+msgid "Invalid Maximum Channels"
+msgstr ""
+
+#: ../core/page.routing.php:589 ../core/page.trunks.php:733
+msgid "Invalid NPA-NXX. Must be of the format \\'NXX-NXX\\'"
+msgstr ""
+
+#: ../core/page.routing.php:842 ../core/page.trunks.php:1164
+msgid "Invalid Outbound CallerID"
+msgstr ""
+
+#: ../core/page.trunks.php:1168
+msgid "Invalid Trunk Name entered"
+msgstr ""
+
+#: amp_conf/htdocs/admin/config.php:340
+msgid "Invalid Username or Password"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:22
+#: amp_conf/htdocs/admin/views/footer.php:83
+msgid "Invalid email address"
+msgstr ""
+
+#: ../core/page.routing.php:283 ../core/page.trunks.php:285
+msgid "Invalid format for NPA-NXX code (must be format: NXXNXX)"
+msgstr "Formato insválido de codigo NPA-NXX (deve estar no formato: NXXNXX)"
+
+#: ../core/page.trunks.php:789
+msgid "Invalid number. Only 0-9, #,  and * are allowed."
+msgstr ""
+
+#: ../core/page.trunks.php:784
+msgid "Invalid pattern. Only 0-9, #, *"
+msgstr ""
+
+#: ../core/page.trunks.php:756 ../core/page.trunks.php:775
+msgid "Invalid pattern. Only 0-9, #, *, Z, N, X and . are allowed."
+msgstr "Parametros inválidos Somente 0-9, #, *, Z, N, X y . estão permitidos."
+
+#: ../core/page.trunks.php:770
+msgid "Invalid prefix. Only 0-9, #, *, Z, N, and X are allowed."
+msgstr ""
+
+#: ../core/page.trunks.php:761
+msgid "Invalid prefix. Only dialable characters (0-9, #, and *) are allowed."
+msgstr ""
+"Prefixo Inválido. Estão permitidos somente caracteres discáveis (0-9, #, y *)"
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:989
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:1008
+msgid "Invalid value supplied to select"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:1035
+#, php-format
+msgid "Invalid value supplied violates the validation regex: %s"
+msgstr ""
+
+#: ../core/page.trunks.php:1173
+msgid ""
+"It is highly recommended that you define an Outbound CallerID on all trunks, "
+"undefined behavior can result when nothing is specified. The CID Options can "
+"control when this CID is used. Do you still want to continue?"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:149
+msgid "Italian"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:155
+msgid "Japanese"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:140
+msgid "Language"
+msgstr ""
+
+#: ../core/page.routing.php:478
+#, php-format
+msgid "Last after %s"
+msgstr ""
+
+#: ../core/page.did.php:316
+msgid ""
+"Leaving the DID Number AND the CallerID Number empty will match all incoming "
+"calls received not routed using any other defined Incoming Route.\\n\\nAre "
+"you sure?"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:919
+#, php-format
+msgid "License: %s"
+msgstr ""
+
+#: ../core/page.routing.php:656
+msgid "Local 7 digit"
+msgstr ""
+
+#: ../core/page.routing.php:657
+msgid "Local 7/10 digit"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:162
+msgid "Logout"
+msgstr ""
+
+#: ../core/page.routing.php:659
+msgid "Long-distance"
+msgstr ""
+
+#: ../core/page.routing.php:575 ../core/page.routing.php:663
+msgid "Lookup local prefixes"
+msgstr ""
+
+#: ../core/page.trunks.php:686
+msgid "Lookup numbers for local trunk"
+msgstr ""
+
+#: ../core/page.trunks.php:695
+msgid "Lookup numbers for local trunk (10-digit dialing)"
+msgstr ""
+
+#: ../core/page.trunks.php:694
+msgid "Lookup numbers for local trunk (7-digit dialing)"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/view.functions.php:21
+msgid "Low Memory Limit"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/view.functions.php:30
+msgid "Magic Quotes GPC"
+msgstr ""
+
+#: ../core/functions.inc.php:7396 ../core/functions.inc.php:7451
+#: ../core/functions.inc.php:7492 ../core/functions.inc.php:7640
+msgid ""
+"Mailbox for this device. This should not be changed unless you know what you "
+"are doing."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:612
+#: amp_conf/htdocs/admin/page.modules.php:659
+#: amp_conf/htdocs/admin/page.modules.php:1170
+msgid "Manage local modules"
+msgstr ""
+
+#: ../core/page.did.php:260
+msgid "Max attempts"
+msgstr ""
+
+#: ../core/page.trunks.php:543 ../core/page.trunks.php:547
+msgid "Maximum Channels"
+msgstr ""
+
+#: ../core/functions.inc.php:7186
+msgid ""
+"Maximum number of outbound simultaneous calls that an extension can make. "
+"This is also very useful as a Security Protection against a system that has "
+"been compromised. It will limit the number of simultaneous calls that can be "
+"made on the compromised extension."
+msgstr ""
+
+#: ../core/functions.inc.php:7464
+msgid "Media Only"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/view.functions.php:19
+msgid "Memory Limit Changed"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:123
+msgid "Migrate current values into issabelpbx_conf.."
+msgstr ""
+
+#: ../core/page.did.php:273
+msgid "Min Length"
+msgstr ""
+
+#: ../core/page.did.php:273
+msgid ""
+"Minimum amount of digits CallerID needs to contain in order to be considered "
+"valid"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:304
+#, php-format
+msgid "Missing or unreadable config file [%s]...cannot continue"
+msgstr ""
+
+#: ../core/page.trunks.php:946
+msgid ""
+"Modify the default PEER connection parameters for your VoIP provider."
+"<br><br>You may need to add to the default lines listed below, depending on "
+"your provider.<br /><br />WARNING: Order is important as it will be "
+"retained. For example, if you use the \"allow/deny\" directives make sure "
+"deny comes first."
+msgstr ""
+
+#: ../core/page.trunks.php:968
+msgid "Modify the default USER connection parameters for your VoIP provider."
+msgstr "Modifica os parametros de conecção do USER para o provedor VoIP."
+
+#: amp_conf/htdocs/admin/page.modules.php:688
+msgid "Module"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:769
+#: amp_conf/htdocs/admin/libraries/module.functions.php:774
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1124
+msgid "Module "
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:600
+#, php-format
+msgid ""
+"Module %s is required, but yours is broken. You should reinstall it and try "
+"again."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:607
+#, php-format
+msgid ""
+"Module %s is required, but yours is disabled because it needs to be "
+"upgraded. Please upgrade %s first, and then try again."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:604
+#, php-format
+msgid "Module %s is required, but yours is disabled."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:613
+#, php-format
+msgid "Module %s is required, yours is not installed."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:617
+#, php-format
+msgid "Module %s is required."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:278
+msgid "Module Administration"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1219
+msgid "Module not enabled: cannot disable"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:821
+msgid "Module not found in repository"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1248
+msgid "Module not installed: cannot uninstall"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:627
+#, php-format
+msgid ""
+"Module uploaded successfully. You need to enable the module using %s to make "
+"it available."
+msgstr ""
+
+#: ../core/page.trunks.php:597
+msgid "Monitor Trunk Failures"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:930
+#: amp_conf/htdocs/admin/page.modules.php:932
+msgid "More info"
+msgstr ""
+
+#: ../core/page.trunks.php:984
+msgid ""
+"Most VoIP providers require your system to REGISTER with theirs. Enter the "
+"registration line here.<br><br>example:<br><br>username:password@switch."
+"voipprovider.com.<br><br>Many providers will require you to provide a DID "
+"number, ex: username:password@switch.voipprovider.com/didnumber in order for "
+"any DID matching to work."
+msgstr ""
+
+#: ../core/page.routing.php:709
+msgid "Move Down"
+msgstr ""
+
+#: ../core/page.routing.php:701
+msgid "Move Up"
+msgstr ""
+
+#: ../core/page.did.php:220
+msgid "Music On Hold"
+msgstr ""
+
+#: ../core/page.routing.php:432
+msgid "Music On Hold?"
+msgstr ""
+
+#: ../core/functions.inc.php:7577
+msgid ""
+"NAT setting, see Asterisk documentation for details. Yes usually works for "
+"both internal and external devices. Set to No if the device will always be "
+"internal."
+msgstr ""
+
+#: ../core/page.ampusers.php:166
+msgid "NOTE:"
+msgstr ""
+
+#: ../core/page.routing.php:613 ../core/page.trunks.php:754
+#: ../core/page.trunks.php:773
+msgid "NXXXXXX"
+msgstr ""
+
+#: ../core/page.routing.php:616
+msgid "NXXXXXX,NXXNXXXXXX"
+msgstr ""
+
+#: ../core/page.routing.php:402
+msgid ""
+"Name of this route. Should be used to describe what type of calls this route "
+"matches (for example, 'local' or 'longdistance')."
+msgstr ""
+"Nome da rota. Serve usar para descrever que tipo de chamadas está sendo "
+"realizada dicha ruta (por ejemplo, 'local' o 'larga distancia')."
+
+#: ../core/functions.inc.php:6928 ../core/functions.inc.php:6933
+msgid "Never"
+msgstr "Nunca"
+
+#: ../core/functions.inc.php:7677
+msgid "New User"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:797
+#, php-format
+msgid "Newer than online version (%s)"
+msgstr ""
+
+#: ../core/functions.inc.php:7362 ../core/functions.inc.php:7371
+#: ../core/functions.inc.php:7378 ../core/functions.inc.php:7385
+#: ../core/functions.inc.php:7410 ../core/functions.inc.php:7421
+#: ../core/functions.inc.php:7430 ../core/functions.inc.php:7439
+#: ../core/functions.inc.php:7463 ../core/functions.inc.php:7501
+#: ../core/functions.inc.php:7537 ../core/functions.inc.php:7550
+#: ../core/functions.inc.php:7556 ../core/functions.inc.php:7607
+#: ../core/functions.inc.php:7615 ../core/functions.inc.php:7622
+#: ../core/page.did.php:254
+msgid "No"
+msgstr "Não"
+
+#: ../core/functions.inc.php:7574
+msgid "No - RFC3581"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:835
+msgid "No Action"
+msgstr ""
+
+#: ../core/functions.inc.php:7257
+msgid "No Answer"
+msgstr ""
+
+#: ../core/page.advancedsettings.php:88
+msgid "No Default Provided"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:33
+msgid "No Description Provided"
+msgstr ""
+
+#: ../core/functions.inc.php:6966
+msgid "No Limit"
+msgstr ""
+
+#: ../core/page.did.php:229
+msgid "No Music"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:595
+msgid "No actions to perform"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:927
+msgid "No description is available."
+msgstr ""
+
+#: ../core/page.routing.php:896
+msgid "No dial pattern, there must be at least one"
+msgstr ""
+
+#: install.php:51
+#, php-format
+msgid "No directory %s, install script not needed"
+msgstr ""
+
+#: amp_conf/bin/issabelpbx-cron-scheduler.php:63
+msgid "No email address for online update checks"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:985
+msgid "No modules to display."
+msgstr ""
+
+#: ../core/functions.inc.php:7666
+msgid "None (virtual exten)"
+msgstr ""
+
+#: ../core/page.routing.php:758
+msgid "Normal Congestion"
+msgstr ""
+
+#: ../core/page.trunks.php:578
+msgid ""
+"Normally the next trunk is only tried upon a trunk being 'Congested' in some "
+"form, or unavailable. Checking this box will force a failed call to always "
+"continue to the next configured trunk or destination even when the channel "
+"reports BUSY or INVALID NUMBER."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:767
+#, php-format
+msgid "Not Installed (Available online: %s)"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:765
+msgid "Not Installed (Locally available)"
+msgstr ""
+
+#: ../core/functions.inc.php:7271
+msgid "Not Reachable"
+msgstr ""
+
+#: upgrades/2.5.0/removefiles.php:23
+msgid "Not Required"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/noaccess.php:3
+msgid "Not found"
+msgstr "Não encontrado"
+
+#: amp_conf/htdocs/admin/views/welcome.php:14
+msgid "Notice"
+msgstr ""
+
+#: ../core/page.did.php:260
+msgid "Number of attempts the caller has to enter a valid CallerID"
+msgstr ""
+
+#: ../core/functions.inc.php:7176
+msgid ""
+"Number of seconds to ring during a Call Forward, Call Forward Busy or Call "
+"Forward Unavailable call prior to continuing to voicemail or specified "
+"destination. Setting to Always will not return, it will just continue to "
+"ring. Default will use the current Ring Time. If voicemail is disabled and "
+"their is not destination specified, it will be forced into Always mode"
+msgstr ""
+
+#: ../core/functions.inc.php:7167
+msgid ""
+"Number of seconds to ring prior to going to voicemail. Default will use the "
+"value set in Advanced Settings. If no voicemail is configured this will be "
+"ignored."
+msgstr ""
+
+#: ../core/page.trunks.php:787
+msgid "Number to dial when calling directory assistance on this trunk"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/usage_registry.functions.php:253
+msgid "Object"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/usage_registry.functions.php:253
+msgid "Objects"
+msgstr ""
+
+#: ../core/functions.inc.php:6926
+msgid "On Demand"
+msgstr ""
+
+#: ../core/functions.inc.php:7239
+msgid "On Demand Recording"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/cronmanager.class.php:88
+msgid "Online Updates are Disabled"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/cronmanager.class.php:89
+msgid ""
+"Online updates are disabled in Advanced Settings. When disabled, you will "
+"not be notified of bug fixes and Security issues without manually checking "
+"for updates online. You are advised to enable the update checking. Updates "
+"are never downloaded automatically, they are only checked and reported in "
+"the notification panel and log if enabled."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:795
+#, php-format
+msgid "Online upgrade available (%s)"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:707
+#, php-format
+msgid "Only %s version %s is compatible, you have %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/login.php:38
+msgid "Operator Panel"
+msgstr ""
+
+#: ../core/functions.inc.php:7267
+msgid "Optional CID Prefix to add before sending to this busy destination."
+msgstr ""
+
+#: ../core/functions.inc.php:7258
+msgid ""
+"Optional CID Prefix to add before sending to this no answer destination."
+msgstr ""
+
+#: ../core/functions.inc.php:7272
+msgid ""
+"Optional CID Prefix to add before sending to this not reachable destination."
+msgstr ""
+
+#: ../core/page.routing.php:755
+msgid "Optional Destination on Congestion"
+msgstr ""
+
+#: ../core/functions.inc.php:7242
+msgid "Optional Destinations"
+msgstr ""
+
+#: ../core/page.routing.php:410
+msgid ""
+"Optional Route CID to be used for this route. If set, this will override all "
+"CIDS specified except:<ul><li>extension/device EMERGENCY CIDs if this route "
+"is checked as an EMERGENCY Route</li><li>trunk CID if trunk is set to force "
+"it's CID</li><li>Forwarded call CIDs (CF, Follow Me, Ring Groups, etc)</"
+"li><li>Extension/User CIDs if checked</li></ul>"
+msgstr ""
+
+#: ../core/functions.inc.php:7252
+msgid ""
+"Optional destination call is routed to when the call is not answered on an "
+"otherwise idle phone. If the phone is in use and the call is simply ignored, "
+"then the busy destination will be used."
+msgstr ""
+
+#: ../core/functions.inc.php:7254
+msgid "Optional destination call is routed to when the call is not answered."
+msgstr ""
+
+#: ../core/functions.inc.php:7263
+msgid ""
+"Optional destination the call is routed to when the phone is busy or the "
+"call is rejected by the user."
+msgstr ""
+
+#: ../core/functions.inc.php:7261
+msgid ""
+"Optional destination the call is routed to when the phone is busy or the "
+"call is rejected by the user. This destination is also used on an unanswered "
+"call if the phone is in use and the user chooses not to pickup the second "
+"call."
+msgstr ""
+
+#: ../core/functions.inc.php:7269
+msgid ""
+"Optional destination the call is routed to when the phone is offline, such "
+"as a softphone currently off or a phone unplugged."
+msgstr ""
+
+#: ../core/page.routing.php:418
+msgid ""
+"Optional: A route can prompt users for a password before allowing calls to "
+"progress.  This is useful for restricting calls to international "
+"destinations or 1-900 numbers.<br><br>A numerical password, or the path to "
+"an Authenticate password file can be used.<br><br>Leave this field blank to "
+"not prompt for password."
+msgstr ""
+
+#: ../core/page.routing.php:423
+msgid ""
+"Optional: Selecting Emergency will enforce the use of a device's Emergency "
+"CID setting (if set).  Select this option if this route is used for "
+"emergency dialing (ie: 911)."
+msgstr ""
+
+#: ../core/page.routing.php:423
+msgid ""
+"Optional: Selecting Intra-Company will treat this route as an intra-company "
+"connection, preserving the internal CallerID information instead of the "
+"outbound CID of either the extension or trunk."
+msgstr ""
+
+#: ../core/page.did.php:209
+msgid "Options"
+msgstr ""
+
+#: ../core/functions.inc.php:7663
+msgid "Other (Custom) Device"
+msgstr ""
+
+#: ../core/functions.inc.php:7160
+msgid "Outbound CID"
+msgstr ""
+
+#: ../core/page.trunks.php:513
+msgid "Outbound CallerID"
+msgstr ""
+
+#: ../core/functions.inc.php:7186
+msgid "Outbound Concurrency Limit"
+msgstr ""
+
+#: ../core/page.trunks.php:836
+msgid "Outbound Dial Prefix"
+msgstr "Prefixo de chamadas externas"
+
+#: ../core/functions.inc.php:7236
+msgid "Outbound External Calls"
+msgstr ""
+
+#: ../core/functions.inc.php:7238
+msgid "Outbound Internal Calls"
+msgstr ""
+
+#: ../core/functions.inc.php:6782
+#, php-format
+msgid "Outbound Route: %s"
+msgstr ""
+
+#: amp.i18n.php:44
+msgid "Outbound Routes"
+msgstr ""
+
+#: ../core/page.trunks.php:850
+msgid "Outgoing Settings"
+msgstr "Parâmetros de saída"
+
+#: ../core/functions.inc.php:7165 ../core/page.trunks.php:567
+msgid "Override"
+msgstr ""
+
+#: ../core/page.routing.php:413
+msgid "Override Extension"
+msgstr ""
+
+#: ../core/functions.inc.php:7160
+msgid ""
+"Overrides the CallerID when dialing out a trunk. Any setting here will "
+"override the common outbound CallerID set in the Trunks admin."
+"<br><br>Format: <b>\"caller name\" &lt;#######&gt;</b><br><br>Leave this "
+"field blank to disable the outbound CallerID feature for this user."
+msgstr ""
+
+#: ../core/page.trunks.php:946
+msgid "PEER Details"
+msgstr "Detalhes PEER"
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:566
+#, php-format
+msgid "PHP Component %s is required but missing from you PHP installation."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:568
+#, php-format
+msgid ""
+"PHP Component %s version %s is required but missing from you PHP "
+"installation."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/obe.php:30
+msgid "Password"
+msgstr ""
+
+#: ../core/functions.inc.php:7458 ../core/functions.inc.php:7510
+msgid ""
+"Password (secret) configured for the device. Should be alphanumeric with at "
+"least 2 letters and numbers to keep secure."
+msgstr ""
+
+#: ../core/page.ampusers.php:179
+msgid "Password<span>Create a password for this new user</span>"
+msgstr "Senha<span>Crie uma senha para este novo usuário</span>"
+
+#: amp_conf/htdocs/admin/libraries/view.functions.php:540
+msgid "Passwords dont match"
+msgstr ""
+
+#: ../core/page.did.php:244
+msgid "Pause Before Answer"
+msgstr ""
+
+#: ../core/functions.inc.php:7394 ../core/functions.inc.php:7449
+#: ../core/functions.inc.php:7630
+msgid ""
+"Pickupgroups(s) that this device can pickup calls from, can be one or more "
+"groups, e.g. '1,3-5' would be in groups 1,3,4,5. Device does not have to be "
+"in a group to be able to pickup calls from that group."
+msgstr ""
+
+#: ../core/functions.inc.php:7194
+msgid "Pinless Dialing"
+msgstr ""
+
+#: ../core/functions.inc.php:800
+msgid "Play SIT Tone (Zapateller)"
+msgstr ""
+
+#: ../core/functions.inc.php:802
+msgid "Play ringtones to caller until they hangup"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:575
+msgid "Please confirm the following actions:"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/login.php:6
+#: amp_conf/htdocs/admin/views/obe.php:15
+msgid "Please correct the following errors:"
+msgstr ""
+
+#: ../core/functions.inc.php:7347
+msgid "Please enter a Secret for this device"
+msgstr ""
+
+#: ../core/functions.inc.php:7769
+msgid "Please enter a device id."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/view.functions.php:538
+msgid "Please enter a password"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/view.functions.php:535
+msgid "Please enter a username"
+msgstr ""
+
+#: ../core/functions.inc.php:7072
+msgid "Please enter a valid CID Num Alias (must be a valid number)."
+msgstr ""
+
+#: ../core/page.did.php:312
+msgid "Please enter a valid CallerID Number"
+msgstr ""
+
+#: ../core/functions.inc.php:7078
+msgid ""
+"Please enter a valid CallerID Number or leave it blank for your Assigned DID/"
+"CID pair"
+msgstr ""
+
+#: ../core/page.did.php:311
+msgid "Please enter a valid DID Number"
+msgstr ""
+
+#: ../core/functions.inc.php:7770
+msgid "Please enter a valid Description for this device"
+msgstr ""
+
+#: ../core/functions.inc.php:7074
+msgid "Please enter a valid Display Name"
+msgstr ""
+
+#: ../core/functions.inc.php:7771
+msgid "Please enter a valid Emergency CID"
+msgstr ""
+
+#: ../core/page.did.php:313
+msgid "Please enter a valid Fax Email or leave it empty to use the default"
+msgstr ""
+
+#: ../core/functions.inc.php:7075
+msgid "Please enter a valid Outbound CID"
+msgstr ""
+
+#: ../core/functions.inc.php:7071 ../core/functions.inc.php:7772
+msgid "Please enter a valid extension number."
+msgstr ""
+
+#: ../core/page.did.php:315
+msgid "Please enter a valid number for Pause Before Answer field"
+msgstr ""
+
+#: ../core/page.did.php:314
+msgid "Please enter a valid number for Pause after answer"
+msgstr ""
+
+#: ../core/functions.inc.php:7076
+msgid "Please enter a valid pause time in seconds, using digits only"
+msgstr ""
+
+#: ../core/functions.inc.php:7345
+msgid "Please enter the channel for this device"
+msgstr ""
+
+#: ../core/functions.inc.php:7073
+msgid "Please enter valid User Password using numbers only"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/obe.php:9
+msgid ""
+"Please provide the core credentials that will be used to administer your "
+"system"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:91
+msgid "Please select a \"Destination\""
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:596
+msgid ""
+"Please select at least one action to perform by clicking on the module, and "
+"selecting an action on the \"Action\" tab."
+msgstr ""
+
+#: ../core/functions.inc.php:7718
+msgid "Please select your Device below then click Submit"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:346
+msgid "Please wait while module actions are performed"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:150
+msgid "Portuguese"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:151
+msgid "Portuguese (Brasil)"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/bad_refferer.php:16
+msgid "Potential Security Breach"
+msgstr ""
+
+#: ../core/page.routing.php:504
+msgid ""
+"Prefix to remove on a successful match. The dialed number is compared to "
+"this and the subsequent columns for a match. Upon a match, this prefix is "
+"removed from the dialed number before sending it to the trunks."
+msgstr ""
+
+#: ../core/page.trunks.php:618
+msgid ""
+"Prefix to remove upon a successful match. If the dialed number matches this "
+"plus the <b>match pattern</b> box, this prefix is removed before adding the "
+"optional <b>prepend</b> box and sending the results to the trunk."
+msgstr ""
+
+#: ../core/page.did.php:248
+msgid "Privacy"
+msgstr ""
+
+#: ../core/page.did.php:251
+msgid "Privacy Manager"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:682
+#: amp_conf/htdocs/admin/page.modules.php:998
+msgid "Process"
+msgstr ""
+
+#: ../core/page.did.php:192
+msgid "Provide a meaningful description of what this incoming route is"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:690
+msgid "Publisher"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:917
+#, php-format
+msgid "Publisher: %s"
+msgstr ""
+
+#: ../core/functions.inc.php:801
+msgid "Put caller on hold forever"
+msgstr ""
+
+#: ../core/functions.inc.php:7516
+msgid "RFC 2833"
+msgstr ""
+
+#: ../core/functions.inc.php:7536
+msgid ""
+"Re-Invite policy for this device, see Asterisk documentation for details."
+msgstr ""
+
+#: ../core/functions.inc.php:7240
+msgid "Record Priority Policy"
+msgstr ""
+
+#: ../core/functions.inc.php:7227
+msgid "Recording Options"
+msgstr ""
+
+#: ../core/functions.inc.php:7238
+msgid "Recording of calls made to other extensions on the system."
+msgstr ""
+
+#: ../core/functions.inc.php:7237
+msgid "Recording of calls received from other extensions on the system."
+msgstr ""
+
+#: ../core/functions.inc.php:7235
+msgid "Recording of inbound calls from external sources."
+msgstr ""
+
+#: ../core/functions.inc.php:7236
+msgid "Recording of outbound calls to external sources."
+msgstr ""
+
+#: ../core/page.advancedsettings.php:156 ../core/page.trunks.php:1004
+msgid "Refresh Page"
+msgstr ""
+
+#: ../core/page.trunks.php:984
+msgid "Register String"
+msgstr "Campo de Registro"
+
+#: ../core/page.trunks.php:979
+msgid "Registration"
+msgstr "Registro"
+
+#: amp_conf/htdocs/admin/page.modules.php:1028
+msgid "Related Tickets"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1020
+msgid "Related URL"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1020
+msgid "Related URLs"
+msgstr ""
+
+#: amp_conf/htdocs/admin/functions.inc.php:385
+msgid ""
+"Reload failed because IssabelPBX could not connect to the asterisk manager "
+"interface."
+msgstr ""
+
+#: amp_conf/htdocs/admin/functions.inc.php:377
+#, php-format
+msgid "Reload failed because retrieve_conf encountered an error: %s"
+msgstr ""
+
+#: ../core/page.trunks.php:530
+msgid "Remove CNAM"
+msgstr ""
+
+#: ../core/page.trunks.php:684 ../core/page.trunks.php:692
+msgid "Remove prefix from local numbers"
+msgstr "Remove um prefixo de numeros locais"
+
+#: upgrades/2.5.0/removefiles.php:21
+msgid "Removed"
+msgstr ""
+
+#: upgrades/2.5.0/removefiles.php:28
+msgid "Removed directory"
+msgstr ""
+
+#: ../core/install.php:182
+#, php-format
+msgid "Removing field %s from users table.."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1190
+msgid "Repositories"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:678
+#, php-format
+msgid "Requires engine %s, you have: %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:680
+#, php-format
+msgid "Requires one of the following engines: %s; you have: %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:681
+#: amp_conf/htdocs/admin/page.modules.php:997
+msgid "Reset"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menuitem_disabled.php:4
+msgid ""
+"Restart Asterisk and then refresh the browser in order to try accessing this "
+"menu item again."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:80
+msgid "Retry"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:429
+#: amp_conf/htdocs/admin/page.modules.php:431
+msgid "Return"
+msgstr ""
+
+#: ../core/page.advancedsettings.php:139
+msgid "Revert to Default"
+msgstr ""
+
+#: ../core/functions.inc.php:7167
+msgid "Ring Time"
+msgstr ""
+
+#: ../core/page.did.php:140 ../core/page.trunks.php:425
+msgid "Route"
+msgstr "Rota"
+
+#: ../core/page.routing.php:410
+msgid "Route CID"
+msgstr ""
+
+#: ../core/page.routing.php:402
+msgid "Route Name"
+msgstr "Nome da Rota"
+
+#: ../core/page.routing.php:418
+msgid "Route Password"
+msgstr "Senha da Rota"
+
+#: ../core/page.routing.php:461
+msgid "Route Position"
+msgstr ""
+
+#: ../core/page.routing.php:397
+msgid "Route Settings"
+msgstr ""
+
+#: ../core/page.routing.php:423
+msgid "Route Type"
+msgstr ""
+
+#: ../core/page.routing.php:840
+msgid "Route name is invalid, please try again"
+msgstr "O nome da rona é invalido, por favor tente novamente"
+
+#: ../core/page.routing.php:841
+msgid "Route password must be numeric or leave blank to disable"
+msgstr ""
+
+#: ../core/page.routing.php:497 ../core/page.trunks.php:611
+msgid "Rules:"
+msgstr "Regras:"
+
+#: amp_conf/htdocs/admin/views/menu.php:152
+msgid "Russian"
+msgstr ""
+
+#: ../core/functions.inc.php:7131
+msgid "SIP Alias"
+msgstr ""
+
+#: ../core/functions.inc.php:7520
+msgid "SIP INFO (application/dtmf)"
+msgstr ""
+
+#: ../core/functions.inc.php:7519
+msgid "SIP INFO (application/dtmf-relay"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/bad_refferer.php:19
+msgid "SUSPECT LINK:"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:82
+#: ../core/page.advancedsettings.php:145
+msgid "Save"
+msgstr ""
+
+#: ../core/functions.inc.php:6960
+msgid "Screen Caller: Memory"
+msgstr ""
+
+#: ../core/functions.inc.php:6959
+msgid "Screen Caller: No Memory"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/welcome.php:10
+msgid "Security"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:85
+msgid "Security Issue"
+msgstr ""
+
+#: ../core/functions.inc.php:7560
+msgid "Send P-Asserted-Identity header"
+msgstr ""
+
+#: ../core/functions.inc.php:7557
+msgid "Send Remote-Party-ID header"
+msgstr ""
+
+#: ../core/page.trunks.php:425
+msgid "Sequence"
+msgstr "Sequencia"
+
+#: ../core/page.did.php:290
+msgid "Set Destination"
+msgstr "Configurar destino"
+
+#: ../core/page.did.php:220
+msgid ""
+"Set the MoH class that will be used for calls that come in on this route. "
+"For example, choose a type appropriate for routes coming in from a country "
+"which may have announcements in their language."
+msgstr ""
+
+#: ../core/functions.inc.php:7188
+msgid "Set the initial/current Call Waiting state for this user's extension"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/obe.php:78
+msgid "Set up my Account"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:89
+msgid "Setting AUTHTYPE to none consistent with old default"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:94
+msgid "Setting MOHDIR to mohmp3 consistent with old default"
+msgstr ""
+
+#: ../core/functions.inc.php:7582
+msgid ""
+"Setting to yes (equivalent to 2000 msec) will send an OPTIONS packet to the "
+"endpoint periodically (default every minute). Used to monitor the health of "
+"the endpoint. If delays are longer then the qualify time, the endpoint will "
+"be taken offline and considered unreachable. Can be set to a value which is "
+"the msec threshhold. Setting to no will turn this off. Can also be helpful "
+"to keep NAT pinholes open."
+msgstr ""
+
+#: ../core/functions.inc.php:7482
+msgid ""
+"Setting to yes (equivalent to 2000 msec) will send an OPTIONS packet to the "
+"endpoint periodically (default every minute). Used to monitor the health of "
+"the endpoint. If delays are longer then the qualify time, the endpoint will "
+"be taken offline and considered unreachable. Can be set to a value which is "
+"the msec threshold. Setting to no will turn this off. Can also be helpful to "
+"keep NAT pinholes open."
+msgstr ""
+
+#: amp.i18n.php:50
+msgid "Settings"
+msgstr ""
+
+#: ../core/page.trunks.php:685 ../core/page.trunks.php:693
+msgid "Setup directory assistance"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1015
+msgid "Severity"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:660
+msgid "Show only upgradeable"
+msgstr ""
+
+#: ../core/page.did.php:240
+msgid "Signal RINGING"
+msgstr ""
+
+#: ../core/install.php:11
+msgid "Simulate Incoming Call"
+msgstr ""
+
+#: ../core/page.did.php:240
+msgid ""
+"Some devices or providers require RINGING to be sent before ANSWER. You'll "
+"notice this happening if you can send calls directly to a phone, but if you "
+"send it to an IVR, it won't connect the call."
+msgstr ""
+
+#: ../core/page.advancedsettings.php:43
+msgid ""
+"Some of these settings can render your system inoperable. You are urged to "
+"backup before making any changes. Readonly settings are usually more "
+"volatile, they can be changed by changing 'Override Readonly Settings' to "
+"true. Once changed you must save the setting by checking the green check box "
+"that appears. You can restore the default setting by clicking on the icon to "
+"the right of the values if not set at default."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:154
+msgid "Spanish"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1214
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1243
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1308
+msgid "Specified module not found"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/components.class.php:399
+#: ../core/page.did.php:298
+msgid "Submit"
+msgstr ""
+
+#: ../core/page.ampusers.php:250 ../core/page.dahdichandids.php:95
+#: ../core/page.routing.php:765 ../core/page.trunks.php:1002
+msgid "Submit Changes"
+msgstr ""
+
+#: amp_conf/htdocs/admin/functions.inc.php:410
+msgid ""
+"Successful reload, but could not clear reload flag due to a database error: "
+msgstr ""
+
+#: amp_conf/htdocs/admin/functions.inc.php:403
+msgid "Successfully reloaded"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:153
+msgid "Swedish"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menu.php:50
+msgid "Syntax error in your issabelpbx_menu.conf file"
+msgstr ""
+
+#: ../core/functions.inc.php:7597
+msgid "TCP Only"
+msgstr ""
+
+#: ../core/functions.inc.php:7598
+msgid "TLS Only"
+msgstr ""
+
+#: ../core/functions.inc.php:795
+msgid "Terminate Call"
+msgstr ""
+
+#: ../core/functions.inc.php:7130
+msgid ""
+"The CID Number to use for internal calls, if different from the extension "
+"number. This is used to masquerade as a different user. A common example is "
+"a team of support people who would like their internal CallerID to display "
+"the general support number (a ringgroup or queue). There will be no effect "
+"on external calls."
+msgstr ""
+
+#: ../core/functions.inc.php:994
+msgid ""
+"The Call Recording module is not enabled. Since this feature is required for "
+"call recording you may not be able to record calls until the module is "
+"installed and enabled."
+msgstr ""
+
+#: ../core/functions.inc.php:7128
+msgid ""
+"The CallerID name for calls from this user will be set to this name. Only "
+"enter the name, NOT the number."
+msgstr ""
+
+#: ../core/functions.inc.php:7785
+msgid ""
+"The CallerID name for this device will be set to this description until it "
+"is logged into."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1180
+msgid ""
+"The Commercial repository is reserved for modules that are available for "
+"purchase and commercially supported."
+msgstr ""
+
+#: ../core/page.dahdichandids.php:79
+msgid "The DAHDI Channel number to map to a DID"
+msgstr ""
+
+#: ../core/functions.inc.php:7403
+msgid "The DAHDi channel number for this port."
+msgstr ""
+
+#: ../core/page.dahdichandids.php:90
+msgid ""
+"The DID that this channel represents. The incoming call on this channel will "
+"be treated as if it came in with this DID and can be managed with Inbound "
+"Routing on DIDs"
+msgstr ""
+
+#: ../core/functions.inc.php:7521
+msgid ""
+"The DTMF signaling mode used by this device, usually rfc2833 for most phones."
+msgstr ""
+
+#: ../core/page.trunks.php:1167
+msgid ""
+"The Outbound Dial Prefix contains non-standard characters. If these are "
+"intentional the press OK to continue."
+msgstr ""
+
+#: ../core/page.routing.php:676
+msgid ""
+"The Trunk Sequence controls the order of trunks that will be used when the "
+"above Dial Patterns are matched. <br><br>For Dial Patterns that match long "
+"distance numbers, for example, you'd want to pick the cheapest routes for "
+"long distance (ie, VoIP trunks first) followed by more expensive routes "
+"(POTS lines)."
+msgstr ""
+"A sequencia dos troncos controla a ordem doas linhas de conecções qual será "
+"usado quando os patrões de sequencia acima nomeados são igualados. "
+"<br><br>Por exemplo para os patrões de discagem de numeros de grande "
+"distancia, ud. deveria utilizar as rotas de menor custo de grande (Ex, 1 "
+"linhas de coneções de VoIP) seguidas das rotas mais caras (lineas POTS "
+"clasicas)."
+
+#: ../core/functions.inc.php:7356
+msgid "The Zap channel number for this port."
+msgstr ""
+
+#: ../core/page.routing.php:505
+msgid ""
+"The dialed number will be compared against the  prefix + this match pattern. "
+"Upon a match, the match pattern portion of the dialed number will be sent to "
+"the trunks"
+msgstr ""
+
+#: ../core/page.trunks.php:619
+msgid ""
+"The dialed number will be compared against the <b>prefix</b> plus this "
+"pattern. Upon a match, this portion of the number will be sent to the trunks "
+"after removing the <b>prefix</b> and appending the <b>prepend</b> digits"
+msgstr ""
+
+#: ../core/functions.inc.php:7092
+msgid "The extension number to dial to reach this user."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/cronmanager.class.php:157
+msgid "The following commands failed with the listed error"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:620
+#, php-format
+msgid "The following error(s) occurred processing the uploaded file: %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1764
+msgid "The following modules are disabled because they are broken:"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1756
+msgid "The following modules are disabled because they need to be upgraded:"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:221
+msgid ""
+"The following new modules are available for download. Click delete icon on "
+"the right to remove this notice."
+msgstr ""
+
+#: ../core/page.trunks.php:836
+msgid ""
+"The outbound dialing prefix is used to prefix a dialing string to all "
+"outbound calls placed on this trunk. For example, if this trunk is behind "
+"another PBX or is a Centrex line, then you would put 9 here to access an "
+"outbound line. Another common use is to prefix calls with 'w' on a POTS line "
+"that need time to obtain dial tone to avoid eating digits.<br><br>Most users "
+"should leave this option blank."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:93
+msgid "The secret must be at minimum six characters in length."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:94
+msgid "The secret must contain at least two numbers and two letters."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/noaccess.php:4
+msgid ""
+"The section you requested does not exist or you do not have access to it."
+msgstr ""
+"A sessão que você está requisitando não existe ou você não possue acesso a "
+"ela"
+
+#: amp_conf/htdocs/admin/views/bad_refferer.php:18
+msgid ""
+"The suspect URL is listed below. If this action is intended, you can click "
+"this link and your action will be processed. Do not proceed with this if you "
+"did not intended to execute this command as it may result in changes to your "
+"configuration."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:498
+#, php-format
+msgid ""
+"The system detected a problem trying to access external server data and "
+"changed internal setting %s (Use wget For Module Admin) to true, see the "
+"tooltip in Advanced Settings for more details."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:269
+#, php-format
+msgid "There are %s modules available for online upgrades"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:296
+#, php-format
+msgid "There are %s modules vulnerable to security threats"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/welcome.php:41
+#, php-format
+msgid ""
+"There are a large number of Plug-in modules available from the Online "
+"Repository. This is\n"
+"available by clicking on the <a href='%s'>Tools menu</a> up the top, then\n"
+"<a href='%s'>Module Admin</a>, then\n"
+"<a href='%s'>Check for updates online</a>.\n"
+"Modules are updated and patched often, so if you are having a problem, it's "
+"worth checking there to see if there's\n"
+"a new version of the module available."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:267
+msgid "There is 1 module available for online upgrade"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:294
+msgid "There is 1 module vulnerable to security threats"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/welcome.php:67
+#, php-format
+msgid ""
+"There is also a community based <a href='%s' target='_new'>IssabelPBX Web "
+"Forum</a> where you can post\n"
+"questions and search for answers for any problems you may be having."
+msgstr ""
+
+#: ../core/install.php:178
+#, php-format
+msgid ""
+"There were %s failures migrating directdids, users table not being changed"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:147
+msgid "There were no settings to update"
+msgstr ""
+
+#: ../core/page.routing.php:574
+msgid ""
+"These options provide a quick way to add outbound dialing rules. Follow the "
+"prompts for each."
+msgstr ""
+
+#: ../core/page.trunks.php:611
+msgid ""
+"These rules can manipulate the dialed number before sending it out this "
+"trunk. If no rule applies, the number is not changed. The original dialed "
+"number is passed down from the route where some manipulation may have "
+"already occurred. This trunk has the option to further manipulate the "
+"number. If the number matches the combined values in the <b>prefix</b> plus "
+"the <b>match pattern</b> boxes, the rule will be applied and all subsequent "
+"rules ignored.<br/> Upon a match, the <b>prefix</b>, if defined, will be "
+"stripped. Next the <b>prepend</b> will be inserted in front of the <b>match "
+"pattern</b> and the resulting number will be sent to the trunk. All fields "
+"are optional."
+msgstr ""
+
+#: ../core/functions.inc.php:7786 ../core/functions.inc.php:7791
+msgid ""
+"This CallerID will always be set when dialing out an Outbound Route flagged "
+"as Emergency.  The Emergency CID overrides all other CallerID settings."
+msgstr ""
+
+#: ../core/functions.inc.php:4635
+msgid "This device id is already in use"
+msgstr ""
+
+#: ../core/functions.inc.php:7799
+#, php-format
+msgid "This device uses %s technology."
+msgstr ""
+
+#: ../core/page.did.php:205
+msgid ""
+"This effects CID ONLY routes where no DID is specified. If checked, calls "
+"with this CID will be routed to this route, even if there is a route to the "
+"DID that was called. Normal behavior is for the DID route to take the calls. "
+"If there is a specific DID/CID route for this CID, that route will still "
+"take the call when that DID is called."
+msgstr ""
+
+#: ../core/page.trunks.php:961
+msgid ""
+"This is most often the account name or number your provider expects."
+"<br><br>This USER Context will be used to define the below user details."
+msgstr ""
+"Este é, normalmente, o nome da conta e o numero assinalado pelo provedor."
+"<br><br>Este contexto USER sera usado para definir os detalhes de usuario "
+"aqui abaixo."
+
+#: ../core/page.trunks.php:927
+msgid ""
+"This is the name of the DUNDi mapping as defined in the [mappings] section "
+"of remote dundi.conf peers. This corresponds to the 'include' section of the "
+"peer details in the local dundi.conf file. This requires manual "
+"configuration of DUNDi to use this trunk."
+msgstr ""
+
+#: ../core/page.trunks.php:686
+msgid ""
+"This looks up your local number on www.localcallingguide.com (NA-only), and "
+"sets up so you can dial either 7 or 10 digits (regardless of what your PSTN "
+"is) on a local trunk (where you have to dial 1+area code for long distance, "
+"but only 5551234 (7-digit dialing) or 6135551234 (10-digit dialing) for "
+"local calls"
+msgstr ""
+
+#: ../core/page.routing.php:575
+msgid ""
+"This looks up your local number on www.localcallingguide.com (NA-only), and "
+"sets up so you can dial either 7, 10 or 11 digits (5551234, 6135551234, "
+"16135551234) to access this route."
+msgstr ""
+
+#: ../core/functions.inc.php:7602
+msgid ""
+"This sets the allowed transport settings for this device and the default "
+"(Primary) transport for outgoing. The default transport is only used for "
+"outbound messages until a registration takes place.  During the peer "
+"registration the transport type may change to another supported type if the "
+"peer requests so. In most common cases, this does not have to be changed as "
+"most devices register in conjunction with the host=dynamic setting. If you "
+"are using TCP and/or TLS you need to make sure the general SIP Settings are "
+"configured for the system to operate in those modes and for TLS, proper "
+"certificates have been generated and configured. If you are using websockets "
+"(such as WebRTC) then you must select an option that includes WS"
+msgstr ""
+
+#: ../core/page.trunks.php:429
+msgid "This trunk is not used by any routes!"
+msgstr "Este tronco não está sendo usado por nenhuma rota!"
+
+#: ../core/page.trunks.php:430
+msgid ""
+"This trunk will not be able to be used for outbound calls until a route is "
+"setup that uses it. Click on <b>Outbound Routes</b> to setup routing."
+msgstr ""
+"Este canal não pode ser usada para realizar chamadas de saídas bas apenas "
+"que uma rota tenha sido setada para usá-la. Click em <b>Rotas de Saída</b> "
+"para configurar as rotas."
+
+#: ../core/functions.inc.php:5442
+#, php-format
+msgid "This user/extension %s is already in use"
+msgstr ""
+
+#: ../core/page.routing.php:454
+msgid "Time Group:"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/login.php:12
+msgid "To get started, please enter your credentials:"
+msgstr ""
+
+#: ../core/page.routing.php:658
+msgid "Toll-free"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:172
+msgid "Trace Back"
+msgstr ""
+
+#: ../core/page.advancedsettings.php:87 ../core/page.advancedsettings.php:131
+msgid "True"
+msgstr ""
+
+#: ../core/page.trunks.php:506 ../core/page.trunks.php:939
+msgid "Trunk Name"
+msgstr "Nome do campo"
+
+#: ../core/page.trunks.php:1170
+msgid "Trunk Name and User Context cannot be set to the same value"
+msgstr ""
+"O nome do canal principal o contexto do usuário não podem ter o mesmo valor"
+
+#: ../core/page.routing.php:676
+msgid "Trunk Sequence for Matched Routes"
+msgstr ""
+
+#: ../core/functions.inc.php:904
+#, php-format
+msgid "Trunk: %s (%s)"
+msgstr ""
+
+#: amp.i18n.php:46
+msgid "Trunks"
+msgstr "Canal"
+
+#: amp_conf/htdocs/admin/page.modules.php:1014
+msgid "Type"
+msgstr ""
+
+#: ../core/functions.inc.php:7596
+msgid "UDP Only"
+msgstr ""
+
+#: ../core/page.trunks.php:961
+msgid "USER Context"
+msgstr "Contexto do USER"
+
+#: ../core/page.trunks.php:968
+msgid "USER Details"
+msgstr "Detalhes do USER"
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:909
+#, php-format
+msgid "Unable to connect to servers from URLs provided: %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:952
+#, php-format
+msgid "Unable to save %s"
+msgstr ""
+
+#: ../core/functions.inc.php:7256 ../core/functions.inc.php:7270
+msgid "Unavail Voicemail if Enabled"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:34
+msgid "Undefined Category"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:854
+#: amp_conf/htdocs/admin/page.modules.php:877
+#: amp_conf/htdocs/admin/page.modules.php:885
+#: amp_conf/htdocs/admin/page.modules.php:909
+msgid "Uninstall"
+msgstr "Desinstalar"
+
+#: upgrades/2.8.0/custom-context.php:52
+#: upgrades/2.8.0rc1/custom-context.php:52
+msgid "Unknown error fetching Custom Context table data or no data to migrate"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1204
+msgid "Unsupported"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1077
+msgid "Untarring.."
+msgstr ""
+
+#: ../core/page.did.php:78
+msgid "Unused DIDs"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:81
+#: amp_conf/htdocs/admin/views/welcome.php:11
+msgid "Update"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer.php:84
+msgid "Update Notifications"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:143
+msgid "Updating prepared settings.."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:679
+#: amp_conf/htdocs/admin/page.modules.php:995
+msgid "Upgrade all"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:867
+#, php-format
+msgid "Upgrade to %s and Enable"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:578
+msgid "Upgrades, installs, enables and disables:"
+msgstr ""
+
+#: ../core/page.routing.php:576 ../core/page.routing.php:664
+#: ../core/page.trunks.php:687 ../core/page.trunks.php:696
+msgid "Upload from CSV"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:666
+msgid "Upload module"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:1173
+msgid "Upload modules"
+msgstr ""
+
+#: ../core/page.trunks.php:687
+#, php-format
+msgid ""
+"Upload patterns from a CSV file replacing existing entries. If there are no "
+"headers then the file must have 3 columns of patterns in the same order as "
+"in the GUI. You can also supply headers: %s, %s and %s in the first row. If "
+"there are less then 3 recognized headers then the remaining columns will be "
+"blank"
+msgstr ""
+
+#: ../core/page.routing.php:576
+#, php-format
+msgid ""
+"Upload patterns from a CSV file replacing existing entries. If there are no "
+"headers then the file must have 4 columns of patterns in the same order as "
+"in the GUI. You can also supply headers: %s, %s, %s and %s in the first row. "
+"If there are less then 4 recognized headers then the remaining columns will "
+"be blank"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/usage_registry.functions.php:254
+#, php-format
+msgid "Used as Destination by %s %s"
+msgstr ""
+
+#: ../core/functions.inc.php:7050 ../core/page.did.php:165
+#: ../core/page.users.php:12
+msgid "User"
+msgstr ""
+
+#: ../core/page.trunks.php:1171
+msgid "User Context was left blank and User Details will not be saved!"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/login.php:35
+msgid "User Control Panel"
+msgstr ""
+
+#: ../core/page.did.php:76
+msgid "User DIDs"
+msgstr ""
+
+#: ../core/functions.inc.php:7136
+msgid "User Devices"
+msgstr ""
+
+#: ../core/functions.inc.php:7092
+msgid "User Extension"
+msgstr ""
+
+#: ../core/functions.inc.php:889
+#, php-format
+msgid "User Extension %s: %s"
+msgstr ""
+
+#: ../core/functions.inc.php:5312
+msgid "User Extension: "
+msgstr ""
+
+#: ../core/install.php:8
+msgid "User Logoff"
+msgstr ""
+
+#: ../core/install.php:7
+msgid "User Logon"
+msgstr ""
+
+#: ../core/functions.inc.php:7095
+msgid "User Password"
+msgstr ""
+
+#: ../core/install.php:170
+msgid "User: "
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/obe.php:20
+msgid "Username"
+msgstr ""
+
+#: ../core/page.ampusers.php:266
+msgid ""
+"Username cannot start with a number, and can only contain letters and numbers"
+msgstr ""
+"O nome do usuário não pode comçar por um numero e deverá conter somente "
+"letras e números"
+
+#: ../core/page.ampusers.php:264
+msgid "Username must not be blank"
+msgstr "O nome do usuário não deve estar em branco"
+
+#: ../core/page.ampusers.php:172
+msgid "Username<span>Create a unique username for this new user</span>"
+msgstr "Nome do Usuário<span>Crie um único nome para este novo usuário</span>"
+
+#: amp.i18n.php:34
+msgid "Users"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:1058
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:1063
+#, php-format
+msgid "Value [%s] out of range, changed to [%s]"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:689
+msgid "Version"
+msgstr ""
+
+#: ../core/functions.inc.php:7799
+msgid "Via DAHDi compatibility mode"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:812
+#, php-format
+msgid "Vulnerable to security issues %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:813
+#, php-format
+msgid "Vulnerable, Requires: %s"
+msgstr ""
+
+#: ../core/page.trunks.php:429
+msgid "WARNING:"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/header.php:69
+msgid ""
+"WARNING: Javascript is disabled in your browser. The IssabelPBX administration "
+"interface requires Javascript to run properly. Please enable javascript or "
+"switch to another  browser that supports it."
+msgstr ""
+
+#: ../core/functions.inc.php:7600
+msgid "WS Only"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/welcome.php:13
+msgid "Warning"
+msgstr ""
+
+#: ../core/functions.inc.php:7288
+msgid "Warning! Extension"
+msgstr "Aviso! Interno"
+
+#: amp_conf/htdocs/admin/views/welcome_nomanager.php:2
+msgid "Warning:"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:302
+#, php-format
+msgid ""
+"Warning: Cannot connect to online repository(s) (%s). Online modules are not "
+"available."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:306
+#, php-format
+msgid ""
+"Warning: Error retrieving updates from online repository(s) (%s). Online "
+"modules are not available."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/welcome.php:72
+msgid "We hope you enjoy using IssabelPBX!"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/obe.php:3
+msgid "Welcome to "
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/welcome.php:3
+msgid "Welcome to IssabelPBX."
+msgstr ""
+
+#: ../core/page.trunks.php:773
+msgid "What is the dialing pattern for local numbers after"
+msgstr "Qual é o padrao para os numeros locais anterioes"
+
+#: ../core/page.trunks.php:782
+msgid ""
+"What is the directory assistance number you will dial locally in the format "
+"that is passed to this trunk?"
+msgstr ""
+
+#: ../core/page.trunks.php:754
+msgid ""
+"What is the local dialing pattern?\\n\\n(ie. NXXNXXXXXX for US/CAN 10-digit "
+"dialing, NXXXXXX for 7-digit)"
+msgstr ""
+"Qual é o parâmetro de discagem local?\\n\\n(Ex. NXXNXXXXXX para US/CAN de 10-"
+"digitos y NXXXXXX para 7-digitos)"
+
+#: ../core/page.routing.php:587
+msgid ""
+"What is your areacode + prefix (NPA-NXX)?\\n\\n(Note: this database contains "
+"North American numbers only, and is not guaranteed to be 100% accurate. You "
+"will still have the option of modifying results.)\\n\\nThis may take a few "
+"seconds."
+msgstr ""
+"Qual é o seu código de área + prefixo (NPA-NXX)?\\n\\n(Nota: esta base de "
+"dados contém Numeros de USA somente, e não esta garantido que seja 100% "
+"exata. Ud. igual tenha a opição de modificar os resultados.)\\n\\nEsto pode "
+"tomar alguns segundos."
+
+#: ../core/page.trunks.php:731
+msgid ""
+"What is your areacode + prefix (NPA-NXX)?\\n\\n(Note: this database contains "
+"North American numbers only, and is not guaranteed to be 100% accurate. You "
+"will still have the option of modifying results.)\\n\\nThis may take a few "
+"seconds.\")"
+msgstr ""
+
+#: ../core/page.trunks.php:759
+msgid ""
+"What prefix should be added to the dialing pattern?\\n\\n(ie. for US/CAN, 1"
+"+areacode, ie, \\'1613\\')?"
+msgstr ""
+
+#: ../core/page.trunks.php:768
+msgid ""
+"What prefix should be removed from the number?\\n\\n(ie. for US/CAN, 1"
+"+areacode, ie, \\'1613\\')"
+msgstr ""
+
+#: ../core/functions.inc.php:7191
+msgid ""
+"When set to Intercom, calls to this extension/user from other internal users "
+"act as if they were intercom calls meaning they will be auto-answered if the "
+"endpoint supports this feature and the system is configured to operate in "
+"this mode. All the normal white list and black list settings will be honored "
+"if they are set. External calls will still ring as normal, as will certain "
+"other circumstances such as blind transfers and when a Follow Me is "
+"configured and enabled. If Disabled, the phone rings as a normal phone."
+msgstr ""
+
+#: ../core/page.routing.php:461
+msgid "Where to insert this route or relocate it relative to the other routes."
+msgstr ""
+
+#: ../core/functions.inc.php:7562
+msgid ""
+"Whether Asterisk should send RPID (or PAI) info to the device. Usually "
+"should be enabled to the settings used by your device for CONNECTEDLINE() "
+"functionality to work if supported by the endpoint."
+msgstr ""
+
+#: ../core/functions.inc.php:7552
+msgid ""
+"Whether Asterisk should trust the RPID settings from this device. Usually "
+"should be yes for CONNECTEDLINE() functionality to work if supported by the "
+"endpoint."
+msgstr ""
+
+#: ../core/functions.inc.php:7609
+msgid ""
+"Whether to Enable AVPF. Defaults to no. The WebRTC standard has selected "
+"AVPF as the audio video profile to use for media streams. This is not the "
+"default profile in use by Asterisk. As a result the following must be "
+"enabled to use WebRTC"
+msgstr ""
+
+#: ../core/functions.inc.php:7617
+msgid ""
+"Whether to Enable ICE Support. Defaults to no. ICE (Interactive Connectivity "
+"Establishment) is a protocol for Network Address Translator(NAT) traversal "
+"for UDP-based multimedia sessions established with the offer/answer model. "
+"This option is commonly enabled in WebRTC setups"
+msgstr ""
+
+#: ../core/functions.inc.php:7624
+msgid ""
+"Whether to offer SRTP encrypted media (and only SRTP encrypted media) on "
+"outgoing calls to a peer. Calls will fail with HANGUPCAUSE=58 if the peer "
+"does not support SRTP. Defaults to no."
+msgstr ""
+
+#: ../core/functions.inc.php:7422
+msgid ""
+"Whether to turn on echo cancellation when bridging between DAHDi channels. "
+"See DAHDi documentation for details."
+msgstr ""
+
+#: ../core/functions.inc.php:7372
+msgid ""
+"Whether to turn on echo cancellation when bridging between Zap channels. See "
+"Zap documentation for details."
+msgstr ""
+
+#: ../core/functions.inc.php:7361 ../core/functions.inc.php:7370
+#: ../core/functions.inc.php:7377 ../core/functions.inc.php:7384
+#: ../core/functions.inc.php:7409 ../core/functions.inc.php:7420
+#: ../core/functions.inc.php:7429 ../core/functions.inc.php:7438
+#: ../core/functions.inc.php:7462 ../core/functions.inc.php:7500
+#: ../core/functions.inc.php:7538 ../core/functions.inc.php:7551
+#: ../core/functions.inc.php:7573 ../core/functions.inc.php:7608
+#: ../core/functions.inc.php:7616 ../core/page.did.php:255
+msgid "Yes"
+msgstr "Sim"
+
+#: ../core/functions.inc.php:7623
+msgid "Yes (SRTP only)"
+msgstr ""
+
+#: ../core/page.dahdichandids.php:113
+msgid ""
+"You appear to be using a converted DID in the form of zapchanNN that was "
+"automatically generated during an upgrade. You should consider assigning the "
+"DID that is normally associated with this channel to take full advantage of "
+"the inbound routing abilities. Changing the DID here will require you to "
+"make changes in the Inbound Routes tab. Do you want to continue?"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/bad_refferer.php:17
+msgid ""
+"You are attempting to modify settings from a URL that does not appear to "
+"have come from a IssabelPBX page link or button. This can occur if you manually "
+"typed in the URL below. This action has been blocked because the "
+"HTTP_REFERER does not match your current SERVER. If you require this access, "
+"you can set Check Server Referrer=false in Advanced Settings to disable this "
+"security check"
+msgstr ""
+
+#: amp_conf/bin/issabelpbx-cron-scheduler.php:63
+msgid ""
+"You are automatically checking for online updates nightly but you have no "
+"email address setup to send the results. This can be set in Module Admin. "
+"They will continue to show up here."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:1376
+msgid ""
+"You are using the default Asterisk Manager password that is widely known, "
+"you should set a secure password"
+msgstr ""
+
+#: ../core/page.routing.php:432
+msgid ""
+"You can choose which music category to use. For example, choose a type "
+"appropriate for a destination country which may have announcements in the "
+"appropriate language."
+msgstr ""
+
+#: ../core/page.trunks.php:620
+msgid ""
+"You can completely replace a number by matching on the <b>prefix</b> only, "
+"replacing it with a <b>prepend</b> and leaving the <b>match pattern</b> "
+"blank."
+msgstr ""
+
+#: ../core/page.did.php:215
+msgid ""
+"You can optionally prefix the CallerID name. ie: If you prefix with \"Sales:"
+"\", a call from John Doe would display as \"Sales:John Doe\" on the "
+"extensions that ring."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:633
+msgid ""
+"You can upload a tar gzip file containing a IssabelPBX module from your local "
+"system. If a module with the same name already exists, it will be "
+"overwritten."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1763
+#, php-format
+msgid "You have %s broken modules"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1755
+#, php-format
+msgid "You have %s disabled modules"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1763
+msgid "You have a broken module"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1755
+msgid "You have a disabled module"
+msgstr ""
+
+#: ../core/page.trunks.php:721
+msgid "You have enabled this trunk in all routes it is used"
+msgstr ""
+
+#: ../core/functions.inc.php:7077
+msgid ""
+"You have entered a non-standard dialpattern for your DID. You can only enter "
+"standard dialpatterns. You must use the inbound routing form to enter non-"
+"standard patterns"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/view.functions.php:30
+msgid ""
+"You have magic_quotes_gpc enabled in your php.ini, http or .htaccess file "
+"which will cause errors in some modules. IssabelPBX expects this to be off and "
+"runs under that assumption"
+msgstr ""
+
+#: ../core/functions.inc.php:7346
+msgid ""
+"You have not entered a Secret for this device, although this is possible it "
+"is generally bad practice to not assign a Secret to a device. Are you sure "
+"you want to leave the Secret empty?"
+msgstr ""
+
+#: ../core/page.users.php:25
+msgid ""
+"You have not entered a User Password.  While this is acceptable, this user "
+"will not be able to login to an AdHoc device.\\n\\nAre you sure you wish to "
+"leave the User Password empty?"
+msgstr ""
+
+#: ../core/page.advancedsettings.php:37
+msgid ""
+"You have un-saved changes, press OK to disregard changes and reload page or "
+"Cancel to abort."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:573
+msgid ""
+"You may confirm the remaining selection and then try the again for the "
+"listed issues once the required dependencies have been met:"
+msgstr ""
+
+#: ../core/page.trunks.php:968
+msgid ""
+"You may need to add to the default lines listed below, depending on your "
+"provider..<br /><br />WARNING: Order is important as it will be retained. "
+"For example, if you use the \"allow/deny\" directives make sure deny \n"
+"\t\t\t\tcomes first."
+msgstr ""
+
+#: ../core/page.trunks.php:1172
+msgid ""
+"You must define an Outbound CallerID when Choosing this CID Options value"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:197
+msgid "You must have a proper issabelpbx.conf file to proceed"
+msgstr ""
+
+#: ../core/functions.inc.php:4625
+msgid "You must put in a device id"
+msgstr ""
+
+#: ../core/functions.inc.php:5433
+msgid "You must put in an extension (or user) number"
+msgstr ""
+
+#: ../core/page.advancedsettings.php:36
+msgid ""
+"You must run 'amportal restart' from the Linux command line before you can "
+"save setting here."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:622
+#, php-format
+msgid "You should fix the problem or select another file and %s."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1757
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1765
+msgid "You should go to the module admin page to fix these."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:704
+#, php-format
+msgid "Your %s version (%s) is incompatible."
+msgstr ""
+
+#: ../core/page.advancedsettings.php:38
+msgid ""
+"Your Display settings have been changed, click on 'Refresh Page' to view the "
+"affects of your changes once you have saved other outstanding changes that "
+"are still un-confirmed."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/view.functions.php:19
+#, php-format
+msgid ""
+"Your memory_limit, %sM, is set too low and has been increased to %sM. You "
+"may want to change this in you php.ini config file"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/view.functions.php:21
+#, php-format
+msgid ""
+"Your memory_limit, %sM, is set too low and may cause problems. IssabelPBX is "
+"not able to change this on your system. You should increase this to %sM in "
+"you php.ini config file"
+msgstr ""
+
+#: ../core/page.trunks.php:861
+msgid ""
+"ZAP channels are referenced either by a group number or channel number "
+"(which is defined in zapata.conf).  <br><br>The default setting is <b>g0</b> "
+"(group zero)."
+msgstr ""
+"os canais ZAP sao rerenciados por um numero de grupo ou por um numero de "
+"canal (o qual é definido em zapata.conf). <br><br>Por default esta opçao é "
+"<b>g0</b> (grupo zero)."
+
+#: ../core/page.trunks.php:861
+msgid "Zap Identifier"
+msgstr ""
+
+#: ../core/functions.inc.php:7367
+msgid "Zap echocancel setting, see Zap documentation for details."
+msgstr ""
+
+#: ../core/functions.inc.php:7363
+msgid "Zap immediate mode setting, see Zap documentation for details."
+msgstr ""
+
+#: ../core/functions.inc.php:7365
+msgid ""
+"Zap signaling, usually fxo_ks when connected to an analog phone. Some "
+"special applications or channel bank connections may require fxs_ks or other "
+"valid settings. See Zap and card documentation for details."
+msgstr ""
+
+#: ../core/install.php:9
+msgid "ZapBarge"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:116
+msgid ""
+"[WARNING] this is a security risk, you should create an admin user and "
+"disable this vulnerability."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/menuitem_disabled.php:3
+#, php-format
+msgid "[WARNING]: Menu Item: %s is disabled because asterisk is not running"
+msgstr ""
+
+#: upgrades/2.10.0beta3/migration.php:61 upgrades/2.10.0beta3/migration.php:76
+#: upgrades/2.9.0alpha1/tables.php:48 upgrades/2.9.0alpha1/tables.php:64
+#: ../core/install.php:243 ../core/install.php:259 ../core/install.php:503
+#: ../core/install.php:519 ../core/install.php:910 ../core/install.php:926
+msgid "added"
+msgstr ""
+
+#: upgrades/2.8.0/modules-conf.php:37
+msgid "adding preload for chan_local.so to modules.conf.."
+msgstr ""
+
+#: upgrades/2.8.0/modules-conf.php:51
+msgid "adding preload for pbx_config.so to modules.conf.."
+msgstr ""
+
+#: ../core/install.php:196
+msgid "already done"
+msgstr ""
+
+#: upgrades/2.6.0beta1/tables.php:336 upgrades/2.8.0alpha2/tables.php:56
+#: upgrades/2.8.0alpha2/tables.php:172 upgrades/2.9.0alpha1/tables.php:50
+#: upgrades/2.9.0alpha1/tables.php:66 ../core/install.php:246
+#: ../core/install.php:262 ../core/install.php:486 ../core/install.php:505
+#: ../core/install.php:521 ../core/install.php:913 ../core/install.php:929
+msgid "already exists"
+msgstr ""
+
+#: upgrades/2.11.0rc1/migration.php:53
+msgid "already symlinked skipping"
+msgstr ""
+
+#: upgrades/2.10.0beta3/migration.php:63 upgrades/2.10.0beta3/migration.php:78
+msgid "already there"
+msgstr ""
+
+#: install.php:130
+#, php-format
+msgid "an error occured removing the packaged file/directory: %s"
+msgstr ""
+
+#: upgrades/2.10.1/migration.php:58
+msgid "an error occurred trying to write out manager.conf changes"
+msgstr ""
+
+#: ../core/page.did.php:111
+msgid "any CID"
+msgstr ""
+
+#: ../core/page.did.php:110
+msgid "any DID"
+msgstr ""
+
+#: upgrades/2.9.0beta2/logger_migrate.php:84
+msgid "apply configuration settings after new core module loaded"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:591
+msgid "called set_conf_values with a non-array"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:145
+#, php-format
+msgid "changed %s settings"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:125
+#, php-format
+msgid "checking %s .."
+msgstr ""
+
+#: ../core/install.php:916
+msgid "checking for continue field in trunks.."
+msgstr ""
+
+#: ../core/install.php:233
+msgid "checking for delay_answer field .."
+msgstr ""
+
+#: ../core/install.php:900
+msgid "checking for dest field in outbound_routes.."
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:167
+msgid "checking for issabelpbx.conf.."
+msgstr ""
+
+#: ../core/install.php:249
+msgid "checking for pricid field .."
+msgstr ""
+
+#: upgrades/2.8.0/custom-context.php:40
+#: upgrades/2.8.0rc1/custom-context.php:33
+msgid "checking if Custom Context migration is required..."
+msgstr ""
+
+#: upgrades/2.10.0beta3/migration.php:68
+msgid "checking if did file field needed in cdr.."
+msgstr ""
+
+#: upgrades/2.10.0beta3/migration.php:53
+msgid "checking if recordingfile file field needed in cdr.."
+msgstr ""
+
+#: upgrades/2.11.0rc1/migration.php:40
+msgid "checking if res_odbc.conf needs migration"
+msgstr ""
+
+#: amp_conf/htdocs/admin/helpers/issabelpbx_helpers.php:105
+msgid "choose one"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/obe.php:70
+msgid "confirm email"
+msgstr ""
+
+#: upgrades/2.8.0alpha2/tables.php:95
+msgid "continuing.."
+msgstr ""
+
+#: ../core/install.php:946
+msgid "could not delete"
+msgstr ""
+
+#: upgrades/2.6.0beta1/tables.php:338 upgrades/2.8.0alpha2/tables.php:58
+#: upgrades/2.8.0alpha2/tables.php:174
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:48
+msgid "created"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:200
+#, php-format
+msgid "created %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:407
+msgid "custom modifications, details at:"
+msgstr ""
+
+#: ../core/install.php:994
+msgid "dahdi table not empty, can't migrate zap data there"
+msgstr ""
+
+#: ../core/page.routing.php:442
+msgid "default"
+msgstr ""
+
+#: ../core/functions.inc.php:7018 ../core/functions.inc.php:7709
+#: ../core/page.did.php:122
+msgid "deleted"
+msgstr ""
+
+#: ../core/install.php:941
+msgid "deleting ALLOW_SIP_ANON from globals.."
+msgstr ""
+
+#: ../core/install.php:891
+msgid "deleting obsoleted record_in and record_out entries.."
+msgstr ""
+
+#: install.php:73 install.php:84 install.php:94
+#: upgrades/2.6.0beta1/tables.php:317 ../core/install.php:471
+#: ../core/install.php:858 ../core/install.php:944
+msgid "done"
+msgstr ""
+
+#: upgrades/2.8.0/custom-context.php:104
+#: upgrades/2.8.0rc1/custom-context.php:105
+msgid "done! Reload IssabelPBX to update all Custom Context settings."
+msgstr ""
+
+#: install.php:71 install.php:82 install.php:92
+msgid "done, see errors below"
+msgstr ""
+
+#: upgrades/2.8.0alpha2/tables.php:114
+msgid "dropping old trunks_dialpatterns table.."
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/obe.php:59
+msgid "email address"
+msgstr ""
+
+#: ../core/install.php:991
+msgid ""
+"error checking dahdi table size to determine if zap table contents can be "
+"migrated"
+msgstr ""
+
+#: upgrades/2.11.0rc1/migration.php:47
+msgid "error could not move it"
+msgstr ""
+
+#: ../core/install.php:986 ../core/install.php:1005
+msgid "error dropping table"
+msgstr ""
+
+#: ../core/install.php:1030
+msgid "error migrating table"
+msgstr ""
+
+#: ../core/install.php:1042
+msgid "error occured"
+msgstr ""
+
+#: ../core/install.php:1026
+msgid "error occured updating devices table"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:110
+msgid "error reading ampusers table"
+msgstr ""
+
+#: upgrades/2.9.0beta2/logger_migrate.php:82
+msgid "errors occured listed above"
+msgstr ""
+
+#: upgrades/2.9.0beta2/logger_migrate.php:19
+#, php-format
+msgid "existing settings will be put in %s and %s"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:50
+msgid "exists"
+msgstr ""
+
+#: upgrades/2.10.0beta3/migration.php:58 upgrades/2.10.0beta3/migration.php:73
+msgid "failed"
+msgstr ""
+
+#: upgrades/2.9.0beta2/logger_migrate.php:29
+#, php-format
+msgid "failed reading %s, file not being removed"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/utility.functions.php:150
+#, php-format
+msgid ""
+"failed to delete %s from assets/css directory after creating updated CSS "
+"file."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:863
+#: amp_conf/htdocs/admin/libraries/module.functions.php:985
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1070
+#, php-format
+msgid "failed to delete %s from cache directory after opening module archive."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1519
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1525
+#, php-format
+msgid "failed to include %s during %s of the %s module."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/module.functions.php:858
+#: amp_conf/htdocs/admin/libraries/module.functions.php:980
+#: amp_conf/htdocs/admin/libraries/module.functions.php:1065
+#, php-format
+msgid "failed to open %s module archive into _cache directory."
+msgstr ""
+
+#: ../core/install.php:240 ../core/install.php:256
+msgid "fatal error"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:878
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:903
+#, php-format
+msgid "fatal error deleting rows from issabelpbx_settings, sql query: %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:205
+msgid "fatal error reading issabelpbx_settings"
+msgstr ""
+
+#: ../core/install.php:907 ../core/install.php:923
+msgid "fatal error trying to add field"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:949
+msgid "fatal error updating issabelpbx_settings table"
+msgstr ""
+
+#: ../core/page.advancedsettings.php:90
+msgid "field can be left blank"
+msgstr ""
+
+#: install.php:132
+#, php-format
+msgid "file/directory: %s removed successfully"
+msgstr ""
+
+#: install.php:9
+#, php-format
+msgid "framework couldn't copy file to %s"
+msgstr ""
+
+#: install.php:120
+msgid "framework file install done, removing packages from module"
+msgstr ""
+
+#: amp_conf/htdocs/admin/functions.inc.php:231
+msgid ""
+"issabelpbx setting  ZAP2DAHDICOMPAT not found, somethng is corrupt in the conf "
+"database?"
+msgstr ""
+
+#: ../core/page.trunks.php:653 ../core/page.trunks.php:666
+#: ../core/page.trunks.php:1057
+msgid "insert"
+msgstr ""
+
+#: install.php:64
+#, php-format
+msgid "installing files to %s.."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:781
+#, php-format
+msgid "invalid validation options provided for keyword %s: %s"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer_content.php:25
+msgid "is a registered trademark of"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/footer_content.php:28
+msgid "is licensed under the"
+msgstr ""
+
+#: ../core/functions.inc.php:7288
+msgid "is not allowed for your account"
+msgstr "Sua conta não tem permissão para este acesso"
+
+#: ../core/page.trunks.php:683
+msgid ""
+"is useful for VoIP trunks, where if a number is dialed as \"5551234\", it "
+"can be converted to \"16135551234\"."
+msgstr ""
+"é util para campos VoIP, quando um numero é discado com \"5551234\", pode "
+"ser convertido para \"16135551234\"."
+
+#: ../core/page.trunks.php:684
+msgid ""
+"is useful for ZAP and DAHDi trunks, where if a local number is dialed as "
+"\"6135551234\", it can be converted to \"555-1234\"."
+msgstr ""
+
+#: ../core/page.trunks.php:685
+msgid "is useful to translate a call to directory assistance"
+msgstr ""
+
+#: upgrades/2.6.0beta1/tables.php:359 upgrades/2.8.0alpha2/tables.php:191
+msgid "loaded"
+msgstr ""
+
+#: upgrades/2.6.0beta1/tables.php:339 upgrades/2.8.0alpha2/tables.php:175
+msgid "loading table from localprefixes.conf.."
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:628
+msgid "local module administration"
+msgstr ""
+
+#: upgrades/2.9.0beta2/logger_migrate.php:75
+msgid "logger file removed, core upgrade will provide new file"
+msgstr ""
+
+#: ../core/functions.inc.php:7095 ../core/functions.inc.php:7787
+msgid "logs into a device."
+msgstr ""
+
+#: ../core/functions.inc.php:7095 ../core/functions.inc.php:7787
+msgid "logs out of a device."
+msgstr ""
+
+#: ../core/page.trunks.php:890
+msgid "mISDN Group/Port"
+msgstr ""
+
+#: ../core/page.trunks.php:890
+msgid ""
+"mISDN channels are referenced either by a group name or channel number (use "
+"<i>mISDN Port Groups</i> to configure)."
+msgstr ""
+
+#: ../core/page.routing.php:515 ../core/page.trunks.php:629
+msgid "match pattern"
+msgstr ""
+
+#: ../core/page.routing.php:505 ../core/page.trunks.php:619
+msgid "match pattern:"
+msgstr ""
+
+#: ../core/page.routing.php:498 ../core/page.trunks.php:612
+msgid "matches any digit from 0-9"
+msgstr "iguala qualquier digito entre 0-9"
+
+#: ../core/page.routing.php:499 ../core/page.trunks.php:613
+msgid "matches any digit from 1-9"
+msgstr "combina qualquer digito entre 1-9"
+
+#: ../core/page.routing.php:500 ../core/page.trunks.php:614
+msgid "matches any digit from 2-9"
+msgstr "iguala qualquier digito entre 2-9"
+
+#: ../core/page.routing.php:501 ../core/page.trunks.php:615
+msgid "matches any digit in the brackets (example: 1,2,3,7,8,9)"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:827
+#, php-format
+msgid ""
+"method define_conf_setting() failed to pass validation for keyword [%s] "
+"setting value [%s], error msg if supplied [%s]"
+msgstr ""
+
+#: ../core/install.php:1049
+msgid "migrated username column to allow for longer usernames"
+msgstr ""
+
+#: upgrades/2.9.0beta2/logger_migrate.php:18
+#, php-format
+msgid "migrating %s settings so core can generate"
+msgstr ""
+
+#: upgrades/2.8.0alpha2/tables.php:59
+msgid "migrating rules.."
+msgstr ""
+
+#: ../core/install.php:996
+msgid "migrating zap table contents to dahdi table.."
+msgstr ""
+
+#: upgrades/2.6.0beta1/tables.php:281 upgrades/2.8.0/custom-context.php:42
+#: upgrades/2.8.0rc1/custom-context.php:42 ../core/install.php:435
+msgid "migrating.."
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:772
+msgid "missing options array for keyword [%] required if type is select"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:759
+msgid "missing options for keyword [%] required if type is select"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:751
+#, php-format
+msgid "missing value and/or defaultval required for [%s]"
+msgstr ""
+
+#: ../core/functions.inc.php:7575
+msgid "never - no RFC3581"
+msgstr ""
+
+#: upgrades/2.9.0beta2/logger_migrate.php:78
+msgid "no logger file to remove"
+msgstr ""
+
+#: ../core/functions.inc.php:7676 ../core/page.routing.php:441
+msgid "none"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:127
+msgid "not in issabelpbx_conf, skipping"
+msgstr ""
+
+#: upgrades/2.6.0beta1/tables.php:319 upgrades/2.8.0/custom-context.php:109
+#: upgrades/2.8.0rc1/custom-context.php:110 ../core/install.php:228
+#: ../core/install.php:473 ../core/install.php:817 ../core/install.php:887
+msgid "not needed"
+msgstr ""
+
+#: ../core/install.php:186
+msgid "not present"
+msgstr ""
+
+#: upgrades/2.10.1/migration.php:23 upgrades/2.8.0/modules-conf.php:44
+#: upgrades/2.8.0/modules-conf.php:58 upgrades/2.8.0alpha2/tables.php:112
+#: upgrades/2.8.0alpha2/tables.php:119
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:77
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:157 ../core/install.php:869
+#: ../core/install.php:896 ../core/install.php:968 ../core/install.php:984
+#: ../core/install.php:999 ../core/install.php:1003 ../core/install.php:1040
+msgid "ok"
+msgstr ""
+
+#: upgrades/2.11.0rc1/migration.php:45
+msgid "ok moved"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/login.php:23
+#: amp_conf/htdocs/admin/views/obe.php:36
+#: amp_conf/htdocs/admin/views/obe.php:48
+msgid "password"
+msgstr ""
+
+#: ../core/page.routing.php:514 ../core/page.trunks.php:628
+msgid "prefix"
+msgstr ""
+
+#: ../core/page.routing.php:504 ../core/page.trunks.php:618
+msgid "prefix:"
+msgstr ""
+
+#: ../core/install.php:809
+msgid "preparing"
+msgstr ""
+
+#: ../core/install.php:1017
+#, php-format
+msgid "preparing device %s dial to %s"
+msgstr ""
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:139
+msgid "preparing for update"
+msgstr ""
+
+#: ../core/page.routing.php:513 ../core/page.trunks.php:627
+msgid "prepend"
+msgstr ""
+
+#: ../core/page.routing.php:503 ../core/page.trunks.php:617
+msgid "prepend:"
+msgstr ""
+
+#: ../core/page.routing.php:546 ../core/page.routing.php:559
+#: ../core/page.routing.php:807 ../core/page.trunks.php:654
+#: ../core/page.trunks.php:667 ../core/page.trunks.php:1058
+msgid "remove"
+msgstr ""
+
+#: ../core/install.php:188
+msgid "removed"
+msgstr ""
+
+#: upgrades/2.10.1/migration.php:7
+msgid "removing deprecated Advanced settings if needed.."
+msgstr ""
+
+#: upgrades/2.6.0beta1/tables.php:299 ../core/install.php:453
+msgid "removing globals.."
+msgstr ""
+
+#: upgrades/2.11.0rc1/migration.php:50
+msgid "removing res_odbc.conf so it can be symlinked from core"
+msgstr ""
+
+#: upgrades/2.11.0rc1/migration.php:30
+msgid "removing rtp.conf it will be symlinked from core"
+msgstr ""
+
+#: ../core/install.php:981 ../core/install.php:1000
+msgid "removing zap table.."
+msgstr ""
+
+#: ../core/install.php:965
+msgid "renaming table zapchandids to dahdichandids.."
+msgstr ""
+
+#: amp_conf/htdocs/admin/functions.inc.php:379
+#: amp_conf/htdocs/admin/functions.inc.php:387
+msgid "retrieve_conf failed, config not applied"
+msgstr ""
+
+#: ../core/page.trunks.php:423
+msgid "route"
+msgstr "rota"
+
+#: ../core/functions.inc.php:7576
+msgid "route - NAT no rport"
+msgstr ""
+
+#: ../core/page.trunks.php:423
+msgid "routes"
+msgstr "rotas"
+
+#: upgrades/2.9.0alpha1/migrate_ampconf.php:115
+msgid "setting AMP_ACCESS_DB_CREDS to true"
+msgstr ""
+
+#: ../core/install.php:153
+msgid "starting migration"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:405
+msgid ""
+"this file must be done via the Web GUI. There are alternative files to make"
+msgstr ""
+
+#: amp_conf/htdocs/admin/page.modules.php:623
+msgid "try again"
+msgstr ""
+
+#: upgrades/2.11.0rc1/migration.php:42
+msgid "trying to move res_odbc.conf to res_odbc_custom.conf"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:596
+#, php-format
+msgid "trying to set keyword [%s] to [%s] on uninitialized setting"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:1075
+#, php-format
+msgid "unknown type: [%s]"
+msgstr ""
+
+#: upgrades/2.8.0alpha2/tables.php:94
+#, php-format
+msgid "unrecognized rule: %s discarding"
+msgstr ""
+
+#: ../core/install.php:226
+#, php-format
+msgid "updated %s callgroups, %s pickupgroups"
+msgstr ""
+
+#: ../core/install.php:887
+#, php-format
+msgid "updated %s records"
+msgstr ""
+
+#: ../core/install.php:201
+msgid "updating zap callgroup, pickupgroup.."
+msgstr ""
+
+#: ../core/install.php:1037
+msgid "upgrading any zap trunks to dahdi if found"
+msgstr ""
+
+#: amp_conf/htdocs/admin/views/login.php:16
+#: amp_conf/htdocs/admin/views/obe.php:25
+msgid "username"
+msgstr ""
+
+#: ../core/page.trunks.php:915
+msgid "wherever the number to dial should go.<br><br><b>examples:</b><br>"
+msgstr ""
+
+#: ../core/page.routing.php:502 ../core/page.trunks.php:616
+msgid "wildcard, matches one or more dialed digits"
+msgstr ""
+
+#: upgrades/2.10.1/migration.php:56
+msgid "writetimeout added to manager.conf"
+msgstr ""
+
+#: upgrades/2.10.1/migration.php:62
+msgid "writetimeout already exists"
+msgstr ""
+
+#: upgrades/2.10.1/migration.php:45
+msgid "writetimeout not present, adding"
+msgstr ""
+
+#: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:748
+#, php-format
+msgid "you can't convert an existing type, keyword [%s]"
+msgstr ""
+
+#: upgrades/2.8.0/modules-conf.php:42
+msgid ""
+"you may need to add the line 'preload => chan_local.so' to your modules.conf "
+"manually"
+msgstr ""
+
+#: upgrades/2.8.0/modules-conf.php:56
+msgid ""
+"you may need to add the line 'preload => pbx_config.so' to your modules.conf "
+"manually"
+msgstr ""
+
+#: ../core/install.php:1024
+msgid "zap devices migrated"
+msgstr ""
+
+#~ msgid "Tools"
+#~ msgstr "Ferramientas"
+
+#~ msgid "Setup"
+#~ msgstr "Cofiguração"
+
+#~ msgid "Flash Operator Panel"
+#~ msgstr "Flash Operator Panel"
+
+#~ msgid "Call Detail Reports"
+#~ msgstr "Informações dos detalhes de chamadas"
+
+#~ msgid "Call Logs"
+#~ msgstr "Log´s das chamadas"
+
+#~ msgid "Compare Calls"
+#~ msgstr "Comparar chamadas"
+
+#~ msgid "Monthly Traffic"
+#~ msgstr "Tráfego mensal"
+
+#~ msgid "Daily load"
+#~ msgstr "Carga diaria"
+
+#~ msgid "Module Admin"
+#~ msgstr "Modo Administrativo"
+
+#~ msgid "Management"
+#~ msgstr "Gerenciamento"
+
+#~ msgid "Reports"
+#~ msgstr "Informes"
+
+#~ msgid "Panel"
+#~ msgstr "Panel"
+
+#~ msgid "Recordings"
+#~ msgstr "Gravações"
+
+#~ msgid "Dialing Options"
+#~ msgstr "Opições de Discagem"
+
+#~ msgid "wav"
+#~ msgstr "wav"
+
+#~ msgid "gsm"
+#~ msgstr "gsm"
+
+#~ msgid "Voicemail"
+#~ msgstr "Correio de Voz"
+
+#~ msgid "times"
+#~ msgstr "horas"
+
+#~ msgid "first name"
+#~ msgstr "Primeiro Nome"
+
+#~ msgid "last name"
+#~ msgstr "Ultimo Nome"
+
+#~ msgid "first or last name"
+#~ msgstr "Primeiro nome ou Ultimo nome"
+
+#~ msgid "no"
+#~ msgstr "não"
+
+#~ msgid "yes"
+#~ msgstr "sim"
+
+#~ msgid "At least one trunk must be picked"
+#~ msgstr "Deve-se ser selecionado pelomenos um bloqueio principal"
+
+#~ msgid "Outbound Caller ID"
+#~ msgstr "Identificados de chamadas de saída"

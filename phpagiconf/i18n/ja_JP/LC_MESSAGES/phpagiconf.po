@@ -1,0 +1,192 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+#
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+#
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for phpagiconf
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-13 19:44-0400\n"
+"PO-Revision-Date: 2014-02-19 20:56+0200\n"
+"Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
+"Language-Team: Japanese <http://example.com/projects/freepbx/phpagiconf/ja/"
+">\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+#: page.phpagiconf.php:90
+msgid "Asterisk API settings:"
+msgstr "Asterisk API設定"
+
+#: page.phpagiconf.php:109
+msgid "Basedir:"
+msgstr "ベースディレクトリ："
+
+#: page.phpagiconf.php:112
+msgid "Cepstral config:"
+msgstr "Cepstral 設定："
+
+#: page.phpagiconf.php:118
+msgid "Cepstral voice:"
+msgstr "Cepstral 音声"
+
+#: page.phpagiconf.php:60
+msgid "Debug:"
+msgstr "デバッグ："
+
+#: page.phpagiconf.php:102
+msgid "Drop privileges to owner of script."
+msgstr "スクリプトのオーナー権限をドロップ。"
+
+#: page.phpagiconf.php:74
+msgid "Email where the errors will be sent."
+msgstr "エラーが送信されるEメール"
+
+#: page.phpagiconf.php:60
+msgid "Enable PHPAGI debugging."
+msgstr "PHPAGIデバッグを有効にする。"
+
+#: page.phpagiconf.php:67
+msgid "Error handler:"
+msgstr "エラーハンドラー："
+
+#: functions.inc.php:38
+msgid "Error writing the phpagi.conf file."
+msgstr "phpagi.confファイルへの書き込みエラー。"
+
+#: page.phpagiconf.php:100
+msgid "Fast AGI config:"
+msgstr "Fast AGI 設定："
+
+#: page.phpagiconf.php:85
+msgid "Festival config:"
+msgstr "Festival設定："
+
+#: page.phpagiconf.php:78
+msgid "Hostname of the server:"
+msgstr "サーバホスト名："
+
+#: page.phpagiconf.php:78
+msgid "Hostname of this server."
+msgstr "このサーバーのホスト名。"
+
+#: page.phpagiconf.php:74
+msgid "Mail errors to:"
+msgstr "エラーメール送信先："
+
+#: page.phpagiconf.php:57
+msgid "Main config:"
+msgstr "メイン設定："
+
+#: page.phpagiconf.php:52
+msgid "PHPAGI Config:"
+msgstr "PHPAGI設定："
+
+#: page.phpagiconf.php:109
+msgid "Path to AGI scripts folder."
+msgstr "AGIスクリプトフォルダへのパス。"
+
+#: page.phpagiconf.php:114
+msgid "Path to cepstral TTS binary."
+msgstr "cepstral TTS バイナリへのパス。"
+
+#: page.phpagiconf.php:87
+msgid "Path to text2wave binary."
+msgstr "text2waveバイナリへのパス。"
+
+#: page.phpagiconf.php:87
+msgid "Path to text2wave:"
+msgstr "text2waveへのパス："
+
+#: page.phpagiconf.php:96
+msgid "Port to connect to manager."
+msgstr "マネージャーへの接続ポート。"
+
+#: page.phpagiconf.php:96
+msgid "Port:"
+msgstr "ポート："
+
+#: page.phpagiconf.php:92
+msgid "Server to connect to."
+msgstr "接続先サーバー。"
+
+#: page.phpagiconf.php:92
+msgid "Server:"
+msgstr "サーバー："
+
+#: page.phpagiconf.php:122
+msgid "Submit Changes"
+msgstr "変更を適用"
+
+#: page.phpagiconf.php:114
+msgid "Swift path:"
+msgstr "Swiftパス："
+
+#: page.phpagiconf.php:118
+msgid "TTS Voice used."
+msgstr "使用されるTTS音声"
+
+#: page.phpagiconf.php:82
+msgid "Temporary directory for storing temporary output."
+msgstr "一時出力を保存するテンポラリディレクトリ。"
+
+#: page.phpagiconf.php:82
+msgid "Temporary directory:"
+msgstr "テンポラリーディレクトリ："
+
+#: page.phpagiconf.php:67
+msgid "Use internal error handler."
+msgstr "内部エラーハンドラーを使用する。"
+
+#: page.phpagiconf.php:62 page.phpagiconf.php:69 page.phpagiconf.php:104
+msgid "false"
+msgstr "オフ"
+
+#: page.phpagiconf.php:102
+msgid "setuid:"
+msgstr "setuid:"
+
+#: page.phpagiconf.php:63 page.phpagiconf.php:70 page.phpagiconf.php:105
+msgid "true"
+msgstr "オン"
+
+#~ msgid "PHPAGI Config"
+#~ msgstr "PHPAGI設定"
+
+#~ msgid "Settings"
+#~ msgstr "設定"

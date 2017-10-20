@@ -1,0 +1,29 @@
+<module>
+	<rawname>dashboard</rawname>
+	<repo>standard</repo>
+	<name>System Dashboard</name>
+	<version>2.11.0.5</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<candisable>no</candisable>
+	<canuninstall>no</canuninstall>
+	<category>Reports</category>
+	<description>
+		Provides a system information dashboard, showing information about Calls, CPU, Memory, Disks, Network, and processes.
+	</description>
+	<menuitems>
+		<dashboard display="index" access="all">IssabelPBX System Status</dashboard>
+	</menuitems>
+	<depends>
+		<version>2.3.0beta2</version>
+	</depends>
+	<changelog>
+		*2.11.0.5* Initial Issabel Foundation release
+	</changelog>
+	<supported>
+		<version>2.10</version>
+	</supported>
+	<location>release/2.11/dashboard-2.11.0.2.tgz</location>
+	<md5sum>291999a3523f5ed531083f54a9144463</md5sum>
+</module>

@@ -1,0 +1,36 @@
+<?php
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Developer Notes:
+TOS for this site: http://info.local.ch/en/general-terms-and-conditions
+TOS date: December 15, 2009
+TOS summary by lgaetz: I have reviewed what is available on this page and can't see anything that prohibits or prevents superfecta from using this as a lookup source. date: 2014-01-06 
+
+Version History
+2012-xx-xx	Initial migration
+
+*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+class LocalTel_CH extends superfecta_base {
+
+    public $description = "http://local.ch - 	These listings include business and residential data for Switzerland.";
+    public $version_requirement = "2.11";
+
+    function get_caller_id($thenumber, $run_param=array()) {
+
+        $caller_id = null;
+
+        if ((!$this->IsValidNumber('CH', $thenumber))) {
+            $this->DebugPrint("Skipping Source - Not a valid Swiss number: {$thenumber}");
+        } else {
+            $this->DebugPrint("Searching Local.ch-Swiss ... ");
+
+            $url = "http://tel.search.ch/index.en.html?was=$thenumber";
+            $pattern = "/class=\"(?:fn|fn org)\">(.*)<\/a>/";
+
+            if ($this->SearchURL($url, $pattern, $match)) {
+                $caller_id = $this->ExtractMatch($match);
+            }
+        }
+        return($caller_id);
+    }
+
+}

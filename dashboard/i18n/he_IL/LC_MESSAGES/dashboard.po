@@ -1,0 +1,314 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for dashboard
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "seconds"
+msgstr ""
+
+msgid "second"
+msgstr ""
+
+msgid "minutes"
+msgstr ""
+
+msgid "minute"
+msgstr ""
+
+msgid "hours"
+msgstr ""
+
+msgid "hour"
+msgstr ""
+
+msgid "days"
+msgstr ""
+
+msgid "day"
+msgstr ""
+
+msgid "weeks"
+msgstr ""
+
+msgid "week"
+msgstr ""
+
+msgid "years"
+msgstr ""
+
+msgid "year"
+msgstr ""
+
+msgid "System Dashboard"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid ""
+"Provides a system information dashboard, showing information about Calls, "
+"CPU, Memory, Disks, Network, and processes."
+msgstr ""
+
+msgid "IssabelPBX System Status"
+msgstr ""
+
+msgid "Dashboard Info Update Frequency"
+msgstr ""
+
+msgid "GUI Behavior"
+msgstr ""
+
+msgid "Update rate in seconds of the Info section of the System Status panel."
+msgstr ""
+
+msgid "Dashboard Max Calls Initial Scale"
+msgstr ""
+
+msgid ""
+"Use this to pre-set the scale for maximum calls on the Dashboard display. If "
+"not set, the the scale is dynamically sized based on the active calls on the "
+"system."
+msgstr ""
+
+msgid "Dashboard Stats Update Frequency"
+msgstr ""
+
+msgid ""
+"Update rate in seconds of all sections of the System Status panel except the "
+"Info box."
+msgstr ""
+
+msgid "Dashboard Non-Std SSH Port"
+msgstr ""
+
+msgid "System Setup"
+msgstr ""
+
+msgid ""
+"SSH port number configured on your system if not using the default port 22, "
+"this allows the dashboard monitoring to watch the poper port."
+msgstr ""
+
+#, php-format
+msgid "%s changed from %s to %s"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Warn"
+msgstr ""
+
+msgid "ERROR"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "System Statistics"
+msgstr ""
+
+msgid "Processor"
+msgstr ""
+
+msgid "Load Average"
+msgstr ""
+
+msgid "CPU"
+msgstr ""
+
+msgid "Memory"
+msgstr ""
+
+msgid "App Memory"
+msgstr ""
+
+msgid "Swap"
+msgstr ""
+
+msgid "Disks"
+msgstr ""
+
+msgid "Networks"
+msgstr ""
+
+msgid "receive"
+msgstr ""
+
+msgid "transmit"
+msgstr ""
+
+msgid "IssabelPBX Statistics"
+msgstr ""
+
+msgid "Total active calls"
+msgstr ""
+
+msgid "Internal calls"
+msgstr ""
+
+msgid "External calls"
+msgstr ""
+
+msgid "Total active channels"
+msgstr ""
+
+msgid "IssabelPBX Connections"
+msgstr ""
+
+msgid "IP Phones Online"
+msgstr ""
+
+msgid "IP Trunks Online"
+msgstr ""
+
+msgid "IP Trunk Registrations"
+msgstr ""
+
+msgid "Uptime"
+msgstr ""
+
+msgid "System Information Table"
+msgstr ""
+
+msgid "System Uptime"
+msgstr ""
+
+msgid "Asterisk Uptime"
+msgstr ""
+
+msgid "Last Reload"
+msgstr ""
+
+msgid "Server Status"
+msgstr ""
+
+msgid "Asterisk"
+msgstr ""
+
+#, php-format
+msgid "Asterisk is running: %s"
+msgstr ""
+
+msgid "Asterisk is not running, this is a critical service!"
+msgstr ""
+
+msgid "Manager Proxy"
+msgstr ""
+
+msgid "Asterisk Manager Proxy is running"
+msgstr ""
+
+msgid ""
+"Asterisk Manager Proxy is not running, IssabelPBX will fall back to using "
+"Asterisk directly, which may result in poor performance"
+msgstr ""
+
+msgid "Op Panel"
+msgstr ""
+
+msgid ""
+"FOP Operator Panel Server is not running, you will not be able to use the "
+"operator panel, but the system will run fine without it."
+msgstr ""
+
+msgid "FOP Operator Panel is disabled in Advanced Settings"
+msgstr ""
+
+msgid "FOP Operator Panel Server is running"
+msgstr ""
+
+msgid "MySQL"
+msgstr ""
+
+msgid "MySQL Server is running"
+msgstr ""
+
+msgid "Web Server"
+msgstr ""
+
+msgid "Web Server is running"
+msgstr ""
+
+msgid "SSH Server"
+msgstr ""
+
+msgid "SSH Server is running"
+msgstr ""
+
+msgid ""
+"SSH Server is not running, you will not be able to connect to the system "
+"console remotely"
+msgstr ""
+
+msgid "Critical Error"
+msgstr ""
+
+msgid "Security Update"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+msgid "Notice"
+msgstr ""
+
+msgid "IssabelPBX Notices"
+msgstr ""
+
+msgid "Delete this"
+msgstr ""
+
+msgid "Ignore this"
+msgstr ""
+
+#, php-format
+msgid "Added %s ago"
+msgstr ""
+
+msgid "No notifications"
+msgstr ""
+
+msgid "No new notifications"
+msgstr ""
+
+msgid "show new"
+msgstr ""
+
+msgid "show all"
+msgstr ""
+
+msgid "loading..."
+msgstr ""

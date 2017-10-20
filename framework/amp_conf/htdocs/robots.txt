@@ -1,0 +1,11 @@
+# This robots.txt file requests that search engines and other
+# automated web-agents don't try to index the files in this
+# directory (/www/images/).
+#
+# This file is included in the event that an installation has in-appropriately
+# exposed their GUI to the outside internet as it will help to stop 
+# the indexing of their system.
+#
+User-agent: *
+Disallow: /
+

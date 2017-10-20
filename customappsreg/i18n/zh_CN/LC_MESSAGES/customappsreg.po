@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-30 17:41+0800\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Custom Applications"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"Registry to add custom extensions and destinations that may be created and "
+"used so that the Extensions and Destinations Registry can include these."
+msgstr ""
+
+msgid "Custom Extensions"
+msgstr "自定义分机"
+
+msgid "Custom Destinations"
+msgstr "自定义目的地"
+
+#, php-format
+msgid "Custom Destination: %s"
+msgstr "自定义目的地：%s"
+
+msgid "Custom Extension: "
+msgstr "自定义分机："
+
+msgid ""
+"Invalid Destination, must not be blank, must be formatted as: context,exten,"
+"pri"
+msgstr "无效的目的地，不可以为空，格式必须为：context,exten,pri"
+
+msgid "Invalid description specified, must not be blank"
+msgstr "指定了无效的描述，不能为空"
+
+msgid "DUPLICATE Destination: This destination is already in use"
+msgstr "重复的目的地：此目的地已被使用"
+
+msgid ""
+"DUPLICATE Destination: This destination is in use or potentially used by "
+"another module"
+msgstr "重复的目的地：此目的地已被使用或可能在被其他模块使用"
+
+msgid "Invalid Extension, must not be blank"
+msgstr "无效的分机号，不能为空"
+
+msgid "DUPLICATE Extension: This extension already in use"
+msgstr "重复的分机号：此分机已被使用"
+
+msgid "Add Custom Destination"
+msgstr "添加自定义目的地"
+
+msgid "Edit: "
+msgstr "编辑："
+
+msgid ""
+"Custom Destinations allows you to register your custom destinations that "
+"point to custom dialplans and will also 'publish' these destinations as "
+"available destinations to other modules. This is an advanced feature and "
+"should only be used by knowledgeable users. If you are getting warnings or "
+"errors in the notification panel about CUSTOM destinations that are correct, "
+"you should include them here. The 'Unknown Destinations' chooser will allow "
+"you to choose and insert any such destinations that the registry is not "
+"aware of into the Custom Destination field."
+msgstr ""
+"这向设置可以让你注册指向自定义的拨号方案的自定义目的地，并且会向其他模块“发"
+"布”这个目的地。这是一项高级功能，只有高端用户才能使用。如果你在通告面版中发现"
+"了关于明明是正确的自定义目的警告或错误，那么请把它们包含到这里的设置中去。“未"
+"知目的地”选择器可以让你选择并插入任何这样的目的地，而注册表中没有关于它们的信"
+"息。"
+
+msgid "Edit Custom Destination"
+msgstr "编辑自定义目的地"
+
+msgid "Custom Destination"
+msgstr "自定义目的地"
+
+msgid ""
+"This is the Custom Destination to be published. It should be formatted "
+"exactly as you would put it in a goto statement, with context, exten, "
+"priority all included. An example might look like:<br />mycustom-app,s,1"
+msgstr ""
+"这是要发布的自定义目的地。他应该被格式化成在goto语句中的那种形式，要包括上下"
+"文、分机、优先级别。一个可能的例子如下：<br />mycustom-app,s,1"
+
+msgid ""
+"READONLY WARNING: Because this destination is being used by other module "
+"objects it can not be edited. You must remove those dependencies in order to "
+"edit this destination, or create a new destination to use"
+msgstr ""
+"只读警告：由于此目的地正在被其他模块使用，所以不能编辑目的地。你必须移除对它"
+"的依赖，然后才能编辑它。或者也可以创建新的目的地。"
+
+msgid "Destination Quick Pick"
+msgstr "快速选取目的地"
+
+msgid ""
+"Choose un-identified destinations on your system to add to the Custom "
+"Destination Registry. This will insert the chosen entry into the Custom "
+"Destination box above."
+msgstr ""
+"选择你的系统中的未标识的目的地以添加到自定义目的地的注册表中去。这将向上面的"
+"自定义目的地框插入所选择的项。"
+
+msgid "(pick destination)"
+msgstr "（选取目的地）"
+
+msgid "Description"
+msgstr "描述"
+
+msgid ""
+"Brief Description that will be published to modules when showing "
+"destinations. Example: My Weather App"
+msgstr "当向其他模块发布后，要显示的简短描述。例子：我的天气预报应用程序"
+
+msgid "Notes"
+msgstr "备注"
+
+msgid ""
+"More detailed notes about this destination to help document it. This field "
+"is not used elsewhere."
+msgstr "更详细的关于目的地的描述，此域不会在其他地方用到。"
+
+msgid "Submit Changes"
+msgstr "提交更改"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Add Custom Extension"
+msgstr "添加自定义分机"
+
+msgid ""
+"Custom Extensions provides you with a facility to register any custom "
+"extensions or feature codes that you have created in a custom file and "
+"IssabelPBX doesn't otherwise know about them. This allows the Extension "
+"Registry to be aware of your own extensions so that it can detect conflicts "
+"or report back information about your custom extensions to other modules "
+"that may make use of the information. You should not put extensions that you "
+"create in the Misc Apps Module as those are not custom."
+msgstr ""
+"自定义分机为你提供了一种可以注册任何自定义分机或功能代码的机制，而这些自定义"
+"分机和功能代码原来是你在自己的配置文件中创建的，IssabelPBX并不了解它们。这让分机"
+"注册表有机会知道你自己的分机号，这样它可以探测冲突或者向其他需要分机信息模块"
+"报告你自定义的分机号。请你不要在此处添加你在Misc Apps模块中创建的分机，因为那"
+"些不算自定义的分机。"
+
+msgid "Conflicting Extensions"
+msgstr "分机冲突"
+
+msgid "Edit Custom Extension"
+msgstr "编辑自定义分机"
+
+msgid "Custom Extension"
+msgstr "自定义分机"
+
+msgid ""
+"This is the Extension or Feature Code you are using in your dialplan that "
+"you want the IssabelPBX Extension Registry to be aware of."
+msgstr ""
+"这是你在你的拨号方案中使用的分机和功能代码，而你希望让IssabelPBX的分机注册表知道"
+"它们。"
+
+msgid ""
+"Brief description that will be published in the Extension Registry about "
+"this extension"
+msgstr "将在分机注册表中发布的关于此分机的简短描述"
+
+msgid ""
+"More detailed notes about this extension to help document it. This field is "
+"not used elsewhere."
+msgstr "更多的关于此分机的详细信息，此域不会被用在别的地方。"
+
+#~ msgid ""
+#~ "Custom Destinations allows you to register your custom destinations that "
+#~ "point to custom dialplans and will also 'publish' these destinations as "
+#~ "available destinations to other modules. This is an advanced feature and "
+#~ "should only be used by knowledgable users. If you are getting warnings or "
+#~ "errors in the noticication panel about CUSTOM destinations that are "
+#~ "correct, you should include them here. The 'Unknown Destinations' chooser "
+#~ "will allow you to choose and insert any such destinations that the "
+#~ "registry is not aware of into the Custom Destination field."
+#~ msgstr ""
+#~ "这向设置可以让你注册指向自定义的拨号方案的自定义目的地，并且会向其他模"
+#~ "块“发布”这个目的地。这是一项高级功能，只有高端用户才能使用。如果你在通告面"
+#~ "版中发现了关于明明是正确的自定义目的警告或错误，那么请把它们包含到这里的设"
+#~ "置中去。“未知目的地”选择器可以让你选择并插入任何这样的目的地，而注册表中没"
+#~ "有关于它们的信息。"
+
+#~ msgid ""
+#~ "Choose un-identified destinations on your system to add to the Custom "
+#~ "Destinaion Registry. This will insert the chosen entry into the Custom "
+#~ "Destination box above."
+#~ msgstr ""
+#~ "选择你的系统中的未标识的目的地以添加到自定义目的地的注册表中去。这将向上面"
+#~ "的自定义目的地框插入所选择的项。"
+
+#~ msgid ""
+#~ "Custom Extensions provides you with a facility to register any custom "
+#~ "extenions or feature codes that you have created in a custom file and "
+#~ "IssabelPBX doesn't otherwise know about them. This allows the Extension "
+#~ "Registry to be aware of your own extensions so that it can detect "
+#~ "conflicts or report back information about your custom extensions to "
+#~ "other modules that may make use of the information. You should not put "
+#~ "extensions that you create in the Misc Apps Module as those are not "
+#~ "custom."
+#~ msgstr ""
+#~ "自定义分机为你提供了一种可以注册任何自定义分机或功能代码的机制，而这些自定"
+#~ "义分机和功能代码原来是你在自己的配置文件中创建的，IssabelPBX并不了解它们。这"
+#~ "让分机注册表有机会知道你自己的分机号，这样它可以探测冲突或者向其他需要分机"
+#~ "信息模块报告你自定义的分机号。请你不要在此处添加你在Misc Apps模块中创建的"
+#~ "分机，因为那些不算自定义的分机。"

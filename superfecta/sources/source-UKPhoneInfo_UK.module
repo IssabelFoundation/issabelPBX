@@ -1,0 +1,36 @@
+<?php
+
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+ * UKPhoneInfo_UK dev notes:
+ *   TOS for this site are here: http://www.ukphoneinfo.com/tandcs as of 2014-11-30 there is aboslutely
+ *   nothing that prevents Superfecta usage.
+ * 
+ * Version Info:
+ *   2013-10-17 Change URL 
+ *   2014-11-30 Change URL
+ * 
+ *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+
+class UKPhoneInfo_UK extends superfecta_base {
+
+    public $description = "http://www.ukphoneinfo.com - The UK Telephone Code Locator will return the exchange or service area location. No names are returned by this source.<br>Because the data provided is less specific than other sources, this data source is usually configured near the bottom of the list of active data sources.";
+    public $version_requirement = "2.11";
+
+    function get_caller_id($thenumber, $run_param=array()) {
+        $caller_id = null;
+        $name = "";
+
+        // Validate number
+        if (!$this->IsValidNumber('UK', $thenumber)) {
+            $this->DebugPrint("Skipping Source - Non UK number: {$thenumber}");
+        } else {
+            $this->DebugPrint('Searching UKPhoneInfo ...');
+            $url = "http://www.ukphoneinfo.com/search?q={$thenumber}";
+            if ($this->SearchURL($url, "=<h2[^>]*>(.*)</h2>=siU", $match)) {
+                $caller_id = $this->ExtractMatch($match);
+            }
+        }
+        return($caller_id);
+    }
+
+}

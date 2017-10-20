@@ -1,0 +1,96 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
+#
+# fuzzy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-12-26 15:07+0100\n"
+"Last-Translator: Alexander Kozyrev\n"
+"Language-Team: Russian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-5\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "Misc Application: %s"
+msgstr "Дополнительное приложение: %s"
+
+msgid "Misc Applications"
+msgstr "Дополнительные приложения"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Adds the ability to create feature codes that can go to any IssabelPBX "
+"destination (such as an IVR or queue)"
+msgstr ""
+
+msgid "Add Misc Application"
+msgstr "Добавить Дополнительное приложение"
+
+msgid "Edit Misc Application"
+msgstr "Изменить Дополнительное приложение"
+
+msgid ""
+"Misc Applications are for adding feature codes that you can dial from "
+"internal phones that go to various destinations available in IssabelPBX. This "
+"is in contrast to the <strong>Misc Destinations</strong> module, which is "
+"for creating destinations that can be used by other IssabelPBX modules to dial "
+"internal numbers or feature codes."
+msgstr ""
+"Дополнительные приложения добавляют коды к таблице Сервисных кодов, с "
+"помощью которых можно попадать во все возможные направления, доступные во "
+"IssabelPBX. Это не совсем тоже, что и модуль <strong>Дополнительные "
+"направления</strong>, который служит для создания направлений, используемых "
+"затем в других модулях IssabelPBX, на которые можно выходить через внутренние "
+"номера или Сервисные коды."
+
+msgid "Conflicting Extensions"
+msgstr "Конфликтующие внутренние номера"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "The name of this application"
+msgstr "Название приложения"
+
+msgid "Feature Code"
+msgstr "Сервисный код"
+
+msgid ""
+"The feature code/extension users can dial to access this application. This "
+"can also be modified on the Feature Codes page."
+msgstr ""
+"Сервисный код или внутренний номер, через который будет вызываться это "
+"приложение. Это может редактироваться в секции Сервисные коды."
+
+msgid "Feature Status"
+msgstr "Статус опции"
+
+msgid "If this code is enabled or not."
+msgstr "Если код активирован или нет"
+
+msgid "Enabled"
+msgstr "Включен"
+
+msgid "Disabled"
+msgstr "Выключен"
+
+msgid "Destination"
+msgstr "Направление"
+
+msgid "Submit Changes"
+msgstr "Применить изменения"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Invalid description specified"
+msgstr "Указано неверное описание"

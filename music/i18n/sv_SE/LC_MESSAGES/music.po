@@ -1,0 +1,250 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX Swedish language för music
+# Copyright (C) 2008, 2009, 2010, 2011 Mikael Carlsson
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX musik\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-20 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+msgid "Cannot write to file"
+msgstr "Kan inte skriva till fil"
+
+msgid "Music on Hold"
+msgstr "Pausmusik"
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Uploading and management of sound files (wav, mp3) to be used for on-hold "
+"music."
+msgstr ""
+"Modul för att ladda upp och underhålla ljudfiler (wav, mp3) för användning "
+"till pausmusik"
+
+msgid "Convert Music Files to WAV"
+msgstr "Komvertera musikfiler till WAV"
+
+msgid "System Setup"
+msgstr "Systeminställningar"
+
+msgid ""
+"When set to false, the MP3 files can be loaded and WAV files converted to "
+"MP3 in the MoH module. The default behavior of true assumes you have mpg123 "
+"loaded as well as sox and will convert MP3 files to WAV. This is highly "
+"recommended as MP3 files heavily tax the system and can cause instability on "
+"a busy phone system"
+msgstr ""
+"Om denna inställning är falsk kam MP3 filer laddas och WAV-filer konverteras "
+"till MP3 i Pausmusik-modulen. Standardvalet, sant, förutsätter att du har "
+"installerat både mpg123 och sox som kommer att komvertera MP3 till WAV. "
+"Detta är startkt rekommenderat då MP3-filer belastar systemet och kan orsaka "
+"stabilitetsproblem."
+
+msgid "Add Music Category"
+msgstr "Lägg till musikkategori"
+
+msgid "Add Streaming Category"
+msgstr "Lägg till strömkategori"
+
+msgid "default"
+msgstr "default"
+
+msgid "Delete"
+msgstr "Ta bort"
+
+msgid ""
+"sox failed to convert file and original could not be copied as a fall back"
+msgstr ""
+"sox kunde inte konvertera filen och originalfilen kunde inte kopieras som en "
+"reservlösning"
+
+msgid "On Hold Music"
+msgstr "Pausmusik"
+
+msgid "Category Name:"
+msgstr "Kategorinamn:"
+
+msgid ""
+"Allows you to Set up Different Categories for music on hold.  This is useful "
+"if you would like to specify different Hold Music or Commercials for various "
+"ACD Queues."
+msgstr ""
+"Ger dig möjlighet att sätta upp olika kategorier för pausmusik. Detta är "
+"användbart för att specificera olika typer av pausmusik eller reklam för "
+"köer."
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+msgid "Please enter a valid Category Name"
+msgstr "Skriv in ett giltigt kategorinamn"
+
+msgid ""
+"Categories: \\\"none\\\" and \\\"default\\\" are reserved names. Please "
+"enter a different name"
+msgstr ""
+"Kategorierna \\\"none\\\" och \\\"default\\\" är reserverade namn. Skriv in "
+"ett annat namn"
+
+msgid "Application:"
+msgstr "Applikation:"
+
+msgid ""
+"This is the \"application=\" line used to provide the streaming details to "
+"Asterisk. See information on musiconhold.conf configuration for different "
+"audio and Internet streaming source options."
+msgstr ""
+"Detta är raden för \"application=\" som används för att förse Asterisk med "
+"strömmande ljud. Titta i filen musiconhold.conf för olika ljudformat och "
+"strömmande media från Internet."
+
+msgid "Optional Format:"
+msgstr "Valfritt format:"
+
+msgid ""
+"Optional value for \"format=\" line used to provide the format to Asterisk. "
+"This should be a format understood by Asterisk such as ulaw, and is specific "
+"to the streaming application you are using. See information on musiconhold."
+"conf configuration for different audio and Internet streaming source options."
+msgstr ""
+"Valfritt värde för raden \"format=\", används av Asterisk och måste vara ett "
+"format som Asterisk förstår, t.ex. ulaw, denna rad används specifikt för den "
+"applikation av strömmande ljud du anger. Titta i filen musiconhold.conf för "
+"olika ljudformat och strömmande media från Internet."
+
+msgid "Please enter a streaming application command and arguments"
+msgstr ""
+"Skriv in en applikation för strömmande media och eventuella argument denna "
+"applikation behöver"
+
+msgid "Category:"
+msgstr "Kategori:"
+
+#, php-format
+msgid "Delete Music Category %s"
+msgstr "Ta bort kategorin %s"
+
+#, php-format
+msgid "Delete Streaming Category"
+msgstr "Ta bort strömmande kategori"
+
+msgid "Edit Streaming Category"
+msgstr "Redigera strömmande kategori"
+
+msgid "Upload a .wav or .mp3 file:"
+msgstr "Ladda upp en .wav eller .mp3 fil:"
+
+msgid "Upload"
+msgstr "Ladda upp"
+
+msgid "Please wait until the page loads. Your file is being processed."
+msgstr "Vänta medan sidan laddas och din fil hanteras."
+
+msgid "Volume 150%"
+msgstr "150% volym"
+
+msgid "Volume 125%"
+msgstr "125% volym"
+
+msgid "Volume 100%"
+msgstr "100% volym"
+
+msgid "Volume 75%"
+msgstr "75% volym"
+
+msgid "Volume 50%"
+msgstr "50% volym"
+
+msgid "Volume 25%"
+msgstr "25% volym"
+
+msgid "Volume 10%"
+msgstr "10% volym"
+
+msgid "Volume Adjustment"
+msgstr "Justera volym"
+
+msgid ""
+"The volume adjustment is a linear value. Since loudness is logarithmic, the "
+"linear level will be less of an adjustment. You should test out the "
+"installed music to assure it is at the correct volume. This feature will "
+"convert MP3 files to WAV files. If you do not have mpg123 installed, you can "
+"set the parameter: <strong>Convert Music Files to WAV</strong> to false in "
+"Advanced Settings"
+msgstr ""
+"Justering av volymen anges som ett linjärt värde. Eftersom loudness är "
+"logaritmiskt kommer den linjära nivån att vara en mindre justering. Du bör "
+"testa den installerade musiken för att försäkra dig om det rätta värdet. "
+"Detta funktion kommer att konvertera filerna MP3 till WAV. Om du inte har "
+"installerat mpg123 kan du sätta parametern: <strong>Konvertera musikfiler "
+"till WAV</strong> till falskt i Avancerade inställningar"
+
+msgid "Do not encode wav to mp3"
+msgstr "Koda inte om wav till mp3"
+
+msgid "Disable Random Play"
+msgstr "Avaktivera slumpmässig uppspelning"
+
+msgid "Enable Random Play"
+msgstr "Aktivera slumpmässig uppspelning"
+
+msgid "Error Processing"
+msgstr "Fel vid hantering av"
+
+msgid "No file provided"
+msgstr "Ingen fil angiven"
+
+msgid "Please select a file to upload"
+msgstr "Välj en fil att ladda upp"
+
+msgid "Check"
+msgstr "Kontrollera"
+
+msgid "in"
+msgstr "i"
+
+msgid "This is not a fatal error, your Music on Hold may still work."
+msgstr "Detta är inget kritiskt fel, din pausmusik kommer kanske att fungera."
+
+msgid "Completed processing"
+msgstr "Färdig med bearbetning"
+
+msgid ""
+"You must have at least one file for On Hold Music.  Please upload one before "
+"deleting this one."
+msgstr ""
+"Du måste minst ha en fil för pausmusik. Ladda upp en före du tar bort denna."
+
+msgid "Deleted"
+msgstr "Borttagen"
+
+#, php-format
+msgid "Error Deleting %s"
+msgstr "Fel uppstod när %s togs bort"
+
+#~ msgid "Internal Options & Configuration"
+#~ msgstr "Interna val och konfigurationer"

@@ -1,0 +1,60 @@
+<?php
+
+// --VoIPCNAM.com Module for Superfecta 2.0--
+// --Modified by Michael Ruge <michael@winmac.com>--
+//This module was modified from the original Google Module for Superfecta 2.0 to work with the VoIPCNAM.com
+//lookup service.  I take no responsibilities for anything that may go wrong with this script or your PBX.
+//If the internet crashes or the earth caves in on itself as a direct result of running this script, please
+//do not hold me responsible.
+//INSTALLATION INSTRUCTIONS
+//
+// 1. Open IssabelPBX and goto the CID Superfecta Module. You can get this API Key from here:  http://www.voipcnam.com/index.php?page=account_api
+//
+// 2. Check the 'Check for Data Source File updates online', and choose this source in dropdown list.
+//
+// 3. Enter your API key. You can get it from here:  http://www.voipcnam.com/index.php?page=account_api
+//
+// 4. Enable the service and set the priority you want to use it.  I have mine set as the last item as
+//    I want to exaust all other searches before using this service.
+//
+// 5. Test it in the debug window.  Please note that this will charge your VoIPCNAM account even when
+//    using the test number provided by VoIPCNAM.  It will also use your credits with VoIPCNAM everytime
+//    you test any other number in the debug window.  I recommend disabling it while testing other providers
+//    and then enabling it when you are ready to use it.
+//
+//    Enjoy and drop me a note if you have any other questions.
+
+class VoIPCNAM extends superfecta_base {
+
+    public $description = "http://www.voipcnam.com - This module provides lookups from the VoIPCNAM.com lookup service.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'API_Key' => array(
+            'description' => 'API Key REQUIRED. Get it from voipcnam.com.',
+            'type' => 'text'
+        )
+    );
+
+    function get_caller_id($thenumber, $run_param=array()) {
+
+        $caller_id = null;
+
+        if (!$this->IsValidNumber('US,CA', $this->thenumber)) {
+            $this->DebugPrint("Skipping Source - Non US/CAN number: {$this->thenumber}");
+        } else {
+            $this->DebugPrint("Searching VoIPCNAM - {$this->thenumber} ... ");
+
+            $url = "http://query.voipcnam.com/query.php?api_key=" . $run_param['API_Key'] . "&number=1$this->thenumber";
+            $value = $this->get_url_contents($url);
+
+            if (strlen($value) > 1) {
+                $caller_id = strip_tags($value);
+            } else {
+                $this->DebugPrint("not found");
+            }
+        }
+
+        return($caller_id);
+    }
+
+}

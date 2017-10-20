@@ -1,0 +1,247 @@
+#!/usr/bin/php -q
+<?php
+$restrict_mods = true;
+if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc/issabelpbx.conf')) {
+    include_once('/etc/asterisk/issabelpbx.conf');
+}
+list($agi, $vars) = __agi();
+
+$ast_ge_10 = version_compare($amp_conf['ASTVERSION'], '10', 'ge');
+
+$get = array(
+		'ALERTINFO'			=> '',
+		'AMPUSER'			=> '',
+		'CALLINFO'			=> '',
+		'DOPTIONS'			=> '',
+		'DTIME'				=> '',
+		'LEAD_WAIT'			=> 5,
+		'PAGEMODE'			=> '',
+		'PAGE_CONF'			=> '',
+		'PAGE_CONF_OPTS'	=> '',
+		'PAGE_MEMBERS'		=> '',
+		'SIPURI'			=> '',
+		'STREAM'			=> 'beep',
+		'VXML_URL'			=> ''
+);
+
+foreach ($get as $k => $v) {
+	$tmp = agi_get_var($k);
+	$vars[$k] = $tmp ? $tmp : $v;
+}
+
+//clear stream if requested
+$vars['STREAM'] = $vars['STREAM'] == 'NONE'
+				? ''
+				: $vars['STREAM'];
+
+// TODO: this deals with the mainstream ones. We could check in the dialplan if 
+//there are any others outside of these and only in that case evoke the
+//new custom macro that gets generated to otherwise deal with these???
+
+//set channel variables
+$base_vars['__FORWARD_CONTEXT'] = 'block-cf';
+$base_vars['AMPUSER'] = __pad_string($vars['AMPUSER']);
+$chan_vars = array(
+			'ALERTINFO',
+			'CALLINFO',
+			'DOPTIONS',
+			'DTIME',
+			'SIPURI',
+			'SIPURI',
+			'VXML_URL'
+);
+
+foreach ($chan_vars as $var) {
+	if ($vars[$var] != '') {
+		$base_vars[$var]  = __pad_string($vars[$var]);
+	}
+}
+
+
+//dbug('vars', $vars);
+
+/* TODO: run through the list here first and check for:
+ * future - check if each specific extension needs modifications to 
+ * auto-answer channel variables so the conditional assignments can 
+ * be skipped
+ */
+
+$page_members = explode('-', $vars['PAGE_MEMBERS']);
+$this_chan = explode('-', agi_get_var("CHANNEL(name)"), 2);
+
+/* Create a temp leader to address the issue of members being paged 
+ * followed by the real leader hanging up, resulting in hung paged phones 
+ * becasue the leader never left. Since the conference ends when the LAST 
+ * leader hangs up, this leader stays on just long enough to allow the real  * leader to get going.
+ * note: we got to app-page-stream since it simply enters the conference 
+ * as a marked user
+ */
+$lead = array(
+		'Channel'	=> 'Local/s@app-page-stream',
+		'CallerID'	=> 'Page Startup',
+		'Async'		=> 'true',
+		'Variable'	=> array(
+						'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
+						'PAGE_CONF_OPTS' => 'xqA'
+					),
+		'Application'=> 'Wait',
+		'Data'		=> $vars['LEAD_WAIT']
+);
+$astman->Originate($lead);
+
+
+foreach ($page_members as $pm) {
+	$pagemode = 'PAGE';
+	$pass_vars = $base_vars;
+
+	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
+		$pass_vars['CONFBRIDGE(user,template)'] 
+				= $vars['PAGE_CONF_OPTS'] == 'duplex' 
+				? 'page_user_duplex' 
+				: 'page_user';
+	}
+
+	$device = $agi->database_get("DEVICE", $pm . '/dial');
+	$device = $device['data'];
+	if ($device == $this_chan[0]) {
+		continue; // don't page ourselves
+	}
+
+	// if not force mode, don't page busy extension (NOT_INUSE or ONHOLD 
+	// are ok to page). if FPAGE we use the PAGE context reset above but 
+	//this will get skipped
+	if ($vars['PAGEMODE'] == 'PAGE') {
+		$dev_state = agi_get_var("DEVICE_STATE($device)");
+		if ($dev_state != 'NOT_INUSE' && $dev_state != 'ONHOLD') { 
+			//TODO: change to in_array or a function
+			continue;
+		}
+		$user = $agi->database_get("DEVICE", $pm . '/user');
+		$dnd = $user['data'] != '' 
+				?  $agi->database_get("DND", $user['data']) 
+				: array('data' => '');
+		if ($dnd['data'] == 'YES') {
+			continue;
+		}
+	// try using Spy mode (whisper)
+	} elseif ($vars['PAGEMODE'] == 'SPAGE') {
+		$dev_state = agi_get_var("DEVICE_STATE($device)");
+		// if not idle but in a state we can try spying, then try
+		if ($dev_state != 'NOT_INUSE' && $dev_state != 'ONHOLD') { 
+			//TODO: change to in_array or a function
+			$user = $agi->database_get("DEVICE", $pm . '/user');
+			$dnd = $user['data'] != '' 
+				?  $agi->database_get("DND", $user['data']) 
+				: array('data' => '');
+			if ($dnd['data'] == 'YES') {
+				continue;
+			}
+			$type = explode('/', $device, 2);
+			if (strtolower($type[0]) != 'sip') {
+				continue;
+			}
+			switch ($dev_state) {
+				case "INUSE":
+				case "BUSY":
+				case "RINGINUSE":
+				case "HOLDINUSE":
+					// Try SPY
+					$pagemode = 'SPAGE';
+					$pass_vars['SP_DEVICE'] = __pad_string($device);
+				break;
+				default:
+					// State is not amicable to spy or normal 
+					// (such as RINGING) so skip it
+					continue;
+				break;
+			}
+		}
+	}
+
+	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
+			$data_params = $vars['PAGE_CONF'] . ',,,' . 'user_menu';
+	} else {
+			$data_params = $vars['PAGE_CONF'] 
+							. ',' 
+							. $vars['PAGE_CONF_OPTS'] 
+							. ',,';
+	}
+	$astman->Originate(array(
+			'Channel'     => 'Local/' . $pagemode . $pm . '@app-paging',
+			'CallerID'    => $vars['calleridname'] 
+							. ' <' 
+							. $vars['callerid'] 
+							. '>',
+			'Async'       => 'true',
+			'Variable'    => $pass_vars,
+			'Application' => ($amp_conf['ASTCONFAPP'] == 'app_confbridge' 
+								? 'ConfBridge' 
+								: 'MeetMe'),
+			'Data'        => $data_params
+	));
+}
+
+if ($vars['STREAM']) {
+	$beep = array(
+			'Channel'	=> 'Local/s@app-page-stream',
+			'CallerID'	=> 'Playback Stream',
+			'Async'		=> 'true',
+			'Variable'	=> array(
+							'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
+							'PAGE_CONF_OPTS' => 'xq'
+						),
+			'Application'=> 'Playback',
+			'Data'		=> $vars['STREAM']
+	);
+	//dbug($beep);
+	$astman->Originate($beep);
+}
+
+function __agi(){
+	require_once('phpagi.php');
+	$agi=new AGI();
+	foreach($agi->request as $key => $value){//strip agi_ prefix from keys
+		if(substr($key,0,4)=='agi_'){
+			$opts[substr($key,4)]=$value;
+		}
+	}
+
+	foreach($opts as $key => $value){//get passed in vars
+		if(substr($key,0,4)=='arg_'){
+			$expld=explode('=',$value);
+			$opts[$expld[0]]=$expld[1];
+			unset($opts[$key]);
+		}
+	}
+	
+	array_shift($_SERVER['argv']);
+	foreach($_SERVER['argv'] as $arg){
+		$arg=explode('=',$arg);
+		//remove leading '--'
+		if(substr($arg['0'],0,2) == '--'){$arg['0']=substr($arg['0'],2);}
+		$opts[$arg['0']]=isset($arg['1'])?$arg['1']:null;
+	}
+
+	return array($agi, $opts);
+}
+
+function agi_get_var($value) {
+	global $agi;
+	$r = $agi->get_variable($value);
+	
+	if ($r['result'] == 1) {
+		$result = $r['data'];
+		return $result;
+	}
+	return '';
+}
+
+function __pad_string($string) {
+	return str_replace(
+			array('\\', ',', '='),
+			array('\\\\', '\\,', '\\='),
+			$string
+		);
+}
+
+?>

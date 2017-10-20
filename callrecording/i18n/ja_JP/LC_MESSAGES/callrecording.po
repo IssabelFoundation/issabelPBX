@@ -1,0 +1,144 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for callrecording
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-05 19:32+0900\n"
+"PO-Revision-Date: 2014-08-14 01:26+0200\n"
+"Last-Translator: Kevin <kevin@qloog.com>\n"
+"Language-Team: Japanese "
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.10-dev\n"
+
+msgid "Add Call Recording"
+msgstr "通話録音を追加"
+
+msgid "Edit: "
+msgstr "編集："
+
+msgid ""
+"Call Recordings provide the ability to force a call to be recorded or not "
+"recorded based on a call flow and override all other recording settings. If "
+"a call is to be recorded, it can start immediately which will incorporate "
+"any announcements, hold music, etc. prior to being answered, or it can have "
+"recording start at the time that call is answered."
+msgstr ""
+"通話録音は、コールフローに基づいて録音するかしないかを判断し、他での全ての録音設定を上書きする機能です。もし通話を録音する場合、すぐに録音するように設定"
+"すると、応答するまでのアナウンスや保留音などを含め全て録音されますが、呼に応答してから録音する設定もできます。"
+
+msgid "Edit Call Recording Instance"
+msgstr "通話録音インスタンスを編集"
+
+msgid "Add Call Recording Instance"
+msgstr "通話録音インスタンスを追加"
+
+msgid "Description"
+msgstr "説明"
+
+msgid ""
+"The descriptive name of this call recording instance. For example \"French "
+"Main IVR\""
+msgstr "この通話録音インスタンスを説明する名前。例えば「日本語メインIVR」など"
+
+msgid "Call Recording Mode"
+msgstr "通話録音モード"
+
+msgid ""
+"Controls or overrides the call recording behavior for calls continuing "
+"through this call flow. Allow will honor the normal downstream call "
+"recording settings. Record on Answer starts recording when the call would "
+"otherwise be recorded ignoring any settings that say otherwise. Record "
+"Immediately will start recording right away capturing ringing, "
+"announcements, MoH, etc. Never will disallow recording regardless of "
+"downstream settings."
+msgstr ""
+"このコールフローを通じて継承される呼の通話録音動作を制御、もしくは上書きします。「許可」は、通常の通話録音設定を尊重します。「応答してから録音する」は、"
+"他の設定をすべて無視して、受信時に録音を開始します。「すぐに録音する」は、直ちに録音を開始して、呼び出し、アナウンス、保留音などが録音されます。「一切録"
+"音しない」は、他の設定を上書きして録音を拒否します。"
+
+msgid "Allow"
+msgstr "許可する"
+
+msgid "Record on Answer"
+msgstr "応答してから録音する"
+
+msgid "Record Immediately"
+msgstr "すぐに録音する"
+
+msgid "Never"
+msgstr "実行しない"
+
+msgid "Destination"
+msgstr "発信先"
+
+msgid "Submit Changes"
+msgstr "変更を適用"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Invalid description specified"
+msgstr "無効な説明が指定されました"
+
+#, php-format
+msgid "Call Recording: %s"
+msgstr "通話録音： %s"
+
+msgid "Call Recording"
+msgstr "通話録音"
+
+msgid ""
+"Controls or overrides the call recording behavior for calls coming into this "
+"DID. Allow will honor the normal downstream call recording settings. Record "
+"on Answer starts recording when the call would otherwise be recorded "
+"ignoring any settings that say otherwise. Record Immediately will start "
+"recording right away capturing ringing, announcements, MoH, etc. Never will "
+"disallow recording regardless of downstream settings."
+msgstr ""
+"このDIDに着信する呼に対して、通話録音の動作を制御、もしくは上書きします。「許可」は、通常の通話録音設定を尊重します。「応答してから録音する」は、他の"
+"設定をすべて無視して、受信時に録音を開始します。「すぐに録音する」は、直ちに録音を開始して、呼び出し、アナウンス、保留音などが録音されます。「一切録音し"
+"ない」は、他の設定を上書きして録音を拒否します。"
+
+msgid "Applications"
+msgstr "アプリケーション"
+
+msgid "Provides much of the call recording functionality."
+msgstr "通話録音のほとんどの機能を備えています。"

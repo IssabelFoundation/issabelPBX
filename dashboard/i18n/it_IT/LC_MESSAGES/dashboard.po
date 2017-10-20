@@ -1,0 +1,327 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#    Copyright 2008 FreePBX
+#    Copyright 2008 Francesco Romano <francesco.romano@alteclab.it>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-10 11:55+0100\n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+msgid "seconds"
+msgstr ""
+
+msgid "second"
+msgstr ""
+
+msgid "minutes"
+msgstr "minuti"
+
+msgid "minute"
+msgstr "minuti"
+
+msgid "hours"
+msgstr "ore"
+
+msgid "hour"
+msgstr "ora"
+
+msgid "days"
+msgstr "giorni"
+
+msgid "day"
+msgstr ""
+
+msgid "weeks"
+msgstr "settimane"
+
+msgid "week"
+msgstr "settimana"
+
+msgid "years"
+msgstr ""
+
+msgid "year"
+msgstr ""
+
+msgid "System Dashboard"
+msgstr "Cruscotto di Sistema"
+
+msgid "Reports"
+msgstr ""
+
+msgid ""
+"Provides a system information dashboard, showing information about Calls, "
+"CPU, Memory, Disks, Network, and processes."
+msgstr ""
+
+msgid "IssabelPBX System Status"
+msgstr "Stato Sistema IssabelPBX"
+
+msgid "Dashboard Info Update Frequency"
+msgstr ""
+
+msgid "GUI Behavior"
+msgstr ""
+
+msgid "Update rate in seconds of the Info section of the System Status panel."
+msgstr ""
+
+msgid "Dashboard Max Calls Initial Scale"
+msgstr ""
+
+msgid ""
+"Use this to pre-set the scale for maximum calls on the Dashboard display. If "
+"not set, the the scale is dynamically sized based on the active calls on the "
+"system."
+msgstr ""
+
+msgid "Dashboard Stats Update Frequency"
+msgstr ""
+
+msgid ""
+"Update rate in seconds of all sections of the System Status panel except the "
+"Info box."
+msgstr ""
+
+msgid "Dashboard Non-Std SSH Port"
+msgstr ""
+
+msgid "System Setup"
+msgstr ""
+
+msgid ""
+"SSH port number configured on your system if not using the default port 22, "
+"this allows the dashboard monitoring to watch the poper port."
+msgstr ""
+
+#, php-format
+msgid "%s changed from %s to %s"
+msgstr ""
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Warn"
+msgstr "Attenz"
+
+msgid "ERROR"
+msgstr "ERRORE"
+
+msgid "Disabled"
+msgstr ""
+
+msgid "System Statistics"
+msgstr "Statistiche di Sistema"
+
+msgid "Processor"
+msgstr "Processore"
+
+msgid "Load Average"
+msgstr "Carico Medio"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "Memory"
+msgstr "Memoria"
+
+msgid "App Memory"
+msgstr "Memoria App"
+
+msgid "Swap"
+msgstr "Swap"
+
+msgid "Disks"
+msgstr "Dischi"
+
+msgid "Networks"
+msgstr "Reti"
+
+msgid "receive"
+msgstr "riceve"
+
+msgid "transmit"
+msgstr "trasmette"
+
+msgid "IssabelPBX Statistics"
+msgstr "Statistiche IssabelPBX"
+
+msgid "Total active calls"
+msgstr "Totale chiamate attive"
+
+msgid "Internal calls"
+msgstr "Chiamate interne"
+
+msgid "External calls"
+msgstr "Chiamate esterne"
+
+msgid "Total active channels"
+msgstr "Totale canali attivi"
+
+msgid "IssabelPBX Connections"
+msgstr "Connessioni IssabelPBX"
+
+msgid "IP Phones Online"
+msgstr "Telefoni IP Online"
+
+msgid "IP Trunks Online"
+msgstr "Fasci IP Online"
+
+msgid "IP Trunk Registrations"
+msgstr "Registrazioni Fasci IP"
+
+msgid "Uptime"
+msgstr "Tempo di esercizio"
+
+msgid "System Information Table"
+msgstr ""
+
+msgid "System Uptime"
+msgstr "Sistema"
+
+msgid "Asterisk Uptime"
+msgstr "Asterisk"
+
+msgid "Last Reload"
+msgstr "Ultimo ricaricamento"
+
+msgid "Server Status"
+msgstr "Stato Server"
+
+msgid "Asterisk"
+msgstr "Asterisk"
+
+#, php-format
+msgid "Asterisk is running: %s"
+msgstr "Asterisk è in esecuzione: %s"
+
+msgid "Asterisk is not running, this is a critical service!"
+msgstr "Asterisk non è in esecuzione, questo è un servizio critico!"
+
+msgid "Manager Proxy"
+msgstr "Proxy Manager"
+
+msgid "Asterisk Manager Proxy is running"
+msgstr "Asterisk Manager Proxy in esecuzione"
+
+msgid ""
+"Asterisk Manager Proxy is not running, IssabelPBX will fall back to using "
+"Asterisk directly, which may result in poor performance"
+msgstr ""
+"Asterisk Manager Proxy non è in esecuzione, IssabelPBX si connetterà "
+"utilizzando direttamente Asterisk, e le prestazioni saranno degradate"
+
+msgid "Op Panel"
+msgstr "Pannello Operatore"
+
+msgid ""
+"FOP Operator Panel Server is not running, you will not be able to use the "
+"operator panel, but the system will run fine without it."
+msgstr ""
+"Il Pannello Operatore FOP non è in esecuzione, non sarai in grado di "
+"utilizzare il pannello operatore, ma il sistema funzionerà ugualmente in "
+"maniera regolare"
+
+msgid "FOP Operator Panel is disabled in Advanced Settings"
+msgstr ""
+
+msgid "FOP Operator Panel Server is running"
+msgstr "Pannello Operatore FOP in esecuzione"
+
+msgid "MySQL"
+msgstr "MySQL"
+
+msgid "MySQL Server is running"
+msgstr "Server MySQL in esecuzione"
+
+msgid "Web Server"
+msgstr "Server Web"
+
+msgid "Web Server is running"
+msgstr "Server Web in esecuzione"
+
+msgid "SSH Server"
+msgstr "Server SSH"
+
+msgid "SSH Server is running"
+msgstr "Server SSH in esecuzione"
+
+msgid ""
+"SSH Server is not running, you will not be able to connect to the system "
+"console remotely"
+msgstr ""
+"Il Server SSH non è in esecuzione, non sarai in grado di connetterti in "
+"remoto alla console di sistema"
+
+msgid "Critical Error"
+msgstr "Errore Critico"
+
+msgid "Security Update"
+msgstr "Aggiornamento di Sicurezza"
+
+msgid "Update"
+msgstr "Aggiorna"
+
+msgid "Error"
+msgstr "Errore"
+
+msgid "Warning"
+msgstr "Attenz"
+
+msgid "Notice"
+msgstr "Notifica"
+
+msgid "IssabelPBX Notices"
+msgstr "Notifiche IssabelPBX"
+
+msgid "Delete this"
+msgstr "Elimina"
+
+msgid "Ignore this"
+msgstr "Ignora"
+
+#, php-format
+msgid "Added %s ago"
+msgstr ""
+
+msgid "No notifications"
+msgstr "Nessuna notifica"
+
+msgid "No new notifications"
+msgstr "Nessuna nuova notifica"
+
+msgid "show new"
+msgstr "visualizza nuove"
+
+msgid "show all"
+msgstr "visualizza tutte"
+
+msgid "loading..."
+msgstr "caricamento..."
+
+#~ msgid "FOP Operator Panel is disabled in amportal.conf"
+#~ msgstr "Pannello Operatore FOP disabilitato in amportal.conf"

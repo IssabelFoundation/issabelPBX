@@ -1,0 +1,299 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-07-10 09:30+0100\n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+#, php-format
+msgid "Missing Sound file auto-created from migration of %s module"
+msgstr "File Audio mancante auto-creato durante la migrazione del modulo %s"
+
+#, php-format
+msgid "Non-Existent Recording in module %s"
+msgstr "Registrazione inesistente nel modulo %s"
+
+#, php-format
+msgid ""
+"The %s referenced a recording file listed below that does not exists. An "
+"entry has been generated, named %s, with the referenced file(s) but you "
+"should confirm that it really works and the real files exist. The file(s) "
+"referenced: %s "
+msgstr ""
+"%s fa riferimento ad un file di registrazione che non esiste. Una voce è "
+"stata generata, nominata %s, insieme ai file di riferimento ma dovresti "
+"confermare che questi realmente esistono. I file sono : %s"
+
+msgid "No long description available"
+msgstr "Nessuna descrizione completa disponibile"
+
+msgid "Recordings"
+msgstr "Registrazioni"
+
+msgid "Save Recording"
+msgstr "Salva Registrazione"
+
+msgid "Check Recording"
+msgstr "Controllo Registrazione"
+
+msgid "checking for fcode field.."
+msgstr "controllo il campo fcode.."
+
+msgid "OK"
+msgstr "OK"
+
+msgid "already exists"
+msgstr "già esiste"
+
+msgid "checking for fcode_pass field.."
+msgstr "controllo il campo fcode_pass.."
+
+msgid "** MISSING FEATURE CODE **"
+msgstr "** CODICE SERVIZIO MANCANTE **"
+
+msgid "Failed to create"
+msgstr "Impossibile creare"
+
+msgid "[ERROR] The Recorded File Does Not exists:"
+msgstr "[ERRORE] Il file registrato non esiste:"
+
+msgid "[ERROR] SAVING RECORDING:"
+msgstr "[ERRORE] DURANTE IL SALVATAGGIO DELLA REGISTRAZIONE:"
+
+msgid "Make sure you have entered a proper name"
+msgstr "Assicurarsi di aver inserito un nome corretto"
+
+msgid "[ERROR] REMOVING TEMPORARY RECORDING:"
+msgstr "[ERRORE] DURANTE LA RIMOZIONE DELLA REGISTRAZIONE TEMPORANEA:"
+
+msgid "Make sure Asterisk is not running as root "
+msgstr "Assicurarsi che Asterisk non sia in esecuzione come root"
+
+msgid "System Recording"
+msgstr "Registrazione di Sistema"
+
+msgid "Saved"
+msgstr "Salvato"
+
+msgid "Unable to locate"
+msgstr "Impossibile trovare"
+
+msgid "with a a valid suffix"
+msgstr "con un suffisso valido"
+
+msgid "Updated"
+msgstr "Aggiornato"
+
+msgid "System Recordings"
+msgstr "Registrazioni di Sistema"
+
+msgid "Add Recording"
+msgstr "Aggiungi Registrazione"
+
+msgid "Step 1: Record or upload"
+msgstr "Fase 1: Registrazione o caricamento"
+
+msgid "Using your phone,"
+msgstr "Utilizzando il proprio telefono,"
+
+msgid " dial"
+msgstr " chiamare"
+
+msgid "Start speaking at the tone. Press # when finished."
+msgstr ""
+
+msgid "and speak the message you wish to record. Press # when finished."
+msgstr ""
+
+msgid ""
+"If you wish to make and verify recordings from your phone, please enter your "
+"extension number here:"
+msgstr ""
+"Se si desidera registrare o ascoltare una registrazione da telefono, "
+"immettere il numero del proprio interno:"
+
+msgid "Go"
+msgstr "Vai"
+
+msgid ""
+"Alternatively, upload a recording in any supported asterisk format. Note "
+"that if you're using .wav, (eg, recorded with Microsoft Recorder) the file "
+"<b>must</b> be PCM Encoded, 16 Bits, at 8000Hz"
+msgstr ""
+"In alternativa, caricare una registrazione in uno dei formati supportati da "
+"asterisk. Se si utilizza il formato .wav (registrato per esempio con il "
+"Registratore di Microsoft Windows) il file <b>deve</b> essere del formato "
+"PCM, 16Bit, 8000Hz"
+
+msgid "Upload"
+msgstr "Carica"
+
+msgid "Please wait until the page reloads."
+msgstr "Prego attendere che la pagina si ricarichi"
+
+msgid "Successfully uploaded"
+msgstr "Caricato con successo"
+
+msgid "Step 2: Verify"
+msgstr "Fase 2: Verifica"
+
+msgid "After recording or uploading,"
+msgstr "Dopo la registrazione o il caricamento,"
+
+msgid "dial"
+msgstr ""
+
+msgid "to listen to your recording."
+msgstr "per ascoltare il messaggio"
+
+msgid "If you wish to re-record your message, dial"
+msgstr "Se si vuole registrare nuovamente il messaggio, chiamare"
+
+msgid "Step 3: Name"
+msgstr "Fase 3: Nome"
+
+msgid "Step 2: Name"
+msgstr "Fase 2: Nome"
+
+msgid "Name this Recording"
+msgstr "Nome"
+
+msgid "Click \"SAVE\" when you are satisfied with your recording"
+msgstr "Fare click su \"SALVA\" quando terminato"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Edit Recording"
+msgstr "Modifica Registrazione"
+
+msgid "Usage List"
+msgstr "Lista"
+
+msgid ""
+"This recording is being used in the following instances. You can not remove "
+"this recording while being used. To re-record, you can enable and use the "
+"feature code below if allowed."
+msgstr ""
+"Questa registrazione è utilizzata dalle seguenti istanze. Non puoi rimuovere "
+"questa registrazione quando è in uso. Per ri-registrarla, puoi attivare ed "
+"utilizzare il codice servizio qui sotto se permesso."
+
+msgid "Remove Recording"
+msgstr "Rimuovi Registrazione"
+
+msgid "Note, does not delete file from computer"
+msgstr "Nota: non rimuove il file dal computer"
+
+msgid "Change Name"
+msgstr "Cambia Nome"
+
+msgid "This changes the short name, visible on the right, of this recording"
+msgstr "Questo cambia il nome breve della registrazione, visibile sulla destra"
+
+msgid "Descriptive Name"
+msgstr "Nome Descrittivo"
+
+msgid ""
+"This is displayed, as a hint, when selecting this recording in Queues, "
+"Digital Receptionist, etc"
+msgstr ""
+"Questo è visualizzato come consiglio, quando si seleziona questa "
+"registrazione nelle Code, nell'IVR, ecc."
+
+msgid "Link to Feature Code"
+msgstr "Collega ad un Codice Servizio"
+
+msgid ""
+"Check this box to create an options feature code that will allow this "
+"recording to be changed directly."
+msgstr ""
+"Attivare questa opzione per creare un codice servizio che permetterà di "
+"cambiare questa registrazione direttamente."
+
+#, php-format
+msgid "Optional Feature Code %s"
+msgstr "Codice Servizio Opzionale %s"
+
+msgid "Feature Code Password"
+msgstr "Password Codice Servizio"
+
+msgid ""
+"Optional password to protect access to this feature code which allows a user "
+"to re-record it."
+msgstr ""
+"Password opzionale per proteggere l'accesso a questo codice servizio che "
+"permette ad un utente di riregistrarlo."
+
+msgid "Direct Access Feature Code Not Available"
+msgstr "Codice Servizio diretto non disponibile"
+
+msgid ""
+"Direct Access Feature Codes for recordings are not available for built in "
+"system recordings or compound recordings made of multiple individual ones."
+msgstr ""
+"I Codici Servizi diretti non sono disponibili per le registrazioni interne "
+"di sistema o per le registrazioni composte da più file."
+
+msgid "Files"
+msgstr "File"
+
+msgid "Built-in Recordings"
+msgstr "Registrazioni interne"
+
+msgid "Please enter a valid Name for this System Recording"
+msgstr "Prego immettere un Nome valido per questa Registrazione di Sistema"
+
+msgid "Select System Recording:"
+msgstr "Selezionare la Registrazione di Sistema:"
+
+msgid "Click here to play this recording"
+msgstr "Fare Click qui per riprodurre la registrazione"
+
+msgid "Move Up"
+msgstr "Sposta Su"
+
+msgid "Move Down"
+msgstr "Sposta Giù"
+
+msgid "Delete"
+msgstr "Elimina"
+
+#, php-format
+msgid "No compatible wav, mp3 or gsm format found to play:<br /><br />%s"
+msgstr ""
+"Nessun formato compatibile wav, mp3 o gsm trovato da riprodurre:<br /><br />%"
+"s"
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"Creates and manages system recordings, used by many other modules (eg, IVR)."
+msgstr ""
+
+msgid "Recordings Crypt Key"
+msgstr ""
+
+msgid "System Setup"
+msgstr ""
+
+msgid ""
+"Crypt key used by this recordings module when accessing the recording files. "
+"Change from the default of "
+msgstr ""
+
+msgid " if desired."
+msgstr ""

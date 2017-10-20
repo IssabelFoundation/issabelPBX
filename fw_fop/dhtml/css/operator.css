@@ -1,0 +1,118 @@
+body {
+	font-family: verdana, helvetica, sans-serif;
+}
+
+.busy,.free,.agent,.notregistered,.ringing,.park {
+	width: 150px;
+	height: 55px;
+	font-size: 12px;
+    color: #000; 
+	margin: 2px;
+	padding: 2px;
+}
+
+.busy{
+	float: left;
+	background: #ff3300;
+	overflow: hidden;
+}
+.agent{
+	float: left;
+	background: #dfdf33;
+	overflow: hidden;
+}
+.free{
+	float: left;
+	background: #ccffcc;
+	overflow: hidden;
+}
+.ringing{
+	float: left;
+	background: #009999;
+	overflow: hidden;
+	xbackground-image:url("../images/Cartoon_phone.gif");
+    xbackground-repeat:no-repeat;
+}
+.park{
+    float: left;
+    background: #ff3300;
+    overflow: hidden;
+}
+.notregistered{
+	float: left;
+	background: #ddd;
+	overflow: hidden;
+}
+
+.mcount {
+   border: 1px solid #000;
+   padding: 0.1em;
+   width: 10em;
+   top: -20px;
+   left: 20px;
+   background: #dfd;
+   position: relative;
+   display: none;
+}
+
+.clid {
+	font-size: 10px;
+}
+
+.phone1 {
+	background-image:url("../images/telephone.png");
+    background-repeat:no-repeat;
+	float: left;
+	width: 20px;
+}
+.phone2 {
+	background-image:url("../images/phone.png");
+    background-repeat:no-repeat;
+	float: left;
+	width: 20px;
+}
+.phone3 {
+	background-image:url("../images/telephone_go.png");
+    background-repeat:no-repeat;
+	float: left;
+	width: 20px;
+}
+.phone4 {
+	background-image:url("../images/phone_sound.png");
+    background-repeat:no-repeat;
+	float: left;
+	width: 20px;
+}
+.phone5 {
+	background-image:url("../images/status_online.png");
+    background-repeat:no-repeat;
+	float: left;
+	width: 20px;
+}
+.phone6 {
+	background-image:url("../images/group.png");
+    background-repeat:no-repeat;
+	float: left;
+	width: 20px;
+}
+.mwi {
+	background-image:url("../images/email.png");
+    background-repeat:no-repeat;
+	visibility: hidden;
+	float: left;
+	width: 20px;
+}
+
+#dhtmltooltip{
+	position: absolute;
+	font-size: 10px;
+	width: 150px;
+	border: 2px solid black;
+	padding: 2px;
+	background-color: lightyellow;
+	visibility: hidden;
+	z-index: 100;
+	/*Remove below line to remove shadow. Below line should always appear last within this CSS*/
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135);
+}
+

@@ -1,0 +1,117 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-06 14:25+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+#: functions.inc.php:21
+msgid "Edit Gabcast Settings"
+msgstr "Modifica Impostazioni Gabcast"
+
+#: functions.inc.php:24
+msgid "Add Gabcast Settings"
+msgstr "Aggiungi Impostazioni Gabcast"
+
+#: functions.inc.php:60
+#, php-format
+msgid "Gabcast: %s Ext: %s"
+msgstr "Gabcast: %s Int: %s"
+
+#: install.php:4
+#: install.php:8
+msgid "Connect to Gabcast"
+msgstr "Connetti a Gabcast"
+
+#: page.gabcast.php:60
+msgid "This "
+msgstr "Questo "
+
+#: page.gabcast.php:62
+msgid "Gabcast is a social broadcasting platform that offers virtual communities, individuals, and organizations an easy way to create and distribute audio content.<br><br>Visit www.gabcast.com for more info."
+msgstr "Gabcast è una piattaforma di social broadcasting che offre a comunità, individui e organizzaznio un modo semplice per creare e distribuire contenuti audio.<br><br>Visita www.gabcast.com per maggiori informazioni."
+
+#: page.gabcast.php:64
+msgid "module allows you to:"
+msgstr "permette di:"
+
+#: page.gabcast.php:66
+msgid "Link extensions to Gabcast channels. It creates a feature code, which defaults to <u>*422</u> 'gab' - you can change this in"
+msgstr "Collegare gli interni ai canali Gabcast. Questo creerà un codice servizio, impostato in maniera predefinita su <u>*422</u> modificabile in"
+
+#: page.gabcast.php:67
+msgid "Feature Code Admin"
+msgstr "Amministrazione Codici Servizi"
+
+#: page.gabcast.php:68
+msgid "which allows you to log directly into your Gabcast account.  This is ideal for personal podcasting!"
+msgstr "che permette di entrare direttamente nel tuo account Gabcast. Questo è l'ideale per un podcasting personale!"
+
+#: page.gabcast.php:70
+msgid "Define a Gabcast channel as a Destination for other modules. For example, you can direct a DID or IVR menu option directly to Gabcast. This is ideal for group and public podcasting!"
+msgstr "Definire un canale Gabcast come Destinazione per altri moduli. Per esempio, puoi direzionare una Selezione Passante o un opzione di un IVR direttamente verso Gabcast. Questo è l'ideale per un podcasting pubblico o di gruppo!"
+
+#: page.gabcast.php:84
+msgid "Error: cannot retreive Gabcast info for this extension"
+msgstr "Errore: impossibile prelevare le informazioni Gabcast per questo interno"
+
+#: page.gabcast.php:94
+msgid "Delete settings"
+msgstr "Elimina impostazioni"
+
+#: page.gabcast.php:113
+msgid "You <u>must</u> have a Gabcast account & channel to use this feature. Visit"
+msgstr "<u>Devi</u> avere un account ed un canale Gabcast per utilizzare questa opzione. Visita"
+
+#: page.gabcast.php:115
+msgid "to sign up. <u>It's a free service</u>!"
+msgstr "per inscriverti. <u>E' un servizio gratuito</u>!"
+
+#: page.gabcast.php:121
+msgid "Gabcast Channel Number:"
+msgstr "Numero Canale Gabcast:"
+
+#: page.gabcast.php:123
+msgid "Gabcast Channel Password:"
+msgstr "Password Canale Gabcast:"
+
+#: page.gabcast.php:125
+msgid "Link to Extension/User Number:"
+msgstr "Collega all'Interno/Utente Numero:"
+
+#: page.gabcast.php:135
+msgid "Add Gabcast Channel"
+msgstr "Aggiungi Canale Gabcast"
+
+#: page.gabcast.php:144
+msgid "Ext"
+msgstr "Int"
+
+#: page.gabcast.php:144
+msgid "Chan"
+msgstr "Canale"
+
+#: page.gabcast.php:147
+msgid "Gabcast Configuration"
+msgstr "Configurazione Gabcast"
+
+#: page.gabcast.php:152
+#, php-format
+msgid "The latest episodes in channel #%s"
+msgstr "Gli ultimi episodi nel canale #%s"
+
+#: page.gabcast.php:155
+msgid "The latest episodes across all channels"
+msgstr "Gli ultimi episodi attraverso tutti i canali"
+
+#: page.gabcast.php:159
+msgid "Feed URL: "
+msgstr "URL Feed:"
+

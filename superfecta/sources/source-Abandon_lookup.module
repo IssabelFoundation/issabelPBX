@@ -1,0 +1,39 @@
+<?php
+// this file is designed to be used as an include that is part of a loop.
+
+
+// CID Superfecata lookup to stop a search from progressing.
+
+class Abandon_lookup extends superfecta_base {
+	public $description = "Artificially sets the CNAM to a user defined value so that no further lookups will be performed";
+	public $version_requirement = "2.11";
+	public $source_param = array(
+	    'Artificial_CNAM' => array(
+	            'description' => 'URL, use $thenumber as the substitution string for the inbound number',
+	            'type' => 'text',
+				'default' => 'unknown'
+	    ),
+	    'Use_CID' => array(
+	            'description' => 'Substitute CID for CNAM, text above will be ignored',
+	            'type' => 'checkbox',
+				'default' => 'off'
+	    )
+	);
+	
+    function get_caller_id($thenumber, $run_param=array()) {
+
+        $caller_id = null;
+				
+		if ($run_param['Artificial_CNAM'] == NULL) {
+			$run_param['Artificial_CNAM'] = $this->source_param['Artificial_CNAM']['default'];
+		}
+		if ($run_param['Use_CID'] == 'on') {
+			$run_param['Artificial_CNAM'] = $thenumber;
+		}
+		
+		$this->DebugPrint("Setting CNAM to:".$run_param['Artificial_CNAM']." ...");
+
+		return(trim($run_param['Artificial_CNAM']));
+
+    }
+}

@@ -1,0 +1,52 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language for donotdisturb
+# Copyright (C) 2009, 2010, 2011 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX donotdisturb\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-20 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+msgid "Do-Not-Disturb (DND)"
+msgstr "Stör-ej (DND)"
+
+msgid "Applications"
+msgstr ""
+
+msgid "Provides donotdisturb featurecodes"
+msgstr "Modul för stör-ej"
+
+msgid "DND Activate"
+msgstr "Aktivera Stör-ej"
+
+msgid "DND Deactivate"
+msgstr "Avaktivera Stör-ej"
+
+msgid "DND Toggle"
+msgstr "Ställ om Stör-ej"
+
+#~ msgid "Internal Options & Configuration"
+#~ msgstr "Interna val och konfigurationer"

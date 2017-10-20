@@ -1,0 +1,24 @@
+<module>
+	<rawname>framework</rawname>
+	<modtype>framework</modtype>
+	<repo>standard</repo>
+	<name>IssabelPBX Framework</name>
+	<version>2.11.0.43</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<candisable>no</candisable>
+	<canuninstall>no</canuninstall>
+	<changelog>
+		*2.11.0.43* Initial Issabel Foundation release
+	</changelog>
+	<description>
+		This module provides a facility to install bug fixes to the framework code that is not otherwise housed in a module
+	</description>
+	<supported>
+		<version>2.11</version>
+	</supported>
+	<category>Admin</category>
+	<location>release/2.11/framework-2.11.0.10.tgz</location>
+	<md5sum>343e3e49493d537e61ce925d77dfcadc</md5sum>
+</module>

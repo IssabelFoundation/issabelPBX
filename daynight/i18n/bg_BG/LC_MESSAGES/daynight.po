@@ -1,0 +1,397 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2008 Chavdar Iliev <chavdar_75@yahoo.com>
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-20 18:33-0400\n"
+"PO-Revision-Date: 2014-07-21 16:49+0200\n"
+"Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
+"Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/daynight/"
+"bg/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg_BG\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.10-dev\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: functions.inc.php:647
+msgid " - Force Time Condition False Destination"
+msgstr " - Приложи Времево Условие за Направление Не Съвпада"
+
+#: functions.inc.php:645
+msgid " - Force Time Condition True Destination"
+msgstr " - Приложи Времево Условие за Направление Ако Съвпада"
+
+#: page.daynight.php:18
+msgid "Add Call Flow Toggle Code"
+msgstr "Добави Специален Код за Превключване на Потока от Входящи Обаждания"
+
+#: daynight.i18n.php:6 daynight.i18n.php:12
+msgid "Applications"
+msgstr "Приложения"
+
+#: functions.inc.php:639
+msgid "Associate with"
+msgstr "Асоциирай с"
+
+#: daynight.i18n.php:18
+msgid ""
+"By default, the Call Flow Control module will not hook Time Conditions "
+"allowing one to associate a call flow toggle feauture code with a time "
+"condition since time conditions have their own feature code as of version "
+"2.9. If there is already an associaiton configured (on an upgraded system), "
+"this will have no affect for the Time Conditions that are effected. Setting "
+"this to true reverts the 2.8 and prior behavior by allowing for the use of a "
+"call flow toggle to be associated with a time conditon. This can be useful "
+"for two scenarios. First, to override a Time Condition without the automatic "
+"resetting that occurs with the built in Time Condition overrides. The second "
+"use is the ability to associate a single call flow toggle with multiple time "
+"conditions thus creating a <b>master switch</b> that can be used to override "
+"several possible call flows through different time conditions."
+msgstr ""
+"По-подразбиране модула за Управление на Потока от Входящи Обаждания няма да "
+"превключи Времевите Условия като позволява асоцииране на специален код за "
+"превключване на потока входящи обаждания с времево условие откакто времевите "
+"условия имат собствен код за превключване започвайки от версия 2.9. Ако вече "
+"съществува такава асоциация (на обновена система), това няма да окаже "
+"влияние на Времевите Условия които са засегнати. Може да е полезно в два "
+"случая. Първо, да отмени Времево Условие без автоматично да ресетне "
+"вградените във Времевото Условие отмени. Втория случай е способността да "
+"асоциира едно превключване на поток входящи обаждания с няколко времеви "
+"условия като по този начин създава <b>главен превключвател</b> който може да "
+"се използва да отмени няколко възможни потока входящи обаждания чрез "
+"различни времеви условия."
+
+#: daynight.i18n.php:4 daynight.i18n.php:10
+msgid "Call Flow Control"
+msgstr "Управление на Входящи Обаждания"
+
+#: daynight.i18n.php:16
+msgid "Call Flow Control Module"
+msgstr "Модул за Управление на Входящи Обаждания"
+
+#: functions.inc.php:155
+#, php-format
+msgid "Call Flow Toggle (%s) : %s"
+msgstr "Превключване на Потока от Входящи Обаждания (%s) : %s"
+
+#: page.daynight.php:70
+msgid "Call Flow Toggle Control"
+msgstr "Управление на Превключване на Потока от Входящи Обаждания"
+
+#: page.daynight.php:121
+msgid "Call Flow Toggle Feature Code Index:"
+msgstr ""
+"Индекс на Специален Код за Превключване на Потока от Входящи Обаждания:"
+
+#: functions.inc.php:635
+msgid "Call Flow Toggle Mode Association"
+msgstr "Асоцииране на Режим на Превключване на Потока от Входящи Обаждания"
+
+#: functions.inc.php:515
+#, php-format
+msgid "Call Flow Toggle: %s (%s)"
+msgstr "Превключване на Потока от Входящи Обаждания: %s (%s)"
+
+#: daynight.i18n.php:8
+msgid ""
+"Call Flow manual toggle control - allows for two destinations to be chosen "
+"and provides a feature code\t\tthat toggles between the two destinations."
+msgstr ""
+"Ръчно управление на Входящи Обаждания - позволява за две направления да се "
+"избере и предостави специален код\t\tкойто да превключи между двете "
+"направления."
+
+#: page.daynight.php:152
+msgid "Current Mode:"
+msgstr "Текущ Режим:"
+
+#: page.daynight.php:172 page.daynight.php:188
+msgid "Default"
+msgstr "По-Подразбиране"
+
+#: page.daynight.php:74
+#, php-format
+msgid "Delete Call Flow Toggle Feature Code %s"
+msgstr "Изтрий Специален Код за Превключване на Потока от Входящи Обаждания %s"
+
+#: page.daynight.php:147
+msgid "Description"
+msgstr "Описание"
+
+#: page.daynight.php:147
+msgid "Description for this Call Flow Toggle Control"
+msgstr ""
+"Описание за това Управление на Превключване на Потока от Входящи Обаждания"
+
+#: page.daynight.php:261
+#, php-format
+msgid "Destination to use when set to %s mode"
+msgstr "Направление, което да се използва при %s режим"
+
+#: install.php:81
+msgid "ERROR: failed to alter primary keys "
+msgstr "Грешка: не мога да променя primary keys "
+
+#: page.daynight.php:89
+msgid "Forces to Normal Mode (Green/BLF off)"
+msgstr "Принуждава към Нормален Режим (Зелено/BLF изкл)"
+
+#: page.daynight.php:89
+msgid "Forces to Override Mode (Red/BLF on)"
+msgstr "Принуждава към Режим на Отмяна (Червено/BLF вкл)"
+
+#: daynight.i18n.php:14
+msgid "Hook Time Conditions Module"
+msgstr "Модул за превключване на Времеви Условия"
+
+#: functions.inc.php:639
+msgid ""
+"If a selection is made, this timecondition will be associated with the "
+"specified call flow toggle  featurecode. This means that if the Call Flow "
+"Feature code is set to override (Red/BLF on) then this time condition will "
+"always go to its True destination if the chosen association is to 'Force "
+"Time Condition True Destination' and it will always go to its False "
+"destination if the association is with the 'Force Time Condition False "
+"Destination'. When the associated Call Flow Control Feature code is in its "
+"Normal mode (Green/BLF off), then then this Time Condition will operate as "
+"normal based on the current time. The Destinations that are part of any "
+"Associated Call Flow Control Feature Code will have no affect on where a "
+"call will go if passing through this time condition. The only thing that is "
+"done when making an association is allowing the override state of a Call "
+"Flow Toggle to force this time condition to always follow one of its two "
+"destinations when that associated Call Flow Toggle is in its override (Red/"
+"BLF on) state."
+msgstr ""
+"Ако е направен избор, това времево условие ще бъде асоциирано със специфичен "
+"специален код за превключване на потока входящи обаждания. Това означава че "
+"ако Специалния Код на Потока Входящи Обаждания е установен да отменя "
+"(Червено/BLF вкл) тогава това времево условие винаги ще отива към неговото "
+"Ако Съвпада направление ако избраната асоциация е 'Приложи Времево Условие "
+"за Направление Ако Съвпада' и винаги ще отива към неговото Не Съвпада "
+"направление ако избраната асоциация е 'Приложи Времево Условие за "
+"Направление ако Не Съвпада'. Когато асоциирания Специален Код за Управление "
+"на Потока Входящи Обаждания е в Нормален режим (Зелено/BLF изкл), тогава "
+"това Времево Условие ще работи като нормално базирано на текущото време. "
+"Направленията които са част от всеки Асоцииран Специален Код за Управление "
+"на Потока Входящи Обаждания няма да оказват ефект на това къде ще отиде "
+"обаждането ако отговаря на времевото условие. Когато се прави асоциация само "
+"се позволява да се отмени състоянието на Превключване на Потока Входящи "
+"Обаждания да принуди това времево условие винаги да следва едно от неговите "
+"две направления когато това асоциирано Превключване на Потока Входящи "
+"Обаждания е в състояние отмяна (Червено/BLF вкл)."
+
+#: page.daynight.php:92
+#, php-format
+msgid "Linked to Time Condition %s - %s"
+msgstr "Свързан към Времева Група %s - %s"
+
+#: page.daynight.php:166
+msgid ""
+"Message to be played in normal mode (Green/BLF off).<br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Съобщение за възпроизвеждане в нормален режим (Зелено/BLF изкл).<br>За да "
+"добавите допълнителни записи използвайте меню \"Системни Записи\""
+
+#: page.daynight.php:183
+msgid ""
+"Message to be played in override mode (Red/BLF on).<br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Съобщение за възпроизвеждане в режим на отмяна (Червено/BLF вкл).<br>За да "
+"добавите допълнителни записи използвайте меню \"Системни Записи\" отляво"
+
+#: functions.inc.php:642
+msgid "No Association"
+msgstr "Без Асоциация"
+
+#: page.daynight.php:158
+msgid "Normal (Green/BLF off)"
+msgstr "Нормален (Зелено/BLF изкл)"
+
+#: page.daynight.php:216
+msgid "Normal Flow (Green/BLF off)"
+msgstr "Нормален Поток (Зелено/BLF изкл)"
+
+#: install.php:83
+msgid "OK"
+msgstr "OK"
+
+#: page.daynight.php:202
+msgid "Optional Password"
+msgstr "Парола"
+
+#: page.daynight.php:159
+msgid "Override (Red/BLF on)"
+msgstr "Отмяна (Червено/BLF вкл)"
+
+#: page.daynight.php:217
+msgid "Override Flow (Red/BLF on)"
+msgstr "Отменен Поток (Червено/BLF вкл)"
+
+#: page.daynight.php:240
+msgid "Please enter a valid numeric password, only numbers are allowed"
+msgstr "Моля въведете правилна цифрова парола, позволени са само цифри"
+
+#: page.daynight.php:166
+msgid "Recording for Normal Mode"
+msgstr "Запис за Нормален Режим"
+
+#: page.daynight.php:183
+msgid "Recording for Override Mode"
+msgstr "Запис за Режим на Отмяна"
+
+#: page.daynight.php:111 page.daynight.php:224
+msgid "Save"
+msgstr "Запиши"
+
+#: page.daynight.php:122
+msgid ""
+"There are a total of 10 Feature code objects, 0-9, each can control a call "
+"flow and be toggled using the call flow toggle feature code plus the index."
+msgstr ""
+"Има общо 10 значения на Специален Код, 0-9, всяко от тях може да контролира "
+"потока от входящи обаждания и се превключва използвайки специален код за "
+"превключване на потока от входящи обаждания плюс индекса."
+
+#: page.daynight.php:153
+msgid ""
+"This will change the current state for this Call Flow Toggle Control, or set "
+"the initial state when creating a new one."
+msgstr ""
+"Това ще промени текущото състояние на Управление на Превключване на Потока "
+"от Входящи Обаждания, или ще установи първоначално състояние когато "
+"създавате нов."
+
+#: page.daynight.php:112 page.daynight.php:225
+#, php-format
+msgid "Use feature code: %s to toggle the call flow mode"
+msgstr ""
+"Използвайте специален код: %s за да превключите потока от входящи обаждания"
+
+#: page.daynight.php:202
+msgid ""
+"You can optionally include a password to authenticate before toggling the "
+"call flow. If left blank anyone can use the feature code and it will be un-"
+"protected"
+msgstr ""
+"Допълнително можете да добавите парола за оторизиране преди превключване на "
+"потока от входящи обаждания. Ако е оставено празно всеки ще може да използва "
+"специалния код и ще е незащитено"
+
+#: install.php:77
+msgid "changing primary keys to all fields.."
+msgstr "промяна на primary keys за всички полета.."
+
+#~ msgid "Day/Night (%s) : %s"
+#~ msgstr "Ден/Нощ (%s) : %s"
+
+#~ msgid "Daynight: %s (%s)"
+#~ msgstr "Ден/нощ: %s (%s)"
+
+#~ msgid "Day/Night Mode Association"
+#~ msgstr "Дневен/Нощен Режим Асоцииране"
+
+#~ msgid ""
+#~ "If a selection is made, this timecondition will be associated with that "
+#~ "featurecode and will allow this timecondition to be direct overridden by "
+#~ "that daynight mode featurecode"
+#~ msgstr ""
+#~ "Ако е направен избор, това времево условие ще бъде асоциирано с този "
+#~ "специален код и ще позволи на времевото условие да бъде директно отменено "
+#~ "от специалния код за дневен/нощен режим."
+
+#~ msgid " - Force Day"
+#~ msgstr " - Включи Дневен"
+
+#~ msgid " - Force Night"
+#~ msgstr " - Включи Нощен"
+
+#~ msgid "Add Day/Night Code"
+#~ msgstr "Добави Ден/Нощ Код"
+
+#~ msgid "Day / Night Mode Control"
+#~ msgstr "Управление на Дневен/Нощен Режим"
+
+#~ msgid "Delete Day/Night Feature Code %s"
+#~ msgstr "Изтрий Ден/Нощ Специален Код %s"
+
+#~ msgid "Forces to Day  Mode"
+#~ msgstr "Включва на Дневен Режим"
+
+#~ msgid "Forces to Night Mode"
+#~ msgstr "Включва на Нощен Режим"
+
+#~ msgid "Use feature code: %s to toggle DAY/NIGHT mode"
+#~ msgstr "Използвайте специален код: %s за да включите Режима"
+
+#~ msgid "Day/Night Feature Code Index:"
+#~ msgstr "Специален Код Индекс:"
+
+#~ msgid ""
+#~ "There are a total of 10 Feature code objects, 0-9, each can control a "
+#~ "call flow and be toggled using the day/night feature code plus the index."
+#~ msgstr ""
+#~ "Има общо 10 значения на Специален Код, 0-9, всяко от тях може да "
+#~ "контролира потока разговори и се превключва използвайки ден/нощ специален "
+#~ "код плюс индекса."
+
+#~ msgid "Description for this Day/Night Control"
+#~ msgstr "Описание за Дневен/Нощен Режим"
+
+#~ msgid ""
+#~ "This will change the current state for this Day/Night Mode Control, or "
+#~ "set the initial state when creating a new one."
+#~ msgstr ""
+#~ "Това ще промени текущото състояние на Управление на Дневен/Нощен Режим, "
+#~ "или ще установи пъроначално състояние когато създавате нов."
+
+#~ msgid "Day"
+#~ msgstr "Ден"
+
+#~ msgid "Night"
+#~ msgstr "Нощ"
+
+#~ msgid ""
+#~ "You can optionally include a password to authenticate before toggling the "
+#~ "day/night mode. If left blank anyone can use the feature code and it will "
+#~ "be un-protected"
+#~ msgstr ""
+#~ "Допълнително можете да добавите парола за оторизиране преди превключване "
+#~ "на режима. Ако е оставено празно всеки ще може да използва специалния код "
+#~ "и ще е незащитено."
+
+#~ msgid "DAY"
+#~ msgstr "ДНЕВЕН"
+
+#~ msgid "NIGHT"
+#~ msgstr "НОЩЕН"
+
+#~ msgid "Day Night Mode"
+#~ msgstr "Дневен Нощен Режим"
+
+#~ msgid "Day/Night Control"
+#~ msgstr "Дневен/Нощен Режим"

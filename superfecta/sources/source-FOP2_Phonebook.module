@@ -1,0 +1,168 @@
+<?php
+
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+* Developer Notes:
+* There may be some users who would want this module to do post processing to insert name/number into FOP2 address book
+* Versions prior to 2013-12-20 would abandon the search if there were fewer digits than specified, disabled by 
+
+* Version History:
+* 20xx-xx-xx	Initial migration to 2.11 platform
+* 2013-12-19	bug fix, CNAM_Type missing from Source Param user input - lgaetz
+* 2013-12-20	bug fix, don't modify $run_param variables inside get_caller_id function, fix filter length - lgaetz
+* 2014-01-02	add user setting to use native FreeBPX connection to the asterisk database.
+* 2014-08-19	removed reliance on deprecated mysql functions
+* 2014-09-07	Fixed minor bug with PDO
+*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+
+class FOP2_Phonebook extends superfecta_base {
+	public $description = "Look up First Name, Last Name, Company Name in the FOP2 visual address book MySQL table";
+	public $version_requirement = "2.11";
+	public $source_param = array(
+		'Use_Native_IssabelPBX_Connection' => array(
+				'description' => '<b>This setting is recommended</b>. Database connection is automatically configured using native IssabelPBX connection to the `asterisk` MySQL database. If this setting does not work, disable and manually configure database access fields below.',
+				'type' => 'checkbox',
+				'default' => 'on',
+		),
+		'DB_Host' => array(
+				'description' => 'Host address of the FOP2 database. (localhost if the database is on the same server as IssabelPBX). Only required when the `Native IssabelPBX Connection` above is not enabled.',
+				'type' => 'text',
+				'default' => 'localhost',
+		),
+		'DB_Name' => array(
+				'description' => 'Database name of the FOP2 database. Only required when the `Native IssabelPBX Connection` above is not enabled.',
+				'type' => 'text',
+				'default' => 'fop2',
+		),
+		'DB_User' => array(
+				'description' => 'Username used to connect to the FOP2 database. Only required when the `Native IssabelPBX Connection` above is not enabled.',
+				'type' => 'text',
+				'default' => 'root',
+		),
+		'DB_Password' => array(
+				'description' => 'Password used to connect to the FOP2 database. Only required when the `Native IssabelPBX Connection` above is not enabled.',
+				'type' => 'password',
+				'default' => 'passw0rd',
+		),
+		'CNAM_Type' => array(
+			'description' => 'Select how returned CNAM is prioritized',
+			'type' => 'select',
+			'option' => array(
+				'1' => 'Company_name then First_name Last_name',
+				'2' => 'First_name Last_name then Company_name',
+				'3' => 'Last_name Company_name if both exist',
+			),
+			'default' => '1',
+		),
+		'Filter_Length' => array(
+				'description' => 'The number of rightmost digits to check for a match. Enter zero to disable this setting',
+				'type' => 'number',
+				'default' => 10
+		)
+	);
+
+	function get_caller_id($thenumber, $run_param=array()) {
+		$this->DebugPrint("Searching FOP2 ... ");
+
+		// Initialize variables
+		$caller_id = null;
+		$wquery_string = "";
+		$wquery_result = "";
+		$cnam_type = $run_param['CNAM_Type'];
+		$sql_params = array();
+
+		//  trim incoming number to specified filter length
+		if ($run_param['Filter_Length'] != 0 && strlen($thenumber) > $run_param['Filter_Length']) {
+			$thenumber = substr($thenumber, (-1*$run_param['Filter_Length']));
+		}
+
+		//  Build regular expression from modified $thenumber to avoid non-digit characters
+		$regex = "[^0-9]*";
+		for( $x=0; $x < ((strlen($thenumber))-1); $x++ ) {
+			$regex .=  substr($thenumber,$x,1)."[^0-9]*" ;
+		}
+		$regex = $regex.(substr($thenumber,-1))."([^0-9]+|$)";
+
+
+		// Two different access methods to database. It was discovered that if IssabelPBX mysql credentials are used in Superfecta, it would error out because of the mysql_close line
+		if ($run_param['Use_Native_IssabelPBX_Connection'] != 'on') {
+			$sql_params[':regex'] = $regex;
+			$wquery_string = 'SELECT firstname, lastname, company FROM visual_phonebook WHERE (phone1 REGEXP :regex) OR (phone2 REGEXP :regex) ORDER BY id DESC';
+			//  Connect to database using user mysql settings
+			if(class_exists('PDO')) {
+				$this->DebugPrint("Connecting to Database with PDO driver....");
+				try {
+					$dbh = new PDO('mysql:dbname='.$run_param['DB_Name'].';host='.$run_param['DB_Host'], $run_param['DB_User'], $run_param['DB_Password']);
+				} catch (PDOException $e) {
+					$this->DebugPrint('Connection failed: ' . $e->getMessage());
+					return null;
+				}
+			} else {
+				$this->DebugPrint("PDO not present on system...Skipping");
+				return null;
+			}
+			$sth = $dbh->prepare("SET NAMES 'utf8'");
+			$sth->execute();
+
+			// search database
+			try {
+				$sth = $dbh->prepare($wquery_string);
+				$sth->execute($sql_params);
+				$wquery_row = $sth->fetch(PDO::FETCH_ASSOC);
+				if (is_array($wquery_row)) {
+					$last_name = $wquery_row["lastname"];
+					$first_name = $wquery_row["firstname"];
+					$company_name = $wquery_row["company"];
+				}
+			} catch (PDOException $e) {
+				$this->DebugPrint('Connection failed: ' . $e->getMessage());
+				return null;
+			}
+		} else {
+			global $db;
+			// search database using IssabelPBX settings
+			$this->DebugPrint("Connecting to Database with native IssabelPBX credentials ....");
+			$wquery_string = "SELECT firstname, lastname, company FROM visual_phonebook WHERE (phone1 REGEXP '".$db->escapeSimple($regex)."') OR (phone2 REGEXP '".$db->escapeSimple($regex)."') ORDER BY id DESC";
+			$wquery_row = sql($wquery_string, "getAll", DB_FETCHMODE_ASSOC);
+			if (is_array($wquery_row)) {
+				$last_name = $wquery_row[0]["lastname"];
+				$first_name = $wquery_row[0]["firstname"];
+				$company_name = $wquery_row[0]["company"];
+			}
+		}
+
+		if ($cnam_type == 3) {
+			if ($last_name != "" and $company_name != "") {
+				$caller_id = $last_name." ".$company_name;
+			} else {
+				$cnam_type = 1;
+			}
+		}
+		if ($cnam_type == 1) {
+			if ($company_name != "") {
+				$caller_id = $company_name;
+			} else if ($first_name != "" and $last_name != "") {
+				$caller_id = $first_name." ".$last_name;
+			} else if ($first_name != "") {
+				$caller_id = $first_name;
+			} else {
+				$caller_id = $last_name;
+			}
+		}
+		if ($cnam_type == 2) {
+			if ($first_name != "" and $last_name != "") {
+				$caller_id = $first_name." ".$last_name;
+			} else if ($first_name != "") {
+				$caller_id = $first_name;
+			} else if ($last_name != "") {
+				$caller_id = $last_name;
+			} else {
+				$caller_id = $company_name;
+			}
+		}
+
+		if ($caller_id == "") {
+			$this->DebugPrint("Not Found");
+		}
+		return(trim($caller_id));
+	}
+}

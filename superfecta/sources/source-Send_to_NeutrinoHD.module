@@ -1,0 +1,101 @@
+<?php
+/**** **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** 
+ * Developer Notes:
+ * 
+ * 
+ * 
+ * 
+ * Version history:
+ *     2014-03-14  first version by SoulStyle (shameless rip of the XBMC Module)
+ *
+ * 
+ **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** ****/
+
+class Send_to_NeutrinoHD extends superfecta_base {
+
+	public $description = "This source will send the number and the Caller ID to a NeutrinoHD STB.<br>This datasource should be one of the last data sources on your list, as it does not provide any data of its own, and can only send what information has been collected before it is run.";
+	public $version_requirement = "2.11";
+	public $source_param = array(
+		'Hosts' => array(
+			'description' => 'Specify The IP(s) or host name(s) of the NeutrinoHD device(s). (ie: 192.168.0.155). Separate multiple host by commas (ie: tv.local,tv2.local,10.0.0.3 )',
+			'type' => 'textarea',
+			'default' => '127.0.0.1'
+		),
+		'Port' => array(
+			'description' => 'Specify The PORT Defined On Your NeutrinoHD Installation (Example: 80). On multiple Hosts the Port need to be the same',
+			'type' => 'number',
+			'default' => '80'
+		),
+		'Display_Option' => array(
+			'description' => 'Use Message-Box (needs active closing) or Pop-Up (closes automatically) for displaying the number',
+			'type' => 'select',
+			'option' => array(
+				'Msg' => 'Message-Box',
+				'PopUp' => 'Pop-Up',
+			),
+			'default' => 'Msg'
+		),
+		'Format_Incoming_Number' => array(
+			'description' => 'Specify the way you want the number to be displayed on your TV',
+			'type' => 'select',
+			'option' => array(
+				1 => '132-456-789-0',
+				2 => '12 34 56 78 90',
+				3 => '49 (1234) 567890',
+				4 => 'No Formatting',
+			),
+			'default' => 1
+		)
+	);
+
+	function post_processing($cache_found, $winning_source, $first_caller_id, $run_param, $thenumber) {
+	
+		// initialize variables - perhaps these should be collected with $source_param
+		$my_anonymous_title = "Unknown";	// Title displayed for calls without CallerID name 
+		
+		//format number
+		$thenumberformated = $thenumber;
+		switch ($run_param['Format_Incoming_Number']) {
+			case 1:			// 132-456-7890
+				$thenumberformated=substr(chunk_split($thenumber,3,"-"), 0, -1); 
+			break;
+			case 2:			// 12 34 56 78 90
+				$thenumberformated=substr(chunk_split($thenumber,2," "), 0, -1); 
+			break;
+			case 3:			// 49 (1234) 567890
+				$thenumberformated=substr($thenumber,0,2).' ('.substr($thenumber,2,6).') '.chunk_split(substr($thenumber,6),3," ");
+			break;
+		}
+
+		if($first_caller_id){
+			$my_msg	= $thenumberformated . " / " .$first_caller_id;
+		}
+		else {
+			$my_msg	= $thenumberformated . " / " .$my_anonymous_title;
+		}
+			
+		// hosts loop
+		$hosts=explode(',',$run_param['Hosts']);
+		foreach ($hosts as $host){
+			$host=trim($host);
+					
+			//make url 
+			$url = 'http://';
+			switch ($run_param['Display_Option']) {
+				case 'Msg':			// Msg
+					$url .= $host . ':' . $run_param['Port'] . "/control/message?nmsg=";
+				break;
+				case 'PopUp':			// PopUp
+					$url .= $host . ':' . $run_param['Port'] . "/control/message?popup=";
+				break;
+			}
+			$this->DebugPrint('URL: ' . $url . '</code>',DEBUG_ALL);
+			$url .= urlencode($my_msg);
+
+			//Send URLs and debug output
+			$this->DebugPrint("Sending NeutrinoHD command(s) To Host: $host",DEBUG_INFO);
+			$this->DebugPrint('<code>URL: ' . $url . '</code>',DEBUG_ALL);
+			$value = $this->get_url_contents($url);
+		}
+	}
+}

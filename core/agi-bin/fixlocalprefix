@@ -1,0 +1,23 @@
+#!/usr/bin/php -q
+<?php
+
+/* --------WARNING---------
+ * 
+ * This script is auto-copied from an included module and will get overwritten.
+ * If you modify it, you must change it to write only, in the agi-bin directory,
+ * to keep it from getting changed.
+
+ ERROR: This script has been deprecated and no longer used, leaving to print out warnings
+        for a while in cae someone is using it out there. This has been replaced by
+        the creation of dialpan subroutines to perform the same operation.
+*/
+
+include("phpagi.php");
+
+/**********************************************************************************************************************/
+
+$agi = new AGI();
+$agi->verbose("ERROR: This the fixlocalprefix script has been deprecated and does nothing");
+exit(0);
+
+?>

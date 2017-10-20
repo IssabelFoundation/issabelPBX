@@ -1,0 +1,87 @@
+/*
+ * Global Styles
+ */
+
+body {
+  color: #333;
+  background-color: white;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+div {
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+h2 {
+  font-size: 1.2em;
+  font-family: "Trebuchet MS", Arial, Helvetica, Tahoma, Verdana, sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #555;
+}
+
+h3 {
+  font-size: 1em;
+  margin-top: 1.5em;
+  font-family: "Trebuchet MS", Arial, Helvetica, Tahoma, Verdana, sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #555;
+}
+
+
+h4 {
+  font-family: "Trebuchet MS", Arial, Helvetica, Tahoma, Verdana, sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #555;
+  margin-top:	1.5em
+}
+
+
+
+sup {
+  font-size: 9px
+}
+
+small small {
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+
+
+/***** info popups *****/
+a.info {
+	position:relative;
+	color:black;
+	border-bottom:1px dashed #ccc;
+}
+/* Added to solve the z-order problem of IE 
+*/
+a.info:hover {
+	background-color: #FFA178;
+  z-index:2;
+}
+/* End */
+a.info span{
+  display: none;
+	background-color: #FFA178;
+}
+a.info:hover span{
+	display:block;
+	position:absolute;
+	z-index:1;
+	top:2em;
+	left:-10em;
+	width:25em;
+	border:1px solid #F2AF1D;
+	background-color:#FDF1D5;
+	color:#000;
+	text-align:justify;
+	font-size:10px;
+	font-weight:normal;
+	padding:3px;
+	line-height:15px;
+}
+

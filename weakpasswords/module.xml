@@ -1,0 +1,26 @@
+<module>
+	<rawname>weakpasswords</rawname>
+	<repo>standard</repo>
+	<name>Weak Password Detection</name>
+	<version>2.11.0.1</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<category>Reports</category>
+	<changelog>
+		*2.11.0.1* Initial Issabel Foundation release
+	</changelog>
+	<depends>
+		<version>2.5.0</version>
+	</depends>
+	<description>This module detects weak SIP secrets and sets security notifications accordingly
+	</description>
+	<supported>
+		<version>2.10</version>
+	</supported>
+	<menuitems>
+		<weakpasswords>Weak Password Detection</weakpasswords>
+	</menuitems>
+	<location>release/2.11/weakpasswords-2.11.0.0.tgz</location>
+	<md5sum>94ca4ebe3a54d194b56134c2859103df</md5sum>
+</module>

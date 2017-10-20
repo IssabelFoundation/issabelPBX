@@ -1,0 +1,217 @@
+<?php
+/**** **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** 
+ * Developer Notes:
+ * 
+ * 
+ * 
+ * 
+ * Version history:
+ *     2009-11-03  first version for 2.2.x by patrick_elx
+ *     2011-09-17  migration to 2.11 by ukstevef
+ *     2012-12-04  major revisions to 2.2 branch only by soif (Francois Dechery)
+ *          Frodo compatibility + Old XBMC versions support 
+ *          Multiple hosts support, 
+ *          Enhanced display,
+ *          Time parameter,
+ *          No more crash when xbmc device is off
+ *     2014-02-09  First attempt to incorporate soif improvements in 2.11 branch by lgaetz
+ *     2014-02-11  Bug fixes and cleanup
+ *     2014-08-30  Fixed bug where pause checkbox setting was ignored
+ * 
+ **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** ****/
+
+class Send_to_XBMC extends superfecta_base {
+
+	public $description = "This source will send the CallerID number and CallerID name to XBMC hosts.";
+	public $version_requirement = "2.11";
+	public $source_param = array(
+		'Hosts' => array(
+			'description' => 'Specify The IP(s) or host name(s) of the XMBC device(s). (ie: 192.168.0.155). Separate multiple host by commas (ie: tv.local,tv2.local,10.0.0.3 )',
+			'type' => 'textarea'
+		),
+		'Port' => array(
+			'description' => 'Specify The PORT Defined On Your XMBC Installation. (Example: 8080)',
+			'type' => 'number',
+			'default' => '8080'
+		),
+		'UserName' => array(
+			'description' => 'Specify the user name defined in your XBMC installation, blank for none.',
+			'type' => 'text'
+		),
+		'PassWord' => array(
+			'description' => 'Specify The Password Defined In Your XBMC Installation.  Blank For None.',
+			'type' => 'password'
+		),
+		'Mode' => array(
+			'description' => 'Select either old deprecated mode or json mode.',
+			'type' => 'select',
+			'option' => array(
+				'old' => 'Old API : For XBMC up to v11',
+				'json' => 'Json RPC: For XBMC v12 (Frodo)',
+			),
+			'default' => 'json',
+		),
+		'Change_Volume' => array(
+			'description' => 'Change volume when call comes in. Range is 0 to 100. Blank = No Change',
+			'type' => 'number'
+		),
+		'Pause_PlayBack' => array(
+			'description' => 'Pause whatever is playing when a call comes in.',
+			'type' => 'checkbox'
+		),
+		'Notification_Time' => array(
+			'description' => 'Notification display time in seconds (0 to disable)',
+			'type' => 'number',
+			'default' => '5',
+		),
+		'Format_Incoming_Number' => array(
+			'description' => 'Specify the way you want the number to be displayed on your XBMC',
+			'type' => 'select',
+			'option' => array(
+				1 => '(132) 456-7890',
+				2 => '132-456-7890',
+				3 => '12 34 56 78 90',
+				4 => 'No Formatting',
+			),
+			'default' => 4
+		)
+	);
+
+	function post_processing($cache_found, $winning_source, $first_caller_id, $run_param, $thenumber) {
+	
+		// initialize variables - perhaps these should be collected with $source_param
+		$my_anonymous_title = "Unknown";	// Title displayed for calls without CallerID name 
+		$my_host_timeout = 0.5; 			//time (in seconds) to wait for each host before it is considered off (should be short)
+
+		
+		if ($run_param['Hosts']) {
+			//make sure function has not been declared before
+			if(!function_exists("_myXbmcUrl")){
+				function _myXbmcUrl($array){
+					$request=$array;
+					//$request['jsonrpc']="2.0";
+					//$request['method']="Player.PlayPause";
+					$json=json_encode($request);
+					$url='/jsonrpc?request='.urlencode($json);
+					return $url;
+				}
+			}
+
+			//format number
+			$thenumberformated = $thenumber;
+			switch ($run_param['Format_Incoming_Number']) {
+				case 1:			// (132) 456-7890 or 1(132) 456-7890
+					if (strlen($thenumber)==10) {
+						$thenumberformated='('.substr($thenumber,0,3).') '.substr($thenumber,3,3).'-'.substr($thenumber,6,4);
+					}
+					elseif (strlen($thenumber)== 11 && substr($thenumber,0,1) == '1'){
+						$thenumberformated='1('.substr($thenumber,1,3).') '.substr($thenumber,4,3).'-'.substr($thenumber,7,4);
+					}
+				break;
+				case 2:			// 132-456-7890 or 1-132-456-7890
+					if (strlen($thenumber)==10) {
+						$thenumberformated=substr($thenumber,0,3).'-'.substr($thenumber,3,3).'-'.substr($thenumber,6,4);
+					}
+					elseif (strlen($thenumber) == 11 && substr($thenumber,0,1) == '1'){
+						$thenumberformated='1-'.substr($thenumber,1,3).'-'.substr($thenumber,4,3).'-'.substr($thenumber,7,4);
+					}
+				break;
+				case 3:			// 12 34 56 78 90
+					if (strlen($thenumber)==10) {
+						$thenumberformated=substr($thenumber,0,2).' '.substr($thenumber,2,2).' '.substr($thenumber,4,2).' '.substr($thenumber,6,2).' '.substr($thenumber,8,2);
+					}
+				break;
+			}
+			
+			// remove commas from CallerID name as was done in older versions, is this necessary?
+			$first_caller_id = str_replace(",", "", $first_caller_id);
+
+			//make notification
+			if($first_caller_id){
+				$my_xbmc_title	=$first_caller_id;
+				$my_xbmc_mess	=$thenumberformated;
+			}
+			else {
+				$my_xbmc_title	=$thenumberformated;
+				$my_xbmc_mess	=$my_anonymous_title;
+			}
+
+			$my_xbmc_time = $run_param['Notification_Time']*1000;
+			$my_xbmc_icon = "DefaultActor.png";       // relative to /usr/share/xbmc/addons/skin.confluence/media or absolute, should this be a $source_param?
+
+			$my_dharma_params.="$my_xbmc_title,$my_xbmc_mess,$my_xbmc_time,$my_xbmc_icon";
+			$my_dharma_params = urlencode($my_dharma_params);
+
+			// hosts loop
+			$hosts=explode(',',$run_param['Hosts']);
+			foreach ($hosts as $host){
+				$host=trim($host);
+					
+				//make url --------------
+				$url = 'http://';
+				if ($run_param['UserName'] && $run_param['PassWord'] != ''){
+				  $url .= $run_param['UserName'] . ':' . $run_param['PassWord'] . '@';
+				}
+				$url .= $host . ':' . $run_param['Port'];
+		
+				// make url params
+				if($run_param['Mode']=='json'){
+					$my_request=array(
+						'jsonrpc'=>"2.0",
+						'method'=>'Application.SetVolume',
+						'params'=>array(
+							'volume'=>$run_param['Change_Volume']
+						)
+					);
+					$url1 = $url . _myXbmcUrl($my_request);
+					
+					$my_request=array(
+						'jsonrpc'=>"2.0",
+						'method'=>'Player.PlayPause',
+						'params'=>array(
+							// Note: playerid 1 is video and playerid 0 is audio.
+							'playerid'=>1,
+							'play'=>false
+						)
+					);
+					$url2 = $url . _myXbmcUrl($my_request);
+					
+					$my_request=array(
+						'jsonrpc'=>"2.0",
+						'method'=>'GUI.ShowNotification',	
+						'params'=>array(
+							'title'			=>$my_xbmc_title,
+							'message'		=>$my_xbmc_mess,
+							'image'			=>$my_xbmc_icon,
+							'displaytime'	=>$my_xbmc_time
+							)
+					);
+					$url3 = $url . _myXbmcUrl($my_request);
+				}
+				else{
+					$url1 = $url . urlencode('/xbmcCmds/xbmcHttp?command=SetVolume(' . $run_param['Change_Volume'] . ')');
+					$url2 = $url . urlencode('/xbmcCmds/xbmcHttp?command=Pause()');
+					$url3 = $url . urlencode('/xbmcCmds/xbmcHttp?command=ExecBuiltIn&parameter=XBMC.Notification(' . $my_dharma_params . ')');			
+				}
+
+				//Send URLs and debug output
+				$this->DebugPrint("Sending XBMC command(s) To Host: $host",DEBUG_INFO);
+				if ($run_param['Change_Volume'] != ''){
+					$this->DebugPrint("Setting Volume on $host...",DEBUG_INFO);
+					$this->DebugPrint('<code>Volume URL: ' . $url1 . '</code>',DEBUG_ALL);
+					$value = $this->get_url_contents($url1);
+				}
+				if ($run_param['Pause_PlayBack']) {
+					$this->DebugPrint("Pausing Media on $host...",DEBUG_INFO);
+					$this->DebugPrint('<code>Pause URL: ' . $url2 . '</code>',DEBUG_ALL);
+					$value = $this->get_url_contents($url2);
+				}
+				if ($run_param['Notification_Time'] ) {
+					$this->DebugPrint("Setting Notification Time to $host...",DEBUG_INFO);
+					$this->DebugPrint('<code>Notif URL: ' . $url3 . '</code>',DEBUG_ALL);
+					$value = $this->get_url_contents($url3);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,457 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2008, 2009 Francesco Romano <francesco.romano@alteclab.it>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2010-01-23 14:24+0100\n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+msgid "Backup & Restore"
+msgstr "Backup & Ripristino"
+
+msgid "Admin"
+msgstr ""
+
+msgid "Backup & Restore for your IssabelPBX environment"
+msgstr ""
+
+msgid "Can not create backup tables"
+msgstr ""
+
+msgid "Can't check for Backup table"
+msgstr ""
+
+msgid ""
+"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgstr ""
+
+msgid "This error can result from a previous incomplete/failed install of"
+msgstr ""
+
+msgid "this module. You should probably uninstall and reinstall this module"
+msgstr ""
+
+msgid ""
+"doing so will result in a loss of all your backup settings though previous"
+msgstr ""
+
+msgid "backup data will be preserved."
+msgstr ""
+
+msgid "Failure Message:"
+msgstr ""
+
+msgid "Can not migrate Backup table"
+msgstr ""
+
+msgid "Backup migration completed"
+msgstr ""
+
+msgid "Nothing to migrate"
+msgstr ""
+
+msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+msgstr ""
+
+msgid "and then re-install this module. Settings will be lost but old"
+msgstr ""
+
+msgid "backup data will be retained."
+msgstr ""
+
+msgid "Old Backup table removed"
+msgstr ""
+
+msgid "Replacing ampbackup.pl in db.."
+msgstr ""
+
+msgid "an error has occurred, update not done"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "removing retrieve_backup_cron_from_mysql.pl.."
+msgstr "rimozione retrieve_backup_cron_from_mysql.pl.."
+
+msgid "removed"
+msgstr "rimosso"
+
+msgid "failed"
+msgstr "fallito"
+
+msgid "Migrating backup table..."
+msgstr ""
+
+msgid "WARNING: backup table not migrated"
+msgstr ""
+
+msgid "Successfully migrated backup table!"
+msgstr ""
+
+msgid "Creating backups directory.."
+msgstr ""
+
+#, php-format
+msgid "WARNING: failed to create backup directory: %s"
+msgstr ""
+
+msgid "Location of backups pre 2.10"
+msgstr ""
+
+msgid "Storage location for backups"
+msgstr ""
+
+msgid "PBX config server, generally a local database server"
+msgstr ""
+
+msgid "CDR server, generally a local database server"
+msgstr ""
+
+msgid "added default backup servers"
+msgstr ""
+
+msgid "Configurations only"
+msgstr ""
+
+msgid "A full backup of core settings and web files"
+msgstr ""
+
+msgid "Call Detail Records"
+msgstr ""
+
+msgid "Voice Mail Storage"
+msgstr ""
+
+msgid "All system audio - including IVR prompts and Music On Hold."
+msgstr ""
+
+msgid " DOES NOT BACKUP VOICEMAIL"
+msgstr ""
+
+msgid "Doesn't backup Backup's settings so that they dont get restored"
+msgstr ""
+
+msgid "added default backup templates"
+msgstr ""
+
+msgid "MIGRATED"
+msgstr ""
+
+msgid "migrated backup"
+msgstr ""
+
+msgid "Migrated FTP server for backup "
+msgstr ""
+
+msgid "Migrated SSH server for backup "
+msgstr ""
+
+msgid "Migrated EMAIL server for backup "
+msgstr ""
+
+msgid "Migrated remote SSH server for backup "
+msgstr ""
+
+msgid "Default backup; automatically installed"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Run now"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+#~ msgid "DELETE ALL THE DATA IN THIS SET"
+#~ msgstr "ELIMINA TUTTI I DATI IN QUESTO BACKUP"
+
+#~ msgid ""
+#~ "Delete this backup set and all data associated with this backup set.."
+#~ msgstr "Elimina questo set di backup e i dati associati ad esso..."
+
+#~ msgid "Delete File Set"
+#~ msgstr "Elimina Set di File"
+
+#~ msgid "Delete this backup set."
+#~ msgstr "Elimina questo set di backup."
+
+#~ msgid "Restore Entire Backup Set"
+#~ msgstr "Ripristina l'interno Set di Backup"
+
+#~ msgid "Restore your Complete Backup set overwriting all files."
+#~ msgstr "Ripristina il Set di Backup Completo sovrascrivendo tutti i files."
+
+#~ msgid "Restore VoiceMail Files"
+#~ msgstr "Ripristina file Caselle Vocali"
+
+#~ msgid ""
+#~ "Restore your Voicemail files from this backup set.  NOTE! This will "
+#~ "delete any voicemail currently in the voicemail boxes."
+#~ msgstr ""
+#~ "Ripristina i file delle Caselle Vocali da questo set di backup. NOTA! "
+#~ "Questo eliminerà tutte le impostazione delle caselle vocali correntemente "
+#~ "in uso."
+
+#~ msgid "Restore System Recordings Files"
+#~ msgstr "Ripristina i file delle Registrazioni di Sistema"
+
+#~ msgid ""
+#~ "Restore your system Voice Recordings including AutoAttendant files from "
+#~ "this backup set.  NOTE! This will OVERWRITE any voicerecordings  "
+#~ "currently on the system. It will NOT delete new files not currently in "
+#~ "the backup set"
+#~ msgstr ""
+#~ "Ripristina da questo set di Backup tutte le Registrazioni di Sistema "
+#~ "inclusi i file dell'IVR. NOTA! SOVRASCRIVERA' tutte le registrazioni "
+#~ "correntemente in uso ma NON cancellerà quelle non presenti nel backup."
+
+#~ msgid "Restore System Configuration"
+#~ msgstr "Ripristina Configurazione di Sistema"
+
+#~ msgid ""
+#~ "Restore your system configuration from this backup set.  NOTE! This will "
+#~ "OVERWRITE any System changes you have made since this backup... ALL items "
+#~ "will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "Ripristina la configurazione di sistema da questo set di backup. NOTA: "
+#~ "questo SOVRASCRIVERA' tutti i cambiamenti di sistema effettuati fino a "
+#~ "questo backup... TUTTO sarà impostato fino al momento in cui è stato "
+#~ "fatto questo backup..."
+
+#~ msgid "Restore Operator Panel"
+#~ msgstr "Ripristina il Pannello Operatore"
+
+#~ msgid ""
+#~ "Restore the Operator Panel from this backup set.  NOTE! This will "
+#~ "OVERWRITE any Operator Panel Changes you have made since this backup... "
+#~ "ALL items will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "Ripristina il Pannello Operatore da questo set di backup. NOTA! questo "
+#~ "SOVRASCRIVERA' tutte le modifiche effettuate sul Pannello fino al momento "
+#~ "in cui è stato fatto questo backup..."
+
+#~ msgid "Restore Call Detail Report"
+#~ msgstr "Riprstina i Rapporti Chiamate"
+
+#~ msgid ""
+#~ "Restore the Call Detail Records from this backup set.  NOTE! This will "
+#~ "DELETE ALL CALL RECORDS that have been saved since this backup set."
+#~ msgstr ""
+#~ "Ripristina tutti i Rapporti Chiamate da questo set di backup. NOTA! "
+#~ "Questo comporterà la CANCELLAZIONE DI TUTTI RAPPORTI CHIAMATE fino al "
+#~ "momento in cui è stato fatto questo backup..."
+
+#~ msgid "ERROR its not a BACKUP SET file"
+#~ msgstr "ERRORE questo non è un file SET di BACKUP"
+
+#~ msgid "Restored All Files in Backup Set"
+#~ msgstr "Ripristinato l'interno Set di Backup"
+
+#~ msgid "Restored VoiceMail"
+#~ msgstr "Ripristinati file Caselle Vocali"
+
+#~ msgid "Restored System Recordings"
+#~ msgstr "Ripristinati file delle Registrazioni di Sistema"
+
+#~ msgid "Restored System Configuration"
+#~ msgstr "Ripristinata Configurazione di Sistema"
+
+#~ msgid "Restored Operator Panel"
+#~ msgstr "Ripristinato Pannello Operatore"
+
+#~ msgid "Restored CDR logs"
+#~ msgstr "Ripristina log CDR"
+
+#~ msgid "Schedule Name:"
+#~ msgstr "Nome pianificazione:"
+
+#~ msgid "Give this Backup Schedule a brief name to help you identify it."
+#~ msgstr ""
+#~ "Dare un nome breve alla pianificazione per una facile identificazione."
+
+#~ msgid "CDR"
+#~ msgstr "CDR"
+
+#~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
+#~ msgstr "Esegue il Backup dei Rapporti Chiamate (CDR - HTML e Database)"
+
+#~ msgid "Operator Panel"
+#~ msgstr "Pannello Operatore"
+
+#~ msgid "Backup the Operator Panel (HTML and Database)"
+#~ msgstr "Esegue il Backup del Pannello Operatore (HTML e Database)"
+
+#~ msgid "System Recordings"
+#~ msgstr "Registrazioni di Sistema"
+
+#~ msgid ""
+#~ "Backup the System Recordings (AutoAttendant, Music On Hold, System "
+#~ "Recordings)"
+#~ msgstr ""
+#~ "Esegue il Backup delle Registrazioni di Sistema (IVR, Musica di Attesa e "
+#~ "Registrazioni di Sistema)"
+
+#~ msgid "VoiceMail"
+#~ msgstr "Caselle Vocali"
+
+#~ msgid ""
+#~ "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+#~ msgstr ""
+#~ "Esegue il Backup delle Caselle Vocali... ATTENZIONE: può generare file di "
+#~ "grandi dimensioni"
+
+#~ msgid "System Configuration"
+#~ msgstr "Configurazione di Sistema"
+
+#~ msgid ""
+#~ "Backup the System Configurations (Database, etc files, SQL Database, "
+#~ "astdb)"
+#~ msgstr ""
+#~ "Esegue il Backup della Configurazione di Sistema (Database, file etc, "
+#~ "Database SQL e astdb)"
+
+#~ msgid "All"
+#~ msgstr "Tutto"
+
+#~ msgid "Selected"
+#~ msgstr "Selezionato"
+
+#~ msgid "January"
+#~ msgstr "Gennaio"
+
+#~ msgid "February"
+#~ msgstr "Febbraio"
+
+#~ msgid "March"
+#~ msgstr "Marzo"
+
+#~ msgid "April"
+#~ msgstr "Aprile"
+
+#~ msgid "May"
+#~ msgstr "Maggio"
+
+#~ msgid "June"
+#~ msgstr "Giugno"
+
+#~ msgid "July"
+#~ msgstr "Luglio"
+
+#~ msgid "August"
+#~ msgstr "Agosto"
+
+#~ msgid "September"
+#~ msgstr "Settembre"
+
+#~ msgid "October"
+#~ msgstr "Ottobre"
+
+#~ msgid "November"
+#~ msgstr "Novembre"
+
+#~ msgid "December"
+#~ msgstr "Dicembre"
+
+#~ msgid "Monday"
+#~ msgstr "Lunedì"
+
+#~ msgid "Tuesday"
+#~ msgstr "Martedì"
+
+#~ msgid "Wednesday"
+#~ msgstr "Mercoledì"
+
+#~ msgid "Thursday"
+#~ msgstr "Giovedì"
+
+#~ msgid "Friday"
+#~ msgstr "Venerdì"
+
+#~ msgid "Saturday"
+#~ msgstr "Sabato"
+
+#~ msgid "Sunday"
+#~ msgstr "Domenica"
+
+#~ msgid "Run Backup"
+#~ msgstr "Esegui Backup"
+
+#~ msgid "Follow Schedule Below"
+#~ msgstr "Segui Pianificazione sottostante"
+
+#~ msgid "Now"
+#~ msgstr "Adesso"
+
+#~ msgid "Daily (at midnight)"
+#~ msgstr "Giornalmente (a mezzanotte)"
+
+#~ msgid "Weekly (on Sunday)"
+#~ msgstr "Settimanalmente (di Domenica)"
+
+#~ msgid "Monthly (on the 1st)"
+#~ msgstr "Mensilmente (il primo del mese)"
+
+#~ msgid "Yearly (on 1st Jan)"
+#~ msgstr "Annualmente (il primo Gennaio)"
+
+#~ msgid "Minutes"
+#~ msgstr "Minuti"
+
+#~ msgid "Hours"
+#~ msgstr "Ore"
+
+#~ msgid "Days"
+#~ msgstr "Giorni"
+
+#~ msgid "Months"
+#~ msgstr "Mesi"
+
+#~ msgid "Weekdays"
+#~ msgstr "Giorni della settimana"
+
+#~ msgid "Add Backup Schedule"
+#~ msgstr "Aggiungi Pianificazione Backup"
+
+#~ msgid "Restore from Backup"
+#~ msgstr "Ripristina da Backup"
+
+#~ msgid "System Backup"
+#~ msgstr "Backup di Sistema"
+
+#~ msgid "Run Schedule"
+#~ msgstr "Esegui Pianificazione"
+
+#~ msgid "Submit Changes"
+#~ msgstr "Conferma Cambiamenti"
+
+#~ msgid "Delete Backup Schedule %s"
+#~ msgstr "Elimina Pianificazione Backup %s"
+
+#~ msgid "System Restore"
+#~ msgstr "Ripristino di Sistema"

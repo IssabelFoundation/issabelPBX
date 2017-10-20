@@ -1,0 +1,498 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2011 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2011.
+#
+# Использовать iconv findmefollow.pot -f UTF-8 -t ISO-8859-5 -o findmefollow.po
+# fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-04-08 15:15+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Follow Me"
+msgstr "Следуйте сюда"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+"Работает так же, как мини ринг-группа, но только индивидуально для каждого "
+"внутреннего номера. Если поступит вызов на какой-либо внутренний номер, то "
+"после указанного времени, в течение которого будет вызываться этот номер "
+"непосредственно, будет предпринята попытка вызова следующего по списку "
+"внутреннего или внешнего номера. Или, как вариант, будут звонить-все, или "
+"будут предприняты другие сценарии, например - серийное искание. Наиболее "
+"частое применение - для перенаправления вызова на мобильный телефон, если "
+"этот номер не отвечает."
+
+msgid "Force Follow Me"
+msgstr ""
+
+msgid "Edit Follow Me Settings"
+msgstr "Изменить установки 'Следуйте сюда'"
+
+msgid "Add Follow Me Settings"
+msgstr "Добавить настройки функции Следуйте сюда"
+
+#, fuzzy, php-format
+msgid "Follow-Me: %s (%s)"
+msgstr "Список"
+
+#, fuzzy, php-format
+msgid "Follow-Me User: %s"
+msgstr "Список"
+
+msgid "Findme Follow Toggle"
+msgstr "Переключение Найти меня тут"
+
+msgid "Cannot connect to Asterisk Manager with "
+msgstr "Невозможно соединится с Asterisk Manager как "
+
+msgid "Checking if recordings need migration.."
+msgstr "Проверяем нуждаются ли записи в миграции.."
+
+msgid "migrating"
+msgstr "перемещение"
+
+msgid "adding annmsg_id field.."
+msgstr "добавляется поле annmsg_id"
+
+msgid "fatal error"
+msgstr "неустранимая ошибка"
+
+msgid "ok"
+msgstr "ок"
+
+msgid "adding remotealert_id field.."
+msgstr "добавляется поле remotealert_id.."
+
+msgid "adding toolate_id field.."
+msgstr "добавляется поле toolate_id.."
+
+msgid "migrate annmsg to ids.."
+msgstr "перемещаются annmsg в ids.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "перемещено %s записей"
+
+msgid "migrate remotealert to ids.."
+msgstr "перемещаются remotealert в ids.."
+
+msgid "migrate toolate to  ids.."
+msgstr "перемещаются toolate в ids."
+
+msgid "dropping annmsg field.."
+msgstr "сбрасывается значение поля annmsg"
+
+msgid "no annmsg field???"
+msgstr "нет поля annmsg???"
+
+msgid "dropping remotealert field.."
+msgstr "сбрасывается значение поля remotealert"
+
+msgid "no remotealert field???"
+msgstr "нет поля remotealert???"
+
+msgid "dropping toolate field.."
+msgstr "сбрасывается значение поля toolate.."
+
+msgid "no toolate field???"
+msgstr "нет поля toolate???"
+
+msgid "already migrated"
+msgstr "уже перемещено"
+
+msgid "Warning! Extension"
+msgstr "Внимание! Внутренний номер"
+
+msgid "is not allowed for your account"
+msgstr "не разрешен к использованию в вашем аккаунте"
+
+msgid "Choose a user/extension:"
+msgstr "Выбрать пользователя/внутренний номер:"
+
+msgid "deleted"
+msgstr "удалено"
+
+msgid "Delete Entries"
+msgstr "Удалить запись"
+
+msgid "User"
+msgstr "Пользователь"
+
+#, fuzzy
+msgid "Extension"
+msgstr "Внутренний номер"
+
+#, fuzzy, php-format
+msgid "Edit %s"
+msgstr "Изменить"
+
+#, fuzzy, php-format
+msgid "Edit %s %s"
+msgstr "Изменить номер %s"
+
+msgid "Edit Follow Me"
+msgstr "Изменить указание Следуйте сюда"
+
+msgid "Add Follow Me"
+msgstr "Добавить указание Следуйте сюда"
+
+msgid "group number"
+msgstr "групповой номер"
+
+msgid "The number users will dial to ring extensions in this ring group"
+msgstr "Номер, на который можно позвонить сразу во всю группу вызова"
+
+msgid "Disable"
+msgstr "Не использовать"
+
+msgid ""
+"By default (not checked) any call to this extension will go to this Follow-"
+"Me instead, including directory calls by name from IVRs. If checked, calls "
+"will go only to the extension.<BR>However, destinations that specify "
+"FollowMe will come here.<BR>Checking this box is often used in conjunction "
+"with VmX Locater, where you want a call to ring the extension, and then only "
+"if the caller chooses to find you do you want it to come here."
+msgstr ""
+"По умолчанию (не отмечено) все звонки поступают в модуль 'Следуйте сюда', "
+"включая звонки с поиском по имени в Интерактивных меню. Но если отмечено, "
+"звонок поступает прямо на указаный номер.<br>В любом случае, назначение, "
+"указанное в 'Следуйте сюда' будет исполняться. Использование этой опции "
+"часто оправдано вместе с VmX Локатором, где можно просто направить звонок на "
+"внутренний номер, пользователь которого может непосредственно сам указать, "
+"хочет ли он, штобы поступающие звонки находили его везде, или нет."
+
+msgid "Initial Ring Time:"
+msgstr "Начальное время звонка:"
+
+msgid ""
+"This is the number of seconds to ring the primary extension prior to "
+"proceeding to the follow-me list. The extension can also be included in the "
+"follow-me list. A 0 setting will bypass this."
+msgstr ""
+"Время в секундах, в течение которого звонок отрабатывает на первом "
+"назначении (внутреннем номере), после чего следует по направлению, заданному "
+"указанием Следуйте сюда. Значение 0 будет пропускать первый шаг."
+
+msgid "Ring Strategy:"
+msgstr "Стратегия дозвона:"
+
+#, fuzzy
+msgid "ringallv2"
+msgstr "1-звонят-все"
+
+msgid ""
+"ring primary extension for initial ring time followed by all additional "
+"extensions until one answers"
+msgstr ""
+"звенит первый внутренний номер втечение указанного времени (выше), затем все "
+"внутренние номера из списка, пока кто либо один не ответит"
+
+msgid "ringall"
+msgstr "звонят-все"
+
+msgid "ring all available channels until one answers (default)"
+msgstr "звонят все доступные номера из списка, пока кто либо один не ответит."
+
+msgid "hunt"
+msgstr "серийное-искание"
+
+msgid "take turns ringing each available extension"
+msgstr "звонок поступает на любой доступный из номеров по списку"
+
+msgid "memoryhunt"
+msgstr "прогресс-серийное-искание"
+
+msgid ""
+"ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc."
+msgstr ""
+"Звонит первый внутренний номер в списке, затем первый и второй, затем "
+"первый, второй и третий в списке, и так далее."
+
+msgid "*-prim"
+msgstr "*-прим"
+
+#, fuzzy
+msgid ""
+"these modes act as described above. However, if the primary extension (first "
+"in list) is occupied, the other extensions will not be rung. If the primary "
+"is IssabelPBX DND, it won't be rung. If the primary is IssabelPBX CF "
+"unconditional, then all will be rung"
+msgstr ""
+"Этот режим работает так же, как вышеописанные, за исключением того, что если "
+"первый внутренний номер из списка занят, следующие по списку не будут "
+"звонить. Также зависит от установок 'Не беспокоить' и 'Перенаправление' на "
+"первом внутреннем номере списка. Если DND, то поиск в группе на этом "
+"заканчивается. Если CF (перенаправление) не перенаправит, то поиск в группе "
+"продолжится."
+
+msgid "firstavailable"
+msgstr "первый-доступный"
+
+msgid "ring only the first available channel"
+msgstr "звонит первый доступный канал"
+
+msgid "firstnotonphone"
+msgstr "первый-на-телефоне"
+
+#, fuzzy
+msgid "ring only the first channel which is not off hook - ignore CW"
+msgstr ""
+"звонит первый телефон, у которого не снята трубка - форвардинг игнорируется"
+
+msgid "Ring Time (max 60 sec)"
+msgstr "Время вызова (макс. 60 сек.)"
+
+msgid ""
+"Time in seconds that the phones will ring. For all hunt style ring "
+"strategies, this is the time for each iteration of phone(s) that are rung"
+msgstr ""
+"Время в секундах, в течение которого телефоны будут звонить. Для всех видов "
+"стратегий серийного искания это время звонка повторяется для всех телефонов, "
+"которые включены в серию."
+
+msgid "Follow-Me List"
+msgstr "Список"
+
+msgid ""
+"List extensions to ring, one per line, or use the Extension Quick Pick below."
+"<br><br>You can include an extension on a remote system, or an external "
+"number by suffixing a number with a pound (#).  ex:  2448089# would dial "
+"2448089 on the appropriate trunk (see Outbound Routing)."
+msgstr ""
+"Лист номеров, по одному в строке, или воспользуйтесь Выбором из меню ниже "
+"чтобы добавить в список <br><br>Можно включать номера из других удалённых "
+"систем, или внешние номера, с использованием знака # в качестве суффикса. "
+"Например: 2448089# наберёт номер 2448089 на любом внешнем транке, попадающем "
+"в правила Исходящей маршрутизации.<br><br>Задействуются только фактические "
+"внутренние номера. Если хотите использовать при этом посторонние каналы "
+"(чтобы звонить на follow-me или в другие группы вызова, или очереди, просто "
+"ставьте знак # в конце номера. Но будте осторожны! Это рекурсия, и система "
+"может задушиться."
+
+msgid "Extension Quick Pick"
+msgstr "Выбрать номера"
+
+msgid "Choose an extension to append to the end of the extension list above."
+msgstr "Выберите номера для добавления в конец списка выше"
+
+#, fuzzy
+msgid "(pick extension)"
+msgstr "внутренний номер"
+
+msgid "Announcement:"
+msgstr "Приветствие:"
+
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Сообщение, которое воспроизводится позвонившему прежде, чем звонок перйдёт в "
+"группу.<br><br>Для создания такого сообщения используйте раздел меню Запись "
+"сообщений."
+
+msgid "None"
+msgstr "Нет"
+
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Сообщение, которое воспроизводится позвонившему прежде, чем звонок перйдёт в "
+"группу.<br><br>Необходимо инсталлировать модуль Запись сообщений чтобы "
+"менять что-либо в этой опции."
+
+msgid "Play Music On Hold?"
+msgstr "Музыку в ожидании?"
+
+msgid ""
+"If you select a Music on Hold class to play, instead of 'Ring', they will "
+"hear that instead of Ringing while they are waiting for someone to pick up."
+msgstr ""
+"Если выбран класс Музыки в ожидании вместо простого сигнала вызова, то "
+"позвонивший будет слушать музыку, пока кто-то не поднимет трубку."
+
+msgid "Ring"
+msgstr "Звонок"
+
+msgid "CID Name Prefix"
+msgstr "Префикс ИД имени"
+
+msgid ""
+"You can optionally prefix the Caller ID name when ringing extensions in this "
+"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
+"as \"Sales:John Doe\" on the extensions that ring."
+msgstr ""
+"Опционально, можно использовать какой-то префикс для звонка в эту группу. "
+"Например, если это группа \"Sales:\", то, установив такой префикс для этой "
+"группы, можно видеть, если звонит John Doe, то мы увидим на дисплее Sales:"
+"John Doe."
+
+msgid "Alert Info"
+msgstr "Дополнительная информация"
+
+msgid ""
+"You can optionally include an Alert Info which can create distinctive rings "
+"on SIP phones."
+msgstr ""
+"Дополнительная информация ALERT_INFO может быть использования для "
+"распознавания адресата чтобы присвоить различный тип звонков на SIP "
+"устройствах."
+
+msgid "Call Confirmation Configuration"
+msgstr "Конфигурация подтверждения звонка"
+
+msgid "Confirm Calls"
+msgstr "Подтверждать вызовы"
+
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through. This feature only works with the ringall/ringall-prim  ring strategy"
+msgstr ""
+"Используйте это, если звонок идёт на внешний номер, который нуждается в "
+"подтверждении. Например, мобильный телефон может включить головую почту, "
+"которая перехватит этот вызов. Нажатием на 1 можно заблокировать такие "
+"действия. Опция действительна только при стратегии вызова звонят-все."
+
+msgid "Remote Announce:"
+msgstr "Удалённое приветствие:"
+
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled.<br><br>To add additional recordings use the \"System Recordings\" "
+"MENU to the left"
+msgstr ""
+"Сообщение, которое будет воспроизведено для адресата звонка, если "
+"задействована опция Подтверждение вызова.<br><br>Добавить запись можно в "
+"секции Запись сообщений в меню слева."
+
+msgid "Default"
+msgstr "По умолчанию"
+
+msgid "Too-Late Announce:"
+msgstr "Сообщение Уже-поздно"
+
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1.<br><br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Сообщение воспроизводится для принявшего этот звонок, если звонок уже принят "
+"прежде чем он успел нажать 1.<br><br>Для создания такого сообщения "
+"используйте раздел меню Запись сообщений."
+
+msgid "Change External CID Configuration"
+msgstr "Изменять конфигурацию внешнего Номера ИД"
+
+msgid "Mode"
+msgstr "Режим"
+
+msgid "Transmits the Callers CID if allowed by the trunk."
+msgstr "Передавать Номер ИД если позволяет транк."
+
+msgid "Fixed CID Value"
+msgstr "Фиксированное значение Номера ИД"
+
+msgid "Always transmit the Fixed CID Value below."
+msgstr "Всегда передавать фиксированное значение Номера ИД указанное ниже."
+
+msgid "Outside Calls Fixed CID Value"
+msgstr "Значение Номера ИД для внешних звонков"
+
+msgid ""
+"Transmit the Fixed CID Value below on calls that come in from outside only. "
+"Internal extension to extension calls will continue to operate in default "
+"mode."
+msgstr ""
+"Передавать фиксированное значение Номера ИД указанное ниже только в случае "
+"исходящих внешних звонков. Внутренние соединения не будут использовать этот "
+"Номер ИД."
+
+msgid "Use Dialed Number"
+msgstr "Использовать набранный номер"
+
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This will "
+"be BLOCKED on trunks that block foreign CallerID"
+msgstr ""
+"Передавать набранный номер в качестве Номера ИД для перенаправленных "
+"звонков, пришедших снаружи. Внутренние соединения будут передавать Номер ИД "
+"в обычном режиме. Для этого предполагается входящий маршрут по DID. Он будет "
+"блокироваться на транке, где провайдеры блокируют чужие Номера ИД."
+
+msgid "Force Dialed Number"
+msgstr "Форсировать набранный номер"
+
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This WILL "
+"be transmitted on trunks that block foreign CallerID"
+msgstr ""
+"Передаёт номер, который был набран как назначение (DID) в качестве Номера "
+"ИД, для звонков пришедших снаружи. Внутренние соединения будут передавать "
+"Номер ИД в обычном режиме. Для этого предполагается входящий маршрут по DID. "
+"Он будет передаваться через транк, где провайдеры блокируют чужие Номера ИД."
+
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading \"+\"."
+msgstr ""
+"Фиксированное значение для замены Номера ИД в зависимости от одного из "
+"режимов выше. Должен быть только в цифровом формате, или опционально - в "
+"формате Е164 с использованием \"+\" впереди номера."
+
+msgid "Destination if no answer"
+msgstr "Назначение если нет ответа"
+
+msgid "Submit Changes"
+msgstr "Применить изменения"
+
+#, fuzzy
+msgid "Please enter an extension list."
+msgstr "список номеров"
+
+msgid "Invalid time specified"
+msgstr "Неверно указано время"
+
+msgid "Time must be between 1 and 60 seconds"
+msgstr "Время должно быть указано от 1 до 60 секунд."
+
+msgid ""
+"Only ringall, ringallv2, hunt and the respective -prim versions are "
+"supported when confirmation is checked"
+msgstr ""
+"Поддерживаются только сценарии звонят-все, звонят-все-v2, серийное-искание, "
+"и сответствующие -prim варианты когда изменения приняты."
+
+msgid ""
+"Invalid CID Number. Must be in a format of digits only with an option of "
+"E164 format using a leading \"+\""
+msgstr ""
+"Неверный формат Номера ИД. Должен быть указан только цифрами, или, "
+"опционально, в полном Е164 формате с использованием \"+\" впереди номера."
+
+#~ msgid "Inbound Call Control"
+#~ msgstr "Контроль входящих вызовов"

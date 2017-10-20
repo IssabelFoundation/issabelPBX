@@ -1,0 +1,175 @@
+<?php
+
+/**** **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** ****
+ * Developer Notes:
+ * The Address Book is a simple contact manager which ceased development in 2005
+ * http://sourceforge.net/projects/theaddressbook/
+ * 
+ * Version History:
+ *      2010-12-xx  Initial version for Superfecta 2.2
+ *      2012-09-18  Migrated to Superfecta 2.11
+ *      2014-08-21  Removed reliance on deprecated mysql functions
+ *
+ **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** ****/
+
+
+class Theaddressbook extends superfecta_base {
+
+	public $description = "Searches The Address Book http://sourceforge.net/projects/theaddressbook/ for appearances of the number and returns the last name and first name, if present, from the contact table.";
+	public $version_requirement = "2.11";
+	public $source_param = array(
+		'tab_server' => array(
+			'description' => 'Host address of The Address Book database. (localhost if the database is on the same server as IssabelPBX)',
+			'type' => 'text',
+			'default' => 'localhost'
+		),
+		'tab_dbase' => array(
+			'description' => 'Database name of The Address Book database',
+			'type' => 'text',
+			'default' => 'tab'
+		),
+		'tab_user' => array(
+			'description' => 'User name used to connect to the MySQL database',
+			'type' => 'text',
+			'default' => 'root'
+		),
+		'tab_password' => array(
+			'description' => 'Password used to connect to the MySQL database',
+			'type' => 'password',
+			'default' => 'passw0rd'
+		),
+		'tab_digits' => array(
+			'description' => 'The number of rightmost digits to check for a match, enter zero to disable.',
+			'type' => 'number',
+			'default' => '10'
+		),
+		'tab_address' => array(
+			'description' => "Name of the address table, probably 'address' with or without a prefix",
+			'type' => 'text',
+			'default' => 'address'
+		),
+		'tab_contact' => array(
+			'description' => "Name of the contact table, probably 'contact' with or without a prefix",
+			'type' => 'text',
+			'default' => 'contact'
+		),
+		'tab_otherphone' => array(
+			'description' => "Name of the otherphone table, probably 'otherphone' with or without a prefix",
+			'type' => 'text',
+			'default' => 'otherphone'
+		),
+		'Ignore_Keywords' => array(
+			'description' => 'If the otherphone table CNAM includes any of the keywords listed here, the otherphone CNAM value will be ignored and the first name last name will be used from the contact table.<br>Separate keywords with commas.',
+			'type' => 'textarea',
+			'default' => 'fax, cell, mobile'
+		),
+	);
+
+	function get_caller_id($thenumber, $run_param=array()) {
+
+		// initialize variables
+		$name = "";
+		$sql = "";
+		$wquery_row = "";
+		$caller_id = null;
+		$sql_params = array();
+	 
+		//  Field names in the address book tables, these should not change from one TAB install to the next
+		$tab_id = "id";			    // name of id field
+		$tab_phone1 = "phone1";   	// name of phone1 field in address table
+		$tab_phone2 = "phone2";   	// name of phone2 field in address table
+		$tab_othernum = "phone";	// name of phone field in otherphone table
+		$tab_type = "type";		    // name of type field in otherphone table
+		$tab_ln = "lastname";		// name of lastname field in contact table
+		$tab_fn = "firstname";		// name of firstname field in contact table
+		$tab_date = "lastupdate";	// name of last updated date field in contact table
+
+
+		//  Connect to database
+		if(class_exists('PDO')) {
+			$this->DebugPrint("Connecting to The Address Book Database ... ");
+			try {
+				$dbh = new PDO('mysql:dbname='.$run_param['tab_dbase'].';host='.$run_param['tab_server'], $run_param['tab_user'], $run_param['tab_password']);
+			} catch (PDOException $e) {
+				$this->DebugPrint('Connection failed: ' . $e->getMessage());
+				return null;
+			}
+		} else {
+			$this->DebugPrint("PDO not present on system...Skipping");
+			return null;
+		}
+		$sth = $dbh->prepare("SET NAMES 'utf8'");
+		$sth->execute();
+
+		//  trim incoming number to specified filter length
+		if ($run_param['tab_digits']) {
+			$thenumber = substr($thenumber, (-1*$run_param['tab_digits']));
+		}
+	
+		// Process ignore words
+        $key_words = array();
+		$temp_array = explode(',',(isset($run_param['Ignore_Keywords'])?$run_param['Ignore_Keywords']:$source_param['Ignore_Keywords']['default']));
+		foreach($temp_array as $val)  {
+			$key_words[] = trim($val);
+		}
+
+		//  Build regular expression from the modified $thenumber to avoid non-digit characters stored in database
+		//  PDO params can't have quote delimiters
+		$regex = "[^0-9]*";
+		for( $x=0; $x < ((strlen($thenumber))-1); $x++ ) {
+			$regex .=  substr($thenumber,$x,1)."[^0-9]*" ;
+		}
+		$regex = $regex.(substr($thenumber,-1))."([^0-9]+|$)";
+		$sql_params[':regex'] = $regex;
+
+		//  query for phone1 and phone2 fields in theaddressbook
+		$sql = "SELECT * FROM ".$run_param['tab_contact']." INNER JOIN ".$run_param['tab_address']." ON ".$run_param['tab_address'].".id = ".$run_param['tab_contact'].".id WHERE (".$tab_phone1." REGEXP :regex) OR (".$tab_phone2." REGEXP :regex) ORDER BY ".$tab_date." DESC";
+
+		try {
+			$sth = $dbh->prepare($sql);
+			if(!$sth) {
+				$this->DebugPrint("Failed to Prepare the SQL Statement. Are we connected?...Skipping");
+				return null;
+			}
+			$this->DebugPrint("Connected..");
+			$sth->execute($sql_params);
+			$wquery_row = $sth->fetch(PDO::FETCH_ASSOC);
+			if ($wquery_row && is_array($wquery_row)) {
+				$this->DebugPrint("Number found..");
+				$name = $wquery_row[$tab_fn]." ".$wquery_row[$tab_ln];
+			}
+		} catch (PDOException $e) {
+			$this->DebugPrint('Connection failed: ' . $e->getMessage());
+			return null;
+		}
+
+		//  If no result in phone1 or phone2 search phone field in otherphone table
+		if (!$name)  {
+			$sql = "SELECT * FROM ".$run_param['tab_contact']." INNER JOIN ".$run_param['tab_otherphone']." ON ".$run_param['tab_otherphone'].".id = ".$run_param['tab_contact'].".id WHERE ".$tab_othernum." REGEXP :regex ORDER BY ".$tab_date." DESC";
+			try {
+				$sth = $dbh->prepare($sql);
+				$sth->execute($sql_params);
+				$wquery_row = $sth->fetch(PDO::FETCH_ASSOC);
+				if (is_array($wquery_row)) {
+					$name = $wquery_row[$tab_type];
+				}
+			} catch (PDOException $e) {
+				$this->DebugPrint('Connection failed: ' . $e->getMessage());
+				return null;
+			}
+			//  Check to see if returned name is on the ignore words list, if so  return firstname lastname instead
+			$test_string = str_ireplace($key_words,'',$name);
+			if($name && $test_string == "")  {
+				$name = $wquery_row[$tab_fn]." ".$wquery_row[$tab_ln];
+				$this->DebugPrint("Found word on ignore list, substituting contact names");
+			}
+		}
+
+		//  Pass result to Superfecta module via $caller_id variable
+		if ($name)  {
+			return(trim(strip_tags($name)));
+		} else {
+			$this->DebugPrint("Not found ...");
+		}
+	}
+}

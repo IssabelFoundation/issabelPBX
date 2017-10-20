@@ -1,0 +1,351 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for conferences
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-05 19:32+0900\n"
+"PO-Revision-Date: 2014-02-20 05:11+0200\n"
+"Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
+"Language-Team: Japanese "
+"<http://example.com/projects/freepbx/conferences/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+msgid "Checking if music field present.."
+msgstr "musicフィールドが存在しているかどうかチェック.."
+
+msgid "adding music field.."
+msgstr "musicフィールドの追加中.."
+
+msgid "fatal error"
+msgstr "致命的なエラー"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "already present"
+msgstr "すでに存在しています"
+
+msgid "Checking if recordings need migration.."
+msgstr "録音の移行が必要かチェック中.."
+
+msgid "migrating"
+msgstr "移行中"
+
+msgid "adding joinmsg_id field.."
+msgstr "joinmsg_id フィールドの追加中.."
+
+msgid "migrate to recording ids.."
+msgstr "録音IDに移行中.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "%sエントリーを移行する"
+
+msgid "dropping joinmsg field.."
+msgstr "joinmsg フィールドのドロップ中.."
+
+msgid "no joinmsg field???"
+msgstr "joinmsg フィールドが存在しません???"
+
+msgid "already migrated"
+msgstr "移行済み"
+
+msgid "Checking for users field.."
+msgstr "users フィールドのチェック中.."
+
+msgid "adding.."
+msgstr "追加中.."
+
+msgid "FATAL error"
+msgstr "致命的なエラー"
+
+#, php-format
+msgid "Conference Room %s : %s"
+msgstr "カンファレンスルーム %s ： %s"
+
+#, php-format
+msgid "Conference: %s"
+msgstr "カンファレンス： %s"
+
+msgid "Conference: "
+msgstr "カンファレンス： "
+
+msgid "Conferences"
+msgstr "カンファレンス"
+
+msgid "Applications"
+msgstr "アプリケーション"
+
+msgid ""
+"Allow creation of conference rooms (meet-me) where multiple people can talk "
+"together."
+msgstr ""
+"複数の人々が一緒に会話ができるカンファレンスルーム(meet-me)の作成を許可する。"
+
+msgid "Warning! Extension"
+msgstr "警告! 内線"
+
+msgid "is not allowed for your account."
+msgstr "は、あなたのアカウントには権限がありません。"
+
+msgid "Add Conference"
+msgstr "カンファレンスを追加"
+
+msgid "Conference"
+msgstr "カンファレンス"
+
+msgid "deleted"
+msgstr "削除されました"
+
+msgid "Conference:"
+msgstr "カンファレンス："
+
+#, php-format
+msgid "Delete Conference %s"
+msgstr "カンファレンスの削除 %s"
+
+msgid "Conflicting Extensions"
+msgstr "内線の競合"
+
+msgid "Edit Conference"
+msgstr "カンファレンスの編集"
+
+msgid "Conference Number:"
+msgstr "カンファレンス番号："
+
+msgid "Use this number to dial into the conference."
+msgstr "カンファレンスにダイヤルインするのにこの番号を使用します。"
+
+msgid "Conference Name:"
+msgstr "カンファレンス名："
+
+msgid "Give this conference a brief name to help you identify it."
+msgstr "認識しやすいように、このカンファレンスに簡潔な名前を付けます。"
+
+msgid "User PIN:"
+msgstr "ユーザーPIN："
+
+msgid ""
+"You can require callers to enter a password before they can enter this "
+"conference.<br><br>This setting is optional.<br><br>If either PIN is "
+"entered, the user will be prompted to enter a PIN."
+msgstr ""
+"発信者に対して、このカンファレンスに入室する前にパスワードの入力を要求するこ"
+"とができます。<br><br>この設定はオプションです。<br><br>どちらかのPINが入力さ"
+"れた場合、ユーザーにはPINの入力プロンプトが表示されます。"
+
+msgid "Admin PIN:"
+msgstr "管理者PIN："
+
+msgid ""
+"Enter a PIN number for the admin user.<br><br>This setting is optional "
+"unless the 'leader wait' option is in use, then this PIN will identify the "
+"leader."
+msgstr ""
+"管理者ユーザー用のPIN番号を入力します。<br><br>'リーダー待ち'オプションが使用"
+"中でなければ、この設定はオプションです。その際、このPINによってリーダーかどう"
+"かを識別します。"
+
+msgid "Conference Options"
+msgstr "カンファレンスオプション"
+
+msgid "Join Message:"
+msgstr "参加メッセージ："
+
+msgid ""
+"Message to be played to the caller before joining the conference.<br><br>To "
+"add additional recordings please use the \"System Recordings\" MENU to the "
+"left"
+msgstr ""
+"発信者がカンファレンスに参加する前に再生されるメッセージ。<br><br>録音を追加"
+"するには、左側にある\"システム録音\"メニューを使用してください"
+
+msgid "None"
+msgstr "なし"
+
+msgid ""
+"Message to be played to the caller before joining the conference.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"カンファレンスに参加する前に発信者に再生されるメッセージ。<br><br>このオプションを編集するには\"システム録音\"モジュールをインストールし有効にし"
+"なければなりません"
+
+msgid "Leader Wait:"
+msgstr "リーダー待ち："
+
+msgid ""
+"Wait until the conference leader (admin user) arrives before starting the "
+"conference"
+msgstr "リーダー(管理ユーザー)が参加する迄、カンファレンス開始を待ちます"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "Yes"
+msgstr "はい"
+
+msgid "Talker Optimization:"
+msgstr "話者最適化："
+
+msgid ""
+"Turns on talker optimization. With talker optimization, Asterisk treats "
+"talkers who\n"
+"are not speaking as being muted, meaning that no encoding is done on "
+"transmission\n"
+"and that received audio that is not registered as talking is omitted, "
+"causing no\n"
+"buildup in background noise."
+msgstr ""
+"話者最適化をオンにします。話者最適化をすることにより、Asteriskは話をしていな"
+"い話者をミュートと同じ扱いをします、つまり、送信の際にエンコード処理が発生せ"
+"ず、話として登録されていない受信音声は省略され、バックグラウンドノイズが発生"
+"しません。"
+
+msgid "Talker Detection:"
+msgstr "話者検知："
+
+msgid ""
+"Sets talker detection. Asterisk will sends events on the Manager Interface "
+"identifying\n"
+"the channel that is talking. The talker will also be identified on the "
+"output of\n"
+"the meetme list CLI command."
+msgstr ""
+"話者検知をセットします。Asteriskは会話中のチャネルを識別してマネージャーイン"
+"ターフェイスにイベントを送信します。meetmeリストCLIコマンドの出力によっても話"
+"者は識別されます。"
+
+msgid "Quiet Mode:"
+msgstr "サイレントモード："
+
+msgid "Quiet mode (do not play enter/leave sounds)"
+msgstr "サイレントモード(入室/退出音を再生しない)"
+
+msgid "User Count:"
+msgstr "ユーザー数カウント："
+
+msgid "Announce user(s) count on joining conference"
+msgstr "カンファレンスに参加しているユーザーの数をアナウンスします"
+
+msgid "User join/leave:"
+msgstr "ユーザー参加/退出："
+
+msgid "Announce user join/leave"
+msgstr "ユーザーの参加/退出をアナウンスします"
+
+msgid "Music on Hold:"
+msgstr "保留音："
+
+msgid "Enable Music On Hold when the conference has a single caller"
+msgstr "カンファレンスの参加者が一人の場合は保留音を有効にします"
+
+msgid "Music on Hold Class:"
+msgstr "保留クラス音："
+
+msgid ""
+"Music (or Commercial) played to the caller while they wait in line for the "
+"conference to start. Choose \"inherit\" if you want the MoH class to be what "
+"is currently selected, such as by the inbound route.<br><br>  This music is "
+"defined in the \"Music on Hold\" to the left."
+msgstr ""
+"カンファレンスがスタートするまで待っている間に、発信者に再生される音楽(やコ"
+"マーシャル)です。着信ルート経由など、MoHクラスを現在選択されているものにした"
+"い場合は\"継承\"を選択してください。<br><br>この音楽は左側の\"保留音\"に定義"
+"されています。"
+
+msgid "inherit"
+msgstr "継承"
+
+msgid "default"
+msgstr "デフォルト"
+
+msgid "Allow Menu:"
+msgstr "メニューを許可："
+
+msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
+msgstr ""
+"'*'が押された際に(ユーザーor管理者)メニューを流します。(メニューに'送る')"
+
+msgid "Record Conference:"
+msgstr "カンファレンスを録音："
+
+msgid "Record the conference call"
+msgstr "カンファレンス通話を録音します"
+
+msgid "Maximum Participants:"
+msgstr "最大参加者数："
+
+msgid "Maximum Number of users allowed to join this conference."
+msgstr "このカンファレンスに参加が許可される最大ユーザー数。"
+
+msgid "No Limit"
+msgstr "無制限"
+
+msgid "Mute on Join:"
+msgstr "参加時にミュートします："
+
+msgid ""
+"Mute everyone when they initially join the conference. Please note that if "
+"you do not have 'Leader Wait' set to yes you must have 'Allow Menu' set to "
+"Yes to unmute yourself"
+msgstr ""
+"初めてカンファレンスに参加された人をミュートにします。'リーダー待ち'を'はい'に設定しない場合、'メニュー許可' "
+"を必ず'はい'に設定し、ミュートを解除してください"
+
+msgid "Submit Changes"
+msgstr "変更を適用"
+
+msgid "Please enter a valid Conference Number"
+msgstr "正しいカンファレンス番号を入力してください"
+
+msgid "Please enter a valid Conference Name"
+msgstr "正しいカンファレンス名を入力してください"
+
+msgid ""
+"You must set an admin PIN for the Conference Leader when selecting the "
+"leader wait option"
+msgstr "リーダー待ちをオプションに選択した場合は、カンファレンスリーダー用の管理者PINの設定が必須です"
+
+msgid ""
+"You must set Allow Menu to Yes when not using a Leader or Admin in your "
+"conference, otherwise you will be unable to unmute yourself"
+msgstr "リーダーまたは管理者が使用していない時、メニューの許可は必ず'はい'に設定しなければ、ミュートを解除することができません"

@@ -1,0 +1,29 @@
+<module>
+	<rawname>digium_phones</rawname>
+	<repo>standard</repo>
+	<type>setup</type>
+	<category>Connectivity</category>
+	<name>Digium Phones Config</name>
+	<version>2.11.3.2</version>
+	<publisher>Digium</publisher>
+	<license>GPLv2</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<candisable>yes</candisable>
+	<canuninstall>yes</canuninstall>
+	<changelog>
+		*2.11.3.2* IssabelPBX initial release
+		*2.11.0.1* FreePBX/Schmoozecom Release
+		*0.1* initial commit
+	</changelog>
+	<depends>
+		<phpversion>5.2.0</phpversion>
+		<version>2.10</version>
+	</depends>
+	<menuitems>
+		<digium_phones needsenginedb="yes">Digium Phones</digium_phones>
+	</menuitems>
+	<supported>
+		<version>2.11</version>
+	</supported>
+        <location>release/2.11/digium_phones-2.11.3.2.tgz</location>
+</module>

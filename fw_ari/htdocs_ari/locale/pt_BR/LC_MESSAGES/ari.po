@@ -1,0 +1,788 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for ARI
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fw_ari-2.10.0.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-14 07:08+0100\n"
+"PO-Revision-Date: 2013-02-11 20:18-0300\n"
+"Last-Translator: Luis Felipe Marzagao <duli@easylifeproject.org>\n"
+"Language-Team: Luis Felipe Marzagao <duli@easylifeproject.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+
+msgid "Asterisk Call Manager not responding"
+msgstr "Gerenciador de Ligações do Asterisk não está respondendo"
+
+msgid "Asterisk authentication failed:"
+msgstr "Autenticação Asterisk falhou:"
+
+msgid "Asterisk command not understood"
+msgstr "Comando Asterisk não compreendido"
+
+#, php-format
+msgid "Too many files in %s. Not all files processed"
+msgstr "Muitos arquivos em %s. Nem todos os arquivos processados"
+
+#, php-format
+msgid "Too many directories in %s. Not all files processed"
+msgstr "Muitos diretório em %s. Nem todos os arquivos processados"
+
+msgid "ARI requires a version of PHP 4.3 or later"
+msgstr "ARI requer PHP versão 4.3 ou mais recente"
+
+msgid "PHP PEAR must be installed.  Visit http://pear.php.net for help with installation."
+msgstr "PHP PEAR deve estar instalado.  Visite http://pear.php.net para ajuda com a instalção."
+
+msgid "ARI does not appear to have access to the Asterisk Manager."
+msgstr "ARI não aparenta ter acesso ao Gerenciador Asterisk."
+
+msgid "Check the ARI 'main.conf.php' configuration file to set the Asterisk Manager Account."
+msgstr "Verifique o arquivo de configuração 'main.conf.php' do ARI para ajustar a Conta do Gerenciador Asterisk."
+
+msgid "Check /etc/asterisk/manager.conf for a proper Asterisk Manager Account"
+msgstr "Verifique /etc/asterisk/manager.conf para uma Conta apropriada do Gerenciador Asterisk"
+
+msgid "make sure [general] enabled = yes and a 'permit=' line for localhost or the webserver."
+msgstr "certifique-se que há [general] enabled = yes e uma linha 'permit=' para localhost ou o webserver."
+
+msgid "Check AMP installation, asterisk, and ARI main.conf"
+msgstr "Verifique instalação do AMP, asterisk, e ARI main.conf"
+
+msgid "Logout"
+msgstr "Sair"
+
+msgid "Page Not Found."
+msgstr "Página Não Encontrada"
+
+msgid "Search"
+msgstr "Procurar"
+
+msgid "Searched for"
+msgstr "Procurado por"
+
+#, php-format
+msgid "Results %d - %d of %d"
+msgstr "Resultados %d - %d de %d"
+
+#, php-format
+msgid "Results %d"
+msgstr "Resultados %d"
+
+msgid "First"
+msgstr "Primeiro"
+
+msgid "Last"
+msgstr "Último"
+
+msgid "Incorrect Username or Password"
+msgstr "Nome de usuário ou Senha incorreto"
+
+msgid "Login"
+msgstr "Conta"
+
+msgid "Password"
+msgstr "Senha"
+
+msgid "Submit"
+msgstr "Enviar"
+
+msgid "Remember Password"
+msgstr "Lembrar Senha"
+
+msgid "Use your <b>Voicemail Mailbox and Password</b>"
+msgstr "Use sua <b>Conta de Correio de Voz e Senha</b>"
+
+msgid "This is the same password used for the phone"
+msgstr "Esta é a mesma senha usada para o telefone"
+
+msgid "For password maintenance or assistance, contact your Phone System Administrator."
+msgstr "Para assistência ou mantenção de senha, contate seu Administrador de Sistema de Telefonia."
+
+msgid "INBOX"
+msgstr "ENTRADA"
+
+msgid "Family"
+msgstr "Família"
+
+msgid "Friends"
+msgstr "Amigos"
+
+msgid "Old"
+msgstr "Antigo"
+
+msgid "Work"
+msgstr "Trabalho"
+
+msgid "Call Forward All Activate"
+msgstr "Ativar Encaminhamento de Todas as Chamadas"
+
+msgid "Call Forward All Deactivate"
+msgstr "Desativar Encaminhamento de Todas as Chamadas"
+
+msgid "Call Forward All Prompting Deactivate"
+msgstr "Desativar Mensagem de Encaminhamento de Todas as Chamadas"
+
+msgid "Call Forward Busy Activate"
+msgstr "Ativar Encaminhamento de Chamadas Ocupadas"
+
+msgid "Call Forward Busy Deactivate"
+msgstr "Desativar Encaminhamento de Chamadas Ocupadas"
+
+msgid "Call Forward Busy Prompting Deactivate"
+msgstr "Desativar Mensagem de Encaminhamento de Chamadas Ocupadas"
+
+msgid "Call Forward No Answer/Unavailable Activate"
+msgstr "Ativar Encaminhamento de Chamadas Sem Resposta/Indisponíveis"
+
+msgid "Call Forward No Answer/Unavailable Deactivate"
+msgstr "Desativar Encaminhamento de Chamadas Sem Resposta/Indisponíveis"
+
+msgid "Call Waiting - Activate"
+msgstr "Espera de Chamada - Ativar"
+
+msgid "Call Waiting - Deactivate"
+msgstr "Espera de Chamada - Desativar"
+
+msgid "Do-Not-Disturb Activate"
+msgstr "Ativar Não Perturbe (DND)"
+
+msgid "Do-Not-Disturb Deactivate"
+msgstr "Desativar Não Perturbe (DND)"
+
+msgid "My Voicemail"
+msgstr "Meu Correio de Voz"
+
+msgid "Dial Voicemail"
+msgstr "Discar Correio de Voz"
+
+msgid "Call Monitor"
+msgstr "Monitoramento de Chamadas"
+
+msgid "One or more messages must be selected before clicking delete."
+msgstr "Uma ou mais mensagens precisam ser selecionadas antes de clicar apagar."
+
+#, php-format
+msgid "Path is not a directory: %s"
+msgstr "Caminho não é um diretório: %s"
+
+msgid "delete"
+msgstr "apagar"
+
+msgid "duration"
+msgstr "duração"
+
+msgid "ignore"
+msgstr "ignorar"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Time"
+msgstr "Horário"
+
+msgid "Caller ID"
+msgstr "Identificação da Chamada"
+
+msgid "Source"
+msgstr "Origem"
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Context"
+msgstr "Contexto"
+
+msgid "Duration"
+msgstr "Duração"
+
+msgid "Monitor"
+msgstr "Monitoraramento"
+
+msgid "Play"
+msgstr "Reproduzir"
+
+msgid "Download"
+msgstr "Baixar"
+
+#, php-format
+msgid "Call Monitor for %s (%s)"
+msgstr "Chamar Monitoramento para %s (%s)"
+
+msgid "select"
+msgstr "selecionar"
+
+msgid "all"
+msgstr "todos"
+
+msgid "none"
+msgstr "nenhum"
+
+msgid "Only deletes recording files, not cdr log"
+msgstr "Somente apagar arquivos de gravação, não histórico de chamadas"
+
+msgid "Feature Codes"
+msgstr "Códigos de Facilidades"
+
+#, php-format
+msgid " for %s (%s)"
+msgstr " para %s (%s)"
+
+msgid "Handset Feature Code"
+msgstr "Código de Facilidade do Aparelho"
+
+msgid "Action"
+msgstr "Ação"
+
+msgid "description"
+msgstr "descrição"
+
+msgid "Follow Me"
+msgstr "Siga-Me"
+
+msgid "Your Follow-Me has been disabled, REFRESH your browser to remove this message"
+msgstr "Seu Siga-Me foi desativado, RECARREGUE seu navegador para remover esta mensagem"
+
+#, php-format
+msgid "Check with your Telephone System Administrator if you think there is a problem"
+msgstr "Verifique com o seu Administrador do Sistema de Telefonia se você acha que há um problema"
+
+msgid "Follow-Me pre-ring time not changed"
+msgstr "Tempo de pré-toque do Siga-Me não alterado"
+
+#, php-format
+msgid "Number %s must be an integer number of seconds"
+msgstr "Número %s deve ser um número inteiro de segundos"
+
+msgid "Follow-Me list ring time not changed"
+msgstr "Lista de toque do Siga-Me não alterado"
+
+msgid "Follow-Me list must contain at least one valid number"
+msgstr "Lista do Siga-Me deve conter no mínimo um número válido"
+
+#, php-format
+msgid "The following: %s is not valid"
+msgstr "O seguinte: %s não é válido"
+
+msgid "Enable"
+msgstr "Ativar"
+
+msgid ""
+"Dial-by-name Directory, IVR, and internal \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tcalls will ring the numbers in the FollowMe \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tList. Any IssabelPBX routes that directly \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\treference a FollowMe are unaffected by this \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tenable/disable setting."
+msgstr ""
+"Diretório Discar-por-nome, IVR, e ligações \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tinternas irão chamar os números na Lista do \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tSiga-me. Qualquer rota do IssabelPBX que diretamente \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\trelaciona um Siga-me não é afetada por este \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tajuste de ativar/desativar."
+
+msgid "Follow Me List:"
+msgstr "Lista de Siga-Me"
+
+#, php-format
+msgid "Extensions and outside numbers to ring next."
+msgstr "Extensões e números externos para chamar em seguida."
+
+#, php-format
+msgid "Include %s to keep it ringing."
+msgstr "Incluir %s para continuar chamando."
+
+#, php-format
+msgid "Ring %s First For:"
+msgstr "Chamar %s Primeiro Para:"
+
+#, php-format
+msgid "Time to ring extension %s before ringing the %s Follow Me List %s"
+msgstr "Tempo para chamar extensão %s antes de chamar o %s Lista Siga-Me %s"
+
+msgid "seconds"
+msgstr "segundos"
+
+msgid "Ring Followme List for:"
+msgstr "Chamar Lista Siga-Me para:"
+
+msgid "Time to ring the Follow Me List."
+msgstr "Tempo para chamar a Lista Siga-Me."
+
+msgid "Use Confirmation:"
+msgstr "Usar Confirmação:"
+
+msgid "Outside lines that are part of the Follow Me List will be called and offered a menu:<br/><br/> \"You have an incoming call. Press 1 to accept or 2 to decline.\"<br/><br/> This keeps calls from ending up in external voicemail. Make sure that the List Ring Time is long enough to allow for you to hear and react to this message."
+msgstr "Linhas externas que fazem parte da Lista Siga-Me serão chamadas e oferecido um menu:<br/><br/> \"Você tem uma ligação. Pressione 1 para aceitar ou 2 para recusar.\"<br/><br/> Isso impede que chamadas terminam no correio de voz externo. Tenha certeza que o Tempo de Chamada da Lista é longo o suficiente para pertmitir que você ouça e responda a essa mensagem."
+
+msgid "Followme Settings"
+msgstr "Configurações do Siga-Me"
+
+#, php-format
+msgid "Followme Settings for %s (%s)"
+msgstr "Configurações do Siga-Me para %s (%s)"
+
+msgid "Update"
+msgstr "Atualizar"
+
+msgid "Phone Features"
+msgstr "Propriedades do Telefone"
+
+msgid "Call Waiting"
+msgstr "Chamada em Espera"
+
+msgid "Do Not Disturb"
+msgstr "Não Perturbe (DND)"
+
+msgid "Call Forwarding"
+msgstr "Encaminhamento de Chamada"
+
+msgid "Unconditional:"
+msgstr "Incondicional:"
+
+msgid "Unavailable:"
+msgstr "Indisponível:"
+
+msgid "Busy:"
+msgstr "Ocupado:"
+
+#, php-format
+msgid "Phone Features for %s (%s)"
+msgstr "Propriedades do Telefone para %s (%s)"
+
+msgid "Call forward number not changed"
+msgstr "Número de encaminhamento de chamada não alterado"
+
+#, php-format
+msgid "Number %s must contain dial numbers (characters like '(', '-', and ')' are ok)"
+msgstr "Número %s deve conter números de discagem (caracteres como '(', '-', e ')' são permitidos)"
+
+msgid "Call Screening:"
+msgstr "Apresentação de Chamada"
+
+msgid "Call Screening requires external callers to say their name, which will be played back to the user and allow the user to accept or reject the call.  Screening with memory only verifies a caller for their caller-id once. Screening without memory always requires a caller to say their name. Either mode will always announce the caller based on the last introduction saved with that callerid. If any user on the system uses the memory option, when that user is called, the caller will be required to re-introduce themselves and all users on the system will have that new introduction associated with the caller's CallerId."
+msgstr "Apresentação de Chamada requer que a pessoa ligando diga o nome dela, que será reproduzido para o usuário e permitirá que ele aceite ou rejeite a ligação. Aviso com memória somente verifica a identificação da pessoa que está chamando uma vez. Aviso sem memória sempre requer que a pessoa diga o nome dela. Qualquer um dos modos sempre anunciará o nome da pessoa chamando baseando-se na última apresentação gravada com a identificação. Se qualquer usuário no sistema usar a opção de memória, quando esse usuário é chamado, a pessoa chamando será requisitada a se apresentar novamente e todos os usuários no sistema terão essa nova apresentação associada com a identificação da pessoa que está chamando."
+
+msgid "Disable"
+msgstr "Desativar"
+
+msgid "Screen Caller: No Memory"
+msgstr "Apresentação de Chamada: Sem Memória"
+
+msgid "Screen Caller: Memory"
+msgstr "Apresentação de Chamada: Memória"
+
+msgid "CallForward Ringtimer:"
+msgstr "Ringtimer do Encaminhamento de Chamada:"
+
+msgid "Number of seconds to ring prior to going to voicemail or other fail over destinations that may be setup by an administrator on this account. The Always setting will ring the call forward destinaiton until answered or the caller hangs up. The Default setting will use the value set in Ring Time. Your setting here will be forced to Always if there is no Voicemail or alternartive fail over destination for a call to go to."
+msgstr "Número de segundos para tocar antes de ir para o correio de voz ou outro destino de escape que pode ser configurado por um administrador desta conta. O ajuste Sempre irá tocar o destino de encaminhamento da ligação até que seja atendido ou a pessoa que está ligando desligue. O ajuste Padrão usará o valor configurado em Tempo de Toque. Sua configuração aqui será forçada para Sempre se não houver Correio de voz ou outro destino de escape para onde a ligação deva ir."
+
+msgid "Ringtimer:"
+msgstr "Ringtimer:"
+
+msgid "Number of seconds to ring prior to going to voicemail or ringing other numbers that may be configured such as a Call Forward Unavailabe or an Unavailable destination that may be configured by your administrator. The Default setting will use the value set for the PBX."
+msgstr "Número de segundo para tocar antes de ir para correio de voz ou tocar outros números que tenham sido configurados como Encaminhamando de Chamada Indisponível ou um destino Indisponível que tenha sido configurados pelo seu administrador. A configuração Padrão irá usar o valor ajustado para o PBX."
+
+msgid "Default"
+msgstr "Padrão"
+
+msgid "Always"
+msgstr "Sempre"
+
+msgid "Attach voicemail to email"
+msgstr "Anexar correio de voz ao email"
+
+msgid "Option to attach audio file to email."
+msgstr "Opção para anexar arquivo de áudio ao email."
+
+msgid "Number of deleted messages to backup"
+msgstr "Número de mensagens apagadas para fazer cópia de segurança"
+
+msgid "The maximum number of messages that are backed up in the Deleted folder. This may be 0-9999."
+msgstr "O máximo número de mensagens que são armazenadas no backup na pasta Apagado . Pode ser 0-9999."
+
+msgid "Delete voicemail after emailed"
+msgstr "Apagar correio de voz após ser enviado por email"
+
+msgid "When enabled the message will be deleted from the voicemailbox after the notification email is sent. This allows receiving voicemail via email alone, rather than having the voicemail available from the Web interface or by telephone. CAUTION: Attach voicemail to email must be enabled, OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER."
+msgstr "Quando ativado a mensagem será apagada da pasta de correio de voz após o envio do email de notificação. Isso permite receber correio de voz por email somente, ao invés de ter o correio de voz disponível pela interface Web ou pelo telefone. CUIDADO: Anexar correio de voz ao email deve estar habilitado, CASO CONTRÁRIO SUAS MENSAGENS SERÃO PERDIDAS PARA SEMPRE."
+
+msgid "Say envelope (date/time)"
+msgstr "Ditar envelope (data/horário)"
+
+msgid "When enabled the voicemail system will play the message envelope (date/time) before playing the voicemail message. This setting does not affect the operation of the envelope option in the advanced voicemail menu."
+msgstr "Quando ativado o sistema de correio de voz irá reproduzir o envelope da mensagem (data/hora) antes de reproduzir a mensagem de correio de voz. Esta configuração não afeta a operação da opção de envelope no menu avançado de correio de voz."
+
+msgid "Maximum number of messages"
+msgstr "Número máximo de mensagens"
+
+msgid "Maximum number of messages per folder. It may be up to 9999. The default value is 100."
+msgstr "Número máximo de mensagens por pasta. Pode ser até 9999. O padrão é 100."
+
+msgid "Maximum message length"
+msgstr "Tamanho máximo da mensagem"
+
+msgid "Maximum length allowed for a voicemail message (in seconds)."
+msgstr "Tamanho máximo permitido para mensagem de correio de voz (em segundos)."
+
+msgid "Move heard messages"
+msgstr "Mover mensagens ouvidas"
+
+msgid "Automatically move heard messages to the Old folder."
+msgstr "Mover automaticamente mensagens ouvidas para a pasta Antigo."
+
+msgid "Review recording"
+msgstr "Rever gravação"
+
+msgid "Allow caller to review their voicemail before saving it."
+msgstr "Permitir à pessoa que ligou rever a mensagem de correio de voz antes de gravá-la."
+
+msgid "Say caller ID"
+msgstr "Ditar a identificação da pessoa que ligou"
+
+msgid "After announcing the message date and time, play back the caller's telephone number before each message."
+msgstr "Após anunciar a data e hora da mensagem, reproduzir a identificação do telefone da pessoa que está ligando antes de cada mensagem."
+
+msgid "Say duration"
+msgstr "Ditar duração"
+
+msgid "Announce the message duration before playing the message."
+msgstr "Anunciar a duração da mensagem antes de reproduzir a mensagem."
+
+msgid "Say duration minimum"
+msgstr "Ditar duração mínima"
+
+msgid "Do not announce message duration for messages shorter than this number of minutes."
+msgstr "Não anunciar a duração da mensagem para mensagens menores que essa quantidade de minutos."
+
+msgid "Email from"
+msgstr "Email de"
+
+msgid "Who the e-mail notification should appear to come from."
+msgstr "A partir de quem o email de confirmação deve aparentar ter sido enviado."
+
+msgid "Temporary greeting warning"
+msgstr "Aviso de saudação temporária"
+
+msgid "Warn user when a temporary greeting is active."
+msgstr "Avisar usuário quando saudação temporária estiver ativa."
+
+msgid "Change attachment volume"
+msgstr "Alterar o volume do anexo"
+
+msgid "Change volume of message before attaching it to an email. Values less than 1.0 decrease volume, greater than 1.0 increase volume."
+msgstr "Alterar o volume da mensagem antes de anexá-la ao email. Valores menores que 1.0 baixam o volume, maiores que 1.0 aumentam o volume."
+
+msgid "Settings"
+msgstr "Configurações"
+
+msgid "Voicemail password not changed"
+msgstr "Senha de correio de voz não alterada"
+
+msgid "Password and password confirm must not be blank"
+msgstr "Senha e confirmação de senha não podem ser vazias"
+
+#, php-format
+msgid "Passwords must be all numbers and greater than %d digits"
+msgstr "Senhas devem conter apenas números e mais do que %d dígitos"
+
+#, php-format
+msgid "Passwords must be all numbers and only %d digits"
+msgstr "Senhas devem conter apenas números e somente %d dígitos"
+
+msgid "Password and password confirm do not match"
+msgstr "Senha e confirmação de senha não correspondem"
+
+#, php-format
+msgid "%s does not exist or is not writable"
+msgstr "%s não existe ou não pode ser editado"
+
+msgid "Voicemail email and pager address not changed"
+msgstr "Configurações de envio de correio de voz por email e endereço pager não alteradas"
+
+msgid "Voicemail email settings not changed"
+msgstr "Configurações de envio de correio de voz por email não alteradas"
+
+msgid "Language:"
+msgstr "Idioma:"
+
+#, php-format
+msgid "Passwords must be all numbers and only %s digits"
+msgstr "Senhas devem conter apenas números e somente %s dígitos"
+
+#, php-format
+msgid "Passwords must be all numbers and at least %s digits"
+msgstr "Senhas devem conter apenas números e no mínimo %s dígitos"
+
+msgid "Password Settings"
+msgstr "Configurações de Senha"
+
+msgid "Voicemail Password:"
+msgstr "Senha de Correio de voz:"
+
+msgid "Enter again to confirm:"
+msgstr "Digite novamente para confirmar:"
+
+msgid "Email Address:"
+msgstr "Endereço de Email:"
+
+msgid "Email a notification, including audio file if indicated below."
+msgstr "Enviar por email uma notificação, incluindo o arquivo de áudio se indicado abaixo."
+
+msgid "Pager Email Address:"
+msgstr "Endereço de Email de Pager:"
+
+msgid "Email a short notification"
+msgstr "Enviar por email notificação curta"
+
+msgid "Call Me Number:"
+msgstr "Número Ligue Me:"
+
+msgid "Call Me Number can be any dialable number, such as an extension or a cellphone."
+msgstr "Número Ligue Me pode ser qualquer número discável, como uma extensão ou um celular."
+
+msgid "Audio Format:"
+msgstr "Formato de Áudio:"
+
+msgid "Best Quality"
+msgstr "Melhor Qualidade"
+
+msgid "Smallest Download"
+msgstr "Menor Downalod"
+
+msgid "Notification Settings"
+msgstr "Configurações de Notificação"
+
+msgid "Web Playback Settings"
+msgstr "Configurações de Reprodução via Web"
+
+msgid "Phone Playback Settings"
+msgstr "Configurações de Reprodução via Fone"
+
+msgid "Caller Settings"
+msgstr "Configurações da Pessoa que Liga"
+
+msgid "Mailbox Storage Settings"
+msgstr "Configurações de Armazenamento de Mensagens"
+
+msgid "IMAP Mail Settings"
+msgstr "Configurações de Mensagens IMAP"
+
+msgid "Other Voicemail Settings"
+msgstr "Outras Configurações de Correio de voz"
+
+msgid "Call Monitor Settings"
+msgstr "Configurações de Monitoramento de Chamadas"
+
+msgid "Record INCOMING:"
+msgstr "Gravar RECEBIDA:"
+
+msgid "Never"
+msgstr "Nunca"
+
+msgid "On-Demand"
+msgstr "Sob-Demanda"
+
+msgid "Record OUTGOING:"
+msgstr "Gravar REALIZADA:"
+
+#, php-format
+msgid "Settings for %s (%s)"
+msgstr "Configurações para %s (%s)"
+
+msgid "VmX&#8482 Locator"
+msgstr "Localizador VmX&#8482"
+
+msgid "Your Premium VmX Locator service has been disabled, REFRESH your browser to remove this message"
+msgstr "Seu Localizador VmX Premium foi desativado, RECARREGUE seu navegador para remover esta mensagem"
+
+msgid "Option 0 not changed"
+msgstr "Opção 0 não alterada"
+
+msgid "Option 1 not changed"
+msgstr "Opção 1 não alterada"
+
+msgid "Option 2 not changed"
+msgstr "Opção 2 não alterada"
+
+msgid "Use When:"
+msgstr "Usar Quando:"
+
+msgid "Menu options below are available during your personal voicemail greeting playback. <br/><br/>Check both to use at all times."
+msgstr "Opções de menu abaixo estão disponíveis durante a reprodução da sua mensagem pessoal de bem vindo do correio de voz. <br/><br/>Marque ambos para usar sempre."
+
+msgid "unavailable"
+msgstr "indisponível"
+
+msgid "busy"
+msgstr "ocupado"
+
+msgid "Voicemail Instructions:"
+msgstr "Instruções de Correio de voz:"
+
+msgid "Uncheck to play a beep after your personal voicemail greeting."
+msgstr "Desmarque para tocar um bipe após sua mensagem pessoal de bem vindo do correio de voz."
+
+msgid "Standard voicemail prompts."
+msgstr "Instruções padrão de correio de voz"
+
+msgid "Press 0:"
+msgstr "Pressione 0:"
+
+msgid ""
+"Pressing 0 during your personal voicemail greeting goes to the Operator. \n"
+"\t\t\t\t\tUncheck to enter another destination here."
+msgstr ""
+"Pressinar 0 durante sua mensagem pessoal de bem vindo do correio de voz vai para o Operador. \n"
+"\t\t\t\t\tDesmarque para inserir outro destino aqui."
+
+msgid "Go To Operator"
+msgstr "Vai Para Operador"
+
+msgid "Press 1:"
+msgstr "Pressione 1:"
+
+msgid "The remaining options can have internal extensions, ringgroups, queues and external numbers that may be rung. It is often used to include your cell phone. You should run a test to make sure that the number is functional any time a change is made so you don't leave a caller stranded or receiving invalid number messages."
+msgstr "As opções restantes podem ter extensões internas, grupos de toque, filas e números externos que podem ser chamados. É comum incluir seu telefone celular. Você deve fazer um teste para ter certeza que o número está funcionando toda vez que uma mudança for feita, para que você não deixe a pessoa que está ligando encalhada ou recebendo mensagens de número inválido."
+
+msgid "Enter an alternate number here, then change your personal voicemail greeting to let callers know to press 1 to reach that number. <br/><br/>If you'd like to use your Follow Me List, check \"Send to Follow Me\" and disable Follow Me above."
+msgstr "Insira um número alternativo aqui, então altere sua mensagem pessoal de boa vinda de correio de voz para permitir à pessoa que está ligando pressionar 1 para obter aquele número. <br/><br/>Se você quiser usar sua Lista Siga-Me, marque \"Mandar para Siga-Me\" e desabilite Siga-Me acima."
+
+msgid "Send to Follow-Me"
+msgstr "Envie para Siga-Me"
+
+msgid "Press 2:"
+msgstr "Pressione 2:"
+
+msgid "Use any extensions, ringgroups, queues or external numbers. <br/><br/>Remember to re-record your personal voicemail greeting and include instructions. Run a test to make sure that the number is functional."
+msgstr "Use qualquer extensão, grupo de toque, fila ou número externo. <br/><br/>Lembre-se de regravar sua mensagem pessoal de bem vindo de correio de voz e de incluir instruções. Faça um teste para ter certeza de que o número é funcional."
+
+#, php-format
+msgid "VmX Locator&#8482; Settings for %s (%s)"
+msgstr "Localizador VmX&#8482; Configurações para %s (%s)"
+
+msgid "Voicemail"
+msgstr "Correio de voz"
+
+msgid "A folder must be selected before the message can be moved."
+msgstr "Uma pasta precisa ser selecionada antes que a mensagem possa ser movida."
+
+msgid "One or more messages must be selected before clicking move_to."
+msgstr "Uma ou mais mensagens devem ser selecionadas antes de clicar mover_para."
+
+msgid "An extension must be selected before the message can be forwarded."
+msgstr "Uma extensão deve ser selecionada antes que a mesnagem possa ser encaminhada."
+
+msgid "One or more messages must be selected before clicking forward_to."
+msgstr "Uma ou mais mensagens precisam ser selecionadas antes de clicar em encaminhar_para."
+
+msgid "You must enter one or more email addresses (comma-separated) before clicking email_to."
+msgstr "Você deve digitar um ou mais endereços de email (separados por vírgula) antes de clicar email_para."
+
+msgid "Warning: "
+msgstr "Aviso:"
+
+msgid "is not a valid email address"
+msgstr "não é um endereço válido de email"
+
+msgid "The file type was not recognized."
+msgstr "O tipo de arquivo não foi reconhecido."
+
+msgid "Warning: Could not access voicemail.conf.  Using default mailer."
+msgstr "Aviso: Não foi possível acessar voicemail.conf. Usando serviço de correio padrão."
+
+msgid "Mail operation failed"
+msgstr "Operação de correio falhou"
+
+msgid "No valid email address given.  Please try again."
+msgstr "Não fornecido endereço de email válido. Por favor tente de novo."
+
+msgid "One or more messages must be selected before clicking email_to."
+msgstr "Uma ou mais mensagens precisam ser selecionadas antes de clicar em email_para."
+
+msgid "move_to"
+msgstr "mover_para"
+
+msgid "Folder"
+msgstr "Pasta"
+
+msgid "forward_to"
+msgstr "encaminhar_para"
+
+msgid "email_to"
+msgstr "email_para"
+
+msgid "Priority"
+msgstr "Prioridade"
+
+msgid "Orig Mailbox"
+msgstr "Pasta de correio Orig"
+
+msgid "Playback"
+msgstr "Reproduzir"
+
+msgid "Play message at: "
+msgstr "Reproduzir mensagem em:"
+
+msgid "Voicemail recording(s) was not found."
+msgstr "Gravação(ões) de Correio de voz não encontrada(s)."
+
+#, php-format
+msgid "On settings page, change voicemail audio format.  It is currently set to %s"
+msgstr "Na página de configurações, mude o formato de áudio do correio de voz.  Atualmente está configurado para %s"
+
+msgid "Voicemail Login not found."
+msgstr "Cadastro de Correio de voz não encontrado."
+
+msgid "No access to voicemail"
+msgstr "Sem acesso ao correio de voz"
+
+msgid "No Voicemail Recordings for Admin"
+msgstr "Sem gravação de correio de voz para Admin"
+
+#, php-format
+msgid "Voicemail for %s (%s)"
+msgstr "Correio de voz para %s (%s)"
+
+msgid "Calling: "
+msgstr "Chamando:"
+
+msgid ". Please wait patiently..."
+msgstr ". Por favor aguarde pacientemente..."
+
+#, php-format
+msgid "Could not create mailbox folder %s on the server"
+msgstr "Não foi possível criar a pasta de correio %s no servidor"
+
+#, php-format
+msgid "Permission denied on folder %s or %s"
+msgstr "Permissão negada na pasta %s ou %s"
+
+msgid "The call was terminated."
+msgstr "A ligação foi terminada."
+
+msgid "Folders"
+msgstr "Pastas"
+
+msgid "Original work based on ARI from Littlejohn Consulting"
+msgstr "Trabalho original baseado no ARI de Littlejohn Consulting"
+

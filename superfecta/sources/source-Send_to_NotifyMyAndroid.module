@@ -1,0 +1,50 @@
+<?php
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Send_to_NotifyMyAndroid dev notes:
+July 10, 2013		Initial commit by lgaetz
+July 11, 2014		Added urlencodes to $url, added support for muliple api keys
+
+There is a verify account available as well, before sending to the API it might be wise
+to first verify if the API is valid using a url of the form:
+	https://www.notifymyandroid.com/publicapi/verify?apikey=<api_key>
+valid keys will return this: 
+	<nma>
+	<success code="200" remaining="794" resettimer="50"/>
+	</nma>
+*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+
+class Send_to_NotifyMyAndroid extends superfecta_base {
+
+	public $description = "This source will send the CID number and the CID name to Notify My Android. You must register at notifymyandroid.com and get an API then install the ap and login on your Android device.";
+	public $version_requirement = "2.11";
+	public $source_param = array (
+		'API' => array(
+			'description' => 'Unique user API key from notifymyandroid.com. Separate multiple APIs with a comma.',
+			'type' => 'textarea',
+		)
+    );
+
+    function post_processing($cache_found, $winning_source, $first_caller_id, $run_param, $thenumber) {
+		if (($run_param['API'] != '') && ($first_caller_id != '')) {
+			$count = 0;
+			$apis=explode(',',$run_param['API']);
+			foreach ( $apis as $api ){
+				$count = $count+1;
+				$api=trim($api);
+				
+				if($api){
+					$url = "https://www.notifymyandroid.com/publicapi/notify?apikey=". $api ."&application=Superfecta&event=Incoming%20Call&description=Call%20from%20".urlencode($first_caller_id)."%20at%20".urlencode($thenumber);
+//					$this->DebugPrint("Sent to NotifyMyAndroid $url");
+					$this->DebugPrint("Sent to NotifyMyAndroid api#$count");
+					$value = $this->get_url_contents($url);
+					preg_match("/code=\"(.+?)\"/",$value,$match);
+					if ($match[1] == 200) {
+						$this->DebugPrint("NotifiyMyAndroid response api#$count: success");
+					} else {
+						$this->DebugPrint("NotifiyMyAndroid response api#$count: error");
+					}
+				}
+			}
+		}
+	}
+}

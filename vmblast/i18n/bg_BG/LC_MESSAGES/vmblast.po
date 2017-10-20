@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-05 01:45+0200\n"
+"Last-Translator: \n"
+"Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#, php-format
+msgid "Voicemail Group %s: %s"
+msgstr "Група на Гласова Поща %s: %s"
+
+msgid "Voicemail Group: "
+msgstr "Група на Гласова Поща:"
+
+msgid "Exclude"
+msgstr "Изключи"
+
+msgid "Include"
+msgstr "Включи"
+
+msgid "Default Group Inclusion"
+msgstr "Включване на ГП Разпращане Група По-Подразбиране"
+
+msgid "Default VMblast Group"
+msgstr "ГП Група По-Подразбиране"
+
+msgid ""
+"You can include or exclude this extension/user from being part of the "
+"default voicemail blast group when creating or editing. Choosing this option "
+"will be ignored if the user does not have a voicemail box."
+msgstr ""
+"Можете да включите или изключите този потребител/вътрешна линия от това да "
+"бъде част от ГП Разпращане групата по-подразбиране. Избирането на тази опция "
+"ще се игнорира ако потребителя няма кутия за гласова поща."
+
+msgid "Upgrading vmblast to add audio_label field.."
+msgstr "Обновяване ГП Разпращане за добавяне на audio_label поле.."
+
+msgid "Not Required"
+msgstr "Не се Изисква"
+
+msgid "Done"
+msgstr "Изпълнено"
+
+msgid "Upgrading vmblast to add password field.."
+msgstr "Обновяване ГП Разпращане за добавяне на поле за парола.."
+
+msgid "Dropping grplist.."
+msgstr "Премахване на grplist.."
+
+msgid "error populating vmblast_groups table"
+msgstr "грешка при полълване на vmblast_groups таблица"
+
+msgid "populated new table"
+msgstr ""
+
+msgid "Dropping old grplist field.."
+msgstr ""
+
+msgid "failed to drop field"
+msgstr "не мога да премахна поле"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Not Needed"
+msgstr "Не е Необходимо"
+
+msgid "Warning! Extension"
+msgstr "Внимание! Вътрешна Линия"
+
+msgid "is not allowed for your account"
+msgstr "не е разрешена за вашия акаунт"
+
+msgid "Add VMBlast Group"
+msgstr "Добави ГП Разпращане Група"
+
+msgid " [DEFAULT]"
+msgstr ""
+
+msgid "VMBlast Group"
+msgstr "ГП Разпращане Група"
+
+msgid "deleted"
+msgstr "изтрита"
+
+msgid "Delete Group"
+msgstr "Изтрий Групата"
+
+msgid "Conflicting Extensions"
+msgstr "Вътрешни Линии в Конфликт"
+
+msgid "Edit VMBlast Group"
+msgstr "Редактирай ГП Разпращане Група"
+
+msgid "VMBlast Number"
+msgstr "ГП Разпращане Група Номер"
+
+msgid "The number users will dial to voicemail boxes in this VMBlast group"
+msgstr ""
+"Номерът който потребителите ще избират за изпращане на гласово съобщение в "
+"тази ГП Разпращане Група."
+
+msgid "Group Description:"
+msgstr "Описание на Групата:"
+
+msgid "Provide a descriptive title for this VMBlast Group."
+msgstr "Дайте описващо наименование на тази ГП Разпращане Група"
+
+msgid "Audio Label:"
+msgstr "Определи Аудио:"
+
+msgid ""
+"Play this message to the caller so they can confirm they have dialed the "
+"proper voice mail group number, or have the system simply read the group "
+"number."
+msgstr ""
+"Възпроизвежда това съобщение на обаждащия се за да потвърдят, че са избрали "
+"правилния номер на група или просто продиктува номера на групата."
+
+msgid "Read Group Number"
+msgstr "Прочети Номера на Групата"
+
+msgid "Beep Only - No Confirmation"
+msgstr "Само бипкане - Без Потвърждение"
+
+msgid ""
+"The group number will be played to the caller so they can confirm they have "
+"dialed the proper voice mail group number.<br><br>You must install and "
+"enable the \"Systems Recordings\" Module to edit this option and choose from "
+"recordings."
+msgstr ""
+"Номерът на групата ще бъде продиктуван на обаждащите се за да потвърдят че "
+"са избрали правилния номер на група.<br><br>Трябва да сте инсталирали и "
+"разрешили Модул \"Системни Записи\" за да редактирате тази опция и да "
+"изберете запис."
+
+msgid "Optional Password"
+msgstr "Допълнителна Парола"
+
+msgid ""
+"You can optionally include a password to authenticate before providing "
+"access to this group voicemail list."
+msgstr ""
+"Допълнително можете да включите парола за оторизиране преди да се даде "
+"достъп до тази ГП Разпращане Група."
+
+msgid "Voicemail Box List:"
+msgstr "Списък на Кутии с Гласова Поща:"
+
+msgid ""
+"Select voice mail boxes to add to this group. Use Ctrl key to select "
+"multiple.."
+msgstr ""
+"Изберете кутиите на гласови пощи за добавяне в тази група. Изолзвайте Ctrl "
+"за избиране на няколко."
+
+msgid "Default VMBlast Group"
+msgstr "ГП Разпращане Група По-Подразбиране"
+
+msgid ""
+"Each PBX system can have a single Default Voicemail Blast Group. If "
+"specified, extensions can be automatically added (or removed) from this "
+"default group in the Extensions (or Users) tab.<br />Making this group the "
+"default will uncheck the option from the current default group if specified."
+msgstr ""
+"Всяка телефонна централа може да има по-една ГП Разпращане Група По-"
+"Подразбиране. Ако е определена, вътрешните лиии могат автоматично да бъдат "
+"добавяни (или премахвани) от тази група по-подразбиране в меню Вътрешни "
+"Линии (или Потребители).<br />Определянето на тази група да бъде по-"
+"подразбиране ще размаркира опцията от текущата група по-подразбиране."
+
+msgid "Submit Changes"
+msgstr "Приеми Промените"
+
+msgid "Invalid Group Number specified"
+msgstr "Неправилно определен Номер на Група."
+
+msgid "Group numbers with more than one digit cannot begin with 0"
+msgstr "Номерата на Групите с повече от една цифра не могат да започват с 0"
+
+msgid "Please enter an extension list."
+msgstr "Моля въведете списъка с вътрешни линии."
+
+msgid "Please enter a valid Group Description"
+msgstr "Моля въведете правилно Описание за Групата"
+
+msgid "Please enter a valid numeric password, only numbers are allowed"
+msgstr "Моля въведете правилна цифрова парола, само цифри са позволени."
+
+msgid "Please select at least one extension"
+msgstr "Моля въведете поне една вътрешна линия."
+
+msgid "Voicemail Blasting"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Creates a group of extensions that calls a group of voicemail boxes and "
+"allows you to leave a message for them all at once."
+msgstr ""
+
+#~ msgid "VoiceMail Blasting"
+#~ msgstr "Разпращане Гласова Поща"

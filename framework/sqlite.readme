@@ -1,0 +1,108 @@
+SQLite3 support
+---------------
+
+If you are reading this, you should be aware that the support for sqlite3 is not 
+perfect at the writing of this document. Many things are garanteed not to work, and 
+patches are more then welcome.
+
+This document speaks about SQLite3 on Debian Etch (version 3.3.8 or above), and not other versions. 
+SQLite2 is deprecated, since it contains a lot of unsupported syntax (or does not support some mysql 
+extensions widly used)
+
+
+1) Creating the initial tables
+------------------------------
+The first step will be creating a default "database" for issabelpbx to use. We cannot use the 
+standard newinstall.sql file, because of these reasons:
+
+a) Syntax for auto_increment is (for example)
+	  `id` integer NOT NULL PRIMARY KEY AUTOINCREMENT
+   ALL OTHER FORMS WILL NOT WORK. Note that this code is supported
+   by php5, but php4 does not like AUTOINCREMENT since it uses AUTO_INCREMENT.
+   Look at the install.php of the freePBX modules to see a work-around.
+b) Only  one primary key per table is supported
+c) ALTER is not supported (really? I am not sure)
+d) SUBSTRING is not supported
+e) enums are not supported
+
+There is a special sql file for sqlite3, which should be identical to the 
+standard file for mysql, execept of this changes:
+
+1) some tables use string instead of enums
+2) all integers are "int"
+3) strings are "varchar" and not other types
+
+
+To create the initial DB run this command:
+	cat newinstall.sqlite.sql | sqlite3 /var/lib/asterisk/issabelpbx.db
+
+
+2) Configuring issabelpbx to use sqlite3 instead of mysql
+------------------------------------------------------
+You will need to add 2 new entries in /etc/amportal.conf:
+
+	AMPDBENGINE=sqlite3
+	AMPDBFILE=/var/lib/asterisk/issabelpbx.db
+
+These new entries, will cause the following entries to be obsolete (you can safely remove them from amportal.conf/issabelpbx.conf):
+	AMPDBHOST
+	AMPDBUSER
+	AMPDBPASS
+	
+That's it. Be sure that apache (or whatever web server you are using) has
+write access to the sqlite3 databse file. Usually, these commands will be enough:
+
+	chown www-data.www-data /var/lib/asterisk/issabelpbx.db
+	chmod g+rw /var/lib/issabelpbx/issabelpbx.db
+
+You also must confirm that the web server has write access to the library
+as well:
+	chown www-data.www-data /var/lib/asterisk/
+	chmod g+rw /var/lib/asterisk/
+
+(Trixbox generally uses "asterisk" as the user for apache, so no special work is needed
+but this is will documented here)
+	
+That's it. 
+
+
+3) Moving back from sqlite3 back to mysql
+-----------------------------------------
+I will not discuss here about importing and exporting the data, since this should
+be pretty trivial. 
+
+You need to set AMPDBENGINE=mysql (or remark that line, as the default is to use 
+mysql as on AMP). Do not forget to set the variables to define the connection:
+	AMPDBHOST
+	AMPDBUSER
+	AMPDBPASS
+
+	
+4) Behind the scenes
+--------------------
+If you are not interested about how this work is been done, you may ignore the rest 
+of this document.
+
+One of the most important changes, is found in amp_conf/htdocs/admin/common/db_connect.php, were
+the creation of the database handle is created. If you are adding support for new connections
+this should be the first please to start coding.
+
+There are some queries which use unsupported features as well. Some can be found at 
+amp_conf/htdocs/admin/modules/core/functions.inc.php, core_trunks_list(). Special cases
+have been made, and the code has been fixed in PHP (istead of SQL)
+
+
+5) TODO
+-------
+a) as always, test, test, test....
+
+6) Contact
+----------
+If you have more questions, feel free to contact me, or post a message on the amportal-devel 
+mailing list.
+
+	amportal-devel@lists.sourceforge.net
+	diego.iastrubni@xorcom.com
+	
+	
+Diego 

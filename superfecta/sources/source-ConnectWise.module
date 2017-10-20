@@ -1,0 +1,202 @@
+<?php
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+ * Module Dev notes:
+ * 
+ * 
+ * Revision History: 
+ *    v0.1.0: Initial Release Version by myitguy
+ *    v0.1.1: Minor bug fix by bushbomb
+ *    v0.1.2: More bug fixes id'd by bushbomb
+ *    v0.1.3: Initial migration to 2.11 by lgaetz
+ *    2014-08-22  Added user param to set the API version in the URL
+ ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+
+class ConnectWise extends superfecta_base {
+
+	public $description = "Look up data in local or remote ConnectWise CRM.";
+	public $version_requirement = "2.11";
+	public $source_param = array(
+		'DB_Site' => array(
+				'description' => 'ConnectWise Site URL not including the initial https://',
+				'type' => 'text',
+		),
+		'DB_Company' => array(
+				'description' => 'ConnectWise Company ID',
+				'type' => 'text',
+		),
+		'DB_User' => array(
+				'description' => 'Integration Username to connect to ConnectWise.  This ID should have access to the Company, Contact and Reporting APIs',
+				'type' => 'text',
+		),
+		'DB_Password' => array(
+				'description' => 'Integration Password to connect to ConnectWise',
+				'type' => 'password',
+		),
+		'Search_Type' => array(
+				'description' => 'The ConnectWise type of entries that should be used to match the number',
+				'type' => 'select',
+				'option' => array (
+					'1' => 'Companies Only',
+					'2' => 'Contacts Only',
+					'3' => 'Companies --> Contacts',
+				),
+				'default' => '3',
+		),
+		'Filter_Length' => array(
+				'description' => 'The number of rightmost digits to check for a match. Enter zero to disable this setting',
+				'type' => 'number',
+				'default' => 10
+		),
+		'API_Version' => array(
+				'description' => 'The part of the URL excluding slashes following the host name that indicates the API version, e.g. "v2014_4" or "v4_6_release" (without quotes)',
+				'type' => 'text',
+				'default' => 'v2014_4',
+		),
+	);
+
+	function get_caller_id($thenumber, $run_param=array()) {
+		$caller_id = null;
+
+		$integration_site = $run_param['DB_Site'];
+		$integration_company = $run_param['DB_Company'];
+		$integration_user = $run_param['DB_User'];
+		$integration_password = $run_param['DB_Password'];
+		$varSearchType = $run_param['Search_Type'];
+		if ($run_param['API_Version']) {
+			$integration_apiver = $run_param['API_Version'];
+		} else {
+			$integration_apiver = 'v4_6_release';
+		}
+
+		$wquery_string = "";
+		$wquery_result = "";
+		$wresult_caller_name = "";
+		$timeout = 5;					// keeping this as is for now but it is probably not necessary. If timeout is req'd it should be a user setting
+
+		$this->DebugPrint("Searching ConnectWise ... ");
+		
+		if ($run_param['Filter_Length'] != 0) {
+			if (strlen($thenumber) > $run_param['Filter_Length']) $thenumber = substr($thenumber, -$run_param['Filter_Length']);  // keep only the filter_length rightmost digits
+		}
+
+		// Search Companies
+		if($run_param['Search_Type'] == 1 || $run_param['Search_Type'] == 3)  {
+			$this->DebugPrint("Searching Companies ... ");
+			$integration_xml = <<<EOT
+				<FindPartnerCompaniesAction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+				<CompanyName>$integration_company</CompanyName>
+				<IntegrationLoginId>$integration_user</IntegrationLoginId>
+				<IntegrationPassword>$integration_password</IntegrationPassword>
+				<Conditions>PhoneNumber like "$thenumber"</Conditions>
+				<OrderBy>CompanyID</OrderBy>
+				<Limit>1</Limit>
+				</FindPartnerCompaniesAction>
+EOT;
+			// Order of replacement
+			$order  = array("\r\n", "\n", "\r");
+			$replace = '';
+
+			// Processes \r\n's first so they aren't converted twice.
+			$integration_xml = str_replace($order, $replace, $integration_xml);
+
+			$url="https://$integration_site/$integration_apiver/services/system_io/integration_io.asmx/ProcessClientAction?actionString=".urlencode($integration_xml);
+			$ch = curl_init();
+			curl_setopt ($ch, CURLOPT_URL, $url);
+			curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+			$value = htmlspecialchars_decode(curl_exec($ch));
+			curl_close($ch);
+
+			$pattern = "/<CompanyName>(.*?)<\/CompanyName>/";
+			preg_match_all($pattern, $value, $matches);
+			if (count($matches[0])>1) {
+				$wresult_caller_name = $matches[0][1];
+			}
+			else
+			{
+				$this->DebugPrint("Not found in Companies ... ");
+			}
+		}
+
+		// Search Contacts
+		if($run_param['Search_Type'] == 2 || $run_param['Search_Type'] == 3 && $wresult_caller_name =="")  {
+			$this->DebugPrint("Searching Contacts ... ");
+		
+			$integration_xml = <<<EOT
+				<RunReportQueryAction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+				<CompanyName>$integration_company</CompanyName>
+				<IntegrationLoginId>$integration_user</IntegrationLoginId>
+				<IntegrationPassword>$integration_password</IntegrationPassword>
+				<ReportName>ContactCommunication</ReportName>
+				<Conditions>Contact_Communication_Desc like "$thenumber"</Conditions>
+				<Limit>1</Limit>
+				</RunReportQueryAction>
+EOT;
+			// Order of replacement
+			$order  = array("\r\n", "\n", "\r");
+			$replace = '';
+
+			// Processes \r\n's first so they aren't converted twice.
+			$integration_xml = str_replace($order, $replace, $integration_xml);
+
+			$url="https://$integration_site/$integration_apiver/services/system_io/integration_io.asmx/ProcessClientAction?actionString=".urlencode($integration_xml);
+			$ch = curl_init();
+			curl_setopt ($ch, CURLOPT_URL, $url);
+			curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+			$value = htmlspecialchars_decode(curl_exec($ch));
+			curl_close($ch);
+
+			$pattern = '/<Value Name="Contact_RecID" Type="Numeric" IsNullable="false">(.*?)<\/Value>/';
+			preg_match($pattern, $value, $match_ContactID);
+			if (count($match_ContactID)>0)  {
+				$integration_xml = <<<EOT
+					<FindPartnerContactsAction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+					<CompanyName>$integration_company</CompanyName>
+					<IntegrationLoginId>$integration_user</IntegrationLoginId>
+					<IntegrationPassword>$integration_password</IntegrationPassword>
+					<Conditions>ContactRecID = $match_ContactID[1]</Conditions>
+					<OrderBy>LastName</OrderBy>
+					<Limit>10</Limit>
+					</FindPartnerContactsAction>
+EOT;
+				// Order of replacement
+				$order  = array("\r\n", "\n", "\r");
+				$replace = '';
+
+				// Processes \r\n's first so they aren't converted twice.
+				$integration_xml = str_replace($order, $replace, $integration_xml);
+
+				$url="https://$integration_site/$integration_apiver/services/system_io/integration_io.asmx/ProcessClientAction?actionString=".urlencode($integration_xml);
+				$ch = curl_init();
+				curl_setopt ($ch, CURLOPT_URL, $url);
+				curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+				$value = htmlspecialchars_decode(curl_exec($ch));
+				curl_close($ch);
+
+				$pattern = "/<LastName>(.*?)<\/LastName>/";
+				preg_match($pattern, $value, $match_LastName);
+
+				$pattern = "/<FirstName>(.*?)<\/FirstName>/";
+				preg_match($pattern, $value, $match_FirstName);
+				if (count($match_LastName)>0 && count($match_FirstName)>0) {
+					$wresult_caller_name = $match_FirstName[1]." ".$match_LastName[1];
+				}
+			}
+			if ($wresult_caller_name =="")  {
+				$this->DebugPrint("Not found in Contacts ... ");
+			}
+		}
+
+		
+		if(strlen($wresult_caller_name) > 0) {
+			$caller_id = strip_tags($wresult_caller_name);
+		}
+		else if($debug) {
+			$this->DebugPrint("Not found in ConneceWise");
+		}
+		return $caller_id;
+	}
+}

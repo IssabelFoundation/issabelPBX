@@ -1,0 +1,402 @@
+
+XML-RPC is a "standard" (well, not yet exactly) for accessing remotely
+provided 'Web services'. More exactly it is just a complicated encoding
+standard for calling functions and procedures on a remote Web server
+(and getting its calculation or data request results of course).
+
+It is still in wide use for many interesting features like accessing
+database content, searching, data conversion, and so on. It started as
+a lightweight alternative to SOAP, which currently is more on the rise.
+While SOAP is much more bloated, also XML-RPC is not the quickest RPC
+format available, is not really standards-compliant (bogus specs over
+the time), and so has probably only a limited lifetime now.
+Therefore you should try to provide your services and access others`
+via vanilla HTTP requests (form or url encoding), when possible; use
+the "http.php" class for this.
+
+(There is also a faster PHP-RPC standard on the rise, which provides
+type-safe data transport over compressed and fast connections, without
+the encoding overhead and charset issues when using XML-RPC.)
+
+
+
+xmlrpc.php
+¯¯¯¯¯¯¯¯¯¯
+The 'xmlrpc.php' script implements the XML-RPC spec., but adds a few
+extensions, namely use of the (yet unregistered) "application/rpc+xml"
+MIME type and compressed HTTP transportation. It uses a builtin stupid
+XML parser (for the highly simplified XML-RPC message content) and thus
+is totally independent of any PHP extensions. It of course takes
+advantage of the XML extension where present (a lot faster), and it even
+can make use of Epinions XML-RPC extension for PHP (really fast than).
+
+It is mostly not object-oriented, but extremely easy to use for building
+XML-RPC servers or calling remote procedures.
+
+
+configuration
+¯¯¯¯¯¯¯¯¯¯¯¯¯
+There are a few constants and variables that the 'xmlrpc.php' script
+respects.
+
+XMLRPC_PLUS
+   If set to 1 enables use of the "application/rpc+xml" MIME type and
+   request compression per default (for server and client). In 2004
+   still not the recommended setting.
+
+XMLRPC_AUTO_TYPES
+   Allows the request encoder to automatically determine the <base64>
+   and <dateTime.iso8061> types, even if you just used them as scalar PHP
+   values. Otherwise you had to use 'new xmlrpc_base64("STrinG==")' and
+   'new xmlrpc_datetime("20001020T00:00:00")' to prepare such values.
+
+XMLRPC_AUTO_UTF8
+   Takes care of transforming the complete RPC messages into/from UTF-8,
+   what is useful if your scripts deal only with Latin1 and always expect
+   this. <base64> are also de/encoded if you set this constant to 2.
+
+XMLRPC_CHARSET
+   The whole script is currently optimized to produce UTF-8 and decode
+   requests from/into Latin-1 for your scripts.
+
+XMLRPC_FAST
+   Enables use of Epinions XML-RPC extension module for PHP automatically
+   where available. You only want to disable this for debugging purposes.
+
+XMLRPC_OO
+   Engages error result objects, else you had to use the two global vars
+   "$xmlrpc_error" and "$xmlrpc_errorstr" to detect such cases. If you
+   enable it you must however compare all xmlrpc_request() result values
+   against being an object (what does not happen for succeeded XML-RPC
+   requests).
+
+XMLRPC_AUTODISCOVERY
+   If you create a "xmlrpc" or "xmlrpc_connection" object and this is
+   enabled, you would get the object with function names of the
+   automatically instantiated methods of the remotely provided service
+   wrapped into one object (not yet), much like in the Python library
+   for xmlrpc.
+
+XMLRPC_LOG
+   Creates a log file for incoming requests to the _server() part of xmlrpc
+   (whenerver you activate it with the _server() call).
+
+
+There are also a few automatically defined values, which you shouldn't
+care about:
+
+XMLRPC_MIME
+   Contains the currently selected default MIME type for transport.
+XMLRPC_MIME_NEW
+   Contains the newer MIME type value. Do not change.
+XMLRPC_MIME_OLD
+   For compatibility with older XML-RPC clients and servers. Do not change.
+XMLRPC_ACCEPT
+   Again the MIME Types wrapped into a HTTP Accept: header for requests
+   and responses.
+XMLRPC_EPI
+   Tells if the Epinions extension is available.
+
+
+server configuration
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+$xmlrpc_methods[]
+   Every accessible method (for remote calls) must be defined here, for
+   use with the xmlrpc_server(). There is a separate section on this one.
+
+
+making xmlrpc() requests
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+You can call a remote procedure by just using the short xmlrpc() call
+syntax:
+
+  $result = xmlrpc("http://example.com/rpc.php", "the.function", 1, 2, 3);
+
+Where 1, 2 and 3 would be parameters to "the.function" on the remote server.
+The number of parameters is not limited, and you do not need to give one at
+all (if the remote procedure does not require them. The parameter values
+are automatically encoded into XML-RPC representations except for <base64>
+and <dateTime.iso8061> ones, for which you needed to create objects first.
+The $result of course recieved in ordinary PHP representation of the remote
+functions result value.
+
+
+       xmlrpc_request()
+       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+       Is basically the same as calling the xmlrpc() function, but that
+       all parameters given to the remote function are now to be passed
+       as array in the third parameter:
+
+         $params = array(  "param1", "param2", "param3"  );
+         $r = xmlrpc_request("server.com:80", "remoteMethod", $params);
+
+       Also a fourth parameter to xmlrpc_request (boolean) says if to
+       use the old XML-RPC or the faster XML+RPC interface. But beware,
+       that this could fail if you connect to an older server.
+
+
+       xmlrpc_connection
+       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+       You can also establish a 'connection' (this is purely virtual) to
+       a remote XML-RPC server, using a xmlrpc_connection object as follows:
+
+         $xc = new xmlrpc_connection("http://example.com/rpc.php");
+
+       Then you could regularily call remote functions on that server:
+
+         $result1 = $xc->call("function1");
+         $result2 = $xc->call("function2", 2, $result1, 0x5F02);
+
+       The xmlrpc_connection automatically chooses XML+RPC if available
+       with the remote server.
+
+
+       data types
+       ¯¯¯¯¯¯¯¯¯¯
+       Unless XMLRPC_AUTO_TYPES was enabled (discouraged, because this is
+       considered 'unreliable type guessing') you need to explicetely mark
+       parameters passed to the xmlrpc() or xmlrpc_request() calls for
+       their later XML-RPC type.
+
+       To do so, you have the two class types 'xmlrpc_datetime' and
+       'xmlrpc_base64' availabe. Use them as follows:
+
+          $param1 = new xmlrpc_base64(  base64_encode($string1)  );
+          $p2 = new xmlrpc_datetime(  time() + 60*60*24*7  );
+          $r = xmlrpc("www.server.com/rpc/", "function1", $param1, $p2);
+
+       Please note, that you needed to call base64_encode() yourself, and
+       that the _datetime() can also use standard Unix timestamps as input.
+
+       The XML-RPC <dateTime.iso8601> entites are, btw, automatically
+       converted into Unix timestamps, if returned as result from xmlrpc()
+       and xmlrpc_request() calls. This happens regardless of
+       XMLRPC_AUTO_TYPES.
+
+       If XMLRPC_AUTO_TYPES is set to 2, then even <base64> result values
+       would be automatically converted into their plain (binary) string
+       representation.
+
+
+       "Bugs"
+       ¯¯¯¯¯¯
+       pass-by-reference is not possible ;)
+
+
+
+xmlrpc_server() use
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+To make a set of functions available for remote calls, you would create
+an interface script and make its URL public. Assuming that you had a
+subdirectory "./myrpc" on your server, you would likely want to create 
+the file "./myrpc/index.php" with following content:
+
+   <?php
+
+      $xmlrpc_methods = array(
+         "myFunction",
+         "mySecondOne",
+      );
+ 
+      include("xmlrpc.php");
+      xmlrpc_server();
+   ?>
+
+So, by calling the xmlrpc_server() you make all registered functions
+($xmlrpc_methods) available with the URL "xml+rpc://example.com/myrpc/" for
+remote calls.
+
+
+       $xmlrpc_methods[]
+       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+       All function names you list in this array (before calling the
+       xmlrpc_server() function) will be available for remote calls. The
+       function names are mapped to remote method names by having the
+       _ underscore as alias the the . dot, which is commonly used. So a
+       function whose name was "tools_register" was available as remotely
+       callable method "tools_register" or "tools.register".
+
+       Also with xmlrpc_server() it is possible to register member methods
+       of object classes as remotely callable methods. All you needed to
+       do is list your class in $xmlrpc_methods[].
+
+       You can also give aliases, both for function names and for object
+       classes:
+
+          $xmlrpc_methods["callable.methodname"] = "here_function_name";
+          $xmlrpc_methods["section"] = "here_class_name";
+
+       The member methods of a class cannot be aliased however.
+
+
+       xmlrpc_server()
+       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+       Just fetches the current request, decodes it and executes the
+       destination method (PHP function) if listed in the global
+       $xmlrpc_methods[] variable.
+
+       It automatically exits after sending the response or an error. So
+       this is the last command in your xmlrpc wrapper script.
+
+
+       xmlrpc_fetch_post_chunk()
+       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+       Begs PHP for the complete POST data stream. It only has two options
+       to do so and may fail with some Webservers and earlier PHP versions.
+       In either case try to set the "always_populate_raw_post_data" option
+       in php.ini or from within a .htaccess file.
+
+       To allow the server part to receive the XML-RPC message, you either
+       need PHP 4.3 or later, or configure your PHP interpreter specifically
+       to pass in the POSTed data stream. In you php.ini ([PHP] section) add:
+
+         always_populate_raw_post_data = 1
+
+       Or following in a .htaccess per-dir configuration
+       file for Apache:
+
+         php_option always_populate_raw_post_data=1
+
+
+       xmlrpc_send_response()
+       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+       Is called from within xmlrpc_server() to send the response for the
+       processed request (also sends error responses).
+
+
+       xmlrpc_error()
+       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+       Creates a XML-RPC error result array.
+
+
+
+---------------------------------------------------------------------------
+internals
+---------------------------------------------------------------------------
+Unless you are interrested in an in-deep discussion of the "xmlrpc.php"
+you should effectively stop reading here.
+
+
+xmlrpc data representation encoders
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+This lib uses the simple xml2array() compact format to do the initial work
+of converting a XML file into an array representation. Various design
+restrictions of the XML-RPC message format then impose certain structures
+inside of the xml2array-compact representation, what is taken adavantage of.
+
+For example <struct> entries have in the compact representation sub-elements
+like ["member,0"], ["member,1"], ["member,2"] and so on. Each of which then
+has two sub elements: ["name,0"] and ["value,1"].
+
+The XML-RPC <array> instead had one ["data,0"] with sub-arrays of
+["value,0"], ["value,1"], ["value,2"] and so on, which would be recursively
+feed through:
+
+
+      xmlrpc_decode_value()
+      ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+      Makes a PHP representation of a part (one must start it with the
+      content of a ["value,0"]) from a xml2array()-compact representation
+      made out of a XML-RPC message.
+
+
+      xmlrpc_compact_value()
+      ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+      Converts a PHP array or scalar variable into an array suitable for
+      transformation into a XML-RPC message string using the array2xml()
+      function then.
+
+
+
+generic functions
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+The xml2array() and array2xml() functions are stupid XML parsers and
+probably only suitable for XML-RPC messages.
+
+
+       xml2array()
+       ¯¯¯¯¯¯¯¯¯¯¯
+       Can decode a SimplifiedXML document into an array structure - and this
+       in two formats. Internall xml+rpc uses only the so called "$compact
+       format". If we had a XML document like the following:
+
+       <xml>
+         <more> <string> String </string>
+         </more>
+         <more> <string> String2 </string>
+                <int>5</int>
+         </more>
+       </xml>
+
+       It would return for the $compact=1 format, something like:
+
+       array(
+          "xml,0" => array(
+             "more,0" => array(
+                "string,0" = array(
+                   ",0" => " String "
+                )
+             )
+             "more,1" => array(
+                "string,0" = array(
+                   ",0" => " String2 "
+                ),
+                "int,1" = array(
+                   ",0" => 5
+                )
+             )
+          )
+       );
+
+       Where every tagname had a ","+NUMBER suffix, and text nodes would
+       start with the comma. The numbers are always counted up in each
+       nesting level from 0, regardless if it counted text or tag nodes.
+
+       The not-compact format would hold another subarray to denote a deeper
+       level tag node, but leave the text nodes as entries into the ordering
+       array level. This was more suitable for XML like files, where you had
+       mixed text and tag nodes in a level. For example:
+
+       <html>
+          string1
+          <b>string2</b>
+       </html>
+
+       Would become in the not-compact format:
+
+       array(
+          0 => array(
+             "html" => array(
+                0 => "\n   string1\n   "
+                1 => array(
+                   "b" => array(
+                       0 => "string2",
+                   )
+             )
+          )
+       )
+
+
+       array2xml()
+       ¯¯¯¯¯¯¯¯¯¯¯
+       Regenerates a XML stream from an array structure like the one emitted
+       by xml2array().
+
+
+other functions
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+If you want a different behaviour, you might want to alter one of
+the following functions.
+
+
+      xmlrpc_method_call()
+      ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+      Is responsible in the _server() part for invoking the requested
+      function. It does so by using the $xmlrpc_methods[] array as mapping
+      to the PHP functions to activate.
+
+      If you would like to have a better mapping support, or even to add
+      parameter type and number checking, then this is where you would
+      want to start editing the code.
+
+

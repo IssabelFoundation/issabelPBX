@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-06 14:51+0100\n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+#, php-format
+msgid "Language: %s"
+msgstr "Lingua: %s"
+
+msgid "Language"
+msgstr "Lingua"
+
+msgid "Please enter a valid Language Code"
+msgstr "Prego immettere un Codice Lingua valido"
+
+msgid "Language Code"
+msgstr "Codice Lingua"
+
+msgid ""
+"This will cause all messages and voice prompts to use the selected language "
+"if installed."
+msgstr ""
+"Il codice lingua utilizzato da questo utente. I messaggi saranno riprodotti "
+"nella lingua impostata se nel sistema sono installati i file audio specifici."
+
+msgid "Allows you to set the language for this DID."
+msgstr ""
+
+#, php-format
+msgid "Language Change: %s"
+msgstr "Cambia Lingua: %s"
+
+msgid "Languages"
+msgstr "Lingue"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Adds the ability to changes the language within a call flow and add language "
+"attribute to users."
+msgstr ""
+
+msgid "Add Language"
+msgstr "Aggiungi Lingua"
+
+msgid "Edit: "
+msgstr "Modifica: "
+
+msgid ""
+"Languages allow you to change the language of the call flow and then "
+"continue on to the desired destination. For example, you may have an IVR "
+"option that says \"For French Press 5 now\". You would then create a French "
+"language instance and point it's destination at a French IVR. The language "
+"of the call's channel will now be in French. This will result in French "
+"sounds being chosen if installed."
+msgstr ""
+"Il modulo Lingue permette di cambiare la lingua durante la chiamata in corso "
+"e continuare con la destinazione desiderata. Per esempio, si potrebbe avere "
+"un IVR con l'opzione \"Premere 5 per la lingua francese\". Da quel momento "
+"in poi la lingua del canale diventerà francese e saranno utilizzati i suoni "
+"in francese se sono installati nel sistema."
+
+msgid "Edit Language Instance"
+msgstr "Modifica Istanza Lingua"
+
+msgid "Add Language Instance"
+msgstr "Aggiungi Istanza Lingua"
+
+msgid "Description"
+msgstr "Descrizione"
+
+msgid ""
+"The descriptive name of this language instance. For example \"French Main IVR"
+"\""
+msgstr ""
+"La descrizione per questa istanza. Per esempio \"IVR Principale Francese\""
+
+msgid ""
+"The Asterisk language code you want to change to. For example \"fr\" for "
+"French, \"de\" for German"
+msgstr ""
+"Il codice lingua di Asterisk che volete cambiare. Per esempio \"fr\" per "
+"Francese, \"de\" per Tedesco"
+
+msgid "Destination"
+msgstr "Destinazione"
+
+msgid "Submit Changes"
+msgstr "Conferma Cambiamenti"
+
+msgid "Delete"
+msgstr "Elimina"
+
+msgid "Invalid description specified"
+msgstr "Descrizione specificata non valida"

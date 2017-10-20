@@ -1,0 +1,93 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright 2009, Marcelo Araujo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-05-11 20:09-0300\n"
+"Last-Translator: Marcelo Araujo <marcelo.araujo@voffice.com.br>\n"
+"Language-Team: midiVTS team <team@midivts.org.br>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Feature Code Admin"
+msgstr "Administrador do Códigos de Facilidades"
+
+msgid "Admin"
+msgstr ""
+
+msgid "Feature Codes"
+msgstr "Códigos de Facilidades"
+
+msgid "Featurecode: "
+msgstr "Código de facilidade:"
+
+msgid "featuredescription"
+msgstr "descrição da facilidade"
+
+msgid ""
+"You have feature code conflicts with extension numbers in other modules. "
+"This will result in unexpected and broken behavior."
+msgstr ""
+"Você tem um código de facilidade que conflita com os números de extensão nos "
+"outros módulos. Isto irá resultar em um comportamento errado inesperado."
+
+msgid "Feature Code Conflicts with other Extensions"
+msgstr "Código de Facilidade conflita com outras extensões"
+
+msgid "Use"
+msgstr "Usar"
+
+msgid "Default"
+msgstr "Padrão"
+
+msgid "Feature"
+msgstr "Facilidade"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "moduledescription"
+msgstr "descrição do módulo"
+
+msgid "Disabled"
+msgstr "Desabilitado"
+
+msgid "Enabled"
+msgstr "Habilitado"
+
+msgid "Submit Changes"
+msgstr "Submeter mudanças"
+
+msgid ""
+"Please enter a Feature Code or check Use Default for all Enabled Feature "
+"Codes"
+msgstr ""
+"Por favor, entre com o Código da Facilidade ou selecione Usar Padrão para "
+"todos os Códigos de Facilidades. "
+
+msgid "Feature Codes have been duplicated"
+msgstr "Códigos de Facilidades foram duplicados"
+
+msgid "Are you sure you wish to proceed?"
+msgstr "Tem certeza que deseja continuar?"

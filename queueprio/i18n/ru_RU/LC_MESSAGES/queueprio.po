@@ -1,0 +1,121 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
+#
+# Использовать iconv amp.new -f UTF-8 -t ISO-8859-5 -o amp.po
+
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-09-27 16:38+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "Queue Priority: %s"
+msgstr "Приоритет очереди %s"
+
+msgid "Add Queue Priority"
+msgstr "Добавить приоритет в очереди"
+
+msgid "Edit: "
+msgstr "Редактировать:"
+
+msgid ""
+"Queue Priority allows you to set a caller's priority in a queue. By default, "
+"a caller's priority is set to 0. Setting a higher priority will put the "
+"caller ahead of other callers already in a queue. The priority will apply to "
+"any queue that this caller is eventually directed to. You would typically "
+"set the destination to a queue, however that is not necessary. You might set "
+"the destination of a priority customer DID to an IVR that is used by other "
+"DIDs, for example, and any subsequent queue that is entered would be entered "
+"with this priority"
+msgstr ""
+"Этот модуль позволяет назначать позвонившему приоритет в очереди. По "
+"умолчанию приоритет позвонившему устанавливается в 0. Повысив приоритет мы "
+"даём ему возможность обходить вперёд других абонентов, ожидающих в очереди. "
+"Назначенный приоритет будет применён ко всем очередям, в которые попадает "
+"этот абонент. Обычно вы назначаете направление для поступивших звонков в "
+"очередь, что не всегда обязательно. Например, обычным образом звонок "
+"приоритетного абонента на специальный DID нужно направить в Интерактивное "
+"меню, которое используется другимим DID, и в результате он попадёт в очередь "
+"с заданным приоритетом."
+
+msgid "Edit Queue Priority Instance"
+msgstr "Редактировать шаблон приоритет в очереди"
+
+msgid "Add Queue Priority Instance"
+msgstr "Добавить шаблон приоритета в очереди"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "The descriptive name of this Queue Priority instance."
+msgstr "Узнаваемое имя для шаблона приоритета в очереди"
+
+msgid "Priority"
+msgstr "Приоритет"
+
+msgid "The Queue Priority to set"
+msgstr "Приоритет в очереди установлен"
+
+msgid "Destination"
+msgstr "Назначение"
+
+msgid "Submit Changes"
+msgstr "Применить изменения"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Invalid description specified"
+msgstr "Использовано неправильное описание"
+
+msgid "Queue Priorities"
+msgstr "Приоритеты в очередях"
+
+msgid "Applications"
+msgstr "Приложения"
+
+msgid ""
+"Adds the ability to set a callers priority higher before entering a queue"
+msgstr "Добавляет возможность повысить приоритет позвонившему перед помещением в очередь"
+
+#~ msgid "Misc Destinations"
+#~ msgstr "Различные направления"
+
+#~ msgid "Languages"
+#~ msgstr "Языки"
+
+#~ msgid "IVR"
+#~ msgstr "Интерактивное меню"
+
+#~ msgid "Custom Applications"
+#~ msgstr "Специальное приложение"
+
+#~ msgid "Conferences"
+#~ msgstr "Конференции"
+
+#~ msgid "Queues"
+#~ msgstr "Очереди"
+
+#~ msgid "Ring Groups"
+#~ msgstr "Группы дозвона"
+
+#~ msgid "Phonebook Directory"
+#~ msgstr "Телефонная книга"
+
+#~ msgid "Terminate Call"
+#~ msgstr "Терминировать звонок"
+
+#~ msgid "Extensions"
+#~ msgstr "Внутренние номера"
+
+#~ msgid "Voicemail"
+#~ msgstr "Голосовая почта"

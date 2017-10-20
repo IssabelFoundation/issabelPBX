@@ -1,0 +1,741 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+#
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+#
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for cdr
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.0.7\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-10 07:28+1000\n"
+"PO-Revision-Date: 2014-05-28 17:28+0200\n"
+"Last-Translator: Kevin <kevin@qloog.com>\n"
+"Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.9-dev\n"
+
+#: page.cdr.php:331 /usr/src/freepbx/cdr/page.cdr.php:860
+msgid "10 Minutes"
+msgstr "10分間隔"
+
+#: page.cdr.php:180 /usr/src/freepbx/cdr/page.cdr.php:212 page.cdr.php:243
+msgid "<b>.</b> = wildcard, matches one or more characters<br>"
+msgstr ""
+"<b>.</b> : ワイルドカードです。すべての1文字以上の数字または文字と一致します"
+"<br/>"
+
+#: page.cdr.php:178 /usr/src/freepbx/cdr/page.cdr.php:210 page.cdr.php:241
+msgid "<b>N</b> = matches any digit from 2-9<br>"
+msgstr "<b>N</b> : 2-9のいずれの数字にも一致します<br/>"
+
+#: page.cdr.php:176 /usr/src/freepbx/cdr/page.cdr.php:208 page.cdr.php:239
+msgid "<b>X</b> = matches any digit from 0-9<br>"
+msgstr "<b>X</b> : 0-9のいずれの数字にも一致します<br/>"
+
+#: page.cdr.php:177 /usr/src/freepbx/cdr/page.cdr.php:209 page.cdr.php:240
+msgid "<b>Z</b> = matches any digit from 1-9<br>"
+msgstr "<b>Z</b> : 1-9のいずれの数字に一致します<br/>"
+
+#: page.cdr.php:179 /usr/src/freepbx/cdr/page.cdr.php:211 page.cdr.php:242
+msgid ""
+"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
+"example, 1,2,3,7,8,9)<br>"
+msgstr ""
+"<b>[1237-9]</b> = 括弧内の任意の数字や文字に一致する条件で検索します<br>(この"
+"例では、 1,2,3,7,8,9)<br>"
+
+#: page.cdr.php:174 /usr/src/freepbx/cdr/page.cdr.php:206 page.cdr.php:237
+msgid ""
+"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
+"numbers"
+msgstr ""
+"<b>_!2XXN, _562., _.0075</b> : この場合、指定した番号以外の番号が検索されます"
+
+#: page.cdr.php:173 /usr/src/freepbx/cdr/page.cdr.php:205 page.cdr.php:236
+msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
+msgstr ""
+"<b>_2XXN, _562., _.0075</b> : この場合いずれかに一致する番号が検索されます"
+"<br/>"
+
+#: page.cdr.php:175 /usr/src/freepbx/cdr/page.cdr.php:207 page.cdr.php:238
+msgid "<br>Asterisk pattern matching<br>"
+msgstr "<br>Asteriskパターンマッチング<br>"
+
+#: page.cdr.php:403
+msgid "AMA"
+msgstr "AMA"
+
+#: page.cdr.php:1099 page.cdr.php:1175
+msgid "AMA Flag"
+msgstr "AMAフラグ"
+
+#: page.cdr.php:401 page.cdr.php:1063
+msgid "ANI"
+msgstr "ANI"
+
+#: page.cdr.php:706
+msgid "Account"
+msgstr "アカウント"
+
+#: page.cdr.php:281 /usr/src/freepbx/cdr/page.cdr.php:326 page.cdr.php:801
+msgid "Account Code"
+msgstr "アカウントコード"
+
+#: page.cdr.php:325
+msgid "Account Information"
+msgstr "アカウント情報"
+
+#: install.php:50
+msgid "Added field did to cdr"
+msgstr "didフィールドをcdrテーブルに追加しました。"
+
+#: install.php:66
+msgid "Added field recordingfile to cdr"
+msgstr "recordingfileフィールドをcdrテーブルに追加しました"
+
+#: install.php:43
+msgid "Adding did field to cdr"
+msgstr "didフィールドをcdrテーブルに追加します。"
+
+#: install.php:59
+msgid "Adding recordingfile field to cdr"
+msgstr "recordingfileフィールドをcdrテーブルに追加中"
+
+#: page.cdr.php:306
+msgid "All Dispositions"
+msgstr "すべての通話結果"
+
+#: page.cdr.php:295
+msgid "And"
+msgstr "最大"
+
+#: page.cdr.php:307
+msgid "Answered"
+msgstr "応答あり"
+
+#: page.cdr.php:406 /usr/src/freepbx/cdr/page.cdr.php:701
+msgid "App"
+msgstr "アプリ"
+
+#: page.cdr.php:1069
+msgid "Application"
+msgstr "アプリケーション"
+
+#: page.cdr.php:92
+msgid "April"
+msgstr "4月"
+
+#: page.cdr.php:92
+msgid "August"
+msgstr "8月"
+
+#: page.cdr.php:896
+msgid "Average Call Time"
+msgstr "平均コール時間"
+
+#: page.cdr.php:184 /usr/src/freepbx/cdr/page.cdr.php:196 page.cdr.php:216
+#: /usr/src/freepbx/cdr/page.cdr.php:228 page.cdr.php:247
+#: /usr/src/freepbx/cdr/page.cdr.php:261 page.cdr.php:273
+#: /usr/src/freepbx/cdr/page.cdr.php:284
+msgid "Begins With"
+msgstr "前方一致"
+
+#: page.cdr.php:293
+msgid "Between"
+msgstr "最小"
+
+#: page.cdr.php:1106
+msgid "Billing Duration"
+msgstr "請求期間"
+
+#: page.cdr.php:308
+msgid "Busy"
+msgstr "通話中"
+
+#: cdr.i18n.php:16
+msgid "CDR Report Module"
+msgstr "CDRレポートモジュール"
+
+#: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:72
+msgid "CDR Reports"
+msgstr "CDRレポート"
+
+#: page.cdr.php:148
+msgid "CDR search"
+msgstr "CDR検索"
+
+#: page.cdr.php:399
+msgid "CNAM"
+msgstr "CNAM"
+
+#: page.cdr.php:400
+msgid "CNUM"
+msgstr "CNUM"
+
+#: page.cdr.php:149
+msgid "CSV file"
+msgstr "CSVファイル"
+
+#: cdr.i18n.php:8
+msgid "Call Data Record report tools for viewing reports of your calls"
+msgstr "発信情報レポートを閲覧するためのコールデータレコードのレポートツール"
+
+#: page.cdr.php:87 /usr/src/freepbx/cdr/page.cdr.php:695
+msgid "Call Date"
+msgstr "期間"
+
+#: page.cdr.php:893
+msgid "Call Detail Record - Call Graph by"
+msgstr "通話詳細記録 - 呼 グラフ"
+
+#: page.cdr.php:993
+msgid "Call Detail Record - Concurrent Calls by"
+msgstr "コール詳細記録‐同時コール"
+
+#: page.cdr.php:681
+msgid "Call Detail Record - Search Returned"
+msgstr "コール詳細記録‐検索結果"
+
+#: page.cdr.php:78
+msgid "Call Detail Record Search"
+msgstr "通話記録の検索"
+
+#: page.cdr.php:382
+msgid "Call Event Log - Search Returned"
+msgstr "コールイベント記録 ‐ 検索結果"
+
+#: page.cdr.php:150
+msgid "Call Graph"
+msgstr "グラフ形式"
+
+#: page.cdr.php:343 /usr/src/freepbx/cdr/page.cdr.php:813 page.cdr.php:1142
+msgid "Caller ID Name"
+msgstr "Caller ID Name"
+
+#: page.cdr.php:342 /usr/src/freepbx/cdr/page.cdr.php:810 page.cdr.php:1147
+msgid "Caller ID Number"
+msgstr "発信者ID番号"
+
+#: page.cdr.php:698 page.cdr.php:1046
+msgid "CallerID"
+msgstr "発信者ID"
+
+#: page.cdr.php:193
+msgid "CallerID Name"
+msgstr "CallerIDの名前"
+
+#: page.cdr.php:181
+msgid "CallerID Number"
+msgstr "CallerIDの番号"
+
+#: page.cdr.php:681
+msgid "Calls"
+msgstr "コール"
+
+#: page.cdr.php:1038 page.cdr.php:1053 page.cdr.php:1080 page.cdr.php:1203
+msgid "Channel"
+msgstr "チャネル"
+
+#: install.php:39
+msgid "Checking if field did is present in cdr table.."
+msgstr "cdrテーブルにdidフィールドが存在しているか確認中.."
+
+#: install.php:55
+msgid "Checking if field recordingfile is present in cdr table.."
+msgstr "recordingfileフィールドがcdrテーブルに存在しているか確認中..."
+
+#: page.cdr.php:152
+msgid "Concurrent Calls"
+msgstr "同時呼び出し"
+
+#: page.cdr.php:185 /usr/src/freepbx/cdr/page.cdr.php:197 page.cdr.php:217
+#: /usr/src/freepbx/cdr/page.cdr.php:229 page.cdr.php:248
+#: /usr/src/freepbx/cdr/page.cdr.php:262 page.cdr.php:274
+#: /usr/src/freepbx/cdr/page.cdr.php:285
+msgid "Contains"
+msgstr "部分一致"
+
+#: page.cdr.php:225 /usr/src/freepbx/cdr/page.cdr.php:341 page.cdr.php:402
+#: /usr/src/freepbx/cdr/page.cdr.php:700 page.cdr.php:807 page.cdr.php:1058
+msgid "DID"
+msgstr "DID"
+
+#: page.cdr.php:329
+msgid "Date/Time"
+msgstr "日付/時間"
+
+#: page.cdr.php:335 /usr/src/freepbx/cdr/page.cdr.php:866
+msgid "Day"
+msgstr "日"
+
+#: page.cdr.php:334 /usr/src/freepbx/cdr/page.cdr.php:850
+msgid "Day of week"
+msgstr "曜日"
+
+#: page.cdr.php:92
+msgid "December"
+msgstr "12月"
+
+#: page.cdr.php:244 /usr/src/freepbx/cdr/page.cdr.php:702
+msgid "Destination"
+msgstr "発信先"
+
+#: page.cdr.php:346 /usr/src/freepbx/cdr/page.cdr.php:822
+msgid "Destination Caller ID Name"
+msgstr "宛先の発信者IDネーム"
+
+#: page.cdr.php:258
+msgid "Destination CallerID Name"
+msgstr "発信先のCallerIDの名前"
+
+#: page.cdr.php:1080
+msgid "Destination Context"
+msgstr "宛先状況"
+
+#: page.cdr.php:340 /usr/src/freepbx/cdr/page.cdr.php:804
+msgid "Destination Number"
+msgstr "宛先番号"
+
+#: page.cdr.php:1157
+msgid "Dialplan context"
+msgstr "ダイヤルプラン コンテキスト"
+
+#: page.cdr.php:1152
+msgid "Dialplan exten"
+msgstr "ダイヤルプラン exten"
+
+#: page.cdr.php:302 /usr/src/freepbx/cdr/page.cdr.php:703
+msgid "Disposition"
+msgstr "通話結果"
+
+#: page.cdr.php:292 /usr/src/freepbx/cdr/page.cdr.php:704
+msgid "Duration"
+msgstr "通話時間"
+
+#: cdr.i18n.php:14
+msgid "Enable CEL Reporting"
+msgstr "CELレポーティングを有効にする。"
+
+#: page.cdr.php:186 /usr/src/freepbx/cdr/page.cdr.php:198 page.cdr.php:218
+#: /usr/src/freepbx/cdr/page.cdr.php:230 page.cdr.php:249
+#: /usr/src/freepbx/cdr/page.cdr.php:263 page.cdr.php:275
+#: /usr/src/freepbx/cdr/page.cdr.php:286
+msgid "Ends With"
+msgstr "後方一致"
+
+#: page.cdr.php:398
+msgid "Event"
+msgstr "イベント"
+
+#: page.cdr.php:1195
+msgid "Event Extra"
+msgstr "エキストライベント"
+
+#: page.cdr.php:409
+msgid "EventExtra"
+msgstr "エキストライベント"
+
+#: page.cdr.php:382
+msgid "Events"
+msgstr "イベント"
+
+#: page.cdr.php:187 /usr/src/freepbx/cdr/page.cdr.php:199 page.cdr.php:219
+#: /usr/src/freepbx/cdr/page.cdr.php:231 page.cdr.php:250
+#: /usr/src/freepbx/cdr/page.cdr.php:264 page.cdr.php:276
+#: /usr/src/freepbx/cdr/page.cdr.php:287
+msgid "Exactly"
+msgstr "完全一致"
+
+#: page.cdr.php:143
+msgid "Extra options"
+msgstr "出力形式・表示方法の設定"
+
+#: page.cdr.php:309
+msgid "Failed"
+msgstr "失敗"
+
+#: page.cdr.php:92
+msgid "February"
+msgstr "2月"
+
+#: page.cdr.php:88
+msgid "From"
+msgstr "開始日時"
+
+#: page.cdr.php:898
+msgid "Go to the CDR Graph"
+msgstr "CDRグラフに移動します。"
+
+#: page.cdr.php:897
+msgid "Go to the top of the CDR table"
+msgstr "CDRテーブルのトップに移動します"
+
+#: page.cdr.php:323
+msgid "Group By"
+msgstr "グラフの集計条件"
+
+#: page.cdr.php:332 /usr/src/freepbx/cdr/page.cdr.php:830
+msgid "Hour"
+msgstr "時"
+
+#: page.cdr.php:333 /usr/src/freepbx/cdr/page.cdr.php:835
+msgid "Hour of day"
+msgstr "日の時間"
+
+#: page.cdr.php:92
+msgid "January"
+msgstr "1月"
+
+#: page.cdr.php:92
+msgid "July"
+msgstr "7月"
+
+#: page.cdr.php:92
+msgid "June"
+msgstr "6月"
+
+#: page.cdr.php:92
+msgid "March"
+msgstr "3月"
+
+#: page.cdr.php:895 /usr/src/freepbx/cdr/page.cdr.php:995
+msgid "Max Calls"
+msgstr "最大コール数"
+
+#: page.cdr.php:92
+msgid "May"
+msgstr "5月"
+
+#: page.cdr.php:330 /usr/src/freepbx/cdr/page.cdr.php:855
+msgid "Minute"
+msgstr "分"
+
+#: page.cdr.php:337 /usr/src/freepbx/cdr/page.cdr.php:845
+msgid "Month"
+msgstr "月"
+
+#: page.cdr.php:319
+msgid "Newest First"
+msgstr "新しい順"
+
+#: page.cdr.php:310
+msgid "No Answer"
+msgstr "応答なし"
+
+#: page.cdr.php:183 /usr/src/freepbx/cdr/page.cdr.php:195 page.cdr.php:215
+#: /usr/src/freepbx/cdr/page.cdr.php:227 page.cdr.php:246
+#: /usr/src/freepbx/cdr/page.cdr.php:260 page.cdr.php:272
+#: /usr/src/freepbx/cdr/page.cdr.php:283 page.cdr.php:312
+msgid "Not"
+msgstr "Not"
+
+#: page.cdr.php:92
+msgid "November"
+msgstr "11月"
+
+#: install.php:134
+msgid "OK"
+msgstr "OK"
+
+#: page.cdr.php:92
+msgid "October"
+msgstr "10月"
+
+#: page.cdr.php:318
+msgid "Oldest First"
+msgstr "古い順"
+
+#: page.cdr.php:81
+msgid "Order By"
+msgstr "並び順"
+
+#: page.cdr.php:345 /usr/src/freepbx/cdr/page.cdr.php:819
+msgid "Outbound Caller ID Name"
+msgstr "アウトバウンドCaller ID Name"
+
+#: page.cdr.php:344 /usr/src/freepbx/cdr/page.cdr.php:816
+msgid "Outbound Caller ID Number"
+msgstr "アウトバウンドCaller ID Number"
+
+#: page.cdr.php:699
+msgid "Outbound CallerID"
+msgstr "アウトバウンド CallerID"
+
+#: page.cdr.php:213
+msgid "Outbound CallerID Number"
+msgstr "アウトバウンドCallerIDの番号"
+
+#: page.cdr.php:696
+msgid "Recording"
+msgstr "録音"
+
+#: page.cdr.php:683
+msgid "Related Call Detail Records"
+msgstr "呼の詳細記録検索"
+
+#: page.cdr.php:146
+msgid "Report type"
+msgstr "レポートタイプ"
+
+#: cdr.i18n.php:6 /usr/src/freepbx/cdr/cdr.i18n.php:12
+msgid "Reports"
+msgstr "レポート"
+
+#: page.cdr.php:157
+msgid "Result limit"
+msgstr "表示件数"
+
+#: page.cdr.php:355
+msgid "Search"
+msgstr "検索"
+
+#: page.cdr.php:82
+msgid "Search conditions"
+msgstr "検索条件"
+
+#: page.cdr.php:224
+msgid "Search for a DID."
+msgstr "DIDを検索します。"
+
+#: page.cdr.php:280
+msgid "Search for accountcode."
+msgstr "アカウントコードを検索します。"
+
+#: page.cdr.php:172
+msgid ""
+"Search for calls based on CallerID Number. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
+msgstr ""
+"CallerID の番号で検索します。コンマ区切りで複数の番号を指定することができま"
+"す。また、このフィールドでは、Asterisk の正規表現を利用できます。<br/>例) "
+"<br/>"
+
+#: page.cdr.php:204
+msgid ""
+"Search for calls based on outbound CID used. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
+msgstr ""
+"外部発信したCIDを使用して検索します。コンマ区切りで複数の番号を指定することが"
+"できます。また、このフィールドでは、Asteriskの正規表現を利用できます。<br/>"
+"例) <br/>"
+
+#: page.cdr.php:301
+msgid ""
+"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgstr ""
+"通話結果（応答あり、通話中、失敗、応答なし）に一致するコールを検索します。"
+
+#: page.cdr.php:291
+msgid "Search for calls that matches the call length specified."
+msgstr "通話時間による検索。"
+
+#: page.cdr.php:235
+msgid ""
+"Search for destination calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+"発信先で検索します。コンマ区切りで複数のソースを指定することができます。ま"
+"た、このフィールドでは、Asteriskの正規表現を利用できます。<br/>例) <br/>"
+
+#: page.cdr.php:269
+msgid "Search for userfield data (if enabled)."
+msgstr "ユーザーフィールドデータによる検索（有効な場合のみ）"
+
+#: page.cdr.php:297
+msgid "Seconds"
+msgstr "秒"
+
+#: page.cdr.php:192
+msgid "Select CallerID Name to search for."
+msgstr "CallerIDの名前で検索"
+
+#: page.cdr.php:257
+msgid "Select Destination Caller Name to search for."
+msgstr "発信先の名前による検索"
+
+#: page.cdr.php:86
+msgid ""
+"Select time span for your report. You can select Date, Month, Year, Hour and "
+"Minute to narrow your search"
+msgstr ""
+"レポートする期間を選択してください。日、月、年、時、分を選択して検索結果の範"
+"囲を絞り込むことができます。"
+
+#: page.cdr.php:92
+msgid "September"
+msgstr "9月"
+
+#: cdr.i18n.php:18
+msgid ""
+"Setting this true will enable the CDR module to drill down on CEL data for "
+"each CDR. Although the CDR module will assure there is a CEL table "
+"available, the reporting functionality in Asterisk and associated ODBC "
+"database and CEL configuration must be done outside of IssabelPBX either by the "
+"user or at the Distro level."
+msgstr ""
+"trueに設定すると、CDRごとにCDRモジュールがCELデータを深堀することを可能にしま"
+"す。CDRモジュールは、利用できるCELテーブルの有無を確証しますが、Asteriskのレ"
+"ポーティング機能や関連するODBCデータベース、又はCELの設定はIssabelPBXの外部で完"
+"結する為、ユーザー、若しくはディストリビューションレベルで行う必要がありま"
+"す。"
+
+#: page.cdr.php:697
+msgid "System"
+msgstr "システム"
+
+#: page.cdr.php:348
+msgid "Tech info"
+msgstr "技術情報"
+
+#: page.cdr.php:339
+msgid "Telephone Number"
+msgstr "電話番号"
+
+#: install.php:44
+msgid "This might take a while......"
+msgstr "しばらくお待ちください......"
+
+#: page.cdr.php:397 /usr/src/freepbx/cdr/page.cdr.php:996
+msgid "Time"
+msgstr "時間"
+
+#: page.cdr.php:114
+msgid "To"
+msgstr "終了日時"
+
+#: page.cdr.php:895 /usr/src/freepbx/cdr/page.cdr.php:995
+msgid "Total Calls"
+msgstr "総コール数"
+
+#: page.cdr.php:895
+msgid "Total Duration"
+msgstr "総時間"
+
+#: install.php:63
+msgid "Unable to add recordingfile field to cdr table"
+msgstr "recordingfileフィールドをcdrテーブルに追加できません。"
+
+#: page.cdr.php:1029 page.cdr.php:1032
+msgid "UniqueID"
+msgstr "ユニークID"
+
+#: page.cdr.php:327 /usr/src/freepbx/cdr/page.cdr.php:825
+msgid "User Field"
+msgstr "ユーザーフィールド"
+
+#: page.cdr.php:408 page.cdr.php:1189
+msgid "UserDefType"
+msgstr "ユーザー定義タイプ"
+
+#: page.cdr.php:270 /usr/src/freepbx/cdr/page.cdr.php:705
+msgid "Userfield"
+msgstr "ユーザーフィールド"
+
+#: page.cdr.php:336 /usr/src/freepbx/cdr/page.cdr.php:840
+msgid "Week ( Sun-Sat )"
+msgstr "週"
+
+#: page.cdr.php:407
+msgid "channel"
+msgstr "チャネル"
+
+#: page.cdr.php:405
+msgid "context"
+msgstr "コンテキスト"
+
+#: install.php:52
+msgid "did field already present."
+msgstr "didフィールドは既に存在します。"
+
+#: page.cdr.php:404
+msgid "exten"
+msgstr "exten"
+
+#: install.php:69
+msgid "recordingfile field already present."
+msgstr "recordingfileフィールドは既に存在しています。"
+
+#~ msgid ""
+#~ "Select Source Channel to search for. You can enter just the channel type "
+#~ "like SIP, IAX2 or Local. You can also include the destination for the "
+#~ "channel, like SIP/1234."
+#~ msgstr ""
+#~ "検索するソースチャンネルを選択してください。SIP、IAX2またはローカルと同じ"
+#~ "ようにチャンネルタイプを入力することができます。またSIP/1234ように、チャン"
+#~ "ネルの送信先を含めることができます。"
+
+#~ msgid "Src Channel"
+#~ msgstr "Srcチャンネル"
+
+#~ msgid "Source"
+#~ msgstr "ソース"
+
+#~ msgid ""
+#~ "Search for CallerID. If your CallerID begins with \" then you must supply "
+#~ "this in your search if you select Begins With."
+#~ msgstr ""
+#~ "発信者IDを検索します。発信者IDが\"から始まり、前方一致検索を選択した際、発"
+#~ "信者IDを入力しなければなりません。"
+
+#~ msgid ""
+#~ "Select Destination Channel to search for. It can be just the channel type "
+#~ "like SIP, IAX2 or Local. It can include the destination for the channel, "
+#~ "like SIP/1234."
+#~ msgstr ""
+#~ "検索する宛先チャンネルを選択してください。また、SIP、IAX2またはローカルの"
+#~ "ようなチャンネルタイプを使用できます。それはSIP/1234のように、チャンネルの"
+#~ "送信先を含めることができます。"
+
+#~ msgid "Dst Channel"
+#~ msgstr "Dstチャンネル"
+
+#~ msgid "Source Number"
+#~ msgstr "ソース番号"
+
+#~ msgid "File"
+#~ msgstr "ファイル"
+
+#~ msgid "Src Chan."
+#~ msgstr "Src Chan."
+
+#~ msgid "Dest."
+#~ msgstr "Dest."
+
+#~ msgid "Dst. Chan."
+#~ msgstr "Dst. Chan."

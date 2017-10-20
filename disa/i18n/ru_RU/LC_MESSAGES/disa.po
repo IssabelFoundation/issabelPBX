@@ -1,0 +1,183 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2012 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Dmitry Kuznecov <dk@postmet.com>, 2006-2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 00:04+0400\n"
+"PO-Revision-Date: 2012-11-30 00:00+0100\n"
+"Last-Translator: Dmitry Kuznecov <dk@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "DISA"
+msgstr "Доступ в Asterisk извне (DISA)"
+
+msgid "Applications"
+msgstr "Приложения"
+
+msgid ""
+"DISA Allows you 'Direct Inward System Access'. This gives you the ability to "
+"have an option on an IVR that gives you a dial tone, and you're able to dial "
+"out from the IssabelPBX machine as if you were connected to a standard "
+"extension. It appears as a Destination."
+msgstr ""
+"Доступ в Asterisk извне (DISA) дает вам дополнительную опцию при использовании IVR, "
+"а именно, набрать код и получить возможность звонить с Asterisk так, "
+"как если бы вы были подключенны к нему напрямую. "
+
+#, php-format
+msgid "DISA: %s"
+msgstr "Доступ к Asterisk извне (DISA): %s"
+
+msgid "Add DISA"
+msgstr "Добавить Доступ к Asterisk извне (DISA)"
+
+msgid "deleted"
+msgstr "удалено"
+
+#, php-format
+msgid "Delete DISA %s"
+msgstr "Удалить Доступ к Asterisk извне (DISA): %s"
+
+msgid ""
+"DISA is used to allow people from the outside world to call into your PBX "
+"and then be able to dial out of the PBX so it appears that their call is "
+"coming from the office which can be handy when traveling. You can set a "
+"destination in an IVR that points to the DISA or set a DID. Make sure you "
+"password protect this to keep people from dialing in and using your PBX to "
+"make calls out."
+msgstr ""
+"Доступ в Asterisk извне (DISA) позволяет сотрудникам вне офиса звонить на ваш Asterisk "
+"и совершать с него звонки, так как будто звонок происходит из офиса, что может быть "
+"удобно, если сотрудник находится в командировке. Вы можете указать направление или DID "
+"которые будут указывать на Доступ к Asterisk извне (DISA). Перед использованием этой функции "
+"убедитесь, что вы установили пароль для предотвращения набора и использования вашего Asterisk,"
+"посторонними людьми!"
+
+msgid "Edit DISA"
+msgstr "Редактировать Доступ к Asterisk извне (DISA)"
+
+msgid "DISA name:"
+msgstr "Название Доступа к Asterisk извне (DISA)"
+
+msgid "Give this DISA a brief name to help you identify it."
+msgstr "Присвойте короткое название для DISA для идентификации."
+
+msgid "PIN"
+msgstr "PIN"
+
+msgid "The user will be prompted for this number."
+msgstr "Пользователь будет вводить этот номер."
+
+msgid "If you wish to have multiple PIN's, separate them with commas"
+msgstr ""
+"Если хотите использовать несколько номеров PIN, укажите их разделяя запятой."
+
+msgid "Response Timeout"
+msgstr "Таймаут на ответ"
+
+msgid ""
+"The maximum amount of time it will wait before hanging up if the user has "
+"dialed an incomplete or invalid number. Default of 10 seconds"
+msgstr ""
+"Максимальное время ожидания для пользователя, при вводе номеров PIN. По "
+"умолчанию - 10 сек."
+
+msgid "Digit Timeout"
+msgstr "Таймаут между цифрами"
+
+msgid ""
+"The maximum amount of time permitted between digits when the user is typing "
+"in an extension. Default of 5"
+msgstr ""
+"Максимальное время между цифрами в процессе набора. По умолчанию - 5 сек."
+
+msgid "Require Confirmation"
+msgstr "Требуется подтверждение"
+
+msgid ""
+"Require Confirmation before prompting for password. Used when your PSTN "
+"connection appears to answer the call immediately"
+msgstr ""
+"Требуется подтверждение прежде чем предлагать набрать пароль. Используется, "
+"когда входящий вызов из ТФОП немедленно соединяется."
+
+msgid "Caller ID"
+msgstr "Caller ID"
+
+msgid ""
+"(Optional) When using this DISA, the users CallerID will be set to this. "
+"Format is \"User Name\" <5551234>"
+msgstr ""
+"(Опционально) Если используется эта DISA, то Caller ID будет изменён на "
+"указанный здесь. Формат \"Имя Фамилия\" <5551234>"
+
+msgid "Context"
+msgstr "Контекст"
+
+msgid ""
+"(Experts Only) Sets the context that calls will originate from. Leave this "
+"as from-internal unless you know what you're doing."
+msgstr ""
+"(Только для экспертов) Установить контекст, из которого будут "
+"оригинироваться звонки. Оставить как есть - from-internal означает, что вы "
+"знаете, что делаете."
+
+msgid "Allow Hangup"
+msgstr "Разрешить прерывание звонка"
+
+#, php-format
+msgid ""
+"Allow the current call to be disconnected and dial tone presented for a new "
+"call by pressing the Hangup feature code: %s while in a call"
+msgstr ""
+"Разрешить прерывать текущий звонок и предоставить длинный гудок (КПВ) для "
+"нового звонка набором сервисного кода Положить трубку: %s "
+
+msgid "Submit Changes"
+msgstr "Применить изменения"
+
+msgid "Please enter a valid DISA Name"
+msgstr "Введите разрешённое название для DISA "
+
+msgid "Please enter a valid DISA PIN"
+msgstr "Введите разрешённый PIN для DISA "
+
+msgid "Please enter a valid Caller ID or leave it blank"
+msgstr "Введите разрешённый Caller ID для DISA "
+
+msgid "Context cannot be blank"
+msgstr "Контекст не может быть пустым"
+
+#~ msgid "Add"
+#~ msgstr "Добавить"
+
+#~ msgid "Delete"
+#~ msgstr "Удалить"
+
+#~ msgid "Edit"
+#~ msgstr "Изменить"
+
+#~ msgid "name:"
+#~ msgstr "название:"

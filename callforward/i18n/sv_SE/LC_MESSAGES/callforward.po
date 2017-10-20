@@ -1,0 +1,68 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language for callforward
+# Copyright (C) 2009, 2010, 2011 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX callforward\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-19 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Call Forward"
+msgstr "Vidarekoppling"
+
+msgid "Applications"
+msgstr ""
+
+msgid "Provides callforward featurecodes"
+msgstr "Modulen tillhandahåller funktionskoder för vidarebefordran av samtal"
+
+msgid "Call Forward All Activate"
+msgstr "Aktivera konstant Vidarekoppling"
+
+msgid "Call Forward All Deactivate"
+msgstr "Avaktivera konstant Vidarekoppling för din anknytning"
+
+msgid "Call Forward All Prompting Deactivate"
+msgstr "Avaktivera konstant Vidarekoppling"
+
+msgid "Call Forward Busy Activate"
+msgstr "Aktivera Vidarekoppling vid upptaget"
+
+msgid "Call Forward Busy Deactivate"
+msgstr "Avaktivera Vidarekoppling vid upptaget för din anknytning"
+
+msgid "Call Forward Busy Prompting Deactivate"
+msgstr "Avaktivera Vidarekoppling vid upptaget"
+
+msgid "Call Forward No Answer/Unavailable Activate"
+msgstr "Aktivera Vidarekoppling vid inget svar/otillgänglig"
+
+msgid "Call Forward No Answer/Unavailable Deactivate"
+msgstr "Avaktivera Vidarekoppling vid inget svar/otillgänglig"
+
+msgid "Call Forward Toggle"
+msgstr "Slå om vidarebefordran"
+
+#~ msgid "Internal Options & Configuration"
+#~ msgstr "Interna val och konfigurationer"

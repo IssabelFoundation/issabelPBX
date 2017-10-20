@@ -1,0 +1,96 @@
+<?php
+
+/***** ***** ***** ***** ***** ***** ***** *****
+ * Module Dev notes:
+ * 
+ * Version history:
+ *   2013-04-29 edited by lgaetz
+ *   2014-08-19 removed reliance on deprecated mysql functions
+ * 
+ ***** ***** ***** ***** ***** ***** ***** *****/
+
+class AsteriDex extends superfecta_base {
+
+	public $description = "Searches an AsteriDex mySQL Database - local or remote.";
+	public $version_requirement = "2.11";
+	public $source_param = array(
+
+		'DB_Host' => array(
+				'description' => 'Host address of the database. (localhost if the database is on the same server as IssabelPBX)',
+				'type' => 'text',
+				'default' => 'localhost'
+		),
+		'DB_Name' => array(
+				'description' => 'Name of database',
+				'type' => 'text',
+				'default' => 'asteridex'
+		),
+		'DB_User' => array(
+				'description' => 'Username to connect to the database',
+				'type' => 'text',
+				'default' => 'root'
+		),
+		'DB_Password' => array(
+				'description' => 'Password to connect to the database',
+				'type' => 'password',
+				'default' => 'passw0rd'
+		),
+		'Filter_Length' => array(
+				'description' => 'The number of rightmost digits to check for a match. Enter zero to disable ',
+				'type' => 'number',
+				'default' => 10,
+		),
+	);
+
+
+	function get_caller_id($thenumber, $run_param=array()) {
+		$caller_id = null;
+
+		if(class_exists('PDO')) {
+			$this->DebugPrint("Connecting to Asteridex Database....");
+			try {
+				$dbh = new PDO('mysql:dbname='.$run_param['DB_Name'].';host='.$run_param['DB_Host'], $run_param['DB_User'], $run_param['DB_Password']);
+			} catch (PDOException $e) {
+				$this->DebugPrint('Connection failed: ' . $e->getMessage());
+				return null;
+			}
+		} else {
+			$this->DebugPrint("PDO not present on system...Skipping");
+			return null;
+		}
+
+		// trim number to filter length if applicable
+		if ($run_param['Filter_Length'] != 0) {
+			if (strlen($thenumber) > $run_param['Filter_Length']) $thenumber = substr($thenumber, -$run_param['Filter_Length']);
+		}
+
+		$sql_params = array();
+		$sql = 'SELECT `name` FROM `user1` where `out` REGEXP :theregex';
+
+		//  Build regular expression from the $thenumber to avoid non-digit characters stored in database
+		$theregex = "[^0-9]*";
+		for( $x=0; $x < ((strlen($thenumber))-1); $x++ )  {
+			$theregex .=  substr($thenumber,$x,1)."[^0-9]*";
+		}
+		$theregex = $theregex.(substr($thenumber,-1))."([^0-9]+|$)";
+		$sql_params[':theregex'] = $theregex;
+
+		$sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+		if(!$sth) {
+			$this->DebugPrint("Failed to Prepare the SQL Statement. Are we connected?...Skipping");
+			return null;
+		}
+		$this->DebugPrint("Connected!");
+		$this->DebugPrint("Searching Database...");
+		$sth->execute($sql_params);
+		$find = $sth->fetch(PDO::FETCH_BOTH);
+		
+		if($find && is_array($find)) {
+			$this->DebugPrint("Found..");
+			return $find[0];
+		} else {
+			$this->DebugPrint("Not Found");
+			return null;
+		}
+    }
+}

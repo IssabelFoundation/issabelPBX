@@ -1,0 +1,69 @@
+<?php
+
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+ * Developer Notes:
+ * cidname.com does not share details of their API unless you sign up. During testing 
+ * could not get dips using auth token to work due to https certificate issues. Dips by IP
+ * work fine.
+ *
+ *
+ * Version History
+ *        2014-07-27   Initial commit by PIAF forum user BinaryTB
+ *        2014-07-28   Added support for IP authentication, can't test token authentication
+ *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+
+class CidnameCom extends superfecta_base {
+
+	public $description = "https://www.cidname.com Formats accepted by the API are: 5554441212    15554441212    +5554441212    +15554441212";
+	public $version_requirement = "2.11";
+	public $source_param = array(
+		'Use_IP_Authentication' => array(
+				'description' => 'Enable to use IP authentication for CNAM dips.',
+				'type' => 'checkbox',
+		),
+		'Auth_Token' => array(
+				'description' => 'Auth Token from Cidname.com Dashboard, required if not using IP authentication.',
+				'type' => 'textarea',
+		),
+		'Ignore_Keywords' => array(
+				'description' => 'If this source provides CNAM including any of the keywords listed here, the CNAM will be ignored and other sources will be used to find the value.<br>Separate keywords with commas.',
+				'type' => 'textarea',
+				'default' => 'Unavailable, Wireless caller',
+		),
+	);
+
+	function get_caller_id($thenumber, $run_param=array()) {
+
+		$caller_id = null;
+		$this->DebugPrint("Searching Cidname.com ... ");
+		if ($run_param['Use_IP_Authentication'] == 'on') {
+			$url = 'http://dip.cidname.com/'. $thenumber . '/';
+		} else {
+			$url = "https://dip.cidname.com/" . $thenumber . "/" .$run_param['Auth_Token'];
+		}
+		$url = 'http://dip.cidname.com/'. $thenumber . '/';
+		$sname = $this->get_url_contents($url);
+
+		if (strlen($sname) > 1) {
+				// convert list of ignore keywords into array
+				$key_words = array();
+				$temp_array = explode(',',(isset($run_param['Ignore_Keywords'])?$run_param['Ignore_Keywords']:$source_param['Ignore_Keywords']['default']));
+				foreach($temp_array as $val) {
+					$key_words[] = trim($val);
+				}
+
+				// Remove all ignore keywords from the retuned CNAM string and compare the before and after.
+				$test_string = str_ireplace($key_words,'',$sname);
+				if($test_string == $sname) {
+					$caller_id = $sname;
+					$this->DebugPrint("CNAM determined good.");
+				} else {
+					$this->DebugPrint("CNAM contains flagged key words, returning nothing.");
+				}
+		} else {
+			$this->DebugPrint("CNAM not found.");
+		}
+		return($caller_id);
+	}
+
+}

@@ -1,0 +1,662 @@
+<?php
+
+/**
+ * @file
+ * Functions for the interface to the call monitor recordings
+ */
+
+/**
+  * Class for Followme
+  */
+class VmX {
+
+  var $protocol_table;
+  var $protocol_config_files;
+
+  /*
+   * rank (for prioritizing modules)
+   */
+  function rank() {
+
+	$rank = 9;
+	return $rank;
+  }
+
+  /*
+   * init
+   */
+  function init() {
+
+  }
+
+  /*
+   * Adds menu item to nav menu
+   *
+   * @param $args
+   *   Common arguments
+   */
+	function navMenu($args) {
+		
+		global $SETTINGS_ALLOW_VMX_SETTINGS;
+		global $ARI_ADMIN_USERNAME;
+		
+		$ret = "";
+
+		// We are only going to show the menu 
+		// if VmX is allowed
+		if ($SETTINGS_ALLOW_VMX_SETTINGS) {
+
+			$exten = $_SESSION['ari_user']['extension'];
+			
+			// and we are not logged in as admin
+			if ($exten!=$ARI_ADMIN_USERNAME) {
+			
+				$vmx_enabled	= $this->getVmxState($exten,'unavail');
+				
+				// and vmx is enabled for this user
+				if ($vmx_enabled !== false)
+					$ret .= "<small><small><a href='" . $_SESSION['ARI_ROOT'] .  "?m=VmX&f=display'>" . _("VmX&#8482 Locator") . "</a></small></small>"; 
+					return $ret;
+			} else {
+					return false;
+			}
+		}
+		
+		
+	}
+
+  /*
+   * Acts on the user settings
+   *
+   * @param $args
+   *   Common arguments
+   * @param $a
+   *   action
+   */
+  function action($args) {
+
+	global $STANDALONE;
+	global $ARI_ADMIN_USERNAME;
+	global $SETTINGS_ALLOW_VMX_SETTINGS;
+
+	// args
+	$m = getArgument($args,'m');
+	$a = getArgument($args,'a');
+
+	$follow_me_disabled				= getArgument($args,'follow_me_disabled');
+
+	$vmx_option_0_number			= getArgument($args, 'vmx_option_0_number');
+	$vmx_option_0_system_default	= getArgument($args, 'vmx_option_0_system_default');
+	$vmx_option_1_number			= getArgument($args, 'vmx_option_1_number');
+	$vmx_option_1_system_default	= getArgument($args, 'vmx_option_1_system_default');
+	$vmx_option_2_number			= getArgument($args, 'vmx_option_2_number');
+	$vmx_unavail_enabled			= getArgument($args, 'vmx_unavail_enabled');
+	$vmx_busy_enabled				= getArgument($args, 'vmx_busy_enabled');
+	$vmx_play_instructions			= getArgument($args, 'vmx_play_instructions');
+	$vmx_disabled					= getArgument($args, 'vmx_disabled');
+
+	$exten = $_SESSION['ari_user']['extension'];
+
+	// The action is 'update
+	if ($a=='update') {
+	
+			$follow_me_disabled = ($this->getFollowMeListRingTime($exten) > 0)?0:1;
+			
+		
+			$vmx_disabled = $this->getVmxState($exten,'unavail');
+			if ($vmx_disabled === false) {
+				$vmx_disabled = true;
+				$SETTINGS_ALLOW_VMX_SETTINGS=false;
+			} else {
+				$vmx_disabled = false;
+			}
+			if ($vmx_disabled) {
+			
+				setcookie("ari_vmx_disabled", $vmx_disabled);
+				$vmx_disabled_delayed = $vmx_disabled;
+				$_SESSION['ari_error'] = 
+				_("Your Personal IVR has been disabled, REFRESH your browser to remove this message") . "<br>" .
+				sprintf(_("Check with your Telephone System Administrator if you think there is a problem"));
+			}
+		
+		if (! $vmx_disabled) {
+		
+			// set database
+			$this->setVmxState($exten,'unavail',$vmx_unavail_enabled);
+			$this->setVmxState($exten,'busy',$vmx_busy_enabled);
+			$this->setVmxPlayInstructions($exten,'unavail',$vmx_play_instructions);
+			$this->setVmxPlayInstructions($exten,'busy',$vmx_play_instructions);
+			
+			// store cookie
+			setcookie("ari_vmx_unavail_enabled", $vmx_unavail_enabled);
+			setcookie("ari_vmx_busy_enabled", $vmx_busy_enabled);
+			setcookie("ari_vmx_play_instructions", $vmx_play_instructions);
+			
+			$stripped_vmx_option_0_number = preg_replace('/-|\(|\)|\s/','',$vmx_option_0_number);
+			
+			if ($vmx_option_0_system_default) {
+				$this->setVmxOptionNumber($exten,'0','unavail',"");
+				$this->setVmxOptionNumber($exten,'0','busy',"");
+				setcookie("ari_vmx_option_0_system_default", $vmx_option_0_system_default);
+				if (is_numeric($stripped_vmx_option_0_number) || !$stripped_vmx_option_0_number) {
+					$stripped = preg_replace('/-|\(|\)|\s/','',$_COOKIE['ari_vmx_option_0_number']);
+					if ($vmx_option_0_number && $stripped!=$stripped_vmx_option_0_number) {
+						setcookie("ari_vmx_option_0_number", $call_vmx_option_0_number);
+					}
+				}
+			} else {
+				if (!is_numeric($stripped_vmx_option_0_number) && $stripped_vmx_option_0_number) {
+					$_SESSION['ari_error'] = 
+					_("Option 0 not changed") . "<br>" .
+					sprintf(_("Number %s must contain dial numbers (characters like '(', '-', and ')' are ok)"),$vmx_option_0_number);
+				}
+				else {
+					
+					// set database
+					$this->setVmxOptionNumber($exten,'0','unavail',$stripped_vmx_option_0_number);
+					$this->setVmxOptionNumber($exten,'0','busy',$stripped_vmx_option_0_number);
+					
+					// store cookie
+					$stripped = preg_replace('/-|\(|\)|\s/','',$_COOKIE['ari_vmx_option_0_number']);
+					if ($vmx_option_0_number && $stripped!=$stripped_vmx_option_0_number) {
+						setcookie("ari_vmx_option_0_number", $call_vmx_option_0_number);
+					}
+				}
+			}
+			
+			$stripped_vmx_option_1_number = preg_replace('/-|\(|\)|\s/','',$vmx_option_1_number);
+			if ($vmx_option_1_system_default && !$follow_me_disabled) {
+				$this->setVmxOptionFollowMe($exten,'1','unavail');
+				$this->setVmxOptionFollowMe($exten,'1','busy');
+				setcookie("ari_vmx_option_1_system_default", $vmx_option_1_system_default);
+				if (is_numeric($stripped_vmx_option_1_number) || !$stripped_vmx_option_1_number) {
+					$stripped = preg_replace('/-|\(|\)|\s/','',$_COOKIE['ari_vmx_option_1_number']);
+					if ($vmx_option_1_number && $stripped!=$stripped_vmx_option_1_number) {
+						setcookie("ari_vmx_option_1_number", $call_vmx_option_1_number);
+					}
+				}
+			}
+			else {
+			
+				if (!is_numeric($stripped_vmx_option_1_number) && $stripped_vmx_option_1_number) {
+					$_SESSION['ari_error'] = 
+					_("Option 1 not changed") . "<br>" .
+					sprintf(_("Number %s must contain dial numbers (characters like '(', '-', and ')' are ok)"),$vmx_option_1_number);
+				}
+				else {
+					
+					// set database
+					$this->setVmxOptionNumber($exten,'1','unavail',$stripped_vmx_option_1_number);
+					$this->setVmxOptionNumber($exten,'1','busy',$stripped_vmx_option_1_number);
+					
+					// store cookie
+					$stripped = preg_replace('/-|\(|\)|\s/','',$_COOKIE['ari_vmx_option_1_number']);
+					if ($vmx_option_1_number && $stripped!=$stripped_vmx_option_1_number) {
+						setcookie("ari_vmx_option_1_number", $call_vmx_option_1_number);
+					}
+				}
+			}
+			
+			$stripped_vmx_option_2_number = preg_replace('/-|\(|\)|\s/','',$vmx_option_2_number);
+			if (!is_numeric($stripped_vmx_option_2_number) && $stripped_vmx_option_2_number) {
+				$_SESSION['ari_error'] = 
+				_("Option 2 not changed") . "<br>" .
+				sprintf(_("Number %s must contain dial numbers (characters like '(', '-', and ')' are ok)"),$vmx_option_2_number);
+			}
+			else {
+				
+				// set database
+				$this->setVmxOptionNumber($exten,'2','unavail',$stripped_vmx_option_2_number);
+				$this->setVmxOptionNumber($exten,'2','busy',$stripped_vmx_option_2_number);
+				
+				// store cookie
+				$stripped = preg_replace('/-|\(|\)|\s/','',$_COOKIE['ari_vmx_option_2_number']);
+				if ($vmx_option_2_number && $stripped!=$stripped_vmx_option_2_number) {
+					setcookie("ari_vmx_option_2_number", $call_vmx_option_2_number);
+				}
+			}
+		} // vmx_disabled false
+	}
+
+	// redirect to see updated page
+	$ret .= "
+	  <head>
+		<script>
+		<!--
+		  window.location = \"" . $_SESSION['ARI_ROOT'] . "?m=" . $m . "\"
+		// -->
+		</script>
+	</head>";
+  
+	return $ret;
+  }
+
+  /*
+   * Displays stats page
+   *
+   * @param $args
+   *   Common arguments
+   */
+  function display($args) {
+	global $SETTINGS_ALLOW_VMX_SETTINGS;
+
+	global $loaded_modules;
+
+	// args
+	$m		= getArgument($args,'m');
+	$q		= getArgument($args,'q');
+	$start	= getArgument($args,'start');
+	$span	= getArgument($args,'span');
+
+	$displayname	= $_SESSION['ari_user']['displayname'];
+	$exten			= $_SESSION['ari_user']['extension'];
+
+	$display = new DisplaySearch();
+
+	$follow_me_listring_time = $this->getFollowMeListRingTime($exten);
+
+	//TODO: Set this better than this?
+	$follow_me_disabled = ($follow_me_listring_time > 0)?0:1;
+	setcookie("ari_follow_me_disabled", $follow_me_disabled);
+
+
+	$vmx_unavail_enabled=$this->getVmxState($exten,'unavail');
+	if ($vmx_unavail_enabled === false) {
+		$vmx_disabled = true;
+		setcookie("ari_vmx_disabled", $vmx_disabled);
+		$SETTINGS_ALLOW_VMX_SETTINGS=false;
+	} else {
+		$vmx_disabled = false;
+		setcookie("ari_vmx_disabled", false);
+		$vmx_busy_enabled=$this->getVmxState($exten,'busy');
+		$vmx_play_instructions=$this->getVmxPlayInstructions($exten);
+		$vmx_option_0_number=$this->getVmxOptionNumber($exten,'0');;
+		$vmx_option_1_number=$this->getVmxOptionNumber($exten,'1');;
+		$vmx_option_2_number=$this->getVmxOptionNumber($exten,'2');;
+		
+		if (is_numeric($vmx_option_0_number)) {
+			$vmx_option_0_system_default='';
+			$vmx_option_0_number_text_box_options='';
+		} else {
+			$vmx_option_0_system_default='checked';
+			$vmx_option_0_number_text_box_options="disabled style='background: #DDD;'";
+		}
+		
+		// if follow-me is enabled then the options are a numberic value (dial a phone number)
+		// or a followme target (FMnnn) which should not be displayed but means the box is checked
+		// or otherwise blank (or garbage in which case blank it)
+		//
+		if (!$follow_me_disabled) {
+			$vmx_option_1_system_default=$this->getVmxOptionFollowMe($exten,'1');
+			if ($vmx_option_1_system_default) {
+				$vmx_option_1_number = '';
+				$vmx_option_1_number_text_box_options="disabled style='background: #DDD;'";
+			}
+		}
+	}
+		
+	$set_vmx_text .= 
+		"
+		<br>
+		<table class='settings'>
+			<tr>
+				<td><a href='#' class='info'>" . _("Use When:") . "<span>" . _("Menu options below are available during your personal voicemail greeting playback. <br/><br/>Check both to use at all times.") . "<br></span></a></td> <td>
+					<input " . $vmx_unavail_enabled . " type=checkbox name='vmx_unavail_enabled' value='checked'>
+					<small>" . _("unavailable") . "</small>&nbsp;&nbsp;
+					<input " . $vmx_busy_enabled . " type=checkbox name='vmx_busy_enabled' value='checked'>
+					<small>" . _("busy") . "</small>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='#' class='info'>" . _("Voicemail Instructions:") ."<span>" . _("Uncheck to play a beep after your personal voicemail greeting.") . "<br></span></a></td>
+				<td>
+					<input " . $vmx_play_instructions . " type=checkbox name='vmx_play_instructions' value='checked'>
+					<small>" . _("Standard voicemail prompts.") . "</small>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<table class='settings'>
+			<tr>
+				<td><a href='#' class='info'>" . _("Press 0:") . "<span>" . _("Pressing 0 during your personal voicemail greeting goes to the Operator. 
+					Uncheck to enter another destination here.") . "<br></span></a>
+				</td>
+				<td>
+					<input " . $vmx_option_0_number_text_box_options . " name='vmx_option_0_number' type='text' size=24 value='" . $vmx_option_0_number . "'>
+				</td>
+				<td>
+					<input " . $vmx_option_0_system_default . " type=checkbox name='vmx_option_0_system_default' value='checked' OnClick=\"disable_fields(); return true;\">
+					<small>" . _("Go To Operator") . "</small>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='#' class='info'>" . _("Press 1:") . "<span>";
+			
+	if ($follow_me_disabled)
+		$set_vmx_text .= _("The remaining options can have internal extensions, ringgroups, queues and external numbers that may be rung. It is often used to include your cell phone. You should run a test to make sure that the number is functional any time a change is made so you don't leave a caller stranded or receiving invalid number messages.");
+	else
+		$set_vmx_text .= _("Enter an alternate number here, then change your personal voicemail greeting to let callers know to press 1 to reach that number. <br/><br/>If you'd like to use your Follow Me List, check \"Send to Follow Me\" and disable Follow Me above.");
+	
+	
+	$set_vmx_text .=  
+		"			<br></span></a>
+				</td>
+				<td>
+					<input " . $vmx_option_1_number_text_box_options . " name='vmx_option_1_number' type='text' size=24 value='" . $vmx_option_1_number . "'>
+				</td>
+				<td>";
+				
+				
+	if (!$follow_me_disabled)
+		$set_vmx_text .=  "<input " . $vmx_option_1_system_default . " type=checkbox name='vmx_option_1_system_default' value='checked' OnClick=\"disable_fields(); return true;\"><small>" . _("Send to Follow-Me") . "</small>";
+					
+					
+	$set_vmx_text .=  
+				"	
+				</td>
+			</tr>
+			<tr>
+				<td><a href='#' class='info'>" . _("Press 2:") . "<span>" . _("Use any extensions, ringgroups, queues or external numbers. <br/><br/>Remember to re-record your personal voicemail greeting and include instructions. Run a test to make sure that the number is functional.") . "<br></span></a></td>
+				<td>
+					<input " . $vmx_option_2_number_text_box_options . " name='vmx_option_2_number' type='text' size=24 value='" . $vmx_option_2_number . "'>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<br>		
+		";
+
+
+	// Now we should be ready to build the page
+	$ret .= checkErrorMessage();
+
+	$headerText = sprintf(_("VmX Locator&#8482; Settings for %s (%s)"),$displayname,$exten);
+
+	$ret .= $display->displayHeaderText($headerText);
+	$ret .= $display->displayLine();
+
+	$ret .= 
+		"<SCRIPT LANGUAGE='JavaScript'>
+			<!-- Begin
+				function disable_fields() {
+				
+					if (document.ari_settings.vmx_option_0_system_default.checked) {
+						document.ari_settings.vmx_option_0_number.style.backgroundColor = '#DDD';
+						document.ari_settings.vmx_option_0_number.disabled = true;
+					} 
+					else {
+						document.ari_settings.vmx_option_0_number.style.backgroundColor = '#FFF';
+						document.ari_settings.vmx_option_0_number.disabled = false;
+					}";
+					
+					if (!$follow_me_disabled) {
+						$ret .= "
+							if (document.ari_settings.vmx_option_1_system_default.checked) {
+								document.ari_settings.vmx_option_1_number.style.backgroundColor = '#DDD';
+								document.ari_settings.vmx_option_1_number.disabled = true;
+							} 
+							else {
+								document.ari_settings.vmx_option_1_number.style.backgroundColor = '#FFF';
+								document.ari_settings.vmx_option_1_number.disabled = false;
+							}";
+					}
+					$ret .=  
+				"}
+			// End -->
+		</script>";
+
+	$ret .= 
+		"<form class='settings' name='ari_settings' action='' method='GET'>
+			<input type=hidden name=m value=" . $m . ">
+			<input type=hidden name=f value='action'>
+			<input type=hidden name=a value='update'>
+			" . $set_vmx_text . "
+			<br>
+			<input name='submit' type='submit' value='" . _("Update") . "'>
+		</form>";
+
+	return $ret;
+  }
+
+  /*
+   * Gets VMX option FollowMe
+   *
+   * @param $exten
+   *   Extension to get information about
+   * @param $digit
+   *   Option number to get
+   * @param $mode
+	 *	Mode to get (unavail/busy)
+   * @return $response
+   *   checked if set to got to extesion's follow-me on this option
+   */
+  function getVmxOptionFollowMe($exten, $digit, $mode='unavail') {
+
+	global $asterisk_manager_interface;
+
+		$digit = trim($digit);
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database get AMPUSER $exten/vmx/$mode/$digit/ext\r\n\r\n");
+	return (($response == 'FM'.$exten) ? 'checked':'');
+  }
+
+  /*
+   * Sets VMX option FollowMe
+   *
+   * @param $exten
+   *   Extension to set information about
+   * @param $digit
+   *   Option number to set
+   * @param $mode
+	 *	Mode to set (unavail/busy)
+   * @param $context
+	 *	Context to set ext to (default from-findmefollow)
+   * @param $priority
+	 *	Priority to set ext to (default 1)
+   */
+  function setVmxOptionFollowMe($exten, $digit, $mode, $context='ext-findmefollow', $priority='1') {
+
+	global $asterisk_manager_interface;
+
+	$value_opt = "FM$exten";
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database put AMPUSER $exten/vmx/$mode/$digit/ext $value_opt\r\n\r\n");
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database put AMPUSER $exten/vmx/$mode/$digit/context $context\r\n\r\n");
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database put AMPUSER $exten/vmx/$mode/$digit/pri $priority\r\n\r\n");
+  }
+
+  /*
+   * Gets VMX option number
+   *
+   * @param $exten
+   *   Extension to get information about
+   * @param $digit
+   *   Option number to get
+   * @param $mode
+	 *	Mode to get (unavail/busy)
+   * @return $number
+   *   Number to use or blank if disabled
+   */
+  function getVmxOptionNumber($exten, $digit, $mode='unavail') {
+
+	global $asterisk_manager_interface;
+
+	$number = '';
+		$digit = trim($digit);
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database get AMPUSER $exten/vmx/$mode/$digit/ext\r\n\r\n");
+	if (is_numeric($response)) {
+	  $number = $response;
+	}
+
+	$stripped = preg_replace('/-|\(|\)|\s/','',$_COOKIE["ari_vmx_option_${digit}_number"]);
+	if ($stripped==$number) {
+	  $number = $_COOKIE["ari_vmx_option_${digit}_number"];
+	}
+
+	return $number;
+  }
+
+  /*
+   * Sets VMX option number
+   *
+   * @param $exten
+   *   Extension to set information about
+   * @param $digit
+   *   Option number to set
+   * @param $mode
+	 *	Mode to set (unavail/busy)
+   * @param $number
+	 *	Number to set ext to (blank will delete it)
+   * @param $context
+	 *	Context to set ext to (default from-internal)
+   * @param $priority
+	 *	Priority to set ext to (default 1)
+   */
+  function setVmxOptionNumber($exten, $digit, $mode, $number, $context='from-internal', $priority='1') {
+
+	global $asterisk_manager_interface;
+
+	$value_opt = trim($number);
+
+		if (is_numeric($value_opt)) {
+		$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database put AMPUSER $exten/vmx/$mode/$digit/ext $value_opt\r\n\r\n");
+		$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database put AMPUSER $exten/vmx/$mode/$digit/context $context\r\n\r\n");
+		$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database put AMPUSER $exten/vmx/$mode/$digit/pri $priority\r\n\r\n");
+		} else {
+		$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database deltree AMPUSER $exten/vmx/$mode/$digit\r\n\r\n");
+		}
+  }
+
+  /*
+   * Sets VMX State
+   *
+   * @param $exten
+   *   Extension to modify
+   * @param $mode
+	 *	Mode to set (unavail/busy)
+   * @param $vmx_state
+   *   enabled/disabled state based on check box value
+   */
+  function setVmxState($exten,$mode,$vmx_state) {
+
+	global $asterisk_manager_interface;
+
+	$value_opt = ($vmx_state)?'enabled':'disabled';
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database put AMPUSER $exten/vmx/$mode/state $value_opt\r\n\r\n");
+  }
+
+  /*
+   * Gets VMX State
+   *
+   * @param $exten
+   *   Extension to get information about
+   * @param $mode
+	 *	Mode to get (unavail/busy)
+   * @return $data
+   *   state of variable (checked/blank) or false if no poper value
+   */
+  function getVmxState($exten, $mode='unavail') {
+
+	global $asterisk_manager_interface;
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database get AMPUSER $exten/vmx/$mode/state\r\n\r\n");
+
+	if (preg_match("/enabled/",$response)) {
+			$response='checked';
+	} 
+	elseif (preg_match("/disabled/",$response)) {
+			$response='';
+	}
+		else {
+			$response = false;
+		}
+
+	//TODO: really need to check for a bogus response, see how other side does it
+	//
+	return $response;
+
+  }
+
+  /*
+   * Sets VMX Play Instructions
+   *
+   * @param $exten
+   *   Extension to modify
+   * @param $vmx_play_instructions
+   *   play instructions or just beep (checked, blank)
+   * @param $mode
+	 *	Mode to set (unavail/busy)
+   */
+  function setVmxPlayInstructions($exten,$mode,$vmx_play_instructions) {
+
+	global $asterisk_manager_interface;
+
+	$value_opt = ($vmx_play_instructions)?'""':'"s"';
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database put AMPUSER $exten/vmx/$mode/vmxopts/timeout $value_opt\r\n\r\n");
+  }
+
+  /*
+   * Get VMX Play Instructions
+   *
+   * @param $exten
+   *   Extension to get information about
+   * @param $mode
+	 *	Mode to get (unavail/busy)
+   * @return $data
+   *   state of variable (checked/blank) or false if no poper value
+   */
+  function getVmxPlayInstructions($exten, $mode='unavail') {
+
+	global $asterisk_manager_interface;
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database get AMPUSER $exten/vmx/$mode/vmxopts/timeout\r\n\r\n");
+
+	if (preg_match("/s/",$response)) {
+			$response='';
+	} 
+		else {
+			$response='checked';
+		}
+
+	//TODO: really need to check for a bogus response, see how other side does it
+	//
+	return $response;
+
+  }
+
+
+  /*
+   * Gets Follow Me List-Ring Time if set
+   *
+   * @param $exten
+   *   Extension to get information about
+   * @return $number
+   *   follow me list-ring time returned if set
+   */
+  function getFollowMeListRingTime($exten) {
+
+	global $asterisk_manager_interface;
+
+	$number = '';
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database get AMPUSER $exten/followme/grptime\r\n\r\n");
+	if (is_numeric($response)) {
+	  $number = $response;
+	}
+
+	$stripped = preg_replace('/-|\(|\)|\s/','',$_COOKIE['ari_follow_me_listring_time']);
+	if ($stripped==$number) {
+	  $number = $_COOKIE['ari_follow_me_listring_time'];
+	}
+
+	return $number;
+  }
+
+
+} // class
+
+?>

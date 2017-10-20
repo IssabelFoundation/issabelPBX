@@ -1,0 +1,300 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-07-10 09:30+0100\n"
+"Last-Translator: \n"
+"Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#, php-format
+msgid "Missing Sound file auto-created from migration of %s module"
+msgstr "Missing Sound файл автоматично създаден при преместване от %s модул"
+
+#, php-format
+msgid "Non-Existent Recording in module %s"
+msgstr "Не Съществуващ Запис в модул %s"
+
+#, php-format
+msgid ""
+"The %s referenced a recording file listed below that does not exists. An "
+"entry has been generated, named %s, with the referenced file(s) but you "
+"should confirm that it really works and the real files exist. The file(s) "
+"referenced: %s "
+msgstr ""
+"%s спомянава че файла на записа показан по-долу не съществува. Въвеждането "
+"беше генерирано, именувано %s, но ще трябва да потвърдите че наистина работи "
+"и истинския файл съществува. Споменатия файл(ове): %s "
+
+msgid "No long description available"
+msgstr "Не е достъпно описание."
+
+msgid "Recordings"
+msgstr "Записи"
+
+msgid "Save Recording"
+msgstr "Направи Запис"
+
+msgid "Check Recording"
+msgstr "Провери Запис"
+
+msgid "checking for fcode field.."
+msgstr "проверка за fcode поле .."
+
+msgid "OK"
+msgstr "OK"
+
+msgid "already exists"
+msgstr "вече съществуват"
+
+msgid "checking for fcode_pass field.."
+msgstr "проверка за fcode_pass поле .."
+
+msgid "** MISSING FEATURE CODE **"
+msgstr "** ЛИПСВАЩ СПЕЦИАЛЕН КОД **"
+
+msgid "Failed to create"
+msgstr "Грешка при създаване"
+
+msgid "[ERROR] The Recorded File Does Not exists:"
+msgstr "[ГРЕШКА] Записаният Файл Не Съществува:"
+
+msgid "[ERROR] SAVING RECORDING:"
+msgstr "[ГРЕШКА] ЗАПАЗВАНЕ НА ЗАПИС:"
+
+msgid "Make sure you have entered a proper name"
+msgstr "Убедете се че сте въвели правилно име"
+
+msgid "[ERROR] REMOVING TEMPORARY RECORDING:"
+msgstr "[ГРЕШКА] ПРЕМАХВАНЕ НА ВРЕМЕНЕН ЗАПИС:"
+
+msgid "Make sure Asterisk is not running as root "
+msgstr "Убедете се че Атериск не работи като root"
+
+msgid "System Recording"
+msgstr "Системен Запис"
+
+msgid "Saved"
+msgstr "Записан"
+
+msgid "Unable to locate"
+msgstr "Не мога да намеря"
+
+msgid "with a a valid suffix"
+msgstr "с правилна наставка"
+
+msgid "Updated"
+msgstr "Обновен"
+
+msgid "System Recordings"
+msgstr "Системни Записи"
+
+msgid "Add Recording"
+msgstr "Добави Запис"
+
+msgid "Step 1: Record or upload"
+msgstr "Стъпка 1: Запис или добавяне"
+
+msgid "Using your phone,"
+msgstr "Използвайки вашия телефон,"
+
+msgid " dial"
+msgstr " наберете"
+
+msgid "Start speaking at the tone. Press # when finished."
+msgstr ""
+
+msgid "and speak the message you wish to record. Press # when finished."
+msgstr ""
+
+msgid ""
+"If you wish to make and verify recordings from your phone, please enter your "
+"extension number here:"
+msgstr ""
+"Ако желаете да направите и проверите записа от вашия телефон, моля въведете "
+"вътрешен номер тук:"
+
+msgid "Go"
+msgstr "Добави"
+
+msgid ""
+"Alternatively, upload a recording in any supported asterisk format. Note "
+"that if you're using .wav, (eg, recorded with Microsoft Recorder) the file "
+"<b>must</b> be PCM Encoded, 16 Bits, at 8000Hz"
+msgstr ""
+"Също така можете да добавите запис във всеки поддържан от Астериск формат. "
+"Имайте впредвид, че ако използвате .wav, (като записани с Microsoft "
+"Recorder) файла <b>трябва</b> да е PCM, 16 Бита, на 8000Hz"
+
+msgid "Upload"
+msgstr "Добави"
+
+msgid "Please wait until the page reloads."
+msgstr "Моля изчакайте докато страницата се презареди."
+
+msgid "Successfully uploaded"
+msgstr "Успешно добавен"
+
+msgid "Step 2: Verify"
+msgstr "Стъпка 2: Прослушване"
+
+msgid "After recording or uploading,"
+msgstr "След запис или добавяне,"
+
+msgid "dial"
+msgstr ""
+
+msgid "to listen to your recording."
+msgstr "за да прослушате вашия запис."
+
+msgid "If you wish to re-record your message, dial"
+msgstr "Ако желаете да презапишете вашето съобщение, наберете"
+
+msgid "Step 3: Name"
+msgstr "Стъпка 3: Име"
+
+msgid "Step 2: Name"
+msgstr "Стъпка 2: Име"
+
+msgid "Name this Recording"
+msgstr "Име на Записа"
+
+msgid "Click \"SAVE\" when you are satisfied with your recording"
+msgstr "Кликнете \"ЗАПИС\" кагото останете доволен от записа"
+
+msgid "Save"
+msgstr "Запис"
+
+msgid "Edit Recording"
+msgstr "Редактирай Записа"
+
+msgid "Usage List"
+msgstr "Списък Употребяващи"
+
+msgid ""
+"This recording is being used in the following instances. You can not remove "
+"this recording while being used. To re-record, you can enable and use the "
+"feature code below if allowed."
+msgstr ""
+"Този запис се използва от следните инстанции. Не можете да премахнете записа "
+"докато се използва. За презаписване, можете да разрешите и използвате "
+"специалния код по-долу ако е позволен."
+
+msgid "Remove Recording"
+msgstr "Премахни Записа"
+
+msgid "Note, does not delete file from computer"
+msgstr "Забележка: Файлът не се изтрива от компютъра"
+
+msgid "Change Name"
+msgstr "Промени Името"
+
+msgid "This changes the short name, visible on the right, of this recording"
+msgstr "Променете името на записа, показвано вдясно."
+
+msgid "Descriptive Name"
+msgstr "Описващо Име"
+
+msgid ""
+"This is displayed, as a hint, when selecting this recording in Queues, "
+"Digital Receptionist, etc"
+msgstr ""
+"Това се показва като подсказка, когато изберете този запис в Опашки, IVR и "
+"други."
+
+msgid "Link to Feature Code"
+msgstr "Свържи Специален Код"
+
+msgid ""
+"Check this box to create an options feature code that will allow this "
+"recording to be changed directly."
+msgstr ""
+"Маркирайте тази отметка за да създадете допълнителен специален код, който ще "
+"ви позволи да променяте записа директно."
+
+#, php-format
+msgid "Optional Feature Code %s"
+msgstr "Допълнителен Специален Код %s"
+
+msgid "Feature Code Password"
+msgstr "Парола на Специален Код"
+
+msgid ""
+"Optional password to protect access to this feature code which allows a user "
+"to re-record it."
+msgstr ""
+"Незадължителна парола за ограничаване достъпа до специалния код, който "
+"позволява на потребителя да презапише записа."
+
+msgid "Direct Access Feature Code Not Available"
+msgstr "Не е Наличен Специален Код за Директен Достъп"
+
+msgid ""
+"Direct Access Feature Codes for recordings are not available for built in "
+"system recordings or compound recordings made of multiple individual ones."
+msgstr ""
+"Специалните Кодове за Директен Достъп за записите не са достъпни за "
+"вградените системни записи или обединени записи направени от различни "
+"индивидуални такива."
+
+msgid "Files"
+msgstr "Файлове"
+
+msgid "Built-in Recordings"
+msgstr "Вградени Записи"
+
+msgid "Please enter a valid Name for this System Recording"
+msgstr "Моля въведете правилно Име за този Системен Запис"
+
+msgid "Select System Recording:"
+msgstr "Изберете Системен Запис:"
+
+msgid "Click here to play this recording"
+msgstr "Кликнете тук за да възпроизведете този запис"
+
+msgid "Move Up"
+msgstr "Премести Нагоре"
+
+msgid "Move Down"
+msgstr "Премести Надолу"
+
+msgid "Delete"
+msgstr "Изтрий"
+
+#, php-format
+msgid "No compatible wav, mp3 or gsm format found to play:<br /><br />%s"
+msgstr ""
+"Не е намерен съвместим wav, mp3 или gsm формат за възпроизвеждане:<br /><br /"
+">%s"
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"Creates and manages system recordings, used by many other modules (eg, IVR)."
+msgstr ""
+
+msgid "Recordings Crypt Key"
+msgstr ""
+
+msgid "System Setup"
+msgstr ""
+
+msgid ""
+"Crypt key used by this recordings module when accessing the recording files. "
+"Change from the default of "
+msgstr ""
+
+msgid " if desired."
+msgstr ""

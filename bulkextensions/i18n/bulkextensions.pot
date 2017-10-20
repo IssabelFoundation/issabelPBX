@@ -1,0 +1,159 @@
+# IssabelPBX language template for bulkextensions
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Bulk Extensions"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid "Bulk Extensions uses CSV files to import and export extensions."
+msgstr ""
+
+msgid "Voicemail Account Activated"
+msgstr ""
+
+msgid "Login information for your Voicemail account is as follows:"
+msgstr ""
+
+msgid "Account Name: "
+msgstr ""
+
+msgid "Extension: "
+msgstr ""
+
+msgid "Voicemail Password: "
+msgstr ""
+
+msgid "You are running IssabelPBX in <b>deviceanduser</b> mode"
+msgstr ""
+
+msgid "This module is only supported when IssabelPBX is in <b>extensions</b> mode"
+msgstr ""
+
+msgid "Manage Extensions in bulk using CSV files."
+msgstr ""
+
+#, php-format
+msgid ""
+"Start by downloading the %s Template CSV file %s (right-click > save as) or "
+"clicking the Export Extensions button."
+msgstr ""
+
+msgid ""
+"Modify the CSV file to add, edit, or delete Extensions as desired. Then load "
+"the CSV file. After the CSV file is processed, the action taken for each row "
+"will be displayed."
+msgstr ""
+
+msgid ""
+"Bulk extension changes can take a long time to complete. It can take 30-60 "
+"seconds to add 100 extensions on a small system. However, on a system with "
+"2000 extensions it can take about 5 minutes to add 100 new extensions."
+msgstr ""
+
+msgid "Export Extensions"
+msgstr ""
+
+msgid "CSV File to Load"
+msgstr ""
+
+msgid "Load File"
+msgstr ""
+
+msgid "Email Notification for New Accounts"
+msgstr ""
+
+msgid ""
+"By default, a notification email will be sent to the Voicemail email address "
+"set for each account added."
+msgstr ""
+
+msgid ""
+" The settings below can be used to control the content and destination of "
+"the notification emails."
+msgstr ""
+
+msgid "Default Address:"
+msgstr ""
+
+msgid ""
+"If a Default Address is specified, notification emails for new accounts "
+"without a Voicemail email address will be sent to the Default Address."
+msgstr ""
+
+msgid "Override Address:"
+msgstr ""
+
+msgid ""
+"If an Override Address is specified, all notification emails will be sent to "
+"the Override Address only. Type \"noemail\" (without the quotes) as the "
+"Override Address to stop notification emails from being sent."
+msgstr ""
+
+msgid "Email From:"
+msgstr ""
+
+msgid ""
+"The Email From header may be specified. If left blank, the system default "
+"will be used."
+msgstr ""
+
+msgid "Email Reply-To:"
+msgstr ""
+
+msgid ""
+"The Email Reply-To header may be specified. If left blank, the system "
+"default will be used."
+msgstr ""
+
+msgid "Email Subject:"
+msgstr ""
+
+msgid ""
+"The Email Subject may be specified. If left blank, the default subject, "
+"\"Voicemail Account Activated\", will be used."
+msgstr ""
+
+msgid "Email Opening:"
+msgstr ""
+
+msgid ""
+"The Email Opening may be specified. If left blank, the default opening, "
+"\"Login information for your Voicemail account is as follows:\", will be "
+"used."
+msgstr ""
+
+msgid ""
+" The account name, extension, and Voicemail password will automatically be "
+"inserted after the opening."
+msgstr ""
+
+msgid "Email Closing:"
+msgstr ""
+
+msgid ""
+"The Email Closing may be specified. If any text is entered, it will be "
+"inserted at the end of the email."
+msgstr ""
+
+msgid "Bulk Extensions CSV File Columns"
+msgstr ""
+
+msgid ""
+"The table below explains each column in the CSV file. You can change the "
+"column order of the CSV file as you like, however, the column names must be "
+"preserved."
+msgstr ""

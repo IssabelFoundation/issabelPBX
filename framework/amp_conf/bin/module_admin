@@ -1,0 +1,800 @@
+#!/usr/bin/php -q
+<?php
+/*
+* (c) 2006 Greg MacLellan
+* Copyright 2006-2014 Schmooze Com Inc.
+* 
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public License
+* as published by the Free Software Foundation; either version 2
+* of the License, or (at your option) any later version.
+* 
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+
+// Command-line Module Administration script
+*/
+
+$bootstrap_settings['issabelpbx_auth'] = false;
+// don't include any of the functions.inc.php files from modules, this CLI version of
+// module_admin is somtimes the only way to recover from a bad module being loaded into
+// a system.
+//
+//$restrict_mods = true;
+if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc/issabelpbx.conf')) {
+	include_once('/etc/asterisk/issabelpbx.conf');
+}
+
+// Force autoloader to load all the includes since Zend issues can break and make this fail when this is run
+//
+fpbx_framework_autoloader(true);
+
+function doReload() {
+	$result = do_reload();
+
+	if ($result['status'] != true) {
+		out("Error(s) have occured, the following is the retrieve_conf output:");
+		$retrieve_array = explode('<br/>',$result['retrieve_conf']);
+		foreach ($retrieve_array as $line) {
+			out($line);
+		};
+	} else {
+		out($result['message']);
+	}
+}
+
+function doDisable($modulename, $force) {
+	getIncludes();
+	if (is_array($errors = module_disable($modulename, $force))) {
+		out("The following error(s) occured:");
+		out(' - '.implode("\n - ",$errors));
+		exit(2);
+	} else {
+		out("Module ".$modulename." successfully disabled");
+	}
+}
+
+function doEnable($modulename, $force) {
+	getIncludes();
+	if (is_array($errors = module_enable($modulename, $force))) {
+		out("The following error(s) occured:");
+		out(' - '.implode("\n - ",$errors));
+		exit(2);
+	} else {
+		out("Module ".$modulename." successfully enabled");
+	}
+}
+
+function doInstall($modulename, $force) {
+	getIncludes();
+	if (is_array($errors = module_install($modulename, $force))) {
+		out("The following error(s) occured:");
+		out(' - '.implode("\n - ",$errors));
+		exit(2);
+	} else {
+		out("Module ".$modulename." successfully installed");
+	}
+}
+
+function doDelete($modulename, $force) {
+	getIncludes();
+	if (is_array($errors = module_delete($modulename, $force))) {
+		out("The following error(s) occured:");
+		out(' - '.implode("\n - ",$errors));
+		exit(2);
+	} else {
+		out("Module ".$modulename." successfully deleted");
+	}
+}
+
+function doDeleteAll($force=true) {
+	getIncludes(); //get functions from other modules, in case we need them here
+	$modules = module_getinfo(false, false, true);
+	unset($modules['builtin']);//builtin never gets deleted, so remove it from the list
+	$temp = array();
+	if (isset($modules['core'])){ //move core to the end
+		$temp['core']=$modules['core'];
+		unset($modules['core']);
+		$modules['core']=$temp['core'];
+	}
+	unset($temp);
+		foreach ($modules as $module){
+			if (is_array($errors = module_delete($module['rawname'], true))) {
+				out("The following error(s) occured:");
+				out(' - '.implode("\n - ",$errors));
+				//exit(2);
+			} else {
+				out("Module ".$module['rawname']." successfully deleted");
+			}
+	}
+		out('All modules successfully removed');
+}
+
+function doDownload($modulename, $force) {
+
+	global $modulexml_path;
+	global $modulerepository_path;
+
+	if (is_array($errors = module_download($modulename, $force, 'download_progress', $modulerepository_path, $modulexml_path))) {
+		out("The following error(s) occured:");
+		out(' - '.implode("\n - ",$errors));
+		exit(2);
+	} else {
+		out("Module ".$modulename." successfully downloaded");
+	}
+}
+
+
+function download_progress($action, $params) {
+	switch ($action) {
+		case 'untar':
+			outn("\nUntaring..");
+		break;
+		case 'downloading':
+			outn("\rDownloading ".$params['read'].' of '.$params['total'].' ('.($params['total'] ? round($params['read']/$params['total']*100) : '0').'%)            ',false);
+			if ($params['read'] == $params['total']) {
+				out('');
+			}
+		break;
+		case 'done';
+			out('Done',false);
+		break;
+	}
+}
+
+function doUninstall($modulename, $force) {
+	getIncludes();
+	if (is_array($errors = module_uninstall($modulename, $force))) {
+		out("The following error(s) occured:");
+		out(' - '.implode("\n - ",$errors));
+		exit(2);
+	} else {
+		out("Module ".$modulename." successfully uninstalled");
+	}
+}
+
+function doUpgrade($modulename, $force) {
+	// either will exit() if there's a problem
+	doDownload($modulename, $force);
+	doInstall($modulename, $force);
+}
+
+function doInstallLocal($force) {
+  $module_info=module_getinfo(false, MODULE_STATUS_NOTINSTALLED);
+  foreach ($module_info as $module) {
+    if ($module['rawname'] != 'builtin') {
+      $modules[] = $module['rawname'];
+    }
+  }
+  if (in_array('core', $modules)){
+    out("Installing core...");
+    doInstall('core', $force);
+  }
+  if (count($modules) > 0) {
+    out("Installing: ".implode(', ',$modules));
+    foreach ($modules as $module => $name) {
+      if (($name != 'core')){//we dont want to reinstall core
+        getIncludes(); //get functions from other modules, in case we need them here
+        out("Installing $name...");
+        doInstall($name, $force);
+      }
+    }
+    out("Done. All modules installed.");
+  } else {
+    out("All modules up to date.");
+  }
+}
+
+function doInstallAll($force) {
+	doUpgradeAll(true);
+	$modules = getInstallableModules();
+	if (in_array('core', $modules)){
+		out("Installing core...");
+		doDownload('core', $force);
+		doInstall('core', $force);
+	}
+	if (count($modules) > 0) {
+		out("Installing: ".implode(', ',$modules));
+		foreach ($modules as $module => $name) {
+			if (($name != 'core')){//we dont want to reinstall core
+				getIncludes(); //get functions from other modules, in case we need them here
+				out("Installing $name...");
+				doDownload($name, $force);
+				doInstall($name, $force);
+			}
+		}
+		out("Done. All modules installed.");
+	} else {
+		out("All modules up to date.");
+	}
+}
+
+function getIncludes(){
+	$active_modules = module_getinfo(false, MODULE_STATUS_ENABLED);
+	if(is_array($active_modules)){
+		foreach($active_modules as $key => $module) {
+			//include module functions
+			if (is_file("modules/{$key}/functions.inc.php")) {
+				require_once("modules/{$key}/functions.inc.php");
+			}
+		}
+	}
+}
+
+/**
+ * @param bool Controls if a simple (names only) or extended (array of name,versions) array is returned
+ */
+function getInstallableModules($extarray = false) {
+	$modules_online = module_getonlinexml();
+	$module_info=module_getinfo(false);
+	$modules_installable = array();
+  global $active_repos;
+
+  check_active_repos();
+
+	foreach ($modules_online as $name) {
+
+    // Theory: module is not in the defined repos, and since it is not local (meaning we loaded it at some point) then we
+    //         don't show it. Exception, if the status is BROKEN then we should show it because it was here once.
+    //
+    if ((!isset($active_repos[$modules_online[$name['rawname']]['repo']]) || !$active_repos[$modules_online[$name['rawname']]['repo']]) && (!isset($module_info[$name['rawname']]) || $module_info[$name['rawname']]['status'] == MODULE_STATUS_NOTINSTALLED)) {
+      continue;
+    }
+
+		if ((!isset($module_info[$name['rawname']]['status'])) || ($module_info[$name['rawname']]['status'] == MODULE_STATUS_NEEDUPGRADE) || ($module_info[$name['rawname']]['status'] == MODULE_STATUS_NOTINSTALLED)){
+			$modules_installable[]=$name['rawname'];
+    }
+	}
+	return $modules_installable;
+}
+
+/**
+ * @param bool Controls if a simple (names only) or extended (array of name,versions) array is returned
+ */
+function getUpgradableModules($extarray = false) {
+	$modules_local = module_getinfo(false, MODULE_STATUS_ENABLED);
+	$modules_online = module_getonlinexml();
+	$modules_upgradable = array();
+  global $active_repos;
+
+  check_active_repos();
+
+	foreach (array_keys($modules_local) as $name) {
+		if (isset($modules_online[$name])) {
+			if (version_compare_issabel($modules_local[$name]['version'], $modules_online[$name]['version']) < 0) {
+				if ($extarray) {
+					$modules_upgradable[] = array(
+						'name' => $name,
+						'local_version' => $modules_local[$name]['version'],
+						'online_version' => $modules_online[$name]['version'],
+					);
+				} else {
+					$modules_upgradable[] = $name;
+				}
+			}
+		}
+	}
+	return $modules_upgradable;
+}
+
+function doUpgradeAll($force) {
+	$modules = getUpgradableModules();
+	if (count($modules) > 0) {
+		out("Upgrading: ".implode(', ',$modules));
+		foreach ($modules as $modulename) {
+			out("Upgrading $modulename..");
+			doUpgrade($modulename, $force);
+		}
+		out("All upgrades done!");
+	} else {
+		out("Up to date.");
+	}
+}
+
+function mirrorrepo(){
+	doInstallAll(true);
+	$modules_online = module_getonlinexml();
+	$modules_local = module_getinfo();
+	unset($modules_local['builtin']); //builtin never gets deleted, so remove it from the list
+	foreach ($modules_local as $localmod){
+		if (!module_getonlinexml($localmod['rawname'])){
+			doDelete($localmod['rawname'],1);
+		}
+	}
+}
+
+function showi18n($modulename) {
+	$modules = module_getinfo($modulename);
+	if (!isset($modules[$modulename])) {
+		fatal($modulename.' not found');
+	}
+
+	if (isset($modules[$modulename]['name'])) {
+		echo "# name:\n_(\"".$modules[$modulename]['name']."\");\n";
+	}
+	if (isset($modules[$modulename]['category'])) {
+		echo "# category:\n_(\"".str_replace("\n","",$modules[$modulename]['category'])."\");\n";
+	}
+	if (isset($modules[$modulename]['description'])) {
+		echo "# description:\n_(\"".trim(str_replace("\n","",$modules[$modulename]['description']))."\");\n";
+	}
+	if (isset($modules[$modulename]['menuitems'])) {
+		foreach ($modules[$modulename]['menuitems'] as $key => $menuitem) {
+			echo "# $key:\n_(\"$menuitem\");\n";
+		}
+	}
+
+  $issabelpbx_conf =& issabelpbx_conf::create();
+  $conf = $issabelpbx_conf->get_conf_settings();
+  foreach ($conf as $keyword => $settings) {
+    if (($modulename == 'framework' && $settings['module'] == '') || $settings['module'] == $modulename) {
+      echo "# Setting name - $keyword:\n_(\"".$settings['name']."\");\n";
+      echo "# Setting category - $keyword:\n_(\"".$settings['category']."\");\n";
+      echo "# Setting description - $keyword:\n_(\"".$settings['description']."\");\n";
+    }
+  }
+}
+
+function showCheckDepends($modulename) {
+	$modules = module_getinfo($modulename);
+	if (!isset($modules[$modulename])) {
+		fatal($modulename.' not found');
+	}
+	if (($errors = module_checkdepends($modules[$modulename])) !== true) {
+		out("The following dependencies are not met:");
+		out(' - '.implode("\n - ",$errors));
+		exit(1);
+	} else {
+		out("All dependencies met for module ".$modulename);
+	}
+}
+
+function showEngine() {
+	$engine = engine_getinfo();
+	foreach ($engine as $key=>$value) {
+		out(str_pad($key,15,' ',STR_PAD_LEFT).': '.$value);
+	}
+}
+
+function setPerms() {
+	//If were running as root, attempt to set proper permissions
+	//on the freshly installed files. For simplicity, we run the
+	// default utility for setting perms
+    global $amp_conf;
+    $current_user = posix_getpwuid(posix_geteuid());
+	if ($current_user['uid'] === 0) {
+		system($amp_conf['AMPBIN'] . '/issabelpbx_engine chown');
+	}
+}
+function check_active_repos() {
+  global $no_warnings;
+  global $active_repos;
+
+  if (!isset($active_repos)) {
+    $active_repos = module_get_active_repos();
+    $list = implode(',',array_keys($active_repos));
+    if (!$no_warnings) {
+      out("no repos specified, using: [$list] from last GUI settings");
+      out("");
+    }
+  }
+}
+
+
+function showHelp() {
+	global $argv;
+	out("USAGE:",false);
+	out("  ".$argv[0]." [params] <operation> <module> [parameters.. ] ",false);
+	out("PARAMETERS: ",false);
+	out("  -f  Force operation (skips dependency and status checks)",false);
+	out("      WARNING: Use at your own risk, modules have dependencies for a reason!",false);
+	out("  -R, --repo, --repos repo1,repo2,repo3...)",false);
+	out("      List of repositories to check, valid options: standard, extended, unsupported, commercial.)",false);
+	out("      Locally installed modules will be checked despite the repository list.)",false);
+	out("OPERATIONS:",false);
+	out("  checkdepends <module>",false);
+	out("      Check if module meets all dependencies",false);
+	out("  delete <module>",false);
+	out("      Disable, uninstall, and delete the specified module",false);
+	out("  deleteall",false);
+	out("      Disable, uninstall, and delete ALL MODULES",false);
+	out("      WARNING: Use at your own risk, this will remove ALL MODULES from your system!",false);
+	out("  disable <module>",false);
+	out("      Disable the specified module",false);
+	out("  download <module>",false);
+	out("      Download the module from the website",false);
+	out("      If -f is used, downloads even if there is already a copy.",false);
+	out("  enable <module>",false);
+	out("      Enable the specified module",false);
+	out("  info <module>",false);
+	out("      Get information about a given module",false);
+	out("  i18n <module>",false);
+	out("      print out i18n required text for the given module",false);
+	out("  install <module>",false);
+	out("      Install the module (must exist in the modules directory)",false);
+	out("  installlocal",false);
+	out("      Installs any module not installed that is locally available",false);
+	out("  installall",false);
+	out("      Installs all module that exist in the repository",false);
+	out("  list",false);
+	out("      List all local modules and their current status",false);
+	out("  listonline",false);
+	out("      List all local and repository modules and their current status",false);
+	out("  reload",false);
+	out("      Reload the configuration (same as pressing the reload bar)",false);
+	out("  reversedepends <module>",false);
+	out("      Show all modules that depend on this one",false);
+	out("  showupgrades",false);
+	out("      Show a list of upgradable modules",false);
+	out("  showannounce",false);
+	out("      Shows any annoucements that maybe displayed at issabel.org for this version",false);
+	out("  uninstall <module>",false);
+	out("      Disable and uninstall the specified module",false);
+	out("  upgrade <module>",false);
+	out("      Equivalent to running download and install",false);
+	out("  upgradeall",false);
+	out("      Downloads and upgrades all modules with pending updates",false);
+
+	out("  --help, -h, -?           Show this help",false);
+}
+
+function showInfo($modulename) {
+	function recursive_print($array, $parentkey = '', $level=0) {
+		foreach ($array as $key => $value) {
+			if (is_array($value)) {
+				// check if there is a numeric key in the sub-array, if so, we don't print the title
+				if (!isset($value[0])) {
+					out(str_pad($key,15+($level * 3),' ',STR_PAD_LEFT).': ');
+				}
+				recursive_print($value, $key, $level + 1);
+			} else {
+				if (is_numeric($key)) {
+					// its just multiple parent keys, so we don't indent, and print the parentkey instead
+					out(str_pad($parentkey,15+(($level-1) * 3),' ',STR_PAD_LEFT).': '.$value);
+				} else {
+					if ($key == 'status') {
+						switch ($value) {
+							case MODULE_STATUS_NOTINSTALLED: $value = 'Not Installed'; break;
+							case MODULE_STATUS_NEEDUPGRADE: $value = 'Disabled; Needs Upgrade'; break;
+							case MODULE_STATUS_ENABLED: $value = 'Enabled'; break;
+							case MODULE_STATUS_DISABLED: $value = 'Disabled'; break;
+							case MODULE_STATUS_BROKEN: $value = 'Broken'; break;
+						}
+					}
+					out(str_pad($key,15+($level * 3),' ',STR_PAD_LEFT).': '.$value);
+				}
+			}
+		}
+	}
+	$modules = module_getinfo($modulename);
+	if (!isset($modules[$modulename])) {
+		fatal($modulename.' not found');
+	}
+
+	recursive_print($modules[$modulename]);
+
+}
+
+function showList($online = false) {
+	global $amp_conf;
+	$modules_local = module_getinfo(false,false,true);
+	$modules = $modules_local;
+	global $active_repos;
+
+  check_active_repos();
+
+	if ($online) {
+		$modules_online = module_getonlinexml();
+		if (isset($modules_online)) {
+			$modules += $modules_online;
+		}
+	}
+	ksort($modules);
+
+	outn(str_pad("Module", 20));
+	outn(str_pad("Version", 18));
+	out("Status");
+
+	outn(str_repeat('-', 19).' ');
+	outn(str_repeat('-', 17).' ');
+	out(str_repeat('-', 19).' ');
+
+	foreach (array_keys($modules) as $name) {
+
+		$status_index = isset($modules[$name]['status'])?$modules[$name]['status']:'';
+
+    // Don't include modules not in our repo unless they are locally installed already
+    //
+    if ((!isset($active_repos[$modules[$name]['repo']]) || !$active_repos[$modules[$name]['repo']]) && $status_index != MODULE_STATUS_BROKEN && !isset($modules_local[$name])) {
+      continue;
+    }
+
+		switch ($status_index) {
+			case MODULE_STATUS_NOTINSTALLED:
+				if (isset($modules_local[$name])) {
+					$status = 'Not Installed (Locally available)';
+				} else {
+					$status = 'Not Installed (Available online: '.$modules_online[$name]['version'].')';
+				}
+			break;
+			case MODULE_STATUS_DISABLED:
+				$status = 'Disabled';
+			break;
+			case MODULE_STATUS_NEEDUPGRADE:
+				$status = 'Disabled; Pending upgrade to '.$modules[$name]['version'];
+			break;
+			case MODULE_STATUS_BROKEN:
+				$status = 'Broken';
+			break;
+			default:
+				// check for online upgrade
+				if (isset($modules_online[$name]['version'])) {
+					$vercomp = version_compare_issabel($modules[$name]['version'], $modules_online[$name]['version']);
+					if ($vercomp < 0) {
+						$status = 'Online upgrade available ('.$modules_online[$name]['version'].')';
+					} else if ($vercomp > 0) {
+						$status = 'Newer than online version ('.$modules_online[$name]['version'].')';
+					} else {
+						$status = 'Enabled and up to date';
+					}
+				} else if (isset($modules_online)) {
+					// we're connected to online, but didn't find this module
+					$status = 'Enabled; Not available online';
+				} else {
+					$status = 'Enabled';
+				}
+			break;
+		}
+
+		outn(str_pad($name, 20));
+		$module_version = isset($modules[$name]['dbversion'])?$modules[$name]['dbversion']:'';
+		outn(str_pad($module_version, 18));
+		out($status);
+	}
+}
+
+function showReverseDepends($modulename) {
+	$modules = module_getinfo($modulename);
+	if (!isset($modules[$modulename])) {
+		fatal($modulename.' not found');
+	}
+
+	if (($depmods = module_reversedepends($modulename)) !== false) {
+		out("The following modules depend on this one: ".implode(', ',$depmods));
+		exit(1);
+	} else {
+		out("No enabled modules depend on this module.");
+	}
+}
+
+function showUpgrades() {
+	$modules = getUpgradableModules(true);
+	if (count($modules) > 0) {
+		out("Upgradable: ");
+		foreach ($modules as $mod) {
+			outn('   ');
+			out($mod['name'].' '.$mod['local_version'].' -> '.$mod['online_version']);
+		}
+	} else {
+		out("Up to date.");
+	}
+}
+//****************************************************************************************************
+
+
+// **** Make sure we have PEAR's GetOpts.php, and include it
+if (! @ include("Console/Getopt.php")) {
+	fatal("PEAR must be installed (requires Console/Getopt.php). Include path: ".ini_get("include_path"));
+}
+
+// **** Parse out command-line options
+$shortopts = "h?fc:x:r:R:";
+$longopts = array("help","debug","no-warnings","config=","modulexml-path=","modulerepository-path=","repos=","repo=","append-brand-version=");
+
+$args = Console_Getopt::getopt(Console_Getopt::readPHPArgv(), $shortopts, $longopts);
+if (is_object($args)) {
+	// assume it's PEAR_ERROR
+	out($args->message);
+	exit(255);
+}
+
+// force operations
+$force = false;
+$no_warnings = false;
+
+// override xml and svn repository paths from hardcoded and amportal.conf defaults
+// currently only implemented for downloading (to facilitate automatic installations)
+//
+$modulexml_path = false;
+$modulerepository_path = false;
+
+foreach ($args[0] as $arg) {
+	switch ($arg[0]) {
+		case "--help": case "h": case "?":
+			showHelp();
+			exit(10);
+		break;
+		case 'f':
+			$force = true;
+		break;
+		case '--no-warnings':
+			$no_warnings = true;
+		break;
+		case "--config": case "c":
+			$ampconfpath = $arg[1];
+		break;
+		case "--append-brand-version":
+  		_module_brandid(_module_brandid() . "-" . $arg[1]);
+		break;
+		case "--modulexml-path": case "x":
+			$modulexml_path = rtrim($arg[1],DIRECTORY_SEPARATOR)."/";
+		break;
+		case "--modulerepository-path": case "r":
+			$modulerepository_path = rtrim($arg[1],DIRECTORY_SEPARATOR)."/";
+		break;
+    case "--repo":
+    case "--repos":
+    case "R":
+      $repo_args = explode(',',$arg[1]);
+      foreach ($repo_args as $repo) {
+        switch ($repo) {
+        case 'standard':
+        case 'extended':
+        case 'unsupported':
+        case 'commercial':
+          $active_repos[$repo] = 1;
+        break;
+        default:
+          out("No such repo: [$repo], skipping");
+        }
+      }
+		break;
+	}
+}
+
+$operation = $args[1][0];
+$param = isset($args[1][1]) ? $args[1][1] : null;;
+
+if (!isset($argv[1])) {
+	showhelp();
+	exit(10);
+}
+
+if ($force && !$no_warnings) {
+	out('WARNING: "force" is enabled, it is possible to create problems');
+}
+
+// issabelpbx modules will include the unsintall scripts
+// using relative paths. why not modifiying the include dir...?
+// fix for ticket:1731
+chdir ( $amp_conf["AMPWEBROOT"] . "/admin/" );
+
+
+switch ($operation ) {
+	case 'checkdepends':
+		if (empty($param)) {
+			fatal("Missing module name");
+		}
+		showCheckDepends($param);
+	break;
+	case 'delete':
+		if (empty($param)) {
+			fatal("Missing module name");
+		}
+		doDelete($param, $force);
+	break;
+	case 'deleteall': case 'removeall':
+		doDeleteAll();
+	break;
+	case 'disable':
+		if (empty($param)) {
+			fatal("Missing module name");
+		}
+		doDisable($param, $force);
+	break;
+	case 'download':
+		$announcements = module_get_annoucements();
+		if (empty($param)) {
+			fatal("Missing module name");
+		}
+		doDownload($param, $force);
+		setPerms();
+	break;
+	case 'enable':
+		if (empty($param)) {
+			fatal("Missing module name");
+		}
+		doEnable($param, $force);
+	break;
+	case 'i18n':
+		if (empty($param)) {
+			fatal("Missing module name");
+		}
+		showi18n($param);
+	break;
+	case 'info':
+		if (empty($param)) {
+			fatal("Missing module name");
+		}
+		showInfo($param);
+	break;
+	case 'install':
+		if (empty($param)) {
+			fatal("Missing module name");
+		}
+		doInstall($param, $force);
+		setPerms();
+	break;
+	case 'installlocal':
+		doInstallLocal(true);
+		setPerms();
+	break;
+	case 'installall':
+		doInstallAll(true);
+		setPerms();
+	break;
+	case 'list':
+		showList();
+	break;
+	case 'listonline':
+		$announcements = module_get_annoucements();
+		showList(true);
+	break;
+	case 'mirrorrepo': case 'mirrorrepro':
+		mirrorrepo();
+		setPerms();
+	break;
+	case 'reload':
+		doReload();
+	break;
+	case 'reversedepends':
+		if (empty($param)) {
+			fatal("Missing module name");
+		}
+		showReverseDepends($param);
+	break;
+	case 'showannounce';
+		$announcements = module_get_annoucements();
+		if (trim($announcements) == "") {
+			echo "No Annoucements Available\n";
+		} else {
+			echo "The following Annoucements are Available:\n";
+			echo $annoucements."\n";
+		}
+
+	break;
+	case 'showengine':
+		showEngine();
+	break;
+	case 'showupgrade':
+	case 'showupgrades':
+		showUpgrades();
+	break;
+	case 'uninstall':
+		if (empty($param)) {
+			fatal("Missing module name");
+		}
+		doUninstall($param, $force);
+	break;
+	case 'upgrade':
+	case 'update':
+		doUpgrade($param, $force);
+		setPerms();
+	break;
+	case 'upgradeall':
+	case 'updateall':
+		doUpgradeAll($force);
+		setPerms();
+	break;
+	default:
+	case 'help':
+		showhelp();
+		exit(10);
+	break;
+}
+
+exit(0);
+
+?>

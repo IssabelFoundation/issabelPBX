@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-10 16:38-0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+#: pbdirectory.i18n.php:6
+msgid "Admin"
+msgstr ""
+
+#: functions.inc.php:19 pbdirectory.i18n.php:4
+msgid "Phonebook Directory"
+msgstr "Elenco Telefonico (Directory)"
+
+#: install.php:5
+msgid "Phonebook dial-by-name directory"
+msgstr "Elenco Telefonico chiama-per-nome"
+
+#: pbdirectory.i18n.php:8
+msgid "Provides a dial-by-name directory for phonebook entries"
+msgstr ""

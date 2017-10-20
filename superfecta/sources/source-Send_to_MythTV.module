@@ -1,0 +1,79 @@
+<?php
+
+/*
+	#######################################################################################
+
+	MythTV Notification Module for CID Superfecta 2.11.x
+
+	* Version History:
+		- Apr 15, 2013 - Initial Release by Gary Butters
+
+
+	* Licence: This program is free software; you can redistribute it and/or modify it 
+	under the terms of the GNU General Public License as published by the Free Software 
+	Foundation; either version 2 of the License, or (at your option) any later version.
+
+	#######################################################################################
+*/
+
+class Send_to_Mythtv extends superfecta_base {
+
+    public $description = "This source will send the Caller ID name and number to a Mythtv mythmessage service for external processing.<br>The message will be sent as a Call notification<br>";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'Broadcast_address' => array(
+            'description' => 'Specify the broadcast IP to call after a CLID was found.',
+            'type' => 'text',
+            'default' => '192.168.1.255'
+        ),
+        'Server_TCP_Port' => array(
+            'description' => 'Specify the TCP port to be used (default for Mythtv is 6948).',
+            'type' => 'number',
+            'default' => '6948'
+        ),
+        'Default_CNAM' => array(
+            'description' => 'Text to push if no CNAM is found. Leave blank to prevent Superfecta from sending anything if no CNAM is found.',
+            'type' => 'text',
+            'default' => 'Unknown'
+        ),
+        'Timeout' => array(
+            'description' => 'Time to display notification in seconds',
+            'type' => 'number',
+            'default' => '10'
+        )
+    );
+
+    function post_processing($cache_found, $winning_source, $first_caller_id, $run_param, $thenumber) {
+        $mythtv_cnam = "";
+
+        if ($first_caller_id != "") {
+            $mythtv_cnam = $first_caller_id;
+        } else if ($run_param['Default_CNAM'] != "") {
+            $mythtv_cnam = $run_param['Default_CNAM'];
+        }
+
+        if (($run_param['Broadcast_address'] != '') && ($mythtv_cnam != '')) {
+            $mythtv_text = '<mythmessage version="1">'.
+                                '<text>'.
+                                    'Incoming Call&#10;'.
+                                    $mythtv_cnam.'&#10;'.
+                                    $thenumber.'&#10;'.
+                                '</text>'.
+                                '<timeout>'.
+                                    $run_param['Timeout'].
+                                '</timeout>'.
+                            '</mythmessage>';
+
+            $sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+            socket_set_option($sock, SOL_SOCKET, SO_BROADCAST, 1);
+            socket_sendto($sock, $mythtv_text, strlen($mythtv_text), 0, $run_param['Broadcast_address'], $run_param['Server_TCP_Port']);
+            socket_close($sock);
+
+
+            $this->DebugPrint("Send to mythtv: ${mythtv_text}");
+        }
+
+        return($thenumber);
+    }
+
+}

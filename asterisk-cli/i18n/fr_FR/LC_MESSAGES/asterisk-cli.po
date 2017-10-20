@@ -1,0 +1,33 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-12-09 09:32+0100\n"
+"Last-Translator: Jouniaux <c.jouniauxdiv@laposte.net>\n"
+"Language-Team: Francesco Romano <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Asterisk CLI"
+msgstr "Asterisk CLI"
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"Provides an interface allowing you to run a command as if it was typed into "
+"Asterisk CLI"
+msgstr ""
+
+msgid "Command:"
+msgstr "Commande"
+
+msgid "Execute:"
+msgstr "Exécuter"

@@ -1,0 +1,94 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for restart
+# Copyright (C) 2008, 2009, 2010, 2011 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-15 15:53-0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Moshe Brevda <mbrevda => gmail ! com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: restart.i18n.php:6 restart.i18n.php:12
+msgid "Admin"
+msgstr "ניהול"
+
+#: restart.i18n.php:4
+msgid "Bulk Phone Restart"
+msgstr " העפלה טלפון מחדש גורפת"
+
+#: page.restart.php:40
+msgid "Device List:"
+msgstr "רשימת מכשירים:"
+
+#: install.php:13
+msgid "FAILED"
+msgstr "נכשל"
+
+#: restart.i18n.php:10
+msgid "Phone Restart"
+msgstr "העפל טלפונים מחדש"
+
+#: page.restart.php:30 page.restart.php:67
+msgid "Restart Phones"
+msgstr "העפל טלפונים מחדש"
+
+#: page.restart.php:32
+msgid "Restart requests sent!"
+msgstr " בקשות הפעל מחדש שנשלחו!"
+
+#: page.restart.php:58
+msgid "SELECT ALL"
+msgstr "בחר הכל "
+
+#: page.restart.php:40
+msgid ""
+"Select Device(s) to restart.  Currently, only Aastra, Snom, Polycom, "
+"Grandstream and Cisco devices are supported.  All other devices will not "
+"show up in this list.  Click the \"Select All\" button to restart all "
+"supported devices. "
+msgstr ""
+"בחר התקן (ים) להעפיל מחדש. נכון לעכשיו, רק AASTRA, SNOM, Polycom, "
+"Grandstream  וסיסקו נתמכים. כל המכשירים האחרים לא יופיעו ברשימה זו. לחץ על "
+"\"בחר הכל \" על מנת להפעיל מחדש את כל המכשירים הנתמכים."
+
+#: restart.i18n.php:8
+msgid ""
+"This module allows users to restart one or multiple phones that support "
+"being restarted via a SIP NOTIFY command through Asterisk's sip_notify.conf"
+msgstr ""
+"מודול זה מאפשר למשתמשים להפעיל מחדש את אחד או מספר רב של טלפונים התומכים "
+"באמצעות פקודה  SIP NOTIFY ​​דרך sip_notify.conf של אסטריסק"
+
+#: page.restart.php:35
+msgid ""
+"Warning: The restart mechanism behavior is vendor specific.  Some vendors "
+"only restart the phone if there is a change to the phone configuration or if "
+"an updated firmware is available via tftp/ftp/http"
+msgstr ""
+"אזהרה: התנהגות מנגנון הפעלה מחדש ספציפי לכל ספק. ספקים מסוימים מעפשרים רק "
+"להפעיל מחדש את הטלפון אם יש שינוי תצורה הטלפון או אם קושחה מעודכנת זמין דרך "
+"TFTP / ftp"
+
+#: install.php:11
+msgid "ok"
+msgstr "בסדר"

@@ -1,0 +1,34 @@
+;# Flash Operator Panel will parse this file for zap trunk buttons
+;# AMPLABEL will be used for the display labels on the buttons
+
+;# %c Zap Channel number
+;# %n Line number
+;# %N Line number, but restart counter
+;# Example:
+;# ;AMPLABEL:Channel %c - Button %n
+
+;# For Zap/* buttons use the following
+;# (where x=number of buttons to dislpay)
+;# ;AMPWILDCARDLABEL(x):MyLabel   
+
+
+[channels]
+language=en
+
+; include zap extensions defined in AMP
+#include zapata_additional.conf
+
+; XTDM20B Port #1,2 plugged into PSTN
+;AMPLABEL:Channel %c - Button %n
+context=from-pstn
+signalling=fxs_ks
+faxdetect=incoming
+usecallerid=yes
+echocancel=yes
+echocancelwhenbridged=no
+echotraining=800
+group=0
+channel=1-2
+
+
+

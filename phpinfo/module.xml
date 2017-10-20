@@ -1,0 +1,20 @@
+<module>
+  <rawname>phpinfo</rawname>
+  <repo>extended</repo>
+  <name>PHP Info</name>
+  <version>2.11.0.1</version>
+  <publisher>IssabelPBX</publisher>
+  <license>GPLv2+</license>
+  <changelog>
+	*2.11.0.1* Initial Issabel Foundation release
+  </changelog>
+  <category>Reports</category>
+  <menuitems>
+    <phpinfo>PHP Info</phpinfo>
+  </menuitems>
+  <location>release/2.11/phpinfo-2.11.0.1.tgz</location>
+  <md5sum>589fe1848162d77c99c9a6542a6c13a5</md5sum>
+  <supported>
+    <version>2.10</version>
+  </supported>
+</module>

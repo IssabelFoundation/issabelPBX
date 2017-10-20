@@ -1,0 +1,166 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for pinsets
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.02\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-09 18:14+0900\n"
+"PO-Revision-Date: 2014-02-19 20:56+0200\n"
+"Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
+"Language-Team: Japanese <http://example.com/projects/freepbx/pinsets/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+msgid "Add Password Set"
+msgstr "パスワードセットを追加"
+
+msgid "PIN Set "
+msgstr "PINセット"
+
+msgid "deleted"
+msgstr "削除されました"
+
+msgid "Delete PIN Set"
+msgstr "PINセットを削除"
+
+msgid "PIN Set:"
+msgstr "PINセット"
+
+msgid "Add PIN Set"
+msgstr "PINセットを追加"
+
+msgid ""
+"PIN Sets are used to manage lists of PINs that can be used to access "
+"restricted features such as Outbound Routes. The PIN can also be added to "
+"the CDR record's 'accountcode' field."
+msgstr ""
+"PINセットは、アウトバウンドルートのようなアクセスの制限された機能のPINリスト"
+"管理に使用します。<br>PINをCDRレコードの'accountcode'フィールドに追加すること"
+"もできます。"
+
+msgid "Edit PIN Set"
+msgstr "PINセットを編集"
+
+msgid "New PIN Set"
+msgstr "新しいPINセット"
+
+msgid "PIN Set Description:"
+msgstr "PINセット説明："
+
+msgid "Record In CDR?:"
+msgstr "CDRに記録しますか?："
+
+msgid ""
+"Select this box if you would like to record the PIN in the call detail "
+"records when used"
+msgstr ""
+"PINが使用された際に、PINを通話詳細レコードに記録したい場合はこのボックスを選"
+"択してください"
+
+msgid "PIN List:"
+msgstr "PINリスト："
+
+msgid "Enter a list of one or more PINs.  One PIN per line."
+msgstr "PINのリストを入力します。PIN1つにつき1行です。"
+
+msgid "Submit Changes"
+msgstr "変更を適用"
+
+msgid "Please enter a valid Description"
+msgstr "有効な説明を入力してください。"
+
+msgid "checking if migration required.."
+msgstr "移行が必要かチェック中.."
+
+msgid "migrating.."
+msgstr "移行中.."
+
+msgid "unknown error fetching table data"
+msgstr "テーブルデータのフェッチ中の不明なエラー"
+
+msgid "migration aborted"
+msgstr "移行を中断"
+
+msgid "continuing.."
+msgstr "続行.."
+
+msgid "done"
+msgstr "完了"
+
+msgid "dropping used_by field.."
+msgstr "used_byフィールドをドロップ.."
+
+msgid "no used_by field???"
+msgstr "userd_byフィールドがありません???"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "already done"
+msgstr "既に実行済みです"
+
+msgid "Unnamed"
+msgstr "名前がつけられてません"
+
+msgid "PIN Set"
+msgstr "PINセット"
+
+msgid ""
+"Optional: Select a PIN set to use. If using this option, leave the Route "
+"Password field blank."
+msgstr ""
+"オプション： 使用するPINセットを選択します。このオプションを使用する場合は、"
+"ルートパスワードフィールドを空欄にしてください。"
+
+msgid "None"
+msgstr "なし"
+
+msgid "PIN Sets"
+msgstr "PINセット"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid ""
+"Allow creation of lists of PINs (numbers for passwords) that can be used by "
+"other modules (eg, trunks)."
+msgstr ""
+"他のモジュール(例：トランク)によって使用される可能性のあるPINのリスト(パス"
+"ワードとしての数値)作成を許可します。"

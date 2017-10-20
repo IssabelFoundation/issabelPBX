@@ -1,0 +1,1424 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
+#
+# Использовать iconv queue.pot -f UTF-8 -t ISO-8859-5 -o queue.po
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 00:04+0400\n"
+"PO-Revision-Date: 2014-02-28 04:52+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Russian <http://example.com/projects/freepbx-211/queues/ru/>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.9-dev\n"
+
+msgid "seconds"
+msgstr "секунды"
+
+msgid "day"
+msgstr "день"
+
+msgid "hour"
+msgstr "час"
+
+msgid "hours"
+msgstr "часы"
+
+msgid "minute"
+msgstr "минут"
+
+msgid "minutes"
+msgstr "минуты"
+
+msgid "second"
+msgstr "секунд"
+
+msgid "Agent Announce Msg"
+msgstr "Анонс агента"
+
+#, php-format
+msgid "IVR Announce: %s"
+msgstr "Анонс Интерактивного меню: %s"
+
+msgid "Checking for legacy queues table.."
+msgstr "Проверка для старых таблиц очередей.."
+
+msgid "NO table found, no migration to do just create tables"
+msgstr "Не обнаружено таблиц, будут созданы новые таблицы вместо переноса"
+
+msgid "OK"
+msgstr "ОК"
+
+msgid "Creating queues_details.."
+msgstr "Создаются queues_details.."
+
+msgid "already exists"
+msgstr "уже существуют"
+
+msgid "ERROR: could not create table"
+msgstr "ОШИБКА: невозможно создать таблицу"
+
+msgid "Migrating to queues_details.."
+msgstr "Перенос queues_details.."
+
+msgid "ERROR: could not migrate to queues_details"
+msgstr "ОШИБКА: невозможно перенести queues_details.."
+
+msgid "Creating queues_config.."
+msgstr "Создаётся queues_config.."
+
+msgid "Migrating data to queues_config.."
+msgstr "Перенос данных в queues_config.."
+
+msgid "ERROR: accessing queues table obtaining context info, aborting"
+msgstr ""
+"ОШИБКА: при доступе в таблицы очереде - полученная информация о контексте, "
+"прервано"
+
+msgid "ERROR: accessing queues table obtaining rtone info, aborting"
+msgstr ""
+"ОШИБКА: при доступе в таблицы очередей - полученная информация rtone, "
+"прервано"
+
+msgid "ERROR: accessing queues table obtaining id list, aborting"
+msgstr ""
+"ОШИБКА: при доступе в таблицы очередей - полученная информация список ИД, "
+"прервано"
+
+#, php-format
+msgid "ERROR: inserting data for row %s: %s.."
+msgstr "ОШИБКА: вставка данных для ряда %s: %s.."
+
+msgid "ERROR were encountered"
+msgstr "Была обнаружена ОШИБКА"
+
+msgid "Dropping old queues table.."
+msgstr "Сброс старых таблиц очередей.."
+
+#, php-format
+msgid "WARNING FAILED %s"
+msgstr "ВНИМАНИЕ - неудалось %s"
+
+msgid "removing queues data extensions table.."
+msgstr "удаляется данные таблицы очереди внутренних номеров.."
+
+msgid "checking for qregex field.."
+msgstr "проверка поля qregex.."
+
+msgid "Checking if recordings need migration.."
+msgstr "Проверка нуждаются ли записи в перемещении.."
+
+msgid "migrating"
+msgstr "перемещение"
+
+msgid "adding agentannounce_id field.."
+msgstr "добавляется роле agentannounce_id.."
+
+msgid "fatal error"
+msgstr "неустранимая ошибка"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "adding joinannounce_id field.."
+msgstr "добавляется поле joinannounce_id.."
+
+msgid "migrate agentannounce to ids.."
+msgstr "перенос agentannounce в ИД.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "перемещено %s записей"
+
+msgid "migrate joinannounce to ids.."
+msgstr "перенос joinannounce в ИД.."
+
+msgid "dropping agentannounce field.."
+msgstr "сброс значений поля agentannounce.."
+
+msgid "no agentannounce field???"
+msgstr "отсутствует поле agentannounce??"
+
+msgid "dropping joinannounce field.."
+msgstr "сброс значения поля joinannounce.."
+
+msgid "no joinannounce field???"
+msgstr "отсутствует поле joinannounce??"
+
+msgid "already migrated"
+msgstr "уже перенесено"
+
+msgid "checking for queuewait field.."
+msgstr "проверка поля queuewait.."
+
+msgid "checking for use_queue_context field.."
+msgstr "проверка поля use_queue_context.."
+
+msgid "checking for togglehint field.."
+msgstr "проверка поля togglehint.."
+
+msgid "checking for qnoanswer field.."
+msgstr "проверка поля qnoanswer.."
+
+msgid "checking for callconfirm field.."
+msgstr "проверка поля callconfirm.."
+
+msgid "checking for callconfirm_id field.."
+msgstr "проверка поля callconfirm_id.."
+
+msgid "checking for monitor_type field.."
+msgstr "проверка поля monitor_type.."
+
+msgid "checking for monitor_heard field.."
+msgstr "проверка поля monitor_heard.."
+
+msgid "checking for monitor_spoken field.."
+msgstr "проверка поля monitor_spoken.."
+
+msgid "Warning! Extension"
+msgstr "Внимание! Внутренний номер"
+
+msgid "is not allowed for your account."
+msgstr "не разрешен к использованию в вашем аккаунте."
+
+msgid "Add Queue"
+msgstr "Добавить очередь"
+
+msgid "Queue"
+msgstr "Очередь"
+
+msgid "deleted"
+msgstr "удалено"
+
+msgid "Delete Queue"
+msgstr "Удалить очередь"
+
+msgid "Conflicting Extensions"
+msgstr "Конфликт внутренних номеров"
+
+msgid "Queue:"
+msgstr "Очередь:"
+
+msgid "Edit Queue"
+msgstr "Изменить очередь"
+
+msgid "Queue Number:"
+msgstr "Номер очереди:"
+
+msgid ""
+"Use this number to dial into the queue, or transfer callers to this number "
+"to put them into the queue.<br><br>Agents will dial this queue number plus * "
+"to log onto the queue, and this queue number plus ** to log out of the queue."
+"<br><br>For example, if the queue number is 123:<br><br><b>123* = log "
+"in<br>123** = log out</b>"
+msgstr ""
+"Используйте этот номер для звонка в очередь, или переведите входящий звонок "
+"на этот номер, чтобы поставить его в очередь.<br><br>Агенты (операторы Call "
+"центра) будут набирать этот номер и '*' чтобы подключиться к очереди, и этот "
+"же номер и '**' чтобы отключиться.<br><br>Например, если номер очереди 123:"
+"<br><b>123* = подключиться <br>123** = отключиться</b>"
+
+msgid "Queue Name:"
+msgstr "Название очереди:"
+
+msgid "Give this queue a brief name to help you identify it."
+msgstr "Присвоить для очереди короткое название для идентификации."
+
+msgid "Queue Password:"
+msgstr "Пароль очереди:"
+
+msgid ""
+"You can require agents to enter a password before they can log in to this "
+"queue.<br><br>This setting is optional."
+msgstr ""
+"Можно ограничить доступ в очередь для абонентов и операторов Call центра "
+"паролем.<br><br>Эта опция необязательна."
+
+msgid ""
+"The password is only used when logging in with the legacy queueno* code. "
+"When using the toggle codes, you must use the Restrict Dynamic Agents option "
+"in conjunction with the Dynamic Members list to control access."
+msgstr "Пароль используется только при входе через устаревший queueno* код. "
+"Если пользуетесь кодами переключения, Вы должны использовать параметр 'Ограничить Динамических Операторов' "
+"совместно со списком Динамических операторов для ограничения доступа в очередь."
+
+msgid "Queue No Answer:"
+msgstr "Отсутствие ответа в очереди:"
+
+msgid ""
+"If checked, the queue will not answer the call. Under most circumstance you "
+"should always have the queue answering calls. If not, then it's possible "
+"that recordings and MoH will not be heard by the waiting callers since early "
+"media capabilities vary and are inconsistent. Some cases where it may be "
+"desired to not answer a call is when using Strict Join Empty queue policies "
+"where the caller will not be admitted to the queue unless there is a queue "
+"member immediately available to take the call."
+msgstr "Если параметр установлен, модуль очереди не будет генерировать авто-ответ. Как правило всегда "
+"используется авто-ответ в очередях. Если параметр неустановлен, то возможны случаи, когда запись разговора "
+"и фоновая музыка будут работать неправильно до ответа оператора в очереди. В некоторых случаях, "
+"это может быть использовано, например если нужен моментальный ответ свободного оператора или выход из "
+"очереди если моментальный ответ невозможен."
+
+msgid "Generate Device Hints:"
+msgstr "Генерация оповещений устройств:"
+
+msgid ""
+"If checked, individual hints and dialplan will be generated for each SIP and "
+"IAX2 device that could be part of this queue. These are used in conjunction "
+"with programmable BLF phone buttons to log into and out of a queue and "
+"generate BLF status as to the current state. The format of the hints is<br /"
+"><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle "
+"feature code, ddd is the device number (typically the same as the extension "
+"number) and qqq is this queue's number."
+msgstr ""
+"Если отмечено, будут генерироваться индивидуальные для каждого SIP и IAX2 "
+"устройства оповещения, которые можно использовать в очереди. Это "
+"используется например в сочетании с программируемыми кнопками BLF на "
+"телефонах, для подключения и отключения с их помощью к очереди и генерирации "
+"статуса BLF. Формат извещения <br /><br />*45ddd*qqq<br /><br />где *45 - "
+"код переключения, указанный в модуле Сервисные коды, ddd - номер устройства "
+"(обычно это всё тот же внутренний номер) и qqq - номер очереди."
+
+msgid "Call Confirm:"
+msgstr "Подтверждение приёма звонка: "
+
+msgid ""
+"If checked, any queue member that is actually an outside telephone number, "
+"or any extensions Follow-Me or call forwarding that are pursued and leave "
+"the PBX will be forced into Call Confirmation mode where the member must "
+"acknowledge the call before it is answered and delivered.."
+msgstr "Если установлено, для любого оператор очереди, который находится за пределами системы ("
+"номер переадресован, включено Follow-Me), будет принудительно включен режим подтверждения приёма "
+"звонка."
+
+msgid "Call Confirm Announce:"
+msgstr "Сообщение перед поступлением вызова для подтверждения:"
+
+msgid ""
+"Announcement played to the Queue Memeber announcing the Queue call and "
+"requesting confirmation prior to answering. If set to default, the standard "
+"call confirmation default message will be played unless the member is "
+"reached through a Follow-Me and there is an alternate message provided in "
+"the Follow-Me. This message will override any other message specified.."
+"<br><br>To add additional recordings please use the \"System Recordings\" "
+"MENU."
+msgstr "Сообщение будет воспроизведено оператору очереди для оповещении о поступлении звонка и "
+"будет запрошено подтверждение приема перед ответом. По умолчанию воспроизводится стандартное "
+"сообщение подтверждения (если оператор доступен не через сервис Follow-Me) или альтернативное "
+"сообщение, если оператор доступен через Follow-Me. Установленное здесь сообщение переопределяет все "
+"остальные. Для добавления сообщений используйте раздел 'Системные Сообщения'."
+
+msgid "Default"
+msgstr "По умолчанию"
+
+msgid "Call Confirm Announcement:"
+msgstr "Сообщение перед поступлением вызова для подтверждения:"
+
+msgid ""
+"Announcement played to anyone using an external follow-me to receive the "
+"queue call.<br><br>You must install and enable the \"Systems Recordings\" "
+"Module to edit this option"
+msgstr "Сообщение будет воспроизведено оператору очереди для оповещении о поступлении звонка если "
+"оператор переадресован через Follow-Me ."
+"Для добавления сообщений используйте раздел 'Системные Сообщения'."
+
+msgid "CID Name Prefix:"
+msgstr "Префикс для ИД имени:"
+
+msgid ""
+"You can optionally prefix the CallerID name of callers to the queue. ie: If "
+"you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
+"John Doe\" on the extensions that ring."
+msgstr "Вы можете установить префикс в CID имени звонка в очереди. Если Вы установили префикс: 'Продажи', "
+"то вызов от абонента 'Иван Сидоров' будет отображен как 'Продажи: Иван Сидоров'"
+
+msgid "Wait Time Prefix:"
+msgstr "Префикс индикации времени ожидания:"
+
+msgid ""
+"When set to Yes, the CID Name will be prefixed with the total wait time in "
+"the queue so the answering agent is aware how long they have waited. It will "
+"be rounded to the nearest minute, in the form of Mnn: where nn is the number "
+"of minutes."
+msgstr ""
+"Если установлено в Да, имя абонента (CID name) будет передано вместе с "
+"суммарным временем ожидания в очереди, чтобы оператор очереди был "
+"предупрежден заранее - как долго ожидал абонент. Сумма округляется до целых "
+"минут в форме Mnn: где nn - количество минут."
+
+msgid ""
+"If the call is subsequently transferred, the wait time will reflect the time "
+"since it first entered the queue or reset if the call is transferred to "
+"another queue with this feature set."
+msgstr "Если вызов был перенаправлен, время ожидания будет учитываться с момента первого вхождения "
+"в очередь или с момента перехода в другую очередь."
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Alert Info"
+msgstr "Дополнительная информация"
+
+msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+msgstr ""
+"Дополнительная информация ALERT_INFO может быть использования для "
+"распознавания адресата чтобы присвоить различный тип звонков на SIP "
+"устройствах."
+
+msgid "Static Agents"
+msgstr "Статичные агенты"
+
+msgid ""
+"Static agents are extensions that are assumed to always be on the queue.  "
+"Static agents do not need to 'log in' to the queue, and cannot 'log out' of "
+"the queue.<br><br>List extensions to ring, one per line.<br><br>You can "
+"include an extension on a remote system, or an external number (Outbound "
+"Routing must contain a valid route for external numbers). You can put a \","
+"\" after the agent followed by a penalty value, see Asterisk documentation "
+"concerning penalties.<br /><br /> An advanced mode has been added which "
+"allows you to prefix an agent number with S, X, Z, D or A. This will force "
+"the agent number to be dialed as an Asterisk device of type SIP, IAX2, ZAP, "
+"DAHDi or Agent respectively. This mode is for advanced users and can cause "
+"known issues in IssabelPBX as you are by-passing the normal dialplan. If your "
+"'Agent Restrictions' are not set to 'Extension Only' you will have problems "
+"with subsequent transfers to voicemail and other issues may also exist. "
+"(Channel Agent is deprecated starting with Asterisk 1.4 and gone in 1.6+.)"
+msgstr ""
+"Статичные агенты - это внутренние номера, которые всегда в очереди. "
+"Статичным агентам нет нужды подключаться и отключаться от очереди."
+"<br><br>Укажите список номеров, по одному в строке.<br><br>Можно включать "
+"номера других систем, а также любые другие внешние номера (которые будут "
+"вызываться согласно правилам Исходящей маршрутизации).<br><br>Можно указать "
+"также значение нагрузки (penalties) для этого агента после запятой (смотрите "
+"документацию Астериск относительно 'penalties').<br /><br />В расширенном "
+"режиме используются префиксы в номерах агентов - S, X, Z, D или A. Эта опция "
+"устанавливает принудительный вызов агента по технологии канала - SIP, IAX2, "
+"ZAP, DAHDi или Agent. Этот режим рекомендован опытным пользователям и может "
+"послужить причиной непонятного поведения во IssabelPBX так как использует обход "
+"обычного диал плана. Если установки Ограничения агентов не установлены в "
+"значение 'Только внутренние номера' у вас скорее всего возникнут проблемы с "
+"переводами соединений на голосовую почту и другие подобные вещи. (Канал "
+"Agent уже устарел в Asterisk 1.4 и отсутствует в 1.6 и выше)"
+
+msgid "Extension Quick Pick"
+msgstr "Выбрать номера"
+
+msgid ""
+"Choose an extension to append to the end of the static agents list above."
+msgstr "Выберите внутренний номер для добавления в список."
+
+msgid "(pick extension)"
+msgstr "(выбрать внутренние номера)"
+
+msgid "Dynamic Members"
+msgstr "Динамические агенты"
+
+msgid ""
+"Dynamic Members are extensions or callback numbers that can log in and out "
+"of the queue. When a member logs in to a queue, their penalty in the queue "
+"will be as specified here. Extensions included here will NOT automatically "
+"be logged in to the queue."
+msgstr ""
+"Динамические агенты - это внутренние или внешние номера, которые могут "
+"подключаться к очереди. Когда агент подключается к очереди."
+
+msgid ""
+"Choose an extension to append to the end of the dynamic member list above."
+msgstr "Выберите внутренний номер для добавления в список динамических операторов."
+
+msgid "Restrict Dynamic Agents"
+msgstr "Ограничения динамических агентов"
+
+msgid ""
+"Restrict dynamic queue member logins to only those listed in the Dynamic "
+"Members list above. When set to Yes, members not listed will be DENIED "
+"ACCESS to the queue."
+msgstr ""
+"Ограничивают регистрацию динамического агента только списком Динамических  "
+"агентов выше. Если установлено в Да, то агенты не указанные в списке  будут "
+"получать ответ Доступ запрещён в эту очередь."
+
+msgid "Agent Restrictions"
+msgstr "Ограничения агентов"
+
+msgid ""
+"When set to 'Call as Dialed' the queue will call an extension just as if the "
+"queue were another user. Any Follow-Me or Call Forward states active on the "
+"extension will result in the queue call following these call paths. This "
+"behavior has been the standard queue behavior on past IssabelPBX versions. <br /"
+">When set to 'No Follow-Me or Call Forward', all agents that are extensions "
+"on the system will be limited to ringing their extensions only. Follow-Me "
+"and Call Forward settings will be ignored. Any other agent will be called as "
+"dialed. This behavior is similar to how extensions are dialed in ringgroups. "
+"<br />When set to 'Extensions Only' the queue will dial Extensions as "
+"described for 'No Follow-Me or Call Forward'. Any other number entered for "
+"an agent that is NOT a valid extension will be ignored. No error checking is "
+"provided when entering a static agent or when logging on as a dynamic agent, "
+"the call will simply be blocked when the queue tries to call it. For dynamic "
+"agents, see the 'Agent Regex Filter' to provide some validation."
+msgstr ""
+"Если установлено  в значение 'Звонить как набрано' то очередь совершает "
+"вызов так, как будто бы это просто другой пользователь. Но тогда все "
+"установки Следуйте сюда и Перенаправление звонка актуальные для этого "
+"внутреннего номера будут уводить все вызовы из очереди согласно этим "
+"значениям. Это поведение является стандартным для последних версий IssabelPBX."
+"<br />Если установлено в значение 'Без функций Следуйте сюда или "
+"Перенаправление' то все агенты (внутренние номера в системе) будут "
+"ограничены только внутренним номером. Установки Следуйте сюда и "
+"Перенаправление звонка будут игнорироваться. Другие же агенты будут "
+"набираться обычным образом. Это поведение аналогично тому как проходит "
+"звонок в группах вызова. <br />Если установлено в значение 'Только "
+"внутренние номера' то вызовы из очереди будут происходить так же, как при "
+"значении 'Без функций Следуйте сюда или Перенаправление'. Любые другие не "
+"существующие номера, указанные здесь как агенты, будут игнорироваться. Нет "
+"проверки на логические ошибки, если указан номер в качестве статического или "
+"динамического агента. Вызов из очереди будет просто блокироваться, если "
+"такое будет происходить. Для динамических агентов смотрите 'Фильтр "
+"регулярных выражений для операторов' для создания разрешительных шаблонов"
+
+msgid "Call as Dialed"
+msgstr "Звонить как набрано"
+
+msgid "No Follow-Me or Call Forward"
+msgstr "Без функций Следуйте сюда или Перенаправление'"
+
+msgid "Extensions Only"
+msgstr "Только внутренние абоненты"
+
+msgid "General Queue Options"
+msgstr "Общие параметры очереди"
+
+msgid "Ring Strategy:"
+msgstr "Стратегия дозвона:"
+
+msgid "ringall"
+msgstr "звонят-все"
+
+msgid "ring all available agents until one answers (default)"
+msgstr ""
+"звонят сразу все телефоны у всех операторов, пока кто либо один не ответит "
+"(по умолчанию)"
+
+msgid "roundrobin"
+msgstr "roundrobin"
+
+msgid "take turns ringing each available agent"
+msgstr "звонок поступает любому доступному оператору"
+
+msgid "leastrecent"
+msgstr "самому-незанятому"
+
+msgid "ring agent which was least recently called by this queue"
+msgstr "звонок поступает наименее занятому оператору в этой очереди"
+
+msgid "fewestcalls"
+msgstr "менее-организованному"
+
+msgid "ring the agent with fewest completed calls from this queue"
+msgstr "звонок поступает оператору с наименьшим числом законченых разговоров"
+
+msgid "random"
+msgstr "случайный-выбор"
+
+msgid "ring random agent"
+msgstr "звонок поступает любому оператору случайным образом"
+
+msgid "rrmemory"
+msgstr "rrmemory"
+
+msgid "round robin with memory, remember where we left off last ring pass"
+msgstr ""
+"звонок поступает любому доступному оператору, но с учётом того, кто отвечал "
+"на последний звонок."
+
+msgid "rrordered"
+msgstr "rrordered"
+
+msgid ""
+"same as rrmemory, except the queue member order from config file is preserved"
+msgstr "такой же порядок, как и rrmemory, но сохранен порядок из конфигурации"
+
+msgid "linear"
+msgstr "линейное"
+
+msgid ""
+"rings agents in the order specified, for dynamic agents in the order they "
+"logged in"
+msgstr ""
+"звонок поступает агентам в том порядке, в котором они перечислены. Для "
+"динамических агентов - в том порядке, в котором они регистрировались."
+
+msgid "wrandom"
+msgstr "случайный-выбор"
+
+msgid ""
+"random using the member's penalty as a weighting factor, see asterisk "
+"documentation for specifics"
+msgstr ""
+"случайный выбор использует занятость агентов как вес в качестве приоритета "
+"выбора, см. документацию Астериск для более детальной информации."
+
+msgid "Autofill:"
+msgstr "Автозаполнение:"
+
+msgid ""
+"Starting with Asterisk 1.4, if this is checked, and multiple agents are "
+"available, Asterisk will send one call to each waiting agent (depending on "
+"the ring strategy). Otherwise, it will hold all calls while it tries to find "
+"an agent for the top call in the queue making other calls wait. This was the "
+"behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk "
+"documentation for more details of this feature."
+msgstr ""
+"Опция версии 1.4. Если отмечено, и работают несколько операторов, Астериск "
+"направит звонок всем ожидающим операторам (в зависимости от стратегии "
+"звоков). В противном случае звонок попадает в очередь с общим статусом "
+"ожидания на общих основаниях. Это стандартное поведение для версии Астериск "
+"1.2, поэтому задействовать эту возможность не удастся, если у вас 1.2. "
+"Смотрите документацию для более детального понимания этой опции."
+
+msgid "Skip Busy Agents:"
+msgstr "Пропускать занятых операторов"
+
+msgid ""
+"When set to 'Yes' agents who are on an occupied phone will be skipped as if "
+"the line were returning busy. This means that Call Waiting or multi-line "
+"phones will not be presented with the call and in the various hunt style "
+"ring strategies, the next agent will be attempted. <br />When set to 'Yes + "
+"(ringinuse=no)' the queue configuration flag 'ringinuse=no' is set for this "
+"queue in addition to the phone's device status being monitored. This results "
+"in the queue tracking remote agents (agents who are a remote PSTN phone, "
+"called through Follow-Me, and other means) as well as PBX connected agents, "
+"so the queue will not attempt to send another call if they are already on a "
+"call from any queue. <br />When set to 'Queue calls only (ringinuse=no)' the "
+"queue configuration flag 'ringinuse=no' is set for this queue also but the "
+"device status of locally connected agents is not monitored. The behavior is "
+"to limit an agent belonging to one or more queues to a single queue call. If "
+"they are occupied from other calls, such as outbound calls they initiated, "
+"the queue will consider them available and ring them since the device state "
+"is not monitored with this option. <br /><br />WARNING: When using the "
+"settings that set the 'ringinuse=no' flag, there is a NEGATIVE side effect. "
+"An agent who transfers a queue call will remain unavailable by any queue "
+"until that call is terminated as the call still appears as 'inuse' to the "
+"queue UNLESS 'Agent Restrictions' is set to 'Extensions Only'."
+msgstr ""
+"Если установлено в 'Да', то операторы, занятые на линии, будут пропущены, "
+"если их внутренний Caller IDу, что "
+"использование методов ожидания и приёма второго звонка у многоканальных "
+"телефонов затрудняет использование различных сценариев серийного поиска "
+"свободных операторов в стратегиях звонков когда выполняется попытка поиска "
+"свободного оператора.<br />Если установлено в Да + () то для очереди "
+"применится опция 'звонки в обработке=нет', то есть проверяется статус "
+"телефонов операторов очереди. Таким образом отслеживаются удалённые "
+"операторы очереди (например на мобильных или домашних телефонах, подключеных "
+"к городской телефонной сети, или с использованием опции Следуйте сюда) так "
+"же, как локальные операторы очереди, таким образом IssabelPBX не будет посылать "
+"удалённому оператору вызов из очереди, если обнаруживает текущее соединение. "
+"<br />Если установлено в значение Только звонки очереди (звонки в "
+"обработке=нет), то для очереди также применится опция 'звонки в "
+"обработке=нет', но статус телефонов операторов очереди не проверяется. Это "
+"поведение ограничивает возможности операторов, обслуживающих более, чем одну "
+"очередь по приёму только одного звонка. Если, например, оператор совершает "
+"исходящий звонок, то очередь предполагает, что оператор свободен, и всё "
+"равно направляет звонок ему, так как статус телефонов не мониторится.<br /"
+"><br />ВНИМАНИЕ: если установлено в Только звонки очереди (звонки в "
+"обработке=нет) то чаще это даёт негативный эффект. Оператор, делающий "
+"перевод звонка например, будет оставаться недоступным для всех вызовов "
+"очереди до тех пор, пока входящий вызов будет завершён, потому что он "
+"выглядит для очереди действующим КРОМЕ случая, когда значение Ограничения "
+"агентов установлено в 'Только внутренние номера'"
+
+msgid "Yes + (ringinuse=no)"
+msgstr "Да + (ringinuse=no)"
+
+msgid "Queue calls only (ringinuse=no)"
+msgstr "Только звонки очереди (ringinuse=no)"
+
+msgid "Queue Weight"
+msgstr "Вес очереди"
+
+msgid ""
+"Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
+"queue will deliver its calls first if there are agents common to both queues."
+msgstr ""
+"Позволяет добавлять 'вес' очереди обеспечивая ожидание в очереди с большим "
+"приоритетом. Оператору будет подан звонок большим приоритетом очереди, если "
+"оператор обслуживаетс две и более очереди."
+
+msgid "Music on Hold Class:"
+msgstr "Класс Музыки в ожидании:"
+
+msgid ""
+"Music (or Commercial) played to the caller while they wait in line for an "
+"available agent. Choose \"inherit\" if you want the MoH class to be what is "
+"currently selected, such as by the inbound route.<br><br>  This music is "
+"defined in the \"Music on Hold\" Menu."
+msgstr "Звуковое сопровождение воспроизводится позвонившему до появления свободного оператора. "
+"Выберите 'inherit' если вы хотите использовать звуковое сопровождение, установленное на входящем "
+"маршруте. Звуковое сопровождение определяется в разделе 'Музыка на удержании'."
+
+msgid "inherit"
+msgstr "унаследованный"
+
+msgid "none"
+msgstr "нет"
+
+msgid "default"
+msgstr "по умолчанию"
+
+msgid "Ringing Instead of MoH:"
+msgstr "Просто гудок вызова"
+
+msgid ""
+"Enabling this option make callers hear a ringing tone instead of Music on "
+"Hold.<br/>Enabling this ignores any Music on Hold Class selected as well as "
+"ignoring any configured periodic announcements configured."
+msgstr ""
+"Эта опция посылает дозвонившемуся гудки вызова вместо Музыки в ожидании.<br/"
+">Если эта опция задействована, две предидущие установки игнорируются."
+
+msgid "Join Announcement:"
+msgstr "Сообщение при попадании:"
+
+msgid ""
+"Announcement played to callers once prior to joining the queue.<br><br>To "
+"add additional recordings please use the \"System Recordings\" MENU"
+msgstr "Сообщение, воспроизводимое позвонившему, перед помещением вызова в очередь. <br><br>"
+"Для добавления дополнительного сообщения, используйте раздел 'Системные Записи'."
+
+msgid "None"
+msgstr "Нет"
+
+msgid ""
+"Announcement played to callers once prior to joining the queue.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Приветствие,которое будет воспроизведено один раз при попадании в "
+"очередь<br><br>Нужно инсталлировать и активировать модуль Запись сообщений, "
+"чтобы изменять эту опцию."
+
+msgid "Call Recording:"
+msgstr "Запись разговоров:"
+
+msgid ""
+"Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
+"monitor)"
+msgstr ""
+"Входящие разговоры для всех операторов можно записывать (сохраняются в /var/"
+"spool/asterisk/monitor)"
+
+msgid "wav49"
+msgstr "wav49"
+
+msgid "wav"
+msgstr "wav"
+
+msgid "gsm"
+msgstr "gsm"
+
+msgid "Recording Mode:"
+msgstr "Режим записи разговоров: "
+
+msgid ""
+"Choose to 'Include Hold Time' in the recording so it starts as soon as they "
+"enter the queue, or to defer recording until 'After Answered' and the call "
+"is bridged with a queue member."
+msgstr "Выберите 'Включая время ожидания' в записи для того, что бы разговор записывался с момента "
+"попадания в очередь, или 'После ответа оператора' для записи разговора, после ответа оператора "
+"очереди."
+
+msgid "Include Hold Time"
+msgstr "Время время ожидания"
+
+msgid "After Answered"
+msgstr "После ответа оператора"
+
+msgid "Caller Volume Adjustment:"
+msgstr "Подстройка громкости входяшего:"
+
+msgid "Adjust the recording volume of the caller."
+msgstr "Подстройка громкости записи."
+
+msgid "No Adjustment"
+msgstr "Нет подстройки"
+
+msgid "Agent Volume Adjustment:"
+msgstr "Подстройка громкости оператора:"
+
+msgid "Adjust the recording volume of the queue member (Agent)."
+msgstr "Подстройка громкости записи оператора:"
+
+msgid "Mark calls answered elsewhere:"
+msgstr "Отмечать все вызовы как отвеченные:"
+
+msgid ""
+"Enabling this option, all calls are marked as 'answered elsewhere' when "
+"cancelled. The effect is that missed queue calls are *not* shown on the "
+"phone (if the phone supports it)"
+msgstr "Данные параметр позволяет отмечать все звонки, поступившие в очередь, как обработанные. Таким "
+"образом пропущенные вызовы не будут отображены нв телефонах операторов (телефоны должен поддерживать "
+"данную функцию)"
+
+msgid "Timing & Agent Options"
+msgstr "Параметры времени и операторов"
+
+msgid "Max Wait Time:"
+msgstr "Время ожидания, максимально:"
+
+msgid ""
+"The maximum number of seconds a caller can wait in a queue before being "
+"pulled out.  (0 for unlimited)."
+msgstr ""
+"Время в секундах, в течение которого дозвонившийся будет находится в "
+"очереди, прежде чем ему будет предложено перезвонить позднее. (0 - "
+"неограничено)"
+
+msgid "Unlimited"
+msgstr "Неограничено"
+
+msgid "Max Wait Time Mode:"
+msgstr "Режим времени максимального ожидания:"
+
+msgid ""
+"Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
+"caller is hit, they will be pulled out of the queue immediately. In 'Loose' "
+"mode, if a queue member is currently ringing with this call, then we will "
+"wait until the queue stops ringing this queue member or otherwise the call "
+"is rejected by the queue member before taking the caller out of the queue. "
+"This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + "
+"'Agent Timeout' combined."
+msgstr "Параметры таймаута звонка в очереди. В режиме 'Ограничено', когда истек интервал 'Максимальное "
+"время ожидания', вызов будет извлечен из очереди. В режиме 'Неточный' текущий оператор будет вызван, "
+"пока истечет таймаут вызова оператора в очереди, после этого вызов будет извлечен из очереди."
+
+msgid "Strict"
+msgstr "Ограничено"
+
+msgid "Loose"
+msgstr "Неточный"
+
+msgid "Agent Timeout:"
+msgstr "Таймаут оператора:"
+
+msgid ""
+"The number of seconds an agent's phone can ring before we consider it a "
+"timeout. Unlimited or other timeout values may still be limited by system "
+"ringtime or individual extension defaults."
+msgstr ""
+"Время в секундах, в течение которого вызов будет поступать на телефон "
+"оператора, после которого поступит сообщение о неответе. Неограниченое или "
+"другое значение таймаута могут тем не менее ещё ограничиваться Системными "
+"значениями времени вызова по умолчанию, или индивидуальными для "
+"пользователей."
+
+msgid "Agent Timeout Restart:"
+msgstr "Задержка возврата оператора:"
+
+msgid ""
+"If timeoutrestart is set to yes, then the time out for an agent to answer is "
+"reset if a BUSY or CONGESTION is received. This can be useful if agents are "
+"able to cancel a call with reject or similar."
+msgstr "Этот параметр устанавливает время повторного вызова оператора, который оказался "
+"принять звонок из очереди. Это может быть полезно, если операторы очереди имеют возможность "
+"отказа приема вызова из очереди."
+
+msgid "Retry:"
+msgstr "Повторить:"
+
+msgid ""
+"The number of seconds we wait before trying all the phones again. Choosing "
+"\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
+"as the first attempted agent times-out, additional agents will not be "
+"attempted."
+msgstr ""
+"Через сколько секунд будет повторена попытка позвонить снова на все "
+"телефоны. Выбирая вариант \"Без повторений\" звонок будет направлен из "
+"очереди по назначению при неответе. Звонок перенаправится туда после тайм-"
+"аута у первого оператора, переход на второго оператора не произойдёт."
+
+msgid "No Retry"
+msgstr "Не повторять"
+
+msgid "Wrap-Up-Time:"
+msgstr "Передышка:"
+
+msgid ""
+"After a successful call, how many seconds to wait before sending a "
+"potentially free agent another call (default is 0, or no delay) If using "
+"Asterisk 1.6+, you can also set the 'Honor Wrapup Time Across Queues' "
+"setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
+"this is honored across queues for members logged on to multiple queues."
+msgstr "Указывает сколько секунд агент останется свободным после окончания очередного вызова "
+"из очереди. Если используете Asterisk 1.6 и выше, Вы также можете установить параметр "
+"'Применить передышку для всех очередей' на странице 'Дополнительные настройки' и операторы, "
+"работающие в нескольких очередях будут иметь перерыв после вызова в любой очереди. "
+
+msgid "Member Delay:"
+msgstr "Задержка оператора:"
+
+msgid ""
+"If you wish to have a delay before the member is connected to the caller (or "
+"before the member hears any announcement messages), set this to the number "
+"of seconds to delay."
+msgstr "Данный параметр позволяет установить задержку в секундах между ответом оператора и соединением с "
+"вызывающим абонентом (или оповещением)."
+
+msgid "Agent Announcement:"
+msgstr "Приветствие агенту:"
+
+msgid ""
+"Announcement played to the Agent prior to bridging in the caller <br><br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\".<br><br>To add additional recordings "
+"please use the \"System Recordings\" MENU. Compound recordings composed of 2 "
+"or more sound files are not displayed as options since this feature can not "
+"accept such recordings."
+msgstr "Оповещение, воспроизводимое оператору, перед соединением с вызывающим абонентом <br><br>"
+"Для добавления оповещения используйте раздел 'Системные записи'."
+
+msgid ""
+"Announcement played to the Agent prior to bridging in the caller <br><br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\".<br><br>You must install and enable the "
+"\"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Приветствие, которое воспроизводится агенту (оператору), прежде чем тот "
+"соединится с позвонившим в очереди<br><br>Пример: \"Звонок из очереди Sales"
+"\" или \"Звонок из очереди к Службе поддержки\".<br><br>Нужно инсталлировать "
+"и активировать модуль Запись сообщений для изменения этой опции."
+
+msgid "Report Hold Time:"
+msgstr "Сообщения о времени ожидания:"
+
+msgid ""
+"If you wish to report the caller's hold time to the member before they are "
+"connected to the caller, set this to yes."
+msgstr ""
+"Если хотите сообщать позвонившему время ожидания прежде чем его соединят с "
+"оператором - установите в Да."
+
+msgid "Capacity Options"
+msgstr "Параметры ёмкости очереди"
+
+msgid "Max Callers:"
+msgstr "Позвонивших, максимально:"
+
+msgid "Maximum number of people waiting in the queue (0 for unlimited)"
+msgstr "Максимально  число ожидающих в очереди (0 - неограничено)"
+
+msgid "No Max"
+msgstr "Максимальное число неограничено"
+
+msgid ""
+"Determines if new callers will be admitted to the Queue, if not, the "
+"failover destination will be immediately pursued. The options include:"
+msgstr "Если установлено, новый вызов поступает в очередь, если нет - сразу используется "
+"направление перехода. Возможные значения: "
+
+msgid "Always allows the caller to join the Queue."
+msgstr "Вызов всегда поступает в очередь."
+
+msgid ""
+"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
+"phone then don't admit them. If agents are inuse or ringing someone else, "
+"caller will still be admitted."
+msgstr "Такой же режим, но более ограниченный. Если нет операторов, которые могли бы обработать вызов, "
+"он не помещается в очередь. Если операторы имеются в очереди, то вызов поступает в очередь, даже если "
+"операторы заняты и не могут принять вызов непосредственно."
+
+msgid "Ultra Strict"
+msgstr "Строго ограниченный"
+
+msgid ""
+"Same as Strict plus a queue member must be able to answer the phone 'now' to "
+"let them in. Simply speaking, any 'available' agents that could answer but "
+"are currently on the phone or ringing on behalf of another caller will be "
+"considered unavailable."
+msgstr "В этом режиме звонок будет помещен в очередь, в случае есть непосредственно доступные операторы. "
+"Операторы, занятые другими вызовами, считаются недоступными. Если доступных оперторов нет, звонок в очередь "
+"не поступает."
+
+msgid ""
+"Callers will not be admitted if all agents are paused, show an invalid state "
+"for their device, or have penalty values less then QUEUE_MAX_PENALTY (not "
+"currently set in IssabelPBX dialplan)."
+msgstr "Вызовы не будут поступать в очередь если все операторы приостановлены, находятся в недоступном "
+"режиме, или имеют доступность (penalty value) меньше, чем QUEUE_MAX_PENALTY. "
+"На текущий момент не устанавливается в номерном плане IssabelPBX."
+
+msgid ""
+"Same as No except Callers will be admitted if their are paused agents who "
+"could become available."
+msgstr "Тоже самое, что и 'Нет', кроме наличия приостановленных операторов, которые могли бы "
+"стать активными."
+
+msgid "Join Empty:"
+msgstr "Попадать в пустую:"
+
+msgid ""
+"Determines if callers should be exited prematurely from the queue in "
+"situations where it appears no one is currently available to take the call. "
+"The options include:"
+msgstr "Опреляет, что вызов должен быть преждевременно удален из очереди, если не осталось "
+"свободных операторов, способных обработать звонок"
+"Параметр может принимать значения:"
+
+msgid ""
+"Callers will exit if all agents are paused, show an invalid state for their "
+"device or have penalty values less then QUEUE_MAX_PENALTY (not currently set "
+"in IssabelPBX dialplan).."
+msgstr "Вызовы будут удаляться очереди если все операторы приостановлены, находятся в недоступном "
+"режиме, или имеют доступность (penalty value) меньше, чем QUEUE_MAX_PENALTY. "
+"На текущий момент не устанавливается в номерном плане IssabelPBX."
+
+msgid ""
+"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
+"phone then have them leave the queue. If agents are inuse or ringing someone "
+"else, caller will still be held."
+msgstr "Такой же режим, как 'Да', но более ограниченный. Если нет операторов, которые могли бы обработать вызов, "
+"он удаляется из очереди. Если операторы имеются в очереди, то вызов поступает в очередь, даже если "
+"операторы заняты и не могут принять вызов непосредственно."
+
+msgid ""
+"Same as Strict plus a queue member must be able to answer the phone 'now' to "
+"let them remain. Simply speaking, any 'available' agents that could answer "
+"but are currently on the phone or ringing on behalf of another caller will "
+"be considered unavailable."
+msgstr "Такой же режим, как и 'Ограниченный', но очередь должна иметь операторов, способных сразу "
+"обработать вызов. Операторы, занятые обработкой других вызовов считаются как недоступные."
+
+msgid ""
+"Same as Yes except Callers will remain in the Queue if their are paused "
+"agents who could become available."
+msgstr "Такой же режим, как 'Да', но вызовы будут оставаться в очереди, даже если все операторы "
+"приостановлены, но могут стать активными."
+
+msgid ""
+"Never have a caller leave the Queue until the Max Wait Time has expired."
+msgstr "Никогда не удалять вызов из очереди до истечения максимального времени ожидания."
+
+msgid "Leave Empty:"
+msgstr "ВЫходить из пустой очереди:"
+
+msgid "Penalty Members Limit:"
+msgstr "Органичение уровня доступности оператора:"
+
+msgid ""
+"Asterisk: penaltymemberslimit. A limit can be set to disregard penalty "
+"settings, allowing all members to be tried, when the queue has too few "
+"members.  No penalty will be weighed in if there are only X or fewer queue "
+"members."
+msgstr "Asterisk: penaltymemberslimit. Ограничение может быть установлено для отмены действия "
+"настройки уровня доступности, для работы всех операторов в очереди, в случае когда в очереди "
+"операторов очень мало. Уровень доступности не будет изменяться если в очереди не более указанного "
+"количества операторов."
+
+msgid "Honor Penalties"
+msgstr "Соблюдать уровни доступности"
+
+msgid "Caller Position Announcements"
+msgstr "Сообщения о номере в очереди"
+
+msgid "Frequency:"
+msgstr "Частота:"
+
+msgid ""
+"How often to announce queue position and estimated holdtime (0 to Disable "
+"Announcements)."
+msgstr ""
+"Как часто будут повторяться ожидающему сообщения о его номере в очереди и "
+"времени ожидания (0 деактивирует Сообщения)."
+
+msgid "Announce Position:"
+msgstr "Сообщать номер в очереди:"
+
+msgid "Announce position of caller in the queue?"
+msgstr "Сообщать ожидающему его номере в очереди?"
+
+msgid "Announce Hold Time:"
+msgstr "Сообщения о времени ожидания:"
+
+msgid ""
+"Should we include estimated hold time in position announcements?  Either "
+"yes, no, or only once; hold time will not be announced if <1 minute"
+msgstr ""
+"Нужно ли включать в сообщения ожидаемое время в ожидании? Возможные варианты "
+"- Да, Нет, Один раз. Время в ожидании не объявляется, если оно меньше 1 "
+"минуты."
+
+msgid "Once"
+msgstr "Один раз"
+
+msgid "Periodic Announcements"
+msgstr "Периодичность сообщений"
+
+msgid "IVR Break Out Menu:"
+msgstr "Возможность выйти из Меню:"
+
+msgid ""
+"You can optionally present an existing IVR as a 'break out' menu."
+"<br><br>This IVR must only contain single-digit 'dialed options'. The "
+"Recording set for the IVR will be played at intervals specified in 'Repeat "
+"Frequency', below."
+msgstr ""
+"Вы можете опционально дать возможность в уже созданное Интерактивное меню."
+"<br><br>Варианты выбора в этом меню должны быть одноразрядные - например 0, "
+"1, 2. Параметры воспроизведения этого меню устанавливаются в пункте Частота "
+"повторений ниже."
+
+msgid "Menu ID "
+msgstr "ИД меню"
+
+msgid "(**) ERRORS"
+msgstr "(**) ОШИБКИ"
+
+msgid "(**) Warning Potential Errors"
+msgstr "(**) Внимание! Потенциальные ошибки"
+
+msgid ""
+"ERROR: You have selected an IVR's that use Announcements created from "
+"compound sound files. The Queue is not able to play these announcements. "
+"This IVR's recording will be truncated to use only the first sound file. You "
+"can correct the problem by selecting a different announcement for this IVR "
+"that is not from a compound sound file. The IVR itself can play such files, "
+"but the Queue subsystem can not"
+msgstr ""
+"ОШИБКА: Выбрано Интерактивное меню, в котором используется составленное из "
+"нескольких звуковых файлов приветствие. Очередь не может воспроизводить "
+"такое приветствие. Составленное приветствие будет урезано до первого "
+"звукового файла. Вам нужно устранить эту проблему - выбрать другое (или "
+"перезаписать это) приветствие для этого Интерактивного меню, состоящее из "
+"одного звукового файла. В сценариях Интерактивного меню можно воспроизводить "
+"составные приветствия, но в модуле Очереди - нет."
+
+msgid ""
+"Earlier versions of this module allowed such queues to be chosen, once "
+"changing this setting, it will no longer appear as an option"
+msgstr ""
+"Ранние версии этого модуля разрешали сделать выбор в такой очереди, но когда "
+"выбор сделан, опция переставала быть видимой."
+
+msgid "Repeat Frequency:"
+msgstr "Частота повторений:"
+
+msgid ""
+"How often to announce a voice menu to the caller (0 to Disable "
+"Announcements)."
+msgstr ""
+"Как часто предлагать Интерактивное меню ожидающему в очереди (0 - "
+"деактивировать сообщение)."
+
+msgid "Events, Stats and Advanced"
+msgstr "События, Статистика и Допонительно"
+
+msgid "Event When Called:"
+msgstr "Событие, если звонят:"
+
+msgid ""
+"When this option is set to YES, the following manager events will be "
+"generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
+msgstr ""
+"Если эта опция установлена в 'Да', в интерфейсе менеджера будут "
+"генерироваться следующие события: AgentCalled, AgentDump, AgentConnect and "
+"AgentComplete."
+
+msgid "Member Status Event:"
+msgstr "События об изменениях состояния операторов:"
+
+msgid ""
+"When set to YES, the following manager event will be generated: "
+"QueueMemberStatus"
+msgstr "Если установлено, будут генерироваться события AMI 'QueueMemberStatus'"
+
+msgid "Service Level:"
+msgstr "Уровень сервиса:"
+
+msgid ""
+"Used for service level statistics (calls answered within service level time "
+"frame)"
+msgstr ""
+"Используется для обработки статистики вызовов (отвеченные в течение "
+"гарантированного времени вызовы)"
+
+msgid "Agent Regex Filter"
+msgstr "Фильтр регулярных выражений для операторов"
+
+msgid ""
+"Provides an optional regex expression that will be applied against the agent "
+"callback number. If the callback number does not pass the regex filter then "
+"it will be treated as invalid. This can be used to restrict agents to "
+"extensions within a range, not allow callbacks to include keys like *, or "
+"any other use that may be appropriate. An example input might be:<br />^([2-"
+"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
+"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"key.<br />WARNING: make sure you understand what you are doing or otherwise "
+"leave this blank!"
+msgstr ""
+"Даёт возможность создавать фильтр регулярных выражений для ограничения "
+"обратных звонков операторами. Если номер обратного звонка не попадает в "
+"описаный фильтр он будет обработан как неверный. Это может использоваться "
+"для ограничения операторов к доступу групп номеров, или ограничить "
+"использование наборов сервисных кодов через звёздочку (*), или ещё какое "
+"нибудь полезное применение. Например:<br />^([2-4][0-9]{3})$<br />Этот "
+"фильтр ограничивает доступ операторов на внутренние номера 2000-4999. Или "
+"<br />^([0-9]+)$ разрешит доступ на все номера любой длины, но запретит "
+"использование звездочки (*). ВНИМАНИЕ: будьте уверены в том, что понимаете "
+"то, что делаете, в противном случае оставьте это поле пустым."
+
+msgid "Fail Over Destination"
+msgstr "Назначение при неответе"
+
+msgid "Submit Changes"
+msgstr "Применить изменения"
+
+msgid ""
+"Using a Regex filter is fairly advanced, please confirm you know what you "
+"are doing or leave this blank"
+msgstr ""
+"Использование филтров регулярныых выражений горячо приветствуется, но "
+"подвердите, что понимаете то, что вы делаете, или оставьте это поле пустым."
+
+msgid "Queue Number must not be blank"
+msgstr "Номер очереди не может быть пустым"
+
+msgid ""
+"Queue name must not be blank and must contain only alpha-numeric characters"
+msgstr "Название очереди не может быть пустым и должно содержать только буквы."
+
+msgid "Queues"
+msgstr "Очереди"
+
+msgid "Applications"
+msgstr "Приложения"
+
+msgid ""
+"Creates a queue where calls are placed on hold and answered on a first-in, "
+"first-out basis. Many options are available, including ring strategy for "
+"agents, caller announcements, max wait times, etc."
+msgstr ""
+"Создаёт очередь, где входящие звонки по принципу первый-вошёл/првый ушёл "
+"(FIFO). Большинство опций доступны, включая стратегии вызовов для "
+"операторов, приветствия для позвонивших, максимальное время ожидания, и т.д."
+
+msgid "Persistent Members"
+msgstr "Постоянные операторы"
+
+msgid "Queues Module"
+msgstr "Модуль очередей"
+
+msgid ""
+"Queues: persistentmembers. Store each dynamic member in each queue in the "
+"astdb so that when asterisk is restarted, each member will be automatically "
+"read into their recorded queues."
+msgstr "Queues: persistentmembers. Каждый динамический оператор каждой очереди "
+"сохраняется в базе данных asterisk что бы очереди были корректно восстановлены "
+"в случае перезапуска Asterisk."
+
+msgid "Honor Wrapup Time Across Queues"
+msgstr "Давать передышку оператору при работе в нескольких очередях"
+
+msgid ""
+"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
+"lastcall and calls received be the same in members logged in more than one "
+"queue. This is useful to make the queue respect the wrapuptime of another "
+"queue for a shared member."
+msgstr "Queues: shared_lastcall"
+
+msgid "Set Agent Name in CDR dstchannel"
+msgstr "Назначить имя оператора в поле dstchannel CDR"
+
+msgid ""
+"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
+"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
+"with an agent name, which is set if available at the login time with "
+"AddQueueMember membername parameter, or with static members."
+msgstr "Queues: updatecdr"
+
+msgid "Use MixMonitor for Recordings"
+msgstr "Использовать MixMonitor для записи разговоров"
+
+msgid ""
+"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
+"application instead of Monitor so the concept of 'joining/mixing' the in/out "
+"files now goes away when this is enabled."
+msgstr "Если установлено для записи разговоров будет использование приложение MixMonitor"
+
+msgid "Hide Queue No Answer Option"
+msgstr "Скрыть параметр Очереди 'No Answer'"
+
+msgid ""
+"It is possible for a queue to NOT Answer a call and still enter callers to "
+"the queue. The normal behavior is that all  allers are answered before "
+"entering the queue. If the call is not answered, it is possible that some "
+"early media delivery would still allow callers to hear recordings, MoH, etc. "
+"but this can be inconsistent and vary. Because of the volatility of this "
+"option, it is not displayed by default. If a queue is set to not answer, the "
+"setting will be displayed for that queue regardless of this setting."
+msgstr "Дает возможность не делать ответ на вызов, помещенный в очередь."
+
+msgid "Asterisk Queues Patch 15168 Installed"
+msgstr "Установлено исправление 15168 для модуля Очереди"
+
+msgid ""
+"Setting this flag will generate the required dialplan to integrate with the "
+"following Asterisk patch: <b>https://issues.asterisk.org/view.php?id=15168</"
+"b>. This setting is obsolete on Asterisk 1.8+ systems where the hint state "
+"is now standard and always used. This asterisk patch is only available on "
+"Asterisk 1.4, trying to use this setting on Asterisk 1.6 will break some "
+"queue behavior and should be avoided"
+msgstr "Установка этого флага вызовет генерацию необходимого плана набора лоя интеграции с"
+" исправлением 15168. Для Asterisk 1.8 и выше этот параметр является устаревшим."
+
+msgid "Generate queuenum*/** Login/off Codes"
+msgstr "Формировать номер очереди*/** коды набора для входа-выхода операторов"
+
+msgid ""
+"Queue login and out codes were historically queunum* and queunum**. These "
+"have been largely replaced by the *45 queue toggle codes. The legacy codes "
+"are required to login or out a third party user that is not the extension "
+"dialing. These can be removed from the system by setting this to false."
+msgstr "Коды входа-выхода в очередь были номер очереди* и номер очереди**."
+" Они были заменены на *45 коды переключения. Старые коды могу понадобиться для "
+"сторонего программного обеспечения или телефонов."
+
+#~ msgid ""
+#~ "Warning, there are compound recordings configured in one or more Queue "
+#~ "configurations. Queues can not play these so they have been truncated to "
+#~ "the first sound file. You should correct this problem.<br />Details:<br /"
+#~ "><br />"
+#~ msgstr ""
+#~ "Внимание, в конфигурации одной или более чем одной очереди используется "
+#~ "составная запись. В очереди такая запись будет урезана до первого "
+#~ "звукогового файла. Вам надо устранить эту проблему.<br />Детали:<br /"
+#~ "><br />"
+
+#~ msgid "Queue - %s (%s): %s<br />"
+#~ msgstr "Очередь - %s (%s): %s<br />"
+
+#~ msgid "Compound Recordings in Queues Detected"
+#~ msgstr "Обнаружена составная запись, использованная в очереди."
+
+#~ msgid "Queue %s : %s"
+#~ msgstr "Очередь %s : %s"
+
+#~ msgid "Queue: %s"
+#~ msgstr "Очередь: %s"
+
+#~ msgid "Bad Queue Number, can not be blank"
+#~ msgstr "Неверный номер очереди, он не может быть пустым"
+
+#~ msgid "INUSE"
+#~ msgstr "ИСПОЛЬЗУЕТСЯ"
+
+#~ msgid "Queue: %s (%s)"
+#~ msgstr "Очередь: %s (%s)"
+
+#~ msgid ""
+#~ "You can optionally prefix the Caller ID name of callers to the queue. ie: "
+#~ "If you prefix with \"Sales:\", a call from John Doe would display as "
+#~ "\"Sales:John Doe\" on the extensions that ring."
+#~ msgstr ""
+#~ "Опционально, можно использовать какой-то префикс для звонка в эту группу. "
+#~ "Например, если это группа \"Sales:\", то, установив такой префикс для "
+#~ "этой группы, можно видеть, если звонит John Doe, то мы увидим на дисплее "
+#~ "Sales:John Doe."
+
+#~ msgid ""
+#~ "If the call is subsequently transfered, the wait time will reflect the "
+#~ "time since it first entered the queue or reset if the call is transfered "
+#~ "to another queue with this feature set."
+#~ msgstr ""
+#~ "Если звонок был перенаправлен, время ожидания будет отражать только время "
+#~ "ожидания в этой очереди, и значение обнулится, если звонок будет "
+#~ "перенаправлен в другую очередь."
+
+#~ msgid "Queue Options"
+#~ msgstr "Опции очереди"
+
+#~ msgid ""
+#~ "Announcement played to the Agent prior to bridging in the caller <br><br> "
+#~ "Example: \"the Following call is from the Sales Queue\" or \"This call is "
+#~ "from the Technical Support Queue\".<br><br>To add additional recordings "
+#~ "please use the \"System Recordings\" MENU to the left. Compound "
+#~ "recordings composed of 2 or more sound files are not displayed as options "
+#~ "since this feature can not accept such recordings."
+#~ msgstr ""
+#~ "Приветствие, которое воспроизводится агенту (оператору), прежде чем тот "
+#~ "соединится с позвонившим в очереди<br><br>Пример: \"Звонок из очереди "
+#~ "Sales\" или \"Звонок из очереди к Службе поддержки\".<br><br>Для создания "
+#~ "такого приветствия воспользуйтесь секцией Запись сообщение в меню слева. "
+#~ "Соединение двух или более записей не отображается в этих опциях, "
+#~ "следовательно такая возможность не поддерживается."
+
+#~ msgid ""
+#~ "Announcement played to callers once prior to joining the queue.<br><br>To "
+#~ "add additional recordings please use the \"System Recordings\" MENU to "
+#~ "the left"
+#~ msgstr ""
+#~ "Приветствие, которое будет воспроизведено один раз при попадании в "
+#~ "очередь<br><br>Создать приветствие можно в секции Запись сообщений в меню "
+#~ "слева."
+
+#~ msgid ""
+#~ "Music (or Commercial) played to the caller while they wait in line for an "
+#~ "available agent. Choose \"inherit\" if you want the MoH class to be what "
+#~ "is currently selected, such as by the inbound route.<br><br>  This music "
+#~ "is defined in the \"Music on Hold\" Menu to the left."
+#~ msgstr ""
+#~ "Музыка или рекламное сообщение будет воспроизводится позвонившему, пока "
+#~ "он ожидает в очереди. Выберите \"inherit\" \"наследовать\" если хотите "
+#~ "использовать тот же класс Музыки в ожидании, который указан во Входящей "
+#~ "маршрутизации.<br><br>Это определено в секции Музыка в ожидании в меню "
+#~ "слева."
+
+#~ msgid ""
+#~ "If you wish to allow callers to join queues that currently have no "
+#~ "agents, set this to yes. Set to strict if callers cannot join a queue "
+#~ "with no members or only unavailable members"
+#~ msgstr ""
+#~ "Если разрешаете позвонившим попадать в очередь, которая не обслуживается "
+#~ "ни одним агентом (оператором), установите флаг в 'Да'. Установить "
+#~ "ограничение, если позвонившие не попадают в необслуживаемую никем очередь."
+
+#~ msgid "Leave When Empty:"
+#~ msgstr "Покидать, если пустая"
+
+#~ msgid ""
+#~ "If you wish to remove callers from the queue if there are no agents "
+#~ "present, set this to yes. Set to strict if callers cannot join a queue "
+#~ "with no members or only unavailable members"
+#~ msgstr ""
+#~ "Если хотите удалять ожидающих из очереди, которая не обслуживается ни "
+#~ "одним агентом (оператором), установите флаг в 'Да'. Установить "
+#~ "ограничение, если позвонившие не попадают в необслуживаемую никем очередь."
+
+#~ msgid ""
+#~ "After a successful call, how many seconds to wait before sending a "
+#~ "potentially free agent another call (default is 0, or no delay)"
+#~ msgstr ""
+#~ "Время в секундах, через которое будет послан следующий звонок из очереди "
+#~ "после успешного звонка тому же оператору.(по умолчанию - 0, то есть - без "
+#~ "передышки)"
+
+#~ msgid "Member Status:"
+#~ msgstr "Статус ожидающего"
+
+#~ msgid ""
+#~ "When if this is option is set to YES, the following manager event will be "
+#~ "generated: QueueMemberStatus"
+#~ msgstr ""
+#~ "Если эта опция установлена в 'Да', в интерфейс менеджера будут "
+#~ "генерироваться события: QueueMemberStatus"
+
+#~ msgid "Inbound Call Control"
+#~ msgstr "Контроль входящих вызовов"

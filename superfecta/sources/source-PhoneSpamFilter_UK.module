@@ -1,0 +1,44 @@
+<?php
+
+class PhoneSpamFilter_UK extends superfecta_base {
+
+    public $description = "http://www.phonespamfilter.co.uk - A datasource devoted to identifying telemarketers. These listings are provided by other users of this service.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'SPAM_Threshold' => array(
+            'description' => 'Specify the # of listings required to mark a call as spam.',
+            'type' => 'number',
+            'default' => 10
+        )
+    );
+
+    function get_caller_id($thenumber, $run_param=array()) {
+        $caller_id = null;
+
+        if (!$this->IsValidNumber('UK', $thenumber)) {
+            $this->DebugPrint("Skipping Source - Non UK number: {$thenumber}");
+        } else {
+            $this->DebugPrint("Searching PhoneSpamFilter (UK) ... ");
+
+            $url = "http://www.phonespamfilter.co.uk/check.php?phone=$thenumber";
+            $value = $this->get_url_contents($url);
+
+            if (is_numeric($value)) {
+                $this->DebugPrint(' value of ' . $value . ' returned ... ');
+
+                $score = $value;
+                if ($score > $run_param['SPAM_Threshold']) {
+                    $this->spam = true;
+                    $this->DebugPrint(" determined to be SPAM");
+                } else {
+                    $this->DebugPrint("Not a SPAM caller");
+                }
+            } else {
+                $this->DebugPrint("not found");
+            }
+        }
+
+        return($caller_id);
+    }
+
+}

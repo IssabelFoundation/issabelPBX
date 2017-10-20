@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-31 00:33+0800\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Feature Code Admin"
+msgstr "功能代码管理"
+
+msgid "Admin"
+msgstr ""
+
+msgid "Feature Codes"
+msgstr "功能代码"
+
+msgid "Featurecode: "
+msgstr "功能代码："
+
+msgid "featuredescription"
+msgstr "功能描述"
+
+msgid ""
+"You have feature code conflicts with extension numbers in other modules. "
+"This will result in unexpected and broken behavior."
+msgstr "你的功能代码在其他的模块中与分机号有冲突。这将导致未知的错误行为。"
+
+msgid "Feature Code Conflicts with other Extensions"
+msgstr "功能代码与其他分机有冲突"
+
+msgid "Use"
+msgstr "使用"
+
+msgid "Default"
+msgstr "默认"
+
+msgid "Feature"
+msgstr "功能"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "moduledescription"
+msgstr "模块描述"
+
+msgid "Disabled"
+msgstr "禁用"
+
+msgid "Enabled"
+msgstr "启用"
+
+msgid "Submit Changes"
+msgstr "提交更改"
+
+msgid ""
+"Please enter a Feature Code or check Use Default for all Enabled Feature "
+"Codes"
+msgstr "请输入一个功能代码或为所有启用的功能代码钩选“使用默认”"
+
+msgid "Feature Codes have been duplicated"
+msgstr "功能代码已被复制"
+
+msgid "Are you sure you wish to proceed?"
+msgstr "你确定要继续吗？"

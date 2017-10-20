@@ -1,0 +1,940 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for voicemail
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"Voicemail is enabled but the Voicemail Password field is empty.  Are you "
+"sure you wish to continue?"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "yes"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "Please enter a valid Voicemail Password, using digits only"
+msgstr ""
+
+msgid "Please enter a valid Email Address"
+msgstr ""
+
+msgid "Please enter a valid Pager Email Address"
+msgstr ""
+
+msgid "VM Context cannot be blank"
+msgstr ""
+
+msgid "Voicemail"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Voicemail Password"
+msgstr ""
+
+#, php-format
+msgid ""
+"This is the password used to access the Voicemail system.%sThis password can "
+"only contain numbers.%sA user can change the password you enter here after "
+"logging into the Voicemail system (%s) with a phone."
+msgstr ""
+
+msgid "Email Address"
+msgstr ""
+
+msgid "The email address that Voicemails are sent to."
+msgstr ""
+
+msgid "Pager Email Address"
+msgstr ""
+
+msgid ""
+"Pager/mobile email address that short Voicemail notifications are sent to."
+msgstr ""
+
+msgid "Email Attachment"
+msgstr ""
+
+msgid "Option to attach Voicemails to email."
+msgstr ""
+
+msgid "Play CID"
+msgstr ""
+
+msgid ""
+"Read back caller's telephone number prior to playing the incoming message, "
+"and just after announcing the date and time the message was left."
+msgstr ""
+
+msgid "Play Envelope"
+msgstr ""
+
+msgid ""
+"Envelope controls whether or not the Voicemail system will play the message "
+"envelope (date/time) before playing the Voicemail message. This setting does "
+"not affect the operation of the envelope option in the advanced Voicemail "
+"menu."
+msgstr ""
+
+msgid "Delete Voicemail"
+msgstr ""
+
+msgid ""
+"If set to \"yes\" the message will be deleted from the Voicemailbox (after "
+"having been emailed). Provides functionality that allows a user to receive "
+"their Voicemail via email alone, rather than having the Voicemail able to be "
+"retrieved from the Webinterface or the Extension handset.  CAUTION: MUST "
+"HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE "
+"LOST FOREVER."
+msgstr ""
+
+msgid "IMAP Username"
+msgstr ""
+
+#, php-format
+msgid "This is the IMAP username, if using IMAP storage"
+msgstr ""
+
+msgid "IMAP Password"
+msgstr ""
+
+#, php-format
+msgid "This is the IMAP password, if using IMAP storage"
+msgstr ""
+
+msgid "VM Options"
+msgstr ""
+
+#, php-format
+msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
+msgstr ""
+
+msgid "VM Context"
+msgstr ""
+
+msgid ""
+"This is the Voicemail Context which is normally set to default. Do not "
+"change unless you understand the implications."
+msgstr ""
+
+msgid "VmX Locater"
+msgstr ""
+
+msgid "VmX Locater&trade;"
+msgstr ""
+
+msgid ""
+"Enable/Disable the VmX Locater feature for this user. When enabled all "
+"settings are controlled by the user in the User Portal (ARI). Disabling will "
+"not delete any existing user settings but will disable access to the feature"
+msgstr ""
+
+msgid "Please enter a valid phone number using number digits only"
+msgstr ""
+
+msgid "Use When:"
+msgstr ""
+
+msgid ""
+"Menu options below are available during your personal Voicemail greeting "
+"playback. <br/><br/>Check both to use at all times."
+msgstr ""
+
+msgid "unavailable"
+msgstr ""
+
+msgid "busy"
+msgstr ""
+
+msgid "Voicemail Instructions:"
+msgstr ""
+
+msgid "Uncheck to play a beep after your personal Voicemail greeting."
+msgstr ""
+
+msgid "Standard Voicemail prompts."
+msgstr ""
+
+msgid "Press 0:"
+msgstr ""
+
+msgid ""
+"Pressing 0 during your personal Voicemail greeting goes to the Operator. "
+"Uncheck to enter another destination here. This feature can be used while "
+"still disabling VmX to allow an alternative Operator extension without "
+"requiring the VmX feature for the user."
+msgstr ""
+
+msgid "Go To Operator"
+msgstr ""
+
+msgid "Press 1:"
+msgstr ""
+
+msgid ""
+"The remaining options can have internal extensions, ringgroups, queues and "
+"external numbers that may be rung. It is often used to include your cell "
+"phone. You should run a test to make sure that the number is functional any "
+"time a change is made so you don't leave a caller stranded or receiving "
+"invalid number messages."
+msgstr ""
+
+msgid ""
+"Enter an alternate number here, then change your personal Voicemail greeting "
+"to let callers know to press 1 to reach that number. <br/><br/>If you'd like "
+"to use your Follow Me List, check \"Send to Follow Me\" and disable Follow "
+"Me above."
+msgstr ""
+
+msgid "Send to Follow-Me"
+msgstr ""
+
+msgid "Press 2:"
+msgstr ""
+
+msgid ""
+"Use any extensions, ringgroups, queues or external numbers. <br/><br/"
+">Remember to re-record your personal Voicemail greeting and include "
+"instructions. Run a test to make sure that the number is functional."
+msgstr ""
+
+#, php-format
+msgid "Failed to delete vmbox: %s@%s"
+msgstr ""
+
+#, php-format
+msgid "failed with retcode %s while removing %s:"
+msgstr ""
+
+msgid "Voicemail Administration"
+msgstr ""
+
+msgid "Timezone Definitions"
+msgstr ""
+
+msgid "Basic Settings For: "
+msgstr ""
+
+msgid "Basic settings view is for individual accounts."
+msgstr ""
+
+msgid "Advanced Settings For: "
+msgstr ""
+
+msgid "System Settings"
+msgstr ""
+
+msgid "Usage Statistics For: "
+msgstr ""
+
+msgid "System Usage Statistics"
+msgstr ""
+
+msgid "Invalid Action"
+msgstr ""
+
+msgid "My Voicemail"
+msgstr ""
+
+msgid "Dial Voicemail"
+msgstr ""
+
+msgid "Voicemail Admin"
+msgstr ""
+
+msgid "Cannot connect to Asterisk Manager with "
+msgstr ""
+
+msgid "checking if Voicemail Admin (vmailadmin) is installed.."
+msgstr ""
+
+msgid "not installed, ok"
+msgstr ""
+
+msgid "installed."
+msgstr ""
+
+msgid "Voicemail Admin being removed and merged with Voicemail"
+msgstr ""
+
+msgid "Attempting to delete.."
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "Timezone definition name"
+msgstr ""
+
+msgid "Time announcement for message playback"
+msgstr ""
+
+msgid "Remove the timezone definition"
+msgstr ""
+
+msgid "The ADSI feature descriptor number to download to"
+msgstr ""
+
+msgid "The ADSI security lock code"
+msgstr ""
+
+msgid "The ADSI Voicemail application version number."
+msgstr ""
+
+msgid "IMAP server master password."
+msgstr ""
+
+msgid "IMAP server master username."
+msgstr ""
+
+msgid ""
+"No. of deleted messages saved per mailbox (can be a number or yes/no, yes "
+"meaning MAXMSG, no meaning 0)."
+msgstr ""
+
+msgid ""
+"Context to call back from; if not listed, calling the sender back will not "
+"be permitted."
+msgstr ""
+
+msgid "The character set for Voicemail messages"
+msgstr ""
+
+msgid "Comma separated list of internal contexts to use caller ID."
+msgstr ""
+
+msgid ""
+"Context to dial out from [option 4 from the advanced menu] if not listed, "
+"dialing out will not be permitted."
+msgstr ""
+
+msgid "Email body."
+msgstr ""
+
+msgid "Load date format config for Voicemail mail."
+msgstr ""
+
+msgid "Email subject"
+msgstr ""
+
+msgid "How many seconds of silence before we end the recording"
+msgstr ""
+
+msgid ""
+"Turn on/off envelope playback before message playback. [ON by default] This "
+"does NOT affect option 3,3 from the advanced options menu."
+msgstr ""
+
+msgid ""
+"Context to check for handling * or 0 calls to operator. \"Operator Context\""
+msgstr ""
+
+msgid "Expunge on exit."
+msgstr ""
+
+msgid "External Voicemail notify application."
+msgstr ""
+
+msgid "External password changing command (overrides externpassnotify)."
+msgstr ""
+
+msgid "Command specified runs after a user changes his password."
+msgstr ""
+
+msgid ""
+"Force new user to record greetings (the same as forcename, except for "
+"recording greetings).  The default is \"no\"."
+msgstr ""
+
+msgid ""
+"Force a new user to record their name.  A new user is determined by the "
+"password being the same as the mailbox number.  The default is \"no\"."
+msgstr ""
+
+msgid ""
+"Formats for writing Voicemail.  Note that when using IMAP storage for "
+"Voicemail, only the first format specified will be used."
+msgstr ""
+
+msgid "From: string for email"
+msgstr ""
+
+msgid "For IMAP storage"
+msgstr ""
+
+msgid "IMAP server flags."
+msgstr ""
+
+msgid "IMAP Voicemail folder."
+msgstr ""
+
+msgid ""
+"If using IMAP storage, specify whether Voicemail greetings should be stored "
+"via IMAP. If no, then greetings are stored as if IMAP storage were not "
+"enabled"
+msgstr ""
+
+msgid ""
+"(yes/no) If imapgreetings=yes, then specify which folder to store your "
+"greetings in. If you do not specify a folder, then INBOX will be used."
+msgstr ""
+
+msgid "For IMAP storage - TCP open timeout in seconds"
+msgstr ""
+
+msgid "Set the parent folder (default is to have no parent folder set)."
+msgstr ""
+
+msgid "IMAP server port."
+msgstr ""
+
+msgid "For IMAP storage - TCP read timeout in seconds"
+msgstr ""
+
+msgid "IMAP server address."
+msgstr ""
+
+msgid "For IMAP storage - TCP write timeout in seconds"
+msgstr ""
+
+msgid "Customize the key that fast-forwards message playback"
+msgstr ""
+
+msgid "Customize the key that pauses/unpauses message playback"
+msgstr ""
+
+msgid "Customize the key that restarts message playback"
+msgstr ""
+
+msgid "Customize the key that rewinds message playback"
+msgstr ""
+
+msgid "Customize the key that stops message playback"
+msgstr ""
+
+msgid "Mail command."
+msgstr ""
+
+msgid "Max message greeting length."
+msgstr ""
+
+msgid "Max failed login attempts."
+msgstr ""
+
+msgid "Max message time length."
+msgstr ""
+
+msgid ""
+"Maximum number of messages per folder.  If not specified, a default value "
+"(100) is used.  Maximum value for this option is 9999."
+msgstr ""
+
+msgid ""
+"Min message time length - maxsilence should be less than minsecs or you may "
+"get empty messages."
+msgstr ""
+
+msgid "Move heard messages to the 'Old' folder automatically.  Defaults to on."
+msgstr ""
+
+msgid "Skip to the next message after save/delete."
+msgstr ""
+
+msgid ""
+"The value of odbcstorage is the database connection configured in res_odbc."
+"conf."
+msgstr ""
+
+msgid "The default table for ODBC Voicemail storage is voicemessages."
+msgstr ""
+
+msgid ""
+"Operator break. Allow sender to hit 0 before/after/during  leaving a "
+"Voicemail to reach an operator  [OFF by default]"
+msgstr ""
+
+msgid "Body of message sent to pager."
+msgstr ""
+
+msgid "From: string sent to pager."
+msgstr ""
+
+msgid "Subject sent to pager."
+msgstr ""
+
+msgid "Skip the \"[PBX]:\" string from the message title"
+msgstr ""
+
+msgid ""
+"If the \"pollmailboxes\" option is enabled, this option sets the polling "
+"frequency.  The default is once every 30 seconds."
+msgstr ""
+
+msgid ""
+"If mailboxes are changed anywhere outside of app_voicemail, then this option "
+"must be enabled for MWI to work.  This enables polling mailboxes for "
+"changes.  Normally, it will expect that changes are only made when someone "
+"called in to one of the Voicemail applications. Examples of situations that "
+"would require this option are web interfaces to Voicemail or an email client "
+"in the case of using IMAP storage."
+msgstr ""
+
+msgid ""
+"Allow sender to review/rerecord their message before saving it [OFF by "
+"default]"
+msgstr ""
+
+msgid ""
+"Read back caller's telephone number prior to playing the incoming message, "
+"and just after announcing the date and time the message was left. If not "
+"described, or set to no, it will be in the envelope."
+msgstr ""
+
+msgid ""
+"Turn on/off saying duration information before the message playback. [ON by "
+"default]"
+msgstr ""
+
+msgid "Specify in minutes the minimum duration to say. Default is 2 minutes."
+msgstr ""
+
+msgid ""
+"Yes to search all contexts, no to search current context (if one is not "
+"specified)."
+msgstr ""
+
+msgid ""
+"Send Voicemail message. If not listed, sending messages from inside "
+"Voicemail will not be permitted."
+msgstr ""
+
+msgid "Who the e-mail notification should appear to come from"
+msgstr ""
+
+msgid ""
+"Silence threshold (what we consider silence: the lower, the more sensitive)"
+msgstr ""
+
+msgid ""
+"How many milliseconds to skip forward/back when rew/ff in message playback"
+msgstr ""
+
+msgid "Enable Simple Message Desk Interface (SMDI) integration"
+msgstr ""
+
+msgid ""
+"Valid port as specified in smdi.conf for using smdi for external "
+"notification."
+msgstr ""
+
+msgid "Temporary greeting reminder."
+msgstr ""
+
+msgid "Permit finding entries for forward/compose from the directory"
+msgstr ""
+
+msgid ""
+"User context is where entries from users.conf are registered.  The default "
+"value is 'default'"
+msgstr ""
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"The passwords you entered and re-entered did not match.  Please try again."
+"\""
+msgstr ""
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"Please enter your new password followed by the pound key.\""
+msgstr ""
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"Your password has been changed.\""
+msgstr ""
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"password\""
+msgstr ""
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"Please re-enter your password followed by the pound key\""
+msgstr ""
+
+msgid ""
+"Emails bearing the Voicemail may arrive in a volume too quiet to be heard.  "
+"This parameter allows you to specify how much gain to add to the message "
+"when sending a Voicemail. NOTE: sox must be installed for this option to "
+"work."
+msgstr ""
+
+msgid ""
+"This is the password used to access the Voicemail system.<br /><br />This "
+"password can only contain numbers.<br /><br />A user can change the password "
+"you enter here after logging into the Voicemail system (*98) with a phone."
+msgstr ""
+
+msgid "Which format of audio file to attach to the email."
+msgstr ""
+
+msgid ""
+"After notification, the Voicemail is deleted from the server. [per-mailbox "
+"only] This is intended for use with users who wish to receive their "
+"Voicemail ONLY by email. Note:  deletevoicemail is provided as an equivalent "
+"option for Realtime configuration."
+msgstr ""
+
+msgid "Name of Voicemail account"
+msgstr ""
+
+msgid ""
+"Hide this mailbox from the directory produced by app_directory. The default "
+"is \"no\"."
+msgstr ""
+
+msgid "IMAP password."
+msgstr ""
+
+msgid "IMAP user."
+msgstr ""
+
+msgid "Asterisk language code"
+msgstr ""
+
+msgid "Name of account/user"
+msgstr ""
+
+msgid "Remind the user that their temporary greeting is set"
+msgstr ""
+
+msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
+msgstr ""
+
+msgid "Call me number. Can be used from within ARI."
+msgstr ""
+
+msgid "System View Links:"
+msgstr ""
+
+msgid ""
+"A timezone definition specifies how the Voicemail system announces the time."
+msgstr ""
+
+msgid ""
+"For example, the time a message was left will be announced according to the "
+"user's timezone on message playback."
+msgstr ""
+
+msgid "Entries below will be written to Voicemail configuration as-is."
+msgstr ""
+
+msgid ""
+"Please be sure to follow the format for timezone definitions described below."
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Timezone Definition"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "New Name"
+msgstr ""
+
+msgid "New Timezone Definition"
+msgstr ""
+
+msgid "Timezone definition format is: "
+msgstr ""
+
+msgid "timezone|values"
+msgstr ""
+
+msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
+msgstr ""
+
+msgid "The <i>values</i> supported in the timezone definition string include:"
+msgstr ""
+
+msgid "'filename'"
+msgstr ""
+
+msgid "The name of a sound file (the file name must be single-quoted)"
+msgstr ""
+
+msgid "variable"
+msgstr ""
+
+msgid "A variable to be substituted (see below for supported variable values)"
+msgstr ""
+
+msgid "Supported <i>variables</i>:"
+msgstr ""
+
+msgid "A or a"
+msgstr ""
+
+msgid "Day of week (Saturday, Sunday, ...)"
+msgstr ""
+
+msgid "B or b or h"
+msgstr ""
+
+msgid "Month name (January, February, ...)"
+msgstr ""
+
+msgid "d or e"
+msgstr ""
+
+msgid "numeric day of month (first, second, ..., thirty-first)"
+msgstr ""
+
+msgid "Y"
+msgstr ""
+
+msgid "Year"
+msgstr ""
+
+msgid "I or l"
+msgstr ""
+
+msgid "Hour, 12 hour clock"
+msgstr ""
+
+msgid "H"
+msgstr ""
+
+msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
+msgstr ""
+
+msgid "k"
+msgstr ""
+
+msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
+msgstr ""
+
+msgid "M"
+msgstr ""
+
+msgid "Minute, with 00 pronounced as \"o'clock\""
+msgstr ""
+
+msgid "N"
+msgstr ""
+
+msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
+msgstr ""
+
+msgid "P or p"
+msgstr ""
+
+msgid "AM or PM"
+msgstr ""
+
+msgid "Q"
+msgstr ""
+
+msgid "\"today\", \"yesterday\" or ABdY"
+msgstr ""
+
+msgid "q"
+msgstr ""
+
+msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
+msgstr ""
+
+msgid "R"
+msgstr ""
+
+msgid "24 hour time, including minute"
+msgstr ""
+
+msgid "Account View Links:"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Usage"
+msgstr ""
+
+msgid "Advanced Settings"
+msgstr ""
+
+msgid "No name defined; this is configured from the Extensions or Users page."
+msgstr ""
+
+msgid "Call-Me Number"
+msgstr ""
+
+msgid "undefined"
+msgstr ""
+
+msgid ""
+"Selecting \"undefined\" will remove this option from the user's Voicemail "
+"configuration entry. (System default will be used.)"
+msgstr ""
+
+msgid "Number of Accounts:"
+msgstr ""
+
+msgid "Total ( Activated / Unactivated / Disabled )"
+msgstr ""
+
+msgid "Number of Messages:"
+msgstr ""
+
+msgid "Total ( Messages in inboxes / Messages in other folders )"
+msgstr ""
+
+msgid "Remove all messages"
+msgstr ""
+
+msgid "Recorded Names:"
+msgstr ""
+
+msgid "Number of recorded name greetings"
+msgstr ""
+
+msgid "Remove all recorded names"
+msgstr ""
+
+msgid "Unavailable Greetings:"
+msgstr ""
+
+msgid "Number of recorded unavailable greetings"
+msgstr ""
+
+msgid "Remove all unavailable greetings"
+msgstr ""
+
+msgid "Busy Greetings:"
+msgstr ""
+
+msgid "Number of recorded busy greetings"
+msgstr ""
+
+msgid "Remove all busy greetings"
+msgstr ""
+
+msgid "Temporary Greetings:"
+msgstr ""
+
+msgid "Number of recorded temporary greetings"
+msgstr ""
+
+msgid "Remove all temporary greetings"
+msgstr ""
+
+msgid "Abandoned Greetings:"
+msgstr ""
+
+msgid ""
+"Number of abandoned greetings. Such greetings were recorded by the user but "
+"were NOT accepted, so the sound file remains on disk but is not used as a "
+"greeting."
+msgstr ""
+
+msgid "Remove all abandoned greetings (> 1 day old)"
+msgstr ""
+
+msgid "Storage Used:"
+msgstr ""
+
+msgid "Disk space currently in use by Voicemail data"
+msgstr ""
+
+msgid "File timestamp: "
+msgstr ""
+
+msgid "Recorded Name:"
+msgstr ""
+
+msgid "Has a recorded name greeting?"
+msgstr ""
+
+msgid "Remove recorded name"
+msgstr ""
+
+msgid "Unavailable Greeting:"
+msgstr ""
+
+msgid "Has a recorded unavailable greeting?"
+msgstr ""
+
+msgid "Remove unavailable greeting"
+msgstr ""
+
+msgid "Has a recorded busy greeting?"
+msgstr ""
+
+msgid "Remove busy greeting"
+msgstr ""
+
+msgid "Temporary Greeting:"
+msgstr ""
+
+msgid "Has a recorded temporary greeting?"
+msgstr ""
+
+msgid "Remove temporary greeting"
+msgstr ""
+
+msgid "Storage Used"
+msgstr ""
+
+msgid "This module allows you to configure Voicemail for a user or extension"
+msgstr ""
+
+msgid "Provide IMAP Voicemail Fields"
+msgstr ""
+
+msgid "Voicemail Module"
+msgstr ""
+
+msgid ""
+"Installations that have configured Voicemail with IMAP should set this to "
+"true so that the IMAP username and password fields are provided in the "
+"Voicemail setup screen for extensions. If an extension alread has these "
+"fields populated, they will be displayed even if this is set to false."
+msgstr ""

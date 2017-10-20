@@ -1,0 +1,103 @@
+#!/usr/bin/env bash
+# This file is part of IssabelPBX.
+
+ROOT_UID=0	 # root uid is 0
+E_NOTROOT=67	 # Non-root exit error
+
+echo
+# check to see if we are root
+if [ "$UID" -ne "$ROOT_UID" ]
+then
+	echo "Sorry, you must be root to run this script."
+	echo
+	exit $E_NOTROOT
+fi
+
+check_asterisk() {
+# check to see if asterisk is running
+# Note, this isn't fool-proof.  If safe_asterisk is constantly restarting a dying asterisk, then there is a chance pidof will return non zero.  
+# We call this twice to reduce chances of this happening
+pid_length=`pidof asterisk|awk '{print length($0)}'`
+	if [ "$pid_length" == "0" -a "$pid_length" != "" ]
+		then
+				killall -9 safe_asterisk
+				killall -9 mpg123 > /dev/null
+				echo
+				echo "-----------------------------------------------------"
+				echo "Asterisk could not start!"
+				echo "Use 'tail $ASTLOGDIR/full' to find out why."
+				echo "-----------------------------------------------------"
+				exit 0
+		fi
+}
+
+run_asterisk() {
+# check to see if asterisk is running
+echo
+echo "STARTING ASTERISK"
+pid_length=`pidof asterisk|awk '{print length($0)}'`
+	if [ "$pid_length" != "0" -a "$pid_length" != "" ]
+		then
+			echo "Asterisk is already running"
+		else
+			# su - asterisk -c "export PATH=$PATH:/usr/sbin && export LD_LIBRARY_PATH=/usr/local/lib && /usr/sbin/safe_asterisk"
+			export LD_LIBRARY_PATH=/usr/local/lib
+			/usr/sbin/safe_asterisk -U asterisk -G asterisk
+			sleep 5
+			check_asterisk
+			sleep 1
+			check_asterisk
+			echo "Asterisk Started"
+		fi
+}
+
+stop_asterisk() {
+echo
+echo "STOPPING ASTERISK"
+pid_length=`pidof asterisk|awk '{print length($0)}'`
+	if [ "$pid_length" != "0" -a "$pid_length" != "" ]
+		then
+			/usr/sbin/asterisk -rx "stop gracefully"
+			echo "Asterisk Stopped"
+		fi
+}
+
+kill_amp() {
+	echo
+	echo "KILLING AMP PROCESSES"
+	killall -9 safe_asterisk
+	killall -9 asterisk
+	killall -9 mpg123
+	ps -ef | grep safe_opserver | grep -v grep | awk '{print $2}' | xargs kill -9
+	killall -9 op_server.pl
+}
+
+case "$1" in
+	start)
+		run_asterisk
+	;;
+	stop)
+		stop_asterisk
+	;;
+	restart)
+		stop_asterisk
+		sleep 1
+		run_asterisk
+	;;
+	kill)
+		kill_amp
+	;;
+	*)
+		echo "-------------IssabelPBX Control Script-----------------------------------------------"
+		echo
+		echo "Usage:       amportal start|stop|restart|start_fop|stop_fop|restart_fop|kill|chown"
+		echo
+		echo "start:       Starts Asterisk and Flash Operator Panel server if enabled"
+		echo "stop:        Gracefully stops Asterisk"
+		echo "restart:     Stop and Starts"
+		echo "kill:        Kills Asterisk"
+		echo
+		exit 1
+	;;
+esac
+

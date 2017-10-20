@@ -1,0 +1,60 @@
+<?php
+  // CallWithUs CNAME Lookup by Adam Goldberg, adam_g@yahoo.com
+  // -- see https://www.callwithus.com/services
+  // -- (indicates $0.006 per lookup)
+
+  // API doucmented at https://www.callwithus.com/API#cnam
+
+  // From the CallWithUS web page footer:
+  //
+  // Fine print: All prices are final, there are no bogus fees and unfees. Period. Only SIP devices that have 
+  // already been created can be connected to sip.callwithus.com to make calls. Please ensure you only use 
+  // devices approved by you (Please do not try and connect using two tin cans and a piece of string as we do 
+  // not yet support this, but we may support this in the future, the work is in progress and preliminary
+  // results are positive). Callwithus.com monthly subscription charge of $0 must be paid in advance and does
+  // not include tax of $0 which also must be paid in advance. You will be billed an activation fee of $0
+  // plus tax and this must be paid in advance. Calls made incur tax at the rate of 0% each month and must be
+  // paid in advance. On cancellation of the service you will be charged a one time disconnection charge of
+  // $0. Additional features will be billed at the additional rate of $0 per call. All **YOUR** rights reserved. 
+
+  // Revisions:
+  // 0.2 - 2013 Jan 12 - Converted from earlier version
+  // 0.3 - 2013 Jan 13 - Added parameterization of username and password
+
+class CallWithUs extends superfecta_base {
+
+    public $description = "http://callwithus.com   This data source is not free, but provides pretty accurate information.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'username' => array(
+                'description' => 'Username for CallWithUs, generally a 9-digit number',
+                'type' => 'text'
+        ),
+        'password' => array(
+                'description' => 'Password for CallWithUs',
+                'type' => 'password'
+        )
+    );
+	
+	function get_caller_id($thenumber, $run_param=array()) {
+		$this->DebugPrint("Searching CallWithUs..");
+		
+	    $url = "http://lrn.callwithus.com/api/cnam/index.php?username=".$run_param['username']."&password=".$run_param['password']."&number=" . $thenumber;
+		$sresult = $this->get_url_contents($url);
+		if($sresult == "-1000" || $sresult == "-1004" || $sresult == "-1005") {
+			$this->DebugPrint("CallWithUs lookup error " . $sresult);
+			return false;
+		} else {
+			if(strcmp($sresult, "-1003") == 0) {  /* if -1003, not found error */
+		        /* try it with a leading '1' */
+		        $url = "http://lrn.callwithus.com/api/cnam/index.php?username=".$run_param['username']."&password=".$run_param['password']."&number=1" . $thenumber;
+				$sresult = $this->get_url_contents($url);
+				if($sresult == "-1000" || $sresult == "-1004" || $sresult == "-1005") {
+					$this->DebugPrint("CallWithUs lookup error (with 1), giving up " . $sresult);
+					return false;
+				}
+			}
+			return(strip_tags($sresult));
+		}
+	}
+}

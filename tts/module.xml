@@ -1,0 +1,32 @@
+<module>
+	<rawname>tts</rawname>
+	<name>Text To Speech</name>
+	<version>2.11.0.10</version>
+	<repo>extended</repo>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<type>setup</type>
+	<description>Allows you to configure text to speech, and is derived from texttospeech provided in contributed modules.</description>
+	<category>Applications</category>
+	<menuitems>
+		<tts>Text To Speech</tts>
+	</menuitems>
+	<depends>
+		<engine>asterisk ge 1.6</engine>
+		<module>ttsengines</module>
+	</depends>
+	<location>release/2.11/tts-2.11.0.7.tgz</location>
+	<changelog>
+		2.11.0.10 Initial Issabel Foundation release
+	</changelog>
+	<popovers>
+		<tts>
+			<display>tts</display>
+		</tts>
+	</popovers>
+	<supported>
+		<version>2.11</version>
+	</supported>
+	<md5sum>95e334009eb9d41adc63878fd307044c</md5sum>
+</module>

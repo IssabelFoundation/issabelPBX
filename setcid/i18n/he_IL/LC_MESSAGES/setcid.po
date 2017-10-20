@@ -1,0 +1,104 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for setcid
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "Set CallerID %s: "
+msgstr ""
+
+msgid "Add CallerID"
+msgstr ""
+
+msgid "Edit: "
+msgstr ""
+
+msgid ""
+"Set CallerID allows you to change the caller id of the call and then "
+"continue on to the desired destination. For example, you may want to change "
+"the caller id form \"John Doe\" to \"Sales: John Doe\". Please note, the "
+"text you enter is what the callerid is changed to. To append to the current "
+"callerid, use the proper asterisk variables, such as \"${CALLERID(name)}\" "
+"for the currently set callerid name and \"${CALLERID(num)}\" for the "
+"currently set callerid number."
+msgstr ""
+
+msgid "Edit CallerID Instance"
+msgstr ""
+
+msgid "Add CallerID Instance"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid ""
+"The descriptive name of this CallerID instance. For example \"new name here\""
+msgstr ""
+
+msgid "CallerID Name"
+msgstr ""
+
+msgid ""
+"The CallerID Name that you want to change to. If you are appending to the "
+"current callerid, dont forget to include the appropriate asterisk variables. "
+"If you leave this box blank, the CallerID name will be blanked"
+msgstr ""
+
+msgid "CallerID Number"
+msgstr ""
+
+msgid ""
+"The CallerID Number that you want to change to. If you are appending to the "
+"current callerid, dont forget to include the appropriate asterisk variables. "
+"If you leave this box blank, the CallerID number will be blanked"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Invalid description specified"
+msgstr ""
+
+msgid "Set CallerID"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid "Adds the ability to change the CallerID within a call flow."
+msgstr ""

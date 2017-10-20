@@ -1,0 +1,227 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-31 13:31+0800\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Page Group: "
+msgstr "传呼组："
+
+msgid "Exclude"
+msgstr "排除"
+
+msgid "Include"
+msgstr "包括"
+
+msgid "Default Group Inclusion"
+msgstr "包含在默认传呼组中"
+
+msgid "Default Page Group"
+msgstr "默认传呼组"
+
+msgid ""
+"You can include or exclude this extension/device from being part of the "
+"default page group when creating or editing."
+msgstr "在创建或者编辑默认传呼组时，你可以将此分机/设备包含在里面或从其中排除"
+
+msgid "Intercom prefix"
+msgstr "直接对讲前缀"
+
+msgid "User Intercom Allow"
+msgstr "允许直接对讲的用户"
+
+msgid "User Intercom Disallow"
+msgstr "禁止直接对讲的用户"
+
+msgid "Disabled"
+msgstr "进用"
+
+msgid ""
+"This module is for specific phones that are capable of Paging or Intercom. "
+"This section is for configuring group paging, intercom is configured through "
+"<strong>Feature Codes</strong>. Intercom must be enabled on a handset before "
+"it will allow incoming calls. It is possible to restrict incoming intercom "
+"calls to specific extensions only, or to allow intercom calls from all "
+"extensions but explicitly deny from specific extensions.<br /><br />This "
+"module should work with Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, "
+"SNOM , and possibly other SIP phones (not ATAs). Any phone that is always "
+"set to auto-answer should also work (such as the console extension if "
+"configured)."
+msgstr ""
+"这个模块是用于那些有集体传呼和直接对讲对讲功能的电话的。这一小节主要用来配置"
+"集体传呼，直接对讲是通过<strong>功能代码</strong>配置的。要使用直接对讲，在允"
+"许来电之前，必须先启用电话上的直接对讲功能。可以将打进来的直接对讲呼叫限制在"
+"指定的几个分机范围内，或者也可以允许所有的分机进行直接对讲，只显式的禁止其中"
+"的几个分机。<br /><br />这个模块支持Aastra、Grandstream、Linksys/Sipura、"
+"Mitel、Polycom、SNOM的产品，也可能支持其他（非ATA的）SIP电话。任何电话设置成"
+"自动接听的电话应该也可以工作（比如配置好的控制台分机）。"
+
+#, php-format
+msgid ""
+"Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom "
+"extension nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Enable all "
+"extensions to intercom you (except those explicitly denied)</td></"
+"tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow extension nnn to "
+"intercom you (even if others are disabled)</td></tr><tr><td><strong>%s</"
+"strong>:</td><td>Disable all extensions from intercom you (except those "
+"explicitly allowed)</td></tr><tr><td><strong>%snnn</strong>:</"
+"td><td>Explicitly deny extension nnn to intercom you (even if generally "
+"enabled)</td></tr></table>"
+msgstr ""
+"使用范例：<br /><table><tr><td><strong>%snnn</strong>:</td><td>直接对讲分机"
+"号 nnn</td></tr><tr><td><strong>%s</strong>:</td><td>允许所有分机同你直接对讲"
+"（除了那些明确拒绝的分机）</td></tr><tr><td><strong>%snnn</strong>:</td><td>"
+"明确的允许分机 nnn 与你直接对讲（即使设置了拒绝所有分机与你直接对讲）</td></"
+"tr><tr><td><strong>%s</strong>:</td><td>禁止所有的分机与你直接对讲（除了那些"
+"明确允许的以外）</td></tr><tr><td><strong>%snnn</strong>:</td><td>明确拒绝分"
+"机 nnn 与你直接对讲（即使设置了允许所有分机与你直接对讲）</td></tr></table>"
+
+msgid ""
+"Intercom mode is currently disabled, it can be enabled in the Feature Codes "
+"Panel."
+msgstr "直接对讲模式目前被禁用，可以在功能代码面版中启用。"
+
+#, php-format
+msgid "Delete Group %s"
+msgstr "删除传呼组 %s"
+
+msgid "Conflicting Extensions"
+msgstr "分机冲突"
+
+msgid "Modify Paging Group"
+msgstr "更改传呼组"
+
+msgid "Add Paging Group"
+msgstr "添加传呼组"
+
+msgid "Paging Extension"
+msgstr "传呼组的分机号"
+
+msgid "The number users will dial to page this group"
+msgstr "这个号码用来代表此集体传呼组"
+
+msgid "Group Description"
+msgstr "传呼组描述"
+
+msgid "Provide a descriptive title for this Page Group."
+msgstr "为这个传呼组设置一个描述性的标题"
+
+msgid "Device List:"
+msgstr "设备列表："
+
+msgid ""
+"Select Device(s) to page. This is the phone that should be paged. In most "
+"installations, this is the same as the Extension. If you are configured to "
+"use \"Users & Devices\" this is the actual Device and not the User.  Use "
+"Ctrl key to select multiple.."
+msgstr ""
+
+msgid "Force if busy"
+msgstr "无论对方是否占线都强制传呼"
+
+msgid ""
+"If yes, will not check if the device is in use before paging it. This means "
+"conversations can be interrupted by a page (depending on how the device "
+"handles it). This is useful for \"emergency\" paging groups. Setting to "
+"'Whisper' will attempt to use the ChanSpy capability on SIP channels, "
+"resulting in the page being sent to the device's ear piece but not heard by "
+"the remote party. If ChanSpy is not supported on the device or otherwise "
+"fails, no page will get through. It probably does not make too much sense to "
+"choose duplex if using Whisper mode."
+msgstr ""
+
+msgid "The Whisper mode is new and considered experimental."
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Whisper"
+msgstr ""
+
+msgid "Duplex"
+msgstr "双工"
+
+msgid ""
+"Paging is typically one way for announcements only. Checking this will make "
+"the paging duplex, allowing all phones in the paging group to be able to "
+"talk and be heard by all. This makes it like an \"instant conference\""
+msgstr ""
+"集体传呼一般都是单向的，多用于通知公告。钩选此项可以让传呼成为双向的（双"
+"工），以让在组中的所有电话都可以向所有其他电话发言。这个功能看起来有些“即时的"
+"电话会议”的意味。"
+
+msgid ""
+"Each PBX system can have a single Default Page Group. If specified, "
+"extensions can be automatically added (or removed) from this group in the "
+"Extensions (or Devices) tab.<br />Making this group the default will uncheck "
+"the option from the current default group if specified."
+msgstr ""
+"每一个PBX系统可以有一个单独的默认集体传呼小组。如果事先指定好，某些分机可以自"
+"动的被加入到（或从其中删除）这个小组的分机（或设备）标签。<br />如果把这个小"
+"组设置成默认小组，原来的默认小组就不再成为默认小组，自然它在这个项目上的钩就"
+"没有了。"
+
+msgid "Submit Changes"
+msgstr "提交更改"
+
+msgid "Please enter a valid Paging Extension"
+msgstr "请输入一个有效的集体传呼分机"
+
+msgid "Please select at least one extension"
+msgstr "请选择至少一个分机"
+
+msgid " [DEFAULT]"
+msgstr ""
+
+msgid "Page Group"
+msgstr "集体传呼组"
+
+msgid "Paging and Intercom"
+msgstr "集体传呼和直接对讲"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones. \tAlso creates an Intercom feature code that can "
+"be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
+msgstr ""
+
+#~ msgid ""
+#~ "Select Device(s) to page. This is the phone that should be paged. In most "
+#~ "installations, this is the same as the Extension. If you are configured "
+#~ "to use \"Users & Devices\" this is the acutal Device and not the User.  "
+#~ "Use Ctrl key to select multiple.."
+#~ msgstr ""
+#~ "选择集体传呼的设备，他是要用于集体传呼的电话。在大多数情况下，应该与分机一"
+#~ "样。如果你配置的是“用户和设备”，这就是实际使用的设备而不是用户。可以使用"
+#~ "Ctrl键来选择多项。。。"
+
+#~ msgid ""
+#~ "If selected, will not check if the device is in use before paging it. "
+#~ "This means conversations can be interrupted by a page (depending on how "
+#~ "the device handles it). This is useful for \"emergency\" paging groups "
+#~ msgstr ""
+#~ "如果选中了这项，传呼时不会检测设备是否正在使用。这意味着，通话可能会被传呼"
+#~ "打断（要看设备怎么处理这种情况）。这对于“紧急”传呼组很有用。"

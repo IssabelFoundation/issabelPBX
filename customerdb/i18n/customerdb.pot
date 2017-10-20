@@ -1,0 +1,181 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-28 04:55+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: page.customerdb.php:82
+msgid "Customer"
+msgstr ""
+
+#: page.customerdb.php:90
+msgid "deleted"
+msgstr ""
+
+#: page.customerdb.php:95
+msgid "Add a user"
+msgstr ""
+
+#: page.customerdb.php:126
+msgid "Delete Customer"
+msgstr ""
+
+#: page.customerdb.php:145
+msgid "Edit Customer"
+msgstr ""
+
+#: page.customerdb.php:145
+msgid "Add Customer"
+msgstr ""
+
+#: page.customerdb.php:152
+msgid "Name"
+msgstr ""
+
+#: page.customerdb.php:153
+msgid "Name of business or person (REQUIRED)"
+msgstr ""
+
+#: page.customerdb.php:161
+msgid "Address 1"
+msgstr ""
+
+#: page.customerdb.php:162
+msgid "Address Line 1 (REQUIRED)"
+msgstr ""
+
+#: page.customerdb.php:169
+msgid "Address 2"
+msgstr ""
+
+#: page.customerdb.php:170
+msgid "Address Line 2"
+msgstr ""
+
+#: page.customerdb.php:177
+msgid "City"
+msgstr ""
+
+#: page.customerdb.php:178
+msgid "City (REQUIRED)"
+msgstr ""
+
+#: page.customerdb.php:185
+msgid "State"
+msgstr ""
+
+#: page.customerdb.php:186
+msgid "State (REQUIRED)"
+msgstr ""
+
+#: page.customerdb.php:201
+msgid "Zip/Post Code"
+msgstr ""
+
+#: page.customerdb.php:202
+msgid "Zip (REQUIRED)"
+msgstr ""
+
+#: page.customerdb.php:210
+msgid "Sip Account"
+msgstr ""
+
+#: page.customerdb.php:211
+msgid "Sip Account (must have this or a DID tied to the account)"
+msgstr ""
+
+#: page.customerdb.php:226
+msgid "DID Number"
+msgstr ""
+
+#: page.customerdb.php:227
+msgid "DID Number (must have this or sip tied to the account)"
+msgstr ""
+
+#: page.customerdb.php:242
+msgid "Device"
+msgstr ""
+
+#: page.customerdb.php:243
+msgid "Device (example... Linksys PAP-2, Sipura)"
+msgstr ""
+
+#: page.customerdb.php:250
+msgid "Serial"
+msgstr ""
+
+#: page.customerdb.php:251
+msgid "Serial Number"
+msgstr ""
+
+#: page.customerdb.php:258 page.customerdb.php:259
+msgid "IP Address"
+msgstr ""
+
+#: page.customerdb.php:266
+msgid "Account"
+msgstr ""
+
+#: page.customerdb.php:267
+msgid "Account Number (internal use)"
+msgstr ""
+
+#: page.customerdb.php:274
+msgid "Email"
+msgstr ""
+
+#: page.customerdb.php:275
+msgid "Email Address"
+msgstr ""
+
+#: page.customerdb.php:282
+msgid "Username"
+msgstr ""
+
+#: page.customerdb.php:283
+msgid "Username for the device"
+msgstr ""
+
+#: page.customerdb.php:290
+msgid "Password"
+msgstr ""
+
+#: page.customerdb.php:291
+msgid "Password for device"
+msgstr ""
+
+#: page.customerdb.php:323
+msgid "Please enter a name for this customer"
+msgstr ""
+
+#: page.customerdb.php:324
+msgid "Please enter an address for this customer"
+msgstr ""
+
+#: page.customerdb.php:325
+msgid "Pleast enter a city for this customer"
+msgstr ""
+
+#: page.customerdb.php:326
+msgid "Please enter a zip for this customer"
+msgstr ""
+
+#: page.customerdb.php:327
+msgid "You must choose either a sip or did number for this customer."
+msgstr ""
+
+#: module.xml
+msgid "Customer DB"
+msgstr ""

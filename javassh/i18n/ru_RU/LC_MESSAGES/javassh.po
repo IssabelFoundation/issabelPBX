@@ -1,0 +1,50 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2012 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Alexander Anikin <may@postmet.com>, 2006-2012.
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 00:04+0400\n"
+"PO-Revision-Date: 2012-11-02 13:42+0400\n"
+"Last-Translator: Alexander Anikin <may@postmet.com>\n"
+"Language-Team: Russian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Java SSH"
+msgstr "Java SSH"
+
+msgid "Admin"
+msgstr "Админ"
+
+msgid ""
+"Provides a Java applet to access the system shell using SSH. SSH client is "
+"provided by Appgate (www.appgate.com) and licensed is Free Limited Use, "
+"http://www.appgate.com/index/products/mindterm/mindterm_end_user_lic.html"
+msgstr ""
+"Позволяет используя Java приложене, подключаться к системной консоли станции "
+"используя SSH. SSH клиент предоставлен компанией Appgate (www.appgate.com) "
+"и лицензирован как Free Limited Use "
+"http://www.appgate.com/index/products/mindterm/mindterm_end_user_lic.html "
+
+msgid ""
+"If necessary re-enter the maint user and password. Once the applet has "
+"opened enter the IP address of your PBX.<br>"
+msgstr ""
+"Если необходимо, переназначьте пароль пользователя maint. Когда приложение "
+"откроется, введите IP адрес вашего сервера. "
+
+msgid ""
+"You will then connect to the IssabelPBX server. You can then login as 'root' or "
+"'asterisk', or whatever user you have created."
+msgstr ""
+"После чего вы будете подключены к нему. Вы можете подключиться как root "
+"или asterisk, или любым пользователем которого вы создали. "
+

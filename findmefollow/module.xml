@@ -1,0 +1,28 @@
+<module>
+	<rawname>findmefollow</rawname>
+	<repo>standard</repo>
+	<name>Follow Me</name>
+	<version>2.11.0.6</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<changelog>
+		*2.11.0.6* Initial Issabel Foundation release
+	</changelog>
+	<depends>
+		<version>2.5.0alpha1</version>
+		<module>recordings ge 3.3.8</module>
+	</depends>
+	<category>Applications</category>
+	<description>
+		Much like a ring group, but works on individual extensions. When someone calls the extension, it can be setup to ring for a number of seconds before trying to ring other extensions and/or external numbers, or to ring all at once, or in other various 'hunt' configurations. Most commonly used to ring someone's cell phone if they don't answer their extension.
+	</description>
+	<menuitems>
+		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
+	</menuitems>
+	<supported>
+		<version>2.10</version>
+	</supported>
+	<location>release/2.11/findmefollow-2.11.0.3.tgz</location>
+	<md5sum>eb10d338f7206c288e52b240ccf4b850</md5sum>
+</module>

@@ -1,0 +1,68 @@
+<?php
+
+class Telepest_UK extends superfecta_base {
+
+    public $description = "http://www.telepest.co.uk - A datasource devoted to identifying telemarketers. All information on this site is submitted by users. The operators of Telepest make no claims whatsoever regarding its accuracy or reliability.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'Get_Caller_ID_Name' => array(
+            'description' => 'Use Telepest.co.uk for caller id name lookup.',
+            'type' => 'checkbox',
+            'default' => 'on'
+        ),
+        'Get_SPAM_Score' => array(
+            'description' => 'Use Telepest.co.uk for spam scoring.',
+            'type' => 'checkbox',
+            'default' => 'on'
+        )
+    );
+
+    function get_caller_id($thenumber, $run_param=array()) {
+        //This debug variable allows simple copy and past of most sources.
+        $debug = $this->debug;
+
+        $caller_id = null;
+
+        if (($run_param['Get_SPAM_Score'] == 'on') || ($run_param['Get_Caller_ID_Name'] == 'on')) {
+            if (!$this->IsValidNumber('UK', $thenumber)) {
+                $this->DebugPrint("Skipping Source - Non UK number: {$thenumber}");
+            } else {
+                $this->DebugPrint("Searching Telepest.co.uk ... ");
+
+                $url = "http://www.telepest.co.uk/$thenumber";
+                $value = $this->get_url_contents($url);
+
+                $start = strpos($value, $thenumber . ' is not in our database of possible telepests');
+                if ($start > 0) {
+                    $caller_id = ''; // Not a telepest
+                    $this->DebugPrint("not found");
+                } else {
+                    $start = strpos($value, $thenumber . ' has been reported as a possible telepest');
+                    if ($start > 0) {
+                        if ($run_param['Get_SPAM_Score'] == 'on') {
+                            $this->spam = true; // Reported as a telepest
+                            $this->DebugPrint("SPAM caller");
+                        }
+                        if ($run_param['Get_Caller_ID_Name'] == 'on') {
+                            $this->DebugPrint("Looking up CNAM ... ");
+
+                            $start = strpos($value, 'We have no information on the ownership of this number.');
+                            if ($start == false) {
+                                $start = strpos($value, 'According to reports, this number is most likely to belong to');
+                                $value = substr($value, $start + 62);
+                                $end = strpos($value, '</p>');
+                                $value = substr($value, 0, $end);
+                                $caller_id = strip_tags($value);
+                            } else {
+                                $caller_id = ''; // Should leave blank ?
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return($caller_id);
+    }
+
+}

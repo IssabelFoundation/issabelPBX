@@ -1,0 +1,21 @@
+<module>
+	<rawname>manager</rawname>
+	<repo>standard</repo>
+	<name>Asterisk Manager Users</name>
+	<version>2.11.0.5</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<category>Settings</category>
+	<menuitems>
+		<manager>Asterisk Manager Users</manager>
+	</menuitems>
+	<changelog>
+		*2.11.0.5* Initial Issabel Foundation release
+	</changelog>
+	<supported>
+		<version>2.10</version>
+	</supported>
+	<location>release/2.11/manager-2.11.0.1.tgz</location>
+	<md5sum>f78eed1f4b614c9f198864ec4b414997</md5sum>
+</module>

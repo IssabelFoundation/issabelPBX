@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-03 13:34+0200\n"
+"Last-Translator: \n"
+"Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#, php-format
+msgid "Misc Application: %s"
+msgstr "Друго Приложение: %s"
+
+msgid "Misc Applications"
+msgstr "Други Приложения"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Adds the ability to create feature codes that can go to any IssabelPBX "
+"destination (such as an IVR or queue)"
+msgstr ""
+
+msgid "Add Misc Application"
+msgstr "Добави Друго Приложение"
+
+msgid "Edit Misc Application"
+msgstr "Редактирай Друго Приложение"
+
+msgid ""
+"Misc Applications are for adding feature codes that you can dial from "
+"internal phones that go to various destinations available in IssabelPBX. This "
+"is in contrast to the <strong>Misc Destinations</strong> module, which is "
+"for creating destinations that can be used by other IssabelPBX modules to dial "
+"internal numbers or feature codes."
+msgstr ""
+"Други Приложения служат за добавяне на специални кодове, които можете да "
+"избирате от вашите вътрешни телефони за пренасочване към различни "
+"направления достъпни в IssabelPBX. Те са в противоположност на модул "
+"<strong>Други Направления</strong>, който е за създаване на направления "
+"които да се използват от други IssabelPBX модули за избиране на вътрешни номера "
+"или специални кодове."
+
+msgid "Conflicting Extensions"
+msgstr "Вътрешни Линии в Конфликт"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "The name of this application"
+msgstr "Име на това приложение"
+
+msgid "Feature Code"
+msgstr "Специален Код"
+
+msgid ""
+"The feature code/extension users can dial to access this application. This "
+"can also be modified on the Feature Codes page."
+msgstr ""
+"Специален код / вътрешен номер който потребителите да избират за достъп до "
+"приложението. Може да се промени в меню Специални Кодове."
+
+msgid "Feature Status"
+msgstr "Статус на Функцията"
+
+msgid "If this code is enabled or not."
+msgstr "Дали този код е разрешен или не."
+
+msgid "Enabled"
+msgstr "Разрешен"
+
+msgid "Disabled"
+msgstr "Забранен"
+
+msgid "Destination"
+msgstr "Направление"
+
+msgid "Submit Changes"
+msgstr "Приеми Промените"
+
+msgid "Delete"
+msgstr "Изтрий"
+
+msgid "Invalid description specified"
+msgstr "Неправилно въведено описание"

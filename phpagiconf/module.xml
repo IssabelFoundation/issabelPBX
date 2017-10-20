@@ -1,0 +1,24 @@
+<module>
+  <rawname>phpagiconf</rawname>
+  <repo>unsupported</repo>
+  <name>PHPAGI Config</name>
+  <version>2.11.0.2</version>
+  <publisher>Issabel Foundation</publisher>
+  <license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+  <category>Settings</category>
+  <menuitems>
+    <phpagiconf>PHPAGI Config</phpagiconf>
+  </menuitems>
+  <depends>
+    <module>manager ge1.0.4</module>
+  </depends>
+  <changelog>
+    *2.11.0.2* Initial Issabel Foundation release
+  </changelog>
+  <location>release/2.11/phpagiconf-2.11.0.0.tgz</location>
+  <md5sum>001d6d1c0775eb499d8a1000c9bd11ba</md5sum>
+  <supported>
+    <version>2.10</version>
+  </supported>
+</module>

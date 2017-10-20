@@ -1,0 +1,70 @@
+<?php
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Send_to_email dev notes:
+August 11, 2013		lgaetz - Initial migration
+August 12, 2013		support for multiple email address and debug output
+
+*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+
+class Send_to_Email extends superfecta_base {
+
+	public $description = "This module will send a notification email for all inbound calls to the user supplied email addresses.";
+	public $version_requirement = "2.11";
+	public $source_param = array (
+		'Email_address' => array(
+			'description' => 'Specify email notification address, separate multiple addresses with commas.',
+			'type' => 'textarea',
+			'default' => ''
+		),
+		'Message_Subject' => array(
+			'description' => 'Content for the subject of the email.  Substitute [NUMBER] and [NAME] for CID variables.',
+			'type' => 'textarea',
+			'default' => 'Incoming call from [NAME] at [NUMBER]'
+		),
+		'Message_Body' => array(
+			'description' => 'Content for the body of the email. Substitute [NUMBER] and [NAME] for CID variables.',
+			'type' => 'textarea',
+			'default' => 'Incoming call from [NAME] at [NUMBER]. Automated notification email sent by the POSSA Superfecta Caller ID Module'
+		),
+		'Default_CNAM' => array(
+			'description' => 'If no CNAM is found, input a default name to use for the email notice, the user will receive an email with the number and this default name. Leave blank to send no email if no CNAM is found.',
+			'type' => 'text',
+			'default' => ''
+		)
+    );
+
+    function post_processing($cache_found, $winning_source, $first_caller_id, $run_param, $thenumber) {
+		$cnam = "";
+		if ($first_caller_id != "")  {
+			$cnam = $first_caller_id;
+		}
+		else if ($run_param['Default_CNAM'] != "")  {
+			$cnam = $run_param['Default_CNAM'];
+		}
+
+		$subject = $run_param['Message_Subject'];
+		$subject = str_replace('[NAME]', $cnam, $subject);
+		$subject = str_replace('[name]', $cnam, $subject);
+		$subject = str_replace('[NUMBER]', $thenumber, $subject);
+		$subject = str_replace('[number]', $thenumber, $subject);
+
+		$body = $run_param['Message_Body'];
+		$body = str_replace('[NAME]', $cnam, $body);
+		$body = str_replace('[name]', $cnam, $body);
+		$body = str_replace('[NUMBER]', $thenumber, $body);
+		$body = str_replace('[number]', $thenumber, $body);
+
+		if ( $cnam != '' && $thenumber != '') {
+			$emails=explode(',',$run_param['Email_address']);
+			foreach ( $emails as $email ) {
+				$email=trim($email);
+				if ($email !='') {
+					mail ($email, $subject, $body);
+					$this->DebugPrint("Email sent to ".$email." ".$subject);
+				}
+			}
+		} else {
+			$this->DebugPrint("CNAM empty, no email notice sent");
+		}
+	}
+}

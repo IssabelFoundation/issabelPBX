@@ -1,0 +1,472 @@
+# IssabelPBX language template
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "%s must be a non-negative integer"
+msgstr ""
+
+msgid "Bind Address (bindaddr) must be an IP address."
+msgstr ""
+
+msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
+msgstr ""
+
+msgid "rtpholdtimeout must be higher than rtptimeout"
+msgstr ""
+
+#, php-format
+msgid "%s must be alphanumeric"
+msgstr ""
+
+msgid "External IP can not be blank"
+msgstr ""
+
+msgid "Dynamic Host can not be blank"
+msgstr ""
+
+msgid "Localnet setting must be an IP address"
+msgstr ""
+
+msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
+msgstr ""
+
+msgid "checking for sipsettings table.."
+msgstr ""
+
+msgid "none, creating table"
+msgstr ""
+
+msgid "populating default codecs.."
+msgstr ""
+
+msgid "fatal error occurred populating defaults, check module"
+msgstr ""
+
+msgid "ulaw, alaw, gsm added"
+msgstr ""
+
+msgid "already exists"
+msgstr ""
+
+msgid "Failed to auto-detect settings"
+msgstr ""
+
+msgid "Failed to auto-detect local network settings"
+msgstr ""
+
+msgid "Add Field"
+msgstr ""
+
+msgid "Auto Configure"
+msgstr ""
+
+msgid "Add Local Network Field"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "Edit Settings"
+msgstr ""
+
+msgid "ERRORS"
+msgstr ""
+
+msgid "NAT Settings"
+msgstr ""
+
+msgid "NAT"
+msgstr ""
+
+msgid ""
+"Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no "
+"= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
+"mode or RFC3581 <br /> route = Assume NAT, don't send rport"
+msgstr ""
+
+msgid "IP Configuration"
+msgstr ""
+
+msgid ""
+"Indicate whether the box has a public IP or requires NAT settings. Automatic "
+"configuration of what is often put in sip_nat.conf"
+msgstr ""
+
+msgid "Public IP"
+msgstr ""
+
+msgid "Static IP"
+msgstr ""
+
+msgid "Dynamic IP"
+msgstr ""
+
+msgid "External IP"
+msgstr ""
+
+msgid ""
+"External Static IP or FQDN as seen on the WAN side of the router. (asterisk: "
+"externip)"
+msgstr ""
+
+msgid "Dynamic Host"
+msgstr ""
+
+msgid ""
+"External FQDN as seen on the WAN side of the router and updated dynamically, "
+"e.g. mydomain.dyndns.com. (asterisk: externhost)"
+msgstr ""
+
+msgid "Refresh Rate"
+msgstr ""
+
+msgid ""
+"Asterisk: externrefresh. How often to lookup and refresh the External Host "
+"FQDN, in seconds."
+msgstr ""
+
+msgid "Local Networks"
+msgstr ""
+
+msgid ""
+"Local network settings (Asterisk: localnet) in the form of ip/mask such as "
+"192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use the Add "
+"Local Network Field button for more fields. Blank fields will be removed "
+"upon submitting."
+msgstr ""
+
+msgid "Audio Codecs"
+msgstr ""
+
+msgid "Codecs"
+msgstr ""
+
+msgid ""
+"Check the desired codecs, all others will be disabled unless explicitly "
+"enabled in a device or trunks configuration. Drag to re-order."
+msgstr ""
+
+msgid "Non-Standard g726"
+msgstr ""
+
+msgid ""
+"Asterisk: g726nonstandard. If the peer negotiates G726-32 audio, use AAL2 "
+"packing order instead of RFC3551 packing order (this is required for Sipura "
+"and Grandstream ATAs, among others). This is contrary to the RFC3551 "
+"specification, the peer _should_ be negotiating AAL2-G726-32 instead."
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "T38 Pass-Through"
+msgstr ""
+
+msgid ""
+"Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP channels "
+"that support sending/receiving T38 Fax codecs to pass the call. Asterisk can "
+"not process the media."
+msgstr ""
+
+msgid "Video Codecs"
+msgstr ""
+
+msgid "Video Support"
+msgstr ""
+
+msgid "Check to enable and then choose allowed codecs."
+msgstr ""
+
+msgid ""
+" If you clear each codec and then add them one at a time, submitting with "
+"each addition, they will be added in order which will effect the codec "
+"priority."
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Max Bit Rate"
+msgstr ""
+
+msgid "Maximum bitrate for video calls in kb/s"
+msgstr ""
+
+msgid "kb/s"
+msgstr ""
+
+msgid "MEDIA & RTP Settings"
+msgstr ""
+
+msgid "Reinvite Behavior"
+msgstr ""
+
+msgid ""
+"Asterisk: canreinvite. yes: standard reinvites; no: never; nonat: An "
+"additional option is to allow media path redirection (reinvite) but only "
+"when the peer where the media is being sent is known to not be behind a NAT "
+"(as the RTP core can determine it based on the apparent IP address the media "
+"arrives from; update: use UPDATE for media path redirection, instead of "
+"INVITE. (yes = update + nonat)"
+msgstr ""
+
+msgid "yes"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "RTP Timers"
+msgstr ""
+
+msgid ""
+"Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP "
+"activity on the audio channel when we're not on hold. This is to be able to "
+"hangup a call in the case of a phone disappearing from the net, like a "
+"powerloss or someone tripping over a cable.<br /> Asterisk: rtpholdtimeout. "
+"Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the "
+"audio channel when we're on hold (must be > rtptimeout). <br /> Asterisk: "
+"rtpkeepalive. Send keepalives in the RTP stream to keep NAT open during "
+"periods where no RTP stream may be flowing (like on hold)."
+msgstr ""
+
+msgid "Notification & MWI"
+msgstr ""
+
+msgid "MWI Polling Freq"
+msgstr ""
+
+msgid ""
+"Frequency in seconds to check if MWI state has changed and inform peers."
+msgstr ""
+
+msgid "Notify Ringing"
+msgstr ""
+
+msgid ""
+"Control whether subscriptions already INUSE get sent RINGING when another "
+"call is sent. Useful when using BLF."
+msgstr ""
+
+msgid "Notify Hold"
+msgstr ""
+
+msgid ""
+"Control whether subscriptions INUSE get sent ONHOLD when call is placed on "
+"hold. Useful when using BLF."
+msgstr ""
+
+msgid "Registration Settings"
+msgstr ""
+
+msgid "Registrations"
+msgstr ""
+
+msgid ""
+"Asterisk: registertimeout. Retry registration attempts every registertimeout "
+"seconds until successful or until registrationattempts tries have been made."
+"<br /> Asterisk: registrationattempts. Number of times to try and register "
+"before giving up. A value of 0 means keep trying forever. Normally this "
+"should be set to 0 so that Asterisk will continue to register until "
+"successful in the case of network or gateway outages."
+msgstr ""
+
+msgid "Registration Times"
+msgstr ""
+
+msgid ""
+"Asterisk: minexpiry. Minimum length of registrations/subscriptions.<br /> "
+"Asterisk: maxepiry. Maximum allowed time of incoming registrations<br /> "
+"Asterisk: defaultexpiry. Default length of incoming and outgoing "
+"registrations."
+msgstr ""
+
+msgid "Jitter Buffer Settings"
+msgstr ""
+
+msgid "Jitter Buffer"
+msgstr ""
+
+msgid ""
+"Asterisk: jbenable. Enables the use of a jitterbuffer on the receiving side "
+"of a SIP channel. An enabled jitterbuffer will be used only if the sending "
+"side can create and the receiving side can not accept jitter. The SIP "
+"channel can accept jitter, thus a jitterbuffer on the receive SIP side will "
+"be used only if it is forced and enabled. An example is if receiving from a "
+"jittery channel to voicemail, the jitter buffer will be used if enabled. "
+"However, it will not be used when sending to a SIP endpoint since they "
+"usually have their own jitter buffers. See jbforce to force it's use always."
+msgstr ""
+
+msgid "Force Jitter Buffer"
+msgstr ""
+
+msgid ""
+"Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side of a "
+"SIP channel. Normally the jitter buffer will not be used if receiving a "
+"jittery channel but sending it off to another channel such as another SIP "
+"channel to an endpoint, since there is typically a jitter buffer at the far "
+"end. This will force the use of the jitter buffer before sending the stream "
+"on. This is not typically desired as it adds additional latency into the "
+"stream."
+msgstr ""
+
+msgid "Implementation"
+msgstr ""
+
+msgid ""
+"Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of "
+"a SIP channel. Two implementations are currently available:<br /> fixed: "
+"size always equals to jbmaxsize;<br /> adaptive: with variable size (the new "
+"jb of IAX2)."
+msgstr ""
+
+msgid "Fixed"
+msgstr ""
+
+msgid "Adaptive"
+msgstr ""
+
+msgid "Jitter Buffer Logging"
+msgstr ""
+
+msgid "Asterisk: jblog. Enables jitter buffer frame logging."
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Jitter Buffer Size"
+msgstr ""
+
+msgid ""
+"Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> "
+"Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the "
+"jitterbuffer is resynchronized. Useful to improve the quality of the voice, "
+"with big jumps in/broken timestamps, usually sent from exotic devices and "
+"programs. Can be set to -1 to disable."
+msgstr ""
+
+msgid "Advanced General Settings"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Default Language for a channel, Asterisk: language"
+msgstr ""
+
+msgid "Default Context"
+msgstr ""
+
+msgid ""
+"Asterisk: context. Default context for incoming calls if not specified. "
+"IssabelPBX sets this to from-sip-external which is used in conjunction with the "
+"Allow Anonymous SIP calls. If you change this you will effect that behavior. "
+"It is recommended to leave this blank."
+msgstr ""
+
+msgid ""
+"Asterisk: bindaddr. The IP address to bind to and listen for calls on the "
+"Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is "
+"recommended to leave this blank."
+msgstr ""
+
+msgid ""
+"Asterisk 1.8 all supports IPv6. An address of '::' will listen on both IPv4 "
+"and IPv6."
+msgstr ""
+
+msgid "Bind Address"
+msgstr ""
+
+msgid "Bind Port"
+msgstr ""
+
+msgid ""
+"Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and "
+"listen for SIP messages. The SIP standard is 5060 and in most cases this is "
+"what you want. It is recommended to leave this blank."
+msgstr ""
+
+msgid "Allow SIP Guests"
+msgstr ""
+
+msgid ""
+"Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send "
+"them to the Default SIP context. Turning this off will keep anonymous SIP "
+"calls from entering the system. However, the Allow Anonymous SIP calls from "
+"the General Settings section will not function. Allowing guest calls but "
+"rejecting the Anonymous SIP calls in the General Section will enable you to "
+"see the call attempts and debug incoming calls that may be mis-configured "
+"and appearing as guests."
+msgstr ""
+
+msgid "SRV Lookup"
+msgstr ""
+
+msgid ""
+"Enable Asterisk srvlookup. See current version of Asterisk for limitations "
+"on SRV functionality."
+msgstr ""
+
+msgid "Call Events"
+msgstr ""
+
+msgid "Generate manager events when sip ua performs events (e.g. hold)."
+msgstr ""
+
+msgid "Other SIP Settings"
+msgstr ""
+
+msgid ""
+"You may set any other SIP settings not present here that are allowed to be "
+"configured in the General section of sip.conf. There will be no error "
+"checking against these settings so check them carefully. They should be "
+"entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the "
+"Add Field box to add additional fields. Blank boxes will be deleted when "
+"submitted."
+msgstr ""
+
+#, php-format
+msgid "Settings in %s may override these. Those settings should be removed."
+msgstr ""
+
+#, php-format
+msgid ""
+"File %s should not have any settings in it. Those settings should be removed."
+msgstr ""
+
+msgid "Asterisk SIP Settings"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Use to configure Various Asterisk SIP Settings in the General section of sip."
+"conf. Also includes an auto-configuration tool to determine NAT settings. "
+"The module assumes Asterisk version 1.4 or higher. Some settings may not "
+"exist in Asterisk 1.2 and will be ignored by Asterisk."
+msgstr ""

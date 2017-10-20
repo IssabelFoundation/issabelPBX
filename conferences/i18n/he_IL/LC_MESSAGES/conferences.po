@@ -1,0 +1,316 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Hebrew version for Asterisk Conferences IssabelPBX Module.
+# Copyright (C) 2006
+# This file is distributed under the same license as the PACKAGE package.
+# Shimi <shimi@shimi.net>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2010-01-23 00:00+0300\n"
+"Last-Translator: Shimi <shimi@shimi.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Conferences"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Allow creation of conference rooms (meet-me) where multiple people can talk "
+"together."
+msgstr ""
+
+#, php-format
+msgid "Conference Room %s : %s"
+msgstr ""
+
+#, php-format
+msgid "Conference: %s"
+msgstr ""
+
+msgid "Conference: "
+msgstr ""
+
+msgid "Checking if music field present.."
+msgstr ""
+
+msgid "adding music field.."
+msgstr ""
+
+msgid "fatal error"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "already present"
+msgstr ""
+
+msgid "Checking if recordings need migration.."
+msgstr ""
+
+msgid "migrating"
+msgstr ""
+
+msgid "adding joinmsg_id field.."
+msgstr ""
+
+msgid "migrate to recording ids.."
+msgstr ""
+
+#, php-format
+msgid "migrated %s entries"
+msgstr ""
+
+msgid "dropping joinmsg field.."
+msgstr ""
+
+msgid "no joinmsg field???"
+msgstr ""
+
+msgid "already migrated"
+msgstr ""
+
+msgid "Checking for users field.."
+msgstr ""
+
+msgid "adding.."
+msgstr ""
+
+msgid "FATAL error"
+msgstr ""
+
+msgid "Warning! Extension"
+msgstr "אזהרה! שלוחה"
+
+msgid "is not allowed for your account."
+msgstr "אינה מורשית עבור החשבון שלך."
+
+msgid "Add Conference"
+msgstr "הוסף ועידה"
+
+msgid "Conference"
+msgstr "ועידה"
+
+msgid "deleted"
+msgstr "נמחקה"
+
+msgid "Conference:"
+msgstr "ועידה:"
+
+#, php-format
+msgid "Delete Conference %s"
+msgstr "מחק ועידה %s"
+
+msgid "Conflicting Extensions"
+msgstr ""
+
+msgid "Edit Conference"
+msgstr "ערוך ועידה"
+
+msgid "Conference Number:"
+msgstr "מספר ועידה:"
+
+msgid "Use this number to dial into the conference."
+msgstr "השתמש במספר זה כדי לחייג לתוך הועידה"
+
+msgid "Conference Name:"
+msgstr "שם הועידה:"
+
+msgid "Give this conference a brief name to help you identify it."
+msgstr "תן לועידה זו שם קצר שיעזור לך לזהות אותה."
+
+msgid "User PIN:"
+msgstr "סיסמת משתמש:"
+
+msgid ""
+"You can require callers to enter a password before they can enter this "
+"conference.<br><br>This setting is optional.<br><br>If either PIN is "
+"entered, the user will be prompted to enter a PIN."
+msgstr ""
+"אתה יכול לדרוש שמתקשרים יצטרכו להכניס סיסמא לפני שהם יכולים להיכנס לועידה זו."
+"<br /><br />הגדרה זו היא רשות.<br /><br />אם הוכנסה סיסמת משתמש כלשהיא, "
+"המשתמש יתבקש לחייגה בכניסה."
+
+msgid "Admin PIN:"
+msgstr "סיסמת מנהל:"
+
+msgid ""
+"Enter a PIN number for the admin user.<br><br>This setting is optional "
+"unless the 'leader wait' option is in use, then this PIN will identify the "
+"leader."
+msgstr ""
+"הכנס סיסמא עבור המשתמש המנהל.<br /><br />אפשרות זו היא רשות אלא אם כן "
+"האפשרות 'המתן למנהל' מסומנת, ובמקרה זה, סיסמא זו תזהה את המנהל."
+
+msgid "Conference Options"
+msgstr "אפשרויות ועידה"
+
+msgid "Join Message:"
+msgstr "הודעת הצטרפות:"
+
+msgid ""
+"Message to be played to the caller before joining the conference.<br><br>To "
+"add additional recordings please use the \"System Recordings\" MENU to the "
+"left"
+msgstr ""
+"הודעה שתושמע למתקשר לפני הכניסה לועידה.<br /><br />כדי להוסיף הודעות נוספות, "
+"אנא השתמש <em>בתפריט</em> \"הקלטות מערכת\" שבצד שמאל."
+
+msgid "None"
+msgstr "אין"
+
+msgid ""
+"Message to be played to the caller before joining the conference.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"הודעה שתושמע למתקשר לפני הכניסה לועידה.<br /><br />אתה חייב להתקין ולהפעיל "
+"את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זאת"
+
+msgid "Leader Wait:"
+msgstr "המתנה למנהל:"
+
+msgid ""
+"Wait until the conference leader (admin user) arrives before starting the "
+"conference"
+msgstr ""
+"המתן עד שמנהל הועידה (משתמש עם סיסמא מיוחדת) יגיע לפני שתחבר את כולם לועידה"
+
+msgid "No"
+msgstr "לא"
+
+msgid "Yes"
+msgstr "כן"
+
+msgid "Talker Optimization:"
+msgstr ""
+
+msgid ""
+"Turns on talker optimization. With talker optimization, Asterisk treats "
+"talkers who\n"
+"are not speaking as being muted, meaning that no encoding is done on "
+"transmission\n"
+"and that received audio that is not registered as talking is omitted, "
+"causing no\n"
+"buildup in background noise."
+msgstr ""
+
+msgid "Talker Detection:"
+msgstr ""
+
+msgid ""
+"Sets talker detection. Asterisk will sends events on the Manager Interface "
+"identifying\n"
+"the channel that is talking. The talker will also be identified on the "
+"output of\n"
+"the meetme list CLI command."
+msgstr ""
+
+msgid "Quiet Mode:"
+msgstr "מצב שקט:"
+
+msgid "Quiet mode (do not play enter/leave sounds)"
+msgstr "מצב שקט (אל תשמיע צלילי כניסה/יציאה)"
+
+msgid "User Count:"
+msgstr "ספירת משתמשים:"
+
+msgid "Announce user(s) count on joining conference"
+msgstr "הכרז על מספר הנמצאים בועידה בזמן הכניסה לועידה"
+
+msgid "User join/leave:"
+msgstr "כניסת/יציאת משתמש:"
+
+msgid "Announce user join/leave"
+msgstr "הכרז על כניסה/יציאה של משתמשים"
+
+msgid "Music on Hold:"
+msgstr "מוסיקה בהמתנה:"
+
+msgid "Enable Music On Hold when the conference has a single caller"
+msgstr "הפעל מוסיקה בהמתנה כאשר בועידה יש רק מתקשר אחד"
+
+msgid "Music on Hold Class:"
+msgstr ""
+
+msgid ""
+"Music (or Commercial) played to the caller while they wait in line for the "
+"conference to start. Choose \"inherit\" if you want the MoH class to be what "
+"is currently selected, such as by the inbound route.<br><br>  This music is "
+"defined in the \"Music on Hold\" to the left."
+msgstr ""
+
+msgid "inherit"
+msgstr ""
+
+msgid "default"
+msgstr ""
+
+msgid "Allow Menu:"
+msgstr "אפשר תפריט:"
+
+msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
+msgstr "הצג תפריט (משתמש או מנהל) כאשר לוחצים על כוכבית ('שליחה' אל התפריט)"
+
+msgid "Record Conference:"
+msgstr ""
+
+msgid "Record the conference call"
+msgstr ""
+
+msgid "Maximum Participants:"
+msgstr ""
+
+msgid "Maximum Number of users allowed to join this conference."
+msgstr ""
+
+msgid "No Limit"
+msgstr ""
+
+msgid "Mute on Join:"
+msgstr ""
+
+msgid ""
+"Mute everyone when they initially join the conference. Please note that if "
+"you do not have 'Leader Wait' set to yes you must have 'Allow Menu' set to "
+"Yes to unmute yourself"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "Please enter a valid Conference Number"
+msgstr ""
+
+msgid "Please enter a valid Conference Name"
+msgstr ""
+
+msgid ""
+"You must set an admin PIN for the Conference Leader when selecting the "
+"leader wait option"
+msgstr ""
+
+msgid ""
+"You must set Allow Menu to Yes when not using a Leader or Admin in your "
+"conference, otherwise you will be unable to unmute yourself"
+msgstr ""

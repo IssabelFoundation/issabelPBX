@@ -1,0 +1,21 @@
+<module>
+  <rawname>speeddial</rawname>
+  <repo>extended</repo>
+  <name>Speed Dial Functions</name>
+  <version>2.11.0.4</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<changelog>
+		*2.11.0.4* Initial Issabel Foundation release
+	</changelog>
+  <category>Settings</category>
+  <depends>
+    <module>phonebook</module>
+  </depends>
+  <location>release/2.11/speeddial-2.11.0.0.tgz</location>
+  <md5sum>728588a96f50fe993055a834d67f0d27</md5sum>
+  <supported>
+    <version>2.10</version>
+  </supported>
+</module>

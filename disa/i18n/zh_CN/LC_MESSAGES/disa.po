@@ -1,0 +1,157 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2008, 2009 EdwardBadBoy <zhougongjizhe@163.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2010-01-23 00:00+0800\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "DISA"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"DISA Allows you 'Direct Inward System Access'. This gives you the ability to "
+"have an option on an IVR that gives you a dial tone, and you're able to dial "
+"out from the IssabelPBX machine as if you were connected to a standard "
+"extension. It appears as a Destination."
+msgstr ""
+
+#, php-format
+msgid "DISA: %s"
+msgstr "DISA：%s"
+
+msgid "Add DISA"
+msgstr "添加DISA"
+
+msgid "deleted"
+msgstr "已删除"
+
+#, php-format
+msgid "Delete DISA %s"
+msgstr "删除DISA %s"
+
+msgid ""
+"DISA is used to allow people from the outside world to call into your PBX "
+"and than be able to dial out of the PBX so it appears that their call is "
+"coming from the office which can be handy when traveling. You can set a "
+"destination in an IVR that points to the DISA or set a DID. Make sure you "
+"password protect this to keep people from dialing in and using your PBX to "
+"make calls out."
+msgstr ""
+
+msgid "Edit DISA"
+msgstr "编辑DISA"
+
+msgid "DISA name:"
+msgstr "DISA名称："
+
+msgid "Give this DISA a brief name to help you identify it."
+msgstr "为此DISA起一个名字，以帮助你辨识它。"
+
+msgid "PIN"
+msgstr "PIN码"
+
+msgid "The user will be prompted for this number."
+msgstr "用户将被要求输入这个号码。"
+
+msgid "If you wish to have multiple PIN's, separate them with commas"
+msgstr "如果你想设置多个PIN码，请用逗号分隔它们"
+
+msgid "Response Timeout"
+msgstr "应答超时"
+
+msgid ""
+"The maximum amount of time it will wait before hanging up if the user has "
+"dialed an incomplete or invalid number. Default of 10 seconds"
+msgstr ""
+"如果用户拨打了不完整的或者无效的号码，系统在挂端前需要等待的最长的时间。默认"
+"设置是10秒。"
+
+msgid "Digit Timeout"
+msgstr "按键超时"
+
+msgid ""
+"The maximum amount of time permitted between digits when the user is typing "
+"in an extension. Default of 5"
+msgstr "所允许用户按下号码之间的最大时间间隔。默认值为5秒。"
+
+msgid "Require Confirmation"
+msgstr "需要确认"
+
+msgid ""
+"Require Confirmation before prompting for password. Used when your PSTN "
+"connection appears to answer the call immediately"
+msgstr ""
+"在提示用户输入密码前，要求用户确认，在你的PSTN连接总是立即接听呼叫的情况下可"
+"以使用此设置。"
+
+msgid "Caller ID"
+msgstr "主叫ID"
+
+msgid ""
+"(Optional) When using this DISA, the users CallerID will be set to this. "
+"Format is \"User Name\" <5551234>"
+msgstr ""
+"（可选设置）在使用这个DISA时，用户的主叫ID就会被发送到这里。格式是“用户"
+"名”<5551234>"
+
+msgid "Context"
+msgstr "上下文"
+
+msgid ""
+"(Experts Only) Sets the context that calls will originate from. Leave this "
+"as from-internal unless you know what you're doing."
+msgstr ""
+"（高级设置）设置发起呼叫的上下文。除非你知道自己在做什么，否则让这项设置保持"
+"为from-internal（从内部发起）"
+
+msgid "Allow Hangup"
+msgstr "允许挂断"
+
+#, php-format
+msgid ""
+"Allow the current call to be disconnected and dial tone presented for a new "
+"call by pressing the Hangup feature code: %s while in a call"
+msgstr "允许在呼叫中按下挂断功能代码%s后，中断当前呼叫并播送新呼叫的提示音"
+
+msgid "Submit Changes"
+msgstr "提交更改"
+
+msgid "Please enter a valid DISA Name"
+msgstr "请输入有效的DISA名"
+
+msgid "Please enter a valid DISA PIN"
+msgstr "请输入有效的DISA的PIN码"
+
+msgid "Please enter a valid Caller ID or leave it blank"
+msgstr "请输入有效的主叫ID，或者不填"
+
+msgid "Context cannot be blank"
+msgstr "上下文不能不填"

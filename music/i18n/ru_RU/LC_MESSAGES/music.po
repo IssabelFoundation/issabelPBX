@@ -1,0 +1,247 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <ceo@postmet.com>, 2008.
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-12-06 16:38+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Cannot write to file"
+msgstr "Невозможно записать в файл"
+
+msgid "Music on Hold"
+msgstr "Музыка в ожидании"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid ""
+"Uploading and management of sound files (wav, mp3) to be used for on-hold "
+"music."
+msgstr "Загрузка и управление звуковыми файлами (wav, mp3) для использования "
+"как музыку в ожидании"
+
+msgid "Convert Music Files to WAV"
+msgstr "Конвертировать  музыкальные файлы в WAV"
+
+msgid "System Setup"
+msgstr "Системные установка"
+
+msgid ""
+"When set to false, the MP3 files can be loaded and WAV files converted to "
+"MP3 in the MoH module. The default behavior of true assumes you have mpg123 "
+"loaded as well as sox and will convert MP3 files to WAV. This is highly "
+"recommended as MP3 files heavily tax the system and can cause instability on "
+"a busy phone system"
+msgstr ""
+"Когда установлена в false, файлы mp3 могут быть загружены и WAV файлы "
+"конвертированны в mp3 в модуле Музыка в ожидании. Режим по умолчанию предполагает, "
+"что у вас загружен mpg123 так же как и sox и он будет конвертировать mp3 в wav. "
+"Это крайне рекомендуется т.к. mp3 файлы сильно нагружают систему и могут привести "
+"к ее не стабильной работе"
+
+msgid "Add Music Category"
+msgstr "Добавить категорию музыки"
+
+msgid "Add Streaming Category"
+msgstr "Добавить категорию потока"
+
+msgid "default"
+msgstr "по умолчанию"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid ""
+"sox failed to convert file and original could not be copied as a fall back"
+msgstr ""
+"sox не удалось конвертировать файл и оригинал не может быть скопирован "
+"как резервная копия"
+
+msgid "On Hold Music"
+msgstr "Музыка в ожидании"
+
+msgid "Category Name:"
+msgstr "Название категории:"
+
+msgid ""
+"Allows you to Set up Different Categories for music on hold.  This is useful "
+"if you would like to specify different Hold Music or Commercials for various "
+"ACD Queues."
+msgstr ""
+"Разрешает создание других категорий музыки в ожидании. Можно использовать "
+"для использования различной Музыки в ожидании при перенаправлении звонка и "
+"Очереди."
+
+msgid "Submit Changes"
+msgstr "Применить изменения"
+
+msgid "Please enter a valid Category Name"
+msgstr "Введите правильныое название для категории"
+
+msgid ""
+"Categories: \\\"none\\\" and \\\"default\\\" are reserved names. Please "
+"enter a different name"
+msgstr ""
+"Категории с именами: \\\"none\\\" и \\\"default\\\" зарезервированы. "
+"Выберите другое название."
+
+msgid "Application:"
+msgstr "Приложение:"
+
+msgid ""
+"This is the \"application=\" line used to provide the streaming details to "
+"Asterisk. See information on musiconhold.conf configuration for different "
+"audio and Internet streaming source options."
+msgstr ""
+"Эта линия \"приложение=\" используется для указания деталей потокового аудио "
+"Астериск. Посмотрите дополнительную информацию в конфигурации musiconhold."
+"conf для выбора других опций для аудио- и потокового вещания из интернет."
+
+msgid "Optional Format:"
+msgstr "Оптимальный формат:"
+
+msgid ""
+"Optional value for \"format=\" line used to provide the format to Asterisk. "
+"This should be a format understood by Asterisk such as ulaw, and is specific "
+"to the streaming application you are using. See information on musiconhold."
+"conf configuration for different audio and Internet streaming source options."
+msgstr ""
+"Опциональное значение линии \"format=\" используется для указания формата "
+"потоковой линии в Астериск. Это должен быть формат понятный для Астериск, "
+"как ulaw, и он специфичен для потоокового приложения, которое используется. "
+"Посмотрите дополнительную информацию в конфигурации musiconhold.conf для "
+"выбора других опций для аудио- и потокового вещания из интернет."
+
+msgid "Please enter a streaming application command and arguments"
+msgstr "Введите команду вызова потокового вещания и аргументы"
+
+msgid "Category:"
+msgstr "Категория:"
+
+#, php-format
+msgid "Delete Music Category %s"
+msgstr "Удалить категорию музыки %s"
+
+#, php-format
+msgid "Delete Streaming Category"
+msgstr "Удалить категорию потокового вещания"
+
+msgid "Edit Streaming Category"
+msgstr "Редактировать категорию потокового вещания"
+
+msgid "Upload a .wav or .mp3 file:"
+msgstr "Загрузить файл .wav или .mp3:"
+
+msgid "Upload"
+msgstr "Загрузить"
+
+msgid "Please wait until the page loads. Your file is being processed."
+msgstr "Дождитесь, пока страница загрузится. Ваш файл обрабатывается."
+
+msgid "Volume 150%"
+msgstr "Громкость 150%"
+
+msgid "Volume 125%"
+msgstr "Громкость 125%"
+
+msgid "Volume 100%"
+msgstr "Громкость 100%"
+
+msgid "Volume 75%"
+msgstr "Громкость 75%"
+
+msgid "Volume 50%"
+msgstr "Громкость 50%"
+
+msgid "Volume 25%"
+msgstr "Громкость 25%"
+
+msgid "Volume 10%"
+msgstr "Громкость 10%"
+
+msgid "Volume Adjustment"
+msgstr "Настрока громкости"
+
+msgid ""
+"The volume adjustment is a linear value. Since loudness is logarithmic, the "
+"linear level will be less of an adjustment. You should test out the "
+"installed music to assure it is at the correct volume. This feature will "
+"convert MP3 files to WAV files. If you do not have mpg123 installed, you can "
+"set the parameter: <strong>Convert Music Files to WAV</strong> to false in "
+"Advanced Settings"
+msgstr "Настройка громкости это линейная величиниа. В то время как громкость логарифмическая, "
+"линеный уровень будет ниже чем настроенный. Вы должные протестировать установленную музыку, "
+"что бы убедиться в том, что громкость установленная правильно. Этот функция конвертирует "
+"mp3 файлы в wav файлы. Если у вас не установлен mpg123, вы можете установить параметр: "
+"<strong>Конвертировать музыкальные файлы в WAV</strong> в значение false в "
+"дополнительных настройках "
+
+msgid "Do not encode wav to mp3"
+msgstr "Не конвертировать в mp3"
+
+msgid "Disable Random Play"
+msgstr "Отменить случайное воспроизведение"
+
+msgid "Enable Random Play"
+msgstr "Случайная выборка при воспроизведении"
+
+msgid "Error Processing"
+msgstr "Ошибка при совершении действия"
+
+msgid "No file provided"
+msgstr "Не указан файл"
+
+msgid "Please select a file to upload"
+msgstr "Укажите файл для загрузки"
+
+msgid "Check"
+msgstr "Проверить"
+
+msgid "in"
+msgstr "в"
+
+msgid "This is not a fatal error, your Music on Hold may still work."
+msgstr "Это не критическая ошибка, Музыка в ожидании может работать."
+
+msgid "Completed processing"
+msgstr "Действие завершено"
+
+msgid ""
+"You must have at least one file for On Hold Music.  Please upload one before "
+"deleting this one."
+msgstr ""
+"Должен быть по крайней мере один файл для Музыки в ожидании. Загрузите какой-"
+"либо."
+
+msgid "Deleted"
+msgstr "Удалено"
+
+#, php-format
+msgid "Error Deleting %s"
+msgstr "Ошибка при удалении %s"
+
+#~ msgid ""
+#~ "The volume adjustment is a linear value. Since loudness is logarithmic, "
+#~ "the linear level will be less of an adjustment. You should test out the "
+#~ "installed music to assure it is at the correct volume. This feature will "
+#~ "convert MP3 files to WAV files. If you do not have mpg123 installed, you "
+#~ "can set the parameter: <strong>AMPMPG123=false</strong> in your amportal."
+#~ "conf file"
+#~ msgstr ""
+#~ "Настрока громкости это линейное значение. Так как громкость логарифмична, "
+#~ "линейный уровень будет прибавляется меньше, чем настраиваимый. Вы должны "
+#~ "протестировать инсталлированные музыкальные файлы чтобы убедиться что "
+#~ "громкость приемлема. Эта опция сконвертирует MP3 файлы в WAV файлы. Если "
+#~ "не установлена программа mpg123, то нужно установить параметр: "
+#~ "<strong>AMPMPG123=false</strong> в файле amportal.conf"

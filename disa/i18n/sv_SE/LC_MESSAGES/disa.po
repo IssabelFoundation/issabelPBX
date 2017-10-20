@@ -1,0 +1,170 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2008, 2009. 2011 Mikael Carlsson <mickecamino@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX disa\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-20 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+msgid "DISA"
+msgstr "DISA"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"DISA Allows you 'Direct Inward System Access'. This gives you the ability to "
+"have an option on an IVR that gives you a dial tone, and you're able to dial "
+"out from the IssabelPBX machine as if you were connected to a standard "
+"extension. It appears as a Destination."
+msgstr ""
+"DISA ger dig 'Direct Inward System Access'. Dvs, en möjlighet att ha ett val "
+"på en IVR som ger dig en kopplingston där du kan slå ett nummer som kommer "
+"att utgå från växeln precis som om du var en anknytning på insidan."
+
+#, php-format
+msgid "DISA: %s"
+msgstr "DISA: %s"
+
+msgid "Add DISA"
+msgstr "Lägg till DISA"
+
+msgid "deleted"
+msgstr "borttagen"
+
+#, php-format
+msgid "Delete DISA %s"
+msgstr "Ta bort DISA %s"
+
+msgid ""
+"DISA is used to allow people from the outside world to call into your PBX "
+"and than be able to dial out of the PBX so it appears that their call is "
+"coming from the office which can be handy when traveling. You can set a "
+"destination in an IVR that points to the DISA or set a DID. Make sure you "
+"password protect this to keep people from dialing in and using your PBX to "
+"make calls out."
+msgstr ""
+"DISA ger dig 'Direct Inward System Access'. Dvs, en möjlighet att ha ett val "
+"på en IVR som ger dig en kopplingston där du kan slå ett nummer som kommer "
+"att utgå från växeln precis som om du var en anknytning på insidan. Sätt ett "
+"lösenord på DISA, annars kan vem som helst ringa via din växel."
+
+msgid "Edit DISA"
+msgstr "Redigera DISA"
+
+msgid "DISA name:"
+msgstr "Namn på DISA:"
+
+msgid "Give this DISA a brief name to help you identify it."
+msgstr "Skriv in ett kortfattat namn för denna DISA."
+
+msgid "PIN"
+msgstr "PIN-kod"
+
+msgid "The user will be prompted for this number."
+msgstr "Användaren kommer att få en fråga om detta nummer"
+
+msgid "If you wish to have multiple PIN's, separate them with commas"
+msgstr "Om du vill ha flera PIN-koder, separera dom med komma"
+
+msgid "Response Timeout"
+msgstr "Tidsutlösning för svar"
+
+msgid ""
+"The maximum amount of time it will wait before hanging up if the user has "
+"dialed an incomplete or invalid number. Default of 10 seconds"
+msgstr ""
+"Den maximala tiden innan samtalet avslutas om användaren har tryckt "
+"felaktiga eller ofullständiga siffror. Standard är 10 sekunder."
+
+msgid "Digit Timeout"
+msgstr "Tidsutlösning för siffra"
+
+msgid ""
+"The maximum amount of time permitted between digits when the user is typing "
+"in an extension. Default of 5"
+msgstr ""
+"Det maximalt antal sekunder som tillåts mellan siffrorna när en användare "
+"trycker in en anknytning. Standard är 5 sekunder."
+
+msgid "Require Confirmation"
+msgstr "Kräver bekräftelse"
+
+msgid ""
+"Require Confirmation before prompting for password. Used when your PSTN "
+"connection appears to answer the call immediately"
+msgstr ""
+"Kräver bekräftelse innan fråga om lösenord. Används när din koppling mot "
+"telenätet verkar svara omedelbart på samtalet."
+
+msgid "Caller ID"
+msgstr "Nummerpresentation"
+
+msgid ""
+"(Optional) When using this DISA, the users CallerID will be set to this. "
+"Format is \"User Name\" <5551234>"
+msgstr ""
+"(Valfritt) När du använder denna DISA kommer nummerpresentationen sättas "
+"till detta. Formatet är \"Namn\" <123456>"
+
+msgid "Context"
+msgstr "Sammanhang"
+
+msgid ""
+"(Experts Only) Sets the context that calls will originate from. Leave this "
+"as from-internal unless you know what you're doing."
+msgstr ""
+"(Endast experter) Sätter sammanhanget samtalet ska komma från. Om du inte "
+"vet något om detta, lämna detta till from-internal."
+
+msgid "Allow Hangup"
+msgstr "Tillåt avsluta"
+
+#, php-format
+msgid ""
+"Allow the current call to be disconnected and dial tone presented for a new "
+"call by pressing the Hangup feature code: %s while in a call"
+msgstr ""
+"Tillåter att pågående samtal kopplas ner och ett nytt samtal kan påbörjas "
+"genom att trycka funktionskoden Avsluta samtal: %s"
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+msgid "Please enter a valid DISA Name"
+msgstr "Skriv in ett giltigt namn för denna DISA"
+
+msgid "Please enter a valid DISA PIN"
+msgstr "Skriv in en giltig PIN-kod för denna DISA"
+
+msgid "Please enter a valid Caller ID or leave it blank"
+msgstr "Skriv in en giltig nummerpresentation eller lämna fältet tomt"
+
+msgid "Context cannot be blank"
+msgstr "Sammanhanget kan inte vara tomt"
+
+#~ msgid "Internal Options & Configuration"
+#~ msgstr "Interna val och konfigurationer"

@@ -1,0 +1,244 @@
+# This file is part of IssabelPBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# IssabelPBX language template for digium_phones
+# Copyright (C) 2008-2015 Sangoma, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-13 15:07-0700\n"
+"PO-Revision-Date: 2016-04-14 12:34+0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
+
+#: views/rnav.php:14
+msgid "Alerts"
+msgstr "هشدارها"
+
+#: page.digium_phones.php:651
+#, php-format
+msgid "Checksum error retrieving %s"
+msgstr "بازیابی خطا کنترلی %s"
+
+#: digium_phones.i18n.php:6 digium_phones.i18n.php:10
+msgid "Connectivity"
+msgstr "اتصال"
+
+#: functions.inc.php:211
+msgid "Digit Map"
+msgstr "نقشه Digit"
+
+#: digium_phones.i18n.php:8
+msgid "Digium Phones"
+msgstr "تلفن های دیجیوم"
+
+#: digium_phones.i18n.php:4
+msgid "Digium Phones Config"
+msgstr "تنظیمات تلفن های دیجیوم"
+
+#: functions.inc.php:197
+msgid "Digium Phones Contacts Options"
+msgstr "گزینه های تماس تلفن های Digium"
+
+#: functions.inc.php:209
+msgid "Digium Phones Line Options"
+msgstr "گزینه های خط تلفن های Digium"
+
+#: functions.inc.php:206
+msgid "E-Mail Address"
+msgstr "آدرس ایمیل"
+
+#: page.digium_phones.php:618 page.digium_phones.php:622
+#, php-format
+msgid "Error opening %s for reading"
+msgstr "خطا در باز کردن و خواندن %s"
+
+#: page.digium_phones.php:626
+#, php-format
+msgid "Error opening %s for writing"
+msgstr "خطا در باز کردن و نوشتن %s"
+
+#: views/rnav.php:34
+msgid "External Lines"
+msgstr "خطوط خارجی"
+
+#: views/rnav.php:42
+msgid "Firmware"
+msgstr "فریمور"
+
+#: functions.inc.php:199
+msgid "First Name"
+msgstr "نام"
+
+#: views/rnav.php:38
+msgid "General Settings"
+msgstr "تنظیمات عمومی"
+
+#: functions.inc.php:204
+msgid "Job Title"
+msgstr "عنوان شغل"
+
+#: functions.inc.php:201
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+#: functions.inc.php:210
+msgid "Line Label"
+msgstr "خط برچسب"
+
+#: functions.inc.php:205
+msgid "Location"
+msgstr "مکان"
+
+#: views/rnav.php:26
+msgid "Logos"
+msgstr "لوگوها"
+
+#: functions.inc.php:200
+msgid "Middle Name"
+msgstr "نام میانی"
+
+#: views/rnav.php:30
+msgid "Networks"
+msgstr "شبکه ها"
+
+#: functions.inc.php:207
+msgid "Notes"
+msgstr "نکات"
+
+#: functions.inc.php:207
+msgid "Notes about the user, for use in Contacts application."
+msgstr "نکات درمورد کاربر, برای استفاده در برنامه های مخاطبین."
+
+#: functions.inc.php:203
+msgid "Organization"
+msgstr "سازمان"
+
+#: views/rnav.php:22
+msgid "Phone Applications"
+msgstr "برنامه های کاربردی تلفن"
+
+#: views/rnav.php:10
+msgid "Phonebooks"
+msgstr "دفترچه تلفن"
+
+#: views/rnav.php:5
+msgid "Phones"
+msgstr "تلفن ها"
+
+#: functions.inc.php:198
+msgid "Prefix"
+msgstr "پیشوند"
+
+#: functions.inc.php:217
+msgid "Re-registration TImeout"
+msgstr "اتمام مهلت ثبت نام مجدد"
+
+#: functions.inc.php:219
+msgid "Registration Max Retries"
+msgstr "بیشترین ثبت نام مجدد"
+
+#: functions.inc.php:218
+msgid "Registration Retry Interval"
+msgstr "فاصله بین تلاش برای ثبت نام"
+
+#: views/rnav.php:18
+msgid "Ringtones"
+msgstr "صدای زنگ"
+
+#: functions.inc.php:202
+msgid "Suffix"
+msgstr "پسوند"
+
+#: functions.inc.php:214
+msgid "TCP"
+msgstr "TCP"
+
+#: functions.inc.php:211
+msgid "The Digit Map for this extension."
+msgstr "نقشه Digit برای این داخلی."
+
+#: functions.inc.php:206
+msgid "The E-Mail Address for use in Contacts application."
+msgstr "آدرس ایمیل برای استفاده در برنامه تماس."
+
+#: functions.inc.php:199
+msgid "The First Name for use in Contacts application."
+msgstr "نام برای استفاده در تماس برنامه‌."
+
+#: functions.inc.php:204
+msgid "The Job Title for use in Contacts application."
+msgstr "شغل برای استفاده در تماس برنامه‌."
+
+#: functions.inc.php:201
+msgid "The Last Name for use in Contacts application."
+msgstr "نام خانوادگی برای استفاده در تماس برنامه‌."
+
+#: functions.inc.php:210
+msgid "The Line Label for this extension."
+msgstr "خط برچسب برای این داخلی."
+
+#: functions.inc.php:205
+msgid "The Location for use in Contacts application."
+msgstr "مکان برای استفاده در تماس برنامه‌."
+
+#: functions.inc.php:200
+msgid "The Middle Name for use in Contacts application."
+msgstr "نام میانی برای استفاده در تماس برنامه‌."
+
+#: functions.inc.php:203
+msgid "The Organization for use in Contacts application."
+msgstr "سازمان برای استفاده در تماس برنامه‌."
+
+#: functions.inc.php:198
+msgid "The Prefix for use in Contacts application."
+msgstr "پیشوند برای استفاده در تماس برنامه‌."
+
+#: functions.inc.php:217
+msgid "The Re-registration Timeout for this extension."
+msgstr "اتمام مهلت ثبت نام مجدد برای این داخلی."
+
+#: functions.inc.php:219
+msgid "The Registration Max Retries for this extension."
+msgstr "بیشترین ثبت نام برای این داخلی."
+
+#: functions.inc.php:218
+msgid "The Registration Retry Interval for this extension."
+msgstr "فاصله بین تلاش برای ثبت نام مجدد برای این داخلی."
+
+#: functions.inc.php:202
+msgid "The Suffix for use in Contacts application."
+msgstr "پسوند برای استفاده در تماس برنامه‌."
+
+#: functions.inc.php:216
+msgid "The Transport for this extension."
+msgstr "انتقال این داخلی."
+
+#: functions.inc.php:212
+msgid ""
+"The Voicemail URI for this extension.  Note that setting this option on a "
+"phone's primary line will disable visual voicemail."
+msgstr ""
+"URI منو صوتی برای این داخلی. نکته تنظیمات این گزینه در خط اصلی تلفن منو صوتی "
+"تصویری را غیرفعال میکند."
+
+#: functions.inc.php:216
+msgid "Transport"
+msgstr "انتقال"
+
+#: functions.inc.php:213
+msgid "UDP (Default)"
+msgstr "UDP (پیشفرض)"
+
+#: functions.inc.php:212
+msgid "Voicemail URI"
+msgstr "URI منو صوتی"

@@ -1,0 +1,130 @@
+/* HTML tag styles */
+a {
+	cursor : pointer;
+}
+
+img {
+	border-width : 0;
+}
+
+#header_logo {
+	height: 105px;
+	width: 121px;
+	vertical-align: top;
+}
+
+#header_title {
+	color: #000000;
+	font-family: serif;
+	font-size: 32pt;
+	font-variant: small-caps;
+	font-weight: bold;
+	height: 60px;
+}
+
+#header_subtitle {
+	color: #68878a;
+	font-family: Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif;
+	font-size: 12pt;
+	font-weight: bold;
+	height: 60px;
+	padding-left: 10px;
+	vertical-align: top;
+}
+
+#main {
+	margin : 0;
+	padding-top : 115px;
+}
+
+/* Class styles */
+.bar_calls {
+	background-color : #aaf5d0;
+	float : none;
+	padding : 0 0 0 2px;
+}
+
+
+.bar_duration {
+	background-color : #e5edf9;
+	float : none;
+	padding : 0 0 0 2px;
+}
+
+
+.cdr {
+	margin : 0 5%;
+	border-width : 0;
+	width : 92%;
+	font-size: 8pt;
+}
+
+
+.cdr th {
+	background-color : #5ebeff;
+	border-color : #000;
+	border-width : 2px;
+	text-align : center;
+}
+
+
+.cdr .center_col {
+	width : 78%;
+	padding : 2px;
+}
+
+
+.cdr .end_col {
+	width : 11%;
+	padding : 1px;
+}
+
+.cdr .chart_data {
+	width : 3%;
+	padding : 0px;
+	text-align : right;
+}
+
+
+.cdr .img_col {
+	width : 16px;
+	height : 16px;
+}
+
+
+.form legend, .title, .title a {
+	color: #777;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+
+.record {
+	background-color : #fff;
+	empty-cells : hide;
+}
+
+
+.record:hover {
+	background : #ffdca8;
+	color : #000;
+	empty-cells : hide;
+}
+
+
+.record_col {
+	padding-left : 2px;
+	padding-right : 2px;
+	border-width : 0;
+}
+
+
+.center {
+	text-align : center;
+}
+
+.right {
+	padding-right : 80px;
+	text-align : right;
+	font-size: 9pt;
+}

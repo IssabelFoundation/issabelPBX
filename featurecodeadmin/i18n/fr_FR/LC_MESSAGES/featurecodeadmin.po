@@ -1,0 +1,92 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-04-20 13:56+0100\n"
+"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
+"Language-Team: Français <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Feature Code Admin"
+msgstr "Admin de Code de Caractéristique"
+
+msgid "Admin"
+msgstr ""
+
+msgid "Feature Codes"
+msgstr "Code de Caractéristique"
+
+msgid "Featurecode: "
+msgstr "Code de la caractéristique :"
+
+msgid "featuredescription"
+msgstr "Description de la Caractéristique"
+
+msgid ""
+"You have feature code conflicts with extension numbers in other modules. "
+"This will result in unexpected and broken behavior."
+msgstr ""
+"Vous avez des conflits de code de caractéristique avec les numéros "
+"d'extension dans d'autres modules. Cela donne un comportement défectueux et "
+"inattendu."
+
+msgid "Feature Code Conflicts with other Extensions"
+msgstr "Conflits de Code de Caractéristique avec d'autres Extensions"
+
+msgid "Use"
+msgstr "Utiliser"
+
+msgid "Default"
+msgstr "Par Défaut"
+
+msgid "Feature"
+msgstr "Caractéristiques"
+
+msgid "Status"
+msgstr "Statut"
+
+msgid "moduledescription"
+msgstr "Description du Module"
+
+msgid "Disabled"
+msgstr "Désactivé"
+
+msgid "Enabled"
+msgstr "Activé"
+
+msgid "Submit Changes"
+msgstr "Appliquer les Modifications"
+
+msgid ""
+"Please enter a Feature Code or check Use Default for all Enabled Feature "
+"Codes"
+msgstr ""
+"Veuillez entrer un Code de Caractéristique ou cochez Utiliser Par Défaut "
+"pour tous les Codes de Caractéristique Activés"
+
+msgid "Feature Codes have been duplicated"
+msgstr "Les Codes de Caractéristique ont été dupliqués"
+
+msgid "Are you sure you wish to proceed?"
+msgstr "Êtes-vous sûr de vouloir procéder ?"

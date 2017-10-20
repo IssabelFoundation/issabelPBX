@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - módulo miscdests module spanish translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-22 01:48+0100\n"
+"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#, php-format
+msgid "Misc Destination: %s"
+msgstr "Destino: %s"
+
+msgid "Misc Destinations"
+msgstr "Destinos varios"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Allows creating destinations that dial any local number (extensions, feature "
+"codes, outside phone numbers) that can be used by other modules (eg, IVR, "
+"time conditions) as a call destination."
+msgstr ""
+
+msgid "Add Misc Destination"
+msgstr "Añadir destino"
+
+msgid "Misc Destination"
+msgstr "Destinos varios"
+
+msgid "deleted"
+msgstr "eliminado"
+
+msgid ""
+"Misc Destinations are for adding destinations that can be used by other "
+"IssabelPBX modules, generally used to route incoming calls. If you want to "
+"create feature codes that can be dialed by internal users and go to various "
+"destinations, please see the <strong>Misc Applications</strong> module."
+msgstr ""
+"Los destinos varios se utilizan para añadir destinos que puedan ser usados "
+"por otros módulos de IssabelPBX, que se usan generalmente para enrutar llamadas "
+"internas. Si desea crear códigos de características que puedan ser marcados "
+"por usuarios internos y que vayan a varios destinos, utilice el módulo de "
+"<strong>Aplicaciones varias</strong>."
+
+msgid ""
+"If you need access to a Feature Code, such as *98 to dial voicemail or a "
+"Time Condition toggle, these destinations are now provided as Feature Code "
+"Admin destinations. For upgrade compatibility, if you previously had "
+"configured such a destination, it will still work but the Feature Code short "
+"cuts select list is not longer provided."
+msgstr ""
+
+msgid "Misc Destination:"
+msgstr "Destino:"
+
+#, php-format
+msgid "Delete Misc Destination %s"
+msgstr "Eliminar destino %s"
+
+msgid "Edit Misc Destination"
+msgstr "Editar destino"
+
+msgid "Description:"
+msgstr "Descripción:"
+
+msgid "Give this Misc Destination a brief name to help you identify it."
+msgstr "Asigne al destino un breve nombre que le ayude a identificarlo."
+
+msgid "Dial:"
+msgstr "Marcar:"
+
+msgid ""
+"Enter the number this destination will simulate dialing, exactly as you "
+"would dial it from an internal phone. When you route a call to this "
+"destination, it will be as if the caller dialed this number from an internal "
+"phone."
+msgstr ""
+"Introduzca el número que simulará este destino, de la misma forma en la que "
+"se marcaría desde un teléfono interno. Cuando se enrute una llamada a este "
+"destino, será tratada como si se hubiera llamado desde el teléfono interno."
+
+msgid "Submit Changes"
+msgstr "Enviar cambios"
+
+msgid "Please enter a valid Description"
+msgstr "Por favor, introduzca una descripción válida"
+
+msgid "Please enter a valid Dial string"
+msgstr "Por favor, introduzca una cadena de marcación válida"
+
+#~ msgid "featurecode shortcuts"
+#~ msgstr "Accesos rápidos a códigos de características"

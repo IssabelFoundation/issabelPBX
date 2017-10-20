@@ -1,0 +1,19 @@
+<module>
+	<rawname>dictate</rawname>
+	<repo>extended</repo>
+	<name>Dictation</name>
+	<version>2.11.0.3</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<category>Applications</category>
+	<changelog>
+		*2.11.0.3* Initial Issabel Foundation release
+	</changelog>
+	<description>This uses the app_dictate module of Asterisk to let users record dictate into their phones. When complete, the dictations can be emailed to an email address specified in the extension page.</description>
+	<supported>
+		<version>2.10</version>
+	</supported>
+	<location>release/2.11/dictate-2.11.0.1.tgz</location>
+	<md5sum>2fe7dde2370a8643463a440640ca3f5c</md5sum>
+</module>

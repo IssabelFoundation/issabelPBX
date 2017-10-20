@@ -1,0 +1,130 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for announcement
+# Copyright (C) 2010 Mikael Carlsson, mickecamino@gmail.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX outroutemsg\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2010-01-17 18:45+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: SWEDISH\n"
+"X-Poedit-Country: Sweden\n"
+
+msgid "Route Congestion Messages"
+msgstr "Överbelastningsmeddelanden"
+
+msgid "Can not create outroutemsg table"
+msgstr "Kan inte skapa tabellen outroutemsg"
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Configures message or congestion tones played when all trunks are busy in a "
+"route. Allows different messages for Emergency Routes and Intra-Company "
+"Routes"
+msgstr ""
+
+msgid "No Routes Available"
+msgstr "Inga vägar tillgängliga"
+
+msgid "Standard Routes"
+msgstr "Standardväg"
+
+msgid "Message or Tone"
+msgstr "Meddelande eller ton"
+
+msgid "Message or tone to be played if no trunks are available."
+msgstr "Meddelande eller ton att spela upp om inga trunkar är tillgängliga."
+
+msgid "Default Message"
+msgstr "Standardmeddelande"
+
+msgid "Congestion Tones"
+msgstr "Överbelastningstoner"
+
+msgid "Intra-Company Routes"
+msgstr "Vägar inom företaget"
+
+msgid ""
+"Message or tone to be played if no trunks are available. Used on routes "
+"marked as intra-company only."
+msgstr ""
+"Meddelande eller ton att spela upp om inga trunkar är tillgängliga. Används "
+"endast på vägar markerade som intra-företag."
+
+msgid "Emergency Routes"
+msgstr "Nödvägar"
+
+msgid ""
+"Message or tone to be played if no trunks are available. Used on all "
+"emergency routes. Consider a message instructing callers to find an "
+"alternative means of calling emergency services such as a cell phone or "
+"alarm system panel."
+msgstr ""
+"Meddelande eller ton att spela upp om inga trunkar är tillgängliga. Används "
+"på alla nödvägar. Tala gärna in ett meddelande som instruerar uppringaren "
+"hur man hittar alternativ för nödsamtal såsom mobiltelefon eller larmpanel."
+
+msgid "Trunk Failures"
+msgstr "Trunkfel"
+
+msgid "No Answer"
+msgstr "Inget svar"
+
+msgid ""
+"Message or tone to be played if there was no answer. Default message is:<br>"
+"\"The number is not answering.\"<br> Hangupcause is 18 or 19"
+msgstr ""
+"Meddelande eller ton att spela upp vid inget svar. Standardmeddelande är:<br>"
+"\"Numret svarar ej.\"<br>Avslutningskod är 18 eller 19"
+
+msgid "Number or Address Incomplete"
+msgstr "Nummer eller adress är ofullständigt"
+
+msgid ""
+"Message or tone to be played if trunk reports Number or Address Incomplete. "
+"Usually this means that the number you have dialed is to short. Default "
+"message is:<br>\"The number you have dialed is not in service. Please check "
+"the number and try again.\"<br>Hangupcause is 28"
+msgstr ""
+"Meddelande eller ton att spela upp om trunken rapporterar att numret eller "
+"adressen är ofullständigt. Vanligtvis betyder detta att numret du slagit är "
+"för kortStandardmeddelande är:<br>\"Numret du har ring är inte i bruk. "
+"Kontrollera numret och försök igen.\"<br> Avslutningskod är 28"
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+#~ msgid "Unallocated Number"
+#~ msgstr "Numret finns inte"
+
+#~ msgid ""
+#~ "Message or tone to be played if trunk reports Unallocated Number. Usually "
+#~ "this means that the number dialed does not exist. Default message is:<br>"
+#~ "\"The number you have dialed is not in service. Please check the number "
+#~ "and try again.\"<br>Hangupcause is 1"
+#~ msgstr ""
+#~ "Meddelande eller ton att spela upp om trunken rapporterar att numret inte "
+#~ "finns. Standardmeddelande är:<br>\"Numret du har ring är inte i bruk. "
+#~ "Kontrollera numret och försök igen.\"<br> Avslutningskod är 1"

@@ -1,0 +1,149 @@
+<?php
+
+/**
+ * @file
+ * Functions for the interface to the help page
+ */
+
+/**
+  * Class for help
+  */
+class featurecodes {
+
+  /*
+   * rank (for prioritizing modules)
+   */
+  function rank() {
+
+    $rank = 5;
+    return $rank;
+  }
+
+  /*
+   * init
+   */
+  function init() {
+  }
+
+  /*
+   * Adds menu item to nav menu
+   *
+   * @param $args
+   *   Common arguments
+   */
+  function navMenu($args) {
+    return "<small><small><a href='" . $_SESSION['ARI_ROOT'] . "?m=featurecodes&f=display'>" . _("Feature Codes") . "</a></small></small>";
+  }
+
+  /*
+   * Displays stats page
+   *
+   * @param $args
+   *   Common arguments
+   */
+  function display($args) {
+
+    global $ARI_HELP_FEATURE_CODES;
+
+    $display = new Display();
+
+    // args
+    $m = getArgument($args,'m');
+    $q = getArgument($args,'q');
+
+    $displayname = $_SESSION['ari_user']['displayname'];
+    $extension = $_SESSION['ari_user']['extension'];
+
+    // build page content
+    $ret .= checkErrorMessage();
+
+	$header_text = _("Feature Codes");
+	if (!$_SESSION['ari_user']['admin_help']) {
+		$header_text .= sprintf(_(" for %s (%s)"), $displayname, $extension);
+	}
+
+    // handset feature code header
+    $handset_feature_codes_header =
+      "<tr>
+         <th class='feature_codes'>
+           " . _("Handset Feature Code") . "
+         </th>
+         <th>
+           " . _("Action") . "
+         </th>
+       </tr>";
+
+    // handset feature code body
+    if (isset($_SESSION['dbh_asterisk'])) {
+
+      $sql = "
+             SELECT keycode, description
+             FROM (
+               SELECT modulename, description, defaultcode keycode
+               FROM featurecodes 
+               WHERE customcode IS NULL 
+               AND enabled = '1'
+               UNION ALL SELECT modulename, description, customcode keycode
+               FROM featurecodes
+               WHERE customcode IS NOT NULL 
+               AND enabled = '1'
+             )c
+             WHERE modulename NOT 
+             IN ( 'core', 'recordings', 'infoservices', 'polycomreassign')
+             ORDER BY modulename, keycode
+             ";
+
+		$results = $_SESSION['dbh_asterisk']->getAll($sql, DB_FETCHMODE_ASSOC);
+		if(DB::IsError($results)) {
+			$_SESSION['ari_error'] = $results->getMessage();
+		}
+		else {
+			foreach ($results as $item ) {
+				$handset_feature_codes_body .= 
+					"<tr>
+					<td class='feature_codes'>
+					" . $item['keycode'] . "
+					</td>
+					<td>
+					" . _($item['description']) . "
+					</td>
+					</tr>";
+			}
+		}
+    }
+    else {
+
+      // handset feature code body
+      foreach($ARI_HELP_FEATURE_CODES as $key => $feature_code) {
+
+        $handset_feature_codes_body .= 
+          "<tr>
+             <td class='feature_codes'>
+               " . $key . "
+             </td>
+             <td>
+               " . _($feature_code) . "
+             </td>
+           </tr>";
+      }
+    }
+
+    // build page content
+    $ret .= checkErrorMessage();
+
+    $ret .= $display->displayHeaderText($header_text);
+    $ret .= $display->displayLine();
+
+    // table 
+    $ret .= "
+      <table class='fchelp'>
+        " . $handset_feature_codes_header . "
+        " . $handset_feature_codes_body . "
+      </table>";
+
+    return $ret;
+  }
+
+}
+
+?>

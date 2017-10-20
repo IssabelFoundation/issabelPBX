@@ -1,0 +1,27 @@
+<module>
+    <rawname>gabcast</rawname>
+    <name>Gabcast</name>
+    <version>2.5.0.2</version>
+    <type>tool</type>
+    <category>Third Party Addon</category>
+    <menuitems>
+        <gabcast>Gabcast</gabcast>
+    </menuitems>
+    <changelog>
+        *2.5.0.2* localization updates
+        *2.5.0.1* added localization ability
+        *2.5.0* localization fixes
+        *2.4.0.1* added depends on 2.4.0
+        *2.4.0* add dest registry, fix rnav formating
+        *1.2.5.1* bump for rc1
+        *1.2.5* #2070 fix proper use of script tags
+        *1.2.4* changed ${CALLERID(number)} to ${AMPUSER} to accomodate CID number masquerading
+        *1.2.3* Add he_IL translation
+        *1.2.2* Fix issue where you were unable to add a channel 
+    </changelog>
+    <depends>
+        <version>2.4.0</version>
+    </depends>
+    <location>release/2.11/gabcast-2.5.0.2.tgz</location>
+    <md5sum>14a5c68313c25d48d294b90c13a68401</md5sum>
+</module>

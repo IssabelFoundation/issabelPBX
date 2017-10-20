@@ -1,0 +1,240 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#    Copyright 2009 Mikael Carlsson, mickecamino@gmail.com
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX bulkextensions\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-03-18 21:57+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Bulk Extensions"
+msgstr "Importera anknytningar"
+
+msgid "Applications"
+msgstr ""
+
+msgid "Bulk Extensions uses CSV files to import and export extensions."
+msgstr ""
+"Bulk Extensions använder CSV filer för att importera och exportera "
+"anknytningar"
+
+msgid "Voicemail Account Activated"
+msgstr "Konto för röstbrevlåda aktiverat"
+
+msgid "Login information for your Voicemail account is as follows:"
+msgstr ""
+
+msgid "Account Name: "
+msgstr "Kontonamn:"
+
+msgid "Extension: "
+msgstr "Anknytning:"
+
+msgid "Voicemail Password: "
+msgstr "Lösenord för röstbrevlåda"
+
+msgid "You are running IssabelPBX in <b>deviceanduser</b> mode"
+msgstr "Du kör IssabelPBX i läget <b>deviceanduser</b>"
+
+msgid "This module is only supported when IssabelPBX is in <b>extensions</b> mode"
+msgstr "Denna modul fungerar bara om IssabelPBX körs i läget <b>extensions</b>"
+
+msgid "Manage Extensions in bulk using CSV files."
+msgstr "Hantera anknytningar genom CSV-filer."
+
+#, php-format
+msgid ""
+"Start by downloading the %s Template CSV file %s (right-click > save as) or "
+"clicking the Export Extensions button."
+msgstr ""
+"Börja med att ladda ner %s CSV mallfilen %s (högerklicka > spara som) eller "
+"klicka på Exportera anknytningar."
+
+msgid ""
+"Modify the CSV file to add, edit, or delete Extensions as desired. Then load "
+"the CSV file. After the CSV file is processed, the action taken for each row "
+"will be displayed."
+msgstr ""
+"Ändra i CSV-filen för att lägga till, redigera eller radera anknytningar. "
+"Ladda därefter upp CSV-filen. Efter att filen laddats upp visas resultatet "
+"som en lista."
+
+msgid ""
+"Bulk extension changes can take a long time to complete. It can take 30-60 "
+"seconds to add 100 extensions on a small system. However, on a system with "
+"2000 extensions it can take about 5 minutes to add 100 new extensions."
+msgstr ""
+"Att importera anknytningar kan ta en längre tid att behandla. Att lägga till "
+"100 anknytningar kan ta mellan 30-60 sekunder på ett långsamt system. Dock "
+"kan det på ett system med 1000 anknytningar ta upp till 5 minuter för att "
+"lägga till 100 anknytningar."
+
+msgid "Export Extensions"
+msgstr "Exportera anknytningar"
+
+msgid "CSV File to Load"
+msgstr "Öppna CSV-fil"
+
+msgid "Load File"
+msgstr "Ladda upp fil"
+
+msgid "Email Notification for New Accounts"
+msgstr "E-posta meddelande för nya konto"
+
+msgid ""
+"By default, a notification email will be sent to the Voicemail email address "
+"set for each account added."
+msgstr ""
+
+msgid ""
+" The settings below can be used to control the content and destination of "
+"the notification emails."
+msgstr ""
+"Inställningarna nedan kan användas för att ändra innehållet och "
+"destinationen för detta meddelande."
+
+msgid "Default Address:"
+msgstr "E-postadress:"
+
+msgid ""
+"If a Default Address is specified, notification emails for new accounts "
+"without a Voicemail email address will be sent to the Default Address."
+msgstr ""
+
+msgid "Override Address:"
+msgstr "Åsidosätt e-postadress:"
+
+msgid ""
+"If an Override Address is specified, all notification emails will be sent to "
+"the Override Address only. Type \"noemail\" (without the quotes) as the "
+"Override Address to stop notification emails from being sent."
+msgstr ""
+"Om en e-postadress anges här, kommer alla e-postmeddelanden om "
+"kontoinformation för röstbrevlådorna att skickas till denna adress. Om ordet "
+"\"noemail\" (utan dubbelappostrof) skrivs in kommer inga e-postmeddelanden "
+"att skickas."
+
+msgid "Email From:"
+msgstr "E-postavsändare:"
+
+msgid ""
+"The Email From header may be specified. If left blank, the system default "
+"will be used."
+msgstr ""
+"Skriv in avsändaradressen för e-postmeddelanden. Om inget skrivs in kommer "
+"systemets standardavsändare att användas."
+
+msgid "Email Reply-To:"
+msgstr "Svarsadress:"
+
+msgid ""
+"The Email Reply-To header may be specified. If left blank, the system "
+"default will be used."
+msgstr ""
+"Svarsadressen för e-postmeddelanden kan anges här. Om inget skrivs in kommer "
+"systemets standardavsändare att användas."
+
+msgid "Email Subject:"
+msgstr "Ämne:"
+
+msgid ""
+"The Email Subject may be specified. If left blank, the default subject, "
+"\"Voicemail Account Activated\", will be used."
+msgstr ""
+"Skriv in ämnet för e-postmeddelanden. Om inget skrivs in kommer texten "
+"\"Voicemail Account Activated\" att användas."
+
+msgid "Email Opening:"
+msgstr "Välkomsttext:"
+
+msgid ""
+"The Email Opening may be specified. If left blank, the default opening, "
+"\"Login information for your Voicemail account is as follows:\", will be "
+"used."
+msgstr ""
+
+msgid ""
+" The account name, extension, and Voicemail password will automatically be "
+"inserted after the opening."
+msgstr ""
+
+msgid "Email Closing:"
+msgstr "Avslutande text:"
+
+msgid ""
+"The Email Closing may be specified. If any text is entered, it will be "
+"inserted at the end of the email."
+msgstr ""
+"Skriv in avslutande text för e-postmeddelanden, denna text kommer att läggas "
+"till siste i e-postmeddelandet."
+
+msgid "Bulk Extensions CSV File Columns"
+msgstr "CSV-filens kolumnnamn"
+
+msgid ""
+"The table below explains each column in the CSV file. You can change the "
+"column order of the CSV file as you like, however, the column names must be "
+"preserved."
+msgstr ""
+"Tabellen nedan förklarar varje kolumn i CSV-filen. Du kan ändra ordningen i "
+"kolumnen, men namnen kan inte ändras."
+
+#~ msgid "Login information for your voicemail account is as follows:"
+#~ msgstr "Inloggning för din röstbrevlåda är följande:"
+
+#~ msgid ""
+#~ "By default, a notification email will be sent to the voicemail email "
+#~ "address set for each account added."
+#~ msgstr ""
+#~ "Som standard kommer ett meddelande innehållande kontouppgifter att e-"
+#~ "postas till röstbrevlådans e-postadress för varje konto som läggs till."
+
+#~ msgid ""
+#~ "If a Default Address is specified, notification emails for new accounts "
+#~ "without a voicemail email address will be sent to the Default Address."
+#~ msgstr ""
+#~ "Om denna e-postadress anges, kommer kontoinformationen för röstbrevlådan "
+#~ "för alla nya konto utan e-postadress, att skickas till denna adress."
+
+#~ msgid ""
+#~ "The Email Opening may be specified. If left blank, the default opening, "
+#~ "\"Login information for your voicemail account is as follows:\", will be "
+#~ "used."
+#~ msgstr ""
+#~ "Skriv in välkomsttexten för e-postmeddelanden. Om inget skrivs in här "
+#~ "kommer texten \"Login information for your voicemail account is as "
+#~ "follows:\" att användas."
+
+#~ msgid ""
+#~ " The account name, extension, and voicemail password will automatically "
+#~ "be inserted after the opening."
+#~ msgstr ""
+#~ "Kontonamnet, anknytningen och lösenordet för röstbrevlådan kommer "
+#~ "automatiskt att läggas till efter välkomsttexten."

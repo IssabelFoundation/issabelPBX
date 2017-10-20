@@ -1,0 +1,27 @@
+<module>
+  <rawname>restart</rawname>
+  <repo>unsupported</repo>
+  <name>Bulk Phone Restart</name>
+  <version>2.11.0.2</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+  <category>Admin</category>
+	<changelog>
+		*2.11.0.2* Initial Issabel Foundation release
+		*2.6.0.0* Initial release
+	</changelog>
+  <depends>
+    <version>2.5.0</version>
+  </depends>
+  <description>This module allows users to restart one or multiple phones that support being restarted via a SIP NOTIFY command through Asterisk's sip_notify.conf 
+	</description>
+  <menuitems>
+    <restart>Phone Restart</restart>
+  </menuitems>
+  <location>release/2.11/restart-2.11.0.0.tgz</location>
+  <md5sum>560c129b3a7c73eed1fe0fb17efe5910</md5sum>
+  <supported>
+    <version>2.10</version>
+  </supported>
+</module>

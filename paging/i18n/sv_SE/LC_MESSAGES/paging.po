@@ -1,0 +1,245 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language for paging
+# Copyright (C) 2009, 2010, 2011 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX paging\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-20 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+msgid "Page Group: "
+msgstr "Anropsgrupp: "
+
+msgid "Exclude"
+msgstr "Exkludera"
+
+msgid "Include"
+msgstr "Inkludera"
+
+msgid "Default Group Inclusion"
+msgstr "Standard gruppinkludering"
+
+msgid "Default Page Group"
+msgstr "Standard anropsgrupp"
+
+msgid ""
+"You can include or exclude this extension/device from being part of the "
+"default page group when creating or editing."
+msgstr ""
+"Du kan inkludera eller exkludera denna anknytning/enhet från att vara med i "
+"standard anropsgruppen när du skapar eller rediderar den"
+
+msgid "Intercom prefix"
+msgstr "Prefix för snabbtelefon"
+
+msgid "User Intercom Allow"
+msgstr "Tillåt snabbtelefon"
+
+msgid "User Intercom Disallow"
+msgstr "Förhindra snabbtelefon"
+
+msgid "Disabled"
+msgstr "Avaktiverad"
+
+msgid ""
+"This module is for specific phones that are capable of Paging or Intercom. "
+"This section is for configuring group paging, intercom is configured through "
+"<strong>Feature Codes</strong>. Intercom must be enabled on a handset before "
+"it will allow incoming calls. It is possible to restrict incoming intercom "
+"calls to specific extensions only, or to allow intercom calls from all "
+"extensions but explicitly deny from specific extensions.<br /><br />This "
+"module should work with Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, "
+"SNOM , and possibly other SIP phones (not ATAs). Any phone that is always "
+"set to auto-answer should also work (such as the console extension if "
+"configured)."
+msgstr ""
+"Denna modul är för specifika telefoner som klarar av snabbtelefoni. Denna "
+"sektion används för att konfigurera anropsgrupper, själva snabbtelefonin "
+"konfigureras genom <strong>Funktionskoder</strong>. Snabbtelefonifunktionen "
+"måste aktiveras på telefonen först för att detta ska fungera. Det är möjligt "
+"att konfigurera snabbtelefoni för specifika anknytningar eller genom att "
+"tillåta snabbtelefoni till alla anknytningar förutom vissa anknytningar."
+"<br><br>Denna modul ska fungera med Aastra, Grandstream, Linksys/Sipura, "
+"Mitel, Polycom, SNOM och troligtvis andra SIP-telefoner (inga s.k. ATA-"
+"boxar). Telefoner med funktionen auto-answer bör också fungera."
+
+#, php-format
+msgid ""
+"Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom "
+"extension nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Enable all "
+"extensions to intercom you (except those explicitly denied)</td></"
+"tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow extension nnn to "
+"intercom you (even if others are disabled)</td></tr><tr><td><strong>%s</"
+"strong>:</td><td>Disable all extensions from intercom you (except those "
+"explicitly allowed)</td></tr><tr><td><strong>%snnn</strong>:</"
+"td><td>Explicitly deny extension nnn to intercom you (even if generally "
+"enabled)</td></tr></table>"
+msgstr ""
+"T.ex.<br /><table><tr><td><strong>%snnn</strong>:</td><td>Anropa anknytning "
+"nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Tillåt alla anknytningar "
+"att anropa dig (förutom dom du specifikt förbjuder)</td></tr><tr><td><strong>"
+"%snnn</strong>:</td><td>Tillåt anknynting nnn att anropa dig (även om du "
+"förbjuder andra)</td></tr><tr><td><strong>%s</strong>:</td><td>Förbjud alla "
+"anknytningar att anropa dig (förutom dom du tillåtit)</td></"
+"tr><tr><td><strong>%snnn</strong>:</td><td>Förbjud anknytning nnn att anropa "
+"dig (även om du generellt tillåter alla)</td></tr></table>"
+
+msgid ""
+"Intercom mode is currently disabled, it can be enabled in the Feature Codes "
+"Panel."
+msgstr ""
+"Snabbtelefonanrop är för närvarande avaktiverat, du kan aktivera detta i "
+"Funktionskoder."
+
+#, php-format
+msgid "Delete Group %s"
+msgstr "Ta bort grupp %s"
+
+msgid "Conflicting Extensions"
+msgstr "Konfliktande anknytningar"
+
+msgid "Modify Paging Group"
+msgstr "Redigera anropsgrupp"
+
+msgid "Add Paging Group"
+msgstr "Lägg till anropsgrupp"
+
+msgid "Paging Extension"
+msgstr "Anknytningsnummer för grupp"
+
+msgid "The number users will dial to page this group"
+msgstr "Numret att använda för att anropa denna grupp"
+
+msgid "Group Description"
+msgstr "Beskrivning för gruppen"
+
+msgid "Provide a descriptive title for this Page Group."
+msgstr "Skriv en in kortfattad beskrivning för denna grupp."
+
+msgid "Device List:"
+msgstr "Anknytningslista"
+
+msgid ""
+"Select Device(s) to page. This is the phone that should be paged. In most "
+"installations, this is the same as the Extension. If you are configured to "
+"use \"Users & Devices\" this is the actual Device and not the User.  Use "
+"Ctrl key to select multiple.."
+msgstr ""
+"Välj anknytning(ar) du vill anropa. Detta kommer att ske till telefonen. I "
+"de flesta fall är detta samma som anknytningen. Om du använder "
+"konfigurationen \"Användare & Enheter\" kommer detta att vara enheten och "
+"inte användaren. Använd Ctrl-tangenten för att markera flera i listan."
+
+msgid "Force if busy"
+msgstr "Forcera om det är upptaget"
+
+msgid ""
+"If yes, will not check if the device is in use before paging it. This means "
+"conversations can be interrupted by a page (depending on how the device "
+"handles it). This is useful for \"emergency\" paging groups. Setting to "
+"'Whisper' will attempt to use the ChanSpy capability on SIP channels, "
+"resulting in the page being sent to the device's ear piece but not heard by "
+"the remote party. If ChanSpy is not supported on the device or otherwise "
+"fails, no page will get through. It probably does not make too much sense to "
+"choose duplex if using Whisper mode."
+msgstr ""
+"Om detta är valt, och telefonen är upptagen, kommer pågående samtal att "
+"avbrytas för anrop (beroende på om telefonen stödjer detta). Detta är "
+"användbart för t.ex. anropsgruppen \"nödläge\".Om detta ställs till "
+"Viskningsläge kommer funktionen ChanSpy för SIP att användas och anropet "
+"kommer bara höras i telefonens hörlur. Om funktionen ChanSpy inte stöds "
+"kommer anropet inte att nå telefonen. Att välja duplex i Viskningsläge "
+"kommer inte att fungera"
+
+msgid "The Whisper mode is new and considered experimental."
+msgstr "Viskningsläget är nytt och anses som experimentellt"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "Whisper"
+msgstr "Viskningsläge"
+
+msgid "Duplex"
+msgstr "Tvåvägs-samtal"
+
+msgid ""
+"Paging is typically one way for announcements only. Checking this will make "
+"the paging duplex, allowing all phones in the paging group to be able to "
+"talk and be heard by all. This makes it like an \"instant conference\""
+msgstr ""
+"Anrop via grupper är normalt för envägs-meddelande. Om detta väljs kommer "
+"anropet att vara tvåvägs, alla telefoner i anropsgruppen kan prata och höras "
+"av varandra. Kan med fördel användas för \"omedelbar konferens\"."
+
+msgid ""
+"Each PBX system can have a single Default Page Group. If specified, "
+"extensions can be automatically added (or removed) from this group in the "
+"Extensions (or Devices) tab.<br />Making this group the default will uncheck "
+"the option from the current default group if specified."
+msgstr ""
+"Varje instans av IssabelPBX kan ha en standard anropsgrupp. Om denna är "
+"angiven, kan anknytningar automatiskt läggas till (eller tas bort från) "
+"denna grupp i Anknytningar (eller Enheter)<br>Om denna grupp sätts som "
+"standard kommer den grupp som tidigare var standard att avmarkeras."
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+msgid "Please enter a valid Paging Extension"
+msgstr "Skriv in en giltig anknytning"
+
+msgid "Please select at least one extension"
+msgstr "Välj minst en anknytning"
+
+msgid " [DEFAULT]"
+msgstr " [STANDARD]"
+
+msgid "Page Group"
+msgstr "Anropsgrupp"
+
+msgid "Paging and Intercom"
+msgstr "Snabbtelefon"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones. \tAlso creates an Intercom feature code that can "
+"be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
+msgstr ""
+"Denna modul ger dig möjlighet att använda snabbtelefonfunktioner i systemet."
+"Om SIP-telefonerna stöder funktionen kan dels massanrop göra, dels en-till-"
+"en snabbtelefoni"
+
+#~ msgid "Internal Options & Configuration"
+#~ msgstr "Interna val och konfigurationer"

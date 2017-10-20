@@ -1,0 +1,28 @@
+<module>
+	<rawname>bulkextensions</rawname>
+	<repo>extended</repo>
+    <name>Bulk Extensions</name>
+	<description>Bulk Extensions uses CSV files to import and export extensions.</description>
+	<version>2.11.0.7</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<category>Applications</category>
+	<menuitems>
+		<bulkextensions>Bulk Extensions</bulkextensions>
+	</menuitems>
+	<depends>
+		<version>ge2.10</version>
+	</depends>
+	<location>release/2.11/bulkextensions-2.11.0.0.tgz</location>
+	<info/>
+	<changelog>
+		*2.11.0.7* Initial Issabel Foundation release
+		*2.5.0.5* Add permit/deny fields provided by 4Colo. Fixed a small bug in table.csv. Fixed spelling error in template.csv. Added localization for table.csv. See CHANGES for how-to.
+		*0.1*	First release
+	</changelog>
+	<supported>
+		<version>2.10</version>
+	</supported>
+	<md5sum>4dcbccd9d80dc6896db34ad22398db1a</md5sum>
+</module>

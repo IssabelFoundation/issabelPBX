@@ -1,0 +1,139 @@
+<?php
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+ * Developer Notes:
+ *        Discussion about TOS for this site here: 
+ *        https://github.com/POSSA/Caller-ID-Superfecta/issues/182#issuecomment-38616185
+ * 
+ *
+ * Version History
+ *        2014-03-25   Initial release by Håkan
+ *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+ 
+class SE_118700_HE extends superfecta_base {
+        public $description = "http://www.118700.se - This listing include data from the Swedish 118700.se directory.";
+        public $version_requirement = "2.11";
+        public $source_param = array (
+                 'Search_Type' => array (
+                   'description' => 'Enter 1=Personsok 2=Foretagssok 3=Bade Person och Foretag',
+                   'type' => 'number'
+		 )
+        );
+
+	function get_caller_id($thenumber, $run_param=array()) {
+		$debug = $this->debug;
+                $this->DebugPrint("Searching www.118700.se... ");
+                $number_error = false;
+
+		//check for the correct digits for Sweden in international format.
+		// international dialing prefix + country code + number
+
+		if (strlen($thenumber) > 8) {
+			if (substr($thenumber,0,2) == '46')
+			{
+				$thenumber = '0'.substr($thenumber, 2);
+			}
+			else
+			{
+				if (substr($thenumber,0,4) == '0046')
+				{
+					$thenumber = '0'.substr($thenumber, 4);
+				}
+				else
+				{
+					if (substr($thenumber,0,5) == '01146')
+					{
+						$thenumber = '0'.substr($thenumber,5);
+					}
+					else
+					{
+						$number_error = true;
+					}
+				}
+			}
+		}
+
+		// number
+		if(strlen($thenumber) < 11)
+		{
+			if (substr($thenumber,0,1) == '0')
+			{
+				$number_error = false;
+			}
+			else
+			{
+				$number_error = true;
+			}
+		}
+
+		if(!$number_error)
+		{
+			$this->DebugPrint("Numret ar svenskt, slar nu upp numret.");
+			if($run_param['Search_Type'] != 2)
+			{
+				$this->DebugPrint("Search for PERSONS in www.118700.se... ");
+
+				$url="http://mobil.118700.se/personsearch.aspx?q=$thenumber";
+				$value = $this->get_url_contents($url);
+
+				$notfound = strpos($value, "Inga träffar"); //No hit.
+				$notfound = ($notfound < 1) ? strpos($value, "Inga träffar") : $notfound;
+				if($notfound)
+				{
+					$value = "";
+				}
+				else
+				{
+                			$start = strpos($value, "<span>1.</span>");
+                			$value = substr($value,$start+15);
+                			$end = strpos($value, "</h1>");
+                			$value = substr($value,0,$end);
+				}
+
+				if (strlen($value) > 1)
+				{
+					$caller_id = strip_tags($value);
+					return($caller_id);
+				}
+				else 
+				{
+					$this->DebugPrint("Search for PERSON failed!<br>\n");
+				}
+			}
+			if($run_param['Search_Type'] >= 2)
+			{
+				$this->DebugPrint("Search for BUSINESS in www.118700.se... ");
+
+				$url="http://mobil.118700.se/companysearch.aspx?q=$thenumber";
+				$value = $this->get_url_contents($url);
+
+				$notfound = strpos($value, "Inga träffar"); //No hit.
+				$notfound = ($notfound < 1) ? strpos($value, "Inga träffar") : $notfound;
+				if($notfound)
+				{
+					$value = "";
+				}	
+				else
+				{
+                			$start = strpos($value, "<span>1</span>");
+                			$value = substr($value,$start+15);
+
+                			$end = strpos($value, "</h1>");
+               		 		$value = substr($value,0,$end);
+				}
+				if (strlen($value) > 1)
+				{
+					$caller_id = strip_tags($value);
+					return($caller_id);
+				}
+				else 
+				{
+					$this->DebugPrint("Search for BUSINESS failed!<br>\n");
+				}
+			}
+		}
+		else 
+		{
+			$this->DebugPrint("Skipping Source - Non Swedish number: ".$thenumber."<br>\n");
+		}
+   	}
+}

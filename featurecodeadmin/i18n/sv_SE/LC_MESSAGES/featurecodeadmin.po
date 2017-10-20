@@ -1,0 +1,91 @@
+# This file is part of IssabelPBX.
+#
+#  IssabelPBX is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  IssabelPBX is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#  Copyright (C) 2008 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX featurecodeadmin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-09-17 10:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+msgid "Feature Code Admin"
+msgstr "Funktionskodsadministration"
+
+msgid "Admin"
+msgstr ""
+
+msgid "Feature Codes"
+msgstr "Funktionskoder"
+
+msgid "Featurecode: "
+msgstr "Funktionskod:"
+
+msgid "featuredescription"
+msgstr ""
+
+msgid ""
+"You have feature code conflicts with extension numbers in other modules. "
+"This will result in unexpected and broken behavior."
+msgstr ""
+"Du har valt en funktionskod med samma siffror som en anknytning. Detta "
+"kommer INTE att fungera, välj annan funktionskod."
+
+msgid "Feature Code Conflicts with other Extensions"
+msgstr "Funktionskoden är samma som en anknytning"
+
+msgid "Use"
+msgstr "Använd"
+
+msgid "Default"
+msgstr "standard"
+
+msgid "Feature"
+msgstr "Funktionskod"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "moduledescription"
+msgstr ""
+
+msgid "Disabled"
+msgstr "Avaktiverad"
+
+msgid "Enabled"
+msgstr "Aktiverad"
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+msgid ""
+"Please enter a Feature Code or check Use Default for all Enabled Feature "
+"Codes"
+msgstr ""
+"Skriv in en funktionskod eller välj Använd standard för alla aktiverade "
+"funktionskoder"
+
+msgid "Feature Codes have been duplicated"
+msgstr "Funktionskoden är en dubblett"
+
+msgid "Are you sure you wish to proceed?"
+msgstr "Är du säker på att du vill fortsätta?"

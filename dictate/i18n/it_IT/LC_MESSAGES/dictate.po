@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+msgid "Dictation"
+msgstr "Dettatura"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"This uses the app_dictate module of Asterisk to let users record dictate "
+"into their phones. When complete, the dictations can be emailed to an email "
+"address specified in the extension page."
+msgstr ""
+
+msgid "Enabled"
+msgstr "Attivato"
+
+msgid "Disabled"
+msgstr "Disattivato"
+
+msgid "Dictation Services"
+msgstr "Servizi Dettatura"
+
+msgid "Please enter a valid Email Address"
+msgstr "Prego immettere un indirizzo Email valido"
+
+msgid "Dictation Service"
+msgstr "Servizio "
+
+msgid "Dictation Format"
+msgstr "Formato Dettatura"
+
+msgid "Email Address"
+msgstr "Indirizzo Email"
+
+msgid "The email address that completed dictations are sent to."
+msgstr "L'indirizzo email a cui inviare le dettature completate."
+
+msgid "Perform dictation"
+msgstr "Esegui dettatura"
+
+msgid "Email completed dictation"
+msgstr "Email dettatura completata"

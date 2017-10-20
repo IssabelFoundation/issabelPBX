@@ -1,0 +1,189 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2011 PostMet Corporation
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2011.
+#
+# Использовать iconv announcement.utf8.po -f UTF-8 -t ISO-8859-5 -o announcement.po
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2014-02-28 04:52+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Russian "
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.9-dev\n"
+
+msgid "Announcements"
+msgstr "Приветствия"
+
+msgid "Applications"
+msgstr "Приложения"
+
+msgid ""
+"Plays back one of the system recordings (optionally allowing the user to "
+"skip it) and then goes to another destination."
+msgstr ""
+"Воспроизводится одна из системных аудиозаписей (опцуионально можно разрешить "
+"абоненту пропускать её) и затем вызов направляется по назначению."
+
+#, php-format
+msgid "Announcement: %s"
+msgstr "Приветствия: %s"
+
+msgid "Checking if recordings need migration.."
+msgstr "Проверка нуждаются ли записи в перемещении.."
+
+msgid "migrating"
+msgstr "перемещение"
+
+msgid "adding recording_id field.."
+msgstr "добавляется поле recording_id.."
+
+msgid "fatal error"
+msgstr "неустранимая ошибка"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "migrate to recording ids.."
+msgstr "переход к id записей.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "перемещено %s записей"
+
+msgid "dropping recording field.."
+msgstr "сброс поля записей.."
+
+msgid "no recording field???"
+msgstr "нет поля записи?"
+
+msgid "already migrated"
+msgstr "уже перемещено"
+
+msgid "Add Announcement"
+msgstr "Добавить приветствие"
+
+msgid "Edit Announcement"
+msgstr "Изменить приветствие"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "The name of this announcement"
+msgstr "Имя для этого приветствия"
+
+msgid "Recording"
+msgstr "Запись"
+
+msgid ""
+"Message to be played.<br>To add additional recordings use the \"System "
+"Recordings\" MENU to the left"
+msgstr ""
+"Сообщение, которое будет воспроизведено.<br>Для создания сообщения "
+"воспользуйтесь разделом \"Запись сообщений\" в меню слева."
+
+msgid "None"
+msgstr "Нет"
+
+msgid "Repeat"
+msgstr "Повторить"
+
+msgid ""
+"Key to press that will allow for the message to be replayed. If you choose "
+"this option there will be a short delay inserted after the message. If a "
+"longer delay is needed it should be incorporated into the recording."
+msgstr ""
+"Какую кнопку нажимать для повторения приветствия. Если используется эта "
+"опция, то будет небольшая задержка после сообщения. Если нужна более "
+"длительная задержка, её нужно вводить в конце записи."
+
+msgid "Disable"
+msgstr "Выключено"
+
+msgid "Allow Skip"
+msgstr "Разрешить пропустить"
+
+msgid "If the caller is allowed to press a key to skip the message."
+msgstr ""
+"Разрешить пропуск приветствия по нажатию клавиши, чтобы не слушать его "
+"каждый раз."
+
+msgid "Return to IVR"
+msgstr "Вернуться в 'Интерактивное меню'"
+
+msgid ""
+"If this announcement came from an IVR and this box is checked, the "
+"destination below will be ignored and instead it will return to the calling "
+"IVR. Otherwise, the destination below will be taken. Don't check if not "
+"using in this mode. <br>The IVR return location will be to the last IVR in "
+"the call chain that was called so be careful to only check when needed. For "
+"example, if an IVR directs a call to another destination which eventually "
+"calls this announcement and this box is checked, it will return to that IVR "
+"which may not be the expected behavior."
+msgstr ""
+"Если приветствие используется как шаг в Интерактивном меню и отмечено "
+"использование возврата назад здесь птичкой, то назначение ниже будет "
+"проигнорировано, и звонок вернётся в Интерактивное меню после "
+"воспроизведения приветствия. В другом случае звонок переходит на следующий "
+"шаг, по назначению, указанному ниже. Не отмечайте эту опцию, если не "
+"используете этот режим.<br>Возврат в Интерактивное меню происходит на тот "
+"шаг, с которого было использовано направление на это приветствие, поэтому "
+"используйте эту опцию только тогда, когда это оправданно. Например, если "
+"Интеракивное меню направляет звонок в другое назначение, где планируется "
+"воспроизвести это приветствие, и отмечена эта опция, то возврат в "
+"Интерактивное меню может привести к непредсказуемому поведению."
+
+msgid "Don't Answer Channel"
+msgstr "Не отвечать в канал"
+
+msgid ""
+"Check this to keep the channel from explicitly being answered. When checked, "
+"the message will be played and if the channel is not already answered it "
+"will be delivered as early media if the channel supports that. When not "
+"checked, the channel is answered followed by a 1 second delay. When using an "
+"announcement from an IVR or other sources that have already answered the "
+"channel, that 1 second delay may not be desired."
+msgstr ""
+"Использование этой опции при явном ответе. Если отмечено, приветствие "
+"воспроизводится, даже если канал ещё не открылся. Если не отмечено, то канал "
+"отвечает с задержкой примерно в 1 секунду. Если приветствие используется как "
+"шаг, перенаправленый из Интерактивного меню или другого источника, который "
+"уже проговорил что-то в канал, то эта задержка в 1 секунду может быть "
+"нежелательна."
+
+msgid "Destination after playback"
+msgstr "Назначение после воспроизведения"
+
+msgid "Submit Changes"
+msgstr "Применить изменения"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Invalid description specified"
+msgstr "Указано неверное описание"
+
+#~ msgid "Inbound Call Control"
+#~ msgstr "Контроль входящих вызовов"

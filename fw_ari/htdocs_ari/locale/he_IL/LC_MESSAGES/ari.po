@@ -1,0 +1,1098 @@
+# translation of ari-he.po to Hebrew
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Diego Iastrubni <diego.iastrubni@xorcom.com>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ari-he\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-05-05 21:29+0200\n"
+"PO-Revision-Date: 2008-12-22 18:01+0200\n"
+"Last-Translator: Moshe Brevda <mbrevda@gmail.com>\n"
+"Language-Team: Moshe <mbrevda^gmail=>com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+"X-Poedit-Language: Hebrew\n"
+"X-Poedit-Country: ISRAEL\n"
+
+#: includes/asi.php:46
+msgid "Asterisk Call Manager not responding"
+msgstr "מנהל השיחות של Asterisk לא מגיב"
+
+#: includes/asi.php:54
+msgid "Asterisk authentication failed:"
+msgstr "האימות מול Asterisk נכשל:"
+
+#: includes/asi.php:96 includes/asi.php:111 includes/asi.php:130
+#: includes/asi.php:144
+#, fuzzy
+msgid "Asterisk command not understood"
+msgstr "פקודת reload של Asterisk לא מובנת"
+
+#: includes/bootstrap.php:116
+#, php-format
+msgid "Too many files in %s. Not all files processed"
+msgstr ""
+
+#: includes/bootstrap.php:125
+#, php-format
+msgid "Too many directories in %s. Not all files processed"
+msgstr "יותר מדי קוצים בספרייה %s לא העבד כל הקוצים"
+
+#: includes/bootstrap.php:228
+msgid "ARI requires a version of PHP 4.3 or later"
+msgstr "ARI מחייב PHP גירסה 4.3 או יותר חדיש"
+
+#: includes/bootstrap.php:247
+msgid ""
+"PHP PEAR must be installed.  Visit http://pear.php.net for help with "
+"installation."
+msgstr "PHP PEAR חסר. תיגש לhttp://pear.php.net  לסיע בהתקנה"
+
+#: includes/common.php:201 includes/common.php:221
+#, fuzzy
+msgid "ARI does not appear to have access to the Asterisk Manager."
+msgstr "אין אפשרות להתחבר למנהל של Asterisk"
+
+#: includes/common.php:202 includes/common.php:222
+msgid ""
+"Check the ARI 'main.conf.php' configuration file to set the Asterisk Manager "
+"Account."
+msgstr ""
+
+#: includes/common.php:203 includes/common.php:223
+msgid "Check /etc/asterisk/manager.conf for a proper Asterisk Manager Account"
+msgstr ""
+
+#: includes/common.php:204 includes/common.php:224
+msgid ""
+"make sure [general] enabled = yes and a 'permit=' line for localhost or the "
+"webserver."
+msgstr ""
+
+#: includes/common.php:241 includes/common.php:256
+#, fuzzy
+msgid "Check AMP installation, asterisk, and ARI main.conf"
+msgstr ""
+"בדוק את ההתקנה של AMP, בסיס הנתונים של asterisk או הקובץ main.conf של ARI"
+
+#: includes/common.php:400
+msgid "Logout"
+msgstr "יציאה"
+
+#: includes/common.php:405
+msgid "Page Not Found."
+msgstr "דף לא נמצא"
+
+#: includes/display.php:92
+msgid "Search"
+msgstr "חפש"
+
+#: includes/display.php:135
+msgid "Searched for"
+msgstr "חיפוש של"
+
+#: includes/display.php:139
+#, fuzzy, php-format
+msgid "Results %d - %d of %d"
+msgstr "תוצאות"
+
+#: includes/display.php:141
+#, php-format
+msgid "Results %d"
+msgstr "תוצאות %d"
+
+#: includes/display.php:195
+msgid "First"
+msgstr "ראשון"
+
+#: includes/display.php:208
+msgid "Last"
+msgstr "אחרון"
+
+#: includes/login.php:194 includes/login.php:266 includes/login.php:278
+msgid "Incorrect Username or Password"
+msgstr "שם משתמש לא נכון או ססמה לא נכונה"
+
+#: includes/login.php:410 includes/login.php:418
+msgid "Login"
+msgstr "שם משתמש"
+
+#: includes/login.php:426
+msgid "Password"
+msgstr "ססמה"
+
+#: includes/login.php:435
+msgid "Submit"
+msgstr "שלח"
+
+#: includes/login.php:443
+msgid "Remember Password"
+msgstr "זכור ססמה"
+
+#: includes/login.php:458
+#, fuzzy
+msgid "Use your <b>Voicemail Mailbox and Password</b>"
+msgstr "תיבה קולית וססמה"
+
+#: includes/login.php:459
+msgid "This is the same password used for the phone"
+msgstr "זוהי אותה ססמה שבשימוש בטלפון שלך"
+
+#: includes/login.php:461
+msgid ""
+"For password maintenance or assistance, contact your Phone System "
+"Administrator."
+msgstr "עבור ססמה התחזוקה, אנא פנה אל מנהל הטלפוניה שלך."
+
+#: includes/main.conf.php:151
+msgid "INBOX"
+msgstr "נכנסות"
+
+#: includes/main.conf.php:153
+msgid "Family"
+msgstr "משפחה"
+
+#: includes/main.conf.php:155
+msgid "Friends"
+msgstr "חברים"
+
+#: includes/main.conf.php:157
+msgid "Old"
+msgstr "ישנים"
+
+#: includes/main.conf.php:159
+msgid "Work"
+msgstr "עבודה"
+
+#: includes/main.conf.php:238
+msgid "Call Forward All Activate"
+msgstr "הפניית כל השיחה העפל"
+
+#: includes/main.conf.php:239
+msgid "Call Forward All Deactivate"
+msgstr "הפניית כל השיחה בטל"
+
+#: includes/main.conf.php:240
+msgid "Call Forward All Prompting Deactivate"
+msgstr ""
+
+#: includes/main.conf.php:241
+msgid "Call Forward Busy Activate"
+msgstr "הפניית שיחה במצב תפוס הופעל"
+
+#: includes/main.conf.php:242
+msgid "Call Forward Busy Deactivate"
+msgstr "הפניית שיחה במצב תפוס בטל"
+
+#: includes/main.conf.php:243
+msgid "Call Forward Busy Prompting Deactivate"
+msgstr ""
+
+#: includes/main.conf.php:244
+msgid "Call Forward No Answer/Unavailable Activate"
+msgstr "הפניית שיחה במצב תפוס\\אין מענה הופעל"
+
+#: includes/main.conf.php:245
+msgid "Call Forward No Answer/Unavailable Deactivate"
+msgstr "הפניית שיחה במצב תפוס\\אין מענה מבוטל"
+
+#: includes/main.conf.php:246
+msgid "Call Waiting - Activate"
+msgstr "שיחה ממתינה הופעל"
+
+#: includes/main.conf.php:247
+msgid "Call Waiting - Deactivate"
+msgstr "שיחה ממתינה בטל"
+
+#: includes/main.conf.php:248
+msgid "Do-Not-Disturb Activate"
+msgstr "נא לא להפריע הפעל"
+
+#: includes/main.conf.php:249
+msgid "Do-Not-Disturb Deactivate"
+msgstr "נא לא להפריע בטל"
+
+#: includes/main.conf.php:250
+msgid "My Voicemail"
+msgstr "תה קולי שלי"
+
+#: includes/main.conf.php:251
+msgid "Dial Voicemail"
+msgstr "תתקר לתא קולי"
+
+#: misc/callme_page.php:54
+msgid "The call was terminated."
+msgstr ""
+
+#: modules/callmonitor.module:36 modules/callmonitor.module:276
+msgid "Call Monitor"
+msgstr "צג שיחות"
+
+#: modules/callmonitor.module:72 modules/voicemail.module:169
+msgid "One or more messages must be selected before clicking delete."
+msgstr "תבחור לפחות הודעה אחת לפי השקת מחק."
+
+#: modules/callmonitor.module:136
+#, php-format
+msgid "Path is not a directory: %s"
+msgstr "הנתיב אנו ספרייה: %s"
+
+#: modules/callmonitor.module:151 modules/voicemail.module:467
+#, fuzzy
+msgid "delete"
+msgstr "בחר"
+
+#: modules/callmonitor.module:157
+#, fuzzy
+msgid "duration"
+msgstr "משך"
+
+#: modules/callmonitor.module:160
+#, fuzzy
+msgid "ignore"
+msgstr "כלום"
+
+#: modules/callmonitor.module:169 modules/voicemail.module:492
+msgid "Date"
+msgstr "תאריך"
+
+#: modules/callmonitor.module:171 modules/voicemail.module:494
+msgid "Time"
+msgstr "שעה"
+
+#: modules/callmonitor.module:173 modules/voicemail.module:496
+msgid "Caller ID"
+msgstr "שיחה מזוהה"
+
+#: modules/callmonitor.module:175
+msgid "Source"
+msgstr "מקור"
+
+#: modules/callmonitor.module:177
+msgid "Destination"
+msgstr "יעד"
+
+#: modules/callmonitor.module:179
+msgid "Context"
+msgstr "הקשר"
+
+#: modules/callmonitor.module:181 modules/voicemail.module:502
+msgid "Duration"
+msgstr "משך"
+
+#: modules/callmonitor.module:212
+msgid "Monitor"
+msgstr "ניטור"
+
+#: modules/callmonitor.module:233 modules/voicemail.module:554
+msgid "Play"
+msgstr "נגן"
+
+#: modules/callmonitor.module:234 modules/voicemail.module:535
+#: modules/voicemail.module:558
+msgid "Download"
+msgstr "הורד"
+
+#: modules/callmonitor.module:278
+#, fuzzy, php-format
+msgid "Call Monitor for %s (%s)"
+msgstr "צג שיחות"
+
+#: modules/callmonitor.module:347 modules/voicemail.module:703
+msgid "select"
+msgstr "בחר"
+
+#: modules/callmonitor.module:348 modules/voicemail.module:704
+msgid "all"
+msgstr "הכל"
+
+#: modules/callmonitor.module:349 modules/voicemail.module:705
+msgid "none"
+msgstr "כלום"
+
+#: modules/callmonitor.module:573
+msgid "Only deletes recording files, not cdr log"
+msgstr "מחק הקלטות בלבד, לא את רישום ה־cdr"
+
+#: modules/featurecodes.module:36 modules/featurecodes.module:63
+msgid "Feature Codes"
+msgstr "חיוגים מקוצרים"
+
+#: modules/featurecodes.module:65
+#, php-format
+msgid " for %s (%s)"
+msgstr "ל %s (%s)"
+
+#: modules/featurecodes.module:72
+msgid "Handset Feature Code"
+msgstr "חיוג מקוצר לחיוג מהשלוחה"
+
+#: modules/featurecodes.module:75
+msgid "Action"
+msgstr "פעולה"
+
+#: modules/featurecodes.module:111
+msgid "description"
+msgstr ""
+
+#: modules/followme.module:43
+msgid "Follow Me"
+msgstr "עקוב אחרי"
+
+#: modules/followme.module:100
+msgid ""
+"Your Follow-Me has been disabled, REFRESH your browser to remove this message"
+msgstr "עקוב אחרי בטל. רענן דף זה להורד ההודעה הזות"
+
+#: modules/followme.module:101 modules/VmX.module:116
+#, php-format
+msgid ""
+"Check with your Telephone System Administrator if you think there is a "
+"problem"
+msgstr "תבדוק אם מנהל המרכזיה אם אתם חוששים שיש תקלה"
+
+#: modules/followme.module:118
+msgid "Follow-Me pre-ring time not changed"
+msgstr "צמן צלצול לעקוב אחרי לא שונתה"
+
+#: modules/followme.module:119 modules/followme.module:142
+#, php-format
+msgid "Number %s must be an integer number of seconds"
+msgstr "סיפרה %s חייב להיות מספר שלם של שניות"
+
+#: modules/followme.module:141
+msgid "Follow-Me list ring time not changed"
+msgstr "משך שמן צילצור לעקוב אחרי לא שונתה"
+
+#: modules/followme.module:185
+msgid "Follow-Me list must contain at least one valid number"
+msgstr "רשימת עקוב אחרי כולל מספר שאנו חוקי"
+
+#: modules/followme.module:186
+#, php-format
+msgid "The following: %s is not valid"
+msgstr "%s לא חוקי"
+
+#: modules/followme.module:291 modules/followme.module:342
+#: modules/phonefeatures.module:360 modules/settings.module:847
+#: modules/settings.module:858
+msgid "Enable"
+msgstr "מופעל"
+
+#: modules/followme.module:292
+msgid ""
+"Dial-by-name Directory, IVR, and internal \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tcalls will ring the numbers in the FollowMe \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tList. Any IssabelPBX routes that directly \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\treference a FollowMe are unaffected by this \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tenable/disable setting."
+msgstr ""
+
+#: modules/followme.module:302
+msgid "Follow Me List:"
+msgstr "רשימת עקוב אחרי:"
+
+#: modules/followme.module:303
+#, php-format
+msgid "Extensions and outside numbers to ring next."
+msgstr "שלוחות ומספרי חוץ לצלצל בשלב הבא"
+
+#: modules/followme.module:304
+#, php-format
+msgid "Include %s to keep it ringing."
+msgstr "תכלול %s להשיר אותו מצלצל."
+
+#: modules/followme.module:310
+#, php-format
+msgid "Ring %s First For:"
+msgstr "חייג קודב ב%s למשך"
+
+#: modules/followme.module:311
+#, php-format
+msgid "Time to ring extension %s before ringing the %s Follow Me List %s"
+msgstr "זמן צלצול שלוחה %s לפני צלצול %s רשימת העקוב אחרי %s"
+
+#: modules/followme.module:321 modules/followme.module:334
+msgid "seconds"
+msgstr "שניות"
+
+#: modules/followme.module:324
+msgid "Ring Followme List for:"
+msgstr "צלצל רשימת עקוב אחרי ל:"
+
+#: modules/followme.module:324
+msgid "Time to ring the Follow Me List."
+msgstr "זמן לצילצול רשימת עקוב אחרי."
+
+#: modules/followme.module:339
+msgid "Use Confirmation:"
+msgstr "אישור המשתמש:"
+
+#: modules/followme.module:339
+msgid ""
+"Outside lines that are part of the Follow Me List will be called and offered "
+"a menu:<br/><br/> \"You have an incoming call. Press 1 to accept or 2 to "
+"decline.\"<br/><br/> This keeps calls from ending up in external voicemail. "
+"Make sure that the List Ring Time is long enough to allow for you to hear "
+"and react to this message."
+msgstr ""
+"קוי חוץ שנמצאים ברשימת העקוב אחרי יקבלו תפרית קולית קדהלן כהמערכת יחייג "
+"איליהם: <br/><br/>  \"יש לכם שיחה נכנסתץ הקש 1 לקבל השיחה או 2 לסרב. \" <br/"
+"><br/> זה שומר שהשיחה לא יעגיע לתא הקולי (של שהלוחת חוץ). וודא שזמן שמוגדר "
+"בצלצל רשימת עקוב אחרי למשך מספיק ארוך בכדי לשמועה ולהגיב להדועה."
+
+#: modules/followme.module:354
+msgid "Followme Settings"
+msgstr "הגדרות עקוב אחרי"
+
+#: modules/followme.module:356
+#, php-format
+msgid "Followme Settings for %s (%s)"
+msgstr "הגדרות עקוב אחרי ל %s (%s)"
+
+#: modules/followme.module:382 modules/phonefeatures.module:182
+#: modules/settings.module:1199 modules/VmX.module:413
+msgid "Update"
+msgstr "עדכן"
+
+#: modules/phonefeatures.module:25 modules/phonefeatures.module:97
+#: modules/phonefeatures.module:165
+msgid "Phone Features"
+msgstr "תכונות שיחה"
+
+#: modules/phonefeatures.module:99
+msgid "Call Waiting"
+msgstr "שיחה ממתינה"
+
+#: modules/phonefeatures.module:100
+msgid "Do Not Disturb"
+msgstr "נא לא להפריע"
+
+#: modules/phonefeatures.module:151
+msgid "Call Forwarding"
+msgstr "הפניית שיחה"
+
+#: modules/phonefeatures.module:153
+msgid "Unconditional:"
+msgstr "בכל מצב:"
+
+#: modules/phonefeatures.module:154
+msgid "Unavailable:"
+msgstr "לא זמין:"
+
+#: modules/phonefeatures.module:155
+msgid "Busy:"
+msgstr "עסוק:"
+
+#: modules/phonefeatures.module:167
+#, php-format
+msgid "Phone Features for %s (%s)"
+msgstr "תכונות שיחה ל%s (%s)"
+
+#: modules/phonefeatures.module:326
+msgid "Call forward number not changed"
+msgstr "המספר לעקוב אחרי לא הוחלף"
+
+#: modules/phonefeatures.module:327 modules/VmX.module:148
+#: modules/VmX.module:181 modules/VmX.module:201
+#, php-format
+msgid ""
+"Number %s must contain dial numbers (characters like '(', '-', and ')' are "
+"ok)"
+msgstr "מספר %s חייב לכלול ספרות (ניתן גם לכלול סוגריים ו\\או מקף)"
+
+#: modules/phonefeatures.module:422
+msgid "Call Screening:"
+msgstr "סנן שיחות:"
+
+#: modules/phonefeatures.module:422
+msgid ""
+"Call Screening requires external callers to say their name, which will be "
+"played back to the user and allow the user to accept or reject the call.  "
+"Screening with memory only verifies a caller for their caller-id once. "
+"Screening without memory always requires a caller to say their name. Either "
+"mode will always announce the caller based on the last introduction saved "
+"with that callerid. If any user on the system uses the memory option, when "
+"that user is called, the caller will be required to re-introduce themselves "
+"and all users on the system will have that new introduction associated with "
+"the caller's CallerId."
+msgstr ""
+"סינון שיחה מחייב את המתקשר להקליט את שמו, ומאפשר למשתמש לקבל או לסרב לשיחה "
+"אחרי שהקשיב לתקליט.  סינון אם זיכרון שומר התקליט ומוניע הצורך שהמתקשר יקליט "
+"את שמו בכל את שהוא מתקשר.  סינון בלי זיכרון לא שומר את התקליט לשיחות "
+"עתידיות. בכל מצב, התקליט ישמע למשתמש.  חשוב לציין שהמערכת משייכת את התקליט "
+"לשיחה מזווה ולא ידועת להפריד בין כמה אנשים שמחייגים מאותו מספר (וישמיע תקליט "
+"שמשיוך לשיחה המזווה במידה שהוא שמור); ושהתקליטים השמורים הינם אחידים לכל "
+"משתמשי המרכזיה."
+
+#: modules/phonefeatures.module:425
+msgid "Disable"
+msgstr "נטרל"
+
+#: modules/phonefeatures.module:426
+msgid "Screen Caller: No Memory"
+msgstr "סנן שיחות: ללא זיכרון"
+
+#: modules/phonefeatures.module:427
+msgid "Screen Caller: Memory"
+msgstr "סנן שיחות: זכרון"
+
+#: modules/settings.module:44
+msgid "Attach voicemail to email"
+msgstr "שלך ההודעה במאיל"
+
+#: modules/settings.module:45
+msgid "Option to attach audio file to email."
+msgstr "אופציה לשלוך ההודעה במאיל."
+
+#: modules/settings.module:60
+msgid "Number of deleted messages to backup"
+msgstr "מספר הודעות מחוקות לגבות"
+
+#: modules/settings.module:61
+msgid ""
+"The maximum number of messages that are backed up in the Deleted folder. "
+"This may be 0-9999."
+msgstr ""
+
+#: modules/settings.module:76
+msgid "Delete voicemail after emailed"
+msgstr "מחק הודעה אחרי שליחה"
+
+#: modules/settings.module:77
+msgid ""
+"When enabled the message will be deleted from the voicemailbox after the "
+"notification email is sent. This allows receiving voicemail via email alone, "
+"rather than having the voicemail available from the Web interface or by "
+"telephone. CAUTION: Attach voicemail to email must be enabled, OTHERWISE "
+"YOUR MESSAGES WILL BE LOST FOREVER."
+msgstr ""
+
+#: modules/settings.module:92
+msgid "Say envelope (date/time)"
+msgstr "השמעת תעריך\\שעה"
+
+#: modules/settings.module:93
+msgid ""
+"When enabled the voicemail system will play the message envelope (date/time) "
+"before playing the voicemail message. This setting does not affect the "
+"operation of the envelope option in the advanced voicemail menu."
+msgstr ""
+
+#: modules/settings.module:161
+msgid "Maximum number of messages"
+msgstr "מספר הודעות המקסימלית"
+
+#: modules/settings.module:162
+msgid ""
+"Maximum number of messages per folder. It may be up to 9999. The default "
+"value is 100."
+msgstr "המפר המקסימלית של הודעות. גג: 9999. ברידת מדחל: 100."
+
+#: modules/settings.module:169
+msgid "Maximum message length"
+msgstr "אורך הודעה מקסימלית"
+
+#: modules/settings.module:170
+msgid "Maximum length allowed for a voicemail message (in seconds)."
+msgstr "עורך זמן (בשניות) המקסימלית שאפשר להאשיר הודעה."
+
+#: modules/settings.module:176
+msgid "Move heard messages"
+msgstr "העבר הודעה ישנות"
+
+#: modules/settings.module:177
+msgid "Automatically move heard messages to the Old folder."
+msgstr "העבר הודעות נשמעות לתיקיה של הודעות ישניות."
+
+#: modules/settings.module:192
+msgid "Review recording"
+msgstr "השמעה חוזרת"
+
+#: modules/settings.module:193
+msgid "Allow caller to review their voicemail before saving it."
+msgstr "אפשרות למתקשר לחזור אל הודעתו לפני שמירתו."
+
+#: modules/settings.module:199
+msgid "Say caller ID"
+msgstr "השמעת שיחה מזוהה"
+
+#: modules/settings.module:200
+msgid ""
+"After announcing the message date and time, play back the caller's telephone "
+"number before each message."
+msgstr ""
+
+#: modules/settings.module:206
+msgid "Say duration"
+msgstr "השמעת משך זמן"
+
+#: modules/settings.module:207
+msgid "Announce the message duration before playing the message."
+msgstr ""
+
+#: modules/settings.module:213
+msgid "Say duration minimum"
+msgstr "זמן מינימלי להשמת משך זמן"
+
+#: modules/settings.module:214
+msgid ""
+"Do not announce message duration for messages shorter than this number of "
+"minutes."
+msgstr "אל תשמיע משך זמן עבור הדעות שהם קצרות ממספר זה."
+
+#: modules/settings.module:229
+msgid "Email from"
+msgstr "שם השולך"
+
+#: modules/settings.module:230
+msgid "Who the e-mail notification should appear to come from."
+msgstr ""
+
+#: modules/settings.module:236
+msgid "Temporary greeting warning"
+msgstr ""
+
+#: modules/settings.module:237
+msgid "Warn user when a temporary greeting is active."
+msgstr ""
+
+#: modules/settings.module:252
+msgid "Change attachment volume"
+msgstr "החלף עוצמת קול של ההודע המצורף"
+
+#: modules/settings.module:253
+msgid ""
+"Change volume of message before attaching it to an email. Values less than "
+"1.0 decrease volume, greater than 1.0 increase volume."
+msgstr ""
+
+#: modules/settings.module:342
+msgid "Settings"
+msgstr "הגדרות"
+
+#: modules/settings.module:407 modules/settings.module:412
+#: modules/settings.module:417 modules/settings.module:422
+#: modules/settings.module:431 modules/settings.module:436
+msgid "Voicemail password not changed"
+msgstr "ססמת התיבה הקולית לא שונתה"
+
+#: modules/settings.module:408
+msgid "Password and password confirm must not be blank"
+msgstr "הסממה והאימות של הססמה לא יכולים להיות רקים"
+
+#: modules/settings.module:413
+#, fuzzy, php-format
+msgid "Passwords must be all numbers and greater than %d digits"
+msgstr "הסממאות חייבת להכיל 4 ספרות בלבד"
+
+#: modules/settings.module:418
+#, fuzzy, php-format
+msgid "Passwords must be all numbers and only %d digits"
+msgstr "הסממאות חייבת להכיל 4 ספרות בלבד"
+
+#: modules/settings.module:423
+msgid "Password and password confirm do not match"
+msgstr "הסממה והאימות של הססמה לא תואמים"
+
+#: modules/settings.module:432 modules/settings.module:437
+#: modules/settings.module:482 modules/settings.module:487
+#, fuzzy, php-format
+msgid "%s does not exist or is not writable"
+msgstr "לא קיים או אין אפשרות לכתוב עליו"
+
+#: modules/settings.module:472
+#, fuzzy
+msgid "Voicemail email and pager address not changed"
+msgstr "ססמת התיבה הקולית לא שונתה"
+
+#: modules/settings.module:481 modules/settings.module:486
+#, fuzzy
+msgid "Voicemail email settings not changed"
+msgstr "ססמת התיבה הקולית לא שונתה"
+
+#: modules/settings.module:745
+msgid "Language:"
+msgstr "שפה:"
+
+#: modules/settings.module:755
+#, fuzzy, php-format
+msgid "Passwords must be all numbers and only %s digits"
+msgstr "הסממאות חייבת להכיל 4 ספרות בלבד"
+
+#: modules/settings.module:758
+#, fuzzy, php-format
+msgid "Passwords must be all numbers and at least %s digits"
+msgstr "הסממאות חייבת להכיל 4 ספרות בלבד"
+
+#: modules/settings.module:763
+msgid "Password Settings"
+msgstr "הגדרות סיסמה"
+
+#: modules/settings.module:767
+#, fuzzy
+msgid "Voicemail Password:"
+msgstr "ססמת תיבה קולית:"
+
+#: modules/settings.module:773
+msgid "Enter again to confirm:"
+msgstr "הכנס שוב לאימות:"
+
+#: modules/settings.module:841
+msgid "Email Address:"
+msgstr "כתובות מאיל:"
+
+#: modules/settings.module:841
+msgid "Email a notification, including audio file if indicated below."
+msgstr "שלך התרעה במאיל, כולל ההודעה"
+
+#: modules/settings.module:852
+msgid "Pager Email Address:"
+msgstr "כבות מאיל לביפר:"
+
+#: modules/settings.module:852
+msgid "Email a short notification"
+msgstr "שלך התרעה קצרה"
+
+#: modules/settings.module:948
+msgid "Call Me Number:"
+msgstr "מספר לההתקשר אילי:"
+
+#: modules/settings.module:948
+msgid ""
+"Call Me Number can be any dialable number, such as an extension or a "
+"cellphone."
+msgstr ""
+
+#: modules/settings.module:983
+msgid "Audio Format:"
+msgstr "תבנית שמע:"
+
+#: modules/settings.module:986
+msgid "Default"
+msgstr ""
+
+#: modules/settings.module:987
+msgid "Best Quality"
+msgstr "איכות הכי טובה"
+
+#: modules/settings.module:988
+msgid "Smallest Download"
+msgstr "הורדה הכי קטנה"
+
+#: modules/settings.module:999
+msgid "Notification Settings"
+msgstr "הגדרות התרעות"
+
+#: modules/settings.module:1007
+msgid "Web Playback Settings"
+msgstr "הגדרות שמע באתר"
+
+#: modules/settings.module:1015
+msgid "Phone Playback Settings"
+msgstr "הגדרות שמע טלפונית"
+
+#: modules/settings.module:1022
+msgid "Caller Settings"
+msgstr "הגדרות מתקשר"
+
+#: modules/settings.module:1029
+msgid "Mailbox Storage Settings"
+msgstr "הגדרות איחסון התא קולי"
+
+#: modules/settings.module:1036
+msgid "IMAP Mail Settings"
+msgstr "הגדרות IMAP מאיל"
+
+#: modules/settings.module:1043
+msgid "Other Voicemail Settings"
+msgstr "הגדרות תא כקולי נספות"
+
+#: modules/settings.module:1084
+msgid "Call Monitor Settings"
+msgstr "הגדרות ניתור שיחות"
+
+#: modules/settings.module:1087
+msgid "Record INCOMING:"
+msgstr "הקלטת שיחות נכנסות:"
+
+#: modules/settings.module:1089 modules/settings.module:1097
+msgid "Always"
+msgstr "תמיד"
+
+#: modules/settings.module:1090 modules/settings.module:1098
+msgid "Never"
+msgstr "אף פעם"
+
+#: modules/settings.module:1091 modules/settings.module:1099
+msgid "On-Demand"
+msgstr "לפי דרישה"
+
+#: modules/settings.module:1095
+msgid "Record OUTGOING:"
+msgstr "הקלטה שיחות יוצאות:"
+
+#: modules/settings.module:1156
+#, fuzzy, php-format
+msgid "Settings for %s (%s)"
+msgstr "הגדרות עבור"
+
+#: modules/VmX.module:58
+msgid "VmX&#8482 Locator"
+msgstr "VmX&#8482  מאתר"
+
+#: modules/VmX.module:115
+msgid ""
+"Your Premium VmX Locator service has been disabled, REFRESH your browser to "
+"remove this message"
+msgstr ""
+
+#: modules/VmX.module:147
+msgid "Option 0 not changed"
+msgstr "אפשרות 0 לא שונתה"
+
+#: modules/VmX.module:180
+msgid "Option 1 not changed"
+msgstr "אפשרות 1 לא שונתה"
+
+#: modules/VmX.module:200
+msgid "Option 2 not changed"
+msgstr "אפשרות 2 לא שונתה"
+
+#: modules/VmX.module:300
+msgid "Use When:"
+msgstr "תתשמש כאשר:"
+
+#: modules/VmX.module:300
+msgid ""
+"Menu options below are available during your personal voicemail greeting "
+"playback. <br/><br/>Check both to use at all times."
+msgstr ""
+"האפשריות דלהלן זמנים בעת השמה הפתיח האישי שלכם. <br/><br/>  סמן את שניהם כדי "
+"להתמש בשרות בכל מצב"
+
+#: modules/VmX.module:302
+msgid "unavailable"
+msgstr "לא זמין"
+
+#: modules/VmX.module:304
+msgid "busy"
+msgstr "תפוס"
+
+#: modules/VmX.module:308
+msgid "Voicemail Instructions:"
+msgstr "הנחיות תא קולי:"
+
+#: modules/VmX.module:308
+msgid "Uncheck to play a beep after your personal voicemail greeting."
+msgstr "הורד הסימון להשמיע רק ביפ לאחר הפתיח האישי"
+
+#: modules/VmX.module:311
+msgid "Standard voicemail prompts."
+msgstr "הקלתות תא קולי הסטנדרים."
+
+#: modules/VmX.module:319
+msgid "Press 0:"
+msgstr "הקש 0:"
+
+#: modules/VmX.module:319
+msgid ""
+"Pressing 0 during your personal voicemail greeting goes to the Operator. \n"
+"\t\t\t\t\tUncheck to enter another destination here."
+msgstr ""
+"השקת 0 בעת שמיעת הפתיח האישי יעביר הסיחה למזכירות. \n"
+" הורד הסימון להכניס פה יעד אחר."
+
+#: modules/VmX.module:327
+msgid "Go To Operator"
+msgstr "העבר הסיכה למזכירה"
+
+#: modules/VmX.module:331
+msgid "Press 1:"
+msgstr "הקש 1:"
+
+#: modules/VmX.module:334
+msgid ""
+"The remaining options can have internal extensions, ringgroups, queues and "
+"external numbers that may be rung. It is often used to include your cell "
+"phone. You should run a test to make sure that the number is functional any "
+"time a change is made so you don't leave a caller stranded or receiving "
+"invalid number messages."
+msgstr ""
+"שער הבחירות יכולים להיוץ יעדים פנימים כגון שלוחות, קבוצות צלצול, תורי המתנה, "
+"ומספר חוץ. גם ניתן להחנס מס' תלפון סלולרי. כדי לבחון המערכת אחרי כל שינו, "
+"לאשר שהמתקשר יגיע ליד שלו, ולא יפול או יעבד במערכת."
+
+#: modules/VmX.module:336
+msgid ""
+"Enter an alternate number here, then change your personal voicemail greeting "
+"to let callers know to press 1 to reach that number. <br/><br/>If you'd like "
+"to use your Follow Me List, check \"Send to Follow Me\" and disable Follow "
+"Me above."
+msgstr ""
+
+#: modules/VmX.module:349
+msgid "Send to Follow-Me"
+msgstr "שלך לעקוב אחרי"
+
+#: modules/VmX.module:357
+msgid "Press 2:"
+msgstr "הקש 2:"
+
+#: modules/VmX.module:357
+msgid ""
+"Use any extensions, ringgroups, queues or external numbers. <br/><br/"
+">Remember to re-record your personal voicemail greeting and include "
+"instructions. Run a test to make sure that the number is functional."
+msgstr ""
+"תכניס כל שלוחה, קבוצת צלצול, תור המתנה או מס' חוץ. <br/><br/>תזכור להקלית "
+"הפתיח האישי מחדש להרהר השניום שנעשו. הבחן שהשינום תקפים."
+
+#: modules/VmX.module:371
+#, php-format
+msgid "VmX Locator&#8482; Settings for %s (%s)"
+msgstr "VmX מאתר&#8482; הגדרות עבור %s (%s)"
+
+#: modules/voicemail.module:51
+msgid "Voicemail"
+msgstr "תיבה קולית"
+
+#: modules/voicemail.module:176
+msgid "A folder must be selected before the message can be moved."
+msgstr "יש לבחור תיקייה לפני שאפשר להעביר את ההודעה."
+
+#: modules/voicemail.module:185
+msgid "One or more messages must be selected before clicking move_to."
+msgstr "תבחור לפחות הודעה אחת לפני הקשת העבר אל."
+
+#: modules/voicemail.module:194
+msgid "An extension must be selected before the message can be forwarded."
+msgstr "יש לבחור שלוחה לפני שאפשר העביר את השיחה הלאה."
+
+#: modules/voicemail.module:202
+msgid "One or more messages must be selected before clicking forward_to."
+msgstr "תבחור לפחות הודעה אחת לפני הקשת שלח אל."
+
+#: modules/voicemail.module:209
+msgid ""
+"You must enter one or more email addresses (comma-separated) before clicking "
+"email_to."
+msgstr "להניס אחד או יותר כתובות מאיל (מופרד אם פסיק) לפני הקשר שלח_אל."
+
+#: modules/voicemail.module:222
+msgid "Warning: "
+msgstr "אזהרה:"
+
+#: modules/voicemail.module:222
+msgid "is not a valid email address"
+msgstr "אינו כתובת מאיל חוקי"
+
+#: modules/voicemail.module:271
+msgid "The file type was not recognized."
+msgstr "סוג הקובץ לא מוכר"
+
+#: modules/voicemail.module:307
+msgid "Warning: Could not access voicemail.conf.  Using default mailer."
+msgstr ""
+
+#: modules/voicemail.module:319
+msgid "Mail operation failed"
+msgstr "פעולת מאיל נכשלה"
+
+#: modules/voicemail.module:323
+msgid "No valid email address given.  Please try again."
+msgstr "לא הוזן כתובת מאיל חוקי. נא לנסות שנית."
+
+#: modules/voicemail.module:327
+msgid "One or more messages must be selected before clicking email_to."
+msgstr ""
+
+#: modules/voicemail.module:470
+msgid "move_to"
+msgstr "העברה_ל"
+
+#: modules/voicemail.module:473
+msgid "Folder"
+msgstr "תיקייה"
+
+#: modules/voicemail.module:477
+msgid "forward_to"
+msgstr "העבר_אל"
+
+#: modules/voicemail.module:484
+msgid "email_to"
+msgstr "תשלך במאיל ל"
+
+#: modules/voicemail.module:498
+msgid "Priority"
+msgstr "עדיפות"
+
+#: modules/voicemail.module:500
+msgid "Orig Mailbox"
+msgstr "תיבת דואר מקורית"
+
+#: modules/voicemail.module:532
+msgid "Playback"
+msgstr "הקשבה"
+
+#: modules/voicemail.module:556
+msgid "Play message at: "
+msgstr "תשמיע ההודעה בשלוחה:"
+
+#: modules/voicemail.module:561
+msgid "Voicemail recording(s) was not found."
+msgstr "הקלטת תיבה  קולית לא נמצאה."
+
+#: modules/voicemail.module:562
+#, php-format
+msgid ""
+"On settings page, change voicemail audio format.  It is currently set to %s"
+msgstr "בדף הגדרות, החלף התבנית שמע. כרגע זה מיגדר ל%s"
+
+#: modules/voicemail.module:592
+#, fuzzy
+msgid "Voicemail Login not found."
+msgstr "שם המשתמש של תיבת הקול"
+
+#: modules/voicemail.module:593
+msgid "No access to voicemail"
+msgstr "אין גישה לתיבת הקול"
+
+#: modules/voicemail.module:599
+msgid "No Voicemail Recordings for Admin"
+msgstr "אין הקלטות בתיבת הקול של המנהל"
+
+#: modules/voicemail.module:615
+#, fuzzy, php-format
+msgid "Voicemail for %s (%s)"
+msgstr "תיבה קולית"
+
+#: modules/voicemail.module:637
+msgid "Calling: "
+msgstr "מתקשר ל:"
+
+#: modules/voicemail.module:638
+msgid ". Please wait patiently..."
+msgstr "נא להמתין בסבלנות..."
+
+#: modules/voicemail.module:914
+#, fuzzy, php-format
+msgid "Could not create mailbox folder %s on the server"
+msgstr "אין אפשרות ליצור את תיקיית הדואר"
+
+#: modules/voicemail.module:966
+#, fuzzy, php-format
+msgid "Permission denied on folder %s or %s"
+msgstr "הגישה נדחתה בתיקייה"
+
+#: theme/page.tpl.php:49
+msgid "Folders"
+msgstr "תיקיות"
+
+#: theme/page.tpl.php:79
+msgid "Original work based on ARI from Littlejohn Consulting"
+msgstr ""

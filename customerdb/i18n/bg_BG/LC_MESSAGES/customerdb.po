@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-28 04:55+0200\n"
+"PO-Revision-Date: 2008-11-03 17:41+0200\n"
+"Last-Translator: \n"
+"Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: page.customerdb.php:82
+msgid "Customer"
+msgstr "Клиент"
+
+#: page.customerdb.php:90
+msgid "deleted"
+msgstr "изтрит"
+
+#: page.customerdb.php:95
+msgid "Add a user"
+msgstr "Добавяне на потребител"
+
+#: page.customerdb.php:126
+msgid "Delete Customer"
+msgstr "Изтрий Клиент"
+
+#: page.customerdb.php:145
+msgid "Edit Customer"
+msgstr "Редактирай Клиент"
+
+#: page.customerdb.php:145
+msgid "Add Customer"
+msgstr "Добави Клиент"
+
+#: page.customerdb.php:152
+msgid "Name"
+msgstr "Име"
+
+#: page.customerdb.php:153
+msgid "Name of business or person (REQUIRED)"
+msgstr "Име на бизнес или човек (ЗАДЪЛЖИТЕЛНО)"
+
+#: page.customerdb.php:161
+msgid "Address 1"
+msgstr "Адрес 1"
+
+#: page.customerdb.php:162
+msgid "Address Line 1 (REQUIRED)"
+msgstr "Адрес Линия 1 (ЗАДЪЛЖИТЕЛНО)"
+
+#: page.customerdb.php:169
+msgid "Address 2"
+msgstr "Адрес 2"
+
+#: page.customerdb.php:170
+msgid "Address Line 2"
+msgstr "Адрес Линия 2"
+
+#: page.customerdb.php:177
+msgid "City"
+msgstr "Град"
+
+#: page.customerdb.php:178
+msgid "City (REQUIRED)"
+msgstr "Град (ЗАДЪЛЖИТЕЛНО)"
+
+#: page.customerdb.php:185
+msgid "State"
+msgstr "Област"
+
+#: page.customerdb.php:186
+msgid "State (REQUIRED)"
+msgstr "Област (ЗАДЪЛЖИТЕЛНО)"
+
+#: page.customerdb.php:201
+msgid "Zip/Post Code"
+msgstr "Пощенски Код"
+
+#: page.customerdb.php:202
+msgid "Zip (REQUIRED)"
+msgstr "Пощенски Код (ЗАДЪЛЖИТЕЛНО)"
+
+#: page.customerdb.php:210
+msgid "Sip Account"
+msgstr "Sip Акаунт"
+
+#: page.customerdb.php:211
+msgid "Sip Account (must have this or a DID tied to the account)"
+msgstr "Sip Акаунт (трябва да имате това или DID свързан към акаунта)"
+
+#: page.customerdb.php:226
+msgid "DID Number"
+msgstr "DID Номер"
+
+#: page.customerdb.php:227
+msgid "DID Number (must have this or sip tied to the account)"
+msgstr "DID Номер (трябва да имате това или SIP свързан към акаунта)"
+
+#: page.customerdb.php:242
+msgid "Device"
+msgstr "Устройство"
+
+#: page.customerdb.php:243
+msgid "Device (example... Linksys PAP-2, Sipura)"
+msgstr "Устройство (например...Linksys PAP-2, Sipura)"
+
+#: page.customerdb.php:250
+msgid "Serial"
+msgstr "Сериен Номер"
+
+#: page.customerdb.php:251
+msgid "Serial Number"
+msgstr "Сериен Номер"
+
+#: page.customerdb.php:258
+#: page.customerdb.php:259
+msgid "IP Address"
+msgstr "IP Адрес"
+
+#: page.customerdb.php:266
+msgid "Account"
+msgstr "Акаунт"
+
+#: page.customerdb.php:267
+msgid "Account Number (internal use)"
+msgstr "Акаунт Номер (за вътрешно ползване)"
+
+#: page.customerdb.php:274
+msgid "Email"
+msgstr "Email"
+
+#: page.customerdb.php:275
+msgid "Email Address"
+msgstr "Email Адрес"
+
+#: page.customerdb.php:282
+msgid "Username"
+msgstr "Потребителско Име"
+
+#: page.customerdb.php:283
+msgid "Username for the device"
+msgstr "Потребителското Име на това устройство"
+
+#: page.customerdb.php:290
+msgid "Password"
+msgstr "Парола"
+
+#: page.customerdb.php:291
+msgid "Password for device"
+msgstr "Парола за устройството"
+
+#: page.customerdb.php:323
+msgid "Please enter a name for this customer"
+msgstr "Моля въведете име за този клиент"
+
+#: page.customerdb.php:324
+msgid "Please enter an address for this customer"
+msgstr "Моля въведете адрес за този клиент"
+
+#: page.customerdb.php:325
+msgid "Pleast enter a city for this customer"
+msgstr "Моля въведете град за този клиент"
+
+#: page.customerdb.php:326
+msgid "Please enter a zip for this customer"
+msgstr "Моля въведете пощенски код за този клиент"
+
+#: page.customerdb.php:327
+msgid "You must choose either a sip or did number for this customer."
+msgstr "Трябва да изберете SIP или DID номер за този клиент."
+
+#: module.xml
+msgid "Customer DB"
+msgstr "Клиентска База Данни"
+
+#: dirty fix
+msgid "Submit Changes"
+msgstr "Приеми Промените"
+

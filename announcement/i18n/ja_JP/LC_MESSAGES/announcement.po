@@ -1,0 +1,192 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for announcement
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.0.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-26 15:22+0900\n"
+"PO-Revision-Date: 2014-02-26 07:48+0200\n"
+"Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
+"Language-Team: Japanese "
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+msgid "Announcements"
+msgstr "アナウンス"
+
+msgid "Applications"
+msgstr "アプリケーション"
+
+msgid ""
+"Plays back one of the system recordings (optionally allowing the user to "
+"skip it) and then goes to another destination."
+msgstr ""
+"システムレコーディングを再生する（ユーザーはスキップするのを許可する）そして"
+"次の宛先に進みます。"
+
+msgid "Add Announcement"
+msgstr "アナウンス追加"
+
+msgid "Edit Announcement"
+msgstr "アナウンスを編集"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "The name of this announcement"
+msgstr "このアナウンスの名前"
+
+msgid "Recording"
+msgstr "録音"
+
+msgid ""
+"Message to be played.<br>To add additional recordings use the \"System "
+"Recordings\" MENU to the left"
+msgstr "再生されるメッセージ。<br>録音選択肢を追加をする場合は、左メニューの\"システム録音\"を使用します"
+
+msgid "None"
+msgstr "なし"
+
+msgid "Repeat"
+msgstr "リピート"
+
+msgid ""
+"Key to press that will allow for the message to be replayed. If you choose "
+"this option there will be a short delay inserted after the message. If a "
+"longer delay is needed it should be incorporated into the recording."
+msgstr ""
+"メッセージをもう一度再生させるときに押されるキーを選択します。このオプション"
+"が選択された場合はメッセージの後に少しの間が発生します。より長い間が必要な場"
+"合は、録音の最後に組み入れてください。"
+
+msgid "Disable"
+msgstr "無効"
+
+msgid "Allow Skip"
+msgstr "スキップを許可"
+
+msgid "If the caller is allowed to press a key to skip the message."
+msgstr "発信者がキーを押すことによるメッセージのスキップを許可するかどうか。"
+
+msgid "Return to IVR"
+msgstr "IVRに戻る"
+
+msgid ""
+"If this announcement came from an IVR and this box is checked, the "
+"destination below will be ignored and instead it will return to the calling "
+"IVR. Otherwise, the destination below will be taken. Don't check if not "
+"using in this mode. <br>The IVR return location will be to the last IVR in "
+"the call chain that was called so be careful to only check when needed. For "
+"example, if an IVR directs a call to another destination which eventually "
+"calls this announcement and this box is checked, it will return to that IVR "
+"which may not be the expected behavior."
+msgstr ""
+"IVRからこのアナウンスが来て、このチェックボックスがチェックされている場合、以"
+"下の宛先は無視されて呼出し元のIVRに戻ります。それ以外の場合は以下の宛先に進み"
+"ます。このモードを使用しない場合は、チェックをしないでください。<br>IVRに戻る"
+"場所は、呼出しがあったコールチェインの最後のIVRになりますので、必要なときだけ"
+"チェックするように気を付けてください。例えば、IVRがコールを他の宛先に行くよう"
+"に設定されており、最終的にこのアナウンスを呼び出すケースで、このチェックボッ"
+"クスがチェックされている場合は、このIVRにまた戻ることになり、その結果予期せぬ"
+"動作をすることになります。"
+
+msgid "Don't Answer Channel"
+msgstr "応答させないチャネル"
+
+msgid ""
+"Check this to keep the channel from explicitly being answered. When checked, "
+"the message will be played and if the channel is not already answered it "
+"will be delivered as early media if the channel supports that. When not "
+"checked, the channel is answered followed by a 1 second delay. When using an "
+"announcement from an IVR or other sources that have already answered the "
+"channel, that 1 second delay may not be desired."
+msgstr ""
+"チャネルが明示的に応答することを防ぎたい場合はチェックを入れます。チェックさ"
+"れた場合は、メッセージが再生され、チャネルがまだ応答しない場合は、チャネルが"
+"サポートしている場合のみ早いメディアに運ばれます。チェックされない場合は、1秒"
+"の遅延後にチャネルが応答します。IVRや、既にチャネル応答をした他のソースからの"
+"アナウンスを使用している場合は、1秒間の遅延は不要でしょう。"
+
+msgid "Destination after playback"
+msgstr "再生後の宛先"
+
+msgid "Submit Changes"
+msgstr "変更を適用"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Invalid description specified"
+msgstr "無効な説明が指定されました"
+
+msgid "Checking if recordings need migration.."
+msgstr "録音の移行が必要かチェック中.."
+
+msgid "migrating"
+msgstr "移行中"
+
+msgid "adding recording_id field.."
+msgstr "recording_idフィールドを追加中.."
+
+msgid "fatal error"
+msgstr "致命的なエラー"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "migrate to recording ids.."
+msgstr "録音IDに移行中.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "%sエントリーを移行する"
+
+msgid "dropping recording field.."
+msgstr "録音フィールドを削除.."
+
+msgid "no recording field???"
+msgstr "録音フィールドがありません???"
+
+msgid "already migrated"
+msgstr "移行済み"
+
+#, php-format
+msgid "Announcement: %s"
+msgstr "アナウンス： %s"

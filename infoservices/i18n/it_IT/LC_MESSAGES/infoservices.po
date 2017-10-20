@@ -1,0 +1,40 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+msgid "Info Services"
+msgstr "Servizi Aggiuntivi"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Provides a number of applications accessible by feature codes: company "
+"directory, call trace (last call information), echo test, speaking clock, "
+"and speak current extension number."
+msgstr ""
+
+msgid "Directory"
+msgstr "Elenco Telefonico (Directory)"
+
+msgid "Call Trace"
+msgstr "Ultima Chiamata"
+
+msgid "Echo Test"
+msgstr "Test Eco"
+
+msgid "Speaking Clock"
+msgstr "Data e Ora"
+
+msgid "Speak Your Exten Number"
+msgstr "Riproduce il Numero d'Interno"

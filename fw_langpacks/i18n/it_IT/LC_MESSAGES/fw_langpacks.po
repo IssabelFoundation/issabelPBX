@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-10 14:36+0100\n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+msgid "IssabelPBX Localization Updates"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"This module provides a facility to install new and updated localization "
+"translations for all components in IssabelPBX. Localization i18n translations "
+"are still kept with each module and other components such as the User Portal "
+"(ARI). This provides an easy ability to bring all components up-to-date "
+"without the need of publishing dozens of modules for every minor change. The "
+"localization updates used will be the latest available for all modules and "
+"will not consider the current version you are running."
+msgstr ""
+
+#, php-format
+msgid "No directory %s, install script not needed"
+msgstr ""
+
+#, php-format
+msgid "Preparing to copy %s to %s"
+msgstr "Preparazione della copia di %s su %s"
+
+#, php-format
+msgid "No destination directory %s to copy %s to"
+msgstr "Nessuna directory di destinazione %s per copiarci %s"
+
+#, php-format
+msgid "Updated %s"
+msgstr "Aggiornato %s"

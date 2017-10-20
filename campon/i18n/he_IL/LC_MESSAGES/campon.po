@@ -1,0 +1,497 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for campon
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Camp-On"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"This module implements the Call Completion Supplemental Services (CCSS) "
+"often referred to as Call Camping or Camp-On. It allows a caller to request "
+"the system call them back when a busy or non-responding extension becomes "
+"available. Requires Asterisk 1.8 or higher."
+msgstr ""
+
+msgid "Maximum Active Camp-On Requests"
+msgstr ""
+
+msgid "Camp-On Module"
+msgstr ""
+
+msgid ""
+"System wide maximum number of outstanding Camp-On requests that can be "
+"active. This limit is useful on a system that may have memory constraints "
+"since the internal state machine takes up system resources relative to the "
+"number of active requests it has to track. Restart Asterisk for changes to "
+"take effect."
+msgstr ""
+
+msgid "Non Extensions Callee Policy"
+msgstr ""
+
+msgid ""
+"If this is set to 'generic' or 'always' then it will be possible to attempt "
+"call completion requests when dialing non-extensions such as ring groups and "
+"other possible destinations that could work with call completion. Setting "
+"this will bypass any Callee Policies and can result in inconsistent "
+"behavior. If set, 'generic' is the most common, 'always' will attempt to use "
+"technology specific capabilities if the called extension uses a channel that "
+"supports that."
+msgstr ""
+
+msgid "Only Use Default Camp-On Settings"
+msgstr ""
+
+msgid ""
+"You can force all extensions on a system to only used the default Camp-On "
+"settings. When in this mode, the individual settings will not be shown on "
+"the extension page. If there were unique settings previously configured, the "
+"data will be retained but not used unless you switch this back to false. "
+"With this set, the Caller Policy (cc_agent_policy) and Callee Policy "
+"(cc_monitor_policy) settings will still be configurable for each user so you "
+"can still enable/disable Call Camping ability on select extensions."
+msgstr ""
+
+msgid "Caller Policy Default"
+msgstr ""
+
+msgid ""
+"Asterisk: cc_agent_policy. Used to enable Camp-On for a user and set the "
+"Technology Mode that will be used when engaging the feature. In most cases "
+"'generic' should be chosen unless you have phones designed to work with "
+"channel specific capabilities."
+msgstr ""
+
+msgid "Callee Policy Default"
+msgstr ""
+
+msgid ""
+"Asterisk: cc_monitor_policy. Used to control if other phones are allowed to "
+"Camp On to an extension. If so, it sets the technology mode used to monitor "
+"the availability of the extension. If no specific technology support is "
+"available then it should be set to a 'generic'. In this mode, a callback "
+"will be initiated to the extension when it changes from an InUse state to "
+"NotInUse. If it was busy when first attempted, this will be when the current "
+"call has eneded. If it simply did not answer, then this will be the next "
+"time this phone is used to make or answer a call and then hangs up. It is "
+"possible to set this to take advantage of 'native' technology support if "
+"available and automatically fallback to 'generic' whe not by setting it to "
+"'always'."
+msgstr ""
+
+msgid "Caller Timeout to Request Default"
+msgstr ""
+
+msgid ""
+"Asterisk: cc_offer_timer. How many seconds after dialing an extenion a user "
+"has to make a call completion request."
+msgstr ""
+
+msgid "Max Camp-On Life Busy Default"
+msgstr ""
+
+msgid ""
+"Asteirsk: ccbs_available_timer. How long a call completion request will "
+"remain active, in seconds, before expiring if the phone rang busy when first "
+"attempting the call."
+msgstr ""
+
+msgid "Max Camp-On Life No Answer Default"
+msgstr ""
+
+msgid ""
+"Asteirsk: ccnr_available_timer. How long a call completion request will "
+"remain active, in seconds, before expiring if the phone was simply "
+"unanswered when first attempting the call."
+msgstr ""
+
+msgid "Default Time to Ring Back Caller"
+msgstr ""
+
+msgid ""
+"Asterisk: cc_recall_timer. How long in seconds to ring back a caller who's "
+"Caller Policy is set to 'Generic Device'. This has no affect if set to any "
+"other setting."
+msgstr ""
+
+msgid "Default Caller Callback Mode"
+msgstr ""
+
+msgid ""
+"Affects Asterisk: cc_agent_dialstring. If not set a callback request will be "
+"dialed straight to the speciifc device that made the call. If using 'native' "
+"technology support this may be the peferred mode. The 'internal' (Callback "
+"Standard) option will intiate a call back to the caller just as if someone "
+"else on the system placed the call, which means the call can pursue Follow-"
+"Me. To avoid Follow-Me setting, choose 'extension' (Callback Extension)."
+msgstr ""
+
+msgid "Default Max Camped-On Extensions"
+msgstr ""
+
+msgid ""
+"Asterisk: cc_max_agents. Only valid for when using 'native' technology "
+"support for Caller Policy. This is the number of outstanding Call Completion "
+"requests that can be pending to different extensions. With 'generic' device "
+"mode you can only have a single request outstanding and this will be ignored."
+msgstr ""
+
+msgid "Default Callback Alert-Info"
+msgstr ""
+
+msgid ""
+"An optional Alert-Info setting that can be used when initiating a callback. "
+"Only valid when 'Caller Policy' is set to 'generic' device'"
+msgstr ""
+
+msgid "Default Callback CID Prepend"
+msgstr ""
+
+msgid ""
+"An optional CID Prepend setting that can be used when initiating a callback. "
+"Only valid when 'Caller Policy' is set to a 'generic' device'"
+msgstr ""
+
+msgid "Announce the Callee Extension"
+msgstr ""
+
+msgid ""
+"When set to true the target extension being called will be announced upone "
+"answering the Callback prior to ringing the extension. Setting this to false "
+"will go directly to ringing the extension, the CID information will still "
+"reflect who is being called back."
+msgstr ""
+
+msgid "Default Callee Alert-Info"
+msgstr ""
+
+msgid ""
+"An optional Alert-Info setting that can be used to send to the extension "
+"being called back."
+msgstr ""
+
+msgid "Default Callee CID Prepend"
+msgstr ""
+
+msgid ""
+"An optional CID Prepend setting that can be used to send to the extension "
+"being called back.'"
+msgstr ""
+
+msgid "Default Max Queued Callers"
+msgstr ""
+
+msgid ""
+"Asterisk: cc_max_monitors. This is the maximum number of callers that are "
+"allowed to queue up call completion requests against this extension."
+msgstr ""
+
+msgid "BLF Camp-On Available State"
+msgstr ""
+
+msgid ""
+"This is the state that will be set for BLF subscriptions after attempting a "
+"call while it is still possible to Camp-On to the last called number, prior "
+"to the offer_timer expiring. Restart Asterisk for changes to take effect."
+msgstr ""
+
+msgid "BLF Camp-On Pending State"
+msgstr ""
+
+msgid ""
+"This is the state that will be set for BLF subscriptions upon a successful "
+"Camp-On request, pending a callback when the party becomes available. "
+"Restart Asterisk for changes to take effect."
+msgstr ""
+
+msgid "BLF Camp-On Busy Caller State"
+msgstr ""
+
+msgid ""
+"This is the state that will be set for BLF subscriptions once the callee "
+"becomes available if the caller is not busy. Restart Asterisk for changes to "
+"take effect."
+msgstr ""
+
+msgid "BLF Camp-On Recalling State"
+msgstr ""
+
+msgid "Disable Camp-On"
+msgstr ""
+
+msgid "Generic Device"
+msgstr ""
+
+msgid "Native Technology Support"
+msgstr ""
+
+msgid "20 sec"
+msgstr ""
+
+msgid "30 sec"
+msgstr ""
+
+msgid "45 sec"
+msgstr ""
+
+msgid "1 min"
+msgstr ""
+
+msgid "2 min"
+msgstr ""
+
+msgid "3 min"
+msgstr ""
+
+msgid "4 min"
+msgstr ""
+
+msgid "5 min"
+msgstr ""
+
+msgid "10 min"
+msgstr ""
+
+msgid "20 min"
+msgstr ""
+
+msgid "40 min"
+msgstr ""
+
+msgid "60 min"
+msgstr ""
+
+msgid "80 min"
+msgstr ""
+
+msgid "100 min"
+msgstr ""
+
+msgid "2 hrs"
+msgstr ""
+
+msgid "3 hrs"
+msgstr ""
+
+msgid "4 hrs"
+msgstr ""
+
+msgid "5 hrs"
+msgstr ""
+
+msgid "6 hrs"
+msgstr ""
+
+msgid "7 hrs"
+msgstr ""
+
+msgid "8 hrs"
+msgstr ""
+
+#, php-format
+msgid "%s sec"
+msgstr ""
+
+#, php-format
+msgid "%s Outgoing Requests"
+msgstr ""
+
+msgid "Callback Device Directly"
+msgstr ""
+
+msgid "Callback Standard"
+msgstr ""
+
+msgid "Callback Extension (no Follow-Me)"
+msgstr ""
+
+msgid "Native Where Available"
+msgstr ""
+
+msgid "Announce"
+msgstr ""
+
+msgid "Silent"
+msgstr ""
+
+#, php-format
+msgid "%s Incoming Requests"
+msgstr ""
+
+msgid "Caller Policy"
+msgstr ""
+
+msgid "Callee Policy"
+msgstr ""
+
+msgid "Caller Timeout to Request"
+msgstr ""
+
+msgid "Max Camp-On Life Busy"
+msgstr ""
+
+msgid "Max Camp-On Life No Answer"
+msgstr ""
+
+msgid "Time to Ring Back Caller"
+msgstr ""
+
+msgid "Max Camped-On Extensions"
+msgstr ""
+
+msgid "Caller Callback Mode"
+msgstr ""
+
+msgid "Max Queued Callers"
+msgstr ""
+
+msgid "Announce Callback Extension"
+msgstr ""
+
+msgid "Callback Alert-Info"
+msgstr ""
+
+msgid "Callback CID Prepend"
+msgstr ""
+
+msgid "Callee Alert-Info"
+msgstr ""
+
+msgid "Callee CID Prepend"
+msgstr ""
+
+msgid ""
+"Asterisk: cc_agent_policy. Used to enable Camp-On for this user and set the "
+"Technology Mode that will be used when engaging the feature. In most cases "
+"'Generic Device' should be chosen unless you have phones designed to work "
+"with channel specific capabilities."
+msgstr ""
+
+msgid ""
+"Asterisk: cc_monitor_policy. Used to control if other phones are allowed to "
+"Camp On to this extension. If so, it sets the technology mode used to "
+"monitor the availability of the extension. If no specific technology support "
+"is available then it should be set to a 'Generic Device'. In this mode, a "
+"callback will be initiated to this extension when it changes from an InUse "
+"state to NotInUse. If it was busy when first attempted, this will be when "
+"the current call has ended. If it simply did not answer, then this will be "
+"the next time this phone is used to make or answer a call and then hangs up. "
+"It is possible to set this to take advantage of 'Native Technology Support' "
+"if available and automatically fallback to the 'Generic Mode' when not."
+msgstr ""
+
+msgid "Call Camp-On Services"
+msgstr ""
+
+msgid "Forcing default settings"
+msgstr ""
+
+msgid ""
+"The following settings are being used for all extensions. To configure "
+"individually set 'Only Use Default Camp-On Settings' to false on the "
+"Advanced Settings page. Active settings:"
+msgstr ""
+
+msgid ""
+"Asterisk: cc_offer_timer. How long after dialing an extension a user has to "
+"make a call completion request."
+msgstr ""
+
+msgid ""
+"Asterisk: ccbs_available_timer. How long a call completion request will "
+"remain active before expiring if the phone rang busy when first attempting "
+"the call."
+msgstr ""
+
+msgid ""
+"Asterisk: ccnr_available_timer. How long a call completion request will "
+"remain active before expiring if the phone was simply unanswered when first "
+"attempting the call."
+msgstr ""
+
+msgid ""
+"Asterisk: cc_recall_timer. How long to ring back a caller who's Caller "
+"Policy is set to 'Generic Device'. This has no affect if to any other "
+"setting."
+msgstr ""
+
+msgid ""
+"Asterisk: cc_max_agents. Only valid for when using 'Native Technology "
+"Support' for Caller Policy. This is the number of outstanding Call "
+"Completion requests that can be pending to different extensions. With "
+"'Generic Device' mode you can only have a single request outstanding and "
+"this will be ignored."
+msgstr ""
+
+msgid ""
+"Affects Asterisk: cc_agent_dialstring. With 'Callback Device Directly' a "
+"callback request will be dialed straight to the specific device that made "
+"the call. If using 'Native Technology Support' this may be the preferred "
+"mode. The 'Callback Standard' option will initiate a call back to the caller "
+"just as if someone else on the system placed the call, which means the call "
+"can pursue Follow-Me. To avoid Follow-Me setting, choose 'Callback "
+"Extension'."
+msgstr ""
+
+msgid ""
+"Whether or not to announce the extension that is being called back when the "
+"phone is picked up."
+msgstr ""
+
+msgid ""
+"An optional Alert-Info setting that can be used when initiating a callback. "
+"Only valid when 'Caller Policy' is set to a 'Generic Device' and 'Caller "
+"Callback Mode' is not set to 'Callback Device Directly'."
+msgstr ""
+
+msgid ""
+"An optional CID Prepend setting that can be used when initiating a callback. "
+"Only valid when 'Caller Policy' is set to a 'Generic Device' and 'Caller "
+"Callback Mode' is not set to 'Callback Device Directly'."
+msgstr ""
+
+msgid ""
+"An optional CID Prepend setting that can be used to send to the extension "
+"being called back."
+msgstr ""
+
+msgid "Please enter a valid Alert-Info"
+msgstr ""
+
+msgid "Please enter a valid CID Prefix"
+msgstr ""
+
+msgid "Camp-On Request"
+msgstr ""
+
+msgid "Camp-On Cancel"
+msgstr ""

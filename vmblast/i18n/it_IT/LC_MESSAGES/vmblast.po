@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-06 14:55+0100\n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+#, php-format
+msgid "Voicemail Group %s: %s"
+msgstr "Gruppo Caselle Vocali %s: %s"
+
+msgid "Voicemail Group: "
+msgstr "Gruppo Caselle Vocali:"
+
+msgid "Exclude"
+msgstr "Escludi"
+
+msgid "Include"
+msgstr "Includi"
+
+msgid "Default Group Inclusion"
+msgstr "Gruppo Predefinito d'Inclusione"
+
+msgid "Default VMblast Group"
+msgstr "Gruppo Caselle Predefinito"
+
+msgid ""
+"You can include or exclude this extension/user from being part of the "
+"default voicemail blast group when creating or editing. Choosing this option "
+"will be ignored if the user does not have a voicemail box."
+msgstr ""
+"Puoi includere o escludere questo interno/utente dal gruppo predefinito di "
+"caselle vocali durante la creazione o modifica. L'opzione verrà ignorata se "
+"l'utente non ha una casella vocale."
+
+msgid "Upgrading vmblast to add audio_label field.."
+msgstr "Aggiornamento vmblast per aggiungere il campo audio_label.."
+
+msgid "Not Required"
+msgstr "Non Richiesto"
+
+msgid "Done"
+msgstr "Fatto"
+
+msgid "Upgrading vmblast to add password field.."
+msgstr "Aggiornamento vmblast per aggiungere il campo password.."
+
+msgid "Dropping grplist.."
+msgstr "Sto scartando grplist.."
+
+msgid "error populating vmblast_groups table"
+msgstr "errore nel popolamento della tabella vmblast_groups"
+
+msgid "populated new table"
+msgstr ""
+
+msgid "Dropping old grplist field.."
+msgstr ""
+
+msgid "failed to drop field"
+msgstr "impossibile scartare il campo"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Not Needed"
+msgstr "Non Necessario"
+
+msgid "Warning! Extension"
+msgstr "Attenzione! Interno"
+
+msgid "is not allowed for your account"
+msgstr "non è permesso al tuo account"
+
+msgid "Add VMBlast Group"
+msgstr "Aggiungi Gruppo di Caselle Vocali"
+
+msgid " [DEFAULT]"
+msgstr ""
+
+msgid "VMBlast Group"
+msgstr "Gruppo di Caselle Vocali"
+
+msgid "deleted"
+msgstr "eliminato"
+
+msgid "Delete Group"
+msgstr "Elimina Gruppo"
+
+msgid "Conflicting Extensions"
+msgstr "Interni in conflitto"
+
+msgid "Edit VMBlast Group"
+msgstr "Modifica Gruppo di Caselle Vocali"
+
+msgid "VMBlast Number"
+msgstr "Numero Gruppo"
+
+msgid "The number users will dial to voicemail boxes in this VMBlast group"
+msgstr ""
+"Il numero che gli utenti dovranno chiamare per questo Gruppo di Caselle "
+"Vocali"
+
+msgid "Group Description:"
+msgstr "Descrizione Gruppo:"
+
+msgid "Provide a descriptive title for this VMBlast Group."
+msgstr "Titolo descrittivo per questo Gruppo di Caselle."
+
+msgid "Audio Label:"
+msgstr "Etichetta Audio:"
+
+msgid ""
+"Play this message to the caller so they can confirm they have dialed the "
+"proper voice mail group number, or have the system simply read the group "
+"number."
+msgstr ""
+"Riproduce questo messaggio al chiamante in modo che può confermare che abbia "
+"chiamato il gruppo corretto, o semplicemente comunica il numero del gruppo "
+"chiamato."
+
+msgid "Read Group Number"
+msgstr "Conferma Numero del Gruppo"
+
+msgid "Beep Only - No Confirmation"
+msgstr "Solo Beep - Nessuna Conferma"
+
+msgid ""
+"The group number will be played to the caller so they can confirm they have "
+"dialed the proper voice mail group number.<br><br>You must install and "
+"enable the \"Systems Recordings\" Module to edit this option and choose from "
+"recordings."
+msgstr ""
+"Riproduce questo messaggio al chiamante in modo che può confermare che abbia "
+"chiamato il gruppo corretto. <br><br>Devi installare ed attivare il modulo "
+"\"Registrazioni di Sistema\" per modificare questa opzione e scegliere tra "
+"quelle disponibili."
+
+msgid "Optional Password"
+msgstr "Password Opzionale"
+
+msgid ""
+"You can optionally include a password to authenticate before providing "
+"access to this group voicemail list."
+msgstr ""
+"Si può impostare una password opzionale prima di accedere a questo Gruppo di "
+"Caselle."
+
+msgid "Voicemail Box List:"
+msgstr "Lista Caselle Vocali:"
+
+msgid ""
+"Select voice mail boxes to add to this group. Use Ctrl key to select "
+"multiple.."
+msgstr ""
+"Selezionare le Caselle da includere in questo gruppo. Utilizzare il tasto "
+"Ctrl per selezioni multiple."
+
+msgid "Default VMBlast Group"
+msgstr "Gruppo Caselle Predefinito"
+
+msgid ""
+"Each PBX system can have a single Default Voicemail Blast Group. If "
+"specified, extensions can be automatically added (or removed) from this "
+"default group in the Extensions (or Users) tab.<br />Making this group the "
+"default will uncheck the option from the current default group if specified."
+msgstr ""
+"Ogni sistema PBX può avere un gruppo di Caselle Vocali Predefinito. Se si "
+"attiva questa opzione, gli interni saranno automaticamente aggiunti (o "
+"rimossi) da questo gruppo.<br />Impostando questo gruppo come predefinito "
+"verrà rimossa l'opzione dal gruppo corrente predefinito se esiste."
+
+msgid "Submit Changes"
+msgstr "Conferma Cambiamenti"
+
+msgid "Invalid Group Number specified"
+msgstr "Numero Gruppo specificato non valido"
+
+msgid "Group numbers with more than one digit cannot begin with 0"
+msgstr "I numeri dei Gruppi con più di una cifra non possono iniziare per 0"
+
+msgid "Please enter an extension list."
+msgstr "Prego immettere una lista di interni."
+
+msgid "Please enter a valid Group Description"
+msgstr "Prego immettere una Descrizione del gruppo valida"
+
+msgid "Please enter a valid numeric password, only numbers are allowed"
+msgstr ""
+"Prego immettere una password numerica valida, solo numeri sono permessi"
+
+msgid "Please select at least one extension"
+msgstr "Prego selezionare almeno un interno"
+
+msgid "Voicemail Blasting"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Creates a group of extensions that calls a group of voicemail boxes and "
+"allows you to leave a message for them all at once."
+msgstr ""
+
+#~ msgid "VoiceMail Blasting"
+#~ msgstr "Gruppi di Caselle Vocali"

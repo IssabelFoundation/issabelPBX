@@ -1,0 +1,19 @@
+<module>
+	<rawname>donotdisturb</rawname>
+	<repo>standard</repo>
+	<name>Do-Not-Disturb (DND)</name>
+	<version>2.11.0.3</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<changelog>
+		*2.11.0.3* Initial Issabel Foundation release
+	</changelog>
+	<description>Provides donotdisturb featurecodes</description>
+	<category>Applications</category>
+	<supported>
+		<version>2.10</version>
+	</supported>
+	<location>release/2.11/donotdisturb-2.11.0.1.tgz</location>
+	<md5sum>e37a04d5dc7652b43f9781f56be5ed8b</md5sum>
+</module>

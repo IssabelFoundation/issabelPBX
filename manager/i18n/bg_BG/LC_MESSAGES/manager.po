@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-16 19:54+0200\n"
+"Last-Translator: \n"
+"Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Error writing the manager additional file."
+msgstr "Грешка при запис на manager_additional файл."
+
+msgid "This manager already exists"
+msgstr "Този manager вече съществува"
+
+msgid "Choose Manager:"
+msgstr "Избери Manager:"
+
+msgid "Choose the user that PHPAGI will use to connect the Asterisk API."
+msgstr ""
+"Изберете потребител който PHPAGI ще използва за свързване с Asterisk API."
+
+msgid "Increasing read field size if needed.."
+msgstr ""
+
+msgid "error encountered, not altered"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "Increasing write field size if needed.."
+msgstr ""
+
+msgid "Asterisk API"
+msgstr "Астериск Manager"
+
+msgid "Settings"
+msgstr ""
+
+msgid "Add Manager"
+msgstr "Добави Manager"
+
+msgid "Manager"
+msgstr "Manager"
+
+msgid "deleted"
+msgstr "изтрит"
+
+msgid "Manager:"
+msgstr "Manager:"
+
+msgid "Delete Manager"
+msgstr "Изтрий Manager"
+
+msgid "Edit Manager"
+msgstr "Редактирай Manager"
+
+msgid "Manager name:"
+msgstr "Manager име:"
+
+msgid "Name of the manager without space."
+msgstr "Име на manager без интервали."
+
+msgid "Manager secret:"
+msgstr "Manager парола:"
+
+msgid "Password for the manager."
+msgstr "Парола за този manager."
+
+msgid "Deny:"
+msgstr "Забрани:"
+
+msgid ""
+"If you want to deny many hosts or networks, use & char as separator.<br/><br/"
+">Example: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
+msgstr ""
+"Ако искате да забраните няколко хоста или мрежи, използвайте символа & за "
+"разделител.<br/><br/>Например: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
+
+msgid "Permit:"
+msgstr "Разреши:"
+
+msgid ""
+"If you want to permit many hosts or networks, use & char as separator. Look "
+"at deny example."
+msgstr ""
+"Ако искате да разрешите няколко хоста или мрежи, използвайте символа & за "
+"разделител.<br/><br/>Например: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
+
+msgid "Rights"
+msgstr "Права"
+
+msgid "Read"
+msgstr "Четене"
+
+msgid "Write"
+msgstr "Запис"
+
+msgid "Check Asterisk documentation."
+msgstr "Консултирайте се с Asterisk документация."
+
+msgid "Check All/None."
+msgstr "Маркирайте Всички/Нищо."
+
+msgid "Submit Changes"
+msgstr "Приеми Промените"
+
+msgid "The manager name cannot be empty or may not have any space in it."
+msgstr ""
+"Името на manager не може да е празно или не трябва да има интервали в него."
+
+msgid "The manager secret cannot be empty."
+msgstr "Паролата на manager не може да е празна."
+
+msgid "The manager deny is not well formatted."
+msgstr "Забраните на manager не са добре форматирани."
+
+msgid "The manager permit is not well formatted."
+msgstr "Правата на manager не са добре форматирани."
+
+msgid "The manager read field is not well formatted."
+msgstr "Полетата за четене на manager не са добре форматирани."
+
+msgid "The manager write field is not well formatted."
+msgstr "Полетата за запис на manager не са добре форматирани."
+
+#~ msgid "The manager read and write properties cannot be empty."
+#~ msgstr "Настройките за четене и запис на manager не може да са празни."

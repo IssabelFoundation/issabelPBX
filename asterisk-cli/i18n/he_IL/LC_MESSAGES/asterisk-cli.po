@@ -1,0 +1,32 @@
+# Hebrew version for Asterisk CLI IssabelPBX Administration.
+# Copyright (C) 2006
+# This file is distributed under the same license as the PACKAGE package.
+# Shimi <shimi@shimi.net>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2006-10-17 17:30+0300\n"
+"Last-Translator: Shimi <shimi@shimi.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Asterisk CLI"
+msgstr "ממשק שורת הפקודה של אסטריסק"
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"Provides an interface allowing you to run a command as if it was typed into "
+"Asterisk CLI"
+msgstr ""
+
+msgid "Command:"
+msgstr "פקודה:"
+
+msgid "Execute:"
+msgstr ""

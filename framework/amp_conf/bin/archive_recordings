@@ -1,0 +1,311 @@
+#!/usr/bin/php -q
+<?php
+// TODO: no modules and no manager?
+//
+//include bootstrap
+$bootstrap_settings['issabelpbx_auth'] = false;
+$bootstrap_settings['cdrdb'] = true;
+if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc/issabelpbx.conf')) {
+	include_once('/etc/asterisk/issabelpbx.conf');
+}
+
+// TODO hard coded, get this out of bootstrap now?
+//
+define("MONITOR_DIR", "/var/spool/asterisk/monitor");
+
+function showHelp() {
+	out("This script will archive all monitor recordings in ".MONITOR_DIR."/.");
+	out("Optional parameters:");
+	out("  --help, -h, -?           Show this help");
+	out("  --debug                  Enable debug output");
+	out("  --dry-run                Don't actually do anything");
+	out("  --mp3    				Recursively convert all .WAV to .mp3");
+	out("  --delwav					Use with --mp3 to delete orignal files after converting to .mp3");
+}
+
+/** creates directory tree recursively
+ */
+function makeDirs($strPath, $mode = 0770) {
+	return is_dir($strPath) or ( makeDirs(dirname($strPath), $mode) and mkdir($strPath, $mode) );
+}
+
+
+/** processes all recordings in MONITOR_DIR
+ */
+function process_files() {
+	global $dryrun;
+	global $debug;
+	
+	if (is_dir(MONITOR_DIR)) {
+		$dir = opendir(MONITOR_DIR);
+		while ($file = readdir($dir)) {
+			$calltype="";
+			if (($file[0] != ".") && is_file(MONITOR_DIR."/".$file)) {
+				if($debug) {
+						debug("Processing file ".$file);					
+				}
+				if ((strtolower(substr($file,-4)) == ".wav") || (strtolower(substr($file,-4)) == ".gsm")) {
+					// check if recording is from a queue, ringgroup or outbound
+					// queue recordings saved like q<queue#>-<date>-<time>-<uniqueid>.wav
+					// ringgroup recordings saved like g<rg#>-<date>-<time>-<uniqueid>.wav
+					// outbound call recordings saved like OUT<exten>-<date>-<time>-<uniqueid>.wav
+					// all other call recordings saved like <date>-<time>-<uniqueid>.wav
+					if(!(strpos($file,"OUT") === false)) {  //outbound
+						$outbound=substr($file,3,(strpos($file,"-")-3));
+						$calltype="out-".$outbound;
+						$uniqueid = substr($file,strrpos($file,"-")+1,-4);
+						$datetime = substr($file,strpos($file,"-")+1,strrpos($file,"-")-strlen($outbound)-4);
+					} else if(strpos($file,"q") === 0) {   //queue
+						$queue=substr($file,1,(strpos($file,"-")-1));
+						$calltype="queue-".$queue;
+						$uniqueid = substr($file,strrpos($file,"-")+1,-4);
+						$datetime = substr($file,strpos($file,"-")+1,strrpos($file,"-")-strlen($queue)-2);
+					} else if(strpos($file,"g") === 0) {   //ringgroup
+						$ringgroup=substr($file,1,(strpos($file,"-")-1));
+						$calltype="ringgroup-".$ringgroup;
+						$uniqueid = substr($file,strrpos($file,"-")+1,-4);
+						$datetime = substr($file,strpos($file,"-")+1,strrpos($file,"-")-strlen($ringgroup)-2);
+					} else {  //direct inbound
+						$calltype="in";
+						$uniqueid = substr($file,strrpos($file,"-")+1,-4);
+						$datetime = substr($file,0,strrpos($file,"-"));
+					}
+					outn("-> Looking for \"".$calltype."\" type CDR for ".$uniqueid.".. ");
+					$cdrRecord = get_cdr($datetime,$uniqueid,$calltype);
+					if(isset($cdrRecord['extension'])) {
+						$calldate = strtok($cdrRecord['calldate']," ");
+						if ($debug) debug("Calldate is ".$calldate);
+						$calltime = strtok(" ");
+						if ($debug) debug("Calltime is ".$calltime);
+						$filepath = MONITOR_DIR."/".str_replace("-","/",$calldate)."/".$cdrRecord['extension']."/".$cdrRecord['direction'];
+						if ($debug) debug("Preparing directory ".$filepath);
+						if(!$dryrun) {
+							makeDirs($filepath);
+						}
+
+						out("Storing recording to ".$filepath);
+						if(!$dryrun) {
+							exec("mv ".MONITOR_DIR."/".$file." ".$filepath."/".$file);
+						}
+					} else {
+						out("Storing recording as an orphan");
+						if(!$dryrun) {
+							makeDirs(MONITOR_DIR."/orphans");
+							exec("mv ".MONITOR_DIR."/".$file." ".MONITOR_DIR."/orphans/");
+						}
+					}
+				} else {
+					error("Don't know what to do with ".$file);
+				}
+			}
+		}
+	} else {
+		fatal(MONITOR_DIR." does not exist!");
+	}
+}
+
+function check_table() {
+	global $cdrdb;
+	global $debug;
+	outn("Verifying CDR 'uniqueid' field exisits..");
+	$sql = "SELECT uniqueid FROM cdr WHERE NOT uniqueid=\"\"";
+	if ($debug) {out(""); debug("Query: ".$sql);}
+	$result = $cdrdb->query($sql); 
+	if($cdrdb->IsError($result)) {     
+		fatal($result->getDebugInfo()."\" while running ".$sql."\n"); 
+	}
+	if (count($result) > 0) {
+		out("OK");
+	} else {
+		out("FAILED");
+		fatal("No unique IDs have been logged in your CDR Table.\n\nIn /usr/src/asterisk-addons:\n1. Add a CFLAGS+=-DMYSQL_LOGUNIQUEID to the top of the Makefile.\n2. Perform the usual make clean, make, make install.\n3. Restart Asterisk");
+	}
+	return($result);
+}
+
+// makes "20050502-162120" look like "2005-05-02 16:21:20"
+function fix_datetime($datetime) {
+	$datetime = str_replace("-"," ",$datetime);
+	$year = substr($datetime,0,4);
+	$month = substr($datetime,4,2);
+	$day = substr($datetime,6,2);
+	$hours = substr($datetime,9,2);
+	$minutes = substr($datetime,11,2);
+	$seconds = substr($datetime,13,2);
+	$allowance = substr(($seconds - 1) + 100,1); //we allow a slight movement in the CDR timestamp for execution of dialparties.agi, etc
+	if($allowance<0) {
+		$allowance="59";
+		$minutes=substr(($minutes-1 - 1) + 100,1);
+	}
+	$datetimes['exact'] = "$year-$month-$day $hours:$minutes:$seconds";
+	$datetimes['allow'] = "$year-$month-$day $hours:$minutes:$allowance";
+	return $datetimes;
+}
+
+function get_cdr($datetime,$uniqueid,$calltype) {
+	global $cdrdb;
+	global $debug;
+	$datetimes = fix_datetime($datetime);
+	$sql = "SELECT * FROM cdr WHERE uniqueid = '$uniqueid' AND calldate BETWEEN '".$datetimes['allow']."' AND '".$datetimes['exact']."'";
+	if ($debug) {out(""); debug("Query: ".$sql);}
+	$result = $cdrdb->getRow($sql); 
+	if($cdrdb->IsError($result)) {     
+		fatal($result->getDebugInfo()."\" while running ".$sql."\n"); 
+	}
+	if (count($result) > 0) {
+		out("Found");
+	} else {
+		out("Not Found");
+	}
+	$cdrRecord['calldate']=$result[0];
+	$cdrRecord['clid']=$result[1];
+	$cdrRecord['src']=$result[2];
+	$cdrRecord['dst']=$result[3];
+	$cdrRecord['dcontext']=$result[4];
+	$cdrRecord['channel']=$result[5];
+	$cdrRecord['dstchannel']=$result[6];
+	$cdrRecord['lastapp']=$result[7];
+	$cdrRecord['lastdata']=$result[8];
+	$cdrRecord['duration']=$result[9];
+	$cdrRecord['billsec']=$result[10];
+	$cdrRecord['disposition']=$result[11];
+	$cdrRecord['amaflags']=$result[12];
+	$cdrRecord['accountcode']=$result[13];
+	$cdrRecord['uniqueid']=$result[14];
+	$cdrRecord['userfield']=$result[15];
+	if (strpos($calltype,"in") === 0) {
+		if($debug) debug("Getting incoming destination from dst: ".$cdrRecord['dst']);
+		$cdrRecord['extension']=$cdrRecord['dst'];
+		$cdrRecord['direction']="in";
+	} else if(strpos($calltype,"out") === 0) {
+		if($debug) debug("Getting outgoing origination from calltype: ".$calltype);
+		$cdrRecord['extension']=ltrim($calltype,"out-");
+		$cdrRecord['direction']="out";
+	} else if (strpos($calltype,"ringgroup") === 0) {
+		if($debug) debug("Getting group destination from dstchannel: ".$cdrRecord['dstchannel']);
+		$cdrRecord['extension']=substr($cdrRecord['dstchannel'],strpos($cdrRecord['dstchannel'],"/")+1,(strpos($cdrRecord['dstchannel'],"-")-strpos($cdrRecord['dstchannel'],"/")-1)); //cut out the channel number
+		outn("Checking if ".$cdrRecord['extension']." has recordings enabled..");
+		$cdrRecord['direction']="in";
+	} else if (strpos($calltype,"queue") === 0) {
+		if($debug) debug("Getting queue destination from dst: ".$cdrRecord['dst']);
+		$cdrRecord['extension']=$cdrRecord['dst'];
+		$cdrRecord['direction']="in";
+	}
+	if (empty($cdrRecord['extension'])) {
+		if($debug) debug(".. no owner for ".$uniqueid);
+	} else {
+		if($debug) debug(".. recording owned by ".$cdrRecord['extension']);
+	}
+	return($cdrRecord);
+}
+
+// Create list of all files 
+function make_tree($path){ 
+	$handle=opendir($path);
+	while($a=readdir($handle)){
+		if(!preg_match('/^\./',$a)){
+			$full_path="$path/$a";
+			if(is_file($full_path)){ $list[]=$full_path; } // only files //$list[]=$full_path;
+				if(is_dir($full_path)){
+					$recursive=make_tree($full_path);
+					for($n=0; $n<count($recursive); $n++){
+						$list[]=$recursive[$n];
+					}
+				}
+			}
+	}
+	closedir($handle);
+	return $list;
+}
+
+function convert_files() {
+	global $debug;
+	global $dryrun;
+	global $delwav;
+	outn("-> Converting files to mp3..");
+	$files = make_tree(MONITOR_DIR);
+	foreach ($files as $file) {
+		if (strtolower((substr($file,-4)) == ".wav")) {
+			$newfile = substr($file,0,strlen($file)-3)."mp3";
+			$lamecmd="lame --cbr -m m -t -F \"".$file."\" \"".$newfile."\""; //this doesn't work
+			if($debug) debug($lamecmd);
+			if (!$dryrun) {
+				exec($lamecmd);
+				if($delwav) {
+					exec("rm -f ".$file);
+				}
+			}
+		}
+	}
+	out("OK");
+}
+/********************************************************************************************************************/
+
+// **** Make sure we have PEAR's GetOpts.php, and include it
+
+outn("Checking for PEAR Console::Getopt..");
+if (! @ include("Console/Getopt.php")) {
+	out("FAILED");
+	fatal("PEAR must be installed (requires Console/Getopt.php). Include path: ".ini_get("include_path"));
+}
+out("OK");
+
+
+// **** Parse out command-line options
+
+$shortopts = "h?u:p:";
+$longopts = array("help","debug","dry-run","mp3","delwav");
+
+$args = Console_Getopt::getopt(Console_Getopt::readPHPArgv(), $shortopts, $longopts);
+if (is_object($args)) {
+	// assume it's PEAR_ERROR
+	out($args->message);
+	exit(255);
+}
+
+$debug = false;
+$dryrun = false;
+$mp3= false;
+
+foreach ($args[0] as $arg) {
+	switch ($arg[0]) {
+		case "--help": case "h": case "?":
+			showHelp();
+			exit(10);
+		break;
+		case "--dry-run":
+			out("Dry-run only, nothing will be changed");
+			$dryrun = true;
+		break;
+		case "--debug":
+			$debug = true;
+			debug("Debug mode enabled");
+		break;
+		case "--mp3":
+			$mp3 = true;
+			debug("MP3 conversion enabled");
+		break;
+		case "--delwav":
+			$delwav = true;
+			debug("Will delete wav after converting to mp3");
+		break;
+	}
+}
+
+
+// **** Look for user = root
+
+outn("Checking user..");
+$current_user=(isset($_ENV["USER"]) ? $_ENV["USER"] : exec('whoami',$output));
+if ($current_user != "root"){
+	out("FAILED");
+	fatal($argv[0]." must be run as root");
+}
+out("OK");
+
+
+check_table();
+process_files();
+if($mp3) {
+	convert_files();
+}

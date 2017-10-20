@@ -1,0 +1,628 @@
+Notes on upgrading from an older release
+========================================
+
+o Upgrading from version .28 to .29:
+
+    No special features, just bugfixing and serving the policy file
+    from op_server.pl for newer flash clients.
+
+o Upgrading from version .27 to .28:
+
+    New parameters in op_buttons.cfg
+
+        SpyExt=100@spy
+            It lets you specify an extension@context to triger a chanspy
+            action for that call when dropping your phone over the Arrow
+
+        no_label_counter=1
+            To not show increment counter when specifying multiple
+            positions for a button.
+
+    New experimental button type [DID/5555555]
+        It will try to match Freepbx FROM_DID incoming calls
+
+
+	New paramter "passvars" in op_server.cfg to pass extra values to
+    popups. It will pass the variable that is set to the channel via Set
+    in the dialplan before dialing to it in the GET request on the popup.
+
+o Upgrading from version .26 to .27:
+
+    ASTDB checks were changes. Now you have to enable it per button using
+    "astdbkey". Just add that parameter to the button you want to make the
+    check with the appropiate key to check for, eg:
+
+        [SIP/10]
+		Position=1
+        Astdbkey=10
+        ...	
+
+    You can specify the callerid name in clid_format under op_server.cfg
+    so you can choose to display the name, number or both, like:
+
+        clid_format=${CLIDNAME} XXX-XXX-XXXX
+
+    New parameter in op_buttons.cfg
+
+        groupcount
+            If set to 1, will show number of channels in use for
+            the button instead of the last callerid. Useful for
+            trunk buttons.
+
+    New button type
+
+        [IMAGE]
+            To draw a jpg image anywhere on the screen, see op_buttons.cfg
+            for an example
+
+
+    New parameter in op_style.cfg
+
+        clid_centered
+            If set to 1, it will try to center the clid display
+
+        nomail_alpha
+            Amount of alpha to apply to MWI when there is no voicemail
+
+        show_borders
+            Enable or disable border to button legend (useful for debuging 
+            layout config)
+
+        label_extent_x
+        label_extent_y
+            If the label does not fit horizontally or vertically, increase
+            these numbers
+
+
+o Upgrading from version .25 to .26:
+
+    New DTHML client. The directory structure on the tarball has changed
+    to accommodate the new DHTML client. The former html subdirectory was
+    renamed to flash, and the new client is inside the dhtml subdirectory.
+    
+    The new DHTLM client works in a similar way to the flash client, it has
+    a couple of scripts that read the same config files than the flash 
+    version to draw the buttons. It is not yet complete but it mostly works.
+
+    New parameter in op_style.cfg:
+
+        shake_pixels
+            Sets the number of pixels to shake the icon when ringing
+
+        dimm_noregister_by
+            Ammount of alpha dimm to apply when channel is not registred
+
+        dimm_lagged_by
+            Ammount of alpha dimm to apply when channel is lagged
+
+    New parameters in op_buttons.cfg:
+
+        VoiceMailExt
+            To set the extension@context to use when transferring directly
+            to voicemail
+
+        Background
+            To specify a jpg image to use as button background. You have to
+            set No_rectangle=true on that button for the background to become 
+            active. The .jpg file should be of the same size as the button width
+            and height as specified in op_style.cfg
+
+        Privacy
+            If set to true, it won't display caller id or dialed number info
+            for that button.
+
+o Upgrading from version .24 to .25:
+
+    Queue buttons now must be defined as:
+
+        [QUEUE/SUPPORT]
+
+      With this new syntax, queue names with numbers
+      only as used in AMP will work without collisions.
+
+      You have to rename all queue buttons in your config 
+      file to use the new syntax or they won't work.
+
+    Added some attributes to LEGENDS in op_buttons.cfg:
+
+       URL       
+       TARGET
+       NO_BASE64
+
+       If set, the legend will become an hyperlink to URL@TARGET
+       If NO_BASE64 is set, the text won't be encoded
+
+    Added attributes to any button in op_buttons.cfg:
+
+        URL
+        TARGET
+        
+        If set, it will add an hyperlink to the button label pointing
+        to that URL and opening it inside TARGET.
+
+    Added enable_label_background to op_style.cfg
+
+        This parameter will set the background color to the button label
+        to the same colors as the led. You can use it together with
+        "no_rectangle" in the buttons and Icon=0 and a small width, height
+        and font to fit hundreds of buttons on one screen. I was able to
+        fit 630 buttons (but only for monitoring as you don't have the led
+        or icon to transfer or hangup calls)
+
+    Added dimm (alpha) for noregistered and lagged buttons to op_style.cfg
+
+        dimm_noregister_by=20
+        dimm_lagged_by=60
+
+    Added listen_addr keyword
+      If you want op_server.pl to bind to only one IP address instead of
+      all avaialbe addresses.
+
+    Added manager_port keyword
+
+      If your manager is not running on the default port, you
+      can specify the port now for each connection with this 
+      option. Example:
+
+         manager_port  = 5039
+
+    Added support for astmanproxy
+
+      In op_server.cfg you have to defined the astmanproxy host & port 
+      (the ip address where astmanproxy is listening) & server (the
+      same ip or name you use in astmanproxy.conf). If you 
+      monitor more than one asterisk server trough astmanproxy, you 
+      will have to enumerate them using the astmanproxy_server keyword.
+      Example:
+
+        astmanproxy_host   = 127.0.0.1
+        astmanproxy_port   = 1234
+        astmanproxy_server = 192.168.10.1
+        astmanproxy_server = 192.168.10.2
+
+    Added buttons for MEETME participants. Just specify more
+    than one position for a meetme button and they will show
+    meetme participants indiviually as they join or leave the
+    conference.
+
+    Added [QUEUEAGENT] buttons. They will be taken by static
+    or dynamic queue members automatically.
+
+    Added buttons for QUEUE positions. Just specify more than
+    one position for the button and they will show each queue
+    position instead of a queue summary
+ 
+
+o Upgrading from version .23 to .24:
+
+    Nothing new, just a bug fix release in op_server.pl
+
+o Upgrading from version .22 to .23:
+
+    Client and server must be upgraded or it will not work well.
+
+    Internationalization support: 
+
+       Parameter ADDED to op_server.cfg:
+
+           language
+
+       To set the language to use in the general section
+       and optionally in every panel context defined.
+
+       The language files are named op_lang_XX.cfg where XX is the 
+       language to use defined in the language option.  Each panel 
+       context might have  a distinct language. The default language 
+       is 'en' (english).
+
+       You can create your own language file. If you do, please
+       send it back to me so I can include it in the tarball.
+       Some strings include variables, they are represented as
+       $1 and $2. You can ommit the variables or use them as you
+       see fit.
+
+       The help file is now called help-XX.html. Be sure to add that file
+       or rename the one you have. Please contribute with translations or 
+       beautifying them if you can.
+
+    Parameters REMOVED from op_style.cfg (they were moved to the language
+    configuration file):
+
+        clid_label
+        detail_title
+        detail_from
+        detail_to
+        detail_duration
+
+    Parameters ADDED to op_style.cfg (to set the button label color, the 
+    button label shadow color, and the clid text color):
+
+        label_font_color = 000000
+        label_shadow_color = FFFFFF
+        clid_font_color = 00DD00
+        timer_font_color = 200070
+
+    New option for LEGENDS in op_buttons.cfg
+
+        font_color = 102030
+
+    Support for command line options. Run op_server.pl with --help to
+    see the available options
+
+
+o Upgrading from version .21 to .22:
+
+    Just replace op_server.pl that has minor bugfixes
+
+o Upgrading from version .20 to .21:
+    New configuration file: op_astdb.cfg used to monitor asterisk
+    db values and change states for a button based on them.
+
+    New option: voicemail_extension parameter in op_server.cfg. 
+    If set, FOP will originate a call to that extension when 
+    double clicking on the MWI icon.
+
+    The PARK buttons are now specified as PARK/XXX
+    instead of PARKXXX to make it more consistent with
+    channel naming conventions. The old name will still
+    work.
+
+    To enable agent_status (displays agent idle
+    time and refresh queue status after each 
+    call). In op_server.cfg:
+
+        agent_status=1
+
+
+    If there is a background.jpg image in the same
+    directory as the swf file, it will be used as
+    the background for the panel. Resolution: 996x600
+
+    The syntax for wildcard buttons has changed, if 
+    you have [SIP/*] change it to [_SIP/.*]
+    The new matching routine allows full regexps to
+    be used. To use regexps buttons start them with
+    an underscore followed by your expression.
+
+    To disable the security code, leave it blank. In
+     op_server.cfg:
+        security_code = ""
+
+    To enable timeout on transfers, you have to set the
+    transfer_timeout paramenter to op_server.cfg
+
+    You can set the reload button to perform an asterisk
+    restart if you set enable_restart to 1 in op_server.cfg
+
+o Upgrading from version .19 to .20:
+
+    You can define the server number of a button in op_buttons.cfg
+    using the 'server' directive. If you leave it empty, it will 
+    default to Server=1
+
+    To monitor more than one asterisk box, just repeat the sequence of
+    connection parameters in op_server.cfg
+
+         ; Server 1
+         manager_host=1.2.3.4
+         manager_user=john
+         manager_secret=doe
+
+         ; Server 2
+         manager_host=1.2.3.5
+         manager_user=mary
+         manager_secret=poppins
+
+    To add text legends, the format is:
+
+        [LEGEND]
+        x=535
+        y=50
+        text=Conferences
+        font_size=32
+        font_family=Arial
+        use_embed_fonts=1
+
+    To add park slot buttons, the format is:
+
+        [PARK701]
+        Position=17
+        Icon=3
+        Extension=700
+        Label="Park 701"
+
+    You can specify the mailbox for a button with the mailbox parameter:
+
+        [SIP/100]
+        Position=1
+        Mailbox=100@default
+        ...
+
+    The 'old way' still works, by using the combination of Extension and
+    Voicemail_Context. I recommend you to use the new format as it is more
+    flexible (you can monitor a mailbox independant from the extension of
+    that button).
+
+
+    New directives in op_server.cfg
+
+       rename_label_wildcard
+      barge_muted
+      clid_privacy
+      show_ip
+
+o Upgrading from version .18 to .19:
+
+    In op_style.cfg there is a new paramter to confgure the 
+    highlighting color for the buttons:
+
+      btn_highlight_color=ff0000
+
+o Upgrading from version .17 to .18:
+
+    The default .swf client is now the ming port. The new features
+    are available only in the ming port. The flash .swf is included
+    but it was not tested.
+
+    In op_style.cfg there are new parameters (to configure led colors):
+
+      ledcolor_ready
+      ledcolor_busy
+      ledcolor_agent
+
+    The parameter led_color is not used anymore. (It is used by the 
+    flash client only, not the default ming client)
+
+    In op_server.cfg there are new options too (all commented in 
+    op_server.cfg itsef):
+
+      rename_label_agentlogin
+      rename_label_callbacklogin
+      rename_to_agent_name 
+      rename_queue_member
+      change_led_agent   
+      clicktodial_insecure
+
+    It is possible now to draw rectangles, see op_buttons.cfg for 
+    an example.
+
+    If you use click-to-dial, the button used to originate the call
+    must be specified when invoking the .swf file. The parameter used
+    is 'dial'. See index-clicktodial.html for an example.
+
+o Upgrading from version .16 to .17:
+
+    Just replace op_server.pl and your favorite .swf client. Its
+    mostly a bug fix release. The new features do not require 
+    configuration changes.
+
+o Upgrading from version .15 to .16:
+
+    The help window is now a browser windows that loads help.html 
+    (instead of being a flash window that loads the help.txt file)
+    So you need to put a help.html page in the same location as the
+    .swf file.
+
+    There are a couple of new parameters. In op_server.cfg
+
+       poll_voicemail
+
+         Will check for voicemail status every poll_interval seconds.
+         Remeber that poll_interval will also check for sip peers.
+
+       rename_label_agentlogin
+       rename_label_callbacklogin
+
+         Both parameters acomplish the same goal: to rename a button
+         label when an Agent logs in. One of them works with the regular
+         AgentLogin application. The other one with AgentCallbackLogin.
+         For the later, you need to have a button with the same extension
+         and context for the callback for it to work.
+
+    There is also a new parameter in op_style.cfg
+
+        enable_crypto (1 for enable, 0 for disable)
+
+          If you want to encrypt server to client messages, turn this on.
+
+o Upgrading from version .14 to .15:
+
+    The format of the configuration file is different. You have to
+    run ./convert_config_pre_14.pl in order to convert your old
+    configuration files to the new format. The conversion utility
+    must reside in the same directory as the old configuration files:
+
+       op_server.cfg
+       op_style.cfg
+       op_buttons.cfg
+
+    When you run the conversion routine, it will backup your old 
+    configuration files and do its thing. Just in case, backup the
+    files yourself. The conversion program does not have extensive
+    error checking.
+
+    The barge-in functionality has changed also. You no longer need
+    an auto_conference_extension in your dialplan. The panel will 
+    keep track of the conferences itself. You *do* need to add the
+    conference room numbers that must be used for barge-in. The 
+    conversion routine adds the parameter, you have to modify it to
+    suit your needs. The new parameter (in op_server.cfg) is:
+
+        barge_rooms
+
+    It must have at least two rooms defined, with the format:
+    "minor-major". Those rooms must be defined in your extensions.conf
+    under the context defined by conference_context. The extension
+    number must match the meetme room number. See op_server.cfg for
+    an example.
+
+    To authenticate using MD5 to Asterisk Manager you can add the parameter
+    auth_md5=1 in op_server.cfg. It is enabled by default.
+
+    There are new parameter in op_style.cfg: 
+
+        enable_animation: it will animate the phone icons when ringing.
+
+        use_embed_font: lets you choose between embed fonts or system fonts.
+
+        (1 for enable, 0 for disable)
+    
+
+o Upgrading from version .13 to .14:
+   
+    In Asterisk RC1, the IAX naming convention has changed. There are
+    no more brackets in IAX2 channel names. If you run RC1 (try it!)
+    you will have to name your IAX2 channels like:
+
+      IAX2/user
+
+    You will have to rename your op_buttons.cfg if you use IAX2 channels.
+
+    The code for handling the previous naming convention is still there
+    but I have not tested it. It might or might not work.
+
+    There are new elements in op_style that affects the button style:
+
+       arrow_scale
+       arrow_margin_top
+       arrow_margin_left
+
+       The above parameters indicate the size and position of a little
+       arrow that shows the 'direction' of the call. 
+
+       detail_title=Last call details
+       detail_from=From:
+       detail_to=To:
+       detail_duration=Duration:
+
+       These four parameters are for setting the text displayed in the
+       detail box when you double click on the little arrow after a call
+       is made.
+
+       led_color
+
+       The color scheme for the available/busy led.
+         0 for leds green/red. (default)
+         1 for leds grey/green 
+
+       label_shadow
+
+       You can add a shadow to the text label
+         0 for disabling the shadow (default)
+         1 for enabling the shadow
+
+
+    There is a new parameter in op_server.cfg:
+
+      clid_format
+
+        This mask will apply to the callerid field to format the
+        number as you see fit. Every 'x' will be replaced by a number
+        from right to left. Any other char will be preserved. Ex:
+    (xxx) xxx-xxxx
+
+o Upgrading from version .12 to .13:
+
+    For the timer to work, you need to add four new parameters to
+    op_style.cfg
+
+       timer_font_size
+       timer_font_family
+       timer_margin_top
+       timer_margin_left
+
+o Upgrading from version .11 to .12:
+
+    There are 4 new parameters in op_style.cfg for the caller id
+    display on each button.
+
+        clid_font_size
+        clid_font_family
+        clid_margin_top
+        clid_margin_left
+
+o Upgrading from version .10 to .11:
+
+    There are no new parameters in the configuration files. Your .10
+    configuration should work fine with version .11
+
+    The debug level bitmap is now different:
+
+       1   Show Manager Events Received
+       2   Show Commands set to Manager
+       4   Show Flash events Received
+       8   Show events sent to Flash Clients
+       16  1st level Debug on op_server.pl
+       32  2nd level Debug on op_server.pl
+       64  3rd level Debug on op_server.pl
+
+o Upgrading from version .09 to .10:
+
+    There are 2 new parameters in op_style.cfg for a new element
+    in the toolbar (a reload button)
+
+    btn_reload_label
+    show_btn_reload
+
+
+o Upgrading from version .08 to .09:
+
+    The debug level (op_server.cfg) is now a bitmap. Now you have more
+    control of the output produced by debug. The possible values are:
+
+       1   Show Manager Events Received
+       2   Show Commands set to Manager
+       4   1st level debug on op_server.pl
+       8   2nd level debug on op_server.pl
+       16  3rd level debug on op_server.pl
+
+    If you want full debug, set the value to 31 in op_server.cfg
+    If you want to see just the events received and sent, set it to 3 (1+2) 
+
+    The fade matrix for the buttons is slightly different. Its the first
+    step towards a visual button layout configurator.
+
+o Upgrading from version .07 to .08:
+
+    The offset and size of the icons have changed. You will need to adjust
+    your op_style.cfg. Now all the icons are aproximatly the same size and
+    have the same center offset, so the margins and scale parameters will
+    match from icon to icon. New layout configurations should be simpler.
+
+    There are several new parameters in op_style.cfg, related to the  
+    configurability of the toolbar. You have to add them in your current
+    configuration, if you don't do it you will not see any toolbar. The
+    parameters to add are:
+
+        clid_label=Extra Info:
+        security_label=Security Code:
+        btn_help_label=Help
+        btn_log_label=Debug
+        show_security_code=1
+        show_clid_info=2
+        show_status=3
+        show_btn_help=4
+        show_btn_debug=5
+
+    The number in show_xxx represents the order in which it is rendered. If
+    you want to hide an element of the toolbar, set it to 0.
+
+o Upgrading from version .06 to .07:
+
+    There are two new parameters in op_server.cfg:
+
+        auto_conference_extension = 900    
+        conference_context = conferences 
+
+    Add them to your existing configuration file. In op_server.cfg there are
+    also examples of asterisk configuration files to use the 3way auto
+    conferences.
+
+o Upgrading from previous versions:
+
+    There are three new parameters in op_sytle.cfg and a new one in
+    op_buttons.cfg. See CHANGES. Just add those parameters to your current
+    config files, and replace op_server.pl with the new one. The fixed 24
+    buttons flash movie does not support voicemail notifications. There is a
+    new index.html that scales the applet to the size of the browser window.
+    Try it and use the one you like more.

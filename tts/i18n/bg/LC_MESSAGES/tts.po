@@ -1,0 +1,95 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for tts
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-31 12:10-0400\n"
+"PO-Revision-Date: 2014-07-22 16:17+0200\n"
+"Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
+"Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/tts/bg/>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.10-dev\n"
+
+msgid "AGI script not found"
+msgstr ""
+
+#, php-format
+msgid "Text to Speech: %s"
+msgstr "Текст към Говор: %s"
+
+msgid "This name already exists"
+msgstr "Това име вече съществува"
+
+msgid "TTS AGI install failed. Module not usable."
+msgstr ""
+
+msgid "Add a Text To Speech item"
+msgstr ""
+
+msgid "Text To Speech"
+msgstr "Текст към Говор"
+
+msgid "deleted"
+msgstr "изтрит"
+
+msgid "Delete text to speech"
+msgstr ""
+
+msgid "Note, does not delete the files from the server."
+msgstr ""
+
+msgid "Main settings"
+msgstr ""
+
+msgid "Name"
+msgstr "Име"
+
+msgid "Give this TTS Destination a brief name to help you identify it."
+msgstr ""
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "Enter the text you want to synthetize."
+msgstr ""
+
+msgid "TTS Engine"
+msgstr ""
+
+msgid "Choose an engine"
+msgstr ""
+
+msgid ""
+"List of TTS engines detected on the server. Choose the one you want to use "
+"for the current sentence."
+msgstr ""
+
+msgid "After the Text To Speech was played go to"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr "Приеми Промените"
+
+msgid "TTS AGI script cannot be removed."
+msgstr ""

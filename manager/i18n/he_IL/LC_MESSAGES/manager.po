@@ -1,0 +1,132 @@
+# Hebrew version for Managers IssabelPBX Module
+# Copyright (C) 2006
+# This file is distributed under the same license as the PACKAGE package.
+# Shimi <shimi@shimi.net>, 2006.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2006-09-28 17:30+0300\n"
+"Last-Translator: Shimi <shimi@shimi.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Error writing the manager additional file."
+msgstr "שגיאה בכתיבת הקובץ הנוסף של המנהלים"
+
+msgid "This manager already exists"
+msgstr "המנהל כבר קיים"
+
+msgid "Choose Manager:"
+msgstr "בחר מנהל:"
+
+msgid "Choose the user that PHPAGI will use to connect the Asterisk API."
+msgstr "בחר את המשתמש ש PHPAGI ישתמש בו כדי להתחבר ל API של אסטריסק"
+
+msgid "Increasing read field size if needed.."
+msgstr ""
+
+msgid "error encountered, not altered"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "Increasing write field size if needed.."
+msgstr ""
+
+msgid "Asterisk API"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Add Manager"
+msgstr "הוסף מנהל"
+
+msgid "Manager"
+msgstr "מנהל"
+
+msgid "deleted"
+msgstr "נמחק"
+
+msgid "Manager:"
+msgstr "מנהל:"
+
+msgid "Delete Manager"
+msgstr "מחק מנהל"
+
+msgid "Edit Manager"
+msgstr "ערוך מנהל"
+
+msgid "Manager name:"
+msgstr "שם המנהל:"
+
+msgid "Name of the manager without space."
+msgstr "שם המנהל ללא רווחים."
+
+msgid "Manager secret:"
+msgstr "סיסמת מנהל:"
+
+msgid "Password for the manager."
+msgstr "סיסמא עבור המנהל"
+
+msgid "Deny:"
+msgstr "חסום:"
+
+msgid ""
+"If you want to deny many hosts or networks, use & char as separator.<br/><br/"
+">Example: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
+msgstr ""
+"אם אתה רוצה לחסום הרבה מחשבים או רשתות, השתמש בתו & בתור מפריד.<br /><br /"
+">לדוגמא: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
+
+msgid "Permit:"
+msgstr "הרשה:"
+
+msgid ""
+"If you want to permit many hosts or networks, use & char as separator. Look "
+"at deny example."
+msgstr ""
+"אם אתה רוצה להרשות הרבה מחשבים או רשתות, השתמש ב & בתור מפריד. הסתכל בדוגמת "
+"החסימה."
+
+msgid "Rights"
+msgstr "הרשאות"
+
+msgid "Read"
+msgstr "קריאה"
+
+msgid "Write"
+msgstr "כתיבה"
+
+msgid "Check Asterisk documentation."
+msgstr "בדוק את התיעוד של אסטריסק"
+
+msgid "Check All/None."
+msgstr "סמן הכל/כלום"
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "The manager name cannot be empty or may not have any space in it."
+msgstr ""
+
+msgid "The manager secret cannot be empty."
+msgstr ""
+
+msgid "The manager deny is not well formatted."
+msgstr ""
+
+msgid "The manager permit is not well formatted."
+msgstr ""
+
+msgid "The manager read field is not well formatted."
+msgstr ""
+
+msgid "The manager write field is not well formatted."
+msgstr ""

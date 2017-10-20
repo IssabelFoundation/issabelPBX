@@ -1,0 +1,94 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2009 Mikael Carlsson, mickecamino@gmail.com
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-15 15:53-0800\n"
+"PO-Revision-Date: 2009-08-25 07:17+0200\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: SWEDISH <mickecamino@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: restart.i18n.php:6 restart.i18n.php:12
+msgid "Admin"
+msgstr ""
+
+#: restart.i18n.php:4
+msgid "Bulk Phone Restart"
+msgstr ""
+
+#: page.restart.php:40
+msgid "Device List:"
+msgstr "Enhetslista"
+
+#: install.php:13
+msgid "FAILED"
+msgstr ""
+
+#: restart.i18n.php:10
+msgid "Phone Restart"
+msgstr "Telefonomstart"
+
+#: page.restart.php:30 page.restart.php:67
+msgid "Restart Phones"
+msgstr "Starta om telefoner"
+
+#: page.restart.php:32
+msgid "Restart requests sent!"
+msgstr "Omstartsbegäran skickad!"
+
+#: page.restart.php:58
+msgid "SELECT ALL"
+msgstr ""
+
+#: page.restart.php:40
+msgid ""
+"Select Device(s) to restart.  Currently, only Aastra, Snom, Polycom, "
+"Grandstream and Cisco devices are supported.  All other devices will not "
+"show up in this list.  Click the \"Select All\" button to restart all "
+"supported devices. "
+msgstr ""
+"Välj enhet(er) som ska startas om. För närvarande är endast Aastra, Snom, "
+"Polycom, Grandstream och Cisco-enheter som stöds. Andra enhter kommer inte "
+"att visas i denna lista. Klicka på \"Välj alla\" för att starta om alla "
+"enheter som stöds."
+
+#: restart.i18n.php:8
+msgid ""
+"This module allows users to restart one or multiple phones that support "
+"being restarted via a SIP NOTIFY command through Asterisk's sip_notify.conf"
+msgstr ""
+
+#: page.restart.php:35
+msgid ""
+"Warning: The restart mechanism behavior is vendor specific.  Some vendors "
+"only restart the phone if there is a change to the phone configuration or if "
+"an updated firmware is available via tftp/ftp/http"
+msgstr ""
+"Varning: Omstartsfunktionen är specifik för respektive telefontillverkare. "
+"Vissa tillverkare tillåter bara omstart om det har skett en förändring av "
+"telefonens konfiguration eller om en mjukvaruuppdatering av telefonen skett "
+"via tftp/ftp/http."
+
+#: install.php:11
+msgid "ok"
+msgstr ""

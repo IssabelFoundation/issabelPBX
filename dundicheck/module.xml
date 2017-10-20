@@ -1,0 +1,29 @@
+<module>
+	<rawname>dundicheck</rawname>
+	<repo>unsupported</repo>
+	<name>DUNDi Lookup Registry</name>
+	<version>2.11.0.3</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<changelog>
+		*2.11.0.3* Initial Issabel Foundation release
+	</changelog>
+	<description>
+		This module will check all configured and enabled DUNDi trunks as part of the extension registry function, and report back conflicts if
+		other sites have the same extensions. This does not filter against the route patterns - it will take any number being created and
+		report a conflict if that trunk could be used to call that number.
+	</description>
+	<menuitems>
+		<dundicheck>DUNDi Lookup</dundicheck>
+	</menuitems>
+	<depends>
+		<version>2.4.0</version>
+	</depends>
+	<supported>
+		<version>2.10</version>
+	</supported>
+	<category>Admin</category>
+	<location>release/2.11/dundicheck-2.11.0.0.tgz</location>
+	<md5sum>4e5be30715f59464a570eaa519ffae43</md5sum>
+</module>

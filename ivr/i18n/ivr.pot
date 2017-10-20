@@ -1,0 +1,233 @@
+# IssabelPBX language template
+# Copyright 2013 Schmooze Com Inc
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add IVR"
+msgstr ""
+
+#, php-format
+msgid "Edit IVR: %s"
+msgstr ""
+
+#, php-format
+msgid "Delete IVR: %s"
+msgstr ""
+
+msgid "IVR General Options"
+msgstr ""
+
+msgid "IVR Name"
+msgstr ""
+
+msgid "Name of this IVR."
+msgstr ""
+
+msgid "IVR Description"
+msgstr ""
+
+msgid "Description of this ivr."
+msgstr ""
+
+msgid "IVR Options (DTMF)"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Announcement"
+msgstr ""
+
+msgid "Greeting to be played on entry to the Ivr."
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Extensions"
+msgstr ""
+
+msgid "Completely disabled"
+msgstr ""
+
+msgid "Enabled for all extensions on a system"
+msgstr ""
+
+msgid "Direct Dial"
+msgstr ""
+
+msgid ""
+"Provides options for callers to direct dial an extension. Direct dialing can "
+"be:"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Timeout"
+msgstr ""
+
+msgid "Amount of time to be considered a timeout"
+msgstr ""
+
+msgid "Invalid Retries"
+msgstr ""
+
+msgid ""
+"Number of times to retry when receiving an invalid/unmatched response from "
+"the caller"
+msgstr ""
+
+msgid "Invalid Retry Recording"
+msgstr ""
+
+msgid ""
+"Prompt to be played when an invalid/unmatched response is received, before "
+"prompting the caller to try again"
+msgstr ""
+
+msgid "Invalid Recording"
+msgstr ""
+
+msgid ""
+"Prompt to be played before sending the caller to an alternate destination "
+"due to the caller pressing 0 or receiving the maximum amount of invalid/"
+"unmatched responses (as determined by Invalid Retries)"
+msgstr ""
+
+msgid "Invalid Destination"
+msgstr ""
+
+msgid "Destination to send the call to after Invalid Recording is played."
+msgstr ""
+
+msgid "Timeout Retries"
+msgstr ""
+
+msgid "Timeout Retry Recording"
+msgstr ""
+
+msgid "Timeout Recording"
+msgstr ""
+
+msgid "Timeout Destination"
+msgstr ""
+
+msgid "Return to IVR after VM"
+msgstr ""
+
+msgid ""
+"If checked, upon exiting voicemail a caller will be returned to this IVR if "
+"they got a users voicemail"
+msgstr ""
+
+msgid "IVR Entries"
+msgstr ""
+
+msgid "Ext"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Return"
+msgstr ""
+
+msgid "Return to IVR"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+#, php-format
+msgid "IVR: %s / Option: %s"
+msgstr ""
+
+#, php-format
+msgid "IVR: %s"
+msgstr ""
+
+msgid "Checking if announcements need migration.."
+msgstr ""
+
+msgid "migrating"
+msgstr ""
+
+msgid "adding announcement_id field.."
+msgstr ""
+
+msgid "fatal error"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "migrate to recording ids.."
+msgstr ""
+
+#, php-format
+msgid "migrated %s entries"
+msgstr ""
+
+msgid "dropping announcement field.."
+msgstr ""
+
+msgid "no announcement field???"
+msgstr ""
+
+msgid "already migrated"
+msgstr ""
+
+msgid "Checking for timeout_id.."
+msgstr ""
+
+msgid "added"
+msgstr ""
+
+msgid "not needed"
+msgstr ""
+
+msgid "Checking for invalid_id.."
+msgstr ""
+
+msgid "Checking for retvm.."
+msgstr ""
+
+#, php-format
+msgid ""
+"There are %s IVRs that have the legacy Directory dialing enabled. This has "
+"been deprecated and will be removed from future releases. You should convert "
+"your IVRs to use the Directory module for this functionality and assign an "
+"IVR destination to a desired Directory. You can install the Directory module "
+"from the Online Module Repository"
+msgstr ""
+
+#, php-format
+msgid "Deprecated Directory used by %s IVRs"
+msgstr ""
+
+msgid "posting notice about deprecated functionality"
+msgstr ""
+
+msgid "IVR"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Creates Digital Receptionist (aka Auto-Attendant, aka Interactive Voice "
+"Response) menus. These can be used to send callers to different locations "
+"(eg, Press 1 for sales) and/or allow direct-dialing of extension numbers."
+msgstr ""

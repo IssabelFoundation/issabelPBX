@@ -1,0 +1,36 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
+#
+# Использовать iconv amp.new -f UTF-8 -t ISO-8859-5 -o amp.po
+# fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-10-19 16:38+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-5\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Do-Not-Disturb (DND)"
+msgstr "Режим Не беспокоить (DND)"
+
+msgid "Applications"
+msgstr ""
+
+msgid "Provides donotdisturb featurecodes"
+msgstr ""
+
+msgid "DND Activate"
+msgstr "Активировать режим Не беспокоить "
+
+msgid "DND Deactivate"
+msgstr "Деактивировать режим Не беспокоить "
+
+msgid "DND Toggle"
+msgstr "Переключить режим Не беспокоить "

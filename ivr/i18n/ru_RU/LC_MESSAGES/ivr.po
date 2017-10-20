@@ -1,0 +1,498 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
+# Dmitry Luznetsov <dk@postmet.ru>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 00:04+0400\n"
+"PO-Revision-Date: 2014-02-28 04:51+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Russian <http://example.com/projects/freepbx-211/ivr/ru/>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.9-dev\n"
+
+msgid "Add IVR"
+msgstr "Добавить Интерактивное меню"
+
+#, php-format
+msgid "Edit IVR: %s"
+msgstr "Редактировать Интерактивное меню: %s"
+
+#, php-format
+msgid "Delete IVR: %s"
+msgstr "Удалить Интерактивное меню: %s"
+
+msgid "IVR General Options"
+msgstr "Основыне настройки Интерактивного меню"
+
+msgid "IVR Name"
+msgstr "Название Интерактивного меню"
+
+msgid "Name of this IVR."
+msgstr "Название этого Интерактивного меню"
+
+msgid "IVR Description"
+msgstr "Описание Интерактивного меню"
+
+msgid "Description of this ivr."
+msgstr "Описание этого Интерактивного меню"
+
+msgid "IVR Options (DTMF)"
+msgstr "Настройки Интерактивного меню (DTFM)"
+
+msgid "None"
+msgstr "Нет"
+
+msgid "Announcement"
+msgstr "Приветствие"
+
+msgid "Greeting to be played on entry to the Ivr."
+msgstr "Приветствие воспроизводимое при входе в Интерактивное меню"
+
+msgid "Disabled"
+msgstr "Отключено"
+
+msgid "Extensions"
+msgstr "Внутренние номера"
+
+msgid "Completely disabled"
+msgstr "Полностью отключено"
+
+msgid "Enabled for all extensions on a system"
+msgstr "Активированно для всех внутренних номеров в системе"
+
+msgid "Direct Dial"
+msgstr "Прямой набор"
+
+msgid ""
+"Provides options for callers to direct dial an extension. Direct dialing can "
+"be:"
+msgstr ""
+"Активирует опцию прямого набора внутреннего номера для звонящих. Прямой набор может быть: "
+
+msgid "Default"
+msgstr "По умолчанию"
+
+msgid "Timeout"
+msgstr "Таймаут"
+
+msgid "Amount of time to be considered a timeout"
+msgstr "Количество времени распозноваемое как таймаут"
+
+msgid "Invalid Retries"
+msgstr "Неудачные попытки"
+
+msgid ""
+"Number of times to retry when receiving an invalid/unmatched response from "
+"the caller"
+msgstr ""
+"Количество неудачных/несовпадающих попыток ввода от звонящего"
+
+msgid "Invalid Retry Recording"
+msgstr "Воспроизведение при неуданой попытке "
+
+msgid ""
+"Prompt to be played when an invalid/unmatched response is received, before "
+"prompting the caller to try again"
+msgstr ""
+"Сообщение воспроизводимое когда произошла неудачная/несовпадающая попытка ввода, "
+"вопроизводится перед очередной попыткой повторить ввод. "
+
+msgid "Append Original Annoucement"
+msgstr "Добавить исходное сообщение"
+
+msgid ""
+"After playing the Invalid Retry Recording the system will replay the main "
+"IVR Annoucement"
+msgstr ""
+"После воспроизведения сообщения при неудачной попытке, система повторит "
+"исходное сообщение Интерактивного меню"
+
+msgid "Invalid Recording"
+msgstr "Сообщение при неудачном вводе"
+
+msgid ""
+"Prompt to be played before sending the caller to an alternate destination "
+"due to the caller pressing 0 or receiving the maximum amount of invalid/"
+"unmatched responses (as determined by Invalid Retries)"
+msgstr ""
+"Сообщение воспроизводимое перед отправкой звонящего на альетрнативное назначение "
+"при нажатии звонящим 0 или при достижении максимального количества неудачных "
+"попыток ввода. "
+
+msgid "Invalid Destination"
+msgstr "Неверное назначение"
+
+msgid "Destination to send the call to after Invalid Recording is played."
+msgstr "Назначение куда перенаправить звонящего после воспроизведения "
+"записи при Неудачном вводе. "
+
+msgid "Timeout Retries"
+msgstr "Таймаут попыток"
+
+msgid ""
+"Number of times to retry when no DTMF is heard and the IVR choice timesout."
+msgstr ""
+"Число попыток для ввода, когда небыло DTFM сигналов и время выбора "
+"пункта Интерактивного меню истекло"
+
+msgid "Timeout Retry Recording"
+msgstr "Сообщение при таймауте повторений"
+
+msgid ""
+"After playing the Timeout Retry Recording the system will replay the main "
+"IVR Annoucement"
+msgstr ""
+"После воспроизведения сообщения при таймауте повторении, система повторит "
+"воспроизведение исходного сообщения Интерактивного меню"
+
+msgid "Timeout Recording"
+msgstr "Сообщение при таймауте"
+
+msgid "Timeout Destination"
+msgstr "Назначение при таймауте"
+
+msgid "Return to IVR after VM"
+msgstr "Возвращение в Интерактивно меню посе Голосовой Почты"
+
+msgid ""
+"If checked, upon exiting voicemail a caller will be returned to this IVR if "
+"they got a users voicemail"
+msgstr ""
+"Если отмечено, то прежде чем выйти в Голосовую Почту звонок будет возвращен "
+"в это Меню"
+
+msgid "IVR Entries"
+msgstr "Пункты Интерактивного меню"
+
+msgid "Ext"
+msgstr "Номер"
+
+msgid "Destination"
+msgstr "Назначение"
+
+msgid "Return"
+msgstr "Возврат"
+
+msgid "Return to IVR"
+msgstr "Возврат в Меню"
+
+msgid "Delete"
+msgstr "Удалить"
+
+#, php-format
+msgid "IVR: %s / Option: %s"
+msgstr "Интерактивное меню: %s / Опция: %s"
+
+#, php-format
+msgid "IVR: %s"
+msgstr "Интерактивное меню: %s"
+
+msgid "Checking if announcements need migration.."
+msgstr "Проверка, нуждаются ли объявления в перемещении..."
+
+msgid "migrating"
+msgstr "перемещение"
+
+msgid "adding announcement_id field.."
+msgstr "добавление поля announcement_id"
+
+msgid "fatal error"
+msgstr "неустранимая ошибка"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "migrate to recording ids.."
+msgstr "переход к id записей.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "перемещено %s записей"
+
+msgid "dropping announcement field.."
+msgstr "сброс поля объявления.."
+
+msgid "no announcement field???"
+msgstr "нет поля объявления???"
+
+msgid "already migrated"
+msgstr "уже перенесено"
+
+msgid "Checking for timeout_id.."
+msgstr "Проверка timeout_id.."
+
+msgid "added"
+msgstr "добавлено"
+
+msgid "not needed"
+msgstr "не нужно"
+
+msgid "Checking for invalid_id.."
+msgstr "Проверка invalid_id.."
+
+msgid "Checking for retvm.."
+msgstr "Проверка retvm.."
+
+#, php-format
+msgid ""
+"There are %s IVRs that have the legacy Directory dialing enabled. This has "
+"been deprecated and will be removed from future releases. You should convert "
+"your IVRs to use the Directory module for this functionality and assign an "
+"IVR destination to a desired Directory. You can install the Directory module "
+"from the Online Module Repository"
+msgstr ""
+"В Интерактивном меню %s активирован набор Каталога. Эта функция устарела "
+"и будет удалена из будущих релизов. Вам следует конвертировать ваше "
+"Интерактивное меню, что бы использовать модуль Каталога для этой "
+"функциональности и присвоить назначение Интерактивного меню на выбранный каталог. "
+"Вы можете устанвоить модуль Каталога из Онлайн Репозитория Модулей "
+
+#, php-format
+msgid "Deprecated Directory used by %s IVRs"
+msgstr "Устаревшие Каталоги используемые %s Интерактивным меню"
+
+msgid "posting notice about deprecated functionality"
+msgstr "Выводит оповещение о устаревшей функциональности"
+
+#, fuzzy
+msgid "Checking for timeout_append_announce.."
+msgstr "Проверка timeout_id.."
+
+#, fuzzy
+msgid "Checking for invalid_append_announce.."
+msgstr "Проверка invalid_id.."
+
+msgid "IVR"
+msgstr "Интерактивное меню (IVR)"
+
+msgid "Applications"
+msgstr "Приложения"
+
+msgid ""
+"Creates Digital Receptionist (aka Auto-Attendant, aka Interactive Voice "
+"Response) menus. These can be used to send callers to different locations "
+"(eg, Press 1 for sales) and/or allow direct-dialing of extension numbers."
+msgstr ""
+"Создает Цифровой Автоответчик (или Авто-Секретаря, или Интерактивное Голосовое меню). "
+"Эта функция может быть использована для перенаправления звонящих в разные назначения "
+"(например. Нажмите 1 для отдела продаж) и/или разрешить прямой донабор внутренних номеров "
+
+#~ msgid ""
+#~ "There is a problem with install.sql, cannot re-create databases. Contact "
+#~ "support\n"
+#~ msgstr ""
+#~ "Возникли проблемы со скриптом install.sql, невозможно пересоздать базу "
+#~ "данных. Обратитесь к службе поддержки\n"
+
+#~ msgid "Digital Receptionist"
+#~ msgstr "Автосекретарь"
+
+#~ msgid "Instructions"
+#~ msgstr "Инструкции"
+
+#~ msgid ""
+#~ "You use the Digital Receptionist to make IVR's, Interactive Voice "
+#~ "Response systems."
+#~ msgstr ""
+#~ "Вы используете модуль Автосекретарь для создания системы Интерактивного "
+#~ "голосового меню."
+
+#~ msgid ""
+#~ "When creating a menu option, apart from the standard options of 0-9,* and "
+#~ "#, you can also use 'i' and 't' destinations."
+#~ msgstr ""
+#~ "При создании меню используйте стандартные символы 0-9, *, и #. Есть "
+#~ "возможность также использовать опцию 'i' (invalid number) и 't' (timeout) "
+#~ "в качестве назначения."
+
+#~ msgid ""
+#~ "'i' is used when the caller pushes an invalid button, and 't' is used "
+#~ "when there is no response."
+#~ msgstr ""
+#~ "'i' используется, если позвонивший нажал неверную кнопку, а 't' при "
+#~ "отсутствииответа."
+
+#~ msgid ""
+#~ "If those options aren't supplied, the default 't' is to replay the menu "
+#~ "three times and then hang up,"
+#~ msgstr ""
+#~ "Если эти опции не задействованы, опция 't' воспроизводит сообщение меню "
+#~ "три раза и кладёт трубку,"
+
+#~ msgid ""
+#~ "and the default 'i' is to say 'Invalid option, please try again' and "
+#~ "replay the menu."
+#~ msgstr ""
+#~ "а опция 'i' сообщает 'Неверная опция, пробуйте ещё раз' и снова "
+#~ "возвращает в меню."
+
+#~ msgid "After three invalid attempts, the line is hung up."
+#~ msgstr "После трёх неверных попыток соединение разрывается."
+
+#~ msgid "Edit Menu"
+#~ msgstr "Изменить меню"
+
+#~ msgid "Queue Breakout Menu Usage List"
+#~ msgstr "Список опций Queue Breakout Menu"
+
+#~ msgid ""
+#~ "This IVR is being used by the following Queues, providing an ability for "
+#~ "callers to hear this Queue's announcement periodically and giving callers "
+#~ "an option to break out of the queue into this IVR's menu options. This "
+#~ "queue can not be deleted when being used in this mode"
+#~ msgstr ""
+#~ "Этот IVR используется следующими Очередями, давая возможностьпозвонившему "
+#~ "периодически слышать сообщение этой Очереди и предоставляетвозможность "
+#~ "выбора вариантов меню IVR. Эта очередьне может быть удалена, используясь "
+#~ "в этом режиме."
+
+#~ msgid "Change Name"
+#~ msgstr "Изменить имя"
+
+#~ msgid "This changes the short name, visible on the right, of this IVR"
+#~ msgstr ""
+#~ "Можно изменить название уже созданного Меню, которое отображается справа"
+
+#~ msgid ""
+#~ "Message to be played to the caller. To add additional recordings please "
+#~ "use the \"System Recordings\" MENU to the left"
+#~ msgstr ""
+#~ "Сообщение, которое услышит позвонивший. Чтобы создать запись используйте "
+#~ "секцию Запись сообщений в меню слева."
+
+#~ msgid ""
+#~ "Message to be played to the caller.<br><br>You must install and enable "
+#~ "the \"Systems Recordings\" Module to edit this option"
+#~ msgstr ""
+#~ "Сообщение, которое услышит позвонивший.<br><br>Нужно инсталлировать и "
+#~ "активировать модуль Запись сообщений чтобы изменять что либо в этой опции."
+
+#~ msgid ""
+#~ "The amount of time (in seconds) before the 't' option, if specified, is "
+#~ "used"
+#~ msgstr "Время таймаута (в секундах), если используется опция 't'"
+
+#~ msgid "Enable Directory"
+#~ msgstr "Разрешить доступ в директорию"
+
+#~ msgid "Directory Context"
+#~ msgstr "Контекст директории"
+
+#~ msgid ""
+#~ "When # is selected, this is the voicemail directory context that is used"
+#~ msgstr ""
+#~ "Если набрана '#' будет использоваться этот контекст для директории "
+#~ "голосовой почты"
+
+#~ msgid "VM Return to IVR"
+#~ msgstr "Возврат в Меню"
+
+#~ msgid "Enable Direct Dial"
+#~ msgstr "Разрешить прямые наборы"
+
+#~ msgid "Let callers into the IVR dial an extension directly"
+#~ msgstr "Разрешить позвонившему донабор на внутренние номера."
+
+#~ msgid "Loop Before t-dest"
+#~ msgstr "Повтор перед t-dest"
+
+#~ msgid ""
+#~ "If checked, and there is a 't' (timeout) destination defined below, the "
+#~ "IVR will loop back to the beginning if no input is provided for the "
+#~ "designated loop counts prior to going to the timeout (t) destination."
+#~ msgstr ""
+#~ "Если отмечено,а ниже определено назначение опции t (timeout), Меню начнет "
+#~ "отрабатывать сначала заданное количество раз, прежде чем исполнить "
+#~ "назначение опции t (timeout)"
+
+#~ msgid "Timeout Message"
+#~ msgstr "Таймаут"
+
+#~ msgid ""
+#~ "If a timeout occurs and a message is selected, it will be played in place "
+#~ "of the announcement message when looping back to the top of the IVR. It "
+#~ "will not be played if the t destination is the next target."
+#~ msgstr ""
+#~ "Если произойдет таймаут и сообщение выбрано, оно будет играться "
+#~ "вместоглавного сообщения IVR. Не будет играться, если назначение t - "
+#~ "следующая цель."
+
+#~ msgid "Loop Before i-dest"
+#~ msgstr "Повтор перед i-dest"
+
+#~ msgid ""
+#~ "If checked, and there is an 'i' (invalid extension) destination defined "
+#~ "below, the IVR will play invalid option and then loop back to the "
+#~ "beginning for the designated loop counts prior to going to the invalid "
+#~ "(i) destination."
+#~ msgstr ""
+#~ "Если отмечено, и есть определенное направление 'i' (invalid extension), "
+#~ "IVR проиграет недействительный выбор и затем вернется к началупоскольку "
+#~ "цикл перенаправляется в invalid (i) destination."
+
+#~ msgid "Invalid Message"
+#~ msgstr "Сообщение об ошибке"
+
+#~ msgid ""
+#~ "If an invalid extension is pressed and a message is selected, it will be "
+#~ "played in place of the announcement message when looping back to the top "
+#~ "of the IVR. It will not be played if the t destination is the next "
+#~ "target. If nothing is selected, the system will play a default invalid "
+#~ "extension message before going back to the main announcement"
+#~ msgstr ""
+#~ "Если будет выбрано недействительное расширение и сообщение задано,оно "
+#~ "будет проиграно вместо приветствия IVR.Сообщение не будет играться, если "
+#~ "t предназначением будет следующая цель.Если ничто не отобрано, система "
+#~ "будет играть по умолчанию сообщениеinvalid extension перед возвращением к "
+#~ "главному меню."
+
+#~ msgid "Repeat Loops:"
+#~ msgstr "Количество повторов:"
+
+#~ msgid ""
+#~ "The number of times we should loop when invalid input or no input has "
+#~ "been entered before going to the defined or default generated 'i' or 't' "
+#~ "options. If the 'i' or 't' options are defined, the above check boxes "
+#~ "must be checked in order to loop."
+#~ msgstr ""
+#~ "Необходимое количество исполнения сценария в случае ошибочного или "
+#~ "отсутствия ввода прежде чем перейти на определенные или созданные по-"
+#~ "умолчанию опции 'i' или 't'. Если определены опции 'i' или 't, для "
+#~ "повтора сценария отметьте блоки ниже"
+
+#~ msgid ""
+#~ "Check this box to have this option return to a parent IVR if it was "
+#~ "called from a parent IVR. If not, it will go to the chosen destination."
+#~ "<br><br>The return path will be to any IVR that was in the call path "
+#~ "prior to this IVR which could lead to strange results if there was an IVR "
+#~ "called in the call path but not immediately before this"
+#~ msgstr ""
+#~ "Отметьте здесь, если нужно возвращать в родительское Меню, если вызов "
+#~ "сюда поступает из другого Меню. Если не отмечено, вызов поступает на "
+#~ "выбор назначений.<br><br>Возврат можно перенаправлять и в любые другие "
+#~ "Меню, из которых также производится вызов в действующее Меню, но возврат "
+#~ "и перенаправление может привести к неожиданным результатам."

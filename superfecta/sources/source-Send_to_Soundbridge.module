@@ -1,0 +1,91 @@
+<?php
+
+class Send_to_Soundbridge extends superfecta_base {
+
+    public $description = "This source will send the number and the Caller ID to a Roku Soundbridge.<br>This data source requires Superfecta Module version 2.11 or higher.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'Server_address' => array(
+            'description' => 'Specify the Soundbridge IP address.',
+            'type' => 'text',
+            'default' => ""
+        ),
+        'Font_size' => array(
+            'description' => 'Specify the font size required.<br><br>Valid values are<br><pre>
+		1  - Fixed8
+		2  - Fixed16
+		3  - ZurichBold32
+		10 - ZurichBold16
+		11 - ZurichLite16
+		12 - Fixed16
+		14 - SansSerif16</pre>',
+            'type' => 'select',
+            'option' => array(
+                1 => 'Fixed 8',
+                2 => 'Fixed 16',
+                3 => 'ZurichBold 32',
+                4 => 'ZurichBold 16',
+                5 => 'ZurichLite 16',
+                7 => 'SansSerif 16'
+            ),
+            'default' => '1'
+        ),
+        'Display_time' => array(
+            'description' => 'Specify how many seconds to display the CID for.',
+            'type' => 'number',
+            'default' => 2
+        )
+    );
+
+    function post_processing($cache_found, $winning_source, $first_caller_id, $run_param, $thenumber) {
+        if (($run_param['Server_address'] != '') && ($first_caller_id != '')) {
+            // Fonts supported by sketch
+            $fonts = array('1' => 1, // Fixed 8
+                '2' => 2, // Fixed 16
+                '3' => 3, // Zurich Bold 32
+                '4' => 10, // Zurich Bold 16
+                '5' => 11, // Zurich Lite 16
+                '6' => 12, // Fixed 16
+                '7' => 14); // Sans Serif 16
+            // Validate font size
+            if (array_key_exists($run_param['Font_size'], $fonts)) {
+                $font = $fonts[$run_param['Font_size']];
+            } else {
+                $this->DebugDie("Invalid Font size requested.");
+            }
+
+            $errno = '';
+            $errstr = '';
+
+            // connect to the SoundBridge
+            $fRoku = fsockopen($run_param['Server_address'], 4444, $errno, $errstr, 10) or $this->DebugDie("Could not connect to Roku SoundBridge");
+            stream_set_blocking($fRoku, 0);
+            usleep(100000);
+
+            // Display message
+            fwrite($fRoku, "sketch\n");
+            usleep(100000);
+
+            // Set font size 
+            fwrite($fRoku, "font {$font}\n");
+
+            // Center text on display
+            fwrite($fRoku, "text c c \"{$first_caller_id} ({$thenumber})\"\n");
+            sleep($run_param['Display_time']);
+
+            // Clear the screen		
+            fwrite($fRoku, "quit\n");
+            usleep(100000);
+
+            // Close connection
+            fwrite($fRoku, "exit\n");
+            usleep(100000);
+            fclose($fRoku);
+
+            $this->DebugPrint("Send to Soundbridge: \"{$first_caller_id} ({$thenumber})\"<br><br>");
+        }
+
+        return($thenumber);
+    }
+
+}

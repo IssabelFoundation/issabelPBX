@@ -1,0 +1,26 @@
+<module>
+	<rawname>superfecta</rawname>
+	<repo>extended</repo>
+	<name>CID Superfecta</name>
+	<version>2.11.17</version>
+	<type>setup</type>
+	<category>Admin</category>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv2+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
+	<description>
+		Provides simultaneous use of, and complete control over multiple caller id data sources.
+	</description>
+	<changelog>
+		*2.11.17* Initial Issabel Foundation release
+	</changelog>
+	<menuitems>
+		<superfecta>CID Superfecta</superfecta>
+	</menuitems>
+	<info>https://github.com/POSSA/Caller-ID-Superfecta/wiki</info>
+	<supported>
+		<version>2.10</version>
+	</supported>
+	<md5sum>a71ce14e885b43669a50395c975c0df9</md5sum>
+	<location>release/2.11/superfecta-2.11.5.tgz</location>
+</module>

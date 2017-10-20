@@ -1,0 +1,285 @@
+# IssabelPBX language template
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Directory"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Tied to a Directory allowing all entries in that directory to be dialed "
+"directly, as they appear in the directory"
+msgstr ""
+
+msgid "Add Directory"
+msgstr ""
+
+#, php-format
+msgid "Edit Directory: %s"
+msgstr ""
+
+msgid "[SYSTEM DEFAULT]"
+msgstr ""
+
+#, php-format
+msgid "Delete Directory %s"
+msgstr ""
+
+msgid "Directory General Options"
+msgstr ""
+
+msgid "Directory Name"
+msgstr ""
+
+msgid "Name of this directory."
+msgstr ""
+
+msgid "Directory Description"
+msgstr ""
+
+msgid "Description of this directory."
+msgstr ""
+
+msgid "CallerID Name Prefix"
+msgstr ""
+
+msgid "Prefix to be appended to current CallerID Name."
+msgstr ""
+
+msgid "Alert Info"
+msgstr ""
+
+msgid ""
+"ALERT_INFO to be sent when called from this Directory. Can be used for "
+"distinctive ring for SIP devices."
+msgstr ""
+
+msgid "Directory Options (DTMF)"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Announcement"
+msgstr ""
+
+msgid "Greeting to be played on entry to the directory."
+msgstr ""
+
+msgid "Invalid Retries"
+msgstr ""
+
+msgid ""
+"Number of times to retry when receiving an invalid/unmatched response from "
+"the caller"
+msgstr ""
+
+msgid "Invalid Retry Recording"
+msgstr ""
+
+msgid ""
+"Prompt to be played when an invalid/unmatched response is received, before "
+"prompting the caller to try again"
+msgstr ""
+
+msgid "Invalid Recording"
+msgstr ""
+
+msgid ""
+"Prompt to be played before sending the caller to an alternate destination "
+"due to the caller pressing 0 or receiving the maximum amount of invalid/"
+"unmatched responses (as determined by Invalid Retries)"
+msgstr ""
+
+msgid "Invalid Destination"
+msgstr ""
+
+msgid "Destination to send the call to after Invalid Recording is played."
+msgstr ""
+
+msgid "Return to IVR"
+msgstr ""
+
+msgid ""
+"When selected, if the call passed through an IVR that had \"Return to IVR\" "
+"selected, the call will be returned there instead of the Invalid destination."
+msgstr ""
+
+msgid "Announce Extension"
+msgstr ""
+
+msgid ""
+"When checked, the extension number being transferred to will be announced "
+"prior to the transfer"
+msgstr ""
+
+msgid "Directory&nbsp;Entries"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Name Announcement"
+msgstr ""
+
+msgid "Dial"
+msgstr ""
+
+msgid "Choose One"
+msgstr ""
+
+msgid "All Users"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Add new entry."
+msgstr ""
+
+msgid "Voicemail Greeting"
+msgstr ""
+
+msgid "Text to Speech"
+msgstr ""
+
+msgid "Spell Name"
+msgstr ""
+
+msgid "System Recordings:"
+msgstr ""
+
+#, php-format
+msgid "Edit %s: %s"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "Click here to remove this entry"
+msgstr ""
+
+msgid "Exclude"
+msgstr ""
+
+msgid "Include"
+msgstr ""
+
+msgid "Default Group Inclusion"
+msgstr ""
+
+msgid "Default Directory"
+msgstr ""
+
+msgid ""
+"You can include or exclude this extension/user from being part of the "
+"default directory when creating or editing."
+msgstr ""
+
+#, php-format
+msgid "Directory: %s "
+msgstr ""
+
+#, php-format
+msgid "Directory %s: "
+msgstr ""
+
+#, php-format
+msgid "Directory: %s"
+msgstr ""
+
+msgid "Adding directory tables if needed"
+msgstr ""
+
+msgid "Can not create table: "
+msgstr ""
+
+msgid "adding say_extension field to directory_details.."
+msgstr ""
+
+msgid "fatal error"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "dropping valid_details field.."
+msgstr ""
+
+msgid "no valid_recording field???"
+msgstr ""
+
+msgid "cannot add field e_id to table directory_entries \n"
+msgstr ""
+
+msgid "e_id added to table directory_entries"
+msgstr ""
+
+msgid "cannot set e_id for directory_id = "
+msgstr ""
+
+msgid "id"
+msgstr ""
+
+msgid ". Please resubmit this directory manually to correct this issue."
+msgstr ""
+
+msgid "Migrating Directory"
+msgstr ""
+
+msgid ""
+"Error migrating to new directory! ERROR: Could not create new Directory."
+msgstr ""
+
+msgid ""
+"Error migrating to new directory! ERROR: Could not populate new Directory "
+msgstr ""
+
+msgid "Setting migrated directory as default"
+msgstr ""
+
+msgid ""
+"Error migrating to new directory! ERROR: Unable to mark Directory as "
+"migrated. Migration will probably be run again at next install/upgrade of "
+"this module. "
+msgstr ""
+
+msgid "Migration Complete!"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "Add a new Directory"
+msgstr ""
+
+msgid "Directory Options"
+msgstr ""
+
+msgid ""
+"When checked, this becomes the default directory and replaces any other "
+"directory as the default directory. This has the effect of exposing entries "
+"for this directory into the Extension/User page"
+msgstr ""
+
+msgid "dropping directory_details, directory_entries.."
+msgstr ""
+
+msgid "deleting default_directory and migration tracking keys.."
+msgstr ""

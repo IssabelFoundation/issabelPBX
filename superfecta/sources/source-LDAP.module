@@ -1,0 +1,238 @@
+<?php
+
+define("LDAP_OPENLDAP", "1");
+define("LDAP_OPENDIRECTORY", "2");
+define("LDAP_CUSTOM", "3");
+
+class LDAP extends superfecta_base {
+
+    public $description = "This source will search an LDAP Server and return the Common Name (<strong>cn</strong>) for a telephone number.<br><br>Attempts are made to match telephoneNumber, mobile and homeTelephoneNumber.<br><br><strong>Note: php-ldap is required to be installed for this to work</strong>.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'LDAP_Host' => array(
+            'description' => 'LDAP Server to search.<br>The port is optional e.g. ldap.example.com:389<br><br>To connect through SSL prefix the connection with <strong>ldaps</strong> e.g. ldaps://ldap.example.com<br><br>This value may be used to automatically create the <b>dc</b> component for the <b>LDAP User</b> below, depending on the value of <b>LDAP Server</b>, e.g. dc=ldap,dc=example,dc=com',
+            'type' => 'text'
+        ),
+        'LDAP_User' => array(
+            'description' => 'Authentication Username to connect to the LDAP server.  Other information is added to the field value, depending on the value of <b>LDAP Server</b>:<br><br><small>Open LDAP</small>: cn=<i><b>LDAP User</b></i>, dc=<i>automatically created from <b>LDAP Host</b></i><br><br><small>Apple Open Directory</small>: uid=<i><b>LDAP User</b></i>,cn=users, dc=<i>automatically created from <b>LDAP Host</b></i><br><br><small>Custom</small>: <i><b>LDAP User</b></i>',
+            'type' => 'text'
+        ),
+        'LDAP_Password' => array(
+            'description' => 'Password used to connect to the LDAP server',
+            'type' => 'password'
+        ),
+        'LDAP_Server' => array(
+            'description' => 'LDAP service provider to connect to',
+            'type' => 'select',
+            'option' => array(
+                LDAP_OPENLDAP => 'Open LDAP',
+                LDAP_OPENDIRECTORY => 'Apple Open Directory',
+                LDAP_CUSTOM => 'Custom'
+            ),
+            'default' => LDAP_OPENLDAP
+        ),
+        'LDAP_Unit' => array(
+            'description' => 'Organizational Unit to search.  Leave blank to search all OU.  Other information is added to the field value, depending on the value of <b>LDAP Server</b>:<br><br><small>Open LDAP</small>: ou=<i><b>LDAP Unit</b></i>, dc=<i>automatically created from <b>LDAP Host</b></i><br><br><small>Apple Open Directory</small>: ou=<i><b>LDAP Unit</b></i>, dc=<i>automatically created from <b>LDAP Host</b></i><br><br><small>Custom</small>: <i><b>LDAP Unit</b></i>',
+            'type' => 'text'
+        ),
+        'LDAP_Format' => array(
+            'description' => 'Specify the format required.<br><br>Valid values are<br><pre>
+1 - Common Name (cn)
+2 - LastName, FirstName
+3 - FirstName LastName
+4 - Organization - Lastname (cn if Organization blank)
+5 - AppleCompany - Lastname (cn if Company blank)</pre>',
+            'type' => 'select',
+            'option' => array(
+                1 => '(cn) e.g. Joe Bloggs',
+                2 => '(sn, givenname) e.g. Bloggs, Joe',
+                3 => '(givenname sn) e.g. Joe Bloggs',
+                4 => '(o - sn) e.g. Acme - Bloggs',
+                5 => '(applecompany - sn) e.g. Acme - Bloggs'
+            ),
+            'default' => 1
+        ),
+        'Filter_Length' => array(
+            'description' => 'The number of rightmost digits to check for a match. Leave empty to check all digits.',
+            'type' => 'number'
+        )
+    );
+
+    function get_caller_id($thenumber, $run_param=array()) {
+        $caller_id = null;
+
+        $this->DebugPrint("Searching LDAP for number: {$thenumber}");
+
+        // By default, the found name is empty
+        $name = "";
+
+        // check if php-ldap is installed
+        function_exists('ldap_connect') or $this->DebugDie("LDAP functions not available - please check if php-ldap is installed");
+
+        // parse host and port info 
+        $connection = @parse_url($run_param['LDAP_Host']) or $this->DebugDie("No LDAP host specified - Check config LDAP_Host");
+        // print_r($connection); echo("<br>\n");
+        // set default to ldap
+        $scheme = 'ldap';
+
+        // beware - different keys returned if port is present or not	
+        if (array_key_exists('path', $connection) && (strlen($connection['path']) > 1)) {
+            $server = $connection['path'];
+        } elseif (array_key_exists('host', $connection) && (strlen($connection['host']) > 1)) {
+            $server = $connection['host'];
+        } else {
+            $this->DebugDie("Unable to determine LDAP server name");
+        }
+
+        // build DC string from host name supplied
+        // e.g. "ldap.example.com" becomes "dc=ldap,dc=example,dc=com"
+        $dc = "dc=" . implode(",dc=", explode('.', $server));
+
+        // Add port to server connect string if required
+        if (array_key_exists('port', $connection)) {
+            $server .= ':' . $connection['port'];
+        }
+
+        // Check for SSL connection string
+        if (array_key_exists('scheme', $connection)) {
+            if ($connection['scheme'] === 'ldaps') {
+                $scheme = 'ldaps';
+            }
+        }
+
+        // #50 - Allow for different output fields		
+        $fields = array('1' => 'cn', // CommonName
+            '2' => 'sn, givenname', // LastName, FirstName
+            '3' => 'givenname sn', // FirstName LastName
+            '4' => 'o - sn', // Organisation LastName
+            '5' => 'apple-company - sn' // Company LastName
+        );
+
+        // Validate Formatting Options
+        if (array_key_exists($run_param['LDAP_Format'], $fields)) {
+            $fieldlist = preg_split("/[\s,]+/", $fields[$run_param['LDAP_Format']]);
+
+            if (array_search("-", $fieldlist)) {
+                unset($fieldlist[array_search("-", $fieldlist)]);
+            }
+
+            // Add 'cn' to field list if not present
+            if (!array_search('cn', $fieldlist)) {
+                $fieldlist[] = 'cn';
+            }
+
+            $fieldlist = array_unique($fieldlist);
+        } else {
+            $this->DebugDie("Invalid Format requested.");
+        }
+
+        // Prepare connection to LDAP server
+        $ad = @ldap_connect("{$scheme}://{$server}") or $this->DebugDie("Could not connect to {$scheme}://{$server}");
+
+        // Set protocol version
+        ldap_set_option($ad, LDAP_OPT_PROTOCOL_VERSION, 3) or $this->DebugDie("Could not set ldap protocol");
+
+        // Set this option for AD on Windows Server 2003 per PHP manual
+        ldap_set_option($ad, LDAP_OPT_REFERRALS, 0) or $this->DebugDie("Could not set option referrals");
+
+        // Attempt to set 5 second timeout
+        if (defined('LDAP_OPT_NETWORK_TIMEOUT')) {
+            // This option isn't present before PHP 5.3.
+            ldap_set_option($ad, constant('LDAP_OPT_NETWORK_TIMEOUT'), 5) or $this->DebugDie("Could not set network timeout");
+        }
+
+        // Set user id
+        switch ($run_param['LDAP_Server']) {
+            case LDAP_OPENDIRECTORY:
+                $UID = "uid={$run_param['LDAP_User']},cn=users, {$dc}";
+                break;
+
+            case LDAP_OPENLDAP:
+                $UID = "cn={$run_param['LDAP_User']}, {$dc}";
+                break;
+
+            case LDAP_CUSTOM:
+                $UID = $run_param['LDAP_User'];
+                break;
+        }
+        // if ($run_param['LDAP_Server'] == LDAP_OPENDIRECTORY) {
+        //     $UID = "uid={$run_param['LDAP_User']},cn=users, {$dc}";
+        // } else {
+        //     $UID = "cn={$run_param['LDAP_User']}, {$dc}";
+        // }
+
+        // Establish connection with LDAP server
+        $this->DebugEcho("Attempting to bind, using ad:'$ad'  UID:'$UID' ... <br>");
+        $bd = @ldap_bind($ad, $UID, "{$run_param['LDAP_Password']}") or $this->DebugDie("Could not bind to {$scheme}://{$server}");
+
+        // Check for OU to limit search
+        if (strlen($run_param['LDAP_Unit']) > 0) {
+            // Allow for embedded quotes to avoid LDAP injection
+            $ou = addslashes($run_param['LDAP_Unit']);
+
+            // Set Organizational Unit e.g "ou=people, dc=ldap,dc=example,dc=com"
+            switch ($run_param['LDAP_Server']) {
+                case LDAP_OPENDIRECTORY:
+                case LDAP_OPENLDAP:
+                    $dn = "ou=${ou},${dc}";
+                    break;
+
+                case LDAP_CUSTOM:
+                    $dn = $run_param['LDAP_Unit'];
+                    break;
+             }
+        } else {
+            $dn = "${dc}";
+        }
+
+        $this->DebugEcho("Searching {$dn} ... ");
+
+        // perform LDAP search - only return CN to conserve bandwidth
+        $thenumber = substr($thenumber, (-1*$run_param['Filter_Length']));
+        if ($rs = @ldap_search($ad, $dn, "(|(telephoneNumber=*{$thenumber})(mobile=*{$thenumber})(homeTelephoneNumber=*{$thenumber}))", $this->isDebug(DEBUG_ALL) ? array('*') : array_values($fieldlist))) {
+            if ($info = ldap_get_entries($ad, $rs)) {
+                $this->DebugPrint($info["count"] . " entries returned");
+
+                if ($info["count"] > 0) {
+                    $this->DebugDump($info[0], DEBUG_ALL);
+
+                    // Default to cn if any field is missing
+                    $cn = $info[0]['cn'][0];
+                    $name = "";
+
+                    // Remove cn from list as not required.					
+                    if (array_search('cn', $fieldlist)) {
+                        unset($fieldlist[array_search('cn', $fieldlist)]);
+                        $fieldlist = array_values($fieldlist);
+                    }
+
+                    // #50 - loop and add comma if required. 
+                    foreach ($fieldlist as $field) {
+                        if (array_key_exists($field, $info[0])) {
+                            $name .= $info[0][$field][0];
+                            $name .= (strpos(" " . $fields[$run_param['LDAP_Format']], "{$field},", 1) ? ", " : " " );
+                            $name .= (strpos(" " . $fields[$run_param['LDAP_Format']], "{$field} -", 1) ? "- " : " " );
+                        } else {
+                            // Default to cn if any field is missing
+                            $name = $cn;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Tidy up and release connection
+        ldap_unbind($ad);
+
+        // If we found a match, return it
+        if (strlen(trim($name)) > 1) {
+            $caller_id = trim($name);
+        } else {
+            $this->DebugPrint("not found");
+        }
+
+        return $caller_id;
+    }
+
+}

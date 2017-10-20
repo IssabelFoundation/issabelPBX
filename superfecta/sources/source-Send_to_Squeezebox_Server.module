@@ -1,0 +1,72 @@
+<?php
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+ * Developer Notes:
+ *
+ *
+ * Version History 
+ *     2011-09-17  Migrated to 2.11 by ukstevef
+ *     2014-03-24  Bug fix by antimon51
+ *     2014-03-28  Additional improvements by antimon51
+ *
+ *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+class Send_to_Squeezebox_Server extends superfecta_base {
+
+    public $description = "This source will send the number and the Caller ID to Squeezebox server.<br>Enter the URL to the destination Squeezebox server in the format `http://url:port`.<br>This datasource should be one of the last data sources on your list, as it does not provide any data of its own, and can only send what information has been collected before it is run.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'URL_address' => array(
+            'description' => 'Specify the URL:Port to the Squeezebox server installation. (Example: http://script.somewhere.com:9000)',
+            'type' => 'text',
+            'default' => "http://url:9000"
+        ),
+        'Display_Setting' => array(
+            'description' => 'Specify the way you want the number to be displayed on your Squeezebox',
+            'type' => 'select',
+            'option' => array(
+                1 => '(132) 456-7890',
+                2 => '132-456-7890',
+                3 => '12 34 56 78 90',
+                4 => 'No Formatting',
+            ),
+            'default' => 4
+        ),
+        'Display_Time' => array (
+            'description' => 'Specify the number of seconds you want the information displayed on your Squeezebox to last.',
+            'type' => 'text',
+	    'default' => '30'
+        ),
+        'Player_Name' => array (
+            'description' => 'Enter the MAC address of the Squeezebox player that will display the information.<br>Enter * to display on all players in a network.<br>You will find the MAC address if you go to the Squeezebox server settings, look in the Players tab for your player',
+            'type' => 'text',
+            'default' => '*'
+        )
+    );
+
+    function post_processing($cache_found, $winning_source, $first_caller_id, $run_param, $thenumber) {
+        if ($run_param['Display_Time'] == '') $run_param['Display_Time'] = '30';
+        if ($run_param['Player_Name'] == '') $run_param['Player_Name'] = '*';
+        if (($run_param['URL_address'] != '') && ($first_caller_id != '')) {
+            $thenumberformated = $thenumber;
+            switch ($run_param['Display_Setting']) {
+                case 1:
+                case 2:
+                case 3:
+                    $settings = $this->settings();
+                    $mask = $settings["source_param"]['Format_Incomming_Number']['option'][$run_param['Display_Setting']];
+                    $thenumberformated = $this->FormatNumber($thenumber, $mask);
+                    break;
+            }
+
+            $clid1 = urlencode($first_caller_id);
+            $clid2 = urlencode($thenumberformated);
+
+            $url = $run_param['URL_address'] . '/status.txt?p0=display&p1=' . $clid2 . '&p2=' . $clid1 . '&p3=' . $run_param['Display_Time'] . '&player=' . $run_param['Player_Name'];
+
+            $this->DebugPrint("Send to Squeezebox: " . $url);
+            $value = $this->get_url_contents($url);
+
+            return($thenumber);
+        }
+    }
+
+}

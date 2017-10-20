@@ -1,0 +1,160 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - módulo phpagiconf module spanish translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-13 19:44-0400\n"
+"PO-Revision-Date: 2015-03-30 22:02+0200\n"
+"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"Language-Team: Spanish <http://weblate.issabel.org/projects/freepbx/"
+"phpagiconf/es_ES/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: page.phpagiconf.php:90
+msgid "Asterisk API settings:"
+msgstr "Configuración API Asterisk:"
+
+#: page.phpagiconf.php:109
+msgid "Basedir:"
+msgstr "BaseDir:"
+
+#: page.phpagiconf.php:112
+msgid "Cepstral config:"
+msgstr "config Cepstral:"
+
+#: page.phpagiconf.php:118
+msgid "Cepstral voice:"
+msgstr "Voz Cepstral:"
+
+#: page.phpagiconf.php:60
+msgid "Debug:"
+msgstr "Depurar:"
+
+#: page.phpagiconf.php:102
+msgid "Drop privileges to owner of script."
+msgstr "Quitar privilegios al dueño del script."
+
+#: page.phpagiconf.php:74
+msgid "Email where the errors will be sent."
+msgstr "Correo donde los errores serán enviados."
+
+#: page.phpagiconf.php:60
+msgid "Enable PHPAGI debugging."
+msgstr "Habilitar depuración PHPAGI."
+
+#: page.phpagiconf.php:67
+msgid "Error handler:"
+msgstr "Manejador de errores:"
+
+#: functions.inc.php:38
+msgid "Error writing the phpagi.conf file."
+msgstr "Error al escribir el archivo phpagi,conf."
+
+#: page.phpagiconf.php:100
+msgid "Fast AGI config:"
+msgstr "Configuración rápida AGI:"
+
+#: page.phpagiconf.php:85
+msgid "Festival config:"
+msgstr "Configuración de Festival:"
+
+#: page.phpagiconf.php:78
+msgid "Hostname of the server:"
+msgstr "Nombre del server:"
+
+#: page.phpagiconf.php:78
+msgid "Hostname of this server."
+msgstr "Nombre de este server."
+
+#: page.phpagiconf.php:74
+msgid "Mail errors to:"
+msgstr "Correo de errores a:"
+
+#: page.phpagiconf.php:57
+msgid "Main config:"
+msgstr "Configuración Principal:"
+
+#: page.phpagiconf.php:52
+msgid "PHPAGI Config:"
+msgstr "Configuración  PHPAGI:"
+
+#: page.phpagiconf.php:109
+msgid "Path to AGI scripts folder."
+msgstr "Camino a carpeta de scripts de AGI."
+
+#: page.phpagiconf.php:114
+msgid "Path to cepstral TTS binary."
+msgstr "Camino al binario cepstral TTS."
+
+#: page.phpagiconf.php:87
+msgid "Path to text2wave binary."
+msgstr "Camino al binario text2wave."
+
+#: page.phpagiconf.php:87
+msgid "Path to text2wave:"
+msgstr "Camino a text2wave:"
+
+#: page.phpagiconf.php:96
+msgid "Port to connect to manager."
+msgstr "Puerto para conectar al gestor."
+
+#: page.phpagiconf.php:96
+msgid "Port:"
+msgstr "Puerto:"
+
+#: page.phpagiconf.php:92
+msgid "Server to connect to."
+msgstr "Servidor a conectarse."
+
+#: page.phpagiconf.php:92
+msgid "Server:"
+msgstr "Servidor:"
+
+#: page.phpagiconf.php:122
+msgid "Submit Changes"
+msgstr "Enviar Cambios"
+
+#: page.phpagiconf.php:114
+msgid "Swift path:"
+msgstr "Camino Swift:"
+
+#: page.phpagiconf.php:118
+msgid "TTS Voice used."
+msgstr "Voz TTS usada."
+
+#: page.phpagiconf.php:82
+msgid "Temporary directory for storing temporary output."
+msgstr "Directorio temporal para almacenar salidas temporales."
+
+#: page.phpagiconf.php:82
+msgid "Temporary directory:"
+msgstr "Directorio temporal:"
+
+#: page.phpagiconf.php:67
+msgid "Use internal error handler."
+msgstr "Usar manejador interno de errores."
+
+#: page.phpagiconf.php:62 page.phpagiconf.php:69 page.phpagiconf.php:104
+msgid "false"
+msgstr "falso"
+
+#: page.phpagiconf.php:102
+msgid "setuid:"
+msgstr "SetUID:"
+
+#: page.phpagiconf.php:63 page.phpagiconf.php:70 page.phpagiconf.php:105
+msgid "true"
+msgstr "Verdadero"
+
+#~ msgid "PHPAGI Config"
+#~ msgstr "Configuración PHPAGI"
+
+#~ msgid "Settings"
+#~ msgstr "Configuraciones"

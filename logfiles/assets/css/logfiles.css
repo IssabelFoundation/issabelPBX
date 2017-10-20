@@ -1,0 +1,35 @@
+.brown{color:brown;}
+.cyan{color:cyan;}
+.black{color:black;}
+.red{color:red;}
+.orange{color:orange;}
+.green{color:lightgreen;}
+.yellow{color:yellow;}
+.blue{color:blue;}
+.magenta{color:magenta;}
+.white{color:white;}
+.pink{color:hotpink;}
+.lime{color:lime;}
+.silver{color:silver;}
+.seagreen{color:lightseagreen;}
+.beige{color:beige;}
+.bold{font-weight: bold;}
+.underline{text-decoration:underline;}
+
+.app{color:cyan;}
+.appargs{color:magenta;}
+.context{color:blue;}
+
+#logfiles_header{
+	height: 75px;
+}
+
+#log_view.pre {
+	font-family:"Courier New", Courier, monospace;
+	font-size:0.85em;
+	overflow: scroll;
+	background-color: #0f192a;
+	color: white;
+	padding: 10px;
+	border-radius: 10px;
+}

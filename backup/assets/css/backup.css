@@ -1,0 +1,86 @@
+.cronset {
+	float:left;
+	height: 220px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-right: 5px;
+	width: 150px;
+	/*overflow-x: hidden;*/
+}
+.narrow{
+	width: 110px;
+}
+.cronsetdiv {
+	height: 200px;
+	overflow-y: auto;
+}
+.cronsetdiv > label{
+	margin-bottom: 3px;
+}
+#crondiv:after {
+	clear:both;
+	content:"";
+    display:table;
+}
+.backup-hr{
+	width: 50%;
+	margin-left: 0;
+}
+
+.storage_servers {
+	min-height: 150px;
+}
+.storage_servers:empty {
+	border-radius: 10px;
+	border: 5px dashed lightgrey;
+	min-width: 100px;
+}
+.dragable{
+	background: url(/admin/modules/backup/assets/images/move.png) no-repeat center center;
+	padding: 8px;
+	margin-right: 5px;
+	background-size: 16px 16px;
+}
+
+#items_over {
+	background-color: lightgrey;
+	border-radius: 10px;
+	margin: 5px;
+	box-shadow: 0 0 5px 5px lightgrey;
+	display: none;
+	text-align: center;
+	color: white;
+	font-size: 48pt;
+	font-weight: bold;
+}
+#templates > li {
+	cursor: move
+}
+
+#list_tree {
+	width: 50%;
+
+}
+#list_data {
+	display: none;
+}
+#list_tree, #list_data {
+	font-size:12px;
+}
+#backup_files_container {
+	max-height: 400px;
+	overflow-y: auto;
+}
+input[type=text] {
+	width: 250px;
+}
+.jstree a > .noicon {
+	background-image: none;
+	width: 1px;
+}
+
+.restore_status, .backup_status {
+	height: 250px;
+	padding-bottom: 5px;
+	overflow-y: scroll;
+}

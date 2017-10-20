@@ -1,0 +1,503 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX Swedish language for IVR
+# Copyright (C) 2009, 2010, 2011 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX ivr\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-20 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+msgid "Add IVR"
+msgstr "Lägg till IVR"
+
+#, php-format
+msgid "Edit IVR: %s"
+msgstr ""
+
+#, php-format
+msgid "Delete IVR: %s"
+msgstr ""
+
+msgid "IVR General Options"
+msgstr ""
+
+msgid "IVR Name"
+msgstr ""
+
+msgid "Name of this IVR."
+msgstr ""
+
+msgid "IVR Description"
+msgstr ""
+
+msgid "Description of this ivr."
+msgstr ""
+
+msgid "IVR Options (DTMF)"
+msgstr ""
+
+msgid "None"
+msgstr "Inget"
+
+msgid "Announcement"
+msgstr "Meddelande"
+
+msgid "Greeting to be played on entry to the Ivr."
+msgstr ""
+
+msgid "Disabled"
+msgstr "Avaktiverad"
+
+msgid "Extensions"
+msgstr ""
+
+msgid "Completely disabled"
+msgstr ""
+
+msgid "Enabled for all extensions on a system"
+msgstr ""
+
+msgid "Direct Dial"
+msgstr ""
+
+msgid ""
+"Provides options for callers to direct dial an extension. Direct dialing can "
+"be:"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Timeout"
+msgstr "Väntetid"
+
+msgid "Amount of time to be considered a timeout"
+msgstr ""
+
+msgid "Invalid Retries"
+msgstr ""
+
+msgid ""
+"Number of times to retry when receiving an invalid/unmatched response from "
+"the caller"
+msgstr ""
+
+msgid "Invalid Retry Recording"
+msgstr ""
+
+msgid ""
+"Prompt to be played when an invalid/unmatched response is received, before "
+"prompting the caller to try again"
+msgstr ""
+
+msgid "Invalid Recording"
+msgstr ""
+
+msgid ""
+"Prompt to be played before sending the caller to an alternate destination "
+"due to the caller pressing 0 or receiving the maximum amount of invalid/"
+"unmatched responses (as determined by Invalid Retries)"
+msgstr ""
+
+msgid "Invalid Destination"
+msgstr ""
+
+msgid "Destination to send the call to after Invalid Recording is played."
+msgstr ""
+
+msgid "Timeout Retries"
+msgstr ""
+
+msgid "Timeout Retry Recording"
+msgstr ""
+
+msgid "Timeout Recording"
+msgstr ""
+
+msgid "Timeout Destination"
+msgstr ""
+
+msgid "Return to IVR after VM"
+msgstr ""
+
+msgid ""
+"If checked, upon exiting voicemail a caller will be returned to this IVR if "
+"they got a users voicemail"
+msgstr ""
+"Om detta är valt, när en uppringare avslutar en röstbrevlåda kommer dom att "
+"återvända till denna IVR om dom hamnade i en röstbrevlåda för en anknytning"
+
+msgid "IVR Entries"
+msgstr ""
+
+msgid "Ext"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Return"
+msgstr ""
+
+msgid "Return to IVR"
+msgstr "Återgå till IVR"
+
+msgid "Delete"
+msgstr "Ta bort"
+
+#, php-format
+msgid "IVR: %s / Option: %s"
+msgstr "IVR: %s / Funktion: %s"
+
+#, php-format
+msgid "IVR: %s"
+msgstr "IVR: %s"
+
+msgid "Checking if announcements need migration.."
+msgstr "Kontrollerar om announcements behöver migreras.."
+
+msgid "migrating"
+msgstr "migrerar"
+
+msgid "adding announcement_id field.."
+msgstr "lägger till fältet announcements_id.."
+
+msgid "fatal error"
+msgstr "allvarligt fel"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "migrate to recording ids.."
+msgstr "migrerar till recording ids.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "migrerade %s poster"
+
+msgid "dropping announcement field.."
+msgstr "kastar fältet announcements.."
+
+msgid "no announcement field???"
+msgstr "inget fält som heter announcements???"
+
+msgid "already migrated"
+msgstr "redan migrerad"
+
+msgid "Checking for timeout_id.."
+msgstr "Kontrollerar timeout_id.."
+
+msgid "added"
+msgstr "adderad"
+
+msgid "not needed"
+msgstr "behövs inte"
+
+msgid "Checking for invalid_id.."
+msgstr "Kontrollerar invalid_id.."
+
+msgid "Checking for retvm.."
+msgstr "Kontrollerar retvm.."
+
+#, php-format
+msgid ""
+"There are %s IVRs that have the legacy Directory dialing enabled. This has "
+"been deprecated and will be removed from future releases. You should convert "
+"your IVRs to use the Directory module for this functionality and assign an "
+"IVR destination to a desired Directory. You can install the Directory module "
+"from the Online Module Repository"
+msgstr ""
+"Det finns %s IVR-er som har val för den gamla katalogmodulen. Denna "
+"katalogmodul kommer att tas bort från nyare versioner. Du bör konvertera din"
+"(a) IVR-er att använda den nya katalogmodulen. Du kan installera den nya "
+"katalogmodulen från Moduladministrations-menyn"
+
+#, php-format
+msgid "Deprecated Directory used by %s IVRs"
+msgstr "Äldre katalogmodul används av %s IVR"
+
+msgid "posting notice about deprecated functionality"
+msgstr "postar notering om gammal modul"
+
+msgid "IVR"
+msgstr "IVR"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Creates Digital Receptionist (aka Auto-Attendant, aka Interactive Voice "
+"Response) menus. These can be used to send callers to different locations "
+"(eg, Press 1 for sales) and/or allow direct-dialing of extension numbers."
+msgstr ""
+"Denna modul skapar en digital receptionist. Detta kan användas för att sätta "
+"upp en röststyrd meny, t.ex. Tryck ett för försäljning och/eller "
+"direktnummer till anknytningar"
+
+#~ msgid ""
+#~ "There is a problem with install.sql, cannot re-create databases. Contact "
+#~ "support\n"
+#~ msgstr ""
+#~ "Det är ett problem med install.sql, kan inte återskapa databasen. "
+#~ "Kontakta supporten\n"
+
+#~ msgid "Inbound Call Control"
+#~ msgstr "Inkommande samtal"
+
+#~ msgid "Digital Receptionist"
+#~ msgstr "Digital receptionist"
+
+#~ msgid "Instructions"
+#~ msgstr "Instruktioner"
+
+#~ msgid ""
+#~ "You use the Digital Receptionist to make IVR's, Interactive Voice "
+#~ "Response systems."
+#~ msgstr ""
+#~ "Du använder den Digitala receptionisten för att skapa så kallade IVR "
+#~ "(Interactive Voice Response) menyer"
+
+#~ msgid ""
+#~ "When creating a menu option, apart from the standard options of 0-9,* and "
+#~ "#, you can also use 'i' and 't' destinations."
+#~ msgstr ""
+#~ "När du skapar menyval, oberoende av standardvalen 0-9, * och #, kan du "
+#~ "även använda 'i' och 't' destinationer."
+
+#~ msgid ""
+#~ "'i' is used when the caller pushes an invalid button, and 't' is used "
+#~ "when there is no response."
+#~ msgstr ""
+#~ "'i' används när uppringaren trycker en ogiltig siffra, och 't' används "
+#~ "när det inte kommer någon siffra."
+
+#~ msgid ""
+#~ "If those options aren't supplied, the default 't' is to replay the menu "
+#~ "three times and then hang up,"
+#~ msgstr ""
+#~ "Om dessa val inte anges så är standarden för 't' att spela upp menyvalet "
+#~ "tre gånger för att sedan avsluta samtalet,"
+
+#~ msgid ""
+#~ "and the default 'i' is to say 'Invalid option, please try again' and "
+#~ "replay the menu."
+#~ msgstr ""
+#~ "och standardvalet för 'i' är att säga \"Ogiltigt val, försök igen' och "
+#~ "repetera menyn."
+
+#~ msgid "After three invalid attempts, the line is hung up."
+#~ msgstr "Efter tre ogiltiga försök avslutas samtalet."
+
+#~ msgid "Edit Menu"
+#~ msgstr "Redigera meny"
+
+#~ msgid "Save"
+#~ msgstr "Spara"
+
+#~ msgid "Queue Breakout Menu Usage List"
+#~ msgstr "Menylista för att bryta ut ur köer"
+
+#~ msgid ""
+#~ "This IVR is being used by the following Queues, providing an ability for "
+#~ "callers to hear this Queue's announcement periodically and giving callers "
+#~ "an option to break out of the queue into this IVR's menu options. This "
+#~ "queue can not be deleted when being used in this mode"
+#~ msgstr ""
+#~ "Denna IVR används av följande köer, och ger en möjlighet för uppringare "
+#~ "att höra meddelandet för kön periodiskt och ge dom ett val att bryta ut "
+#~ "ur kön till menyerna för denna IVR. Denna kö kan inte tas bort när detta "
+#~ "val används"
+
+#~ msgid "Change Name"
+#~ msgstr "Byt namn"
+
+#~ msgid "This changes the short name, visible on the right, of this IVR"
+#~ msgstr ""
+#~ "Detta ändra det korta namnet, det som visas till höger, för denna IVR"
+
+#~ msgid ""
+#~ "Message to be played to the caller. To add additional recordings please "
+#~ "use the \"System Recordings\" MENU to the left"
+#~ msgstr ""
+#~ "Meddelande att spela upp för uppringaren. För att lägga till fler "
+#~ "meddelanden väljer du \"Systeminspelningar\" i menyn till vänster"
+
+#~ msgid ""
+#~ "Message to be played to the caller.<br><br>You must install and enable "
+#~ "the \"Systems Recordings\" Module to edit this option"
+#~ msgstr ""
+#~ "Meddelande att spela upp för uppringaren.<br><br>Du måste installera och "
+#~ "aktivera modulen \"Systeminspelningar\" för att kunna redigera detta val"
+
+#~ msgid ""
+#~ "The amount of time (in seconds) before the 't' option, if specified, is "
+#~ "used"
+#~ msgstr ""
+#~ "Tid i sekunder innan 't' valet, om det är angivet, kommer att aktiveras"
+
+#~ msgid "Enable Directory"
+#~ msgstr "Aktivera Katalogen"
+
+#~ msgid ""
+#~ "Let callers into the IVR dial '#' to access the directory. WARNING: this "
+#~ "feature is deprecated and will be removed from future versions. You "
+#~ "should install the Directory module and assign an IVR destination to use "
+#~ "Directory functionality."
+#~ msgstr ""
+#~ "Låt uppringare som är inne i en IVR att trycka '#' för att komma åt "
+#~ "katalogen. VARNING: denna funktion är från en gammal modul som kommer att "
+#~ "tas bort från nyare versioner. Du bör installera den nya Katalogmodulen "
+#~ "och tilldela destinationer i IVR för den i stället"
+
+#~ msgid "Directory Context"
+#~ msgstr "Katalogsammanhang"
+
+#~ msgid ""
+#~ "When # is selected, this is the voicemail directory context that is used"
+#~ msgstr "När '#' trycks är detta det sammanhang för röstbrevlådor som väljs"
+
+#~ msgid "VM Return to IVR"
+#~ msgstr "Röstbrevlådan återgår till iVR"
+
+#~ msgid "Enable Direct Dial"
+#~ msgstr "Tillåt direktsamtal"
+
+#~ msgid "Let callers into the IVR dial an extension directly"
+#~ msgstr "Låter uppringare i en IVR att ringa en anknytning direkt"
+
+#~ msgid "Direct Dial Options"
+#~ msgstr "Val för direktsamtal"
+
+#~ msgid ""
+#~ "Provides options for callers to direct dial an extension. Direct dialing "
+#~ "can be completely disabled, it can be enabled for all extensions on a "
+#~ "system, or it can be tied to a Company Directory allowing any member "
+#~ "listed in that directory to be dialed directly if their extension is "
+#~ "known. If an extension in the chosen directory is overridden, only that "
+#~ "overridden number is dialable"
+#~ msgstr ""
+#~ "Ger möjlighet för uppringare att ringa direkt till anknytningar. "
+#~ "Direktsamtal kan spärras helt, slås på för alla anknytningar i systemet "
+#~ "eller endast tillåtas för anknytningar i vald katalog om direktnumret är "
+#~ "känt"
+
+#~ msgid "All Extensions"
+#~ msgstr "Alla anknytningar"
+
+#~ msgid "Loop Before t-dest"
+#~ msgstr "Återgå före t-dest"
+
+#~ msgid ""
+#~ "If checked, and there is a 't' (timeout) destination defined below, the "
+#~ "IVR will loop back to the beginning if no input is provided for the "
+#~ "designated loop counts prior to going to the timeout (t) destination."
+#~ msgstr ""
+#~ "Om detta är valt, och det finns en 't' destination definierad nedan, "
+#~ "kommer IVR att starta om från början om ett svar inte har kommit inom den "
+#~ "tidsrymd som angetts, före den går till 't' destinationen"
+
+#~ msgid "Timeout Message"
+#~ msgstr "Meddelande för väntetid"
+
+#~ msgid ""
+#~ "If a timeout occurs and a message is selected, it will be played in place "
+#~ "of the announcement message when looping back to the top of the IVR. It "
+#~ "will not be played if the t destination is the next target."
+#~ msgstr ""
+#~ "Om en väntetid går ut och ett meddelande är valt, kommer det att spelas "
+#~ "upp när IVR återgår till början. Det kommer inte att spelas upp om en 't' "
+#~ "destination är nästa mål."
+
+#~ msgid "Loop Before i-dest"
+#~ msgstr "Återgå före i-dest"
+
+#~ msgid ""
+#~ "If checked, and there is an 'i' (invalid extension) destination defined "
+#~ "below, the IVR will play invalid option and then loop back to the "
+#~ "beginning for the designated loop counts prior to going to the invalid "
+#~ "(i) destination."
+#~ msgstr ""
+#~ "Om detta är valt, och det finns en 'i' (ogiltig destination) definierad "
+#~ "nedan, kommer IVR att spela upp 'Ogiltigt val' för att därefter återgå "
+#~ "till början av menyn för den går till 'i' destinationen."
+
+#~ msgid "Invalid Message"
+#~ msgstr "Ogiltig meddelande"
+
+#~ msgid ""
+#~ "If an invalid extension is pressed and a message is selected, it will be "
+#~ "played in place of the announcement message when looping back to the top "
+#~ "of the IVR. It will not be played if the t destination is the next "
+#~ "target. If nothing is selected, the system will play a default invalid "
+#~ "extension message before going back to the main announcement"
+#~ msgstr ""
+#~ "Om en ogiltig destination väljs och ett meddelande här är valt, kommer "
+#~ "detta att spelas upp när IVR återgår till början. Det kommer inte att "
+#~ "spelas upp om 't' destinationen är nästa mål. Om inget är valt kommer "
+#~ "systemet att spela upp ett standard meddelande före återgång till början "
+#~ "av IVR"
+
+#~ msgid "Repeat Loops:"
+#~ msgstr "Repetitionsslinga"
+
+#~ msgid ""
+#~ "The number of times we should loop when invalid input or no input has "
+#~ "been entered before going to the defined or default generated 'i' or 't' "
+#~ "options. If the 'i' or 't' options are defined, the above check boxes "
+#~ "must be checked in order to loop."
+#~ msgstr ""
+#~ "Antalet gånger vi repeterar vid ett ogiltigt val eller inget svar innan "
+#~ "standardvalet för 'i' eller 't' utförs. Om 'i' eller 't' har angetts, "
+#~ "måste ovanstående rutor aktiveras för att slingan ska aktiveras"
+
+#~ msgid "Increase Options"
+#~ msgstr "Utöka val"
+
+#~ msgid "Decrease Options"
+#~ msgstr "Minska val"
+
+#~ msgid "Invalid option"
+#~ msgstr "Ogiltigt val"
+
+#~ msgid "Digits to press for this choice"
+#~ msgstr "Siffra att trycka för att välja denna meny"
+
+#~ msgid ""
+#~ "Check this box to have this option return to a parent IVR if it was "
+#~ "called from a parent IVR. If not, it will go to the chosen destination."
+#~ "<br><br>The return path will be to any IVR that was in the call path "
+#~ "prior to this IVR which could lead to strange results if there was an IVR "
+#~ "called in the call path but not immediately before this"
+#~ msgstr ""
+#~ "Aktivera denna för att återgå till den IVR du kom från, annars gå till "
+#~ "till den valda destinationen.<br><br>Returen kommer att vara den IVR som "
+#~ "utfördes precis innan denna. Detta kan leda till konstiga resultat om en "
+#~ "IVR anropades men inte precis innan denna."
+
+#~ msgid "Delete this entry. Dont forget to click Save to save changes!"
+#~ msgstr ""
+#~ "Ta bort denna post. Glöm inte att klicka Spara för att verkställa "
+#~ "ändringen"

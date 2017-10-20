@@ -1,0 +1,131 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+#
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+#
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for printextensions
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.0.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-06 11:52-0800\n"
+"PO-Revision-Date: 2013-11-07 13:19+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: Japanese\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: printextensions.i18n.php:8
+msgid ""
+"Creates a printable list of extension numbers used throughout the system "
+"from all modules that provide an internal callable number"
+msgstr ""
+"内部の呼び出し番号を提供するすべてのモジュールからシステム全体で使用される内"
+"線番号の印刷可能なリストを作成"
+
+#: page.printextensions.php:139
+msgid "Destination"
+msgstr "宛先"
+
+#: page.printextensions.php:139
+msgid "Extension"
+msgstr "内線"
+
+#: page.printextensions.php:55
+msgid "IssabelPBX Extension Layout"
+msgstr "IssabelPBX 内線レイアウト"
+
+#: page.printextensions.php:111
+msgid "No Matches for the Requested Search"
+msgstr "検索に一致する結果が見つかりませんでした"
+
+#: printextensions.i18n.php:4 printextensions.i18n.php:10
+msgid "Print Extensions"
+msgstr "内線を印刷する"
+
+#: page.printextensions.php:259
+#, php-format
+msgid "Printer Friendly Page"
+msgstr "印刷ページ"
+
+#: printextensions.i18n.php:6 printextensions.i18n.php:12
+msgid "Reports"
+msgstr "レポート"
+
+#: page.printextensions.php:40
+msgid "Search Bounded Regex"
+msgstr "制限付きの正規表現検索"
+
+#: page.printextensions.php:38
+msgid "Search Exact Exten"
+msgstr "正確な内線の検索"
+
+#: page.printextensions.php:42
+msgid "Search Unbounded Regex"
+msgstr "無制限の正規表現検索"
+
+#: page.printextensions.php:27
+msgid "Search:"
+msgstr "検索"
+
+#: page.printextensions.php:28
+msgid ""
+"You can narrow the list of extensions based on a search criteria. If you "
+"search for an exact extension number the page will redirect to the edit page "
+"for the given number. You can also do a bounded or unbounded regex search. "
+"The bounded search simply encloses you search criteria between a '^' and '$' "
+"where as an unbounded one is completely free form. All normal regex patterns "
+"are acceptable in your search. So for example, a bounded search of 20\\d\\d "
+"would search for all extensions of the form 20XX. The resulting lists of "
+"numbers all contain links to go directly to the edit pages and the Printer "
+"Friendly page will reflect the filtered list of numbers."
+msgstr ""
+"検索条件に基づいて内線リストを絞り込むことができます。正確な内線番号を検索す"
+"るとその番号の編集ページにリダイレクトされます。また、制限または無制限の正規"
+"表現検索を行うことができます。制限付きの検索の場合、検索条件は'^'と'$'で囲む"
+"必要があり、制限なしの場合は完全に自由な形式となります。検索の際、正規表現の"
+"パターンはすべて有効となります。例えば、20\\d\\dと制限付きの検索行うと20XX形"
+"式の内線がすべて対象となります。番号の一覧結果は、すべて編集ページと印刷用"
+"ページへのリンクが含まれており、番号でフィルタされた一覧が反映されるでしょ"
+"う。"
+
+#~ msgid "name"
+#~ msgstr "名前"
+
+#~ msgid "featurecodeadmin"
+#~ msgstr "キーコード管理"
+
+#~ msgid "featuredescription"
+#~ msgstr "キーコード説明"

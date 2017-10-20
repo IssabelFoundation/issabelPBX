@@ -1,0 +1,90 @@
+# Hebrew version for Callback IssabelPBX Module.
+# Copyright (C) 2006
+# This file is distributed under the same license as the PACKAGE package.
+# Shimi <shimi@shimi.net>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2014-03-04 09:09+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Hebrew <http://git.freepbx.org/projects/freepbx/callback/he/>"
+"\n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.9-dev\n"
+
+msgid "Callback"
+msgstr ""
+
+#, fuzzy
+msgid "Applications"
+msgstr "יישומים"
+
+#, php-format
+msgid "Callback: %s"
+msgstr ""
+
+msgid "Add Callback"
+msgstr "הוסף חיוג חזרה"
+
+msgid "Callback "
+msgstr "חיוג חזרה "
+
+msgid "deleted"
+msgstr "נמחק"
+
+msgid "Delete Callback"
+msgstr "מחק חיוג חזרה"
+
+msgid "Callback:"
+msgstr "חיוג חזרה:"
+
+msgid ""
+"A callback will hang up on the caller and then call them back, directing "
+"them to the selected destination. This is useful for reducing mobile phone "
+"charges as well as other applications. Outbound calls will proceed according "
+"to the dial patterns in Outbound Routes."
+msgstr ""
+"חיוג חזרה ינתק את המתקשר ואז יצלצל אליו בחזרה, תוך כדי שהוא מפנה את השיחה "
+"ליעד הנבחר. דבר זה מועיל כדי להקטין חיובים בטלפונים ניידים וגם ליישומים "
+"נוספים. שיחות יוצאות תמשכנה על פי דפוסי החיוג אשר מוגדרים בניתובים יוצאים."
+
+msgid "Edit Callback"
+msgstr "ערוך חיוג חזרה"
+
+msgid "Callback Description:"
+msgstr "תיאור חיוג חזרה:"
+
+msgid "Enter a description for this callback."
+msgstr "הכנס תיאור עבור חיוג חזרה זה."
+
+msgid "Callback Number:"
+msgstr "מספר לחיוג חזרה:"
+
+#, fuzzy
+msgid ""
+"Optional: Enter the number to dial for the callback.  Leave this blank to "
+"just dial the incoming CallerID Number"
+msgstr ""
+"רשות: הכנס את המספר שאליו יש להתקשר בחיוג חזרה. השאר שדה זה רק על מנת לחייג "
+"בפשטות למספר שהתקבל בשירות השיחה המזוהה"
+
+msgid "Delay Before Callback:"
+msgstr "המתנה לפני חיוג חזרה"
+
+msgid ""
+"Optional: Enter the number of seconds the system should wait before calling "
+"back."
+msgstr "רשות: הכנס את מספר השניות שעל המערכת לחכות לפני שהיא מחייגת בחזרה."
+
+msgid "Destination after Callback"
+msgstr "יעד לאחר חיוג חזרה"
+
+msgid "Submit Changes"
+msgstr ""

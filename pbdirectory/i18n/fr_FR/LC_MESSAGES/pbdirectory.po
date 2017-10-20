@@ -1,0 +1,45 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-10 16:38-0800\n"
+"PO-Revision-Date: 2009-04-20 10:23+0100\n"
+"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
+"Language-Team: Français <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pbdirectory.i18n.php:6
+msgid "Admin"
+msgstr ""
+
+#: functions.inc.php:19 pbdirectory.i18n.php:4
+msgid "Phonebook Directory"
+msgstr "Annuaire Téléphonique"
+
+#: install.php:5
+msgid "Phonebook dial-by-name directory"
+msgstr "Annuaire Téléphonique numéroter-par-nom"
+
+#: pbdirectory.i18n.php:8
+msgid "Provides a dial-by-name directory for phonebook entries"
+msgstr ""

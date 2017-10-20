@@ -1,0 +1,312 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2009 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2011.
+#
+# Использовать iconv daynight.pot -f UTF-8 -t ISO-8859-5 -o daynight.po
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-20 18:33-0400\n"
+"PO-Revision-Date: 2011-04-14 10:14+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: functions.inc.php:647
+msgid " - Force Time Condition False Destination"
+msgstr "Форсировать назначение которое не попадает под правило по времени"
+
+#: functions.inc.php:645
+msgid " - Force Time Condition True Destination"
+msgstr "Форсировать назначение которое попадает под правило по времени"
+
+#: page.daynight.php:18
+msgid "Add Call Flow Toggle Code"
+msgstr "Добавить сервисный код переключения состояния прохождения вызовов"
+
+#: daynight.i18n.php:6 daynight.i18n.php:12
+msgid "Applications"
+msgstr "Приложения"
+
+#: functions.inc.php:639
+msgid "Associate with"
+msgstr "Ассоциировать с"
+
+#: daynight.i18n.php:18
+msgid ""
+"By default, the Call Flow Control module will not hook Time Conditions "
+"allowing one to associate a call flow toggle feauture code with a time "
+"condition since time conditions have their own feature code as of version "
+"2.9. If there is already an associaiton configured (on an upgraded system), "
+"this will have no affect for the Time Conditions that are effected. Setting "
+"this to true reverts the 2.8 and prior behavior by allowing for the use of a "
+"call flow toggle to be associated with a time conditon. This can be useful "
+"for two scenarios. First, to override a Time Condition without the automatic "
+"resetting that occurs with the built in Time Condition overrides. The second "
+"use is the ability to associate a single call flow toggle with multiple time "
+"conditions thus creating a <b>master switch</b> that can be used to override "
+"several possible call flows through different time conditions."
+msgstr ""
+"По умолчанию модуль управления всеми вызовами не проверяет Правила по "
+"времени, но позволяет связать ручное переключение с правилами по времени "
+"ввиду того что начиная с версии 2.9 Правила по времени имеют свой "
+"собственный сервисный код. Если такое связывание уже создано (например на "
+"предыдущей версии при обновлении системы), то никакого дополнительного "
+"действия для Правил по времени для выполнения той же задачи предпринимать не "
+"нужно. Установка опции во 'Включено' (true) возвращает такое поведение "
+"версии 2.8 к сценарию включения этой возможности в предыдущих версиях, "
+"включая связанное с этим Правило  по времени. Это можно использовать двумя "
+"разными вариантами. По первому - подавлять включение Правила по времени, "
+"которое происходило бы по встроенному в Правила по времени сценарию "
+"автоматически. Второй - использовать возможность позвонить и набрать "
+"сервисный код, который будет как-бы <b>главным переключателем</b>, "
+"включающим одно или несколько Правил по времени."
+
+#: daynight.i18n.php:4 daynight.i18n.php:10
+msgid "Call Flow Control"
+msgstr "Общее управление прохождения вызовов"
+
+#: daynight.i18n.php:16
+msgid "Call Flow Control Module"
+msgstr "Модуль контроля вызовов"
+
+#: functions.inc.php:155
+#, php-format
+msgid "Call Flow Toggle (%s) : %s"
+msgstr "Переключатель состояния прохождения вызовов (%s) : %s"
+
+#: page.daynight.php:70
+msgid "Call Flow Toggle Control"
+msgstr "Управление переключением прохождения вызовов"
+
+#: page.daynight.php:121
+msgid "Call Flow Toggle Feature Code Index:"
+msgstr "Список кодов Дневной/Ночной режим:"
+
+#: functions.inc.php:635
+msgid "Call Flow Toggle Mode Association"
+msgstr "Ассоциация режима День/Ночь"
+
+#: functions.inc.php:515
+#, php-format
+msgid "Call Flow Toggle: %s (%s)"
+msgstr "Переключатель состояния прохождения вызовов (%s) : %s"
+
+#: daynight.i18n.php:8
+msgid ""
+"Call Flow manual toggle control - allows for two destinations to be chosen "
+"and provides a feature code\t\tthat toggles between the two destinations."
+msgstr ""
+"Ручное включение управления прохождением всех вызовов - разрешает сделать "
+"два назначения для входящих и позволяет переключать вызовы вручную при "
+"помощи сервисного кода\t\t."
+
+#: page.daynight.php:152
+msgid "Current Mode:"
+msgstr "Текущий режим:"
+
+#: page.daynight.php:172 page.daynight.php:188
+msgid "Default"
+msgstr "По умолчанию"
+
+#: page.daynight.php:74
+#, php-format
+msgid "Delete Call Flow Toggle Feature Code %s"
+msgstr "Удалить сервисный код %s День/Ночь "
+
+#: page.daynight.php:147
+msgid "Description"
+msgstr "Описание"
+
+#: page.daynight.php:147
+msgid "Description for this Call Flow Toggle Control"
+msgstr "Описание для этого режима День/Ночь"
+
+#: page.daynight.php:261
+#, php-format
+msgid "Destination to use when set to %s mode"
+msgstr "Назначение если установлен режим %s"
+
+#: install.php:81
+msgid "ERROR: failed to alter primary keys "
+msgstr "ОШИБКА: не удалось изменить основные значения."
+
+#: page.daynight.php:89
+msgid "Forces to Normal Mode (Green/BLF off)"
+msgstr "Форсировать переход в нормальный режим (Green/BLF выключено)"
+
+#: page.daynight.php:89
+msgid "Forces to Override Mode (Red/BLF on)"
+msgstr "Форсировать режим подавления (Red/BLF включено)"
+
+#: daynight.i18n.php:14
+msgid "Hook Time Conditions Module"
+msgstr "Вызвать модуль условий по времени"
+
+#: functions.inc.php:639
+msgid ""
+"If a selection is made, this timecondition will be associated with the "
+"specified call flow toggle  featurecode. This means that if the Call Flow "
+"Feature code is set to override (Red/BLF on) then this time condition will "
+"always go to its True destination if the chosen association is to 'Force "
+"Time Condition True Destination' and it will always go to its False "
+"destination if the association is with the 'Force Time Condition False "
+"Destination'. When the associated Call Flow Control Feature code is in its "
+"Normal mode (Green/BLF off), then then this Time Condition will operate as "
+"normal based on the current time. The Destinations that are part of any "
+"Associated Call Flow Control Feature Code will have no affect on where a "
+"call will go if passing through this time condition. The only thing that is "
+"done when making an association is allowing the override state of a Call "
+"Flow Toggle to force this time condition to always follow one of its two "
+"destinations when that associated Call Flow Toggle is in its override (Red/"
+"BLF on) state."
+msgstr ""
+"Если выбрано, то это правило по времени будет связано с соответствующим "
+"сервисным кодом, переключающим состояние прохождения вызовов. Это означает, "
+"что если сервисный код переключения вызовов установлен в режим подавления "
+"(Red/BLF on), то по текущему правилу по времени вызов пойдёт на конечное "
+"назначение, если выбрана опция Форсировать конечное назначения правила по "
+"времени. И по этому же правилу вызов пойдёт в то назначение, которое указано "
+"для 'Если вызов не попадает в текущее правило  по времени'. Если сервисный "
+"код, связанный с переключением прохождения вызовов будет в состоянии "
+"Нормальный режим (Green/BLF выключено), то правило по времени будет "
+"срабатывать согласно текущему времени на сервере. Если вызов попадает под "
+"действие правила по времени, то не имеет значения куда в конечном счёте он "
+"будет направлен. То есть назначения, связанные с сервисным кодом "
+"переключения вызовов будут подавлять все другие, связанные с правилами по "
+"времени, руководствуясь состоянием этого переключения, когда оно "
+"отображается в положении (Red/BLF включено)."
+
+#: page.daynight.php:92
+#, php-format
+msgid "Linked to Time Condition %s - %s"
+msgstr "Присоединено к правилу по времени %s - %s"
+
+#: page.daynight.php:166
+msgid ""
+"Message to be played in normal mode (Green/BLF off).<br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Звуковое сообщение, которое будет воспроизведено.<br>Чтобы добавить "
+"собственное сообщение изпользуйте модуль 'Записи в системе' из меню слева."
+
+#: page.daynight.php:183
+msgid ""
+"Message to be played in override mode (Red/BLF on).<br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Звуковое сообщение, которое будет воспроизведено.<br>Чтобы добавить "
+"собственное сообщение изпользуйте модуль 'Записи в системе' из меню слева."
+
+#: functions.inc.php:642
+msgid "No Association"
+msgstr "Нет связывания"
+
+#: page.daynight.php:158
+msgid "Normal (Green/BLF off)"
+msgstr "Нормальный (Green/BLF выключен)"
+
+#: page.daynight.php:216
+msgid "Normal Flow (Green/BLF off)"
+msgstr "Нормальное прохождение (Green/BLF выключен)"
+
+#: install.php:83
+msgid "OK"
+msgstr "ОК"
+
+#: page.daynight.php:202
+msgid "Optional Password"
+msgstr "Пароль (опционально)"
+
+#: page.daynight.php:159
+msgid "Override (Red/BLF on)"
+msgstr "Подавление правил Override (Red/BLF включен)"
+
+#: page.daynight.php:217
+msgid "Override Flow (Red/BLF on)"
+msgstr "Подавлять правила (Red/BLF включен)"
+
+#: page.daynight.php:240
+msgid "Please enter a valid numeric password, only numbers are allowed"
+msgstr "Введите разрешённый цифровой пароль, разрешены только цифры"
+
+#: page.daynight.php:166
+msgid "Recording for Normal Mode"
+msgstr "Запись для режима День"
+
+#: page.daynight.php:183
+msgid "Recording for Override Mode"
+msgstr "Запись для режима Ночь"
+
+#: page.daynight.php:111 page.daynight.php:224
+msgid "Save"
+msgstr "Сохранить"
+
+#: page.daynight.php:122
+msgid ""
+"There are a total of 10 Feature code objects, 0-9, each can control a call "
+"flow and be toggled using the call flow toggle feature code plus the index."
+msgstr ""
+"Всего 10 дополнений к коду опции переключения в Дневной/Ночной режим, от 0 "
+"до 9, каждый из которых контролирует свой сценарий прохождение звонков и "
+"будет включаться используя код опции (например *28) плюс дополнение "
+"(например *280)"
+
+#: page.daynight.php:153
+msgid ""
+"This will change the current state for this Call Flow Toggle Control, or set "
+"the initial state when creating a new one."
+msgstr ""
+"Эта опция изменяет текущее состояние для сценария прохождения звонков "
+"иливыставляет начальные условия при создании нового сценария"
+
+#: page.daynight.php:112 page.daynight.php:225
+#, php-format
+msgid "Use feature code: %s to toggle the call flow mode"
+msgstr "Используйте код: %s для переключения режима прохождения вызова"
+
+#: page.daynight.php:202
+msgid ""
+"You can optionally include a password to authenticate before toggling the "
+"call flow. If left blank anyone can use the feature code and it will be un-"
+"protected"
+msgstr ""
+"Опционально можно добавить пароль для аутентификации прежде чем переключать "
+"режим день/ночь. Если оставить пустым - любой, кто узнает сервисный код "
+"переключения может воспользоваться, и это никак не защищено."
+
+#: install.php:77
+msgid "changing primary keys to all fields.."
+msgstr "изменить основные значения для всех полей.."
+
+#~ msgid "Inbound Call Control"
+#~ msgstr "Входящие соединения"
+
+#~ msgid "Hook Time Condtions Module"
+#~ msgstr "Модуль включения Правил по времени"
+
+#~ msgid ""
+#~ "This will change the current state for this Call Folow Toggle Control, or "
+#~ "set the initial state when creating a new one."
+#~ msgstr ""
+#~ "Здесь можно изменить текущий Дневной/Ночной режим или установить "
+#~ "начальное состояние если создан новый."

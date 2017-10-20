@@ -1,0 +1,17 @@
+.rnav-heading {
+	text-align: center;
+	font-weight: bold;
+	font-variant: small-caps;
+	font-size: 120%;
+	text-decoration: underline;
+	color: black;
+}
+
+.extensions-list {
+	border: 1px black dotted;
+	padding: 2px;
+	overflow: scroll;
+	height: 150px;
+	font-size: 85%;
+	min-width: 200px;
+}

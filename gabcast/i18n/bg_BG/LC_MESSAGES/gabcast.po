@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-06 14:25+0200\n"
+"PO-Revision-Date: 2008-11-03 13:02+0200\n"
+"Last-Translator: \n"
+"Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: functions.inc.php:21
+msgid "Edit Gabcast Settings"
+msgstr "Редактирай Gabcast Настройки"
+
+#: functions.inc.php:24
+msgid "Add Gabcast Settings"
+msgstr "Добави Gabcast Настройки"
+
+#: functions.inc.php:60
+#, php-format
+msgid "Gabcast: %s Ext: %s"
+msgstr "Gabcast: %s Ext: %s"
+
+#: install.php:4
+#: install.php:8
+msgid "Connect to Gabcast"
+msgstr "Свързване към Gabcast"
+
+#: page.gabcast.php:60
+msgid "This "
+msgstr "Този "
+
+#: page.gabcast.php:62
+msgid "Gabcast is a social broadcasting platform that offers virtual communities, individuals, and organizations an easy way to create and distribute audio content.<br><br>Visit www.gabcast.com for more info."
+msgstr "Gabcast е социална броадкаст платформа която предлага виртуални общества, индивидуални и организирани като лесен начин да създадете и предлагате аудио съдържания.<br><br>Посетете www.gabcast.com за повече информация."
+
+#: page.gabcast.php:64
+msgid "module allows you to:"
+msgstr "модул ви позволява да:"
+
+#: page.gabcast.php:66
+msgid "Link extensions to Gabcast channels. It creates a feature code, which defaults to <u>*422</u> 'gab' - you can change this in"
+msgstr "Свързвате вътрешна линия към Gabcast каналите. Създава специален код, който по-подразбиране е <u>*422</u> 'gab' - можете да го промените в"
+
+#: page.gabcast.php:67
+msgid "Feature Code Admin"
+msgstr "Специални Кодове"
+
+#: page.gabcast.php:68
+msgid "which allows you to log directly into your Gabcast account.  This is ideal for personal podcasting!"
+msgstr "което ви позволява да влизате директно в вашия Gabcast акаунт. Идеално за лични изказвания!"
+
+#: page.gabcast.php:70
+msgid "Define a Gabcast channel as a Destination for other modules. For example, you can direct a DID or IVR menu option directly to Gabcast. This is ideal for group and public podcasting!"
+msgstr "Определяте Gabcast канал като Направление за другите модули. Например, да насочите DID или IVR опция директно към Gabcast. Идеално за групови и публични изказвания!"
+
+#: page.gabcast.php:84
+msgid "Error: cannot retreive Gabcast info for this extension"
+msgstr "Грешка: не мога да прочета Gabcast информацията за тази вътрешна линия"
+
+#: page.gabcast.php:94
+msgid "Delete settings"
+msgstr "Изтрий настройките"
+
+#: page.gabcast.php:113
+msgid "You <u>must</u> have a Gabcast account & channel to use this feature. Visit"
+msgstr "Вие <u>трябва</u> да имате Gabcast акаунт и канал за да използвате тази функция. Посетете"
+
+#: page.gabcast.php:115
+msgid "to sign up. <u>It's a free service</u>!"
+msgstr "за да се регистрирате. <u>Това е безплатна услуга</u>!"
+
+#: page.gabcast.php:121
+msgid "Gabcast Channel Number:"
+msgstr "Gabcast Номер на Канал:"
+
+#: page.gabcast.php:123
+msgid "Gabcast Channel Password:"
+msgstr "Gabcast Парола на Канал:"
+
+#: page.gabcast.php:125
+msgid "Link to Extension/User Number:"
+msgstr "Свържи към Вътрешна Линия/Потребител Номер:"
+
+#: page.gabcast.php:135
+msgid "Add Gabcast Channel"
+msgstr "Добави Gabcast Канал"
+
+#: page.gabcast.php:144
+msgid "Ext"
+msgstr "Ext"
+
+#: page.gabcast.php:144
+msgid "Chan"
+msgstr "Chan"
+
+#: page.gabcast.php:147
+msgid "Gabcast Configuration"
+msgstr "Gabcast Настройки"
+
+#: page.gabcast.php:152
+#, php-format
+msgid "The latest episodes in channel #%s"
+msgstr "Последните епизоди в канала #%s"
+
+#: page.gabcast.php:155
+msgid "The latest episodes across all channels"
+msgstr "Последните епизоди от всички канали"
+
+#: page.gabcast.php:159
+msgid "Feed URL: "
+msgstr "Използван Адрес:"
+

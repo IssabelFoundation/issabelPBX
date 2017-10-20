@@ -1,0 +1,39 @@
+; Feature Code Default Override Configuration File
+;
+; issabelpbx_featurecodes.conf
+;
+; This file is used to override the default featurecode values provided
+; by each IssabelPBX module. It will not change modified values. This can
+; be used to localize featurecodes different from those chosen by each
+; module and hardcoded into the system.
+;
+; The format is standard ini file format where each section is a raw
+; modulename and each entry under a section is the featurecode.
+;
+; You can typically see the feature codes present in a module by looking
+; at their install.php script or otherwise look at the featurecodes sql
+; table.
+;
+; As an example, the module donotdisturb, you will see some entries in
+; the install.php script that look like:
+;
+; $fcc = new featurecode('donotdisturb', 'dnd_on');
+; $fcc = new featurecode('donotdisturb', 'dnd_off');
+; $fcc = new featurecode('donotdisturb', 'dnd_toggle');
+;
+; To override those featurecodes to something *21, *22 and *23, you would 
+; create standard ini entries such as:
+;
+; [donnotdisturb]
+; dnd_on = *21
+; dnd_off = *22
+; dnd_toggle = *23
+;
+; IssabelPBX will then begin using those entries. You will seem them displayed
+; on the Featurecode Admin page and next time a configuration is generated
+; they should be updated in the featurecode sql table.
+;
+; This ini file must remain in place since modules regularly reset such
+; codes when new versions are uploaded but the presence of this file and
+; its settings will override any such changes
+;

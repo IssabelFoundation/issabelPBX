@@ -1,0 +1,106 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language for queueprio
+# Copyright (C) 2009, 2010, 2011 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX queueprio\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-20 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDED\n"
+
+#, php-format
+msgid "Queue Priority: %s"
+msgstr "Köprioritet: %s"
+
+msgid "Add Queue Priority"
+msgstr "Lägg till köprioritet"
+
+msgid "Edit: "
+msgstr "Redigera:"
+
+msgid ""
+"Queue Priority allows you to set a caller's priority in a queue. By default, "
+"a caller's priority is set to 0. Setting a higher priority will put the "
+"caller ahead of other callers already in a queue. The priority will apply to "
+"any queue that this caller is eventually directed to. You would typically "
+"set the destination to a queue, however that is not necessary. You might set "
+"the destination of a priority customer DID to an IVR that is used by other "
+"DIDs, for example, and any subsequent queue that is entered would be entered "
+"with this priority"
+msgstr ""
+"Köprioritet ger dig en möjlighet att sätta en prioritet på ett samtal. Som "
+"standard är köprioriteten 0. Genom att sätta ett högre värde kommer samtalet "
+"att läggas före andra samtal som befinner sig i kön. Prioriteten kommer att "
+"vara aktiv på den kö samtalet styrs till. Typiskt kommer destinationen att "
+"vara en kö, men det är inte nödvändigt. Du kanske väljer att sätta en "
+"inkommande väg med numret för en viktig kund till denna prioritet, "
+"prioritetens destination kan sättas till en IVR som har ett val till en kö, "
+"när samtalet hamnar i kön har prioriteten följt med och samtalet hamnar "
+"först i kön."
+
+msgid "Edit Queue Priority Instance"
+msgstr "Redigera köprioritet"
+
+msgid "Add Queue Priority Instance"
+msgstr "Lägg till köprioritet"
+
+msgid "Description"
+msgstr "Beskrivning"
+
+msgid "The descriptive name of this Queue Priority instance."
+msgstr "Skriv in en kortfattad beskrivning för denna köprioritet."
+
+msgid "Priority"
+msgstr "Prioritet"
+
+msgid "The Queue Priority to set"
+msgstr "Välj vilken köprioritet som ska användas"
+
+msgid "Destination"
+msgstr "Destination"
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+msgid "Delete"
+msgstr "Ta bort"
+
+msgid "Invalid description specified"
+msgstr "Ogiltig beskrivning"
+
+msgid "Queue Priorities"
+msgstr "Köprioriteter"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Adds the ability to set a callers priority higher before entering a queue"
+msgstr ""
+"Lägger till möjlighet att sätta högre prioritet för inkommande samtal innan "
+"det skickas till en kö"
+
+#~ msgid "Inbound Call Control"
+#~ msgstr "Inkommande samtal"

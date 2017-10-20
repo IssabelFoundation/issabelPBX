@@ -1,0 +1,85 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2014-07-21 14:49+0200\n"
+"Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
+"Language-Team: Bulgarian "
+"Language: bg_BG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.10-dev\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Blacklist"
+msgstr "Черен Списък"
+
+msgid "Admin"
+msgstr "Админ"
+
+msgid "Blacklist a number"
+msgstr "Въведи номер в Черен Списък"
+
+msgid "Remove a number from the blacklist"
+msgstr "Извади  номер от Черен Списък"
+
+msgid "Blacklist the last caller"
+msgstr "Въведи последния обадил се в Черен Списък"
+
+msgid "Blacklist entry"
+msgstr "Въведен в Черен Списък"
+
+msgid "deleted"
+msgstr "изтрит"
+
+msgid "Blacklist entries"
+msgstr "Въведени в Черен Списък"
+
+msgid "Number/CallerID"
+msgstr "Номер/CallerID"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Number"
+msgstr "Номер"
+
+msgid "Delete"
+msgstr "Изтрий"
+
+msgid "Edit"
+msgstr "Редактирай"
+
+msgid "Add or replace entry"
+msgstr "Добави или замени въведен номер"
+
+msgid "Number/CallerID:"
+msgstr "Номер/CallerID:"
+
+msgid "Enter the number/CallerID you want to block"
+msgstr "Въведете номер/CallerID който искате да блокирате"
+
+msgid "Description:"
+msgstr "Описание:"
+
+msgid "Enter a description for the number you want to block"
+msgstr "Въведете описание за номера който искате да блокирате"
+
+msgid "Block Unknown/Blocked Caller ID:"
+msgstr "Блокирай Неразпознат/Блокиран Caller ID:"
+
+msgid "Check here to catch Unknown/Blocked Caller ID"
+msgstr "Маркирайте за да улавяте Неразпознат/Блокиран Caller ID"
+
+msgid "Submit Changes"
+msgstr "Приеми Промените"

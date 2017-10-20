@@ -1,0 +1,37 @@
+<?php
+
+class Can411 extends superfecta_base {
+
+    public $description = "http://www.411.ca - These listings include business and residential data for Canada.";
+    public $version_requirement = "2.11";
+
+    function get_caller_id($thenumber, $run_param=array()) {
+        $caller_id = null;
+        $npa = "";
+        $nxx = "";
+        $station = "";
+
+        if (!$this->IsValidNumber('CA', $thenumber, $npa, $nxx, $station)) {
+            $this->DebugPrint("Skipping Source - Non Canadian number: " . $thenumber);
+        } else {
+            $this->DebugPrint("Searching www.411.ca - ({$npa}) {$nxx}-{$station}...");
+
+            // By default, there is no match
+            $name = "";
+
+            $url = "http://411.ca/search/?q=$thenumber&st=reverse";    //working June 19, 2012
+
+            $pattern = '/itemprop=\"name\">(.+?)<\/a>/i';   // working Jun 19, 2012
+            // Patterns to search for
+            $regexp = array(
+                $pattern,
+            );
+
+            if ($this->SearchURL($url, $regexp, $match, NULL, TRUE)) {
+                $caller_id = $this->ExtractMatch($match);
+            }
+        }
+        return($caller_id);
+    }
+
+}

@@ -1,0 +1,39 @@
+<?php
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+ * Developer Notes:
+ *
+ * Version History
+ *     2014-10-13  Initial version with api 1.0 by Trapulo
+ *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+
+class GlipMe extends superfecta_base {
+
+    public $description = "Your GlipMe (www.glipme.com) private company address book";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'Security_key' => array(
+            'description' => 'Specify your GlipMe PBX security key',
+            'type' => 'text',
+            'default' => ''
+        )
+    );
+
+	function get_caller_id($thenumber, $run_param=array()) {
+
+		$url = 'https://service.glipme.com/api/1.0/pbx/[KEY]/asterisklookup/[NUMBER]';
+		$url = str_replace('[KEY]', $run_param['Security_key'], $url);
+		$url = str_replace('[NUMBER]', $thenumber, $url);
+		//            $url = urlencode($url);
+
+		$this->DebugPrint("Sended to GlipMe key: ".$run_param['Security_key']);
+		
+		$value = $this->get_url_contents($url);
+
+		$this->DebugPrint("GlipMe reported: {$value}");
+		return ($value);
+
+	}
+
+}
+
+

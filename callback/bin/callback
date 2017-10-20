@@ -1,0 +1,63 @@
+#!/usr/bin/php -q
+<?php
+/*
+This Callback script takes 7 arguments:
+1- number to dial
+2- context.exten.priority to dump number into
+3- optional time in seconds to sleep before calling back
+
+eg: callback 14032448089 ext-meetme.200.1
+*/
+?>
+
+<?php
+
+if ($argc < 3) {
+  cb_fatal("Wrong number of arguments, should be:\n".$argv[0]." callback_number callback_destination [delay_seconds]\n");
+}
+
+$callback_number = $argv[1];
+$callback_destination = $argv[2];
+$pause_seconds = isset($argv[3]) ? $argv[3] : 0;
+
+// bootstrap the connection to get astman up
+//
+$restrict_mods = true;
+$bootstrap_settings['issabelpbx_auth'] = false;
+if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc/issabelpbx.conf')) { 
+  include_once('/etc/asterisk/issabelpbx.conf');
+}
+
+if($pause_seconds) {
+	sleep($pause_seconds);
+}
+// figure out context, exten, priority
+$dest = explode(".",$callback_destination);
+$callback_context = $dest[0];
+$callback_exten = $dest[1];
+$callback_priority = $dest[2];
+
+//define the args for Originate
+$channel = "Local/".$callback_number."@from-internal";
+$exten = $callback_exten;
+$context = $callback_context;
+$priority = $callback_priority;
+$timeout = "15000";
+$callerid = "Callback";
+$variable = "";
+$account = "";
+$application = "";
+$data = "";
+
+if ($bootstrap_settings['astman_connected']) {
+	$astman->Originate($channel, $exten, $context, $priority, $timeout, $callerid, $variable, $account, $application, $data);
+  $astman->disconnect();
+} else {
+	cb_fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
+}
+
+function cb_fatal($text) {
+	echo "[FATAL] ".$text."\n";
+	exit(1);
+}
+?>

@@ -1,0 +1,497 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-02-14 17:21+0200\n"
+"Last-Translator: \n"
+"Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#, php-format
+msgid "Ring Group %s: "
+msgstr "Група на Звънене %s: "
+
+#, php-format
+msgid "Ring Group: %s"
+msgstr "Група на Звънене: %s"
+
+msgid "This ringgroup"
+msgstr "Тази група на звънене"
+
+msgid "is already in use"
+msgstr "вече се използва"
+
+msgid "INUSE"
+msgstr "ANVÄNDS"
+
+#, php-format
+msgid "Ring Group: %s (%s)"
+msgstr "Група на Звънене: %s (%s)"
+
+msgid "added field cwignore to ringgroups table"
+msgstr ""
+
+msgid "added field cfignore to ringgroups table"
+msgstr ""
+
+msgid "added field cpickup to ringgroups table"
+msgstr ""
+
+msgid "added field recording to ringgroups table"
+msgstr ""
+
+msgid "Checking if recordings need migration.."
+msgstr "Проверка дали записите имат нужда от преместване.."
+
+msgid "migrating"
+msgstr "преместване"
+
+msgid "adding annmsg_id field.."
+msgstr "добаване на annmsg_id поле.."
+
+msgid "fatal error"
+msgstr "фатална грешка"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "adding remotealert_id field.."
+msgstr "добаване на remotealert_id поле.."
+
+msgid "adding toolate_id field.."
+msgstr "добаване на toolate_id поле.."
+
+msgid "migrate annmsg to ids.."
+msgstr "преместване към id на annmsg.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "преместени %s въвеждания"
+
+msgid "migrate remotealert to  ids.."
+msgstr "преместване към id на remotealert.."
+
+msgid "migrate toolate to ids.."
+msgstr "преместване към id на toolate.."
+
+msgid "dropping annmsg field.."
+msgstr "премахване на поле annmsg.."
+
+msgid "no annmsg field???"
+msgstr "няма annmsg поле???"
+
+msgid "dropping remotealert field.."
+msgstr "премахване на поле remotealert.."
+
+msgid "no remotealert field???"
+msgstr "няма remotealert поле???"
+
+msgid "dropping toolate field.."
+msgstr "премахване на поле toolate.."
+
+msgid "no toolate field???"
+msgstr "няма toolate поле???"
+
+msgid "already migrated"
+msgstr "вече са преместени"
+
+msgid "Warning! Extension"
+msgstr "Внимание! Вътрешна Линия"
+
+msgid "is not allowed for your account"
+msgstr "не е разрешена за вашия акаунт"
+
+msgid "Add Ring Group"
+msgstr "Добави Група на Звънене"
+
+msgid "Ring Group"
+msgstr "Група на Звънене"
+
+msgid "deleted"
+msgstr "изтрита"
+
+msgid "Delete Group"
+msgstr "Изтрий Групата"
+
+msgid "Conflicting Extensions"
+msgstr "Вътрешни Линии в Конфликт"
+
+msgid "Edit Ring Group"
+msgstr "Редактирай Група на Звънене"
+
+msgid "Ring-Group Number"
+msgstr "Номер на Група на Звънене"
+
+msgid "The number users will dial to ring extensions in this ring group"
+msgstr "Номерът който потребителите ще избират за звънене в тази група."
+
+msgid "Group Description"
+msgstr "Описание на Групата"
+
+msgid "Provide a descriptive title for this Ring Group."
+msgstr "Наименование за тази Група на Звънене."
+
+msgid "Ring Strategy:"
+msgstr "Стратегия на Звънене:"
+
+msgid "ringall"
+msgstr "звъни на всички"
+
+msgid "Ring all available channels until one answers (default)"
+msgstr "Звъни на всички достъпни канали докато отговорят (по-подразбиране)"
+
+msgid "hunt"
+msgstr "преследване"
+
+msgid "Take turns ringing each available extension"
+msgstr "Върти звъненето по всички достъпни вътрешни линии"
+
+msgid "memoryhunt"
+msgstr "преследване с запомняне"
+
+msgid ""
+"Ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc."
+msgstr ""
+"Звъни на първата свободна вътрешна линия от списъка, след това на 1-та и 2-"
+"та, след това на 1-та, 2-та и 3-та вътрешна линия в списъка... и т.н."
+
+msgid "*-prim"
+msgstr "*-основна"
+
+msgid ""
+"These modes act as described above. However, if the primary extension (first "
+"in list) is occupied, the other extensions will not be rung. If the primary "
+"is IssabelPBX DND, it won't be rung. If the primary is IssabelPBX CF "
+"unconditional, then all will be rung"
+msgstr ""
+"Този режим е като описания по-горе. Само че ако основната вътрешна линия "
+"(първата в списъка) е заета, другите вътрешни линии няма да звънят. Ако "
+"основната е IssabelPBX DND, няма да звъни. Ако основната е безусловен IssabelPBX "
+"CF, тогава всички ще звънят"
+
+msgid "firstavailable"
+msgstr "първия свободен"
+
+msgid "ring only the first available channel"
+msgstr "звъни само на първия свободен канал"
+
+msgid "firstnotonphone"
+msgstr "първия не на телефона"
+
+msgid "ring only the first channel which is not offhook - ignore CW"
+msgstr "звъни само на първия канал който не е отворен - игнорира CW"
+
+msgid "Ring Time (max 60 sec)"
+msgstr "Време на Звънене (max 60 секунди):"
+
+msgid ""
+"Time in seconds that the phones will ring. For all hunt style ring "
+"strategies, this is the time for each iteration of phone(s) that are rung"
+msgstr ""
+"Времето в секунди за което телефона ще звъни. За всички типове преследване "
+"за стратегии на звънене, това е времето за всяко повторение на телефона(ите) "
+"които звънят"
+
+msgid "Extension List"
+msgstr "Списък с Вътрешни Линии."
+
+msgid ""
+"List extensions to ring, one per line, or use the Extension Quick Pick below "
+"to insert them here.<br><br>You can include an extension on a remote system, "
+"or an external number by suffixing a number with a '#'.  ex:  2448089# would "
+"dial 2448089 on the appropriate trunk (see Outbound Routing)"
+"<br><br>Extensions (without a '#' will not ring a user's Follow-Me. To dial "
+"Follow-Me, Queues and other numbers that are not extensions, put a '#' at "
+"the end."
+msgstr ""
+"Списък с вътрешни линии за звънене, една на ред, или използвайте Бързо "
+"Избиране на Вътрешни Линии по-долу за да ги добавите тук.<br><br>Можете да "
+"включите вътрешна линия от отдалечена система, или външен номер чрез "
+"добавяне на наставка '#'. Например:  2448089# ще избира 2448089 от "
+"съответната външна линия (виж Изходящи Маршрути)<br><br>Вътрешни номера без "
+"'#' няма да звънят на потребителски Следвай Ме. За да избирате Следвай Ме, "
+"Опашки и други номера които не са вътрешни линии, поставете '#' в края."
+
+msgid "Extension Quick Pick"
+msgstr "Бързо Избиране на Вътрешни Линии"
+
+msgid "Choose an extension to append to the end of the extension list above."
+msgstr "Изберете вътрешна линия за поставяне в края на списъка по-горе."
+
+msgid "(pick extension)"
+msgstr "(избери вътрешна линия)"
+
+msgid "Announcement:"
+msgstr "Съобщение:"
+
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Съобщение което ще се възпроизведе на обаждащия се преди да се набере "
+"групата.<br><br>За да добавите допълнителни записи, моля използвайте Меню "
+"\"Системни Записи\" отляво"
+
+msgid "None"
+msgstr "Няма"
+
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Съобщение което ще се възпроизведе на обаждащия се преди да се набере "
+"групата.<br><br>Трябва да сте инсталирали и разрешили Модул \"Системни Записи"
+"\" за да редактирате тази опция"
+
+msgid "Play Music On Hold?"
+msgstr "Пускане на Музика при Задържане?"
+
+msgid ""
+"If you select a Music on Hold class to play, instead of 'Ring', they will "
+"hear that instead of Ringing while they are waiting for someone to pick up."
+msgstr ""
+"Ако изберете категория на Музика При Задържане за възпроизвеждане вместо "
+"Звънене, те ще чуват това вместо Звънене докато чакат някой да оговори."
+
+msgid "Ring"
+msgstr "Звънене"
+
+msgid "none"
+msgstr "няма"
+
+msgid "default"
+msgstr "по-подразбиране"
+
+msgid "CID Name Prefix"
+msgstr "Префикс на CID Име"
+
+msgid ""
+"You can optionally prefix the CallerID name when ringing extensions in this "
+"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
+"as \"Sales:John Doe\" on the extensions that ring."
+msgstr ""
+
+msgid "Alert Info"
+msgstr "Информация за Сигнал"
+
+msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+msgstr ""
+"ALERT_INFO може да се използва за различно звънене при някои SIP устройства."
+
+msgid "Ignore CF Settings"
+msgstr "Игнорирай настройките за CF"
+
+msgid ""
+"When checked, agents who attempt to Call Forward will be ignored, this "
+"applies to CF, CFU and CFB. Extensions entered with '#' at the end, for "
+"example to access the extension's Follow-Me, might not honor this setting ."
+msgstr ""
+"Когато е маркирано, агентите които опитват Пренасочване на Обаждането ще се "
+"игнорират, това важи за CF, CF Общ и CF Заето. Вътрешните Номера въведени с "
+"'#' в края, например за достъп до Следвай Ме, може да не зачетат тези "
+"настройки."
+
+msgid "Skip Busy Agent"
+msgstr "Пропусни Зает Агент"
+
+msgid ""
+"When checked, agents who are on an occupied phone will be skipped as if the "
+"line were returning busy. This means that Call Waiting or multi-line phones "
+"will not be presented with the call and in the various hunt style ring "
+"strategies, the next agent will be attempted."
+msgstr ""
+"Когато е маркирано, агентите които говорят ще бъдат пропуснати като заета "
+"линия. Това означава че Чакащо Повикване или телефони с няклоко линии няма "
+"да се представят в обаждането и в различните стратегии на звънене, следващия "
+"агент ще бъде повикан."
+
+msgid "Enable Call Pickup"
+msgstr ""
+
+msgid ""
+"Checking this will allow calls to the Ring Group to be picked up with the "
+"directed call pickup feature using the group number. When not checked, "
+"individual extensions that are part of the group can still be picked up by "
+"doing a directed call pickup to the ringing extension, which works whether "
+"or not this is checked."
+msgstr ""
+
+msgid "Confirm Calls"
+msgstr "Потвърди Обажданията"
+
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through. This feature only works with the ringall ring strategy"
+msgstr ""
+"Разрешете ако ви се обаждат външни номера които се нуждаят от потвърждение - "
+"например мобилен телефон може да отиде към гласовата поща която да отговори "
+"на обаждането. Разрешаването изисква от отсрещната страна да наберат 1 преди "
+"обаждането да се достави. Тази услуга работи само със звъни на всички "
+"стратегия."
+
+msgid "Remote Announce:"
+msgstr "Кратко Съобщение:"
+
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled.<br><br>To add additional recordings use the \"System Recordings\" "
+"MENU to the left"
+msgstr ""
+"Съобщение което ще се възпроизведе на  ПРИЕМАЩИЯ обаждането, ако Потвърди "
+"Обажданията е маркирано.<br><br>За да добавите допълнителни записи, моля "
+"използвайте Меню \"Системни Записи\" отляво"
+
+msgid "Default"
+msgstr "По-Подразбиране"
+
+msgid "Too-Late Announce:"
+msgstr "Много-Късно Съобщение:"
+
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1.<br><br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Съобщение което ще се възпроизведе на  ПРИЕМАЩИЯ обаждането, ако обаждането "
+"вече е било прието преди те да натиснат 1.<br><br>За да добавите "
+"допълнителни записи, моля използвайте Меню \"Системни Записи\" отляво"
+
+msgid "Change External CID Configuration"
+msgstr ""
+
+msgid "Mode"
+msgstr ""
+
+msgid "Transmits the Callers CID if allowed by the trunk."
+msgstr ""
+
+msgid "Fixed CID Value"
+msgstr ""
+
+msgid "Always transmit the Fixed CID Value below."
+msgstr ""
+
+msgid "Outside Calls Fixed CID Value"
+msgstr ""
+
+msgid ""
+"Transmit the Fixed CID Value below on calls that come in from outside only. "
+"Internal extension to extension calls will continue to operate in default "
+"mode."
+msgstr ""
+
+msgid "Use Dialed Number"
+msgstr ""
+
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This will "
+"be BLOCKED on trunks that block foreign CallerID"
+msgstr ""
+
+msgid "Force Dialed Number"
+msgstr ""
+
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This WILL "
+"be transmitted on trunks that block foreign CallerID"
+msgstr ""
+
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading \"+\"."
+msgstr ""
+
+msgid "Call Recording"
+msgstr ""
+
+msgid "Record Calls"
+msgstr ""
+
+msgid ""
+"You can always record calls that come into this ring group, never record "
+"them, or allow the extension that answers to do on-demand recording. If "
+"recording is denied then one-touch on demand recording will be blocked."
+msgstr ""
+
+msgid "Always"
+msgstr ""
+
+msgid "On Demand"
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
+msgid "Destination if no answer"
+msgstr "Направление ако не е отговорено"
+
+msgid "Submit Changes"
+msgstr "Приеми Промените"
+
+msgid "Invalid Group Number specified"
+msgstr "Неправилно определен Номер на Група."
+
+msgid "Please enter an extension list."
+msgstr "Моля въведете списъка с вътрешни линии."
+
+msgid "Invalid time specified"
+msgstr "Неправилно въведено време"
+
+msgid "Time must be between 1 and 60 seconds"
+msgstr "Трябва да е между 1 и 60 секунди"
+
+msgid "Please enter a valid Group Description"
+msgstr "Моля въведете правилно Описание за Групата"
+
+msgid ""
+"Only ringall, ringallv2, hunt and the respective -prim versions are "
+"supported when confirmation is checked"
+msgstr ""
+"Само ringall, ringallv2, hunt и съответните - osnowna версии се поддържат "
+"когато е маркирано потвърждението"
+
+msgid "Ring Groups"
+msgstr "Групи на Звънене"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Creates a group of extensions that all ring together. Extensions can be rung "
+"all at once, or in various 'hunt' configurations. Additionally, external "
+"numbers are supported, and there is a call confirmation option where the "
+"callee has to confirm if they actually want to take the call before the "
+"caller is transferred."
+msgstr ""
+
+#~ msgid ""
+#~ "You can optionally prefix the Caller ID name when ringing extensions in "
+#~ "this group. ie: If you prefix with \"Sales:\", a call from John Doe would "
+#~ "display as \"Sales:John Doe\" on the extensions that ring."
+#~ msgstr ""
+#~ "Можете да добавите префикс на Caller ID името когато звъните на "
+#~ "вътрешните линии в тази група. Например: Префикс \"Продажби:\", "
+#~ "обаждането от Иван Иванов ще се показва \"Продажби:Иван Иванов\" на "
+#~ "вътрешните линии които звънят."
+
+#~ msgid "Invalid Caller ID prefix."
+#~ msgstr "Неправилен Caller ID префикс."

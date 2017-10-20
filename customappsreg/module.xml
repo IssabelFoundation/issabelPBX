@@ -1,0 +1,33 @@
+<module>
+	<rawname>customappsreg</rawname>
+	<repo>standard</repo>
+	<name>Custom Applications</name>
+	<version>2.11.0.2</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<category>Admin</category>
+	<description>
+		Registry to add custom extensions and destinations that may be created and used so that the Extensions and Destinations Registry can include these.
+	</description>
+	<menuitems>
+		<customextens>Custom Extensions</customextens>
+		<customdests>Custom Destinations</customdests>
+	</menuitems>
+	<popovers>
+		<customappsreg>
+			<display>customdests</display>
+		</customappsreg>
+ 	</popovers>
+	<changelog>
+		*2.11.0.2* Initial Issabel Foundation release
+	</changelog>
+  <depends>
+    <version>2.4.0</version>
+  </depends>
+  <location>release/2.11/customappsreg-2.11.0.0.tgz</location>
+  <md5sum>21344e8a23a5c1ee5184d9bc96dedfee</md5sum>
+  <supported>
+    <version>2.10</version>
+  </supported>
+</module>

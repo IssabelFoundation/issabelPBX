@@ -1,0 +1,69 @@
+<?php
+/* Dev notes
+2013-11-02 migrated to 2.11 platform by lgaetz
+*/
+
+class ReverseAustralia_AU extends superfecta_base {
+
+    public $description = "http://www.reverseaustralia.com - Phone listings for Australia";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'API_Key' => array(
+            'description' => 'Your API key from http://www.reverseaustralia.com/developer/',
+            'type' => 'text',
+            'default' => ''
+        ),
+       'Spam_Threshold' => array(
+            'description' => 'How sensitive of a spam score to use 1-100, 0 to disable',
+            'type' => 'number',
+            'default' => '40'
+        )
+
+    );
+
+	function get_caller_id($thenumber, $run_param=array()) {
+
+	if (!$run_param['API_Key']) {
+		$this->DebugPrint("A valid API Key is required to use this lookup source");
+	} else {
+		$caller_id = null;
+		$name = "";
+		$spam = "";
+
+		$this->DebugPrint("Searching reverseaustralia.com - {$this->thenumber} ... ");
+
+		if ($run_param['Spam_Threshold'])  {
+			$spam = "&spamthreshold=".$run_param['Spam_Threshold'];
+		} else {
+			$spam = "";
+		}
+
+		// Search reverseaustralia.com.  URL taken from 
+		// http://www.reverseaustralia.com/developer/callerid.html for suggested format for PBX lookup
+		$url = "http://api.reverseaustralia.com/cidlookup.php?format=json&key={$run_param['API_Key']}&q=$thenumber".$spam;
+		// $this->DebugPrint($url);   // for debug
+
+		$value = $this->get_url_contents($url);
+		// $value = '{"name":"Australian Communications Authority (aca)"}'; // For debug
+
+		$result = (array)json_decode($value);
+		if (isset($result['error'])) {
+			if ($result['error'] == 'Not found') {
+				//record not found
+			}
+		} else {
+			$name = $result['name'];
+		}
+
+		// If we found a match, return it
+            if (strlen($name) > 1) {
+                $caller_id = $name;
+            } else {
+                $this->DebugPrint("not found");
+            }
+
+            return($caller_id);
+		}
+    }
+
+}

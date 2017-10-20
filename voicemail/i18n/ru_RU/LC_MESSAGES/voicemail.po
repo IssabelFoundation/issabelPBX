@@ -1,0 +1,1172 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Alexander Anikin <may@postmet.com>, 2006-2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 00:04+0400\n"
+"PO-Revision-Date: 2014-02-28 04:51+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Russian "
+"<http://example.com/projects/freepbx-211/voicemail/ru/>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.9-dev\n"
+
+msgid ""
+"Voicemail is enabled but the Voicemail Password field is empty.  Are you "
+"sure you wish to continue?"
+msgstr ""
+"Голосовая почта включена, но не задан пароль для доступа. Вы собираетесь "
+"продолжить?"
+
+msgid "Enabled"
+msgstr "Включено"
+
+msgid "Disabled"
+msgstr "Выключено"
+
+msgid "yes"
+msgstr "да"
+
+msgid "no"
+msgstr "нет"
+
+msgid "Please enter a valid Voicemail Password, using digits only"
+msgstr ""
+"Пожалуйста введите разрешённый пароль голосовой почты, используя только цифры"
+
+msgid "Please enter a valid Email Address"
+msgstr "Пожалуйста введите разрешённый адрес эл. почты"
+
+msgid "Please enter a valid Pager Email Address"
+msgstr "Пожалуйста введите разрешённый адрес пейджера"
+
+msgid "VM Context cannot be blank"
+msgstr "Контекст голосовой почты не может быть пустым"
+
+msgid "Voicemail"
+msgstr "Голосовая почта"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Voicemail Password"
+msgstr "Пароль на голосовую почту"
+
+#, php-format
+msgid ""
+"This is the password used to access the Voicemail system.%sThis password can "
+"only contain numbers.%sA user can change the password you enter here after "
+"logging into the Voicemail system (%s) with a phone."
+msgstr ""
+"Пароль для доступа к системе голосовой почты.%sПароль должен состоять только из "
+"цифр.%sПользователь может изменить пароль, указанный здесь, после того, как "
+"успешно залогинится в систему голосовой почты (%s) с телефона."
+
+msgid "Email Address"
+msgstr "Адрес эл. почты"
+
+msgid "The email address that Voicemails are sent to."
+msgstr "Адрес электронной почты, на который будут отправляться сообщения."
+
+# msgid "The email address that voicemails are sent to."
+# msgstr "Адрес эл. почты куда будет высылаться сообщение о принятых звонках."
+msgid "Pager Email Address"
+msgstr "Адрес пейджера"
+
+msgid ""
+"Pager/mobile email address that short Voicemail notifications are sent to."
+msgstr ""
+"Пейджер/адрес мобильного устройства, на которые будут пересылаться короткие "
+"уведомления голосовой почты."
+
+# msgid ""
+# "Pager/mobile email address that short voicemail notifications are sent to."
+# msgstr ""
+msgid "Email Attachment"
+msgstr "Вложение в эл. почту"
+
+msgid "Option to attach Voicemails to email."
+msgstr "Опционально - присоединять голосовые файлы к сообщениям голосовой почты."
+
+# msgid "Option to attach voicemails to email."
+# msgstr "Опционально - вложение оставленного сообщения в эл. сообщении."
+msgid "Play CID"
+msgstr "Воспроизводить CID"
+
+msgid ""
+"Read back caller's telephone number prior to playing the incoming message, "
+"and just after announcing the date and time the message was left."
+msgstr ""
+"Проговаривать телефонный номер позвонившего прежде чем воспроизводить "
+"входящее сообщение, с указанием даты и времени, когда оно было оставлено."
+
+msgid "Play Envelope"
+msgstr "Воспроизводить дату/время"
+
+msgid ""
+"Envelope controls whether or not the Voicemail system will play the message "
+"envelope (date/time) before playing the Voicemail message. This setting does "
+"not affect the operation of the envelope option in the advanced Voicemail "
+"menu."
+msgstr ""
+"Добавлять информацию о дате/времени звонка в сообщение голосовой почты перед "
+"его воспроизведением. Эта установка не влияет на операции в расширенном меню "
+"Голосовой почты."
+
+msgid "Delete Voicemail"
+msgstr "Удалить голосовую почту"
+
+msgid ""
+"If set to \"yes\" the message will be deleted from the Voicemailbox (after "
+"having been emailed). Provides functionality that allows a user to receive "
+"their Voicemail via email alone, rather than having the Voicemail able to be "
+"retrieved from the Webinterface or the Extension handset.  CAUTION: MUST "
+"HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE "
+"LOST FOREVER."
+msgstr ""
+"Если установлено в \"да\", то сообщение удаляется из ящика голосовой почты "
+"после отправки по эл. почте. Добавляет функциональной независимости для приёма "
+"голосовых сообщений по эл. рочте и их прослушивания без доступа к вэб-интерфейсу "
+"или к телефону внутреннего номера. ПРЕДУПРЕЖДЕНИЕ: НЕОБХОДИМО ПОСТАВИТЬ ОПЦИЮ "
+"Присоединять голосовое сообщение к сообщению эл. почты - в ДА, ИНАЧЕ СООБЩЕНИЯ "
+"БУДУТ БЕЗВОЗВРАТНО УТЕРЯНЫ."
+
+msgid "IMAP Username"
+msgstr "Пользователь IMAP"
+
+#, php-format
+msgid "This is the IMAP username, if using IMAP storage"
+msgstr "Имя пользователя, если используется протокол IMAP"
+
+msgid "IMAP Password"
+msgstr "Пароль IMAP "
+
+#, php-format
+msgid "This is the IMAP password, if using IMAP storage"
+msgstr "Пароль для доступа по протоколу IMAP"
+
+msgid "VM Options"
+msgstr "Опции голосовой почты"
+
+#, php-format
+msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
+msgstr "Отделяйте опции значком ( | )%sнапример: review=yes|maxmessage=60"
+
+msgid "VM Context"
+msgstr "Контекст голосовой почты"
+
+msgid ""
+"This is the Voicemail Context which is normally set to default. Do not "
+"change unless you understand the implications."
+msgstr ""
+"Это контекст голосовой почты, обычно он default. Не изменяйте его, если вы "
+"не отчётливо понимаете как это применять"
+
+msgid "VmX Locater"
+msgstr "VmX Локатор"
+
+msgid "VmX Locater&trade;"
+msgstr "VmX Локатор&trade;"
+
+msgid ""
+"Enable/Disable the VmX Locater feature for this user. When enabled all "
+"settings are controlled by the user in the User Portal (ARI). Disabling will "
+"not delete any existing user settings but will disable access to the feature"
+msgstr ""
+"Включить/выключить функцию VmX Локатора для этого пользователя. Если "
+"включена, - все установки доступны пользователю в интерфейсе голосовых "
+"сообщений Астериск (ARI). Отключение не удаляет созданные настройки, а "
+"только отключает доступ к этой функции."
+
+msgid "Please enter a valid phone number using number digits only"
+msgstr "Пожалуйста введите разрешённый номер используя только цифры"
+
+msgid "Use When:"
+msgstr "Использовать при:"
+
+msgid ""
+"Menu options below are available during your personal Voicemail greeting "
+"playback. <br/><br/>Check both to use at all times."
+msgstr ""
+"Опции меню ниже доступны в течение воспроизведения персональных сообщений о недоступности."
+"<br/><br/>Проверьте оба для полноценного использования."
+
+msgid "unavailable"
+msgstr "недоступен"
+
+msgid "busy"
+msgstr "занят"
+
+msgid "Voicemail Instructions:"
+msgstr "Инструкции к голосовой почте:"
+
+msgid "Uncheck to play a beep after your personal Voicemail greeting."
+msgstr ""
+"Убрать птичку чтобы воспроизводить сигнал начала записи после воспроизведения "
+"персонального сообщения о недоступности"
+
+msgid "Standard Voicemail prompts."
+msgstr "Стандартные сообщения голосовой почты"
+
+msgid "Press 0:"
+msgstr "Нажать 0:"
+
+msgid ""
+"Pressing 0 during your personal Voicemail greeting goes to the Operator. "
+"Uncheck to enter another destination here. This feature can be used while "
+"still disabling VmX to allow an alternative Operator extension without "
+"requiring the VmX feature for the user."
+msgstr ""
+"При нажатии 0 в процессе воспроизведения сообщения о недоступности вызов "
+"отправится к оператору. Убрать птичку если нужно отправлять вызов в другое "
+"назначение. Эта опция может использоваться даже при выключенном локаторе VmX, "
+"разрешая альтернативный перевод на внутрений номер оператора без использования "
+"опции Локатора VmX для абонента."
+
+msgid "Go To Operator"
+msgstr "Перенаправление на Оператора"
+
+msgid "Press 1:"
+msgstr "Нажать 1:"
+
+msgid ""
+"The remaining options can have internal extensions, ringgroups, queues and "
+"external numbers that may be rung. It is often used to include your cell "
+"phone. You should run a test to make sure that the number is functional any "
+"time a change is made so you don't leave a caller stranded or receiving "
+"invalid number messages."
+msgstr ""
+"Оставшиеся опции могут включать внутренние номера, группы вызова, очереди, и "
+"внешние номера, на которые можно позвонить. Чаще это используется для "
+"добавления номера вашего мобильного телефона. Вы должны обязательно "
+"протестировать номер, чтобы быть уверенным, что внесённые изменения "
+"функционируют корректно в любое время, не создавая неудобств и затруднений, "
+"когда позвонивший вдруг получает сообщение о неправильно набранном номере."
+
+msgid ""
+"Enter an alternate number here, then change your personal Voicemail greeting "
+"to let callers know to press 1 to reach that number. <br/><br/>If you'd like "
+"to use your Follow Me List, check \"Send to Follow Me\" and disable Follow "
+"Me above."
+msgstr ""
+"Укажите альтернативный номер телефона здесь, затем измените персональное сообщение "
+"о недоступности, чтобы дозвонившийся знал о возможности нажать 1 чтобы звонок ушёл на "
+"альтернативный номер. <br/><br/>Если же используется список альтернативных номеров "
+"через модуль Следуйте сюда (Follow me), уберите отметку \"Посылать в Следуйте сюда\" и "
+"отключите таким образом эту опцию."
+
+msgid "Send to Follow-Me"
+msgstr "Послать в Следуйте-сюда"
+
+msgid "Press 2:"
+msgstr "Нажать 2:"
+
+msgid ""
+"Use any extensions, ringgroups, queues or external numbers. <br/><br/"
+">Remember to re-record your personal Voicemail greeting and include "
+"instructions. Run a test to make sure that the number is functional."
+msgstr ""
+"Используйте внутренний номер, номер ринг-группы, очереди, или внешний номер.<br/><br/>"
+"Не забудьте переписать персональные сообщения о недоступности чтобы включить инструкции о "
+"возможном альтернативном вызове. Протестируйте обязательно, чтобы убедиться, что номер "
+"работает именно так как нужно."
+
+#, php-format
+msgid "Failed to delete vmbox: %s@%s"
+msgstr "Ошибка при удалении ящика голосовой почты: %s@%s"
+
+#, php-format
+msgid "failed with retcode %s while removing %s:"
+msgstr "ошибка с кодом %s при удалении %s"
+
+msgid "Voicemail Administration"
+msgstr "Администрирование голосовой почты"
+
+msgid "Timezone Definitions"
+msgstr "Установки часового пояса"
+
+msgid "Basic Settings For: "
+msgstr "Основные установки для: "
+
+msgid "Basic settings view is for individual accounts."
+msgstr "Основные установки для индивидуальных аккаунтов"
+
+msgid "Advanced Settings For: "
+msgstr "Расширенные установки для: "
+
+msgid "System Settings"
+msgstr "Системные установки"
+
+msgid "Usage Statistics For: "
+msgstr "Использовать статистику для: "
+
+msgid "System Usage Statistics"
+msgstr "Статистика использования системы"
+
+msgid "Invalid Action"
+msgstr "Неверное действие"
+
+msgid "My Voicemail"
+msgstr "Моя голосовая почта"
+
+msgid "Dial Voicemail"
+msgstr "Набрать номер голосовой почты"
+
+msgid "Voicemail Admin"
+msgstr "Администратор голосовой почты"
+
+msgid "Cannot connect to Asterisk Manager with "
+msgstr "Невозможно подключиться к управлению Астриск с "
+
+msgid "checking if Voicemail Admin (vmailadmin) is installed.."
+msgstr "проверяем установлен ли администратор голосовой почты (vmailadmin).."
+
+msgid "not installed, ok"
+msgstr "не инсталлирован, ок"
+
+msgid "installed."
+msgstr "инсталлирован"
+
+msgid "Voicemail Admin being removed and merged with Voicemail"
+msgstr "Администратор голосовой почты удалён и присоединён в систему Голосовой почты"
+
+msgid "Attempting to delete.."
+msgstr "Попытка удаления.."
+
+msgid "ok"
+msgstr "ok"
+
+msgid "Timezone definition name"
+msgstr "Дефиниция для определённого часового пояса"
+
+msgid "Time announcement for message playback"
+msgstr "Предупреждение о часовом поясе при воспроизведении сообщения"
+
+msgid "Remove the timezone definition"
+msgstr "Удалить дефиницию чаового пояса"
+
+msgid "The ADSI feature descriptor number to download to"
+msgstr "Номер дескриптора ADSI для скачивания"
+
+msgid "The ADSI security lock code"
+msgstr "Секретный код защиты ADSI"
+
+msgid "The ADSI Voicemail application version number."
+msgstr "Номер версии приложения головой почты ADSI."
+
+msgid "IMAP server master password."
+msgstr "Пароль сервера IMAP"
+
+msgid "IMAP server master username."
+msgstr "Имя пользователя сервера IMAP"
+
+msgid ""
+"No. of deleted messages saved per mailbox (can be a number or yes/no, yes "
+"meaning MAXMSG, no meaning 0)."
+msgstr ""
+"Количество сообщений, сохраняемых в ящике голосовой почты (можно указать количество, "
+"или просто да/нет, при этом да - означает макисмум, MAXMSG, а нет - означает 0)."
+
+msgid ""
+"Context to call back from; if not listed, calling the sender back will not "
+"be permitted."
+msgstr ""
+"Контекст для обратного вызова. Если не указан никакой, то обратный вызов отправителю (call back)"
+"невозможен."
+
+msgid "The character set for Voicemail messages"
+msgstr "Кодировка для текстовых сообщений голосовой почты"
+
+msgid "Comma separated list of internal contexts to use caller ID."
+msgstr "Список внутренних контекстов для использования Caller ID, разделённх запятой."
+
+msgid ""
+"Context to dial out from [option 4 from the advanced menu] if not listed, "
+"dialing out will not be permitted."
+msgstr ""
+"Контекст для исходящего вызова [опция 4 в расширенном меню]. Если не указано, "
+"исходящий вызов невозможен."
+
+msgid "Email body."
+msgstr "Тело электронного письма."
+
+msgid "Load date format config for Voicemail mail."
+msgstr "Загружать конфигурацию формата даты для электронных писем голосовой почты."
+
+msgid "Email subject"
+msgstr "Тема эл. письма при отправке голосового сообщения"
+
+msgid "How many seconds of silence before we end the recording"
+msgstr "Сколько секунд тишины ожидать при записи голосового сообщения для прекращения записи."
+
+msgid ""
+"Turn on/off envelope playback before message playback. [ON by default] This "
+"does NOT affect option 3,3 from the advanced options menu."
+msgstr ""
+"Включить/выключить воспроизведение служебных сообщений о дате/времени перед воспроизведением "
+"самого сообщения [Включено по умолчанию]. Это не влияет на опции 3,3 из расширенного меню."
+
+msgid ""
+"Context to check for handling * or 0 calls to operator. \"Operator Context\""
+msgstr "Контекст для возможности нажатия * или 0 для соединения с оператором. \"Контекст оператора\""
+
+msgid "Expunge on exit."
+msgstr "Очищать при выходе"
+
+msgid "External Voicemail notify application."
+msgstr "Внешнее приложение сообщений голосовой посчты."
+
+msgid "External password changing command (overrides externpassnotify)."
+msgstr "Команда для изменения пароля (перезаписывает параметр  externpassnotify)."
+
+msgid "Command specified runs after a user changes his password."
+msgstr "Команда, вызываетмая после изменения пользовательского пароля."
+
+msgid ""
+"Force new user to record greetings (the same as forcename, except for "
+"recording greetings). The default is \"no\"."
+msgstr ""
+"Форсировать запись новому пользователю сообщений о недоступности (так же как и в forcename, "
+"исключая запись персональных сообщений о недоступности). По умолчанию \"нет\"."
+
+msgid ""
+"Force a new user to record their name.  A new user is determined by the "
+"password being the same as the mailbox number.  The default is \"no\"."
+msgstr ""
+"Форсировать запись имени для персональных сообщений о недоступности. Новый пользователь "
+"определяется по дефолтному паролю голосовой почты равному внутреннему номеру.По умолчанию - \"нет\"."
+
+msgid ""
+"Formats for writing Voicemail.  Note that when using IMAP storage for "
+"Voicemail, only the first format specified will be used."
+msgstr ""
+"Формат записи голосовой почты. Обратите внимание, что при использовании хранилища IMAP "
+"для голосовой почты - используется только первый указанный формат."
+
+msgid "From: string for email"
+msgstr "Поле От: для эл. сообщений голосовой почты"
+
+msgid "For IMAP storage"
+msgstr "Для хранилища IMAP"
+
+msgid "IMAP server flags."
+msgstr "Флаги для сервера IMAP"
+
+msgid "IMAP Voicemail folder."
+msgstr "Директория голосовой почты IMAP"
+
+msgid ""
+"If using IMAP storage, specify whether Voicemail greetings should be stored "
+"via IMAP. If no, then greetings are stored as if IMAP storage were not "
+"enabled"
+msgstr ""
+"Если используется хранилище IMAP - указать какие персональные приветствия будут записываться "
+"в IMAP сообщения. Если указано \"нет\" - сообщения о недоступности будут сохраняться так, "
+"как будто хранилище IMAP не задействовано."
+
+msgid ""
+"(yes/no) If imapgreetings=yes, then specify which folder to store your "
+"greetings in. If you do not specify a folder, then INBOX will be used."
+msgstr ""
+"(да/нет) Если указано imapgreetings=yes, то укажите также и директорию, где будут "
+"сохраняться персональные сообщения о недоступности. Если не указано, то будет "
+"использоваться директория INBOX по умолчанию."
+
+msgid "For IMAP storage - TCP open timeout in seconds"
+msgstr "Для хранилища IMAP - опция TCP таймаут открытого соединения в секундах"
+
+msgid "Set the parent folder (default is to have no parent folder set)."
+msgstr "Указать родительскую директорию (по умолчанию - нет никакой родительской директории)."
+
+msgid "IMAP server port."
+msgstr "Порт сервера IMAP."
+
+msgid "For IMAP storage - TCP read timeout in seconds"
+msgstr "Для хранилища IMAP - опция TCP таймаут соединения в режиме чтения в секундах"
+
+msgid "IMAP server address."
+msgstr "Адрес сервера IMAP"
+
+msgid "For IMAP storage - TCP write timeout in seconds"
+msgstr "Для хранилища IMAP - опция TCP таймаут соединения в режиме записи в секундах"
+
+msgid "Customize the key that fast-forwards message playback"
+msgstr "Назначить кнопку быстрой прокрутки воспроизведения сообщения"
+
+msgid "Customize the key that pauses/unpauses message playback"
+msgstr "Назначить кнопку паузы/воспроизведения сообщения"
+
+msgid "Customize the key that restarts message playback"
+msgstr "Назначить кнопку повторного воспроизведения сообщения"
+
+msgid "Customize the key that rewinds message playback"
+msgstr "Назначить кнопку обратной перемотки воспроизведения сообщения"
+
+msgid "Customize the key that stops message playback"
+msgstr "Назначить кнопку останова воспроизведения"
+
+msgid "Mail command."
+msgstr "Почтовые команды."
+
+msgid "Max message greeting length."
+msgstr "Максимальная длина приветствия."
+
+msgid "Max failed login attempts."
+msgstr "Максимальное количество попыток логина."
+
+msgid "Max message time length."
+msgstr "Макисмальная продолжительность сообщения."
+
+msgid ""
+"Maximum number of messages per folder.  If not specified, a default value "
+"(100) is used.  Maximum value for this option is 9999."
+msgstr ""
+"Максимальное количество сообщений в директории. Если не указано, то используется "
+"дефолтное значение - 100. Максимально возможное значение этой опции - 9999."
+
+msgid ""
+"Min message time length - maxsilence should be less than minsecs or you may "
+"get empty messages."
+msgstr ""
+"Минимальная продолжительность сообщения - значение тишины maxsilence должно быть "
+"меньше чем minsecs, в противном случае есть риск получать пустые сообщения."
+
+msgid "Move heard messages to the 'Old' folder automatically.  Defaults to on."
+msgstr ""
+"Перемещать прослушанные сообщения в директорию 'Old' автоматически. По умолчанию - включено."
+
+msgid "Skip to the next message after save/delete."
+msgstr "Переходить к следующему сообщению после сохранения/удаления."
+
+msgid ""
+"The value of odbcstorage is the database connection configured in res_odbc."
+"conf."
+msgstr ""
+"Параметр odbcstorage есть подключение к базам данных, описанное в res_odbc.conf."
+
+msgid "The default table for ODBC Voicemail storage is voicemessages."
+msgstr "Дефолтная таблица для ODBC хранилища голосовой почты - voicemessages."
+
+msgid ""
+"Operator break. Allow sender to hit 0 before/after/during  leaving a "
+"Voicemail to reach an operator  [OFF by default]"
+msgstr ""
+"Прерывание. Разрешает позвонившему нажать 0 перед, во время, или после сообщением "
+"голосовой почты, чтобы переключиться на оператора [по умолчанию - выключено]."
+
+msgid "Body of message sent to pager."
+msgstr "Тело сообщения пересылаемого на пейджер."
+
+msgid "From: string sent to pager."
+msgstr "Поле От: в сообщении на пейджер."
+
+msgid "Subject sent to pager."
+msgstr "Поле Тема: в сообщении на пейджер."
+
+msgid "Skip the \"[PBX]:\" string from the message title"
+msgstr "Пропускать поле \"[PBX]:\" в теме сообщения"
+
+msgid ""
+"If the \"pollmailboxes\" option is enabled, this option sets the polling "
+"frequency.  The default is once every 30 seconds."
+msgstr ""
+"Если включена опция опрос почтовых ящиков \"pollmailboxes\", то здесь регулируется частота "
+"опросов. По умолчанию частота опроса - 30 секунд."
+
+msgid ""
+"If mailboxes are changed anywhere outside of app_voicemail, then this option "
+"must be enabled for MWI to work.  This enables polling mailboxes for "
+"changes.  Normally, it will expect that changes are only made when someone "
+"called in to one of the Voicemail applications. Examples of situations that "
+"would require this option are web interfaces to Voicemail or an email client "
+"in the case of using IMAP storage."
+msgstr ""
+"Если состояние почтовых ящиков изменилось откуда либо кроме app_voicemail, то "
+"эта опция должна быть включена для правильной работы Message Waiting Indicator (MWI). "
+"Опция позволяет делать опрос состояния почтовых ящиков. Обычно ожидаеммое поведение - "
+"изменения состояния почтового ящика при поступлении нового голосового сообщения. Пример "
+"использования этой опции - когда используется вэб-интерфейс голосовой почты для "
+"прослушивания, или почтовый клиент в случае  использования IMAP хранилища."
+
+msgid ""
+"Allow sender to review/rerecord their message before saving it [OFF by "
+"default]"
+msgstr ""
+"Разрешает отправителю прослушать/перезаписать сообщение перед тем как сохранить [по "
+"умолчанию - выключено]."
+
+msgid ""
+"Read back caller's telephone number prior to playing the incoming message, "
+"and just after announcing the date and time the message was left. If not "
+"described, or set to no, it will be in the envelope."
+msgstr ""
+"Считывает телефонный номер позвонившего прежде чем воспроизвести входящее сообщение "
+"и, после указания даты и времени, оставляется сообщение. Если не указано, или выбрана "
+"опция - Нет, то остаётся в заголовке сообщения."
+
+msgid ""
+"Turn on/off saying duration information before the message playback. [ON by "
+"default]"
+msgstr ""
+"включает/выключает сообщение о длительности записи перед воспроизведением. [По ]"
+"умолчанию - включено."
+
+msgid "Specify in minutes the minimum duration to say. Default is 2 minutes."
+msgstr "Определяет минимальное время записи в минутах. По умолчанию - 2 минуты."
+
+msgid ""
+"Yes to search all contexts, no to search current context (if one is not "
+"specified)."
+msgstr ""
+"Да - для поиска во всех контекстах, нет - для поиска только в текущем контексте (если "
+"даже ни один не указан)."
+
+msgid ""
+"Send Voicemail message. If not listed, sending messages from inside "
+"Voicemail will not be permitted."
+msgstr ""
+"Посылать сообщения голосовой почты. Если не указано, посылка внутренних сообщений от системы "
+"голосовой почты невозможна."
+
+msgid "Who the e-mail notification should appear to come from"
+msgstr ""
+"Кто является отправителем эл. почты при отправке."
+
+msgid ""
+"Silence threshold (what we consider silence: the lower, the more sensitive)"
+msgstr ""
+"Порог срабатывания тишины (когда мы решаем что уже наступила тишина. Чем ниже, тем чувствительнее."
+
+msgid ""
+"How many milliseconds to skip forward/back when rew/ff in message playback"
+msgstr "Сколько миллисекунд делать пропуск во время прокрутки вперёд/назад при воспроизведении"
+
+msgid "Enable Simple Message Desk Interface (SMDI) integration"
+msgstr "Задействовать интеграцию с Simple Message Desk Interface (SMDI)"
+
+msgid ""
+"Valid port as specified in smdi.conf for using smdi for external "
+"notification."
+msgstr ""
+"Разрешённый порт, указанный в smdi.conf, который будет использовать SMDI для внешних уведомлений."
+
+msgid "Temporary greeting reminder."
+msgstr "Временный напоминатель."
+
+msgid "Permit finding entries for forward/compose from the directory"
+msgstr "Разрешает поиск данных для пересылки/отправки сообщения из директории"
+
+msgid ""
+"User context is where entries from users.conf are registered.  The default "
+"value is 'default'"
+msgstr ""
+"Контекст пользователей, зарегистрированных в users.conf. Контекст ро умолчанию - default."
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"The passwords you entered and re-entered did not match.  Please try again."
+"\""
+msgstr ""
+"Кастомизировать - какой звуковой файл будет использоваться вместо дефолтного "
+"сообщения \"Ваш пароль, котрый Вы ввели не совпадает с тем, который был введён второй раз\""
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"Please enter your new password followed by the pound key.\""
+msgstr ""
+"Кастомизировать - какой звуковой файл будет использоваться вместо дефолтного "
+"сообщения \"Введите новый пароль и завершите ввод решёткой\""
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"Your password has been changed.\""
+msgstr ""
+"Кастомизировать - какой звуковой файл будет использоваться вместо дефолтного "
+"сообщения \"Ваш пароль был изменён\""
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"password\""
+msgstr ""
+"Кастомизировать - какой звуковой файл будет использоваться вместо дефолтного "
+"сообщения \"пароль\""
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"Please re-enter your password followed by the pound key\""
+msgstr ""
+"Кастомизировать - какой звуковой файл будет использоваться вместо дефолтного "
+"сообщения \"Пожалуйста введите ваш пароль ещё раз и завершите ввод символом решётка\""
+
+msgid ""
+"Emails bearing the Voicemail may arrive in a volume too quiet to be heard.  "
+"This parameter allows you to specify how much gain to add to the message "
+"when sending a Voicemail. NOTE: sox must be installed for this option to "
+"work."
+msgstr ""
+"Сообщения с голосовым сообщением могут поступать с низким уровнем громкости, "
+"слишком тихим для прослушивания, Этот параметр позволяет увеличить уровень записи "
+"сообщений при отправке голосовой почты. ЗАМЕЧАНИЕ: утилита sox должна быть установлена "
+"в системе чтобы эта опция работала."
+
+msgid ""
+"This is the password used to access the Voicemail system.<br /><br />This "
+"password can only contain numbers.<br /><br />A user can change the password "
+"you enter here after logging into the Voicemail system (*98) with a phone."
+msgstr ""
+"Это пароль для входя в систему голосовой почты.<br /><br />Пароль должен содержать "
+"только цифры.<br /><br />Пользователь может изменить пароль, указанный зжесь, после того, "
+"как залогинится в систему голосовой почты (*98) с телефона."
+
+msgid "Which format of audio file to attach to the email."
+msgstr ""
+"В каком формате присоединять аудио файл к сообщению эл. почты."
+
+msgid ""
+"After notification, the Voicemail is deleted from the server. [per-mailbox "
+"only] This is intended for use with users who wish to receive their "
+"Voicemail ONLY by email. Note:  deletevoicemail is provided as an equivalent "
+"option for Realtime configuration."
+msgstr ""
+"После извещения, сообщение голосовой почты удаляется с сервера [только в почтовом ящике] "
+"Это имеет смысл для пользователей, которые используют ТОЛЬКО эл. почту для доставки "
+"голосовых сообщений. Замечание: параметр deletevoicemail обеспечивает эквивалентное поведение "
+"и для конфигураци работы в режиме реального времени - Realtime."
+
+msgid "Name of Voicemail account"
+msgstr "Имя аккаунта в голосовой почте"
+
+msgid ""
+"Hide this mailbox from the directory produced by app_directory. The default "
+"is \"no\"."
+msgstr ""
+"Скрывать это почтовый ящик в директории, к которой имеет доступ приложение app_directory. "
+"По умолчанию - значение  \"нет\"."
+
+msgid "IMAP password."
+msgstr "Пароль IMAP."
+
+msgid "IMAP user."
+msgstr "Пользователь IMAP."
+
+msgid "Asterisk language code"
+msgstr "Код языка Астериск"
+
+msgid "Name of account/user"
+msgstr "Имя аккаунта/пользователя"
+
+msgid "Remind the user that their temporary greeting is set"
+msgstr "Напоминать пользователю, что установлены временные сообщения о недоступности."
+
+msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
+msgstr "Часовой пояс из контекста zonemessages. Не имеет действия если установлено envelope=no."
+
+msgid "Call me number. Can be used from within ARI."
+msgstr "Номер Позвони-мне. Может быть задействован из ARI."
+
+msgid "System View Links:"
+msgstr "Линки на обзор системы:"
+
+msgid ""
+"A timezone definition specifies how the Voicemail system announces the time."
+msgstr ""
+"Дефиниции часового пояса устанавливают в каком виде голосовая почта указывает время."
+
+msgid ""
+"For example, the time a message was left will be announced according to the "
+"user's timezone on message playback."
+msgstr ""
+"Например - время сообщения остаётся в том формате, который установлен часовым поясом "
+"у пользователдя при воспроизведении."
+
+msgid "Entries below will be written to Voicemail configuration as-is."
+msgstr "Записи ниже будут указаны в конфигурации голосовой почты как есть."
+
+msgid ""
+"Please be sure to follow the format for timezone definitions described below."
+msgstr ""
+"Проверьте - соответствует ли дефиниции формата часового пояса описаным ниже."
+
+msgid "Name"
+msgstr "Название"
+
+msgid "Timezone Definition"
+msgstr "Дефиниции часового пояса"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "New Name"
+msgstr "Новое имя"
+
+msgid "New Timezone Definition"
+msgstr "Новая дефиниция часового пояса"
+
+msgid "Timezone definition format is: "
+msgstr "Формат дефиниций часового пояса: "
+
+msgid "timezone|values"
+msgstr "часовой пояс|значение"
+
+msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
+msgstr "<i>Часовые пояса</i> перечислены в /usr/share/zoneinfo"
+
+msgid "The <i>values</i> supported in the timezone definition string include:"
+msgstr "<i>значение</i>, поддерживаемое дефиницией часового пояса содержит:"
+
+msgid "'filename'"
+msgstr "'filename'"
+
+msgid "The name of a sound file (the file name must be single-quoted)"
+msgstr "Название звукового файла (имя файла должно быть в одинарных кавычках)"
+
+msgid "variable"
+msgstr "переменная"
+
+msgid "A variable to be substituted (see below for supported variable values)"
+msgstr "Переменная для замены (см. ниже для поддерживаемых значений переменных)"
+
+msgid "Supported <i>variables</i>:"
+msgstr "Поддерживаемые <i>переменные</i>:"
+
+msgid "A or a"
+msgstr "А или а"
+
+msgid "Day of week (Saturday, Sunday, ...)"
+msgstr "День недели (Суббота, Воскресенье, ...)"
+
+msgid "B or b or h"
+msgstr "Б или b или h"
+
+msgid "Month name (January, February, ...)"
+msgstr "Месяц (Январь, Февраль, ...)"
+
+msgid "d or e"
+msgstr "в или г"
+
+msgid "numeric day of month (first, second, ..., thirty-first)"
+msgstr "число месяца (первое, второе, ..., тридцать первое)"
+
+msgid "Y"
+msgstr "Г"
+
+msgid "Year"
+msgstr "Год"
+
+msgid "I or l"
+msgstr "И или л"
+
+msgid "Hour, 12 hour clock"
+msgstr "Часы, 12-ти часовой формат"
+
+msgid "H"
+msgstr "Ч"
+
+msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
+msgstr "Часы, 24-х часовой формат. одноразрядное представление часа дополняется впереди \"oh\")"
+
+msgid "k"
+msgstr "к"
+
+msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
+msgstr "Часы, 24-х часовой формат. Одноразрядное представление часа НЕ дополняется впереди \"oh\")"
+
+msgid "M"
+msgstr "М"
+
+msgid "Minute, with 00 pronounced as \"o'clock\""
+msgstr "Минуты, 00 произносится как \"o'clock\""
+
+msgid "N"
+msgstr "N"
+
+msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
+msgstr "Минуты, 00 произносится как \"сто\" (Американский военный стандарт)"
+
+msgid "P or p"
+msgstr "Р или р"
+
+msgid "AM or PM"
+msgstr "АМ или РМ"
+
+msgid "Q"
+msgstr "Q"
+
+msgid "\"today\", \"yesterday\" or ABdY"
+msgstr "\"сегодня\", \"вчера\" или формат ABдГ"
+
+msgid "q"
+msgstr "q"
+
+msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
+msgstr "\"\" (для сегодня), \"вчера\", день недели, или форматABдГ"
+
+msgid "R"
+msgstr "R"
+
+msgid "24 hour time, including minute"
+msgstr "24-х часовой формат, включая минуты"
+
+msgid "Account View Links:"
+msgstr "Линки на обзор аккаунтов:"
+
+msgid "Settings"
+msgstr "Установки"
+
+msgid "Usage"
+msgstr "Использование"
+
+msgid "Advanced Settings"
+msgstr "Расширенные устанвки"
+
+msgid "No name defined; this is configured from the Extensions or Users page."
+msgstr "Не залано имя; это конфигурируется из вкладки Внутренние номера или Пользователи."
+
+msgid "Call-Me Number"
+msgstr "Номер Позвони-мне"
+
+msgid "Number of Accounts:"
+msgstr "Количество аккаунтов:"
+
+msgid "Total ( Activated / Unactivated / Disabled )"
+msgstr "Всего ( Активировано / Неактивировано / Отключено )"
+
+msgid "Number of Messages:"
+msgstr "Количество сообщений:"
+
+msgid "Total ( Messages in inboxes / Messages in other folders )"
+msgstr "Всего ( Сообщений во входящих / сообщений в других директориях )"
+
+msgid "Remove all messages"
+msgstr "Удалить все сообщения"
+
+msgid "Recorded Names:"
+msgstr "Записанные имена:"
+
+msgid "Number of recorded name greetings"
+msgstr "Количество записанных персональных сообщений о недоступности"
+
+msgid "Remove all recorded names"
+msgstr "Удалить все записанные имена"
+
+msgid "Unavailable Greetings:"
+msgstr "Персональные сообщения 'нет на месте':"
+
+msgid "Number of recorded unavailable greetings"
+msgstr "Количество записанных персональных сообщений 'нет на месте':"
+
+msgid "Remove all unavailable greetings"
+msgstr "Удалить все персональные сообщения 'нет на месте'"
+
+msgid "Busy Greetings:"
+msgstr "Персональные сообщения 'занят'"
+
+msgid "Number of recorded busy greetings"
+msgstr "Количество записанных персональных сообщений 'занят'"
+
+msgid "Remove all busy greetings"
+msgstr "Удалить все персональные сообщения 'занят'"
+
+msgid "Temporary Greetings:"
+msgstr "Временные сообщения о недоступности:"
+
+msgid "Number of recorded temporary greetings"
+msgstr "Количество записанных временных сообщений о недоступности"
+
+msgid "Remove all temporary greetings"
+msgstr "Удалить все временные сообщения о недоступности"
+
+msgid "Abandoned Greetings:"
+msgstr "Забытые сообщения о недоступности"
+
+msgid ""
+"Number of abandoned greetings. Such greetings were recorded by the user but "
+"were NOT accepted, so the sound file remains on disk but is not used as a "
+"greeting."
+msgstr ""
+"Число забытых сообщений о недоступности. Такие сообщения были записаны "
+"пользователем, но не были подтверждены, таким образом эти звуковые файлы хранятся "
+"на диске, но не используются в качестве исходных сообщений голосовой почты."
+
+msgid "Remove all abandoned greetings (> 1 day old)"
+msgstr "Удалить все забытые сообщения о недоступности (сроком давности > 1 дня)"
+
+msgid "Storage Used:"
+msgstr "Использовано дискового пространства:"
+
+msgid "Disk space currently in use by Voicemail data"
+msgstr "Дисковое пространство, используемое под данные голосовой почты"
+
+msgid "File timestamp: "
+msgstr "Временная отметка файла: "
+
+msgid "Recorded Name:"
+msgstr "Записанное название:"
+
+msgid "Has a recorded name greeting?"
+msgstr "Присвоено ли записанное название сообщению о недоступности?"
+
+msgid "Remove recorded name"
+msgstr "Удалить записанное название"
+
+msgid "Unavailable Greeting:"
+msgstr "Сообщение 'нет на месте':"
+
+msgid "Has a recorded unavailable greeting?"
+msgstr "Записанно ли сообщение 'нет на месте'?"
+
+msgid "Remove unavailable greeting"
+msgstr "Удалить сообщение 'нет на месте'"
+
+msgid "Has a recorded busy greeting?"
+msgstr "Записанно ли сообщению 'занят'?"
+
+msgid "Remove busy greeting"
+msgstr "Удалить сообщение 'занят'"
+
+msgid "Temporary Greeting:"
+msgstr "Временное сообщение о недоступности:"
+
+msgid "Has a recorded temporary greeting?"
+msgstr "Записано ли временное сообщение о недоступности?"
+
+msgid "Remove temporary greeting"
+msgstr "Удалить временное сообщение о недоступности"
+
+msgid "Storage Used"
+msgstr "Использовано под хранение"
+
+msgid "This module allows you to configure Voicemail for a user or extension"
+msgstr ""
+"Этот модуль позволяет сконфигурировать голосовую почту для пользователя или "
+"внутреннего номера"
+
+msgid "Provide IMAP Voicemail Fields"
+msgstr "Обеспечивает поля голосовой почты IMAP"
+
+msgid "Voicemail Module"
+msgstr "Модуль голосовой почты"
+
+msgid ""
+"Installations that have configured Voicemail with IMAP should set this to "
+"true so that the IMAP username and password fields are provided in the "
+"Voicemail setup screen for extensions. If an extension alread has these "
+"fields populated, they will be displayed even if this is set to false."
+msgstr ""
+"Инсталляции, с конфигурирацией голосовой почты с использованием IMAP, требуют "
+"установки этой опции в true, чтобы обеспечить передачу пользователя IMAP и пароля "
+"доступа из полей настройки внутренних номеров. Если же внутренний номер уже "
+"прописан со значениями в этих полях, то они будут работать даже если здесь установлено "
+"в false."
+
+#~ msgid "Voicemail & Directory"
+#~ msgstr "Голосовая почта и Директории"
+
+#~ msgid ""
+#~ "This is the password used to access the voicemail system.%sThis password "
+#~ "can only contain numbers.%sA user can change the password you enter here "
+#~ "after logging into the voicemail system (%s) with a phone."
+#~ msgstr ""
+#~ "Пароль для доступа к голосовой почте. %sПароль может состоять только из "
+#~ "цифр.<br>%sПользователь может сменить установленный здесь пароль набрав (%"
+#~ "s) со своего телефона после входа в систему голосовой почты."
+
+#~ msgid "The email address that voicemails are sent to."
+#~ msgstr "Адрес эл.почты, куда будут отсылаться сообщения."
+
+#~ msgid ""
+#~ "Pager/mobile email address that short voicemail notifications are sent to."
+#~ msgstr ""
+#~ "Адрес пейджера/мобильного телефона, куда можно посылать СМС об "
+#~ "оставленных сообщениях."
+
+#~ msgid "Option to attach voicemails to email."
+#~ msgstr "Опционально - присоединять звуковой файл к сообщению эл. почты."
+
+#~ msgid ""
+#~ "Envelope controls whether or not the voicemail system will play the "
+#~ "message envelope (date/time) before playing the voicemail message. This "
+#~ "setting does not affect the operation of the envelope option in the "
+#~ "advanced voicemail menu."
+#~ msgstr ""
+#~ "Средства оформления сообщения, воспроизводить элементы (дата/время) "
+#~ "прежде чем воспроизводить сообщение. Эти установки не дают эффекта с "
+#~ "функциями в расширенном меню голосовой почты."
+
+#~ msgid ""
+#~ "If set to \"yes\" the message will be deleted from the voicemailbox "
+#~ "(after having been emailed). Provides functionality that allows a user to "
+#~ "receive their voicemail via email alone, rather than having the voicemail "
+#~ "able to be retrieved from the Webinterface or the Extension handset.  "
+#~ "CAUTION: MUST HAVE attach voicemail to email SET TO YES OTHERWISE YOUR "
+#~ "MESSAGES WILL BE LOST FOREVER."
+#~ msgstr ""
+#~ "Если установлено в \"да\", сообщение будет удалено из ящика голосовой "
+#~ "почты (после того, как будет отослано). Обеспечивает функциональность "
+#~ "пользователю голосовой почты прослушивать сообщения только из сообщения в "
+#~ "эл. почты, вместо того, чтобы использовать вэбинтерфейс или свой телефон "
+#~ "для той же цели. ПРЕДУПРЕЖДЕНИЕ: опция присоединения голосового файла к "
+#~ "сообщению эл. почты ОБЯЗАТЕЛЬНО должна быть задействована, в противном "
+#~ "случае СООБЩЕНИЕ БУДЕТ УТРАЧЕНО БЕЗВОЗВРАТНО"
+
+#~ msgid ""
+#~ "Menu options below are available during your personal voicemail greeting "
+#~ "playback. <br/><br/>Check both to use at all times."
+#~ msgstr ""
+#~ "Опции меню ниже доступны при воспроизведении персонального уведомления "
+#~ "голосовой почты. <br><br>Отметить оба для использования."
+
+#~ msgid "Uncheck to play a beep after your personal voicemail greeting."
+#~ msgstr ""
+#~ "Не отмечать для воспроизведения простого звукого сигнала \"бип\" после "
+#~ "персонального уведомления голосовой почты."
+
+#~ msgid "Standard voicemail prompts."
+#~ msgstr "Стандартные сообщения голосовой почты."
+
+#~ msgid ""
+#~ "Pressing 0 during your personal voicemail greeting goes to the Operator. "
+#~ "Uncheck to enter another destination here. This feature can be used while "
+#~ "still disabling VmX to allow an alternative Operator extension without "
+#~ "requiring the VmX feature for the user."
+#~ msgstr ""
+#~ "При нажатии на 0 во время воспороизведения уведомления голосовой почты "
+#~ "произойдёт перенаправление на Оператора. Не отмечать, если предполагается "
+#~ "другое перенаправление. Эта возможность может использоваться только при "
+#~ "отключенном VmX локаторе, при этом предполагается альтернативное "
+#~ "перенаправление на Оператора без возможностей VmX локатора для этого "
+#~ "пользователя."
+
+#~ msgid ""
+#~ "Enter an alternate number here, then change your personal voicemail "
+#~ "greeting to let callers know to press 1 to reach that number. <br/><br/"
+#~ ">If you'd like to use your Follow Me List, check \"Send to Follow Me\" "
+#~ "and disable Follow Me above."
+#~ msgstr ""
+#~ "Введите альтернативный номер, затем поменяйте ваше персональное "
+#~ "приветствие голосовой почты, чтобы дать возможность позвонившему нажать 1 "
+#~ "и услышать этот номер.<br/><br/>Если есть желание использовать свой лист "
+#~ "Следуйте сюда, отметьте \"Послать в Следуйте-сюда\" и отключите Следуйте "
+#~ "сюда выше."
+
+#~ msgid ""
+#~ "Use any extensions, ringgroups, queues or external numbers. <br/><br/"
+#~ ">Remember to re-record your personal voicemail greeting and include "
+#~ "instructions. Run a test to make sure that the number is functional."
+#~ msgstr ""
+#~ "Использовать любые внутренние номера, группы вызова, очереди или внешние "
+#~ "номера.<br><br>Не забудьте перезаписать персональное сообщение голосовой "
+#~ "почты, где эти возможности упоминаются. Протестируйте номер, чтобы быть "
+#~ "уверенным, что внесённые изменения функционируют корректно."
+
+#~ msgid "Basic"
+#~ msgstr "Основные настройки"

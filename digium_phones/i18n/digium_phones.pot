@@ -1,0 +1,241 @@
+# This file is part of IssabelPBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# IssabelPBX language template for digium_phones
+# Copyright (C) 2008-2016 Sangoma, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-13 15:07-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: views/rnav.php:14
+msgid "Alerts"
+msgstr ""
+
+#: page.digium_phones.php:651
+#, php-format
+msgid "Checksum error retrieving %s"
+msgstr ""
+
+#: digium_phones.i18n.php:6
+#: digium_phones.i18n.php:10
+msgid "Connectivity"
+msgstr ""
+
+#: functions.inc.php:211
+msgid "Digit Map"
+msgstr ""
+
+#: digium_phones.i18n.php:8
+msgid "Digium Phones"
+msgstr ""
+
+#: digium_phones.i18n.php:4
+msgid "Digium Phones Config"
+msgstr ""
+
+#: functions.inc.php:197
+msgid "Digium Phones Contacts Options"
+msgstr ""
+
+#: functions.inc.php:209
+msgid "Digium Phones Line Options"
+msgstr ""
+
+#: functions.inc.php:206
+msgid "E-Mail Address"
+msgstr ""
+
+#: page.digium_phones.php:618
+#: page.digium_phones.php:622
+#, php-format
+msgid "Error opening %s for reading"
+msgstr ""
+
+#: page.digium_phones.php:626
+#, php-format
+msgid "Error opening %s for writing"
+msgstr ""
+
+#: views/rnav.php:34
+msgid "External Lines"
+msgstr ""
+
+#: views/rnav.php:42
+msgid "Firmware"
+msgstr ""
+
+#: functions.inc.php:199
+msgid "First Name"
+msgstr ""
+
+#: views/rnav.php:38
+msgid "General Settings"
+msgstr ""
+
+#: functions.inc.php:204
+msgid "Job Title"
+msgstr ""
+
+#: functions.inc.php:201
+msgid "Last Name"
+msgstr ""
+
+#: functions.inc.php:210
+msgid "Line Label"
+msgstr ""
+
+#: functions.inc.php:205
+msgid "Location"
+msgstr ""
+
+#: views/rnav.php:26
+msgid "Logos"
+msgstr ""
+
+#: functions.inc.php:200
+msgid "Middle Name"
+msgstr ""
+
+#: views/rnav.php:30
+msgid "Networks"
+msgstr ""
+
+#: functions.inc.php:207
+msgid "Notes"
+msgstr ""
+
+#: functions.inc.php:207
+msgid "Notes about the user, for use in Contacts application."
+msgstr ""
+
+#: functions.inc.php:203
+msgid "Organization"
+msgstr ""
+
+#: views/rnav.php:22
+msgid "Phone Applications"
+msgstr ""
+
+#: views/rnav.php:10
+msgid "Phonebooks"
+msgstr ""
+
+#: views/rnav.php:5
+msgid "Phones"
+msgstr ""
+
+#: functions.inc.php:198
+msgid "Prefix"
+msgstr ""
+
+#: functions.inc.php:217
+msgid "Re-registration TImeout"
+msgstr ""
+
+#: functions.inc.php:219
+msgid "Registration Max Retries"
+msgstr ""
+
+#: functions.inc.php:218
+msgid "Registration Retry Interval"
+msgstr ""
+
+#: views/rnav.php:18
+msgid "Ringtones"
+msgstr ""
+
+#: functions.inc.php:202
+msgid "Suffix"
+msgstr ""
+
+#: functions.inc.php:214
+msgid "TCP"
+msgstr ""
+
+#: functions.inc.php:211
+msgid "The Digit Map for this extension."
+msgstr ""
+
+#: functions.inc.php:206
+msgid "The E-Mail Address for use in Contacts application."
+msgstr ""
+
+#: functions.inc.php:199
+msgid "The First Name for use in Contacts application."
+msgstr ""
+
+#: functions.inc.php:204
+msgid "The Job Title for use in Contacts application."
+msgstr ""
+
+#: functions.inc.php:201
+msgid "The Last Name for use in Contacts application."
+msgstr ""
+
+#: functions.inc.php:210
+msgid "The Line Label for this extension."
+msgstr ""
+
+#: functions.inc.php:205
+msgid "The Location for use in Contacts application."
+msgstr ""
+
+#: functions.inc.php:200
+msgid "The Middle Name for use in Contacts application."
+msgstr ""
+
+#: functions.inc.php:203
+msgid "The Organization for use in Contacts application."
+msgstr ""
+
+#: functions.inc.php:198
+msgid "The Prefix for use in Contacts application."
+msgstr ""
+
+#: functions.inc.php:217
+msgid "The Re-registration Timeout for this extension."
+msgstr ""
+
+#: functions.inc.php:219
+msgid "The Registration Max Retries for this extension."
+msgstr ""
+
+#: functions.inc.php:218
+msgid "The Registration Retry Interval for this extension."
+msgstr ""
+
+#: functions.inc.php:202
+msgid "The Suffix for use in Contacts application."
+msgstr ""
+
+#: functions.inc.php:216
+msgid "The Transport for this extension."
+msgstr ""
+
+#: functions.inc.php:212
+msgid ""
+"The Voicemail URI for this extension.  Note that setting this option on a "
+"phone's primary line will disable visual voicemail."
+msgstr ""
+
+#: functions.inc.php:216
+msgid "Transport"
+msgstr ""
+
+#: functions.inc.php:213
+msgid "UDP (Default)"
+msgstr ""
+
+#: functions.inc.php:212
+msgid "Voicemail URI"
+msgstr ""

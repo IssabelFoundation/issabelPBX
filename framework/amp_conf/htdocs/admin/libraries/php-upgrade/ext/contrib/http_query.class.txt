@@ -1,0 +1,267 @@
+
+Note: This class and file will be renamed into "xhttp..." in the near
+feature, to prevent clashes with the old PEAR class.
+
+http.php
+¯¯¯¯¯¯¯¯
+This script provides an easy to use "http_request" class ("http_query"
+is an alias). You can contact forms or simply retrieve files with it.
+Unlike fopen_wrappers, you get the response headers alongside and the
+received file will be decompressed on-the-fly (it should also be faster
+due to more supported compression methods).
+
+There are some options you can set before starting the request. Most
+important aspect is, that you can add form ->params[] one after the
+other for GET and POST requests. You can also use a proxy or include
+authentication passwords in the initially given url, and of course
+inject or override a few ->headers[] when it makes sense.
+
+
+
+usage
+¯¯¯¯¯
+It's really easy, you just have to take care to always give the method
+parameter before the URL ("GET" or "POST" in most cases):
+
+  <?example
+
+      #-- prepare
+      $query = new http_request("GET", "http://example.com/form.php");
+      $query->params["q"] = "search-this-...";
+
+      #-- do request
+      $result = $query->go();
+
+      #-- use result
+      if ($result && ($result->status == 200)) {
+         echo $result->content;
+      }
+  ?>
+
+Note, that we could have included the "q" parameter simply appended to
+the URL in such simple cases ("http://example.com/form.php?q=search-...").
+
+For POST request you have to decide about the encoding format. There are
+two options, the default is always urlencoding (like with GET requests):
+  <?example 
+      $query->type = "url";    // corresponds to "app/x-www-form-urlencoded"
+  ?>
+many bigger forms however require the MIME type for form-data:
+  <?example 
+      $query->type = "form";    // translates to "multipart/form-data"
+  ?>
+
+Any form variables you want to transport are simply appended to the URL
+for GETs or "url"-coded requests, but you could use the $query->params[]
+array as well.
+
+PUT / POST requests are initiated likewise. But you could also just assign
+a string blob to $query->params, if that's to be transfered as content.
+(If the remote app can deal with / expects that. Of if you already have
+encoded eveything into a valid form request).
+
+For adding upload-files to a normal POST request, just do this however:
+  <?example
+      $query->params["fileformname"] = array(
+         "filename" => "original-name.zip",
+         "type" => "application/octet-stream",
+         "content" => "$READ_FROM_FILE_DATA...",
+      );
+  // or
+      $query->params["2nd_file"] = array(
+         "ct" => "x.ml/my-format",
+         "name" => "../../where/is/it/from.txt",
+         "data" => file_get_contents(".../from.txt"),
+      );
+  ?>
+"body" is a third alias for the "content" field here. If you don't set
+the "type" or "ct" flag it will get "application/octet-stream" per default
+(this is a good default). You could simply load the "ext/mime" script to
+have the best possible MIME type here.
+
+
+
+     start an request
+     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+     Use the ->go() method to start a prepared HTTP request. The only
+     alias existing today is ->start(); simply derive or edit this class
+     to add your preferred name for this likewise (->do() cannot be used
+     as it is a PHP reserved word, sorry ;)
+
+     There are two options to ->go(), the first $force will override a few
+     problems, and with the second ($asis) set to 1 or true, you won't get
+     a result object, but the plain HTTP response blob (headers and response
+     body as one large string variable).
+
+
+
+     authentication
+     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+     If the remote site requires authentification, you would simply give
+     this within the URL:
+      <?example
+         $query = new http_request("GET", "http://user:passw@example.com/...");
+           // or later:
+         $query->setURL("http://username:pw2@server.../")
+           // or even:
+         $query->url = "http://name:password@localhost/form.php";
+      ?>
+
+
+
+     proxy
+     ¯¯¯¯¯
+     You can also acccess a form or remote file using a proxy server easily,
+     just follow this:
+      <?example
+         $query = new http_request("PUT", "...");
+         $query->proxy = "http://servername.proxy.org:3219/";
+           // ...
+         $result = $query->go();
+      ?>
+     You could also give a password or username for your proxy server, if
+     you need it (works the same as for above).
+
+
+
+
+reponses
+¯¯¯¯¯¯¯¯
+The $result value from the above examples should normally be an object,
+it will be a scalar (false) only if something went really wrong.
+
+It will have at least a ->status field, which is typically 200 for
+succeeded requests. Everything above 500 means an server error, values
+above 400 a transport and request error (= we did something wrong) and
+a 300 response status means a redirection was issued.
+
+For fulfilled requests you can access the returned file/data simply as
+"$result->content" or "$result->body" or even "$result->data" (two aliases
+again).
+
+You will also have a "$result->headers[]" array, which will hold all
+response HTTP headers in normalized form. Typically this means:
+  <?example
+      echo $result->headers["Content-Type"] . "\n";
+      echo $result->headers["Date"] . "\n";
+      echo $result->headers["Last-Modified"] . "\n";
+      echo $result->headers["Content-Length"] . "\n";
+      echo $result->headers["Etag"] . "\n";    // (beware of the lcased "t" !)
+      echo $result->headers["Content-Encoding"] . "\n";
+      ...
+      print_r($result->headers);  // much better here ;)
+  ?>
+[[ Elsewhere the field names would be completely lowercased or fully
+uppercase, we have CamelCase here, with the hyphens still in of course. ]]
+
+Please note, that a known "Content-Encoding" was already removed from the
+received ->content. And there is also a more correct "$result->len" and a
+"$result->type" shorthand.
+
+A few response types are understand as application data, and in this case
+you can call the $result->decode() function and get a PHP variable/array
+from the body.
+
+
+
+     redirects
+     ¯¯¯¯¯¯¯¯¯
+     If you expect HTTP redirects (->status codes from 300 till 375), then
+     the default settings are ok for you, many will automatically be catched
+     and the form data or file request will succeed at the replied URL.
+
+     To tack/catch these cases yourself, simply disable that behaviour with:
+      <?example
+         $query->active_client = 0;
+      ?>
+
+
+
+PHP-RPC
+¯¯¯¯¯¯¯
+Not yet!  But this is probably what it will look like:
+
+  If you control both ends of the Wire, you shouldn't use the slow and
+  buggy (not everything works with everything else) XML-RPC protocol for
+  calling remote functions, but instead use the high speed PHP serialize
+  encoding to transfer data.
+
+  The "http_request" class can natively encode values as such. The MIME
+  type "application/vnd.php.serialized" has been registered explicitely
+  for this purpose (as alternative to "multipart/form-data" encoding,
+  and it is type-safe as opposed to the "/x-www-form-urlencoded" format).
+  Perl and JS implementations exist (probably also one for Python), so
+  plattform-independence should be given.
+
+  PHP-RPC shall inherit (not yet negotiated) some structure from the old
+  XML-RPC protocol. That is, a few names are identical. If you start an
+  request you would therefore do following:
+
+<?php
+
+    function phprpc($server, $function, $args=array()) {
+
+       #-- init
+       $query = new http_request("POST", $server);
+
+       #-- set content
+       $query->type = "php";  // here corresponds to "app/vnd.php.serialized"
+       $query->params
+         = array(
+              "method" => $function,
+              "params" => $args,
+           );
+
+       #-- start
+       $result = $query->go();
+       if ($result && ($result->status == 200)) {
+
+          $r = $result->decode();
+          if ($good = $r["result"]) {
+             return($good);
+          }
+          return($r);
+       }
+    }
+?>
+
+  You of course need a server part to make use of this. Simply try the
+  "ext/phprequest", in which case you would do the following:
+
+<?php
+
+   include("ext/phprequest.php")
+   if (count($_POST) && ($method = $_POST["method"])
+   and ($params = $_POST["params"]))
+   {
+      #-- call known/registered functions
+      $method = strtolower($method);
+      if ($method == "my.func") {
+         $r = call_user_func_array("my_func", $params);
+      }
+      elseif ($method == "system.time") {
+         $r = time();
+      }
+      elseif ($method == "sytem.listmethods") {
+         $r = get_defined_functions();
+         $r = $r["user"];
+      }
+
+      #-- if succeeded
+      if ($r) { 
+         header("Content-Type: application/vnd.php.serialized");
+         header("Content-Encoding: deflate");
+         $r = array("result" => $r);
+         die(gzdeflate(serialize($r));
+      }
+   }
+
+   #-- your normal script can go on here
+   //...
+?>
+
+  You can inject this into anywhere as it only engages, if a PHP-RPC
+  request was detected. 
+
+
+

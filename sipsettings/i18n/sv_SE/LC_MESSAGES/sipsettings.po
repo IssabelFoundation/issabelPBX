@@ -1,0 +1,615 @@
+# This file is part of IssabelPBX.
+# Copyright 2009, 2011 Mikael Carlsson, mickecamino@gmail.com
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX sipsettings\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-20 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: Swedish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#, php-format
+msgid "%s must be a non-negative integer"
+msgstr "%s måste vara ett positivt heltal"
+
+msgid "Bind Address (bindaddr) must be an IP address."
+msgstr "Bindadress (bindaddr) måste vara en IP-adress."
+
+msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
+msgstr "Bindport (bindport) måste vara mellan 1024..65535, standard är 5060"
+
+msgid "rtpholdtimeout must be higher than rtptimeout"
+msgstr "rtpholdtimeout måste vara högre än rtptimeout"
+
+#, php-format
+msgid "%s must be alphanumeric"
+msgstr "%s måste vara ett alfanumeriskt värde"
+
+msgid "External IP can not be blank"
+msgstr "Extern IP-adress kan inte vara tomt"
+
+msgid "Dynamic Host can not be blank"
+msgstr "Dynamisk host kan inte vara tomt"
+
+msgid "Localnet setting must be an IP address"
+msgstr "Localnet måste vara en IP-adress"
+
+msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
+msgstr ""
+"Nätmasken för localnet måste vara korrekt formaterat (t.ex. 255.255.255.0 "
+"eller 24)"
+
+msgid "checking for sipsettings table.."
+msgstr "kontrollerar tabellen sipsettings.."
+
+msgid "none, creating table"
+msgstr "ingen hittad, skapar tabell"
+
+msgid "populating default codecs.."
+msgstr "skriver standard codecs.."
+
+msgid "fatal error occurred populating defaults, check module"
+msgstr ""
+"allvarligt fel inträffade när standardvärde skrevs, kontrollera modulen"
+
+msgid "ulaw, alaw, gsm added"
+msgstr "la till ulaw, alaw, gsm"
+
+msgid "already exists"
+msgstr "finns redan"
+
+msgid "Failed to auto-detect settings"
+msgstr "Kunde inte autodetektera inställningar"
+
+msgid "Failed to auto-detect local network settings"
+msgstr "Det gick inte att auto-detektera de lokala nätverksinställningarna"
+
+msgid "Add Field"
+msgstr "Lägg till fält"
+
+msgid "Auto Configure"
+msgstr "Automatisk konfiguration"
+
+msgid "Add Local Network Field"
+msgstr "Lägg till lokalt nätverk"
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+msgid "Edit Settings"
+msgstr "Redigera inställningar"
+
+msgid "ERRORS"
+msgstr "FEL"
+
+msgid "NAT Settings"
+msgstr "NAT-inställningar"
+
+msgid "NAT"
+msgstr "NAT"
+
+msgid ""
+"Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no "
+"= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
+"mode or RFC3581 <br /> route = Assume NAT, don't send rport"
+msgstr ""
+"Asterisk NAT-inställningar:<br /> yes = Ignorera alltid info och förutsätt "
+"NAT<br /> no = Använd NAT-läge enligt RFC3581 <br /> never = Använd aldrig "
+"NAT-läge eller RFC3581 <br /> route = Förutsätt NAT, sänd inte rport "
+
+msgid "IP Configuration"
+msgstr "IP-konfiguration"
+
+msgid ""
+"Indicate whether the box has a public IP or requires NAT settings. Automatic "
+"configuration of what is often put in sip_nat.conf"
+msgstr ""
+"Indikerar om datorn har en publik IP-adress eller kräver NAT-inställningar. "
+"Automatisk konfiguration av vad som oftast skrivs in i sip_nat.conf"
+
+msgid "Public IP"
+msgstr "Publik IP-adress"
+
+msgid "Static IP"
+msgstr "Statisk IP-adress"
+
+msgid "Dynamic IP"
+msgstr "Dynamisk IP-adress"
+
+msgid "External IP"
+msgstr "Extern IP"
+
+msgid ""
+"External Static IP or FQDN as seen on the WAN side of the router. (asterisk: "
+"externip)"
+msgstr ""
+"Extern statisk IP-adress eller FQDN som är på WAN-sidan av routern. "
+"(asterisk: externip)"
+
+msgid "Dynamic Host"
+msgstr "Dynamisk host"
+
+msgid ""
+"External FQDN as seen on the WAN side of the router and updated dynamically, "
+"e.g. mydomain.dyndns.com. (asterisk: externhost)"
+msgstr ""
+"Extern FQDN som är på WAN-sidan av routern och som uppdateras dynamiskt, eg. "
+"mydomain.dyndns.com. (asterisk: externhost)"
+
+msgid "Refresh Rate"
+msgstr "Uppdateringsfrekvens"
+
+msgid ""
+"Asterisk: externrefresh. How often to lookup and refresh the External Host "
+"FQDN, in seconds."
+msgstr ""
+"Asterisk: externrefresh. Hur ofta uppslag och uppdatering ska ske för extern "
+"FQDN i sekunder."
+
+msgid "Local Networks"
+msgstr "Lokalt nätverk"
+
+msgid ""
+"Local network settings (Asterisk: localnet) in the form of ip/mask such as "
+"192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use the Add "
+"Local Network Field button for more fields. Blank fields will be removed "
+"upon submitting."
+msgstr ""
+"Lokal nätverksinställning (Asterisk: localnet) i formen av ip/mask såsom "
+"192.168.1.0/255.255.255.0. För nätverk med mer än ett subnät klickar du på "
+"knappen Lägg till lokalt nätverk för att lägga till fler fält. Tomma fält "
+"tas bort när sidan sparas."
+
+msgid "Audio Codecs"
+msgstr "Ljud-codec"
+
+msgid "Codecs"
+msgstr "Codec"
+
+msgid ""
+"Check the desired codecs, all others will be disabled unless explicitly "
+"enabled in a device or trunks configuration. Drag to re-order."
+msgstr ""
+"Markera dom önskade codecarna, alla andra kommer att avaktiveras om dom inte "
+"är explicit definierade i enheter eller trunkkonfigurering. Drag och släpp "
+"för att arrangera ordning"
+
+msgid "Non-Standard g726"
+msgstr "Icke-standard g726"
+
+msgid ""
+"Asterisk: g726nonstandard. If the peer negotiates G726-32 audio, use AAL2 "
+"packing order instead of RFC3551 packing order (this is required for Sipura "
+"and Grandstream ATAs, among others). This is contrary to the RFC3551 "
+"specification, the peer _should_ be negotiating AAL2-G726-32 instead."
+msgstr ""
+"Asterisk: g726nonstandard. Om peer förhandlar G726-32 ljud, använd AAL2 "
+"packningsföljd i stället för RFC3551 (detta krävs bland annat för Sipura och "
+"Grandstream ATAs). Detta är i motsats till RFC3551 specifikationen där peer "
+"_borde_ förhandla AAL2-G726-32 i stället."
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "T38 Pass-Through"
+msgstr "T38 Pass-Through"
+
+msgid ""
+"Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP channels "
+"that support sending/receiving T38 Fax codecs to pass the call. Asterisk can "
+"not process the media."
+msgstr ""
+"Asterisk: t38pt_udptl. Tillåter T38 passthrough om detta är aktiverat. This "
+"SIP channels that support sending/receiving T38 Fax codecs to pass the call. "
+"Asterisk can not process the media."
+
+msgid "Video Codecs"
+msgstr "Videocodecs"
+
+msgid "Video Support"
+msgstr "Videosupport"
+
+msgid "Check to enable and then choose allowed codecs."
+msgstr "Markera för att aktivera, välj sedan tillåtna codecs."
+
+msgid ""
+" If you clear each codec and then add them one at a time, submitting with "
+"each addition, they will be added in order which will effect the codec "
+"priority."
+msgstr ""
+" Om du avmarkerar varje codec och sedan lägger till och spara dom en åt "
+"gången, kommer dom att sorteras i den ordning de läggs till och påverka "
+"prioriteten för codec"
+
+msgid "Enabled"
+msgstr "Aktiverad"
+
+msgid "Disabled"
+msgstr "Avaktiverad"
+
+msgid "Max Bit Rate"
+msgstr "Max bithastighet"
+
+msgid "Maximum bitrate for video calls in kb/s"
+msgstr "Maximal bithastighet i kb/s för videosamtal"
+
+msgid "kb/s"
+msgstr "kb/s"
+
+msgid "MEDIA & RTP Settings"
+msgstr "Inställningar för MEDIA & RTP"
+
+msgid "Reinvite Behavior"
+msgstr "Beteende för reinvite"
+
+msgid ""
+"Asterisk: canreinvite. yes: standard reinvites; no: never; nonat: An "
+"additional option is to allow media path redirection (reinvite) but only "
+"when the peer where the media is being sent is known to not be behind a NAT "
+"(as the RTP core can determine it based on the apparent IP address the media "
+"arrives from; update: use UPDATE for media path redirection, instead of "
+"INVITE. (yes = update + nonat)"
+msgstr ""
+"Asterisk: canreinvite. ja: standard reinvites; nej: aldrig; nonat: Ett extra "
+"val för att tillåta omstyrning av mediaströmmen (reinvite) men endast när "
+"peer där strömmen skickas till är känd att inte vara bakom NAT (eftersom RTP "
+"kan bestämma det baserat på den synbara IP-adressen strömmen kommer från; "
+"update: använd UPDATE för mediaomstyrning i stället för INVITE. (yes = "
+"update + nonat)"
+
+msgid "yes"
+msgstr "ja"
+
+msgid "no"
+msgstr "nej"
+
+msgid "RTP Timers"
+msgstr "RTP-klockor"
+
+msgid ""
+"Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP "
+"activity on the audio channel when we're not on hold. This is to be able to "
+"hangup a call in the case of a phone disappearing from the net, like a "
+"powerloss or someone tripping over a cable.<br /> Asterisk: rtpholdtimeout. "
+"Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the "
+"audio channel when we're on hold (must be > rtptimeout). <br /> Asterisk: "
+"rtpkeepalive. Send keepalives in the RTP stream to keep NAT open during "
+"periods where no RTP stream may be flowing (like on hold)."
+msgstr ""
+"Asterisk: rtptimeout. Avsluta samtalet om aktiviteten på RTP eller RTCP har "
+"upphört i mer än rtptimeout i sekunder. Detta för att kunna lägga på "
+"samtalet ifall telefonen försvinner på nätverket i händelse av strömavbrott "
+"eller om någon kopplar loss kabeln till telefonen.<br /> Asterisk: "
+"rtpholdtimeout. Avsluta samtalet om på RTP eller RTCP har upphört när "
+"samtalet ligger på vänt (värdet måste vara > rtptimeout). <br /> Asterisk: "
+"rtpkeepalive. Skicka keepalives i RTP-strömmen för att hålla NAT öppet under "
+"perioder när ingen RTP-ström finns (samtal på vänt)."
+
+msgid "Notification & MWI"
+msgstr "Meddelande & MWI"
+
+msgid "MWI Polling Freq"
+msgstr "Kontrollfrekvens för MWI"
+
+msgid ""
+"Frequency in seconds to check if MWI state has changed and inform peers."
+msgstr ""
+"Antal sekunder mellan kontrollerna om MWI har ändrat läge, meddela sedan "
+"peers."
+
+msgid "Notify Ringing"
+msgstr "Notify ringing"
+
+msgid ""
+"Control whether subscriptions already INUSE get sent RINGING when another "
+"call is sent. Useful when using BLF."
+msgstr ""
+"Används för prenumerationer som är INUSE får skickat till sig RINGING när "
+"ett annat samtal skickas. Användbart för BLF."
+
+msgid "Notify Hold"
+msgstr "Notify hold"
+
+msgid ""
+"Control whether subscriptions INUSE get sent ONHOLD when call is placed on "
+"hold. Useful when using BLF."
+msgstr ""
+"Används för prenumerationer som är INUSE får skickat till sig ONHOLD när ett "
+"samtal är på vänt. Användbart för BLF."
+
+msgid "Registration Settings"
+msgstr "Registreringsinställningar"
+
+msgid "Registrations"
+msgstr "Registreringar"
+
+msgid ""
+"Asterisk: registertimeout. Retry registration attempts every registertimeout "
+"seconds until successful or until registrationattempts tries have been made."
+"<br /> Asterisk: registrationattempts. Number of times to try and register "
+"before giving up. A value of 0 means keep trying forever. Normally this "
+"should be set to 0 so that Asterisk will continue to register until "
+"successful in the case of network or gateway outages."
+msgstr ""
+"Asterisk: registertimeout. Försök registrera igen efter det antal sekunder i "
+"värdet registertimeout till en lyckad registrering sker eller till det antal "
+"specificerat i registrationattempts har skett.<br /> Asterisk: "
+"registrationattempts. Antal gånger registrering ska försökas. Ett värde på 0 "
+"är oändligt antal försök. Normalt ska detta stå på 0 för att Asterisk kan "
+"fortsätta registrering efter ström- eller nätavbrott."
+
+msgid "Registration Times"
+msgstr "Registreringstider"
+
+msgid ""
+"Asterisk: minexpiry. Minimum length of registrations/subscriptions.<br /> "
+"Asterisk: maxepiry. Maximum allowed time of incoming registrations<br /> "
+"Asterisk: defaultexpiry. Default length of incoming and outgoing "
+"registrations."
+msgstr ""
+"Asterisk: minexpiry. Minsta längd på registrering/prenumeration.<br /> "
+"Asterisk: maxepiry. Maximal tillåten tid för inkommande registreringar.<br /"
+"> Asterisk: defaultexpiry. Standardlängd för inkommande och utgående "
+"registreringar."
+
+msgid "Jitter Buffer Settings"
+msgstr "Inställningar för Jitterbuffer"
+
+msgid "Jitter Buffer"
+msgstr "Jitterbuffer"
+
+msgid ""
+"Asterisk: jbenable. Enables the use of a jitterbuffer on the receiving side "
+"of a SIP channel. An enabled jitterbuffer will be used only if the sending "
+"side can create and the receiving side can not accept jitter. The SIP "
+"channel can accept jitter, thus a jitterbuffer on the receive SIP side will "
+"be used only if it is forced and enabled. An example is if receiving from a "
+"jittery channel to voicemail, the jitter buffer will be used if enabled. "
+"However, it will not be used when sending to a SIP endpoint since they "
+"usually have their own jitter buffers. See jbforce to force it's use always."
+msgstr ""
+"Asterisk: jbenable. Aktiverar användandet av jitterbuffer på den mottagande "
+"sidan av en SIP-kanal. En aktiverad jitterbuffer används bara om den "
+"sändande sidan kan skapa och den mottagande sidan inte kan acceptera jitter. "
+"SIP-kanalen kan acceptera jitter, en jitterbuffer på den mottagande SIP-"
+"sidan kommer bara att användas om den är forcerad och aktiverad. Ett exempel "
+"är om mottagning sker från en jitterkanal till röstbrevlådan kommer "
+"jitterbuffern att användas om den är aktiverad. Emellertid kommer detta inte "
+"användas när det skickas till en SIP-enhet eftersom dom vanligtvis har deras "
+"egna jitterbuffrar. Se även jbforce för att forcera jitterbuffrar att alltid "
+"användas."
+
+msgid "Force Jitter Buffer"
+msgstr "Forcera jitterbuffer"
+
+msgid ""
+"Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side of a "
+"SIP channel. Normally the jitter buffer will not be used if receiving a "
+"jittery channel but sending it off to another channel such as another SIP "
+"channel to an endpoint, since there is typically a jitter buffer at the far "
+"end. This will force the use of the jitter buffer before sending the stream "
+"on. This is not typically desired as it adds additional latency into the "
+"stream."
+msgstr ""
+"Asterisk: jbforce. Tvingar användandet av en jitterbuffer på mottagande "
+"sidan av en SIP-kanal. Normalt kommer inte jitterbuffern att användas vid "
+"mottagande av en jittery-kanal men skickar den till en annan kanal såsom en "
+"SIP-kanal till en ändutrusting eftersom det typiskt finns en jitterbuffer i "
+"slutet av kedjan. Detta tvingar användandet av en jitterbuffer innan "
+"mediaströmmen skickas vidare. Detta används inte normal då det ökar "
+"fördröjningen i mediaströmmen."
+
+msgid "Implementation"
+msgstr "Implementation"
+
+msgid ""
+"Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of "
+"a SIP channel. Two implementations are currently available:<br /> fixed: "
+"size always equals to jbmaxsize;<br /> adaptive: with variable size (the new "
+"jb of IAX2)."
+msgstr ""
+"Asterisk: jbimpl. Jitterbuffer implementation, används på den mottagande SIP-"
+"kanalen. Två implementationer finns för närvarande:<br /> fast: storleken "
+"alltid lika med jbmaxsize;<br /> adaptiv: med variabel storlek (den nya jb "
+"på IAX2)."
+
+msgid "Fixed"
+msgstr "Fast"
+
+msgid "Adaptive"
+msgstr "Adaptiv"
+
+msgid "Jitter Buffer Logging"
+msgstr "Logga jitterbuffer"
+
+msgid "Asterisk: jblog. Enables jitter buffer frame logging."
+msgstr "Asterisk: jblog. Aktiverar loggning av jitterbufferramar"
+
+msgid "Enable"
+msgstr "Aktivera"
+
+msgid "Disable"
+msgstr "Avaktivera"
+
+msgid "Jitter Buffer Size"
+msgstr "Storlek på jitterbuffer"
+
+msgid ""
+"Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> "
+"Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the "
+"jitterbuffer is resynchronized. Useful to improve the quality of the voice, "
+"with big jumps in/broken timestamps, usually sent from exotic devices and "
+"programs. Can be set to -1 to disable."
+msgstr ""
+"Asterisk: jbmaxsize. Max längd på jitterbuffern i storlek.<br /> Asterisk: "
+"jbresyncthreshold. Hopp i tiden inom ramen där jitterbuffern "
+"återsynkroniseras. Användbart för att öka kvaliteten på rösten med stora "
+"hopp i / eller brutna tidsstämplar, vanligtvis skickat från exotiska enheter "
+"och program. Kan sättas till -1 för att avaktiveras."
+
+msgid "Advanced General Settings"
+msgstr "Avancerade generella inställningar"
+
+msgid "Language"
+msgstr "Språk"
+
+msgid "Default Language for a channel, Asterisk: language"
+msgstr "Standardspråk för en kanal. Asterisk: language"
+
+msgid "Default Context"
+msgstr "Standard sammanhang"
+
+msgid ""
+"Asterisk: context. Default context for incoming calls if not specified. "
+"IssabelPBX sets this to from-sip-external which is used in conjunction with the "
+"Allow Anonymous SIP calls. If you change this you will effect that behavior. "
+"It is recommended to leave this blank."
+msgstr ""
+"Asterisk: context. Standard sammanhang för inkommande samtal om det inte "
+"sätts här. IssabelPBX sätter detta till from-sip-external som används i samband "
+"med Tillåt SIP-gäster. Om du ändrar detta kommer du att påverka den "
+"inställningen. Det är rekommenderat att lämna detta fält tomt."
+
+msgid ""
+"Asterisk: bindaddr. The IP address to bind to and listen for calls on the "
+"Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is "
+"recommended to leave this blank."
+msgstr ""
+"Asterisk: bindaddr. IP-adressen att binda till och lyssna efter samtal på "
+"Bindporten. Om detta sätts till 0.0.0.0 kommer Asterisk att lyssna på alla "
+"adresser. Det är rekommenderat att lämna detta fält tomt."
+
+msgid ""
+"Asterisk 1.8 all supports IPv6. An address of '::' will listen on both IPv4 "
+"and IPv6."
+msgstr ""
+"Asterisk 1.8.x stöder IPv6. En adress på '::' kommer att lysnna på både IPv4 "
+"och IPv6."
+
+msgid "Bind Address"
+msgstr "Bindadress"
+
+msgid "Bind Port"
+msgstr "Bindport"
+
+msgid ""
+"Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and "
+"listen for SIP messages. The SIP standard is 5060 and in most cases this is "
+"what you want. It is recommended to leave this blank."
+msgstr ""
+"Asterisk: bindport. Lokal inkommande UDP-port som Asterisk binder sig till "
+"och lyssnar efter SIP-meddelanden. Standardporten för SIP är 5060 och i de "
+"flesta fall är vad du vill ha. Det är rekommenderat att lämna detta fält "
+"tomt."
+
+msgid "Allow SIP Guests"
+msgstr "Tillåt SIP-gäster"
+
+msgid ""
+"Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send "
+"them to the Default SIP context. Turning this off will keep anonymous SIP "
+"calls from entering the system. However, the Allow Anonymous SIP calls from "
+"the General Settings section will not function. Allowing guest calls but "
+"rejecting the Anonymous SIP calls in the General Section will enable you to "
+"see the call attempts and debug incoming calls that may be mis-configured "
+"and appearing as guests."
+msgstr ""
+"Asterisk: allowguest. När denna inställning är satt till Ja kommer Asterisk "
+"att tillåta gästsamtal och skicka dom till standard SIP-sammanhanget. Om "
+"detta sätts till Nej kommer inga gästsamtal att tillåtas. Emellertid kommer "
+"då inställningen i Generella inställningar, Tillåt anonyma samtal, att sluta "
+"fungera. Att tillåta gäster men inte anonyma samtal ger dig möjlighet att se "
+"alla samtalsförsök och avlusa inkommande samtal som kan vara felaktigt "
+"konfigurerade och uppträda som gäst."
+
+msgid "SRV Lookup"
+msgstr "SRV-uppslag"
+
+msgid ""
+"Enable Asterisk srvlookup. See current version of Asterisk for limitations "
+"on SRV functionality."
+msgstr ""
+"Aktivera Asterisk srvlookup. Läs i dokumentationen för din version av "
+"Asterisk för att de begränsningar som finns i funktionen SRV."
+
+msgid "Call Events"
+msgstr "Samtalshändelser"
+
+msgid "Generate manager events when sip ua performs events (e.g. hold)."
+msgstr "Genererar händelser när en sip ua utför händelser, t.ex. lägg på vänt"
+
+msgid "Other SIP Settings"
+msgstr "Andra SIP-inställningar"
+
+msgid ""
+"You may set any other SIP settings not present here that are allowed to be "
+"configured in the General section of sip.conf. There will be no error "
+"checking against these settings so check them carefully. They should be "
+"entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the "
+"Add Field box to add additional fields. Blank boxes will be deleted when "
+"submitted."
+msgstr ""
+"Du kan göra fler SIP-inställningar som inte visas här men som är tillåtna "
+"att konfigurera i den generella sektionen av sip.conf. Ingen felkontroll "
+"kommer att göras mot dessa inställningar så kontrollera dom noga. Syntaxen "
+"för värdena är <br /> [inställning] = [värde]<br />  i fälten nedan. Klicka "
+"på Lägg till fält för att lägga till fler. Tomma fält kommer att tas bort "
+"när sidan sparas."
+
+#, php-format
+msgid "Settings in %s may override these. Those settings should be removed."
+msgstr ""
+"Inställningar i %s kan åsidosätta inställningarna du gör här. Du bör ta bort "
+"dom."
+
+#, php-format
+msgid ""
+"File %s should not have any settings in it. Those settings should be removed."
+msgstr ""
+"Filen %s ska inte ha några inställningar alls. Dessa inställningar måste tas "
+"bort."
+
+msgid "Asterisk SIP Settings"
+msgstr "Asterisk SIP-inställningar"
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Use to configure Various Asterisk SIP Settings in the General section of sip."
+"conf. Also includes an auto-configuration tool to determine NAT settings. "
+"The module assumes Asterisk version 1.4 or higher. Some settings may not "
+"exist in Asterisk 1.2 and will be ignored by Asterisk."
+msgstr ""
+"Anänds för att konfigurera inställningar för Asterisk SIP som placeras i "
+"filen sip.conf under sektionen General. Det ingår även en automatisk "
+"konfigurerare som kan detektera NAT-inställningar. Modulen förutsätter att "
+"du använder Asterisk 1.4 eller senare version. Vissa inställningar finns "
+"inte i Asterisk 1.2 och kommer att ignoreras av Asterisk"
+
+#~ msgid "Advanced Administration"
+#~ msgstr "Abancerade inställningar"

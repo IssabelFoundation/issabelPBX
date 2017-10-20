@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-13 20:11-0700\n"
+"PO-Revision-Date: 2014-07-22 13:36+0200\n"
+"Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
+"Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/speeddial/"
+"bg/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg_BG\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.10-dev\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: install.php:7
+msgid "Set user speed dial"
+msgstr "Установи Бързо Избиране за потрeбител"
+
+#: speeddial.i18n.php:6
+msgid "Settings"
+msgstr "Настройки"
+
+#: install.php:5 speeddial.i18n.php:4
+msgid "Speed Dial Functions"
+msgstr "Функции Бързо Избиране"
+
+#: install.php:6
+msgid "Speeddial prefix"
+msgstr "Префикс за Бързо Избиране"

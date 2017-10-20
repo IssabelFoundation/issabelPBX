@@ -1,0 +1,84 @@
+# IssabelPBX language template
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "Misc Application: %s"
+msgstr ""
+
+msgid "Misc Applications"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Adds the ability to create feature codes that can go to any IssabelPBX "
+"destination (such as an IVR or queue)"
+msgstr ""
+
+msgid "Add Misc Application"
+msgstr ""
+
+msgid "Edit Misc Application"
+msgstr ""
+
+msgid ""
+"Misc Applications are for adding feature codes that you can dial from "
+"internal phones that go to various destinations available in IssabelPBX. This "
+"is in contrast to the <strong>Misc Destinations</strong> module, which is "
+"for creating destinations that can be used by other IssabelPBX modules to dial "
+"internal numbers or feature codes."
+msgstr ""
+
+msgid "Conflicting Extensions"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "The name of this application"
+msgstr ""
+
+msgid "Feature Code"
+msgstr ""
+
+msgid ""
+"The feature code/extension users can dial to access this application. This "
+"can also be modified on the Feature Codes page."
+msgstr ""
+
+msgid "Feature Status"
+msgstr ""
+
+msgid "If this code is enabled or not."
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Invalid description specified"
+msgstr ""

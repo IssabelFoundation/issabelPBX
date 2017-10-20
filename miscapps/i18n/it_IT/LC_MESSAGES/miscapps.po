@@ -1,0 +1,170 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-06 14:52+0100\n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+#, php-format
+msgid "Misc Application: %s"
+msgstr "Applicazione: %s"
+
+msgid "Misc Applications"
+msgstr "Applicazioni Varie"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Adds the ability to create feature codes that can go to any IssabelPBX "
+"destination (such as an IVR or queue)"
+msgstr ""
+
+msgid "Add Misc Application"
+msgstr "Aggiungi Applicazione"
+
+msgid "Edit Misc Application"
+msgstr "Modifica Applicazione"
+
+msgid ""
+"Misc Applications are for adding feature codes that you can dial from "
+"internal phones that go to various destinations available in IssabelPBX. This "
+"is in contrast to the <strong>Misc Destinations</strong> module, which is "
+"for creating destinations that can be used by other IssabelPBX modules to dial "
+"internal numbers or feature codes."
+msgstr ""
+"Le Applicazioni Varie possono essere utilizzate per impostare dei servizi "
+"consultabili direttamente dai telefoni scegliendo una delle varie "
+"destinazioni disponibili in IssabelPBX. Non è la stessa cosa del modulo "
+"<strong>Destinazioni Varie</strong>, che serve a creare destinazioni da "
+"poter essere utilizzate da altri moduli IssabelPBX, per chiamare per esempio "
+"numeri interni o altri servizi."
+
+msgid "Conflicting Extensions"
+msgstr "Interni in conflitto"
+
+msgid "Description"
+msgstr "Descrizione"
+
+msgid "The name of this application"
+msgstr "Il nome di questa applicazione"
+
+msgid "Feature Code"
+msgstr "Codice Servizio"
+
+msgid ""
+"The feature code/extension users can dial to access this application. This "
+"can also be modified on the Feature Codes page."
+msgstr ""
+"Il codice/estensione che gli utenti dovranno digitare per accedere a questa "
+"applicazione. Questa può essere anche modificata nella pagina Codici Servizi."
+
+msgid "Feature Status"
+msgstr "Stato Servizio"
+
+msgid "If this code is enabled or not."
+msgstr "Se questo codice è attivo o no."
+
+msgid "Enabled"
+msgstr "Attivato"
+
+msgid "Disabled"
+msgstr "Disattivato"
+
+msgid "Destination"
+msgstr "Destinazione"
+
+msgid "Submit Changes"
+msgstr "Conferma Cambiamenti"
+
+msgid "Delete"
+msgstr "Elimina"
+
+msgid "Invalid description specified"
+msgstr "Descrizione specificata non valida"
+
+#~ msgid "Add MIsc Application"
+#~ msgstr "Aggiungi Applicazione Varia"
+
+#~ msgid "Core"
+#~ msgstr "Sistema"
+
+#~ msgid "Conferences"
+#~ msgstr "Conferenze"
+
+#~ msgid "Phonebook Directory"
+#~ msgstr "Elenco Telefonico"
+
+#~ msgid "Queues"
+#~ msgstr "Code"
+
+#~ msgid "Ring Groups"
+#~ msgstr "Gruppi di chiamata"
+
+#~ msgid "Speed dial functions"
+#~ msgstr "Selezione breve"
+
+#~ msgid "Time Conditions"
+#~ msgstr "Condizioni Temporali"
+
+#~ msgid "Custom Contexts"
+#~ msgstr "Contesti Personalizzati"
+
+#~ msgid "Extended Routing"
+#~ msgstr "Rotte specifiche"
+
+#~ msgid ""
+#~ "Custom App<span><br>ADVANCED USERS ONLY<br><br>Uses Goto() to send caller "
+#~ "to a custom context.<br><br>The context name should start with \"custom-"
+#~ "\", and be in the format custom-context,extension,priority. Example entry:"
+#~ "<br><br><b>custom-myapp,s,1</b><br><br>The <b>[custom-myapp]</b> context "
+#~ "would need to be created and included in extensions_custom.conf</span>"
+#~ msgstr ""
+#~ "Applicazione Personalizzata<span>SOLO UTENTI AVANZATI<br>Utilizzare Goto"
+#~ "() per inviare la chiamata verso un contesto personalizzato.<br><br>Il "
+#~ "nome del contesto deve iniziare per \"custom-\" e deve essere nel formato "
+#~ "custom-contesto,extension,priorità. Esempio: <br><br><b>custom-app,s,1</"
+#~ "b><br><br><b>Il contesto [custom-app] </b> deve poi essere creato e "
+#~ "incluso nel file extensions_custom.conf</span>"
+
+#~ msgid "Edit"
+#~ msgstr "Modifica"
+
+#~ msgid "Add Misc. Application"
+#~ msgstr "Aggiungi Applicazione Varia"
+
+#~ msgid "Voicemail"
+#~ msgstr "Caselle Vocali"
+
+#~ msgid "Day Night Mode"
+#~ msgstr "Servizio Giorno/Notte"
+
+#~ msgid "Terminate Call"
+#~ msgstr "Termina Chiamata"
+
+#~ msgid "Misc Destinations"
+#~ msgstr "Destinazioni Varie"
+
+#~ msgid "Custom Applications"
+#~ msgstr "Applicazioni Personalizzate"
+
+#~ msgid "VoiceMail Blasting"
+#~ msgstr "Gruppi di Caselle Vocali"
+
+#~ msgid "Languages"
+#~ msgstr "Lingue"
+
+#~ msgid "Announcements"
+#~ msgstr "Annunci"

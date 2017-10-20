@@ -1,0 +1,76 @@
+# Hebrew version for Feature Code Admin IssabelPBX Module.
+# Copyright (C) 2006
+# This file is distributed under the same license as the PACKAGE package.
+# Shimi <shimi@shimi.net>, 2006.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2006-10-17 17:30+0300\n"
+"Last-Translator: Shimi <shimi@shimi.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Feature Code Admin"
+msgstr "מנהל קודי התכונות"
+
+msgid "Admin"
+msgstr ""
+
+#, fuzzy
+msgid "Feature Codes"
+msgstr "מנהל קודי התכונות"
+
+#, fuzzy
+msgid "Featurecode: "
+msgstr "מנהל קודי התכונות"
+
+msgid "featuredescription"
+msgstr ""
+
+msgid ""
+"You have feature code conflicts with extension numbers in other modules. "
+"This will result in unexpected and broken behavior."
+msgstr ""
+
+msgid "Feature Code Conflicts with other Extensions"
+msgstr ""
+
+msgid "Use"
+msgstr "השתמש"
+
+msgid "Default"
+msgstr "ברירת מחדל"
+
+msgid "Feature"
+msgstr "תכונה"
+
+msgid "Status"
+msgstr "סטטוס"
+
+msgid "moduledescription"
+msgstr ""
+
+msgid "Disabled"
+msgstr "כבוי"
+
+msgid "Enabled"
+msgstr "פעיל"
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid ""
+"Please enter a Feature Code or check Use Default for all Enabled Feature "
+"Codes"
+msgstr ""
+
+msgid "Feature Codes have been duplicated"
+msgstr ""
+
+msgid "Are you sure you wish to proceed?"
+msgstr ""

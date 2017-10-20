@@ -1,0 +1,224 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2011 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2011.
+#
+# Использовать iconv vmblast.utf8.po -f UTF-8 -t ISO-8859-5 -o vmblast.po
+# fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-04-06 17:15+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "Voicemail Group %s: %s"
+msgstr "Группа голосовой почты %s: %s"
+
+msgid "Voicemail Group: "
+msgstr "Группа голосовой почты:"
+
+msgid "Exclude"
+msgstr "Исключить"
+
+msgid "Include"
+msgstr "Включить"
+
+msgid "Default Group Inclusion"
+msgstr "Включения в группу по-умолчанию"
+
+msgid "Default VMblast Group"
+msgstr "Дефолтная группа VMblast"
+
+msgid ""
+"You can include or exclude this extension/user from being part of the "
+"default voicemail blast group when creating or editing. Choosing this option "
+"will be ignored if the user does not have a voicemail box."
+msgstr ""
+"При создании или изменении дефолтной группы голосовой почты в неё можно "
+"включить или исключить из неё следующие (ниже) внутренние номера/"
+"пользователей. Выбор этой опции игнорируется, если у пользователя нет ящика "
+"голосовой почты."
+
+msgid "Upgrading vmblast to add audio_label field.."
+msgstr "Апгрейдить vmblast добавлением поля аудио метки.."
+
+msgid "Not Required"
+msgstr "Не требуется"
+
+msgid "Done"
+msgstr "Готово"
+
+msgid "Upgrading vmblast to add password field.."
+msgstr "Апгрейдить vmblast добавлением поля пароль.."
+
+msgid "Dropping grplist.."
+msgstr "Сброс листа группы.."
+
+msgid "error populating vmblast_groups table"
+msgstr "ошибка при создании таблицы группы vmblast"
+
+msgid "populated new table"
+msgstr "создание новой таблицы"
+
+msgid "Dropping old grplist field.."
+msgstr "Игнорируется старое значение поля grplist.."
+
+msgid "failed to drop field"
+msgstr "не удалось сбросить поле"
+
+msgid "OK"
+msgstr "ОК"
+
+msgid "Not Needed"
+msgstr "Не требуется"
+
+msgid "Warning! Extension"
+msgstr "Внимание! Внутренний номер"
+
+msgid "is not allowed for your account"
+msgstr "не доступен для вашего аккаунта"
+
+msgid "Add VMBlast Group"
+msgstr "Добавить группу VMBlast"
+
+msgid " [DEFAULT]"
+msgstr ""
+
+msgid "VMBlast Group"
+msgstr "Группа VMBlast"
+
+msgid "deleted"
+msgstr "удалено"
+
+msgid "Delete Group"
+msgstr "Удалить группу"
+
+msgid "Conflicting Extensions"
+msgstr "Конфликт внутренних номеров"
+
+msgid "Edit VMBlast Group"
+msgstr "Изменить группу VMBlast"
+
+msgid "VMBlast Number"
+msgstr "Номер VMBlast"
+
+msgid "The number users will dial to voicemail boxes in this VMBlast group"
+msgstr ""
+"Внутренний номер для пользователей ипользующих дозвон в голосовую почту этой "
+"группы VMBlast"
+
+msgid "Group Description:"
+msgstr "Описание группы:"
+
+msgid "Provide a descriptive title for this VMBlast Group."
+msgstr "Предложите понятное описание для этой группы VMBlast"
+
+msgid "Audio Label:"
+msgstr "Аудио анонс:"
+
+msgid ""
+"Play this message to the caller so they can confirm they have dialed the "
+"proper voice mail group number, or have the system simply read the group "
+"number."
+msgstr ""
+"Это сообщение будет воспроизведено позвонившему для подтверждения, что "
+"звонок поступил в групповой ящик голосовой почты или система сообщит номер "
+"группы."
+
+msgid "Read Group Number"
+msgstr "Сообщать групповой номер"
+
+msgid "Beep Only - No Confirmation"
+msgstr "Только звуковой сигнал - без подтверждения"
+
+msgid ""
+"The group number will be played to the caller so they can confirm they have "
+"dialed the proper voice mail group number.<br><br>You must install and "
+"enable the \"Systems Recordings\" Module to edit this option and choose from "
+"recordings."
+msgstr ""
+"Будет воспроизведён номер группы для подтверждения, что звонок поступил в "
+"групповой ящик голосовой почты<br><br>Нужно инсталлировать и активировать "
+"модуль Запись сообщений для изменения этой опции."
+
+msgid "Optional Password"
+msgstr "Пароль (опционально)"
+
+msgid ""
+"You can optionally include a password to authenticate before providing "
+"access to this group voicemail list."
+msgstr ""
+"Можно добавить пароль опционально, для аутентификации доступа в этот "
+"групповой ящик голосовой почты."
+
+msgid "Voicemail Box List:"
+msgstr "Список голосовой почты:"
+
+msgid ""
+"Select voice mail boxes to add to this group. Use Ctrl key to select "
+"multiple.."
+msgstr ""
+"Отметить ящики голосовой почты, которые будут включены в групповой ящик. "
+"удерживайте Ctrl + клик мышкой для множественного выделения"
+
+msgid "Default VMBlast Group"
+msgstr "Дефолтная группа VMBlast"
+
+msgid ""
+"Each PBX system can have a single Default Voicemail Blast Group. If "
+"specified, extensions can be automatically added (or removed) from this "
+"default group in the Extensions (or Users) tab.<br />Making this group the "
+"default will uncheck the option from the current default group if specified."
+msgstr ""
+"Каждая ИП-АТС может иметь общий дефолтный ящик групповой голосовой почты. "
+"Если указано, то внутренние номера могут быть автоматически добавлены (или "
+"удалены) из дефолтной группы в таблице Внутренних номеров (пользователей)."
+"<br />Объявляя эту группу дефолтной вы изменяете текущее значение дефолтной "
+"группы."
+
+msgid "Submit Changes"
+msgstr "Применить изменения"
+
+msgid "Invalid Group Number specified"
+msgstr "Указан неверный номер группы"
+
+msgid "Group numbers with more than one digit cannot begin with 0"
+msgstr "Номер группы двух- и более значный не должен начинаться с 0"
+
+msgid "Please enter an extension list."
+msgstr "Укажите список внутренних номеров"
+
+msgid "Please enter a valid Group Description"
+msgstr "Укажите понятное описание группы"
+
+msgid "Please enter a valid numeric password, only numbers are allowed"
+msgstr "Укажите цифровой пароль, разрешены только цифры"
+
+msgid "Please select at least one extension"
+msgstr "Выберите по крайней мере хотя бы один внутренний номер"
+
+msgid "Voicemail Blasting"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Creates a group of extensions that calls a group of voicemail boxes and "
+"allows you to leave a message for them all at once."
+msgstr ""
+"Создаёт группу внутренних номеров, которые используют совместно один ящик "
+"групповой почты допускает сообщения и прослушивание всчех членов группы."
+
+#~ msgid "VoiceMail Blasting"
+#~ msgstr "Групповая голосовая почта"
+
+#~ msgid "Internal Options & Configuration"
+#~ msgstr "Конфигурация и внутренние опции"

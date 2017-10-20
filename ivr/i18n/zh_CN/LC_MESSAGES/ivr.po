@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-31 12:34+0800\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Add IVR"
+msgstr "添加IVR"
+
+#, php-format
+msgid "Edit IVR: %s"
+msgstr ""
+
+#, php-format
+msgid "Delete IVR: %s"
+msgstr ""
+
+msgid "IVR General Options"
+msgstr ""
+
+msgid "IVR Name"
+msgstr ""
+
+msgid "Name of this IVR."
+msgstr ""
+
+msgid "IVR Description"
+msgstr ""
+
+msgid "Description of this ivr."
+msgstr ""
+
+msgid "IVR Options (DTMF)"
+msgstr ""
+
+msgid "None"
+msgstr "无"
+
+msgid "Announcement"
+msgstr "公告"
+
+msgid "Greeting to be played on entry to the Ivr."
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Extensions"
+msgstr ""
+
+msgid "Completely disabled"
+msgstr ""
+
+msgid "Enabled for all extensions on a system"
+msgstr ""
+
+msgid "Direct Dial"
+msgstr ""
+
+msgid ""
+"Provides options for callers to direct dial an extension. Direct dialing can "
+"be:"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Timeout"
+msgstr "超时设置"
+
+msgid "Amount of time to be considered a timeout"
+msgstr ""
+
+msgid "Invalid Retries"
+msgstr ""
+
+msgid ""
+"Number of times to retry when receiving an invalid/unmatched response from "
+"the caller"
+msgstr ""
+
+msgid "Invalid Retry Recording"
+msgstr ""
+
+msgid ""
+"Prompt to be played when an invalid/unmatched response is received, before "
+"prompting the caller to try again"
+msgstr ""
+
+msgid "Invalid Recording"
+msgstr ""
+
+msgid ""
+"Prompt to be played before sending the caller to an alternate destination "
+"due to the caller pressing 0 or receiving the maximum amount of invalid/"
+"unmatched responses (as determined by Invalid Retries)"
+msgstr ""
+
+msgid "Invalid Destination"
+msgstr ""
+
+msgid "Destination to send the call to after Invalid Recording is played."
+msgstr ""
+
+msgid "Timeout Retries"
+msgstr ""
+
+msgid "Timeout Retry Recording"
+msgstr ""
+
+msgid "Timeout Recording"
+msgstr ""
+
+msgid "Timeout Destination"
+msgstr ""
+
+msgid "Return to IVR after VM"
+msgstr ""
+
+msgid ""
+"If checked, upon exiting voicemail a caller will be returned to this IVR if "
+"they got a users voicemail"
+msgstr "如果钩选了此项，主叫将在收到某用户的语音邮件时返回到此IVR"
+
+msgid "IVR Entries"
+msgstr ""
+
+msgid "Ext"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Return"
+msgstr ""
+
+msgid "Return to IVR"
+msgstr "返回到IVR"
+
+msgid "Delete"
+msgstr "删除"
+
+#, php-format
+msgid "IVR: %s / Option: %s"
+msgstr "IVR：%s / 选项：%s"
+
+#, php-format
+msgid "IVR: %s"
+msgstr "IVR：%s"
+
+msgid "Checking if announcements need migration.."
+msgstr "正在检查通知通告是否需要迁移。。。"
+
+msgid "migrating"
+msgstr "正在迁移"
+
+msgid "adding announcement_id field.."
+msgstr "正在添加announcement_id字段。。"
+
+msgid "fatal error"
+msgstr "致命错误"
+
+msgid "ok"
+msgstr "完成"
+
+msgid "migrate to recording ids.."
+msgstr "迁移到录音id。。。"
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "迁移了%s个项目"
+
+msgid "dropping announcement field.."
+msgstr "正在删除announcement字段。。。"
+
+msgid "no announcement field???"
+msgstr "没有announcement字段？"
+
+msgid "already migrated"
+msgstr "已经迁移过了"
+
+msgid "Checking for timeout_id.."
+msgstr "正在检查timeout_id。。。"
+
+msgid "added"
+msgstr "已增加"
+
+msgid "not needed"
+msgstr "不需要"
+
+msgid "Checking for invalid_id.."
+msgstr "正在检查invalid_id。。。"
+
+msgid "Checking for retvm.."
+msgstr "正在检查retvm。。。"
+
+#, php-format
+msgid ""
+"There are %s IVRs that have the legacy Directory dialing enabled. This has "
+"been deprecated and will be removed from future releases. You should convert "
+"your IVRs to use the Directory module for this functionality and assign an "
+"IVR destination to a desired Directory. You can install the Directory module "
+"from the Online Module Repository"
+msgstr ""
+
+#, php-format
+msgid "Deprecated Directory used by %s IVRs"
+msgstr ""
+
+msgid "posting notice about deprecated functionality"
+msgstr ""
+
+msgid "IVR"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Creates Digital Receptionist (aka Auto-Attendant, aka Interactive Voice "
+"Response) menus. These can be used to send callers to different locations "
+"(eg, Press 1 for sales) and/or allow direct-dialing of extension numbers."
+msgstr ""
+
+#~ msgid ""
+#~ "There is a problem with install.sql, cannot re-create databases. Contact "
+#~ "support\n"
+#~ msgstr "install.sql中有一个问题，无法重新创建数据库。请与技术支持联系\n"
+
+#~ msgid "Digital Receptionist"
+#~ msgstr "数字话务员"
+
+#~ msgid "Instructions"
+#~ msgstr "说明"
+
+#~ msgid ""
+#~ "You use the Digital Receptionist to make IVR's, Interactive Voice "
+#~ "Response systems."
+#~ msgstr "你可以使用数字话务员功能，来组成IVR的交互式语音答复系统。"
+
+#~ msgid ""
+#~ "When creating a menu option, apart from the standard options of 0-9,* and "
+#~ "#, you can also use 'i' and 't' destinations."
+#~ msgstr ""
+#~ "在创建菜单选项时，除了标准的0到9、*和#之外，你还可以使用“i”与“t”作为目的"
+#~ "地。"
+
+#~ msgid ""
+#~ "'i' is used when the caller pushes an invalid button, and 't' is used "
+#~ "when there is no response."
+#~ msgstr ""
+#~ "当呼叫者按下了无效的按钮时，“i”就起作用，而“t”是用来处理长时间无按键的情"
+#~ "况。"
+
+#~ msgid ""
+#~ "If those options aren't supplied, the default 't' is to replay the menu "
+#~ "three times and then hang up,"
+#~ msgstr "如果没有提供那些选项，默认的“t”会重新播放三次菜单，然后挂断，"
+
+#~ msgid ""
+#~ "and the default 'i' is to say 'Invalid option, please try again' and "
+#~ "replay the menu."
+#~ msgstr "而“i”的默认动作是播放“无效的选项，请重试”，接着重新播放菜单。"
+
+#~ msgid "After three invalid attempts, the line is hung up."
+#~ msgstr "在三次尝试无效后，就挂断电话。"
+
+#~ msgid "Edit Menu"
+#~ msgstr "编辑菜单"
+
+#~ msgid "Save"
+#~ msgstr "保存"
+
+#~ msgid "Queue Breakout Menu Usage List"
+#~ msgstr "在队列中呈现弹出菜单"
+
+#~ msgid ""
+#~ "This IVR is being used by the following Queues, providing an ability for "
+#~ "callers to hear this Queue's announcement periodically and giving callers "
+#~ "an option to break out of the queue into this IVR's menu options. This "
+#~ "queue can not be deleted when being used in this mode"
+#~ msgstr ""
+#~ "此IVR正在由下面的队列使用，它使主叫能够听到队列的周期性的通告，并且为主叫"
+#~ "提供了一个从队列离开而进入IVR菜单的选项。如果使用了这个模式，此队列就无法"
+#~ "删除。"
+
+#~ msgid "Change Name"
+#~ msgstr "更名"
+
+#~ msgid "This changes the short name, visible on the right, of this IVR"
+#~ msgstr "这将更改此IVR的短名称，这个名称被显示在IVR的右侧"
+
+#~ msgid ""
+#~ "Message to be played to the caller. To add additional recordings please "
+#~ "use the \"System Recordings\" MENU to the left"
+#~ msgstr "向主叫播放的消息。要添加额外的录音，请使用左侧的“系统录音”菜单"
+
+#~ msgid ""
+#~ "Message to be played to the caller.<br><br>You must install and enable "
+#~ "the \"Systems Recordings\" Module to edit this option"
+#~ msgstr "向主叫播放的消息。要编辑此选项，请先安装并启用“系统录音”模块"
+
+#~ msgid ""
+#~ "The amount of time (in seconds) before the 't' option, if specified, is "
+#~ "used"
+#~ msgstr "如果设置了“t”选项，这就是超时的秒数"
+
+#~ msgid "Enable Directory"
+#~ msgstr "启用目录"
+
+#~ msgid "Directory Context"
+#~ msgstr "目录上下文"
+
+#~ msgid ""
+#~ "When # is selected, this is the voicemail directory context that is used"
+#~ msgstr "当选择了#后，这是要使用的语音邮箱目录上下文"
+
+#~ msgid "VM Return to IVR"
+#~ msgstr "从语音邮件返回到IVR"
+
+#~ msgid "Enable Direct Dial"
+#~ msgstr "启用直接拨号"
+
+#~ msgid "Let callers into the IVR dial an extension directly"
+#~ msgstr "让进入IVR的呼叫直接拨打一个分机"
+
+#~ msgid "Loop Before t-dest"
+#~ msgstr "在超时前循环运行"
+
+#~ msgid ""
+#~ "If checked, and there is a 't' (timeout) destination defined below, the "
+#~ "IVR will loop back to the beginning if no input is provided for the "
+#~ "designated loop counts prior to going to the timeout (t) destination."
+#~ msgstr ""
+#~ "如果选择了此项，且又在下面设定了超时目的地，那么在转移到超时目的地前，此"
+#~ "IVR会循环到头部重新开始，你需要指定循环的次数。"
+
+#~ msgid "Timeout Message"
+#~ msgstr "超时消息"
+
+#~ msgid ""
+#~ "If a timeout occurs and a message is selected, it will be played in place "
+#~ "of the announcement message when looping back to the top of the IVR. It "
+#~ "will not be played if the t destination is the next target."
+#~ msgstr ""
+#~ "如果发生了超时并且选择了一个消息，在返回IVR头部时，这个消息会代替公告消息"
+#~ "播放出来。但是如果下一个目标是超时目的地，这个消息不会被播放。"
+
+#~ msgid "Loop Before i-dest"
+#~ msgstr "在无效输入时循环运行"
+
+#~ msgid ""
+#~ "If checked, and there is an 'i' (invalid extension) destination defined "
+#~ "below, the IVR will play invalid option and then loop back to the "
+#~ "beginning for the designated loop counts prior to going to the invalid "
+#~ "(i) destination."
+#~ msgstr ""
+#~ "如果钩选了此项，并且又在下面设置了收到无效选项时的目的地，那么在转移到那个"
+#~ "目的地前，IVR会播放无效选项的语音并且循环到头部重新开始，你需要指定循环的"
+#~ "次数。"
+
+#~ msgid "Invalid Message"
+#~ msgstr "无效选项的消息"
+
+#~ msgid ""
+#~ "If an invalid extension is pressed and a message is selected, it will be "
+#~ "played in place of the announcement message when looping back to the top "
+#~ "of the IVR. It will not be played if the t destination is the next "
+#~ "target. If nothing is selected, the system will play a default invalid "
+#~ "extension message before going back to the main announcement"
+#~ msgstr ""
+#~ "如果按下了无效的分机号并且在此选择了一个消息，在返回IVR头部重新开始运行"
+#~ "时，这个消息就会取代公告消息被播放出来。但是如果下一个目标是超时目的地，这"
+#~ "个消息就不会播放。如果没有选择任何消息，系统会播放默认的无效选项消息。"
+
+#~ msgid "Repeat Loops:"
+#~ msgstr "重复次数："
+
+#~ msgid ""
+#~ "The number of times we should loop when invalid input or no input has "
+#~ "been entered before going to the defined or default generated 'i' or 't' "
+#~ "options. If the 'i' or 't' options are defined, the above check boxes "
+#~ "must be checked in order to loop."
+#~ msgstr ""
+#~ "在转移到超时目的地或无效选项的目的地之前，我们重复运行IVR的次数。如果定义"
+#~ "了“i”（无效选项）或“t”（超时）选项，那么你必须钩选上面的框好让IVR循环运"
+#~ "行。"
+
+#~ msgid "Increase Options"
+#~ msgstr "增加选项"
+
+#~ msgid "Decrease Options"
+#~ msgstr "减少选项"
+
+#~ msgid "Invalid option"
+#~ msgstr "无效选项"
+
+#~ msgid ""
+#~ "Check this box to have this option return to a parent IVR if it was "
+#~ "called from a parent IVR. If not, it will go to the chosen destination."
+#~ "<br><br>The return path will be to any IVR that was in the call path "
+#~ "prior to this IVR which could lead to strange results if there was an IVR "
+#~ "called in the call path but not immediately before this"
+#~ msgstr ""
+#~ "选择此项将会包含一个返回到父IVR的选项，如果呼叫是从父IVR进入的，用户选择了"
+#~ "返回父IVR后，呼叫将返回原处。如果不是从父IVR呼叫到此的，呼叫就会转移到选择"
+#~ "的目的地。<br /><br />返回路径可能会是呼叫路径上任何先于此IVR的IVR。如果呼"
+#~ "叫了在路径上不直接相邻的父IVR，这个设置可能回带来奇怪的结果。"

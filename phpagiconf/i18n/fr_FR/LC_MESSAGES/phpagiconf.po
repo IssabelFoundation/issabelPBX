@@ -1,0 +1,169 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-13 19:44-0400\n"
+"PO-Revision-Date: 2009-04-21 15:24+ZONE\n"
+"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
+"Language-Team: Français <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: page.phpagiconf.php:90
+msgid "Asterisk API settings:"
+msgstr "Paramètres d'accès à l'API Asterisk"
+
+#: page.phpagiconf.php:109
+msgid "Basedir:"
+msgstr ""
+
+#: page.phpagiconf.php:112
+msgid "Cepstral config:"
+msgstr "Configuration de Cepstral:"
+
+#: page.phpagiconf.php:118
+msgid "Cepstral voice:"
+msgstr "Voix Cepstral :"
+
+#: page.phpagiconf.php:60
+msgid "Debug:"
+msgstr ""
+
+#: page.phpagiconf.php:102
+msgid "Drop privileges to owner of script."
+msgstr ""
+"Permet aux scripts de s'exécuter avec les privilèges de leur propriétaire."
+
+#: page.phpagiconf.php:74
+msgid "Email where the errors will be sent."
+msgstr "Email de réception des erreurs."
+
+#: page.phpagiconf.php:60
+msgid "Enable PHPAGI debugging."
+msgstr "Active le débogage PHPAGI."
+
+#: page.phpagiconf.php:67
+msgid "Error handler:"
+msgstr "Gestion d'erreurs:"
+
+#: functions.inc.php:38
+msgid "Error writing the phpagi.conf file."
+msgstr "Erreur lors de l'écriture du fichier phpagi.conf"
+
+#: page.phpagiconf.php:100
+msgid "Fast AGI config:"
+msgstr "Configuration Fast AGI:"
+
+#: page.phpagiconf.php:85
+msgid "Festival config:"
+msgstr "Configuration de Festival:"
+
+#: page.phpagiconf.php:78
+msgid "Hostname of the server:"
+msgstr "Nom du serveur :"
+
+#: page.phpagiconf.php:78
+msgid "Hostname of this server."
+msgstr "Nom de ce serveur (hosname)."
+
+#: page.phpagiconf.php:74
+msgid "Mail errors to:"
+msgstr "Envoyer les erreurs à:"
+
+#: page.phpagiconf.php:57
+msgid "Main config:"
+msgstr "Paramètres principaux:"
+
+#: page.phpagiconf.php:52
+msgid "PHPAGI Config:"
+msgstr "Configuration PHPAGI:"
+
+#: page.phpagiconf.php:109
+msgid "Path to AGI scripts folder."
+msgstr "Chemin où se trouvent les scripts AGI."
+
+#: page.phpagiconf.php:114
+msgid "Path to cepstral TTS binary."
+msgstr "Chemin des binaires TTS de Cepstal."
+
+#: page.phpagiconf.php:87
+msgid "Path to text2wave binary."
+msgstr "Chemin de l'exécutable text2wave."
+
+#: page.phpagiconf.php:87
+msgid "Path to text2wave:"
+msgstr "Chemin de text2wave:"
+
+#: page.phpagiconf.php:96
+msgid "Port to connect to manager."
+msgstr "Port sur lequel se connecter."
+
+#: page.phpagiconf.php:96
+msgid "Port:"
+msgstr "Port:"
+
+#: page.phpagiconf.php:92
+msgid "Server to connect to."
+msgstr "Adresse du serveur Asterisk sur lequel se connecter."
+
+#: page.phpagiconf.php:92
+msgid "Server:"
+msgstr "Serveur:"
+
+#: page.phpagiconf.php:122
+msgid "Submit Changes"
+msgstr "Appliquer les Modifications"
+
+#: page.phpagiconf.php:114
+msgid "Swift path:"
+msgstr "Chemin de Swift:"
+
+#: page.phpagiconf.php:118
+msgid "TTS Voice used."
+msgstr "Voix TTS utilisée"
+
+#: page.phpagiconf.php:82
+msgid "Temporary directory for storing temporary output."
+msgstr "Répertoire temporaire."
+
+#: page.phpagiconf.php:82
+msgid "Temporary directory:"
+msgstr "Répertoire temporaire."
+
+#: page.phpagiconf.php:67
+msgid "Use internal error handler."
+msgstr "Utiliser le gestionnaire d'erreurs interne."
+
+#: page.phpagiconf.php:62 page.phpagiconf.php:69 page.phpagiconf.php:104
+msgid "false"
+msgstr "faux"
+
+#: page.phpagiconf.php:102
+msgid "setuid:"
+msgstr ""
+
+#: page.phpagiconf.php:63 page.phpagiconf.php:70 page.phpagiconf.php:105
+msgid "true"
+msgstr "vrai"
+
+#~ msgid "PHPAGI Config"
+#~ msgstr "Config PHPAGI"

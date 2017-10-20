@@ -1,0 +1,38 @@
+; This is an optional configuration file used to rearrange your menu navigation
+; in the IssabelPBX GUI. To enable it, change the name to issabelpbx_menu.conf and put
+; in the desired configuration. Lines starting with ";" are comments.
+; You must also enable the Advanced Setting "Use issabelpbx_menu.conf Configuration"
+;
+; It provdes the followming options:
+;
+; - Move menu items to different categories
+; - Create New Categories
+; - Rename the item
+; - Remove menu items that you don't want displayed
+; - Change the sort order of items
+;
+; If you create a new cateogry called "Favorites" it will
+; be the first tab, all others are alphabetical.
+;
+; The following examples provide you with a demonstration of how you
+; might go about changing a setup.
+;
+; [extensions]
+; category=Favorites
+
+; [findmefollow]
+; category=Favorites
+; name=Find-Me Follow
+
+; [fax]
+; category=Media
+
+; [recordings]
+; category=Media
+
+; [music]
+; category=Media
+; sort=-9
+
+; [wiki]
+; remove=Yes

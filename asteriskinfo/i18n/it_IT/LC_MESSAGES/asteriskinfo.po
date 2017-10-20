@@ -1,0 +1,159 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+msgid "Asterisk Info"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "Provides a snapshot of the current Asterisk configuration"
+msgstr ""
+
+msgid "Summary"
+msgstr "Sommario"
+
+msgid "Registries"
+msgstr "Registrazioni"
+
+msgid "Channels"
+msgstr "Canali"
+
+msgid "Peers"
+msgstr "Peers"
+
+msgid "Sip Info"
+msgstr "Info Sip"
+
+msgid "IAX Info"
+msgstr "Info IAX"
+
+msgid "Conferences"
+msgstr "Conferenze"
+
+msgid "Queues"
+msgstr ""
+
+msgid "Subscriptions"
+msgstr "Subscriptions"
+
+msgid "Full Report"
+msgstr "Rapporto Completo"
+
+msgid "Uptime"
+msgstr "Tempo di Esercizio"
+
+msgid "Active Channel(s)"
+msgstr "Canali Attivi"
+
+msgid "Sip Channel(s)"
+msgstr "Canali Sip"
+
+msgid "IAX2 Channel(s)"
+msgstr "Canali IAX2"
+
+msgid "IAX2 Peers"
+msgstr "Peers IAX2"
+
+msgid "Sip Registry"
+msgstr "Registrazioni Sip"
+
+msgid "Sip Peers"
+msgstr "Peers Sip"
+
+msgid "IAX2 Registry"
+msgstr "Registrazioni IAX2"
+
+msgid "Subscribe/Notify"
+msgstr "Subscribe/Notify"
+
+msgid "DAHDi driver info"
+msgstr "Info driver DAHDi"
+
+msgid "Zaptel driver info"
+msgstr "Info driver Zaptel"
+
+msgid "MeetMe Conference Info"
+msgstr ""
+
+msgid "Conference Bridge Info"
+msgstr ""
+
+msgid "Queues Info"
+msgstr ""
+
+msgid "Voicemail Users"
+msgstr "Utenti Caselle Vocali"
+
+msgid "Google Talk Channels"
+msgstr ""
+
+msgid "Jabber Connections"
+msgstr ""
+
+msgid "Asterisk (Ver. "
+msgstr "Asterisk (Ver. "
+
+msgid "ASTERISK MANAGER ERROR"
+msgstr "ERRORE MANAGER ASTERISK"
+
+msgid ""
+"The module was unable to connect to the Asterisk manager.<br>Make sure "
+"Asterisk is running and your manager.conf settings are proper.<br><br>"
+msgstr ""
+"Questo modulo non è stato in grado di connettersi al manager di Asterisk."
+"<br>Assicurarsi che Asterisk sia in esecuzione e che le impostazioni del "
+"file manager.conf siano corrette.<br><br>"
+
+msgid "Refresh"
+msgstr "Aggiorna"
+
+msgid "Uptime: "
+msgstr "Tempo di esercizio: "
+
+msgid "Active SIP Channel(s): "
+msgstr "Canali SIP Attivi: "
+
+msgid "Active IAX2 Channel(s): "
+msgstr "Canali IAX2 Attivi: "
+
+msgid "Sip Registry: "
+msgstr "Registrazioni Sip: "
+
+msgid "IAX2 Registry: "
+msgstr "Registrazioni IAX2: "
+
+msgid "Sip Peers: "
+msgstr "Peers Sip: "
+
+msgid "IAX2 Peers: "
+msgstr "Peers IAX2: "
+
+msgid "Online: "
+msgstr "In linea: "
+
+msgid "Online-Unmonitored: "
+msgstr ""
+
+msgid "Offline: "
+msgstr "Non in linea: "
+
+msgid "Offline-Unmonitored: "
+msgstr ""
+
+msgid "Unmonitored: "
+msgstr "Non monitorati: "
+
+#~ msgid "Conference Info"
+#~ msgstr "Info Conferenza"

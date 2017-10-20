@@ -1,0 +1,75 @@
+# IssabelPBX language template
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "Queue Priority: %s"
+msgstr ""
+
+msgid "Add Queue Priority"
+msgstr ""
+
+msgid "Edit: "
+msgstr ""
+
+msgid ""
+"Queue Priority allows you to set a caller's priority in a queue. By default, "
+"a caller's priority is set to 0. Setting a higher priority will put the "
+"caller ahead of other callers already in a queue. The priority will apply to "
+"any queue that this caller is eventually directed to. You would typically "
+"set the destination to a queue, however that is not necessary. You might set "
+"the destination of a priority customer DID to an IVR that is used by other "
+"DIDs, for example, and any subsequent queue that is entered would be entered "
+"with this priority"
+msgstr ""
+
+msgid "Edit Queue Priority Instance"
+msgstr ""
+
+msgid "Add Queue Priority Instance"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "The descriptive name of this Queue Priority instance."
+msgstr ""
+
+msgid "Priority"
+msgstr ""
+
+msgid "The Queue Priority to set"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Invalid description specified"
+msgstr ""
+
+msgid "Queue Priorities"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Adds the ability to set a callers priority higher before entering a queue"
+msgstr ""

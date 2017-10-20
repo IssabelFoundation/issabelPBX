@@ -1,0 +1,173 @@
+# IssabelPBX language template for backup
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Backup & Restore"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid "Backup & Restore for your IssabelPBX environment"
+msgstr ""
+
+msgid "Can not create backup tables"
+msgstr ""
+
+msgid "Can't check for Backup table"
+msgstr ""
+
+msgid ""
+"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgstr ""
+
+msgid "This error can result from a previous incomplete/failed install of"
+msgstr ""
+
+msgid "this module. You should probably uninstall and reinstall this module"
+msgstr ""
+
+msgid ""
+"doing so will result in a loss of all your backup settings though previous"
+msgstr ""
+
+msgid "backup data will be preserved."
+msgstr ""
+
+msgid "Failure Message:"
+msgstr ""
+
+msgid "Can not migrate Backup table"
+msgstr ""
+
+msgid "Backup migration completed"
+msgstr ""
+
+msgid "Nothing to migrate"
+msgstr ""
+
+msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+msgstr ""
+
+msgid "and then re-install this module. Settings will be lost but old"
+msgstr ""
+
+msgid "backup data will be retained."
+msgstr ""
+
+msgid "Old Backup table removed"
+msgstr ""
+
+msgid "Replacing ampbackup.pl in db.."
+msgstr ""
+
+msgid "an error has occurred, update not done"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "removing retrieve_backup_cron_from_mysql.pl.."
+msgstr ""
+
+msgid "removed"
+msgstr ""
+
+msgid "failed"
+msgstr ""
+
+msgid "Migrating backup table..."
+msgstr ""
+
+msgid "WARNING: backup table not migrated"
+msgstr ""
+
+msgid "Successfully migrated backup table!"
+msgstr ""
+
+msgid "Creating backups directory.."
+msgstr ""
+
+#, php-format
+msgid "WARNING: failed to create backup directory: %s"
+msgstr ""
+
+msgid "Location of backups pre 2.10"
+msgstr ""
+
+msgid "Storage location for backups"
+msgstr ""
+
+msgid "PBX config server, generally a local database server"
+msgstr ""
+
+msgid "CDR server, generally a local database server"
+msgstr ""
+
+msgid "added default backup servers"
+msgstr ""
+
+msgid "Configurations only"
+msgstr ""
+
+msgid "A full backup of core settings and web files"
+msgstr ""
+
+msgid "Call Detail Records"
+msgstr ""
+
+msgid "Voice Mail Storage"
+msgstr ""
+
+msgid "All system audio - including IVR prompts and Music On Hold."
+msgstr ""
+
+msgid " DOES NOT BACKUP VOICEMAIL"
+msgstr ""
+
+msgid "Doesn't backup Backup's settings so that they dont get restored"
+msgstr ""
+
+msgid "added default backup templates"
+msgstr ""
+
+msgid "MIGRATED"
+msgstr ""
+
+msgid "migrated backup"
+msgstr ""
+
+msgid "Migrated FTP server for backup "
+msgstr ""
+
+msgid "Migrated SSH server for backup "
+msgstr ""
+
+msgid "Migrated EMAIL server for backup "
+msgstr ""
+
+msgid "Migrated remote SSH server for backup "
+msgstr ""
+
+msgid "Default backup; automatically installed"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Run now"
+msgstr ""
+
+msgid "Download"
+msgstr ""

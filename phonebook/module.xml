@@ -1,0 +1,22 @@
+<module>
+  <rawname>phonebook</rawname>
+  <repo>extended</repo>
+  <name>Phonebook</name>
+  <version>2.11.0.2</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+  <description>Provides a phonebook for IssabelPBX, it can be used as base for Caller ID Lookup and Speed Dial</description>
+  <category>Admin</category>
+  <menuitems>
+    <phonebook needsenginedb="yes">Asterisk Phonebook</phonebook>
+  </menuitems>
+  <location>release/2.11/phonebook-2.11.0.1.tgz</location>
+  <md5sum>adae5d1494f4e15f9f80a522f12175a3</md5sum>
+  <changelog>
+  		*2.11.0.2* Initial Issabel Foundation release
+	</changelog>
+  <supported>
+    <version>2.10</version>
+  </supported>
+</module>

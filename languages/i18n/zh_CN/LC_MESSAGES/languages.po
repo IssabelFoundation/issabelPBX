@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-31 12:37+0800\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#, php-format
+msgid "Language: %s"
+msgstr "语言：%s"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "Please enter a valid Language Code"
+msgstr "请输入有效的语言代码"
+
+msgid "Language Code"
+msgstr "语言代码"
+
+msgid ""
+"This will cause all messages and voice prompts to use the selected language "
+"if installed."
+msgstr "如果安装好了所选择的语言，这会使所有的消息和语音提示都使用这种语言。"
+
+msgid "Allows you to set the language for this DID."
+msgstr ""
+
+#, php-format
+msgid "Language Change: %s"
+msgstr "改变语言：%s"
+
+msgid "Languages"
+msgstr "语言"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Adds the ability to changes the language within a call flow and add language "
+"attribute to users."
+msgstr ""
+
+msgid "Add Language"
+msgstr "添加语言"
+
+msgid "Edit: "
+msgstr "编辑："
+
+msgid ""
+"Languages allow you to change the language of the call flow and then "
+"continue on to the desired destination. For example, you may have an IVR "
+"option that says \"For French Press 5 now\". You would then create a French "
+"language instance and point it's destination at a French IVR. The language "
+"of the call's channel will now be in French. This will result in French "
+"sounds being chosen if installed."
+msgstr ""
+"语言设置可以让你改变呼叫流的语言，然后把呼叫转移到所希望的目的地去。比如，你"
+"可能有一个IVR选项，它对用户播放“中文请按5”。然后你可以创建一套中文的IVR，并把"
+"呼叫引导到此中文IVR。现在呼叫的频道就变成了中文。今后所有的声音都是中文（如果"
+"安装了中文声音的话）。"
+
+msgid "Edit Language Instance"
+msgstr "编辑一种语言"
+
+msgid "Add Language Instance"
+msgstr "添加一种语言"
+
+msgid "Description"
+msgstr "描述"
+
+msgid ""
+"The descriptive name of this language instance. For example \"French Main IVR"
+"\""
+msgstr "为这种语言设定一个描述性的名字，比如，“中文主IVR”"
+
+msgid ""
+"The Asterisk language code you want to change to. For example \"fr\" for "
+"French, \"de\" for German"
+msgstr "设定你希望切换到的Asterisk的语言代码。比如，法语是“fr”，德语是“de”"
+
+msgid "Destination"
+msgstr "目的地"
+
+msgid "Submit Changes"
+msgstr "提交更改"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Invalid description specified"
+msgstr "指定了无效的描述"

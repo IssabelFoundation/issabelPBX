@@ -1,0 +1,103 @@
+; This file contains example extensions_custom.conf entries.
+; extensions_custom.conf should be used to include customizations
+; to AMP's Asterisk dialplan.
+
+; Extensions in AMP have access to the 'from-internal' context.
+; The context 'from-internal-custom' is included in 'from-internal' by default
+
+[from-internal-custom]				
+exten => 1234,1,Playback(demo-congrats)		; extensions can dial 1234
+exten => 1234,2,Hangup()
+exten => h,1,Hangup()
+include => custom-recordme			; extensions can also dial 5678 
+include => weather-wakeup
+include => calendar-event
+include => conferences
+include => agentlogin
+
+; custom-count2four,s,1 can be used as a custom target for
+; a Digital Receptionist menu or a Ring Group
+[custom-count2four]		
+exten => s,1,SayDigits(1234)
+exten => s,2,Hangup
+
+; custom-recordme,5678,1 can be used as a custom target for
+; a Digital Receptionist menu or a Ring Group
+[custom-recordme]
+exten => 5678,1,Wait(2)
+exten => 5678,2,Record(/tmp/asterisk-recording:gsm)
+exten => 5678,3,Wait(2)
+exten => 5678,4,Playback(/tmp/asterisk-recording)
+exten => 5678,5,Wait(2)
+exten => 5678,6,Hangup 
+
+; This macro is for dev purposes and just dumps channel/app variables.  Useful when designing new contexts.
+[macro-dumpvars]
+exten => s,1,Noop(ACCOUNTCODE=${ACCOUNTCODE})
+exten => s,2,Noop(ANSWEREDTIME=${ANSWEREDTIME})
+exten => s,3,Noop(BLINDTRANSFER=${BLINDTRANSFER})
+exten => s,4,Noop(CALLERID=${CALLERID(all)})
+exten => s,5,Noop(CALLERID(name)=${CALLERID(name)})
+exten => s,6,Noop(CALLERID(number)=${CALLERID(number)})
+exten => s,7,Noop(CALLINGPRES=${CALLINGPRES})
+exten => s,8,Noop(CHANNEL=${CHANNEL})
+exten => s,9,Noop(CONTEXT=${CONTEXT})
+exten => s,10,Noop(DATETIME=${STRFTIME(${EPOCH},,%d%m%Y-%H:%M:%S)})
+exten => s,11,Noop(DIALEDPEERNAME=${DIALEDPEERNAME})
+exten => s,12,Noop(DIALEDPEERNUMBER=${DIALEDPEERNUMBER})
+exten => s,13,Noop(DIALEDTIME=${DIALEDTIME})
+exten => s,14,Noop(DIALSTATUS=${DIALSTATUS})
+exten => s,15,Noop(DNID=${CALLERID(dnid)})
+exten => s,16,Noop(EPOCH=${EPOCH})
+exten => s,17,Noop(EXTEN=${EXTEN})
+exten => s,18,Noop(HANGUPCAUSE=${HANGUPCAUSE})
+exten => s,19,Noop(INVALID_EXTEN=${INVALID_EXTEN})
+exten => s,20,Noop(LANGUAGE=${LANGUAGE()})
+exten => s,21,Noop(MEETMESECS=${MEETMESECS})
+exten => s,22,Noop(PRIORITY=${PRIORITY})
+exten => s,23,Noop(RDNIS=${CALLERID(rdnis)}})
+exten => s,24,Noop(SIPDOMAIN=${SIPDOMAIN})
+exten => s,25,Noop(SIP_CODEC=${SIP_CODEC})
+exten => s,26,Noop(SIPCALLID=${SIPCALLID})
+exten => s,27,Noop(SIPUSERAGENT=${SIPUSERAGENT})
+exten => s,29,Noop(TXTCIDNAME=${TXTCIDNAME})
+exten => s,30,Noop(UNIQUEID=${UNIQUEID})
+exten => s,31,Noop(TOUCH_MONITOR=${TOUCH_MONITOR})
+exten => s,32,Noop(MACRO_CONTEXT=${MACRO_CONTEXT})
+exten => s,33,Noop(MACRO_EXTEN=${MACRO_EXTEN})
+exten => s,34,Noop(MACRO_PRIORITY=${MACRO_PRIORITY})
+
+[weather-wakeup]
+exten => *61,1,Answer 
+exten => *61,2,AGI(nv-weather.php) 
+exten => *61,3,Hangup 
+exten => *62,1,Answer 
+exten => *62,2,AGI(wakeup.php) 
+exten => *62,3,Hangup 
+
+[calendar-event]
+exten => _*7899,1,Answer                               
+exten => _*7899,2,Playback(${FILE_CALL})
+exten => _*7899,3,Wait(2)              
+exten => _*7899,4,Hangup()
+
+[mm-announce]
+exten => 9999,1,Set(CALLERID(name)="MMGETOUT")
+exten => 9999,n,Answer
+exten => 9999,n,Playback(conf-will-end-in)
+exten => 9999,n,Playback(digits/5)
+exten => 9999,n,Playback(minutes)
+exten => 9999,n,Hangup
+ 
+[conferences]
+;Used by cbEnd script to play end of conference warning
+exten => 5555,1,Answer
+exten => 5555,n,Wait(3)
+exten => 5555,n,CBMysql()
+exten => 5555,n,Hangup
+
+[agentlogin]
+exten => _*8888.,1,Set(AGENTNUMBER=${EXTEN:5})
+exten => _*8888.,n,NoOp(AgentNumber is ${AGENTNUMBER})
+exten => _*8888.,n,AgentLogin(${AGENTNUMBER})
+exten => _*8888.,n,Hangup()

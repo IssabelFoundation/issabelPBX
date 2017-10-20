@@ -1,0 +1,1757 @@
+# This file is part of IssabelPBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# IssabelPBX language template for dahdiconfig
+# Copyright (C) 2008-2015 Sangoma, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-01 12:06-0800\n"
+"PO-Revision-Date: 2015-03-07 18:52+0200\n"
+"Last-Translator: james <zhulizhong@gmail.com>\n"
+"Language-Team: Simplified Chinese <http://weblate.issabel.org/projects/"
+"freepbx/dahdiconfig/zh_CN/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.2-dev\n"
+
+#: views/dahdi_analog_hardware.php:17 views/dahdi_analog_hardware.php:34
+#, php-format
+msgid "%s Ports"
+msgstr "%s 端口"
+
+#: install.php:316
+msgid "..Done"
+msgstr "..完成"
+
+#: views/dahdi_analog_settings.php:29
+msgid ""
+"A group ID number to associate this analog device with when referencing it "
+"elswhere using g<num>"
+msgstr "当在其他地方使用 g<num>时，组ID 号码是和模拟设备关联的"
+
+#: views/dahdi_advanced_settings.php:136 views/dahdi_modprobe_settings.php:121
+msgid "A-law Override"
+msgstr "A-law 覆盖"
+
+#: views/dahdi_analog_hardware.php:8 views/dahdi_digital_hardware.php:12
+msgid "Action"
+msgstr ""
+
+#: install.php:363
+msgid "Add type column"
+msgstr "添加列"
+
+#: install.php:337
+msgid "Adding Additional_groups column"
+msgstr "添加 Additional_groups 列"
+
+#: install.php:320
+msgid "Adding priexclusive column"
+msgstr ""
+
+#: install.php:387
+msgid "Adding txgain and rxgain column to analog table"
+msgstr ""
+
+#: install.php:379
+msgid "Adding txgain and rxgain column to digital table"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:1
+msgid "Advanced Settings"
+msgstr "高级设置"
+
+#: views/dahdi_digital_hardware.php:7 views/dahdi_digital_settings.php:9
+msgid "Alarms"
+msgstr "告警"
+
+#: dahdiconfig.i18n.php:12
+msgid "Allow PRI Discrete Channels"
+msgstr "允许PRI独立设置通道"
+
+#: views/dahdi_global_settings.php:112
+msgid "Also enables call parking (overrides the \"canpark\" parameter)"
+msgstr "开启呼叫驻留(覆盖 \"canpark\" 参数)"
+
+#: views/dahdi_analog_settings.php:1
+#, php-format
+msgid "Analog %s"
+msgstr "模拟 %s"
+
+#: views/dahdi_analog_signalling_form.php:1
+#, php-format
+msgid "Analog %s Ports"
+msgstr "模拟 %s 端口"
+
+#: functions.inc.php:312
+#, php-format
+msgid "Analog Channel %s"
+msgstr "模拟通道 %s"
+
+#: views/dahdi_analog_hardware.php:1
+msgid "Analog Hardware"
+msgstr "模拟语音板卡"
+
+#: views/dahdi_global_settings.php:184
+msgid "Answer Immediately"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:28
+msgid "Any"
+msgstr "任何"
+
+#: views/dahdi_advanced_settings.php:147 views/dahdi_modprobe_settings.php:138
+msgid "Apply Opermode to FXO Modules"
+msgstr "对FXO模块添加 Opermode 参数命令"
+
+#: views/dahdi_advanced_settings.php:148 views/dahdi_modprobe_settings.php:139
+msgid "Apply Opermode to FXS and FXO Modules"
+msgstr "对FXS和FXO模块添加Opermode 驱动启动参数命令"
+
+#: views/dahdi_advanced_settings.php:47 views/dahdi_advanced_settings.php:61
+#: views/dahdi_modprobe_settings.php:44
+msgid "Argentina"
+msgstr ""
+
+#: views/dahdi_global_settings.php:36
+msgid "Argentine Spanish"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:14 views/dahdi_advanced_settings.php:62
+#: views/dahdi_modprobe_settings.php:45
+msgid "Australia"
+msgstr ""
+
+#: views/dahdi_global_settings.php:14
+msgid "Australian"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:22 views/dahdi_advanced_settings.php:63
+#: views/dahdi_modprobe_settings.php:46
+msgid "Austria"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:278
+msgid "Auto"
+msgstr ""
+
+#: functions.inc.php:462
+msgid ""
+"Available DAHDI Groups and Channels configued in the DAHDI Configuration "
+"Module"
+msgstr "DAHDI 配置模块下配置的可用的dahdi 组和通道。"
+
+#: views/dahdi_advanced_settings.php:64 views/dahdi_modprobe_settings.php:47
+msgid "Bahrain"
+msgstr ""
+
+#: page.dahdi.php:184
+msgid ""
+"Because of this the module's configuration file write ability is disabled by "
+"default. You can enable it in this window or you can later enable it under "
+"Advanced Settings"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:30 views/dahdi_advanced_settings.php:65
+#: views/dahdi_modprobe_settings.php:48
+msgid "Belgium"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:152 views/dahdi_modprobe_settings.php:145
+msgid "Boostringer"
+msgstr ""
+
+#: views/dahdi_global_settings.php:203
+msgid "Both"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:33 views/dahdi_advanced_settings.php:66
+#: views/dahdi_modprobe_settings.php:49
+msgid "Brazil"
+msgstr ""
+
+#: views/dahdi_global_settings.php:27
+msgid "Brazilian"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:50 views/dahdi_advanced_settings.php:67
+#: views/dahdi_modprobe_settings.php:50
+msgid "Bulgaria"
+msgstr ""
+
+#: views/dahdi_global_settings.php:54
+msgid "Busy Detect Count"
+msgstr ""
+
+#: dahdiconfig.i18n.php:34
+msgid ""
+"By default the DAHDi configuration module will NOT write out any data to "
+"protect any current configuration settings"
+msgstr "默认环境下，Dahdi 配置模块将不会对当前配置做任何保护"
+
+#: views/dahdi_advanced_settings.php:68 views/dahdi_modprobe_settings.php:51
+msgid "Canada"
+msgstr ""
+
+#: page.dahdi.php:290 page.dahdi.php:309 page.dahdi.php:338 page.dahdi.php:372
+#: page.dahdi.php:395 page.dahdi.php:414 page.dahdi.php:459
+#: views/dahdi_advanced_settings.php:233
+#: views/dahdi_analog_signalling_form.php:26
+msgid "Cancel"
+msgstr ""
+
+#: functions.inc.php:523
+msgid "Channel"
+msgstr "通道"
+
+#: views/dahdi_digital_hardware.php:9
+msgid "Channels Used/Total"
+msgstr "已使用的/总数"
+
+#: views/dahdi_advanced_settings.php:28 views/dahdi_advanced_settings.php:69
+#: views/dahdi_modprobe_settings.php:52
+msgid "Chile"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:46 views/dahdi_advanced_settings.php:70
+#: views/dahdi_modprobe_settings.php:53
+msgid "China"
+msgstr ""
+
+#: views/dahdi_global_settings.php:35
+msgid "Chinese"
+msgstr ""
+
+#: functions.inc.php:389
+msgid "Choose"
+msgstr "选择"
+
+#: functions.inc.php:524
+#, php-format
+msgid "Choose the FXS channel for this %s"
+msgstr "为%s 设置一个FXS通道"
+
+#: views/dahdi_advanced_settings.php:71 views/dahdi_modprobe_settings.php:54
+msgid "Columbia"
+msgstr ""
+
+#: functions.inc.php:493
+msgid "Configure/Edit DAHDI Card settings in DAHDi Module"
+msgstr "在DAHDI模块中配置/编辑语音卡设置"
+
+#: functions.inc.php:493
+msgid "Configure/Edit DAHDI Cards"
+msgstr "配置/编辑DAHDI语音卡"
+
+#: dahdiconfig.i18n.php:6 dahdiconfig.i18n.php:10
+msgid "Connectivity"
+msgstr "连接"
+
+#: views/dahdi_analog_settings.php:36
+#: views/dahdi_analog_signalling_form.php:19
+msgid "Context"
+msgstr ""
+
+#: install.php:137
+msgid "Create Configured Locations Table"
+msgstr "创建配置路径表"
+
+#: install.php:21
+msgid "Creating Dahdi Advanced Settings Table"
+msgstr "创建语音板卡高级设置表"
+
+#: install.php:117
+msgid "Creating Dahdi Analog Table"
+msgstr "创建模拟语音板卡表"
+
+#: install.php:74
+msgid "Creating Dahdi Spans Table"
+msgstr "创建Dahdi 端口配置表"
+
+#: install.php:354
+msgid "Creating dahdi modules Table"
+msgstr "正在创建dahdi模块表"
+
+#: views/dahdi_advanced_settings.php:72 views/dahdi_modprobe_settings.php:55
+msgid "Croatia"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:73 views/dahdi_modprobe_settings.php:56
+msgid "Cyrpus"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:74 views/dahdi_modprobe_settings.php:57
+msgid "Czech"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:45
+msgid "Czech Republic"
+msgstr ""
+
+#: views/dahdi_digital_hardware.php:10
+msgid "D-Channel"
+msgstr ""
+
+#: functions.inc.php:462
+msgid "DAHDI Trunks"
+msgstr "DAHDI中继"
+
+#: dahdiconfig.i18n.php:4 dahdiconfig.i18n.php:8
+msgid "DAHDi Config"
+msgstr "DAHDI 配置"
+
+#: dahdiconfig.i18n.php:14 dahdiconfig.i18n.php:20 dahdiconfig.i18n.php:26
+#: dahdiconfig.i18n.php:32 dahdiconfig.i18n.php:38 dahdiconfig.i18n.php:44
+#: dahdiconfig.i18n.php:50
+msgid "DAHDi Configuration Module"
+msgstr "DAHDI配置模块"
+
+#: page.dahdi.php:22
+msgid ""
+"DAHDi Doesn't appear to be running. Click the 'Restart/Reload Dahdi Button' "
+"Below"
+msgstr ""
+
+#: dahdiconfig.i18n.php:18
+msgid "DAHDi Executable Location"
+msgstr ""
+
+#: dahdiconfig.i18n.php:40
+msgid "DAHDi ModProbe.d Configuration File Location (modprobe.d/dahdi.conf)"
+msgstr ""
+
+#: views/dahdi_modules_settings.php:3
+msgid "DAHDi Module Load/Order"
+msgstr ""
+
+#: dahdiconfig.i18n.php:24
+msgid "DAHDi Modules Location"
+msgstr ""
+
+#: dahdiconfig.i18n.php:28
+msgid "DAHDi Modules Location (/etc/dahdi/modules)"
+msgstr ""
+
+#: dahdiconfig.i18n.php:52
+msgid "DAHDi System Configuration File Location (dahdi/system.conf)"
+msgstr ""
+
+#: page.dahdi.php:166
+msgid "DAHDi Write Disabled Disclaimer"
+msgstr ""
+
+#: page.dahdi.php:167
+msgid "DAHDi is DISABLED for writing"
+msgstr ""
+
+#: dahdiconfig.i18n.php:16
+msgid ""
+"DAHDi trunk configuration is normally done using groups for PRI "
+"configuration. If there is a need to configure trunks to specific channels, "
+"setting this to true will allow each channel to be configured. This can be "
+"useful when troubleshooting a PRI and trying to isolate a bad B Channel."
+msgstr ""
+"DAHDI 中继配置通常是支持PRI 的组的配置环境。如果用户需要对指定的通道来配置中"
+"继，设置为true允许配置每一个具体的通道。这个功能相当有用处，可以用来排查PRI "
+"或者非正常的语音通道。"
+
+#: views/dahdi_modprobe_settings.php:271
+msgid "Default Line Mode"
+msgstr ""
+
+#: install.php:281
+msgid "Deleting old dahdi module data from database (its been migrated)"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:44 views/dahdi_advanced_settings.php:75
+#: views/dahdi_modprobe_settings.php:58
+msgid "Denmark"
+msgstr ""
+
+#: install.php:404
+#, php-format
+msgid "Detected new Dahdi Module: wcaxx, Appending to %s"
+msgstr ""
+
+#: install.php:399
+#, php-format
+msgid "Detected new Dahdi Module: wcte43x, Appending to %s"
+msgstr ""
+
+#: functions.inc.php:512
+msgid "Device Options"
+msgstr ""
+
+#: functions.inc.php:345
+#, php-format
+msgid "Digital Channel %s"
+msgstr ""
+
+#: views/dahdi_digital_hardware.php:1
+msgid "Digital Hardware"
+msgstr "数字语音板卡"
+
+#: page.dahdi.php:250
+msgid "Disable"
+msgstr ""
+
+#: dahdiconfig.i18n.php:30
+msgid "Disable DAHDi Configuration Writes"
+msgstr ""
+
+#: views/dahdi_global_settings.php:16
+msgid "Dutch"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:277
+msgid "E1"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:258
+msgid "Echo Canc. NLP Max Suppression"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:246
+msgid "Echo Canc. NLP Threshold"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:206 views/dahdi_modprobe_settings.php:224
+msgid "Echo Canc. NLP Type"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:228
+msgid "Echo Cancel NLP Max Suppression"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:224
+msgid "Echo Cancel NLP Threshold"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:76 views/dahdi_modprobe_settings.php:59
+msgid "Ecuador"
+msgstr ""
+
+#: views/dahdi_analog_hardware.php:31 views/dahdi_analog_hardware.php:36
+msgid "Edit"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:77 views/dahdi_modprobe_settings.php:60
+msgid "Egypt"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:78 views/dahdi_modprobe_settings.php:61
+msgid "El Salvador"
+msgstr ""
+
+#: page.dahdi.php:245
+msgid "Enable"
+msgstr ""
+
+#: views/dahdi_global_settings.php:43
+msgid "Enable Busy Detect"
+msgstr ""
+
+#: views/dahdi_global_settings.php:127
+msgid "Enable Call Forwarding"
+msgstr ""
+
+#: views/dahdi_global_settings.php:138
+msgid "Enable Call Return"
+msgstr ""
+
+#: views/dahdi_global_settings.php:77
+msgid "Enable Call Waiting"
+msgstr ""
+
+#: views/dahdi_global_settings.php:161
+msgid "Enable EC when bridged"
+msgstr ""
+
+#: views/dahdi_global_settings.php:149
+msgid "Enable Echo Canceling"
+msgstr ""
+
+#: views/dahdi_global_settings.php:172
+msgid "Enable Echo Training"
+msgstr ""
+
+#: views/dahdi_global_settings.php:99
+msgid "Enable Three Way Calling"
+msgstr ""
+
+#: views/dahdi_global_settings.php:110
+msgid "Enable Transfer"
+msgstr ""
+
+#: views/dahdi_global_settings.php:149
+msgid "Enable echo cancellation"
+msgstr ""
+
+#: views/dahdi_global_settings.php:13
+msgid "English"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:39
+msgid "Estonia"
+msgstr ""
+
+#: views/dahdi_global_settings.php:33
+msgid "Estonian"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:79
+msgid "FCC"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:205
+msgid "FSK"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:187 views/dahdi_modprobe_settings.php:196
+msgid "FSK - Performs Frequency Shift Key detection"
+msgstr ""
+
+#: page.dahdi.php:146
+msgid "FXO Settings"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:144 views/dahdi_modprobe_settings.php:133
+msgid "FXS Honor Mode"
+msgstr ""
+
+#: page.dahdi.php:149
+msgid "FXS Settings"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:164 views/dahdi_modprobe_settings.php:163
+msgid "Fast Ringer (25hz)"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:172 views/dahdi_modprobe_settings.php:175
+msgid "Fast Ringer to 50v Peak"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:160
+msgid "Fastringer"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:157
+msgid "Fastringer:"
+msgstr ""
+
+#: views/dahdi_global_settings.php:196
+msgid "Fax Detection"
+msgstr ""
+
+#: includes/dahdi_cards.class.php:128
+#, php-format
+msgid "File %s is not owned by %s"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:18 views/dahdi_advanced_settings.php:80
+#: views/dahdi_modprobe_settings.php:63
+msgid "Finland"
+msgstr ""
+
+#: views/dahdi_global_settings.php:18
+msgid "Finnish"
+msgstr ""
+
+#: views/dahdi_global_settings.php:110
+msgid "For FXS ports (either direct analog or over T1/E1)"
+msgstr ""
+
+#: views/dahdi_global_settings.php:114
+msgid "For digital ports using ISDN PRI protocols"
+msgstr ""
+
+#: views/dahdi_global_settings.php:196
+msgid "For fax detection"
+msgstr ""
+
+#: views/dahdi_digital_hardware.php:8
+msgid "Framing/Coding"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:15 views/dahdi_advanced_settings.php:81
+#: views/dahdi_modprobe_settings.php:64
+msgid "France"
+msgstr ""
+
+#: views/dahdi_global_settings.php:15
+msgid "French"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:180 views/dahdi_modprobe_settings.php:187
+msgid "Full Wave"
+msgstr ""
+
+#: views/dahdi_digital_settings.php:4
+msgid "General Settings"
+msgstr ""
+
+#: views/dahdi_global_settings.php:161
+msgid ""
+"Generally, it is not necessary (and in fact undesirable) to echo cancel when "
+"the circuit path is entirely TDM.  You may, however, change this behavior by "
+"enabling the echo canceler during pure TDM bridging below"
+msgstr ""
+
+#: views/dahdi_global_settings.php:17
+msgid "German"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:42 views/dahdi_advanced_settings.php:82
+#: views/dahdi_modprobe_settings.php:65
+msgid "Germany"
+msgstr ""
+
+#: page.dahdi.php:62 page.dahdi.php:106 views/dahdi_global_settings.php:3
+msgid "Global Settings"
+msgstr "全局设置"
+
+#: views/dahdi_advanced_settings.php:26 views/dahdi_advanced_settings.php:83
+#: views/dahdi_modprobe_settings.php:66
+msgid "Greece"
+msgstr ""
+
+#: views/dahdi_global_settings.php:23
+msgid "Greek"
+msgstr ""
+
+#: views/dahdi_analog_settings.php:29
+#: views/dahdi_analog_signalling_form.php:16
+msgid "Group"
+msgstr ""
+
+#: functions.inc.php:308 functions.inc.php:326
+#, php-format
+msgid "Group %s Ascending"
+msgstr ""
+
+#: functions.inc.php:309 functions.inc.php:327
+#, php-format
+msgid "Group %s Descending"
+msgstr ""
+
+#: functions.inc.php:310 functions.inc.php:328
+#, php-format
+msgid "Group %s Round Robin Ascending"
+msgstr ""
+
+#: functions.inc.php:311 functions.inc.php:329
+#, php-format
+msgid "Group %s Round Robin Descending"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:84 views/dahdi_modprobe_settings.php:67
+msgid "Guam"
+msgstr ""
+
+#: views/dahdi_global_settings.php:34
+msgid "Hindi"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:68
+msgid "Hong Kong"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:85
+msgid "Hongkong"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:219 views/dahdi_modprobe_settings.php:239
+msgid "Hoth Noise"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:229
+msgid ""
+"Hoth Noise - This setting causes the NLP to inject a low-end Gaussian noise "
+"with a frequency spectrum similar to voice. For users in normal "
+"environments, Hoth Noise may be acceptable"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:211
+msgid ""
+"Hoth Noise - This setting causes the NLP to inject a low-end Gaussian noise "
+"with a frequency spectrum similar to voice. For users in normal "
+"environments, Hoth Noise may be acceptable."
+msgstr ""
+
+#: views/dahdi_global_settings.php:28
+msgid "Hungarian"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:34 views/dahdi_advanced_settings.php:86
+#: views/dahdi_modprobe_settings.php:69
+msgid "Hungary"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:87 views/dahdi_modprobe_settings.php:70
+msgid "Iceland"
+msgstr ""
+
+#: views/dahdi_global_settings.php:54
+msgid ""
+"If busydetect is enabled, it is also possible to specify how many busy tones "
+"to wait for before hanging up.  The default is 3, but it might be safer to "
+"set to 6 or even 8.  Mind that the higher the number, the more time that "
+"will be needed to hangup a channel, but lowers the probability that you will "
+"get random hangups"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:23
+msgid "In Any mode it'll run 92 channels of either codec."
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:23
+msgid "In G.723.1 mode it'll run 92 channels"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:23
+msgid "In G.729 mode it'll run 120 channels"
+msgstr ""
+
+#: views/dahdi_global_settings.php:174
+msgid ""
+"In some cases this option can make echo worse!  If you are trying to debug "
+"an echo problem, it is worth checking to see if your echo is better with the "
+"option set to yes or no.  Use whatever setting gives the best results"
+msgstr ""
+
+#: views/dahdi_global_settings.php:172
+msgid ""
+"In some cases, the echo canceller doesn't train quickly enough and there is "
+"echo at the beginning of the call.  Enabling echo training will cause DAHDI "
+"to briefly mute the channel, send an impulse, and use the impulse response "
+"to pre-train the echo canceller so it can start out with a much closer idea "
+"of the actual echo.  Value may be \"yes\", \"no\", or a number of "
+"milliseconds to delay before training (default = 400)"
+msgstr ""
+
+#: views/dahdi_global_settings.php:201
+msgid "Incoming"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:41 views/dahdi_advanced_settings.php:88
+#: views/dahdi_modprobe_settings.php:71
+msgid "India"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:89 views/dahdi_modprobe_settings.php:72
+msgid "Indonesia"
+msgstr ""
+
+#: install.php:277
+msgid "Inserting Old Data from Dahdi Advanced Table"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:90 views/dahdi_modprobe_settings.php:73
+msgid "Ireland"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:32 views/dahdi_advanced_settings.php:91
+#: views/dahdi_modprobe_settings.php:74
+msgid "Israel"
+msgstr ""
+
+#: views/dahdi_global_settings.php:26
+msgid "Israeli Hebrew"
+msgstr ""
+
+#: page.dahdi.php:177
+msgid "It is YOUR responsibility to backup all relevant files on your system!"
+msgstr ""
+
+#: views/dahdi_global_settings.php:22
+msgid "Italian"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:24 views/dahdi_advanced_settings.php:92
+#: views/dahdi_modprobe_settings.php:75
+msgid "Italy"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:20 views/dahdi_advanced_settings.php:93
+#: views/dahdi_modprobe_settings.php:76
+msgid "Japan"
+msgstr ""
+
+#: views/dahdi_global_settings.php:20
+msgid "Japanese"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:94 views/dahdi_modprobe_settings.php:77
+msgid "Jordan"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:95 views/dahdi_modprobe_settings.php:78
+msgid "Kazakhstan"
+msgstr ""
+
+#: views/dahdi_analog_settings.php:23
+#: views/dahdi_analog_signalling_form.php:13
+msgid "Kewl Start"
+msgstr ""
+
+#: views/dahdi_analog_settings.php:17
+msgid ""
+"Kewl Start - Coined term for an extension of loop start (FXO and FXS) "
+"signaling which adds disconnect supervision through the use of an open "
+"switching interval (OSI). In addition to the operation afforded by loop "
+"start, the CO (central office) signals the terminal (user) end that the "
+"distant party has hung up. The CO switch will remove battery voltage from "
+"the loop for about 250 ms, within 6 seconds after the far-end party "
+"disconnects."
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:96 views/dahdi_modprobe_settings.php:79
+msgid "Kuwait"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:97 views/dahdi_modprobe_settings.php:80
+msgid "Latvia"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:98 views/dahdi_modprobe_settings.php:81
+msgid "Lebanon"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:35
+msgid "Lithuania"
+msgstr ""
+
+#: views/dahdi_global_settings.php:29
+msgid "Lithuanian"
+msgstr ""
+
+#: dahdiconfig.i18n.php:22
+msgid "Location of the DAHDi Executable"
+msgstr ""
+
+#: views/dahdi_analog_settings.php:24
+#: views/dahdi_analog_signalling_form.php:14
+msgid "Loop Start"
+msgstr ""
+
+#: views/dahdi_analog_settings.php:18
+msgid ""
+"Loop Start - When idle, or on-hook, the loop potential is held a nominal 48V "
+"DC, provided by the telephone exchange or a foreign exchange station (FXS) "
+"interface. When a terminal initiates use the line, it causes current to flow "
+"by closing the loop, and this signals the FXS end to provide dial tone on "
+"the line and to expect dial signals, in form of DTMF digits or dial pulses, "
+"or a hook flash. When the loop is opened and current stops flowing, the "
+"subscriber equipment signals that it has finished using the line; the "
+"telephone exchange resets the line to an idle state."
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:168 views/dahdi_modprobe_settings.php:169
+msgid "Lowpower"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:99 views/dahdi_modprobe_settings.php:82
+msgid "Luxembourg"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:184 views/dahdi_modprobe_settings.php:193
+msgid "MWI Mode"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:100 views/dahdi_modprobe_settings.php:83
+msgid "Macao"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:48 views/dahdi_advanced_settings.php:101
+#: views/dahdi_modprobe_settings.php:84
+msgid "Malaysia"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:102 views/dahdi_modprobe_settings.php:85
+msgid "Malta"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:40 views/dahdi_advanced_settings.php:103
+#: views/dahdi_modprobe_settings.php:86
+msgid "Mexico"
+msgstr ""
+
+#: install.php:261
+msgid "Migrating Old Data from Dahdi Advanced Table"
+msgstr ""
+
+#: install.php:346
+#, php-format
+msgid "Migrating module %s from serialized data to json"
+msgstr ""
+
+#: dahdiconfig.i18n.php:36
+msgid "ModProbe.d Configuration File Location"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:23
+msgid "Mode"
+msgstr ""
+
+#: page.dahdi.php:68 page.dahdi.php:112 views/dahdi_modprobe_settings.php:3
+msgid "Modprobe Settings"
+msgstr "板卡驱动加载参数设置"
+
+#: views/dahdi_advanced_settings.php:7 views/dahdi_modprobe_settings.php:9
+msgid "Module Name"
+msgstr ""
+
+#: page.dahdi.php:71 page.dahdi.php:115
+msgid "Module Settings"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:104 views/dahdi_modprobe_settings.php:87
+msgid "Morocco"
+msgstr ""
+
+#: install.php:327
+msgid "Moving/Adding dchannel column"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:217 views/dahdi_modprobe_settings.php:237
+msgid "Mute"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:227
+msgid ""
+"Mute - This setting causes the NLP to mute inbound audio streams while a "
+"user connected to Asterisk is speaking. For users in quiet environments, "
+"Mute may be acceptable"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:209
+msgid ""
+"Mute - This setting causes the NLP to mute inbound audio streams while a "
+"user connected to Asterisk is speaking. For users in quiet environments, "
+"Mute may be acceptable."
+msgstr ""
+
+#: views/dahdi_digital_hardware.php:25
+msgid "N/A"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:206
+msgid "NEON"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:197
+msgid "NEON - Performs Neon MWI detection"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:188
+msgid "NEON - Performs Neon MWI detection."
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:216
+msgid "Neon MWI Off Limit"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:214
+msgid "Neon MWI Voltage Level"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:16 views/dahdi_advanced_settings.php:105
+#: views/dahdi_modprobe_settings.php:88
+msgid "Netherlands"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:23
+msgid "New Zealand"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:106 views/dahdi_modprobe_settings.php:89
+msgid "Newzealand"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:107 views/dahdi_modprobe_settings.php:90
+msgid "Nigeria"
+msgstr ""
+
+#: views/dahdi_global_settings.php:48 views/dahdi_global_settings.php:71
+#: views/dahdi_global_settings.php:82 views/dahdi_global_settings.php:93
+#: views/dahdi_global_settings.php:104 views/dahdi_global_settings.php:121
+#: views/dahdi_global_settings.php:132 views/dahdi_global_settings.php:143
+#: views/dahdi_global_settings.php:155 views/dahdi_global_settings.php:166
+#: views/dahdi_global_settings.php:190 views/dahdi_global_settings.php:200
+msgid "No"
+msgstr ""
+
+#: functions.inc.php:482
+msgid "No Available Groups or Channels"
+msgstr "无可用的组或语音通道"
+
+#: functions.inc.php:544
+msgid "No Unused DAHDi Channels Available"
+msgstr "没有未使用的通道"
+
+#: views/dahdi_advanced_settings.php:193 views/dahdi_advanced_settings.php:216
+#: views/dahdi_modprobe_settings.php:204 views/dahdi_modprobe_settings.php:236
+msgid "None"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:226
+msgid ""
+"None - This setting disables NLP processing and is not a recommended "
+"setting. Under most circumstances, choos- ing None will cause some residual "
+"echo"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:208
+msgid ""
+"None - This setting disables NLP processing and is not a recommended "
+"setting. Under most circumstances, choos- ing None will cause some residual "
+"echo."
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:155 views/dahdi_advanced_settings.php:163
+#: views/dahdi_advanced_settings.php:171 views/dahdi_modprobe_settings.php:150
+#: views/dahdi_modprobe_settings.php:162 views/dahdi_modprobe_settings.php:174
+msgid "Normal"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:21 views/dahdi_advanced_settings.php:108
+#: views/dahdi_modprobe_settings.php:91
+msgid "Norway"
+msgstr ""
+
+#: views/dahdi_global_settings.php:21
+msgid "Norwegian"
+msgstr ""
+
+#: views/dahdi_digital_hardware.php:27 views/dahdi_digital_hardware.php:28
+msgid "Not Yet Defined"
+msgstr ""
+
+#: views/dahdi_global_settings.php:150
+msgid ""
+"Note that if any of your DAHDI cards have hardware echo cancelers, then this "
+"setting only turns them on and off. There are no special settings required "
+"for hardware echo cancelers; when present and enabled in their kernel "
+"modules, they take precedence over the software echo canceler compiled into "
+"DAHDI automatically"
+msgstr ""
+
+#: views/dahdi_global_settings.php:176
+msgid "Note that these parameters do not apply to hardware echo cancellers"
+msgstr ""
+
+#: views/dahdi_global_settings.php:185
+msgid ""
+"Note: If yes the dialplan execution will always start at extension 's' "
+"priority 1 regardless of the dialed number!"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:109 views/dahdi_modprobe_settings.php:92
+msgid "Oman"
+msgstr ""
+
+#: views/dahdi_global_settings.php:43
+msgid ""
+"On trunk interfaces (FXS) and E&M interfaces (E&M, Wink, Feature Group D "
+"etc) it can be useful to perform busy detection either in an effort to "
+"detect hangup or for detecting busies"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:57 views/dahdi_modprobe_settings.php:38
+msgid "Opermode"
+msgstr ""
+
+#: views/dahdi_global_settings.php:240
+msgid "Other Global Dahdi Settings"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:299
+msgid "Other Modprobe Settings"
+msgstr ""
+
+#: views/dahdi_global_settings.php:202
+msgid "Outgoing"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:110 views/dahdi_modprobe_settings.php:93
+msgid "Pakistan"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:156 views/dahdi_modprobe_settings.php:151
+msgid "Peak (89v)"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:111 views/dahdi_modprobe_settings.php:94
+msgid "Peru"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:52 views/dahdi_advanced_settings.php:112
+#: views/dahdi_modprobe_settings.php:95
+msgid "Philippines"
+msgstr ""
+
+#: page.dahdi.php:31
+#, php-format
+msgid "Please Delete the System Generated %s"
+msgstr ""
+
+#: includes/dahdi_cards.class.php:1271 includes/dahdi_cards.class.php:1549
+#, php-format
+msgid "Please change permissions on %s"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:11
+msgid ""
+"Please choose your country or your nearest neighboring country for default "
+"Tones (Ex: dialtone, busy tone, ring tone etc.)"
+msgstr ""
+
+#: includes/dahdi_cards.class.php:128
+#, php-format
+msgid "Please run '%s', then go back into the DAHDi Config Module"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:36 views/dahdi_advanced_settings.php:113
+#: views/dahdi_modprobe_settings.php:96
+msgid "Poland"
+msgstr ""
+
+#: views/dahdi_global_settings.php:30
+msgid "Polish"
+msgstr ""
+
+#: views/dahdi_analog_signalling_form.php:11
+#, php-format
+msgid "Port %s"
+msgstr ""
+
+#: views/dahdi_analog_settings.php:12
+#, php-format
+msgid "Port %s Settings"
+msgstr ""
+
+#: views/dahdi_analog_hardware.php:7
+msgid "Ports"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:38 views/dahdi_advanced_settings.php:114
+#: views/dahdi_modprobe_settings.php:97
+msgid "Portugal"
+msgstr ""
+
+#: views/dahdi_global_settings.php:32
+msgid "Portuguese"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:218 views/dahdi_modprobe_settings.php:238
+msgid "Random Noise"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:228
+msgid ""
+"Random Noise - This setting causes the NLP to inject random noise to mask "
+"the echo reflection. For users in normal environments, Random Noise may be "
+"acceptable"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:210
+msgid ""
+"Random Noise - This setting causes the NLP to inject random noise to mask "
+"the echo reflection. For users in normal environments, Random Noise may be "
+"acceptable."
+msgstr ""
+
+#: views/dahdi_global_settings.php:209
+msgid "Receive Gain"
+msgstr ""
+
+#: page.dahdi.php:160
+msgid "Reload Asterisk Dahdi Module"
+msgstr ""
+
+#: install.php:310
+msgid "Replacing.."
+msgstr ""
+
+#: page.dahdi.php:449
+msgid "Reset File To Defaults"
+msgstr ""
+
+#: page.dahdi.php:162
+msgid "Restart Dahdi & Asterisk"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:176 views/dahdi_modprobe_settings.php:181
+msgid "Ring Detect"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:115 views/dahdi_modprobe_settings.php:98
+msgid "Romania"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:116 views/dahdi_modprobe_settings.php:99
+msgid "Russia"
+msgstr ""
+
+#: views/dahdi_global_settings.php:37
+msgid "Russian"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:53
+msgid "Russian Federation"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:117 views/dahdi_modprobe_settings.php:100
+msgid "Saudi Arabia"
+msgstr ""
+
+#: page.dahdi.php:284 page.dahdi.php:303 page.dahdi.php:323 page.dahdi.php:365
+#: page.dahdi.php:389 page.dahdi.php:408 page.dahdi.php:427 page.dahdi.php:472
+#: views/dahdi_advanced_settings.php:234
+#: views/dahdi_analog_signalling_form.php:27
+msgid "Save"
+msgstr ""
+
+#: views/dahdi_global_settings.php:9
+msgid "Select Language"
+msgstr ""
+
+#: page.dahdi.php:60
+msgid "Settings"
+msgstr ""
+
+#: views/dahdi_analog_settings.php:15 views/dahdi_digital_hardware.php:11
+msgid "Signaling"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:31 views/dahdi_advanced_settings.php:118
+#: views/dahdi_modprobe_settings.php:101
+msgid "Singapore"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:119 views/dahdi_modprobe_settings.php:102
+msgid "Slovakia"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:120 views/dahdi_modprobe_settings.php:103
+msgid "Slovenia"
+msgstr ""
+
+#: dahdiconfig.i18n.php:42
+msgid "Software EC"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:37 views/dahdi_advanced_settings.php:121
+#: views/dahdi_modprobe_settings.php:104
+msgid "South Africa"
+msgstr ""
+
+#: views/dahdi_global_settings.php:31
+msgid "South African"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:122 views/dahdi_modprobe_settings.php:105
+msgid "South Korea"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:19 views/dahdi_advanced_settings.php:123
+#: views/dahdi_modprobe_settings.php:106
+msgid "Spain"
+msgstr ""
+
+#: views/dahdi_digital_hardware.php:6
+msgid "Span"
+msgstr ""
+
+#: views/dahdi_global_settings.php:19
+msgid "Spanish"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:57 views/dahdi_modprobe_settings.php:38
+msgid ""
+"Specify the On Hook Speed, Ringer Impedance, Ringer Threshold, Current "
+"limiting, Tip/Ring voltage adjustment, Minimum Operational Loop current, and "
+"AC Impedance selection as predefined for each countries' analog line "
+"characteristics. Select the country in which your Asterisk server is "
+"operating. FCC is equivalent to United States. TBR21 is equivalent to "
+"Austria, Belgium, Denmark, Finland, France, Germany, Greece, Iceland, "
+"Ireland, Italy, Luxembourg, Netherlands, Norway, Portugal, Spain, Sweden, "
+"Switzerland, and the United Kingdom. If no choice is specified, the default "
+"is FCC"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:121
+msgid ""
+"Specify the audio compression scheme (codec) to be used for analog lines. "
+"North American users should choose ulaw. All other countries, unless "
+"otherwise known, should be assumed to be alaw. If no choice is specified, "
+"the default is ulaw. Confirm the scheme which will be best for operation"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:136
+msgid ""
+"Specify the audio compression scheme (codec) to be used for analog lines. "
+"North American users should choose ulaw. All other countries, unless "
+"otherwise known, should be assumed to be alaw. If no choice is specified, "
+"the default is ulaw. Confirm the scheme which will be best for operation."
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:9
+msgid "Specify the kernel module used by the installed analog hardware"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:7
+msgid "Specify the kernel module used by the installed analog hardware."
+msgstr ""
+
+#: views/dahdi_global_settings.php:9
+msgid "Specify the language"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:184 views/dahdi_modprobe_settings.php:193
+msgid ""
+"Specify the type of Message Waiting Indicator detection to be done on FXO "
+"ports. If no choice is specified, the default is none. The following options "
+"are available"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:145
+msgid ""
+"Specify the voltage used for ringing an analog phone. Normal will set the "
+"ring voltage to 40V, and Peak will set the voltage to 89V. If no choice is "
+"specified, the default is normal"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:152
+msgid ""
+"Specify the voltage used for ringing an analog phone. Normal will set the "
+"ring voltage to 40V, and Peak will set the voltage to 89V. If no choice is "
+"specified, the default is normal."
+msgstr ""
+
+#: views/dahdi_global_settings.php:184
+msgid ""
+"Specify whether the channel should be answered immediately or if the simple "
+"switch should provide dialtone, read digits, etc"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:157
+msgid ""
+"Specify whether to apply Fast Ringer operation. Setting Fast Ringer (25Hz) "
+"(commonly used in conjunction with the Low Power option) increases the "
+"ringing speed to 25Hz. If no choice is specified, the default is normal"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:160
+msgid ""
+"Specify whether to apply Fast Ringer operation. Setting Fast Ringer (25Hz) "
+"(commonly used in conjunction with the Low Power option) increases the "
+"ringing speed to 25Hz. If no choice is specified, the default is normal."
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:169
+msgid ""
+"Specify whether to apply Low Power operation. Setting Fast Ringer to 50V "
+"peak in conjunction with the Fast Ringer option increases the peak voltage "
+"during Fast Ringer operation to 50V. If no choice is specified, the default "
+"is normal"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:168
+msgid ""
+"Specify whether to apply Low Power operation. Setting Fast Ringer to 50V "
+"peak in conjunction with the Fast Ringer option increases the peak voltage "
+"during Fast Ringer operation to 50V. If no choice is specified, the default "
+"is normal."
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:181
+msgid ""
+"Specify whether to apply normal ring detection, or a full wave detection to "
+"prevent false ring detection for lines where CallerID is sent before the "
+"first ring and proceeded by a polarity reversal (as in the United Kingdom). "
+"If you are experiencing trouble with detecting CallerID from analog service "
+"providers, or have lines which exhibit a polarity reversal before CallerID "
+"is transmitted from the provider, then select Full Wave. If no choice is "
+"specified, the default is standard"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:176
+msgid ""
+"Specify whether to apply normal ring detection, or a full wave detection to "
+"prevent false ring detection for lines where CallerID is sent before the "
+"first ring and proceeded by a polarity reversal (as in the United Kingdom). "
+"If you are experiencing trouble with detecting CallerID from analog service "
+"providers, or have lines which exhibit a polarity reversal before CallerID "
+"is transmitted from the provider, then select Full Wave. If no choice is "
+"specified, the default is standard."
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:133
+msgid ""
+"Specify whether to apply the opermode setting to your FXO modules only, or "
+"to both FXS and FXO modules. If no choice is specified, the default is apply "
+"opermode to fxo modules only"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:144
+msgid ""
+"Specify whether to apply the opermode setting to your FXO modules only, or "
+"to both FXS and FXO modules. If no choice is specified, the default is apply "
+"opermode to fxo modules only."
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:179 views/dahdi_modprobe_settings.php:186
+msgid "Standard"
+msgstr ""
+
+#: views/dahdi_global_settings.php:127
+msgid "Support call forward variable"
+msgstr ""
+
+#: views/dahdi_global_settings.php:111
+msgid "Support flash-hook call transfer (requires three way calling)"
+msgstr ""
+
+#: views/dahdi_global_settings.php:115
+msgid "Support switch-side transfer (called 2BCT, RLT or other names)"
+msgstr ""
+
+#: views/dahdi_global_settings.php:99
+msgid "Support three-way calling"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:220 views/dahdi_modprobe_settings.php:240
+msgid "Suppression NLP (default)"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:230
+msgid ""
+"Suppression NLP - This setting causes the NLP to suppress echo reflections "
+"by reducing the amplitude of their volume. Suppression may be used in "
+"combination with the Echo cancellation NLP Max Suppression option. For users "
+"in loud environments, Suppression NLP may be the best option. This is the "
+"default setting for the Echo Cancellation NLP Type option"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:212
+msgid ""
+"Suppression NLP - This setting causes the NLP to suppress echo reflections "
+"by reducing the amplitude of their volume. Suppression may be used in "
+"combination with the Echo cancellation NLP Max Suppression option. For users "
+"in loud environments, Suppression NLP may be the best option. This is the "
+"default setting for the Echo Cancellation NLP Type option."
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:29 views/dahdi_advanced_settings.php:124
+#: views/dahdi_modprobe_settings.php:107
+msgid "Sweden"
+msgstr ""
+
+#: views/dahdi_global_settings.php:25
+msgid "Swedish"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:43 views/dahdi_advanced_settings.php:125
+#: views/dahdi_modprobe_settings.php:108
+msgid "Switzerland"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:126 views/dahdi_modprobe_settings.php:109
+msgid "Syria"
+msgstr ""
+
+#: dahdiconfig.i18n.php:48
+msgid "System Configuration File Location"
+msgstr ""
+
+#: page.dahdi.php:65 page.dahdi.php:109
+msgid "System Settings"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:276
+msgid "T1"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:128 views/dahdi_modprobe_settings.php:111
+msgid "TBR21"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:27 views/dahdi_advanced_settings.php:127
+#: views/dahdi_modprobe_settings.php:110
+msgid "Taiwan"
+msgstr ""
+
+#: views/dahdi_global_settings.php:24
+msgid "Taiwanese"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:49 views/dahdi_advanced_settings.php:129
+#: views/dahdi_modprobe_settings.php:112
+msgid "Thailand"
+msgstr ""
+
+#: page.dahdi.php:178
+#, php-format
+msgid ""
+"The %s team can NOT be held responsible if you enable this module and your "
+"trunks/cards suddenly stop working because your configurations have changed."
+msgstr ""
+
+#: views/dahdi_analog_settings.php:36
+msgid "The context to use for inbound calls to this analog device"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:271
+msgid ""
+"The recommended way to set line mode on your Digium 1-, 2-, and 4-port "
+"(span) digital telephony cards is to set the jumper(s) on the card for "
+"either T1 or E1 mode for each span on the card. With the jumper off, the "
+"span is ready for T1 mode; with the jumper on, the span is ready for E1 "
+"mode. For more details about the jumpers, see the user manual for the "
+"single, dual, or quad span digital cards.<br/>However, sometimes a card will "
+"have been installed in a server without first setting the jumper(s) "
+"correctly, and it may be inconvenient to remove the card from the server to "
+"access its jumper(s).  In this case, the \"default_linemode\" option can be "
+"passed when the card's device driver is loaded"
+msgstr ""
+
+#: views/dahdi_global_settings.php:209 views/dahdi_global_settings.php:217
+msgid ""
+"The values are in db (decibels). A positive number increases the volume "
+"level on a channel, and a negative value decreases volume level"
+msgstr ""
+
+#: functions.inc.php:482
+msgid ""
+"There are no DAHDI Groups or Channels available to be configured. Check the "
+"DAHDI module (linked below) to configure any un-used cards"
+msgstr "没有可用的DAHDI 或者通道。检查DAHDI模块（下面的链接）来配置语音卡。"
+
+#: views/dahdi_modprobe_settings.php:4
+#, php-format
+msgid "This edits all settings in %s"
+msgstr ""
+
+#: views/dahdi_global_settings.php:4
+msgid "This edits all settings in chan_dahdi.conf"
+msgstr ""
+
+#: views/dahdi_modules_settings.php:4
+#, php-format
+msgid "This edits order and loading of DAHDi modules in %s"
+msgstr ""
+
+#: views/dahdi_global_settings.php:43
+msgid "This enables listening for the beep-beep busy pattern"
+msgstr ""
+
+#: page.dahdi.php:187
+msgid ""
+"This message will re-appear everytime you load the module while it is in a "
+"disabled write state so as to not cause any confusion"
+msgstr ""
+
+#: page.dahdi.php:181
+msgid ""
+"This module should never be used alongside \"dahdi_genconfig\". Using "
+"\"dahdi_genconfig\" and this module at the same time can have unexpected "
+"consequences."
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:246
+msgid ""
+"This option allows you to specify the threshold, in dB difference between "
+"the received audio (post echo cancellation) and the transmitted audio, for "
+"when the NLP will engage (VPMADT032 only). The default setting is 24 dB"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:224
+msgid ""
+"This option allows you to specify the threshold, in dB difference between "
+"the received audio (post echo cancellation) and the transmitted audio, for "
+"when the NLP will engage (VPMADT032 only). The default setting is 24 dB."
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:206 views/dahdi_modprobe_settings.php:224
+msgid ""
+"This option allows you to specify the type of Non Linear Processor you want "
+"applied to the post echo-cancelled audio reflections received from analog "
+"connections (VPMADT032 only). There are several options"
+msgstr ""
+
+#: views/dahdi_analog_settings.php:15
+msgid ""
+"This option allows you to specify the type signaling for this analog device."
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:258
+msgid ""
+"This option, only functional when the Echo Cancellation NLP Type option is "
+"set to Suppression NLP, specifies the maximum amount of dB that the NLP "
+"should attenuate the residual echo (VPMADT032 only). Lower numbers mean that "
+"the NLP will provide less suppression (the residual echo will sound louder). "
+"Higher numbers, especially those approaching or equaling the Echo "
+"Cancellation NLP Threshold option, will nearly mute the residual echo. The "
+"default setting is 24 dB"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:228
+msgid ""
+"This option, only functional when the Echo Cancellation NLP Type option is "
+"set to Suppression NLP, specifies the maximum amount of dB that the NLP "
+"should attenuate the residual echo (VPMADT032 only). Lower numbers mean that "
+"the NLP will provide less suppression (the residual echo will sound louder). "
+"Higher numbers, especially those approaching or equaling the Echo "
+"Cancellation NLP Threshold option, will nearly mute the residual echo. The "
+"default setting is 24 dB."
+msgstr ""
+
+#: views/dahdi_global_settings.php:116
+msgid ""
+"This setting must be enabled on both ports involved, and the \"facilityenable"
+"\" setting must also be enabled to allow sending the transfer to the ISDN "
+"switch, since it sent in a FACILITY message"
+msgstr ""
+
+#: page.dahdi.php:450
+msgid "This will reload the page"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:11
+msgid "Tone Region"
+msgstr ""
+
+#: views/dahdi_global_settings.php:217
+msgid "Transmit Gain"
+msgstr ""
+
+#: views/dahdi_analog_hardware.php:6
+msgid "Type"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:130 views/dahdi_modprobe_settings.php:113
+msgid "UAE"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:131 views/dahdi_modprobe_settings.php:114
+msgid "UK"
+msgstr ""
+
+#: includes/dahdi_cards.class.php:1271 includes/dahdi_cards.class.php:1549
+#, php-format
+msgid "Unable to write to %s"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:17
+msgid "United Kingdom"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:25
+msgid "United States Circa 1950 / North America"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:13 views/dahdi_advanced_settings.php:60
+#: views/dahdi_modprobe_settings.php:43
+msgid "United States/North America"
+msgstr ""
+
+#: views/dahdi_global_settings.php:66
+msgid "Use Caller ID"
+msgstr ""
+
+#: views/dahdi_global_settings.php:88
+msgid "Use Caller ID Presentation"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:51
+msgid "Venezuela"
+msgstr ""
+
+#: views/dahdi_global_settings.php:174
+msgid "WARNING"
+msgstr ""
+
+#: page.dahdi.php:169
+msgid ""
+"WARNING: When this module is \"enabled\" for writing it WILL overwrite the "
+"following files:"
+msgstr ""
+
+#: views/dahdi_global_settings.php:77
+msgid ""
+"Whether or not to enable call waiting on internal extensions. With this set "
+"to \"yes\", busy extensions will hear the call-waiting tone, and can use "
+"hook-flash to switch between callers. The Dial() app will not return the "
+"\"BUSY\" result for extensions."
+msgstr ""
+
+#: views/dahdi_global_settings.php:138
+msgid ""
+"Whether or not to support Call Return (*69, if your dialplan doesn't catch "
+"this first)"
+msgstr ""
+
+#: views/dahdi_global_settings.php:66
+msgid "Whether or not to use caller ID"
+msgstr ""
+
+#: views/dahdi_global_settings.php:88
+msgid ""
+"Whether or not to use the caller ID presentation for the outgoing call that "
+"the calling switch is sending"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:132 views/dahdi_modprobe_settings.php:115
+msgid "Yemen"
+msgstr ""
+
+#: views/dahdi_global_settings.php:47 views/dahdi_global_settings.php:70
+#: views/dahdi_global_settings.php:81 views/dahdi_global_settings.php:92
+#: views/dahdi_global_settings.php:103 views/dahdi_global_settings.php:120
+#: views/dahdi_global_settings.php:131 views/dahdi_global_settings.php:142
+#: views/dahdi_global_settings.php:154 views/dahdi_global_settings.php:165
+#: views/dahdi_global_settings.php:189
+msgid "Yes"
+msgstr ""
+
+#: page.dahdi.php:40
+msgid ""
+"You have new hardware! Please configure your new hardware using the edit "
+"button(s). Then reload DAHDi with the button below."
+msgstr ""
+
+#: install.php:370
+msgid "add additional column"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:127
+msgid "alaw"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:62
+msgid "fcc"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:195
+msgid "none - Performs no detection"
+msgstr ""
+
+#: views/dahdi_advanced_settings.php:186
+msgid "none - Performs no detection "
+msgstr ""
+
+#: dahdiconfig.i18n.php:46
+msgid "software EC to use in system.conf"
+msgstr ""
+
+#: views/dahdi_modprobe_settings.php:126
+msgid "ulaw"
+msgstr ""

@@ -1,0 +1,56 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for motif
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-31 12:10-0400\n"
+"PO-Revision-Date: 2014-03-04 10:55+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Spanish <http://git.freepbx.org/projects/freepbx/motif/es/>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.9-dev\n"
+
+#, fuzzy
+msgid "Can not create Google Voice/Motif table"
+msgstr "No se puede crear Google mesa de voz / Motif"
+
+#, fuzzy
+msgid "Unknown/Not Supported database type: "
+msgstr "Desconocido / tipo de base de datos no soportados "
+
+#, fuzzy
+msgid "Google Voice/Chan Motif"
+msgstr "Google Voice / Chan Motif"
+
+#, fuzzy
+msgid "Connectivity"
+msgstr "Conectividad"
+
+#, fuzzy
+msgid "Manage Google Voice Trunks with Chan Motif"
+msgstr "Gestione Google Voice Trunks con Chan Motif"
+
+#, fuzzy
+msgid "Google Voice (Motif)"
+msgstr "Google Voice (Motif)"

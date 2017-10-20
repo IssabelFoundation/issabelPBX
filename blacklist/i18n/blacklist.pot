@@ -1,0 +1,77 @@
+# IssabelPBX language template for blacklist
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Blacklist"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid "Blacklist a number"
+msgstr ""
+
+msgid "Remove a number from the blacklist"
+msgstr ""
+
+msgid "Blacklist the last caller"
+msgstr ""
+
+msgid "Blacklist entry"
+msgstr ""
+
+msgid "deleted"
+msgstr ""
+
+msgid "Blacklist entries"
+msgstr ""
+
+msgid "Number/CallerID"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Number"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Add or replace entry"
+msgstr ""
+
+msgid "Number/CallerID:"
+msgstr ""
+
+msgid "Enter the number/CallerID you want to block"
+msgstr ""
+
+msgid "Description:"
+msgstr ""
+
+msgid "Enter a description for the number you want to block"
+msgstr ""
+
+msgid "Block Unknown/Blocked Caller ID:"
+msgstr ""
+
+msgid "Check here to catch Unknown/Blocked Caller ID"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr ""

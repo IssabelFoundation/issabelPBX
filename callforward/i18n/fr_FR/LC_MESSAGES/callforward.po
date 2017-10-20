@@ -1,0 +1,64 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-04-20 11:18+0100\n"
+"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
+"Language-Team: Français <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Call Forward"
+msgstr "Transfert d'Appel"
+
+msgid "Applications"
+msgstr ""
+
+msgid "Provides callforward featurecodes"
+msgstr ""
+
+msgid "Call Forward All Activate"
+msgstr "Transferts d'Appels Tous Actifs"
+
+msgid "Call Forward All Deactivate"
+msgstr "Transferts d'Appels Tous Désactivés"
+
+msgid "Call Forward All Prompting Deactivate"
+msgstr "Messages de Transferts d'Appels Tous Désactivés"
+
+msgid "Call Forward Busy Activate"
+msgstr "Transfert d'Appels quand Occupé Activé"
+
+msgid "Call Forward Busy Deactivate"
+msgstr "Transfert d'Appels quand Occupé Désactivé"
+
+msgid "Call Forward Busy Prompting Deactivate"
+msgstr "Messages de Transfert d'Appels quand Occupé Désactivé"
+
+msgid "Call Forward No Answer/Unavailable Activate"
+msgstr "Transfert d'Appels quand Pas de Réponse/Indisponible Activé"
+
+msgid "Call Forward No Answer/Unavailable Deactivate"
+msgstr "Transfert d'Appels quand Pas de Réponse/Indisponible Désactivé"
+
+msgid "Call Forward Toggle"
+msgstr ""

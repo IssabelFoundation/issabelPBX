@@ -1,0 +1,161 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - módulo asteriskinfo module spanish "
+"translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-22 01:01+0100\n"
+"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Asterisk Info"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "Provides a snapshot of the current Asterisk configuration"
+msgstr ""
+
+msgid "Summary"
+msgstr "Resumen"
+
+msgid "Registries"
+msgstr "Registros"
+
+msgid "Channels"
+msgstr "Canales"
+
+msgid "Peers"
+msgstr "Pares"
+
+msgid "Sip Info"
+msgstr "Información SIP"
+
+msgid "IAX Info"
+msgstr "Información IAX"
+
+msgid "Conferences"
+msgstr "Conferencias"
+
+msgid "Queues"
+msgstr ""
+
+msgid "Subscriptions"
+msgstr "Suscripciones"
+
+msgid "Full Report"
+msgstr "Informe completo"
+
+msgid "Uptime"
+msgstr "Tiempo encendido"
+
+msgid "Active Channel(s)"
+msgstr "Canales activos"
+
+msgid "Sip Channel(s)"
+msgstr "Canales SIP"
+
+msgid "IAX2 Channel(s)"
+msgstr "Canales IAX2"
+
+msgid "IAX2 Peers"
+msgstr "Pares IAX2"
+
+msgid "Sip Registry"
+msgstr "Registro SIP"
+
+msgid "Sip Peers"
+msgstr "Pares SIP"
+
+msgid "IAX2 Registry"
+msgstr "Registro IAX2"
+
+msgid "Subscribe/Notify"
+msgstr "Suscribir/Notificar"
+
+msgid "DAHDi driver info"
+msgstr "Información del controlador DAHDi"
+
+msgid "Zaptel driver info"
+msgstr "Información del controlador Zaptel"
+
+msgid "MeetMe Conference Info"
+msgstr ""
+
+msgid "Conference Bridge Info"
+msgstr ""
+
+msgid "Queues Info"
+msgstr ""
+
+msgid "Voicemail Users"
+msgstr "Usuarios del buzón de voz"
+
+msgid "Google Talk Channels"
+msgstr ""
+
+msgid "Jabber Connections"
+msgstr ""
+
+msgid "Asterisk (Ver. "
+msgstr "Asterisk (Versión"
+
+msgid "ASTERISK MANAGER ERROR"
+msgstr "ERROR EN EL GESTOR DE ASTERISK"
+
+msgid ""
+"The module was unable to connect to the Asterisk manager.<br>Make sure "
+"Asterisk is running and your manager.conf settings are proper.<br><br>"
+msgstr ""
+"El módulo no pudo conectar con el gestor de Asterisk.<br/>Asegúrese de que "
+"Asterisk se está ejecutando y la configuración de su archivo manager.conf es "
+"correcta."
+
+msgid "Refresh"
+msgstr "Actualizar"
+
+msgid "Uptime: "
+msgstr "Tiempo encendido:"
+
+msgid "Active SIP Channel(s): "
+msgstr "Canales SIP activos:"
+
+msgid "Active IAX2 Channel(s): "
+msgstr "Canales IAX2 activos:"
+
+msgid "Sip Registry: "
+msgstr "Registro SIP:"
+
+msgid "IAX2 Registry: "
+msgstr "Registro IAX2:"
+
+msgid "Sip Peers: "
+msgstr "Pares SIP:"
+
+msgid "IAX2 Peers: "
+msgstr "Pares IAX2:"
+
+msgid "Online: "
+msgstr "Conectados:"
+
+msgid "Online-Unmonitored: "
+msgstr ""
+
+msgid "Offline: "
+msgstr "Desconectados:"
+
+msgid "Offline-Unmonitored: "
+msgstr ""
+
+msgid "Unmonitored: "
+msgstr "Sin monitorizar:"
+
+#~ msgid "Conference Info"
+#~ msgstr "Información de conferencias"

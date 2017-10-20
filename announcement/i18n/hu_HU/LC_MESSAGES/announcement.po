@@ -1,0 +1,179 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language for announcement
+# Copyright (C) 2008, 2009 FreePBX
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2014-03-04 08:44+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Hungarian "
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.9-dev\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Announcements"
+msgstr "Közlemények"
+
+msgid "Applications"
+msgstr "Alkalmazások"
+
+msgid ""
+"Plays back one of the system recordings (optionally allowing the user to "
+"skip it) and then goes to another destination."
+msgstr ""
+
+#, php-format
+msgid "Announcement: %s"
+msgstr ""
+
+msgid "Checking if recordings need migration.."
+msgstr ""
+
+msgid "migrating"
+msgstr ""
+
+msgid "adding recording_id field.."
+msgstr ""
+
+msgid "fatal error"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "migrate to recording ids.."
+msgstr ""
+
+#, php-format
+msgid "migrated %s entries"
+msgstr ""
+
+msgid "dropping recording field.."
+msgstr ""
+
+msgid "no recording field???"
+msgstr ""
+
+msgid "already migrated"
+msgstr ""
+
+msgid "Add Announcement"
+msgstr "Esemény hozzáadása"
+
+msgid "Edit Announcement"
+msgstr "Esemény szerkesztése"
+
+msgid "Description"
+msgstr "Meghatározás"
+
+msgid "The name of this announcement"
+msgstr "Esemény neve"
+
+msgid "Recording"
+msgstr "Rögzítés"
+
+msgid ""
+"Message to be played.<br>To add additional recordings use the \"System "
+"Recordings\" MENU to the left"
+msgstr ""
+"Üzenet lejátszása.<br>Előzőleg a a rögzítéshez a \"Központoi rögzítés\" "
+"menüpontot használd a BAL menüben."
+
+msgid "None"
+msgstr ""
+
+msgid "Repeat"
+msgstr "Ismétlés"
+
+msgid ""
+"Key to press that will allow for the message to be replayed. If you choose "
+"this option there will be a short delay inserted after the message. If a "
+"longer delay is needed it should be incorporated into the recording."
+msgstr ""
+"A gomb megnyomásával az üzenetet ismét lejátsza. Ha az opció engedélyezve "
+"van, akkor egy kisebb szünet lesz az üzenet után illesztve. Ha hosszabb "
+"szünetre lenne szükséged, akkor azt az üzenet rögzítésbe tervezd bele."
+
+msgid "Disable"
+msgstr "Tiltás"
+
+msgid "Allow Skip"
+msgstr "Elfogad kihagyást"
+
+msgid "If the caller is allowed to press a key to skip the message."
+msgstr ""
+"Ha elfogadott, akkor a hívó egy gomb megnyomásával átugorhatja az üzenetet."
+
+msgid "Return to IVR"
+msgstr "Vissza az IVR-be."
+
+msgid ""
+"If this announcement came from an IVR and this box is checked, the "
+"destination below will be ignored and instead it will return to the calling "
+"IVR. Otherwise, the destination below will be taken. Don't check if not "
+"using in this mode. <br>The IVR return location will be to the last IVR in "
+"the call chain that was called so be careful to only check when needed. For "
+"example, if an IVR directs a call to another destination which eventually "
+"calls this announcement and this box is checked, it will return to that IVR "
+"which may not be the expected behavior."
+msgstr ""
+"Ha az esemény egy IVR-ből lett megcímezve, és ez a pipa meg van jelölve, "
+"akkor a célpont figyelmen kívül lessz hagyva, és az üzenet lejátszása után "
+"ismét az IVR lesz meghívva. Minden egyéb esetben a célpont lesz az érvényes "
+"következő feladat. Ne használd, ha nem használnád. <br> Az IVR-be "
+"visszatérés helye az utolsó kért IVR pont. Ha ide akarsz visszatérni, csak "
+"akkor jelöld be. Ha egy másik IVR helyre szeretnél továbbmenni, akkor a "
+"célpontok között jelöld meg azt az IVR pontot."
+
+msgid "Don't Answer Channel"
+msgstr "Nem megválaszolt csatorna."
+
+msgid ""
+"Check this to keep the channel from explicitly being answered. When checked, "
+"the message will be played and if the channel is not already answered it "
+"will be delivered as early media if the channel supports that. When not "
+"checked, the channel is answered followed by a 1 second delay. When using an "
+"announcement from an IVR or other sources that have already answered the "
+"channel, that 1 second delay may not be desired."
+msgstr ""
+"Használd ezt a pipát, ha a hívás ezidáig megválaszolatlan. Ha megjelölöd, "
+"akkor az üzenet lejátszása után, ha a csatorna támogatja, és még nem lett "
+"megválaszolva a hívás, akkor a hívásidő innentől lesz számolva. Ha nem "
+"jelölöd meg, akkor a hívás egy 1 másodperces várakozással meg lesz "
+"válaszolva. Amikor az eseményt egy IVR-ben, vagy más helyzetben használod, "
+"akkor ez az 1 másodperces várakozás elmaradhat."
+
+msgid "Destination after playback"
+msgstr "Visszajátszás utáni cél"
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgid "Invalid description specified"
+msgstr ""

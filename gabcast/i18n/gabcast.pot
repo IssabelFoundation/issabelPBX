@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-06 14:25+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: functions.inc.php:21
+msgid "Edit Gabcast Settings"
+msgstr ""
+
+#: functions.inc.php:24
+msgid "Add Gabcast Settings"
+msgstr ""
+
+#: functions.inc.php:60
+#, php-format
+msgid "Gabcast: %s Ext: %s"
+msgstr ""
+
+#: install.php:4 install.php:8
+msgid "Connect to Gabcast"
+msgstr ""
+
+#: page.gabcast.php:60
+msgid "This "
+msgstr ""
+
+#: page.gabcast.php:62
+msgid ""
+"Gabcast is a social broadcasting platform that offers virtual communities, "
+"individuals, and organizations an easy way to create and distribute audio "
+"content.<br><br>Visit www.gabcast.com for more info."
+msgstr ""
+
+#: page.gabcast.php:64
+msgid "module allows you to:"
+msgstr ""
+
+#: page.gabcast.php:66
+msgid ""
+"Link extensions to Gabcast channels. It creates a feature code, which "
+"defaults to <u>*422</u> 'gab' - you can change this in"
+msgstr ""
+
+#: page.gabcast.php:67
+msgid "Feature Code Admin"
+msgstr ""
+
+#: page.gabcast.php:68
+msgid ""
+"which allows you to log directly into your Gabcast account.  This is ideal "
+"for personal podcasting!"
+msgstr ""
+
+#: page.gabcast.php:70
+msgid ""
+"Define a Gabcast channel as a Destination for other modules. For example, "
+"you can direct a DID or IVR menu option directly to Gabcast. This is ideal "
+"for group and public podcasting!"
+msgstr ""
+
+#: page.gabcast.php:84
+msgid "Error: cannot retreive Gabcast info for this extension"
+msgstr ""
+
+#: page.gabcast.php:94
+msgid "Delete settings"
+msgstr ""
+
+#: page.gabcast.php:113
+msgid ""
+"You <u>must</u> have a Gabcast account & channel to use this feature. Visit"
+msgstr ""
+
+#: page.gabcast.php:115
+msgid "to sign up. <u>It's a free service</u>!"
+msgstr ""
+
+#: page.gabcast.php:121
+msgid "Gabcast Channel Number:"
+msgstr ""
+
+#: page.gabcast.php:123
+msgid "Gabcast Channel Password:"
+msgstr ""
+
+#: page.gabcast.php:125
+msgid "Link to Extension/User Number:"
+msgstr ""
+
+#: page.gabcast.php:135
+msgid "Add Gabcast Channel"
+msgstr ""
+
+#: page.gabcast.php:144
+msgid "Ext"
+msgstr ""
+
+#: page.gabcast.php:144
+msgid "Chan"
+msgstr ""
+
+#: page.gabcast.php:147
+msgid "Gabcast Configuration"
+msgstr ""
+
+#: page.gabcast.php:152
+#, php-format
+msgid "The latest episodes in channel #%s"
+msgstr ""
+
+#: page.gabcast.php:155
+msgid "The latest episodes across all channels"
+msgstr ""
+
+#: page.gabcast.php:159
+msgid "Feed URL: "
+msgstr ""

@@ -1,0 +1,34 @@
+<module>
+	<rawname>queuemetrics</rawname>
+	<name>QueueMetrics</name>
+	<version>2.11.0.3</version>
+	<repo>unsupported</repo>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<category>Settings</category>
+	<description>A module for QueueMetrics, that allows you to set if IVR selections should be logged to the queue logs.</description>
+	<depends>
+		<module>ivr ge 2.11.0.1</module>
+		<version>2.11.0alpha1</version>
+		<phpversion>5.3.0</phpversion>
+	</depends>
+	<menuitems>
+		<queuemetrics>QueueMetrics</queuemetrics>
+	</menuitems>
+	<changelog>
+		*2.11.0.3* Initial Issabel Foundation release
+		*2.11.0.2* Include license file
+		*2.11.0.1* Packaging of ver 2.11.0.1
+		*2.11.0.0* Move from contributed to 2.11 branch
+		*2.10.0.3* Fix QueueMetrics naming
+		*2.10.0.2* Need to log to NONE for queuename for QueueMetrics
+		*2.10.0.1* Change the way data is logged for QueueMetrics
+		*2.10.0.0* First Implementation
+	</changelog>
+	<supported>
+		<version>2.11</version>
+	</supported>
+	<location>release/2.11/queuemetrics-2.11.0.1.tgz</location>
+	<md5sum>241405bdd47b1c4f5f53cfd8f2cc72d1</md5sum>
+</module>

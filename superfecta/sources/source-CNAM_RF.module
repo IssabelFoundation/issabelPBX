@@ -1,0 +1,35 @@
+<?php
+
+class CNAM_RF extends superfecta_base 
+{
+	public $description = "This module provides lookups from CNAM RF system and 2GIS directory. It works only in the Russian Federation. For more information and registration visit site: http://cnamrf.ru";
+	public $version_requirement = "2.11";
+	public $source_param = array(
+		'API_Key' => array(
+			'description' => 'API key is available in your account at the website: http://cnamrf.ru/cabinet/',
+			'type' => 'text'
+		)
+	);
+
+	function get_caller_id($thenumber, $run_param = array()) 
+	{
+		$caller_id = null;
+
+		if (!$this->IsValidNumber('RU', $thenumber)) {
+			$this->DebugPrint('Skipping Source - Not a valid RU number: ' . $thenumber);
+		} else {
+			$this->DebugPrint('Searching in CNAM RF database ... ');
+
+			$url = "http://api.cnamrf.ru/getName/{$thenumber}/?apikey={$run_param['API_Key']}&client=IssabelPBX";
+			$aname = json_decode($this->get_url_contents($url));
+
+			if (!$aname->error) {
+				$caller_id = $aname->translit;
+			} else {
+				$this->DebugPrint($aname->message);
+			}
+
+		}
+		return($caller_id);
+	}
+}

@@ -1,0 +1,621 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2011 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2011.
+#
+# Use iconv sipsettings.pot -f UTF-8 -t ISO-8859-5 -o sipsettings.po
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-04-06 17:27+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "%s must be a non-negative integer"
+msgstr "%s должен быть неотрицательным целым числом"
+
+msgid "Bind Address (bindaddr) must be an IP address."
+msgstr "Адрес (bindaddr) должен быть в виде четырёх октетов ИП адреса"
+
+msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
+msgstr ""
+"Порт (bindport) должен быть иметь значение между 1024 и 65535, дефолтное "
+"значение - 5060"
+
+msgid "rtpholdtimeout must be higher than rtptimeout"
+msgstr "rtpholdtimeout должен быть больше чем rtptimeout"
+
+#, php-format
+msgid "%s must be alphanumeric"
+msgstr "%s должен быть буквенным"
+
+msgid "External IP can not be blank"
+msgstr "Внешний ИП адрес не может быть пустым"
+
+msgid "Dynamic Host can not be blank"
+msgstr "Динамическое значение имени хоста не может быть пустым"
+
+msgid "Localnet setting must be an IP address"
+msgstr "Параметр Localnet должен быть в виде ИП адреса сети"
+
+msgid "Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)"
+msgstr ""
+
+msgid "checking for sipsettings table.."
+msgstr "проверяем таблицу sipsettings.."
+
+msgid "none, creating table"
+msgstr "отсутствует, создание таблицы"
+
+msgid "populating default codecs.."
+msgstr "указание кодеков по умолчанию.."
+
+msgid "fatal error occurred populating defaults, check module"
+msgstr ""
+"произошла неустранимая ошибка при указании дефолтных значений, проверьте "
+"модуль"
+
+msgid "ulaw, alaw, gsm added"
+msgstr "добавлены ulaw, alaw, gsm"
+
+msgid "already exists"
+msgstr "уже существует"
+
+msgid "Failed to auto-detect settings"
+msgstr "Не удалось распознать настройки автоматически"
+
+msgid "Failed to auto-detect local network settings"
+msgstr "Не удалось распознать сетевые настройки автоматически"
+
+msgid "Add Field"
+msgstr ""
+
+msgid "Auto Configure"
+msgstr ""
+
+msgid "Add Local Network Field"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "Edit Settings"
+msgstr "Редактировать настройки"
+
+msgid "ERRORS"
+msgstr "ОШИБКИ"
+
+msgid "NAT Settings"
+msgstr "Настройки NAT"
+
+msgid "NAT"
+msgstr "NAT"
+
+msgid ""
+"Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no "
+"= Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT "
+"mode or RFC3581 <br /> route = Assume NAT, don't send rport"
+msgstr ""
+"Настройки NAT в Астериск:<br /> yes = Всегда игнорировать пакет info и "
+"предполагать NAT<br /> no = Использовать режим NAT в соостветствии с RFC3581 "
+"<br /> never = Никогда не пытаться использовать NAT или RFC3581 <br /> route "
+"= предполагая NAT не указывать rport"
+
+msgid "IP Configuration"
+msgstr "Конфигурация ИП"
+
+msgid ""
+"Indicate whether the box has a public IP or requires NAT settings. Automatic "
+"configuration of what is often put in sip_nat.conf"
+msgstr ""
+"Указывается: стоит ли станция на публичном ИП адресе или требуются настройки "
+"NAT. Автоматическая настройка сохраняется как правило в sip_nat.conf"
+
+msgid "Public IP"
+msgstr "Публичный ИП"
+
+msgid "Static IP"
+msgstr "Статический ИП"
+
+msgid "Dynamic IP"
+msgstr "Динамический ИП"
+
+msgid "External IP"
+msgstr "Внешний ИП"
+
+msgid ""
+"External Static IP or FQDN as seen on the WAN side of the router. (asterisk: "
+"externip)"
+msgstr ""
+"Внешний статический ИП или полное доменное имя FQDN в качестве WAN "
+"интерфейса маршрутизатора. (Параметр asterisk: externip)"
+
+msgid "Dynamic Host"
+msgstr "Динамический хост"
+
+msgid ""
+"External FQDN as seen on the WAN side of the router and updated dynamically, "
+"e.g. mydomain.dyndns.com. (asterisk: externhost)"
+msgstr ""
+"Внешнее полное доменное имя FQDN на WAN интерфейсе маршрутизатора, "
+"обновляемое динамически, например mydomain.dyndns.com. (Параметр Аsterisk: "
+"externhost)"
+
+msgid "Refresh Rate"
+msgstr "Частота обновления"
+
+msgid ""
+"Asterisk: externrefresh. How often to lookup and refresh the External Host "
+"FQDN, in seconds."
+msgstr ""
+"Параметр Аsterisk: externrefresh. Как часто происходит обновление информации "
+"резольвера по имени FQDN, в секундах."
+
+msgid "Local Networks"
+msgstr "Локальные сети"
+
+msgid ""
+"Local network settings (Asterisk: localnet) in the form of ip/mask such as "
+"192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use the Add "
+"Local Network Field button for more fields. Blank fields will be removed "
+"upon submitting."
+msgstr ""
+"Настройка локальных сетей (Параметр Asterisk: localnet) в форме ИП/маска, "
+"например 192.168.1.0/255.255.255.0. Для сетей с более чем одной подсетью "
+"используйте кнопку Добавить поле для локальной сети. Пустые поля будут "
+"удалены после добавления."
+
+msgid "Audio Codecs"
+msgstr "Аудио кодеки"
+
+msgid "Codecs"
+msgstr "Кодеки"
+
+msgid ""
+"Check the desired codecs, all others will be disabled unless explicitly "
+"enabled in a device or trunks configuration. Drag to re-order."
+msgstr ""
+
+msgid "Non-Standard g726"
+msgstr "Нестандартный g726"
+
+msgid ""
+"Asterisk: g726nonstandard. If the peer negotiates G726-32 audio, use AAL2 "
+"packing order instead of RFC3551 packing order (this is required for Sipura "
+"and Grandstream ATAs, among others). This is contrary to the RFC3551 "
+"specification, the peer _should_ be negotiating AAL2-G726-32 instead."
+msgstr ""
+"Параметр Asterisk: g726nonstandard. Если пир распознаёт G726-32 аудио, "
+"используется AAL2 порядок распаковки вместо RFC3551 (обычно требуется для "
+"терминалов Sipura и Grandstream, в числе других). Это противоречит "
+"спецификации RFC3551, где установлено распознавание устройствами "
+"специального типа payload AAL2-G726-32 вместо G726-32."
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "T38 Pass-Through"
+msgstr "Прозрачное пропускание T38 "
+
+msgid ""
+"Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP channels "
+"that support sending/receiving T38 Fax codecs to pass the call. Asterisk can "
+"not process the media."
+msgstr ""
+"Параметр Asterisk: t38pt_udptl. Используется Т38 транзитно, если включено. "
+"Данный канал SIP поддерживает посылку/приём факс-протокола Т38 для "
+"прохождения вызова. Сам Астериск не обрабатывает при этом медиа поток."
+
+msgid "Video Codecs"
+msgstr "Видео кодеки"
+
+msgid "Video Support"
+msgstr "Поддержка видео"
+
+msgid "Check to enable and then choose allowed codecs."
+msgstr "Отметить если необходимо, и затем выбрать разрешаемые кодеки."
+
+msgid ""
+" If you clear each codec and then add them one at a time, submitting with "
+"each addition, they will be added in order which will effect the codec "
+"priority."
+msgstr ""
+"Если очистите таблицу кодеков и затем добавите по одному, они будут "
+"использоваться в таком же порядке в приоритетах выбора кодеков."
+
+msgid "Enabled"
+msgstr "Включено"
+
+msgid "Disabled"
+msgstr "Выключено"
+
+msgid "Max Bit Rate"
+msgstr "Макимальная полоса пропускания"
+
+msgid "Maximum bitrate for video calls in kb/s"
+msgstr "Максимальная полоса пропускания для видео звонков в кбит/сек"
+
+msgid "kb/s"
+msgstr "кбит/сек"
+
+msgid "MEDIA & RTP Settings"
+msgstr "Установки Медиа и RTP"
+
+msgid "Reinvite Behavior"
+msgstr "Поведение Reinvite"
+
+msgid ""
+"Asterisk: canreinvite. yes: standard reinvites; no: never; nonat: An "
+"additional option is to allow media path redirection (reinvite) but only "
+"when the peer where the media is being sent is known to not be behind a NAT "
+"(as the RTP core can determine it based on the apparent IP address the media "
+"arrives from; update: use UPDATE for media path redirection, instead of "
+"INVITE. (yes = update + nonat)"
+msgstr ""
+"Параметр Asterisk: canreinvite. yes: стандартный реинвайт; no: никогда; "
+"nonat: дополнительная опция, разрешающая перенаправить медиа поток "
+"(реинвайт), но только если пир установлен не за NAT (RTP может определить "
+"это на основе ИП адресов абонентов) update: используется специальный SIP "
+"пакет UPDATE для приняти решения о перенаправлении вместо пакета INVITE. "
+"(Значение yes соответствует = update + nonat)"
+
+msgid "yes"
+msgstr "да"
+
+msgid "no"
+msgstr "нет"
+
+msgid "RTP Timers"
+msgstr "RTP таймеры"
+
+msgid ""
+"Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP "
+"activity on the audio channel when we're not on hold. This is to be able to "
+"hangup a call in the case of a phone disappearing from the net, like a "
+"powerloss or someone tripping over a cable.<br /> Asterisk: rtpholdtimeout. "
+"Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the "
+"audio channel when we're on hold (must be > rtptimeout). <br /> Asterisk: "
+"rtpkeepalive. Send keepalives in the RTP stream to keep NAT open during "
+"periods where no RTP stream may be flowing (like on hold)."
+msgstr ""
+"Параметр Asterisk: rtptimeout. Завершает звонок если в установленное в "
+"секундах значение rtptimeout не обнаруживается активности RTP или RTCP в "
+"аудио канале, если абонент не поставлен на Hold (ожидание). Это позволяет "
+"завершить звонок в случае внезапного пропадания телефона из ИП сети, "
+"например потеря питания или повреждение кабеля Ethernet.<br />Параметр "
+"Asterisk: rtpholdtimeout. Завершает звонок если в установленное в секундах "
+"значение rtpholdtimeout не обнаруживается активности RTP или RTCP в аудио "
+"канале при состоянии on Hold (в ожидании). Значение должно быть > чем "
+"rtptimeout.<br /> Asterisk: rtpkeepalive. Посылает пакеты rtpkeepalive в RTP "
+"поток для поддержки открытых динамических трансляций NAT в то время, когда "
+"RTP поток может идти (например на удержании)."
+
+msgid "Notification & MWI"
+msgstr "Уведомления и Индикатор ожидающих сообщений (MWI)"
+
+msgid "MWI Polling Freq"
+msgstr "Частота запросов MWI"
+
+msgid ""
+"Frequency in seconds to check if MWI state has changed and inform peers."
+msgstr ""
+"Частота в секундах, когда состояние индикатора MWI будет изменяться и "
+"информировать пиры."
+
+msgid "Notify Ringing"
+msgstr "Информация о наличии звонка"
+
+msgid ""
+"Control whether subscriptions already INUSE get sent RINGING when another "
+"call is sent. Useful when using BLF."
+msgstr ""
+"Контролирует внутренний номер о состоянии абонента INUSE получением пакета "
+"RINGING если уже принят один звонок. Удобно при использовании BLF - Busy "
+"Lamp Functionality."
+
+msgid "Notify Hold"
+msgstr "Информация о статусе ожидания"
+
+msgid ""
+"Control whether subscriptions INUSE get sent ONHOLD when call is placed on "
+"hold. Useful when using BLF."
+msgstr ""
+"Контролирует внутренний номер о состоянии абонента INUSE получением пакета "
+"ONHOLD если звонок поставлен на ожидание Удобно при использовании BLF - Busy "
+"Lamp Functionality."
+
+msgid "Registration Settings"
+msgstr "Установки регистрации"
+
+msgid "Registrations"
+msgstr "Регистрация"
+
+msgid ""
+"Asterisk: registertimeout. Retry registration attempts every registertimeout "
+"seconds until successful or until registrationattempts tries have been made."
+"<br /> Asterisk: registrationattempts. Number of times to try and register "
+"before giving up. A value of 0 means keep trying forever. Normally this "
+"should be set to 0 so that Asterisk will continue to register until "
+"successful in the case of network or gateway outages."
+msgstr ""
+"Параметр Asterisk: registertimeout. Повторяет попытки регистрации каждые N "
+"секунд, указанные в registertimeout до успешной регистрации, или при "
+"достижении указанного ограничения в registrationattempts.<br />Параметр "
+"Asterisk: registrationattempts. Количество попыток регистрации. Значение 0 "
+"соответствует бесконечному числу попыток. Обычное значение указывается в 0 "
+"для того, чтобы Астериск продолжал попытки зарегистрироваться при пропадании "
+"локальной сети или маршрута в публичных сетях."
+
+msgid "Registration Times"
+msgstr "Количество регистраций"
+
+msgid ""
+"Asterisk: minexpiry. Minimum length of registrations/subscriptions.<br /> "
+"Asterisk: maxepiry. Maximum allowed time of incoming registrations<br /> "
+"Asterisk: defaultexpiry. Default length of incoming and outgoing "
+"registrations."
+msgstr ""
+"Параметр Asterisk: minexpiry. Минимальное значение действия регистрации/"
+"подписки.<br />Параметр Asterisk: maxepiry. Максимально возможное время "
+"действия вхоядщих регистраций.<br />Параметр Asterisk: defaultexpiry. "
+"Дефолтное значение действия входящих и исходящих регистраций."
+
+msgid "Jitter Buffer Settings"
+msgstr "Установки джиттер-буфера"
+
+msgid "Jitter Buffer"
+msgstr "Джиттер-буфер"
+
+msgid ""
+"Asterisk: jbenable. Enables the use of a jitterbuffer on the receiving side "
+"of a SIP channel. An enabled jitterbuffer will be used only if the sending "
+"side can create and the receiving side can not accept jitter. The SIP "
+"channel can accept jitter, thus a jitterbuffer on the receive SIP side will "
+"be used only if it is forced and enabled. An example is if receiving from a "
+"jittery channel to voicemail, the jitter buffer will be used if enabled. "
+"However, it will not be used when sending to a SIP endpoint since they "
+"usually have their own jitter buffers. See jbforce to force it's use always."
+msgstr ""
+"Параметр Asterisk: jbenable. Используйте опцию джиттер-буфер на принимающей "
+"стороне канала SIP. Включеный буфер будет задействован только если "
+"посылающая сторона может создать джиттер (дрожжание звука) в канале, а "
+"принимающая сторона не поддерживает джиттер. В таком случае сам канал SIP "
+"содаст поддержку джиттера на принимающей стороне буферизируя поток, если "
+"будут включены опции jbenable и jbforce (ниже). Например, такая обработка "
+"может быть задействована при записи дрожащего канала в голосовую почту, "
+"буфер будет использоваться если он включен. Однако он не будет задействован, "
+"если посылающая SIP сторона уже имеет свой собственный джиттер-буфер. "
+"Смотрите опцию jbforce форсировать использование буфера во всех случаях."
+
+msgid "Force Jitter Buffer"
+msgstr "Форсировать использование джиттер-буфера"
+
+msgid ""
+"Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side of a "
+"SIP channel. Normally the jitter buffer will not be used if receiving a "
+"jittery channel but sending it off to another channel such as another SIP "
+"channel to an endpoint, since there is typically a jitter buffer at the far "
+"end. This will force the use of the jitter buffer before sending the stream "
+"on. This is not typically desired as it adds additional latency into the "
+"stream."
+msgstr ""
+"Параметр Asterisk: jbforce. Форсирует использование джиттер-буфера на "
+"принимающей стороне канала SIP. Обычным образом джиттер-буфер не "
+"используется, если посылаемый аудио сигнал в канале имеет признаки джитера, "
+"но необходимо отключать его при отправке в SIP канал удалённой стороне, то "
+"есть типичная ситуация при использовании джиттер-буфера на удалённой "
+"стороне. Эта опция форсирует использование буфера перед отправкой речевого "
+"потока в канал. Это не типичная ситуация, и выбирая её понимаем, что тем "
+"самым вносим дополнительную задержку в поток."
+
+msgid "Implementation"
+msgstr "Применение"
+
+msgid ""
+"Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of "
+"a SIP channel. Two implementations are currently available:<br /> fixed: "
+"size always equals to jbmaxsize;<br /> adaptive: with variable size (the new "
+"jb of IAX2)."
+msgstr ""
+"Параметр Asterisk: jbimpl. Применение джиттер-буфера на принимающей стороне "
+"канала SIP. Две способа реализации доступны:<br /> фиксированный: размер "
+"буфера постоянный и соответствует значению jbmaxsize;<br /> адаптивный: "
+"размер буфера имеет динамически изменяемый размер (это новая реализация "
+"джиттер-буфера в протоколе IAX2)"
+
+msgid "Fixed"
+msgstr "Фиксированный"
+
+msgid "Adaptive"
+msgstr "Адаптивный"
+
+msgid "Jitter Buffer Logging"
+msgstr "Журналирование джиттер-буфера"
+
+msgid "Asterisk: jblog. Enables jitter buffer frame logging."
+msgstr ""
+"Параметр Asterisk: jblog. Включает журналирование фреймов джиттер-буфера"
+
+msgid "Enable"
+msgstr "Включить"
+
+msgid "Disable"
+msgstr "Выключить"
+
+msgid "Jitter Buffer Size"
+msgstr "Размер джиттер-буфера"
+
+msgid ""
+"Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> "
+"Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the "
+"jitterbuffer is resynchronized. Useful to improve the quality of the voice, "
+"with big jumps in/broken timestamps, usually sent from exotic devices and "
+"programs. Can be set to -1 to disable."
+msgstr ""
+"Параметр Asterisk: jbmaxsize. Максимальная длина джиттер-буфера в "
+"милисекундах.<br /> Параметр Asterisk: jbresyncthreshold. Переход к "
+"следующей метке времени во фрейме при потере синхронизации в джиттер-буфере. "
+"Обычно повышает качество голоса при наличии больших разрывов и/или "
+"повреждённых метках времени. Обычно такой неравномерный поток посылают "
+"экзотические устройства и программы. Можно установить значение -1 для "
+"выключения опции."
+
+msgid "Advanced General Settings"
+msgstr "Дополнительные основные настройки"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Default Language for a channel, Asterisk: language"
+msgstr "Дефолтный язык в канале, параметр Asterisk: language"
+
+msgid "Default Context"
+msgstr "Дефолтный контекст"
+
+msgid ""
+"Asterisk: context. Default context for incoming calls if not specified. "
+"IssabelPBX sets this to from-sip-external which is used in conjunction with the "
+"Allow Anonymous SIP calls. If you change this you will effect that behavior. "
+"It is recommended to leave this blank."
+msgstr ""
+"Параметр Asterisk: context. Дефолтный контекст для входящих звонков если не "
+"указан во IssabelPBX на from-sip-external, в котором обрабатываются входяшие в "
+"соответствии с опцией Разрешить анонимные SIP звонки."
+
+msgid ""
+"Asterisk: bindaddr. The IP address to bind to and listen for calls on the "
+"Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is "
+"recommended to leave this blank."
+msgstr ""
+"Параметр Asterisk: bindaddr. ИП адрес, на котором \"слушаются\" входяшие "
+"вызовы на выбранном порту. Если установлено в 0.0.0.0 Asterisk будет слушать "
+"на всех доступных ИП адресах. Рекомендуем оставить это поле пустым."
+
+msgid ""
+"Asterisk 1.8 all supports IPv6. An address of '::' will listen on both IPv4 "
+"and IPv6."
+msgstr ""
+
+msgid "Bind Address"
+msgstr "Связывание с адресом"
+
+msgid "Bind Port"
+msgstr "Порт"
+
+msgid ""
+"Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and "
+"listen for SIP messages. The SIP standard is 5060 and in most cases this is "
+"what you want. It is recommended to leave this blank."
+msgstr ""
+"Параметр Asterisk: bindport. Входящий порт UDP на котором Asterisk будет "
+"слушать сообщения SIP. Стандартный для SIP порт 5060, в большинстве случаев "
+"его достаточно. Рекомендуем также оставить поле пустым."
+
+msgid "Allow SIP Guests"
+msgstr "Разрешить неавторизованные SIP вызовы"
+
+msgid ""
+"Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send "
+"them to the Default SIP context. Turning this off will keep anonymous SIP "
+"calls from entering the system. However, the Allow Anonymous SIP calls from "
+"the General Settings section will not function. Allowing guest calls but "
+"rejecting the Anonymous SIP calls in the General Section will enable you to "
+"see the call attempts and debug incoming calls that may be mis-configured "
+"and appearing as guests."
+msgstr ""
+"Параметр Asterisk: allowguest. Если указан, то Asterisk принимает "
+"неизвестные SIP вызовы и обрабатывает их в дефолтном для SIP контексте по "
+"умолчанию. Если же он выключен, то это защищает систему от ненужных "
+"неизвестных SIP вызовов. Однако разрешение анонимных вызовов в разделе "
+"Основные настройки не сработает. Разрешение неавторизованных вызовов в этой "
+"секции но запрещение анонимных вызовов в разделе Основные настройки видеть "
+"попытки таких входящих вызовов и анализировать их на на предмет выявления "
+"ошибочной конфигурации и распознаваемых как неавторизованные гостевые."
+
+msgid "SRV Lookup"
+msgstr "Поиск записей SRV"
+
+msgid ""
+"Enable Asterisk srvlookup. See current version of Asterisk for limitations "
+"on SRV functionality."
+msgstr ""
+"Включение параметра Asterisk srvlookup. Смотрите в описание вашей текущей "
+"версии Asterisk для информации об ограничениях функциональности SRV."
+
+msgid "Call Events"
+msgstr ""
+
+msgid "Generate manager events when sip ua performs events (e.g. hold)."
+msgstr ""
+
+msgid "Other SIP Settings"
+msgstr "Другие настройки SIP"
+
+msgid ""
+"You may set any other SIP settings not present here that are allowed to be "
+"configured in the General section of sip.conf. There will be no error "
+"checking against these settings so check them carefully. They should be "
+"entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the "
+"Add Field box to add additional fields. Blank boxes will be deleted when "
+"submitted."
+msgstr ""
+"Здесь можно также добавлять другие параметры SIP которые допустимы в "
+"конфигурации секции [general] файла sip.conf. Здесь нет автоматической "
+"проверки синтаксиса параметров, поэтому будьте осторожны. Укажите их "
+"построчно в формате: параметр = значение<br /> [setting] = [value]<br /> в "
+"поле ниже. Кликните на Добавить поле чтобы указать ещё параметры. Пустые "
+"поля будут удалены при применении."
+
+#, php-format
+msgid "Settings in %s may override these. Those settings should be removed."
+msgstr ""
+"Параметры, установленные в %s будет перебивать указанные здесь ниже. Они "
+"должны быть удалены."
+
+#, php-format
+msgid ""
+"File %s should not have any settings in it. Those settings should be removed."
+msgstr ""
+"Файл %s не имеет каких либо значений. Такие параметры должны быть удалены."
+
+msgid "Asterisk SIP Settings"
+msgstr "Установки Asterisk для SIP"
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Use to configure Various Asterisk SIP Settings in the General section of sip."
+"conf. Also includes an auto-configuration tool to determine NAT settings. "
+"The module assumes Asterisk version 1.4 or higher. Some settings may not "
+"exist in Asterisk 1.2 and will be ignored by Asterisk."
+msgstr ""
+"Используется для конфигурации различных параметров SIP в Астериск в секции "
+"[general] файла sip.conf. Также содержит параметры автоконфигурации для "
+"распознавания настроек NAT. Модуль предполагает наличие Asterisk версий 1.4 "
+"и выше. Некоторые параметры просто не существуют в версии 1.2 и будут "
+"игнорироваться Asterisk."

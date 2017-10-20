@@ -1,0 +1,158 @@
+<?php
+
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Developer Notes:
+iAddressBook has a proper API documented here: http://iaddressbook.org/wiki/docs:xmlrpc
+but it is not clear that it would be able to return CNAM based on a number search and I couldn't
+figure it out anyway
+iAddressBook installer supports both mysql and sqlite (possibly postgre as well). This module was
+only tested using mysql. Both mysql and sqlite are available user options but there is currently no check
+to ensure that both drivers are available to the PDO class
+
+
+Version History
+2013-12-31  Initial commit by lgaetz
+2014-01-01	Added filter length and phone label by regex, other minor edits by lgaetz
+*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+
+
+class iAddressBook extends superfecta_base {
+
+	public $description = "Performs search of iAddressBook database";
+	public $version_requirement = "2.11";
+	public $source_param = array(
+		'DB_Driver' => array(
+				'description' => 'Choose iAddressBook database type.',
+				'type' => 'select',
+				'option' => array(
+					'mysql' => 'mysql',
+					'sqlite' => 'sqlite',
+				),
+				'default' => 'mysql',
+		),
+		'DB_Host' => array(
+				'description' => 'Host address of the database. (localhost if the database is on the same server as IssabelPBX)',
+				'type' => 'text',
+				'default' => 'localhost',
+		),
+		'DB_Name' => array(
+				'description' => 'Database name of the database',
+				'type' => 'text',
+				'default' => 'iaddressbook',
+		),
+		'DB_User' => array(
+				'description' => 'Username used to connect to the database',
+				'type' => 'text',
+				'default' => 'root',
+		),
+		'DB_Password' => array(
+				'description' => 'Password used to connect to the database',
+				'type' => 'password',
+				'default' => 'passw0rd',
+		),
+	   'Filter_Length' => array(
+				'description' => 'The number of rightmost digits to check for a match. Enter zero to disable this setting',
+				'type' => 'number',
+				'default' => 10
+		),
+		'Name_Display_Format' => array(
+				'description' => 'Choose how you want the name displayed on the endpoint.',
+				'type' => 'select',
+				'option' => array(
+					1 => 'Last-name, First-name',
+					2 => 'First-name Last-name',
+					3 => 'First-name Last-name Phone-label',
+                ),
+				'default' => '1',
+		),
+		'Use_Company_Name' => array(
+			'description' => 'Substitute the Company in place of the name if a Company name is defined and if "Show as Company" is enabled',
+			'type' => 'checkbox',
+			
+		),
+	);
+
+	// this function needs to check for available drivers and only return mysql and sqlite
+//	function __construct() {
+//		if(class_exists('PDO')) {
+//			$this->source_param['DB_Driver']['option'] = array_combine(PDO::getAvailableDrivers(),PDO::getAvailableDrivers());
+//		}
+//	}
+
+	function get_caller_id($thenumber, $run_param=array()) {
+		$caller_id = null;
+		
+		if(class_exists('PDO')) {
+				$this->DebugPrint("Connecting to iAddressBook database....");
+		
+			try {
+				$dbh = new PDO($run_param['DB_Driver'].':dbname='.$run_param['DB_Name'].';host='.$run_param['DB_Host'], $run_param['DB_User'], $run_param['DB_Password']);
+			} catch (PDOException $e) {
+				$this->DebugPrint('Connection failed: ' . $e->getMessage());
+				return null;
+			}
+		} else {
+			$this->DebugPrint("PDO not present on system...Skipping");
+			return null;
+		}
+
+		// trim leading digits beyond the filter length
+		if ($run_param['Filter_Length'] != 0) {
+			if (strlen($thenumber) > $run_param['Filter_Length']) $thenumber = substr($thenumber, -$run_param['Filter_Length']);
+		}
+
+		//  Build regular expression from the modified $thenumber to avoid non-digit characters stored in database
+		$regex = "[^0-9]*";
+		for( $x=0; $x < ((strlen($thenumber))-1); $x++ )  {
+			$regex .=  substr($thenumber,$x,1)."[^0-9]*";
+		}
+		$regex = $regex.(substr($thenumber,-1))."([^0-9]+|$)";
+
+		$sql_params = array();
+		$sql = "SELECT * from `addressbook` WHERE `phones` REGEXP '".$regex."'";
+
+		$sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+		if(!$sth) {
+			$this->DebugPrint("Failed to Prepare the SQL Statement. Are we connected?...Skipping");
+			return null;
+		}
+		$this->DebugPrint("Connected to database, searching ...");
+		$sth->execute($sql_params);
+		$find = $sth->fetch(PDO::FETCH_BOTH);
+
+		if($find && is_array($find)) {
+			$this->DebugPrint("Found ...");
+			
+			// phone numbers and number labels are all returned in a single string, $find['phones']
+			// these lines break the `phones` string into an array of numbers with label keys
+			$phones_array = array();
+			$lines = explode("\n", $find['phones']);
+			foreach ($lines as $line) {
+				$tmp = explode(";", $line); 
+				$phones_array[trim($tmp[0])] = trim($tmp[1]);
+			}
+
+			// searches phone number array with regex and returns key for that number
+			$key_array = array_keys(preg_grep("/".$regex."/", $phones_array));
+			$phone_label = trim($key_array[0]);
+
+			if ($find['company'] == 1 && $find['organization'] && $run_param['Use_Company_Name'] == 'on') {
+				return trim($find['organization']);
+			}
+			else if ($run_param['Name_Display_Format'] == '1') {
+				return trim($find['lastname'].",".$find['firstname']);
+			}
+			else if ($run_param['Name_Display_Format'] == '2') {
+				return trim($find['firstname']." ".$find['lastname']);
+			}
+			else if ($run_param['Name_Display_Format'] == '3') {
+				return trim($find['firstname']." ".$find['lastname']." ".$phone_label);
+			}
+			
+		} else {
+			$this->DebugPrint("Not Found");
+			return null;
+		}
+	}
+}
+

@@ -1,0 +1,694 @@
+<?php
+
+/**
+ * @file
+ * Functions for the interface to the call monitor recordings
+ */
+
+/**
+  * Class for Followme
+  */
+class followme {
+
+  var $protocol_table;
+  var $protocol_config_files;
+
+  /*
+   * rank (for prioritizing modules)
+   */
+  function rank() {
+
+	$rank = 5;
+	return $rank;
+  }
+
+  /*
+   * init
+   */
+  function init() {
+
+  }
+
+  /*
+   * Adds menu item to nav menu
+   *
+   * @param $args
+   *   Common arguments
+   */
+  function navMenu($args) {
+	global $ARI_ADMIN_USERNAME;
+	$ret = '';
+	
+	$exten = $_SESSION['ari_user']['extension'];
+	if ($exten!=$ARI_ADMIN_USERNAME) {
+		$ret = "<small><small><a href='" . $_SESSION['ARI_ROOT'] . "?m=followme&f=display'>" . _("Follow Me") . "</a></small></small>";
+	}
+
+	return $ret;
+  }
+
+  /*
+   * Acts on the user settings
+   *
+   * @param $args
+   *   Common arguments
+   * @param $a
+   *   action
+   */
+  function action($args) {
+
+	global $STANDALONE;
+	global $ARI_ADMIN_USERNAME;
+	global $SETTINGS_ALLOW_VMX_SETTINGS;
+
+	// args
+	$m = getArgument($args,'m');
+	$a = getArgument($args,'a');
+
+	$lang_code = getArgument($args,'lang_code');
+
+	$follow_me_prering_time			= getArgument($args,'follow_me_prering_time');
+	$follow_me_listring_time		= getArgument($args,'follow_me_listring_time');
+	$follow_me_list					= getArgument($args,'follow_me_list');
+	$follow_me_confirm				= getArgument($args,'follow_me_confirm');
+	$follow_me_ddial				= getArgument($args,'follow_me_ddial');
+	$follow_me_disabled				= getArgument($args,'follow_me_disabled');
+
+	$language = new Language();
+
+	// Lets see if we can make heads or tails of this code?!?
+	
+	// The action is 'update
+	if ($a=='update') {
+
+		// Get the extension and make sure we are not in 
+		// admin mode
+		$exten = $_SESSION['ari_user']['extension'];
+		if ($exten!=$ARI_ADMIN_USERNAME) {
+	
+	
+			// Make sure Follow-Me setup has not been deleted for this user since the last refresh
+			$follow_me_disabled_delayed = $_COOKIE['ari_follow_me_disabled'];
+			if (! $_COOKIE['ari_follow_me_disabled']) {
+			
+				$follow_me_disabled = ($this->getFollowMeListRingTime($exten) > 0)?0:1;
+				
+				if ($follow_me_disabled) {
+					
+					setcookie("ari_follow_me_disabled", $follow_me_disabled, time()+365*24*60*60);
+					$follow_me_disabled_delayed = $follow_me_disabled;
+					$_SESSION['ari_error'] = 
+					_("Your Follow-Me has been disabled, REFRESH your browser to remove this message") . "<br>" .
+					sprintf(_("Check with your Telephone System Administrator if you think there is a problem"));
+				}
+			}
+	
+	
+	
+			if (! $follow_me_disabled_delayed) {
+	
+				// assume no errors, don't update SQL if errors occured
+				$follow_me_update_succeeded=1;
+				
+				// update follow me pre-ring time
+				if (!$STANDALONE['use']) {
+				
+					$stripped_follow_me_prering_time = preg_replace('/-|\s/','',$follow_me_prering_time);
+					if (!is_numeric($stripped_follow_me_prering_time)) {
+						$_SESSION['ari_error'] = 
+						_("Follow-Me pre-ring time not changed") . "<br>" .
+						sprintf(_("Number %s must be an integer number of seconds"),$follow_me_prering_time);
+						$follow_me_update_succeeded=0;
+					}
+					else {
+						
+						// set database
+						$this->setFollowMePreRingTime($exten,$stripped_follow_me_prering_time);
+						
+						// store cookie
+						$stripped = preg_replace('/-|\s/','',$_COOKIE['ari_follow_me_prering_time']);
+						if ($follow_me_prering_time && $stripped!=$stripped_follow_me_prering_time) {
+							setcookie("ari_follow_me_prering_time", $follow_me_prering_time, time()+365*24*60*60);
+						}
+					}
+				}
+	  
+				// update follow me list ring time
+				if (!$STANDALONE['use']) {
+				
+					$stripped_follow_me_listring_time = preg_replace('/-|\s/','',$follow_me_listring_time);
+					if (!is_numeric($stripped_follow_me_listring_time)) {
+						$_SESSION['ari_error'] = 
+						_("Follow-Me list ring time not changed") . "<br>" .
+						sprintf(_("Number %s must be an integer number of seconds"),$follow_me_listring_time);
+						$follow_me_update_succeeded=0;
+					}
+					else {
+					
+						// set database
+						$this->setFollowMeListRingTime($exten,$stripped_follow_me_listring_time);
+						
+						// store cookie
+						$stripped = preg_replace('/-|\s/','',$_COOKIE['ari_follow_me_listring_time']);
+						if ($follow_me_listring_time && $stripped!=$stripped_follow_me_listring_time) {
+							setcookie("ari_follow_me_listring_time", $follow_me_listring_time, time()+365*24*60*60);
+						}
+					}
+				}
+	  
+				// update follow me list 
+				if (!$STANDALONE['use']) {
+				
+					$grplist = explode("\n", $follow_me_list);
+					
+					if (!$grplist) {
+						$grplist = null;
+					}
+					
+					foreach (array_keys($grplist) as $key) {
+						//trim it
+						$grplist[$key] = trim($grplist[$key]);
+						
+						// Lookup the extension and append hash if not a user, and remove invalid chars
+						$grplist[$key] = $this->lookupSetExtensionFormat($grplist[$key]);
+						
+						// remove blanks
+						if ($grplist[$key] == "") unset($grplist[$key]);
+					}
+					
+					// check for duplicates, and re-sequence
+					$grplist = array_values(array_unique($grplist));
+					
+					$stripped_follow_me_list = implode("-",$grplist);
+					
+					if ($stripped_follow_me_list == "") {
+						$_SESSION['ari_error'] = 
+						_("Follow-Me list must contain at least one valid number") . "<br>" .
+						sprintf(_("The following: %s is not valid"),$follow_me_list);
+						$follow_me_update_succeeded=0;
+					}
+					else {
+					
+						// set database
+						$this->setFollowMeList($exten,$stripped_follow_me_list);
+						
+						// store cookie
+						$stripped = preg_replace('/|\(|\)|\s/','',$_COOKIE['ari_follow_me_list']);
+						if ($follow_me_list && $stripped!=$stripped_follow_me_list) {
+							setcookie("ari_follow_me_list", $follow_me_list, time()+365*24*60*60);
+						}
+					}
+				}
+	  
+				// update follow me confirm
+				if (!$STANDALONE['use']) {
+				
+					// set database
+					$this->setFollowMeConfirm($exten,$follow_me_confirm);
+					$this->setFollowMeDDial($exten,$follow_me_ddial);
+					
+					// store cookie
+					setcookie("ari_follow_me_confirm", $follow_me_confirm, time()+365*24*60*60);
+					setcookie("ari_follow_me_ddial", $follow_me_ddial, time()+365*24*60*60);
+				}
+				
+				//If no errors than update the SQL table to keep in sync
+				if ($follow_me_update_succeeded) {
+					$this->setFollowMeMySQL($exten, $follow_me_prering_time, $follow_me_listring_time, $follow_me_list, $follow_me_confirm);
+				}
+	
+			} //if !follow_me_disabled
+		}
+	}
+
+	// redirect to see updated page
+	$ret .= "
+	  <head>
+		<script>
+		<!--
+		  window.location = \"" . $_SESSION['ARI_ROOT'] . "?m=" . $m . "\"
+		// -->
+		</script>
+	</head>";
+  
+	return $ret;
+  }
+
+  /*
+   * Displays stats page
+   *
+   * @param $args
+   *   Common arguments
+   */
+	function display($args) {
+		
+		global $STANDALONE;
+		global $ARI_ADMIN_USERNAME;
+		global $SETTINGS_PRERING_LOW;
+		global $SETTINGS_PRERING_HIGH;
+		global $SETTINGS_LISTRING_LOW;
+		global $SETTINGS_LISTRING_HIGH;
+		
+		global $SETTINGS_FOLLOW_ME_LIST_MAX;
+		
+		global $loaded_modules;
+		
+		// args
+		$m		= getArgument($args,'m');
+		$q		= getArgument($args,'q');
+		$start	= getArgument($args,'start');
+		$span	= getArgument($args,'span');
+		
+		$displayname	= $_SESSION['ari_user']['displayname'];
+		$exten			= $_SESSION['ari_user']['extension'];
+		
+		$language = new Language();
+		$display = new DisplaySearch();
+		
+		// build controls
+		if ($exten!=$ARI_ADMIN_USERNAME) {
+			
+			// call forward settings
+			if (!$STANDALONE['use']) {
+				
+				$follow_me_prering_time 	= $this->getFollowMePreRingTime($exten);
+				$follow_me_listring_time 	= $this->getFollowMeListRingTime($exten);
+				$follow_me_list 			=  explode("-", $this->getFollowMeList($exten) );
+				$follow_me_confirm 			= $this->getFollowMeConfirm($exten);
+				$follow_me_ddial 			= $this->getFollowMeDDial($exten);
+				
+				$FOLLOW_ME_LIST_MAX = (count($follow_me_list) > $SETTINGS_FOLLOW_ME_LIST_MAX) ? count($follow_me_list):$SETTINGS_FOLLOW_ME_LIST_MAX;
+				
+				//TODO: Set this better than this?
+				$follow_me_disabled = ($follow_me_listring_time > 0)?0:1;
+				setcookie("ari_follow_me_disabled", $follow_me_disabled, time()+365*24*60*60);
+				
+				$followme_text.= "<table class='settings'>";
+				
+				if (!$follow_me_disabled) {
+					// $followme_text .= "<tr><td><h3><br>" . _("Follow Me") . "</h3></td></tr>";
+					$followme_text .= "<tr><td>&nbsp;</td></tr>";	// Blank Line
+					
+					$followme_text .= "<tr><td><a href='#' class='info'>" . _("Enable") . "<span>";
+					$followme_text .= _( 	"Dial-by-name Directory, IVR, and internal 
+													calls will ring the numbers in the FollowMe 
+													List. Any IssabelPBX routes that directly 
+													reference a FollowMe are unaffected by this 
+													enable/disable setting.");
+					$followme_text .= "<br></span></a></td>";
+					
+					$followme_text .= "<td><input " . $follow_me_ddial . " type=checkbox name='follow_me_ddial' value='checked'></td></tr>";
+
+					$followme_text .= "<tr><td>&nbsp;</td></tr>";	// Blank Line										
+					$followme_text .= "<tr><td valign='top'><a href='#' class='info'>" . _("Follow Me List:");
+					$followme_text .= "<span>" . sprintf(_("Extensions and outside numbers to ring next.")) ."<br/><br/>";
+					$followme_text .= sprintf(_("Include %s to keep it ringing."),"<strong>".$exten."</strong>") . "<br></span></a></td>";
+					$followme_text .= "<td><textarea " . $follow_me_list_options . " id='follow_me_list' name='follow_me_list' type='text' cols='20' rows='".$FOLLOW_ME_LIST_MAX."' value='' onKeyUp='rowCounter(this.form.follow_me_list, ".$FOLLOW_ME_LIST_MAX.");' onKeyDown='rowCounter(this.form.follow_me_list, ".$FOLLOW_ME_LIST_MAX.");'>".implode("\n",$follow_me_list)."</textarea>";
+					$followme_text .= "</td></tr>";
+					
+					$followme_text .= "<tr><td>&nbsp;</td></tr>";	// Blank Line															
+					$followme_text .= "<tr><td><a href='#' class='info'>";
+					$followme_text .= sprintf(_("Ring %s First For:"), $exten);
+					$followme_text .= "<span>" . sprintf( _("Time to ring extension %s before ringing the %s Follow Me List %s"), "<strong>".$exten."</strong>","<strong>","</strong>");
+					$followme_text .= "<br></span></a></td><td>";
+					
+					$followme_text .= "<select " . $follow_me_prering_time_text_box_options . " name='follow_me_prering_time'>";				
+					$default_prering = $follow_me_prering_time;
+					for ($i=$SETTINGS_PRERING_LOW; $i <= $SETTINGS_PRERING_HIGH; $i++) {
+						$followme_text .=  '<option value="'.$i.'" '.($i == $default_prering ? 'SELECTED' : '').'>'.$i.'</option>';
+					}
+					$followme_text .= "</select>";
+				
+					$followme_text .= "<small>" . _("seconds") . "</small>";
+					$followme_text .= "</td></tr>";	
+					
+					$followme_text .= "<tr><td><a href='#' class='info'>" . _("Ring Followme List for:") . "<span>" . _("Time to ring the Follow Me List.") . "<br></span></a></td>";
+					$followme_text .= "<td>";
+					
+					$followme_text .= "<select " . $follow_me_listring_time_text_box_options . " name='follow_me_listring_time'>";
+					$default_listring = $follow_me_listring_time;
+					for ($i=$SETTINGS_LISTRING_LOW; $i <= $SETTINGS_LISTRING_HIGH; $i++) {
+						$followme_text .=  '<option value="'.$i.'" '.($i == $default_listring ? 'SELECTED' : '').'>'.$i.'</option>';
+					}
+					$followme_text .= "</select>";
+				
+					$followme_text .= "<small>" . _("seconds") . "</small></td></tr>";
+					
+					
+					$followme_text .= "<tr><td>&nbsp;</td></tr>";	// Blank Line	
+					
+					$followme_text .= "<tr><td><a href='#' class='info'>" . _("Use Confirmation:") . "<span>". _("Outside lines that are part of the Follow Me List will be called and offered a menu:<br/><br/> \"You have an incoming call. Press 1 to accept or 2 to decline.\"<br/><br/> This keeps calls from ending up in external voicemail. Make sure that the List Ring Time is long enough to allow for you to hear and react to this message.");
+					$followme_text .= "<br></span></a></td><td>";
+					$followme_text .= "<input " . $follow_me_confirm . " type=checkbox name='follow_me_confirm' value='checked'>";
+					$followme_text .= "<small>" . _("Enable") . "</small></td></tr>";
+					$followme_text .= "<tr><td>&nbsp;</td></tr>";	// Blank Line										
+					$followme_text .= "</table>";
+				} else {
+					$followme_text .= 'Warning - Follow Me has not been added for this extension yet.<br />';
+					$followme_text .= 'Please login to the admin Interface and enable Follow Me<br />';
+					$followme_text .= 'for this extension.<br />';
+				}
+			}
+			
+		}
+				
+		// build page content
+		$ret .= checkErrorMessage();
+		
+		if ($_SESSION['ari_user']['admin_settings']) {
+			$headerText = _("Followme Settings");
+		} else {
+			$headerText = sprintf(_("Followme Settings for %s (%s)"),$displayname,$exten);
+		}
+		
+		$ret .= $display->displayHeaderText($headerText);
+		$ret .= $display->displayLine();
+		
+		$ret .= 
+		"\n<SCRIPT LANGUAGE='JavaScript'>
+		<!-- Begin
+		function rowCounter(field, maxlimit) {
+			temp = field.value.split('\u000A',maxlimit+1)
+			field.value = temp.join('\u000A')
+			if (temp.length == maxlimit+1) {
+				field.value = field.value.substring(0, field.value.length-1)
+			}
+		}
+		// End -->
+		</script>\n";
+		
+		$ret .= 
+		"<form class='settings' name='ari_settings' action='' method='GET'>
+		<input type=hidden name=m value=" . $m . ">
+		<input type=hidden name=f value='action'>
+		<input type=hidden name=a value='update'>
+		" . $followme_text;
+		$ret .= "<br>";
+		if (!$follow_me_disabled) {
+			$ret .= "<input name='submit' type='submit' value='" . _("Update") . "'>";
+		}
+		$ret .= "</form>";
+		
+		return $ret;
+	}
+
+
+  /*
+   * Sets Follow Me Pre-Ring Time
+   *
+   * @param $exten
+   *   Extension to modify
+   * @param $follow_me_prering_time
+   *   Pre-Ring Time to ring
+   */
+  function setFollowMePreRingTime($exten,$follow_me_prering_time) {
+
+	global $asterisk_manager_interface;
+
+	$value_opt = $follow_me_prering_time;
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database put AMPUSER $exten/followme/prering $value_opt\r\n\r\n");
+  }
+
+  /*
+   * Gets Follow Me Pre-Ring Time if set
+   *
+   * @param $exten
+   *   Extension to get information about
+   * @return $number
+   *   follow me pre-ring time returned if set
+   */
+  function getFollowMePreRingTime($exten) {
+
+	global $asterisk_manager_interface;
+
+	$number = '';
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database get AMPUSER $exten/followme/prering\r\n\r\n");
+	if (is_numeric($response)) {
+	  $number = $response;
+	}
+
+	$stripped = preg_replace('/-|\(|\)|\s/','',$_COOKIE['ari_follow_me_prering_time']);
+	if ($stripped==$number) {
+	  $number = $_COOKIE['ari_follow_me_prering_time'];
+	}
+
+	return $number;
+  }
+
+  /*
+   * Sets Follow Me List Ring Time
+   *
+   * @param $exten
+   *   Extension to modify
+   * @param $follow_me_listring_time
+   *   List Ring Time to ring
+   */
+  function setFollowMeListRingTime($exten,$follow_me_listring_time) {
+
+	global $asterisk_manager_interface;
+
+	$value_opt = $follow_me_listring_time;
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database put AMPUSER $exten/followme/grptime $value_opt\r\n\r\n");
+  }
+
+  /*
+   * Gets Follow Me List-Ring Time if set
+   *
+   * @param $exten
+   *   Extension to get information about
+   * @return $number
+   *   follow me list-ring time returned if set
+   */
+  function getFollowMeListRingTime($exten) {
+
+	global $asterisk_manager_interface;
+
+	$number = '';
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database get AMPUSER $exten/followme/grptime\r\n\r\n");
+	if (is_numeric($response)) {
+	  $number = $response;
+	}
+
+	$stripped = preg_replace('/-|\(|\)|\s/','',$_COOKIE['ari_follow_me_listring_time']);
+	if ($stripped==$number) {
+	  $number = $_COOKIE['ari_follow_me_listring_time'];
+	}
+
+	return $number;
+  }
+
+  /*
+   * Sets Follow Me List
+   *
+   * @param $exten
+   *   Extension to modify
+   * @param $follow_me_list
+   *   Follow Me List
+   */
+  function setFollowMeList($exten,$follow_me_list) {
+
+	global $asterisk_manager_interface;
+
+	$value_opt = $follow_me_list;
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database put AMPUSER $exten/followme/grplist $value_opt\r\n\r\n");
+  }
+
+  /*
+   * Gets Follow Me List if set
+   *
+   * @param $exten
+   *   Extension to get information about
+   * @return $data
+   *   follow me list if set
+   */
+  function getFollowMeList($exten) {
+
+	global $asterisk_manager_interface;
+
+	$number = '';
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database get AMPUSER $exten/followme/grplist\r\n\r\n");
+
+	//TODO: really need to check for a bogus response, see how other side does it
+	//
+	return preg_replace("/[^0-9*\-+#]/", "", $response);
+  }
+
+  /*
+   * Sets Follow Confirmation Setting
+   *
+   * @param $exten
+   *   Extension to modify
+   * @param $follow_me_cofirm
+   *   Follow Me Confirm Setting
+   */
+  function setFollowMeConfirm($exten,$follow_me_confirm) {
+
+	global $asterisk_manager_interface;
+
+	$value_opt = ($follow_me_confirm)?'ENABLED':'DISABLED';
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database put AMPUSER $exten/followme/grpconf $value_opt\r\n\r\n");
+  }
+
+  /*
+   * Gets Follow Me Confirmation Setting
+   *
+   * @param $exten
+   *   Extension to get information about
+   * @return $data
+   *   follow me confirm setting
+   */
+  function getFollowMeConfirm($exten) {
+
+	global $asterisk_manager_interface;
+
+	$number = '';
+
+	$response = $asterisk_manager_interface->Command("Action: Command\r\nCommand: database get AMPUSER $exten/followme/grpconf\r\n\r\n");
+
+	if (preg_match("/ENABLED/",$response)) {
+		$response='checked';
+	} 
+	else {
+		$response='';
+	}
+
+	//TODO: really need to check for a bogus response, see how other side does it
+	//
+	return $response;
+
+  }
+
+  /*
+   * Sets Follow Ddial Setting
+   *
+   * @param $exten
+   *   Extension to modify
+   * @param $follow_me_ddial
+   *   Follow Me Ddial Setting
+   */
+  function setFollowMeDDial($exten,$follow_me_ddial) {
+		global $amp_usedevstate;
+		global $astman;
+		global $amp_conf;
+
+		$value_opt = ($follow_me_ddial)?'DIRECT':'EXTENSION';
+		$response = $astman->database_put('AMPUSER',"$exten/followme/ddial",$value_opt);
+
+		// Now that we have set the state (DIRECT is enabled, EXTENSION is disabled)
+		// Get the devices associated with this user first and then we will set them all as needed
+		//
+		if ($amp_usedevstate) {
+			$value_opt = ($follow_me_ddial)?'BUSY':'NOT_INUSE';
+			$devices = $astman->database_get("AMPUSER",$exten."/device");
+			$device_arr = explode('&',$devices);
+			foreach ($device_arr as $device) {
+				$ret = $astman->set_global($amp_conf['AST_FUNC_DEVICE_STATE'] . "(Custom:FOLLOWME$device)", $value_opt);
+			}
+		}
+  }
+
+  /*
+   * Gets Follow Me Ddial Setting
+   *
+   * @param $exten
+   *   Extension to get information about
+   * @return $data
+   *   follow me ddial setting
+   */
+  function getFollowMeDDial($exten) {
+
+	global $astman;
+
+	$response = $astman->database_get("AMPUSER",$exten."/followme/ddial");
+
+	if (preg_match("/EXTENSION/",$response)) {
+		$response='';
+	} 
+	else {
+		$response='checked';
+	}
+
+	//TODO: really need to check for a bogus response, see how other side does it
+	//
+	return $response;
+
+  }
+
+  /*
+   * Gets IssabelPBX Version
+   */
+  function getIssabelPBXVersion() {
+
+	if (isset($_SESSION['dbh_asterisk'])) {
+	  $sql = "SELECT * FROM admin WHERE variable = 'version'";
+	  $results = $_SESSION['dbh_asterisk']->getAll($sql);
+	  if(DB::IsError($results)) {
+		$_SESSION['ari_error'] = $results->getMessage();
+	  }
+
+	  return $results[0][1];
+	}
+  }
+
+  /*
+   * Sets Follow-Me Settings in IssabelPBX MySQL Database
+   *
+   * @param $exten
+   *   Extension to modify
+   * @param $follow_me_prering_time
+   *   Pre-Ring Time to ring
+   * @param $follow_me_listring_time
+   *   List Ring Time to ring
+   * @param $follow_me_list
+   *   Follow Me List
+   * @param $follow_me_list
+   *   Follow Me Confirm Setting
+   *
+   */
+  function setFollowMeMySQL($exten, $follow_me_prering_time, $follow_me_listring_time, $follow_me_list, $follow_me_confirm) {
+
+	if (isset($_SESSION['dbh_asterisk'])) {
+	  $db = $_SESSION['dbh_asterisk'];
+
+	  //format for SQL database
+	  $follow_me_confirm = ($follow_me_confirm)?'CHECKED':'';
+
+	  $sql = "UPDATE findmefollow SET grptime = '" . $follow_me_listring_time . "', grplist = '".
+		   $db->escapeSimple(trim($follow_me_list)) . "', pre_ring = '" . $follow_me_prering_time .
+		   "', needsconf = '" . $follow_me_confirm . "' WHERE grpnum = $exten LIMIT 1";
+	  $results = $_SESSION['dbh_asterisk']->query($sql);
+
+	  if(DB::IsError($results)) {
+		$_SESSION['ari_error'] = $results->getMessage();
+	  }
+
+	  return 1;
+	}
+  }
+
+  function lookupSetExtensionFormat($exten) {
+
+	if (trim($exten) == "") return $exten;
+
+	$exten = preg_replace("/[^0-9*+]/", "", $exten);
+
+	$sql = "SELECT extension FROM users WHERE extension = '".$exten."'";
+	$asa = $_SESSION['dbh_asterisk']->getrow($sql, DB_FETCHMODE_ASSOC);
+	if (!is_array($asa)) { 
+	  return $exten.'#';
+	} else {
+	  return $exten;
+	}
+  }
+
+
+} // class
+
+?>

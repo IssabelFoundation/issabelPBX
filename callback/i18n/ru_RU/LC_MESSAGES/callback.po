@@ -1,0 +1,90 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
+#
+# Использовать iconv amp.new -f UTF-8 -t ISO-8859-5 -o amp.po
+
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-01-16 16:38+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Callback"
+msgstr "Обратный звонок"
+
+msgid "Applications"
+msgstr "Приложения"
+
+#, php-format
+msgid "Callback: %s"
+msgstr "Обратный звонок: $s"
+
+msgid "Add Callback"
+msgstr "Добавить обратный звонок"
+
+msgid "Callback "
+msgstr "Обратный звонок"
+
+msgid "deleted"
+msgstr "удалено"
+
+msgid "Delete Callback"
+msgstr "Удалить обратный звонок"
+
+msgid "Callback:"
+msgstr "Обратный звонок:"
+
+msgid ""
+"A callback will hang up on the caller and then call them back, directing "
+"them to the selected destination. This is useful for reducing mobile phone "
+"charges as well as other applications. Outbound calls will proceed according "
+"to the dial patterns in Outbound Routes."
+msgstr ""
+"Обратный звонок терминирует входящий звонок, и инициирует обратный звонок "
+"пользователю, который звонил только что. Это помогает уменьшит расходы для "
+"клиентов, которые, возможно, платят за входящий звонок по тарифам мобильной "
+"связи. Исходящий звонок будет совершен по шаблонам и маршрутам, указанным в "
+"Исходящей маршрутизации."
+
+msgid "Edit Callback"
+msgstr "Изменить обратный звонок"
+
+msgid "Callback Description:"
+msgstr "Описание:"
+
+msgid "Enter a description for this callback."
+msgstr "Укажите описание для этого обратного звонка."
+
+msgid "Callback Number:"
+msgstr "Номер обратного звонка:"
+
+msgid ""
+"Optional: Enter the number to dial for the callback.  Leave this blank to "
+"just dial the incoming CallerID Number"
+msgstr "" 
+"Опционально: укажите номер для обратного звонка. Оставьте пустым, тогда "
+"обратный звонок будет совершен на номер звонящего абонента"
+
+msgid "Delay Before Callback:"
+msgstr "Пауза перед обратным звонком:"
+
+msgid ""
+"Optional: Enter the number of seconds the system should wait before calling "
+"back."
+msgstr ""
+"Опционально: укажите паузу (в секундах) через которую будет совершен "
+"обратный звонок."
+
+msgid "Destination after Callback"
+msgstr "Назначение после обратного звонка"
+
+msgid "Submit Changes"
+msgstr "Применить изменения"

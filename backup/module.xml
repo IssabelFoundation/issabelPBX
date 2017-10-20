@@ -1,0 +1,28 @@
+<module>
+	<rawname>backup</rawname>
+	<repo>standard</repo>
+	<name>Backup &amp; Restore</name>
+	<version>2.11.0.22</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<category>Admin</category>
+	<description>Backup &amp; Restore for your IssabelPBX environment</description>
+	<menuitems>
+		<backup needsenginedb="yes">Backup &amp; Restore</backup>
+		<backup_servers needsenginedb="yes" hidden="true">Backup &amp; Restore - Servers</backup_servers>
+		<backup_templates needsenginedb="yes" hidden="true">Backup &amp; Restore - Templates</backup_templates>
+		<backup_restore needsenginedb="yes" hidden="true">Backup &amp; Restore - Restore</backup_restore>
+	</menuitems>
+	<depends>
+		<module>core</module>
+	</depends>
+	<changelog>
+		*2.11.0.22* Initial Issabel Foundation release
+	</changelog>
+	<supported>
+		<version>2.11</version>
+	</supported>
+	<location>release/2.11/backup-2.11.0.5.tgz</location>
+	<md5sum>ac5c29013681c99d4b4f224624dc0d34</md5sum>
+</module>

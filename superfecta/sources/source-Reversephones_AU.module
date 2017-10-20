@@ -1,0 +1,85 @@
+<?php
+//This needs to be re-written to use API
+class Reversephones_AU extends superfecta_base {
+
+    public $description = "http://reversephones.com.au - 	These listings include residential data for AU.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'Premium_Key' => array(
+            'description' => 'Your Premium Key for reversephones.com.au.',
+            'type' => 'text',
+            'default' => ''
+        )
+    );
+
+    function get_caller_id($thenumber, $run_param=array()) {
+
+        $caller_id = null;
+        $num1 = "";
+        $num2 = "";
+        $num3 = "";
+
+        if (!$this->IsValidNumber('AU', $this->thenumber, $num1, $num2, $num3)) {
+            $this->DebugPrint("Skipping Source - Non AU number: {$this->thenumber}");
+        } else {
+            $this->DebugPrint("Searching reversephones.com.au - {$this->thenumber} ... ");
+
+            // Search reversephones.com.au
+            // Download as CSV
+            $url = "http://reversephones.com.au/csp?csv=&surname=&initials=&street_number=&street_name=&street_type=&locality=&state=&phone_number=$$this->thenumber&key=" . (isset($run_param['Premium_Key']) ? $run_param['Premium_Key'] : '') . "&terms=1";
+            $value = $this->get_url_contents($url);
+            //$value = file_get_contents('/tmp/results.csv'); // For debug
+            // No name, unless we find one
+            $name = "";
+
+            // Convert csv file to array
+            // It would be nice to use str_getcsv and other PHP5 functions here, 
+            // but we need to support older versions of php
+            $csv_line_array = preg_split("/\n(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/", trim($value));
+            $csv_array = array();
+            $highest_period = 0;
+            $highest_period_line = 0;
+            foreach ($csv_line_array as $line_key => $csv_line) {
+                $csv_array_line = preg_split("/,(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))/", trim($csv_line));
+                // Again we'll grumble about not having PHP5 funtions to use, and instead do it the hard way...
+                if ($line_key == 0) {
+                    // Cleap up the column names
+                    foreach ($csv_array_line as $key => $value) {
+                        $csv_array_line[$key] = stripslashes(trim(trim(trim($value), '"')));
+                    }
+                    $csv_array_keys = array_flip($csv_array_line);
+                } else {
+                    $csv_new_line = array();
+                    $i = 0;
+                    foreach ($csv_array_keys as $key => $value) {
+                        $cell_value = stripslashes(trim(trim(trim($csv_array_line[$i]), '"')));
+                        if ($key == 'Period') {
+                            $larray = explode("to", $cell_value);
+                            // Find the result with the highest date
+                            if (isset($larray[count($larray) - 1]) && (intval($larray[count($larray) - 1]) > $highest_period)) {
+                                $highest_period = intval($larray[count($larray) - 1]);
+                            }
+                        }
+                        $csv_new_line[$key] = $cell_value;
+                        $i++;
+                    }
+                    $csv_array[] = $csv_new_line;
+                }
+            }
+            // Return the result we found with the most recent period date
+            if ($highest_period) {
+                $name = trim($csv_array[$highest_period_line]['Surname / Company name']) . " " . trim($csv_array[$highest_period_line]['Initials / Business category']);
+            }
+
+            // If we found a match, return it
+            if (strlen($name) > 1) {
+                $caller_id = $name;
+            } else {
+                $this->DebugPrint("not found");
+            }
+
+            return($caller_id);
+        }
+    }
+
+}

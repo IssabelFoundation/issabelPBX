@@ -1,0 +1,43 @@
+<?php
+
+class Send_to_YAC extends superfecta_base {
+
+    public $description = "This source will send the number and the Caller ID to a YAC (Yet Another Caller ID Program) service for external processing.<br>The message will be sent as a Call notification<br>This datasource should be one of the last data sources on your list, as it does not provide any data of its own, and can only send what information has been collected before it is run.<br>This data source requires Superfecta Module version 2.11 or higher.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'Server_address' => array(
+            'description' => 'Specify the server IP or domain name address to call after a CLID was found.',
+            'type' => 'text'
+        ),
+        'Server_TCP_Port' => array(
+            'description' => 'Specify the TCP port to be used (default for YAC is 10629).',
+            'type' => 'number',
+            'default' => '10629'
+        ),
+        'Default_CNAM' => array(
+            'description' => 'Text to push if no CNAM is found. Leave blank to prevent Superfecta from sending anything if no CNAM is found.',
+            'type' => 'text',
+            'default' => 'Unknown'
+        )
+    );
+
+    function post_processing($cache_found, $winning_source, $first_caller_id, $run_param, $thenumber) {
+        $yac_cnam = "";
+
+        if ($first_caller_id != "") {
+            $yac_cnam = $first_caller_id;
+        } else if ($run_param['Default_CNAM'] != "") {
+            $yac_cnam = $run_param['Default_CNAM'];
+        }
+
+        if (($run_param['Server_address'] != '') && ($yac_cnam != '')) {
+            $yac_text = $yac_cnam . '~' . $thenumber;
+            shell_exec('/bin/echo -e -n "@CALL' . $yac_text . '"|nc -w 1 ' . $run_param['Server_address'] . ' ' . $run_param['Server_TCP_Port'] . '');
+
+            $this->DebugPrint("Send to YAC: ${yac_text}");
+        }
+
+        return($thenumber);
+    }
+
+}

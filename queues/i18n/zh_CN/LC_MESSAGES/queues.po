@@ -1,0 +1,1230 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-04-02 23:37+0200\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid ""
+"Warning, there are compound recordings configured in one or more Queue "
+"configurations. Queues can not play these so they have been truncated to the "
+"first sound file. You should correct this problem.<br />Details:<br /><br />"
+msgstr ""
+"警告，在一项或更多项等待队列的配置中包含了复合录音。等待队列不能播放这样的录"
+"音，他们将被截断，只有第一个录音文件会被播放出来。你最好更正这个错误。<br />"
+"细节：<br /><br />"
+
+#, php-format
+msgid "Queue - %s (%s): %s<br />"
+msgstr "等待队列 - %s（%s）：%s<br />"
+
+msgid "Compound Recordings in Queues Detected"
+msgstr "在等待队列的配置中检测到了复合录音"
+
+#, php-format
+msgid "Queue %s : %s"
+msgstr "等待队列 %s：%s"
+
+#, php-format
+msgid "Queue: %s"
+msgstr "等待队列：%s"
+
+msgid "seconds"
+msgstr "秒"
+
+msgid "day"
+msgstr "天"
+
+msgid "hour"
+msgstr "小时"
+
+msgid "hours"
+msgstr "小时"
+
+msgid "minute"
+msgstr "分钟"
+
+msgid "minutes"
+msgstr "分钟"
+
+msgid "second"
+msgstr "秒"
+
+msgid "Bad Queue Number, can not be blank"
+msgstr "错误的队列号，队列号不可以为空"
+
+msgid "INUSE"
+msgstr "正在使用"
+
+#, php-format
+msgid "Queue: %s (%s)"
+msgstr "等待队列：%s（%s）"
+
+msgid "Agent Announce Msg"
+msgstr "坐席公告消息"
+
+#, php-format
+msgid "IVR Announce: %s"
+msgstr "IVR远程公告：%s"
+
+msgid "Use State"
+msgstr ""
+
+msgid "Ignore State"
+msgstr ""
+
+msgid "Extension Options"
+msgstr ""
+
+msgid "Queue State Detection"
+msgstr ""
+
+msgid ""
+"If this extension is part of a Queue then the Queue will attempt to use the "
+"user's extension state or device state information when determining if this "
+"queue member should be called. In some uncommon situations such as a Follow-"
+"Me with no physical device, or some virtual extension scenarios, the state "
+"information will indicate that this member is not available when they are. "
+"Setting this to 'Ignore State' will make the Queue ignore all state "
+"information thus always trying to contact this member. Certain side affects "
+"can occur when this route is taken due to the nature of how Queues handle "
+"Local channels, such as subsequent transfers will continue to show the "
+"member as busy until the original call is terminated. In most cases, this "
+"SHOULD BE set to 'Use State'."
+msgstr ""
+
+msgid "Checking for legacy queues table.."
+msgstr "正在检查遗留的队列表格。。"
+
+msgid "NO table found, no migration to do just create tables"
+msgstr "没有找到任何遗留的队列表格信息，不需要进行迁移，只需要创建新的队列表格"
+
+msgid "OK"
+msgstr "确定"
+
+msgid "Creating queues_details.."
+msgstr "正在创建队列细节。。"
+
+msgid "already exists"
+msgstr "已存在"
+
+msgid "ERROR: could not create table"
+msgstr "错误：无法创建表格"
+
+msgid "Migrating to queues_details.."
+msgstr "正在迁移队列细节。。"
+
+msgid "ERROR: could not migrate to queues_details"
+msgstr "错误：无法迁移队列细节"
+
+msgid "Creating queues_config.."
+msgstr "正在创建队列配置。。"
+
+msgid "Migrating data to queues_config.."
+msgstr "正在数据迁移到队列配置"
+
+msgid "ERROR: accessing queues table obtaining context info, aborting"
+msgstr "错误：在访问队列表格和上下文信息时出错，操作终止"
+
+msgid "ERROR: accessing queues table obtaining rtone info, aborting"
+msgstr "错误：在访问队列表格和rtone信息时出错，操作终止"
+
+msgid "ERROR: accessing queues table obtaining id list, aborting"
+msgstr "错误：在访问队列表格和id列表时出错，操作终止"
+
+#, php-format
+msgid "ERROR: inserting data for row %s: %s.."
+msgstr "错误：在向行插入数据时发生错误。%s：%s。。"
+
+msgid "ERROR were encountered"
+msgstr "遇到了错误"
+
+msgid "Dropping old queues table.."
+msgstr "正在删除旧的等待队列表格"
+
+#, php-format
+msgid "WARNING FAILED %s"
+msgstr "警告：%s失败"
+
+msgid "removing queues data extensions table.."
+msgstr "正在删除队列分机数据表格。。"
+
+msgid "checking for qregex field.."
+msgstr "正在检查qregex字段。。。"
+
+msgid "Checking if recordings need migration.."
+msgstr "正在检查录音是否需要迁移。。。"
+
+msgid "migrating"
+msgstr "正在迁移"
+
+msgid "adding agentannounce_id field.."
+msgstr "正在添加agentannounce_id字段。。。"
+
+msgid "fatal error"
+msgstr "致命错误"
+
+msgid "ok"
+msgstr "完成"
+
+msgid "adding joinannounce_id field.."
+msgstr "正在添加joinannounce_id字段。。。"
+
+msgid "migrate agentannounce to ids.."
+msgstr "把agentannounce迁移到ids。。。"
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "迁移了%s个项目"
+
+msgid "migrate joinannounce to ids.."
+msgstr "把joinannounce迁移到ids。。。"
+
+msgid "dropping agentannounce field.."
+msgstr "正在删除agentannounce字段。。。"
+
+msgid "no agentannounce field???"
+msgstr "agentannounce字段不存在？"
+
+msgid "dropping joinannounce field.."
+msgstr "正在删除joinannounce字段。。。"
+
+msgid "no joinannounce field???"
+msgstr "joinannounce字段不存在？"
+
+msgid "already migrated"
+msgstr "已经迁移过了"
+
+msgid "checking for queuewait field.."
+msgstr "正在检查queuewait字段。。。"
+
+msgid "checking for use_queue_context field.."
+msgstr ""
+
+msgid "checking for togglehint field.."
+msgstr ""
+
+msgid "checking for qnoanswer field.."
+msgstr ""
+
+msgid "checking for callconfirm field.."
+msgstr ""
+
+msgid "checking for callconfirm_id field.."
+msgstr ""
+
+msgid "checking for monitor_type field.."
+msgstr ""
+
+msgid "checking for monitor_heard field.."
+msgstr ""
+
+msgid "checking for monitor_spoken field.."
+msgstr ""
+
+msgid "Warning! Extension"
+msgstr "警告！你的帐户无法使用分机"
+
+msgid "is not allowed for your account."
+msgstr " "
+
+msgid "Add Queue"
+msgstr "添加等待队列"
+
+msgid "Queue"
+msgstr "等待队列"
+
+msgid "deleted"
+msgstr "以删除"
+
+msgid "Delete Queue"
+msgstr "删除等待队列"
+
+msgid "Conflicting Extensions"
+msgstr "警告！你的帐户无法使用分机"
+
+msgid "Queue:"
+msgstr "等待队列："
+
+msgid "Edit Queue"
+msgstr "编辑等待队列"
+
+msgid "Queue Number:"
+msgstr "等待队列号码："
+
+msgid ""
+"Use this number to dial into the queue, or transfer callers to this number "
+"to put them into the queue.<br><br>Agents will dial this queue number plus * "
+"to log onto the queue, and this queue number plus ** to log out of the queue."
+"<br><br>For example, if the queue number is 123:<br><br><b>123* = log "
+"in<br>123** = log out</b>"
+msgstr ""
+"拨打这个号码，或者将呼叫转移到这个号码以加入这个等待队列。<br /><br />坐席通"
+"过拨打队列号加*号以登录到队列，并可以拨打队列号码加**以从队列注销。<br /"
+"><br />例如，如果队列号码为123：<br /><br /><b>123*是登录<br />123**是注销</"
+"b>"
+
+msgid "Queue Name:"
+msgstr "等待队列名："
+
+msgid "Give this queue a brief name to help you identify it."
+msgstr "为这个队列取一个简短的名字以帮助你识别它。"
+
+msgid "Queue Password:"
+msgstr "等待队列密码："
+
+msgid ""
+"You can require agents to enter a password before they can log in to this "
+"queue.<br><br>This setting is optional."
+msgstr "你可以要求坐席在登录这个等待队列时输入密码。<br /><br />密码是可选的。"
+
+msgid "Queue No Answer:"
+msgstr ""
+
+msgid ""
+"If checked, the queue will not answer the call. Under most circumstance you "
+"should always have the queue answering calls. If not, then it's possible "
+"that recordings and MoH will not be heard by the waiting callers since early "
+"media capabilities vary and are inconsistent. Some cases where it may be "
+"desired to not answer a call is when using Strict Join Empty queue policies "
+"where the caller will not be admitted to the queue unless there is a queue "
+"member immediately available to take the call."
+msgstr ""
+
+msgid "Generate Device Hints:"
+msgstr ""
+
+msgid ""
+"If checked, individual hints and dialplan will be generated for each SIP and "
+"IAX2 device that could be part of this queue. These are used in conjunction "
+"with programmable BLF phone buttons to log into and out of a queue and "
+"generate BLF status as to the current state. The format of the hints is<br /"
+"><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle "
+"feature code, ddd is the device number (typically the same as the extension "
+"number) and qqq is this queue's number."
+msgstr ""
+
+msgid "Call Confirm:"
+msgstr ""
+
+msgid ""
+"If checked, any queue member that is actually an outside telephone number, "
+"or any extensions Follow-Me or call forwarding that are pursued and leave "
+"the PBX will be forced into Call Confirmation mode where the member must "
+"acknowledge the call before it is answered and delivered.."
+msgstr ""
+
+msgid "Call Confirm Announce:"
+msgstr ""
+
+msgid ""
+"Announcement played to the Queue Memeber announcing the Queue call and "
+"requesting confirmation prior to answering. If set to default, the standard "
+"call confirmation default message will be played unless the member is "
+"reached through a Follow-Me and there is an alternate message provided in "
+"the Follow-Me. This message will override any other message specified.."
+"<br><br>To add additional recordings please use the \"System Recordings\" "
+"MENU."
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Call Confirm Announcement:"
+msgstr ""
+
+msgid ""
+"Announcement played to anyone using an external follow-me to receive the "
+"queue call.<br><br>You must install and enable the \"Systems Recordings\" "
+"Module to edit this option"
+msgstr ""
+
+msgid "CID Name Prefix:"
+msgstr "主叫ID名的前缀"
+
+msgid ""
+"You can optionally prefix the CallerID name of callers to the queue. ie: If "
+"you prefix with \"Sales:\", a call from John Doe would display as \"Sales:"
+"John Doe\" on the extensions that ring."
+msgstr ""
+
+msgid "Wait Time Prefix:"
+msgstr "等待时间前缀："
+
+msgid ""
+"When set to Yes, the CID Name will be prefixed with the total wait time in "
+"the queue so the answering agent is aware how long they have waited. It will "
+"be rounded to the nearest minute, in the form of Mnn: where nn is the number "
+"of minutes."
+msgstr ""
+"当设置为“是”时，CID名会被加上在队列中总等待时间的前缀，让坐席能够知道他们已经"
+"等了多久了。等待时间会被四舍五入成整的分钟数，格式为 Mnn，其中nn是分钟数。"
+
+msgid ""
+"If the call is subsequently transferred, the wait time will reflect the time "
+"since it first entered the queue or reset if the call is transferred to "
+"another queue with this feature set."
+msgstr ""
+
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "无"
+
+msgid "Alert Info"
+msgstr "警告信息"
+
+msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+msgstr "警告信息可以用来为SIP设备产生独特的铃声。"
+
+msgid "Static Agents"
+msgstr "静态坐席"
+
+msgid ""
+"Static agents are extensions that are assumed to always be on the queue.  "
+"Static agents do not need to 'log in' to the queue, and cannot 'log out' of "
+"the queue.<br><br>List extensions to ring, one per line.<br><br>You can "
+"include an extension on a remote system, or an external number (Outbound "
+"Routing must contain a valid route for external numbers). You can put a \","
+"\" after the agent followed by a penalty value, see Asterisk documentation "
+"concerning penalties.<br /><br /> An advanced mode has been added which "
+"allows you to prefix an agent number with S, X, Z, D or A. This will force "
+"the agent number to be dialed as an Asterisk device of type SIP, IAX2, ZAP, "
+"DAHDi or Agent respectively. This mode is for advanced users and can cause "
+"known issues in IssabelPBX as you are by-passing the normal dialplan. If your "
+"'Agent Restrictions' are not set to 'Extension Only' you will have problems "
+"with subsequent transfers to voicemail and other issues may also exist. "
+"(Channel Agent is deprecated starting with Asterisk 1.4 and gone in 1.6+.)"
+msgstr ""
+
+msgid "Extension Quick Pick"
+msgstr "快速分机选取"
+
+msgid ""
+"Choose an extension to append to the end of the static agents list above."
+msgstr "选择一个分机以添加到上面的静态坐席列表的末尾。"
+
+msgid "(pick extension)"
+msgstr "（选取分机）"
+
+msgid "Dynamic Members"
+msgstr ""
+
+msgid ""
+"Dynamic Members are extensions or callback numbers that can log in and out "
+"of the queue. When a member logs in to a queue, their penalty in the queue "
+"will be as specified here. Extensions included here will NOT automatically "
+"be logged in to the queue."
+msgstr ""
+
+msgid ""
+"Choose an extension to append to the end of the dynamic member list above."
+msgstr ""
+
+msgid "Restrict Dynamic Agents"
+msgstr ""
+
+msgid ""
+"Restrict dynamic queue member logins to only those listed in the Dynamic "
+"Members list above. When set to Yes, members not listed will be DENIED "
+"ACCESS to the queue."
+msgstr ""
+
+msgid "Agent Restrictions"
+msgstr ""
+
+msgid ""
+"When set to 'Call as Dialed' the queue will call an extension just as if the "
+"queue were another user. Any Follow-Me or Call Forward states active on the "
+"extension will result in the queue call following these call paths. This "
+"behavior has been the standard queue behavior on past IssabelPBX versions. <br /"
+">When set to 'No Follow-Me or Call Forward', all agents that are extensions "
+"on the system will be limited to ringing their extensions only. Follow-Me "
+"and Call Forward settings will be ignored. Any other agent will be called as "
+"dialed. This behavior is similar to how extensions are dialed in ringgroups. "
+"<br />When set to 'Extensions Only' the queue will dial Extensions as "
+"described for 'No Follow-Me or Call Forward'. Any other number entered for "
+"an agent that is NOT a valid extension will be ignored. No error checking is "
+"provided when entering a static agent or when logging on as a dynamic agent, "
+"the call will simply be blocked when the queue tries to call it. For dynamic "
+"agents, see the 'Agent Regex Filter' to provide some validation."
+msgstr ""
+
+msgid "Call as Dialed"
+msgstr ""
+
+msgid "No Follow-Me or Call Forward"
+msgstr ""
+
+msgid "Extensions Only"
+msgstr ""
+
+msgid "General Queue Options"
+msgstr ""
+
+msgid "Ring Strategy:"
+msgstr "振铃策略："
+
+msgid "ringall"
+msgstr "全部响铃"
+
+msgid "ring all available agents until one answers (default)"
+msgstr "全部可用坐席都响铃直到有人接听（默认设置）"
+
+msgid "roundrobin"
+msgstr "循环的"
+
+msgid "take turns ringing each available agent"
+msgstr "在可用的坐席上轮流响铃"
+
+msgid "leastrecent"
+msgstr "最久未呼叫的坐席"
+
+msgid "ring agent which was least recently called by this queue"
+msgstr "呼叫在队列中最久没有被呼叫到的坐席"
+
+msgid "fewestcalls"
+msgstr "最少呼叫的坐席"
+
+msgid "ring the agent with fewest completed calls from this queue"
+msgstr "呼叫队列中被呼叫次数最少的坐席"
+
+msgid "random"
+msgstr "随机"
+
+msgid "ring random agent"
+msgstr "随机呼叫坐席"
+
+msgid "rrmemory"
+msgstr "记忆性搜寻"
+
+msgid "round robin with memory, remember where we left off last ring pass"
+msgstr "有记忆功能的循环制。记住我们中断的位置。"
+
+msgid "rrordered"
+msgstr ""
+
+msgid ""
+"same as rrmemory, except the queue member order from config file is preserved"
+msgstr ""
+
+msgid "linear"
+msgstr ""
+
+msgid ""
+"rings agents in the order specified, for dynamic agents in the order they "
+"logged in"
+msgstr ""
+
+msgid "wrandom"
+msgstr ""
+
+msgid ""
+"random using the member's penalty as a weighting factor, see asterisk "
+"documentation for specifics"
+msgstr ""
+
+msgid "Autofill:"
+msgstr "自动填充"
+
+msgid ""
+"Starting with Asterisk 1.4, if this is checked, and multiple agents are "
+"available, Asterisk will send one call to each waiting agent (depending on "
+"the ring strategy). Otherwise, it will hold all calls while it tries to find "
+"an agent for the top call in the queue making other calls wait. This was the "
+"behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk "
+"documentation for more details of this feature."
+msgstr ""
+"从Atserisk 1.4开始，如果选择了此项设置，在有多个坐席可用时，Asterisk将把一个"
+"呼叫发送给每个等待的坐席（具体行为与振铃策略有关）。若不是这么做，它就会在为"
+"队首呼叫寻找坐席时，挂起所有的其他的呼叫。这是Asterisk在1.2版本中的行为，并且"
+"对Asterisk 1.2没有影响。请查看Asterisk的文档以获得关于此功能的更多信息。"
+
+msgid "Skip Busy Agents:"
+msgstr "跳过忙的坐席："
+
+msgid ""
+"When set to 'Yes' agents who are on an occupied phone will be skipped as if "
+"the line were returning busy. This means that Call Waiting or multi-line "
+"phones will not be presented with the call and in the various hunt style "
+"ring strategies, the next agent will be attempted. <br />When set to 'Yes + "
+"(ringinuse=no)' the queue configuration flag 'ringinuse=no' is set for this "
+"queue in addition to the phone's device status being monitored. This results "
+"in the queue tracking remote agents (agents who are a remote PSTN phone, "
+"called through Follow-Me, and other means) as well as PBX connected agents, "
+"so the queue will not attempt to send another call if they are already on a "
+"call from any queue. <br />When set to 'Queue calls only (ringinuse=no)' the "
+"queue configuration flag 'ringinuse=no' is set for this queue also but the "
+"device status of locally connected agents is not monitored. The behavior is "
+"to limit an agent belonging to one or more queues to a single queue call. If "
+"they are occupied from other calls, such as outbound calls they initiated, "
+"the queue will consider them available and ring them since the device state "
+"is not monitored with this option. <br /><br />WARNING: When using the "
+"settings that set the 'ringinuse=no' flag, there is a NEGATIVE side effect. "
+"An agent who transfers a queue call will remain unavailable by any queue "
+"until that call is terminated as the call still appears as 'inuse' to the "
+"queue UNLESS 'Agent Restrictions' is set to 'Extensions Only'."
+msgstr ""
+
+msgid "Yes + (ringinuse=no)"
+msgstr ""
+
+msgid "Queue calls only (ringinuse=no)"
+msgstr ""
+
+msgid "Queue Weight"
+msgstr "队列权重"
+
+msgid ""
+"Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
+"queue will deliver its calls first if there are agents common to both queues."
+msgstr ""
+"为队列设定一个权重，保证两个队列都可用时，有高优先权的队列首先获得坐席的服"
+"务。"
+
+msgid "Music on Hold Class:"
+msgstr "等待音乐的类别："
+
+msgid ""
+"Music (or Commercial) played to the caller while they wait in line for an "
+"available agent. Choose \"inherit\" if you want the MoH class to be what is "
+"currently selected, such as by the inbound route.<br><br>  This music is "
+"defined in the \"Music on Hold\" Menu."
+msgstr ""
+
+msgid "inherit"
+msgstr "继承"
+
+msgid "none"
+msgstr "无"
+
+msgid "default"
+msgstr "默认"
+
+msgid "Ringing Instead of MoH:"
+msgstr "以振铃代替等待音乐："
+
+msgid ""
+"Enabling this option make callers hear a ringing tone instead of Music on "
+"Hold.<br/>Enabling this ignores any Music on Hold Class selected as well as "
+"ignoring any configured periodic announcements configured."
+msgstr ""
+
+msgid "Join Announcement:"
+msgstr "加入通告："
+
+msgid ""
+"Announcement played to callers once prior to joining the queue.<br><br>To "
+"add additional recordings please use the \"System Recordings\" MENU"
+msgstr ""
+
+msgid "None"
+msgstr "无"
+
+msgid ""
+"Announcement played to callers once prior to joining the queue.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"在加入这个队列之前，要播放给主叫的通告。<br /><br />请安装并启用“系统录音”模"
+"块以编辑这个选项"
+
+msgid "Call Recording:"
+msgstr "呼叫录音："
+
+msgid ""
+"Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
+"monitor)"
+msgstr "到坐席的呼叫可以被录音。（保存到/var/spool/asterisk/monitor）"
+
+msgid "wav49"
+msgstr "wav49"
+
+msgid "wav"
+msgstr "wav"
+
+msgid "gsm"
+msgstr "gsm"
+
+msgid "Recording Mode:"
+msgstr ""
+
+msgid ""
+"Choose to 'Include Hold Time' in the recording so it starts as soon as they "
+"enter the queue, or to defer recording until 'After Answered' and the call "
+"is bridged with a queue member."
+msgstr ""
+
+msgid "Include Hold Time"
+msgstr ""
+
+msgid "After Answered"
+msgstr ""
+
+msgid "Caller Volume Adjustment:"
+msgstr ""
+
+msgid "Adjust the recording volume of the caller."
+msgstr ""
+
+msgid "No Adjustment"
+msgstr ""
+
+msgid "Agent Volume Adjustment:"
+msgstr ""
+
+msgid "Adjust the recording volume of the queue member (Agent)."
+msgstr ""
+
+msgid "Mark calls answered elsewhere:"
+msgstr ""
+
+msgid ""
+"Enabling this option, all calls are marked as 'answered elsewhere' when "
+"cancelled. The effect is that missed queue calls are *not* shown on the "
+"phone (if the phone supports it)"
+msgstr ""
+
+msgid "Timing & Agent Options"
+msgstr ""
+
+msgid "Max Wait Time:"
+msgstr "等待时间上限："
+
+msgid ""
+"The maximum number of seconds a caller can wait in a queue before being "
+"pulled out.  (0 for unlimited)."
+msgstr "在一个主叫被从队列中取走之前，它可以等待的最长的秒数（0代表无限制）。"
+
+msgid "Unlimited"
+msgstr "无限制"
+
+msgid "Max Wait Time Mode:"
+msgstr ""
+
+msgid ""
+"Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
+"caller is hit, they will be pulled out of the queue immediately. In 'Loose' "
+"mode, if a queue member is currently ringing with this call, then we will "
+"wait until the queue stops ringing this queue member or otherwise the call "
+"is rejected by the queue member before taking the caller out of the queue. "
+"This means that the 'Max Wait Time' could be as long as 'Max Wait Time' + "
+"'Agent Timeout' combined."
+msgstr ""
+
+msgid "Strict"
+msgstr "严格"
+
+msgid "Loose"
+msgstr ""
+
+msgid "Agent Timeout:"
+msgstr "坐席超时："
+
+msgid ""
+"The number of seconds an agent's phone can ring before we consider it a "
+"timeout. Unlimited or other timeout values may still be limited by system "
+"ringtime or individual extension defaults."
+msgstr ""
+"在坐席被判定为超时前，该坐席响铃的秒数。虽然可以设置成无限制或者其他时间，但"
+"响铃时间还是被系统响铃时间以及单个分机的响铃时间默认设置所限制。"
+
+msgid "Agent Timeout Restart:"
+msgstr ""
+
+msgid ""
+"If timeoutrestart is set to yes, then the time out for an agent to answer is "
+"reset if a BUSY or CONGESTION is received. This can be useful if agents are "
+"able to cancel a call with reject or similar."
+msgstr ""
+
+msgid "Retry:"
+msgstr "重试："
+
+msgid ""
+"The number of seconds we wait before trying all the phones again. Choosing "
+"\"No Retry\" will exit the Queue and go to the fail-over destination as soon "
+"as the first attempted agent times-out, additional agents will not be "
+"attempted."
+msgstr ""
+"在重试所有的电话之前，我们要等待的秒数。选择“无重试”将在尝试第一个坐席超时后"
+"立即退出队列，并且转移到处理此错误的目的地，并且不会尝试其他的坐席。"
+
+msgid "No Retry"
+msgstr "无重试"
+
+msgid "Wrap-Up-Time:"
+msgstr "隐藏时间："
+
+msgid ""
+"After a successful call, how many seconds to wait before sending a "
+"potentially free agent another call (default is 0, or no delay) If using "
+"Asterisk 1.6+, you can also set the 'Honor Wrapup Time Across Queues' "
+"setting (Asterisk: shared_lastcall) on the Advanced Settings page so that "
+"this is honored across queues for members logged on to multiple queues."
+msgstr ""
+
+msgid "Member Delay:"
+msgstr ""
+
+msgid ""
+"If you wish to have a delay before the member is connected to the caller (or "
+"before the member hears any announcement messages), set this to the number "
+"of seconds to delay."
+msgstr ""
+
+msgid "Agent Announcement:"
+msgstr "坐席通告："
+
+msgid ""
+"Announcement played to the Agent prior to bridging in the caller <br><br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\".<br><br>To add additional recordings "
+"please use the \"System Recordings\" MENU. Compound recordings composed of 2 "
+"or more sound files are not displayed as options since this feature can not "
+"accept such recordings."
+msgstr ""
+
+msgid ""
+"Announcement played to the Agent prior to bridging in the caller <br><br> "
+"Example: \"the Following call is from the Sales Queue\" or \"This call is "
+"from the Technical Support Queue\".<br><br>You must install and enable the "
+"\"Systems Recordings\" Module to edit this option"
+msgstr ""
+"在与主叫桥接之前，要播放给坐席的消息。<br /><br />例如：“此呼叫是从销售队列桥"
+"转过来的”或者“此呼叫是从技术支持队列转过来的”<br /><br />请安装并启用“系统录"
+"音”模块以编辑这个选项"
+
+msgid "Report Hold Time:"
+msgstr ""
+
+msgid ""
+"If you wish to report the caller's hold time to the member before they are "
+"connected to the caller, set this to yes."
+msgstr ""
+
+msgid "Capacity Options"
+msgstr ""
+
+msgid "Max Callers:"
+msgstr "最大呼叫数："
+
+msgid "Maximum number of people waiting in the queue (0 for unlimited)"
+msgstr "在队列中等待的人数的上限（0代表无限制）"
+
+msgid "No Max"
+msgstr ""
+
+msgid ""
+"Determines if new callers will be admitted to the Queue, if not, the "
+"failover destination will be immediately pursued. The options include:"
+msgstr ""
+
+msgid "Always allows the caller to join the Queue."
+msgstr ""
+
+msgid ""
+"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
+"phone then don't admit them. If agents are inuse or ringing someone else, "
+"caller will still be admitted."
+msgstr ""
+
+msgid "Ultra Strict"
+msgstr ""
+
+msgid ""
+"Same as Strict plus a queue member must be able to answer the phone 'now' to "
+"let them in. Simply speaking, any 'available' agents that could answer but "
+"are currently on the phone or ringing on behalf of another caller will be "
+"considered unavailable."
+msgstr ""
+
+msgid ""
+"Callers will not be admitted if all agents are paused, show an invalid state "
+"for their device, or have penalty values less then QUEUE_MAX_PENALTY (not "
+"currently set in IssabelPBX dialplan)."
+msgstr ""
+
+msgid ""
+"Same as No except Callers will be admitted if their are paused agents who "
+"could become available."
+msgstr ""
+
+msgid "Join Empty:"
+msgstr "加入无坐席队列："
+
+msgid ""
+"Determines if callers should be exited prematurely from the queue in "
+"situations where it appears no one is currently available to take the call. "
+"The options include:"
+msgstr ""
+
+msgid ""
+"Callers will exit if all agents are paused, show an invalid state for their "
+"device or have penalty values less then QUEUE_MAX_PENALTY (not currently set "
+"in IssabelPBX dialplan).."
+msgstr ""
+
+msgid ""
+"Same as Yes but more strict.  Simply speaking, if no agent could answer the "
+"phone then have them leave the queue. If agents are inuse or ringing someone "
+"else, caller will still be held."
+msgstr ""
+
+msgid ""
+"Same as Strict plus a queue member must be able to answer the phone 'now' to "
+"let them remain. Simply speaking, any 'available' agents that could answer "
+"but are currently on the phone or ringing on behalf of another caller will "
+"be considered unavailable."
+msgstr ""
+
+msgid ""
+"Same as Yes except Callers will remain in the Queue if their are paused "
+"agents who could become available."
+msgstr ""
+
+msgid ""
+"Never have a caller leave the Queue until the Max Wait Time has expired."
+msgstr ""
+
+msgid "Leave Empty:"
+msgstr ""
+
+msgid "Penalty Members Limit:"
+msgstr ""
+
+msgid ""
+"Asterisk: penaltymemberslimit. A limit can be set to disregard penalty "
+"settings, allowing all members to be tried, when the queue has too few "
+"members.  No penalty will be weighed in if there are only X or fewer queue "
+"members."
+msgstr ""
+
+msgid "Honor Penalties"
+msgstr ""
+
+msgid "Caller Position Announcements"
+msgstr "主叫位置通告"
+
+msgid "Frequency:"
+msgstr "频率："
+
+msgid ""
+"How often to announce queue position and estimated holdtime (0 to Disable "
+"Announcements)."
+msgstr ""
+"可以向等待者通告他在队列中的位置和剩下的等待时间，在这里设置通告的频率（0表示"
+"不要通告）。"
+
+msgid "Announce Position:"
+msgstr "通告位置："
+
+msgid "Announce position of caller in the queue?"
+msgstr "向主叫通告在等待队列中的位置吗？"
+
+msgid "Announce Hold Time:"
+msgstr "通告等待的时间："
+
+msgid ""
+"Should we include estimated hold time in position announcements?  Either "
+"yes, no, or only once; hold time will not be announced if <1 minute"
+msgstr ""
+"我们要在位置通告中包含剩余的等待时间的信息吗？可以选“是”、“否”或者“仅一次”，"
+"如果剩余等待时间不足一分钟，则不会通告此时间"
+
+msgid "Once"
+msgstr "一次"
+
+msgid "Periodic Announcements"
+msgstr "周期性通告："
+
+msgid "IVR Break Out Menu:"
+msgstr "插入IVR菜单："
+
+msgid ""
+"You can optionally present an existing IVR as a 'break out' menu."
+"<br><br>This IVR must only contain single-digit 'dialed options'. The "
+"Recording set for the IVR will be played at intervals specified in 'Repeat "
+"Frequency', below."
+msgstr ""
+"你可以插入一个可选的IVR菜单。<br /><br />这个IVR菜单只能包含一个数字选项。此"
+"IVR的录音集，会按照下面的“重复频率”中的设置重复播放。"
+
+msgid "Menu ID "
+msgstr "菜单ID"
+
+msgid "(**) ERRORS"
+msgstr "（**）错误"
+
+msgid "(**) Warning Potential Errors"
+msgstr "（**）警告，可能会发生错误"
+
+msgid ""
+"ERROR: You have selected an IVR's that use Announcements created from "
+"compound sound files. The Queue is not able to play these announcements. "
+"This IVR's recording will be truncated to use only the first sound file. You "
+"can correct the problem by selecting a different announcement for this IVR "
+"that is not from a compound sound file. The IVR itself can play such files, "
+"but the Queue subsystem can not"
+msgstr ""
+"错误：你选择了一个公告是复合录音的IVR。等待队列不能播放这样的公告。此IVR的录"
+"音将被截断，只有第一个录音文件会被播放出来。你可以为此IVR选择不包含复合录音的"
+"公告来更正这个错误。IVR本身可以播放这种文件，只是等待队列子系统不能播放。"
+
+msgid ""
+"Earlier versions of this module allowed such queues to be chosen, once "
+"changing this setting, it will no longer appear as an option"
+msgstr ""
+"此模块的更早的版本允许选择这样的队列，只要更改了此项设置，它就不会再以选项出"
+"现"
+
+msgid "Repeat Frequency:"
+msgstr "重复频率："
+
+msgid ""
+"How often to announce a voice menu to the caller (0 to Disable "
+"Announcements)."
+msgstr "向呼叫者通告语音菜单的频率（0既禁用通告）。"
+
+msgid "Events, Stats and Advanced"
+msgstr ""
+
+msgid "Event When Called:"
+msgstr "被叫时产生事件："
+
+msgid ""
+"When this option is set to YES, the following manager events will be "
+"generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
+msgstr ""
+"选择了“是”以后，以下的几个管理器事件会被引发：AgentCalled、AgentDump、"
+"AgentConnect和AgentComplete。"
+
+msgid "Member Status Event:"
+msgstr ""
+
+msgid ""
+"When set to YES, the following manager event will be generated: "
+"QueueMemberStatus"
+msgstr ""
+
+msgid "Service Level:"
+msgstr ""
+
+msgid ""
+"Used for service level statistics (calls answered within service level time "
+"frame)"
+msgstr ""
+
+msgid "Agent Regex Filter"
+msgstr "针对坐席的正则表达式过滤器"
+
+msgid ""
+"Provides an optional regex expression that will be applied against the agent "
+"callback number. If the callback number does not pass the regex filter then "
+"it will be treated as invalid. This can be used to restrict agents to "
+"extensions within a range, not allow callbacks to include keys like *, or "
+"any other use that may be appropriate. An example input might be:<br />^([2-"
+"4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or "
+"<br />^([0-9]+)$ would allow any number of any length, but restrict the * "
+"key.<br />WARNING: make sure you understand what you are doing or otherwise "
+"leave this blank!"
+msgstr ""
+"针对坐席的回呼号码设置正则表达式过滤器。如果回呼号码没有通过正则表达式过滤"
+"器，它就被认为是无效的。这可以用来把坐席限制在一个范围的分机号内。不允许回呼"
+"号码中包含*号。例子：<br />^([2-4][0-9]{3})$<br />这将把坐席限制在2000-4999的"
+"分机号范围内。或者<br />^([0-9]+)$将允许任何长度的任何号码，但是不允许有*号。"
+"<br />警告：除非你知道你在做什么，否则请保留此设置为空白！"
+
+msgid "Fail Over Destination"
+msgstr "在目的地发生了错误"
+
+msgid "Submit Changes"
+msgstr "提交更改"
+
+msgid ""
+"Using a Regex filter is fairly advanced, please confirm you know what you "
+"are doing or leave this blank"
+msgstr ""
+"正则表达式过滤器是相当高级的功能，请确认你知道自己在做什么，否则请留空此项"
+
+msgid "Queue Number must not be blank"
+msgstr "等待队列号码不能为空"
+
+msgid ""
+"Queue name must not be blank and must contain only alpha-numeric characters"
+msgstr "队列名称不能为空，并且只能包含字母和数字字符。"
+
+msgid "Queues"
+msgstr "等待队列"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Creates a queue where calls are placed on hold and answered on a first-in, "
+"first-out basis. Many options are available, including ring strategy for "
+"agents, caller announcements, max wait times, etc."
+msgstr ""
+
+msgid "Persistent Members"
+msgstr ""
+
+msgid "Queues Module"
+msgstr ""
+
+msgid ""
+"Queues: persistentmembers. Store each dynamic member in each queue in the "
+"astdb so that when asterisk is restarted, each member will be automatically "
+"read into their recorded queues."
+msgstr ""
+
+msgid "Honor Wrapup Time Across Queues"
+msgstr ""
+
+msgid ""
+"Queues: shared_lastcall, only valid with Asterisk 1.6+. This will make the "
+"lastcall and calls received be the same in members logged in more than one "
+"queue. This is useful to make the queue respect the wrapuptime of another "
+"queue for a shared member."
+msgstr ""
+
+msgid "Set Agent Name in CDR dstchannel"
+msgstr ""
+
+msgid ""
+"Queues: updatecdr, only valid with Asterisk 1.6+. This option is implemented "
+"to mimic chan_agents behavior of populating CDR dstchannel field of a call "
+"with an agent name, which is set if available at the login time with "
+"AddQueueMember membername parameter, or with static members."
+msgstr ""
+
+msgid "Use MixMonitor for Recordings"
+msgstr ""
+
+msgid ""
+"Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
+"application instead of Monitor so the concept of 'joining/mixing' the in/out "
+"files now goes away when this is enabled."
+msgstr ""
+
+msgid "Hide Queue No Answer Option"
+msgstr ""
+
+msgid ""
+"It is possible for a queue to NOT Answer a call and still enter callers to "
+"the queue. The normal behavior is that all  allers are answered before "
+"entering the queue. If the call is not answered, it is possible that some "
+"early media delivery would still allow callers to hear recordings, MoH, etc. "
+"but this can be inconsistent and vary. Because of the volatility of this "
+"option, it is not displayed by default. If a queue is set to not answer, the "
+"setting will be displayed for that queue regardless of this setting."
+msgstr ""
+
+msgid "Asterisk Queues Patch 15168 Installed"
+msgstr ""
+
+msgid ""
+"Setting this flag will generate the required dialplan to integrate with the "
+"following Asterisk patch: <b>https://issues.asterisk.org/view.php?id=15168</"
+"b>. This setting is obsolete on Asterisk 1.8+ systems where the hint state "
+"is now standard and always used. This asterisk patch is only available on "
+"Asterisk 1.4, trying to use this setting on Asterisk 1.6 will break some "
+"queue behavior and should be avoided"
+msgstr ""
+
+#~ msgid ""
+#~ "You can optionally prefix the Caller ID name of callers to the queue. ie: "
+#~ "If you prefix with \"Sales:\", a call from John Doe would display as "
+#~ "\"Sales:John Doe\" on the extensions that ring."
+#~ msgstr ""
+#~ "在为这个小组的分机响铃时，你可以为主叫ID名字添加可选的前缀。例如：如果你添"
+#~ "加了“销售：”前缀，从小王打来的电话在响铃的分机上会显示为：“销售：小王”。"
+
+#~ msgid ""
+#~ "If the call is subsequently transfered, the wait time will reflect the "
+#~ "time since it first entered the queue or reset if the call is transfered "
+#~ "to another queue with this feature set."
+#~ msgstr ""
+#~ "如果呼叫随后被转移，等待时间反映了呼叫进入队列后等待的时间，或者启用此项设"
+#~ "置后，呼叫被转移到其他队列时，等待时间将重置。"
+
+#~ msgid "Queue Options"
+#~ msgstr "队列选项"
+
+#~ msgid ""
+#~ "Announcement played to the Agent prior to bridging in the caller <br><br> "
+#~ "Example: \"the Following call is from the Sales Queue\" or \"This call is "
+#~ "from the Technical Support Queue\".<br><br>To add additional recordings "
+#~ "please use the \"System Recordings\" MENU to the left. Compound "
+#~ "recordings composed of 2 or more sound files are not displayed as options "
+#~ "since this feature can not accept such recordings."
+#~ msgstr ""
+#~ "在与主叫桥接之前，要播放给坐席的消息。<br /><br />例如：“此呼叫是从销售队"
+#~ "列桥转过来的”或者“此呼叫是从技术支持队列转过来的”<br /><br />要添加额外的"
+#~ "录音，请使用左边的“系统录音”菜单。包含2以上录音的复合录音无法作为选项播放"
+#~ "出来，因为此功能不支持这种录音。"
+
+#~ msgid ""
+#~ "Announcement played to callers once prior to joining the queue.<br><br>To "
+#~ "add additional recordings please use the \"System Recordings\" MENU to "
+#~ "the left"
+#~ msgstr ""
+#~ "在加入这个队列之前，要播放给主叫的通告。<br /><br />要添加额外的录音，请使"
+#~ "用左边的“系统录音”菜单"
+
+#~ msgid ""
+#~ "Music (or Commercial) played to the caller while they wait in line for an "
+#~ "available agent. Choose \"inherit\" if you want the MoH class to be what "
+#~ "is currently selected, such as by the inbound route.<br><br>  This music "
+#~ "is defined in the \"Music on Hold\" Menu to the left."
+#~ msgstr ""
+#~ "在主叫等待坐席接听时所播放的音乐（或广告）。如果你希望使用当前已选择的等待"
+#~ "音乐类别（例如在入局线路中选择了音乐类别），就选择“继承”。<br /><br />  音"
+#~ "乐类别是在左侧的“等待音乐”菜单中定义的。"
+
+#~ msgid ""
+#~ "If you wish to allow callers to join queues that currently have no "
+#~ "agents, set this to yes. Set to strict if callers cannot join a queue "
+#~ "with no members or only unavailable members"
+#~ msgstr ""
+#~ "如果你允许呼叫者加入还没有坐席登录的队列，就选择“是”。如果不允许呼叫者加入"
+#~ "没有成员的队列或没有有效成员的队列，就选择“严格”"
+
+#~ msgid "Leave When Empty:"
+#~ msgstr "自动离开无坐席队列"
+
+#~ msgid ""
+#~ "If you wish to remove callers from the queue if there are no agents "
+#~ "present, set this to yes. Set to strict if callers cannot join a queue "
+#~ "with no members or only unavailable members"
+#~ msgstr ""
+#~ "如果你希望呼叫者自动从没有坐席的队列离开，就选择“是”。如果不允许呼叫者加入"
+#~ "没有成员的队列或没有有效成员的队列，就选择“严格”"
+
+#~ msgid ""
+#~ "After a successful call, how many seconds to wait before sending a "
+#~ "potentially free agent another call (default is 0, or no delay)"
+#~ msgstr ""
+#~ "在某坐席完成了一次对话之后，要等待多少秒才重新把它视为空闲（默认是0，无延"
+#~ "迟）"
+
+#~ msgid "Member Status:"
+#~ msgstr "成员状态："
+
+#~ msgid ""
+#~ "When if this is option is set to YES, the following manager event will be "
+#~ "generated: QueueMemberStatus"
+#~ msgstr "这项设置成“是”时，以下的管理器事件会被引发：QueueMemberStatus"

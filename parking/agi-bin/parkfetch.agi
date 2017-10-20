@@ -1,0 +1,70 @@
+#!/usr/bin/php -q
+<?php
+//	License for all code of this IssabelPBX module can be found in the license file inside the module directory
+//	Copyright 2013 Schmooze Com Inc.
+//
+if ($argc < 2) {
+	exit;
+}
+
+/*
+// Not bootstraping for now, adds a lot of overhead not being used but can be swapped
+// out for below if debugging is necessary
+//
+$restrict_mods = true;
+if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc/issabelpbx.conf')) {
+    include_once('/etc/asterisk/issabelpbx.conf');
+}
+require_once "phpagi.php";
+$agi = new AGI();
+*/
+require_once "phpagi.php";
+require_once "phpagi-asmanager.php";
+
+$agi = new AGI();
+
+$ampmgruser   = get_var( "AMPMGRUSER" );
+$ampmgrpass   = get_var( "AMPMGRPASS" );
+$astman = new AGI_AsteriskManager( );	
+if (!$astman->connect("127.0.0.1", $ampmgruser , $ampmgrpass)) {
+	exit (1);
+}
+
+$r = $astman->send_request('Command',array('Command'=>"parkedcalls show"));
+$d=explode("\n",trim($r['data']));
+
+// Looks for the parking slot passed in the first ([0] column, if it finds it then
+// it get's the channel from the second ([1]) column. 
+//
+$channel = '';
+foreach ($d as $l) {
+	$p= preg_split('/ /', $l,-1,PREG_SPLIT_NO_EMPTY);
+	if ($p[0] == $argv[1]) {
+		$channel = $p[1];
+		break;
+	}
+}
+
+// If the REC_STATUS is RECORDING then we need the remaining channel variables
+// for the resulting dialplan to restart MixMonitor appending to the old recording
+//
+if ($channel) {
+	$rec_status = get_var("IMPORT($channel,REC_STATUS)");
+	$agi->set_variable('REC_STATUS', $rec_status);
+	if ($rec_status == "RECORDING") {
+		foreach (array('MIXMON_DIR', 'YEAR', 'MONTH', 'DAY', 'CALLFILENAME', 'MIXMON_FORMAT', 'MIXMON_POST', 'MON_FMT') as $v) {
+			$agi->set_variable($v, get_var("IMPORT($channel,$v)"));
+		}
+	}
+}
+
+function get_var($value) {
+	global $agi;
+
+	$r = $agi->get_variable( $value );
+	if ($r['result'] == 1) {
+		$result = $r['data'];
+		return trim($result);
+	}
+	return '';
+}

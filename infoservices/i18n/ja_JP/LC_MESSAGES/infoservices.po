@@ -1,0 +1,100 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for infoservices
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.0.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-05 19:32+0900\n"
+"PO-Revision-Date: 2014-02-20 04:28+0200\n"
+"Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
+"Language-Team: Japanese "
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+msgid "Info Services"
+msgstr "情報サービス"
+
+msgid "Directory"
+msgstr "ディレクトリー"
+
+msgid "Call Trace"
+msgstr "電話履歴"
+
+msgid "Echo Test"
+msgstr "エコーテスト"
+
+msgid "Speaking Clock"
+msgstr "音声クロック"
+
+msgid "Speak Your Exten Number"
+msgstr "音声内線番号"
+
+msgid "migrated TIMEFORMAT to Advanced Settings"
+msgstr "TIMEFORMATを詳細設定に移行しました"
+
+msgid "deleting TIMEFORMAT from globals.."
+msgstr "globalsからTIMEFORMATを削除中..."
+
+msgid "done"
+msgstr "完了"
+
+msgid "could not delete"
+msgstr "削除できませんでした"
+
+msgid "Applications"
+msgstr "アプリケーション"
+
+msgid ""
+"Provides a number of applications accessible by feature codes: company "
+"directory, call trace (last call information), echo test, speaking clock, "
+"and speak current extension number."
+msgstr ""
+"キーコードによって利用可能ないくつかのアプリケーションを提供します：会社ディ"
+"レクトリ、電話履歴の捜索（最終電話履歴）、エコー検査、音声クロック、音声内線"
+"番号。"
+
+msgid "Speaking Clock Time Format"
+msgstr "音声クロックの時刻形式"
+
+msgid "Dialplan and Operational"
+msgstr "ダイヤルプランと操作"
+
+msgid "Time format to use with the Speaking Clock."
+msgstr "音声クロックで使用する時刻の形式。"

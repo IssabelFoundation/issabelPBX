@@ -1,0 +1,69 @@
+#!/bin/bash
+
+check_fop() {
+#check to see if FOP is running
+	pid_length=`$PIDOF -x op_server.pl|awk '{print length($0)}'`
+	if [ "$pid_length" == "0" -a "$pid_length" != "" ]
+	then
+ 		ps -ef | grep safe_opserver | grep -v grep | awk '{print $2}' | xargs kill -9
+		echo
+		echo "-----------------------------------------------------"
+		echo "The FOP's server (op_server.pl) could not start!"
+		echo "Please correct this problem"
+		echo "-----------------------------------------------------"
+		exit 0
+	fi
+}
+
+run_asterisk_hook_fw_fop() {
+	# check to see if FOP is running
+	echo
+	echo "STARTING FOP SERVER"
+	pid_length=`$PIDOF -x op_server.pl|awk '{print length($0)}'`
+	if [ "$pid_length" != "0" -a "$pid_length" != "" ]
+	then
+		echo "FOP server is already running"
+		else
+		su - $AMPASTERISKUSER -c "cd $FOPWEBROOT && $FOPWEBROOT/safe_opserver &" > /dev/null 2>&1
+		# Check if su was successful, if not add a shell
+		[ "$?" -eq "0" ] || su -s /bin/bash $AMPASTERISKUSER -c "cd $FOPWEBROOT && $FOPWEBROOT/safe_opserver &" 
+		sleep 1
+		check_fop
+		echo "FOP Server Started"
+	fi
+}
+
+stop_asterisk_hook_fw_fop() {
+	echo
+	echo "STOPPING FOP SERVER"
+	pid_length=`$PIDOF -x op_server.pl|awk '{print length($0)}'`
+	if [ "$pid_length" != "0" -a "$pid_length" != "" ]
+	then
+ 		ps -ef | grep safe_opserver | grep -v grep | awk '{print $2}' | xargs kill
+		killall op_server.pl
+		echo "FOP Server Stopped"
+	fi
+}
+
+run_fop_hook_fw_fop() {
+	run_asterisk_hook_fw_fop
+}
+
+start_fop_hook_fw_fop() {
+	run_asterisk_hook_fw_fop
+}
+
+stop_fop_hook_fw_fop() {
+	stop_asterisk_hook_fw_fop
+}
+
+restart_fop_hook_fw_fop() {
+	stop_asterisk_hook_fw_fop
+	run_asterisk_hook_fw_fop
+}
+
+help_hook_fw_fop() {
+	echo "start_fop:     Starts the FOP Server (op_server.pl)"
+	echo "stop_fop:      Stops the FOP server (op_server.pl)"
+	echo "restart_fop:   Restarts the FOP server (op_server.pl)"
+}

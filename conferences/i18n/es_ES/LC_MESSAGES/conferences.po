@@ -1,0 +1,332 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2008, 2009 Juan Asensio Sánchez <okelet@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - módulo conferences module spanish translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2014-02-28 09:21+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Spanish "
+"<http://example.com/projects/freepbx-211/conferences/es/>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.9-dev\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Conferences"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Allow creation of conference rooms (meet-me) where multiple people can talk "
+"together."
+msgstr ""
+
+#, php-format
+msgid "Conference Room %s : %s"
+msgstr "Sala de conferencia %s: %s"
+
+#, php-format
+msgid "Conference: %s"
+msgstr "Conferencia: %s"
+
+msgid "Conference: "
+msgstr "Conferencia:"
+
+msgid "Checking if music field present.."
+msgstr ""
+
+msgid "adding music field.."
+msgstr ""
+
+msgid "fatal error"
+msgstr "error fatal"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "already present"
+msgstr ""
+
+msgid "Checking if recordings need migration.."
+msgstr "Comprobando si las grabaciones necesitan migrarse..."
+
+msgid "migrating"
+msgstr "migrando"
+
+msgid "adding joinmsg_id field.."
+msgstr "Añadiendo campo joinmsgid"
+
+msgid "migrate to recording ids.."
+msgstr "Migrando a identificadores de grabación..."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "Migrados %s elementos"
+
+msgid "dropping joinmsg field.."
+msgstr "Eliminando campo joinmsg..."
+
+msgid "no joinmsg field???"
+msgstr "No existe el campo joinmsg"
+
+msgid "already migrated"
+msgstr "Ya se ha migrado"
+
+msgid "Checking for users field.."
+msgstr ""
+
+msgid "adding.."
+msgstr ""
+
+msgid "FATAL error"
+msgstr ""
+
+msgid "Warning! Extension"
+msgstr "¡Atención! La extensión"
+
+msgid "is not allowed for your account."
+msgstr "no está autorizada en su cuenta"
+
+msgid "Add Conference"
+msgstr "Añadir conferencia"
+
+msgid "Conference"
+msgstr "Conferencia"
+
+msgid "deleted"
+msgstr "Eliminado"
+
+msgid "Conference:"
+msgstr "Conferencia:"
+
+#, php-format
+msgid "Delete Conference %s"
+msgstr "Eliminar conferencia %s"
+
+msgid "Conflicting Extensions"
+msgstr "Extensiones en conflicto"
+
+msgid "Edit Conference"
+msgstr "Editar conferencia"
+
+msgid "Conference Number:"
+msgstr "Número de conferencia"
+
+msgid "Use this number to dial into the conference."
+msgstr "Use este número para llamar a la conferencia."
+
+msgid "Conference Name:"
+msgstr "Nombre de la conferencia:"
+
+msgid "Give this conference a brief name to help you identify it."
+msgstr ""
+"Asigne a esta conferencia un nombre descriptivo para ayudarle a "
+"identificarla."
+
+msgid "User PIN:"
+msgstr "PIN de usuario:"
+
+msgid ""
+"You can require callers to enter a password before they can enter this "
+"conference.<br><br>This setting is optional.<br><br>If either PIN is "
+"entered, the user will be prompted to enter a PIN."
+msgstr ""
+"Puede solicitar a los usuarios que introduzcan una contraseña antes de que "
+"puedan entrar a esta conferencia.<br/><br/>Este parámetro es opcional."
+"<br>7<br/>Si se indica un valor en este campo, se le solicitará al usuario "
+"que introduzca el PIN."
+
+msgid "Admin PIN:"
+msgstr "PIN de administración:"
+
+msgid ""
+"Enter a PIN number for the admin user.<br><br>This setting is optional "
+"unless the 'leader wait' option is in use, then this PIN will identify the "
+"leader."
+msgstr ""
+"Introduzca un PIN para el administrador.<br/><br/>Este parámetro es opcional "
+"a menos que se seleccione la opción 'Esperar al administrador'."
+
+msgid "Conference Options"
+msgstr "Opciones de conferencia"
+
+msgid "Join Message:"
+msgstr "Mensaje de bienvenida:"
+
+msgid ""
+"Message to be played to the caller before joining the conference.<br><br>To "
+"add additional recordings please use the \"System Recordings\" MENU to the "
+"left"
+msgstr ""
+"Mensaje que se reproducirá cuando un usuario se una a la conferencia.<br/"
+"><br/>Para añadir más grabaciones, use la opción 'Grabaciones del sistema' "
+"del menú de la izquierad."
+
+msgid "None"
+msgstr "Ninguno"
+
+msgid ""
+"Message to be played to the caller before joining the conference.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"ensaje que se reproducirá cuando un usuario se una a la conferencia.<br/><br/"
+">Debe tener instalado y habilitado el módulo 'Grabaciones del sistema' para "
+"editar esta opción."
+
+msgid "Leader Wait:"
+msgstr "Esperar al administrador:"
+
+msgid ""
+"Wait until the conference leader (admin user) arrives before starting the "
+"conference"
+msgstr "Esperar hasta que el administrador se una para iniciar la conferencia."
+
+msgid "No"
+msgstr "No"
+
+msgid "Yes"
+msgstr "Sí"
+
+msgid "Talker Optimization:"
+msgstr ""
+
+msgid ""
+"Turns on talker optimization. With talker optimization, Asterisk treats "
+"talkers who\n"
+"are not speaking as being muted, meaning that no encoding is done on "
+"transmission\n"
+"and that received audio that is not registered as talking is omitted, "
+"causing no\n"
+"buildup in background noise."
+msgstr ""
+
+msgid "Talker Detection:"
+msgstr ""
+
+msgid ""
+"Sets talker detection. Asterisk will sends events on the Manager Interface "
+"identifying\n"
+"the channel that is talking. The talker will also be identified on the "
+"output of\n"
+"the meetme list CLI command."
+msgstr ""
+
+msgid "Quiet Mode:"
+msgstr "Modo silencioso:"
+
+msgid "Quiet mode (do not play enter/leave sounds)"
+msgstr ""
+"Modo silencioso (no reproducir sonidos cuando alguien entre o salga de la "
+"conferencia)"
+
+msgid "User Count:"
+msgstr "Contador de usuarios:"
+
+msgid "Announce user(s) count on joining conference"
+msgstr "Dice el número de usuarios de la conferencia al entrar a la misma"
+
+msgid "User join/leave:"
+msgstr "Entrada/Salida de usuario:"
+
+msgid "Announce user join/leave"
+msgstr "Anuncia la entrada o salida de un usuario de la conferencia"
+
+msgid "Music on Hold:"
+msgstr "Música en espera:"
+
+msgid "Enable Music On Hold when the conference has a single caller"
+msgstr ""
+"Habilita la música en espera mientras la conferencia sólo tiene un asistente"
+
+msgid "Music on Hold Class:"
+msgstr ""
+
+msgid ""
+"Music (or Commercial) played to the caller while they wait in line for the "
+"conference to start. Choose \"inherit\" if you want the MoH class to be what "
+"is currently selected, such as by the inbound route.<br><br>  This music is "
+"defined in the \"Music on Hold\" to the left."
+msgstr ""
+
+msgid "inherit"
+msgstr ""
+
+msgid "default"
+msgstr ""
+
+msgid "Allow Menu:"
+msgstr "Permitir menú:"
+
+msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
+msgstr ""
+"Permitir el acceso al menú al usuario o al administrador cuando se se pulsa "
+"la tecla '*'."
+
+msgid "Record Conference:"
+msgstr "Grabar conferencias:"
+
+msgid "Record the conference call"
+msgstr "Graba las llamadas de la conferencia."
+
+msgid "Maximum Participants:"
+msgstr ""
+
+msgid "Maximum Number of users allowed to join this conference."
+msgstr ""
+
+msgid "No Limit"
+msgstr ""
+
+msgid "Mute on Join:"
+msgstr ""
+
+msgid ""
+"Mute everyone when they initially join the conference. Please note that if "
+"you do not have 'Leader Wait' set to yes you must have 'Allow Menu' set to "
+"Yes to unmute yourself"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr "Enviar cambios"
+
+msgid "Please enter a valid Conference Number"
+msgstr "Por favor, introduzca un número de conferencia válido"
+
+msgid "Please enter a valid Conference Name"
+msgstr "Por favor, introduzca un nombre de conferencia válido"
+
+msgid ""
+"You must set an admin PIN for the Conference Leader when selecting the "
+"leader wait option"
+msgstr ""
+"Debe establecer un PIN de administración para el administrador de la "
+"conferencia cuando se seleccione la opción 'Esperar al administrador'"
+
+msgid ""
+"You must set Allow Menu to Yes when not using a Leader or Admin in your "
+"conference, otherwise you will be unable to unmute yourself"
+msgstr ""

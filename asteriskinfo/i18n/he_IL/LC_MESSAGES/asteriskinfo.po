@@ -1,0 +1,169 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for asteriskinfo
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Asterisk Info"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "Provides a snapshot of the current Asterisk configuration"
+msgstr ""
+
+msgid "Summary"
+msgstr ""
+
+msgid "Registries"
+msgstr ""
+
+msgid "Channels"
+msgstr ""
+
+msgid "Peers"
+msgstr ""
+
+msgid "Sip Info"
+msgstr ""
+
+msgid "IAX Info"
+msgstr ""
+
+msgid "Conferences"
+msgstr ""
+
+msgid "Queues"
+msgstr ""
+
+msgid "Subscriptions"
+msgstr ""
+
+msgid "Full Report"
+msgstr ""
+
+msgid "Uptime"
+msgstr ""
+
+msgid "Active Channel(s)"
+msgstr ""
+
+msgid "Sip Channel(s)"
+msgstr ""
+
+msgid "IAX2 Channel(s)"
+msgstr ""
+
+msgid "IAX2 Peers"
+msgstr ""
+
+msgid "Sip Registry"
+msgstr ""
+
+msgid "Sip Peers"
+msgstr ""
+
+msgid "IAX2 Registry"
+msgstr ""
+
+msgid "Subscribe/Notify"
+msgstr ""
+
+msgid "DAHDi driver info"
+msgstr ""
+
+msgid "Zaptel driver info"
+msgstr ""
+
+msgid "MeetMe Conference Info"
+msgstr ""
+
+msgid "Conference Bridge Info"
+msgstr ""
+
+msgid "Queues Info"
+msgstr ""
+
+msgid "Voicemail Users"
+msgstr ""
+
+msgid "Google Talk Channels"
+msgstr ""
+
+msgid "Jabber Connections"
+msgstr ""
+
+msgid "Asterisk (Ver. "
+msgstr ""
+
+msgid "ASTERISK MANAGER ERROR"
+msgstr ""
+
+msgid ""
+"The module was unable to connect to the Asterisk manager.<br>Make sure "
+"Asterisk is running and your manager.conf settings are proper.<br><br>"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Uptime: "
+msgstr ""
+
+msgid "Active SIP Channel(s): "
+msgstr ""
+
+msgid "Active IAX2 Channel(s): "
+msgstr ""
+
+msgid "Sip Registry: "
+msgstr ""
+
+msgid "IAX2 Registry: "
+msgstr ""
+
+msgid "Sip Peers: "
+msgstr ""
+
+msgid "IAX2 Peers: "
+msgstr ""
+
+msgid "Online: "
+msgstr ""
+
+msgid "Online-Unmonitored: "
+msgstr ""
+
+msgid "Offline: "
+msgstr ""
+
+msgid "Offline-Unmonitored: "
+msgstr ""
+
+msgid "Unmonitored: "
+msgstr ""

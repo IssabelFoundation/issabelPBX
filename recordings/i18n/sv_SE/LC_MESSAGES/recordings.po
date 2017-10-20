@@ -1,0 +1,316 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language for recordings
+# Copyright (C) 2009, 2010, 2011 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX recordings\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-07-10 09:30+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#, php-format
+msgid "Missing Sound file auto-created from migration of %s module"
+msgstr "Fattas ljudfil som autoskapades när migrering gjordes av modul %s"
+
+#, php-format
+msgid "Non-Existent Recording in module %s"
+msgstr "Inspelningen finns inte i modul %s"
+
+#, php-format
+msgid ""
+"The %s referenced a recording file listed below that does not exists. An "
+"entry has been generated, named %s, with the referenced file(s) but you "
+"should confirm that it really works and the real files exist. The file(s) "
+"referenced: %s "
+msgstr ""
+"%s refererade till en inspelningsfil som inte finns. En post har genererats "
+"med namnet %s, med den refererande filen/filerna men du måste kontrollera "
+"att detta verkligen fungerar och att filen/filerna finns. Filen/filerna som "
+"refereras är %s"
+
+msgid "No long description available"
+msgstr "Ingen beskrivning tillgänglig"
+
+msgid "Recordings"
+msgstr "Inspelningar"
+
+msgid "Save Recording"
+msgstr "Spara inspelning"
+
+msgid "Check Recording"
+msgstr "Kontrollera inspelning"
+
+msgid "checking for fcode field.."
+msgstr "kontrollerar fältet fcode.."
+
+msgid "OK"
+msgstr "OK"
+
+msgid "already exists"
+msgstr "finns redan"
+
+msgid "checking for fcode_pass field.."
+msgstr "kontrollerar fältet fcode_pass.."
+
+msgid "** MISSING FEATURE CODE **"
+msgstr "** FUKTIONSKOD FATTAS ***"
+
+msgid "Failed to create"
+msgstr "Kunde inte skapa"
+
+msgid "[ERROR] The Recorded File Does Not exists:"
+msgstr "[FEL] Den inspelade filen finns inte:"
+
+msgid "[ERROR] SAVING RECORDING:"
+msgstr "[FEL] vid sparande av inspelning:"
+
+msgid "Make sure you have entered a proper name"
+msgstr "Kontrollera att det är ett giltigt namn"
+
+msgid "[ERROR] REMOVING TEMPORARY RECORDING:"
+msgstr "[FEL] vid radering av temporär inspelning:"
+
+msgid "Make sure Asterisk is not running as root "
+msgstr "Kontrollera att Aserisk inte körs som root"
+
+msgid "System Recording"
+msgstr "Systeminspelning"
+
+msgid "Saved"
+msgstr "Sparad"
+
+msgid "Unable to locate"
+msgstr "Kan inte hitta"
+
+msgid "with a a valid suffix"
+msgstr "med en giltig ändelse"
+
+msgid "Updated"
+msgstr "Uppdaterad"
+
+msgid "System Recordings"
+msgstr "Systeminspelningar"
+
+msgid "Add Recording"
+msgstr "Lägg till inspelning"
+
+msgid "Step 1: Record or upload"
+msgstr "Steg 1: Spela in eller ladda upp"
+
+msgid "Using your phone,"
+msgstr "Använd din telefon,"
+
+msgid " dial"
+msgstr " slå"
+
+msgid "Start speaking at the tone. Press # when finished."
+msgstr "Börja tala efter tonen. Tryck # när du är klar."
+
+msgid "and speak the message you wish to record. Press # when finished."
+msgstr "tala in ditt meddelande. Tryck # när du är klar."
+
+msgid ""
+"If you wish to make and verify recordings from your phone, please enter your "
+"extension number here:"
+msgstr ""
+"Om du vill spela in och lyssna på dina inspelningar via telefon, skriv in "
+"ditt anknytningnummer här."
+
+msgid "Go"
+msgstr "Utför"
+
+msgid ""
+"Alternatively, upload a recording in any supported asterisk format. Note "
+"that if you're using .wav, (eg, recorded with Microsoft Recorder) the file "
+"<b>must</b> be PCM Encoded, 16 Bits, at 8000Hz"
+msgstr ""
+"Alternativt, ladda upp en inspelning i något format som stöds av Asterisk. "
+"Om du använder en .wav-fil (inspelad via Microsoft Recorder) så <b>måste</b> "
+"filen vara PCM-kodad, 16 bitar vid 8000Hz"
+
+msgid "Upload"
+msgstr "Ladda upp"
+
+msgid "Please wait until the page reloads."
+msgstr "Vänta tills sidan laddats om."
+
+msgid "Successfully uploaded"
+msgstr "Uppladdningen lyckades"
+
+msgid "Step 2: Verify"
+msgstr "Steg 2: Kontrollera"
+
+msgid "After recording or uploading,"
+msgstr "Efter inspelning eller uppladdning,"
+
+msgid "dial"
+msgstr ""
+
+msgid "to listen to your recording."
+msgstr "för att lyssna på din inspelning."
+
+msgid "If you wish to re-record your message, dial"
+msgstr "Om du vill spela över din inspelning, slå"
+
+msgid "Step 3: Name"
+msgstr "Steg 3: Namn"
+
+msgid "Step 2: Name"
+msgstr "Steg 2: Namn"
+
+msgid "Name this Recording"
+msgstr "Namnge denna inspelning"
+
+msgid "Click \"SAVE\" when you are satisfied with your recording"
+msgstr "Klicka på \"Spara\" när du är nöjd med din inspelning"
+
+msgid "Save"
+msgstr "Spara"
+
+msgid "Edit Recording"
+msgstr "Redigera inspelning"
+
+msgid "Usage List"
+msgstr "Används i"
+
+msgid ""
+"This recording is being used in the following instances. You can not remove "
+"this recording while being used. To re-record, you can enable and use the "
+"feature code below if allowed."
+msgstr ""
+"Denna inspelning används. Du kan inte ta bort den medan den används. För att "
+"spela in igen, använd nedanstående funktionskod om du har tillåtelse till "
+"detta."
+
+msgid "Remove Recording"
+msgstr "Ta bort inspelning"
+
+msgid "Note, does not delete file from computer"
+msgstr "Detta tar inte bort filen från systemet"
+
+msgid "Change Name"
+msgstr "Byt namn"
+
+msgid "This changes the short name, visible on the right, of this recording"
+msgstr "Detta ändrar det korta namnet som syns till höger"
+
+msgid "Descriptive Name"
+msgstr "Beskrivning"
+
+msgid ""
+"This is displayed, as a hint, when selecting this recording in Queues, "
+"Digital Receptionist, etc"
+msgstr ""
+"Detta visas när du väljer denna inspelning i Köer, Digital receptionist etc"
+
+msgid "Link to Feature Code"
+msgstr "Länk till funktionskod"
+
+msgid ""
+"Check this box to create an options feature code that will allow this "
+"recording to be changed directly."
+msgstr ""
+"Aktivera denna ruta för att valfritt skapa en funktionskod som tillåter dig "
+"att ändra denna inspelning direkt."
+
+#, php-format
+msgid "Optional Feature Code %s"
+msgstr "Valfri funktionskod %s"
+
+msgid "Feature Code Password"
+msgstr "Lösenord för funktionskod"
+
+msgid ""
+"Optional password to protect access to this feature code which allows a user "
+"to re-record it."
+msgstr ""
+"Valfritt lösenord som skyddar denna funktionskod från att oavsiktligt spelas "
+"över."
+
+msgid "Direct Access Feature Code Not Available"
+msgstr "Funktionskoden för direktåtkomst är inte tillgänglig"
+
+msgid ""
+"Direct Access Feature Codes for recordings are not available for built in "
+"system recordings or compound recordings made of multiple individual ones."
+msgstr ""
+"Funktionskoder för inspelningar är inte tillgängliga för de inbyggda "
+"systeminspelningarna eller för röster som består av flera individuella filer."
+
+msgid "Files"
+msgstr "Filer"
+
+msgid "Built-in Recordings"
+msgstr "Inbyggda inspelningar"
+
+msgid "Please enter a valid Name for this System Recording"
+msgstr "Skriv in ett giltigt namn för denna systeminspelning"
+
+msgid "Select System Recording:"
+msgstr "Välj systeminspelning:"
+
+msgid "Click here to play this recording"
+msgstr "Klicka här för att spela upp denna inspelning"
+
+msgid "Move Up"
+msgstr "Flytta upp"
+
+msgid "Move Down"
+msgstr "Flytta ner"
+
+msgid "Delete"
+msgstr "Ta bort"
+
+#, php-format
+msgid "No compatible wav, mp3 or gsm format found to play:<br /><br />%s"
+msgstr ""
+"Ingen kompatibel wav, mp3 eller gsm fil hittades för uppspelning:<br><br>%s"
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"Creates and manages system recordings, used by many other modules (eg, IVR)."
+msgstr ""
+"Skapar och undehåller systeminspelningar som kan användas av andra moduler"
+
+msgid "Recordings Crypt Key"
+msgstr "Krypteringsnyckel för inspelningar"
+
+msgid "System Setup"
+msgstr "Systeminställningar"
+
+msgid ""
+"Crypt key used by this recordings module when accessing the recording files. "
+"Change from the default of "
+msgstr ""
+"Krypteringsnyckel som används av systeminspelningsmodulen vid åtkomst av "
+"inspelade filer. Ändra från standardnyckeln "
+
+msgid " if desired."
+msgstr "om så önskas"
+
+#~ msgid "Internal Options & Configuration"
+#~ msgstr "Interna val och konfigurationer"

@@ -1,0 +1,236 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-03 22:35+0200\n"
+"Last-Translator: \n"
+"Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Cannot write to file"
+msgstr "Грешка при запис на файл"
+
+msgid "Music on Hold"
+msgstr "Музика при Задържане"
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Uploading and management of sound files (wav, mp3) to be used for on-hold "
+"music."
+msgstr ""
+
+msgid "Convert Music Files to WAV"
+msgstr ""
+
+msgid "System Setup"
+msgstr ""
+
+msgid ""
+"When set to false, the MP3 files can be loaded and WAV files converted to "
+"MP3 in the MoH module. The default behavior of true assumes you have mpg123 "
+"loaded as well as sox and will convert MP3 files to WAV. This is highly "
+"recommended as MP3 files heavily tax the system and can cause instability on "
+"a busy phone system"
+msgstr ""
+
+msgid "Add Music Category"
+msgstr "Добави Музикална Категория"
+
+msgid "Add Streaming Category"
+msgstr "Добави Поточна Категория"
+
+msgid "default"
+msgstr "по-подразбиране"
+
+msgid "Delete"
+msgstr "Изтрий"
+
+msgid ""
+"sox failed to convert file and original could not be copied as a fall back"
+msgstr ""
+
+msgid "On Hold Music"
+msgstr "Музика при Задържане"
+
+msgid "Category Name:"
+msgstr "Име на Категория"
+
+msgid ""
+"Allows you to Set up Different Categories for music on hold.  This is useful "
+"if you would like to specify different Hold Music or Commercials for various "
+"ACD Queues."
+msgstr ""
+"Позволява да се установят различни категории за музика при задържане. Това е "
+"полезно ако желаете да определите различни Задържания, Музикални или "
+"Рекламни за някои ACD Опашки."
+
+msgid "Submit Changes"
+msgstr "Приеми Промените"
+
+msgid "Please enter a valid Category Name"
+msgstr "Моля въведете правилно Име на Категория"
+
+msgid ""
+"Categories: \\\"none\\\" and \\\"default\\\" are reserved names. Please "
+"enter a different name"
+msgstr ""
+"Категории: \\\"none\\\" и \\\"default\\\" са резервирани имена. Моля "
+"въведете различно име"
+
+msgid "Application:"
+msgstr "Приложение:"
+
+msgid ""
+"This is the \"application=\" line used to provide the streaming details to "
+"Asterisk. See information on musiconhold.conf configuration for different "
+"audio and Internet streaming source options."
+msgstr ""
+"Това е \"application=\" линия за предоставяне на поточни детайли към "
+"Астериск. Вижте информацията в настройките на musiconhold.conf за различните "
+"опции за аудио и интернет поточни източници."
+
+msgid "Optional Format:"
+msgstr "Допълнителен Формат:"
+
+msgid ""
+"Optional value for \"format=\" line used to provide the format to Asterisk. "
+"This should be a format understood by Asterisk such as ulaw, and is specific "
+"to the streaming application you are using. See information on musiconhold."
+"conf configuration for different audio and Internet streaming source options."
+msgstr ""
+"Допълнителна стойност за \"format=\" линия използвана да осигури формат на "
+"Астериск. Трябва да е формат разбиран от Астериск като alaw, и е характерен "
+"за поточното приложение което използвате. Вижте информацията в настройките "
+"на musiconhold.conf за различните опции за аудио и интернет поточни "
+"източници."
+
+msgid "Please enter a streaming application command and arguments"
+msgstr "Моля въведете командите и аргументите за поточното приложения"
+
+msgid "Category:"
+msgstr "Категория:"
+
+#, php-format
+msgid "Delete Music Category %s"
+msgstr "Изтрий Музикална Категория  %s"
+
+#, php-format
+msgid "Delete Streaming Category"
+msgstr "Изтрий Поточна Категория"
+
+msgid "Edit Streaming Category"
+msgstr "Редактирай Поточна Категория"
+
+msgid "Upload a .wav or .mp3 file:"
+msgstr "Добави .wav или .mp3 файл:"
+
+msgid "Upload"
+msgstr "Добави"
+
+msgid "Please wait until the page loads. Your file is being processed."
+msgstr "Моля изчакайте докато страницата се презареди. Вашият файл се качва."
+
+msgid "Volume 150%"
+msgstr ""
+
+msgid "Volume 125%"
+msgstr ""
+
+msgid "Volume 100%"
+msgstr ""
+
+msgid "Volume 75%"
+msgstr ""
+
+msgid "Volume 50%"
+msgstr ""
+
+msgid "Volume 25%"
+msgstr ""
+
+msgid "Volume 10%"
+msgstr ""
+
+msgid "Volume Adjustment"
+msgstr "Настройка на Усилването"
+
+msgid ""
+"The volume adjustment is a linear value. Since loudness is logarithmic, the "
+"linear level will be less of an adjustment. You should test out the "
+"installed music to assure it is at the correct volume. This feature will "
+"convert MP3 files to WAV files. If you do not have mpg123 installed, you can "
+"set the parameter: <strong>Convert Music Files to WAV</strong> to false in "
+"Advanced Settings"
+msgstr ""
+
+msgid "Do not encode wav to mp3"
+msgstr "Не преобразувай wav на mp3"
+
+msgid "Disable Random Play"
+msgstr "Забрани Случайно Възпроизвеждане"
+
+msgid "Enable Random Play"
+msgstr "Разреши Случайно Възпроизвеждане"
+
+msgid "Error Processing"
+msgstr "Грешка при Обработване"
+
+msgid "No file provided"
+msgstr "Не е предоставен файл"
+
+msgid "Please select a file to upload"
+msgstr "Моля изберете файл за добавяне"
+
+msgid "Check"
+msgstr "Провери"
+
+msgid "in"
+msgstr "в"
+
+msgid "This is not a fatal error, your Music on Hold may still work."
+msgstr ""
+"Това не е фатална грешка, вашата Музика при Задържане може още да работи"
+
+msgid "Completed processing"
+msgstr "Завършено обработване"
+
+msgid ""
+"You must have at least one file for On Hold Music.  Please upload one before "
+"deleting this one."
+msgstr ""
+"Трябва да имате поне един файл за Музика при Задържане. Моля добавете един "
+"преди да изтриете този."
+
+msgid "Deleted"
+msgstr "Изтрит"
+
+#, php-format
+msgid "Error Deleting %s"
+msgstr "Грешка при Изтриване %s"
+
+#~ msgid ""
+#~ "The volume adjustment is a linear value. Since loudness is logarithmic, "
+#~ "the linear level will be less of an adjustment. You should test out the "
+#~ "installed music to assure it is at the correct volume. This feature will "
+#~ "convert MP3 files to WAV files. If you do not have mpg123 installed, you "
+#~ "can set the parameter: <strong>AMPMPG123=false</strong> in your amportal."
+#~ "conf file"
+#~ msgstr ""
+#~ "Настройката на усилването е линейна стойност. Тъй като силата на звука е "
+#~ "логаритмична, линейното ниво ще е по-лесно за настройка. Тествайте "
+#~ "инсталираната музика за да се убедите че е с коректно усилване. Услугата "
+#~ "конвертира MP3 файл в WAV файл. Ако нямате инсталиран mpg123, установете "
+#~ "параметър: <strong>AMPMPG123=false</strong> във вашия amportal.conf файл."

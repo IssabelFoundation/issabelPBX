@@ -1,0 +1,462 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX findmefollow\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-08 18:39+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+msgid "Follow Me"
+msgstr "Följ-mig"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+
+msgid "Force Follow Me"
+msgstr ""
+
+msgid "Edit Follow Me Settings"
+msgstr "Redigera Följ-mig"
+
+msgid "Add Follow Me Settings"
+msgstr "Lägg till Följ-mig"
+
+#, php-format
+msgid "Follow-Me: %s (%s)"
+msgstr "Följ-mig: %s (%s)"
+
+#, php-format
+msgid "Follow-Me User: %s"
+msgstr "Följ-mig användare %s"
+
+msgid "Findme Follow Toggle"
+msgstr "Ställ om Följ-mig"
+
+msgid "Cannot connect to Asterisk Manager with "
+msgstr "Kan inte koppla upp mot Asterisk hanterare"
+
+msgid "Checking if recordings need migration.."
+msgstr "Kontrollerar om inspelningar behöver migreras.."
+
+msgid "migrating"
+msgstr "migrerar"
+
+msgid "adding annmsg_id field.."
+msgstr "lägger till fältet annmsg_id.."
+
+msgid "fatal error"
+msgstr "allvarligt fel"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "adding remotealert_id field.."
+msgstr "Lägger till fältet remotealert_id.."
+
+msgid "adding toolate_id field.."
+msgstr "lägger till fältet toolate_id"
+
+msgid "migrate annmsg to ids.."
+msgstr "migrerar annsmg till ids..."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "migrerat %s poster"
+
+msgid "migrate remotealert to ids.."
+msgstr "migrerar remotealerts till ids.."
+
+msgid "migrate toolate to  ids.."
+msgstr "migrerar toolate till ids.."
+
+msgid "dropping annmsg field.."
+msgstr "kastar fältet annmsg"
+
+msgid "no annmsg field???"
+msgstr "inget annmsg fält???"
+
+msgid "dropping remotealert field.."
+msgstr "kastar fältet remotealert"
+
+msgid "no remotealert field???"
+msgstr "inget remotealert fält???"
+
+msgid "dropping toolate field.."
+msgstr "kastar fältet toolate.."
+
+msgid "no toolate field???"
+msgstr "inget toolate fält???"
+
+msgid "already migrated"
+msgstr "redan migrerad"
+
+msgid "Warning! Extension"
+msgstr "Varning! Anknytning"
+
+msgid "is not allowed for your account"
+msgstr "är inte tillåtet för din anknytning"
+
+msgid "Choose a user/extension:"
+msgstr "Välj en användare/anknytning:"
+
+msgid "deleted"
+msgstr "borttagen"
+
+msgid "Delete Entries"
+msgstr "Ta bort val"
+
+msgid "User"
+msgstr "Användare"
+
+msgid "Extension"
+msgstr "Anknytning"
+
+#, php-format
+msgid "Edit %s"
+msgstr "Redigera %s"
+
+#, php-format
+msgid "Edit %s %s"
+msgstr "Redigera %s %s"
+
+msgid "Edit Follow Me"
+msgstr "Redigera Följ-mig"
+
+msgid "Add Follow Me"
+msgstr "Lägg till Följ-mig"
+
+msgid "group number"
+msgstr "gruppnummer"
+
+msgid "The number users will dial to ring extensions in this ring group"
+msgstr "Nummer som ska användas för att ringa anknytningar i denna ringgrupp"
+
+msgid "Disable"
+msgstr "Avaktivera"
+
+msgid ""
+"By default (not checked) any call to this extension will go to this Follow-"
+"Me instead, including directory calls by name from IVRs. If checked, calls "
+"will go only to the extension.<BR>However, destinations that specify "
+"FollowMe will come here.<BR>Checking this box is often used in conjunction "
+"with VmX Locater, where you want a call to ring the extension, and then only "
+"if the caller chooses to find you do you want it to come here."
+msgstr ""
+"Som standard (inte aktiverad) kommer alla samtal till denna anknytning gå "
+"till Följ-mig. Om den är aktiverad kommer samtalen bara att gå till denna "
+"anknytning.<br>Men, destinationer som anger Följ-mig kommer hit."
+"<br>Aktivering av detta val används ofta i samband med VmX Lokatorn, när du "
+"vill att samtalet ska ringa denna anknytning, och endast om uppringaren "
+"väljer att hitta dig kommer den hit."
+
+msgid "Initial Ring Time:"
+msgstr "Ringtid"
+
+msgid ""
+"This is the number of seconds to ring the primary extension prior to "
+"proceeding to the follow-me list. The extension can also be included in the "
+"follow-me list. A 0 setting will bypass this."
+msgstr ""
+"Det antal sekunder som det ska ringa den primära anknytningen innan det "
+"ringer på Följ-mig listan, sätt 0 för att hoppa över denna tid. Denna "
+"anknytning kan vara inkluderad i Följ-mig listan."
+
+msgid "Ring Strategy:"
+msgstr "Ringstrategi:"
+
+msgid "ringallv2"
+msgstr "ringallv2"
+
+msgid ""
+"ring primary extension for initial ring time followed by all additional "
+"extensions until one answers"
+msgstr ""
+"Ring på den primära anknytningen den tid som anges i Ringtid, därefter alla "
+"Följ-mig anknytningarna tills någon av dom svarar"
+
+msgid "ringall"
+msgstr "ringall"
+
+msgid "ring all available channels until one answers (default)"
+msgstr "Ring alla tillgängliga nummer tills någon svarar (standard)"
+
+msgid "hunt"
+msgstr "hunt"
+
+msgid "take turns ringing each available extension"
+msgstr "Ring anknytningarna i tur och ordning"
+
+msgid "memoryhunt"
+msgstr "memoryhunt"
+
+msgid ""
+"ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc."
+msgstr ""
+"Ring första numret i listan, sedan 1:a och 2:a, därefter 1:a, 2:a och 3:"
+"e, ...... osv."
+
+msgid "*-prim"
+msgstr "*-prim"
+
+msgid ""
+"these modes act as described above. However, if the primary extension (first "
+"in list) is occupied, the other extensions will not be rung. If the primary "
+"is IssabelPBX DND, it won't be rung. If the primary is IssabelPBX CF "
+"unconditional, then all will be rung"
+msgstr ""
+"Gör som i lägena ovan. Men, om den primära anknytningen (första numret i "
+"listan) är upptagen, kommer inga andra nummer att ringas. Om den primära "
+"anknytningen är IssabelPBX Stör-ej kommer en inte att ringas. Om den primära "
+"IssabelPBX Konstant Vidarekopplad, kommer alla att ringas."
+
+msgid "firstavailable"
+msgstr "första tillgängliga"
+
+msgid "ring only the first available channel"
+msgstr "ring bara den första tillgängliga kanalen"
+
+msgid "firstnotonphone"
+msgstr "första-inte-upptagen"
+
+msgid "ring only the first channel which is not off hook - ignore CW"
+msgstr ""
+"ring bara den första kanalen som inte är upptagen - ignorera Samtal väntar"
+
+msgid "Ring Time (max 60 sec)"
+msgstr "Ringtid (max 60 sek)"
+
+msgid ""
+"Time in seconds that the phones will ring. For all hunt style ring "
+"strategies, this is the time for each iteration of phone(s) that are rung"
+msgstr ""
+"Tid i sekunder som telefonen kommer att ringa. För alla hunt-strategier är "
+"detta tiden för varje runda av telefoner som rings"
+
+msgid "Follow-Me List"
+msgstr "Följ-mig lista"
+
+msgid ""
+"List extensions to ring, one per line, or use the Extension Quick Pick below."
+"<br><br>You can include an extension on a remote system, or an external "
+"number by suffixing a number with a pound (#).  ex:  2448089# would dial "
+"2448089 on the appropriate trunk (see Outbound Routing)."
+msgstr ""
+"Lista anknytningar att ringa, en per rad, eller välj i snabblistan nedan."
+"<br><br>Du kan inkludera en anknytning på ett fjärrsystem, eller ett externt "
+"nummer genom att lägga till en fyrkant (#) i slutet på numret. T.ex. "
+"040592400# kommer att ringa 040592400."
+
+msgid "Extension Quick Pick"
+msgstr "Snabblista med anknytningar"
+
+msgid "Choose an extension to append to the end of the extension list above."
+msgstr "Välj en anknytning att lägga till sist i listan."
+
+msgid "(pick extension)"
+msgstr "(välj anknytning)"
+
+msgid "Announcement:"
+msgstr "Meddelande:"
+
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Meddelande som ska spelas upp för uppringaren innan det kommer att ringa "
+"denna grupp.<br><br>För att lägga till inspelningar, välj "
+"\"Systeminspelningar\" i menyn till vänster."
+
+msgid "None"
+msgstr "Inget"
+
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Meddelande som kommer att spelas upp för uppringaren innan det ringer denna "
+"grupp.<br><br>Du måste ha installerat och aktiverat modulen "
+"\"Systeminspelningar\" för att redigera detta val."
+
+msgid "Play Music On Hold?"
+msgstr "Spela Pausmusik?"
+
+msgid ""
+"If you select a Music on Hold class to play, instead of 'Ring', they will "
+"hear that instead of Ringing while they are waiting for someone to pick up."
+msgstr ""
+"Om du valt Pausmusik i stället för 'Ring' kommer uppringaren att höra musik "
+"i stället för ringljud under tiden de väntar på att samtalet ska besvaras."
+
+msgid "Ring"
+msgstr "Ring"
+
+msgid "CID Name Prefix"
+msgstr "Prefix för nummerpresentation"
+
+msgid ""
+"You can optionally prefix the Caller ID name when ringing extensions in this "
+"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
+"as \"Sales:John Doe\" on the extensions that ring."
+msgstr ""
+"Du kan välja att skriva in ett prefix för nummerpresentation för "
+"anknytningarna i denna grupp. Om du valt att skriva \"Support\", kommer det "
+"att för ett samtal från 040123456 att stå \"Support:040123456\" på alla "
+"uppringda anknytningars textfönster."
+
+msgid "Alert Info"
+msgstr "Alertinfo"
+
+msgid ""
+"You can optionally include an Alert Info which can create distinctive rings "
+"on SIP phones."
+msgstr ""
+"Du kan valfritt ange en Alertinfo som används för att låta SIP-telefoner "
+"ringa annan signal."
+
+msgid "Call Confirmation Configuration"
+msgstr ""
+
+msgid "Confirm Calls"
+msgstr "Bekräfta samtal"
+
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through. This feature only works with the ringall/ringall-prim  ring strategy"
+msgstr ""
+"Aktivera detta om du ringer externa nummer som du vill ha bekräftelse från, "
+"t.ex. en mobiltelefon som ingen svarar i kommer att gå till röstbrevlådan "
+"som i sin tur kommer att svara på samtalet. Aktivering av detta val kräver "
+"att den uppringda trycker siffran 1 innan samtalet kopplas upp. Denna "
+"funktion fungerar bara med ringall/ringall-prim strategierna."
+
+msgid "Remote Announce:"
+msgstr "Fjärrmeddelande:"
+
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled.<br><br>To add additional recordings use the \"System Recordings\" "
+"MENU to the left"
+msgstr ""
+"Meddelande att spela upp för den UPPRINGDE om 'Bekräfta samtal' är aktiverat."
+"<br><br>För att lägga till inspelningar väljer du \"Systeminspelningar\" i "
+"menyn till vänster."
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Too-Late Announce:"
+msgstr "För-sent meddelande"
+
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1.<br><br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Meddelande att spela upp för den UPPRINGDE, om samtalet redan har besvarats "
+"av annan part, innan denna uppringda har tryckt 1.<br><br>För att lägga till "
+"inspelningar väljer du \"Systeminspelningar\"i menyn till vänster."
+
+msgid "Change External CID Configuration"
+msgstr ""
+
+msgid "Mode"
+msgstr ""
+
+msgid "Transmits the Callers CID if allowed by the trunk."
+msgstr ""
+
+msgid "Fixed CID Value"
+msgstr ""
+
+msgid "Always transmit the Fixed CID Value below."
+msgstr ""
+
+msgid "Outside Calls Fixed CID Value"
+msgstr ""
+
+msgid ""
+"Transmit the Fixed CID Value below on calls that come in from outside only. "
+"Internal extension to extension calls will continue to operate in default "
+"mode."
+msgstr ""
+
+msgid "Use Dialed Number"
+msgstr ""
+
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This will "
+"be BLOCKED on trunks that block foreign CallerID"
+msgstr ""
+
+msgid "Force Dialed Number"
+msgstr ""
+
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This WILL "
+"be transmitted on trunks that block foreign CallerID"
+msgstr ""
+
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading \"+\"."
+msgstr ""
+
+msgid "Destination if no answer"
+msgstr "Destination vid inget svar"
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+msgid "Please enter an extension list."
+msgstr "Skriv in en anknytningslista"
+
+msgid "Invalid time specified"
+msgstr "Ogiltig tid angiven"
+
+msgid "Time must be between 1 and 60 seconds"
+msgstr "Tiden måste vara mellan 1 till 60 sekunder"
+
+msgid ""
+"Only ringall, ringallv2, hunt and the respective -prim versions are "
+"supported when confirmation is checked"
+msgstr ""
+"Endast ringall, ringallv2, hunt och respektive -prim stöds när bekräftelse "
+"krävs"
+
+msgid ""
+"Invalid CID Number. Must be in a format of digits only with an option of "
+"E164 format using a leading \"+\""
+msgstr ""
+
+#~ msgid "Invalid Group Number specified"
+#~ msgstr "Ogiltigt gruppnummer angivet"
+
+#~ msgid "Invalid prefix. Valid characters: a-z A-Z 0-9 : _ -"
+#~ msgstr "Ogiltig prefix. Godkända tecken är a-z A-Z 0-9 : _ -"

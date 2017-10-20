@@ -1,0 +1,28 @@
+.cronset {
+	float:left;
+	height: 220px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-right: 5px;
+	width: 150px;
+	/*overflow-x: hidden;*/
+}
+.narrow{
+	width: 110px;
+}
+.cronsetdiv {
+	height: 200px;
+	overflow-y: auto;
+}
+.cronsetdiv > label{
+	margin-bottom: 3px;
+}
+#crondiv:after {
+	clear:both;
+	content:"";
+    display:table;
+}
+.cronsetheight {
+	min-height: 150px;
+}
+

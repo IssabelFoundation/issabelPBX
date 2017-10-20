@@ -1,0 +1,290 @@
+# IssabelPBX language template for asterisk info
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Conferences"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Allow creation of conference rooms (meet-me) where multiple people can talk "
+"together."
+msgstr ""
+
+#, php-format
+msgid "Conference Room %s : %s"
+msgstr ""
+
+#, php-format
+msgid "Conference: %s"
+msgstr ""
+
+msgid "Conference: "
+msgstr ""
+
+msgid "Checking if music field present.."
+msgstr ""
+
+msgid "adding music field.."
+msgstr ""
+
+msgid "fatal error"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "already present"
+msgstr ""
+
+msgid "Checking if recordings need migration.."
+msgstr ""
+
+msgid "migrating"
+msgstr ""
+
+msgid "adding joinmsg_id field.."
+msgstr ""
+
+msgid "migrate to recording ids.."
+msgstr ""
+
+#, php-format
+msgid "migrated %s entries"
+msgstr ""
+
+msgid "dropping joinmsg field.."
+msgstr ""
+
+msgid "no joinmsg field???"
+msgstr ""
+
+msgid "already migrated"
+msgstr ""
+
+msgid "Checking for users field.."
+msgstr ""
+
+msgid "adding.."
+msgstr ""
+
+msgid "FATAL error"
+msgstr ""
+
+msgid "Warning! Extension"
+msgstr ""
+
+msgid "is not allowed for your account."
+msgstr ""
+
+msgid "Add Conference"
+msgstr ""
+
+msgid "Conference"
+msgstr ""
+
+msgid "deleted"
+msgstr ""
+
+msgid "Conference:"
+msgstr ""
+
+#, php-format
+msgid "Delete Conference %s"
+msgstr ""
+
+msgid "Conflicting Extensions"
+msgstr ""
+
+msgid "Edit Conference"
+msgstr ""
+
+msgid "Conference Number:"
+msgstr ""
+
+msgid "Use this number to dial into the conference."
+msgstr ""
+
+msgid "Conference Name:"
+msgstr ""
+
+msgid "Give this conference a brief name to help you identify it."
+msgstr ""
+
+msgid "User PIN:"
+msgstr ""
+
+msgid ""
+"You can require callers to enter a password before they can enter this "
+"conference.<br><br>This setting is optional.<br><br>If either PIN is "
+"entered, the user will be prompted to enter a PIN."
+msgstr ""
+
+msgid "Admin PIN:"
+msgstr ""
+
+msgid ""
+"Enter a PIN number for the admin user.<br><br>This setting is optional "
+"unless the 'leader wait' option is in use, then this PIN will identify the "
+"leader."
+msgstr ""
+
+msgid "Conference Options"
+msgstr ""
+
+msgid "Join Message:"
+msgstr ""
+
+msgid ""
+"Message to be played to the caller before joining the conference.<br><br>To "
+"add additional recordings please use the \"System Recordings\" MENU to the "
+"left"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid ""
+"Message to be played to the caller before joining the conference.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+
+msgid "Leader Wait:"
+msgstr ""
+
+msgid ""
+"Wait until the conference leader (admin user) arrives before starting the "
+"conference"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Talker Optimization:"
+msgstr ""
+
+msgid ""
+"Turns on talker optimization. With talker optimization, Asterisk treats "
+"talkers who\n"
+"are not speaking as being muted, meaning that no encoding is done on "
+"transmission\n"
+"and that received audio that is not registered as talking is omitted, "
+"causing no\n"
+"buildup in background noise."
+msgstr ""
+
+msgid "Talker Detection:"
+msgstr ""
+
+msgid ""
+"Sets talker detection. Asterisk will sends events on the Manager Interface "
+"identifying\n"
+"the channel that is talking. The talker will also be identified on the "
+"output of\n"
+"the meetme list CLI command."
+msgstr ""
+
+msgid "Quiet Mode:"
+msgstr ""
+
+msgid "Quiet mode (do not play enter/leave sounds)"
+msgstr ""
+
+msgid "User Count:"
+msgstr ""
+
+msgid "Announce user(s) count on joining conference"
+msgstr ""
+
+msgid "User join/leave:"
+msgstr ""
+
+msgid "Announce user join/leave"
+msgstr ""
+
+msgid "Music on Hold:"
+msgstr ""
+
+msgid "Enable Music On Hold when the conference has a single caller"
+msgstr ""
+
+msgid "Music on Hold Class:"
+msgstr ""
+
+msgid ""
+"Music (or Commercial) played to the caller while they wait in line for the "
+"conference to start. Choose \"inherit\" if you want the MoH class to be what "
+"is currently selected, such as by the inbound route.<br><br>  This music is "
+"defined in the \"Music on Hold\" to the left."
+msgstr ""
+
+msgid "inherit"
+msgstr ""
+
+msgid "default"
+msgstr ""
+
+msgid "Allow Menu:"
+msgstr ""
+
+msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
+msgstr ""
+
+msgid "Record Conference:"
+msgstr ""
+
+msgid "Record the conference call"
+msgstr ""
+
+msgid "Maximum Participants:"
+msgstr ""
+
+msgid "Maximum Number of users allowed to join this conference."
+msgstr ""
+
+msgid "No Limit"
+msgstr ""
+
+msgid "Mute on Join:"
+msgstr ""
+
+msgid ""
+"Mute everyone when they initially join the conference. Please note that if "
+"you do not have 'Leader Wait' set to yes you must have 'Allow Menu' set to "
+"Yes to unmute yourself"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "Please enter a valid Conference Number"
+msgstr ""
+
+msgid "Please enter a valid Conference Name"
+msgstr ""
+
+msgid ""
+"You must set an admin PIN for the Conference Leader when selecting the "
+"leader wait option"
+msgstr ""
+
+msgid ""
+"You must set Allow Menu to Yes when not using a Leader or Admin in your "
+"conference, otherwise you will be unable to unmute yourself"
+msgstr ""

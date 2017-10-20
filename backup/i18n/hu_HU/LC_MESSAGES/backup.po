@@ -1,0 +1,432 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2008, 2009 Lónyai Gergely <alephlg@gmail.com>, Magyar <support@freepbx.hu>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2010-01-23 00:00+0100\n"
+"Last-Translator: Lónyai Gergely <alephlg@gmail.com>\n"
+"Language-Team: Magyar <support@freepbx.hu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Backup & Restore"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid "Backup & Restore for your IssabelPBX environment"
+msgstr ""
+
+msgid "Can not create backup tables"
+msgstr ""
+
+msgid "Can't check for Backup table"
+msgstr ""
+
+msgid ""
+"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgstr ""
+
+msgid "This error can result from a previous incomplete/failed install of"
+msgstr ""
+
+msgid "this module. You should probably uninstall and reinstall this module"
+msgstr ""
+
+msgid ""
+"doing so will result in a loss of all your backup settings though previous"
+msgstr ""
+
+msgid "backup data will be preserved."
+msgstr ""
+
+msgid "Failure Message:"
+msgstr ""
+
+msgid "Can not migrate Backup table"
+msgstr ""
+
+msgid "Backup migration completed"
+msgstr ""
+
+msgid "Nothing to migrate"
+msgstr ""
+
+msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+msgstr ""
+
+msgid "and then re-install this module. Settings will be lost but old"
+msgstr ""
+
+msgid "backup data will be retained."
+msgstr ""
+
+msgid "Old Backup table removed"
+msgstr ""
+
+msgid "Replacing ampbackup.pl in db.."
+msgstr ""
+
+msgid "an error has occurred, update not done"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "removing retrieve_backup_cron_from_mysql.pl.."
+msgstr ""
+
+msgid "removed"
+msgstr ""
+
+msgid "failed"
+msgstr ""
+
+msgid "Migrating backup table..."
+msgstr ""
+
+msgid "WARNING: backup table not migrated"
+msgstr ""
+
+msgid "Successfully migrated backup table!"
+msgstr ""
+
+msgid "Creating backups directory.."
+msgstr ""
+
+#, php-format
+msgid "WARNING: failed to create backup directory: %s"
+msgstr ""
+
+msgid "Location of backups pre 2.10"
+msgstr ""
+
+msgid "Storage location for backups"
+msgstr ""
+
+msgid "PBX config server, generally a local database server"
+msgstr ""
+
+msgid "CDR server, generally a local database server"
+msgstr ""
+
+msgid "added default backup servers"
+msgstr ""
+
+msgid "Configurations only"
+msgstr ""
+
+msgid "A full backup of core settings and web files"
+msgstr ""
+
+msgid "Call Detail Records"
+msgstr ""
+
+msgid "Voice Mail Storage"
+msgstr ""
+
+msgid "All system audio - including IVR prompts and Music On Hold."
+msgstr ""
+
+msgid " DOES NOT BACKUP VOICEMAIL"
+msgstr ""
+
+msgid "Doesn't backup Backup's settings so that they dont get restored"
+msgstr ""
+
+msgid "added default backup templates"
+msgstr ""
+
+msgid "MIGRATED"
+msgstr ""
+
+msgid "migrated backup"
+msgstr ""
+
+msgid "Migrated FTP server for backup "
+msgstr ""
+
+msgid "Migrated SSH server for backup "
+msgstr ""
+
+msgid "Migrated EMAIL server for backup "
+msgstr ""
+
+msgid "Migrated remote SSH server for backup "
+msgstr ""
+
+msgid "Default backup; automatically installed"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Run now"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+#~ msgid "DELETE ALL THE DATA IN THIS SET"
+#~ msgstr "A BACKUPFÁJL TÖRLÉSE"
+
+#~ msgid ""
+#~ "Delete this backup set and all data associated with this backup set.."
+#~ msgstr "A bizonsági mentés törlése, minden adattal, amit tartalmaz..."
+
+#~ msgid "Delete File Set"
+#~ msgstr "Minden fájl törlése"
+
+#~ msgid "Delete this backup set."
+#~ msgstr "Backup törlése"
+
+#~ msgid "Restore Entire Backup Set"
+#~ msgstr "Helyreállítás ebből a mentésből"
+
+#~ msgid "Restore your Complete Backup set overwriting all files."
+#~ msgstr "A teljes rendszer visszaállítása a biztonsági mentésből."
+
+#~ msgid "Restore VoiceMail Files"
+#~ msgstr "Hangposta helyreállítása"
+
+#~ msgid ""
+#~ "Restore your Voicemail files from this backup set.  NOTE! This will "
+#~ "delete any voicemail currently in the voicemail boxes."
+#~ msgstr ""
+#~ "A Hangpostavisszaállítása a mentésből. FIGYELEM: EZ TŐRŐL MINDEN "
+#~ "HANGPOSTÁT."
+
+#~ msgid "Restore System Recordings Files"
+#~ msgstr "A rendszerfelvételek helyreállítása"
+
+#~ msgid ""
+#~ "Restore your system Voice Recordings including AutoAttendant files from "
+#~ "this backup set.  NOTE! This will OVERWRITE any voicerecordings  "
+#~ "currently on the system. It will NOT delete new files not currently in "
+#~ "the backup set"
+#~ msgstr ""
+#~ "A rögzített hangok, az AutoAttendenttel együtt,  visszaállítása a "
+#~ "mentésből. FIGYELEM: EZ TŐRŐL MINDEN EDDIGI rögzített hangot, amit nem "
+#~ "tartalmaz a mentés. NEM törli azokat a felvételeket, amiket nem tartalmaz "
+#~ "a mentés."
+
+#~ msgid "Restore System Configuration"
+#~ msgstr "A rendszerbeállítások helyreállítása"
+
+#~ msgid ""
+#~ "Restore your system configuration from this backup set.  NOTE! This will "
+#~ "OVERWRITE any System changes you have made since this backup... ALL items "
+#~ "will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "A rendszerbeállítások visszaállítása a mentésből. FIGYELEM: EZ TŐRŐL "
+#~ "MINDEN EDDIGI rendszerbeállítást, amit nem tartalmaz a mentés. MINDEN "
+#~ "beállítás a mentés időpontjában érvényes beállítással felül lesz írva."
+
+#~ msgid "Restore Operator Panel"
+#~ msgstr "Operator Panel helyreállítása"
+
+#~ msgid ""
+#~ "Restore the Operator Panel from this backup set.  NOTE! This will "
+#~ "OVERWRITE any Operator Panel Changes you have made since this backup... "
+#~ "ALL items will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "A Operator Panel visszaállítása a mentésből. FIGYELEM: EZ TŐRŐL MINDEN "
+#~ "EDDIGI Operátor Panel beállítást, amit nem tartalmaz a mentés. MINDEN "
+#~ "beállítás a mentés időpontjában érvényes beállítással felül lesz írva."
+
+#~ msgid "Restore Call Detail Report"
+#~ msgstr "Hívásrészletezés visszaállítása"
+
+#~ msgid ""
+#~ "Restore the Call Detail Records from this backup set.  NOTE! This will "
+#~ "DELETE ALL CALL RECORDS that have been saved since this backup set."
+#~ msgstr ""
+#~ "A Hívásrészletezés visszaállítása a mentésből. FIGYELEM: EZ TŐRŐL MINDEN "
+#~ "EDDIGI Hívásrészletezést, amit nem tartalmaz a mentés."
+
+#~ msgid "ERROR its not a BACKUP SET file"
+#~ msgstr "HIBA: ez nem MENTÉSI fájl"
+
+#~ msgid "Schedule Name:"
+#~ msgstr "Időzítés neve:"
+
+#~ msgid "Give this Backup Schedule a brief name to help you identify it."
+#~ msgstr ""
+#~ "Adj egy olyan nevet az időzített mentésnek, amivel később könnyű lesz "
+#~ "azonosítani."
+
+#~ msgid "CDR"
+#~ msgstr "CDR"
+
+#~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
+#~ msgstr "Hívásrészletezés mentése (HTML és adatbázis)"
+
+#~ msgid "Operator Panel"
+#~ msgstr "Operator Panel"
+
+#~ msgid "Backup the Operator Panel (HTML and Database)"
+#~ msgstr "Operator Panel mentése (HTML és adatbázis)"
+
+#~ msgid "System Recordings"
+#~ msgstr "Rendszerfelvételek"
+
+#~ msgid ""
+#~ "Backup the System Recordings (AutoAttendant, Music On Hold, System "
+#~ "Recordings)"
+#~ msgstr ""
+#~ "Rendszerfelvételek mentése (AutoAttendent, Háttérzene, Rendszerfelvételek)"
+
+#~ msgid "VoiceMail"
+#~ msgstr "Hangposta"
+
+#~ msgid ""
+#~ "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+#~ msgstr "Hangposta fiókok mentése... FIGYELEM: Nagyon nagy fájl lehet"
+
+#~ msgid "System Configuration"
+#~ msgstr "Rendszerbeállítások"
+
+#~ msgid ""
+#~ "Backup the System Configurations (Database, etc files, SQL Database, "
+#~ "astdb)"
+#~ msgstr ""
+#~ "Rendszerkofiguráció mentése (Adadtbázis, etc fájlok, SQL adatbázis, astdb)"
+
+#~ msgid "All"
+#~ msgstr "Minden"
+
+#~ msgid "Selected"
+#~ msgstr "Kiválasztva"
+
+#~ msgid "January"
+#~ msgstr "Január"
+
+#~ msgid "February"
+#~ msgstr "Február"
+
+#~ msgid "March"
+#~ msgstr "Március"
+
+#~ msgid "April"
+#~ msgstr "Április"
+
+#~ msgid "May"
+#~ msgstr "Május"
+
+#~ msgid "June"
+#~ msgstr "Június"
+
+#~ msgid "July"
+#~ msgstr "Július"
+
+#~ msgid "August"
+#~ msgstr "Augusztus"
+
+#~ msgid "September"
+#~ msgstr "Szeptember"
+
+#~ msgid "October"
+#~ msgstr "Október"
+
+#~ msgid "November"
+#~ msgstr "November"
+
+#~ msgid "December"
+#~ msgstr "December"
+
+#~ msgid "Monday"
+#~ msgstr "Hétfő"
+
+#~ msgid "Tuesday"
+#~ msgstr "Kedd"
+
+#~ msgid "Wednesday"
+#~ msgstr "Szerda"
+
+#~ msgid "Thursday"
+#~ msgstr "Csütörtök"
+
+#~ msgid "Friday"
+#~ msgstr "Péntek"
+
+#~ msgid "Saturday"
+#~ msgstr "Szombat"
+
+#~ msgid "Sunday"
+#~ msgstr "Vasárnap"
+
+#~ msgid "Run Backup"
+#~ msgstr "Backup készítése"
+
+#~ msgid "Follow Schedule Below"
+#~ msgstr "Alább részletezve"
+
+#~ msgid "Now"
+#~ msgstr "Most"
+
+#~ msgid "Daily (at midnight)"
+#~ msgstr "Napi (éjjel)"
+
+#~ msgid "Weekly (on Sunday)"
+#~ msgstr "Heti (Vasárnap)"
+
+#~ msgid "Monthly (on the 1st)"
+#~ msgstr "Havi (mindig 1-én)"
+
+#~ msgid "Yearly (on 1st Jan)"
+#~ msgstr "Évi (minden Január 1-én)"
+
+#~ msgid "Minutes"
+#~ msgstr "Perc"
+
+#~ msgid "Hours"
+#~ msgstr "Óra"
+
+#~ msgid "Days"
+#~ msgstr "Nap"
+
+#~ msgid "Months"
+#~ msgstr "Hónap"
+
+#~ msgid "Weekdays"
+#~ msgstr "Hét napjai"
+
+#~ msgid "Add Backup Schedule"
+#~ msgstr "Időzített mentés hozzáadása"
+
+#~ msgid "Restore from Backup"
+#~ msgstr "Helyreállítás mentésből"
+
+#~ msgid "System Backup"
+#~ msgstr "Rendszermentés"
+
+#~ msgid "Run Schedule"
+#~ msgstr "Időzítés futtatása"
+
+#~ msgid "Delete Backup Schedule %s"
+#~ msgstr "Időzített mentés törlése %s"
+
+#~ msgid "System Restore"
+#~ msgstr "Rendszer-visszaállítás"

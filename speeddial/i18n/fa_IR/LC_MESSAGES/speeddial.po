@@ -1,0 +1,38 @@
+# This file is part of IssabelPBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# IssabelPBX language template for speeddial
+# Copyright (C) 2008-2015 Sangoma, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-13 20:11-0700\n"
+"PO-Revision-Date: 2016-02-14 07:05+0200\n"
+"Last-Translator: Media <mousavi.media@gmail.com>\n"
+"Language-Team: Persian <http://weblate.issabel.org/projects/freepbx/"
+"speeddial/fa/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
+
+#: install.php:7
+msgid "Set user speed dial"
+msgstr "تنظیم شماره گیری سریع کاربر"
+
+#: speeddial.i18n.php:6
+msgid "Settings"
+msgstr ""
+
+#: install.php:5 speeddial.i18n.php:4
+msgid "Speed Dial Functions"
+msgstr "توابع شماره گیری سریع"
+
+#: install.php:6
+msgid "Speeddial prefix"
+msgstr "پیشوند شماره گیری سریع"

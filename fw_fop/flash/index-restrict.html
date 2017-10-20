@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Asterisk Flash Operator Panel</title>
+<style>
+<!--
+html,body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+-->
+</style>
+</head>
+<body bgcolor="#ffffff">
+<!--
+
+This is an example on how to restrict the drag and drop commands
+(transfers and originations) to just one button: just append
+
+?restrict=btnnumber
+
+after every appeareance of operator_panel.swf
+
+-->
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="100%" height="100%" id="operator_panel" align="left">
+<param name="allowScriptAccess" value="sameDomain" />
+<param name="movie" value="operator_panel.swf?restrict=1" />
+<param name="quality" value="high" />
+<param name="bgcolor" value="#ffffff" />
+<param name="scale" value="exactfit" />
+<embed src="operator_panel.swf?restrict=1" quality="high" scale="exactfit" bgcolor="#ffffff" width="100%" height="100%" name="operator_panel" align="left" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+</object>
+</body>
+</html>

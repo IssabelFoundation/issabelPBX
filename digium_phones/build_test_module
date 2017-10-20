@@ -1,0 +1,11 @@
+#!/bin/bash
+# build test version of module for manual installation
+set -e
+[ ! -f module.xml ] && echo "ERROR: module.xml not found!" && exit 1
+MODNAME=$(xmllint --shell module.xml <<<"cat /module/rawname/text()" |grep -v "^/")
+VERSION=$(xmllint --shell module.xml <<<"cat /module/version/text()" |grep -v "^/")
+[ -z "$MODNAME" -o -z "$VERSION" ] && echo "ERROR: module name and/or version missing from module.xml" && exit 2
+[ "${PWD##*/}" != "$MODNAME" ] && echo "ERROR: module name does not match directory" && exit 3
+cd ..
+tar cvfz $MODNAME-$VERSION.tgz --exclude .git $MODNAME
+echo "Built module for testing: $(readlink -f $MODNAME-$VERSION.tgz)"

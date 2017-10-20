@@ -1,0 +1,6 @@
+label {
+    width:160px;
+    float:left;
+}
+
+.modules-sortable{list-style-type:none;cursor:move}

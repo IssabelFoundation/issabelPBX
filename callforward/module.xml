@@ -1,0 +1,19 @@
+<module>
+	<rawname>callforward</rawname>
+	<repo>standard</repo>
+	<name>Call Forward</name>
+	<version>2.11.5</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>AGPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
+	<changelog>
+		*2.11.5* Initial Issabel Foundation release
+	</changelog>
+	<description>Provides callforward featurecodes</description>
+	<category>Applications</category>
+	<supported>
+		<version>2.10</version>
+	</supported>
+	<location>release/2.11/callforward-2.11.0.1.tgz</location>
+	<md5sum>b0c78e01abcf34dba530ca9732862868</md5sum>
+</module>

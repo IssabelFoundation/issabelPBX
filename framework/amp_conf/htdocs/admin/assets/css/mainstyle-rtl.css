@@ -1,0 +1,29 @@
+html {
+direction:rtl;
+}
+#footer_content {
+	text-align:right;
+}
+#footer #footer_logo, #footer > span, .footer-float-left {
+float:right;
+}
+.menubar .button-right{float: left;}/*right side buttons*/
+.rnav {
+	float:left;
+	left: 1.5%;
+}
+input[type=number] {
+	direction:rtl;
+}
+.radioset {
+	direction:rtl;writing-mode: tb-rl;
+}
+.help span, a.info span{
+	right:60px;
+}
+#MENU_BRAND_IMAGE_TANGO_LEFT {
+	float: right;
+}
+#footer_content_sponsor > a > img{
+	margin-left:10px;
+}

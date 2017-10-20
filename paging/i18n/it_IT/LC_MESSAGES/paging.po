@@ -1,0 +1,262 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-06 14:52+0100\n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+msgid "Page Group: "
+msgstr "Gruppo Page:"
+
+msgid "Exclude"
+msgstr "Escludi"
+
+msgid "Include"
+msgstr "Includi"
+
+msgid "Default Group Inclusion"
+msgstr "Gruppo Page Predefinito"
+
+msgid "Default Page Group"
+msgstr "Gruppo Page Predefinito"
+
+msgid ""
+"You can include or exclude this extension/device from being part of the "
+"default page group when creating or editing."
+msgstr ""
+"Puoi includere o escludere questo interno/apparato dal far parte del gruppo "
+"page predefinito quando si crea o modifica."
+
+msgid "Intercom prefix"
+msgstr "Prefisso Intercom"
+
+msgid "User Intercom Allow"
+msgstr "Permette Intercom"
+
+msgid "User Intercom Disallow"
+msgstr "Non permette Intercom"
+
+msgid "Disabled"
+msgstr "Disattivato"
+
+msgid ""
+"This module is for specific phones that are capable of Paging or Intercom. "
+"This section is for configuring group paging, intercom is configured through "
+"<strong>Feature Codes</strong>. Intercom must be enabled on a handset before "
+"it will allow incoming calls. It is possible to restrict incoming intercom "
+"calls to specific extensions only, or to allow intercom calls from all "
+"extensions but explicitly deny from specific extensions.<br /><br />This "
+"module should work with Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, "
+"SNOM , and possibly other SIP phones (not ATAs). Any phone that is always "
+"set to auto-answer should also work (such as the console extension if "
+"configured)."
+msgstr ""
+"Questo modulo è valido per i telefoni che sono in grado di utilizzare il "
+"Paging o l'Intercom. Questa sezione serve a configurare il gruppo Page, "
+"l'intercom si può configurare attraverso i <strong>Codici Servizi</strong>. "
+"L'Intercom deve essere abilitato nell'apparato prima di poter accettare le "
+"chiamate in arrivo. E' possibile restringere le chiamate intercom ad interni "
+"specifici, o permettere le chiamate intercom da tutti gli interni e negare "
+"in maniera esplicita solo alcuni interni.<br /><br />Al momento sono "
+"supportati i telefoni Aastra, Grandstream,  Linksys/Sipura, Mitel, Polycom, "
+"Snom, Thomson e forse altri telefoni a standard SIP (non ATA). Tutti i "
+"telefoni che hanno comunque la possibilità di utilizzare l'auto-risposta "
+"dovrebbero funzionare (come anche la console se configurata)."
+
+#, php-format
+msgid ""
+"Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom "
+"extension nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Enable all "
+"extensions to intercom you (except those explicitly denied)</td></"
+"tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow extension nnn to "
+"intercom you (even if others are disabled)</td></tr><tr><td><strong>%s</"
+"strong>:</td><td>Disable all extensions from intercom you (except those "
+"explicitly allowed)</td></tr><tr><td><strong>%snnn</strong>:</"
+"td><td>Explicitly deny extension nnn to intercom you (even if generally "
+"enabled)</td></tr></table>"
+msgstr ""
+"Esempi di utilizzo: <br /><table><tr><td><strong>%snnn</strong>:</"
+"td><td>Chiama in Intercom l'interno nnn</td></tr><tr><td><strong>%s</strong>:"
+"</td><td>Permette a tutti di chiamare il proprio interno tramite intercom "
+"(eccetto quelli negati in maniera esplicita)</td></tr><tr><td><strong>%snnn</"
+"strong>:</td><td>Permette in maniera esplicita a nnn di poter chiamare il "
+"proprio interno tramite intercom (anche se tutti gli altri sono disabilitati)"
+"</td></tr><tr><td><strong>%s</strong>:</td><td>Nega a tutti di poter "
+"chiamare tramite intercom il proprio interno (eccetto quelli abilitati in "
+"maniera esplicita)</td></tr><tr><td><strong>%snnn</strong>:</td><td>Nega a "
+"nnn di poter chiamare tramite intercom il proprio interno (anche se in "
+"generale abilitato)</td></tr></table>"
+
+msgid ""
+"Intercom mode is currently disabled, it can be enabled in the Feature Codes "
+"Panel."
+msgstr ""
+"La modalità Intercom in questo momento è disabilitata, può essere attivata "
+"tramite il Pannello Codici Servizi."
+
+#, php-format
+msgid "Delete Group %s"
+msgstr "Elimina Gruppo %s"
+
+msgid "Conflicting Extensions"
+msgstr "Interni in conflitto"
+
+msgid "Modify Paging Group"
+msgstr "Modifica Gruppo Paging"
+
+msgid "Add Paging Group"
+msgstr "Aggiungi Gruppo Paging"
+
+msgid "Paging Extension"
+msgstr "Interno Paging"
+
+msgid "The number users will dial to page this group"
+msgstr ""
+"Il numero che gli utenti dovranno chiamare per effettuare il page su questo "
+"gruppo"
+
+msgid "Group Description"
+msgstr "Descrizione Gruppo"
+
+msgid "Provide a descriptive title for this Page Group."
+msgstr "Inserire una descrizione per questo Gruppo Page."
+
+msgid "Device List:"
+msgstr "Lista Apparati:"
+
+msgid ""
+"Select Device(s) to page. This is the phone that should be paged. In most "
+"installations, this is the same as the Extension. If you are configured to "
+"use \"Users & Devices\" this is the actual Device and not the User.  Use "
+"Ctrl key to select multiple.."
+msgstr ""
+"Selezionare gli Apparati da includere nel gruppo Page. In generale "
+"l'apparato corrisponde all'Interno. Se si utilizza la modalità \"Utenti & "
+"Apparati\" (Users & Devices), questo dovrà essere il numero dell'apparato. "
+"Utilizzare il tasto Ctrl per selezioni multiple."
+
+msgid "Force if busy"
+msgstr "Forza se occupato"
+
+msgid ""
+"If yes, will not check if the device is in use before paging it. This means "
+"conversations can be interrupted by a page (depending on how the device "
+"handles it). This is useful for \"emergency\" paging groups. Setting to "
+"'Whisper' will attempt to use the ChanSpy capability on SIP channels, "
+"resulting in the page being sent to the device's ear piece but not heard by "
+"the remote party. If ChanSpy is not supported on the device or otherwise "
+"fails, no page will get through. It probably does not make too much sense to "
+"choose duplex if using Whisper mode."
+msgstr ""
+
+msgid "The Whisper mode is new and considered experimental."
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Whisper"
+msgstr ""
+
+msgid "Duplex"
+msgstr "Duplex"
+
+msgid ""
+"Paging is typically one way for announcements only. Checking this will make "
+"the paging duplex, allowing all phones in the paging group to be able to "
+"talk and be heard by all. This makes it like an \"instant conference\""
+msgstr ""
+"Il Paging di solito è con l'audio solo andata, utilizzato per gli annunci. "
+"Selezionando questa opzione il paging sarà in modalità duplex, permettendo a "
+"tutti i telefoni del gruppo di parlare tra loro. Come se fosse una "
+"\"conferenza instantanea\""
+
+msgid ""
+"Each PBX system can have a single Default Page Group. If specified, "
+"extensions can be automatically added (or removed) from this group in the "
+"Extensions (or Devices) tab.<br />Making this group the default will uncheck "
+"the option from the current default group if specified."
+msgstr ""
+"Ogni sistema PBX puo' avere un singolo Gruppo Page Predefinito. Se "
+"specificato, gli interni possono essere automaticamente aggiunti (o rimossi) "
+"da questo gruppo.<br />Impostando questo gruppo come predefinito verrà "
+"rimossa l'opzione dal gruppo corrente predefinito se esiste."
+
+msgid "Submit Changes"
+msgstr "Conferma Cambiamenti"
+
+msgid "Please enter a valid Paging Extension"
+msgstr "Prego immettere un Interno Paging valido"
+
+msgid "Please select at least one extension"
+msgstr "Prego selezionare almeno un interno"
+
+msgid " [DEFAULT]"
+msgstr ""
+
+msgid "Page Group"
+msgstr "Gruppo Page"
+
+msgid "Paging and Intercom"
+msgstr "Paging e Intercom"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones. \tAlso creates an Intercom feature code that can "
+"be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
+msgstr ""
+
+#~ msgid ""
+#~ "If selected, will not check if the device is in use before paging it. "
+#~ "This means conversations can be interrupted by a page (depending on how "
+#~ "the device handles it). This is useful for \"emergency\" paging groups "
+#~ msgstr ""
+#~ "Se selezionato, non verrà controllato se gli apparati sono in uso. Questo "
+#~ "significa che una conversazione potrebbe interrompersi durante una "
+#~ "chiamata page (dipende in che modo l'apparato gestisce la situazione). "
+#~ "Questo è utile per gruppi page di \"emergenza\"."
+
+#~ msgid ""
+#~ "There is a problem with install.sql, cannot re-create databases. Contact "
+#~ "support\n"
+#~ msgstr ""
+#~ "C'è un problema con install.sql, non posso ricreare il database. "
+#~ "Contattare il supporto.\n"
+
+#~ msgid "Database was deleted! Recreated successfully.<br>\n"
+#~ msgstr "Il Database era stato cancellato! Ricreato con successo.<br>\n"
+
+#~ msgid "extension list:"
+#~ msgstr "Lista interni:"
+
+#~ msgid ""
+#~ "Select extension(s)to page. If using users and devices mode, this will be "
+#~ "the device number to page, potentially confusing if extension numbers and "
+#~ "device numbers don't match. Use Ctrl key to select multiple.."
+#~ msgstr ""
+#~ "Selezionare gli interni da includere nel gruppo Page. Se si utilizza la "
+#~ "modalità utenti e apparati (users and devices), questo dovrà essere il "
+#~ "numero dell'apparato. Utilizzare il tasto Ctrl per selezioni multiple."
+
+#~ msgid "Used as Destination by %s %s"
+#~ msgstr "Usato come Destinazione da %s %s"

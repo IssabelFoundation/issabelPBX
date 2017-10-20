@@ -1,0 +1,155 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - módulo phonebook module spanish translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-23 00:14+0100\n"
+"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Phonebook entry"
+msgstr "Elemento del listín telefónico"
+
+msgid "deleted"
+msgstr "Eliminado"
+
+msgid "Imported"
+msgstr "Importado"
+
+msgid "lines of"
+msgstr "Líneas de"
+
+msgid "Phonebook emptied"
+msgstr "Listín telefónico vaciado"
+
+msgid "Are you sure you want to empty your phonebook ?"
+msgstr "¿Está seguro de que desea vaciar el listín telefónico?"
+
+msgid "Phone Book"
+msgstr ""
+
+msgid ""
+"Use this module to create system wide speed dial numbers that can be dialed "
+"from any phone."
+msgstr ""
+
+msgid "Phonebook entries"
+msgstr "Elementos del listín telefónico"
+
+msgid "Number"
+msgstr "Número"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Speed dial"
+msgstr "Código de acceso directo"
+
+msgid "Are you sure you want to delete this entry ?"
+msgstr "¿Está seguro de que desea eliminar este elemento?"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Export in CSV"
+msgstr "Exportar a CSV"
+
+msgid "Empty Phonebook"
+msgstr "Vaciar listín telefónico"
+
+msgid "Add or replace entry"
+msgstr "Añadir o reemplazar elemento"
+
+msgid "Name:"
+msgstr "Nombre:"
+
+msgid "Enter the name"
+msgstr "Introduzca el nombre."
+
+msgid "Number:"
+msgstr "Número:"
+
+msgid ""
+"Enter the number (For CallerID lookup to work it should match the CallerID "
+"received from network)"
+msgstr ""
+
+msgid "Speed dial code:"
+msgstr "Código de marcación rápida:"
+
+msgid ""
+"Enter a speed dial code<br/>Speeddial module is required to use speeddial "
+"codes"
+msgstr ""
+"Introduzca un código de marcación rápida.<br/>Es necesario el módulo de "
+"'Marcación rápida' para que funcione."
+
+msgid "Set Speed Dial?"
+msgstr "¿Crear código de marcación rápida?"
+
+msgid "Check to have a speed dial created automatically for this number"
+msgstr ""
+"Marque esta casilla para crear automáticamente un código de marcación rápida "
+"para este número."
+
+msgid "Submit Changes"
+msgstr "Enviar cambios"
+
+msgid "Import from CSV"
+msgstr "Importar desde CSV"
+
+msgid "File:"
+msgstr "Archivo:"
+
+msgid ""
+"Import a CSV File formatted as follows:<br/>\"Name\";Number;Speeddial<br /> "
+"Names should be enclosed by '\"' and fields separated by ';' <br /><br /> "
+"Example:<br/>\"John Doe\";12345678;123"
+msgstr ""
+"Importar un archivo CSV formateado como sigue:<br/>\"Nombre\";Número;"
+"CódigoMarcaciónRapida<br />Los nombres deben ir entre comillas (\"\") y los "
+"campos separados por punto y coma (;).<br/><br/>Por ejemplo:<br/>\"John Doe"
+"\";12345678;123"
+
+msgid "Upload"
+msgstr "Enviar"
+
+msgid "Please enter a valid Number"
+msgstr "Por favor, introduzca un número válido."
+
+msgid "Please enter a valid Name"
+msgstr "Por favor, introduzca un nombre válido."
+
+msgid "Please enter a valid Speeddial code or leave it empty"
+msgstr "Por favor, introduzca un código de marcación rápida válido."
+
+msgid "Phonebook"
+msgstr "Listín telefónico"
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"Provides a phonebook for IssabelPBX, it can be used as base for Caller ID "
+"Lookup and Speed Dial"
+msgstr ""
+
+msgid "Asterisk Phonebook"
+msgstr "Listín telefónico de Asterisk"
+
+#~ msgid ""
+#~ "Enter the number (For caller ID lookup to work it should match the caller "
+#~ "ID received from network)"
+#~ msgstr ""
+#~ "Introduzca el número (para que la búsqueda de identificador de llamante "
+#~ "funcione, este valor debería coincidir con el identificador de llamante "
+#~ "suministrado por la red)"

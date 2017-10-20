@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-02-01 12:31+0800\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#, php-format
+msgid "Misc Destination: %s"
+msgstr "杂项目的地：%s"
+
+msgid "Misc Destinations"
+msgstr "杂项目的地"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Allows creating destinations that dial any local number (extensions, feature "
+"codes, outside phone numbers) that can be used by other modules (eg, IVR, "
+"time conditions) as a call destination."
+msgstr ""
+
+msgid "Add Misc Destination"
+msgstr "添加杂项目的地"
+
+msgid "Misc Destination"
+msgstr "杂项目的地"
+
+msgid "deleted"
+msgstr "已删除"
+
+msgid ""
+"Misc Destinations are for adding destinations that can be used by other "
+"IssabelPBX modules, generally used to route incoming calls. If you want to "
+"create feature codes that can be dialed by internal users and go to various "
+"destinations, please see the <strong>Misc Applications</strong> module."
+msgstr ""
+"杂项目的地是用来添加额外的目的地的。这些目的地可以被其他的IssabelPBX模块使用。它"
+"一般被用与路由入局呼叫。如果你希望创建可以由内线用户拨打的功能代码，并且将呼"
+"叫引导到各种目的地去，请查看<strong>杂项应用</strong>模块。"
+
+msgid ""
+"If you need access to a Feature Code, such as *98 to dial voicemail or a "
+"Time Condition toggle, these destinations are now provided as Feature Code "
+"Admin destinations. For upgrade compatibility, if you previously had "
+"configured such a destination, it will still work but the Feature Code short "
+"cuts select list is not longer provided."
+msgstr ""
+
+msgid "Misc Destination:"
+msgstr "杂项目的地："
+
+#, php-format
+msgid "Delete Misc Destination %s"
+msgstr "删除杂项目的地 %s"
+
+msgid "Edit Misc Destination"
+msgstr "编辑杂项目的地"
+
+msgid "Description:"
+msgstr "描述："
+
+msgid "Give this Misc Destination a brief name to help you identify it."
+msgstr "为此杂项目的取一个简略的名字，以帮助你辨识它。"
+
+msgid "Dial:"
+msgstr "拨号："
+
+msgid ""
+"Enter the number this destination will simulate dialing, exactly as you "
+"would dial it from an internal phone. When you route a call to this "
+"destination, it will be as if the caller dialed this number from an internal "
+"phone."
+msgstr ""
+"输入此目的地将要模拟拨号的号码，它要与你将要从内线电话上拨打的号码完全一样。"
+"当你将一个呼叫引导到这个目的地时，它就好象主叫是从一部内线电话拨打了此号码一"
+"样。"
+
+msgid "Submit Changes"
+msgstr "提交更改"
+
+msgid "Please enter a valid Description"
+msgstr "请输入有效的描述"
+
+msgid "Please enter a valid Dial string"
+msgstr "请输入有效的拨号字符串"
+
+#~ msgid "featurecode shortcuts"
+#~ msgstr "功能代码快截方式"

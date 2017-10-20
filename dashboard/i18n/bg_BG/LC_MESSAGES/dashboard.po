@@ -1,0 +1,327 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#    Copyright 2008 FreePBX
+#    Copyright 2009 Chavdar Iliev <chavdar_75@yahoo.com>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-16 14:06+0200\n"
+"Last-Translator: \n"
+"Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "seconds"
+msgstr "секунди"
+
+msgid "second"
+msgstr "секунда"
+
+msgid "minutes"
+msgstr "минути"
+
+msgid "minute"
+msgstr "минута"
+
+msgid "hours"
+msgstr "часа"
+
+msgid "hour"
+msgstr "час"
+
+msgid "days"
+msgstr "дни"
+
+msgid "day"
+msgstr "ден"
+
+msgid "weeks"
+msgstr "седмици"
+
+msgid "week"
+msgstr "седмица"
+
+msgid "years"
+msgstr "години"
+
+msgid "year"
+msgstr "година"
+
+msgid "System Dashboard"
+msgstr "Информация за Системата"
+
+msgid "Reports"
+msgstr ""
+
+msgid ""
+"Provides a system information dashboard, showing information about Calls, "
+"CPU, Memory, Disks, Network, and processes."
+msgstr ""
+
+msgid "IssabelPBX System Status"
+msgstr "IssabelPBX Системен Статус"
+
+msgid "Dashboard Info Update Frequency"
+msgstr ""
+
+msgid "GUI Behavior"
+msgstr ""
+
+msgid "Update rate in seconds of the Info section of the System Status panel."
+msgstr ""
+
+msgid "Dashboard Max Calls Initial Scale"
+msgstr ""
+
+msgid ""
+"Use this to pre-set the scale for maximum calls on the Dashboard display. If "
+"not set, the the scale is dynamically sized based on the active calls on the "
+"system."
+msgstr ""
+
+msgid "Dashboard Stats Update Frequency"
+msgstr ""
+
+msgid ""
+"Update rate in seconds of all sections of the System Status panel except the "
+"Info box."
+msgstr ""
+
+msgid "Dashboard Non-Std SSH Port"
+msgstr ""
+
+msgid "System Setup"
+msgstr ""
+
+msgid ""
+"SSH port number configured on your system if not using the default port 22, "
+"this allows the dashboard monitoring to watch the poper port."
+msgstr ""
+
+#, php-format
+msgid "%s changed from %s to %s"
+msgstr ""
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Warn"
+msgstr "Предупреждавам"
+
+msgid "ERROR"
+msgstr "ГРЕШКА"
+
+msgid "Disabled"
+msgstr ""
+
+msgid "System Statistics"
+msgstr "Системен Статус"
+
+msgid "Processor"
+msgstr "Използван Процесор"
+
+msgid "Load Average"
+msgstr "Средно Натоварване"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "Memory"
+msgstr "Използвана Памет"
+
+msgid "App Memory"
+msgstr "Памет"
+
+msgid "Swap"
+msgstr "Swap"
+
+msgid "Disks"
+msgstr "Дискове"
+
+msgid "Networks"
+msgstr "Мрежи"
+
+msgid "receive"
+msgstr "получени"
+
+msgid "transmit"
+msgstr "изпратени"
+
+msgid "IssabelPBX Statistics"
+msgstr "IssabelPBX Статистика"
+
+msgid "Total active calls"
+msgstr "Общо активни разговори"
+
+msgid "Internal calls"
+msgstr "Вътрешни разговори"
+
+msgid "External calls"
+msgstr "Външни разговори"
+
+msgid "Total active channels"
+msgstr "Общо активни канали"
+
+msgid "IssabelPBX Connections"
+msgstr "IssabelPBX Свързани"
+
+msgid "IP Phones Online"
+msgstr "IP Телефони Онлайн"
+
+msgid "IP Trunks Online"
+msgstr "IP Външни Линии Онлайн"
+
+msgid "IP Trunk Registrations"
+msgstr "IP Външни Линии Регистрации"
+
+msgid "Uptime"
+msgstr "Експлоатация"
+
+msgid "System Information Table"
+msgstr "Информация за Системата"
+
+msgid "System Uptime"
+msgstr "Експлоатация на Системата "
+
+msgid "Asterisk Uptime"
+msgstr "Експлоатация на Астериск"
+
+msgid "Last Reload"
+msgstr "Последно Презареждане"
+
+msgid "Server Status"
+msgstr "Състояние на Сървъра"
+
+msgid "Asterisk"
+msgstr "Астериск"
+
+#, php-format
+msgid "Asterisk is running: %s"
+msgstr "Астериск работи: %s"
+
+msgid "Asterisk is not running, this is a critical service!"
+msgstr "Астериск не работи, това е критична услуга!"
+
+msgid "Manager Proxy"
+msgstr "Manager Прокси"
+
+msgid "Asterisk Manager Proxy is running"
+msgstr "Астериск Manager Прокси работи"
+
+msgid ""
+"Asterisk Manager Proxy is not running, IssabelPBX will fall back to using "
+"Asterisk directly, which may result in poor performance"
+msgstr ""
+"Астериск Manager Прокси не работи, IssabelPBX ще използва Астериск директно, "
+"което може да доведе до влошена производителност"
+
+msgid "Op Panel"
+msgstr "ФОП"
+
+msgid ""
+"FOP Operator Panel Server is not running, you will not be able to use the "
+"operator panel, but the system will run fine without it."
+msgstr ""
+"ФОП Сървъра не работи, няма да можете да използвате оператор панела, но "
+"системата ще работи нормално без него."
+
+msgid "FOP Operator Panel is disabled in Advanced Settings"
+msgstr ""
+
+msgid "FOP Operator Panel Server is running"
+msgstr "ФОП Сървъра работи"
+
+msgid "MySQL"
+msgstr "MySQL"
+
+msgid "MySQL Server is running"
+msgstr "MySQL Сървъра работи"
+
+msgid "Web Server"
+msgstr "Уеб Сървър"
+
+msgid "Web Server is running"
+msgstr "Уеб Сървъра работи"
+
+msgid "SSH Server"
+msgstr "SSH Сървър"
+
+msgid "SSH Server is running"
+msgstr "SSH Сървъра работи"
+
+msgid ""
+"SSH Server is not running, you will not be able to connect to the system "
+"console remotely"
+msgstr ""
+"SSH Сървъра не работи, няма да можете да се свързвате със системата "
+"дистанционно."
+
+msgid "Critical Error"
+msgstr "Критична Грешка"
+
+msgid "Security Update"
+msgstr "Защитно Обновяване"
+
+msgid "Update"
+msgstr "Обновяване"
+
+msgid "Error"
+msgstr "Грешка"
+
+msgid "Warning"
+msgstr "Внимание"
+
+msgid "Notice"
+msgstr "Предупреждение"
+
+msgid "IssabelPBX Notices"
+msgstr "IssabelPBX Предупреждения"
+
+msgid "Delete this"
+msgstr "Изтрий това"
+
+msgid "Ignore this"
+msgstr "Игнорирай това"
+
+#, php-format
+msgid "Added %s ago"
+msgstr "Добавено преди %s"
+
+msgid "No notifications"
+msgstr "Няма предупреждения"
+
+msgid "No new notifications"
+msgstr "Няма нови предупреждения"
+
+msgid "show new"
+msgstr "покажи новите"
+
+msgid "show all"
+msgstr "покажи всички"
+
+msgid "loading..."
+msgstr "зареждам..."
+
+#~ msgid "FOP Operator Panel is disabled in amportal.conf"
+#~ msgstr "ФОП е забранен в amportal.conf"

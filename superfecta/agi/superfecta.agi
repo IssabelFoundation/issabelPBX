@@ -1,0 +1,87 @@
+#!/usr/bin/php -q
+<?php
+$base_dir = dirname(dirname(__FILE__));
+require_once($base_dir . '/agi/phpagi.php');
+$agi = new AGI();
+$agi->verbose("CID Superfecta is Answering the Channel");
+$scheme_return = $agi->get_variable("CIDSFSCHEME");
+
+if (($scheme_return['result']) && (trim(base64_decode($scheme_return['data'])) != '')) {
+    $scheme = base64_decode($scheme_return['data']);
+} else {
+    $scheme = 'base_Default';
+}
+
+if ($scheme == 'ALL|ALL') {
+    $sn[1] = 'ALL';
+} else {
+    $sn = explode("_", $scheme, 2);
+}
+
+//Remove leading +1-9 on numbers.
+$agi->request['agi_callerid'] = trim(preg_replace('/^\+[1-9]/', '', $agi->request['agi_callerid']));
+$agi->request['agi_calleridname'] = trim(preg_replace('/^\+[1-9]/', '', $agi->request['agi_calleridname']));
+
+
+$agi->verbose("CID Superfecta: Scheme is " . $sn[1]);
+
+$agi->verbose("CID Superfecta: The DID passed from Asterisk is: " . $agi->request['agi_extension']);
+$agi->verbose("CID Superfecta: The number passed from Asterisk is: " . $agi->request['agi_callerid']);
+$agi->verbose("CID Superfecta: The CID name passed from Asterisk is: " . $agi->request['agi_calleridname']);
+
+$trunk_info = base64_encode(serialize($agi->request));
+
+chdir($base_dir . '/sources'); //I don't think this is needed
+
+if (!preg_match('/\D/i', $agi->request['agi_callerid'])) {
+    $agi->verbose("CID Superfecta: Executing Scheme..");
+    //Uncomment below when debugging.
+    //$agi->verbose('CID Superfecta: EXEC SCRIPT: /usr/bin/php ' . $base_dir . '/includes/callerid.php -s ' . $sn[1] . ' -t ' . $trunk_info);
+
+    $descriptorspec = array(
+        0 => array("pipe", "r"), // stdin is a pipe that the child will read from
+        1 => array("pipe", "w"), // stdout is a pipe that the child will write to
+        2 => array("file", "/tmp/error-output.txt", "a") // stderr is a file to write to
+    );
+
+    $process = proc_open('/usr/bin/php ' . $base_dir . '/includes/callerid.php -s ' . $sn[1] . ' -t ' . $trunk_info, $descriptorspec, $pipes, $base_dir, NULL);
+    $status = proc_get_status($process);
+
+    while (is_resource($process) && $status['running']) {
+        $stream_data = stream_get_line($pipes[1], 0, ',');
+        if (!empty($stream_data)) {
+            $data = unserialize(base64_decode(trim($stream_data)));
+            if (isset($data['message'])) {
+                $agi->verbose("CID Superfecta: " . $data['message']);
+            } elseif (isset($data['success'])) {
+                if ($data['success']) {
+                    // Display issues on phones and CDR with special characters
+					// convert CNAM to UTF-8 to fix
+					if (function_exists('mb_convert_encoding')) {
+						$agi->verbose("Converting result to UTF-8");
+						$data['cid'] = mb_convert_encoding($data['cid'], "UTF-8");
+					}
+                    $agi->verbose("CID Superfecta: CID Determined to be: '" . trim($data['cid']) . "'");
+                    $agi->verbose("CID Superfecta: Attempting to set lookupcid");
+                    $agi->set_variable("lookupcid", trim($data['cid']));
+                    $tmp = $agi->get_variable("lookupcid");
+                    ($tmp['data'] == trim($data['cid'])) ? $agi->verbose("CID Superfecta: Success!") : $agi->verbose("CID Superfecta: Failure!");
+                    if (!empty($data['destination'])) {
+                        $agi->verbose("CID Superfecta: Call destination detected!");
+                        $parts = explode(",", $data['destination']);
+                        $agi->verbose("CID Superfecta: Sending call to " . $data['destination']);
+                        $agi->goto_dest($parts[0], $parts[1], $parts[2]);
+                    }
+                }
+            }
+        }
+        $status = proc_get_status($process);
+    }
+
+    if (is_resource($process)) {
+        fclose($pipes[1]);
+        $return_value = proc_close($process);
+    }
+} else {
+    $agi->verbose("CID Superfecta: Not a valid number");
+}

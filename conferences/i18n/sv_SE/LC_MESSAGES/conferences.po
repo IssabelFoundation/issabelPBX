@@ -1,0 +1,343 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2008, 2009, 2010 Mikael Carlsson, mickecamino@gmail.com
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX conferences\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-19 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+msgid "Conferences"
+msgstr "Konferenser"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Allow creation of conference rooms (meet-me) where multiple people can talk "
+"together."
+msgstr "Modulen ger möjlighet att skapa konferenser"
+
+#, php-format
+msgid "Conference Room %s : %s"
+msgstr "Konferensrum %s : %s"
+
+#, php-format
+msgid "Conference: %s"
+msgstr "Konferens: %s"
+
+msgid "Conference: "
+msgstr "Konferens:"
+
+msgid "Checking if music field present.."
+msgstr "Kontrollerar om musicfältet finns.."
+
+msgid "adding music field.."
+msgstr "lägger till musicfältet"
+
+msgid "fatal error"
+msgstr "allvarligt fel"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "already present"
+msgstr "finns redan"
+
+msgid "Checking if recordings need migration.."
+msgstr "Kontrollerar om inspelningar behöver migreras.."
+
+msgid "migrating"
+msgstr "migrerar"
+
+msgid "adding joinmsg_id field.."
+msgstr "lägger till fältet joinmsg_id.."
+
+msgid "migrate to recording ids.."
+msgstr "migrerar till recording ids.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "migrerade %s poster"
+
+msgid "dropping joinmsg field.."
+msgstr "kastar fältet joinmsg.."
+
+msgid "no joinmsg field???"
+msgstr "inget fält som heter joinmsg???"
+
+msgid "already migrated"
+msgstr "redan migrerad"
+
+msgid "Checking for users field.."
+msgstr "Kontrollerar om fälet users finns.."
+
+msgid "adding.."
+msgstr "lägger till.."
+
+msgid "FATAL error"
+msgstr "ALLVARLIGT fel"
+
+msgid "Warning! Extension"
+msgstr "Varning! Anknytning"
+
+msgid "is not allowed for your account."
+msgstr "är inte tillåtet för ditt konto."
+
+msgid "Add Conference"
+msgstr "Lägg till konferens"
+
+msgid "Conference"
+msgstr "Konferens"
+
+msgid "deleted"
+msgstr "borttagen"
+
+msgid "Conference:"
+msgstr "Konferens:"
+
+#, php-format
+msgid "Delete Conference %s"
+msgstr "Ta bort konferens %s"
+
+msgid "Conflicting Extensions"
+msgstr "Anknytningarna är i konflikt"
+
+msgid "Edit Conference"
+msgstr "Redigera konferens"
+
+msgid "Conference Number:"
+msgstr "Konferensnummer:"
+
+msgid "Use this number to dial into the conference."
+msgstr "Använd detta nummer för att ringa till konferensen."
+
+msgid "Conference Name:"
+msgstr "Konferensnamn:"
+
+msgid "Give this conference a brief name to help you identify it."
+msgstr "Ge konferensen ett kortfattat namn."
+
+msgid "User PIN:"
+msgstr "Användarlösenord:"
+
+msgid ""
+"You can require callers to enter a password before they can enter this "
+"conference.<br><br>This setting is optional.<br><br>If either PIN is "
+"entered, the user will be prompted to enter a PIN."
+msgstr ""
+"Du kan kräva att uppringare anger ett lösenord innan de når konferensen."
+"<br><br>Denna inställning är valfri.<br><br>Om ett lösenord (endast siffror) "
+"skrivs in får uppringaren en fråga om att mata in ett lösenord."
+
+msgid "Admin PIN:"
+msgstr "Administratörslösenord:"
+
+msgid ""
+"Enter a PIN number for the admin user.<br><br>This setting is optional "
+"unless the 'leader wait' option is in use, then this PIN will identify the "
+"leader."
+msgstr ""
+"Skriv in ett lösenord (endast siffror) för administratören.<br>Denna "
+"inställning är valfri om inte 'Invänta ledare' är valt, då kommer detta "
+"lösenord att identifiera ledaren."
+
+msgid "Conference Options"
+msgstr "Konferensval"
+
+msgid "Join Message:"
+msgstr "Anslutningsmeddelande:"
+
+msgid ""
+"Message to be played to the caller before joining the conference.<br><br>To "
+"add additional recordings please use the \"System Recordings\" MENU to the "
+"left"
+msgstr ""
+"Meddelande som ska spelas upp för uppringaren innan anslutning sker till "
+"konferensen.<br><br>För att lägga till fler inspelningar väljer du "
+"\"Systeminspelningar\" i menyn till vänster"
+
+msgid "None"
+msgstr "Inget"
+
+msgid ""
+"Message to be played to the caller before joining the conference.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Meddelande som ska spelas upp för uppringaren innan anslutning sker till "
+"konferensen.<br><br>Du måste installera och aktivera modulen "
+"\"Systeminspelningar\" för att kunna redigera detta val"
+
+msgid "Leader Wait:"
+msgstr "Vänta på ledaren:"
+
+msgid ""
+"Wait until the conference leader (admin user) arrives before starting the "
+"conference"
+msgstr ""
+"Vänta till konferensledaren (administratören) ansluter innan konferensen "
+"startas"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "Talker Optimization:"
+msgstr "Taloptimering"
+
+msgid ""
+"Turns on talker optimization. With talker optimization, Asterisk treats "
+"talkers who\n"
+"are not speaking as being muted, meaning that no encoding is done on "
+"transmission\n"
+"and that received audio that is not registered as talking is omitted, "
+"causing no\n"
+"buildup in background noise."
+msgstr ""
+"Sätter på taloptimering. Med taloptimering är personer som inte pratar "
+"betraktade som mikrofonavstängda. Detta betyder att ingen kodning sker och "
+"mottaget ljud som inte detekteras som prat elimineras"
+
+msgid "Talker Detection:"
+msgstr "Taldetektering"
+
+msgid ""
+"Sets talker detection. Asterisk will sends events on the Manager Interface "
+"identifying\n"
+"the channel that is talking. The talker will also be identified on the "
+"output of\n"
+"the meetme list CLI command."
+msgstr ""
+"Tillåter taldetektering. Asterisk kommer att skicka händelser i "
+"Managerinterfacet där identifiering av vilken kanal det är som innehåller "
+"tal. Talaren kommer också att identifieras och visas på meete listan"
+
+msgid "Quiet Mode:"
+msgstr "Tyst läge:"
+
+msgid "Quiet mode (do not play enter/leave sounds)"
+msgstr "Tyst läge (spela inte upp ljud för anslut/lämna)"
+
+msgid "User Count:"
+msgstr "Räkna användare:"
+
+msgid "Announce user(s) count on joining conference"
+msgstr "Berätta antalet användare när anslutning till konferensen sker"
+
+msgid "User join/leave:"
+msgstr "Användare ansluter/lämnar:"
+
+msgid "Announce user join/leave"
+msgstr "Annonsera när användare ansluter/lämnar"
+
+msgid "Music on Hold:"
+msgstr "Pausmusik:"
+
+msgid "Enable Music On Hold when the conference has a single caller"
+msgstr "Aktivera pausmusik när det endast är en användare i konferensen"
+
+msgid "Music on Hold Class:"
+msgstr "Klasser för pausmusik"
+
+msgid ""
+"Music (or Commercial) played to the caller while they wait in line for the "
+"conference to start. Choose \"inherit\" if you want the MoH class to be what "
+"is currently selected, such as by the inbound route.<br><br>  This music is "
+"defined in the \"Music on Hold\" to the left."
+msgstr ""
+"Musik (eller reklam) som spelas upp för uppringaren när dom väntar på att "
+"konferensen ska starta. Välj \"ärv\" om du vill att musikklassen ska vara "
+"samma klass som redan är definierad i inkommande väg.<br><br> Musiken "
+"definieras i \"Pausmusik\" i menyn till vänster"
+
+msgid "inherit"
+msgstr "ärv"
+
+msgid "default"
+msgstr "standard"
+
+msgid "Allow Menu:"
+msgstr "Tillåt meny:"
+
+msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
+msgstr ""
+"Ge tillgång till en meny (användare eller administratör) när '*' trycks på "
+"telefonen"
+
+msgid "Record Conference:"
+msgstr "Spela in konferens:"
+
+msgid "Record the conference call"
+msgstr "Välj om konferensen ska spelas in"
+
+msgid "Maximum Participants:"
+msgstr "Max antal deltagare"
+
+msgid "Maximum Number of users allowed to join this conference."
+msgstr "Det maximala antalet deltagare som tillåts i konferensen"
+
+msgid "No Limit"
+msgstr "Ingen begränsning"
+
+msgid "Mute on Join:"
+msgstr "Stäng av ljud vid anslutning:"
+
+msgid ""
+"Mute everyone when they initially join the conference. Please note that if "
+"you do not have 'Leader Wait' set to yes you must have 'Allow Menu' set to "
+"Yes to unmute yourself"
+msgstr ""
+"Stäng av ljudet för alla som ansluter till konferensen. Notera att om du "
+"inte har 'Vänta på ledare' aktiverad måste du ha 'Tillåt meny' aktiverad för "
+"att kunna slå på ljudetför dig själv"
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+msgid "Please enter a valid Conference Number"
+msgstr "Skriv in ett giltig konferensnummer"
+
+msgid "Please enter a valid Conference Name"
+msgstr "Skriv in ett giltigt konferensnamn"
+
+msgid ""
+"You must set an admin PIN for the Conference Leader when selecting the "
+"leader wait option"
+msgstr ""
+"Du måste sätta en administratörs-PIN för konferensledaren när du väljer "
+"Vänta på ledare"
+
+msgid ""
+"You must set Allow Menu to Yes when not using a Leader or Admin in your "
+"conference, otherwise you will be unable to unmute yourself"
+msgstr ""
+"Du måste aktivera Tillåt meny om du inte använer Ledare eller Admin i din "
+"konferens, annars kan du inte aktivera ljudet för dig själv"
+
+#~ msgid "Internal Options & Configuration"
+#~ msgstr "Interna val och konfigurationer"

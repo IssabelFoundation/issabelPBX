@@ -1,0 +1,277 @@
+#!/usr/bin/php -q
+<?php
+
+	require_once "phpagi.php";
+	require_once "phpagi-asmanager.php";
+
+	/* Usage:
+	 *
+	 * AGI(queue_dev_state.agi,getqueues|getall[,user][,queue])
+	 *
+	 * ARG1: action
+	 * ARG2: user
+	 * ARG3: queue
+	 *
+	 */
+	
+	$agi = new AGI();
+
+	// get manager credentials out of the channel
+	//
+	$ampmgruser   = get_var( "AMPMGRUSER" );
+	$ampmgrpass   = get_var( "AMPMGRPASS" );
+	$astspooldir  = get_var( "ASTSPOOLDIR" );
+	$ast_version  = get_var("ASTVERSION");
+
+	$ast_version14 = version_compare($ast_version, "1.4", "ge");
+
+	/*
+	$ampmgruser  = 'admin';
+	$ampmgrpass  = 'amp111';
+	*/
+	$astman = new AGI_AsteriskManager( );	
+	$queues=array();
+	$logged_agents_array=array();
+	$static_agents_array=array();
+	
+	if (!$astman->connect("127.0.0.1", $ampmgruser , $ampmgrpass)) {
+		exit (1);
+	}
+
+	$action = get_action();
+
+	switch ($action) {
+		case 'getqueues':
+			$new_user = get_login_user();
+			$queueno=get_var('QUEUENO');
+			sortqueues();
+			debug("Getting Queue Status for user $new_user in queue $queueno");
+			$loggedvar=(array_search(trim($new_user),$logged_agents_array[$queueno]))?'LOGGEDIN':'LOGGEDOUT';
+			$queuestat=(array_search(trim($new_user),$static_agents_array[$queueno]))?'STATIC':$loggedvar;
+			debug("Agent $new_user is $queuestat");
+			$agi->set_variable('QUEUESTAT',$queuestat);
+		break;
+		case 'getall':
+			$new_user = get_login_user();
+			sortqueues();
+			debug("Looking up queues for agent: $new_user");
+			$agent_queues = get_agent_queues($new_user);
+			foreach ($agent_queues as $q) {
+				debug("Agent is in: $q");
+			}
+			$all_queues_state = get_agent_allqueue_state($new_user, $agent_queues);
+			debug("Agent $new_user is $all_queues_state for at least one of their queues");
+			put_agent_overall_status($all_queues_state, $agent_queues);
+		break;
+		case 'toggle-pause-all':
+			$pause_user = get_login_user();
+			toggle_pause_all($pause_user);
+		break;
+		default:
+			debug("Got unknown action: $action, exiting");
+	}
+	exit;
+
+
+	// Get the requested action
+	//
+	function get_action() {
+ 		global $argv;
+		return strtolower(trim($argv['1']));
+	}
+
+	function get_agent_queues($user) {
+		global $astman;
+		$this_agents_queues = array();
+
+		$get=$astman->database_show('QPENALTY');
+		if ($get) foreach($get as $key => $value){
+			//  0: QPENALTY
+			//  1: QueueNum
+			//  2: agents (or dynmembers)
+			//  3: AgentNum (if agents)
+			//
+			$key=explode('/',trim($key,'/')); // get rid of leading '/'
+			if ($key[2] == 'agents' && $key[3] == $user) {
+				$this_agents_queues[] = $key[1];
+			}
+		}
+		return $this_agents_queues;
+	}
+
+	// if they are logged into any of the queues provided, they are considered logged in and we will log them out of all
+	//
+	function get_agent_allqueue_state($user, $queues) {
+		global $logged_agents_array;
+		global $static_agents_array;
+
+		if (empty($queues)) {
+			debug("no queues for this agent");
+			return 'NOQUEUES';
+		}
+		foreach ($queues as $q) {
+			debug("checking if logged into queue: $q");
+			if (array_search($user,$logged_agents_array[$q]) && ! array_search($user,$static_agents_array[$q])) {
+				debug("Yes logged into queue: $q");
+				return 'LOGGEDIN';
+			}
+		}
+		debug("Nothing found so logged out");
+		return 'LOGGEDOUT';
+	}
+
+	function put_agent_overall_status($status, $queues) {
+		global $agi;
+
+		$agi->set_variable('QUEUESTAT',$status);
+		$queues_string = implode('-',$queues);
+		$agi->set_variable('USERQUEUES',$queues_string);
+	}
+
+	function sortqueues() {
+		global $agi;
+		global $astman;
+		global $queues;
+		global $logged_agents_array;
+		global $static_agents_array;
+
+		$response = $astman->send_request('Command',array('Command'=>"queue show"));
+		$response1=explode("\n",trim($response['data']));
+		// Lets try and process our results here.
+		$inqueue='false';
+		$callers_list = false;
+		foreach ($response1 as $item) {
+			$item1=trim($item);
+			if ($callers_list) {
+				if (preg_match('/^\d+\./',$item1)) {
+					debug("skipping caller $item1 in queue $inqueue", 6);
+					continue;
+				} else {
+					debug("Finished processing callers for $inqueue");
+					$callers_list = false;
+					$inqueue='false';
+				}
+			}
+			if ($inqueue == 'false') {
+        if (preg_match('/^(\d+)/',$item1)) {
+					preg_match_all ("/(\\d+)/is", $item1,$matches);
+					if (isset($matches[1][0]) && $matches[1][0] != '') {
+						$queues[]=$matches[1][0];
+						$inqueue=$matches[1][0];
+						$logged_agents_array[$inqueue][]='';
+						$static_agents_array[$inqueue][]='';
+						debug("initiating queue: $inqueue");
+					}
+				}
+			} else {
+				// We should test to see if the item is an Agent description
+        if (strstr($item1,'Local/') !== false) {
+					preg_match_all ("/(Local).*?(\\d+)/is", $item1, $matches);
+					$loggedagent=$matches[2][0];
+					$item1='ADD';
+				}
+					
+				switch ($item1) {
+				case '':
+					break;
+
+				case '\n':
+					break;
+				
+				case 'No Members':
+					debug("Queue $inqueue has no one logged in");
+					$inqueue='false';
+					break;
+
+				case 'No Callers':
+					debug("Finished processing members for $inqueue");
+					$inqueue='false';
+					break;
+
+				case 'Callers':
+				case 'Callers:':
+					debug("Getting ready to skip callers in $inqueue");
+					$callers_list = true;
+					break;
+
+				case 'ADD':
+					$logged_agents_array[$inqueue][]=$loggedagent;
+            if (strstr($item,'(dynamic)') !== false) {
+							debug("Agent $loggedagent is dynamic");
+						}else{
+							debug("Agent $loggedagent is static");
+							$static_agents_array[$inqueue][]=$loggedagent;
+						}
+					debug("Agent $loggedagent is assigned to queue $inqueue");
+					break;
+				default:
+					debug("No Matches");
+
+				}
+			}	
+		}
+		debug("Finished sorting");
+	}
+
+	function get_current_queues($user) {
+		global $logged_agents_array;
+		$queues = array();
+
+		foreach ($logged_agents_array as $q => $m) {
+			if (array_search($user,$logged_agents_array[$q])) {
+				$queues[] = $q;
+			}
+		}
+		return $queues;
+	}
+
+	// Since we are pausing/unpausing specific queues, we only care about which queues they are logged into static or dynamic
+	// othewise we throw warnings
+	//
+	function toggle_pause_all($pause_user) {
+		global $agi;
+
+		sortqueues();
+		debug("Looking up queues for agent: $pause_user");
+		$agent_queues = get_current_queues($pause_user);
+		debug("got queues from logged in of: " . implode('-',$agent_queues));
+
+		$user_interface = "Local/$pause_user@from-queue/n";
+		$paused_state = 0;
+		foreach ($agent_queues as $q) {
+			$state = get_var("QUEUE_MEMBER($q,paused,$user_interface)");
+			$paused_state |= $state;
+		}
+		// If one was paused then treat as all paused and unpause all, otherwise pause all
+		// in all queues
+		$new_state = $paused_state ? '0' : '1';
+		foreach ($agent_queues as $q) {
+			$agi->set_variable("QUEUE_MEMBER($q,paused,$user_interface)", $new_state);
+			debug("QUEUE_MEMBER($q,paused,$user_interface)=$new_state");
+		}
+		$agi->set_variable("TOGGLEPAUSED", $new_state);
+	}
+
+	//
+	function get_login_user() {
+		global $argv;
+		return trim($argv['2']);
+	}
+
+	// Get a channel variable
+	//
+	function get_var($value) {
+		global $agi;
+
+		$r = $agi->get_variable( $value );
+		if ($r['result'] == 1) {
+			$result = $r['data'];
+			return trim($result);
+		}
+		return '';
+	}
+
+	function debug($string, $level=3) {
+		global $agi;
+		$agi->verbose($string, $level);
+	}

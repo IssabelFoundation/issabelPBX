@@ -1,0 +1,223 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright 2009, Marcelo Araujo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: freePBX 2.5.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-05-11 20:05-0300\n"
+"Last-Translator: Marcelo Araujo <marcelo.araujo@voffice.com.br>\n"
+"Language-Team: MidiVTS Team <team@midivts.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Custom Applications"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"Registry to add custom extensions and destinations that may be created and "
+"used so that the Extensions and Destinations Registry can include these."
+msgstr ""
+
+msgid "Custom Extensions"
+msgstr "Extensões personalizadas"
+
+msgid "Custom Destinations"
+msgstr "Destinos personalizados"
+
+#, php-format
+msgid "Custom Destination: %s"
+msgstr "Destino personalizado: %s"
+
+msgid "Custom Extension: "
+msgstr "Extensão personalizada:"
+
+msgid ""
+"Invalid Destination, must not be blank, must be formatted as: context,exten,"
+"pri"
+msgstr ""
+"Destino inválido, não deve ser branco, deve ser formatado como: context, "
+"exten, pri"
+
+msgid "Invalid description specified, must not be blank"
+msgstr "Descrição inválida especificada, não deve estar em branco"
+
+msgid "DUPLICATE Destination: This destination is already in use"
+msgstr "Destino duplicado: Este destino já está em uso"
+
+msgid ""
+"DUPLICATE Destination: This destination is in use or potentially used by "
+"another module"
+msgstr ""
+"Destino duplicado: Este destino esta em uso ou potencialmente usado por "
+"outro módulo"
+
+msgid "Invalid Extension, must not be blank"
+msgstr "Extensão inválida, não deve estar em branco"
+
+msgid "DUPLICATE Extension: This extension already in use"
+msgstr "Extensão duplicada: A extensão já está em uso"
+
+msgid "Add Custom Destination"
+msgstr "Adicionar um destino personalizado"
+
+msgid "Edit: "
+msgstr "Editar:"
+
+msgid ""
+"Custom Destinations allows you to register your custom destinations that "
+"point to custom dialplans and will also 'publish' these destinations as "
+"available destinations to other modules. This is an advanced feature and "
+"should only be used by knowledgeable users. If you are getting warnings or "
+"errors in the notification panel about CUSTOM destinations that are correct, "
+"you should include them here. The 'Unknown Destinations' chooser will allow "
+"you to choose and insert any such destinations that the registry is not "
+"aware of into the Custom Destination field."
+msgstr ""
+"Permite a você registrar destinos personalizados que apontam para planos de "
+"discagem personalizados e também 'publicar' estes destinos como destinos "
+"disponíveis para outros módulos. Este é um recurso avançado e deveria ser "
+"usado apenas por usuários com bom conhecimento. Se você está recebendo "
+"avisos ou erros no painel de notificação sobre os destinos PERSONALIZADOS "
+"que estão corretos, você deveria incluí-los lá. A lista 'Destinos "
+"desconhecidos' irá permitir que você escolha e insira quaisquer destinos que "
+"o registro não está a par no campo Destino Personalizado. "
+
+msgid "Edit Custom Destination"
+msgstr "Editar destino personalizado"
+
+msgid "Custom Destination"
+msgstr "Destino personalizado"
+
+msgid ""
+"This is the Custom Destination to be published. It should be formatted "
+"exactly as you would put it in a goto statement, with context, exten, "
+"priority all included. An example might look like:<br />mycustom-app,s,1"
+msgstr ""
+"Este é um destino personalizado a ser publicado. Ele deve ser formatado "
+"exatamente como você colocaria em uma instrução goto, com contexto, extensão "
+"e prioridade incluídas. Algo como: <br />mycustom-app,s,1"
+
+msgid ""
+"READONLY WARNING: Because this destination is being used by other module "
+"objects it can not be edited. You must remove those dependencies in order to "
+"edit this destination, or create a new destination to use"
+msgstr ""
+"AVISO SOMENTE LEITURA: Este destino está sendo usado por outro módulo e não "
+"pode ser editado. Você deve remover estas dependências de forma a editar o "
+"destino ou criar um novo destino a ser usado"
+
+msgid "Destination Quick Pick"
+msgstr "Seleção rápida do Destino"
+
+msgid ""
+"Choose un-identified destinations on your system to add to the Custom "
+"Destination Registry. This will insert the chosen entry into the Custom "
+"Destination box above."
+msgstr ""
+"Escolha destinos não identificados no seu sistema para adicionar ao registro "
+"de destinos personalizados. ISto irá inserir a entrada escolhida dentro da "
+"caixa de destino personalizada acima. "
+
+msgid "(pick destination)"
+msgstr "(selecionar destino)"
+
+msgid "Description"
+msgstr "Descrição "
+
+msgid ""
+"Brief Description that will be published to modules when showing "
+"destinations. Example: My Weather App"
+msgstr ""
+"Breve descrição que será publicada para os módulos quando mostrando os "
+"destinos. Exemplo: Minha Previsão do Tempo"
+
+msgid "Notes"
+msgstr "Notas"
+
+msgid ""
+"More detailed notes about this destination to help document it. This field "
+"is not used elsewhere."
+msgstr ""
+"Notas mais detalhadas sobre o destino para ajudar a documentá-la. Este campo "
+"não é usado em nenhum outro lugar."
+
+msgid "Submit Changes"
+msgstr "Submeter Mudanças"
+
+msgid "Delete"
+msgstr "Remover"
+
+msgid "Add Custom Extension"
+msgstr "Adicionar extensão personalizada"
+
+msgid ""
+"Custom Extensions provides you with a facility to register any custom "
+"extensions or feature codes that you have created in a custom file and "
+"IssabelPBX doesn't otherwise know about them. This allows the Extension "
+"Registry to be aware of your own extensions so that it can detect conflicts "
+"or report back information about your custom extensions to other modules "
+"that may make use of the information. You should not put extensions that you "
+"create in the Misc Apps Module as those are not custom."
+msgstr ""
+"Extensões personalizadas permitem a você registar quaisquer extensões "
+"personalizadas ou códigos de recurso que você tenha criado no arquivo custom "
+"e o freePBX não saiba a respeito deles. Isto permite que o registro da "
+"extensão esteja a par das suas próprias extensões, de forma que ele possa "
+"detectar conflitos e relatar de volta as informações sobre as extensões "
+"personalizadas para outros módulos que podem fazer uso da informação. Você "
+"não deveria colocar as extensões que você criou no módulo Misc Apps como não "
+"customizada. "
+
+msgid "Conflicting Extensions"
+msgstr "Extensões conflitantes"
+
+msgid "Edit Custom Extension"
+msgstr "Editar extensão personalizada"
+
+msgid "Custom Extension"
+msgstr "Extensão personalizada"
+
+msgid ""
+"This is the Extension or Feature Code you are using in your dialplan that "
+"you want the IssabelPBX Extension Registry to be aware of."
+msgstr ""
+"Esta é a extensão ou código de recurso que você está usando no seu plano de "
+"discage, e que você quer que o registro de extensões do freePBX esteja a "
+"par. "
+
+msgid ""
+"Brief description that will be published in the Extension Registry about "
+"this extension"
+msgstr ""
+"Breve descrição que será publicada no registro de extensões sobre esta "
+"extensão"
+
+msgid ""
+"More detailed notes about this extension to help document it. This field is "
+"not used elsewhere."
+msgstr ""
+"Notas mais detalhadas sobre a extensão para ajudar a documentá-la. Este "
+"campo não é usado em mais nenhum lugar."

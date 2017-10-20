@@ -1,0 +1,191 @@
+# IssabelPBX language template
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "Voicemail Group %s: %s"
+msgstr ""
+
+msgid "Voicemail Group: "
+msgstr ""
+
+msgid "Exclude"
+msgstr ""
+
+msgid "Include"
+msgstr ""
+
+msgid "Default Group Inclusion"
+msgstr ""
+
+msgid "Default VMblast Group"
+msgstr ""
+
+msgid ""
+"You can include or exclude this extension/user from being part of the "
+"default voicemail blast group when creating or editing. Choosing this option "
+"will be ignored if the user does not have a voicemail box."
+msgstr ""
+
+msgid "Upgrading vmblast to add audio_label field.."
+msgstr ""
+
+msgid "Not Required"
+msgstr ""
+
+msgid "Done"
+msgstr ""
+
+msgid "Upgrading vmblast to add password field.."
+msgstr ""
+
+msgid "Dropping grplist.."
+msgstr ""
+
+msgid "error populating vmblast_groups table"
+msgstr ""
+
+msgid "populated new table"
+msgstr ""
+
+msgid "Dropping old grplist field.."
+msgstr ""
+
+msgid "failed to drop field"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Not Needed"
+msgstr ""
+
+msgid "Warning! Extension"
+msgstr ""
+
+msgid "is not allowed for your account"
+msgstr ""
+
+msgid "Add VMBlast Group"
+msgstr ""
+
+msgid " [DEFAULT]"
+msgstr ""
+
+msgid "VMBlast Group"
+msgstr ""
+
+msgid "deleted"
+msgstr ""
+
+msgid "Delete Group"
+msgstr ""
+
+msgid "Conflicting Extensions"
+msgstr ""
+
+msgid "Edit VMBlast Group"
+msgstr ""
+
+msgid "VMBlast Number"
+msgstr ""
+
+msgid "The number users will dial to voicemail boxes in this VMBlast group"
+msgstr ""
+
+msgid "Group Description:"
+msgstr ""
+
+msgid "Provide a descriptive title for this VMBlast Group."
+msgstr ""
+
+msgid "Audio Label:"
+msgstr ""
+
+msgid ""
+"Play this message to the caller so they can confirm they have dialed the "
+"proper voice mail group number, or have the system simply read the group "
+"number."
+msgstr ""
+
+msgid "Read Group Number"
+msgstr ""
+
+msgid "Beep Only - No Confirmation"
+msgstr ""
+
+msgid ""
+"The group number will be played to the caller so they can confirm they have "
+"dialed the proper voice mail group number.<br><br>You must install and "
+"enable the \"Systems Recordings\" Module to edit this option and choose from "
+"recordings."
+msgstr ""
+
+msgid "Optional Password"
+msgstr ""
+
+msgid ""
+"You can optionally include a password to authenticate before providing "
+"access to this group voicemail list."
+msgstr ""
+
+msgid "Voicemail Box List:"
+msgstr ""
+
+msgid ""
+"Select voice mail boxes to add to this group. Use Ctrl key to select "
+"multiple.."
+msgstr ""
+
+msgid "Default VMBlast Group"
+msgstr ""
+
+msgid ""
+"Each PBX system can have a single Default Voicemail Blast Group. If "
+"specified, extensions can be automatically added (or removed) from this "
+"default group in the Extensions (or Users) tab.<br />Making this group the "
+"default will uncheck the option from the current default group if specified."
+msgstr ""
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "Invalid Group Number specified"
+msgstr ""
+
+msgid "Group numbers with more than one digit cannot begin with 0"
+msgstr ""
+
+msgid "Please enter an extension list."
+msgstr ""
+
+msgid "Please enter a valid Group Description"
+msgstr ""
+
+msgid "Please enter a valid numeric password, only numbers are allowed"
+msgstr ""
+
+msgid "Please select at least one extension"
+msgstr ""
+
+msgid "Voicemail Blasting"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Creates a group of extensions that calls a group of voicemail boxes and "
+"allows you to leave a message for them all at once."
+msgstr ""

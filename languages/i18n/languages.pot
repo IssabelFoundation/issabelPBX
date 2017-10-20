@@ -1,0 +1,96 @@
+# IssabelPBX language template
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "Language: %s"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Please enter a valid Language Code"
+msgstr ""
+
+msgid "Language Code"
+msgstr ""
+
+msgid ""
+"This will cause all messages and voice prompts to use the selected language "
+"if installed."
+msgstr ""
+
+msgid "Allows you to set the language for this DID."
+msgstr ""
+
+#, php-format
+msgid "Language Change: %s"
+msgstr ""
+
+msgid "Languages"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Adds the ability to changes the language within a call flow and add language "
+"attribute to users."
+msgstr ""
+
+msgid "Add Language"
+msgstr ""
+
+msgid "Edit: "
+msgstr ""
+
+msgid ""
+"Languages allow you to change the language of the call flow and then "
+"continue on to the desired destination. For example, you may have an IVR "
+"option that says \"For French Press 5 now\". You would then create a French "
+"language instance and point it's destination at a French IVR. The language "
+"of the call's channel will now be in French. This will result in French "
+"sounds being chosen if installed."
+msgstr ""
+
+msgid "Edit Language Instance"
+msgstr ""
+
+msgid "Add Language Instance"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid ""
+"The descriptive name of this language instance. For example \"French Main IVR"
+"\""
+msgstr ""
+
+msgid ""
+"The Asterisk language code you want to change to. For example \"fr\" for "
+"French, \"de\" for German"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Invalid description specified"
+msgstr ""

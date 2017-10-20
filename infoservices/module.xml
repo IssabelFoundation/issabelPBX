@@ -1,0 +1,21 @@
+<module>
+	<rawname>infoservices</rawname>
+	<repo>standard</repo>
+	<name>Info Services</name>
+	<version>2.11.0.3</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<candisable>no</candisable>
+	<canuninstall>no</canuninstall>
+	<category>Applications</category>
+	<description>Provides a number of applications accessible by feature codes: company directory, call trace (last call information), echo test, speaking clock, and speak current extension number.</description>
+	<changelog>
+		*2.11.0.3* Initial Issabel Foundation release
+	</changelog>
+	<supported>
+		<version>2.11</version>
+	</supported>
+	<location>release/2.11/infoservices-2.11.0.1.tgz</location>
+	<md5sum>efb62589052a3c83c2a2d5047ee7bb62</md5sum>
+</module>

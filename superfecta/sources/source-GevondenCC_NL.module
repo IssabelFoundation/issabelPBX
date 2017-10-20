@@ -1,0 +1,66 @@
+<?php
+
+class GevondenCC_NL extends superfecta_base {
+
+	public $description = "http://www.gevonden.cc - This source includes business and residential data for The Netherlands";
+	public $version_requirement = "2.11";
+	public $source_param = array();
+
+	function get_caller_id($thenumber, $run_param=array()) {
+
+		$caller_id = null;
+		$name = "";
+
+		$this->DebugPrint("Searching gevonden.cc - {$this->thenumber} ... ");
+
+		// Test for NL
+		$loc_number = $thenumber;
+		if (strlen($loc_number) > 10)
+		{
+			if (substr($loc_number,0,2)=='31')
+			{
+			    $loc_number = '0'.substr($loc_number,2);
+			}
+			else if (substr($loc_number,0,4)=='0031')
+			{
+				$loc_number = '0'.substr($loc_number,4);
+			}
+			else if (substr($loc_number,0,5)=='01131')
+			{
+				$loc_number = '0'.substr($loc_number,5);
+			}
+		}
+
+		if (strlen($loc_number) == 10)
+		{
+			// Search gevonden.ccm
+			$url = "http://www.gevonden.cc/telefoonnummer/" . $thenumber . "/lastname/";
+			$this->DebugPrint("URL: " . $url);
+			$result = $this->get_url_contents($url);
+
+			$expr = '=<title[^>]*>(.*)[0-9]{5,}</title>=siU';
+			preg_match_all($expr, $result, $name);
+			if (count($name[1]) > 0)
+			{
+				$name = trim($name[1][0]);
+				$name = strip_tags($name);
+			}
+		}
+		else
+		{
+			$this->DebugPrint($thenumber . " is not a Dutch number");
+		}
+
+		// If we found a match, return it
+		if (strlen($name) > 1) 
+		{
+			$caller_id = $name;
+		} else {
+			$this->DebugPrint("not found");
+		}
+
+		return($caller_id);
+
+	}
+
+}

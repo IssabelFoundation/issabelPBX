@@ -1,0 +1,41 @@
+<?php
+
+class SE_vemringde_HE extends superfecta_base {
+
+    public $description = "http://www.vemrinde.se - A datasource identifying telemarketers.";
+    public $version_requirement = "2.11";
+
+    public $source_param = array(
+             'SPAM_Value' => array (
+               'description' => 'Specify the number of listings required to mark a call as spam.',
+               'type' => 'number',
+	       'default' => 3
+             ),
+             'API_Key' => ARRAY (
+               'description' => 'API Key is REQUIRED. Available from www.vemringde.se (It is Free).',
+               'type' => 'text'
+             )
+    );
+
+    function get_caller_id($thenumber, $run_param=array()) {
+        $caller_id = null;
+
+        $this->DebugPrint("Searching vemringde.se... ");
+        $url = "http://api.vemringde.se/?apikey=".$run_param['API_Key']."&q=$thenumber&stats=1&n=".$run_param['SPAM_Value']."";
+        $value = $this->get_url_contents($url);
+
+    // En korrekt sättning av SPAM_threshold är att ta svaret från APIt sista siffra "Spamföretegt (2 av 10)"
+    // för att avgöra om vi ska skick spamsamtalet vidare genom SPAM_intercept.
+
+	$SPAM_threshold = $run_param['SPAM_Value'];
+	    
+        if ($value != "0" ) {
+            $this->spam = true;
+            $this->DebugPrint(" determined to be SPAM");
+        } else {
+            $this->DebugPrint("Not a SPAM caller");
+	    return("");
+        }
+        return("SPAM:".$value);
+    }
+}

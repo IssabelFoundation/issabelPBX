@@ -1,0 +1,261 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for music
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.0.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-05 19:32+0900\n"
+"PO-Revision-Date: 2014-02-19 20:56+0200\n"
+"Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
+"Language-Team: Japanese <http://example.com/projects/freepbx/music/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+msgid "Add Music Category"
+msgstr "音楽カテゴリを追加"
+
+msgid "Add Streaming Category"
+msgstr "ストリーミングカテゴリを追加"
+
+msgid "default"
+msgstr "デフォルト"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid ""
+"sox failed to convert file and original could not be copied as a fall back"
+msgstr ""
+"soxはファイルのコンバートに失敗しました、オリジナルファイルを元に戻すことがで"
+"きません。"
+
+msgid "On Hold Music"
+msgstr "保留音"
+
+msgid "Category Name:"
+msgstr "カテゴリ名："
+
+msgid ""
+"Allows you to Set up Different Categories for music on hold.  This is useful "
+"if you would like to specify different Hold Music or Commercials for various "
+"ACD Queues."
+msgstr ""
+"保留音用の様々なカテゴリをセットアップすることができます。種類の異なる保留音"
+"を指定したり、様々なACDキュー用のコマーシャルを指定するのに役に立ちます。"
+
+msgid "Submit Changes"
+msgstr "変更を適用"
+
+msgid "Please enter a valid Category Name"
+msgstr "有効なカテゴリ名を入力してください"
+
+msgid ""
+"Categories: \\\"none\\\" and \\\"default\\\" are reserved names. Please "
+"enter a different name"
+msgstr ""
+"カテゴリ名： \\\"none\\\" and \\\"default\\\"は予約語です。違う名前を入力して"
+"ください。"
+
+msgid "Application:"
+msgstr "アプリケーション："
+
+msgid ""
+"This is the \"application=\" line used to provide the streaming details to "
+"Asterisk. See information on musiconhold.conf configuration for different "
+"audio and Internet streaming source options."
+msgstr ""
+"Asteriskに対してストリーミングの詳細を提供するために使用される\"application="
+"\"ラインです。musiconhold.conf設定にある異なるオーディオやインターネットスト"
+"リーミングソースオプションの情報を参照してください。"
+
+msgid "Optional Format:"
+msgstr "オプションフォーマット："
+
+msgid ""
+"Optional value for \"format=\" line used to provide the format to Asterisk. "
+"This should be a format understood by Asterisk such as ulaw, and is specific "
+"to the streaming application you are using. See information on musiconhold."
+"conf configuration for different audio and Internet streaming source options."
+msgstr ""
+"Asteriskに対してフォーマットを提供するために使用される\"format=\"のためのオプ"
+"ション値です。ulawのように、Asteriskが対応しているフォーマットで、あなたが使"
+"用しているストリーミングアプリケーション固有のものを指定してください。"
+
+msgid "Please enter a streaming application command and arguments"
+msgstr "ストリーミングアプリケーションのコマンドと引数を入力してください"
+
+msgid "Category:"
+msgstr "カテゴリ："
+
+#, php-format
+msgid "Delete Music Category %s"
+msgstr "音楽カテゴリ %s を削除"
+
+#, php-format
+msgid "Delete Streaming Category"
+msgstr "ストリーミングカテゴリを削除"
+
+msgid "Edit Streaming Category"
+msgstr "ストリーミングカテゴリを編集"
+
+msgid "Upload a .wav or .mp3 file:"
+msgstr ".wav又は .mp3ファイルをアップロード："
+
+msgid "Upload"
+msgstr "アップロード"
+
+msgid "Please wait until the page loads. Your file is being processed."
+msgstr "ページが更新されるまでお待ちください。ファイルの処理中。"
+
+msgid "Volume 150%"
+msgstr "ボリューム 150%"
+
+msgid "Volume 125%"
+msgstr "ボリューム 125%"
+
+msgid "Volume 100%"
+msgstr "ボリューム 100%"
+
+msgid "Volume 75%"
+msgstr "ボリューム 75%"
+
+msgid "Volume 50%"
+msgstr "ボリューム 50%"
+
+msgid "Volume 25%"
+msgstr "ボリューム 25%"
+
+msgid "Volume 10%"
+msgstr "ボリューム 10%"
+
+msgid "Volume Adjustment"
+msgstr "ボリューム調整"
+
+msgid ""
+"The volume adjustment is a linear value. Since loudness is logarithmic, the "
+"linear level will be less of an adjustment. You should test out the "
+"installed music to assure it is at the correct volume. This feature will "
+"convert MP3 files to WAV files. If you do not have mpg123 installed, you can "
+"set the parameter: <strong>Convert Music Files to WAV</strong> to false in "
+"Advanced Settings"
+msgstr ""
+"ボリューム調整はリニアな値となります。音の大きさは対数なので、リニアなレベル"
+"での調整はより小さな音になりあす。インストールした音楽が適正なボリュームに"
+"なったことを確認するために、テストをする必要があります。この機能はMP3ファイル"
+"をWAVファイルにコンバートします。もしmgp123がインストールされていない場合は、"
+"amportal.confファイル内で、<strong>AMPMPG123=false</strong>というパラメータを"
+"設定することが可能です。"
+
+msgid "Do not encode wav to mp3"
+msgstr "wavをmp3にエンコードしない"
+
+msgid "Disable Random Play"
+msgstr "ランダム再生を無効にする"
+
+msgid "Enable Random Play"
+msgstr "ランダム再生を有効にする"
+
+msgid "Error Processing"
+msgstr "処理のエラー"
+
+msgid "No file provided"
+msgstr "ファイルが選択されていません"
+
+msgid "Please select a file to upload"
+msgstr "アップロードするファイルを選択してください"
+
+msgid "Check"
+msgstr "チェック"
+
+msgid "in"
+msgstr "中身"
+
+msgid "This is not a fatal error, your Music on Hold may still work."
+msgstr "これは致命的なエラーではありません、あなたの保留音はまだ機能します。"
+
+msgid "Completed processing"
+msgstr "処理の完了"
+
+msgid ""
+"You must have at least one file for On Hold Music.  Please upload one before "
+"deleting this one."
+msgstr ""
+"少なくとも1つ以上の保留音が必要です。これを削除する前に保留音をアップロードし"
+"てください。"
+
+msgid "Deleted"
+msgstr "削除されませいた"
+
+#, php-format
+msgid "Error Deleting %s"
+msgstr "削除エラー %s"
+
+msgid "Cannot write to file"
+msgstr "ファイルに書き込みできません"
+
+msgid "Music on Hold"
+msgstr "保留音"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid ""
+"Uploading and management of sound files (wav, mp3) to be used for on-hold "
+"music."
+msgstr "保留音で使用する音楽ファイル (wav, mp3) のアップロードと管理。"
+
+msgid "Convert Music Files to WAV"
+msgstr "音楽ファイルをWAVにコンバートします。"
+
+msgid "System Setup"
+msgstr "システムセットアップ"
+
+msgid ""
+"When set to false, the MP3 files can be loaded and WAV files converted to "
+"MP3 in the MoH module. The default behavior of true assumes you have mpg123 "
+"loaded as well as sox and will convert MP3 files to WAV. This is highly "
+"recommended as MP3 files heavily tax the system and can cause instability on "
+"a busy phone system"
+msgstr ""
+"falseに設定するとMP3ファイルをロードすることができ、MoHモジュールの中にある"
+"WAVファイルをMP3ファイルにコンバートすることができます。規定動作のtrueでは、"
+"soxと同様にmpg123のロードやMP3からWAVへのコンバートを前提としています。MP3"
+"ファイルはシステム的に負担がかかり、ビジーな電話システムでは不安定になるため"
+"これを推奨します。"

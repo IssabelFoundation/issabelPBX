@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+
+ROOT_UID=0	 # root uid is 0
+E_NOTROOT=67	 # Non-root exit error
+# define issabelpbx config file if not alreaddy set
+if [ -z "$ISSABELPBX_CONF" ]; then
+	if [ -e "/etc/issabelpbx.conf" ]; then
+		ISSABELPBX_CONF="/etc/issabelpbx.conf"
+	elif [ -e "/etc/asterisk/issabelpbx.conf" ]; then
+		ISSABELPBX_CONF="/etc/asterisk/issabelpbx.conf"
+	else
+		ISSABELPBX_CONF="/etc/issabelpbx.conf"
+	fi
+fi
+
+echo
+# check to see if we are root
+if [ "$UID" -ne "$ROOT_UID" ]
+then
+	echo "Sorry, you must be root to run this script."
+	echo
+	exit $E_NOTROOT
+fi
+
+# get settings from db/config file
+
+if [[ -e $ISSABELPBX_CONF && -w "/etc/amportal.conf" && -z "$FORCE_AMPORTAL_CONF" ]]; then        # Check if file exists.
+
+	php -r > /dev/null 2>&1
+	if [ $? -eq 0 ]; then
+		echo "Please wait..."
+  		`php -r '
+		$bootstrap_settings["issabelpbx_auth"] = false;
+		$bootstrap_settings["skip_astman"] = true;
+		$restrict_mods = true;
+		if (!@include_once(getenv("ISSABELPBX_CONF") ? getenv("ISSABELPBX_CONF") : "/etc/issabelpbx.conf")) {
+			include_once("/etc/asterisk/issabelpbx.conf");
+		}
+		foreach($amp_conf as $key => $val) {
+			if (is_bool($val)) {
+				echo "export " . trim($key) . "=" . ($val?"TRUE":"FALSE") ."\n";
+			} else {
+				echo "export " . trim($key) . "=" . escapeshellcmd(trim($val)) ."\n";
+			}
+		}
+		'`
+	elif [ -e "/var/lib/asterisk/bin/gen_amp_conf.php" ]; then
+		echo "Fetching IssabelPBX settings with gen_amp_conf.php.."
+		`/var/lib/asterisk/bin/gen_amp_conf.php`
+	elif [ -e "/etc/amportal.conf" ]; then # Check if file exists.
+		echo "Fetching settings from amportal.conf file.."
+		. /etc/amportal.conf
+	else
+		echo;
+		echo "IssabelPBX settings could not be fetched and no backup config file found!";
+		echo "Have you installed IssabelPBX?";
+		exit;
+	fi
+elif [ -e "/etc/amportal.conf" ]; then # Check if file exists.
+	. /etc/amportal.conf
+else 
+	echo;
+	echo "IssabelPBX config file not found!";
+	echo "Have you installed IssabelPBX?";
+	exit;
+fi
+
+if [ -x ${AMPBIN}/issabelpbx_engine ]; then
+	${AMPBIN}/issabelpbx_engine $@
+elif [ -x ${ASTVARLIBDIR}/bin/issabelpbx_engine ]; then
+	${ASTVARLIBDIR}/bin/issabelpbx_engine $@
+elif [ -x /var/lib/asterisk/bin/issabelpbx_engine ]; then
+	/var/lib/asterisk/bin/issabelpbx_engine $@
+else
+	echo "FATAL: can not find issabelpbx_engine to start Asterisk"
+fi
+

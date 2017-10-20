@@ -1,0 +1,168 @@
+# IssabelPBX language for announcement
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - test module spanish translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2014-03-04 08:32+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Spanish "
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.9-dev\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Announcements"
+msgstr "Noticias"
+
+msgid "Applications"
+msgstr "Aplicaciones"
+
+msgid ""
+"Plays back one of the system recordings (optionally allowing the user to "
+"skip it) and then goes to another destination."
+msgstr ""
+"Reproduce una de las grabaciones del sistema (opcional que permite al "
+"usuario saltar él) y luego se va a otro destino."
+
+#, php-format
+msgid "Announcement: %s"
+msgstr "Anuncio: %s"
+
+msgid "Checking if recordings need migration.."
+msgstr "Comprobando si las grabaciones necesitan migrarse..."
+
+msgid "migrating"
+msgstr "migrando"
+
+msgid "adding recording_id field.."
+msgstr "añadiendo campo recording_id..."
+
+msgid "fatal error"
+msgstr "error fatal"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "migrate to recording ids.."
+msgstr "migrar a identificadores de grabación (recording ids)"
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "%s entradas migradas"
+
+msgid "dropping recording field.."
+msgstr "eliminando campo de grabación (recording)"
+
+msgid "no recording field???"
+msgstr "¿No hay campo de grabación (recording)?"
+
+msgid "already migrated"
+msgstr "ya migrado"
+
+msgid "Add Announcement"
+msgstr "Añadir anuncio"
+
+msgid "Edit Announcement"
+msgstr "Editar anuncio"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "The name of this announcement"
+msgstr "El nombre de este anuncio"
+
+msgid "Recording"
+msgstr "Grabación"
+
+msgid ""
+"Message to be played.<br>To add additional recordings use the \"System "
+"Recordings\" MENU to the left"
+msgstr ""
+"El mensaje que será reproducido.<br/>Para añadir más grabaciones, use el "
+"menú de \"Grabaciones del sistema\" a la izquierda"
+
+msgid "None"
+msgstr "ninguno"
+
+msgid "Repeat"
+msgstr "Repetir"
+
+msgid ""
+"Key to press that will allow for the message to be replayed. If you choose "
+"this option there will be a short delay inserted after the message. If a "
+"longer delay is needed it should be incorporated into the recording."
+msgstr ""
+"Tecla que se debe presionar para repetir el mensaje. Si se selecciona esta "
+"opción, se insertará un pequeño retraso tras la reproducción del mensaje. Si "
+"se necesita un retardo mayor, se debería incorporar directamente al mensaje "
+"grabado."
+
+msgid "Disable"
+msgstr "Deshabilitar"
+
+msgid "Allow Skip"
+msgstr "Permitir saltar"
+
+msgid "If the caller is allowed to press a key to skip the message."
+msgstr ""
+"Indica si el llamante puede presionar una tecla para saltarse el mensaje."
+
+msgid "Return to IVR"
+msgstr "Volver al IVR"
+
+msgid ""
+"If this announcement came from an IVR and this box is checked, the "
+"destination below will be ignored and instead it will return to the calling "
+"IVR. Otherwise, the destination below will be taken. Don't check if not "
+"using in this mode. <br>The IVR return location will be to the last IVR in "
+"the call chain that was called so be careful to only check when needed. For "
+"example, if an IVR directs a call to another destination which eventually "
+"calls this announcement and this box is checked, it will return to that IVR "
+"which may not be the expected behavior."
+msgstr ""
+"Si este anuncio llega desde un IVR y esta casilla está marcada, el siguiente "
+"destino será ignorando y en su lugar se volverá al IVR. De lo contrario, el "
+"destino siguiente se tomará. No marque esta casilla si no utiliza en este "
+"modo.<br/>El punto de regreso del IVR será el último IVR en la cadena de "
+"llamadas que llamó, así que tenga cuidado de marcar sólamente cuando sea "
+"necesario. Por ejemplo, si un IVR dirige una llamada a otro destino que "
+"ocasionalmente llama a este anuncio y esta casilla está activada, regresará "
+"a ese IVR, lo que puede provocar un comportamiento inesperado."
+
+msgid "Don't Answer Channel"
+msgstr "No contestar canal"
+
+msgid ""
+"Check this to keep the channel from explicitly being answered. When checked, "
+"the message will be played and if the channel is not already answered it "
+"will be delivered as early media if the channel supports that. When not "
+"checked, the channel is answered followed by a 1 second delay. When using an "
+"announcement from an IVR or other sources that have already answered the "
+"channel, that 1 second delay may not be desired."
+msgstr ""
+"Marque esta opción para evitar que el canal sea contestado. Cuando esté "
+"marcada, el mensaje se reproducirá y si el canal no ha sido ya contestado, "
+"será atendido tan pronto como hayas medios y el canal lo soporte. Cuando no "
+"esté marcada, el canal será contestado, seguido de un retardo de 1 segundo. "
+"Cuando se use un anuncio desde un IVR u otros orígenes que ya hayan "
+"contestado el canal, ese segundo de retardo puede que no sea adecuado."
+
+msgid "Destination after playback"
+msgstr "Destino tras la reproducción"
+
+msgid "Submit Changes"
+msgstr "Enviar cambios"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Invalid description specified"
+msgstr "La descripción especificada no es válida"

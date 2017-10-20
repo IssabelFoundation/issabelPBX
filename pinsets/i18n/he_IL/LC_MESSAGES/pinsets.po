@@ -1,0 +1,156 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for printextensions
+# Copyright (C) 2008, 2009, 2010, 2011 Bandwith.com
+# Hebrew version for PIN Sets IssabelPBX Module.
+# Copyright (C) 2011
+# This file is distributed under the same license as the PACKAGE package.
+# Isaac Gal <gal@allegronet.co.il>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2006-10-17 17:30+0300\n"
+"Last-Translator: Isaac Gal <gal@allegronet.co.il>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Unnamed"
+msgstr "ללא שם"
+
+msgid "PIN Set"
+msgstr "סט סיסמאות"
+
+msgid ""
+"Optional: Select a PIN set to use. If using this option, leave the Route "
+"Password field blank."
+msgstr ""
+"אופציונאלי: בחר בסט הסיסמאות, כאשר משתמשים בתכונה זו, יש להשאיר את סיסמת "
+"הניתוב ריקה"
+
+msgid "None"
+msgstr "ללא"
+
+msgid "checking if migration required.."
+msgstr "בודק האם נדרשת מיגרציה"
+
+msgid "migrating.."
+msgstr "מבצע מיגרציה"
+
+msgid "unknown error fetching table data"
+msgstr "תקלה לא ידוע בקריאת בסיס הנתונים"
+
+msgid "migration aborted"
+msgstr "המיגרציה בוטלה"
+
+msgid "continuing.."
+msgstr "ממשיך..."
+
+msgid "done"
+msgstr "הסתיים"
+
+msgid "dropping used_by field.."
+msgstr "מוחק את ערכי"
+
+msgid "no used_by field???"
+msgstr "לא קיימים ערכים ב"
+
+msgid "ok"
+msgstr "טוב"
+
+msgid "already done"
+msgstr "כבר בוצע"
+
+msgid "Add Password Set"
+msgstr "הוסף סט סיסמאות"
+
+msgid "PIN Set "
+msgstr "סט סיסמא "
+
+msgid "deleted"
+msgstr "נמחק"
+
+msgid "Delete PIN Set"
+msgstr "מחק סט סיסמאות"
+
+msgid "PIN Set:"
+msgstr "סט סיסמאות:"
+
+msgid "Add PIN Set"
+msgstr "הוסף סט סיסמאות"
+
+msgid ""
+"PIN Sets are used to manage lists of PINs that can be used to access "
+"restricted features such as Outbound Routes. The PIN can also be added to "
+"the CDR record's 'accountcode' field."
+msgstr ""
+"בסטי סיסמאות משתמשים כדי לנהל רשימות של סיסמאות שבהן ניתן להשתמש בתכונות "
+"מוגבלות, כמו למשל ניתוב שיחות יוצאות. כמו כן, ניתן להוסיף את הסיסמא לשדה "
+"'accountcode' ברישומי השיחות של המערכת."
+
+msgid "Edit PIN Set"
+msgstr "ערוך סט סיסמאות"
+
+msgid "New PIN Set"
+msgstr "סט סיסמאות חדש"
+
+msgid "PIN Set Description:"
+msgstr "תיאור סט סיסמאות:"
+
+msgid "Record In CDR?:"
+msgstr "רשום ברישום שיחות?:"
+
+msgid ""
+"Select this box if you would like to record the PIN in the call detail "
+"records when used"
+msgstr ""
+"סמן תיבה זו אם ברצונך לרשום את הסיסמא בפירוט רישומי השיחות כאשר יש בה שימוש"
+
+msgid "PIN List:"
+msgstr "רשימת סיסמאות:"
+
+msgid "Enter a list of one or more PINs.  One PIN per line."
+msgstr "הכנס רשימה של סיסמא אחת או יותר. סיסמא אחת בכל שורה."
+
+msgid "Submit Changes"
+msgstr "הפעל שינויים"
+
+msgid "Please enter a valid Description"
+msgstr "נא ציין תיאור"
+
+msgid "PIN Sets"
+msgstr "סט סיסמאות"
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Allow creation of lists of PINs (numbers for passwords) that can be used by "
+"other modules (eg, trunks)."
+msgstr ""
+"מאפשר יצירת סטים של סיסמאות שניתנים לשימושעל ידי מודלים אחרים כגון (ניתוב "
+"שיחות יוצאות וכד)"
+
+#~ msgid ""
+#~ "Internal Options \n"
+#~ "&\n"
+#~ " Configuration"
+#~ msgstr ""
+#~ "תוכנה פנימית \n"
+#~ "&\n"
+#~ " קונפיגורציה"

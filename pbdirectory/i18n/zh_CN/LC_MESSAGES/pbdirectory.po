@@ -1,0 +1,35 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-10 16:38-0800\n"
+"PO-Revision-Date: 2009-02-01 15:06+0800\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: pbdirectory.i18n.php:6
+msgid "Admin"
+msgstr ""
+
+#: functions.inc.php:19 pbdirectory.i18n.php:4
+msgid "Phonebook Directory"
+msgstr "电话簿目录"
+
+#: install.php:5
+msgid "Phonebook dial-by-name directory"
+msgstr "电话簿目录（用姓名拨号）"
+
+#: pbdirectory.i18n.php:8
+msgid "Provides a dial-by-name directory for phonebook entries"
+msgstr ""

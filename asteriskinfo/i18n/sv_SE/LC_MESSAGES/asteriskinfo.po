@@ -1,0 +1,179 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language for asteriskinfo
+# Copyright (C) 2010 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX asteriskinfo\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-19 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+msgid "Asterisk Info"
+msgstr "Asterisk-info"
+
+msgid "Reports"
+msgstr ""
+
+msgid "Provides a snapshot of the current Asterisk configuration"
+msgstr "Denna modul ger en ögonblicksbild av din Asteriskkonfiguration"
+
+msgid "Summary"
+msgstr "Sammanfattning"
+
+msgid "Registries"
+msgstr "Registreringar"
+
+msgid "Channels"
+msgstr "Kanaler"
+
+msgid "Peers"
+msgstr "Peers"
+
+msgid "Sip Info"
+msgstr "SIP-info"
+
+msgid "IAX Info"
+msgstr "IAX-info"
+
+msgid "Conferences"
+msgstr "Konferenser"
+
+msgid "Queues"
+msgstr "Köer"
+
+msgid "Subscriptions"
+msgstr "Prenumerationer"
+
+msgid "Full Report"
+msgstr "Full rapport"
+
+msgid "Uptime"
+msgstr "Upptid"
+
+msgid "Active Channel(s)"
+msgstr "Aktiv(a) kanal(er)"
+
+msgid "Sip Channel(s)"
+msgstr "SIP-kanal(er)"
+
+msgid "IAX2 Channel(s)"
+msgstr "IAX2-kanal(er)"
+
+msgid "IAX2 Peers"
+msgstr "IAX2 peers"
+
+msgid "Sip Registry"
+msgstr "SIP-registrering(ar)"
+
+msgid "Sip Peers"
+msgstr "SIP peers"
+
+msgid "IAX2 Registry"
+msgstr "IAX2-registrering(ar)"
+
+msgid "Subscribe/Notify"
+msgstr "Prenumerationer/Noteringar"
+
+msgid "DAHDi driver info"
+msgstr "Dirvrutinsinforation för DAHDi"
+
+msgid "Zaptel driver info"
+msgstr "Zaptel drivrutinsinformation"
+
+msgid "MeetMe Conference Info"
+msgstr ""
+
+msgid "Conference Bridge Info"
+msgstr ""
+
+msgid "Queues Info"
+msgstr "Köinformation"
+
+msgid "Voicemail Users"
+msgstr "Röstbrevlådor"
+
+msgid "Google Talk Channels"
+msgstr "Kanaler för Google Talk"
+
+msgid "Jabber Connections"
+msgstr "Jabberanslutningar"
+
+msgid "Asterisk (Ver. "
+msgstr "Asterisk (Ver."
+
+msgid "ASTERISK MANAGER ERROR"
+msgstr "FEL PÅ ASTERISK HANTERARE"
+
+msgid ""
+"The module was unable to connect to the Asterisk manager.<br>Make sure "
+"Asterisk is running and your manager.conf settings are proper.<br><br>"
+msgstr ""
+"Modulen kunde inte koppla upp sig mot Asterisk hanterare.<br>Kontrollera att "
+"Asterisk körs och att dina inställningar i manager.conf är riktiga.<br><br>"
+
+msgid "Refresh"
+msgstr "Uppdatera"
+
+msgid "Uptime: "
+msgstr "Upptid: "
+
+msgid "Active SIP Channel(s): "
+msgstr "Aktiv(a) SIP-kanal(er): "
+
+msgid "Active IAX2 Channel(s): "
+msgstr "Aktiv(a) IAX2-kanal(er): "
+
+msgid "Sip Registry: "
+msgstr "SIP-registreringar: "
+
+msgid "IAX2 Registry: "
+msgstr "IAX2-registreringar: "
+
+msgid "Sip Peers: "
+msgstr "SIP-peers: "
+
+msgid "IAX2 Peers: "
+msgstr "IAX2-peers: "
+
+msgid "Online: "
+msgstr "On-line: "
+
+msgid "Online-Unmonitored: "
+msgstr "On-line oövervakad: "
+
+msgid "Offline: "
+msgstr "Off-line: "
+
+msgid "Offline-Unmonitored: "
+msgstr "Off-line oövervakad: "
+
+msgid "Unmonitored: "
+msgstr "Oövervakad: "
+
+#~ msgid "System Administration"
+#~ msgstr "Systemadministration"
+
+#~ msgid "Conference Info"
+#~ msgstr "Konferensinformation"

@@ -1,0 +1,141 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for languages
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-05 19:32+0900\n"
+"PO-Revision-Date: 2014-02-20 04:45+0200\n"
+"Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
+"Language-Team: Japanese <http://example.com/projects/freepbx/languages/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+msgid "Add Language"
+msgstr "言語を追加"
+
+msgid "Edit: "
+msgstr "編集："
+
+msgid ""
+"Languages allow you to change the language of the call flow and then "
+"continue on to the desired destination. For example, you may have an IVR "
+"option that says \"For French Press 5 now\". You would then create a French "
+"language instance and point it's destination at a French IVR. The language "
+"of the call's channel will now be in French. This will result in French "
+"sounds being chosen if installed."
+msgstr ""
+"「言語」は、コールフローの言語変更を可能にし、ご希望の宛先に繋げます。例え"
+"ば、\"フランス語なら5を押してください\"と言うIVRオプションを用意するとしま"
+"す。その場合は、フランス語実体を作成し、その宛先をフランス語IVRを指すように設"
+"定します。コールチャネルの言語がフランス語になります。こうすることにより、フ"
+"ランス語の音声がインストールされている場合にはフランス語音声が選択されます。"
+
+msgid "Edit Language Instance"
+msgstr "言語実体を編集"
+
+msgid "Add Language Instance"
+msgstr "言語実体を追加"
+
+msgid "Description"
+msgstr "説明"
+
+msgid ""
+"The descriptive name of this language instance. For example \"French Main IVR"
+"\""
+msgstr "この言語実体の分かりやすい名前。例： \"French Main IVR\""
+
+msgid "Language Code"
+msgstr "言語コード"
+
+msgid ""
+"The Asterisk language code you want to change to. For example \"fr\" for "
+"French, \"de\" for German"
+msgstr ""
+"変更したいAsterisk言語コード。例： フランス語は\"fr\"、ドイツ語は\"de\"。"
+
+msgid "Destination"
+msgstr "宛先"
+
+msgid "Submit Changes"
+msgstr "変更を適用"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Invalid description specified"
+msgstr "無効な説明が指定されました"
+
+#, php-format
+msgid "Language: %s"
+msgstr "言語： %s"
+
+msgid "Language"
+msgstr "言語"
+
+msgid "Please enter a valid Language Code"
+msgstr "有効な言語コードを入力してください。"
+
+msgid ""
+"This will cause all messages and voice prompts to use the selected language "
+"if installed."
+msgstr ""
+"これにより、選択されている言語がインストールされていれば、全てのメッセージと"
+"ヴォイスプロンプトが選択言語を使用するようになります。"
+
+msgid "Allows you to set the language for this DID."
+msgstr "このダイヤルインに対して言語をセットできるようになります。"
+
+#, php-format
+msgid "Language Change: %s"
+msgstr "言語が変更されました： %s"
+
+msgid "Languages"
+msgstr "言語"
+
+msgid "Applications"
+msgstr "アプリケーション"
+
+msgid ""
+"Adds the ability to changes the language within a call flow and add language "
+"attribute to users."
+msgstr ""
+"コールフロー内で言語を変更する権限と言語属性を追加する権限をユーザーに追加し"
+"ます。"

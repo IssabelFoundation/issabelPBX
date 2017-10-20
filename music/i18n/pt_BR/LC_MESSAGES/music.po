@@ -1,0 +1,248 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright 2009, Marcelo Araujo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: freePBX 2.5.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-05-11 20:07-0300\n"
+"Last-Translator: Marcelo Araujo <marcelo.araujo@voffice.com.br>\n"
+"Language-Team: MidiVTS Team <team@midivts.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Cannot write to file"
+msgstr "Impossível gravar para arquivo"
+
+msgid "Music on Hold"
+msgstr "Música em espera"
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Uploading and management of sound files (wav, mp3) to be used for on-hold "
+"music."
+msgstr ""
+
+msgid "Convert Music Files to WAV"
+msgstr ""
+
+msgid "System Setup"
+msgstr ""
+
+msgid ""
+"When set to false, the MP3 files can be loaded and WAV files converted to "
+"MP3 in the MoH module. The default behavior of true assumes you have mpg123 "
+"loaded as well as sox and will convert MP3 files to WAV. This is highly "
+"recommended as MP3 files heavily tax the system and can cause instability on "
+"a busy phone system"
+msgstr ""
+
+msgid "Add Music Category"
+msgstr "Adicionar a categoria de música"
+
+msgid "Add Streaming Category"
+msgstr "Adicionar categoria de streaming"
+
+msgid "default"
+msgstr "padrão"
+
+msgid "Delete"
+msgstr "Excluír"
+
+msgid ""
+"sox failed to convert file and original could not be copied as a fall back"
+msgstr ""
+
+msgid "On Hold Music"
+msgstr "Música em espera"
+
+msgid "Category Name:"
+msgstr "Nome da categoria:"
+
+msgid ""
+"Allows you to Set up Different Categories for music on hold.  This is useful "
+"if you would like to specify different Hold Music or Commercials for various "
+"ACD Queues."
+msgstr ""
+"Permite a você configurar diferentes categorias para música em espera. Isto "
+"é útil se você quiser especificar uma música em espera diferente ou "
+"comerciais para várias fila do DAC."
+
+msgid "Submit Changes"
+msgstr "Aplicar mudanças"
+
+msgid "Please enter a valid Category Name"
+msgstr "Por favor, entre com um nome de categoria válido"
+
+msgid ""
+"Categories: \\\"none\\\" and \\\"default\\\" are reserved names. Please "
+"enter a different name"
+msgstr ""
+"Categorias: \\\"none\\\"e\\\"default\\\" são nomes reservados. Por favor "
+"entre com um nome diferente"
+
+msgid "Application:"
+msgstr "Aplicação:"
+
+msgid ""
+"This is the \"application=\" line used to provide the streaming details to "
+"Asterisk. See information on musiconhold.conf configuration for different "
+"audio and Internet streaming source options."
+msgstr ""
+"Esta é a linha \"application=\"  usada para prover os detalhes de streaming "
+"do Asterisk. Veja a informação no arquivo musiconhold.conf para diferentes "
+"opções de fontes de streaming na Internet e audio."
+
+msgid "Optional Format:"
+msgstr "Formato opcional:"
+
+msgid ""
+"Optional value for \"format=\" line used to provide the format to Asterisk. "
+"This should be a format understood by Asterisk such as ulaw, and is specific "
+"to the streaming application you are using. See information on musiconhold."
+"conf configuration for different audio and Internet streaming source options."
+msgstr ""
+"Valor opcional para a linha \"format=\" usada para prover o formato para o "
+"Asterisk. Isto deve ser um formato entendido pelo Asterisk como o ulaw e é "
+"específica para a aplicações de streaming. Veja a informação no arquivo "
+"musiconhold.conf para diferentes opções de streaming de Internet e audio. "
+
+msgid "Please enter a streaming application command and arguments"
+msgstr "Por favor, entre com um comando da aplicação streaming e argumentos"
+
+msgid "Category:"
+msgstr "Categoria:"
+
+#, php-format
+msgid "Delete Music Category %s"
+msgstr "Remover a categoria de música %s"
+
+#, php-format
+msgid "Delete Streaming Category"
+msgstr "Excluír a categoria de streaming"
+
+msgid "Edit Streaming Category"
+msgstr "Editar a categoria de streaming."
+
+msgid "Upload a .wav or .mp3 file:"
+msgstr "Executar o Upload de um arquivo .wav ou .mp3:"
+
+msgid "Upload"
+msgstr "Upload"
+
+msgid "Please wait until the page loads. Your file is being processed."
+msgstr ""
+"Por favor aguarde até a página carregar. Seu arquivo está sendo processado. "
+
+msgid "Volume 150%"
+msgstr ""
+
+msgid "Volume 125%"
+msgstr ""
+
+msgid "Volume 100%"
+msgstr ""
+
+msgid "Volume 75%"
+msgstr ""
+
+msgid "Volume 50%"
+msgstr ""
+
+msgid "Volume 25%"
+msgstr ""
+
+msgid "Volume 10%"
+msgstr ""
+
+msgid "Volume Adjustment"
+msgstr "Ajuste de volume"
+
+msgid ""
+"The volume adjustment is a linear value. Since loudness is logarithmic, the "
+"linear level will be less of an adjustment. You should test out the "
+"installed music to assure it is at the correct volume. This feature will "
+"convert MP3 files to WAV files. If you do not have mpg123 installed, you can "
+"set the parameter: <strong>Convert Music Files to WAV</strong> to false in "
+"Advanced Settings"
+msgstr ""
+
+msgid "Do not encode wav to mp3"
+msgstr "Não codificar de wav para mp3"
+
+msgid "Disable Random Play"
+msgstr "Desabilita execução randômica"
+
+msgid "Enable Random Play"
+msgstr "Habilita execução randômica"
+
+msgid "Error Processing"
+msgstr "Erro de processando"
+
+msgid "No file provided"
+msgstr "Nenhum arquivo fornecido"
+
+msgid "Please select a file to upload"
+msgstr "Por favor selecionar o arquivo para executar upload"
+
+msgid "Check"
+msgstr "Selecionar"
+
+msgid "in"
+msgstr "em"
+
+msgid "This is not a fatal error, your Music on Hold may still work."
+msgstr "Este não é um erro fatal, sua música em espera ainda pode funcionar. "
+
+msgid "Completed processing"
+msgstr "Processamento completado"
+
+msgid ""
+"You must have at least one file for On Hold Music.  Please upload one before "
+"deleting this one."
+msgstr ""
+"Você deve ter pelo menos um arquivo para música em espera. Por favor, faça o "
+"upload de um antes de excluír este. "
+
+msgid "Deleted"
+msgstr "Excluído"
+
+#, php-format
+msgid "Error Deleting %s"
+msgstr "Erro excluíndo %s"
+
+#~ msgid ""
+#~ "The volume adjustment is a linear value. Since loudness is logarithmic, "
+#~ "the linear level will be less of an adjustment. You should test out the "
+#~ "installed music to assure it is at the correct volume. This feature will "
+#~ "convert MP3 files to WAV files. If you do not have mpg123 installed, you "
+#~ "can set the parameter: <strong>AMPMPG123=false</strong> in your amportal."
+#~ "conf file"
+#~ msgstr ""
+#~ "O ajuste de volume é um valor linear. Como o a relação de altura é "
+#~ "logarítmica, o nivel linear será menor que um ajuste.  Você deve testar a "
+#~ "músicsa instalada para se assegurar que o volume esteja correto. Este "
+#~ "recurso irá converter arquivos MP3 para WAV.  Se você não tem o mpg123 "
+#~ "instalado, você pode setar o parâmetro: <strong>AMPMPG123=false</"
+#~ "strong>no seu arquivo amportal.conf. "

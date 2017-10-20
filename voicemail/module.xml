@@ -1,0 +1,27 @@
+<module>
+	<rawname>voicemail</rawname>
+	<repo>standard</repo>
+	<name>Voicemail</name>
+	<version>2.11.1.6</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<candisable>no</candisable>
+	<canuninstall>no</canuninstall>
+	<changelog>
+		*2.11.1.6* Initial Issabel Foundation release
+	</changelog>
+	<description>This module allows you to configure Voicemail for a user or extension</description>
+	<category>Settings</category>
+	<menuitems>
+		<voicemail>Voicemail Admin</voicemail>
+	</menuitems>
+	<depends>
+		<version>2.5.0alpha1</version>
+	</depends>
+	<supported>
+		<version>2.11</version>
+	</supported>
+	<location>release/2.11/voicemail-2.11.1.0.tgz</location>
+	<md5sum>442f0ba3a17bedc96f4cb75c53ccf99b</md5sum>
+</module>

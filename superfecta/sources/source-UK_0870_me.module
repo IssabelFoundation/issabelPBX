@@ -1,0 +1,50 @@
+<?php
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+ * Developer Notes:
+ *     Site TOS are very liberal, API is provided and even wholesale copying of the database
+ *     is permitted.
+ *
+ * Version History 
+ *     2014-03-27  Created by ukstevef  
+ *
+ *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+
+class UK_0870_me extends superfecta_base {
+
+    public $description = "http://www.0870.me - UK Premium rate lookups";
+    public $version_requirement = "2.11";
+
+		function get_caller_id($thenumber, $run_param=array()) {
+
+        $caller_id = null;
+        $name = "";
+        $spam = "";
+
+        $this->DebugPrint("Searching 0870.me - {$this->thenumber} ... ");
+
+        // Search 0870.me
+        $url = "http://0870.me/get/json/$thenumber";
+        $this->DebugPrint($url);   // for debug
+
+        $value = $this->get_url_contents($url);
+        //$value = '{"number":{"original_number":"08442411653","replacement_number":"02071267020","company":" Sky (BSkyB)"}}'; // For debug
+        $result = (array)json_decode($value,true);
+
+
+        if (isset($result['number']['company'])) {
+                if ($result['number']['company'] == 'Not Found') {
+                     //record not found
+                } else {
+                $name = trim($result['number']['company']);
+            }
+			}
+        // If we found a match, return it
+        if (strlen($name) > 1) {
+            $caller_id = $name;
+        } else {
+            $this->DebugPrint("not found");
+        }
+
+        return($caller_id);
+    }
+}

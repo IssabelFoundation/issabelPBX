@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-13 19:44-0400\n"
+"PO-Revision-Date: 2009-02-01 14:26+0800\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: page.phpagiconf.php:90
+msgid "Asterisk API settings:"
+msgstr "Asterisk API 相关设置："
+
+#: page.phpagiconf.php:109
+msgid "Basedir:"
+msgstr "主目录："
+
+#: page.phpagiconf.php:112
+msgid "Cepstral config:"
+msgstr "Cepstral相关配置："
+
+#: page.phpagiconf.php:118
+msgid "Cepstral voice:"
+msgstr "Cepstral语音："
+
+#: page.phpagiconf.php:60
+msgid "Debug:"
+msgstr "调试："
+
+#: page.phpagiconf.php:102
+msgid "Drop privileges to owner of script."
+msgstr "让脚本在执行时具有其所有者所具有的权限。"
+
+#: page.phpagiconf.php:74
+msgid "Email where the errors will be sent."
+msgstr "用电子邮件发送错误信息，在这里设置邮箱地址。"
+
+#: page.phpagiconf.php:60
+msgid "Enable PHPAGI debugging."
+msgstr "启用PHPAGI调试。"
+
+#: page.phpagiconf.php:67
+msgid "Error handler:"
+msgstr "错误处理："
+
+#: functions.inc.php:38
+msgid "Error writing the phpagi.conf file."
+msgstr "写入phpagi.conf文件时发生错误。"
+
+#: page.phpagiconf.php:100
+msgid "Fast AGI config:"
+msgstr "AGI快速配置："
+
+#: page.phpagiconf.php:85
+msgid "Festival config:"
+msgstr "彩蛋配置："
+
+#: page.phpagiconf.php:78
+msgid "Hostname of the server:"
+msgstr "服务器的主机名："
+
+#: page.phpagiconf.php:78
+msgid "Hostname of this server."
+msgstr "此服务器的主机名："
+
+#: page.phpagiconf.php:74
+msgid "Mail errors to:"
+msgstr "将错误用电子邮件发送到："
+
+#: page.phpagiconf.php:57
+msgid "Main config:"
+msgstr "主要的配置："
+
+#: page.phpagiconf.php:52
+msgid "PHPAGI Config:"
+msgstr "PHPAGI配置:"
+
+#: page.phpagiconf.php:109
+msgid "Path to AGI scripts folder."
+msgstr "AGI脚本的目录。"
+
+#: page.phpagiconf.php:114
+msgid "Path to cepstral TTS binary."
+msgstr "cepstral的TTS（文字到语音）可执行文件路径"
+
+#: page.phpagiconf.php:87
+msgid "Path to text2wave binary."
+msgstr "text2wave可执行文件的路径。"
+
+#: page.phpagiconf.php:87
+msgid "Path to text2wave:"
+msgstr "text2wave程序的路径："
+
+#: page.phpagiconf.php:96
+msgid "Port to connect to manager."
+msgstr "要连接到的管理器所在的端口。"
+
+#: page.phpagiconf.php:96
+msgid "Port:"
+msgstr "端口："
+
+#: page.phpagiconf.php:92
+msgid "Server to connect to."
+msgstr "要连接的服务器。"
+
+#: page.phpagiconf.php:92
+msgid "Server:"
+msgstr "服务器："
+
+#: page.phpagiconf.php:122
+msgid "Submit Changes"
+msgstr "提交更改"
+
+#: page.phpagiconf.php:114
+msgid "Swift path:"
+msgstr "Swift程序的路径："
+
+#: page.phpagiconf.php:118
+msgid "TTS Voice used."
+msgstr "使用的TTS语音。"
+
+#: page.phpagiconf.php:82
+msgid "Temporary directory for storing temporary output."
+msgstr "用于存放临时输出的临时目录。"
+
+#: page.phpagiconf.php:82
+msgid "Temporary directory:"
+msgstr "临时目录："
+
+#: page.phpagiconf.php:67
+msgid "Use internal error handler."
+msgstr "使用内部错误处理程序。"
+
+#: page.phpagiconf.php:62 page.phpagiconf.php:69 page.phpagiconf.php:104
+msgid "false"
+msgstr "否"
+
+#: page.phpagiconf.php:102
+msgid "setuid:"
+msgstr "设置uid（setuid）："
+
+#: page.phpagiconf.php:63 page.phpagiconf.php:70 page.phpagiconf.php:105
+msgid "true"
+msgstr "是"
+
+#~ msgid "PHPAGI Config"
+#~ msgstr "PHPAGI配置"

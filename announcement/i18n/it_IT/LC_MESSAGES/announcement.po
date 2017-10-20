@@ -1,0 +1,147 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-06 14:48+0100\n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+msgid "Announcements"
+msgstr "Annunci"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Plays back one of the system recordings (optionally allowing the user to "
+"skip it) and then goes to another destination."
+msgstr ""
+
+#, php-format
+msgid "Announcement: %s"
+msgstr "Annuncio: %s"
+
+msgid "Checking if recordings need migration.."
+msgstr "Controllo se le registrazioni hanno bisogno di una migrazione.."
+
+msgid "migrating"
+msgstr "migrazione"
+
+msgid "adding recording_id field.."
+msgstr "sto aggiugendo il campo recording_id.."
+
+msgid "fatal error"
+msgstr "errore fatale"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "migrate to recording ids.."
+msgstr "migrazione su id registrazioni.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "migrate %s voci"
+
+msgid "dropping recording field.."
+msgstr "sto scartando un campo registrazione"
+
+msgid "no recording field???"
+msgstr "nessun campo registrazione??"
+
+msgid "already migrated"
+msgstr "già migrato"
+
+msgid "Add Announcement"
+msgstr "Aggiungi Annuncio"
+
+msgid "Edit Announcement"
+msgstr "Modifica Annuncio"
+
+msgid "Description"
+msgstr "Descrizione"
+
+msgid "The name of this announcement"
+msgstr "Il nome dell'annuncio"
+
+msgid "Recording"
+msgstr "Registrazione"
+
+msgid ""
+"Message to be played.<br>To add additional recordings use the \"System "
+"Recordings\" MENU to the left"
+msgstr ""
+"Messaggio da riprodurre.<br>Per aggiungere ulteriori registrazioni, "
+"utilizzare \"Registrazioni di Sistema\" nel menu di sinistra."
+
+msgid "None"
+msgstr ""
+
+msgid "Repeat"
+msgstr "Ripeti"
+
+msgid ""
+"Key to press that will allow for the message to be replayed. If you choose "
+"this option there will be a short delay inserted after the message. If a "
+"longer delay is needed it should be incorporated into the recording."
+msgstr ""
+
+msgid "Disable"
+msgstr "Disattivato"
+
+msgid "Allow Skip"
+msgstr "Permetti Salta"
+
+msgid "If the caller is allowed to press a key to skip the message."
+msgstr ""
+"Se si vuole permettere al chiamante di saltare il messaggio premendo un "
+"tasto."
+
+msgid "Return to IVR"
+msgstr "Ritorna all'IVR"
+
+msgid ""
+"If this announcement came from an IVR and this box is checked, the "
+"destination below will be ignored and instead it will return to the calling "
+"IVR. Otherwise, the destination below will be taken. Don't check if not "
+"using in this mode. <br>The IVR return location will be to the last IVR in "
+"the call chain that was called so be careful to only check when needed. For "
+"example, if an IVR directs a call to another destination which eventually "
+"calls this announcement and this box is checked, it will return to that IVR "
+"which may not be the expected behavior."
+msgstr ""
+
+msgid "Don't Answer Channel"
+msgstr "Non Rispondere al Canale"
+
+msgid ""
+"Check this to keep the channel from explicitly being answered. When checked, "
+"the message will be played and if the channel is not already answered it "
+"will be delivered as early media if the channel supports that. When not "
+"checked, the channel is answered followed by a 1 second delay. When using an "
+"announcement from an IVR or other sources that have already answered the "
+"channel, that 1 second delay may not be desired."
+msgstr ""
+
+msgid "Destination after playback"
+msgstr "Destinazione dopo la riproduzione"
+
+msgid "Submit Changes"
+msgstr "Conferma Cambiamenti"
+
+msgid "Delete"
+msgstr "Elimina"
+
+msgid "Invalid description specified"
+msgstr "Descrizione specificata non valida"

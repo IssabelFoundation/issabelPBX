@@ -1,0 +1,111 @@
+.overlay_dialog img { border: none; }
+.overlay_dialog { background-image: url('../images/overlay.png'); }
+
+/* For PNG transparence in IE !! */
+* html .overlay_dialog {
+	background-color: transparent;
+	back\ground-color: transparent;
+	background-image: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/overlay.png", sizingMethod="scale");
+}
+
+.dialog_nw {
+	width: 9px;
+	height: 23px;
+	background: transparent url(../images/top_left.gif) no-repeat 0 0;		
+}
+
+.dialog_n {
+	background: transparent url(../images/top_mid.gif) repeat-x 0 0;	
+	height: 23px;
+	width: 100%;
+}
+
+.dialog_ne {
+	width: 9px;
+	height: 23px;
+	background: transparent url(../images/top_right.gif) no-repeat 0 0;		
+}
+
+.dialog_e {
+	width: 2px;
+	height: 100%;
+	background: transparent url(../images/center_right.gif) repeat-y 0 0;	
+}
+
+.dialog_w {
+	width: 2px;
+	height: 100%;
+	background: transparent url(../images/center_left.gif) repeat-y 0 0;		
+}
+
+.dialog_sw {
+	width: 9px;
+	height: 19px;
+	background: transparent url(../images/bottom_left.gif) no-repeat 0 0;			
+}
+
+.dialog_s {
+	background: transparent url(../images/bottom_mid.gif) repeat-x 0 0;		
+	height: 19px;
+	width: 100%;
+}
+
+.dialog_se {
+	width: 9px;
+	height: 19px;
+	background: transparent url(../images/bottom_right.gif) no-repeat 0 0;			
+}
+
+.dialog_sizer {
+	width: 9px;
+	height: 19px;
+	background: transparent url(../images/sizer.gif) no-repeat 0 0;	
+	cursor:se-resize;	
+}
+
+.dialog_close {
+	width: 14px;
+	height: 14px;
+	background: transparent url(../images/close.gif) no-repeat 0 0;			
+	position:absolute;
+	top:5px;
+	left:8px;
+	cursor:pointer;
+	z-index:2000;
+}
+
+.dialog_title {
+	float:left;
+	height:14px;
+	font-size:12px;
+	text-align:center;
+	width:100%;
+}
+
+.dialog_content {
+	overflow:auto;
+	color: #DDD;
+	font-family: Tahoma, Arial, Sans Serif;
+	font-size: 10px;
+	background-color:#123;
+}
+
+.top_draggable, .bottom_draggable {
+  cursor:move;
+}
+/* DO NOT CHANGE THESE VALUES*/
+.dialog {
+	display: block;
+ 	font-family: Tahoma, Arial, Sans Serif;
+	position: absolute;
+}
+
+.dialog * {
+	margin: 0px;
+	padding:0px;
+}
+
+.dialog table  { border-collapse: collapse; border-spacing: 0; width: 100%; }
+.dialog td, th { padding: 0; }
+

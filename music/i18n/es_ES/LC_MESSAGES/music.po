@@ -1,0 +1,237 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - music module spanish translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-21 11:57+0100\n"
+"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Cannot write to file"
+msgstr "No se pudo escribir en el archivo"
+
+msgid "Music on Hold"
+msgstr "Música en espera"
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Uploading and management of sound files (wav, mp3) to be used for on-hold "
+"music."
+msgstr ""
+
+msgid "Convert Music Files to WAV"
+msgstr ""
+
+msgid "System Setup"
+msgstr ""
+
+msgid ""
+"When set to false, the MP3 files can be loaded and WAV files converted to "
+"MP3 in the MoH module. The default behavior of true assumes you have mpg123 "
+"loaded as well as sox and will convert MP3 files to WAV. This is highly "
+"recommended as MP3 files heavily tax the system and can cause instability on "
+"a busy phone system"
+msgstr ""
+
+msgid "Add Music Category"
+msgstr "Añadir categoría de música"
+
+msgid "Add Streaming Category"
+msgstr "Añadir categoría de música en directo"
+
+msgid "default"
+msgstr "Por defecto"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid ""
+"sox failed to convert file and original could not be copied as a fall back"
+msgstr ""
+
+msgid "On Hold Music"
+msgstr "Música en espera"
+
+msgid "Category Name:"
+msgstr "Nombre de la categoría:"
+
+msgid ""
+"Allows you to Set up Different Categories for music on hold.  This is useful "
+"if you would like to specify different Hold Music or Commercials for various "
+"ACD Queues."
+msgstr ""
+"Le permite configurar diferentes categorías para la música en espera. Esto "
+"es útil si desea usar diferentes músicas en espera o anuncios para las colas."
+
+msgid "Submit Changes"
+msgstr "Enviar cambios"
+
+msgid "Please enter a valid Category Name"
+msgstr "Por favor, introduzca un nombre de categoría válido"
+
+msgid ""
+"Categories: \\\"none\\\" and \\\"default\\\" are reserved names. Please "
+"enter a different name"
+msgstr ""
+"Los nombres de categorías: \\\"none\\\" (\\\"Ninguna\\\") y \\\"default\\"
+"\" (\\\"Por defecto\\\"). Son nombres reservados. Por favor, use un nombre "
+"diferente."
+
+msgid "Application:"
+msgstr "Aplicación:"
+
+msgid ""
+"This is the \"application=\" line used to provide the streaming details to "
+"Asterisk. See information on musiconhold.conf configuration for different "
+"audio and Internet streaming source options."
+msgstr ""
+"Esta es la línea de código \"application=\" que se usará para configurar la "
+"música en directo en Asterisk. Puede obtener más información en el archivo "
+"de configuración musiconhold.conf para configurar las opciones sobre los "
+"orígenes de música en directo."
+
+msgid "Optional Format:"
+msgstr "Formato opcional:"
+
+msgid ""
+"Optional value for \"format=\" line used to provide the format to Asterisk. "
+"This should be a format understood by Asterisk such as ulaw, and is specific "
+"to the streaming application you are using. See information on musiconhold."
+"conf configuration for different audio and Internet streaming source options."
+msgstr ""
+"Valor opcional para la línea de código \"format=\" que se usará para "
+"configurar el formato de la música en Asterisk. Debería ser un formato que "
+"Asterisk pueda manejar, como ULAW, y es específico a la aplicación de música "
+"en directo que se esté usando. Puede obtener más información en el archivo "
+"de configuración musiconhold.conf para configurar las opciones sobre los "
+"orígenes de música en directo."
+
+msgid "Please enter a streaming application command and arguments"
+msgstr ""
+"Por favor, introduzca el comando de la aplicación para la reproducción de "
+"música en directo y sus argumentos"
+
+msgid "Category:"
+msgstr "Categoría:"
+
+#, php-format
+msgid "Delete Music Category %s"
+msgstr "Eliminar categoría de música %s"
+
+#, php-format
+msgid "Delete Streaming Category"
+msgstr "Eliminar categoría de música en directo"
+
+msgid "Edit Streaming Category"
+msgstr "Editar categoría de música en directo"
+
+msgid "Upload a .wav or .mp3 file:"
+msgstr "Enviar archivo WAV o MP3:"
+
+msgid "Upload"
+msgstr "Enviar"
+
+msgid "Please wait until the page loads. Your file is being processed."
+msgstr ""
+"Por favor, espere mientras la página se carga. Su archivo se está procesando."
+
+msgid "Volume 150%"
+msgstr ""
+
+msgid "Volume 125%"
+msgstr ""
+
+msgid "Volume 100%"
+msgstr ""
+
+msgid "Volume 75%"
+msgstr ""
+
+msgid "Volume 50%"
+msgstr ""
+
+msgid "Volume 25%"
+msgstr ""
+
+msgid "Volume 10%"
+msgstr ""
+
+msgid "Volume Adjustment"
+msgstr "Ajuste de volumen"
+
+msgid ""
+"The volume adjustment is a linear value. Since loudness is logarithmic, the "
+"linear level will be less of an adjustment. You should test out the "
+"installed music to assure it is at the correct volume. This feature will "
+"convert MP3 files to WAV files. If you do not have mpg123 installed, you can "
+"set the parameter: <strong>Convert Music Files to WAV</strong> to false in "
+"Advanced Settings"
+msgstr ""
+
+msgid "Do not encode wav to mp3"
+msgstr "No codificar de WAV a MP3"
+
+msgid "Disable Random Play"
+msgstr "Deshabilitar reproducción aleatoria"
+
+msgid "Enable Random Play"
+msgstr "Habilitar reproducción aleatoria"
+
+msgid "Error Processing"
+msgstr "Error de procesamiento"
+
+msgid "No file provided"
+msgstr "No se ha especificado un archivo"
+
+msgid "Please select a file to upload"
+msgstr "Por favor, seleccione un archivo a enviar"
+
+msgid "Check"
+msgstr "Comprobar"
+
+msgid "in"
+msgstr "en"
+
+msgid "This is not a fatal error, your Music on Hold may still work."
+msgstr "Éste no es un error fatal; la música en espera continuará funcionando."
+
+msgid "Completed processing"
+msgstr "Procesamiento completado"
+
+msgid ""
+"You must have at least one file for On Hold Music.  Please upload one before "
+"deleting this one."
+msgstr ""
+"Debe tener al menos un archivo de música en espera. Por favor, envíe algún "
+"archivo antes de eliminar éste."
+
+msgid "Deleted"
+msgstr "Eliminado"
+
+#, php-format
+msgid "Error Deleting %s"
+msgstr "Error al eliminar %s"
+
+#~ msgid ""
+#~ "The volume adjustment is a linear value. Since loudness is logarithmic, "
+#~ "the linear level will be less of an adjustment. You should test out the "
+#~ "installed music to assure it is at the correct volume. This feature will "
+#~ "convert MP3 files to WAV files. If you do not have mpg123 installed, you "
+#~ "can set the parameter: <strong>AMPMPG123=false</strong> in your amportal."
+#~ "conf file"
+#~ msgstr ""
+#~ "El ajuste de volumen es un valor lineal. Ya que el volumen es un valor "
+#~ "logarítmico, el valor lineal será menor que el ajuste real. Debería "
+#~ "realizar una comprobación de la música instalada para asegurarse de que "
+#~ "el volumen es correcto. Esta opción convertirá los archivos MP3 a WAV. Si "
+#~ "no tiene el programa \"mpg123\" instalado, puede establecer el parámetro "
+#~ "<strong>AMPMPG123=false</strong> en el archivo de configuración de "
+#~ "amportal.conf."

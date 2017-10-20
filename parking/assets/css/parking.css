@@ -1,0 +1,25 @@
+.parking-hr {
+    width:50%;
+    text-align:left;
+    margin-left:0
+}
+
+table.myTable { 
+	border-collapse:collapse; 
+}
+
+table.myTable td, table.myTable th { 
+	border:1px solid black;padding:5px; 
+}
+
+.green {
+	background-color: green;
+}
+
+.red {
+	background-color: red;
+}
+
+.messageb {
+	width:85%;
+}

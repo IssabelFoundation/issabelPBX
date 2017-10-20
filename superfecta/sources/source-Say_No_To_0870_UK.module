@@ -1,0 +1,34 @@
+<?php
+
+class Say_No_To_0870_UK extends superfecta_base {
+
+    public $description = "http://www.saynoto0870.com - 	These listings include Non-Geographical Alternative Business Telephone Numbers for the UK.<br><br>";
+    public $version_requirement = "2.11";
+
+    function get_caller_id($thenumber, $run_param=array()) {
+
+        $caller_id = null;
+
+        if (!$this->IsValidNumber('UK', $thenumber)) {
+            $this->DebugPrint("Skipping Source - Non UK number: {$thenumber}");
+        } else {
+            $this->DebugPrint("Searching SayNoTo0870 for number: {$thenumber}");
+
+            // By default, the found name is empty
+            $name = "";
+
+            // numbersearch.php requires data to be posted
+            $url = "http://www.saynoto0870.com/numbersearch.php";
+            $PostData = array("number" => $thenumber);
+
+            // Grab the first result that matches our phone number
+            $pattern = '/<tr>\s*<td.*<a.*target=\"_blank\">(.*)<\/a><\/td>/U';
+
+            if ($this->SearchURL($url, $pattern, $match, $PostData)) {
+                $caller_id = $this->ExtractMatch($match);
+            }
+        }
+        return($caller_id);
+    }
+
+}

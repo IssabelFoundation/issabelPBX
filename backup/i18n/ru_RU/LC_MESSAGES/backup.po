@@ -1,0 +1,504 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
+#
+# Использовать iconv yourfile.new -f UTF-8 -t ISO-8859-5 -o yourfile.po
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 00:04+0400\n"
+"PO-Revision-Date: 2010-01-23 00:00+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Backup & Restore"
+msgstr "Резервное копирование и восстановление"
+
+msgid "Admin"
+msgstr "Админ"
+
+msgid "Backup & Restore for your IssabelPBX environment"
+msgstr "Резервное копирование и восстановление для вашего IssabelPBX"
+
+#, fuzzy
+msgid "Backup & Restore - Servers"
+msgstr "Резервное копирование и восстановление"
+
+#, fuzzy
+msgid "Backup & Restore - Templates"
+msgstr "Резервное копирование и восстановление"
+
+#, fuzzy
+msgid "Backup & Restore - Restore"
+msgstr "Резервное копирование и восстановление"
+
+msgid "Email "
+msgstr "E-mail"
+
+#, fuzzy
+msgid "Backup Module"
+msgstr "Добавить сценарий резервного копирования"
+
+msgid "The From: field for emails when using the backup email feature."
+msgstr "Форма: поле для e-mail's, когда используется функция backup e-mail "
+
+msgid "Can not create backup tables"
+msgstr "Невозможно создать таблицу резервного копирования "
+
+msgid "Can't check for Backup table"
+msgstr "Невозможно проверить таблицу резервного копирования "
+
+msgid ""
+"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgstr ""
+"Ошибка: неудалось пернести страую таблицу \"Резервного копирования\" "
+"в новую таблицу \"Резервного копирования \" "
+
+msgid "This error can result from a previous incomplete/failed install of"
+msgstr "Эта ошибка могла стать результатом того, что произошла незавршенная/неудачная установка "
+
+msgid "this module. You should probably uninstall and reinstall this module"
+msgstr "этого модуля. Скорее всего вам следует удалить и переустановить этот модуль, "
+
+msgid ""
+"doing so will result in a loss of all your backup settings though previous"
+msgstr ""
+"что приведет к потере всех настроек резервного копирования "
+
+msgid "backup data will be preserved."
+msgstr "данные резервного копирования будут сохранены "
+
+msgid "Failure Message:"
+msgstr "Сообщение об ошибке"
+
+msgid "Can not migrate Backup table"
+msgstr "Не удается перенести таблицу резервного копирования"
+
+msgid "Backup migration completed"
+msgstr "Перенос резервного копирования завершен"
+
+msgid "Nothing to migrate"
+msgstr "Нечего переносить"
+
+msgid ""
+"ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+msgstr ""
+"Ошибка: Неудалось удалить старую таблицу резервного копирования "
+"Вам следует удалить "
+
+msgid "and then re-install this module. Settings will be lost but old"
+msgstr "и переустановить этот модуль. Настройки будут утеряны но "
+
+msgid "backup data will be retained."
+msgstr "резервные копии данных будут сохранены"
+
+msgid "Old Backup table removed"
+msgstr "Старая таблица резервного копирования удалена"
+
+msgid "Replacing ampbackup.pl in db.."
+msgstr "Заменяем ampbackup.pl в БД"
+
+msgid "an error has occurred, update not done"
+msgstr "Произошла ошибка, обновление не завершено"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "removing retrieve_backup_cron_from_mysql.pl.."
+msgstr "удаляется retrieve_backup_cron_from_mysql.pl.."
+
+msgid "removed"
+msgstr "удалено"
+
+msgid "failed"
+msgstr "сбой"
+
+msgid "Migrating backup table..."
+msgstr "Перенос таблицы резервного копирования..."
+
+msgid "WARNING: backup table not migrated"
+msgstr "Внимание: таблица резервного копирования не перенесена"
+
+msgid "Successfully migrated backup table!"
+msgstr "Таблица резервного копирования успешно перенесена"
+
+msgid "Creating backups directory.."
+msgstr "Создается каталог резервного копирования"
+
+#, php-format
+msgid "WARNING: failed to create backup directory: %s"
+msgstr "Внимание: неудалось создать каталог резервного копирования: %s"
+
+msgid "Location of backups pre 2.10"
+msgstr "Расположение резервных копий до 2.10"
+
+msgid "Storage location for backups"
+msgstr "Расположение хранилища резервных копий"
+
+msgid "PBX config server, generally a local database server"
+msgstr "Сервер конфигурации PBX, обычно локальная БД"
+
+msgid "CDR server, generally a local database server"
+msgstr "CDR сервер, обычно локальная БД"
+
+msgid "added default backup servers"
+msgstr "добавлены сервера резервного копирования по умолчанию"
+
+msgid "Configurations only"
+msgstr "Только конфигурация"
+
+msgid ""
+"A full backup of core settings and web files, dosen't include system sounds "
+"or recordings."
+msgstr ""
+"Полное резервное копирование настроек ядра и web-интерфейса, исключая системные звуки "
+"или записи. "
+
+msgid "Call Detail Records"
+msgstr "Детализация записи звонков"
+
+msgid "Voice Mail Storage"
+msgstr "Хранилище голосовой почты"
+
+msgid ""
+"All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
+"VOICEMAIL"
+msgstr ""
+"Все системные аудио записи - включая Интерактивное меню (IVR) и музыку в ожидании. "
+"Не делает резервную копию голосовой почты. "
+
+msgid ""
+"Exclude Backup's settings so that they dont get restored, usefull for a "
+"remote restore"
+msgstr ""
+"Исключить настройки резервного копирования так что они не будут восстановлены, полезно для "
+"удаленного восстановления "
+
+msgid "added default backup templates"
+msgstr "добавлены шаблоны резервного копирования по умолчанию"
+
+msgid "MIGRATED"
+msgstr "Перенесено"
+
+msgid "migrated backup"
+msgstr "Перенос резервного копирования"
+
+msgid "Migrated FTP server for backup "
+msgstr "Параметры FTP сервера резервного копирования пернесены"
+
+msgid "Migrated SSH server for backup "
+msgstr "Параметры SSH сервера резервного копирования пернесены"
+
+msgid "Migrated EMAIL server for backup "
+msgstr "Параметры EMAIL сервера резервного копирования перенесены"
+
+msgid "Migrated remote SSH server for backup "
+msgstr "Параметры удаленного SSH сервера резервного копирования пернесены"
+
+msgid "Default backup; automatically installed"
+msgstr "Резервное копирование по умолчанию: устанавливается автоматически"
+
+msgid "Delete"
+msgstr "Удалить "
+
+msgid "Run now"
+msgstr "Запустить немедленно "
+
+msgid "Download"
+msgstr "Загрузить "
+
+msgid "Error uploading file!"
+msgstr "Ошибка загрузки файлов!"
+
+msgid "Error verifying uploaded file!"
+msgstr "Ошибка верификации звгруженного файла!"
+
+msgid "Invalid backup for or undefined error"
+msgstr "Некорректная резервная копия или неизвестная ошибка"
+
+#~ msgid "DELETE ALL THE DATA IN THIS SET"
+#~ msgstr "УДАЛИТЬ ВСЕ ДАННЫЕ В ШАБЛОНЕ"
+
+#~ msgid ""
+#~ "Delete this backup set and all data associated with this backup set.."
+#~ msgstr ""
+#~ "Удалить этот шаблон и все данные, ассоциированные с этим шаблоном.. "
+
+#~ msgid "Delete File Set"
+#~ msgstr "Удалить комплект файлов"
+
+#~ msgid "Delete this backup set."
+#~ msgstr "Удалить этот шаблон резервного копирования"
+
+#~ msgid "Restore Entire Backup Set"
+#~ msgstr "Восстановить полный шаблон"
+
+#~ msgid "Restore your Complete Backup set overwriting all files."
+#~ msgstr ""
+#~ "Восстановление с полной резервной копии, все файлы будут перезаписаны."
+
+#~ msgid "Restore VoiceMail Files"
+#~ msgstr "Восстановить файлы головой почты"
+
+#~ msgid ""
+#~ "Restore your Voicemail files from this backup set.  NOTE! This will "
+#~ "delete any voicemail currently in the voicemail boxes."
+#~ msgstr ""
+#~ "Восстановить файлы голосовой почты из этого комплекта резервного "
+#~ "копирования. ВНИМАНИЕ! Все текущие сообщения в ящиках будут удалены."
+
+#~ msgid "Restore System Recordings Files"
+#~ msgstr "Восстановить файлы записи ситемных сообщений."
+
+#~ msgid ""
+#~ "Restore your system Voice Recordings including AutoAttendant files from "
+#~ "this backup set.  NOTE! This will OVERWRITE any voicerecordings  "
+#~ "currently on the system. It will NOT delete new files not currently in "
+#~ "the backup set"
+#~ msgstr ""
+#~ "Восстановить файлы записи ситемных сообщений из этого комплекта "
+#~ "резервного копирования.ВНИМАНИЕ! Все записи в системе будут перезаписаны. "
+#~ "При этом новые файлы записей не удаляются при восстановлении."
+
+#~ msgid "Restore System Configuration"
+#~ msgstr "Восстановить конфигурацию системы"
+
+#~ msgid ""
+#~ "Restore your system configuration from this backup set.  NOTE! This will "
+#~ "OVERWRITE any System changes you have made since this backup... ALL items "
+#~ "will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "Восстановить конфигурационные файлы ситемы из этого комплекта резервного "
+#~ "копирования.ВНИМАНИЕ! Все изменения в системе, сделанные после этой "
+#~ "резервной копии будут утрачены. ВСЕ установки примут значения, "
+#~ "соответствующие состоянию системы на момент резервирования.."
+
+#~ msgid "Restore Operator Panel"
+#~ msgstr "Восстановить панель оператора"
+
+#~ msgid ""
+#~ "Restore the Operator Panel from this backup set.  NOTE! This will "
+#~ "OVERWRITE any Operator Panel Changes you have made since this backup... "
+#~ "ALL items will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "Восстановить Панель оператора из этого комплекта резервного копирования."
+#~ "ВНИМАНИЕ! Все изменения в Панели оператора сделанные после этой резервной "
+#~ "копии будут утрачены. ВСЕ установки примут значения, соответствующие "
+#~ "состоянию системы на момент резервирования.."
+
+#~ msgid "Restore Call Detail Report"
+#~ msgstr "Восстановить Отчет о соединениях"
+
+#~ msgid ""
+#~ "Restore the Call Detail Records from this backup set.  NOTE! This will "
+#~ "DELETE ALL CALL RECORDS that have been saved since this backup set."
+#~ msgstr ""
+#~ "Восстановить Отчёт о соединениях из этого комплекта резервного "
+#~ "копирования.ВНИМАНИЕ! Все записи о соединениях сделанные после этой "
+#~ "резервной копии будут утрачены. "
+
+#~ msgid "ERROR its not a BACKUP SET file"
+#~ msgstr "ОШИБКА - это не файл резервной копии"
+
+#~ msgid "Restored All Files in Backup Set"
+#~ msgstr "Восстановлены все файлы из резервного комплекта"
+
+#~ msgid "Restored VoiceMail"
+#~ msgstr "Восстановлена голосовая почта"
+
+#~ msgid "Restored System Recordings"
+#~ msgstr "Восстановлены системные записи"
+
+#~ msgid "Restored System Configuration"
+#~ msgstr "Восстановлена конфигурация системы"
+
+#~ msgid "Restored Operator Panel"
+#~ msgstr "Восстановлена Панель оператора"
+
+#~ msgid "Restored CDR logs"
+#~ msgstr "Восстановлен журнал записи соединений"
+
+#~ msgid "Schedule Name:"
+#~ msgstr "Название сценария:"
+
+#~ msgid "Give this Backup Schedule a brief name to help you identify it."
+#~ msgstr ""
+#~ "Присвоить этому сценарию короткое названия для удобства идентификации."
+
+#~ msgid "CDR"
+#~ msgstr "CDR"
+
+#~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
+#~ msgstr "Резервировать системные записи о соединениях (HTML и база данных)"
+
+#~ msgid "Operator Panel"
+#~ msgstr "Панель оператора"
+
+#~ msgid "Backup the Operator Panel (HTML and Database)"
+#~ msgstr "Резервировать Панель оператора (HTML и база данных)"
+
+#~ msgid "System Recordings"
+#~ msgstr "Системные записи"
+
+#~ msgid ""
+#~ "Backup the System Recordings (AutoAttendant, Music On Hold, System "
+#~ "Recordings)"
+#~ msgstr ""
+#~ "Резервировать системные записи (Автосекретарь, Музыка в ожидании, "
+#~ "Приветствия)"
+
+#~ msgid "VoiceMail"
+#~ msgstr "Голосовая почта"
+
+#~ msgid ""
+#~ "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+#~ msgstr ""
+#~ "Резервирование ящиков голосовой почты... ВНИМАНИЕ: в результате может "
+#~ "получиться очень большой файл"
+
+#~ msgid "System Configuration"
+#~ msgstr "Конфигурация системы"
+
+#~ msgid ""
+#~ "Backup the System Configurations (Database, etc files, SQL Database, "
+#~ "astdb)"
+#~ msgstr ""
+#~ "Резервировать кофигурацию системы (базу данных Астериск, конфигурационные "
+#~ "файлы, SQL дамп)"
+
+#~ msgid "All"
+#~ msgstr "Все"
+
+#~ msgid "Selected"
+#~ msgstr "Выбранные"
+
+#~ msgid "January"
+#~ msgstr "Январь"
+
+#~ msgid "February"
+#~ msgstr "Февраль"
+
+#~ msgid "March"
+#~ msgstr "Март"
+
+#~ msgid "April"
+#~ msgstr "Апрель"
+
+#~ msgid "May"
+#~ msgstr "Май"
+
+#~ msgid "June"
+#~ msgstr "Июнь"
+
+#~ msgid "July"
+#~ msgstr "Июль"
+
+#~ msgid "August"
+#~ msgstr "Август"
+
+#~ msgid "September"
+#~ msgstr "Сентябрь"
+
+#~ msgid "October"
+#~ msgstr "Октябрь"
+
+#~ msgid "November"
+#~ msgstr "Ноябрь"
+
+#~ msgid "December"
+#~ msgstr "Декабрь"
+
+#~ msgid "Monday"
+#~ msgstr "Понедельник"
+
+#~ msgid "Tuesday"
+#~ msgstr "Вторник"
+
+#~ msgid "Wednesday"
+#~ msgstr "Среда"
+
+#~ msgid "Thursday"
+#~ msgstr "Четверг"
+
+#~ msgid "Friday"
+#~ msgstr "Пятница"
+
+#~ msgid "Saturday"
+#~ msgstr "Суббота"
+
+#~ msgid "Sunday"
+#~ msgstr "Воскресенье"
+
+#~ msgid "Run Backup"
+#~ msgstr "Создать резервную копию"
+
+#~ msgid "Follow Schedule Below"
+#~ msgstr "Следовать сценарию ниже"
+
+#~ msgid "Now"
+#~ msgstr "Сейчас"
+
+#~ msgid "Daily (at midnight)"
+#~ msgstr "Ежедневно (в полночь)"
+
+#~ msgid "Weekly (on Sunday)"
+#~ msgstr "Еженедельно (в Воскресенье)"
+
+#~ msgid "Monthly (on the 1st)"
+#~ msgstr "Ежемесячно (1-го числа)"
+
+#~ msgid "Yearly (on 1st Jan)"
+#~ msgstr "Ежегодно (1-го Января)"
+
+#~ msgid "Minutes"
+#~ msgstr "Минуты"
+
+#~ msgid "Hours"
+#~ msgstr "Часы"
+
+#~ msgid "Days"
+#~ msgstr "Дни"
+
+#~ msgid "Months"
+#~ msgstr "Месяцы"
+
+#~ msgid "Weekdays"
+#~ msgstr "Дни недели"
+
+#~ msgid "Restore from Backup"
+#~ msgstr "Восстановиться с резервной копии"
+
+#~ msgid "System Backup"
+#~ msgstr "Резервное копирование системы"
+
+#~ msgid "Run Schedule"
+#~ msgstr "Выполнить задание"
+
+#~ msgid "Submit Changes"
+#~ msgstr "Принять изменения"
+
+#~ msgid "Delete Backup Schedule %s"
+#~ msgstr "Удалить задание резервного копирования %s"
+
+#~ msgid "System Restore"
+#~ msgstr "Восстановление системы"

@@ -1,0 +1,38 @@
+.paging-hr{
+	width: 50%;
+ 	margin-left: 0;
+}
+
+.device_list {
+	min-height: 25px;
+	white-space:pre-wrap;
+	width: 300px;
+}
+@media all and (min-width: 1000px) {
+	.device_list {
+		width: 350px;
+	}
+}
+
+@media all and (min-width: 1300px) {
+	.device_list {
+		width: 450px;
+	}
+}
+
+@media all and (min-width: 1500px) {
+	.device_list {
+		width: 550px;
+	}
+}
+
+@media all and (min-width: 1800px) {
+	.device_list {
+		width: 650px;
+	}
+}
+.device_list > span {
+	margin: 5px;
+	display: inline-block;
+	text-align: left;
+}

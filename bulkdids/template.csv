@@ -1,0 +1,10 @@
+action,DID,description,destination,cidnum,pricid,alertinfo,grppre,mohclass,ringing,delay_answer,privacyman,pmmaxretries,pmminlength,cidlookup,langcode,faxdetect,faxdetectiontype,faxdetectiontime,faxdestination
+,,,,,,,,,,,,,,,,,,,
+edit,5555555,Main Number,"app-daynight,0,1",,,ALERTINFO,Sales,default,CHECKED,5,1,6,12,3,en,,,,
+edit,5551234,Fax,"ext-miscdests,9,1",,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+add,8005555555,800 Number,"app-daynight,0,1",,,,,,,,,,,,,,,,
+add,5558135,DID-Ethan Schroeder,"ext-miscdests,9,1",,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+del,5559999,,,,,,,,,,,,,,,,,,
+del,5558888,,,,,,,,,,,,,,,,,,

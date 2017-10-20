@@ -1,0 +1,361 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2011 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2011.
+#
+# Use iconv iaxsettings.pot -f UTF-8 -t ISO-8859-5 -o iaxsettings.po
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-04-06 20:46+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "%s must be a non-negative integer"
+msgstr "%s должен быть неотрицательным целым числом"
+
+msgid "Bind Address (bindaddr) must be an IP address."
+msgstr "Адрес (bindaddr) должен быть в виде четырёх октетов ИП адреса"
+
+msgid "Bind Port (bindport) must be between 1024..65535, default 4569"
+msgstr ""
+
+# This message is mistake. Probably penetrated from sipsettings (5060)
+#
+# msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
+# msgstr "Порт (bindport) должен быть иметь значение между 1024 и 65535, дефолтное значение - 5060"
+msgid "resyncthreshold must be a non-negative integer or -1 to disable"
+msgstr ""
+"resyncthreshold должен быть неотрицательным целым числом или указать -1 для "
+
+msgid "Asterisk IAX Settings"
+msgstr "Установки Asterisk для IAX "
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Use to configure Various Asterisk IAX Settings in the General section of iax."
+"conf. The module assumes Asterisk version 1.4 or higher. Some settings may "
+"not exist in Asterisk 1.2 and will be ignored by Asterisk."
+msgstr ""
+"Используется для конфигурации различных дополнительных настроек Asterisk для "
+"IAX которые допусимы в секции [general] файла iax.conf. Модуль предполагает "
+"наличие Asterisk версий 1.4 и выше. Некоторые параметры просто не существуют "
+"в версии 1.2 и будут игнорироваться Asterisk."
+
+msgid "checking for iaxsettings table.."
+msgstr "проверка таблицы iaxsettings.."
+
+msgid "none, creating table"
+msgstr "отсутствует, содание таблицы"
+
+msgid "populating default codecs.."
+msgstr "указание кодеков по умолчанию.."
+
+msgid "fatal error occurred populating defaults, check module"
+msgstr ""
+"произошла неустранимая ошибка при указании дефолтных значений, проверьте "
+"модуль"
+
+msgid "ulaw, alaw, gsm added"
+msgstr "добавлены ulaw, alaw, gsm"
+
+msgid "already exists"
+msgstr "уже существует"
+
+msgid "Edit Settings"
+msgstr "Редактирование настроек"
+
+msgid "ERRORS"
+msgstr "ОШИБКИ"
+
+msgid "Audio Codecs"
+msgstr "Аудио кодеки"
+
+msgid "Codecs"
+msgstr "Кодеки"
+
+msgid ""
+"Check the desired codecs, all others will be disabled unless explicitly "
+"enabled in a device or trunks configuration. Drag to re-order."
+msgstr ""
+
+msgid "Codec Priority"
+msgstr "Приоритет кодеков"
+
+msgid ""
+"Asterisk: codecpriority. Controls the codec negotiation of an inbound IAX "
+"call. This option is inherited to all user entities.  It can also be defined "
+"in each user entity separately which will override the setting here. The "
+"valid values are:<br />host - Consider the host's preferred order ahead of "
+"the caller's.<br />caller - Consider the callers preferred order ahead of "
+"the host's.<br /> disabled - Disable the consideration of codec preference "
+"altogether. (this is the original behavior before preferences were added)"
+"<br />reqonly  - Same as disabled, only do not consider capabilities if the "
+"requested format is not available the call will only be accepted if the "
+"requested format is available."
+msgstr ""
+"Параметр Asterisk: codecpriority. Контролирует распознавание кодеков для "
+"входящих IAX вызовов. Эта опция будет унаследована во всех настройках для "
+"юзеров. А также порядок может быть определён для каждого юзера отдельно, и "
+"эти настроки будут перебивать те настроки, которорые указаны здесь. "
+"Разрешённые значения:<br />host - Разрешить хосту принимать решение о "
+"предпочтении кодеков.<br />caller - Разрешить вызывающей стороне выбирать "
+"предпочтительный кодек.<br /> disabled - Отключить принятие решения о "
+"приоритете кодеков для всех. (это дефолтное поведение прежде чем будут "
+"добавлены таблицы предпочтений.<br />reqonly - То же, что и в Отключено, не "
+"принимать решение о выборе предпочтительного кодека если запрошеный кодек "
+"отсутствует, и принять звонок если запрошеный кодек присутствует."
+
+msgid "Bandwidth"
+msgstr "Полоса пропускания"
+
+msgid ""
+"Asterisk: bandwidth. Specify bandwidth of low, medium, or high to control "
+"which codecs are used in general."
+msgstr ""
+"Параметр Asterisk: bandwidth. Указать полосу пропускания как узкую, среднюю "
+"или широкую для наиболее общего контроля какие кодеи будут использоваться."
+
+msgid "low"
+msgstr "узкая"
+
+msgid "medium"
+msgstr "средняя"
+
+msgid "high"
+msgstr "широкая"
+
+msgid "unset"
+msgstr "не указано"
+
+msgid "Video Codecs"
+msgstr "Видео кодеки"
+
+msgid "Video Support"
+msgstr "Поддержка видео"
+
+msgid "Check to enable and then choose allowed codecs."
+msgstr "Проверьте возможность видео и затем проверьте доступные кодеки. "
+
+msgid ""
+" If you clear each codec and then add them one at a time, submitting with "
+"each addition, they will be added in order which will effect the codec "
+"priority."
+msgstr ""
+"Если очистите таблицу кодеков и затем добавите по одному, они будут "
+"использоваться в таком же порядке в приоритетах выбора кодеков."
+
+msgid "Enabled"
+msgstr "Включено"
+
+msgid "Disabled"
+msgstr "Выключено"
+
+msgid "Registration Settings"
+msgstr "Опции регистрации"
+
+msgid "Registration Times"
+msgstr "Время регистрации"
+
+msgid ""
+"Asterisk: minregexpire, maxregexpire. Minimum and maximum length of time "
+"that IAX peers can request as a registration expiration interval (in "
+"seconds)."
+msgstr ""
+"Параметры Asterisk: minregexpire, maxregexpire. Минимальное и максимальное "
+"время в течение которого IAX пиры могут запрашивать новую регистрацию при "
+"истечении значения действующей регистрации (в секундах)."
+
+msgid "Jitter Buffer Settings"
+msgstr "Установки джиттер-буфера"
+
+msgid "Jitter Buffer"
+msgstr "Джиттер-буфер"
+
+msgid ""
+"Asterisk: jitterbuffer. You can adjust several parameters relating to the "
+"jitter buffer. The jitter buffer's function is to compensate for varying "
+"network delay. The jitter buffer works for INCOMING audio - the outbound "
+"audio will be dejittered by the jitter buffer at the other end."
+msgstr ""
+"Параметр Asterisk: jitterbuffer. Возможна настройка нескольких параметров "
+"влияющих на джиттер-буфер. Функция джиттер-буфера компенсирует различного "
+"рода задержки в сети. Джиттер-буфер действует только для ВХОДЯЩИХ аудио "
+"каналов. Исходящие аудио каналы будут обрабатываться при наличии джиттера "
+"буфером на другом конце."
+
+msgid "Force Jitter Buffer"
+msgstr "Форсировать использование джиттер-буфера"
+
+# # !!!!!! Probably wrong also, typical copy-paste misstape! Not SIP channel to an endpoint!!!!!!!!!!!
+msgid ""
+"Asterisk: forcejitterbuffer. Forces the use of a jitterbuffer on the receive "
+"side of an IAX channel. Normally the jitter buffer will not be used if "
+"receiving a jittery channel but sending it off to another channel such as a "
+"SIP channel to an endpoint, since there is typically a jitter buffer at the "
+"far end. This will force the use of the jitter buffer before sending the "
+"stream on. This is not typically desired as it adds additional latency into "
+"the stream."
+msgstr ""
+"Параметр Asterisk: forcejitterbuffer. Форсировать использование джиттер-"
+"буфера для принимающей стороны канала IAX. Обычным образом джиттер-буфер не "
+"используется, если посылаемый аудио сигнал в канале имеет признаки джиттера, "
+"но необходимо отключать его при отправке в IAX канал удалённой стороне, то "
+"есть типичная ситуация при использовании джиттер-буфера на удалённой "
+"стороне. Эта опция форсирует использование буфера перед отправкой речевого "
+"потока в канал. Это не типичная ситуация, и выбирая её понимаем, что тем "
+"самым вносим дополнительную задержку в поток."
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Jitter Buffer Size"
+msgstr "Размер джиттер-буфера"
+
+msgid ""
+"Asterisk: maxjitterbuffer. Max length of the jitterbuffer in milliseconds."
+"<br /> Asterisk: resyncthreshold. When the jitterbuffer notices a "
+"significant change in delay that continues over a few frames, it will "
+"resync, assuming that the change in delay was caused by a timestamping mix-"
+"up. The threshold for noticing a change in delay is measured as twice the "
+"measured jitter plus this resync threshold. Resyncing can be disabled by "
+"setting this parameter to -1."
+msgstr ""
+"Параметр Asterisk: maxjitterbuffer. Максимальная длина джиттер-буфера в "
+"милисекундах. <br /> Параметр Asterisk: resyncthreshold. Когда джиттер-буфер "
+"получает информацию о существенных изменениях в задержке, которая длится в "
+"течение несколько фреймов, происходит пересинхронизация, предполагая, что "
+"задержка может вызвать нарушение последовательности временных меток. Порог "
+"срабатывания для извещения о задержке определяется как дважды замеренный "
+"джиттер плюс данное значение, указанное для срабатывания пересинхронизации. "
+"Пересинхронизация может отменяться установкой этого параметра в -1."
+
+msgid "Max Interpolations"
+msgstr "Максимальная интерполяция"
+
+msgid ""
+"Asterisk: maxjitterinterps. The maximum number of interpolation frames the "
+"jitterbuffer should return in a row. Since some clients do not send CNG/DTX "
+"frames to indicate silence, the jitterbuffer will assume silence has begun "
+"after returning this many interpolations. This prevents interpolating "
+"throughout a long silence."
+msgstr ""
+"Параметр Asterisk: maxjitterinterps. Максимальное количество "
+"интерполированных фреймов, которые джиттер-буфер должен интерпретировать как "
+"непрерывный ряд. Ввиду того, что некоторые устройства не посылают сигналы "
+"генератора комфортного шума CNG/DTX при индикации тишины джиттер-буфер "
+"предполагает начало тишины в качестве паузы после определения указанного "
+"количества интерполяций. Это предотвращает интерполяцию в течение длинных "
+"пауз в тишине."
+
+msgid "Advanced General Settings"
+msgstr "Дополнительные основные настройки"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Default Language for a channel, Asterisk: language"
+msgstr "Дефолтный язык в канале, параметр Asterisk: language"
+
+msgid "Bind Address"
+msgstr "Связывание с адресом"
+
+msgid ""
+"Asterisk: bindaddr. The IP address to bind to and listen for calls on the "
+"Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. To bind "
+"to multiple IP addresses or ports, use the Other 'IAX Settings' fields where "
+"you can put settings such as:<br /> bindaddr=192.168.10.100:4555.<br />  It "
+"is recommended to leave this blank."
+msgstr ""
+"Параметр Asterisk: bindaddr. ИП адрес, на котором \"слушаются\" входяшие "
+"вызовы на выбранном порту. Если установлено в 0.0.0.0 Asterisk будет слушать "
+"на всех доступных ИП адресах. Чтобы слушать только на нескольких ИП адресах "
+"или портах используйте поле Другие установки IAX где можно указать:<br /> "
+"bindaddr=192.168.10.100:4555.<br /> Рекомендуем оставить это поле пустым"
+
+msgid "Bind Port"
+msgstr "Порт"
+
+msgid ""
+"Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and "
+"listen for IAX messages. The IAX standard is 4569 and in most cases this is "
+"what you want. It is recommended to leave this blank."
+msgstr ""
+"Параметр Asterisk: bindport. Входящий порт UDP на котором Asterisk будет "
+"слушать сообщения IAX. Стандартный для IAX порт 4569 и в большинстве случаев "
+"его достаточно. Рекомендуем оставить это поле пустым"
+
+msgid "Delay Auth Rejects"
+msgstr "Задержка ответа отвергнутой аутентификации"
+
+msgid ""
+"Asterisk: delayreject. For increased security against brute force password "
+"attacks enable this which will delay the sending of authentication reject "
+"for REGREQ or AUTHREP if there is a password."
+msgstr ""
+"Параметр Asterisk: delayreject. Для повышения безопасности против атак по "
+"подбору паролей можно задействовать задержку посылки отвергнутой "
+"аутентификации для пакетов REGREQ или AUTHREP если была попытк подбора "
+"пароля."
+
+msgid "Enable"
+msgstr "Включено"
+
+msgid "Disable"
+msgstr "Выключено"
+
+msgid "Other IAX Settings"
+msgstr "Другие установки IAX"
+
+msgid ""
+"You may set any other IAX settings not present here that are allowed to be "
+"configured in the General section of iax.conf. There will be no error "
+"checking against these settings so check them carefully. They should be "
+"entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the "
+"Add Field box to add additional fields. Blank boxes will be deleted when "
+"submitted."
+msgstr ""
+"Здесь можно также добавлять другие параметры IAX которые допустимы в "
+"конфигурации секции [general] файла iax.conf. Здесь нет автоматической "
+"проверки синтаксиса параметров, поэтому будьте осторожны. Укажите их "
+"построчно в формате: параметр = значение<br /> [setting] = [value]<br /> в "
+"поле ниже. Кликните на Добавить поле чтобы указать ещё параметры. Пустые "
+"поля будут удалены при применении."
+
+#, php-format
+msgid "Settings in %s may override these. Those settings should be removed."
+msgstr ""
+"Параметры, указанные в %s могут перебить эти. Такие параметры должны быть "
+"удалены."
+
+#, php-format
+msgid ""
+"File %s should not have any settings in it. Those settings should be removed."
+msgstr ""
+"Файл %s не имеет каких либо значений. Такие параметры должны быть удалены."

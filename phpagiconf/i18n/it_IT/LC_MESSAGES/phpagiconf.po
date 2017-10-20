@@ -1,0 +1,152 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-13 19:44-0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+#: page.phpagiconf.php:90
+msgid "Asterisk API settings:"
+msgstr "Impostazioni API Asterisk:"
+
+#: page.phpagiconf.php:109
+msgid "Basedir:"
+msgstr "Directory base:"
+
+#: page.phpagiconf.php:112
+msgid "Cepstral config:"
+msgstr "Configurazione Cepstral:"
+
+#: page.phpagiconf.php:118
+msgid "Cepstral voice:"
+msgstr "Voce Cepstral:"
+
+#: page.phpagiconf.php:60
+msgid "Debug:"
+msgstr "Debug:"
+
+#: page.phpagiconf.php:102
+msgid "Drop privileges to owner of script."
+msgstr "Imposta i privilegi al proprietario dello script."
+
+#: page.phpagiconf.php:74
+msgid "Email where the errors will be sent."
+msgstr "Indirizzo Email dove verranno inviate i messaggi di errore."
+
+#: page.phpagiconf.php:60
+msgid "Enable PHPAGI debugging."
+msgstr "Attiva debugging PHPAGI"
+
+#: page.phpagiconf.php:67
+msgid "Error handler:"
+msgstr "Handler errori:"
+
+#: functions.inc.php:38
+msgid "Error writing the phpagi.conf file."
+msgstr "Errore durante la scrittura del file phpagi.conf"
+
+#: page.phpagiconf.php:100
+msgid "Fast AGI config:"
+msgstr "Configurazione FastAGI:"
+
+#: page.phpagiconf.php:85
+msgid "Festival config:"
+msgstr "Configurazione Festival:"
+
+#: page.phpagiconf.php:78
+msgid "Hostname of the server:"
+msgstr "Hostname del server:"
+
+#: page.phpagiconf.php:78
+msgid "Hostname of this server."
+msgstr "Hostname di questo server."
+
+#: page.phpagiconf.php:74
+msgid "Mail errors to:"
+msgstr "Invia errori all'Email:"
+
+#: page.phpagiconf.php:57
+msgid "Main config:"
+msgstr "Configurazione principale:"
+
+#: page.phpagiconf.php:52
+msgid "PHPAGI Config:"
+msgstr "Configurazione PHPAGI:"
+
+#: page.phpagiconf.php:109
+msgid "Path to AGI scripts folder."
+msgstr "Percorso dove risiedono gli script AGI."
+
+#: page.phpagiconf.php:114
+msgid "Path to cepstral TTS binary."
+msgstr "Percorso all'eseguibile TTS Cepstral."
+
+#: page.phpagiconf.php:87
+msgid "Path to text2wave binary."
+msgstr "Il percorso dell'eseguibile text2wave."
+
+#: page.phpagiconf.php:87
+msgid "Path to text2wave:"
+msgstr "Percorso text2wave:"
+
+#: page.phpagiconf.php:96
+msgid "Port to connect to manager."
+msgstr "Porta del manager dove connettersi."
+
+#: page.phpagiconf.php:96
+msgid "Port:"
+msgstr "Porta:"
+
+#: page.phpagiconf.php:92
+msgid "Server to connect to."
+msgstr "Il Server dove connettersi."
+
+#: page.phpagiconf.php:92
+msgid "Server:"
+msgstr "Server:"
+
+#: page.phpagiconf.php:122
+msgid "Submit Changes"
+msgstr "Conferma Cambiamenti"
+
+#: page.phpagiconf.php:114
+msgid "Swift path:"
+msgstr "Percorso Swift:"
+
+#: page.phpagiconf.php:118
+msgid "TTS Voice used."
+msgstr "La voce TTS Cepstral."
+
+#: page.phpagiconf.php:82
+msgid "Temporary directory for storing temporary output."
+msgstr "Directory temporanea dove salvare gli output temporanei."
+
+#: page.phpagiconf.php:82
+msgid "Temporary directory:"
+msgstr "Directory temporanea:"
+
+#: page.phpagiconf.php:67
+msgid "Use internal error handler."
+msgstr "Utilizza l'handler interno per gli errori"
+
+#: page.phpagiconf.php:62 page.phpagiconf.php:69 page.phpagiconf.php:104
+msgid "false"
+msgstr "falso"
+
+#: page.phpagiconf.php:102
+msgid "setuid:"
+msgstr "Setuid:"
+
+#: page.phpagiconf.php:63 page.phpagiconf.php:70 page.phpagiconf.php:105
+msgid "true"
+msgstr "vero"
+
+#~ msgid "PHPAGI Config"
+#~ msgstr "Configurazione PHPAGI"

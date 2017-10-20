@@ -1,0 +1,26 @@
+<module>
+	<rawname>cidlookup</rawname>
+	<repo>standard</repo>
+	<name>CallerID Lookup</name>
+	<version>2.11.1.12</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<description>Allows CallerID Lookup of incoming calls against different sources (OpenCNAM, MySQL, HTTP, ENUM, Phonebook Module)</description>
+	<category>Admin</category>
+	<changelog>
+		*2.11.1.12* Initial Issabel Foundation release
+	</changelog>
+	<menuitems>
+		<cidlookup>CallerID Lookup Sources</cidlookup>
+	</menuitems>
+	<depends>
+		<engine>asterisk 1.6</engine>
+		<module>framework ge 2.11.0.0rc1.6</module>
+	</depends>
+	<supported>
+		<version>2.11</version>
+	</supported>
+	<location>release/2.11/cidlookup-2.11.1.7.tgz</location>
+	<md5sum>f559516b403088de2cfb2b7c517d2ff6</md5sum>
+</module>

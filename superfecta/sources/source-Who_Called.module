@@ -1,0 +1,130 @@
+<?php
+
+/**** * **** * **** * **** * **** * **** * **** * **** * **** * **** * **** * **** * **** *
+ * Developer notes:
+ * 
+ * Who called API details here: http://whocalled.us/about
+ * Earlier versions of this module used the automatic report back to the whocalled site which resulted in
+ * registering reports against numbers that were not spammers. All reporting functionality has been removed. 
+ * Developer consensus is not to support any type of automatic reporting. Not noted in the /about page is the 
+ * API parameter, "days" which can be used to limit how far back reports are counted when determining the spam score
+ * 
+ * Terms of Service:
+ *
+ * Small amount of information is available from http://whocalled.us/about, but there are no terms of service. 
+ * It is assumed that Superfecta usage is allowed.
+ * 
+ * Releases:
+ * 
+ * 2015-08-31		Convert url to https
+ * 2014-06-25		Added days parameter to allow old reports to be ignored for spam scoring
+ * 2013-11-xx		Spam score lookup added back
+ * 2012-07-xx		All automatic reporting and spam score lookup removed
+ * 2011-07-xx		Initial migration to 2.11 platform
+ * 
+ **** * **** * **** * **** * **** * **** * **** * **** * **** * **** * **** * **** * **** */
+
+
+
+class Who_Called extends superfecta_base {
+
+	public $description = "http://whocalled.us - Caller ID Name and SPAM report listings as provided by registered users of the whocalled service. This service requires authentication which is configured by clicking on this datasource.";
+	public $version_requirement = "2.11";
+	public $source_param = array(
+		'Username' => array(
+			'description' => 'REQUIRED - your user account login name on the whocalled.us web site.',
+			'type' => 'text',
+		),
+		'Password' => array(
+			'description' => 'REQUIRED - your user account password on the whocalled.us web site.',
+			'type' => 'password',
+		),
+		'CNAM_Lookup' => array(
+			'description' => 'If enabled, Superfecta will use Who Called for CNAM lookups. This is user provided data and is a generally low quality CNAM data source.',
+			'type' => 'checkbox',
+			'default' => null,
+		),
+		'Spam_Scoring' => array(
+			'description' => 'If enabled, Superfecta will retrieve the Who Called report score and compare it to the threshold to determine if call is spam',
+			'type' => 'checkbox',
+			'default' => 'checked',
+		),
+		'SPAM_Threshold' => array(
+			'description' => 'Minimum number of Who Called reports required to mark a call as spam. Low numbers could give false positives.',
+			'type' => 'number',
+			'default' => '15',
+		),
+		'Report_Age' => array(
+			'description' => 'Time in days for how far back to count reports for spam scoring. A value of 365 means only reports over the last year are included for determining the spam score. Enter zero to disable.',
+			'type' => 'number',
+			'default' => '365',
+		),
+	);
+
+	function get_caller_id($thenumber, $run_param=array()) {
+		$debug = $this->debug;
+
+		// Abandon lookups if who called username or password is not set
+		if(empty($run_param['Username']) || empty($run_param['Password'])) {
+			$this->DebugPrint("Who Called username and/or password is not set!");
+			return '';
+		}
+
+		// Trim number to 10 digits, lookup will succeed with 11 digits, but return nothing
+		$thenumber = substr($thenumber, -10);
+		
+		
+		// Perform spam score lookup if enabled
+		if ($run_param['Spam_Scoring'])  {
+			$this->DebugPrint("Searching Who Called for number of user reports ... ");
+			$url = "https://whocalled.us/do?action=getScore&name=" . $run_param['Username'] . "&pass=" . $run_param['Password'] . "&phoneNumber=$thenumber&days=". $run_param['Report_Age'];
+			$value = $this->get_url_contents($url);
+			$variables = preg_split('/\&/i', $value);
+			$dataout = array();
+			foreach ($variables as $data) {
+				$subvars = preg_split('/=/i', $data);
+				$dataout[$subvars[0]] = $subvars[1];
+			}
+			$variables = $dataout;
+			if ($variables['success'] == '1') {
+				if (!empty($variables['score'])) {
+					$score = $variables['score'];
+					if ($score > $run_param['SPAM_Threshold']) {
+						$this->spam = true;
+						$this->DebugPrint("Returned score is $score - SPAM caller");
+					} else {
+						$this->DebugPrint("Returned score is $score - Not a SPAM caller");
+					}
+				} else {
+					$this->DebugPrint("Score not found");
+				}
+			} else {
+				$this->DebugPrint("Error Returned: " . $variables['errorMsg']);
+			}
+		}
+
+		// Perform CNAM lookup if enabled
+		if ($run_param['CNAM_Lookup'])  {
+			$this->DebugPrint("Searching Who Called for CNAM... ");
+			$url = "https://whocalled.us/do?action=getWho&name=" . $run_param['Username'] . "&pass=" . $run_param['Password'] . "&phoneNumber=$thenumber";
+			$value = $this->get_url_contents($url);
+			$variables = preg_split('/\&/i', $value);
+			$dataout = array();
+			foreach ($variables as $data) {
+				$subvars = preg_split('/=/i', $data);
+				$dataout[$subvars[0]] = $subvars[1];
+			}
+			$variables = $dataout;
+			if ($variables['success'] == '1') {
+				if (!empty($variables['who'])) {
+					$caller_id = $variables['who'];
+				} else {
+					$this->DebugPrint("CNAM not found");
+				}
+			} else {
+				$this->DebugPrint("Error Returned: " . $variables['errorMsg']);
+			}
+			return($caller_id);
+		}
+	}
+}

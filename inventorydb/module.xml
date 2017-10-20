@@ -1,0 +1,22 @@
+<module>
+	<rawname>inventorydb</rawname>
+	<name>Inventory</name>
+	<version>2.5.0.2</version>
+	<type>tool</type>
+	<category>Third Party Addon</category>
+	<menuitems>
+		<inventorydb>Inventory</inventorydb>
+	</menuitems>
+	<changelog>
+		*2.5.0.2* localization updates
+		*2.5.0.1* localization, Swedish
+		*2.5.0* #2845 tabindex
+		*2.4.0.1* #2645 API error - NOTICE: This module will be removed from future versions
+		*2.4.0* bumped for 2.4
+		*1.1.0* Added SQLite3 support. Fixes ticket:1783, bump for rc1
+		*1.0.3* Add he_IL translation
+	</changelog>
+	<location>release/2.11/inventorydb-2.5.0.2.tgz</location>
+	<md5sum>d58202723720afbc8538b9a5a62cb585</md5sum>
+</module>
+

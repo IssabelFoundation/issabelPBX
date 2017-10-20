@@ -1,0 +1,55 @@
+# This file is part of IssabelPBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# IssabelPBX language template for superfecta
+# Copyright (C) 2008-2015 Sangoma, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-31 09:55-0700\n"
+"PO-Revision-Date: 2015-04-03 10:11+0200\n"
+"Last-Translator: Daver <daverjorge46@gmail.com>\n"
+"Language-Team: Spanish <http://weblate.issabel.org/projects/freepbx/"
+"superfecta/es_ES/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
+
+#: functions.inc.php:17
+msgid "Enable CID Superfecta"
+msgstr "Habilitar Superfecta CID"
+
+#: functions.inc.php:20
+msgid "Scheme"
+msgstr "Esquema"
+
+#: functions.inc.php:20
+msgid "Setup Schemes in CID Superfecta section"
+msgstr "Configuración de Esquemas en Sección Superfecta CID"
+
+#: functions.inc.php:17
+msgid "Sources can be added/removed in CID Superfecta section"
+msgstr "Fuentes pueden ser agregadas/removidas en la sección Superfecta CID"
+
+#: functions.inc.php:15
+msgid "Superfecta CID Lookup"
+msgstr "Búsqueda CID Superfecta"
+
+#~ msgid "Admin"
+#~ msgstr "Administrador"
+
+#~ msgid "CID Superfecta"
+#~ msgstr "Superfecta CID"
+
+#~ msgid ""
+#~ "Provides simultaneous use of, and complete control over multiple caller "
+#~ "id data sources."
+#~ msgstr ""
+#~ "Provee uso simultaneo de, y control completo sobe muchas fuentes de datos "
+#~ "de Identificador de Llamada."

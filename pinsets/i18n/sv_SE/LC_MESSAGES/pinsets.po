@@ -1,0 +1,151 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX Swedish language för pinsets
+# Copyright (C) 2008, 2009, 2010, 2011 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FreeÅBX pinsets\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-20 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+msgid "Unnamed"
+msgstr "Inget namn"
+
+msgid "PIN Set"
+msgstr "PIN-kod"
+
+msgid ""
+"Optional: Select a PIN set to use. If using this option, leave the Route "
+"Password field blank."
+msgstr ""
+"Valfritt: Välj en PIN-kod. Om du väljer en PIN-kod, lämna då fältet "
+"<b>Lösenord för väg</b> tomt"
+
+msgid "None"
+msgstr "Ingen"
+
+msgid "checking if migration required.."
+msgstr "kontrollerar om migrering behövs.."
+
+msgid "migrating.."
+msgstr "migrerar.."
+
+msgid "unknown error fetching table data"
+msgstr "okänt fel när tabelldata skulle hämtas"
+
+msgid "migration aborted"
+msgstr "migreringen avbruten"
+
+msgid "continuing.."
+msgstr "fortsätter.."
+
+msgid "done"
+msgstr "klar"
+
+msgid "dropping used_by field.."
+msgstr "tar bort fältet used_by.."
+
+msgid "no used_by field???"
+msgstr "inget fält med namnet used_by???"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "already done"
+msgstr "redan gjort"
+
+msgid "Add Password Set"
+msgstr "Lägg till PIN-kod(er)"
+
+msgid "PIN Set "
+msgstr "PIN-kod"
+
+msgid "deleted"
+msgstr "borttagen"
+
+msgid "Delete PIN Set"
+msgstr "Ta bort PIN-kod"
+
+msgid "PIN Set:"
+msgstr "PIN-kod:"
+
+msgid "Add PIN Set"
+msgstr "Lägg till PIN-kod"
+
+msgid ""
+"PIN Sets are used to manage lists of PINs that can be used to access "
+"restricted features such as Outbound Routes. The PIN can also be added to "
+"the CDR record's 'accountcode' field."
+msgstr ""
+"PIN-koder hanterad de listor med koder som kan användas på diverse ställe i "
+"IssabelPBX såsom <b>Utgående vägar</b>. PIN-koderna kan också visas i "
+"samtalsregistret i fältet 'accountcode' om detta väljs."
+
+msgid "Edit PIN Set"
+msgstr "Redigera PIN-koder"
+
+msgid "New PIN Set"
+msgstr "Ny PIN-kod"
+
+msgid "PIN Set Description:"
+msgstr "Beskrivning för PIN-kod:"
+
+msgid "Record In CDR?:"
+msgstr "Lägga till i CDR?:"
+
+msgid ""
+"Select this box if you would like to record the PIN in the call detail "
+"records when used"
+msgstr ""
+"Markera detta val om du vill lägga till i samtalsregistret vilken PIN.kod "
+"som användes"
+
+msgid "PIN List:"
+msgstr "PIN-kodlista:"
+
+msgid "Enter a list of one or more PINs.  One PIN per line."
+msgstr "Skriv in en eller flera PIN-koder. En PIN-kod per rad."
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+msgid "Please enter a valid Description"
+msgstr "Skriv in en giltig beskrivining"
+
+msgid "PIN Sets"
+msgstr "PIN-koder"
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Allow creation of lists of PINs (numbers for passwords) that can be used by "
+"other modules (eg, trunks)."
+msgstr ""
+"Ger möjlighet att skapa listor med PINs (nummer för lösenord) somkan "
+"användas av andra moduler (trunkar)."
+
+#~ msgid "Internal Options & Configuration"
+#~ msgstr "Interna val och konfigurationer"

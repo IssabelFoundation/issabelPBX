@@ -1,0 +1,1326 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for voicemail
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.0.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-03 19:07+0900\n"
+"PO-Revision-Date: 2014-02-20 23:04+0200\n"
+"Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
+"Language-Team: Japanese <http://example.com/projects/freepbx/voicemail/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+msgid ""
+"Voicemail is enabled but the Voicemail Password field is empty.  Are you "
+"sure you wish to continue?"
+msgstr "ボイスメールは有効ですが、ボイスメールのパスワードが空です。 本当に続行しますか？"
+
+msgid "Enabled"
+msgstr "有効"
+
+msgid "Disabled"
+msgstr "無効"
+
+msgid "yes"
+msgstr "はい"
+
+msgid "no"
+msgstr "いいえ"
+
+msgid "Please enter a valid Voicemail Password, using digits only"
+msgstr "有効なボイスメールパスワードを入力してください、数値のみ有効です。"
+
+msgid "Please enter a valid Email Address"
+msgstr "有効なEメールアドレスを入力してください"
+
+msgid "Please enter a valid Pager Email Address"
+msgstr "有効なページャーEメールアドレスを入力してください"
+
+msgid "VM Context cannot be blank"
+msgstr "VMコンテキストを空にすることはできません"
+
+msgid "Voicemail"
+msgstr "ボイスメール"
+
+msgid "Status"
+msgstr "ステータス"
+
+msgid "Voicemail Password"
+msgstr "ボイスメールパスワード"
+
+#, php-format
+msgid ""
+"This is the password used to access the Voicemail system.%sThis password can "
+"only contain numbers.%sA user can change the password you enter here after "
+"logging into the Voicemail system (%s) with a phone."
+msgstr ""
+"これは、ボイスメールシステムにアクセスするために使用するパスワードです。%s こ"
+"のパスワードは数字のみを含めることができます。%sユーザが電話でボイスメールシ"
+"ステム（%s）にログインした後、ここで入力したパスワードを変更することができま"
+"す。"
+
+msgid "Email Address"
+msgstr "Eメールアドレス"
+
+msgid "The email address that Voicemails are sent to."
+msgstr "ボイスメールが送信されるEメールアドレス。"
+
+msgid "Pager Email Address"
+msgstr "ページャーEメールアドレス"
+
+msgid ""
+"Pager/mobile email address that short Voicemail notifications are sent to."
+msgstr ""
+"短いボイスメール通知が送信されるポケットベル・モバイルのEメールアドレス。"
+
+msgid "Email Attachment"
+msgstr "Eメール添付"
+
+msgid "Option to attach Voicemails to email."
+msgstr "ボイスメールをメールに添付するオプション"
+
+msgid "Play CID"
+msgstr "再生CID"
+
+msgid ""
+"Read back caller's telephone number prior to playing the incoming message, "
+"and just after announcing the date and time the message was left."
+msgstr ""
+"受信したメッセージを再生する前に、メッセージが残された日付と時刻をアナウンス"
+"した直後に発信者の電話番号を読み戻す。"
+
+msgid "Play Envelope"
+msgstr "冒頭再生"
+
+msgid ""
+"Envelope controls whether or not the Voicemail system will play the message "
+"envelope (date/time) before playing the Voicemail message. This setting does "
+"not affect the operation of the envelope option in the advanced Voicemail "
+"menu."
+msgstr ""
+"冒頭再生はボイスメールメッセージを再生する前にボイスメールシステムが冒頭の(日"
+"付/時間)メッセージを再生するかどうかを制御します。この設定は高度なボイスメー"
+"ルメニュー内にある冒頭オプションの操作に影響しません。"
+
+msgid "Delete Voicemail"
+msgstr "ボイスメールを削除"
+
+msgid ""
+"If set to \"yes\" the message will be deleted from the Voicemailbox (after "
+"having been emailed). Provides functionality that allows a user to receive "
+"their Voicemail via email alone, rather than having the Voicemail able to be "
+"retrieved from the Webinterface or the Extension handset.  CAUTION: MUST "
+"HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE "
+"LOST FOREVER."
+msgstr ""
+"\"はい\"に設定された場合、メッセージは(Eメール送信された後に)ボイスメールボッ"
+"クスから削除されます。ユーザーに、ウェブインターフェイスや内線ハンドセットか"
+"らボイスメールを検索するのではなく、彼らのボイスメールをEメール経由のみで受信"
+"することを許す機能を提供します。注意: Eメールにボイスメールを添付する設定を"
+"「はい」にしないと、あなたのメッセージは永久に失われます。"
+
+msgid "IMAP Username"
+msgstr "IMAPユーザー名"
+
+#, php-format
+msgid "This is the IMAP username, if using IMAP storage"
+msgstr "IMAPを使用する場合のIMAPユーザー名"
+
+msgid "IMAP Password"
+msgstr "IMAPパスワード"
+
+#, php-format
+msgid "This is the IMAP password, if using IMAP storage"
+msgstr "IMAPを使用する際のIMAPパスワード"
+
+msgid "VM Options"
+msgstr "VMオプション"
+
+#, php-format
+msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
+msgstr "オプションをパイプ( | )%s で分割します。例：review=yes|maxmessage=60"
+
+msgid "VM Context"
+msgstr "VMコンテキスト"
+
+msgid ""
+"This is the Voicemail Context which is normally set to default. Do not "
+"change unless you understand the implications."
+msgstr "通常デフォルトに設定するボイスメールのコンテキストです。変更による影響が分からない場合は、設定変更をしないでください。"
+
+msgid "VmX Locater"
+msgstr "VmXロケーター"
+
+msgid "VmX Locater&trade;"
+msgstr "VmXロケーター&トレード；"
+
+msgid ""
+"Enable/Disable the VmX Locater feature for this user. When enabled all "
+"settings are controlled by the user in the User Portal (ARI). Disabling will "
+"not delete any existing user settings but will disable access to the feature"
+msgstr ""
+"このユーザーに対するVmXロケータ―機能を有効/無効にします。有効にした場合、全て"
+"の設定はユーザーポータル(ARI)内でユーザーによって制御されます。無効にしても既"
+"存のユーザー設定は削除されませんが、機能へのアクセスは無効になります。"
+
+msgid "Please enter a valid phone number using number digits only"
+msgstr "数値のみを使用して正しい電話番号を入力してください。"
+
+msgid "Use When:"
+msgstr "使用タイミング："
+
+msgid ""
+"Menu options below are available during your personal Voicemail greeting "
+"playback. <br/><br/>Check both to use at all times."
+msgstr ""
+"あなたのパーソナルボイスメール挨拶メッセージが再生されている間に以下のメ"
+"ニューオプションが利用できます。<br/><br/>いつでも使用する場合は両方をチェッ"
+"クしてください。"
+
+msgid "unavailable"
+msgstr "利用不可能"
+
+msgid "busy"
+msgstr "通話中"
+
+msgid "Voicemail Instructions:"
+msgstr "ボイスメール操作説明:"
+
+msgid "Uncheck to play a beep after your personal Voicemail greeting."
+msgstr "チェックを外すと、あなたのボイスメール•グリーティング後に「ピー」という発信音が再生されます。"
+
+msgid "Standard Voicemail prompts."
+msgstr "標準ボイスメールプロンプト"
+
+msgid "Press 0:"
+msgstr "0を押す:"
+
+msgid ""
+"Pressing 0 during your personal Voicemail greeting goes to the Operator. "
+"Uncheck to enter another destination here. This feature can be used while "
+"still disabling VmX to allow an alternative Operator extension without "
+"requiring the VmX feature for the user."
+msgstr ""
+"ボイスメールのパーソナルグリーティング再生時に0を押すと、オペレーターに転送さ"
+"れます。チェックを外すと、違う転送先を指定できます。"
+
+msgid "Go To Operator"
+msgstr "オペレーターへ移動"
+
+msgid "Press 1:"
+msgstr "を押す:"
+
+msgid ""
+"The remaining options can have internal extensions, ringgroups, queues and "
+"external numbers that may be rung. It is often used to include your cell "
+"phone. You should run a test to make sure that the number is functional any "
+"time a change is made so you don't leave a caller stranded or receiving "
+"invalid number messages."
+msgstr ""
+"残りのオプションは、電話が鳴る可能性のある内線、リンググループ、キューや外部"
+"の番号を持つことが可能です。携帯番号を含める使用方法が一般的です。発信者が取"
+"り残されたり無効な番号ですというメッセージを受け取らないように変更されたかど"
+"うか、番号がいつも機能しているかを確認するためにテストをするべきです。"
+
+msgid ""
+"Enter an alternate number here, then change your personal Voicemail greeting "
+"to let callers know to press 1 to reach that number. <br/><br/>If you'd like "
+"to use your Follow Me List, check \"Send to Follow Me\" and disable Follow "
+"Me above."
+msgstr ""
+"ここでは代わりとなる番号を入力してください、次に、その番号に到達するには1番を"
+"押すということを発信者に知らせるために、あなたのパーソナルボイスメールグリー"
+"ティングを変更してください。<br/><br/>もしあなたのフォローミーリストを使用し"
+"たい場合は、\"フォローミーに送る\"をクリックし、上記のフォローミーを無効にし"
+"てください。"
+
+msgid "Send to Follow-Me"
+msgstr "フォローミーに送る"
+
+msgid "Press 2:"
+msgstr "を押す:"
+
+msgid ""
+"Use any extensions, ringgroups, queues or external numbers. <br/><br/"
+">Remember to re-record your personal Voicemail greeting and include "
+"instructions. Run a test to make sure that the number is functional."
+msgstr ""
+"お好みの内線番号、リンググループ、キューや外線番号を使用してください。<br/"
+"><br/>忘れずにあなたのパーソナルボイスメールグリーティングを再度録音しなお"
+"し、使用方法を含めてください。その番号がちゃんと動作するかどうか確認するため"
+"にテストしてください。"
+
+#, php-format
+msgid "Failed to delete vmbox: %s@%s"
+msgstr "vmboxの削除に失敗: %s@%s"
+
+#, php-format
+msgid "failed with retcode %s while removing %s:"
+msgstr "リターンンコード %s 失敗 %sを削除中に。"
+
+msgid "Voicemail Administration"
+msgstr "ボイスメール管理"
+
+msgid "Timezone Definitions"
+msgstr "タイムゾーン定義"
+
+msgid "Basic Settings For: "
+msgstr "基本的な設定："
+
+msgid "Basic settings view is for individual accounts."
+msgstr "個人アカウントの基本設定ビュー"
+
+msgid "Advanced Settings For: "
+msgstr "高度な設定："
+
+msgid "System Settings"
+msgstr "システム設定"
+
+msgid "Dialplan Behavior"
+msgstr "ダイヤルプラン動作"
+
+msgid "Usage Statistics For: "
+msgstr "使用上の統計:"
+
+msgid "System Usage Statistics"
+msgstr "システム使用状況の統計"
+
+msgid "Invalid Action"
+msgstr "無効なアクション"
+
+msgid "My Voicemail"
+msgstr "マイボイスメール"
+
+msgid "Dial Voicemail"
+msgstr "ボイスメールへダイヤル"
+
+msgid "Voicemail Admin"
+msgstr "ボイスメール管理"
+
+msgid "Direct Dial Prefix"
+msgstr "ダイレクトダイヤルプレフィックス"
+
+msgid "Checking for General Setting migrations.."
+msgstr "一般設定の移行を確認中…"
+
+msgid "preparing"
+msgstr "準備中"
+
+#, php-format
+msgid "%s no longer used"
+msgstr "%sは現在使われていません"
+
+#, php-format
+msgid "%s changed from %s to max value 15"
+msgstr "%sは%sから最大値15へ変更されました"
+
+#, php-format
+msgid "%s adjusted from %s to %s"
+msgstr "%sは、%sから%sに調整されました。"
+
+#, php-format
+msgid "%s adjusted from bad value %s to default no gain"
+msgstr "%sは、無効値%sからデフォルトのno gainに調整されました。"
+
+#, php-format
+msgid ""
+"ERROR inserting %s into voicemail_admin during migration, it may alreayd "
+"exist"
+msgstr "移行中、%sをvoicemail_adminに挿入中にエラーが発生しました。すでに存在している可能性があります"
+
+#, php-format
+msgid "%s migrated"
+msgstr "%sは移行されました。"
+
+msgid "not needed"
+msgstr "必要なし"
+
+#, php-format
+msgid "%s added"
+msgstr "%sを追加"
+
+msgid "General Settings migrated"
+msgstr "一般設定が移行されました。"
+
+msgid "Deleting migrated settings.."
+msgstr "移行された設定を削除中…"
+
+msgid "Fatal DB error trying to delete globals, trying to carry on"
+msgstr "globals の削除を試行中に致命的なDBエラーが発生しました。継続を試みています"
+
+msgid "done"
+msgstr "完了"
+
+msgid "migrated VM_PREFIX to feature codes"
+msgstr "VM_PREFIXをfeature codesに移行しました"
+
+msgid "deleting VM_PREFIX from globals.."
+msgstr "VM_PREFIXをグローバル値から削除中…"
+
+msgid "could not delete"
+msgstr "削除できませんでした"
+
+msgid "Cannot connect to Asterisk Manager with "
+msgstr "接続できません。Asteriskマネージャー "
+
+msgid "checking if Voicemail Admin (vmailadmin) is installed.."
+msgstr ""
+"ボイスメールアドミン(vmailadmin)がインストールされているかどうかチェック中.."
+
+msgid "not installed, ok"
+msgstr "インストールされてません、ok"
+
+msgid "installed."
+msgstr "インストール済み。"
+
+msgid "Voicemail Admin being removed and merged with Voicemail"
+msgstr "ボイスメールアドミンが削除されボイスメールにマージされました"
+
+msgid "Attempting to delete.."
+msgstr "削除を試行中.."
+
+msgid "ok"
+msgstr "ok"
+
+msgid "adding preload for res_mwi_blf.so to modules.conf.."
+msgstr "res_mwi.blf.soのプレロードをmodules.confに追加中…"
+
+msgid "FAILED"
+msgstr "失敗"
+
+msgid ""
+"you may need to add the line 'preload => res_mwi_blf.so' to your modules."
+"conf manually"
+msgstr ""
+"'preload => res_mwi_blf.so' というラインを、手動でmodules.confに入れる必要が"
+"あるかもしれません。"
+
+msgid "Timezone definition name"
+msgstr "タイムゾーンの定義名"
+
+msgid "Time announcement for message playback"
+msgstr "メッセージの再生時間のアナウンス"
+
+msgid "Remove the timezone definition"
+msgstr "タイムゾーンの定義を削除"
+
+msgid "The ADSI feature descriptor number to download to"
+msgstr "次にダウンロードするADSIの機能の記述子番号"
+
+msgid "The ADSI security lock code"
+msgstr "ADSIセキュリティロックコード"
+
+msgid "The ADSI Voicemail application version number."
+msgstr "ADSIのボイスメールアプリケーションのバージョン番号。"
+
+msgid "IMAP server master password."
+msgstr "IMAPサーバーマスターパスワード。"
+
+msgid "IMAP server master username."
+msgstr "IMAPサーバーマスターユーザー名。"
+
+msgid ""
+"No. of deleted messages saved per mailbox (can be a number or yes/no, yes "
+"meaning MAXMSG, no meaning 0)."
+msgstr ""
+"メールボックスごとに保存されて削除されたメッセージの番号（番号または はい/い"
+"いえ、はいはMAXMSGを意味し、いいえは 0 を意味します）。"
+
+msgid ""
+"Context to call back from; if not listed, calling the sender back will not "
+"be permitted."
+msgstr ""
+"コールバック元のコンテキスト; もしリストアップされていない場合は、送信者への"
+"コールバックが許可されません。"
+
+msgid "The character set for Voicemail messages"
+msgstr "ボイスメールメッセージのキャラクターセット"
+
+msgid "Comma separated list of internal contexts to use caller ID."
+msgstr "発信者IDを使用するためのカンマで区切られた内部コンテキストリスト"
+
+msgid ""
+"Context to dial out from [option 4 from the advanced menu] if not listed, "
+"dialing out will not be permitted."
+msgstr ""
+"ダイヤルアウト元のコンテキスト（詳細設定メニューのオプション４）; もしリスト"
+"アップされていない場合は、ダイヤルアウトが許可されません。"
+
+msgid "Email body."
+msgstr "Eメール本文。"
+
+msgid "Load date format config for Voicemail mail."
+msgstr "ボイスメールメールのための日付フォーマット設定を読み込む。"
+
+msgid "Email subject"
+msgstr "Eメール件名"
+
+msgid "How many seconds of silence before we end the recording"
+msgstr "録音を終了する前に無音を何秒にするか。"
+
+msgid ""
+"Turn on/off envelope playback before message playback. [ON by default] This "
+"does NOT affect option 3,3 from the advanced options menu."
+msgstr ""
+"メッセージの再生前の冒頭再生をオン／オフにします。[デフォルトはオンです。]こ"
+"れは、高度なオプションメニューのオプション3,3には影響しません。"
+
+msgid ""
+"Context to check for handling * or 0 calls to operator. \"Operator Context\""
+msgstr ""
+"＊、または０のオペレーターへのコールを処理するためのコンテキスト。 \"オペレー"
+"ターコンテキスト\""
+
+msgid "Expunge on exit."
+msgstr "終了時に抹消。"
+
+msgid "External Voicemail notify application."
+msgstr "外部のボイスメール通知アプリケーション。"
+
+msgid "External password changing command (overrides externpassnotify)."
+msgstr "外部パスワードを変更するコマンド（externpassnotifyより優先されます）"
+
+msgid "Command specified runs after a user changes his password."
+msgstr "ユーザーがパスワードを変更した後に、指定のコマンドが実行されます。"
+
+msgid ""
+"Force new user to record greetings (the same as forcename, except for "
+"recording greetings).  The default is \"no\"."
+msgstr "強制的に新規ユーザーにグリーティングを録音させます（forcenameと同様）。デフォルトは\"いいえ\"。"
+
+msgid ""
+"Force a new user to record their name.  A new user is determined by the "
+"password being the same as the mailbox number.  The default is \"no\"."
+msgstr ""
+"強制的に新規ユーザーに自分の名前を録音させます。 メールボックス番号とパスワードが同じ場合は、新規ユーザーと判断されます。デフォルトは\"いいえ\"。"
+
+msgid ""
+"Formats for writing Voicemail.  Note that when using IMAP storage for "
+"Voicemail, only the first format specified will be used."
+msgstr ""
+"ボイスメールを書くフォーマット。ボイスメール用にIMAPストレージを使用する時"
+"に、指定された最初のフォーマットだけ使用されることに注意してください。"
+
+msgid "From: string for email"
+msgstr "From:Eメールのための文字列"
+
+msgid "For IMAP storage"
+msgstr "IMAPストレージ用"
+
+msgid "IMAP server flags."
+msgstr "IMAPサーバーフラグ。"
+
+msgid "IMAP Voicemail folder."
+msgstr "IMAPボイスメールフォルダ。"
+
+msgid ""
+"If using IMAP storage, specify whether Voicemail greetings should be stored "
+"via IMAP. If no, then greetings are stored as if IMAP storage were not "
+"enabled"
+msgstr ""
+"IMAPストレージを使用する際に、IMAP経由でボイスメール挨拶が保存されるかどうか"
+"を指定します。いいえに設定した場合は、挨拶はIMAPストレージが有効でないものと"
+"して保存されます。"
+
+msgid ""
+"(yes/no) If imapgreetings=yes, then specify which folder to store your "
+"greetings in. If you do not specify a folder, then INBOX will be used."
+msgstr ""
+"（はい/いいえ）もし imapgreetings=yes "
+"の場合、グリーティングの保存先フォルダーを指定してください。フォルダーの指定がない場合は、INBOXを使用します。"
+
+msgid "For IMAP storage - TCP open timeout in seconds"
+msgstr "IMAPストレージ用 - TCPオープンタイムアウト秒"
+
+msgid "Set the parent folder (default is to have no parent folder set)."
+msgstr "親フォルダを設定 (デフォルトでは親フォルダセットなし)"
+
+msgid "IMAP server port."
+msgstr "IMAPサーバーポート。"
+
+msgid "For IMAP storage - TCP read timeout in seconds"
+msgstr "IMAPストレージ用 - TCP読み込みタイムアウト秒"
+
+msgid "IMAP server address."
+msgstr "IMAPサーバーアドレス。"
+
+msgid "For IMAP storage - TCP write timeout in seconds"
+msgstr "IMAPストレージ用 - TCP書き込みタイムアウト秒"
+
+msgid "Customize the key that fast-forwards message playback"
+msgstr "即時転送メッセージを再生するキーのカスタマイズ"
+
+msgid "Customize the key that pauses/unpauses message playback"
+msgstr "一時停止/停止解除メッセージを再生するキーのカスタマイズ"
+
+msgid "Customize the key that restarts message playback"
+msgstr "再開メッセージを再生するキーのカスタマイズ"
+
+msgid "Customize the key that rewinds message playback"
+msgstr "巻き戻しメッセージを再生するキーのカスタマイズ"
+
+msgid "Customize the key that stops message playback"
+msgstr "停止メッセージを再生するキーのカスタマイズ"
+
+msgid "Mail command."
+msgstr "メールコマンド。"
+
+msgid "Max message greeting length."
+msgstr "メッセージ挨拶の最大長。"
+
+msgid "Max failed login attempts."
+msgstr "ログイン試行の失敗最大"
+
+msgid "Max message time length."
+msgstr "メッセージ時間最大長"
+
+msgid ""
+"Maximum number of messages per folder.  If not specified, a default value "
+"(100) is used.  Maximum value for this option is 9999."
+msgstr ""
+"1フォルダあたりの最大メッセージ数。指定されない場合は、デフォルト値(100)が使"
+"用されます。このオプションの最大値は 9999 です。"
+
+msgid ""
+"Min message time length - maxsilence should be less than minsecs or you may "
+"get empty messages."
+msgstr ""
+"メッセージの最小時間 - maxsilenceはminsecsより少なくないといけません、でない"
+"と空のメッセージになります。"
+
+msgid "Move heard messages to the 'Old' folder automatically.  Defaults to on."
+msgstr "再生済みメッセージを Old フォルダーに移動します。 デフォルトは on です。"
+
+msgid "Skip to the next message after save/delete."
+msgstr "保存/削除後に次のメッセージへスキップする。"
+
+msgid ""
+"The value of odbcstorage is the database connection configured in res_odbc."
+"conf."
+msgstr "odbcstorageの値は、res_odbc.conf内で設定されたデータベース接続です。"
+
+msgid "The default table for ODBC Voicemail storage is voicemessages."
+msgstr ""
+"ODBCボイスメールストレージ用のデフォルトテーブルは、voicemessagesです。"
+
+msgid ""
+"Operator break. Allow sender to hit 0 before/after/during  leaving a "
+"Voicemail to reach an operator  [OFF by default]"
+msgstr ""
+"オペレーターブレイク。オペレーターにつなぐためにボイスメールを残す 前/後/間"
+"に 送信者に0を押すことを許可します。"
+
+msgid "Body of message sent to pager."
+msgstr "ページャーに送信されるメッセージボディー"
+
+msgid "From: string sent to pager."
+msgstr "From: ページャーに送信される文字列"
+
+msgid "Subject sent to pager."
+msgstr "ページャーに送信される件名"
+
+msgid "Skip the \"[PBX]:\" string from the message title"
+msgstr "メッセージタイトルから\"[PBX]:\"文字をスキップする。"
+
+msgid ""
+"If the \"pollmailboxes\" option is enabled, this option sets the polling "
+"frequency.  The default is once every 30 seconds."
+msgstr ""
+"もし\"メールボックスをポーリングする\"オプションが有効な場合、このオプション"
+"はポーリング間隔を設定します。デフォルトは30秒ごとに一回です。"
+
+msgid ""
+"If mailboxes are changed anywhere outside of app_voicemail, then this option "
+"must be enabled for MWI to work.  This enables polling mailboxes for "
+"changes.  Normally, it will expect that changes are only made when someone "
+"called in to one of the Voicemail applications. Examples of situations that "
+"would require this option are web interfaces to Voicemail or an email client "
+"in the case of using IMAP storage."
+msgstr ""
+"app_voicemail 以外でメールボックスの変更があった場合、MWIを機能させるには、このオプションを有効にしなければなりません。 有効にすると、"
+"メールボックスのポーリングを行い、変更を探しだします。通常、メールボックスアプリケーションの一つに誰かが電話を掛けたときのみ変更される事を期待しますが、"
+"例えばWEBインターフェースからボイスメールを利用する際や、IMAPストレージを使用するケースでのEメールクライアントを使用する場合は、このオプションを"
+"有効にする必要があります。"
+
+msgid ""
+"Allow sender to review/rerecord their message before saving it [OFF by "
+"default]"
+msgstr ""
+"送信者がメッセージを保存する前にレビュー/再録音することを許可する [デフォルト"
+"オフ]"
+
+msgid ""
+"Read back caller's telephone number prior to playing the incoming message, "
+"and just after announcing the date and time the message was left. If not "
+"described, or set to no, it will be in the envelope."
+msgstr ""
+"入ってきたメッセージを再生する前に、そして、メッセージが残された日付と時間を"
+"アナウンスした直後に発信者の電話番号を読み返します。述べられていないとき、ま"
+"たはいいえに設定されているとき、それは冒頭メッセージになります。"
+
+msgid ""
+"Turn on/off saying duration information before the message playback. [ON by "
+"default]"
+msgstr ""
+"メッセージが再生される前に、期間情報を知らせるのをオン/オフ切り替えます。 [デ"
+"フォルトオン]"
+
+msgid "Specify in minutes the minimum duration to say. Default is 2 minutes."
+msgstr "お知らせする最小期間を分で指定します。デフォルトは2分です。"
+
+msgid ""
+"Yes to search all contexts, no to search current context (if one is not "
+"specified)."
+msgstr ""
+"全てのコンテキストを検索するにははい、現在のコンテキストを検索するにはいい"
+"え。(一つも指定されていない場合)"
+
+msgid ""
+"Send Voicemail message. If not listed, sending messages from inside "
+"Voicemail will not be permitted."
+msgstr ""
+"ボイスメールメッセージを送信します。リストアップされない場合は、ボイスメール"
+"内のメッセージを送信することは許可されません。"
+
+msgid "Who the e-mail notification should appear to come from"
+msgstr "Eメール通知が誰から来たように見えるか"
+
+msgid ""
+"Silence threshold (what we consider silence: the lower, the more sensitive)"
+msgstr "無音閾値(無音判定条件:低ければ低いほど敏感になります)"
+
+msgid ""
+"How many milliseconds to skip forward/back when rew/ff in message playback"
+msgstr "メッセージ再生時の巻き戻し/早送りの時に進む/戻るをスキップするミリ秒"
+
+msgid "Enable Simple Message Desk Interface (SMDI) integration"
+msgstr "シンプルメッセージデスクインターフェイス(SMDI)統合を有効にする。"
+
+msgid ""
+"Valid port as specified in smdi.conf for using smdi for external "
+"notification."
+msgstr "外部通知のためにsmdiを使用するためのsmdi.confに指定された有効なポート"
+
+msgid "Temporary greeting reminder."
+msgstr "一時不在時のアナウンスリマインダー"
+
+msgid "Permit finding entries for forward/compose from the directory"
+msgstr "ディレクトリから転送/構成するためにエントリーを発見することを許可する"
+
+msgid ""
+"User context is where entries from users.conf are registered.  The default "
+"value is 'default'"
+msgstr ""
+"ユーザーコンテキストへusers.confからのエントリーが登録されます。デフォルト値"
+"は'デフォルト'。"
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"The passwords you entered and re-entered did not match.  Please try again."
+"\""
+msgstr ""
+"\"あなたが入力したパスワードと再入力したパスワードが一致しません。再試行して"
+"ください。\"というデフォルトプロンプトの代わりに使用される音声ファイルをカス"
+"タマイズします。"
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"Please enter your new password followed by the pound key.\""
+msgstr ""
+"\"シャープキーに続いて新しいパスワードを入力してください。\"というデフォルト"
+"プロンプトの代わりに使用される音声ファイルをカスタマイズします。"
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"Your password has been changed.\""
+msgstr ""
+"\"あなたのパスワードが変更されました。\"というデフォルトプロンプトの代わりに"
+"使用される音声ファイルをカスタマイズします。"
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"password\""
+msgstr ""
+"\"パスワード\"というデフォルトプロンプトの代わりに使用される音声ファイルをカ"
+"スタマイズします。"
+
+msgid ""
+"Customize which sound file is used instead of the default prompt that says: "
+"\"Please re-enter your password followed by the pound key\""
+msgstr "「新しいパスワードを再入力し、最後にシャープを押してください」というデフォルトプロンプトの代わりに使用される音声ファイルをカスタマイズします"
+
+msgid ""
+"Emails bearing the Voicemail may arrive in a volume too quiet to be heard.  "
+"This parameter allows you to specify how much gain to add to the message "
+"when sending a Voicemail. NOTE: sox must be installed for this option to "
+"work."
+msgstr ""
+"ボイスメールが付いたメールは聞こえないぐらい小さなボリュームで到着する可能性"
+"があります。このパラメーターはボイスメール送信時、メッセージにどれぐらいのゲ"
+"インを追加するかを指定することを許可します。注意: このオプションを機能させる"
+"にはsoxがインストールされていなければいけません。"
+
+msgid ""
+"This is the password used to access the Voicemail system.<br /><br />This "
+"password can only contain numbers.<br /><br />A user can change the password "
+"you enter here after logging into the Voicemail system (*98) with a phone."
+msgstr ""
+"これは、ボイスメールシステムにアクセスするために使用するパスワードです。<br /><br />このパスワードは数字のみが使用できます。<br "
+"/><br />ユーザは、電話機から（*98）をダイヤルしてボイスメールシステムにログインした後、ここで入力したパスワードを変更することができます。"
+
+msgid "Which format of audio file to attach to the email."
+msgstr "どのフォーマットの音声ファイルをEメールに添付するか"
+
+msgid ""
+"After notification, the Voicemail is deleted from the server. [per-mailbox "
+"only] This is intended for use with users who wish to receive their "
+"Voicemail ONLY by email. Note:  deletevoicemail is provided as an equivalent "
+"option for Realtime configuration."
+msgstr ""
+"通知後にボイスメールはサーバーから削除されます。[メールボックスごとのみ]これ"
+"は、ボイスメールをEメールでのみ受け取りたいユーザーの用途のために意図されてい"
+"ます。通知: deletevoicemailはリアルタイム設定と等価のオプションとして提供され"
+"ています。"
+
+msgid "Name of Voicemail account"
+msgstr "ボイスメールのユーザー名"
+
+msgid ""
+"Hide this mailbox from the directory produced by app_directory. The default "
+"is \"no\"."
+msgstr ""
+"app_directoryによって生産されたディレクトリからこのメールボックスを隠す。デ"
+"フォルトは\"いいえ\"。"
+
+msgid "IMAP password."
+msgstr "IMAPパスワード。"
+
+msgid "IMAP user."
+msgstr "IMAPユーザー。"
+
+msgid "Asterisk language code"
+msgstr "Asterisk言語コード"
+
+msgid "Name of account/user"
+msgstr "アカウント/ユーザー名"
+
+msgid "Remind the user that their temporary greeting is set"
+msgstr "ユーザーに一時不在時のアナウンスがセットされたことをリマインドします"
+
+msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
+msgstr ""
+"ゾーンメッセージコンテキストからのタイムゾーン。envelope=noであれば無関係で"
+"す。"
+
+msgid "Call me number. Can be used from within ARI."
+msgstr "コールミーナンバー。ARI内からで使用されます。"
+
+msgid "System View Links:"
+msgstr "システムビューリンク："
+
+msgid ""
+"A timezone definition specifies how the Voicemail system announces the time."
+msgstr "timezone 定義により、ボイスメールシステムの時刻アナウンス方法を指定できます。"
+
+msgid ""
+"For example, the time a message was left will be announced according to the "
+"user's timezone on message playback."
+msgstr ""
+"たとえば、メッセージが残された時間が、メッセージの再生時にユーザーのタイム"
+"ゾーンに基づいてアナウンスされます。"
+
+msgid "Entries below will be written to Voicemail configuration as-is."
+msgstr "以下のエントリーはそのままボイスメール設定に書き込まれます。"
+
+msgid ""
+"Please be sure to follow the format for timezone definitions described below."
+msgstr "タイムゾーンの定義は以下に記述されたフォーマットに従ってください。"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Timezone Definition"
+msgstr "タイムゾーンの定義"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "New Name"
+msgstr "新しい名前"
+
+msgid "New Timezone Definition"
+msgstr "新しいタイムゾーンの定義"
+
+msgid "Timezone definition format is: "
+msgstr "タイムゾーンの定義フォーマット："
+
+msgid "timezone|values"
+msgstr "タイムゾーン|値"
+
+msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
+msgstr "<i>タイムゾーン</i>は /usr/share/zoneinfoに列挙されております。"
+
+msgid "The <i>values</i> supported in the timezone definition string include:"
+msgstr ""
+"タイムゾーン定義文字列でサポートされている<i>値</i>には、次が含まれます："
+
+msgid "'filename'"
+msgstr "'ファイル名'"
+
+msgid "The name of a sound file (the file name must be single-quoted)"
+msgstr ""
+"音声ファイルの名前(ファイル名はシングルクォーテーションで囲む必要があります)"
+
+msgid "variable"
+msgstr "変数"
+
+msgid "A variable to be substituted (see below for supported variable values)"
+msgstr "置き換えられる変数(サポートされる変数値は以下です)"
+
+msgid "Supported <i>variables</i>:"
+msgstr "サポート<i>変数</i>:"
+
+msgid "A or a"
+msgstr "A 又は a"
+
+msgid "Day of week (Saturday, Sunday, ...)"
+msgstr "曜日(土曜日、日曜日、...)"
+
+msgid "B or b or h"
+msgstr "B 又は b 又は h"
+
+msgid "Month name (January, February, ...)"
+msgstr "月の名前(一月、二月、...)"
+
+msgid "d or e"
+msgstr "d 又は e"
+
+msgid "numeric day of month (first, second, ..., thirty-first)"
+msgstr "日にち"
+
+msgid "Y"
+msgstr "Y"
+
+msgid "Year"
+msgstr "年"
+
+msgid "I or l"
+msgstr "I 又は l"
+
+msgid "Hour, 12 hour clock"
+msgstr "時間、12時間時計"
+
+msgid "H"
+msgstr "H"
+
+msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
+msgstr "時間、24時間(\"oh\"に続く一桁の時間)"
+
+msgid "k"
+msgstr "k"
+
+msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
+msgstr "時間、24時間(\"oh\"が付いていない一桁の時間)"
+
+msgid "M"
+msgstr "M"
+
+msgid "Minute, with 00 pronounced as \"o'clock\""
+msgstr "\"時\"と発音する00がつく分"
+
+msgid "N"
+msgstr "N"
+
+msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
+msgstr "\"百\"と発音する00がつく分(USミリタリー時間)"
+
+msgid "P or p"
+msgstr "P or p"
+
+msgid "AM or PM"
+msgstr "午前 or 午後"
+
+msgid "Q"
+msgstr "Q"
+
+msgid "\"today\", \"yesterday\" or ABdY"
+msgstr "\" 今日\", \"昨日\" 又は ABdY"
+
+msgid "q"
+msgstr "q"
+
+msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
+msgstr "\"\" (今日), \"昨日\", 平日, 又は ABdY"
+
+msgid "R"
+msgstr "R"
+
+msgid "24 hour time, including minute"
+msgstr "分を含む24時間"
+
+msgid "General Dialplan Settings"
+msgstr "ダイヤルプランの一般設定"
+
+msgid "Disable Standard Prompt"
+msgstr "スタンダードプロンプトを無効にする"
+
+msgid ""
+"Check this box to disable the standard voicemail instructions that follow "
+"the user recorded message. These standard instructions tell the caller to "
+"leave a message after the beep. This can be individually controlled for "
+"users who have VMX locater enabled."
+msgstr ""
+"チェックを入れた場合、ユーザーが録音したメッセージの後に、標準のボイスメール説明を無効にします。標準の説明では「発信音の後にメッセージを録音してください"
+"」と言う意味のものです。VMXロケータが有効なユーザーの場合は、個別でコントロールできます。"
+
+msgid "Unavailable"
+msgstr "使用不可"
+
+msgid "Busy"
+msgstr "ビジー"
+
+msgid "No Message"
+msgstr "メッセージなし"
+
+msgid "Direct Dial Mode"
+msgstr "ダイレクトダイヤルモード"
+
+msgid ""
+"Whether to play the busy, unavailable or no message when direct dialing "
+"voicemail"
+msgstr "ボイスメールに直接ダイヤルした際に、「ビジー」、「利用不可」、あるいは「メッセージなし」の中からどれを再生するかを選択します"
+
+msgid "None"
+msgstr "なし"
+
+msgid "3 db"
+msgstr "3 db"
+
+msgid "6 db"
+msgstr "6 db"
+
+msgid "9 db"
+msgstr "9 db"
+
+msgid "12 db"
+msgstr "12 db"
+
+msgid "15 db"
+msgstr "15 db"
+
+msgid "Voicemail Recording Gain"
+msgstr "ボイスメール録音ゲイン"
+
+msgid ""
+"The amount of gain to amplify a voicemail message when geing recorded. This "
+"is usually set when users are complaining about hard to hear messages on "
+"your system, often caused by very quiet analog lines. The gain is in "
+"Decibels which doubles for every 3 db."
+msgstr ""
+"ボイスメールの録音時に音を上げる値を指定できます。静かなアナログ回線が大概の"
+"原因で、ユーザーから「メッセージが聞こえにくい」という苦情があった場合に設定"
+"するケースが多いです。増幅の単位はdbで、3 dbごとに音が2倍大きくなります。"
+
+msgid "Operator Extension"
+msgstr "オペレーター内線"
+
+msgid ""
+"Default number to dial when a voicemail user 'zeros out' if enabled. This "
+"can be overriden for each extension with the VMX Locater option that is "
+"valid even when VMX Locater is not enabled. This can be any number including "
+"an external number and there is NO VALIDATION so it should be tested after "
+"configuration."
+msgstr ""
+"ボイスメールユーザーが zeros outが有効な時にダイヤルするデフォルト番号を指定します。VMXロケータが無効になっていても、各内線のVMXロケータ"
+"のオプションを上書きすることができます。指定できる番号は外部の番号でも構いませんが、未検証の為、設定後は必ずテストを行ってください。"
+
+msgid "Advanced VmX Locater Settings"
+msgstr "VmXロケータの高度な設定"
+
+msgid "0 Sec"
+msgstr "0秒"
+
+#, php-format
+msgid "%s Sec"
+msgstr "%s秒"
+
+msgid "Msg Timeout"
+msgstr "メッセージタイムアウト"
+
+msgid ""
+"Time to wait after message has played to timeout and/or repeat the message "
+"if no entry pressed."
+msgstr ""
+"メッセージ再生後に、タイムアウトするまでの時間を指定します。発信者の入力がな"
+"い場合は、メッセージをもう一度再生することもできます。"
+
+#, php-format
+msgid "%s Attempts"
+msgstr "%s 回"
+
+msgid "Times to Play Message"
+msgstr "メッセージ再生回数："
+
+msgid ""
+"Number of times to play the recorded message if the caller does not press "
+"any options and it times out. One attempt means we won't repeat and it will "
+"be treated as a timeout. A timeout would be the normal behavior and it is "
+"fairly normal to leave this zero and just record a message that tells them "
+"to press the various options now and leave enough time in the greeting "
+"letting them know it will otherwise go to voicemail as is normal."
+msgstr ""
+"もし発信者が何も入力せず、タイムアウトとなった場合に、録音したメッセージを再生する回数を指定します。1回 を指定すると、もう一度再生せずにタイムアウトと"
+"して処理される事を意味します。タイムアウトが一般的な動作です。この設定を1回に設定して、グリーティングの中で説明するケースが多いです。"
+
+#, php-format
+msgid "%s Retry"
+msgstr "%s リトライ数"
+
+#, php-format
+msgid "%s Retries"
+msgstr "%s リトライ数"
+
+msgid "Error Re-tries"
+msgstr "エラーリトライ数"
+
+msgid ""
+"Number of times to play invalid options and repeat the message upon "
+"receiving an undefined option. One retry means it will repeat at one time "
+"after the intial failure."
+msgstr "未定義のオプションを受信した際、メッセージを繰り返し再生する回数。1に設定すると、最初の失敗からメッセージを1回だけ繰り返すようになります。"
+
+msgid "Disable Standard Prompt after Max Loops"
+msgstr "最大ループ数を超えるとスタンダードプロンプトを無効にする"
+
+msgid ""
+"If the Max Loops are reached and the call goes to voicemail, checking this "
+"box will disable the standard voicemail prompt prompt that follows the "
+"user's recorded greeting. This default can be overriden with a unique ..vmx/"
+"vmxopts/loops AstDB entry for the given mode (busy/unavail) and user."
+msgstr ""
+"もし Max Loopsが最大に達しボイスメールに移動した場合、このボックスにチェックを入れると、ユーザーが録音したグリーティングの後に再生する標準ボイ"
+"スメールプロンプトを無効にします。デフォルトでは、 与えられたモード(ビジー/利用不可）、及びユーザーにおいて、vmx/vmxopts/loops "
+"のAstDBエントリーで置き換えることができます。"
+
+msgid "Disable Standard Prompt on 'dovm' Extension"
+msgstr "エクステンション dovm でスタンダードプロンプトを無効にする"
+
+msgid ""
+"If the special advanced extension of 'dovm' is used, checking this box will "
+"disable the standard voicemail prompt prompt that follows the user's "
+"recorded greeting. This default can be overriden with a unique ..vmx/vmxopts/"
+"dovm AstDB entry for the given mode (busy/unavail) and user."
+msgstr ""
+"もし dovm の特別高度拡張機能が使用されている場合、このボックスにチェックを入れると、ユーザーが録音したグリーティングの後に再生する標準ボイスメール"
+"プロンプトを無効にします。デフォルトでは、 与えられたモード(ビジー/利用不可）、及びユーザーにおいて、vmx/vmxopts/loops "
+"のAstDBエントリーで置き換えることができます。"
+
+msgid "Account View Links:"
+msgstr "アカウントビューリンク："
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Usage"
+msgstr "使用状況"
+
+msgid "Advanced Settings"
+msgstr "高度な設定"
+
+msgid "No name defined; this is configured from the Extensions or Users page."
+msgstr ""
+"名前が定義されていません; これは内線またはユーザーページから設定されます。"
+
+msgid "Call-Me Number"
+msgstr ""
+"名前が定義されていません; これは内線またはユーザーページから設定されます。"
+
+msgid "Number of Accounts:"
+msgstr "アカウント数："
+
+msgid "Total ( Activated / Unactivated / Disabled )"
+msgstr "合計 ( アクティベート済 / 未アクティベート / 無効 )"
+
+msgid "Number of Messages:"
+msgstr "メッセージ数："
+
+msgid "Total ( Messages in inboxes / Messages in other folders )"
+msgstr "合計 ( 受信箱内のメッセージ / その他のフォルダのメッセージ )"
+
+msgid "Remove all messages"
+msgstr "全てのメッセージを削除"
+
+msgid "Recorded Names:"
+msgstr "録音された名前の数："
+
+msgid "Number of recorded name greetings"
+msgstr "録音された名前アナウンスの数"
+
+msgid "Remove all recorded names"
+msgstr "録音された名前を全て削除"
+
+msgid "Unavailable Greetings:"
+msgstr "利用不可時のアナウンス："
+
+msgid "Number of recorded unavailable greetings"
+msgstr "利用不可時のアナウンス録音の数"
+
+msgid "Remove all unavailable greetings"
+msgstr "利用不可時のアナウンスを全て削除"
+
+msgid "Busy Greetings:"
+msgstr "ビジー時のアナウンス："
+
+msgid "Number of recorded busy greetings"
+msgstr "録音されたビジー時のアナウンス数"
+
+msgid "Remove all busy greetings"
+msgstr "ビジー時のアナウンスを全て削除"
+
+msgid "Temporary Greetings:"
+msgstr "一時不在時のグリーティング："
+
+msgid "Number of recorded temporary greetings"
+msgstr "録音された一時不在時のアナウンス数"
+
+msgid "Remove all temporary greetings"
+msgstr "一時不在時のアナウンスを全て削除"
+
+msgid "Abandoned Greetings:"
+msgstr "破棄されたアナウンス："
+
+msgid ""
+"Number of abandoned greetings. Such greetings were recorded by the user but "
+"were NOT accepted, so the sound file remains on disk but is not used as a "
+"greeting."
+msgstr ""
+"破棄されたアナウンス数。これらのアナウンスはユーザーに録音されましたが、受け"
+"入れられなかったため、音声ファイルはディスク上に残っていますがアナウンスとし"
+"て使用されていません。"
+
+msgid "Remove all abandoned greetings (> 1 day old)"
+msgstr "破棄されたアナウンスを全て削除 (> 1日以上古い)"
+
+msgid "Storage Used:"
+msgstr "保存領域使用状況："
+
+msgid "Disk space currently in use by Voicemail data"
+msgstr "現在ボイスメールデータで使用中のディスクスペース"
+
+msgid "File timestamp: "
+msgstr "ファイルのタイムスタンプ："
+
+msgid "Recorded Name:"
+msgstr "録音名"
+
+msgid "Has a recorded name greeting?"
+msgstr "録音された名前挨拶がある?"
+
+msgid "Remove recorded name"
+msgstr "録音名を削除"
+
+msgid "Unavailable Greeting:"
+msgstr "利用不可能なアナウンス："
+
+msgid "Has a recorded unavailable greeting?"
+msgstr "録音された無効挨拶がある?"
+
+msgid "Remove unavailable greeting"
+msgstr "利用不可時のアナウンスを削除"
+
+msgid "Has a recorded busy greeting?"
+msgstr "録音されたビジー挨拶がある?"
+
+msgid "Remove busy greeting"
+msgstr "ビジー時のアナウンスを削除"
+
+msgid "Temporary Greeting:"
+msgstr "一時不在時のアナウンス："
+
+msgid "Has a recorded temporary greeting?"
+msgstr "録音された一時挨拶がある?"
+
+msgid "Remove temporary greeting"
+msgstr "一時不在時のアナウンスを削除"
+
+msgid "Storage Used"
+msgstr "保存領域使用状況"
+
+msgid "This module allows you to configure Voicemail for a user or extension"
+msgstr "このモジュールはユーザー又は内線のボイスメール設定を可能にします。"
+
+msgid "Create Voicemail Hints"
+msgstr "ボイスメールのヒントを作成"
+
+msgid "Voicemail Module"
+msgstr "ボイスメールモジュール"
+
+msgid ""
+"Setting this flag with generate the required dialplan to integrate with "
+"res_mwi_blf which is included with the Official IssabelPBX Distro. It allows "
+"users to subscribe to other voicemail box and be notified via BLF of changes."
+msgstr ""
+"このフラグをセットすると、オフィシャルIssabelPBXディストリビューションに含まれる res_mwi_blf "
+"と統合する為に必要とされるダイヤルプランを生成する事が出来ます。ユーザーが自分以外のボイスメールを購読し、BLFを通じて変更が通知されるようになります。"
+
+msgid "Provide IMAP Voicemail Fields"
+msgstr "IMAPボイスメールフィールドの提供"
+
+msgid ""
+"Installations that have configured Voicemail with IMAP should set this to "
+"true so that the IMAP username and password fields are provided in the "
+"Voicemail setup screen for extensions. If an extension alread has these "
+"fields populated, they will be displayed even if this is set to false."
+msgstr ""
+"拡張するため、ボイスメールセットアップスクリーンにIMAPユーザーとパスワード"
+"フィールドが提供されるよう、構成されたインストールをtrueに設定しないといけな"
+"い。拡張にあるフィールドはもうすでに提供された場合、falseに設定しても表示され"
+"る。"
+
+#~ msgid "undefined"
+#~ msgstr "未定義"
+
+#~ msgid ""
+#~ "Selecting \"undefined\" will remove this option from the user's Voicemail "
+#~ "configuration entry. (System default will be used.)"
+#~ msgstr ""
+#~ "\"未定義\"を選択すると、このオプションをユーザーのボイスメール設定エント"
+#~ "リーから削除します。(システムデフォルトは使用されるです)。"

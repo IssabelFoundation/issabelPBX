@@ -1,0 +1,22 @@
+<module>
+	<rawname>fw_langpacks</rawname>
+	<modtype>framework</modtype>
+	<repo>extended</repo>
+	<name>IssabelPBX Localization Updates</name>
+	<version>2.11.2</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<changelog>
+		*2.11.2* Initial Issabel Foundation release
+	</changelog>
+	<description>
+		This module provides a facility to install new and updated localization translations for all components in IssabelPBX. Localization i18n translations are still kept with each module and other components such as the User Portal (ARI). This provides an easy ability to bring all components up-to-date without the need of publishing dozens of modules for every minor change. The localization updates used will be the latest available for all modules and will not consider the current version you are running.
+	</description>
+	<category>Admin</category>
+	<location>release/2.11/fw_langpacks-2.11.0.0.tgz</location>
+	<md5sum>ae8a0cc2d7ac42f348e382069a5aa372</md5sum>
+	<supported>
+		<version>2.11</version>
+	</supported>
+</module>

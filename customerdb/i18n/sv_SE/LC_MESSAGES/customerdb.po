@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX customerdb\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-28 04:55+0200\n"
+"PO-Revision-Date: 2008-09-28 15:45+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#: page.customerdb.php:82
+msgid "Customer"
+msgstr "Kund"
+
+#: page.customerdb.php:90
+msgid "deleted"
+msgstr "borttagen"
+
+#: page.customerdb.php:95
+msgid "Add a user"
+msgstr "Lägg till en kund"
+
+#: page.customerdb.php:126
+msgid "Delete Customer"
+msgstr "Ta bort kund"
+
+#: page.customerdb.php:145
+msgid "Edit Customer"
+msgstr "Redigera kund"
+
+#: page.customerdb.php:145
+msgid "Add Customer"
+msgstr "Lägg till kund"
+
+#: page.customerdb.php:152
+msgid "Name"
+msgstr "Namn"
+
+#: page.customerdb.php:153
+msgid "Name of business or person (REQUIRED)"
+msgstr "Namnet på företagen eller kunden (måste anges)"
+
+#: page.customerdb.php:161
+msgid "Address 1"
+msgstr "Adress 1"
+
+#: page.customerdb.php:162
+msgid "Address Line 1 (REQUIRED)"
+msgstr "Adress 1 (måste anges)"
+
+#: page.customerdb.php:169
+msgid "Address 2"
+msgstr "Adress 2"
+
+#: page.customerdb.php:170
+msgid "Address Line 2"
+msgstr "Adress 2"
+
+#: page.customerdb.php:177
+msgid "City"
+msgstr "Stad"
+
+#: page.customerdb.php:178
+msgid "City (REQUIRED)"
+msgstr "Stad (måste anges)"
+
+#: page.customerdb.php:185
+msgid "State"
+msgstr "Stat"
+
+#: page.customerdb.php:186
+msgid "State (REQUIRED)"
+msgstr "Stat (måste anges), välj N/A om du är utanför USA"
+
+#: page.customerdb.php:201
+msgid "Zip/Post Code"
+msgstr "Postnummer"
+
+#: page.customerdb.php:202
+msgid "Zip (REQUIRED)"
+msgstr "Postnummer (måste anges)"
+
+#: page.customerdb.php:210
+msgid "Sip Account"
+msgstr "SIP-konto"
+
+#: page.customerdb.php:211
+msgid "Sip Account (must have this or a DID tied to the account)"
+msgstr "SIP-konto (SIP eller direktnummer måste anges)"
+
+#: page.customerdb.php:226
+msgid "DID Number"
+msgstr "Direktnummer"
+
+#: page.customerdb.php:227
+msgid "DID Number (must have this or sip tied to the account)"
+msgstr "Direktnummer (direktnummer eller SIP måste anges)"
+
+#: page.customerdb.php:242
+msgid "Device"
+msgstr "Enhet"
+
+#: page.customerdb.php:243
+msgid "Device (example... Linksys PAP-2, Sipura)"
+msgstr "Enhet (t.ex. Grandstream, Linksys PAP-2, Sipura)"
+
+#: page.customerdb.php:250
+msgid "Serial"
+msgstr "Serienummer"
+
+#: page.customerdb.php:251
+msgid "Serial Number"
+msgstr "Serienummer"
+
+#: page.customerdb.php:258
+#: page.customerdb.php:259
+msgid "IP Address"
+msgstr "IP-adress"
+
+#: page.customerdb.php:266
+msgid "Account"
+msgstr "Konto"
+
+#: page.customerdb.php:267
+msgid "Account Number (internal use)"
+msgstr "Kontonummer (internt bruk)"
+
+#: page.customerdb.php:274
+msgid "Email"
+msgstr "E-post"
+
+#: page.customerdb.php:275
+msgid "Email Address"
+msgstr "E-postadress"
+
+#: page.customerdb.php:282
+msgid "Username"
+msgstr "Användarnamn"
+
+#: page.customerdb.php:283
+msgid "Username for the device"
+msgstr "Användarnamnet för enheten"
+
+#: page.customerdb.php:290
+msgid "Password"
+msgstr "Lösenord"
+
+#: page.customerdb.php:291
+msgid "Password for device"
+msgstr "Lösenordet föe enheten"
+
+#: page.customerdb.php:323
+msgid "Please enter a name for this customer"
+msgstr "Skriv in ett namn för denna kund"
+
+#: page.customerdb.php:324
+msgid "Please enter an address for this customer"
+msgstr "Skriv in en adress för denna kund"
+
+#: page.customerdb.php:325
+msgid "Pleast enter a city for this customer"
+msgstr "Skriv in en stad för denna kund"
+
+#: page.customerdb.php:326
+msgid "Please enter a zip for this customer"
+msgstr "Skriv in ett postnummer för denna kund"
+
+#: page.customerdb.php:327
+msgid "You must choose either a sip or did number for this customer."
+msgstr "Du måste ange SIP-konto eller Direktnummer för denna kund"
+
+#: module.xml
+msgid "Customer DB"
+msgstr "Kunddatabas"
+
+#: dirty fix
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+

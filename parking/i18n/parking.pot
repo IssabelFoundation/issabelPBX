@@ -1,0 +1,321 @@
+# IssabelPBX language template
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-18 14:32+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Pickup ParkedCall Any"
+msgstr ""
+
+msgid "Park Prefix"
+msgstr ""
+
+msgid "Pickup ParkedCall Prefix"
+msgstr ""
+
+#, php-format
+msgid "creating table %s if needed"
+msgstr ""
+
+msgid "ERROR: too many default lots detected, deleting and reinitializing"
+msgstr ""
+
+msgid "Initializing default parkinglot.."
+msgstr ""
+
+msgid "done"
+msgstr ""
+
+msgid "migrating old parkinglot data"
+msgstr ""
+
+#, php-format
+msgid "%s no longer supported"
+msgstr ""
+
+msgid "migrated ... dropping old table parkinglot"
+msgstr ""
+
+#, php-format
+msgid "ParkPlus: ParkCall %s"
+msgstr ""
+
+msgid "INUSE"
+msgstr ""
+
+#, php-format
+msgid "ParkPlus: PickupSlot %s"
+msgstr ""
+
+#, php-format
+msgid "Parking Lot: %s (%s)"
+msgstr ""
+
+msgid "Parking Lot"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Manages parking lot extensions and other options.\tParking is a way of "
+"putting calls "
+msgstr ""
+
+msgid "Parking"
+msgstr ""
+
+msgid "Parking Lot Options"
+msgstr ""
+
+msgid "Parking Lot Extension:"
+msgstr ""
+
+msgid "This is the extension where you will transfer a call to park it"
+msgstr ""
+
+msgid "Parking Lot Name:"
+msgstr ""
+
+msgid "Provide a Descriptive Title for this Parking Lot"
+msgstr ""
+
+msgid "Parking Lot Starting Position:"
+msgstr ""
+
+msgid "The starting postion of the parking lot"
+msgstr ""
+
+msgid "Number of Slots:"
+msgstr ""
+
+msgid ""
+"The total number of parking lot spaces to configure. Example, if 70 is the "
+"extension and 8 slots are configured, the parking slots will be 71-78"
+msgstr ""
+
+msgid "Parking Timeout (seconds):"
+msgstr ""
+
+msgid ""
+"The timeout period in seconds that a parked call will attempt to ring back "
+"the original parker if not answered"
+msgstr ""
+
+msgid "Parked Music Class:"
+msgstr ""
+
+msgid ""
+"This is the music class that will be played to a parked call while in the "
+"parking lot UNLESS the call flow prior to parking the call explicitly set a "
+"different music class, such as if the call came in through a queue or ring "
+"group."
+msgstr ""
+
+msgid "default"
+msgstr ""
+
+msgid "BLF Capabilities:"
+msgstr ""
+
+msgid "Enable this to have Asterisk 'hints' generated to use with BLF buttons."
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Find Slot:"
+msgstr ""
+
+msgid ""
+"Next: If you want the parking lot to seek the next sequential parking slot "
+"relative to the the last parked call instead of seeking the first available "
+"slot. First: Use the first parking lot slot available"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "First"
+msgstr ""
+
+msgid "Returned Call Behavior"
+msgstr ""
+
+msgid "Pickup Courtesy Tone:"
+msgstr ""
+
+msgid "Whom to play the courtesy tone to when a parked call is retrieved."
+msgstr ""
+
+msgid "Caller"
+msgstr ""
+
+msgid "Parked"
+msgstr ""
+
+msgid "Both"
+msgstr ""
+
+msgid "Transfer Capability:"
+msgstr ""
+
+msgid ""
+"Asterisk: parkedcalltransfers. Enables or disables DTMF based transfers when "
+"picking up a parked call."
+msgstr ""
+
+msgid "Neither"
+msgstr ""
+
+msgid "Re-Parking Capability:"
+msgstr ""
+
+msgid ""
+"Asterisk: parkedcallreparking. Enables or disables DTMF based parking when "
+"picking up a parked call."
+msgstr ""
+
+msgid "Parking Alert-Info:"
+msgstr ""
+
+msgid ""
+"Alert-Info to add to the call prior to sending back to the Originator or to "
+"the Alternate Destination."
+msgstr ""
+
+msgid "CallerID Prepend:"
+msgstr ""
+
+msgid ""
+"String to prepend to the current Caller ID associated with the parked call "
+"prior to sending back to the Originator or the Alternate Destination."
+msgstr ""
+
+msgid "Auto CallerID Prepend:"
+msgstr ""
+
+msgid ""
+"These options will be appended after CallerID Prepend if set. Otherwise they "
+"will appear first. The automatic options are as follows:<ul><li><strong>None:"
+"</strong> No Automatic Prepend</li><li><strong>Slot:</strong> Parking lot "
+"they were parked on</li><li><strong>Extension:</strong> The extension number "
+"that parked the call</li><li><strong>Name:</strong> The user who parked the "
+"call</li></ul>"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Slot"
+msgstr ""
+
+msgid "Extension"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Announcement:"
+msgstr ""
+
+msgid ""
+"Optional message to be played to the call prior to sending back to the "
+"Originator or the Alternate Destination."
+msgstr ""
+
+msgid ""
+"You must install and enable the \"Systems Recordings\" Module to edit this "
+"option"
+msgstr ""
+
+msgid "Alternate Destination"
+msgstr ""
+
+msgid "Come Back to Origin:"
+msgstr ""
+
+msgid ""
+"Where to send a parked call that has timed out. If set to yes then the "
+"parked call will be sent back to the originating device that sent the call "
+"to this parking lot. If the origin is busy then we will send the call to the "
+"Destination selected below. If set to no then we will send the call directly "
+"to the destination selected below"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Destination:"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "This module is used to configure Parking Lot(s) in Asterisk."
+msgstr ""
+
+msgid ""
+"Simply transfer the call to said parking lot extension. Asterisk will then "
+"read back the parking lot number the call has been placed in. To retrieve "
+"the call simply dial that number back."
+msgstr ""
+
+msgid "Example usage"
+msgstr ""
+
+msgid "*2nn:"
+msgstr ""
+
+msgid ""
+"Attended Transfer call into Park lot nnn (It will announce the slot back to "
+"you)"
+msgstr ""
+
+msgid "nn:"
+msgstr ""
+
+msgid "Park Yourself into Parking lot nnn (Announcing your parked slot to you)"
+msgstr ""
+
+msgid ""
+"There are also different levels of Parking. To see what level you have and "
+"to see options and features you'd get from other modules please see the "
+"chart below"
+msgstr ""
+
+msgid "Paging"
+msgstr ""
+
+msgid "Paging Provides the Ability to setup Park and Announce"
+msgstr ""
+
+msgid "Paging Pro"
+msgstr ""
+
+msgid "Paging Pro enables the Ability to setup Park and Announce"
+msgstr ""
+
+msgid "Park Pro"
+msgstr ""
+
+msgid "Park Pro enables the Ability to setup Park and Announce"
+msgstr ""
+
+msgid "Overview"
+msgstr ""

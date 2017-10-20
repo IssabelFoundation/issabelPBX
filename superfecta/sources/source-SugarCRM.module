@@ -1,0 +1,200 @@
+<?php
+
+/* BUG FIXES */
+// 27 Jun 2013 Migrated to 2.11.x platform by lgaetz
+// 27 October 2011 added MySQL query for searching leads
+// v0.9.5  Fixed PHP/MYSQL closing problem 3/30/2009 jpeterman
+// v0.9.3: Fixed contacts query to also lookup phone_home entry
+// v0.9.2: Initial Release Version
+// 
+
+
+class SugarCRM extends superfecta_base {
+
+    public $description = "Searches Sugar CRM databse";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'DB_Driver' => array(
+                'description' => 'The PDO database driver, you probably want MySQL',
+	            'type' => 'select',
+	            'option' => array(
+	                'none' => 'none'
+	            ),
+	            'default' => 'mysql'
+        ),
+        'DB_Host' => array(
+                'description' => 'Host address of the Sugar database. (localhost if the database is on the same server as IssabelPBX)',
+                'type' => 'text',
+				'default' => 'localhost'
+        ),
+        'DB_Name' => array(
+                'description' => 'Name of the Sugar CRM database',
+                'type' => 'text',
+				'default' => 'sugarcrm'
+        ),
+        'DB_User' => array(
+                'description' => 'Username used to connect to the database',
+                'type' => 'text',
+				'default' => 'root'
+        ),
+        'DB_Password' => array(
+                'description' => 'Password used to connect to the database',
+                'type' => 'password',
+				'default' => 'passw0rd'
+        ),
+		'Search_Accounts' => array(
+                'description' => 'Include Accounts records in search',
+                'type' => 'checkbox',
+				'default' => 'on'
+        ),
+		'Search_Users' => array(
+                'description' => 'Include Users records in search',
+                'type' => 'checkbox',
+				'default' => 'on'
+        ),
+		'Search_Contacts' => array(
+                'description' => 'Include Contacts records in search',
+                'type' => 'checkbox',
+				'default' => 'on'
+        ),
+		'Search_Leads' => array(
+                'description' => 'Include Leads records in search',
+                'type' => 'checkbox',
+				'default' => 'on'
+        ),
+		'Filter_Length' => array(
+                'description' => 'The number of rightmost digits to check for a match',
+                'type' => 'number',
+				'default' => '10'
+        ),
+
+    );
+
+	function __construct() {
+		if(class_exists('PDO')) {
+			$this->source_param['DB_Driver']['option'] = array_combine(PDO::getAvailableDrivers(),PDO::getAvailableDrivers());
+		}
+	}
+
+    function get_caller_id($thenumber, $run_param=array()) {
+        $caller_id = null;
+		
+		if(class_exists('PDO')) {
+	        $this->DebugPrint("Connecting to database....");
+		
+			try {
+			    $dbh = new PDO($run_param['DB_Driver'].':dbname='.$run_param['DB_Name'].';host='.$run_param['DB_Host'], $run_param['DB_User'], $run_param['DB_Password']);
+			} catch (PDOException $e) {
+			    $this->DebugPrint('Connection failed: ' . $e->getMessage());
+			}
+		} else {
+			$this->DebugPrint("PDO not present on system...Skipping");
+		}
+
+		// keep only the filter_length rightmost digits
+		if (strlen($thenumber) > $run_param['Filter_Length']) {
+			$thenumber = substr($thenumber, -$run_param['Filter_Length']);
+		}
+
+		//  Build regular expression from the modified $thenumber to avoid non-digit characters stored in database
+		$thenumberregex = "[^0-9]*";
+		for( $x=0; $x < ((strlen($thenumber))-1); $x++ ) {
+			$thenumberregex .=  substr($thenumber,$x,1)."[^0-9]*" ;
+		}
+		$thenumberregex = $thenumberregex.(substr($thenumber,-1))."([^0-9]+|$)";
+
+		// search accounts
+        if ($run_param['Search_Accounts'] == "on") {
+			$sql = "SELECT name FROM accounts WHERE deleted = '0' AND accounts.phone_office REGEXP '" . $thenumberregex . "' OR accounts.phone_alternate REGEXP '" . $thenumberregex . "' OR accounts.phone_fax REGEXP '" . $thenumberregex . "' LIMIT 1";
+
+			if(mysql_num_rows($wquery_result) > 0)	{
+				$wquery_row = mysql_fetch_array($wquery_result);
+				$wresult_caller_name = $wquery_row["name"];
+			}
+			$sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+			if(!$sth) {
+				$this->DebugPrint("Failed to Prepare the SQL Statement. Are we connected?...Skipping");
+				return null;
+			}
+			$this->DebugPrint("Connected!");
+			$this->DebugPrint("Searching Accounts Database...");
+			$sth->execute(array(':thenumber' => $thenumber));
+			$find = $sth->fetch(PDO::FETCH_BOTH);
+			
+			if($find && is_array($find)) {
+				$this->DebugPrint("Found..");
+				return $find[0];
+			}
+		} 
+
+		// search users
+		if ($run_param['Search_Users'] == "on") {
+			$sql = "SELECT first_name,last_name FROM users WHERE deleted = '0' AND users.phone_work REGEXP '" . $thenumberregex . "' OR users.phone_mobile REGEXP '" . $thenumberregex . "' OR users.phone_home REGEXP '" . $thenumberregex . "' OR users.phone_other REGEXP '" . $thenumberregex . "'  OR users.phone_fax REGEXP '" . $thenumberregex . "' LIMIT 1";
+			if(mysql_num_rows($wquery_result) > 0)	{
+				$wquery_row = mysql_fetch_array($wquery_result);
+				$wresult_caller_name = $wquery_row["name"];
+			}
+			$sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+			if(!$sth) {
+				$this->DebugPrint("Failed to Prepare the SQL Statement. Are we connected?...Skipping");
+				return null;
+			}
+			$this->DebugPrint("Connected!");
+			$this->DebugPrint("Searching Users Database...");
+			$sth->execute(array(':thenumber' => $thenumber));
+			$find = $sth->fetch(PDO::FETCH_BOTH);
+			
+			if($find && is_array($find)) {
+				$this->DebugPrint("Found..");
+				return $find[0]." ".$find[1];
+			}
+		}
+
+		// search contacts
+		if ($run_param['Search_Contacts'] == "on") {
+			$sql = "SELECT first_name,last_name FROM contacts WHERE deleted = '0' AND contacts.phone_work REGEXP '" . $thenumberregex . "' OR contacts.phone_mobile REGEXP '" . $thenumberregex . "' OR contacts.phone_home REGEXP '" . $thenumberregex . "' OR contacts.phone_other REGEXP '" . $thenumberregex . "'  OR contacts.phone_fax REGEXP '" . $thenumberregex . "' LIMIT 1";
+			if(mysql_num_rows($wquery_result) > 0)	{
+				$wquery_row = mysql_fetch_array($wquery_result);
+				$wresult_caller_name = $wquery_row["name"];
+			}
+			$sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+			if(!$sth) {
+				$this->DebugPrint("Failed to Prepare the SQL Statement. Are we connected?...Skipping");
+				return null;
+			}
+			$this->DebugPrint("Connected!");
+			$this->DebugPrint("Searching Contacts Database...");
+			$sth->execute(array(':thenumber' => $thenumber));
+			$find = $sth->fetch(PDO::FETCH_BOTH);
+			
+			if($find && is_array($find)) {
+				$this->DebugPrint("Found..");
+				return $find[0]." ".$find[1];
+			}
+		}
+
+		// search leads
+		if ($run_param['Search_Leads'] == "on") {
+			$sql = "SELECT first_name,last_name FROM leads WHERE deleted = '0' AND leads.phone_work REGEXP '" . $thenumberregex . "' OR leads.phone_mobile REGEXP '" . $thenumberregex . "' OR leads.phone_home REGEXP '" . $thenumberregex . "' OR leads.phone_other REGEXP '" . $thenumberregex . "'  OR leads.phone_fax REGEXP '" . $thenumberregex . "' LIMIT 1";
+			if(mysql_num_rows($wquery_result) > 0)	{
+				$wquery_row = mysql_fetch_array($wquery_result);
+				$wresult_caller_name = $wquery_row["name"];
+			}
+			$sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+			if(!$sth) {
+				$this->DebugPrint("Failed to Prepare the SQL Statement. Are we connected?...Skipping");
+				return null;
+			}
+			$this->DebugPrint("Connected!");
+			$this->DebugPrint("Searching Leads Database...");
+			$sth->execute(array(':thenumber' => $thenumber));
+			$find = $sth->fetch(PDO::FETCH_BOTH);
+
+			if($find && is_array($find)) {
+				$this->DebugPrint("Found..");
+				return $find[0]." ".$find[1];
+			}
+		}
+    }
+
+}

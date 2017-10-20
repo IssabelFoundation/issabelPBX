@@ -1,0 +1,27 @@
+<module>
+	<rawname>hotelwakeup</rawname>
+	<name>Wake Up Calls</name>
+	<repo>standard</repo>
+	<version>2.11.3</version>
+	<license>GPLv2</license>
+	<publisher>POSSA</publisher>
+	<category>Applications</category>
+		<description>IssabelPBX module for generating reminder and wakeup calls</description>
+	<info>https://github.com/POSSA/Hotel-Style-Wakeup-Calls</info>
+	 <changelog>
+		 *2.11.3* Initial Issabel Foundation release
+	</changelog>
+	<menuitems>
+		<hotelwakeup>Wake Up Calls</hotelwakeup>
+	</menuitems>
+	<depends>
+		<module>ivr gt1.0</module>
+		<version>ge 2.9</version>
+		<engine>asterisk 1.2</engine>
+	</depends>
+	<supported>
+		<version>2.11</version>
+	</supported>
+	<location>release/2.11/hotelwakeup-2.11.1.tgz</location>
+	<md5sum>d6f25e0c000f752a27577ae14037e44c</md5sum>
+</module>

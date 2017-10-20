@@ -1,0 +1,524 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2008, 2009 Chavdar Iliev <chavdar_75@yahoo.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2014-07-25 21:32+0200\n"
+"Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
+"Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/backup/bg/>"
+"\n"
+"Language: bg_BG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.10-dev\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Backup & Restore"
+msgstr "Архивирай & Възстанови"
+
+msgid "Admin"
+msgstr "Админ"
+
+msgid "Backup & Restore for your IssabelPBX environment"
+msgstr "Архивирай & Възстанови за вашата IssabelPBX система"
+
+msgid "Can not create backup tables"
+msgstr "Не мога да създам таблици с архиви"
+
+msgid "Can't check for Backup table"
+msgstr "Не мога да проверя таблица Backup"
+
+msgid ""
+"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgstr ""
+"ГРЕШКА: неуспех при преместване на старата таблица \"Backup\" в нова таблица "
+"\"backup\""
+
+msgid "This error can result from a previous incomplete/failed install of"
+msgstr ""
+"Тази грешка може да е в резултат на предишна непълна/провалена инсталация на"
+
+msgid "this module. You should probably uninstall and reinstall this module"
+msgstr "този модул. Трябва да деинсталирате и да инсталирате наново този модул"
+
+msgid ""
+"doing so will result in a loss of all your backup settings though previous"
+msgstr ""
+"което ще доведе до загубване на всички Ваши настройки на архивиране като "
+"предишните"
+
+msgid "backup data will be preserved."
+msgstr "архивни данни ще се запазят."
+
+msgid "Failure Message:"
+msgstr "Съобщение за Грешка:"
+
+msgid "Can not migrate Backup table"
+msgstr "Не мога да преместя таблица Backup"
+
+msgid "Backup migration completed"
+msgstr "Преместването на архива приключи"
+
+msgid "Nothing to migrate"
+msgstr "Нищо за преместване"
+
+msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+msgstr ""
+"ГРЕШКА: Неуспех при премахване на старата таблица \"Backup\". Трябва да "
+"деинсталирате"
+
+msgid "and then re-install this module. Settings will be lost but old"
+msgstr ""
+"и след това да инсталирате наново този модул. Настройките ще се загубят но "
+"старите"
+
+msgid "backup data will be retained."
+msgstr "архивни данни ще се запазят."
+
+msgid "Old Backup table removed"
+msgstr "Премахната стара таблица архиви"
+
+msgid "Replacing ampbackup.pl in db.."
+msgstr "Замяна на ampbackup.pl в db.."
+
+msgid "an error has occurred, update not done"
+msgstr "появи се грешка, обновяването е прекратено"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "removing retrieve_backup_cron_from_mysql.pl.."
+msgstr "премахване на retrieve_backup_cron_from_mysql.pl.."
+
+msgid "removed"
+msgstr "премахнат"
+
+msgid "failed"
+msgstr "неуспех"
+
+msgid "Migrating backup table..."
+msgstr "Преместване на таблица backup..."
+
+msgid "WARNING: backup table not migrated"
+msgstr "ВНИМАНИЕ: таблица backup не е преместена"
+
+msgid "Successfully migrated backup table!"
+msgstr "Успешно преместена таблица backup!"
+
+msgid "Creating backups directory.."
+msgstr "Създаване на директория с архиви.."
+
+#, php-format
+msgid "WARNING: failed to create backup directory: %s"
+msgstr "ВНИМАНИЕ: неуспех при създаване на директория с архиви: %s"
+
+msgid "Location of backups pre 2.10"
+msgstr "Местоположение на архиви от преди 2.10"
+
+msgid "Storage location for backups"
+msgstr "Местоположение за съхраняване на архиви"
+
+msgid "PBX config server, generally a local database server"
+msgstr "PBX конфигурационен сървър, обикновено локален сървър за база данни"
+
+msgid "CDR server, generally a local database server"
+msgstr "CDR сървър, обикновено локален сървър за база данни"
+
+msgid "added default backup servers"
+msgstr "добавен е сървър за архиви по-подразбиране"
+
+msgid "Configurations only"
+msgstr "Само настройки"
+
+msgid "A full backup of core settings and web files"
+msgstr "Пълен архив на основни настройки и уеб файлове"
+
+msgid "Call Detail Records"
+msgstr "Подробни Отчети на Разговорите"
+
+msgid "Voice Mail Storage"
+msgstr "Архив Гласова Поща"
+
+msgid "All system audio - including IVR prompts and Music On Hold."
+msgstr ""
+"Всички системни аудио файлове - включително IVR записи и Музика При "
+"Задържане."
+
+msgid " DOES NOT BACKUP VOICEMAIL"
+msgstr " НЕ АРХИВИРА ГЛАСОВА ПОЩА"
+
+msgid "Doesn't backup Backup's settings so that they dont get restored"
+msgstr "Не архивира настройки на Архив, така че те не се възстановяват"
+
+msgid "added default backup templates"
+msgstr "добавени са шаблони за архивиране по-подразбиране"
+
+msgid "MIGRATED"
+msgstr "ПРЕМЕСТЕН"
+
+msgid "migrated backup"
+msgstr "преместен архив"
+
+msgid "Migrated FTP server for backup "
+msgstr "Преместен FTP сървър за архивиране "
+
+msgid "Migrated SSH server for backup "
+msgstr "Преместен SSH сървър за архивиране "
+
+msgid "Migrated EMAIL server for backup "
+msgstr "Преместен EMAIL сървър за архивиране "
+
+msgid "Migrated remote SSH server for backup "
+msgstr "Преместен отдалечен SSH сървър за архивиране "
+
+msgid "Default backup; automatically installed"
+msgstr "Архив по-подразбиране; автоматично инсталиран"
+
+msgid "Delete"
+msgstr "Изтрий"
+
+msgid "Run now"
+msgstr "Стартирай сега"
+
+msgid "Download"
+msgstr "Изтегли"
+
+#~ msgid "Are you sure you want to delete this File Set?"
+#~ msgstr "Сигурни ли сте че искате да изтриете тези Архиви?"
+
+#~ msgid "DELETE ALL THE DATA IN THIS SET"
+#~ msgstr "ИЗТРИЙ ВСИЧКИ ФАЙЛОВЕ В ТАЗИ ГРУПА"
+
+#~ msgid ""
+#~ "Delete this backup set and all data associated with this backup set.."
+#~ msgstr "Изтрива групата с архиви и всички данни асоциирани с тази група."
+
+#~ msgid "Delete File Set"
+#~ msgstr "Изтрий Архива"
+
+#~ msgid "Delete this backup set."
+#~ msgstr "Изтрива този файл с архив."
+
+#~ msgid ""
+#~ "Are you sure you want to restore this COMPLETE file set?\\nDoing so will "
+#~ "permanently over-write all IssabelPBX and Asterisk files\\nYou will lose all "
+#~ "Your Call Detail Records and any Voicemail that was recorded between the "
+#~ "BACKUP DATE and NOW!"
+#~ msgstr ""
+#~ "Сигурни ли сте че искате да възстановите този ПЪЛЕН архив?\\nТова "
+#~ "необратимо ще презапише всички IssabelPBX и Asterisk файлове\\nЩе изгубите "
+#~ "всички ваши Детайлни Отчети на Разговорите и всяка Гласова Поща които са "
+#~ "били записани между ДАТАТА НА АРХИВИРАНЕ и СЕГА!"
+
+#~ msgid "Restore Entire Backup Set"
+#~ msgstr "Възстанови Пълния Архив"
+
+#~ msgid "Restore your Complete Backup set overwriting all files."
+#~ msgstr "Възстановява вашия Пълен Архив като презаписва всички файлове."
+
+#~ msgid ""
+#~ "Are you sure you want to Restore this file set?\\nDoing so will "
+#~ "permanently delete any new voicemail you have in your mailbox\\nsince "
+#~ "this backup on"
+#~ msgstr ""
+#~ "Сигурни ли сте че искате да възстановите този архив?\\nТова необратимо ще "
+#~ "изтрие всички нови Гласови Пощи които се намират в кутията ви\\nот датата "
+#~ "на този архив"
+
+#~ msgid "Restore VoiceMail Files"
+#~ msgstr "Възстанови Файлове на Гласова Поща"
+
+#~ msgid ""
+#~ "Restore your Voicemail files from this backup set.  NOTE! This will "
+#~ "delete any voicemail currently in the voicemail boxes."
+#~ msgstr ""
+#~ "Възстановява файловете на Гласова Поща от този архив. ВНИМАНИЕ! Това ще "
+#~ "изтрие всички текущи файлове в кутиите на гласовата поща."
+
+#~ msgid ""
+#~ "Are you sure you want to Restore this file set?\\nNOTE! This will "
+#~ "OVERWRITE any voicerecordings currently on the system. It will NOT delete "
+#~ "new files not currently in the backup set"
+#~ msgstr ""
+#~ "Сигурни ли сте че искате да Възстановите този архив?\\nВНИМАНИЕ! Това ще "
+#~ "ПРЕЗАПИШЕ всички текущи гласови записи в системата. НЯМА да изтрие новите "
+#~ "файлове които не са в архива."
+
+#~ msgid "Restore System Recordings Files"
+#~ msgstr "Възстанови Файлове на Ситемни Записи"
+
+#~ msgid ""
+#~ "Restore your system Voice Recordings including AutoAttendant files from "
+#~ "this backup set.  NOTE! This will OVERWRITE any voicerecordings  "
+#~ "currently on the system. It will NOT delete new files not currently in "
+#~ "the backup set"
+#~ msgstr ""
+#~ "Възстановява вашите системни гласови записи включително и IVR файловете "
+#~ "от този архив. ВНИМАНИЕ! Това ще ПРЕЗАПИШЕ всички текущи гласови записи в "
+#~ "системата. НЯМА да изтрие новите файлове които не са в архива."
+
+#~ msgid ""
+#~ "Are you sure you want to Restore this File Set?\\nDoing so will "
+#~ "Permanently Over-Write all IssabelPBX and Asterisk Files!"
+#~ msgstr ""
+#~ "Сигурни ли сте че искате да възстановите този Архив?\\nТова необратимо ще "
+#~ "презапише всички IssabelPBX и Asterisk файлове!"
+
+#~ msgid "Restore System Configuration"
+#~ msgstr "Възстанови Настройките на Системата"
+
+#~ msgid ""
+#~ "Restore your system configuration from this backup set.  NOTE! This will "
+#~ "OVERWRITE any System changes you have made since this backup... ALL items "
+#~ "will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "Възстановява настройките на системата ви от този архив. ВНИМАНИЕ! Това ще "
+#~ "ПРЕЗАПИШЕ всички Промени в Системата които сте направили след този "
+#~ "архив...ВСИЧКИ въвеждания ще се върнат към тези които са били по времето "
+#~ "на създаването на архива."
+
+#~ msgid ""
+#~ "Are you sure you want to Restore the Operator Panel Files?\\nDoing so "
+#~ "will Permanently Over-Write all Operator Panel Files!"
+#~ msgstr ""
+#~ "Сигурни ли сте че искате да възстановите файловете на Оператор Панела?"
+#~ "\\nТова необратимо ще презапише всички файлове на Оператор Панела!"
+
+#~ msgid "Restore Operator Panel"
+#~ msgstr "Възстанови Файлове на Оператор Панел"
+
+#~ msgid ""
+#~ "Restore the Operator Panel from this backup set.  NOTE! This will "
+#~ "OVERWRITE any Operator Panel Changes you have made since this backup... "
+#~ "ALL items will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "Възстановява файловете на Оператор Панел от този архив. ВНИМАНИЕ! Това ще "
+#~ "ПРЕЗАПИШЕ всички Промени в файловете на Оператор Панел които сте "
+#~ "направили след този архив...ВСИЧКИ въвеждания ще се върнат към тези които "
+#~ "са били по времето на създаването на архива."
+
+#~ msgid ""
+#~ "Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will "
+#~ "Permanently DELETE all CALL RECORDS!"
+#~ msgstr ""
+#~ "Сигурни ли сте че искате да възстановите CDR ФАЙЛОВЕТЕ?\\nТова необратимо "
+#~ "ще ИЗТРИЕ всички ОТЧЕТИ НА РАЗГОВОРИТЕ!"
+
+#~ msgid "Restore Call Detail Report"
+#~ msgstr "Възстанови Детайлни Отчети на Разговорите"
+
+#~ msgid ""
+#~ "Restore the Call Detail Records from this backup set.  NOTE! This will "
+#~ "DELETE ALL CALL RECORDS that have been saved since this backup set."
+#~ msgstr ""
+#~ "Възстановява Детайлните Отчети на Разговорите ви от този архив. ВНИМАНИЕ! "
+#~ "Това ще ИЗТРИЕ ВСИЧКИ ОТЧЕТИ НА РАЗГОВОРИТЕ които са били записани след "
+#~ "този архив."
+
+#~ msgid "ERROR its not a BACKUP SET file"
+#~ msgstr "ГРЕШКА не е АРХИВЕН файл"
+
+#~ msgid "Restored All Files in Backup Set"
+#~ msgstr "Възстановени са Всички Файлове от Архива"
+
+#~ msgid "Restored VoiceMail"
+#~ msgstr "Възстановени са Гласови Пощи"
+
+#~ msgid "Restored System Recordings"
+#~ msgstr "Възстановени са Системни Записи"
+
+#~ msgid "Restored System Configuration"
+#~ msgstr "Възстановени са Настройките на Системата"
+
+#~ msgid "Restored Operator Panel"
+#~ msgstr "Възстановени са Файловете на Оператор Панел"
+
+#~ msgid "Restored CDR logs"
+#~ msgstr "Възстановени са Детайлните Отчети на Разговорите"
+
+#~ msgid "Schedule Name:"
+#~ msgstr "Име на Плана:"
+
+#~ msgid "Give this Backup Schedule a brief name to help you identify it."
+#~ msgstr "Дайте на Плана за Архивиране име с което да го идентифицирате."
+
+#~ msgid "CDR"
+#~ msgstr "CDR"
+
+#~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
+#~ msgstr "Архивира Детайлните Отчети на Разговорите (HTML и База Данни)"
+
+#~ msgid "Operator Panel"
+#~ msgstr "Оператор Панел"
+
+#~ msgid "Backup the Operator Panel (HTML and Database)"
+#~ msgstr "Архивира Оператор Панела  (HTML и База Данни)"
+
+#~ msgid "System Recordings"
+#~ msgstr "Системни Записи"
+
+#~ msgid ""
+#~ "Backup the System Recordings (AutoAttendant, Music On Hold, System "
+#~ "Recordings)"
+#~ msgstr ""
+#~ "Архивира Системните записи (IVR, Музика при Задържане, Системни Записи)"
+
+#~ msgid "VoiceMail"
+#~ msgstr "Гласова Поща"
+
+#~ msgid ""
+#~ "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+#~ msgstr ""
+#~ "Архивира Системните Кутии за Гласова Поша... ВНИМАНИЕ: Може да доведе до "
+#~ "голям файл"
+
+#~ msgid "System Configuration"
+#~ msgstr "Системни Настройки"
+
+#~ msgid ""
+#~ "Backup the System Configurations (Database, etc files, SQL Database, "
+#~ "astdb)"
+#~ msgstr ""
+#~ "Архивира Системните Настройки (База Данни, etc файлове, SQL База Данни, "
+#~ "astdb)"
+
+#~ msgid "All"
+#~ msgstr "Всички"
+
+#~ msgid "Selected"
+#~ msgstr "Избрани"
+
+#~ msgid "January"
+#~ msgstr "Януари"
+
+#~ msgid "February"
+#~ msgstr "Февруари"
+
+#~ msgid "March"
+#~ msgstr "Март"
+
+#~ msgid "April"
+#~ msgstr "Април"
+
+#~ msgid "May"
+#~ msgstr "Май"
+
+#~ msgid "June"
+#~ msgstr "Юни"
+
+#~ msgid "July"
+#~ msgstr "Юли"
+
+#~ msgid "August"
+#~ msgstr "Август"
+
+#~ msgid "September"
+#~ msgstr "Септември"
+
+#~ msgid "October"
+#~ msgstr "Октомври"
+
+#~ msgid "November"
+#~ msgstr "Ноември"
+
+#~ msgid "December"
+#~ msgstr "Декември"
+
+#~ msgid "Monday"
+#~ msgstr "Понеделник"
+
+#~ msgid "Tuesday"
+#~ msgstr "Вторник"
+
+#~ msgid "Wednesday"
+#~ msgstr "Сряда"
+
+#~ msgid "Thursday"
+#~ msgstr "Четвъртък"
+
+#~ msgid "Friday"
+#~ msgstr "Петък"
+
+#~ msgid "Saturday"
+#~ msgstr "Събота"
+
+#~ msgid "Sunday"
+#~ msgstr "Неделя"
+
+#~ msgid "Run Backup"
+#~ msgstr "Стартиране на Архивиране"
+
+#~ msgid "Follow Schedule Below"
+#~ msgstr "Следвай Плана По-Долу"
+
+#~ msgid "Now"
+#~ msgstr "Сега"
+
+#~ msgid "Daily (at midnight)"
+#~ msgstr "Дневно (в полунощ)"
+
+#~ msgid "Weekly (on Sunday)"
+#~ msgstr "Седмично (в Неделя)"
+
+#~ msgid "Monthly (on the 1st)"
+#~ msgstr "Месечно (на 1-во число)"
+
+#~ msgid "Yearly (on 1st Jan)"
+#~ msgstr "Годишно (на 1-ви Януари)"
+
+#~ msgid "Minutes"
+#~ msgstr "Минути"
+
+#~ msgid "Hours"
+#~ msgstr "Часа"
+
+#~ msgid "Days"
+#~ msgstr "Дни"
+
+#~ msgid "Months"
+#~ msgstr "Месеца"
+
+#~ msgid "Weekdays"
+#~ msgstr "Дни от Седмицата"
+
+#~ msgid "Add Backup Schedule"
+#~ msgstr "Добави План за Архивиране"
+
+#~ msgid "Restore from Backup"
+#~ msgstr "Възстанови от Архив"
+
+#~ msgid "System Backup"
+#~ msgstr "Архивиране на Системата"
+
+#~ msgid "Run Schedule"
+#~ msgstr "План на Стартиране"
+
+#~ msgid "Submit Changes"
+#~ msgstr "Приеми Промените"
+
+#~ msgid "Delete Backup Schedule %s"
+#~ msgstr "Изтрий План за Архивиране  %s"
+
+#~ msgid "System Restore"
+#~ msgstr "Възстановяване на Системата"

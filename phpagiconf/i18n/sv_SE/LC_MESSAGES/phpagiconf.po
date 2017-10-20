@@ -1,0 +1,173 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language for phpagiconf
+# Copyright (C) 2009, 2010, 2011 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX phpagi\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-13 19:44-0400\n"
+"PO-Revision-Date: 2011-03-20 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#: page.phpagiconf.php:90
+msgid "Asterisk API settings:"
+msgstr "Inställningar för Asterisk API:"
+
+#: page.phpagiconf.php:109
+msgid "Basedir:"
+msgstr "Baskatalog:"
+
+#: page.phpagiconf.php:112
+msgid "Cepstral config:"
+msgstr "Konfiguration för Cepstral:"
+
+#: page.phpagiconf.php:118
+msgid "Cepstral voice:"
+msgstr "Röst för Cepstral:"
+
+#: page.phpagiconf.php:60
+msgid "Debug:"
+msgstr "Avlusning:"
+
+#: page.phpagiconf.php:102
+msgid "Drop privileges to owner of script."
+msgstr "Sätt rättighet till ägaren av skriptet."
+
+#: page.phpagiconf.php:74
+msgid "Email where the errors will be sent."
+msgstr "E-postadressen felen ska skickas till."
+
+#: page.phpagiconf.php:60
+msgid "Enable PHPAGI debugging."
+msgstr "Aktivera avlusning för PHPAGI."
+
+#: page.phpagiconf.php:67
+msgid "Error handler:"
+msgstr "Felhanterare:"
+
+#: functions.inc.php:38
+msgid "Error writing the phpagi.conf file."
+msgstr "Fel vid skrivning till filen phpagi.conf"
+
+#: page.phpagiconf.php:100
+msgid "Fast AGI config:"
+msgstr "Konfiguration för Fast AGI:"
+
+#: page.phpagiconf.php:85
+msgid "Festival config:"
+msgstr "Konfiguration för Festival:"
+
+#: page.phpagiconf.php:78
+msgid "Hostname of the server:"
+msgstr "Datornamnet för servern:"
+
+#: page.phpagiconf.php:78
+msgid "Hostname of this server."
+msgstr "Datornamnet för denna server."
+
+#: page.phpagiconf.php:74
+msgid "Mail errors to:"
+msgstr "E-posta fel till:"
+
+#: page.phpagiconf.php:57
+msgid "Main config:"
+msgstr "Huvudkonfiguration:"
+
+#: page.phpagiconf.php:52
+msgid "PHPAGI Config:"
+msgstr "Konfiguration för PHPAGI:"
+
+#: page.phpagiconf.php:109
+msgid "Path to AGI scripts folder."
+msgstr "Sökväg till mappen för AGI-skripten."
+
+#: page.phpagiconf.php:114
+msgid "Path to cepstral TTS binary."
+msgstr "Sökväg till programmet cepstral TTS."
+
+#: page.phpagiconf.php:87
+msgid "Path to text2wave binary."
+msgstr "Sökvägen till programmet text2wave."
+
+#: page.phpagiconf.php:87
+msgid "Path to text2wave:"
+msgstr "Sökväg till text2wave:"
+
+#: page.phpagiconf.php:96
+msgid "Port to connect to manager."
+msgstr "Den port som ska användas för att koppla mot hanteraren."
+
+#: page.phpagiconf.php:96
+msgid "Port:"
+msgstr "Port:"
+
+#: page.phpagiconf.php:92
+msgid "Server to connect to."
+msgstr "Server att koppla upp mot."
+
+#: page.phpagiconf.php:92
+msgid "Server:"
+msgstr "Server:"
+
+#: page.phpagiconf.php:122
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+#: page.phpagiconf.php:114
+msgid "Swift path:"
+msgstr "Sökväg för Swift:"
+
+#: page.phpagiconf.php:118
+msgid "TTS Voice used."
+msgstr "Den TTS-röst som ska användas."
+
+#: page.phpagiconf.php:82
+msgid "Temporary directory for storing temporary output."
+msgstr "Temporär katalog för lagring av temporära filer."
+
+#: page.phpagiconf.php:82
+msgid "Temporary directory:"
+msgstr "Temporär katalog:"
+
+#: page.phpagiconf.php:67
+msgid "Use internal error handler."
+msgstr "Använd den interna felhanteraren."
+
+#: page.phpagiconf.php:62 page.phpagiconf.php:69 page.phpagiconf.php:104
+msgid "false"
+msgstr "Ja"
+
+#: page.phpagiconf.php:102
+msgid "setuid:"
+msgstr "setuid:"
+
+#: page.phpagiconf.php:63 page.phpagiconf.php:70 page.phpagiconf.php:105
+msgid "true"
+msgstr "Nej"
+
+#~ msgid "PHPAGI Config"
+#~ msgstr "Konfiguration för PHPAGI"
+
+#~ msgid "System Administration"
+#~ msgstr "Systemadministration"

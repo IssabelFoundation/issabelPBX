@@ -1,0 +1,369 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX French language for daynight
+# Copyright (C) 2010 Thomas Gagniere
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: traduction française du module daynight\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-20 18:33-0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Thomas Gagniere <tgagniere@reseau-concept.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: functions.inc.php:647
+msgid " - Force Time Condition False Destination"
+msgstr ""
+
+#: functions.inc.php:645
+msgid " - Force Time Condition True Destination"
+msgstr ""
+
+#: page.daynight.php:18
+msgid "Add Call Flow Toggle Code"
+msgstr ""
+
+#: daynight.i18n.php:6 daynight.i18n.php:12
+msgid "Applications"
+msgstr ""
+
+#: functions.inc.php:639
+msgid "Associate with"
+msgstr "Associer avec"
+
+#: daynight.i18n.php:18
+msgid ""
+"By default, the Call Flow Control module will not hook Time Conditions "
+"allowing one to associate a call flow toggle feauture code with a time "
+"condition since time conditions have their own feature code as of version "
+"2.9. If there is already an associaiton configured (on an upgraded system), "
+"this will have no affect for the Time Conditions that are effected. Setting "
+"this to true reverts the 2.8 and prior behavior by allowing for the use of a "
+"call flow toggle to be associated with a time conditon. This can be useful "
+"for two scenarios. First, to override a Time Condition without the automatic "
+"resetting that occurs with the built in Time Condition overrides. The second "
+"use is the ability to associate a single call flow toggle with multiple time "
+"conditions thus creating a <b>master switch</b> that can be used to override "
+"several possible call flows through different time conditions."
+msgstr ""
+
+#: daynight.i18n.php:4 daynight.i18n.php:10
+msgid "Call Flow Control"
+msgstr ""
+
+#: daynight.i18n.php:16
+msgid "Call Flow Control Module"
+msgstr ""
+
+#: functions.inc.php:155
+#, php-format
+msgid "Call Flow Toggle (%s) : %s"
+msgstr ""
+
+#: page.daynight.php:70
+msgid "Call Flow Toggle Control"
+msgstr ""
+
+#: page.daynight.php:121
+msgid "Call Flow Toggle Feature Code Index:"
+msgstr ""
+
+#: functions.inc.php:635
+msgid "Call Flow Toggle Mode Association"
+msgstr ""
+
+#: functions.inc.php:515
+#, php-format
+msgid "Call Flow Toggle: %s (%s)"
+msgstr ""
+
+#: daynight.i18n.php:8
+msgid ""
+"Call Flow manual toggle control - allows for two destinations to be chosen "
+"and provides a feature code\t\tthat toggles between the two destinations."
+msgstr ""
+
+#: page.daynight.php:152
+msgid "Current Mode:"
+msgstr "Mode Actuel:"
+
+#: page.daynight.php:172 page.daynight.php:188
+msgid "Default"
+msgstr "Défaut"
+
+#: page.daynight.php:74
+#, php-format
+msgid "Delete Call Flow Toggle Feature Code %s"
+msgstr ""
+
+#: page.daynight.php:147
+msgid "Description"
+msgstr "Description"
+
+#: page.daynight.php:147
+msgid "Description for this Call Flow Toggle Control"
+msgstr ""
+
+#: page.daynight.php:261
+#, php-format
+msgid "Destination to use when set to %s mode"
+msgstr "Destination à utiliser lors que le mode %s est activé"
+
+#: install.php:81
+msgid "ERROR: failed to alter primary keys "
+msgstr "ERREUR: echec de modification de la clé primaire "
+
+#: page.daynight.php:89
+msgid "Forces to Normal Mode (Green/BLF off)"
+msgstr ""
+
+#: page.daynight.php:89
+msgid "Forces to Override Mode (Red/BLF on)"
+msgstr ""
+
+#: daynight.i18n.php:14
+msgid "Hook Time Conditions Module"
+msgstr ""
+
+#: functions.inc.php:639
+msgid ""
+"If a selection is made, this timecondition will be associated with the "
+"specified call flow toggle  featurecode. This means that if the Call Flow "
+"Feature code is set to override (Red/BLF on) then this time condition will "
+"always go to its True destination if the chosen association is to 'Force "
+"Time Condition True Destination' and it will always go to its False "
+"destination if the association is with the 'Force Time Condition False "
+"Destination'. When the associated Call Flow Control Feature code is in its "
+"Normal mode (Green/BLF off), then then this Time Condition will operate as "
+"normal based on the current time. The Destinations that are part of any "
+"Associated Call Flow Control Feature Code will have no affect on where a "
+"call will go if passing through this time condition. The only thing that is "
+"done when making an association is allowing the override state of a Call "
+"Flow Toggle to force this time condition to always follow one of its two "
+"destinations when that associated Call Flow Toggle is in its override (Red/"
+"BLF on) state."
+msgstr ""
+
+#: page.daynight.php:92
+#, php-format
+msgid "Linked to Time Condition %s - %s"
+msgstr "Lier à la condition de temps %s - %s"
+
+#: page.daynight.php:166
+msgid ""
+"Message to be played in normal mode (Green/BLF off).<br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+
+#: page.daynight.php:183
+msgid ""
+"Message to be played in override mode (Red/BLF on).<br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+
+#: functions.inc.php:642
+msgid "No Association"
+msgstr "Pas d'association"
+
+#: page.daynight.php:158
+msgid "Normal (Green/BLF off)"
+msgstr ""
+
+#: page.daynight.php:216
+msgid "Normal Flow (Green/BLF off)"
+msgstr ""
+
+#: install.php:83
+msgid "OK"
+msgstr "OK"
+
+#: page.daynight.php:202
+msgid "Optional Password"
+msgstr "Mot de passe optionnel"
+
+#: page.daynight.php:159
+msgid "Override (Red/BLF on)"
+msgstr ""
+
+#: page.daynight.php:217
+msgid "Override Flow (Red/BLF on)"
+msgstr ""
+
+#: page.daynight.php:240
+msgid "Please enter a valid numeric password, only numbers are allowed"
+msgstr ""
+"Merci d'entrer un mot de passe numérique valide, seule les chiffres sont "
+"autorisés"
+
+#: page.daynight.php:166
+msgid "Recording for Normal Mode"
+msgstr ""
+
+#: page.daynight.php:183
+msgid "Recording for Override Mode"
+msgstr ""
+
+#: page.daynight.php:111 page.daynight.php:224
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: page.daynight.php:122
+msgid ""
+"There are a total of 10 Feature code objects, 0-9, each can control a call "
+"flow and be toggled using the call flow toggle feature code plus the index."
+msgstr ""
+
+#: page.daynight.php:153
+msgid ""
+"This will change the current state for this Call Flow Toggle Control, or set "
+"the initial state when creating a new one."
+msgstr ""
+
+#: page.daynight.php:112 page.daynight.php:225
+#, php-format
+msgid "Use feature code: %s to toggle the call flow mode"
+msgstr ""
+
+#: page.daynight.php:202
+msgid ""
+"You can optionally include a password to authenticate before toggling the "
+"call flow. If left blank anyone can use the feature code and it will be un-"
+"protected"
+msgstr ""
+
+#: install.php:77
+msgid "changing primary keys to all fields.."
+msgstr "changement de la clé primaire pour tous les champs.."
+
+#~ msgid "Day Night Mode"
+#~ msgstr "Jour et Nuit"
+
+#~ msgid "Inbound Call Control"
+#~ msgstr "Contrôle des appels entrants"
+
+#~ msgid ""
+#~ "Day / Night control - allows for two destinations to be chosen and "
+#~ "provides a feature code\t\tthat toggles between the two destinations."
+#~ msgstr ""
+#~ "Contrôle Jour/Nuit - Fournit un code de carastéristique pour basculer "
+#~ "entre deux destinations. Ces destinations peuvent être choisies parmis "
+#~ "des extensions, répondeurs, trunk, etc..."
+
+#~ msgid "Day/Night Control"
+#~ msgstr "Contrôle Jour/Nuit"
+
+#~ msgid "Day/Night (%s) : %s"
+#~ msgstr "Jour/Nuit (%s) : %s"
+
+#~ msgid "Daynight: %s (%s)"
+#~ msgstr "Journuit: %s (%s)"
+
+#~ msgid "Day/Night Mode Association"
+#~ msgstr "Association avec un mode Jour/Nuit"
+
+#~ msgid ""
+#~ "If a selection is made, this timecondition will be associated with that "
+#~ "featurecode and will allow this timecondition to be direct overridden by "
+#~ "that daynight mode featurecode"
+#~ msgstr ""
+#~ "Permet d'associer cette condition de temps à un mode Jour/Nuit. Lorsque "
+#~ "le mode Jour/nuit associé est activé, alors la condition de temps n'est "
+#~ "plus remplie (se comporte comme si l'horaire ne correspondait pas)"
+
+#~ msgid " - Force Day"
+#~ msgstr " - via le mode Jour"
+
+#~ msgid " - Force Night"
+#~ msgstr " - via le mode Nuit"
+
+#~ msgid "Add Day/Night Code"
+#~ msgstr "Ajouter un code Jour/Nuit"
+
+#~ msgid "Day / Night Mode Control"
+#~ msgstr "Contrôle du mode Jour/Nuit"
+
+#~ msgid "Delete Day/Night Feature Code %s"
+#~ msgstr "Supprimer le code de caractéristique Jour/Nuit %s"
+
+#~ msgid "Forces to Day  Mode"
+#~ msgstr "Via le mode Jour"
+
+#~ msgid "Forces to Night Mode"
+#~ msgstr "Via le mode Nuit"
+
+#~ msgid "Use feature code: %s to toggle DAY/NIGHT mode"
+#~ msgstr ""
+#~ "Utiliser le code de caractéristique: %s pour changer le mode Jour/Nuit "
+
+#~ msgid "Day/Night Feature Code Index:"
+#~ msgstr "Index du code de caractéristique Jour/Nuit:"
+
+#~ msgid ""
+#~ "There are a total of 10 Feature code objects, 0-9, each can control a "
+#~ "call flow and be toggled using the day/night feature code plus the index."
+#~ msgstr ""
+#~ "Les index vont de 0 à 9, soit la possibilité de créer 10 contrôles Jour/"
+#~ "Nuit. Chaque index, associé à un code de caractéristique, permettra de "
+#~ "contrôler le basculement entre mode Jour/Nuit"
+
+#~ msgid "Description for this Day/Night Control"
+#~ msgstr "Description pour ce contrôle Jour/Nuit"
+
+#~ msgid ""
+#~ "This will change the current state for this Day/Night Mode Control, or "
+#~ "set the initial state when creating a new one."
+#~ msgstr ""
+#~ "Cela va changer l'état actuel de ce contrôle Jour/Nuit, ou spécifier "
+#~ "l'état initial lors de la création d'un nouveau contrôle"
+
+#~ msgid "Day"
+#~ msgstr "Jour"
+
+#~ msgid "Night"
+#~ msgstr "Nuit"
+
+#~ msgid "Recording for Day Mode"
+#~ msgstr "Enregistrement pour le mode Jour"
+
+#~ msgid ""
+#~ "Message to be played.<br>To add additional recordings use the \"System "
+#~ "Recordings\" MENU to the left"
+#~ msgstr ""
+#~ "Message qui va être joué lors de la composition du code de "
+#~ "caractéristique. Pour ajouter des enregistrements, utiliser le menu "
+#~ "\"Enregistrements Systèmes\""
+
+#~ msgid "Recording for Night Mode"
+#~ msgstr "Enregistrement pour le mode Nuit"
+
+#~ msgid ""
+#~ "You can optionally include a password to authenticate before toggling the "
+#~ "day/night mode. If left blank anyone can use the feature code and it will "
+#~ "be un-protected"
+#~ msgstr ""
+#~ "Vous pouvez mettre un mot de passe pour autoriser l'accès au basculement "
+#~ "du mode jour/Nuit. Si vous n'en rentrez aucun, tout le monde pourra "
+#~ "utiliser ce code de caractéristique."
+
+#~ msgid "DAY"
+#~ msgstr "JOUR"
+
+#~ msgid "NIGHT"
+#~ msgstr "NUIT"

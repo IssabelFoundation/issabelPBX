@@ -1,0 +1,48 @@
+<?php
+
+class Send_to_Dreambox extends superfecta_base {
+
+    public $description = "This source will send the number and the Caller ID to a dreambox.<br>Enter the URL to the destination dreambox in the format `http://url:port`.<br>This datasource should be one of the last data sources on your list, as it does not provide any data of its own, and can only send what information has been collected before it is run.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'URL_address' => array(
+            'description' => 'Specify the URL:Port to the dreambox installation. (Example: http://script.somewhere.com:80)',
+            'type' => 'text',
+            'default' => "http://url:80"
+        ),
+        'Display_Setting' => array(
+            'description' => 'Specify the way you want the number to be displayed on your dreambox',
+            'type' => 'select',
+            'option' => array(
+                1 => '(132) 456-7890',
+                2 => '132-456-7890',
+                3 => '12 34 56 78 90',
+                4 => 'No Formatting',
+            ),
+            'default' => 4
+        )
+    );
+
+    function post_processing($cache_found, $winning_source, $first_caller_id, $run_param, $thenumber) {
+        if ($run_param['URL_Address'] && $run_param['URL_Port'] != '') {
+            $thenumberformated = $thenumber;
+            switch ($run_param['Display_Setting']) {
+                case 1:
+                case 2:
+                case 3:
+                    $settings = $this->settings();
+                    $thenumberformated = $this->FormatNumber($thenumber, $settings["source_param"]['Format_Incomming_Number']['option'][$run_param['Format_Incomming_Number']]);
+                    break;
+            }
+
+            $cliddreambox = urlencode($first_caller_id . ',' . $thenumberformated);
+            $url = $run_param['URL_address'] . '/cgi-bin/message?message=' . $cliddreambox;
+
+            $this->DebugPrint("Send to dreambox: " . $run_param['URL_address']);
+            $value = get_url_contents($url);
+
+            return($thenumber);
+        }
+    }
+
+}

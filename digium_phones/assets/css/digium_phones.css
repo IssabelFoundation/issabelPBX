@@ -1,0 +1,161 @@
+.head{
+    color:gray;
+    text-align:left;
+    font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif, Verdana, Trebuchet MS, SunSans-Regular;
+    font-size:11pt;
+    border:none;
+}
+#content{
+	width:80%;
+}
+legend {
+    font-weight: bold;
+}
+hr {
+    width: 50%;
+    margin-left: 0px;
+}
+.key_head {
+    font-size:1.25em;
+    font-weight:bold;
+    color:grey;
+    clear:both;
+}
+.sortable {
+    color: black;
+}
+.sortableGreen {
+    background: #D1E8B2;
+    color: black;
+}
+
+.sortableOrange {
+    background: #ffb979;
+    color: black;
+}
+
+.ui-button {
+    min-width: 100px;
+}
+
+.dragdropFrame{
+    max-width: 900px;
+}
+.dragdrop{
+	padding-top:20px;
+	padding-bottom:20px;
+    float: left;
+    margin-left:0px;
+    margin-right:10px;
+    width:250px;
+}
+.dragdrop ul {
+	min-width:200px;
+	min-height:40px;
+}
+
+.failed {
+    color:red;
+}
+
+.success {
+    color:green;
+}
+.installing {
+    color:blue;
+}
+#clear {
+    clear:both;
+}
+.rnav hr{
+    width: 100%;
+    margin-left: 0px;
+}
+.phones {
+    float:right;
+    position: relative;
+    margin-top:10px;
+    right:2.5%;
+    display: block;  
+
+}
+.basefile {
+    float:right;
+    position: relative;
+    margin-top:10px;
+    right:2.5%;
+    display: block;
+}
+.phones hr {
+    width: 100%;
+    margin-left: 0px;
+}
+#endpoint_content {
+	float: left;
+	width: 80%;
+}
+
+#phones {
+	float: right;
+	width: 20%;
+}
+
+#ftp {
+	display: none;
+}
+
+.hidden-fields {
+        display: none;
+}
+#footer hr{
+    width: 100%;
+    margin-left: 0px;
+}
+.rnavH3Top {
+    color:gray;
+    font-weight: bold;
+    list-style:none;
+    font-size: 13px !important;
+}
+.rnavH3 {
+    color:gray;
+    font-weight: bold;
+    padding-top: 50px;
+    list-style:none;
+    font-size: 13px !important;
+}
+li{
+    padding-top:0px;
+}
+.error{
+    display:none;
+}
+
+.advanced{
+	display:none;
+}
+
+/*
+
+tr.zebra1 {
+	background: #ffffff;	
+}
+
+tr.zebra2 {
+	background: #000000;
+}
+.quite {
+	font-size:small;
+	color: grey;
+}
+.loud {
+	color: grey;
+}
+
+
+.hidden {
+	display: none;
+}
+
+
+*/

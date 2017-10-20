@@ -1,0 +1,570 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+#
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+#
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for timeconditions
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-18 16:15-0500\n"
+"PO-Revision-Date: 2014-02-20 22:09+0200\n"
+"Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
+"Language-Team: Japanese <http://example.com/projects/freepbx/timeconditions/"
+"ja/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+#: functions.inc.php:682
+msgid " deleted!"
+msgstr " 削除されました！"
+
+#: install.php:227
+#, php-format
+msgid "%sWARNING:%s No time defined for this condition, please review"
+msgstr "%s 警告:%s この条件への時間が定義されていません、再確認してください"
+
+#: functions.inc.php:884
+msgid "--Select a Group--"
+msgstr "--グループ選択--"
+
+#: functions.inc.php:518 functions.inc.php:576 install.php:194
+msgid ": Time Condition Override"
+msgstr "：タイムコンディションを上書き"
+
+#: page.timeconditions.php:36 page.timeconditions.php:51
+#: page.timeconditions.php:82
+msgid "Add Time Condition"
+msgstr "タイムコンディション追加"
+
+#: functions.inc.php:690
+msgid "Add Time Group"
+msgstr "タイムグループ追加"
+
+#: timeconditions.i18n.php:6 timeconditions.i18n.php:12
+msgid "Applications"
+msgstr "アプリケーション"
+
+#: functions.inc.php:1247 functions.inc.php:1346
+msgid "April"
+msgstr "4月"
+
+#: functions.inc.php:1275 functions.inc.php:1374
+msgid "August"
+msgstr "8月"
+
+#: page.timeconditions.php:121
+msgid "Change Override:"
+msgstr "上書きを変更："
+
+#: install.php:214
+msgid "Checking for old timeconditions to upgrade.."
+msgstr "旧タイムコンディションのアップグレードのチェック中.."
+
+#: timeconditions.i18n.php:8
+msgid ""
+"Creates a condition where calls will go to one of two destinations (eg, an "
+"extension, IVR, ring group..) based on the time and/or date. This can be "
+"used for example to ring a receptionist during the day, or go directly to an "
+"IVR at night."
+msgstr ""
+"時間や日付に基づいて、コールが二つの宛先(例:内線、IVR、着信グループ..)のうち"
+"一つに行く条件を作成します。これは例えば、昼の間はレセプショニストを着信さ"
+"せ、夜は直接IVRに行く等に使用できます。"
+
+#: page.timeconditions.php:117
+msgid "Current Override:"
+msgstr "現在の上書き:"
+
+#: functions.inc.php:1303 functions.inc.php:1402
+msgid "December"
+msgstr "12月"
+
+#: page.timeconditions.php:60
+#, php-format
+msgid "Delete Time Condition: %s"
+msgstr "タイムコンディション削除： %s"
+
+#: functions.inc.php:698
+#, php-format
+msgid "Delete Time Group %s"
+msgstr "タイムグループを削除 %s"
+
+#: functions.inc.php:691 functions.inc.php:711
+msgid "Description"
+msgstr "説明"
+
+#: functions.inc.php:678
+msgid "Description must be alpha-numeric, and may not be left blank"
+msgstr "空欄を埋め、英数字で記入してください"
+
+#: page.timeconditions.php:164
+msgid "Destination if time does not match"
+msgstr "時間不一致時の宛先"
+
+#: page.timeconditions.php:154
+msgid "Destination if time matches"
+msgstr "時間一致時の宛先"
+
+#: install.php:162
+msgid "ERROR: failed to convert field "
+msgstr "エラー：フィールドのコンバート失敗 "
+
+#: page.timeconditions.php:82
+msgid "Edit Time Condition"
+msgstr "タイムコンディション編集"
+
+#: functions.inc.php:697
+msgid "Edit Time Group"
+msgstr "タイムグループ編集"
+
+#: timeconditions.i18n.php:16
+msgid "Enable Maintenance Polling"
+msgstr "メンテナンスポーリングを有効にする"
+
+#: functions.inc.php:1233 functions.inc.php:1332
+msgid "February"
+msgstr "2月"
+
+#: functions.inc.php:1058 functions.inc.php:1121
+msgid "Friday"
+msgstr "金曜日"
+
+#: page.timeconditions.php:89
+msgid "Give this Time Condition a brief name to help you identify it."
+msgstr "このタイムコンディションの明確な名前を入力してください。"
+
+#: page.timeconditions.php:142
+msgid "Goto Current Time Group"
+msgstr "現在のタイムグループに移動"
+
+#: timeconditions.i18n.php:20
+msgid ""
+"If set to false, this will override the execution of the Time Conditions "
+"maintenance task launched by call files. If all the feature codes for time "
+"conditions are disabled, the maintenance task will not be launched anyhow. "
+"Setting this to false would be fairly un-common. You may want to set this "
+"temporarily if debugging a system to avoid the periodic dialplan running "
+"through the CLI that the maintenance task launches and can be distracting."
+msgstr ""
+
+#: page.timeconditions.php:117
+msgid ""
+"Indicates the current state of this Time Condition. If it is in a Temporary "
+"Override state, it will automatically resume at the next time transition "
+"based on the associated Time Group. If in a Permanent Override state, it "
+"will stay in that state until changed here or through other means such as "
+"external XML applications on your phone. If No Override then it functions "
+"normally based on the time schedule."
+msgstr ""
+"このタイムコンディションの状態を指定します。一時的な上書きは、関連付けられた"
+"タイムグループに基づき、次回、自動的に移行が再開されます。永久的な上書きは、"
+"電話機についている外部のXMPアプリケーションなど他の方法で変更する迄、その状態"
+"が継続されます。上書きしない時は、タイムスケジュールに基づき機能します。"
+
+#: functions.inc.php:1226 functions.inc.php:1325
+msgid "January"
+msgstr "1月"
+
+#: functions.inc.php:1268 functions.inc.php:1367
+msgid "July"
+msgstr "7月"
+
+#: functions.inc.php:1261 functions.inc.php:1360
+msgid "June"
+msgstr "6月"
+
+#: timeconditions.i18n.php:22
+msgid "Maintenance Polling Interval"
+msgstr "メンテナンスポーリング間隔"
+
+#: functions.inc.php:1240 functions.inc.php:1339
+msgid "March"
+msgstr "3月"
+
+#: functions.inc.php:1254 functions.inc.php:1353
+msgid "May"
+msgstr "5月"
+
+#: functions.inc.php:1030 functions.inc.php:1093
+msgid "Monday"
+msgstr "月曜日"
+
+#: functions.inc.php:1175
+msgid "Month Day finish:"
+msgstr "終了日："
+
+#: functions.inc.php:1140
+msgid "Month Day start:"
+msgstr "開始日："
+
+#: functions.inc.php:1309
+msgid "Month finish:"
+msgstr "終了月："
+
+#: functions.inc.php:1194
+msgid "Month start:"
+msgstr "開始月："
+
+#: functions.inc.php:722
+msgid "New Time"
+msgstr "新規タイム"
+
+#: page.timeconditions.php:97
+msgid "No Override"
+msgstr "上書きなし"
+
+#: functions.inc.php:1296 functions.inc.php:1395
+msgid "November"
+msgstr "11月"
+
+#: install.php:164 install.php:178 install.php:206
+msgid "OK"
+msgstr "OK"
+
+#: functions.inc.php:1289 functions.inc.php:1388
+msgid "October"
+msgstr "10月"
+
+#: page.timeconditions.php:103
+msgid "Permanent Override matching state"
+msgstr "一致する状態を永久的に上書き"
+
+#: page.timeconditions.php:109
+msgid "Permanent Override unmatching state"
+msgstr "一致しない状態を永久的に上書き"
+
+#: page.timeconditions.php:127
+msgid "Permanently matched"
+msgstr "永久的一致"
+
+#: page.timeconditions.php:129
+msgid "Permanently unmatched"
+msgstr "永久的不一致"
+
+#: page.timeconditions.php:186
+msgid "Please enter a valid Time Conditions Name"
+msgstr "有効なタイムコンディション名を入力してください"
+
+#: functions.inc.php:716
+msgid "Remove Section and Submit Current Settings"
+msgstr "セクションを削除し現在の設定を確定します"
+
+#: page.timeconditions.php:125
+msgid "Reset Override"
+msgstr "上書きをリセット"
+
+#: functions.inc.php:1065 functions.inc.php:1128
+msgid "Saturday"
+msgstr "土曜日"
+
+#: page.timeconditions.php:135
+msgid ""
+"Select a Time Group created under Time Groups. Matching times will be sent "
+"to matching destination. If no group is selected, call will always go to no-"
+"match destination."
+msgstr ""
+"タイムグループ内で作成されたグループを選択してください。正しく選択されている"
+"と指定した宛先に送信されます。未選択の場合、呼は常に正しい宛先に送信されませ"
+"ん。"
+
+#: functions.inc.php:1282 functions.inc.php:1381
+msgid "September"
+msgstr "9月"
+
+#: page.timegroups.php:17
+msgid "Server time:"
+msgstr "サーバー時刻："
+
+#: page.timeconditions.php:176
+msgid "Submit"
+msgstr "送信"
+
+#: functions.inc.php:1072 functions.inc.php:1135
+msgid "Sunday"
+msgstr "日曜日"
+
+#: page.timeconditions.php:100
+msgid "Temporary Override matching state"
+msgstr "一致する状態を一時的に上書き"
+
+#: page.timeconditions.php:106
+msgid "Temporary Override unmatching state"
+msgstr "一致しない状態を一時的に上書き"
+
+#: page.timeconditions.php:126
+msgid "Temporary matched"
+msgstr "一時的一致"
+
+#: page.timeconditions.php:128
+msgid "Temporary unmatched"
+msgstr "一時的不一致"
+
+#: timeconditions.i18n.php:24
+msgid ""
+"The polling interval in seconds used by the Time Conditions maintenance "
+"task, launched by an Asterisk call file used to update Time Conditions "
+"override states as well as keep custom device state hint values up-to-date "
+"when being used with BLF. A shorter interval will assure that BLF keys "
+"states are accurate. The interval should be less than the shortest "
+"configured span between two time condition states, so that a manual override "
+"during such a period is properly reset when the new period starts."
+msgstr ""
+
+#: page.timeconditions.php:121
+#, php-format
+msgid ""
+"This Time Condition can be set to Temporarily go to the 'matched' or "
+"'unmatched' destination in which case the override will automatically reset "
+"once the current time span has elapsed. If set to Permanent it will stay "
+"overridden until manually reset. All overrides can be removed with the Reset "
+"Override option. Temporary Overrides can also be toggled with the %s feature "
+"code, which will also remove a Permanent Override if set but can not set a "
+"Permanent Override which must be done here or with other applications such "
+"as an XML based phone options."
+msgstr ""
+"このタイムコンディションを一時的に'一致する'または'一致しない'宛先に行くよう"
+"に設定することができ、この場合、現在のタイムスパンが経過した後、上書きは自動"
+"的にリセットされます。永久的にセットされると、手動でリセットする迄上書された"
+"ままになります。全上書きは、リセットオプションで削除することができます。一時"
+"的に上書きは、 %s キーコードで切り替えることができ、ここまたは、他のXMLベース"
+"の電話オプション等のアプリケーションで、永久的に上書きを削除することもできま"
+"す。"
+
+#: page.timegroups.php:68
+msgid ""
+"This section will be removed from this time group and all current settings "
+"including changes will be updated. OK to proceed?"
+msgstr ""
+"このセクションはこのタイムグループから削除され、変更を含む全ての現設定が更新"
+"されます。続行しますか？"
+
+#: functions.inc.php:691 functions.inc.php:711
+msgid "This will display as the name of this Time Group."
+msgstr "このタイムグループ名を表示します。"
+
+#: functions.inc.php:1051 functions.inc.php:1114
+msgid "Thursday"
+msgstr "木曜日"
+
+#: page.timeconditions.php:48
+msgid "Time Condition"
+msgstr "タイムコンディション"
+
+#: timeconditions.i18n.php:18
+msgid "Time Condition Module"
+msgstr "タイムコンディションモジュール"
+
+#: page.timeconditions.php:89
+msgid "Time Condition name:"
+msgstr "タイムコンディション名："
+
+#: page.timeconditions.php:51
+msgid "Time Condition:"
+msgstr "タイムコンディション："
+
+#: functions.inc.php:21 functions.inc.php:287
+#, php-format
+msgid "Time Condition: %s"
+msgstr "タイムコンディション： %s"
+
+#: timeconditions.i18n.php:4 timeconditions.i18n.php:10
+msgid "Time Conditions"
+msgstr "タイムコンディション"
+
+#: functions.inc.php:682 functions.inc.php:691 functions.inc.php:711
+#: page.timegroups.php:12
+msgid "Time Group"
+msgstr "タイムグループ"
+
+#: page.timeconditions.php:135
+msgid "Time Group:"
+msgstr "タイムグループ："
+
+#: timeconditions.i18n.php:14
+msgid "Time Groups"
+msgstr "タイムグループ"
+
+#: functions.inc.php:965
+msgid "Time to finish:"
+msgstr "終了時刻："
+
+#: functions.inc.php:910
+msgid "Time to start:"
+msgstr "開始時刻："
+
+#: functions.inc.php:1037 functions.inc.php:1100
+msgid "Tuesday"
+msgstr "火曜日"
+
+#: page.timeconditions.php:124
+msgid "Unchanged"
+msgstr "変更なし"
+
+#: page.timeconditions.php:112
+msgid "Unknown State"
+msgstr "不明ステータス"
+
+#: install.php:225
+#, php-format
+msgid "Upgraded %s and created group %s"
+msgstr "%s をアップグレードし、グループ%sを作成しました"
+
+#: functions.inc.php:707
+msgid "Used By"
+msgstr "に使用されています"
+
+#: functions.inc.php:1044 functions.inc.php:1107
+msgid "Wednesday"
+msgstr "水曜日"
+
+#: functions.inc.php:1077
+msgid "Week Day finish:"
+msgstr "終了曜日："
+
+#: functions.inc.php:1015
+msgid "Week Day start:"
+msgstr "開始曜日："
+
+#: page.timeconditions.php:187
+msgid ""
+"You have not selected a time group to associate with this timecondition. It "
+"will go to the un-matching destination until you update it with a valid group"
+msgstr ""
+"このタイムコンディションのタイムグループが選択されていません。有効なグループ"
+"に変更し、正しい宛先に転送されるよう設定してください"
+
+#: install.php:180
+msgid "already exists"
+msgstr "既存します"
+
+#: install.php:168
+msgid "checking for generate_hint field.."
+msgstr "generate_hintフィールドをチェック中.."
+
+#: install.php:158
+msgid "converting timeconditions time field to int.."
+msgstr "タイムコンディションのtimeフィールドをintにコンバート中.."
+
+#: page.timeconditions.php:48
+msgid "deleted"
+msgstr "削除されました"
+
+#: functions.inc.php:300
+msgid "false goto"
+msgstr ""
+
+#: install.php:185
+msgid "generating feature codes if needed.."
+msgstr "必要に応じてfeature codesを生成中.."
+
+#: install.php:232
+msgid "no upgrade needed"
+msgstr "アプグレードの必要はありません"
+
+#: install.php:219
+msgid "starting migration"
+msgstr "移行開始"
+
+#: functions.inc.php:292
+msgid "true goto"
+msgstr ""
+
+#~ msgid "Generate BLF Hint"
+#~ msgstr "BLFヒントを生成"
+
+#~ msgid ""
+#~ "If set an Asterisk hint will be created for the override feature code %s "
+#~ "associated with this Time Condition that can be used to light BLF buttons "
+#~ "on a phone programmed to enable/disable this Time Condition. If not using "
+#~ "a BLF it is better to leave this un-checked as additional system "
+#~ "resources are required to keep the hint updated. This Feature Code can be "
+#~ "found and enabled/disabled on the Feature Codes tab under Time Conditions."
+#~ msgstr ""
+#~ "設定された場合、このタイムコンディションを有効/無効にするためにプログラム"
+#~ "された電話にあるBLFボタンを光らせるために使用されるこのタイムコンディショ"
+#~ "ンと関連付けられた上書きキーコード %s のためにAsteriskヒントｋが作成されま"
+#~ "す。BLFを使用していない場合は、追加のシステムリソースに、ヒントがアップ"
+#~ "デートされるように要求されるため、これをチェックしないままにしておくほうが"
+#~ "良いです。このキーコードはタイムコンディションの下にあるキーコードタブで見"
+#~ "つけることができ、有効/無効にすることができます。"
+
+#~ msgid "Enable Override Code"
+#~ msgstr "上書きを有効"
+
+#~ msgid ""
+#~ "Check to enable the override feature code %s that allows manual changes "
+#~ "to the timecondition."
+#~ msgstr ""
+#~ "タイムコンディションを手動で上書き機能%sを有効にするためにチェックしてくだ"
+#~ "さい。"
+
+#~ msgid ""
+#~ "If set to false, this will override the execution of the Time Conditons "
+#~ "maintenace task launched by call files. If all the feature codes for time "
+#~ "conditions are disabled, the maintenance task will not be launched "
+#~ "anyhow. Setting this to false would be fairly un-common. You may want to "
+#~ "set this temporarily if debugging a system to avoid the periodic dialplan "
+#~ "running through the CLI that the maintenance task launches and can be "
+#~ "distracting."
+#~ msgstr ""
+#~ "false設定の場合、コールファイルで起動されるタイムコンディションメンテナン"
+#~ "スタスクの実行を上書きします。もしタイムコンディションの全てのキーコードが"
+#~ "無効の場合、メンテナンスタスクは起動されません。falseの設定は、非一般的で"
+#~ "す。メンテナンスタスクが起動するCLIが阻害される可能性がある定期的なダイヤ"
+#~ "ルプランの起動を避けるため、システムをデバッグする場合は、一時的にこの設定"
+#~ "をすることあります。"
+
+#~ msgid ""
+#~ "The polling interval in seconds used by the Time Conditions manintenace "
+#~ "task, launched by an Asterisk call file used to update Time Conditions "
+#~ "override states as well as keep custom device state hint values up-to-"
+#~ "date when being used with BLF. A shorter interval will assure that BLF "
+#~ "keys states are accurate. The interval should be less than the shortest "
+#~ "configured span between two time condition states, so that a manual "
+#~ "overide during such a period is properly reset when the new period starts."
+#~ msgstr ""
+#~ "BLF使用時にカスタムデバイス状態ヒントの値を最新に保つためと、タイムコン"
+#~ "ディション上書き状態を更新するために使用されるAsteriskコールファイルによっ"
+#~ "て起動されるタイムコンディションメンテナンスタスクによって使用されるポーリ"
+#~ "ング間隔秒数。間隔をより短くすることで、BLFキー状態が正確になることが保証"
+#~ "されます。新しい間隔が開始し、その間隔で手動上書きが正しくリセットされるよ"
+#~ "うに、この間隔は、２つのタイムコンディション状態の間に設定された最短スパン"
+#~ "よりも短くします。"
+
+#~ msgid "text"
+#~ msgstr "テキスト"

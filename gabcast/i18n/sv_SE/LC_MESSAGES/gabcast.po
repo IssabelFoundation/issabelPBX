@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX gabcast\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-06 14:25+0200\n"
+"PO-Revision-Date: 2008-10-12 18:29+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#: functions.inc.php:21
+msgid "Edit Gabcast Settings"
+msgstr "Redigera inställningar för Gabcast"
+
+#: functions.inc.php:24
+msgid "Add Gabcast Settings"
+msgstr "Lägg till inställning för Gabcast"
+
+#: functions.inc.php:60
+#, php-format
+msgid "Gabcast: %s Ext: %s"
+msgstr "Gabcats: %s Ankn: %s"
+
+#: install.php:4
+#: install.php:8
+msgid "Connect to Gabcast"
+msgstr "Koppla upp mot Gabcast"
+
+#: page.gabcast.php:60
+msgid "This "
+msgstr "Denna "
+
+#: page.gabcast.php:62
+msgid "Gabcast is a social broadcasting platform that offers virtual communities, individuals, and organizations an easy way to create and distribute audio content.<br><br>Visit www.gabcast.com for more info."
+msgstr "Gabcast är en social utsändningsplattfor som tillhandahåller virtuella samhällen, individer och organisationer ett enkelt sätt att skapa och distribuera ljudinnehåll.<br><br>Besök www.gabcast.com för mer information."
+
+#: page.gabcast.php:64
+msgid "module allows you to:"
+msgstr "modul ger dig möjlighet att:"
+
+#: page.gabcast.php:66
+msgid "Link extensions to Gabcast channels. It creates a feature code, which defaults to <u>*422</u> 'gab' - you can change this in"
+msgstr "Koppla en anknytning till en kanal på Gabcast. Detta skapar en funktionskod, som standard är den <u>*422</u>  'gab' - du kan ändra detta i"
+
+#: page.gabcast.php:67
+msgid "Feature Code Admin"
+msgstr "Funktionskoder"
+
+#: page.gabcast.php:68
+msgid "which allows you to log directly into your Gabcast account.  This is ideal for personal podcasting!"
+msgstr "som ger dig möjlighet att logga in direkt på ditt Gabcastkonto. Detta är idealiskt för en personlig podradio!"
+
+#: page.gabcast.php:70
+msgid "Define a Gabcast channel as a Destination for other modules. For example, you can direct a DID or IVR menu option directly to Gabcast. This is ideal for group and public podcasting!"
+msgstr "Ange en Gabcastkanal som en destination för andra moduler. T.ex. du kan koppla ett direktnummer eller en meny i IVR att gå direkt till Gabcast. Detta är idealiskt för grupper eller publik podradio!"
+
+#: page.gabcast.php:84
+msgid "Error: cannot retreive Gabcast info for this extension"
+msgstr "Fel: Kan inte hämta information om Gabcast för denna anknytning"
+
+#: page.gabcast.php:94
+msgid "Delete settings"
+msgstr "Ta bort inställning"
+
+#: page.gabcast.php:113
+msgid "You <u>must</u> have a Gabcast account & channel to use this feature. Visit"
+msgstr "Du <u>måste</u> ha ett Gabcastkonto & kanal för att använda denna funktion. Besök"
+
+#: page.gabcast.php:115
+msgid "to sign up. <u>It's a free service</u>!"
+msgstr "för att skapa ett konto.<u>Det är en gratistjänst</u>!"
+
+#: page.gabcast.php:121
+msgid "Gabcast Channel Number:"
+msgstr "Nummer för Gabcastkanal:"
+
+#: page.gabcast.php:123
+msgid "Gabcast Channel Password:"
+msgstr "Lösenord för Gabcastkanal:"
+
+#: page.gabcast.php:125
+msgid "Link to Extension/User Number:"
+msgstr "Koppla till anknytning/användare:"
+
+#: page.gabcast.php:135
+msgid "Add Gabcast Channel"
+msgstr "Lägg till en Gabcastkanal"
+
+#: page.gabcast.php:144
+msgid "Ext"
+msgstr "Ankn"
+
+#: page.gabcast.php:144
+msgid "Chan"
+msgstr "Kanal"
+
+#: page.gabcast.php:147
+msgid "Gabcast Configuration"
+msgstr "Konfiguration för Gabcast"
+
+#: page.gabcast.php:152
+#, php-format
+msgid "The latest episodes in channel #%s"
+msgstr "De senaste avsnitten i kanal #%s"
+
+#: page.gabcast.php:155
+msgid "The latest episodes across all channels"
+msgstr "De senaste avsnitten från alla kanaler"
+
+#: page.gabcast.php:159
+msgid "Feed URL: "
+msgstr "Källa:"
+

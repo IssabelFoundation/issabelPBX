@@ -1,0 +1,5 @@
+[general]
+#include vm_general.inc
+#include vm_email.inc
+[default]
+

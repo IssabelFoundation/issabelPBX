@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-02-01 15:21+0800\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Call Forward"
+msgstr "呼叫转移"
+
+msgid "Applications"
+msgstr ""
+
+msgid "Provides callforward featurecodes"
+msgstr ""
+
+msgid "Call Forward All Activate"
+msgstr "呼叫转移 - 全部激活"
+
+msgid "Call Forward All Deactivate"
+msgstr "呼叫转移 - 全部关闭"
+
+msgid "Call Forward All Prompting Deactivate"
+msgstr "呼叫转移 - 全部提示关闭"
+
+msgid "Call Forward Busy Activate"
+msgstr "呼叫转移 - 忙时激活"
+
+msgid "Call Forward Busy Deactivate"
+msgstr "呼叫转移 - 忙时关闭"
+
+msgid "Call Forward Busy Prompting Deactivate"
+msgstr "呼叫转移 - 忙时提示关闭"
+
+msgid "Call Forward No Answer/Unavailable Activate"
+msgstr "呼叫转移 - 无应答或不可用时激活"
+
+msgid "Call Forward No Answer/Unavailable Deactivate"
+msgstr "呼叫转移 - 无应答或不可用时关闭"
+
+msgid "Call Forward Toggle"
+msgstr ""

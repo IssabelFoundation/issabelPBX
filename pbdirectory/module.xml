@@ -1,0 +1,25 @@
+<module>
+  <rawname>pbdirectory</rawname>
+  <repo>extended</repo>
+  <name>Phonebook Directory</name>
+  <version>2.11.0.5</version>
+	<publisher>Issabel Foundation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+  <category>Admin</category>
+  <location>release/2.11/pbdirectory-2.11.0.0.tgz</location>
+  <description>Provides a dial-by-name directory for phonebook entries</description>
+	<changelog>
+		*2.11.0.5* Issabel Foundation release
+		*2.9.0.0* Forked from FreePBX modules, original publisher Sangoma Technologies
+	</changelog>
+  <depends>
+    <version>2.4.0</version>
+    <module>phonebook</module>
+    <module>speeddial</module>
+  </depends>
+  <md5sum>fdd65968e753840a60086c4a9cf4836f</md5sum>
+  <supported>
+    <version>2.10</version>
+  </supported>
+</module>

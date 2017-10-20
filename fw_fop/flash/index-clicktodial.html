@@ -1,0 +1,77 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <link rel="stylesheet" href="styles.css" media="screen" />
+  <META HTTP-EQUIV="Expires" CONTENT="Fri, Jun 12 1981 08:20:00 GMT">
+  <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+  <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+
+
+<SCRIPT LANGUAGE="JavaScript"> 
+<!--  
+var movieName = "operator_panel";
+
+function thisMovie(movieName) {
+  // If you want to run this from another frame, change window or document 
+  // for the appropiate reference, like parent.frame[1].window[movieName] 
+  if (navigator.appName.indexOf ("Microsoft") !=-1) {
+    return window[movieName]
+  } else {
+    return document[movieName]
+  }
+}
+
+function movieIsLoaded (theMovie) {
+  if (typeof(theMovie) != "undefined") {
+    return theMovie.PercentLoaded() == 100;
+  } else {
+    return false;
+  }
+}
+
+
+function sendnumber(telefono) {
+  if (movieIsLoaded(thisMovie(movieName))) {
+        thisMovie(movieName).TGotoFrame("_level0/numdial",10); // Erase previous number
+        for(a=0;a<telefono.length;a++) {
+            var frame= telefono.charAt(a);
+            if(!isNaN(frame)) {
+            thisMovie(movieName).TGotoFrame("_level0/numdial",frame); // Add digit to number
+            thisMovie(movieName).TGotoFrame("_level0/numdial",12);    // next digit
+            }
+        }
+        thisMovie(movieName).TGotoFrame("_level0/numdial",11); // Dial current number
+  }
+}
+
+
+</script>
+
+</head>
+<body>
+
+<!--
+To enable click to dial, you have to specify the dial parameter after each
+appearance of operator_panel.swf below. You can specify the button number
+as this example, or the channel name, like
+
+operator_panel.swf?dial=SIP/john
+
+When a dial order is received from javascript, it will use that channel
+to originate the call. It only works for channels for the 1st server
+(if you are monitoring multiple servers).
+-->
+
+<div align='center'>
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="990" height="600" id="operator_panel">
+<param name="allowScriptAccess" value="sameDomain" />
+<param name="movie" value="operator_panel.swf?dial=7" />
+<param name="quality" value="high" />
+<param name="bgcolor" value="#ffffff" />
+<embed src="operator_panel.swf?dial=7" quality="high" bgcolor="#ffffff" width=990" height="600" name="operator_panel" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+</div>
+
+<a href="#" onclick="sendnumber('18005555555'); return false;">Dial 1-800-555-5555</a>
+
+</body>
+</html>

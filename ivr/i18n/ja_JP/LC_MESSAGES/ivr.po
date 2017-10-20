@@ -1,0 +1,320 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for ivr
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.0.9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-05 19:32+0900\n"
+"PO-Revision-Date: 2014-04-17 10:21+0200\n"
+"Last-Translator: Kevin <kevin@qloog.com>\n"
+"Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/ivr/ja/>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.9-dev\n"
+
+msgid "Checking if announcements need migration.."
+msgstr "アナウンスに移行が必要かチェック中.."
+
+msgid "migrating"
+msgstr "移行中"
+
+msgid "adding announcement_id field.."
+msgstr "announcement_id フィールドを追加.."
+
+msgid "fatal error"
+msgstr "致命的なエラー"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "migrate to recording ids.."
+msgstr "録音IDに移行中.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "%sエントリーを移行する"
+
+msgid "dropping announcement field.."
+msgstr "アナウンスフィールドをドロップ.."
+
+msgid "no announcement field???"
+msgstr "アナウンスフィールドがありません???"
+
+msgid "already migrated"
+msgstr "移行済み"
+
+msgid "Checking for timeout_id.."
+msgstr "timeout_idをチェック中.."
+
+msgid "added"
+msgstr "追加しました"
+
+msgid "not needed"
+msgstr "必要なし"
+
+msgid "Checking for invalid_id.."
+msgstr "invalid_idをチェック中.."
+
+msgid "Checking for retvm.."
+msgstr "retvmをチェック中.."
+
+#, php-format
+msgid ""
+"There are %s IVRs that have the legacy Directory dialing enabled. This has "
+"been deprecated and will be removed from future releases. You should convert "
+"your IVRs to use the Directory module for this functionality and assign an "
+"IVR destination to a desired Directory. You can install the Directory module "
+"from the Online Module Repository"
+msgstr ""
+"レガシーディレクトリダイヤリングが有効になっているIVRが %s あります。この機能は廃止されていて、将来のリリースでは削除されるでしょう。この機能を使"
+"用してIVRの宛先を希望ディレクトリへ割り当てるためにディレクトリモジュールを使用するには、あなたのIVRをコンバートするべきです。オンラインモジュール"
+"レポジトリからディレクトリモジュールのインストールが可能です"
+
+#, php-format
+msgid "Deprecated Directory used by %s IVRs"
+msgstr "%s のIVRから使用されている廃止されたディレクトリ"
+
+msgid "posting notice about deprecated functionality"
+msgstr "廃止された機能についての通知を投稿する"
+
+msgid "Checking for timeout_append_announce.."
+msgstr "timeout_append_announceをチェック中.."
+
+msgid "Checking for invalid_append_announce.."
+msgstr "invalid_append_announceをチェック中.."
+
+msgid "IVR"
+msgstr "IVR"
+
+msgid "Add a new IVR"
+msgstr "新規IVRを追加"
+
+msgid "digits pressed"
+msgstr "発信者が入力した数字"
+
+msgid ""
+"Check this box to have this option return to a parent IVR if it was called "
+"from a parent IVR. If not, it will go to the chosen destination.<br><br>The "
+"return path will be to any IVR that was in the call path prior to this IVR "
+"which could lead to strange results if there was an IVR called in the call "
+"path but not immediately before this"
+msgstr ""
+"親IVRから呼が転送された場合、親IVRへ戻すにはこのボックスにチェックを入れてください。チェックを入れない場合、呼が決められた宛先に転送されます。<b"
+"r><br> よって、親IVRがこのIVRの直前でない場合は、予期しない結果を引き起こしてしまう可能性があります。注意:親IVRとは、このIVRに転送さ"
+"れる前にあったIVRの事"
+
+msgid "Delete this entry. Dont forget to click Submit to save changes!"
+msgstr "このエントリーを削除する。変更適用を忘れずに！"
+
+msgid "Add Entry"
+msgstr "エントリーを追加"
+
+msgid "Add IVR"
+msgstr "IVRを追加"
+
+#, php-format
+msgid "Edit IVR: %s"
+msgstr "IVRを編集: %s"
+
+#, php-format
+msgid "Delete IVR: %s"
+msgstr "IVRを削除: %s"
+
+msgid "IVR General Options"
+msgstr "IVR 一般設定"
+
+msgid "IVR Name"
+msgstr "IVRの名前"
+
+msgid "Name of this IVR."
+msgstr "このIVRの名前。"
+
+msgid "IVR Description"
+msgstr "IVRの説明"
+
+msgid "Description of this ivr."
+msgstr "このIVRの説明。"
+
+msgid "IVR Options (DTMF)"
+msgstr "IVRオプション(DTMF)"
+
+msgid "None"
+msgstr "なし"
+
+msgid "Announcement"
+msgstr "アナウンス"
+
+msgid "Greeting to be played on entry to the Ivr."
+msgstr "IVRに入った時に再生する音声。"
+
+msgid "Disabled"
+msgstr "無効"
+
+msgid "Extensions"
+msgstr "内線"
+
+msgid "Completely disabled"
+msgstr "完全に無効"
+
+msgid "Enabled for all extensions on a system"
+msgstr "システムの全ての内線に対して有効"
+
+msgid "Direct Dial"
+msgstr "ダイレクトダイヤル"
+
+msgid ""
+"Provides options for callers to direct dial an extension. Direct dialing can "
+"be:"
+msgstr "直接内線に掛けるダイレクトダイヤルオプションを提供します。可能な設定は:"
+
+msgid "Default"
+msgstr "デフォルト"
+
+msgid "Timeout"
+msgstr "タイムアウト"
+
+msgid "Amount of time to be considered a timeout"
+msgstr "この時間が経過した後にタイムアウトとみなします。"
+
+msgid "Invalid Retries"
+msgstr "不正リトライ数"
+
+msgid ""
+"Number of times to retry when receiving an invalid/unmatched response from "
+"the caller"
+msgstr "発信者から不正・一致しないレスポンスを受信するときにリトライする回数。"
+
+msgid "Invalid Retry Recording"
+msgstr "不正リトライ音声"
+
+msgid ""
+"Prompt to be played when an invalid/unmatched response is received, before "
+"prompting the caller to try again"
+msgstr "不正・一致しない応答を受信した場合に、ユーザーに再試行を促す前に再生する音声"
+
+msgid "Append Original Announcement"
+msgstr "オリジナルアナウンスを付け加える"
+
+msgid ""
+"After playing the Invalid Retry Recording the system will replay the main "
+"IVR Announcement"
+msgstr "発信者から無効な応答を受信した場合は、エラーリトライの音声を再生してからメインIVRのアナウンスがもう一度再生されます"
+
+msgid "Invalid Recording"
+msgstr "不正操作の音声"
+
+msgid ""
+"Prompt to be played before sending the caller to an alternate destination "
+"due to the caller pressing 0 or receiving the maximum amount of invalid/"
+"unmatched responses (as determined by Invalid Retries)"
+msgstr ""
+"発信者を別の転送先に転送する前に再生する音声。発信者が 0 を押した場合や最大不正・一致しない応答(不正リトライ設定の値)数を受信したときに再生します。"
+
+msgid "Invalid Destination"
+msgstr "不正転送先"
+
+msgid "Destination to send the call to after Invalid Recording is played."
+msgstr "不正操作の録音を再生した後に発信者を転送する宛先。"
+
+msgid "Timeout Retries"
+msgstr "タイムアウトリトライ"
+
+msgid ""
+"Number of times to retry when no DTMF is heard and the IVR choice timesout."
+msgstr "DTMFが聞こえずに、IVR選択がタイムアウトした場合にリトライする回数。"
+
+msgid "Timeout Retry Recording"
+msgstr "再タイムアウト音声"
+
+msgid ""
+"After playing the Timeout Retry Recording the system will replay the main "
+"IVR Announcement"
+msgstr "再タイムアウト音声を再生した後、メインIVRのアナウンスが再度再生されます"
+
+msgid "Timeout Recording"
+msgstr "タイムアウト音声"
+
+msgid "Timeout Destination"
+msgstr "タイムアウト時の宛先"
+
+msgid "Return to IVR after VM"
+msgstr "VMの後にIVRに戻る"
+
+msgid ""
+"If checked, upon exiting voicemail a caller will be returned to this IVR if "
+"they got a users voicemail"
+msgstr "チェックを入れた場合、もしボイスメールを受信した時には、既存のボイスメールにおいて、発信者はこのIVRに戻ってきます"
+
+msgid "IVR Entries"
+msgstr "IVRエントリー"
+
+msgid "Ext"
+msgstr "番号"
+
+msgid "Destination"
+msgstr "宛先"
+
+msgid "Return"
+msgstr "戻る"
+
+msgid "Return to IVR"
+msgstr "IVRに戻る"
+
+msgid "Delete"
+msgstr "削除"
+
+#, php-format
+msgid "IVR: %s / Option: %s"
+msgstr "IVR: %s / オプション: %s"
+
+#, php-format
+msgid "IVR: %s"
+msgstr "IVR: %s"
+
+msgid "Applications"
+msgstr "アプリケーション"
+
+msgid ""
+"Creates Digital Receptionist (aka Auto-Attendant, aka Interactive Voice "
+"Response) menus. These can be used to send callers to different locations "
+"(eg, Press 1 for sales) and/or allow direct-dialing of extension numbers."
+msgstr ""
+"デジタルレセプショニストメニュー (自動応答やIVRとして知られている) "
+"を作成します。これらは発信者を異なる場所に移動させるのに使用します。例:(1番を押した場合は営業) "
+"さらに/もしくは、内線番号を直接ダイヤルできるようにします。"

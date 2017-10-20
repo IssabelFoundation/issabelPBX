@@ -1,0 +1,854 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for ARI
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-14 07:08+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Asterisk Call Manager not responding"
+msgstr ""
+
+msgid "Asterisk authentication failed:"
+msgstr ""
+
+msgid "Asterisk command not understood"
+msgstr ""
+
+#, php-format
+msgid "Too many files in %s. Not all files processed"
+msgstr ""
+
+#, php-format
+msgid "Too many directories in %s. Not all files processed"
+msgstr ""
+
+msgid "ARI requires a version of PHP 4.3 or later"
+msgstr ""
+
+msgid ""
+"PHP PEAR must be installed.  Visit http://pear.php.net for help with "
+"installation."
+msgstr ""
+
+msgid "ARI does not appear to have access to the Asterisk Manager."
+msgstr ""
+
+msgid ""
+"Check the ARI 'main.conf.php' configuration file to set the Asterisk Manager "
+"Account."
+msgstr ""
+
+msgid "Check /etc/asterisk/manager.conf for a proper Asterisk Manager Account"
+msgstr ""
+
+msgid ""
+"make sure [general] enabled = yes and a 'permit=' line for localhost or the "
+"webserver."
+msgstr ""
+
+msgid "Check AMP installation, asterisk, and ARI main.conf"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Page Not Found."
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Searched for"
+msgstr ""
+
+#, php-format
+msgid "Results %d - %d of %d"
+msgstr ""
+
+#, php-format
+msgid "Results %d"
+msgstr ""
+
+msgid "First"
+msgstr ""
+
+msgid "Last"
+msgstr ""
+
+msgid "Incorrect Username or Password"
+msgstr ""
+
+msgid "Login"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "Remember Password"
+msgstr ""
+
+msgid "Use your <b>Voicemail Mailbox and Password</b>"
+msgstr ""
+
+msgid "This is the same password used for the phone"
+msgstr ""
+
+msgid ""
+"For password maintenance or assistance, contact your Phone System "
+"Administrator."
+msgstr ""
+
+msgid "INBOX"
+msgstr ""
+
+msgid "Family"
+msgstr ""
+
+msgid "Friends"
+msgstr ""
+
+msgid "Old"
+msgstr ""
+
+msgid "Work"
+msgstr ""
+
+msgid "Call Forward All Activate"
+msgstr ""
+
+msgid "Call Forward All Deactivate"
+msgstr ""
+
+msgid "Call Forward All Prompting Deactivate"
+msgstr ""
+
+msgid "Call Forward Busy Activate"
+msgstr ""
+
+msgid "Call Forward Busy Deactivate"
+msgstr ""
+
+msgid "Call Forward Busy Prompting Deactivate"
+msgstr ""
+
+msgid "Call Forward No Answer/Unavailable Activate"
+msgstr ""
+
+msgid "Call Forward No Answer/Unavailable Deactivate"
+msgstr ""
+
+msgid "Call Waiting - Activate"
+msgstr ""
+
+msgid "Call Waiting - Deactivate"
+msgstr ""
+
+msgid "Do-Not-Disturb Activate"
+msgstr ""
+
+msgid "Do-Not-Disturb Deactivate"
+msgstr ""
+
+msgid "My Voicemail"
+msgstr ""
+
+msgid "Dial Voicemail"
+msgstr ""
+
+msgid "Call Monitor"
+msgstr ""
+
+msgid "One or more messages must be selected before clicking delete."
+msgstr ""
+
+#, php-format
+msgid "Path is not a directory: %s"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "duration"
+msgstr ""
+
+msgid "ignore"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "Caller ID"
+msgstr ""
+
+msgid "Source"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Context"
+msgstr ""
+
+msgid "Duration"
+msgstr ""
+
+msgid "Monitor"
+msgstr ""
+
+msgid "Play"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+#, php-format
+msgid "Call Monitor for %s (%s)"
+msgstr ""
+
+msgid "select"
+msgstr ""
+
+msgid "all"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "Only deletes recording files, not cdr log"
+msgstr ""
+
+msgid "Feature Codes"
+msgstr ""
+
+#, php-format
+msgid " for %s (%s)"
+msgstr ""
+
+msgid "Handset Feature Code"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "description"
+msgstr ""
+
+msgid "Follow Me"
+msgstr ""
+
+msgid ""
+"Your Follow-Me has been disabled, REFRESH your browser to remove this message"
+msgstr ""
+
+#, php-format
+msgid ""
+"Check with your Telephone System Administrator if you think there is a "
+"problem"
+msgstr ""
+
+msgid "Follow-Me pre-ring time not changed"
+msgstr ""
+
+#, php-format
+msgid "Number %s must be an integer number of seconds"
+msgstr ""
+
+msgid "Follow-Me list ring time not changed"
+msgstr ""
+
+msgid "Follow-Me list must contain at least one valid number"
+msgstr ""
+
+#, php-format
+msgid "The following: %s is not valid"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid ""
+"Dial-by-name Directory, IVR, and internal \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tcalls will ring the numbers in the FollowMe \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tList. Any IssabelPBX routes that directly \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\treference a FollowMe are unaffected by this \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tenable/disable setting."
+msgstr ""
+
+msgid "Follow Me List:"
+msgstr ""
+
+#, php-format
+msgid "Extensions and outside numbers to ring next."
+msgstr ""
+
+#, php-format
+msgid "Include %s to keep it ringing."
+msgstr ""
+
+#, php-format
+msgid "Ring %s First For:"
+msgstr ""
+
+#, php-format
+msgid "Time to ring extension %s before ringing the %s Follow Me List %s"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+msgid "Ring Followme List for:"
+msgstr ""
+
+msgid "Time to ring the Follow Me List."
+msgstr ""
+
+msgid "Use Confirmation:"
+msgstr ""
+
+msgid ""
+"Outside lines that are part of the Follow Me List will be called and offered "
+"a menu:<br/><br/> \"You have an incoming call. Press 1 to accept or 2 to "
+"decline.\"<br/><br/> This keeps calls from ending up in external voicemail. "
+"Make sure that the List Ring Time is long enough to allow for you to hear "
+"and react to this message."
+msgstr ""
+
+msgid "Followme Settings"
+msgstr ""
+
+#, php-format
+msgid "Followme Settings for %s (%s)"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Phone Features"
+msgstr ""
+
+msgid "Call Waiting"
+msgstr ""
+
+msgid "Do Not Disturb"
+msgstr ""
+
+msgid "Call Forwarding"
+msgstr ""
+
+msgid "Unconditional:"
+msgstr ""
+
+msgid "Unavailable:"
+msgstr ""
+
+msgid "Busy:"
+msgstr ""
+
+#, php-format
+msgid "Phone Features for %s (%s)"
+msgstr ""
+
+msgid "Call forward number not changed"
+msgstr ""
+
+#, php-format
+msgid ""
+"Number %s must contain dial numbers (characters like '(', '-', and ')' are "
+"ok)"
+msgstr ""
+
+msgid "Call Screening:"
+msgstr ""
+
+msgid ""
+"Call Screening requires external callers to say their name, which will be "
+"played back to the user and allow the user to accept or reject the call.  "
+"Screening with memory only verifies a caller for their caller-id once. "
+"Screening without memory always requires a caller to say their name. Either "
+"mode will always announce the caller based on the last introduction saved "
+"with that callerid. If any user on the system uses the memory option, when "
+"that user is called, the caller will be required to re-introduce themselves "
+"and all users on the system will have that new introduction associated with "
+"the caller's CallerId."
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Screen Caller: No Memory"
+msgstr ""
+
+msgid "Screen Caller: Memory"
+msgstr ""
+
+msgid "CallForward Ringtimer:"
+msgstr ""
+
+msgid ""
+"Number of seconds to ring prior to going to voicemail or other fail over "
+"destinations that may be setup by an administrator on this account. The "
+"Always setting will ring the call forward destinaiton until answered or the "
+"caller hangs up. The Default setting will use the value set in Ring Time. "
+"Your setting here will be forced to Always if there is no Voicemail or "
+"alternartive fail over destination for a call to go to."
+msgstr ""
+
+msgid "Ringtimer:"
+msgstr ""
+
+msgid ""
+"Number of seconds to ring prior to going to voicemail or ringing other "
+"numbers that may be configured such as a Call Forward Unavailabe or an "
+"Unavailable destination that may be configured by your administrator. The "
+"Default setting will use the value set for the PBX."
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Always"
+msgstr ""
+
+msgid "Attach voicemail to email"
+msgstr ""
+
+msgid "Option to attach audio file to email."
+msgstr ""
+
+msgid "Number of deleted messages to backup"
+msgstr ""
+
+msgid ""
+"The maximum number of messages that are backed up in the Deleted folder. "
+"This may be 0-9999."
+msgstr ""
+
+msgid "Delete voicemail after emailed"
+msgstr ""
+
+msgid ""
+"When enabled the message will be deleted from the voicemailbox after the "
+"notification email is sent. This allows receiving voicemail via email alone, "
+"rather than having the voicemail available from the Web interface or by "
+"telephone. CAUTION: Attach voicemail to email must be enabled, OTHERWISE "
+"YOUR MESSAGES WILL BE LOST FOREVER."
+msgstr ""
+
+msgid "Say envelope (date/time)"
+msgstr ""
+
+msgid ""
+"When enabled the voicemail system will play the message envelope (date/time) "
+"before playing the voicemail message. This setting does not affect the "
+"operation of the envelope option in the advanced voicemail menu."
+msgstr ""
+
+msgid "Maximum number of messages"
+msgstr ""
+
+msgid ""
+"Maximum number of messages per folder. It may be up to 9999. The default "
+"value is 100."
+msgstr ""
+
+msgid "Maximum message length"
+msgstr ""
+
+msgid "Maximum length allowed for a voicemail message (in seconds)."
+msgstr ""
+
+msgid "Move heard messages"
+msgstr ""
+
+msgid "Automatically move heard messages to the Old folder."
+msgstr ""
+
+msgid "Review recording"
+msgstr ""
+
+msgid "Allow caller to review their voicemail before saving it."
+msgstr ""
+
+msgid "Say caller ID"
+msgstr ""
+
+msgid ""
+"After announcing the message date and time, play back the caller's telephone "
+"number before each message."
+msgstr ""
+
+msgid "Say duration"
+msgstr ""
+
+msgid "Announce the message duration before playing the message."
+msgstr ""
+
+msgid "Say duration minimum"
+msgstr ""
+
+msgid ""
+"Do not announce message duration for messages shorter than this number of "
+"minutes."
+msgstr ""
+
+msgid "Email from"
+msgstr ""
+
+msgid "Who the e-mail notification should appear to come from."
+msgstr ""
+
+msgid "Temporary greeting warning"
+msgstr ""
+
+msgid "Warn user when a temporary greeting is active."
+msgstr ""
+
+msgid "Change attachment volume"
+msgstr ""
+
+msgid ""
+"Change volume of message before attaching it to an email. Values less than "
+"1.0 decrease volume, greater than 1.0 increase volume."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Voicemail password not changed"
+msgstr ""
+
+msgid "Password and password confirm must not be blank"
+msgstr ""
+
+#, php-format
+msgid "Passwords must be all numbers and greater than %d digits"
+msgstr ""
+
+#, php-format
+msgid "Passwords must be all numbers and only %d digits"
+msgstr ""
+
+msgid "Password and password confirm do not match"
+msgstr ""
+
+#, php-format
+msgid "%s does not exist or is not writable"
+msgstr ""
+
+msgid "Voicemail email and pager address not changed"
+msgstr ""
+
+msgid "Voicemail email settings not changed"
+msgstr ""
+
+msgid "Language:"
+msgstr ""
+
+#, php-format
+msgid "Passwords must be all numbers and only %s digits"
+msgstr ""
+
+#, php-format
+msgid "Passwords must be all numbers and at least %s digits"
+msgstr ""
+
+msgid "Password Settings"
+msgstr ""
+
+msgid "Voicemail Password:"
+msgstr ""
+
+msgid "Enter again to confirm:"
+msgstr ""
+
+msgid "Email Address:"
+msgstr ""
+
+msgid "Email a notification, including audio file if indicated below."
+msgstr ""
+
+msgid "Pager Email Address:"
+msgstr ""
+
+msgid "Email a short notification"
+msgstr ""
+
+msgid "Call Me Number:"
+msgstr ""
+
+msgid ""
+"Call Me Number can be any dialable number, such as an extension or a "
+"cellphone."
+msgstr ""
+
+msgid "Audio Format:"
+msgstr ""
+
+msgid "Best Quality"
+msgstr ""
+
+msgid "Smallest Download"
+msgstr ""
+
+msgid "Notification Settings"
+msgstr ""
+
+msgid "Web Playback Settings"
+msgstr ""
+
+msgid "Phone Playback Settings"
+msgstr ""
+
+msgid "Caller Settings"
+msgstr ""
+
+msgid "Mailbox Storage Settings"
+msgstr ""
+
+msgid "IMAP Mail Settings"
+msgstr ""
+
+msgid "Other Voicemail Settings"
+msgstr ""
+
+msgid "Call Monitor Settings"
+msgstr ""
+
+msgid "Record INCOMING:"
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
+msgid "On-Demand"
+msgstr ""
+
+msgid "Record OUTGOING:"
+msgstr ""
+
+#, php-format
+msgid "Settings for %s (%s)"
+msgstr ""
+
+msgid "VmX&#8482 Locator"
+msgstr ""
+
+msgid ""
+"Your Premium VmX Locator service has been disabled, REFRESH your browser to "
+"remove this message"
+msgstr ""
+
+msgid "Option 0 not changed"
+msgstr ""
+
+msgid "Option 1 not changed"
+msgstr ""
+
+msgid "Option 2 not changed"
+msgstr ""
+
+msgid "Use When:"
+msgstr ""
+
+msgid ""
+"Menu options below are available during your personal voicemail greeting "
+"playback. <br/><br/>Check both to use at all times."
+msgstr ""
+
+msgid "unavailable"
+msgstr ""
+
+msgid "busy"
+msgstr ""
+
+msgid "Voicemail Instructions:"
+msgstr ""
+
+msgid "Uncheck to play a beep after your personal voicemail greeting."
+msgstr ""
+
+msgid "Standard voicemail prompts."
+msgstr ""
+
+msgid "Press 0:"
+msgstr ""
+
+msgid ""
+"Pressing 0 during your personal voicemail greeting goes to the Operator. \n"
+"\t\t\t\t\tUncheck to enter another destination here."
+msgstr ""
+
+msgid "Go To Operator"
+msgstr ""
+
+msgid "Press 1:"
+msgstr ""
+
+msgid ""
+"The remaining options can have internal extensions, ringgroups, queues and "
+"external numbers that may be rung. It is often used to include your cell "
+"phone. You should run a test to make sure that the number is functional any "
+"time a change is made so you don't leave a caller stranded or receiving "
+"invalid number messages."
+msgstr ""
+
+msgid ""
+"Enter an alternate number here, then change your personal voicemail greeting "
+"to let callers know to press 1 to reach that number. <br/><br/>If you'd like "
+"to use your Follow Me List, check \"Send to Follow Me\" and disable Follow "
+"Me above."
+msgstr ""
+
+msgid "Send to Follow-Me"
+msgstr ""
+
+msgid "Press 2:"
+msgstr ""
+
+msgid ""
+"Use any extensions, ringgroups, queues or external numbers. <br/><br/"
+">Remember to re-record your personal voicemail greeting and include "
+"instructions. Run a test to make sure that the number is functional."
+msgstr ""
+
+#, php-format
+msgid "VmX Locator&#8482; Settings for %s (%s)"
+msgstr ""
+
+msgid "Voicemail"
+msgstr ""
+
+msgid "A folder must be selected before the message can be moved."
+msgstr ""
+
+msgid "One or more messages must be selected before clicking move_to."
+msgstr ""
+
+msgid "An extension must be selected before the message can be forwarded."
+msgstr ""
+
+msgid "One or more messages must be selected before clicking forward_to."
+msgstr ""
+
+msgid ""
+"You must enter one or more email addresses (comma-separated) before clicking "
+"email_to."
+msgstr ""
+
+msgid "Warning: "
+msgstr ""
+
+msgid "is not a valid email address"
+msgstr ""
+
+msgid "The file type was not recognized."
+msgstr ""
+
+msgid "Warning: Could not access voicemail.conf.  Using default mailer."
+msgstr ""
+
+msgid "Mail operation failed"
+msgstr ""
+
+msgid "No valid email address given.  Please try again."
+msgstr ""
+
+msgid "One or more messages must be selected before clicking email_to."
+msgstr ""
+
+msgid "move_to"
+msgstr ""
+
+msgid "Folder"
+msgstr ""
+
+msgid "forward_to"
+msgstr ""
+
+msgid "email_to"
+msgstr ""
+
+msgid "Priority"
+msgstr ""
+
+msgid "Orig Mailbox"
+msgstr ""
+
+msgid "Playback"
+msgstr ""
+
+msgid "Play message at: "
+msgstr ""
+
+msgid "Voicemail recording(s) was not found."
+msgstr ""
+
+#, php-format
+msgid ""
+"On settings page, change voicemail audio format.  It is currently set to %s"
+msgstr ""
+
+msgid "Voicemail Login not found."
+msgstr ""
+
+msgid "No access to voicemail"
+msgstr ""
+
+msgid "No Voicemail Recordings for Admin"
+msgstr ""
+
+#, php-format
+msgid "Voicemail for %s (%s)"
+msgstr ""
+
+msgid "Calling: "
+msgstr ""
+
+msgid ". Please wait patiently..."
+msgstr ""
+
+#, php-format
+msgid "Could not create mailbox folder %s on the server"
+msgstr ""
+
+#, php-format
+msgid "Permission denied on folder %s or %s"
+msgstr ""
+
+msgid "The call was terminated."
+msgstr ""
+
+msgid "Folders"
+msgstr ""
+
+msgid "Original work based on ARI from Littlejohn Consulting"
+msgstr ""

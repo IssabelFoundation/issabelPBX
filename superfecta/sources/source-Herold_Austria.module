@@ -1,0 +1,57 @@
+<?php
+
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+ * Developer Notes:
+ * 
+ * There are two separate URLS for reverse searching, one for yellowpages one for ppl:
+ *  http://www.herold.at/en/telefonbuch/telefon_$thenumber    - people
+ *  http://www.herold.at/en/gelbe-seiten/telefon_$thenumber   - business
+ * I could only get reverse searches to work for ppl
+ * 
+ * herold.at Terms of Service:
+ * As summarized in the post here on 2014-06-27
+ * https://github.com/POSSA/Caller-ID-Superfecta/issues/131#issuecomment-47354154
+ * herold.at TOS do not explicitly prohibit automated lookups
+ *
+ * Version History:
+ * 2014-06-28	Initial migration from 2.2.x
+ * 2014-07-02	Add business lookups and change urls to mobile site
+ * 
+ *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+
+
+class Herold_Austria extends superfecta_base {
+
+	public $description = "http://www.herold.at/ - These listings include data for Austria.";
+	public $version_requirement = "2.11";
+
+	function get_caller_id($thenumber, $run_param=array()) {
+		$this->DebugPrint("Searching http://www.herold.at/ ... ");
+
+
+		// Set the url we're searching for
+//		$url = "http://www.herold.at/telefonbuch/telefon_" . $thenumber . "/";		// valid as of 2014-06-27 for residential
+//		$url = "http://www.herold.mobi/suche/was_$thenumber/";						// 2014-07-02 mostly okay for both residential and business but gives occasional false name
+		
+		$res_rul = "http://www.herold.mobi/telefonbuch/was_$thenumber/";			// url for searching residential listings
+		$bus_url = "http://www.herold.mobi/gelbe-seiten/was_$thenumber/";			// url for searching business listings
+
+		// regex patterns to search for
+		$regexp = array(
+//			'~<div class="result-wrap"><h2 class="fullw"><a href=".*?">(.+?)</a></h2>~',   // 2014-06-27 working for residential
+			'~<b>1.</b> <a onclick=".*?" href=".*?">(.+?)</a>    </h2>~',  // 2014-07-02 working for residential and business from mobi links
+		);
+
+		// first search for Residential match
+		if ($this->SearchURL($res_rul, $regexp, $match)) {
+			$caller_id = $this->ExtractMatch($match);
+		}
+
+		// if no residential match found, search business
+		if (!$caller_id && $this->SearchURL($bus_url, $regexp, $match)) {
+			$caller_id = $this->ExtractMatch($match);
+		}
+		return($caller_id);
+	}
+
+}

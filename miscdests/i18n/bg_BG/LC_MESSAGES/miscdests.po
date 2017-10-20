@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-03 14:11+0200\n"
+"Last-Translator: \n"
+"Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#, php-format
+msgid "Misc Destination: %s"
+msgstr "Друго Направление: %s"
+
+msgid "Misc Destinations"
+msgstr "Други Направления"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Allows creating destinations that dial any local number (extensions, feature "
+"codes, outside phone numbers) that can be used by other modules (eg, IVR, "
+"time conditions) as a call destination."
+msgstr ""
+
+msgid "Add Misc Destination"
+msgstr "Добави Друго Направление"
+
+msgid "Misc Destination"
+msgstr "Друго Направление"
+
+msgid "deleted"
+msgstr "изтрито"
+
+msgid ""
+"Misc Destinations are for adding destinations that can be used by other "
+"IssabelPBX modules, generally used to route incoming calls. If you want to "
+"create feature codes that can be dialed by internal users and go to various "
+"destinations, please see the <strong>Misc Applications</strong> module."
+msgstr ""
+"Други Направления се използват за добавяне на направления, които да се "
+"използват от други IssabelPBX модули, главно използвани за рутиране на "
+"входящите обаждания. Ако искате да създадете специални кодове, които да се  "
+"избират от вътрешните потребители и да отиват към различни направления, моля "
+"вижте модул <strong>Други Приложения</strong>."
+
+msgid ""
+"If you need access to a Feature Code, such as *98 to dial voicemail or a "
+"Time Condition toggle, these destinations are now provided as Feature Code "
+"Admin destinations. For upgrade compatibility, if you previously had "
+"configured such a destination, it will still work but the Feature Code short "
+"cuts select list is not longer provided."
+msgstr ""
+
+msgid "Misc Destination:"
+msgstr "Друго Направление:"
+
+#, php-format
+msgid "Delete Misc Destination %s"
+msgstr "Изтрий Друго Направление %s"
+
+msgid "Edit Misc Destination"
+msgstr "Редактирай Друго Направление"
+
+msgid "Description:"
+msgstr "Описание:"
+
+msgid "Give this Misc Destination a brief name to help you identify it."
+msgstr "Дайте на Друго Направление име с което да го идентифицирате."
+
+msgid "Dial:"
+msgstr "Избери:"
+
+msgid ""
+"Enter the number this destination will simulate dialing, exactly as you "
+"would dial it from an internal phone. When you route a call to this "
+"destination, it will be as if the caller dialed this number from an internal "
+"phone."
+msgstr ""
+"Въведете номер който това направление ще имитира при избиране, така както "
+"бихте го избрали от вътрешен телефон. Когато рутирате обаждане към това "
+"направление, ще бъде все едно че обаждащия се избира този номер от вътрешен "
+"телефон."
+
+msgid "Submit Changes"
+msgstr "Приеми Промените"
+
+msgid "Please enter a valid Description"
+msgstr "Моля въведете правилно Описание"
+
+msgid "Please enter a valid Dial string"
+msgstr "Моля въведете правилен стринг за Избери"
+
+#~ msgid "featurecode shortcuts"
+#~ msgstr " избери от съществуващи специални кодове "

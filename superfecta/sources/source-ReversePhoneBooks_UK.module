@@ -1,0 +1,58 @@
+<?php
+/***** ***** ***** ***** ***** ***** ***** *****
+ * Module Dev notes:
+ *  Terms of service here:
+ *  http://www.reversephonebooks.co.uk/terms-and-conditions
+ *  No restrictions against Superfecta usage
+ *
+ *
+ * Version history:
+ *   2011-10-18 Created by user ukstevef
+ * 
+ ***** ***** ***** ***** ***** ***** ***** *****/
+class ReversePhoneBooks_UK extends superfecta_base {
+
+    public $description = "http://www.reversephonebooks.co.uk - A datasource devoted to identifying telemarketers. These listings are provided by other users of this service.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'SPAM_Threshold' => array(
+            'description' => 'Specify the # of listings required to mark a call as spam.',
+            'type' => 'number',
+            'default' => 10
+        )
+    );
+
+    function get_caller_id($thenumber, $run_param=array()) {
+        $caller_id = NULL;
+
+        if (!$this->IsValidNumber('UK', $thenumber)) {
+            $this->DebugPrint("Skipping Source - Non UK number: $thenumber");
+        } else {
+            $this->DebugPrint("Searching ReversePhoneBooks.co.uk ... ");
+
+            $url = "http://www.reversephonebooks.co.uk/$thenumber-phone-number";
+            $value = $this->get_url_contents($url);
+
+            $pattern = "/<p>There are (\d+) reported complaint([s]*) for phone number/";
+
+            if ($this->SearchURL($url, $pattern, $match)) {
+                $value = $this->ExtractMatch($match);
+                if (is_numeric($value)) {
+                    $this->DebugPrint(" value of {$value} returned ... ");
+
+                    $score = $value;
+                    if ($score > $run_param['SPAM_Threshold']) {
+                        $this->spam = true;
+                        $this->DebugPrint(" determined to be SPAM");
+                    } else {
+                        $this->DebugPrint("Not a SPAM caller");
+                    }
+                    
+                }
+            }
+            $this->DebugPrint("not found");
+        }
+		return(NULL);
+    }
+
+}

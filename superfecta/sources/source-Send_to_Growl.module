@@ -1,0 +1,218 @@
+<?php
+
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** 
+ * Growl Notification Module for CID Superfecta
+ * 
+ * Written By Francois Dechery, aka Soif. https://github.com/soif/,
+ * 
+ * 
+ * Licence: This program is free software; you can redistribute it and/or modify it 
+ * under the terms of the GNU General Public License as published by the Free Software 
+ * Foundation; either version 2 of the License, or (at your option) any later version.
+ * 
+ * Version History:
+ * 		2012-11-20 - Initial Release by soif
+ * 		2014-01-25 - Added support for callback URL by lgaetz
+ * 		2014-09-30 - Added support for CID, DID and CNAM to be substituted into URL
+ *		2014-11-12 - Add check for mbstring extensions
+ * 
+ *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+
+class Send_to_Growl extends superfecta_base {
+
+	public $description = "This source will send the number and the Caller ID to multiple Growl clients.";
+	public $version_requirement = "2.11";
+	public $source_param = array(
+		'Hosts' => array(
+			'description' => 'Specify the IPs of hosts to be notified (separated by ",")',
+			'type' => 'text',
+			'default' => '10.0.0.1'
+		),
+		'Display_Setting' => array(
+			'description' => 'Number Format',
+			'type' => 'select',
+			'option' => array(
+				'1' => '(132) 456-7890',
+				'2' => '12 34 56 78 90',
+				'3' => 'no formatting'
+			),
+			'default' => '3'
+		),
+		'Mode' => array(
+			'description' => 'Growl Protocol',
+			'type' => 'select',
+			'option' => array(
+				'udp'	=> 'Udp (MacOSX only )',
+				'gntp'	=> 'Gntp (MacOSX >=10.7 , Windows )',
+				'both'	=>	'Both'
+			),
+			'default' => 'udp'
+		),
+		'Priority' => array(
+			'description' => 'Priority Level',
+			'type' => 'select',
+			'option' => array(
+				'-2'	=> 'Low',
+				'-1'	=> 'Moderate',
+				'0'		=> 'Normal',
+				'1'		=> 'High',
+				'2'		=> 'Emergency'
+			),
+			'default' => '1'
+		),
+		'Sticky' => array(
+			'description' => 'aaa',
+			'type' => 'select',
+			'option' => array( 
+				'0'		=> 'No',
+				'1'		=> 'Yes',
+			),
+			'default' => '0'
+		),
+		'Application' => array(
+			'description'	=> 'Application Name',
+			'type'			=> 'text',
+			'default'		=> 'Pbx Notification'
+		),
+		'Password' => array(
+			'description'	=> 'Password',
+			'type'			=> 'password',
+			'default'		=> ''
+		),
+		'Callback_URL' => array(
+			'description'	=> 'Allows user to click the notification box and open the URL specified here. Use the text ":cid:" to substitute the CallerID number, ":did:" for the DID and ":cnam:" for the Caller ID name.',
+			'type'			=> 'text',
+			'default'		=> null,
+		),
+	);
+
+	function __construct() {
+		require_once(dirname(dirname(__FILE__)) . "/includes/pear/Net/Growl/Autoload.php");
+	}
+
+
+	function post_processing($cache_found, $winning_source, $first_caller_id, $run_param, $thenumber) {
+
+		// check for mbstring extensions and exit if absent to prevent crashing system
+		if (!extension_loaded('mbstring')) {
+			$this->DebugPrint("The Send to Growl module requires PHP mbstring extensions...skipping.");
+			return;
+		}
+
+		$growl_start_time=$this->mctime_float();
+		if (($run_param['Hosts'] !='') ){
+
+			// format numbers -------------------------------
+			$thenumberformated = $thenumber;
+			$the_did_formated =$this->get_DID();
+			switch ($run_param['Display_Setting']){
+				case 1:
+					if (strlen($thenumber)==10){
+						$thenumberformated	='('.substr($thenumber,0,3).') '.substr($thenumber,3,3).'-'.substr($thenumber,6,4);
+					}	
+					if (strlen($the_did_formated)==10){
+						$the_did_formated	='('.substr($the_did_formated,0,3).') '.substr($the_did_formated,3,3).'-'.substr($the_did_formated,6,4);
+					}
+					break;
+				case 2:
+					if (strlen($thenumber)==10){
+						$thenumberformated=substr($thenumber,0,2).' '.substr($thenumber,2,2).' '.substr($thenumber,4,2).' '.substr($thenumber,6,2).' '.substr($thenumber,8,2);
+					}
+					if (strlen($the_did_formated)==10){
+						$the_did_formated	=substr($the_did_formated,0,2).' '.substr($the_did_formated,2,2).' '.substr($the_did_formated,4,2).' '.substr($the_did_formated,6,2).' '.substr($the_did_formated,8,2);
+					}	
+					break;
+			}
+
+			// prepare URL
+			$url = str_replace(":cid:",urlencode($thenumber), $run_param['Callback_URL']);
+			$url = str_replace(":cnam:",urlencode($first_caller_id), $url);
+			$url = str_replace(":did:",urlencode($the_did_formated), $url);
+			$this->DebugPrint("Growl URL: $url");
+			
+			// prepare message ----------------------
+			$gr_did		=$the_did_formated;
+			$gr_name	=htmlspecialchars($first_caller_id);
+			$gr_num		=$thenumberformated;
+	
+			//Growl it -----------------------------
+			$growl_timeout				=3;
+			$growl_do_register			=true;
+		
+			$grow_application 			= $run_param['Application'];
+			$growl_notification_messages= 'Messages';
+			$growl_app_notifications 	= array($growl_notification_messages);
+			$growl_app_password 		= $run_param['Password'];
+			$growl_mode 				= $run_param['Mode'];
+
+			$growl_title		="Line: $gr_did";
+			$growl_message		="$gr_name\n$gr_num";	
+
+			$growl_app_options  = array(
+				'protocol'	=> $growl_mode, 
+				'timeout'	=> $growl_timeout,
+	//	optionally (in Gntp Mode) you might include an icon from a local path or remote URL.
+	//			'AppIcon'  => 'http://www.laurent-laville.org/growl/images/Help.png',
+			);
+			$growl_options = array(
+				'priority' => $run_param['Priority'],
+				'sticky' => (bool) $run_param['Sticky'],
+				'CallbackContext' => 'context',  // no idea what is supposed to be here - lgaetz
+				'CallbackContextType' => 'STRING',
+			);
+			// only set callbacktarget if $url is populated, otherwise clicking on growl notice causes 'unknown url' error
+			if ($url) {
+				$growl_options['CallbackTarget'] = $url;
+			}
+		
+			$this->DebugPrint('Sending Growl Notifications: <ul>');
+
+			$growl_hosts=explode(',',$run_param['Hosts']);
+			foreach ( $growl_hosts as $growl_host ){
+				$growl_host	=trim($growl_host);
+			
+				if($growl_host){
+				
+					// first run ----------------------------
+					$growl_app_options['host']=$growl_host;
+					if($growl_mode=='both'){
+						$growl_app_options['protocol']='udp';
+					}
+				
+					$this->DebugPrint("<li><b>{$growl_app_options['protocol']}</b>&nbsp; to $growl_host : ");
+					try {
+					
+						$growl = Net_Growl::singleton($grow_application, $growl_app_notifications, $growl_app_password, $growl_app_options);
+						$growl_do_register and $growl->register();
+						$growl->publish($growl_notification_messages, $growl_title, $growl_message,$growl_options);
+						$growl->reset();
+						$this->DebugPrint(" ... OK!</li>");
+					}
+					catch (Net_Growl_Exception $e) {
+						$growl->reset();
+						$this->DebugPrint(" ... ERROR= ".$e->getMessage() ."</li>");
+					}
+				
+					//(mode=both) do it again baby ------------------- 
+					if($growl_mode=='both'){
+						$growl_app_options['protocol']='gntp';
+						$this->DebugPrint("<li><b>{$growl_app_options['protocol']}</b> to $growl_host : ");
+						try {
+							$growl = Net_Growl::singleton($grow_application, $growl_app_notifications, $growl_app_password, $growl_app_options);
+							$growl_do_register and $growl->register();
+							$growl->publish($growl_notification_messages, $growl_title, $growl_message,$growl_options);
+							$growl->reset();
+							$this->DebugPrint(" ... OK!</li>");
+						}
+							catch (Net_Growl_Exception $e) {
+								$growl->reset();
+								$this->DebugPrint(" ... ERROR= ".$e->getMessage() ."</li>");
+						}
+					}
+				}
+			}
+			$this->DebugPrint(" </ul>Growl <img src='images/scrollup.gif'> took ".number_format(($this->mctime_float()-$growl_start_time),4)." seconds To notify all hosts.<br>\n<br>\n");
+		}
+		return($thenumber);
+	}
+}

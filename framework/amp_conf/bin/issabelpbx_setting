@@ -1,0 +1,91 @@
+#!/usr/bin/php -q
+<?php 
+/*
+// Command-line issabelpbx_setting script
+*
+* (c) 2011 Philippe Lindheimer
+* 
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public License
+* as published by the Free Software Foundation; either version 2
+* of the License, or (at your option) any later version.
+* 
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*/
+
+$restrict_mods = true;
+$bootstrap_settings['issabelpbx_auth'] = false;
+$bootstrap_settings['skip_astman'] = true;
+if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc/issabelpbx.conf')) {
+	include_once('/etc/asterisk/issabelpbx.conf');
+}
+
+if ($argc != 3) {
+  out(_("Usage:"),false);
+  out($argv[0] . _(" RAW_SETTING_NAME <value>"),false);
+  out(_("RAW_SETTING_NAME is case sensitive and almost always all CAPS"),false);
+  out(_("Boolean settings should be set with 0 for false and 1 for true"),false);
+  out('');
+  exit(1);
+}
+
+$keyword = $argv[1];
+$value = $argv[2];
+
+$issabelpbx_conf =& issabelpbx_conf::create();
+
+/* This may not work everywhere but first pass giving it a try. We
+ * check our user, if running as root and not explicitly sudo-ed
+ * then we change to the configured user and exec ourselves. Now either
+ * way SUDO_COMMAND should be set so we will continue. This is done
+ * since checks for modes like amportal.conf being writeable are based
+ * on the user running. None of this would matter if cripple mode was
+ * not an issue.
+ */
+$user = trim(`whoami`);
+$sudo_command = trim(getenv('SUDO_COMMAND'));
+$web_user = $issabelpbx_conf->get_conf_setting('AMPASTERISKWEBUSER');
+exec("id $web_user 2>&1", $null, $retvar);
+if ($web_user != "" && $retvar == 0 && $user == 'root' && $sudo_command == '') {
+  out(sprintf(_("trying to run as user %s:"),$web_user));
+  out('');
+  system("sudo -u $web_user " . $argv[0] . ' ' . $argv[1] . ' ' . $argv[2], $retval);
+  exit($retval);
+}
+
+if (!$issabelpbx_conf->amportal_canwrite()) {
+  out(_("Running in crippled mode becaue amportal.conf is not writeable"));
+  out(sprintf(_("%s can't be used in this mode, you should make amportal.conf"),$argv[0]));
+  out(_("writeable or change the setting directly in amportal.conf"));
+  out('');
+  exit(2);
+}
+
+if (!$issabelpbx_conf->conf_setting_exists($keyword)) {
+  out(_("Unknown Setting:") . ' ' . $keyword);
+  out('');
+  exit(10);
+}
+
+$cur_value = $issabelpbx_conf->get_conf_setting($keyword);
+if ($cur_value == $value) {
+  out(sprintf(_("[%s] already set to [%s]"),$keyword, $value));
+  out('');
+  exit;
+}
+
+$issabelpbx_conf->set_conf_values(array($keyword => trim($value)),false,true);
+$status = $issabelpbx_conf->get_last_update_status();
+if ($status[$keyword]['orig_value'] != $status[$keyword]['saved_value']) {
+  out(_("Invalid Value:") . ' ' . $value);
+  out($status[$keyword]['msg']);
+  out('');
+  exit(10);
+}
+$issabelpbx_conf->commit_conf_settings();
+
+out(sprintf(_("[%s] changed from previous value: [%s] to new value: [%s]"),$keyword, $cur_value, $value));
+out('');

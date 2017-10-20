@@ -1,0 +1,51 @@
+<?php
+
+class Regular_Expressions_1 extends superfecta_base {
+
+    public $description = "Regular Expression Website Parser. Use http://regexpal.com/ to generate your own regular expressions<br/>The Regular Expression Textbox can contain multiple expressions to match, separated by a new line. THe first to match from top to bottom will be returned as the answer";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'url' => array(
+                'description' => 'URL, use $thenumber as the substitution string for the inbound number',
+                'type' => 'text'
+        ),
+        'reg_exp' => array(
+                'description' => 'Regular Expressions<br/>One Per Line. First Match Wins',
+                'type' => 'textarea'
+        ),
+        'reg_exp_ops' => array(
+                'description' => 'Regular Expression Options. One Per Line, will line up with above in order. EX: im<br><ul><li>i - Case insensitive match</li><li>m - Treat string as multiple lines. ^ and $ will match at start and end of internal lines, as well as at beginning and end of whole string. Use \A and \Z to match beginning and end of whole string when this is turned on.</li><li>s - Treat string as a single line. "." will match any character at all, including newline.</li><li>x - Allow extra whitespace and comments in pattern.</li></ul>',
+                'type' => 'textarea'
+        )		
+    );
+	public $dynamic_name = true;
+
+    function get_caller_id($thenumber, $run_param=array()) {
+
+        $caller_id = null;
+		
+		if(!empty($run_param['url']) && !empty($run_param['reg_exp'])) {
+			$run_param['url'] = str_replace('$thenumber',$thenumber,$run_param['url']);
+		
+			$this->DebugPrint("Searching ".$run_param['url']." with regular expressions ... ");
+		
+			$reg = explode("\n",$run_param['reg_exp']);
+			$reg_ops = explode("\n",$run_param['reg_exp_ops']);
+		
+			$exps = array();
+			foreach($reg as $i => $rx) {
+				$opts = !empty($reg_ops) && isset($reg_ops[$i]) ? $reg_ops[$i] : '';
+				$exps[] = '/'.str_replace('/', '\\/',$rx).'/'.$opts;
+			}
+		
+			if($this->SearchURL($run_param['url'],$exps,$matches)) {
+				$caller_id = $this->html2text($matches[1]);
+			}
+		} else {
+			$this->DebugPrint("Empty Query. What should I do?? hmmmm?");
+		}
+
+        return(strip_tags(trim($caller_id)));
+    }
+
+}

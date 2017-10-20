@@ -1,0 +1,182 @@
+# translation of customerdb.po to
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: customerdb\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-28 04:55+0200\n"
+"PO-Revision-Date: 2008-11-11 19:39+0100\n"
+"Last-Translator: \n"
+"Language-Team:  <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: page.customerdb.php:82
+msgid "Customer"
+msgstr "Cliente"
+
+#: page.customerdb.php:90
+msgid "deleted"
+msgstr "borrado"
+
+#: page.customerdb.php:95
+msgid "Add a user"
+msgstr "A&ntilde;adir usuario"
+
+#: page.customerdb.php:126
+msgid "Delete Customer"
+msgstr "Borrar cliente"
+
+#: page.customerdb.php:145
+msgid "Edit Customer"
+msgstr "Modificar cliente"
+
+#: page.customerdb.php:145
+msgid "Add Customer"
+msgstr "A&ntilde;adir cliente"
+
+#: page.customerdb.php:152
+msgid "Name"
+msgstr "Nombre"
+
+#: page.customerdb.php:153
+msgid "Name of business or person (REQUIRED)"
+msgstr "Nombre de la empresa o la persona (REQUERIDO)"
+
+#: page.customerdb.php:161
+msgid "Address 1"
+msgstr "Direcci&oacute;n 1"
+
+#: page.customerdb.php:162
+msgid "Address Line 1 (REQUIRED)"
+msgstr "Direcci&oacute;n l&iacute;nea 1 (REQUERIDO)"
+
+#: page.customerdb.php:169
+msgid "Address 2"
+msgstr "Direcci&oacute;n 2"
+
+#: page.customerdb.php:170
+msgid "Address Line 2"
+msgstr "Direcci&oacute;n l&iacute;nea 2"
+
+#: page.customerdb.php:177
+msgid "City"
+msgstr "Ciudad"
+
+#: page.customerdb.php:178
+msgid "City (REQUIRED)"
+msgstr "Ciudad (REQUERIDO)"
+
+#: page.customerdb.php:185
+msgid "State"
+msgstr "Provincia"
+
+#: page.customerdb.php:186
+msgid "State (REQUIRED)"
+msgstr "Provincia (REQUERIDO)"
+
+#: page.customerdb.php:201
+msgid "Zip/Post Code"
+msgstr "CP"
+
+#: page.customerdb.php:202
+msgid "Zip (REQUIRED)"
+msgstr "CP (REQUERIDO)"
+
+#: page.customerdb.php:210
+msgid "Sip Account"
+msgstr "Cuenta SIP"
+
+#: page.customerdb.php:211
+msgid "Sip Account (must have this or a DID tied to the account)"
+msgstr "Cuenta SIP (debe tener &eacute;ste o un DID asociado a la cuenta)"
+
+#: page.customerdb.php:226
+msgid "DID Number"
+msgstr "N&uacute;mero DID"
+
+#: page.customerdb.php:227
+msgid "DID Number (must have this or sip tied to the account)"
+msgstr "N&uacute;mero DID (debe tener &eacute;ste o la cuenta)"
+
+#: page.customerdb.php:242
+msgid "Device"
+msgstr "Dispositivo"
+
+#: page.customerdb.php:243
+msgid "Device (example... Linksys PAP-2, Sipura)"
+msgstr "Dispositivo (ejemplo: Linksys PAP-2, Sipura...)"
+
+#: page.customerdb.php:250
+msgid "Serial"
+msgstr "N&uacute;mero de serie"
+
+#: page.customerdb.php:251
+msgid "Serial Number"
+msgstr "N&uacute;mero de serie"
+
+#: page.customerdb.php:258 page.customerdb.php:259
+msgid "IP Address"
+msgstr "Direcci&oacute;n IP"
+
+#: page.customerdb.php:266
+msgid "Account"
+msgstr "Cuenta"
+
+#: page.customerdb.php:267
+msgid "Account Number (internal use)"
+msgstr "N&uacute;mero de cuenta (uso interno)"
+
+#: page.customerdb.php:274
+msgid "Email"
+msgstr "e-mail"
+
+#: page.customerdb.php:275
+msgid "Email Address"
+msgstr "Direcci&oacute;n e-mail"
+
+#: page.customerdb.php:282
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: page.customerdb.php:283
+msgid "Username for the device"
+msgstr "Nombre de usuario para el dispositivo"
+
+#: page.customerdb.php:290
+msgid "Password"
+msgstr "Contrase&ntilde;a"
+
+#: page.customerdb.php:291
+msgid "Password for device"
+msgstr "Contrase&ntilde;a para el dispositivo"
+
+#: page.customerdb.php:323
+msgid "Please enter a name for this customer"
+msgstr "Por favor, introduce un nombre para este cliente"
+
+#: page.customerdb.php:324
+msgid "Please enter an address for this customer"
+msgstr "Por favor, introduce una direcci&oacute;n para este cliente"
+
+#: page.customerdb.php:325
+msgid "Pleast enter a city for this customer"
+msgstr "Por favor, introduce una ciudad para este cliente"
+
+#: page.customerdb.php:326
+msgid "Please enter a zip for this customer"
+msgstr "Por favor, introduce un CP para este cliente"
+
+#: page.customerdb.php:327
+msgid "You must choose either a sip or did number for this customer."
+msgstr "Debes elegir entre SIP o n&uacute;mero DID para este cliente."
+
+#: module.xml
+msgid "Customer DB"
+msgstr "BBDD de clientes"
+

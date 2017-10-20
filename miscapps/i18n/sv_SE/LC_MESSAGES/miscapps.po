@@ -1,0 +1,113 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language for miscapps
+# Copyright (C) 2009, 2010, 2011 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX miscapps\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-20 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#, php-format
+msgid "Misc Application: %s"
+msgstr "Övrig applikation: %s"
+
+msgid "Misc Applications"
+msgstr "Övriga applikationer"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Adds the ability to create feature codes that can go to any IssabelPBX "
+"destination (such as an IVR or queue)"
+msgstr ""
+"Ger möjlighet att skapa funktionskoder som kan gå till vilken IssabelPBX "
+"destination som helst (såsom IVR eller kö)"
+
+msgid "Add Misc Application"
+msgstr "Lägg till Övrig applikation"
+
+msgid "Edit Misc Application"
+msgstr "Redigera Övrig applikation"
+
+msgid ""
+"Misc Applications are for adding feature codes that you can dial from "
+"internal phones that go to various destinations available in IssabelPBX. This "
+"is in contrast to the <strong>Misc Destinations</strong> module, which is "
+"for creating destinations that can be used by other IssabelPBX modules to dial "
+"internal numbers or feature codes."
+msgstr ""
+"Övriga applikationer är till för att lägga till funktionskoder som du kan "
+"ringa från interna telefoner som kan gå till olika destinationer inom "
+"IssabelPBX. Detta är i kontrast med <strong>Övrig destination</strong>, som är "
+"för att skapa destinationer som kan användas av IssabelPBX övriga moduler för "
+"att ringa interna nummer eller funktionskoder."
+
+msgid "Conflicting Extensions"
+msgstr "Konfliktande anknytningar"
+
+msgid "Description"
+msgstr "Beskrivning"
+
+msgid "The name of this application"
+msgstr "Kort beskrivning på denna applikation"
+
+msgid "Feature Code"
+msgstr "Funktionskod"
+
+msgid ""
+"The feature code/extension users can dial to access this application. This "
+"can also be modified on the Feature Codes page."
+msgstr ""
+"Funktionskoden/anknytningen användare kan ringa för att få åtkomst till "
+"denna applikation. Denna kan även modifieras på sidan Funktionskoder."
+
+msgid "Feature Status"
+msgstr "Funktionsstatus"
+
+msgid "If this code is enabled or not."
+msgstr "Om denna kod är aktiv eller inte."
+
+msgid "Enabled"
+msgstr "Aktiverad"
+
+msgid "Disabled"
+msgstr "Avaktiverad"
+
+msgid "Destination"
+msgstr "Destination"
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+msgid "Delete"
+msgstr "Ta bort"
+
+msgid "Invalid description specified"
+msgstr "Ogiltig beskrivning angiven"
+
+#~ msgid "Internal Options & Configuration"
+#~ msgstr "Interna val och konfigurationer"

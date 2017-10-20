@@ -1,0 +1,114 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Alexander Anikin <may@postmet.com>, 2006-2012.
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.10\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 00:04+0400\n"
+"PO-Revision-Date: 2012-11-01 18:22+0400\n"
+"Last-Translator: PostMet <ceo@postmet.com>\n"
+"Language-Team: Russian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Call Recording"
+msgstr "Запись разговора"
+
+msgid "Applications"
+msgstr "Приложения"
+
+msgid "Provides much of the call recording functionality."
+msgstr "Организует возможность записи разговоров"
+
+#, php-format
+msgid "Call Recording: %s"
+msgstr "Запись разговора: %s"
+
+msgid ""
+"Controls or overrides the call recording behavior for calls coming into this "
+"DID. Allow will honor the normal downstream call recording settings. Record "
+"on Answer starts recording when the call would otherwise be recorded "
+"ignoring any settings that say otherwise. Record Immediately will start "
+"recording right away capturing ringing, announcements, MoH, etc. Never will "
+"disallow recording regardless of downstream settings."
+msgstr "Управляет или переопределяет необходимость записи разговора приходящих на этот входящий номер. "
+"'Разрешить' будет следовать другим установкам записи. 'Записывать после ответа' будет начинать "
+"запись разговора игнорируя другие установки, отменяющие запись. 'Записывать сразу' будет начинать запись "
+"разговора с самого начата разговора, включая гудки, голосовые сообщения, фоновую музыку и другие сервисные "
+"сообщения. 'Никогда' будет запрещать запись разговора несмотря на другие установки"
+
+msgid "Allow"
+msgstr "Разрешить"
+
+msgid "Record on Answer"
+msgstr "Записывать после ответа"
+
+msgid "Record Immediately"
+msgstr "Записывать сразу"
+
+msgid "Never"
+msgstr "Никогда"
+
+msgid "Add Call Recording"
+msgstr "Добавить запись разговора"
+
+msgid "Edit: "
+msgstr "Редактировать: "
+
+msgid ""
+"Call Recordings provide the ability to force a call to be recorded or not "
+"recorded based on a call flow and override all other recording settings. If "
+"a call is to be recorded, it can start immediately which will incorporate "
+"any announcements, hold music, etc. prior to being answered, or it can have "
+"recording start at the time that call is answered."
+msgstr "Модуль даёт возможность принудительно устанавливать запись разговора или принудительно запрещать её "
+"в зависимости от направления обработки звонка и переназначать все настройки записи. Если разговор будет записан, "
+"запись может быть начата сразу, включая сервисные сообщения и тоны, или после ответа вызываемого абонента."
+
+msgid "Edit Call Recording Instance"
+msgstr "Изменить запись"
+
+msgid "Add Call Recording Instance"
+msgstr "Добавить запись"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid ""
+"The descriptive name of this call recording instance. For example \"French "
+"Main IVR\""
+msgstr "Наглядное имя этой записи. Например 'Главное меню на русском языке'."
+
+msgid "Call Recording Mode"
+msgstr "Режим записи разговоров"
+
+msgid ""
+"Controls or overrides the call recording behavior for calls continuing "
+"through this call flow. Allow will honor the normal downstream call "
+"recording settings. Record on Answer starts recording when the call would "
+"otherwise be recorded ignoring any settings that say otherwise. Record "
+"Immediately will start recording right away capturing ringing, "
+"announcements, MoH, etc. Never will disallow recording regardless of "
+"downstream settings."
+msgstr "Устанавливает или переопределяет режим записи разговора проходящего через это направление обработки звонка."
+"'Разрешить' будет следовать другим установкам записи. 'Записывать после ответа' будет начинать "
+"запись разговора игнорируя другие установки, отменяющие запись. 'Записывать сразу' будет начинать запись "
+"разговора с самого начала разговора, включая гудки, голосовые сообщения, фоновую музыку и другие сервисные "
+"сообщения. 'Никогда' будет запрещать запись разговора несмотря на другие установки."
+
+msgid "Destination"
+msgstr "Направить в"
+
+msgid "Submit Changes"
+msgstr "Сохранить изменения"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Invalid description specified"
+msgstr "Указано неверное описание"

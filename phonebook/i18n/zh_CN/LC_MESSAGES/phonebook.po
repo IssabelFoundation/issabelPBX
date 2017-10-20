@@ -1,0 +1,154 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-02-01 14:10+0800\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Phonebook entry"
+msgstr "电话簿条目"
+
+msgid "deleted"
+msgstr "已删除"
+
+msgid "Imported"
+msgstr "导入了"
+
+msgid "lines of"
+msgstr "行"
+
+msgid "Phonebook emptied"
+msgstr "电话簿已清空"
+
+msgid "Are you sure you want to empty your phonebook ?"
+msgstr "你确定要清空电话簿吗？"
+
+msgid "Phone Book"
+msgstr ""
+
+msgid ""
+"Use this module to create system wide speed dial numbers that can be dialed "
+"from any phone."
+msgstr ""
+
+msgid "Phonebook entries"
+msgstr "电话簿条目"
+
+msgid "Number"
+msgstr "号码"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Speed dial"
+msgstr "快速拨号"
+
+msgid "Are you sure you want to delete this entry ?"
+msgstr "你确定要删除此条目吗？"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "Export in CSV"
+msgstr "导出到CSV文件"
+
+msgid "Empty Phonebook"
+msgstr "清空电话簿"
+
+msgid "Add or replace entry"
+msgstr "添加或取代条目"
+
+msgid "Name:"
+msgstr "姓名："
+
+msgid "Enter the name"
+msgstr "请输入姓名"
+
+msgid "Number:"
+msgstr "号码："
+
+msgid ""
+"Enter the number (For CallerID lookup to work it should match the CallerID "
+"received from network)"
+msgstr ""
+
+msgid "Speed dial code:"
+msgstr "快速拨号代码："
+
+msgid ""
+"Enter a speed dial code<br/>Speeddial module is required to use speeddial "
+"codes"
+msgstr "输入一个快速拨号代码<br />使用此功能需要快速拨号模块"
+
+msgid "Set Speed Dial?"
+msgstr "设置快速拨号？"
+
+msgid "Check to have a speed dial created automatically for this number"
+msgstr "钩选此项将自动为这个号码创建快速拨号"
+
+msgid "Submit Changes"
+msgstr "提交更改"
+
+msgid "Import from CSV"
+msgstr "从CSV文件导入"
+
+msgid "File:"
+msgstr "文件："
+
+msgid ""
+"Import a CSV File formatted as follows:<br/>\"Name\";Number;Speeddial<br /> "
+"Names should be enclosed by '\"' and fields separated by ';' <br /><br /> "
+"Example:<br/>\"John Doe\";12345678;123"
+msgstr ""
+"导入的CSV文件需要具有这样的格式：<br />\"名字\";号码;快速拨号代码<br />，其中"
+"名字要包含在一对英文的引号中间，各字段用英文的分号隔开。<br /><br />例如："
+"<br/>\"John Doe\";12345678;123"
+
+msgid "Upload"
+msgstr "上传"
+
+msgid "Please enter a valid Number"
+msgstr "请输入有效的号码"
+
+msgid "Please enter a valid Name"
+msgstr "请输入有效的名字"
+
+msgid "Please enter a valid Speeddial code or leave it empty"
+msgstr "请输入有效的快速拨号代码，或者不填写也可"
+
+msgid "Phonebook"
+msgstr "电话簿"
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"Provides a phonebook for IssabelPBX, it can be used as base for Caller ID "
+"Lookup and Speed Dial"
+msgstr ""
+
+msgid "Asterisk Phonebook"
+msgstr "Asterisk电话簿"
+
+#~ msgid ""
+#~ "Enter the number (For caller ID lookup to work it should match the caller "
+#~ "ID received from network)"
+#~ msgstr ""
+#~ "输入号码（为了让此条目在主叫ID中起作用，这个号码必须与在网络上接收到的主叫"
+#~ "ID匹配）"

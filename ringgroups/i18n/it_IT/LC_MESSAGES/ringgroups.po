@@ -1,0 +1,570 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-06 14:54+0100\n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+#, php-format
+msgid "Ring Group %s: "
+msgstr "Gruppo di Chiamata %s:"
+
+#, php-format
+msgid "Ring Group: %s"
+msgstr "Gruppo di Chiamata: %s"
+
+msgid "This ringgroup"
+msgstr "Questo Gruppo di Chiamata"
+
+msgid "is already in use"
+msgstr "è gia in uso"
+
+msgid "INUSE"
+msgstr "INUSO"
+
+#, php-format
+msgid "Ring Group: %s (%s)"
+msgstr "Gruppo di Chiamata: %s (%s)"
+
+msgid "added field cwignore to ringgroups table"
+msgstr ""
+
+msgid "added field cfignore to ringgroups table"
+msgstr ""
+
+msgid "added field cpickup to ringgroups table"
+msgstr ""
+
+msgid "added field recording to ringgroups table"
+msgstr ""
+
+msgid "Checking if recordings need migration.."
+msgstr "Controllo se le registrazioni hanno bisogno di una migrazione.."
+
+msgid "migrating"
+msgstr "migrazione"
+
+msgid "adding annmsg_id field.."
+msgstr "sto aggiungendo il campo annmsg_id.."
+
+msgid "fatal error"
+msgstr "errore fatale"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "adding remotealert_id field.."
+msgstr "sto aggiungendo il campo remotealert_id.."
+
+msgid "adding toolate_id field.."
+msgstr "sto aggiungendo il campo toolate_ids.."
+
+msgid "migrate annmsg to ids.."
+msgstr "migrazione annmsg verso ids.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "migrate %s voci"
+
+msgid "migrate remotealert to  ids.."
+msgstr "migrazione remotealert to ids.."
+
+msgid "migrate toolate to ids.."
+msgstr "migrazione toolate verso ids.."
+
+msgid "dropping annmsg field.."
+msgstr "sto scartando il campo annmsg.."
+
+msgid "no annmsg field???"
+msgstr "nessun campo annmsg???"
+
+msgid "dropping remotealert field.."
+msgstr "sto scartando il campo remotealert.."
+
+msgid "no remotealert field???"
+msgstr "nessun campo remotealert???"
+
+msgid "dropping toolate field.."
+msgstr "sto scartando il campo toolate.."
+
+msgid "no toolate field???"
+msgstr "nessun campo toolate??"
+
+msgid "already migrated"
+msgstr "già migrato"
+
+msgid "Warning! Extension"
+msgstr "Attenzione! L'interno"
+
+msgid "is not allowed for your account"
+msgstr "non ha i permessi per il tuo account"
+
+msgid "Add Ring Group"
+msgstr "Aggiungi Gruppo di Chiamata"
+
+msgid "Ring Group"
+msgstr "Gruppo di Chiamata"
+
+msgid "deleted"
+msgstr "eliminato"
+
+msgid "Delete Group"
+msgstr "Elimina Gruppo di Chiamata"
+
+msgid "Conflicting Extensions"
+msgstr "Interni in conflitto"
+
+msgid "Edit Ring Group"
+msgstr "Modifica Gruppo di Chiamata"
+
+msgid "Ring-Group Number"
+msgstr "Gruppo di Chiamata Numero"
+
+msgid "The number users will dial to ring extensions in this ring group"
+msgstr "Il numero del Gruppo di Chiamata"
+
+msgid "Group Description"
+msgstr "Descrizione Gruppo"
+
+msgid "Provide a descriptive title for this Ring Group."
+msgstr "Il titolo descrittivo per questo gruppo"
+
+msgid "Ring Strategy:"
+msgstr "Strategia di Squillo:"
+
+msgid "ringall"
+msgstr "ringall"
+
+msgid "Ring all available channels until one answers (default)"
+msgstr "chiama tutti fino a quando un interno non risponde (predefinito)"
+
+msgid "hunt"
+msgstr "hunt"
+
+msgid "Take turns ringing each available extension"
+msgstr "chiama a circolo tutti gli interni disponibili"
+
+msgid "memoryhunt"
+msgstr "memoryhunt"
+
+msgid ""
+"Ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc."
+msgstr ""
+"chiama il primo interno della lista, poi il primo e il secondo, poi il "
+"primo, il secondo e il terzo... ecc."
+
+msgid "*-prim"
+msgstr "*-prim"
+
+msgid ""
+"These modes act as described above. However, if the primary extension (first "
+"in list) is occupied, the other extensions will not be rung. If the primary "
+"is IssabelPBX DND, it won't be rung. If the primary is IssabelPBX CF "
+"unconditional, then all will be rung"
+msgstr ""
+"queste modalità sono attuate come descritto sopra. Però, se l'interno "
+"primario (il primo della lista è occupato, gli altri interni non saranno "
+"chiamati. Se il primario ha attivato il Non Disturbare di IssabelPBX, non andrà "
+"avanti. Se il primario è un Trasferimento di Chiamata incondizionato "
+"attivato su IssabelPBX, tutti squilleranno."
+
+msgid "firstavailable"
+msgstr "firstavailable"
+
+msgid "ring only the first available channel"
+msgstr "squilla solo il primo disponibile"
+
+msgid "firstnotonphone"
+msgstr "firstnotonphone"
+
+msgid "ring only the first channel which is not offhook - ignore CW"
+msgstr "squilla solo il primo che è al telefono - ignora l'Avviso di Chiamata"
+
+msgid "Ring Time (max 60 sec)"
+msgstr "Tempo di Squillo (max 60 sec)"
+
+msgid ""
+"Time in seconds that the phones will ring. For all hunt style ring "
+"strategies, this is the time for each iteration of phone(s) that are rung"
+msgstr ""
+"Il tempo in secondi che un telefono squilla. Per i gruppi di chiamata con "
+"strategia hunt, equivale allo squillo di ogni singolo interno"
+
+msgid "Extension List"
+msgstr "Lista Interni"
+
+msgid ""
+"List extensions to ring, one per line, or use the Extension Quick Pick below "
+"to insert them here.<br><br>You can include an extension on a remote system, "
+"or an external number by suffixing a number with a '#'.  ex:  2448089# would "
+"dial 2448089 on the appropriate trunk (see Outbound Routing)"
+"<br><br>Extensions (without a '#' will not ring a user's Follow-Me. To dial "
+"Follow-Me, Queues and other numbers that are not extensions, put a '#' at "
+"the end."
+msgstr ""
+"Inserire gli interni o numeri da chiamare, uno per riga, o utilizzare la "
+"Selezione Veloce degli Interni qui sotto<br><br>Per includere numeri "
+"esterni, inserire cancelletto (#) alla fine del numero. Es.: per chiamare "
+"06123456789 bisogna inserire 006123456789# (se nelle Rotte in uscita è stato "
+"inserito lo 0 per le chiamate esterne).Gli interni che non hanno '#' alla "
+"fine non andranno nel Seguimi. Per le Code o i Seguimi o altre destinazioni "
+"che non sono interni bisogna mettere '#' alla fine."
+
+msgid "Extension Quick Pick"
+msgstr "Selezione Veloce Interno"
+
+msgid "Choose an extension to append to the end of the extension list above."
+msgstr "Scegliere un interno da aggiungere alla fine della lista qui sopra."
+
+msgid "(pick extension)"
+msgstr "(scegliere l'interno)"
+
+msgid "Announcement:"
+msgstr "Annuncio:"
+
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Il Messaggio da riprodurre al chiamante prima di chiamare questo gruppo."
+"<br><br>Per aggiungere ulteriori registrazioni utilizzare il Modulo "
+"\"Registrazioni di Sistema\" nel MENU di sinistra"
+
+msgid "None"
+msgstr "Nessuno"
+
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Il Messaggio da riprodurre al chiamante prima di chiamare questo gruppo."
+"<br><br>Per modificare questa opzione bisogna installare ed attivare il "
+"Modulo \"Registrazioni di Sistema\""
+
+msgid "Play Music On Hold?"
+msgstr "Riproduci Musica di Attesa?"
+
+msgid ""
+"If you select a Music on Hold class to play, instead of 'Ring', they will "
+"hear that instead of Ringing while they are waiting for someone to pick up."
+msgstr ""
+"Se si seleziona una classe di Musica di Attesa, invece che 'Squillo', "
+"l'utente ascolterà questa mentre è in attesa di una risposta."
+
+msgid "Ring"
+msgstr "Squillo"
+
+msgid "none"
+msgstr ""
+
+msgid "default"
+msgstr ""
+
+msgid "CID Name Prefix"
+msgstr "Prefisso ID Chiamante"
+
+msgid ""
+"You can optionally prefix the CallerID name when ringing extensions in this "
+"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
+"as \"Sales:John Doe\" on the extensions that ring."
+msgstr ""
+
+msgid "Alert Info"
+msgstr "Alert Info"
+
+msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+msgstr ""
+"ALERT_INFO viene utilizzato per distinguere le suonerie su apparati di tipo "
+"SIP."
+
+msgid "Ignore CF Settings"
+msgstr "Ignora Impostazioni Trasf. Chiamata"
+
+msgid ""
+"When checked, agents who attempt to Call Forward will be ignored, this "
+"applies to CF, CFU and CFB. Extensions entered with '#' at the end, for "
+"example to access the extension's Follow-Me, might not honor this setting ."
+msgstr ""
+"Se si attiva questa opzione, gli agenti che hanno attivato il Trasferimento "
+"di Chiamata saranno ignorati, questo si applica a tutti i tipi di "
+"traferimento  (Incondizionato, Non-Disponibile, Occupato). Gli interni che "
+"hanno il '#' alla fine, per esempio utilizzato per adoperare il Seguimi, "
+"potrebbero ignorare questa impostazione."
+
+msgid "Skip Busy Agent"
+msgstr "Salta Agenti Occupati"
+
+msgid ""
+"When checked, agents who are on an occupied phone will be skipped as if the "
+"line were returning busy. This means that Call Waiting or multi-line phones "
+"will not be presented with the call and in the various hunt style ring "
+"strategies, the next agent will be attempted."
+msgstr ""
+"Quando attivato, gli agenti che sono occupati al telefono saranno saltati "
+"come se la linea fosse occupata. Questo significa che nelle varie strategie "
+"di squillo hunt, la chiamata non arriverà mai ad un telefono multi-linea o "
+"con l'avviso di chiamata ma andrà all'agente successivo."
+
+msgid "Enable Call Pickup"
+msgstr ""
+
+msgid ""
+"Checking this will allow calls to the Ring Group to be picked up with the "
+"directed call pickup feature using the group number. When not checked, "
+"individual extensions that are part of the group can still be picked up by "
+"doing a directed call pickup to the ringing extension, which works whether "
+"or not this is checked."
+msgstr ""
+
+msgid "Confirm Calls"
+msgstr "Conferma Chiamate"
+
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through. This feature only works with the ringall ring strategy"
+msgstr ""
+"Attivare questa opzione se si vogliono chiamano numeri esterni che hanno "
+"bisogno di conferma - es., un telefono cellulare potrebbe andare ad una "
+"segreteria, e in quel caso la chiamata sarà presa. Attivando questa opzione "
+"l'utente remoto dovrà digitare 1 sul proprio telefono per accettare la "
+"chiamata. Questa opzione funziona solo con la strategia di squillo ringall."
+
+msgid "Remote Announce:"
+msgstr "Annuncio Remoto"
+
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled.<br><br>To add additional recordings use the \"System Recordings\" "
+"MENU to the left"
+msgstr ""
+"Il messaggio da riprodurre alla persona che RICEVE la chiamata, se è stato "
+"attivato 'Conferma Chiamate'<br><br>Per aggiungere ulteriori registrazioni "
+"utilizzare \"Registrazioni di Sistema\" nel MENU di sinistra"
+
+msgid "Default"
+msgstr "Predefinito"
+
+msgid "Too-Late Announce:"
+msgstr "Annuncio Troppo-Tardi"
+
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1.<br><br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Il messaggio da riprodurre alla persona che RICEVE la chiamata, se la "
+"chiamata è già stata accettata prima di premere il tasto.<br><br>Per "
+"aggiungere ulteriori registrazioni utilizzare \"Registrazioni di Sistema\" "
+"nel MENU di sinistra"
+
+msgid "Change External CID Configuration"
+msgstr ""
+
+msgid "Mode"
+msgstr ""
+
+msgid "Transmits the Callers CID if allowed by the trunk."
+msgstr ""
+
+msgid "Fixed CID Value"
+msgstr ""
+
+msgid "Always transmit the Fixed CID Value below."
+msgstr ""
+
+msgid "Outside Calls Fixed CID Value"
+msgstr ""
+
+msgid ""
+"Transmit the Fixed CID Value below on calls that come in from outside only. "
+"Internal extension to extension calls will continue to operate in default "
+"mode."
+msgstr ""
+
+msgid "Use Dialed Number"
+msgstr ""
+
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This will "
+"be BLOCKED on trunks that block foreign CallerID"
+msgstr ""
+
+msgid "Force Dialed Number"
+msgstr ""
+
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This WILL "
+"be transmitted on trunks that block foreign CallerID"
+msgstr ""
+
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading \"+\"."
+msgstr ""
+
+msgid "Call Recording"
+msgstr ""
+
+msgid "Record Calls"
+msgstr ""
+
+msgid ""
+"You can always record calls that come into this ring group, never record "
+"them, or allow the extension that answers to do on-demand recording. If "
+"recording is denied then one-touch on demand recording will be blocked."
+msgstr ""
+
+msgid "Always"
+msgstr ""
+
+msgid "On Demand"
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
+msgid "Destination if no answer"
+msgstr "Destinazione se nessuna risposta"
+
+msgid "Submit Changes"
+msgstr "Conferma Cambiamenti"
+
+msgid "Invalid Group Number specified"
+msgstr "Numero Gruppo specificato non valido"
+
+msgid "Please enter an extension list."
+msgstr "Prego immettere un lista di interni."
+
+msgid "Invalid time specified"
+msgstr "Tempo specificato non valido"
+
+msgid "Time must be between 1 and 60 seconds"
+msgstr "Il tempo deve essere compreso tra 1 e 60 secondi"
+
+msgid "Please enter a valid Group Description"
+msgstr "Prego immettere una Descrizione del Gruppo valida"
+
+msgid ""
+"Only ringall, ringallv2, hunt and the respective -prim versions are "
+"supported when confirmation is checked"
+msgstr ""
+"Quando si seleziona la conferma, solo le strategie di squillo ringall, "
+"ringallv2, hunt e rispettive versioni -prim sono supportate"
+
+msgid "Ring Groups"
+msgstr "Gruppi di chiamata"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Creates a group of extensions that all ring together. Extensions can be rung "
+"all at once, or in various 'hunt' configurations. Additionally, external "
+"numbers are supported, and there is a call confirmation option where the "
+"callee has to confirm if they actually want to take the call before the "
+"caller is transferred."
+msgstr ""
+
+#~ msgid ""
+#~ "You can optionally prefix the Caller ID name when ringing extensions in "
+#~ "this group. ie: If you prefix with \"Sales:\", a call from John Doe would "
+#~ "display as \"Sales:John Doe\" on the extensions that ring."
+#~ msgstr ""
+#~ "Come opzione si puo' inserire un prefisso prima dell'identificativo "
+#~ "chiamante. Es.: se si inserisce \"Commerciale:\", una chiamata per Mario "
+#~ "Rossi sarà visualizzata come \"Commerciale:Mario Rossi\" sul display del "
+#~ "telefono che squilla."
+
+#~ msgid "Invalid Caller ID prefix."
+#~ msgstr "Prefisso ID Chiamante non valido."
+
+#~ msgid "System Recordings not installed. Option Disabled"
+#~ msgstr "Registrazioni di Sistema non installato. Opzione Disabilitata"
+
+#~ msgid "Day Night Mode"
+#~ msgstr "Servizio Giorno/Notte"
+
+#~ msgid "Terminate Call"
+#~ msgstr "Termina chiamata"
+
+#~ msgid "Extensions"
+#~ msgstr "Interni"
+
+#~ msgid "Voicemail"
+#~ msgstr "Caselle Vocali"
+
+#~ msgid "Core"
+#~ msgstr "Sistema"
+
+#~ msgid "Conferences"
+#~ msgstr "Conferenze"
+
+#~ msgid "Phonebook Directory"
+#~ msgstr "Elenco Telefonico"
+
+#~ msgid "Queues"
+#~ msgstr "Code"
+
+#~ msgid "Speed dial functions"
+#~ msgstr "Selezione breve"
+
+#~ msgid "Time Conditions"
+#~ msgstr "Condizioni Temporali"
+
+#~ msgid "Custom Contexts"
+#~ msgstr "Contesti Personalizzati"
+
+#~ msgid "Extended Routing"
+#~ msgstr "Rotte specifiche"
+
+#~ msgid ""
+#~ "Custom App<span><br>ADVANCED USERS ONLY<br><br>Uses Goto() to send caller "
+#~ "to a custom context.<br><br>The context name should start with \"custom-"
+#~ "\", and be in the format custom-context,extension,priority. Example entry:"
+#~ "<br><br><b>custom-myapp,s,1</b><br><br>The <b>[custom-myapp]</b> context "
+#~ "would need to be created and included in extensions_custom.conf</span>"
+#~ msgstr ""
+#~ "Applicazione Personalizzata<span>SOLO UTENTI AVANZATI<br>Utilizzare Goto"
+#~ "() per inviare la chiamata verso un contesto personalizzato.<br><br>Il "
+#~ "nome del contesto deve iniziare per \"custom-\" e deve essere nel formato "
+#~ "custom-contesto,extension,priorità. Esempio: <br><br><b>custom-app,s,1</"
+#~ "b><br><br><b>Il contesto [custom-app] </b> deve poi essere creato e "
+#~ "incluso nel file extensions_custom.conf</span"
+
+#~ msgid "Misc Destinations"
+#~ msgstr "Destinazioni Varie"
+
+#~ msgid "Custom Applications"
+#~ msgstr "Applicazioni Personalizzate"
+
+#~ msgid "VoiceMail Blasting"
+#~ msgstr "Gruppi di Caselle Vocali"
+
+#~ msgid "Languages"
+#~ msgstr "Lingue"
+
+#~ msgid "Announcements"
+#~ msgstr "Annunci"
+
+#~ msgid "Used as Destination by %s %s"
+#~ msgstr "Usato come Destinazione da %s %s"

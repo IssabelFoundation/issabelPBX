@@ -1,0 +1,166 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2008, 2009 Francesco Romano <francesco.romano@alteclab.it>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2010-01-23 00:00+0100\n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+msgid "DISA"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"DISA Allows you 'Direct Inward System Access'. This gives you the ability to "
+"have an option on an IVR that gives you a dial tone, and you're able to dial "
+"out from the IssabelPBX machine as if you were connected to a standard "
+"extension. It appears as a Destination."
+msgstr ""
+
+#, php-format
+msgid "DISA: %s"
+msgstr "DISA: %s"
+
+msgid "Add DISA"
+msgstr "Aggiunta DISA"
+
+msgid "deleted"
+msgstr "eliminato"
+
+#, php-format
+msgid "Delete DISA %s"
+msgstr "Elimina DISA %s"
+
+msgid ""
+"DISA is used to allow people from the outside world to call into your PBX "
+"and than be able to dial out of the PBX so it appears that their call is "
+"coming from the office which can be handy when traveling. You can set a "
+"destination in an IVR that points to the DISA or set a DID. Make sure you "
+"password protect this to keep people from dialing in and using your PBX to "
+"make calls out."
+msgstr ""
+
+msgid "Edit DISA"
+msgstr "Modifica DISA"
+
+msgid "DISA name:"
+msgstr "Nome DISA:"
+
+msgid "Give this DISA a brief name to help you identify it."
+msgstr "Dare al DISA un nome breve per una facile identificazione."
+
+msgid "PIN"
+msgstr "PIN"
+
+msgid "The user will be prompted for this number."
+msgstr "All'utente sarà richiesto questo numero."
+
+msgid "If you wish to have multiple PIN's, separate them with commas"
+msgstr "Si possono anche inserire più PIN, da separare con le virgole"
+
+msgid "Response Timeout"
+msgstr "Timeout Risposta"
+
+msgid ""
+"The maximum amount of time it will wait before hanging up if the user has "
+"dialed an incomplete or invalid number. Default of 10 seconds"
+msgstr ""
+"Il tempo massimo che il sistema attende prima di riagganciare se un utente "
+"ha digitato un numero incompleto o sbagliato. Predefinito è 10 secondi."
+
+msgid "Digit Timeout"
+msgstr "Timeout Digitazione"
+
+msgid ""
+"The maximum amount of time permitted between digits when the user is typing "
+"in an extension. Default of 5"
+msgstr ""
+"Il tempo massimo tra una digitazione e l'altra. Predefinito è 5 secondi."
+
+msgid "Require Confirmation"
+msgstr "Richiedi Conferma"
+
+msgid ""
+"Require Confirmation before prompting for password. Used when your PSTN "
+"connection appears to answer the call immediately"
+msgstr ""
+"Richiede Conferma prima della password. E' utilizzato quando la propria "
+"connessione PSTN sembra rispondere immediatamente alla chiamata."
+
+msgid "Caller ID"
+msgstr "ID Chiamante"
+
+msgid ""
+"(Optional) When using this DISA, the users CallerID will be set to this. "
+"Format is \"User Name\" <5551234>"
+msgstr ""
+"(Opzionale) Quando viene utilizzato il DISA, l'utente avrà questo ID "
+"Chiamante. Il Formato è \"Nome Utente\" <5551234>"
+
+msgid "Context"
+msgstr "Contesto"
+
+msgid ""
+"(Experts Only) Sets the context that calls will originate from. Leave this "
+"as from-internal unless you know what you're doing."
+msgstr ""
+"(Solo Esperti) Impostare il contesto da cui partiranno le chiamate. Lasciare "
+"questo su 'from-internal' se non si è sicuri."
+
+msgid "Allow Hangup"
+msgstr "Permetti Riaggancio"
+
+#, php-format
+msgid ""
+"Allow the current call to be disconnected and dial tone presented for a new "
+"call by pressing the Hangup feature code: %s while in a call"
+msgstr ""
+"Permette alla chiamata corrente di essere disconnessa e ripresentare il tono "
+"di libero per effettuare una nuova chiamata premendo durante la chiamata il "
+"Codice Servizio di Riaggancio: %s"
+
+msgid "Submit Changes"
+msgstr "Conferma Cambiamenti"
+
+msgid "Please enter a valid DISA Name"
+msgstr "Prego immettere un Nome DISA valido"
+
+msgid "Please enter a valid DISA PIN"
+msgstr "Prego immettere un PIN valido"
+
+msgid "Please enter a valid Caller ID or leave it blank"
+msgstr "Prego immettere un ID Chiamante valido o lasciare vuoto"
+
+msgid "Context cannot be blank"
+msgstr "Il contesto non può essere lasciato vuoto"
+
+#~ msgid "Add"
+#~ msgstr "Aggiungi"
+
+#~ msgid "Used as Destination by %s %s"
+#~ msgstr "Usato come Destinazione da %s %s"

@@ -1,0 +1,81 @@
+<?php
+
+class Telco_Data extends superfecta_base {
+
+    public $description = "http://www.telcodata.com - These listings are generally only return the geographic location of the caller, not a name.";
+    public $version_requirement = "2.11";
+
+    function get_caller_id($thenumber, $run_param=array()) {
+
+        $caller_id = null;
+		$number_error = false;
+
+        $this->DebugPrint("Searching Telco Data ... : {$thenumber}");
+        //check for the correct 11 digits in US/CAN phone numbers in international format.
+        // country code + number
+        if (strlen($thenumber) == 11) {
+            if (substr($thenumber, 0, 1) == 1) {
+                $thenumber = substr($thenumber, 1);
+            } else {
+                $number_error = true;
+            }
+        }
+        // international dialing prefix + country code + number
+        if (strlen($thenumber) > 11) {
+            if (substr($thenumber, 0, 3) == '001') {
+                $thenumber = substr($thenumber, 3);
+            } else {
+                if (substr($thenumber, 0, 4) == '0111') {
+                    $thenumber = substr($thenumber, 4);
+                } else {
+                    $number_error = true;
+                }
+            }
+        }
+        // check for short number
+        if (strlen($thenumber) < 10) {
+            $number_error = true;
+        }
+
+
+        if (!$number_error) {
+            $npa = substr($thenumber, 0, 3);
+            $nxx = substr($thenumber, 3, 3);
+
+            // check for valid area code (201 or higher)
+            if ($npa < '201') {
+                $number_error = true;
+            } else {
+                // Check for Toll-Free numbers (including future TF NPA's)
+                $TFnpalist = array(
+                    "800", "822", "833", "844", "855", "866", "877", "888"
+                );
+                if (in_array($npa, $TFnpalist)) {
+                    $number_error = true;
+                }
+            }
+        }
+
+        if ($number_error) {
+            $this->DebugPrint("Skipping Source - Toll Free or International (non-NANP) number: {$thenumber}");
+        } else {
+            $url = "http://www.telcodata.us/query/queryexchangexml.html?npa=$npa&nxx=$nxx";
+            $value = $this->get_url_contents($url);
+			
+			$xml = @simplexml_load_string($value);
+
+            if (!$xml && !isset($xml->exchangedata)) {
+                $this->DebugPrint("Skipping Source - Telcodata reports invalid NPA/NXX: {$thenumber}");
+            } else {
+				if(isset($xml->exchangedata->ratecenter) && isset($xml->exchangedata->state)) {
+	                $value = (string)$xml->exchangedata->ratecenter . ", " . (string)$xml->exchangedata->state;
+	                if (strlen($value) > 2) {
+	                    $caller_id = strip_tags($value);
+						return($caller_id);
+	                }
+				}
+				$this->DebugPrint("not found");
+            }
+        }
+    }
+}

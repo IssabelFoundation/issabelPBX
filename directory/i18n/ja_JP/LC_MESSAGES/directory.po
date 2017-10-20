@@ -1,0 +1,342 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for directory
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.0.11\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-05 19:32+0900\n"
+"PO-Revision-Date: 2014-02-21 02:42+0200\n"
+"Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
+"Language-Team: Japanese "
+"<http://192.168.30.85/projects/freepbx/directory/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+msgid "dropping directory_details, directory_entries.."
+msgstr "directory_details, directory_entriesをドロップ中.."
+
+msgid "ok"
+msgstr "ok"
+
+msgid "deleting default_directory and migration tracking keys.."
+msgstr ""
+"行を追加するサーバーへの接続を試行中にエラーが発生しました、応答がありませ"
+"ん。"
+
+msgid "Adding directory tables if needed"
+msgstr "必要に応じてディレクトリテーブルを追加"
+
+msgid "Can not create table: "
+msgstr "テーブルの作成ができません："
+
+msgid "adding say_extension field to directory_details.."
+msgstr "directory_detailsにsay_extensionフィールドを追加中.."
+
+msgid "fatal error"
+msgstr "致命的なエラー"
+
+msgid "dropping valid_details field.."
+msgstr "valid_detailsフィールドのドロップ.."
+
+msgid "no valid_recording field???"
+msgstr "valid_recordingフィールドがありません???"
+
+msgid "cannot add field e_id to table directory_entries \n"
+msgstr "e_id フィールドを directory_entries へ追加できません\n"
+
+msgid "e_id added to table directory_entries"
+msgstr "e_id が directory_entries テーブルに追加されました"
+
+msgid "cannot set e_id for directory_id = "
+msgstr "e_idをセットできません directory_id ="
+
+msgid "Migrating Directory"
+msgstr "ディレクトリを移行"
+
+msgid ""
+"Error migrating to new directory! ERROR: Could not create new Directory."
+msgstr ""
+"新規ディレクトリへの移行エラー! エラー: 新規ディレクトリの作成ができません。"
+
+msgid ""
+"Error migrating to new directory! ERROR: Could not populate new Directory "
+msgstr ""
+"新規ディレクトリへの移行エラー! エラー: 新規ディレクトリの移入ができません。"
+
+msgid "Setting migrated directory as default"
+msgstr "移行されたディレクトリをデフォルトに設定"
+
+msgid ""
+"Error migrating to new directory! ERROR: Unable to mark Directory as "
+"migrated. Migration will probably be run again at next install/upgrade of "
+"this module. "
+msgstr ""
+"新規ディレクトリへの移行エラー! エラー: ディレクトリを移行済みとマークするこ"
+"とができません。このモジュールを次にインストール/アップグレードした際におそら"
+"く再度移行が実行されます。"
+
+msgid "Migration Complete!"
+msgstr "移行が完了しました!"
+
+msgid "Submit"
+msgstr "送信"
+
+msgid "none"
+msgstr "なし"
+
+msgid "Directory"
+msgstr "ディレクトリー"
+
+msgid "Add a new Directory"
+msgstr "新しいディレクトリを追加"
+
+msgid "Directory Options"
+msgstr "ディレクトリオプション"
+
+msgid "Default Directory"
+msgstr "デフォルトディレクトリ"
+
+msgid ""
+"When checked, this becomes the default directory and replaces any other "
+"directory as the default directory. This has the effect of exposing entries "
+"for this directory into the Extension/User page"
+msgstr ""
+"チェックされた場合、このディレクトリがデフォルトディレクトリとなり、デフォル"
+"トディレクトリだった他のディレクトリは置き換えられます。これにより、このディ"
+"レクトリに対するエントリーを内線/ユーザーページへ公開する効果があります。"
+
+msgid "Add Directory"
+msgstr "ディレクトリを追加"
+
+#, php-format
+msgid "Edit Directory: %s"
+msgstr "ディレクトリを編集： %s"
+
+msgid "[SYSTEM DEFAULT]"
+msgstr "[システムデフォルト]"
+
+#, php-format
+msgid "Delete Directory %s"
+msgstr "ディレクトリを削除 %s"
+
+msgid "Directory General Options"
+msgstr "ディレクトリ一般オプション"
+
+msgid "Directory Name"
+msgstr "ディレクトリ名"
+
+msgid "Name of this directory."
+msgstr "このディレクトリの名前。"
+
+msgid "Directory Description"
+msgstr "ディレクトリ説明"
+
+msgid "Description of this directory."
+msgstr "このディレクトリの説明"
+
+msgid "CallerID Name Prefix"
+msgstr "発信者ID名前プリフィックス"
+
+msgid "Prefix to be appended to current CallerID Name."
+msgstr "現在の発信者ID名に追加されるプリフィックス"
+
+msgid "Alert Info"
+msgstr "アラート情報"
+
+msgid ""
+"ALERT_INFO to be sent when called from this Directory. Can be used for "
+"distinctive ring for SIP devices."
+msgstr ""
+"このディレクトリから呼び出された際に送信されるアラート情報。SIPデバイスの着信"
+"音に使用することができます。このディレクトリから呼び出された際に送信されるア"
+"ラート情報。SIPデバイスの着信音に使用することができます。"
+
+msgid "Directory Options (DTMF)"
+msgstr "ディレクトリオプション(DTMF)"
+
+msgid "Default"
+msgstr "デフォルト"
+
+msgid "Announcement"
+msgstr "アナウンス"
+
+msgid "Greeting to be played on entry to the directory."
+msgstr "ディレクトリに入る際に再生される挨拶メッセージ。"
+
+msgid "Invalid Retries"
+msgstr "エラーリトライ回数"
+
+msgid ""
+"Number of times to retry when receiving an invalid/unmatched response from "
+"the caller"
+msgstr "発信者からの無効な/合致しない応答を受信したときに再試行する回数"
+
+msgid "Invalid Retry Recording"
+msgstr "エラーリトライ音声"
+
+msgid ""
+"Prompt to be played when an invalid/unmatched response is received, before "
+"prompting the caller to try again"
+msgstr ""
+"無効な/合致しない応答を受信したときに、発信者に再試行を促す前に再生されるプロ"
+"ンプト。"
+
+msgid "Invalid Recording"
+msgstr "エラー音声"
+
+msgid ""
+"Prompt to be played before sending the caller to an alternate destination "
+"due to the caller pressing 0 or receiving the maximum amount of invalid/"
+"unmatched responses (as determined by Invalid Retries)"
+msgstr "発信者は0を押している、または無効な／マッチしない返答が上限に達した時に発信者を代わりの宛先に送る前に再生されるプロンプト"
+
+msgid "Invalid Destination"
+msgstr "エラー宛先"
+
+msgid "Destination to send the call to after Invalid Recording is played."
+msgstr "無効な録音が再生された場合に、呼が送られる宛先。"
+
+msgid "Return to IVR"
+msgstr "IVRに戻る"
+
+msgid ""
+"When selected, if the call passed through an IVR that had \"Return to IVR\" "
+"selected, the call will be returned there instead of the Invalid destination."
+msgstr ""
+"選択された場合、コールが、\"IVRに戻る\"が選択されたIVRを通過する場合は、コー"
+"ルは無効にならずにそこに戻ります。"
+
+msgid "Announce Extension"
+msgstr "内線をアナウンス"
+
+msgid ""
+"When checked, the extension number being transferred to will be announced "
+"prior to the transfer"
+msgstr "チェックされた場合、転送される内線番号が転送前にアナウンスされます。"
+
+msgid "Directory&nbsp;Entries"
+msgstr "ディレクトリ&nbsp;エントリー"
+
+msgid ""
+"Tied to a Directory allowing all entries in that directory to be dialed "
+"directly, as they appear in the directory"
+msgstr ""
+"全てのエントリに直接ダイヤルする許可の権限を持つディレクトリが表示されます"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Name Announcement"
+msgstr "名前のアナウンス"
+
+msgid "Dial"
+msgstr "ダイヤル"
+
+msgid "Choose One"
+msgstr "一つを選択"
+
+msgid "All Users"
+msgstr "全てのユーザー"
+
+msgid "Custom"
+msgstr "カスタム"
+
+msgid "Add new entry."
+msgstr "新規エントリーを追加。"
+
+msgid "Voicemail Greeting"
+msgstr "ボイスメール挨拶"
+
+msgid "Text to Speech"
+msgstr "テキスト to スピーチ(テキスト合成音声)"
+
+msgid "Spell Name"
+msgstr "名前のスペル"
+
+msgid "System Recordings:"
+msgstr "システム録音:"
+
+#, php-format
+msgid "Edit %s: %s"
+msgstr "%sを編集: %s"
+
+msgid "remove"
+msgstr "削除"
+
+msgid "Click here to remove this entry"
+msgstr "このエントリーを削除するにはここをクリック"
+
+msgid "Exclude"
+msgstr "除外"
+
+msgid "Include"
+msgstr "含む"
+
+msgid "Default Group Inclusion"
+msgstr "デフォルトグループに含まれる"
+
+msgid ""
+"You can include or exclude this extension/user from being part of the "
+"default directory when creating or editing."
+msgstr ""
+"作成または編集時に、この内線/ユーザーをデフォルトディレクトリの一部に含む/除"
+"外することができます。"
+
+#, php-format
+msgid "Directory: %s "
+msgstr "ディレクトリ： %s "
+
+#, php-format
+msgid "Directory %s: "
+msgstr "ディレクトリ： %s"
+
+#, php-format
+msgid "Directory: %s"
+msgstr "ディレクトリ： %s"
+
+msgid "Applications"
+msgstr "アプリケーション"
+
+#~ msgid "id"
+#~ msgstr "id"
+
+#~ msgid ". Please resubmit this directory manually to correct this issue."
+#~ msgstr ""
+#~ "。この問題を解決するには手動でこのディレクトリを再投稿してください。"

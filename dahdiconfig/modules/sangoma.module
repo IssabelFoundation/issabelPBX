@@ -1,0 +1,145 @@
+<?php
+
+class dahdi_sangoma {
+    private $data_store = array();
+    private $sangoma_settings = array(
+        "dahdimode" => "yes",
+        "t1mode" => "T1",
+		"wpwd" => "TRUE"
+    );
+    public function datastore() {
+    }
+    public function get_sangoma_settings() {
+        $sql = "SELECT `settings` FROM dahdi_modules WHERE `module_name` = 'sangoma'";
+        $o = sql($sql,'getOne');
+        if($o) {
+			$array = json_decode($o,TRUE);
+			$array['wpwd'] = isset($array['wpwd']) ? $array['wpwd'] : 'TRUE';
+            return $array;
+        } else {
+            return $this->sangoma_settings;
+        }
+    }
+    public function settings() {
+        $settings = $this->get_sangoma_settings();
+        $output['title'] = _('Sangoma Settings');
+        $output['reboot'] = true;
+        $output['dialog']['height'] = 400;
+        $output['dialog']['width'] = 500;
+        $option1 = _('Run Wanpipe In DAHDI/DIGIUM Mode');
+        $option2 = _("T1/Mode");
+        $byline = sprintf(_('This edits all settings in %s'),'/etc/wanpipe/global.conf');
+        $output['html'] = <<< EOF
+            <h2>{$output['title']}</h2>
+            <h3>{$byline}</h3>
+            <hr />
+            <table width="100%" style="text-align:left;">
+                <tr>
+                    <td style="width:10px;">
+                        <label for="sangoma_dahdimode">$option1:</label>
+                    </td>
+                    <td>
+                        <select name="sangoma_dahdimode" id="sangoma_dahdimode">
+EOF;
+        $no = $settings['dahdimode'] == 'no' ? 'selected' : '';
+        $yes = $settings['dahdimode'] == 'yes' ? 'selected' : '';
+        $output['html'] .= '<option value="no" '.$no.'>'._('No').'</option>';
+        $output['html'] .= '<option value="yes" '.$yes.'>'._('Yes').'</option>';
+        $none = $settings['dahdimode'] == 'no' ? 'display:none;' : '';
+		$display = ($settings['dahdimode'] == 'yes') ? '' : 'display:none;';
+        $output['html'] .= <<< EOF
+                        </select>
+                    </td>
+                </tr>
+                <tr id="sangoma_t1mode" style="${display}">
+                    <td style="width:10px">
+                        <label for="sangoma_t1mode">$option2:</label>
+                    </td>
+                    <td>
+                        <select name="sangoma_t1mode">
+EOF;
+        $t1 = $settings['t1mode'] == 'T1' ? 'selected' : '';
+        $e1 = $settings['t1mode'] == 'E1' ? 'selected' : '';
+        $output['html'] .= '<option value="T1" '.$t1.'>T1</option>';
+        $output['html'] .= '<option value="E1" '.$e1.'>E1</option>';
+        $output['html'] .= <<< EOF
+                        </select>
+                    </td>
+                </tr>
+            </table>
+EOF;
+        $output['javascript'] = <<< EOF
+        $('#sangoma_dahdimode').change(function() {
+            val = $(this).val()
+            if(val == 'yes') {
+                $('#sangoma_t1mode').show()
+            } else {
+                $('#sangoma_t1mode').hide()
+            }
+        });
+EOF;
+        return $output;
+    }
+
+    public function settings_process($type,$settings) {
+        global $db;
+        $this->check_wanrouter();
+        $n = array();
+        if($type == 'sangomasettingssubmit') {
+            foreach($this->sangoma_settings as $key => $default_value) {
+                if(isset($settings['sangoma_'.$key])) {
+                    $n[$key] = $settings['sangoma_'.$key];
+                } else {
+                    $n[$key] = $default_value;
+                }
+            }
+            $json_settings = json_encode($n);
+            $sql = "REPLACE INTO dahdi_modules (module_name, settings) VALUES ('sangoma', '".$db->escapeSimple($json_settings)."')";
+            sql($sql);
+
+            return array("status" => true);
+        }
+    }
+
+	public function get_filename() {
+         return array('/etc/wanpipe/global.conf');
+	}
+
+	public function generateConf($file) {
+        global $amp_conf;
+        $settings = $this->get_sangoma_settings();
+        if(!$amp_conf['DAHDIDISABLEWRITE']) {
+    		switch($file) {
+                case '/etc/wanpipe/global.conf':
+                    if($settings['dahdimode'] == 'yes') {
+                        $output = "WANPIPE_WITH_DIGIUM=TRUE\nWANPIPE_GLOBAL_CFG=DAHDI\nWANPIPE_GLOBAL_FE_MEDIA=".$settings['t1mode'];
+                        if(!file_put_contents($file, $output)) {
+                            global $db;
+                            $nt =& notifications::create($db);
+                			$nt->add_error('dahdiconfig', 'SANGOMA', sprintf(_('Unable to write to %s'),$file), sprintf(_("Please change permissions on %s or disable Sangoma DIGIUM mode"),$file), "", false, true);
+                        }
+                    } elseif(file_exists($file)) {
+						$contents = file_get_contents($file);
+						$contents = str_replace("WANPIPE_WITH_DIGIUM=TRUE\n","",$contents);
+						$contents = str_replace("WANPIPE_GLOBAL_CFG=DAHDI\n","",$contents);
+						if(is_writable($file)) {
+							file_put_contents($file, $contents);
+						}
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    private function check_wanrouter() {
+        /*
+        $binary = exec('which wanrouter');
+        if($binary) {
+            $version = exec($binary.' version');
+            dbug($version);
+        }
+        */
+    }
+}

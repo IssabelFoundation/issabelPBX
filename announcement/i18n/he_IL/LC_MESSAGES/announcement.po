@@ -1,0 +1,151 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX announcement\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2014-03-04 09:09+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Hebrew "
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.9-dev\n"
+
+msgid "Announcements"
+msgstr "הכרזות"
+
+#, fuzzy
+msgid "Applications"
+msgstr "יישומים"
+
+msgid ""
+"Plays back one of the system recordings (optionally allowing the user to "
+"skip it) and then goes to another destination."
+msgstr ""
+"משמיע אחת הקלטות המערכת (עם אפשרות המאפשר למשתמש לדלג על זה) ולאחר מכן עובר "
+"ליעד אחר."
+
+#, php-format
+msgid "Announcement: %s"
+msgstr "הכרזה: %s"
+
+msgid "Checking if recordings need migration.."
+msgstr "בודק אם הקלטות צריכות הגירה.."
+
+msgid "migrating"
+msgstr "הגירת"
+
+msgid "adding recording_id field.."
+msgstr "הוספת שדה recording_id .."
+
+msgid "fatal error"
+msgstr "שגיאה קטלנית"
+
+msgid "ok"
+msgstr "בסדר"
+
+msgid "migrate to recording ids.."
+msgstr "מהגר אל recording ids .."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "היגרו %s ערכים"
+
+msgid "dropping recording field.."
+msgstr "הסרת שדה recording .."
+
+msgid "no recording field???"
+msgstr "\"אין שדה recording???"
+
+msgid "already migrated"
+msgstr "כבר היגרו"
+
+msgid "Add Announcement"
+msgstr "הוסף הכרזה"
+
+msgid "Edit Announcement"
+msgstr "ערוך הכרזה"
+
+msgid "Description"
+msgstr "תאור"
+
+msgid "The name of this announcement"
+msgstr "שם ההכרזה"
+
+msgid "Recording"
+msgstr "הקלטה"
+
+msgid ""
+"Message to be played.<br>To add additional recordings use the \"System "
+"Recordings\" MENU to the left"
+msgstr "הודעה להחרזה. <br> כדי להוסיף הקלטות נוספות להשתמש במודל הקלתות מערכת"
+
+msgid "None"
+msgstr "ללא"
+
+msgid "Repeat"
+msgstr "חוזר"
+
+msgid ""
+"Key to press that will allow for the message to be replayed. If you choose "
+"this option there will be a short delay inserted after the message. If a "
+"longer delay is needed it should be incorporated into the recording."
+msgstr ""
+"מקש שיחזור אל ההכרזה. במדיה שמסומן, יוסיף השהיה של ממש אחרי ההכרזה. להשהיה "
+"ליותר זמן תשלב ההשהיה בתוך ההקלתה"
+
+msgid "Disable"
+msgstr "נטרל"
+
+msgid "Allow Skip"
+msgstr "אפשר לדלג"
+
+msgid "If the caller is allowed to press a key to skip the message."
+msgstr "אם  מותר למתקשר ללחוץ על מקש כדי לדלג על ההכרזה"
+
+msgid "Return to IVR"
+msgstr "חזור אל IVR"
+
+msgid ""
+"If this announcement came from an IVR and this box is checked, the "
+"destination below will be ignored and instead it will return to the calling "
+"IVR. Otherwise, the destination below will be taken. Don't check if not "
+"using in this mode. <br>The IVR return location will be to the last IVR in "
+"the call chain that was called so be careful to only check when needed. For "
+"example, if an IVR directs a call to another destination which eventually "
+"calls this announcement and this box is checked, it will return to that IVR "
+"which may not be the expected behavior."
+msgstr "אם הכרזה זו באה מIVR ואפשארות זו מסומנת, היעד הבא הIVR  ולא יעד הבאה"
+
+msgid "Don't Answer Channel"
+msgstr "לא לענות לערוץ"
+
+msgid ""
+"Check this to keep the channel from explicitly being answered. When checked, "
+"the message will be played and if the channel is not already answered it "
+"will be delivered as early media if the channel supports that. When not "
+"checked, the channel is answered followed by a 1 second delay. When using an "
+"announcement from an IVR or other sources that have already answered the "
+"channel, that 1 second delay may not be desired."
+msgstr ""
+"סמן את זה כדי לשמור את הערוץ מanswer במפורש. כאשר מסומן, ההקלתה יוכרז ואם "
+"עדיין לא היתה answer אל הערוץ ישודר כearly media אם הערוץ תומכת בזה. כאשר לא "
+"מסומן נשלחת answer לערוץ ואח\"כ השהיה של שניה. יתכן שהשהיה אינו רצוי כאשר "
+"ההכרזה מגיע אחרי IVR או גורם אחר שכבר שלך answer לערוץ"
+
+msgid "Destination after playback"
+msgstr "יעד אחרי הכרזה"
+
+msgid "Submit Changes"
+msgstr "שמור שינוים"
+
+msgid "Delete"
+msgstr "מחק"
+
+msgid "Invalid description specified"
+msgstr "ציון תיאור לא חוקי"
+
+#~ msgid "Apps"
+#~ msgstr "יישומים"

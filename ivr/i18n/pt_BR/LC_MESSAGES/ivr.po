@@ -1,0 +1,459 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <flavio@voffice.com.br>, 2009
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX IVR\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2014-07-26 00:17+0200\n"
+"Last-Translator: Rafael <rafael@ibinetwork.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://git.freepbx.org/projects/freepbx/ivr/pt_BR/>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.10-dev\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Add IVR"
+msgstr "Adicionar URA"
+
+#, php-format
+msgid "Edit IVR: %s"
+msgstr "Editar URA: %s"
+
+#, php-format
+msgid "Delete IVR: %s"
+msgstr "Apagar URA: %s"
+
+msgid "IVR General Options"
+msgstr "Opções Gerais"
+
+msgid "IVR Name"
+msgstr "Nome"
+
+msgid "Name of this IVR."
+msgstr "Nome dessa URA."
+
+msgid "IVR Description"
+msgstr "Descrição"
+
+msgid "Description of this ivr."
+msgstr "Descrição desta URA."
+
+msgid "IVR Options (DTMF)"
+msgstr "Opções (DTMF)"
+
+msgid "None"
+msgstr "Nenhum"
+
+msgid "Announcement"
+msgstr "Anuncio"
+
+msgid "Greeting to be played on entry to the Ivr."
+msgstr ""
+
+msgid "Disabled"
+msgstr "Desabilitado"
+
+msgid "Extensions"
+msgstr "Ramais"
+
+msgid "Completely disabled"
+msgstr "Completamente desabilitado"
+
+msgid "Enabled for all extensions on a system"
+msgstr "Habilitado para todos os ramais do sistema"
+
+msgid "Direct Dial"
+msgstr "Discar direto"
+
+msgid ""
+"Provides options for callers to direct dial an extension. Direct dialing can "
+"be:"
+msgstr ""
+"Permite quem esta ligando discar diretamente para um ramal. Pode discar "
+"direto:"
+
+msgid "Default"
+msgstr "Padrão"
+
+msgid "Timeout"
+msgstr "Timeout"
+
+msgid "Amount of time to be considered a timeout"
+msgstr ""
+
+msgid "Invalid Retries"
+msgstr "Tentativas Invalidas"
+
+msgid ""
+"Number of times to retry when receiving an invalid/unmatched response from "
+"the caller"
+msgstr ""
+
+msgid "Invalid Retry Recording"
+msgstr ""
+
+msgid ""
+"Prompt to be played when an invalid/unmatched response is received, before "
+"prompting the caller to try again"
+msgstr ""
+
+msgid "Invalid Recording"
+msgstr ""
+
+msgid ""
+"Prompt to be played before sending the caller to an alternate destination "
+"due to the caller pressing 0 or receiving the maximum amount of invalid/"
+"unmatched responses (as determined by Invalid Retries)"
+msgstr ""
+
+msgid "Invalid Destination"
+msgstr "Destino Invalido"
+
+msgid "Destination to send the call to after Invalid Recording is played."
+msgstr ""
+
+msgid "Timeout Retries"
+msgstr ""
+
+msgid "Timeout Retry Recording"
+msgstr ""
+
+msgid "Timeout Recording"
+msgstr ""
+
+msgid "Timeout Destination"
+msgstr ""
+
+msgid "Return to IVR after VM"
+msgstr "Retorna para URA após Caixa Postal"
+
+msgid ""
+"If checked, upon exiting voicemail a caller will be returned to this IVR if "
+"they got a users voicemail"
+msgstr ""
+"Se selecionado, ao sair do correio de voz uma origem irá retornar para esta "
+"URA se neste meio tempo recebeu uma mensagem correio de voz"
+
+msgid "IVR Entries"
+msgstr ""
+
+msgid "Ext"
+msgstr "Ramal"
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Return"
+msgstr "Retornar"
+
+msgid "Return to IVR"
+msgstr "Retornar para a URA"
+
+msgid "Delete"
+msgstr "Apagar"
+
+#, php-format
+msgid "IVR: %s / Option: %s"
+msgstr "URA: %s / Opção: %s"
+
+#, php-format
+msgid "IVR: %s"
+msgstr "URA: %s"
+
+msgid "Checking if announcements need migration.."
+msgstr "Verificando se os anúncios precisam ser migrados..."
+
+msgid "migrating"
+msgstr "migrando"
+
+msgid "adding announcement_id field.."
+msgstr "adicionando o campo identificador do anúncio"
+
+msgid "fatal error"
+msgstr "erro fatal"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "migrate to recording ids.."
+msgstr "migre para os ids das gravações"
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "migradas %s entradas"
+
+msgid "dropping announcement field.."
+msgstr "apagando o campo do anúncio"
+
+msgid "no announcement field???"
+msgstr "nenhum campo de anúncio???"
+
+msgid "already migrated"
+msgstr "já migrado"
+
+msgid "Checking for timeout_id.."
+msgstr "Verificando identificadores de timeout"
+
+msgid "added"
+msgstr "adicionado"
+
+msgid "not needed"
+msgstr "não necessário"
+
+msgid "Checking for invalid_id.."
+msgstr "Verificando identificadores inválidos"
+
+msgid "Checking for retvm.."
+msgstr "Verificando pelo retvm"
+
+#, php-format
+msgid ""
+"There are %s IVRs that have the legacy Directory dialing enabled. This has "
+"been deprecated and will be removed from future releases. You should convert "
+"your IVRs to use the Directory module for this functionality and assign an "
+"IVR destination to a desired Directory. You can install the Directory module "
+"from the Online Module Repository"
+msgstr ""
+
+#, php-format
+msgid "Deprecated Directory used by %s IVRs"
+msgstr ""
+
+msgid "posting notice about deprecated functionality"
+msgstr ""
+
+msgid "IVR"
+msgstr "URA"
+
+msgid "Applications"
+msgstr "Aplicações"
+
+msgid ""
+"Creates Digital Receptionist (aka Auto-Attendant, aka Interactive Voice "
+"Response) menus. These can be used to send callers to different locations "
+"(eg, Press 1 for sales) and/or allow direct-dialing of extension numbers."
+msgstr ""
+"Cria um menu como Recepcionista Digital (conhecido como URA - Unidade de "
+"Resposta Audível). Esse menu envia ligações para diferentes departamentos ("
+"por exemplo, para suporte pressione 1) e / ou autoriza discar direto para um "
+"ramal do sistema."
+
+#~ msgid ""
+#~ "There is a problem with install.sql, cannot re-create databases. Contact "
+#~ "support\n"
+#~ msgstr ""
+#~ "Existe um problem com o arquivo install.sql, não posso recriar as bases "
+#~ "de dados. Entre em contato com o suporte\n"
+
+#~ msgid "Digital Receptionist"
+#~ msgstr "Recepcionista digital"
+
+#~ msgid "Instructions"
+#~ msgstr "Instruções"
+
+#~ msgid ""
+#~ "You use the Digital Receptionist to make IVR's, Interactive Voice "
+#~ "Response systems."
+#~ msgstr ""
+#~ "Você usa a Recepcionista Digital para criar uma URA, Unidade de Resposta "
+#~ "Audível."
+
+#~ msgid ""
+#~ "When creating a menu option, apart from the standard options of 0-9,* and "
+#~ "#, you can also use 'i' and 't' destinations."
+#~ msgstr ""
+#~ "Quando criando a opção de menu, além das opções padrão de 0-9,* e #, você "
+#~ "pode usar também os destinos 'i' e 't'."
+
+#~ msgid ""
+#~ "'i' is used when the caller pushes an invalid button, and 't' is used "
+#~ "when there is no response."
+#~ msgstr ""
+#~ "'i' é usado quando a origem pressiona uma opção inválida, e 't' é usado "
+#~ "quando não há resposta."
+
+#~ msgid ""
+#~ "If those options aren't supplied, the default 't' is to replay the menu "
+#~ "three times and then hang up,"
+#~ msgstr ""
+#~ "Se estas opções não forem fornecidas, o padrão para o 't' é repetir o "
+#~ "menu três vezes e então desligar,"
+
+#~ msgid ""
+#~ "and the default 'i' is to say 'Invalid option, please try again' and "
+#~ "replay the menu."
+#~ msgstr ""
+#~ "e o 'i' padrão é dizer 'opção inválida, favor tentar novamente' e repetir "
+#~ "o menu."
+
+#~ msgid "After three invalid attempts, the line is hung up."
+#~ msgstr "Após três tentativas inválidas, a linha é desligada."
+
+#~ msgid "Edit Menu"
+#~ msgstr "Editar Menu"
+
+#~ msgid "Save"
+#~ msgstr "Salvar"
+
+#~ msgid "Queue Breakout Menu Usage List"
+#~ msgstr "Lista de uso do menu quebrada por fila"
+
+#~ msgid ""
+#~ "This IVR is being used by the following Queues, providing an ability for "
+#~ "callers to hear this Queue's announcement periodically and giving callers "
+#~ "an option to break out of the queue into this IVR's menu options. This "
+#~ "queue can not be deleted when being used in this mode"
+#~ msgstr ""
+#~ "Esta URA está sendo usada pelas seguintes filas, permitindo que os "
+#~ "usuários ouçam este anúncio de fila periódicamente e dando a origem uma "
+#~ "opção de sair fora da fila para dentro das opções da URA. Esta fila não "
+#~ "pode ser apagada quando estiver sendo usada neste modo."
+
+#~ msgid "Change Name"
+#~ msgstr "Mudar Nome"
+
+#~ msgid "This changes the short name, visible on the right, of this IVR"
+#~ msgstr "Isto muda o nome curto, visível na direita desta URA"
+
+#~ msgid ""
+#~ "Message to be played to the caller. To add additional recordings please "
+#~ "use the \"System Recordings\" MENU to the left"
+#~ msgstr ""
+#~ "Mensagem a ser tocada para a origem. Para adicionar gravações extras, por "
+#~ "favor use o MENU \"System Recordings\" na esquerda"
+
+#~ msgid ""
+#~ "Message to be played to the caller.<br><br>You must install and enable "
+#~ "the \"Systems Recordings\" Module to edit this option"
+#~ msgstr ""
+#~ "Mensagem a ser tocada para a origem.<br><br>Você deve instalar e "
+#~ "habilitar o módulo \"Systems Recordings\" para editar esta opção"
+
+#~ msgid ""
+#~ "The amount of time (in seconds) before the 't' option, if specified, is "
+#~ "used"
+#~ msgstr ""
+#~ "O tempo (em segundos) antes que a opção 't', se especificada, seja usada"
+
+#~ msgid "Enable Directory"
+#~ msgstr "Habilitar Diretório"
+
+#~ msgid "Directory Context"
+#~ msgstr "Contexto do diretório"
+
+#~ msgid ""
+#~ "When # is selected, this is the voicemail directory context that is used"
+#~ msgstr ""
+#~ "Quando o caracter # é selecionado, este é o contexto do diretório do "
+#~ "correio de voz que está sendo usado"
+
+#~ msgid "VM Return to IVR"
+#~ msgstr "VM retorna para a URA"
+
+#~ msgid "Enable Direct Dial"
+#~ msgstr "Habilitar discagem direta"
+
+#~ msgid "Let callers into the IVR dial an extension directly"
+#~ msgstr ""
+#~ "Permitir que o chamador dentro da URA disque uma extensão diretamente"
+
+#~ msgid "Loop Before t-dest"
+#~ msgstr "Loop antes do destino 't'"
+
+#~ msgid ""
+#~ "If checked, and there is a 't' (timeout) destination defined below, the "
+#~ "IVR will loop back to the beginning if no input is provided for the "
+#~ "designated loop counts prior to going to the timeout (t) destination."
+#~ msgstr ""
+#~ "Se selecionado, e existir um destino 't' (timeout) definido abaixo, a URA "
+#~ "irá retornar ao início se nenhuma entrada for fornecida para a contagem "
+#~ "do loop designado antes de ir para o destino definido para timeout(t)."
+
+#~ msgid "Timeout Message"
+#~ msgstr "Mensagem de timeout"
+
+#~ msgid ""
+#~ "If a timeout occurs and a message is selected, it will be played in place "
+#~ "of the announcement message when looping back to the top of the IVR. It "
+#~ "will not be played if the t destination is the next target."
+#~ msgstr ""
+#~ "Se um timeout ocorrer e uma mensagem for selecionado, isto será tocado no "
+#~ "lugar da da mensagem de anúncio quando retornando ao topo da URA. Ele não "
+#~ "será tocado se destino 't' é o próximo alvo."
+
+#~ msgid "Loop Before i-dest"
+#~ msgstr "Loop antes do destino 'i'"
+
+#~ msgid ""
+#~ "If checked, and there is an 'i' (invalid extension) destination defined "
+#~ "below, the IVR will play invalid option and then loop back to the "
+#~ "beginning for the designated loop counts prior to going to the invalid "
+#~ "(i) destination."
+#~ msgstr ""
+#~ "Se selecionado e existir um destino 'i' (extensão inválida) definida "
+#~ "abaixo, a URA irá tocar uma opção inválida e então retornar ao início de "
+#~ "acordo com a contagem de loops designada antes de ir para o destino "
+#~ "inválido(i)."
+
+#~ msgid "Invalid Message"
+#~ msgstr "Mensagem inválida"
+
+#~ msgid ""
+#~ "If an invalid extension is pressed and a message is selected, it will be "
+#~ "played in place of the announcement message when looping back to the top "
+#~ "of the IVR. It will not be played if the t destination is the next "
+#~ "target. If nothing is selected, the system will play a default invalid "
+#~ "extension message before going back to the main announcement"
+#~ msgstr ""
+#~ "Se uma extensão inválida for pressionada e uma mensagem for selecionada, "
+#~ "isto serátocado no lugar da mensagem de  anúncio quando retornando ao "
+#~ "topo da URA. Isto não será tocado se o destino 't' é o próximo alvo. Se "
+#~ "nada for selecionado, o sistema irá tocar a mensagem de extensão inválida "
+#~ "padrão antes de retornar ao anúncio principal"
+
+#~ msgid "Repeat Loops:"
+#~ msgstr "Repetir Loops:"
+
+#~ msgid ""
+#~ "The number of times we should loop when invalid input or no input has "
+#~ "been entered before going to the defined or default generated 'i' or 't' "
+#~ "options. If the 'i' or 't' options are defined, the above check boxes "
+#~ "must be checked in order to loop."
+#~ msgstr ""
+#~ "O número de vezes para retornar quando nenhuma entrada ou uma entrada "
+#~ "inválida tenha sido pressionada antes de ir para as opções 'i' ou 't' "
+#~ "definidas. Se as opções 'i' ou 't' forem definidas, as caixas de seleção "
+#~ "acima devem estar selecionadas para que seja feito o loop. "
+
+#~ msgid "Increase Options"
+#~ msgstr "Aumentar opções"
+
+#~ msgid "Decrease Options"
+#~ msgstr "Diminuir Opções"
+
+#~ msgid "Invalid option"
+#~ msgstr "Opção inválida"
+
+#~ msgid ""
+#~ "Check this box to have this option return to a parent IVR if it was "
+#~ "called from a parent IVR. If not, it will go to the chosen destination."
+#~ "<br><br>The return path will be to any IVR that was in the call path "
+#~ "prior to this IVR which could lead to strange results if there was an IVR "
+#~ "called in the call path but not immediately before this"
+#~ msgstr ""
+#~ "Selecione esta caixa para fazer com que esta opção retorne para a URA de "
+#~ "nível superior se elafoi chamada a partir desta URA. Senão, ela irá para "
+#~ "o destino escolhido. <br><br>O caminho de  retorno será para qualquer URA "
+#~ "que esteve no caminho antes desta URA o que poderia levar a resultados "
+#~ "estranhos caso existisse uma URA chamada neste caminho de ligação, mas "
+#~ "não imediatamente antes desse. "

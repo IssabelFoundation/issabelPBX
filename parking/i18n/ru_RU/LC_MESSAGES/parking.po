@@ -1,0 +1,409 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2012 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Alexander Anikin <mayy@postmet.com>, 2006-2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 00:04+0400\n"
+"PO-Revision-Date: 2012-11-06 16:38+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Parking Lot"
+msgstr "Парковка"
+
+msgid "day"
+msgstr "день"
+
+msgid "hour"
+msgstr "час"
+
+msgid "hours"
+msgstr "часов"
+
+msgid "minute"
+msgstr "минута"
+
+msgid "minutes"
+msgstr "минут"
+
+msgid "second"
+msgstr "секунда"
+
+msgid "seconds"
+msgstr "секунд"
+
+msgid "Pickup ParkedCall Any"
+msgstr "Перехват любого запаркованного звонка"
+
+msgid "Migrating recordings if needed.."
+msgstr "Перенос записей, если необходимо.."
+
+msgid "fatal error"
+msgstr "неустранимая ошибка"
+
+msgid "ok"
+msgstr "ок"
+
+msgid "not needed"
+msgstr "не требуется"
+
+msgid "Parking Lot Configuration"
+msgstr "Конфигурация парковки"
+
+msgid "Parking Lot Options"
+msgstr "Опции парковки звонков"
+
+msgid "Enable Parking Lot Feature"
+msgstr "Активировать возможность парковки звонков"
+
+msgid "Check this box to enable the parking feature"
+msgstr "Отметить здесь, если надо активировать эту возможность"
+
+msgid "Parking Lot Extension:"
+msgstr "Внутренний номер парковки:"
+
+msgid "This is the extension where you will transfer a call to park it."
+msgstr ""
+"Этот внутренний номер будет использоваться для того, чтобы перенаправлять "
+"входящие звонки на парковку."
+
+msgid "Number of Slots:"
+msgstr "Количество слотов:"
+
+msgid ""
+"The total number of parking lot spaces to configure. Example, if 70 is the "
+"extension and 8 slots are configured, the parking slots will be 71-78"
+msgstr ""
+"Общее количество входящих соединений, которые могут быть запаркованы. "
+"Например, если номер 70 - это внутренний номер парковки, и указано 8 "
+"слотов, то входящие звонки на парковке будут располагаться на номерах с "
+"71 по 79."
+
+msgid "Parking Timeout:"
+msgstr "Таймаут парковки:"
+
+msgid ""
+"The timeout period that a parked call will attempt to ring back the original "
+"parker if not answered"
+msgstr ""
+"Время ожидания, в секундах, после которого запаркованый звонок опять "
+"вернётся оператору, который его запарковал."
+
+msgid "Parked Music Class:"
+msgstr "Класс музыки в ожидании на парковке:"
+
+msgid ""
+"This is the music class that will be played to a parked call while in the "
+"parking lot UNLESS the call flow prior to parking the call explicitly set a "
+"different music class, such as if the call came in through a queue or ring "
+"group."
+msgstr ""
+"Этот класс музыки будет воспроизводиться запаркованным абонентам до тех пор, пока "
+"вызов будет оставаться в пределах парковки, и переключится на другой класс, если он "
+"будет перенаправлен в другой сценарий, например - очередь или ринг-группа."
+
+msgid "default"
+msgstr "по умолчанию"
+
+msgid "Parking Lot Context:"
+msgstr "Контекст для парковки:"
+
+msgid ""
+"This is the parking lot context. You should not change it from the default "
+"unless you know what you are doing."
+msgstr ""
+"Это контекст, в который попадают запаркованные звонки. Не меняйте дефолтный "
+"контекст здесь, если вы не отчетливо представляете, что вы делаете."
+
+msgid "Enable BLF Capabilities:"
+msgstr "Включить возможности BLF:"
+
+msgid ""
+"Check this box to have Asterisk 'hints' generated to use with BLF buttons."
+msgstr ""
+"Установка этого флага включает генерацию хинтов в Астериск для использования "
+"кнопок BLF."
+
+msgid "Use Next Slot:"
+msgstr "Использовать следующий слот:"
+
+msgid ""
+"Asterisk: findslot. Check this box if you want the parking lot to seek the "
+"next sequential parking slot relative to the the last parked call instead of "
+"seeking the first available slot. Normally this box is left un-checked."
+msgstr ""
+"Asterisk: findslot. Поставить этот флаг если требуется искать следующий по порядку "
+"парковочный слот для следующего поступившего вызова, вместо того, чтобы искать первый "
+"свободный слот. Обычно можно оставить эту опцию выключеной."
+
+msgid "Enable ADSI Announcements:"
+msgstr "Задействовать уведомления ADSI:"
+
+msgid ""
+"Check this box if you are using ADSI enabled analog phones and want to have "
+"ADSI parking announcements sent to the phones. Other adsi.conf "
+"configurations may be necessary for this to work."
+msgstr ""
+"Поставить этот флаг, если используются ADSI аналоговые телефоны, и требуется посылать "
+"уведомления ADSI о парковке на эти телефоны. В любом случае конфигурация adsi.conf "
+"может быть необходимой и полезной для такой работы."
+
+msgid "Returned Call Behavior:"
+msgstr "Поведение вернувшихся вызовов:"
+
+msgid "Pickup Courtesy Tone:"
+msgstr "Звуковой сигнал при перехвате вызова:"
+
+msgid "Whom to play the courtesy tone to when a parked call is retrieved."
+msgstr "Кому воспроизвести звуковой сигнал если запаркованный вызов вернулся обратно."
+
+msgid "Caller"
+msgstr "Вызывающий"
+
+msgid "Parked"
+msgstr "Запаркованный"
+
+msgid "Both"
+msgstr "Оба"
+
+msgid "Transfer Capability:"
+msgstr "Возможность перевода звонка"
+
+msgid ""
+"Asterisk: parkedcalltransfers. Enables or disables DTMF based transfers when "
+"picking up a parked call."
+msgstr ""
+"Asterisk: parkedcalltransfers. Включает или выключает возможность трансфера посредством "
+"сигналов DTMF после перехвата запаркованного вызова."
+
+msgid "Neither"
+msgstr "Никто"
+
+msgid "Re-Parking Capability:"
+msgstr "Возможность перепарковки:"
+
+msgid ""
+"Asterisk: parkedcallreparking. Enables or disables DTMF based parking when "
+"picking up a parked call."
+msgstr ""
+"Asterisk: parkedcallreparking. Включает или выключает возможность повторной парковки посредством "
+"сигналов DTMF после перехвата запаркованного вызова."
+
+msgid "One Touch Recording Capability:"
+msgstr "Возможность записи по желанию:"
+
+msgid ""
+"Asterisk: parkedcallrecording. Enables or disables DTMF based one-touch "
+"recording when picking up a parked call."
+msgstr ""
+"Asterisk: parkedcallrecording. Включает или выключает возможность записи разговора посредством "
+"сигналов DTMF после перехвата запаркованного вызова."
+
+msgid "DTMF Based Hangup Capability:"
+msgstr "Возможность прекращения соединения посредством DTMF"
+
+msgid ""
+"Asterisk: parkedcallhangup. Enables or disables DTMF based hangups when "
+"picking up a parked call."
+msgstr ""
+"Asterisk: parkedcallhangup.Включает или выключает возможность прекращения разговора посредством "
+"сигналов DTMF после перехвата запаркованного вызова."
+
+msgid ""
+"Alert-Info to add to the call prior to sending back to the Originator or to "
+"the Alternate Destination."
+msgstr ""
+"Добаляемое перед посылкой вызова оригинатору или по альтернативному назначению уведомление Alert-Info."
+
+msgid ""
+"String to prepend to the current Caller ID associated with the parked call "
+"prior to sending back to the Originator or the Alternate Destination."
+msgstr ""
+"Метка, добавляемая к текущему Caller ID, ассоциирующая вызов с запаркованным, прежде чем отправить "
+"его назад оригинатору или по альтернативному назначению."
+
+msgid ""
+"Optional message to be played to the call prior to sending back to the "
+"Originator or the Alternate Destination."
+msgstr ""
+"Опционально - голосовое сообщение, которое воспроизводится прежде чем отправить "
+"его назад оригинатору ил по альтернативному назначению." 
+
+msgid "Alternate Destination"
+msgstr "Альтернативное назначение"
+
+msgid ""
+"Alert-Info to put in channel before going to defined destination below. This "
+"can create distinct rings on some SIP phones and can serve to alert the "
+"recipients that the call is from an Orphaned parked call"
+msgstr ""
+"Специальная информация встраивается в канал прежде, чем будет установлено "
+"соединение по назначению, указанному ниже. Это делает возможным распознавать "
+"звонки по типу на некоторых SIP телефонах, например, для более специфичной "
+"индикации забытых на парковке звонков."
+
+msgid ""
+"String to prepend to the current CallerID associated with this call (if "
+"any), before going to defined destination below. This can serve to alert the "
+"recipients that the call is from an Orphaned parked call"
+msgstr ""
+"Метка, добавляемая к текущему Caller ID, ассоциируемая с текущим вызовом (если установлено "
+"любой), прежде чем отправить его по назначению, указанному ниже. Это помогает в обслуживании "
+"уведомлений получателям таких вызовов, которые поступают как забытые на парковке."
+
+msgid "Announcement:"
+msgstr "Приветствие"
+
+msgid ""
+"Optional message to be played to the orphaned caller prior to going on the "
+"to supplied destination below.<br><br>To add additional recordings please "
+"use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Опционально, сообщение, которое воспроизводится забытому на парковке "
+"абоненту, перед тем, как звонок будет перенаправлен по направлению ниже. Что-"
+"то вроде \"Спасибо, что подождали на линии!\"<br><br>Добавить такое "
+"сообщение можно в секции Запись сообщений в меню слева."
+
+msgid "Destination for Orphaned Parked Calls"
+msgstr "Направления для забытых на парковке звонков"
+
+msgid "Actions for Timed-Out Orphans"
+msgstr "Действия для забытых звонков"
+
+msgid "Parking Alert-Info:"
+msgstr "Специальная информация:"
+
+msgid "CallerID Prepend:"
+msgstr "Префикс для Caller ID:"
+
+msgid "None"
+msgstr "Нет"
+
+msgid ""
+"You must install and enable the \"Systems Recordings\" Module to edit this "
+"option"
+msgstr ""
+"Необходимо инсталлировать и задействовать модуль \"Записи в системе\" для "
+"редактирования этой опции." 
+
+msgid "Return Destination Behavior:"
+msgstr "Поведение для возврата звонка:"
+
+msgid ""
+"Where to send a parked call that has timed out. The call can be sent back to "
+"the original device that parked the call, or it can be sent back to the "
+"alternate destination. In both cases, any configured Alert-Info, Caller ID "
+"prepend, or announcement will be applied to the call. If configured to send "
+"back to the Originator and they are not available (phone is offline), the "
+"alternate destination will be used."
+msgstr ""
+"Куда посылать запаркованный вызов если время ожидания истекло. Вызов может быть "
+"направлени на то же устройство, с которого он был запаркован, или перенаправлен "
+"на альтернативное назначение. В обоих случаях - преконфигурированное уведомление "
+"Alert-Info, приставка перед Caller ID или голосовое уведомление будут сохраняться в "
+"течение этого вызова. Если выбрано возвращать вызов оригинатору, а он недоступен "
+"(телефон отключён), то вызов уйдёт по альтернативному направлению."  
+
+msgid "Originator"
+msgstr "Оригинатор"
+
+msgid "Submit Changes"
+msgstr "Применить изменения"
+
+msgid "Please enter a valid numeric parking lot extension"
+msgstr "Введите правильный цифровой код лота парковки"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid ""
+"Manages parking lot extensions and other options.\tParking is a way of "
+"putting calls "
+msgstr ""
+"Управление лотом парковки внутренних номеров и другие опции.\tПарковка - "
+"один из способов обработки входящих вызовов."
+
+msgid "Use Old Parking Patch"
+msgstr "Использовать патч для старой парковки"
+
+msgid "System Setup"
+msgstr "Системные настройки"
+
+msgid ""
+"Set to generate some additional dialplan if using a particular patch that "
+"was available in Asterisk 1.2 and 1.4 to add behavior to parking like adding "
+"Alert Info and CID prepends to timed out parked calls. This patch is mostly "
+"obsoleted and the setting will probably go away at some point when Asterisk "
+"1.6+ parking enhacements are added to the module."
+msgstr ""
+"Включается для генерации дополнительного диал-плана, если используется обычный "
+"патч, доступный в Asterisk 1.2 и 1.4, который добавляет Alert Info и приставку к "
+"CID для запаркованных вызовов. Этот патч в большинстве случаев устарел, и эту "
+"опцию настройки можно смело пропустиить, если используется способ обработки парковки "
+"версии 1.6 и выше, где это поведение уже включено в модуль." 
+
+#~ msgid ""
+#~ "The total number of parking lot spaces to configure. Example, if 70 is "
+#~ "the extension and 8 slots are configured, the parking slots will be 71-79"
+#~ msgstr ""
+#~ "Общее количество входящих звонков, которые могут быть запаркованы. "
+#~ "Например, если номер 70 - это внутренний номер парковки, и указано 8 "
+#~ "слотов, то входящие звонки на парковке будут располагаться на номерах с "
+#~ "71 по 79."
+
+#~ msgid ""
+#~ "String to pre-pend to the current Caller-ID associated with this call (if "
+#~ "any), before going to defined destination below. This can serve to alert "
+#~ "the recipients that the call is from an Orphaned parked call"
+#~ msgstr ""
+#~ "Ярлык в виде префикса перед Caller ID, который будет отображаться при "
+#~ "звонке прежде, чем он будет перенаправлен по направлению, указанному "
+#~ "ниже. Это также поможет в обслуживании забытых звонков на парковке."
+
+#~ msgid ""
+#~ "Optional message to be played to the orphaned caller prior to going on to "
+#~ "the supplied destination below.<br><br>You must install and enable the "
+#~ "\"Systems Recordings\" Module to edit this option"
+#~ msgstr ""
+#~ "Опционально, сообщение, которое воспроизводится забытому на парковке "
+#~ "абоненту, перед тем, как звонок будет перенаправлен по направлению ниже. "
+#~ "Что-то вроде \"Спасибо, что подождали на линии!\"<br><br>Нужно "
+#~ "инсталлировать и активировать модуль Запись сообщений, чтобы изменить эту "
+#~ "опцию."
+
+#~ msgid "Misc Destinations"
+#~ msgstr "Различные направления"
+
+#~ msgid "Languages"
+#~ msgstr "Языки"
+
+#~ msgid "IVR"
+#~ msgstr "Интерактивное меню"
+
+#~ msgid "Custom Applications"
+#~ msgstr "Специальное приложение"
+
+#~ msgid "Conferences"
+#~ msgstr "Конференции"
+
+#~ msgid "Queues"
+#~ msgstr "Очереди"
+
+#~ msgid "Phonebook Directory"
+#~ msgstr "Телефонная книга"
+
+#~ msgid "Terminate Call"
+#~ msgstr "Терминировать звонок"
+
+#~ msgid "Extensions"
+#~ msgstr "Внутренние номера"
+
+#~ msgid "Voicemail"
+#~ msgstr "Голосовая почта"

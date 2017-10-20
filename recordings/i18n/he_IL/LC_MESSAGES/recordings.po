@@ -1,0 +1,280 @@
+# Hebrew version for Recordings IssabelPBX Module.
+# Copyright (C) 2011
+# This file is distributed under the same license as the PACKAGE package.
+# Isaac Gal <gal@allegronet.co.il>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-07-10 09:30+0100\n"
+"Last-Translator: Shimi <shimi@shimi.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "Missing Sound file auto-created from migration of %s module"
+msgstr ""
+
+#, php-format
+msgid "Non-Existent Recording in module %s"
+msgstr ""
+
+#, php-format
+msgid ""
+"The %s referenced a recording file listed below that does not exists. An "
+"entry has been generated, named %s, with the referenced file(s) but you "
+"should confirm that it really works and the real files exist. The file(s) "
+"referenced: %s "
+msgstr ""
+
+msgid "No long description available"
+msgstr "אין תיאור ארוך"
+
+msgid "Recordings"
+msgstr "הקלטות"
+
+msgid "Save Recording"
+msgstr "שמור הקלטה"
+
+msgid "Check Recording"
+msgstr "בדוק הקלטה"
+
+msgid "checking for fcode field.."
+msgstr "בודק שגיאות..."
+
+msgid "OK"
+msgstr "תקין"
+
+msgid "already exists"
+msgstr "כבר קיים"
+
+msgid "checking for fcode_pass field.."
+msgstr ""
+
+msgid "** MISSING FEATURE CODE **"
+msgstr "** לא קיים קוד תכונה **"
+
+msgid "Failed to create"
+msgstr "כשלון ביצירת"
+
+msgid "[ERROR] The Recorded File Does Not exists:"
+msgstr "שגיאה - קובץ ההקלטה אינו קיים"
+
+msgid "[ERROR] SAVING RECORDING:"
+msgstr "שגיאה - שמירת ההקלטה"
+
+msgid "Make sure you have entered a proper name"
+msgstr "נא וודא כי הכנסת שם מתאים להקלטה"
+
+msgid "[ERROR] REMOVING TEMPORARY RECORDING:"
+msgstr "שגיאה - מוחק הקלטה זמנית"
+
+msgid "Make sure Asterisk is not running as root "
+msgstr ""
+
+msgid "System Recording"
+msgstr "הקלטות מערכת"
+
+msgid "Saved"
+msgstr "נשמר"
+
+msgid "Unable to locate"
+msgstr "לא מצליח לאתר"
+
+msgid "with a a valid suffix"
+msgstr "עם סיומת תקנית"
+
+msgid "Updated"
+msgstr "עודכן"
+
+msgid "System Recordings"
+msgstr "הקלטות מערכת"
+
+msgid "Add Recording"
+msgstr "הוספת הקלטה"
+
+msgid "Step 1: Record or upload"
+msgstr "שלב 1: הקלט או העלה"
+
+msgid "Using your phone,"
+msgstr "באמצעות הטלפון שלך,"
+
+msgid " dial"
+msgstr "חייג"
+
+msgid "Start speaking at the tone. Press # when finished."
+msgstr "התחל לדבר לאחר האות. בסיום הקש על מקש הסולמית"
+
+msgid "and speak the message you wish to record. Press # when finished."
+msgstr "ואמור את ההודעה שעליך להקליט. ביום הקש על מקש הסולמית"
+
+msgid ""
+"If you wish to make and verify recordings from your phone, please enter your "
+"extension number here:"
+msgstr ""
+"אם ברצונך לוודא הקלטה שנעשתה מהטלפון שלך, אנא הכנס את מספר השלוחה שלך כאן:"
+
+msgid "Go"
+msgstr "התחל"
+
+msgid ""
+"Alternatively, upload a recording in any supported asterisk format. Note "
+"that if you're using .wav, (eg, recorded with Microsoft Recorder) the file "
+"<b>must</b> be PCM Encoded, 16 Bits, at 8000Hz"
+msgstr ""
+
+msgid "Upload"
+msgstr "העלה הקלטה"
+
+msgid "Please wait until the page reloads."
+msgstr "נא המתן עד לרענון העמוד"
+
+msgid "Successfully uploaded"
+msgstr "הועלה בהצלחה"
+
+msgid "Step 2: Verify"
+msgstr "שלב 2: ודא"
+
+msgid "After recording or uploading,"
+msgstr "אחרי הקלטה או העלאה,"
+
+#, fuzzy
+msgid "dial"
+msgstr "חייג"
+
+msgid "to listen to your recording."
+msgstr "כדי להאזין להקלטתך."
+
+msgid "If you wish to re-record your message, dial"
+msgstr "אם ברצונך להקליט מחדש את הודעתך, חייג"
+
+msgid "Step 3: Name"
+msgstr "שלב 3: שם"
+
+msgid "Step 2: Name"
+msgstr "שלב 2: שם"
+
+msgid "Name this Recording"
+msgstr "תן שם להקלטה זו"
+
+msgid "Click \"SAVE\" when you are satisfied with your recording"
+msgstr "לחץ על \"שמור\" כאשר אתה מרוצה מהקלטתך"
+
+msgid "Save"
+msgstr "שמור"
+
+msgid "Edit Recording"
+msgstr "ערוך הקלטה"
+
+msgid "Usage List"
+msgstr "רשימת שימוש"
+
+msgid ""
+"This recording is being used in the following instances. You can not remove "
+"this recording while being used. To re-record, you can enable and use the "
+"feature code below if allowed."
+msgstr ""
+
+msgid "Remove Recording"
+msgstr "הסר הקלטה"
+
+msgid "Note, does not delete file from computer"
+msgstr "שים לב, תכונה זו אינה מוחקת בפעול את הקובץ מהדיסק"
+
+msgid "Change Name"
+msgstr "שנה שם"
+
+msgid "This changes the short name, visible on the right, of this recording"
+msgstr ""
+
+msgid "Descriptive Name"
+msgstr "תיאור ההקלטה"
+
+msgid ""
+"This is displayed, as a hint, when selecting this recording in Queues, "
+"Digital Receptionist, etc"
+msgstr ""
+
+msgid "Link to Feature Code"
+msgstr "קוד תכונה משוייך להקלטה"
+
+msgid ""
+"Check this box to create an options feature code that will allow this "
+"recording to be changed directly."
+msgstr ""
+
+#, php-format
+msgid "Optional Feature Code %s"
+msgstr ""
+
+msgid "Feature Code Password"
+msgstr "סיסמא לקוד תכונה"
+
+msgid ""
+"Optional password to protect access to this feature code which allows a user "
+"to re-record it."
+msgstr ""
+
+msgid "Direct Access Feature Code Not Available"
+msgstr "קוד תכונה בגישה ישירה אינו קיים"
+
+msgid ""
+"Direct Access Feature Codes for recordings are not available for built in "
+"system recordings or compound recordings made of multiple individual ones."
+msgstr ""
+
+msgid "Files"
+msgstr "קבצים"
+
+msgid "Built-in Recordings"
+msgstr "הקלטות מובנות"
+
+msgid "Please enter a valid Name for this System Recording"
+msgstr "נא הזן שם תקין לקובץ ההקלטה"
+
+msgid "Select System Recording:"
+msgstr "בחר הקלטת מערכת:"
+
+msgid "Click here to play this recording"
+msgstr "לחץ כאן לשמיעת ההקלטה"
+
+msgid "Move Up"
+msgstr "הזז למעלה"
+
+msgid "Move Down"
+msgstr "הזז למטה"
+
+msgid "Delete"
+msgstr "מחק"
+
+#, php-format
+msgid "No compatible wav, mp3 or gsm format found to play:<br /><br />%s"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"Creates and manages system recordings, used by many other modules (eg, IVR)."
+msgstr ""
+"צור ונהל הקלטות מערכת אשר בשימוש על ידי מודלים אחרים כגון נתב שיחות והכרזות"
+
+msgid "Recordings Crypt Key"
+msgstr ""
+
+msgid "System Setup"
+msgstr "הגדרות מערכת"
+
+msgid ""
+"Crypt key used by this recordings module when accessing the recording files. "
+"Change from the default of "
+msgstr ""
+
+msgid " if desired."
+msgstr ""
+
+#~ msgid "Internal Options & Configuration"
+#~ msgstr "תכונות פנימיות והגדרות מערכת"

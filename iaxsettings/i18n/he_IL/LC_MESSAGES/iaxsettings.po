@@ -1,0 +1,279 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for iaxsettings
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "%s must be a non-negative integer"
+msgstr ""
+
+msgid "Bind Address (bindaddr) must be an IP address."
+msgstr ""
+
+msgid "Bind Port (bindport) must be between 1024..65535, default 4569"
+msgstr ""
+
+msgid "resyncthreshold must be a non-negative integer or -1 to disable"
+msgstr ""
+
+msgid "Asterisk IAX Settings"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Use to configure Various Asterisk IAX Settings in the General section of iax."
+"conf. The module assumes Asterisk version 1.4 or higher. Some settings may "
+"not exist in Asterisk 1.2 and will be ignored by Asterisk."
+msgstr ""
+
+msgid "checking for iaxsettings table.."
+msgstr ""
+
+msgid "none, creating table"
+msgstr ""
+
+msgid "populating default codecs.."
+msgstr ""
+
+msgid "fatal error occurred populating defaults, check module"
+msgstr ""
+
+msgid "ulaw, alaw, gsm added"
+msgstr ""
+
+msgid "already exists"
+msgstr ""
+
+msgid "Edit Settings"
+msgstr ""
+
+msgid "ERRORS"
+msgstr ""
+
+msgid "Audio Codecs"
+msgstr ""
+
+msgid "Codecs"
+msgstr ""
+
+msgid ""
+"Check the desired codecs, all others will be disabled unless explicitly "
+"enabled in a device or trunks configuration. Drag to re-order."
+msgstr ""
+
+msgid "Codec Priority"
+msgstr ""
+
+msgid ""
+"Asterisk: codecpriority. Controls the codec negotiation of an inbound IAX "
+"call. This option is inherited to all user entities.  It can also be defined "
+"in each user entity separately which will override the setting here. The "
+"valid values are:<br />host - Consider the host's preferred order ahead of "
+"the caller's.<br />caller - Consider the callers preferred order ahead of "
+"the host's.<br /> disabled - Disable the consideration of codec preference "
+"altogether. (this is the original behavior before preferences were added)"
+"<br />reqonly  - Same as disabled, only do not consider capabilities if the "
+"requested format is not available the call will only be accepted if the "
+"requested format is available."
+msgstr ""
+
+msgid "Bandwidth"
+msgstr ""
+
+msgid ""
+"Asterisk: bandwidth. Specify bandwidth of low, medium, or high to control "
+"which codecs are used in general."
+msgstr ""
+
+msgid "low"
+msgstr ""
+
+msgid "medium"
+msgstr ""
+
+msgid "high"
+msgstr ""
+
+msgid "unset"
+msgstr ""
+
+msgid "Video Codecs"
+msgstr ""
+
+msgid "Video Support"
+msgstr ""
+
+msgid "Check to enable and then choose allowed codecs."
+msgstr ""
+
+msgid ""
+" If you clear each codec and then add them one at a time, submitting with "
+"each addition, they will be added in order which will effect the codec "
+"priority."
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Registration Settings"
+msgstr ""
+
+msgid "Registration Times"
+msgstr ""
+
+msgid ""
+"Asterisk: minregexpire, maxregexpire. Minimum and maximum length of time "
+"that IAX peers can request as a registration expiration interval (in "
+"seconds)."
+msgstr ""
+
+msgid "Jitter Buffer Settings"
+msgstr ""
+
+msgid "Jitter Buffer"
+msgstr ""
+
+msgid ""
+"Asterisk: jitterbuffer. You can adjust several parameters relating to the "
+"jitter buffer. The jitter buffer's function is to compensate for varying "
+"network delay. The jitter buffer works for INCOMING audio - the outbound "
+"audio will be dejittered by the jitter buffer at the other end."
+msgstr ""
+
+msgid "Force Jitter Buffer"
+msgstr ""
+
+msgid ""
+"Asterisk: forcejitterbuffer. Forces the use of a jitterbuffer on the receive "
+"side of an IAX channel. Normally the jitter buffer will not be used if "
+"receiving a jittery channel but sending it off to another channel such as a "
+"SIP channel to an endpoint, since there is typically a jitter buffer at the "
+"far end. This will force the use of the jitter buffer before sending the "
+"stream on. This is not typically desired as it adds additional latency into "
+"the stream."
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Jitter Buffer Size"
+msgstr ""
+
+msgid ""
+"Asterisk: maxjitterbuffer. Max length of the jitterbuffer in milliseconds."
+"<br /> Asterisk: resyncthreshold. When the jitterbuffer notices a "
+"significant change in delay that continues over a few frames, it will "
+"resync, assuming that the change in delay was caused by a timestamping mix-"
+"up. The threshold for noticing a change in delay is measured as twice the "
+"measured jitter plus this resync threshold. Resyncing can be disabled by "
+"setting this parameter to -1."
+msgstr ""
+
+msgid "Max Interpolations"
+msgstr ""
+
+msgid ""
+"Asterisk: maxjitterinterps. The maximum number of interpolation frames the "
+"jitterbuffer should return in a row. Since some clients do not send CNG/DTX "
+"frames to indicate silence, the jitterbuffer will assume silence has begun "
+"after returning this many interpolations. This prevents interpolating "
+"throughout a long silence."
+msgstr ""
+
+msgid "Advanced General Settings"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Default Language for a channel, Asterisk: language"
+msgstr ""
+
+msgid "Bind Address"
+msgstr ""
+
+msgid ""
+"Asterisk: bindaddr. The IP address to bind to and listen for calls on the "
+"Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. To bind "
+"to multiple IP addresses or ports, use the Other 'IAX Settings' fields where "
+"you can put settings such as:<br /> bindaddr=192.168.10.100:4555.<br />  It "
+"is recommended to leave this blank."
+msgstr ""
+
+msgid "Bind Port"
+msgstr ""
+
+msgid ""
+"Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and "
+"listen for IAX messages. The IAX standard is 4569 and in most cases this is "
+"what you want. It is recommended to leave this blank."
+msgstr ""
+
+msgid "Delay Auth Rejects"
+msgstr ""
+
+msgid ""
+"Asterisk: delayreject. For increased security against brute force password "
+"attacks enable this which will delay the sending of authentication reject "
+"for REGREQ or AUTHREP if there is a password."
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Other IAX Settings"
+msgstr ""
+
+msgid ""
+"You may set any other IAX settings not present here that are allowed to be "
+"configured in the General section of iax.conf. There will be no error "
+"checking against these settings so check them carefully. They should be "
+"entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the "
+"Add Field box to add additional fields. Blank boxes will be deleted when "
+"submitted."
+msgstr ""
+
+#, php-format
+msgid "Settings in %s may override these. Those settings should be removed."
+msgstr ""
+
+#, php-format
+msgid ""
+"File %s should not have any settings in it. Those settings should be removed."
+msgstr ""

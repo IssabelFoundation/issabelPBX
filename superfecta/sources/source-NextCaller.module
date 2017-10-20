@@ -1,0 +1,46 @@
+<?php
+/**** **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** ****
+ * Developer Notes:
+ *      No longer using OAuth as of December '14
+ *
+ * Version History:
+ *      2013-08-15  Initial commit by tm1000
+ *      2014-09-02  Support for OAuth 1.0a by ssanders76
+ *		2014-12-05  Support for API v2 w/ Basic Auth by RossIV
+ *
+ **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** **** ****/
+
+class NextCaller extends superfecta_base {
+
+    public $description = "http://nextcaller.com  This source is free for up to 250 lookups/month, but you do need an account. Returns CID for any NANPA number without +1.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'username' => array(
+                'description' => 'Username from NextCaller Dashboard',
+                'type' => 'text'
+        ),
+        'password' => array(
+                'description' => 'Password from NextCaller Dashboard',
+                'type' => 'password'
+        )
+    );
+
+        function get_caller_id($thenumber, $run_param=array()) {
+            $this->DebugPrint("Searching NextCaller..");
+			if (!$run_param['username'] || !$run_param['password']) {
+				$this->DebugPrint("You did not specify a valid username or password.");
+			} else {
+                $url = "https://".$run_param['username'].":".$run_param['password']."@api.nextcaller.com/v2/records/?format=json&phone=$thenumber";
+                $sresult = $this->get_url_contents($url);
+				$result = json_decode($sresult, true);
+				$name = $result['records']['0']['name'];
+                // If we found a match, return it
+				if (strlen($name) > 1) {
+					$caller_id = $name;
+				} else {
+					$this->DebugPrint("not found");
+				}
+				return($caller_id);
+			}
+		}
+}

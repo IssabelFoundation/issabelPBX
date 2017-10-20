@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-06 14:52+0100\n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+msgid "Error writing the manager additional file."
+msgstr "Errore durante la scrittura del file addizionale di manager."
+
+msgid "This manager already exists"
+msgstr "Questo manager già esiste"
+
+msgid "Choose Manager:"
+msgstr "Scegliere il Manager:"
+
+msgid "Choose the user that PHPAGI will use to connect the Asterisk API."
+msgstr ""
+"Scegliere l'utente che PHPAGI userà per connettersi con le API di Asterisk."
+
+msgid "Increasing read field size if needed.."
+msgstr ""
+
+msgid "error encountered, not altered"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "Increasing write field size if needed.."
+msgstr ""
+
+msgid "Asterisk API"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Add Manager"
+msgstr "Aggiungi Manager"
+
+msgid "Manager"
+msgstr "Manager"
+
+msgid "deleted"
+msgstr "eliminato"
+
+msgid "Manager:"
+msgstr "Manager:"
+
+msgid "Delete Manager"
+msgstr "Elimina Manager"
+
+msgid "Edit Manager"
+msgstr "Modifica Manager"
+
+msgid "Manager name:"
+msgstr "Nome Manager:"
+
+msgid "Name of the manager without space."
+msgstr "Il nome del manager senza spazi."
+
+msgid "Manager secret:"
+msgstr "Password Manager:"
+
+msgid "Password for the manager."
+msgstr "La password per il manager (secret)."
+
+msgid "Deny:"
+msgstr "Nega (deny):"
+
+msgid ""
+"If you want to deny many hosts or networks, use & char as separator.<br/><br/"
+">Example: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
+msgstr ""
+"Se si vuole negare l'accesso a più host o reti, utilizzare il carattere & "
+"come separatore.<br/><br/>Esempio: "
+"192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
+
+msgid "Permit:"
+msgstr "Permetti (permit):"
+
+msgid ""
+"If you want to permit many hosts or networks, use & char as separator. Look "
+"at deny example."
+msgstr ""
+"Se si vuole permettere l'accesso a più host o reti, utilizzare il carattere "
+"& come separatore. Guarda come esempio Deny."
+
+msgid "Rights"
+msgstr "Permessi (rights)"
+
+msgid "Read"
+msgstr "Lettura (read)"
+
+msgid "Write"
+msgstr "Scrittura (write)"
+
+msgid "Check Asterisk documentation."
+msgstr "Controllare la documentazione di Asterisk"
+
+msgid "Check All/None."
+msgstr "Attiva Tutto/Niente"
+
+msgid "Submit Changes"
+msgstr "Conferma Cambiamenti"
+
+msgid "The manager name cannot be empty or may not have any space in it."
+msgstr ""
+
+msgid "The manager secret cannot be empty."
+msgstr ""
+
+msgid "The manager deny is not well formatted."
+msgstr ""
+
+msgid "The manager permit is not well formatted."
+msgstr ""
+
+msgid "The manager read field is not well formatted."
+msgstr ""
+
+msgid "The manager write field is not well formatted."
+msgstr ""

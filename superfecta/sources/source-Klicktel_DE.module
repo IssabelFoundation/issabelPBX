@@ -1,0 +1,39 @@
+<?php
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Developer Notes:
+Discussion about TOS for this site here:
+https://github.com/POSSA/Caller-ID-Superfecta/issues/167#issuecomment-31667257
+Summary by github user Totole:  TOS dated Sept. 2011: Only for private use, no resell, no other limits
+
+
+Version History
+2014-01-09  Initial migration to 2.11, new regex and url by lgaetz
+2014-07-25  regex fix by kossmac
+*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+class Klicktel_DE extends superfecta_base {
+
+    public $description = "http://www.klicktel.de - Usage of this module requires acceptance of Klicktel terms of service";
+    public $version_requirement = "2.11";
+
+    function get_caller_id($thenumber, $run_param=array()) {
+        $caller_id = null;
+        $this->DebugPrint("Searching http://www.klicktel.de for $thenumber...");
+
+        // url updated and working 2014-01-09
+        $url = "http://www.klicktel.de/rueckwaertssuche/". $thenumber;
+
+        // Patterns to search for
+        $regexp = array(
+//          '/.html"><strong>(.*)<\/strong>/',    // old regex from ver 2.2.x not working
+//          '/<h4><a href="http:\/\/www.klicktel.de\/.*?">.*?\. (.*?)<\/a><\/h4>/',  // working 2014-01-09
+            '/<h3 itemprop="name"><a href="http:\/\/www.klicktel.de\/.*?" target="_self">.*?\. (.*?)<\/a><\/h3>/',  // working 2014-07-25
+        );
+
+        if ($this->SearchURL($url, $regexp, $match, NULL, TRUE)) {
+            $caller_id = $this->ExtractMatch($match);
+        }
+
+        return($caller_id);
+    }
+
+}

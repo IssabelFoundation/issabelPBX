@@ -1,0 +1,381 @@
+# Hebrew version for Ring Groups IssabelPBX Module.
+# Copyright (C) 2006
+# This file is distributed under the same license as the PACKAGE package.
+# Isaac Gal <gal@allegronet.co.il>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Moshe Brevda <mbrevda => gmail ! com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "Ring Group %s: "
+msgstr "קבוצת צלצול %s: "
+
+#, php-format
+msgid "Ring Group: %s"
+msgstr "קבוצת צלצול %s:"
+
+msgid "This ringgroup"
+msgstr "הקבוצת צלצול הנוכחי"
+
+msgid "is already in use"
+msgstr "כבר בשימוש"
+
+msgid "INUSE"
+msgstr "בשימוש"
+
+#, php-format
+msgid "Ring Group: %s (%s)"
+msgstr "קבוצת צלצול (s% (%s: "
+
+msgid "added field cwignore to ringgroups table"
+msgstr ""
+
+msgid "added field cfignore to ringgroups table"
+msgstr ""
+
+msgid "added field cpickup to ringgroups table"
+msgstr ""
+
+msgid "added field recording to ringgroups table"
+msgstr ""
+
+msgid "Checking if recordings need migration.."
+msgstr ""
+
+msgid "migrating"
+msgstr "הגירת"
+
+msgid "adding annmsg_id field.."
+msgstr ""
+
+msgid "fatal error"
+msgstr ""
+
+msgid "ok"
+msgstr "בסדר"
+
+msgid "adding remotealert_id field.."
+msgstr ""
+
+msgid "adding toolate_id field.."
+msgstr ""
+
+msgid "migrate annmsg to ids.."
+msgstr ""
+
+#, php-format
+msgid "migrated %s entries"
+msgstr ""
+
+msgid "migrate remotealert to  ids.."
+msgstr ""
+
+msgid "migrate toolate to ids.."
+msgstr ""
+
+msgid "dropping annmsg field.."
+msgstr ""
+
+msgid "no annmsg field???"
+msgstr ""
+
+msgid "dropping remotealert field.."
+msgstr ""
+
+msgid "no remotealert field???"
+msgstr ""
+
+msgid "dropping toolate field.."
+msgstr ""
+
+msgid "no toolate field???"
+msgstr ""
+
+msgid "already migrated"
+msgstr ""
+
+msgid "Warning! Extension"
+msgstr "אזהרה! שלוחה"
+
+msgid "is not allowed for your account"
+msgstr "אינה מורשית עבור חשבונך"
+
+msgid "Add Ring Group"
+msgstr "הוסף קבוצת צלצול"
+
+msgid "Ring Group"
+msgstr "קבוצת צלצול"
+
+msgid "deleted"
+msgstr "נמחקה"
+
+msgid "Delete Group"
+msgstr "מחק קבוצה"
+
+msgid "Conflicting Extensions"
+msgstr "אזהרה! שלוחה מתנגשת"
+
+msgid "Edit Ring Group"
+msgstr "ערוך קבוצת צלצול"
+
+msgid "Ring-Group Number"
+msgstr "מספר קבוצת צלצול"
+
+msgid "The number users will dial to ring extensions in this ring group"
+msgstr "המספר שאותו משתמשים יחייגו כדי לחייג לשלוחות בקבוצת חיוג זו"
+
+#, fuzzy
+msgid "Group Description"
+msgstr "תיאור הקבוצה"
+
+msgid "Provide a descriptive title for this Ring Group."
+msgstr ""
+
+#, fuzzy
+msgid "Ring Strategy:"
+msgstr "אסטרטגיית חיוג:"
+
+msgid "ringall"
+msgstr "צלצל לכולם"
+
+msgid "Ring all available channels until one answers (default)"
+msgstr "צלצל לכל הערוצים בו זמינית עד שמישהו עונה (ברירת מחדל)"
+
+msgid "hunt"
+msgstr "ציד"
+
+#, fuzzy
+msgid "Take turns ringing each available extension"
+msgstr "צלצל בתור לכל שלוחה זמינה"
+
+msgid "memoryhunt"
+msgstr "ציד עם זיכרון"
+
+#, fuzzy
+msgid "Ring first extension in the list, then ring the 1st and 2nd extension, then ring 1st 2nd and 3rd extension in the list.... etc."
+msgstr "צלצל לשלוחה הראשונה ברשימה, לאחר מכן צלצל לראשונה ולשנייה, לאחר מכן לראשונה לשנייה ולשלישית, וכך הלאה."
+
+msgid "*-prim"
+msgstr "*-ראשוני"
+
+#, fuzzy
+msgid "These modes act as described above. However, if the primary extension (first in list) is occupied, the other extensions will not be rung. If the primary is IssabelPBX DND, it won't be rung. If the primary is IssabelPBX CF unconditional, then all will be rung"
+msgstr "מצבים אלה יפעלו כמתואר לעיל. אך, אם השלוחה הראשית (הראשונה ברשימה) תפוסה, השלוחות האחרות לא תצלצלנה. אם השלוחה הראשית נמצאת במצב נא-לא-להפריע במרכזיה, לא יהיה נסיון לצלצל. אם השלוחה הראשית מוגדרת במרכזיה במצב עקוב אחרי ללא תנאים, כל השלוחות תצלצלנה"
+
+msgid "firstavailable"
+msgstr ""
+
+msgid "ring only the first available channel"
+msgstr "דלג הסוכן תפוס"
+
+msgid "firstnotonphone"
+msgstr ""
+
+msgid "ring only the first channel which is not offhook - ignore CW"
+msgstr ""
+
+#, fuzzy
+msgid "Ring Time (max 60 sec)"
+msgstr "זמן צלצול (מקס 60 שניות)"
+
+msgid "Time in seconds that the phones will ring. For all hunt style ring strategies, this is the time for each iteration of phone(s) that are rung"
+msgstr ""
+
+#, fuzzy
+msgid "Extension List"
+msgstr "רשימת שלוחות"
+
+#, fuzzy
+msgid "List extensions to ring, one per line, or use the Extension Quick Pick below to insert them here.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a '#'.  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing)<br><br>Extensions (without a '#' will not ring a user's Follow-Me. To dial Follow-Me, Queues and other numbers that are not extensions, put a '#' at the end."
+msgstr "רשימת שלוחות שיש לצלצל אליהן, אחת בכל שורה.<br /><br />אתה יכול לכלול שלוחה במערכת מרוחקת, או מספר חיצוני על ידי הקדמת המספר בסולמית (#). לדוגמא: #2448089 יחייג 2448089 דרך היציאה המתאימה (ראה ניתוב החוצה)."
+
+msgid "Extension Quick Pick"
+msgstr "בחירת שלוחות מהירה"
+
+msgid "Choose an extension to append to the end of the extension list above."
+msgstr ""
+
+msgid "(pick extension)"
+msgstr "(בחר שלוחות)"
+
+#, fuzzy
+msgid "Announcement:"
+msgstr "הכרזה:"
+
+msgid "Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left"
+msgstr "הודעה שתושמע למתקשר לפני שמחייגים לקבוצה זו.<br /><br />כדי להוסיף הקלטות נוספות, אנא השתמש <em>בתפריט</em>\"הקלטות מערכת\" אשר בצד שמאל"
+
+msgid "None"
+msgstr "אין"
+
+msgid "Message to be played to the caller before dialing this group.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr "הודעה שתושמע למתקשר לפני שמחייגים לקבוצה זו.<br /><br />אתה חייב להתקין ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
+
+msgid "Play Music On Hold?"
+msgstr "השמע מוסיקה בהמתנה?"
+
+#, fuzzy
+msgid "If you select a Music on Hold class to play, instead of 'Ring', they will hear that instead of Ringing while they are waiting for someone to pick up."
+msgstr "אם תבחר קטגוריית מוסיקת המתנה לנגן, במקום 'צלצל', המתקשר ישמע מוסיקה זו במקום צליל של צלצול בזמן שהם ממתינים שמישהו ירים. שים לב שדבר זה <em>לא עובד</em> עם אישור שיחות, בגלל מגבלות של אסטריסק"
+
+msgid "Ring"
+msgstr "צלצל"
+
+#, fuzzy
+msgid "none"
+msgstr "אין"
+
+msgid "default"
+msgstr "ברירת מחדל"
+
+#, fuzzy
+msgid "CID Name Prefix"
+msgstr "הקדמת שם זיהוי שיחות"
+
+msgid "You can optionally prefix the CallerID name when ringing extensions in this group. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring."
+msgstr ""
+
+msgid "Alert Info"
+msgstr "מידע התראה"
+
+msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+msgstr ""
+
+msgid "Ignore CF Settings"
+msgstr ""
+
+msgid "When checked, agents who attempt to Call Forward will be ignored, this applies to CF, CFU and CFB. Extensions entered with '#' at the end, for example to access the extension's Follow-Me, might not honor this setting ."
+msgstr ""
+
+msgid "Skip Busy Agent"
+msgstr "דלג הסוכן תפוס"
+
+msgid "When checked, agents who are on an occupied phone will be skipped as if the line were returning busy. This means that Call Waiting or multi-line phones will not be presented with the call and in the various hunt style ring strategies, the next agent will be attempted."
+msgstr ""
+
+msgid "Enable Call Pickup"
+msgstr ""
+
+msgid "Checking this will allow calls to the Ring Group to be picked up with the directed call pickup feature using the group number. When not checked, individual extensions that are part of the group can still be picked up by doing a directed call pickup to the ringing extension, which works whether or not this is checked."
+msgstr ""
+
+msgid "Confirm Calls"
+msgstr "אשר שיחות"
+
+msgid "Enable this if you're calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall ring strategy"
+msgstr ""
+
+msgid "Remote Announce:"
+msgstr "הכרזה למקבל השיחה:"
+
+msgid "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left"
+msgstr "הודעה שתושמע ל<em>מקבל</em> השיחה, אם 'אשר שיחות' מסומן.<br /><br />כדי להוסיף הקלטות נוספות, השתמש <em>בתפריט</em> \"הקלטות מערכת\" אשר בצד שמאל"
+
+msgid "Default"
+msgstr ""
+
+msgid "Too-Late Announce:"
+msgstr "הכרזת מאוחר-מדי:"
+
+msgid "Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left"
+msgstr "הודעה שיש להשמיע לאדם <em>שמקבל</em> את השיחה, אם השיחה כבר התקבלה לפני שהוא לחץ 1.<br /><br />כדי להוסיף הקלטות נוספות, השתמש <em>בתפריט</em> \"הקלטות מערכת\" אשר בצד שמאל"
+
+msgid "Change External CID Configuration"
+msgstr ""
+
+msgid "Mode"
+msgstr ""
+
+msgid "Transmits the Callers CID if allowed by the trunk."
+msgstr ""
+
+msgid "Fixed CID Value"
+msgstr ""
+
+msgid "Always transmit the Fixed CID Value below."
+msgstr ""
+
+msgid "Outside Calls Fixed CID Value"
+msgstr ""
+
+msgid "Transmit the Fixed CID Value below on calls that come in from outside only. Internal extension to extension calls will continue to operate in default mode."
+msgstr ""
+
+msgid "Use Dialed Number"
+msgstr ""
+
+msgid "Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This will be BLOCKED on trunks that block foreign CallerID"
+msgstr ""
+
+msgid "Force Dialed Number"
+msgstr ""
+
+msgid "Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This WILL be transmitted on trunks that block foreign CallerID"
+msgstr ""
+
+msgid "Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading \"+\"."
+msgstr ""
+
+msgid "Call Recording"
+msgstr "הקלטת שיחות"
+
+msgid "Record Calls"
+msgstr "הקלת שיחות"
+
+msgid "You can always record calls that come into this ring group, never record them, or allow the extension that answers to do on-demand recording. If recording is denied then one-touch on demand recording will be blocked."
+msgstr ""
+
+msgid "Always"
+msgstr "תמיד"
+
+msgid "On Demand"
+msgstr ""
+
+msgid "Never"
+msgstr "לעולם לא"
+
+msgid "Destination if no answer"
+msgstr "יעד אם אף אחד לא עונה"
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "Invalid Group Number specified"
+msgstr ""
+
+msgid "Please enter an extension list."
+msgstr ""
+
+msgid "Invalid time specified"
+msgstr "ציון זמן לא חוקי"
+
+msgid "Time must be between 1 and 60 seconds"
+msgstr "זמן צריך להיות בין 1 ל 60 שניות"
+
+msgid "Please enter a valid Group Description"
+msgstr "אנא הזן תיאור הקבוצה תקף"
+
+msgid "Only ringall, ringallv2, hunt and the respective -prim versions are supported when confirmation is checked"
+msgstr ""
+
+#, fuzzy
+msgid "Ring Groups"
+msgstr "קבוצת צלצול"
+
+msgid "Applications"
+msgstr "יישומים"
+
+msgid "Creates a group of extensions that all ring together. Extensions can be rung all at once, or in various 'hunt' configurations. Additionally, external numbers are supported, and there is a call confirmation option where the callee has to confirm if they actually want to take the call before the caller is transferred."
+msgstr ""
+
+#~ msgid "System Recordings not installed. Option Disabled"
+#~ msgstr "הקלטות מערכת אינן מותקנות. האפשרות מבוטלת"

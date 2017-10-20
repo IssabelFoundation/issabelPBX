@@ -1,0 +1,51 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for javassh
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Java SSH"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"Provides a Java applet to access the system shell using SSH. SSH client is "
+"provided by Appgate (www.appgate.com) and licensed is Free Limited Use, "
+"http://www.appgate.com/index/products/mindterm/mindterm_end_user_lic.html"
+msgstr ""
+
+msgid ""
+"If necessary re-enter the maint user and password. Once the applet has "
+"opened enter the IP address of your PBX.<br>"
+msgstr ""
+
+msgid ""
+"You will then connect to the IssabelPBX server. You can then login as 'root' or "
+"'asterisk', or whatever user you have created."
+msgstr ""

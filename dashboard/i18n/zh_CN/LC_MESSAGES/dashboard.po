@@ -1,0 +1,323 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#    Copyright 2008 FreePBX
+#    Copyright 2009 EdwardBadBoy <zhougongjizhe@163.com>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.6 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-30 17:45+0800\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "seconds"
+msgstr "秒"
+
+msgid "second"
+msgstr "秒"
+
+msgid "minutes"
+msgstr "分钟"
+
+msgid "minute"
+msgstr "分钟"
+
+msgid "hours"
+msgstr "小时"
+
+msgid "hour"
+msgstr "小时"
+
+msgid "days"
+msgstr "天"
+
+msgid "day"
+msgstr "天"
+
+msgid "weeks"
+msgstr "星期"
+
+msgid "week"
+msgstr "星期"
+
+msgid "years"
+msgstr "年"
+
+msgid "year"
+msgstr "年"
+
+msgid "System Dashboard"
+msgstr "系统状态"
+
+msgid "Reports"
+msgstr ""
+
+msgid ""
+"Provides a system information dashboard, showing information about Calls, "
+"CPU, Memory, Disks, Network, and processes."
+msgstr ""
+
+msgid "IssabelPBX System Status"
+msgstr "IssabelPBX系统状态"
+
+msgid "Dashboard Info Update Frequency"
+msgstr ""
+
+msgid "GUI Behavior"
+msgstr ""
+
+msgid "Update rate in seconds of the Info section of the System Status panel."
+msgstr ""
+
+msgid "Dashboard Max Calls Initial Scale"
+msgstr ""
+
+msgid ""
+"Use this to pre-set the scale for maximum calls on the Dashboard display. If "
+"not set, the the scale is dynamically sized based on the active calls on the "
+"system."
+msgstr ""
+
+msgid "Dashboard Stats Update Frequency"
+msgstr ""
+
+msgid ""
+"Update rate in seconds of all sections of the System Status panel except the "
+"Info box."
+msgstr ""
+
+msgid "Dashboard Non-Std SSH Port"
+msgstr ""
+
+msgid "System Setup"
+msgstr ""
+
+msgid ""
+"SSH port number configured on your system if not using the default port 22, "
+"this allows the dashboard monitoring to watch the poper port."
+msgstr ""
+
+#, php-format
+msgid "%s changed from %s to %s"
+msgstr ""
+
+msgid "OK"
+msgstr "正常"
+
+msgid "Warn"
+msgstr "警告"
+
+msgid "ERROR"
+msgstr "错误"
+
+msgid "Disabled"
+msgstr ""
+
+msgid "System Statistics"
+msgstr "系统统计数据"
+
+msgid "Processor"
+msgstr "处理器"
+
+msgid "Load Average"
+msgstr "平均负载"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "Memory"
+msgstr "内存"
+
+msgid "App Memory"
+msgstr "应用程序内存"
+
+msgid "Swap"
+msgstr "交换空间"
+
+msgid "Disks"
+msgstr "磁盘"
+
+msgid "Networks"
+msgstr "网络"
+
+msgid "receive"
+msgstr "接收"
+
+msgid "transmit"
+msgstr "传输"
+
+msgid "IssabelPBX Statistics"
+msgstr "IssabelPBX 统计数据"
+
+msgid "Total active calls"
+msgstr "总活动呼叫数"
+
+msgid "Internal calls"
+msgstr "内部呼叫数"
+
+msgid "External calls"
+msgstr "外部呼叫数"
+
+msgid "Total active channels"
+msgstr "总活动频道数"
+
+msgid "IssabelPBX Connections"
+msgstr "IssabelPBX 连接"
+
+msgid "IP Phones Online"
+msgstr "在线的IP电话"
+
+msgid "IP Trunks Online"
+msgstr "在线的IP中继"
+
+msgid "IP Trunk Registrations"
+msgstr "注册的IP中继"
+
+msgid "Uptime"
+msgstr "已运行时间"
+
+msgid "System Information Table"
+msgstr "系统信息表"
+
+msgid "System Uptime"
+msgstr "系统已运行时间"
+
+msgid "Asterisk Uptime"
+msgstr "Asterisk已运行时间"
+
+msgid "Last Reload"
+msgstr "最后一次重载"
+
+msgid "Server Status"
+msgstr "系统状态"
+
+msgid "Asterisk"
+msgstr "Asterisk"
+
+#, php-format
+msgid "Asterisk is running: %s"
+msgstr "Asterisk正在运行：%s"
+
+msgid "Asterisk is not running, this is a critical service!"
+msgstr "Asterisk未运行，而它是关键服务！"
+
+msgid "Manager Proxy"
+msgstr "管理器的代理"
+
+msgid "Asterisk Manager Proxy is running"
+msgstr "Asterisk管理器代理程序正在运行"
+
+msgid ""
+"Asterisk Manager Proxy is not running, IssabelPBX will fall back to using "
+"Asterisk directly, which may result in poor performance"
+msgstr ""
+"Asterisk的管理器代理程序未运行，IssabelPBX将直接管理Asterisk，这可能会带来性能损"
+"失"
+
+msgid "Op Panel"
+msgstr "Op面版"
+
+msgid ""
+"FOP Operator Panel Server is not running, you will not be able to use the "
+"operator panel, but the system will run fine without it."
+msgstr "FOP操作面版服务未运行，你将无法使用操作面版，但系统仍然正常运行。"
+
+msgid "FOP Operator Panel is disabled in Advanced Settings"
+msgstr ""
+
+msgid "FOP Operator Panel Server is running"
+msgstr "FOP操作面版服务正在运行"
+
+msgid "MySQL"
+msgstr "MySQL"
+
+msgid "MySQL Server is running"
+msgstr "MySQL服务正在运行"
+
+msgid "Web Server"
+msgstr "Web服务器"
+
+msgid "Web Server is running"
+msgstr "Web服务器正在运行"
+
+msgid "SSH Server"
+msgstr "SSH服务器"
+
+msgid "SSH Server is running"
+msgstr "SSH服务器正在运行"
+
+msgid ""
+"SSH Server is not running, you will not be able to connect to the system "
+"console remotely"
+msgstr "SSH服务器未运行，你将无法远程登录到系统终端"
+
+msgid "Critical Error"
+msgstr "严重错误"
+
+msgid "Security Update"
+msgstr "安全更新"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Notice"
+msgstr "通知"
+
+msgid "IssabelPBX Notices"
+msgstr "IssabelPBX通知"
+
+msgid "Delete this"
+msgstr "删除"
+
+msgid "Ignore this"
+msgstr "忽略"
+
+#, php-format
+msgid "Added %s ago"
+msgstr "是在 %s 以前添加的"
+
+msgid "No notifications"
+msgstr "没有通知消息"
+
+msgid "No new notifications"
+msgstr "没有新的通知消息"
+
+msgid "show new"
+msgstr "显示新项"
+
+msgid "show all"
+msgstr "显示所有项"
+
+msgid "loading..."
+msgstr "装载中。。。"
+
+#~ msgid "FOP Operator Panel is disabled in amportal.conf"
+#~ msgstr "FOP操作面版在amportal.conf中被禁用"

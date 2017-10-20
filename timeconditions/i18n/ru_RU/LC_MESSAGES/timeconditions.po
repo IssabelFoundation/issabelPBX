@@ -1,0 +1,555 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Alexander Anikin <may@postmet.com>, 2006-2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-18 16:15-0500\n"
+"PO-Revision-Date: 2014-09-11 01:59+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Russian <http://git.freepbx.org/projects/freepbx/"
+"timeconditions/ru_RU/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.10-dev\n"
+
+#: functions.inc.php:682
+msgid " deleted!"
+msgstr "удалено!"
+
+#: install.php:227
+#, php-format
+msgid "%sWARNING:%s No time defined for this condition, please review"
+msgstr ""
+"%sВНИМАНИЕ:%s Не указано время для этого правила, просмотрите его ещё раз"
+
+#: functions.inc.php:884
+msgid "--Select a Group--"
+msgstr "--Выбрать группу--"
+
+#: functions.inc.php:518 functions.inc.php:576 install.php:194
+msgid ": Time Condition Override"
+msgstr "Перезаписать Правила по времени"
+
+#: page.timeconditions.php:36 page.timeconditions.php:51
+#: page.timeconditions.php:82
+msgid "Add Time Condition"
+msgstr "Добавить временное правило"
+
+#: functions.inc.php:690
+msgid "Add Time Group"
+msgstr "Добавить временную группу"
+
+#: timeconditions.i18n.php:6 timeconditions.i18n.php:12
+msgid "Applications"
+msgstr "Приложения"
+
+#: functions.inc.php:1247 functions.inc.php:1346
+msgid "April"
+msgstr "Апрель"
+
+#: functions.inc.php:1275 functions.inc.php:1374
+msgid "August"
+msgstr "Август"
+
+#: page.timeconditions.php:121
+msgid "Change Override:"
+msgstr "Изменённые параметры:"
+
+#: install.php:214
+msgid "Checking for old timeconditions to upgrade.."
+msgstr "Проверяем старые правила по времени для обновления.."
+
+#: timeconditions.i18n.php:8
+msgid ""
+"Creates a condition where calls will go to one of two destinations (eg, an "
+"extension, IVR, ring group..) based on the time and/or date. This can be "
+"used for example to ring a receptionist during the day, or go directly to an "
+"IVR at night."
+msgstr ""
+"Создаёт условия, при котором вызов будет распределяться на одно и более "
+"назначение (например внутренний номер, Интеркативное меню, ринг-группа..) "
+"основываяь на текущем времени/дате. Это можно использовать например "
+"направляя входящие вызовы секретарю в рабочее время, и на Интерактивное меню "
+"- в ночное."
+
+#: page.timeconditions.php:117
+msgid "Current Override:"
+msgstr "Текущие параметры:"
+
+#: functions.inc.php:1303 functions.inc.php:1402
+msgid "December"
+msgstr "Декабрь"
+
+#: page.timeconditions.php:60
+#, php-format
+msgid "Delete Time Condition: %s"
+msgstr "Удалить Правило по времени: %s"
+
+#: functions.inc.php:698
+#, php-format
+msgid "Delete Time Group %s"
+msgstr "Удалить временную группу %s"
+
+#: functions.inc.php:691 functions.inc.php:711
+msgid "Description"
+msgstr "Описание"
+
+#: functions.inc.php:678
+msgid "Description must be alpha-numeric, and may not be left blank"
+msgstr "Описание должно быть цифро-буквенное, и не может быть пустым"
+
+#: page.timeconditions.php:164
+msgid "Destination if time does not match"
+msgstr "Назначение, если не попадает во временную группу"
+
+#: page.timeconditions.php:154
+msgid "Destination if time matches"
+msgstr "Назначение, если попадает во временную группу"
+
+#: install.php:162
+msgid "ERROR: failed to convert field "
+msgstr "ОШИБКА: не удалось сконвертировать поле "
+
+#: page.timeconditions.php:82
+msgid "Edit Time Condition"
+msgstr "Редактировать Правило по времени"
+
+#: functions.inc.php:697
+msgid "Edit Time Group"
+msgstr "Изменить временную группу"
+
+#: timeconditions.i18n.php:16
+msgid "Enable Maintenance Polling"
+msgstr "Задействовать опрос по обслуживанию"
+
+#: functions.inc.php:1233 functions.inc.php:1332
+msgid "February"
+msgstr "Февраль"
+
+#: functions.inc.php:1058 functions.inc.php:1121
+msgid "Friday"
+msgstr "Пятница"
+
+#: page.timeconditions.php:89
+msgid "Give this Time Condition a brief name to help you identify it."
+msgstr ""
+"Хорошо бы присвоить какое-то описание для Правила по времени, это поможет в "
+"дальнейшем."
+
+#: page.timeconditions.php:142
+msgid "Goto Current Time Group"
+msgstr "Переправить в текущую временную группу"
+
+#: timeconditions.i18n.php:20
+msgid ""
+"If set to false, this will override the execution of the Time Conditions "
+"maintenance task launched by call files. If all the feature codes for time "
+"conditions are disabled, the maintenance task will not be launched anyhow. "
+"Setting this to false would be fairly un-common. You may want to set this "
+"temporarily if debugging a system to avoid the periodic dialplan running "
+"through the CLI that the maintenance task launches and can be distracting."
+msgstr ""
+
+#: page.timeconditions.php:117
+msgid ""
+"Indicates the current state of this Time Condition. If it is in a Temporary "
+"Override state, it will automatically resume at the next time transition "
+"based on the associated Time Group. If in a Permanent Override state, it "
+"will stay in that state until changed here or through other means such as "
+"external XML applications on your phone. If No Override then it functions "
+"normally based on the time schedule."
+msgstr ""
+"Отображает текущие параметры данного Правила по времени. Если это временное "
+"состояние, то оно автоматически вернётся в первоначальное при следующей "
+"подвижке по времени, ассоциированной с Временной группой. Если это "
+"постоянное состояние, то оно остаётся таким пока не будут сделаны изменения "
+"здесь или другие внешние приложения, такие как XML-скрипт на телефоне. Если "
+"стоит 'Не перезаписывать', то функционал базируется на стандартном временном "
+"расписании."
+
+#: functions.inc.php:1226 functions.inc.php:1325
+msgid "January"
+msgstr "Январь"
+
+#: functions.inc.php:1268 functions.inc.php:1367
+msgid "July"
+msgstr "Июль"
+
+#: functions.inc.php:1261 functions.inc.php:1360
+msgid "June"
+msgstr "Июнь"
+
+#: timeconditions.i18n.php:22
+msgid "Maintenance Polling Interval"
+msgstr "Интервал опроса по обслуживанию"
+
+#: functions.inc.php:1240 functions.inc.php:1339
+msgid "March"
+msgstr "Март"
+
+#: functions.inc.php:1254 functions.inc.php:1353
+msgid "May"
+msgstr "Май"
+
+#: functions.inc.php:1030 functions.inc.php:1093
+msgid "Monday"
+msgstr "Понедельник"
+
+#: functions.inc.php:1175
+msgid "Month Day finish:"
+msgstr "День месяца, окончание:"
+
+#: functions.inc.php:1140
+msgid "Month Day start:"
+msgstr "День месяца, начало:"
+
+#: functions.inc.php:1309
+msgid "Month finish:"
+msgstr "Месяц, окончание:"
+
+#: functions.inc.php:1194
+msgid "Month start:"
+msgstr "Месяц, начало:"
+
+#: functions.inc.php:722
+msgid "New Time"
+msgstr "Новое время"
+
+#: page.timeconditions.php:97
+msgid "No Override"
+msgstr "Не перезаписывать"
+
+#: functions.inc.php:1296 functions.inc.php:1395
+msgid "November"
+msgstr "Ноябрь"
+
+#: install.php:164 install.php:178 install.php:206
+msgid "OK"
+msgstr "ОК"
+
+#: functions.inc.php:1289 functions.inc.php:1388
+msgid "October"
+msgstr "Октябрь"
+
+#: page.timeconditions.php:103
+msgid "Permanent Override matching state"
+msgstr "Постоянно перезаписывать при совпадении"
+
+#: page.timeconditions.php:109
+msgid "Permanent Override unmatching state"
+msgstr "Временно "
+
+#: page.timeconditions.php:127
+msgid "Permanently matched"
+msgstr "Постоянное совпадение"
+
+#: page.timeconditions.php:129
+msgid "Permanently unmatched"
+msgstr "Временное несовпадение"
+
+#: page.timeconditions.php:186
+msgid "Please enter a valid Time Conditions Name"
+msgstr "Выбрать разрешённое название для Правила по времени"
+
+#: functions.inc.php:716
+msgid "Remove Section and Submit Current Settings"
+msgstr "Удалить секцию и подтвердить текущие настройки"
+
+#: page.timeconditions.php:125
+msgid "Reset Override"
+msgstr "Сброс перезаписи"
+
+#: functions.inc.php:1065 functions.inc.php:1128
+msgid "Saturday"
+msgstr "Суббота"
+
+#: page.timeconditions.php:135
+msgid ""
+"Select a Time Group created under Time Groups. Matching times will be sent "
+"to matching destination. If no group is selected, call will always go to no-"
+"match destination."
+msgstr ""
+"Выбрать группу из списка временных групп. В указаный временной интервал "
+"звонки будут направляться по указанному направлению. Если не выбрано никакой "
+"группы, звонки будут всегда направляться по назначению не попадающему в "
+"Правило по времени."
+
+#: functions.inc.php:1282 functions.inc.php:1381
+msgid "September"
+msgstr "Сентябрь"
+
+#: page.timegroups.php:17
+msgid "Server time:"
+msgstr "Точное время (сервера):"
+
+#: page.timeconditions.php:176
+msgid "Submit"
+msgstr "Применить"
+
+#: functions.inc.php:1072 functions.inc.php:1135
+msgid "Sunday"
+msgstr "Воскресенье"
+
+#: page.timeconditions.php:100
+msgid "Temporary Override matching state"
+msgstr "Временно перезаписывать при совпадении"
+
+#: page.timeconditions.php:106
+msgid "Temporary Override unmatching state"
+msgstr "Временно перезаписывать при несовпадении"
+
+#: page.timeconditions.php:126
+msgid "Temporary matched"
+msgstr "Временное совпадение"
+
+#: page.timeconditions.php:128
+msgid "Temporary unmatched"
+msgstr "Временное несовпадение"
+
+#: timeconditions.i18n.php:24
+msgid ""
+"The polling interval in seconds used by the Time Conditions maintenance "
+"task, launched by an Asterisk call file used to update Time Conditions "
+"override states as well as keep custom device state hint values up-to-date "
+"when being used with BLF. A shorter interval will assure that BLF keys "
+"states are accurate. The interval should be less than the shortest "
+"configured span between two time condition states, so that a manual override "
+"during such a period is properly reset when the new period starts."
+msgstr ""
+
+#: page.timeconditions.php:121
+#, php-format
+msgid ""
+"This Time Condition can be set to Temporarily go to the 'matched' or "
+"'unmatched' destination in which case the override will automatically reset "
+"once the current time span has elapsed. If set to Permanent it will stay "
+"overridden until manually reset. All overrides can be removed with the Reset "
+"Override option. Temporary Overrides can also be toggled with the %s feature "
+"code, which will also remove a Permanent Override if set but can not set a "
+"Permanent Override which must be done here or with other applications such "
+"as an XML based phone options."
+msgstr ""
+"Правило по времени может быть установлено на срабатывание назначения по "
+"совпадению или несовпадению, в обоих случаях перенаправление сработает в "
+"указанный промежуток времени. Если установлено в положение Постоянное "
+"совпадение, то это будет работать до тех пор, пока не будет включен другой "
+"режим ручным способом. Все установки могут быть отменены опцией Сброс "
+"перезаписи. Временные перезаписи могут быть переключены  при помощи "
+"сервисного кода %s, который также удалит и Постоянную перезапись, если она "
+"установлена, но не затронет внешние приложения, типа XML-скрипт с телефона."
+
+#: page.timegroups.php:68
+msgid ""
+"This section will be removed from this time group and all current settings "
+"including changes will be updated. OK to proceed?"
+msgstr ""
+"Эта сккция будет удалена из текущей временной группы и всех других "
+"установок, включая изменения, которые сейчас будут обновлены. ОК для "
+"продолжения?"
+
+#: functions.inc.php:691 functions.inc.php:711
+msgid "This will display as the name of this Time Group."
+msgstr "Отображение названия этой временной группы"
+
+#: functions.inc.php:1051 functions.inc.php:1114
+msgid "Thursday"
+msgstr "Четверг"
+
+#: page.timeconditions.php:48
+msgid "Time Condition"
+msgstr "Правило по времени"
+
+#: timeconditions.i18n.php:18
+msgid "Time Condition Module"
+msgstr "Модуль правил по времени"
+
+#: page.timeconditions.php:89
+msgid "Time Condition name:"
+msgstr "Название Правила по времени:"
+
+#: page.timeconditions.php:51
+msgid "Time Condition:"
+msgstr "Правило по времени:"
+
+#: functions.inc.php:21 functions.inc.php:287
+#, php-format
+msgid "Time Condition: %s"
+msgstr "Правило по времени: %s"
+
+#: timeconditions.i18n.php:4 timeconditions.i18n.php:10
+msgid "Time Conditions"
+msgstr "Правила по времени"
+
+#: functions.inc.php:682 functions.inc.php:691 functions.inc.php:711
+#: page.timegroups.php:12
+msgid "Time Group"
+msgstr "Временная группа"
+
+#: page.timeconditions.php:135
+msgid "Time Group:"
+msgstr "Временная группа:"
+
+#: timeconditions.i18n.php:14
+msgid "Time Groups"
+msgstr "Временная группа"
+
+#: functions.inc.php:965
+msgid "Time to finish:"
+msgstr "Время окончания:"
+
+#: functions.inc.php:910
+msgid "Time to start:"
+msgstr "Время начала:"
+
+#: functions.inc.php:1037 functions.inc.php:1100
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: page.timeconditions.php:124
+msgid "Unchanged"
+msgstr "Неизменёный"
+
+#: page.timeconditions.php:112
+msgid "Unknown State"
+msgstr "Неизвестное состояние"
+
+#: install.php:225
+#, php-format
+msgid "Upgraded %s and created group %s"
+msgstr "Обновлено %s и создана группа %s"
+
+#: functions.inc.php:707
+msgid "Used By"
+msgstr "Используется"
+
+#: functions.inc.php:1044 functions.inc.php:1107
+msgid "Wednesday"
+msgstr "Среда"
+
+#: functions.inc.php:1077
+msgid "Week Day finish:"
+msgstr "День недели, окончание:"
+
+#: functions.inc.php:1015
+msgid "Week Day start:"
+msgstr "День недели, начало:"
+
+#: page.timeconditions.php:187
+msgid ""
+"You have not selected a time group to associate with this timecondition. It "
+"will go to the un-matching destination until you update it with a valid group"
+msgstr ""
+"Не выбрана ни одна временная группа для ассоциации с этим правилом по "
+"времени. Входящий звонок будет направлен в нераспознанное назначение пока не "
+"будет выбрана какая-либо группа"
+
+#: install.php:180
+msgid "already exists"
+msgstr "уже существует"
+
+#: install.php:168
+msgid "checking for generate_hint field.."
+msgstr "проверяем поле generate_hint.."
+
+#: install.php:158
+msgid "converting timeconditions time field to int.."
+msgstr "поле для правила по времени конвертируется в .."
+
+#: page.timeconditions.php:48
+msgid "deleted"
+msgstr "удалено"
+
+#: functions.inc.php:300
+msgid "false goto"
+msgstr ""
+
+#: install.php:185
+msgid "generating feature codes if needed.."
+msgstr "генерируем сервисные коды при необходимости.."
+
+#: install.php:232
+msgid "no upgrade needed"
+msgstr "обновления не требуется"
+
+#: install.php:219
+msgid "starting migration"
+msgstr "начинаем миграцию"
+
+#: functions.inc.php:292
+msgid "true goto"
+msgstr ""
+
+#~ msgid "Generate BLF Hint"
+#~ msgstr "Генерация BLF хинтов"
+
+#~ msgid ""
+#~ "If set an Asterisk hint will be created for the override feature code %s "
+#~ "associated with this Time Condition that can be used to light BLF buttons "
+#~ "on a phone programmed to enable/disable this Time Condition. If not using "
+#~ "a BLF it is better to leave this un-checked as additional system "
+#~ "resources are required to keep the hint updated. This Feature Code can be "
+#~ "found and enabled/disabled on the Feature Codes tab under Time Conditions."
+#~ msgstr ""
+#~ "Если установлено, будет сгененрирован хинт, который перепишет сервисный "
+#~ "код %s ассоциированный с этим Правилом по времени, который можно "
+#~ "использовать подсвечивая BLF кнопку телефона, запрограммированную для "
+#~ "включения/выключения этого Правила по времени. Если BLF не используются, "
+#~ "то лучше оставить эту опцию неотмеченной, чтобы иметь возможность "
+#~ "передавать хинты другим системным ресурсам, если потребуется. Этот "
+#~ "сервисный код можно найти, а также включить/выключиьт его на вкладке "
+#~ "Сервисные коды в разделе Правила по времени."
+
+#~ msgid "Enable Override Code"
+#~ msgstr "Включить код перезаписи"
+
+#~ msgid ""
+#~ "Check to enable the override feature code %s that allows manual changes "
+#~ "to the timecondition."
+#~ msgstr ""
+#~ "Отметить для включения кода перезаписи %s который позволит вручную менять "
+#~ "правила по времени."
+
+#~ msgid ""
+#~ "If set to false, this will override the execution of the Time Conditons "
+#~ "maintenace task launched by call files. If all the feature codes for time "
+#~ "conditions are disabled, the maintenance task will not be launched "
+#~ "anyhow. Setting this to false would be fairly un-common. You may want to "
+#~ "set this temporarily if debugging a system to avoid the periodic dialplan "
+#~ "running through the CLI that the maintenance task launches and can be "
+#~ "distracting."
+#~ msgstr ""
+#~ "Если установлено в false, то прерывается исполнение задач Правил по "
+#~ "времени, вызываемых call-файлами. Если все сервисные коды для правил по "
+#~ "времени выключены, задачи по обслуживанию никак не смогут выполняться. "
+#~ "Установка этой опции в false совершенно нетипична. Вы конечно можете "
+#~ "установить её временно, чтобы предотвращать периодическое исполнение в "
+#~ "диал плане задач по обслуживанию, что может мешать пониманию в CLI."
+
+#~ msgid ""
+#~ "The polling interval in seconds used by the Time Conditions manintenace "
+#~ "task, launched by an Asterisk call file used to update Time Conditions "
+#~ "override states as well as keep custom device state hint values up-to-"
+#~ "date when being used with BLF. A shorter interval will assure that BLF "
+#~ "keys states are accurate. The interval should be less than the shortest "
+#~ "configured span between two time condition states, so that a manual "
+#~ "overide during such a period is properly reset when the new period starts."
+#~ msgstr ""
+#~ "Интервал в секундах, используемый в задачах по обслуживанию в Правилах по "
+#~ "времени, в течение которого Астериском исполняются call-файлы для "
+#~ "обновления статуса Правил по времени, а так же поддерживает актуальный "
+#~ "статус хинтов для устройств, которые используют BLF. Более короткий "
+#~ "интервал даёт более точное отображение статуса кнопок с BLF, Интервал "
+#~ "должен быть меньше, чем наименьший временной зазор между двумя "
+#~ "состояниями, тогда ручное изменение состояния в таком периоде "
+#~ "благополучно сбросится в начале следующего периода."
+
+#~ msgid "text"
+#~ msgstr "текст"

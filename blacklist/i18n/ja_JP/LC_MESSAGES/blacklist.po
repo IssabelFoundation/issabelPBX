@@ -1,0 +1,112 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of IssabelPBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (IssabelPBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with IssabelPBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as IssabelPBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language template for blacklist
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.10.0.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-05 19:32+0900\n"
+"PO-Revision-Date: 2014-02-19 04:47+0200\n"
+"Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
+"Language-Team: Japanese <http://example.com/projects/freepbx/blacklist/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+msgid "Blacklist"
+msgstr "ブラックリスト"
+
+msgid "Admin"
+msgstr "アドミン"
+
+msgid "Blacklist a number"
+msgstr "番号をブラックリストに入れる"
+
+msgid "Remove a number from the blacklist"
+msgstr "ブラックリストから番号を削除"
+
+msgid "Blacklist the last caller"
+msgstr "最後の発信者をブラックリストに登録"
+
+msgid "Add or replace entry"
+msgstr "エントリーを追加、更新する"
+
+msgid "Number/CallerID:"
+msgstr "番号/発信者ID:"
+
+msgid "Enter the number/CallerID you want to block"
+msgstr "ブロックしたい番号/発信者IDを入力してください"
+
+msgid "Description:"
+msgstr "説明:"
+
+msgid "Enter a description for the number you want to block"
+msgstr "ブロックしたい番号の説明を入力してください"
+
+msgid "Block Unknown/Blocked Caller ID:"
+msgstr "不明/ブロックされた発信者番号をブロックする："
+
+msgid "Check here to catch Unknown/Blocked Caller ID"
+msgstr "不明/ブロックされた発信者番号をキャッチするにはここにチェックを入れてください"
+
+msgid "Submit Changes"
+msgstr "変更を適用"
+
+msgid "Blacklist entry"
+msgstr "ブラックリストエントリー"
+
+msgid "deleted"
+msgstr "削除されました"
+
+msgid "Blacklist entries"
+msgstr "ブラックリストエントリー一覧"
+
+msgid "Number/CallerID"
+msgstr "番号/発信者ID"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "Number"
+msgstr "番号"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Edit"
+msgstr "編集"

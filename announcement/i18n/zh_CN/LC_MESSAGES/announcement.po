@@ -1,0 +1,169 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language for announcement
+# Copyright (C) 2008, 2009 FreePBX
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX 2.5 Chinese Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2010-01-23 00:00+0800\n"
+"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
+"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Announcements"
+msgstr "公告"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Plays back one of the system recordings (optionally allowing the user to "
+"skip it) and then goes to another destination."
+msgstr ""
+
+#, php-format
+msgid "Announcement: %s"
+msgstr "公告：%s"
+
+msgid "Checking if recordings need migration.."
+msgstr "检查是否需要迁移录音。。"
+
+msgid "migrating"
+msgstr "正在迁移"
+
+msgid "adding recording_id field.."
+msgstr "正在添加recording_id字段。。"
+
+msgid "fatal error"
+msgstr "致命错误"
+
+msgid "ok"
+msgstr "完成"
+
+msgid "migrate to recording ids.."
+msgstr "迁移到录音ID。。"
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "迁移了 %s 个项目"
+
+msgid "dropping recording field.."
+msgstr "正在删除recording字段"
+
+msgid "no recording field???"
+msgstr "recording字段不存在？"
+
+msgid "already migrated"
+msgstr "已经迁移过了"
+
+msgid "Add Announcement"
+msgstr "添加公告"
+
+msgid "Edit Announcement"
+msgstr "编辑公告"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "The name of this announcement"
+msgstr "这项公告的名字"
+
+msgid "Recording"
+msgstr "录音"
+
+msgid ""
+"Message to be played.<br>To add additional recordings use the \"System "
+"Recordings\" MENU to the left"
+msgstr "要播放的消息。<br />要添加额外的录音，使用左侧的“系统录音”菜单"
+
+msgid "None"
+msgstr ""
+
+msgid "Repeat"
+msgstr "重复"
+
+msgid ""
+"Key to press that will allow for the message to be replayed. If you choose "
+"this option there will be a short delay inserted after the message. If a "
+"longer delay is needed it should be incorporated into the recording."
+msgstr ""
+"设定按下某键后，可重复播放消息。如果你选择了这个选项，在消息之后会插入一个短"
+"暂的停顿，如果需要更长的停顿，直接把停顿合成到录音里。"
+
+msgid "Disable"
+msgstr "禁用"
+
+msgid "Allow Skip"
+msgstr "允许跳过"
+
+msgid "If the caller is allowed to press a key to skip the message."
+msgstr "设定主叫是否可以按下某键以跳过消息。"
+
+msgid "Return to IVR"
+msgstr "返回至IVR"
+
+msgid ""
+"If this announcement came from an IVR and this box is checked, the "
+"destination below will be ignored and instead it will return to the calling "
+"IVR. Otherwise, the destination below will be taken. Don't check if not "
+"using in this mode. <br>The IVR return location will be to the last IVR in "
+"the call chain that was called so be careful to only check when needed. For "
+"example, if an IVR directs a call to another destination which eventually "
+"calls this announcement and this box is checked, it will return to that IVR "
+"which may not be the expected behavior."
+msgstr ""
+"如果这项公告是由IVR发出的，而又钩选了此项，下面的目的地就会被忽略，因此最后会"
+"返回到IVR。如果没钩选此项，最后会转向下面的目的地。如果不使用这种模式就不必钩"
+"选。<br />返回到IVR时，会返回到IVR呼叫链的最后被呼叫的一项，所以仅在需要这样"
+"的功能时才使用这种模式。例如，如果一个IVR引导一个呼叫到令一个目的地，而此目的"
+"地最后呼叫了此通告且此选项被钩选，最后呼叫会返回到原来的IVR，这也许是你想要的"
+"功能，也许不是。"
+
+msgid "Don't Answer Channel"
+msgstr "不要接听频道"
+
+msgid ""
+"Check this to keep the channel from explicitly being answered. When checked, "
+"the message will be played and if the channel is not already answered it "
+"will be delivered as early media if the channel supports that. When not "
+"checked, the channel is answered followed by a 1 second delay. When using an "
+"announcement from an IVR or other sources that have already answered the "
+"channel, that 1 second delay may not be desired."
+msgstr ""
+"钩选此项可以防止频道被显式的接听。启用此功能后，消息会被播放，如果频道尚未被"
+"接听，它会被当作早期媒体递送出去（如果频道支持的话）。如果不启用此功能，频道"
+"就会被接听，接着会出现1秒的停顿。如果正在使用的公告是从IVR或其他的源引导过来"
+"的，并且此前频道已被接听，那么这1秒的停顿可能是你不需要的。"
+
+msgid "Destination after playback"
+msgstr "播放后的目的地"
+
+msgid "Submit Changes"
+msgstr "提交更改"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Invalid description specified"
+msgstr "指定了无效的描述"

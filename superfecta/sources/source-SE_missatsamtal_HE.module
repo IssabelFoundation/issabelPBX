@@ -1,0 +1,56 @@
+<?php
+
+class SE_missatsamtal_HE extends superfecta_base {
+
+    public $description = "http://missatsamtal.se - A datasource identifying telemarketers in Sweden.";
+    public $version_requirement = "2.11";
+
+    public $source_param = array(
+             'SPAM_Value' => array (
+               'description' => 'Specify the number of listings required to mark a call as spam.',
+               'type' => 'number',
+	       'default' => 3
+             ),
+             'API_Key' => ARRAY (
+               'description' => 'API Key is not yet available from missatsamtal.se (not needed)',
+               'type' => 'text'
+             )
+    );
+
+    function get_caller_id($thenumber, $run_param=array()) {
+        $caller_id = null;
+
+        $this->DebugPrint("Searching missatsamtal.se... ");
+        $url = "http://api.missatsamtal.se/?action=search&number=$thenumber&numberOfCompanies=1";
+        $value = $this->get_url_contents($url);
+
+	// $VALUE = NAMNET PA FORETAGET
+	// $spamcalls = antalet ganger som spamnumret ar listat
+	
+	$start = strpos($value, "comments");            // STARTPOS is position for the first char in "comments"
+
+        $value = substr($value,$start+11);              // Skip text "comments"
+        $this->DebugPrint("NEWVAULE=".$value."\n");
+
+        $end = strpos($value, "\"");                    // Look for next ["] indication the end of the number
+        $spamcalls = substr($value,0,$end);             // Save result in $spamcalls
+	
+	$start = strpos($value, "name");
+        $value = substr($value,$start+7);               // Skip text "name"
+
+        $end = strpos($value, "\"");                    // Look for next ["] indication the end of the name
+        $value = substr($value,0,$end);                 // Save result in $value from startpost 0 to endpos $end
+
+	$SPAM_threshold = intval($spamcalls);
+        $this->DebugPrint("SPAMVALUE RECEIVED=".$SPAM_threshold."\n");
+	    
+        if ($value != "0" ) {
+            $this->spam = true;
+            $this->DebugPrint(" determined to be SPAM");
+        } else {
+            $this->DebugPrint("Not a SPAM caller");
+	    return("");
+        }
+        return("SPAM:".$value);
+    }
+}

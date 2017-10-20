@@ -1,0 +1,56 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - módulo dictate module spanish translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2009-01-22 01:14+0100\n"
+"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Dictation"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"This uses the app_dictate module of Asterisk to let users record dictate "
+"into their phones. When complete, the dictations can be emailed to an email "
+"address specified in the extension page."
+msgstr ""
+
+msgid "Enabled"
+msgstr "Habilitado"
+
+msgid "Disabled"
+msgstr "Deshabilitado"
+
+msgid "Dictation Services"
+msgstr ""
+
+msgid "Please enter a valid Email Address"
+msgstr ""
+
+msgid "Dictation Service"
+msgstr ""
+
+msgid "Dictation Format"
+msgstr ""
+
+msgid "Email Address"
+msgstr ""
+
+msgid "The email address that completed dictations are sent to."
+msgstr ""
+
+msgid "Perform dictation"
+msgstr ""
+
+msgid "Email completed dictation"
+msgstr ""

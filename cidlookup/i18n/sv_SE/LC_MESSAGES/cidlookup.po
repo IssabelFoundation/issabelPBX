@@ -1,0 +1,400 @@
+# This s file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2009 Mikael Carlsson, mickecamino@gmail.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX cidlookup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-05 21:35-0400\n"
+"PO-Revision-Date: 2011-04-14 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#: views/main.html.php:19
+msgid ""
+"A Lookup Source let you specify a source for resolving numeric CallerIDs of "
+"incoming calls, you can then link an Inbound route to a specific CID source. "
+"This way you will have more detailed CDR reports with information taken "
+"directly from your CRM. You can also install the phonebook module to have a "
+"small number <-> name association. Pay attention, name lookup may slow down "
+"your PBX"
+msgstr ""
+"En källa för nummerpresentation ger dig en möjlighet att få uppslag på namn "
+"för inkommande samtal. Du kan sedan länka en inkommande väg till denna "
+"källa. På detta vis kan du få en mer detaljerad samtalsrapport med "
+"information t.ex. från ert eget CRM. Du kan också installera "
+"telefonboksmodulen där ett mindre antal telefonnummer med namn kan skrivas "
+"in. Tänk på att namnuppslag kan orsaka fördröjningar innan samtalet kopplas "
+"upp."
+
+#: views/main.html.php:99
+msgid "Account SID:"
+msgstr ""
+
+#: views/main.html.php:3
+msgid "Add CID Lookup Source"
+msgstr "Lägg till källa för nummerpresentation"
+
+#: views/main.html.php:18 views/main.html.php:38
+msgid "Add Source"
+msgstr "Lägg till källa"
+
+#: install.php:121
+msgid "Adding opencnam account columns to the cidlookup table..."
+msgstr ""
+
+#: views/main.html.php:107
+msgid "Auth Token:"
+msgstr ""
+
+#: functions.inc.php:12
+msgid "CID Lookup Source"
+msgstr "Källa för nummerpresentation"
+
+#: views/main.html.php:76
+msgid "Cache results:"
+msgstr "Lagra resultat"
+
+#: views/main.html.php:229
+msgid "Character Set:"
+msgstr ""
+
+#: install.php:103
+msgid "Checking for cidlookup field in core's incoming table.."
+msgstr ""
+"Kontrollerar om det fältet cidlookup finns i tabellen för inkommande vägar.."
+
+#: install.php:144
+msgid "Cleaning up duplicate OpenCNAM CallerID Lookup Sources..."
+msgstr ""
+
+#: install.php:125
+msgid "Could not add opencnam_account_sid column to cidlookup table."
+msgstr ""
+
+#: install.php:131
+msgid "Could not add opencnam_auth_token column to cidlookup table."
+msgstr ""
+
+#: views/main.html.php:197
+msgid "Database name"
+msgstr "Databasnamn"
+
+#: views/main.html.php:197
+msgid "Database:"
+msgstr "Databas:"
+
+#: views/main.html.php:76
+msgid ""
+"Decide whether or not cache the results to astDB; it will overwrite present "
+"values. It does not affect Internal source behavior"
+msgstr ""
+"Välj om du ska mellanlagra resultaten i astDB; det kommer att skriva över "
+"eventuella poster som redan finns. Används inte om källa är Internal."
+
+#: views/main.html.php:22
+msgid "Delete CID Lookup source"
+msgstr "Ta bort källa för nummerpresentation"
+
+#: install.php:44 install.php:133 install.php:141 install.php:161
+msgid "Done!"
+msgstr ""
+
+#: install.php:90
+msgid "ERROR: failed: "
+msgstr "FEL: misslyckades: "
+
+#: views/main.html.php:38
+msgid "Edit Source"
+msgstr "Redigera källa"
+
+#: views/main.html.php:43
+msgid "Enter a description for this source."
+msgstr "Skriv en kortfattad beskrivning för denna källa."
+
+#: install.php:81
+msgid "FATAL: failed to transform old routes: "
+msgstr "FEL: kunde inte transformera gamla vägar: "
+
+#: install.php:41 install.php:139
+msgid "Failed to add OpenCNAM CallerID Lookup Source: "
+msgstr ""
+
+#: views/main.html.php:128
+msgid "Host name or IP address"
+msgstr "Datornamn eller IP-adress"
+
+#: views/main.html.php:128 views/main.html.php:189
+msgid "Host:"
+msgstr "Dator:"
+
+#: install.php:37 install.php:135
+msgid "Installing OpenCNAM CallerID Lookup Sources..."
+msgstr ""
+
+#: views/main.html.php:64
+msgid "Internal"
+msgstr "Intern"
+
+#: install.php:73
+msgid "Migrating channel routing to Zap DID routing.."
+msgstr "Migrerar kanalvägar till Zap direktvägar.."
+
+#: views/main.html.php:184
+msgid "MySQL"
+msgstr "MySQL"
+
+#: views/main.html.php:229
+msgid "MySQL Character Set. Leave blank for MySQL default latin1"
+msgstr ""
+
+#: views/main.html.php:189
+msgid "MySQL Host"
+msgstr "MySQL-dator"
+
+#: views/main.html.php:221
+msgid "MySQL Password"
+msgstr "Lösenord för MySQL"
+
+#: views/main.html.php:213
+msgid "MySQL Username"
+msgstr "Användarnamn för MySQL"
+
+#: functions.inc.php:304
+msgid "None"
+msgstr "Ingen"
+
+#: install.php:97
+msgid "Not Needed"
+msgstr "Behövs inte"
+
+#: views/main.html.php:250 views/main.html.php:268
+msgid "Not yet implemented"
+msgstr "Inte implementerad"
+
+#: install.php:83 install.php:92
+msgid "OK"
+msgstr "OK"
+
+#: views/main.html.php:63 views/main.html.php:85
+msgid "OpenCNAM"
+msgstr ""
+
+#: bin/opencnam-alert.php:25
+msgid "OpenCNAM Throttle Reached!"
+msgstr ""
+
+#: views/main.html.php:91
+msgid ""
+"OpenCNAM's Professional Tier lets you do as many real-time CNAM queries as "
+"you want, for a small fee. This is recommended for business users."
+msgstr ""
+
+#: views/main.html.php:152
+msgid "Password to use in HTTP authentication"
+msgstr "Lösenord att använda vid HTTP-autentisering"
+
+#: views/main.html.php:152 views/main.html.php:221
+msgid "Password:"
+msgstr "Lösenord:"
+
+#: views/main.html.php:160
+msgid "Path of the file to GET<br/>e.g.: /cidlookup.php"
+msgstr "Sökväg till filen via GET<br>t.ex. /cidlookup.php"
+
+#: views/main.html.php:160
+msgid "Path:"
+msgstr "Sökväg:"
+
+#: views/main.html.php:136
+msgid "Port HTTP server is listening at (default 80)"
+msgstr "Porten HTTP-servern lyssnar på (standard 80)"
+
+#: views/main.html.php:136
+msgid "Port:"
+msgstr "Port:"
+
+#: views/main.html.php:168
+msgid ""
+"Query string, special token '[NUMBER]' will be replaced with caller "
+"number<br/>e.g.: number=[NUMBER]&source=crm"
+msgstr ""
+"Frågesträng, variabeln '[NUMBER]' kommer att bytas ut mot inkommande "
+"nummerpresentation<br>t.ex. nummer=[NUMBER]&source=crm"
+
+#: views/main.html.php:205
+msgid ""
+"Query, special token '[NUMBER]' will be replaced with caller number<br/>e."
+"g.: SELECT name FROM phonebook WHERE number LIKE '%[NUMBER]%'"
+msgstr ""
+"Fråga, variabeln '[NUMBER]' kommer att bytas ut mot inkommande "
+"nummerpresentation<br>t.ex.: SELECT name FROM phonebook WHERE number LIKE '%"
+"[NUMBER]%'"
+
+#: views/main.html.php:168 views/main.html.php:205
+msgid "Query:"
+msgstr "Fråga:"
+
+#: install.php:86
+msgid "Removing deprecated channel field from incoming.."
+msgstr "Tar bort överblivna kanalfält från inkommande vägar.."
+
+#: views/main.html.php:52
+msgid ""
+"Select the source type, you can choose between:<ul>\n"
+"                    <li>OpenCNAM: Use OpenCNAM [https://www.opencnam.com/]</"
+"li>\n"
+"                    <li>Internal: use astdb as lookup source, use phonebook "
+"module to populate it</li>\n"
+"                    <li>ENUM: Use DNS to lookup caller names, it uses ENUM "
+"lookup zones as configured in enum.conf</li>\n"
+"                    <li>HTTP: It executes an HTTP GET passing the caller "
+"number as argument to retrieve the correct name</li>\n"
+"                    <li>MySQL: It queries a MySQL database to retrieve "
+"caller name</li>\n"
+"                    </ul>"
+msgstr ""
+
+#: functions.inc.php:16
+msgid "Source"
+msgstr "Källa"
+
+#: views/main.html.php:43
+msgid "Source Description:"
+msgstr "Källbeskrivning:"
+
+#: views/main.html.php:51
+msgid "Source type:"
+msgstr "Källtyp:"
+
+#: views/main.html.php:18
+#, php-format
+msgid "Source: %s (id %s)"
+msgstr "Källa: %s (id %s)"
+
+#: functions.inc.php:16
+msgid "Sources can be added in Caller Name Lookup Sources section"
+msgstr "Källor kan läggas till i Källor för nummerpresentation"
+
+#: views/main.html.php:278
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+#: views/main.html.php:245
+msgid "SugarCRM"
+msgstr "SugarCRM"
+
+#: views/main.html.php:263
+msgid "Superfecta"
+msgstr ""
+
+#: views/main.html.php:24
+#, php-format
+msgid ""
+"There are %s DIDs using this source that will no longer have lookups if "
+"deleted."
+msgstr ""
+"Det finns %s Inkommande vägar för denna källa, om denna källa tas bort "
+"kommmer ingen nummeruppslagning att ske"
+
+#: views/main.html.php:91
+msgid "Use Professional Tier?"
+msgstr ""
+
+#: views/main.html.php:144
+msgid "Username to use in HTTP authentication"
+msgstr "Användarnamn att använda vid HTTP-autentisering"
+
+#: views/main.html.php:144 views/main.html.php:213
+msgid "Username:"
+msgstr "Användarnamn:"
+
+#: bin/opencnam-alert.php:25
+msgid ""
+"You have gone past the free OpenCNAM usage limits.<br/><br/>To continue "
+"getting caller ID name information, you need to create an OpenCNAM "
+"Professional Account.<br/><br/>You can create an OpenCNAM account at: <a "
+"href=\"https://www.opencnam.com/register\">https://www.opencnam.com/"
+"register</a>.<br/><br/>Once you have created an account, visit the CallerID "
+"Lookup Sources menu and enter your OpenCNAM Professional Tier credentials."
+"<br/>"
+msgstr ""
+
+#: views/main.html.php:99
+msgid ""
+"Your OpenCNAM Account SID. This can be found on your OpenCNAM dashboard "
+"page: https://www.opencnam.com/dashboard"
+msgstr ""
+
+#: views/main.html.php:107
+msgid ""
+"Your OpenCNAM Auth Token. This can be found on your OpenCNAM dashboard page: "
+"https://www.opencnam.com/dashboard"
+msgstr ""
+
+#: install.php:107
+msgid "not present"
+msgstr "inte tillgänglig"
+
+#: install.php:109
+msgid "removed"
+msgstr "borttagen"
+
+#~ msgid "CallerID Lookup"
+#~ msgstr "Nummerpresentation"
+
+#~ msgid ""
+#~ "Allows CallerID Lookup of incoming calls against different sources "
+#~ "(MySQL, HTTP, ENUM, Phonebook Module)"
+#~ msgstr ""
+#~ "Tillhandahåller uppslag av nummerpresentation mot olika källor (MySQL, "
+#~ "HTTP, ENUM, Telefonboksmodulen)"
+
+#~ msgid "CallerID Lookup Sources"
+#~ msgstr "Källa f. nummerpresentation"
+
+#~ msgid "CID Lookup source"
+#~ msgstr "Källa för nummerpresentation"
+
+#~ msgid "deleted"
+#~ msgstr "borttagen"
+
+#~ msgid ""
+#~ "Select the source type, you can choose between:<ul><li>Internal: use "
+#~ "astdb as lookup source, use phonebook module to populate it</li><li>ENUM: "
+#~ "Use DNS to lookup caller names, it uses ENUM lookup zones as configured "
+#~ "in enum.conf</li><li>HTTP: It executes an HTTP GET passing the caller "
+#~ "number as argument to retrieve the correct name</li><li>MySQL: It queries "
+#~ "a MySQL database to retrieve caller name</li></ul>"
+#~ msgstr ""
+#~ "Välj källtyp, du kan välja mellan:<ul><li>Intern: använder astdb som "
+#~ "källa för nummeruppslag, använd telefonboks-modulen för att skriva in "
+#~ "telefonnummer och namn.</li><li>ENUM: Använder DNS för att få fram "
+#~ "nummerpresentation. ENUM-zoner konfigureras i enum.conf.</li><li>HTTP: "
+#~ "använder HTTP GET med uppringarens nummer som argument</li><li>MySQL: "
+#~ "använder en MySQLdatabas för att slå upp namn</li></ul>"
+
+#~ msgid "HTTP"
+#~ msgstr "HTTP"
+
+#~ msgid "Inbound Call Control"
+#~ msgstr "Inkommande samtal"

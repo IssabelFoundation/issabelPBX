@@ -1,0 +1,99 @@
+<?php
+
+/*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+ * Developer Notes:
+ * See http://sourceforge.net/projects/open79xxdir/ for project details
+ * 
+ * Version History:
+ * 2014-06-27:	Initial migration from 2.2. Total rewrite using SFDatabase as template
+ * 
+ *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***/
+
+
+class Open79XX extends superfecta_base {
+
+    public $description = "Open 79XX XML MySQL Directory lookup.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'DB_Host' => array(
+                'description' => 'Host address of the Open79XX MySQL database. (localhost if the database is on the same server as IssabelPBX)',
+                'type' => 'text',
+				'default' => 'localhost'
+        ),
+        'DB_Name' => array(
+                'description' => 'Name of database',
+                'type' => 'text',
+				'default' => 'open79xx'
+        ),
+        'DB_User' => array(
+                'description' => 'Username to connect to the database',
+                'type' => 'text',
+				'default' => 'root'
+        ),
+        'DB_Password' => array(
+                'description' => 'Password to connect to the database',
+                'type' => 'password',
+				'default' => 'passw0rd'
+        ),
+        'Filter_Length' => array(
+                'description' => 'The number of rightmost digits to check for a match',
+                'type' => 'number',
+				'default' => '10'
+        ),
+    );
+	
+
+    function get_caller_id($thenumber, $run_param=array()) {
+
+		$DB_Driver = 'mysql';
+		
+		if(class_exists('PDO')) {
+	        	$this->DebugPrint("Connecting to Open79xx database....");
+		
+			try {
+			    $dbh = new PDO($DB_Driver.':dbname='.$run_param['DB_Name'].';host='.$run_param['DB_Host'], $run_param['DB_User'], $run_param['DB_Password']);
+			} catch (PDOException $e) {
+			    $this->DebugPrint('Connection to Open79xx database failed: ' . $e->getMessage());
+			    return null;
+			}
+		} else {
+			$this->DebugPrint("PDO not present on system...Skipping");
+			return null;
+		}
+		
+		//  trim incoming number to specified filter length
+		$thenumber = substr($thenumber, (-1*$run_param['Filter_Length']));
+		
+		$sql = "SELECT `display_name` FROM `contacts` WHERE `cell_phone` REGEXP :theregex OR `home_phone` REGEXP :theregex OR `office_phone` REGEXP :theregex OR `other_phone` REGEXP :theregex OR `custom_number` REGEXP :theregex LIMIT 1";
+
+		//  Build regular expression from the $thenumber to avoid non-digit characters stored in database
+		$theregex = "[^0-9]*";
+		for( $x=0; $x < ((strlen($thenumber))-1); $x++ )  {
+			$theregex .=  substr($thenumber,$x,1)."[^0-9]*";
+		}
+		$theregex = $theregex.(substr($thenumber,-1))."([^0-9]+|$)";
+		$sql_params = array();
+		$sql_params[':theregex'] = $theregex;
+		
+
+		$sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+		if(!$sth) {
+			$this->DebugPrint("Failed to Prepare the Open79XX SQL Statement. Are we connected?...Skipping");
+			return null;
+		}
+		$this->DebugPrint("Connected to Open79XX database!");
+		$this->DebugPrint("Searching Open79XX Database...");
+		$sth->execute($sql_params);
+		$find = $sth->fetch(PDO::FETCH_BOTH);
+		
+		if($find && is_array($find)) {
+			$this->DebugPrint("Found..");
+			return $find[0];
+		} else {
+			$this->DebugPrint("Not Found");
+			return null;
+		}
+    }
+
+
+}

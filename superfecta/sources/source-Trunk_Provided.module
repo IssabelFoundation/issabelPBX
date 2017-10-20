@@ -1,0 +1,58 @@
+<?php
+// last edited Sept 18, 2012 by lgaetz
+// last edited Dec 20, 2012 by tm1000
+class Trunk_Provided extends superfecta_base {
+
+    public $description = "Locates the Caller ID Name provided by the trunk, and then decides based on a list of key words if the provided name should be used.";
+    public $version_requirement = "2.11";
+    public $source_param = array(
+        'Ignore_Keywords' => array(
+            'description' => 'If the trunk provided caller id includes any of the keywords listed  here, the trunk provided value will be ignored and other sources will be used to find the value.<br> Seperate keywords with commas.',
+            'type' => 'textarea',
+            'default' => 'unknown, toll free, unlisted, (N/A)'
+        ),
+        'Discard_Numeric' => array(
+            'description' => 'Enable this setting to discard trunk provided CNAM that is all digits.',
+            'type' => 'checkbox',
+            'default' => 'on'
+        )
+    );
+
+    function get_caller_id($thenumber, $run_param=array()) {
+		$this->DebugPrint("Looking for Trunk Provided Caller ID ... ");
+		$key_words = array();
+		$temp_array = explode(',', (isset($run_param['Ignore_Keywords']) ? $run_param['Ignore_Keywords'] : $this->source_param['Ignore_Keywords']['default']));
+		foreach ($temp_array as $val) {
+		    $key_words[] = trim($val);
+		}
+
+		$provided_caller_id = str_replace('+','',$this->trunk_info['calleridname']);
+		$thenumber_orig = $this->trunk_info['callerid'];
+	        
+        if ($provided_caller_id == $thenumber_orig) {
+            $this->DebugPrint("CID name is the same as CID number..skipping");
+			return null;
+        }
+
+        if ($provided_caller_id == '') {
+            $this->DebugPrint("not found");
+			return null;
+        } else if ($provided_caller_id != '') {
+            $this->DebugPrint("found value of $provided_caller_id ... ");
+            $test_string = str_ireplace($key_words, '', $provided_caller_id);
+			$run_param['Discard_Numeric'] = isset($run_param['Discard_Numeric']) ? $run_param['Discard_Numeric'] : $this->source_param['Discard_Numeric']['default'];
+			if (($run_param['Discard_Numeric'] == 'on') && (is_numeric($provided_caller_id))) {
+				$this->DebugPrint("CID is all numeric - discarded");
+				return null;
+			}
+            if ($test_string == $provided_caller_id) {
+                $this->DebugPrint("determined good.");
+                return($provided_caller_id);
+            } else {
+                $this->DebugPrint(" contains flagged key words, returning nothing");
+				return null;
+            }
+        }
+    }
+
+}

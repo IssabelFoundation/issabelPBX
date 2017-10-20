@@ -1,0 +1,221 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
+#
+# Использовать iconv amp.new -f UTF-8 -t ISO-8859-5 -o amp.po
+# fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-01-16 16:38+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-5\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Custom Applications"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid ""
+"Registry to add custom extensions and destinations that may be created and "
+"used so that the Extensions and Destinations Registry can include these."
+msgstr ""
+
+msgid "Custom Extensions"
+msgstr ""
+
+msgid "Custom Destinations"
+msgstr ""
+
+#, php-format
+msgid "Custom Destination: %s"
+msgstr ""
+
+msgid "Custom Extension: "
+msgstr "Особый номер:"
+
+msgid ""
+"Invalid Destination, must not be blank, must be formatted as: context,exten,"
+"pri"
+msgstr ""
+"Неверное назначение, не должно быть пустым, и должно быть в формате: "
+"контекст, экстенб приоритет."
+
+msgid "Invalid description specified, must not be blank"
+msgstr "Неверное описание. Не должно быть пустым."
+
+msgid "DUPLICATE Destination: This destination is already in use"
+msgstr "ДУБЛИКАТ в назначении: это назначение уже используется"
+
+msgid ""
+"DUPLICATE Destination: This destination is in use or potentially used by "
+"another module"
+msgstr ""
+"ДУБЛИКАТ в назначении: это назначение уже используется или потенциально "
+"может быть использовано в другом модуле"
+
+msgid "Invalid Extension, must not be blank"
+msgstr "Неверный внутренний номер, не может быть пустым"
+
+msgid "DUPLICATE Extension: This extension already in use"
+msgstr "ДУБЛИКАТ внутреннего номера: этот номер уже используется"
+
+msgid "Add Custom Destination"
+msgstr "Добавить специальное назначение"
+
+msgid "Edit: "
+msgstr "Редактировать:"
+
+msgid ""
+"Custom Destinations allows you to register your custom destinations that "
+"point to custom dialplans and will also 'publish' these destinations as "
+"available destinations to other modules. This is an advanced feature and "
+"should only be used by knowledgeable users. If you are getting warnings or "
+"errors in the notification panel about CUSTOM destinations that are correct, "
+"you should include them here. The 'Unknown Destinations' chooser will allow "
+"you to choose and insert any such destinations that the registry is not "
+"aware of into the Custom Destination field."
+msgstr ""
+"Специальное назначение даёт возможность регистрировать специальные сценарии, "
+"которые встраиваются в ваш диал план и становятся доступными для "
+"перенаправления на них из других модулей. Это такая очень продвинутая опция, "
+"и может использоваться только опытными пользователями, которые понимают что "
+"они хотят сделать. Если видны предупреждения или сообщения в панели "
+"состояния системы по поводу CUSTOM направлений, то всё в порядке, вы должны "
+"ими просто пользоваться. Выбор терминации звонка в сценариях входящей "
+"маршрутизации будет выглядеть как 'Custom Applications' где созданный "
+"контекст можно выбрать в 'Установить направление'"
+
+msgid "Edit Custom Destination"
+msgstr "Редактировать специальное назначение"
+
+msgid "Custom Destination"
+msgstr "Спецназначение"
+
+msgid ""
+"This is the Custom Destination to be published. It should be formatted "
+"exactly as you would put it in a goto statement, with context, exten, "
+"priority all included. An example might look like:<br />mycustom-app,s,1"
+msgstr ""
+"Это объявление использования Специального назначения. При создании "
+"необходимо указывать контекст, внутренний номер и приоритет. Например:<br /"
+">mycustom-app,s,1"
+
+msgid ""
+"READONLY WARNING: Because this destination is being used by other module "
+"objects it can not be edited. You must remove those dependencies in order to "
+"edit this destination, or create a new destination to use"
+msgstr ""
+
+msgid "Destination Quick Pick"
+msgstr "Назначение Бытрый Перехват"
+
+msgid ""
+"Choose un-identified destinations on your system to add to the Custom "
+"Destination Registry. This will insert the chosen entry into the Custom "
+"Destination box above."
+msgstr ""
+
+msgid "(pick destination)"
+msgstr "(выбрать назначение)"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid ""
+"Brief Description that will be published to modules when showing "
+"destinations. Example: My Weather App"
+msgstr ""
+"Короткое описание, которое появится при выборе этого назначения. Например: "
+"Служба Межгалактических Доставок"
+
+msgid "Notes"
+msgstr "Примечания"
+
+msgid ""
+"More detailed notes about this destination to help document it. This field "
+"is not used elsewhere."
+msgstr ""
+"Более детальные замечания, которые помогут документировать эти назначения, "
+"когда их много. Это поле больше нигде не используется."
+
+msgid "Submit Changes"
+msgstr ""
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Add Custom Extension"
+msgstr "Добавить Особый номер"
+
+msgid ""
+"Custom Extensions provides you with a facility to register any custom "
+"extensions or feature codes that you have created in a custom file and "
+"IssabelPBX doesn't otherwise know about them. This allows the Extension "
+"Registry to be aware of your own extensions so that it can detect conflicts "
+"or report back information about your custom extensions to other modules "
+"that may make use of the information. You should not put extensions that you "
+"create in the Misc Apps Module as those are not custom."
+msgstr ""
+"Особые номера помогают регистрировать какие-либо специальные номера "
+"донабора, которые создаются в custom файлах, а IssabelPBX не имеет понятия о "
+"них. Это даёт возможность содержать регистр внутренних номеров таким "
+"образом, чтобы предотвращать конфликты с одинаковыми номерами (или кодами "
+"донабора) и сообщать о них в другие модули, которые могут использовать эту "
+"информацию. Вы не должны создавать эти особые номера в модуле Misc Apps так "
+"как они будут другими."
+
+msgid "Conflicting Extensions"
+msgstr "Конфликтующие номера"
+
+msgid "Edit Custom Extension"
+msgstr "Редактировать Особый номер"
+
+msgid "Custom Extension"
+msgstr "Особый Номер"
+
+msgid ""
+"This is the Extension or Feature Code you are using in your dialplan that "
+"you want the IssabelPBX Extension Registry to be aware of."
+msgstr ""
+"Это Особый номер или код донабора, который будет использоваться в вашем диал "
+"плане, для учета его в общем Регистре номеров IssabelPBX."
+
+msgid ""
+"Brief description that will be published in the Extension Registry about "
+"this extension"
+msgstr ""
+"Короткое описание этого номера, которое будет использоваться в Регистре "
+"номеров."
+
+msgid ""
+"More detailed notes about this extension to help document it. This field is "
+"not used elsewhere."
+msgstr ""
+"Более детальные примечания об этом номере, которое поможет документировать "
+"записи, когда их много. Это поле больше нигде не используется."
+
+#~ msgid ""
+#~ "Choose un-identified destinations on your system to add to the Custom "
+#~ "Destinaion Registry. This will insert the chosen entry into the Custom "
+#~ "Destination box above."
+#~ msgstr ""
+#~ "Выберите неидентифицированные назначения вашей системы чтобы добавить в "
+#~ "регистр Спецназначений. При этом все указаные записи появятся в окне "
+#~ "Спецназначения"
+
+#~ msgid ""
+#~ "This is the Custom Destination to be published. It should be formatted "
+#~ "exactly as you would putit in a goto statement, with context, exten, "
+#~ "priority all included. An example might look like:<br />mycustom-app,s,1"
+#~ msgstr ""
+#~ "Будет создано особое назначение. Оно должно иметь формат перенаправления "
+#~ "GoTo с обязательным указанием контекста, экстненшн, приоритета. Например:"
+#~ "<br />mycustom-app,s,1"

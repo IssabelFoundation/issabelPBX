@@ -1,0 +1,152 @@
+#dashboard {
+	position:relative;
+}
+
+/* two columns, sizes of each category box */
+#sysinfo-left, #sysinfo-left .infobox {
+	width:400px;
+	float: left;
+}
+
+#sysinfo-right {
+	float: left;
+	width:200px;
+	padding-left: 30px;
+}
+#sysinfo-right .infobox {
+	width:200px;
+}
+#sysinfo-bot{
+	clear:both;
+}
+/* main container for each category of items */
+.infobox {
+	border:1px solid #AED0EA;
+	padding:2px 5px 5px 5px;
+	margin-bottom:1em;
+}
+
+#procinfo.infobox {
+	margin-bottom: 0px;
+}
+
+/* headings */
+.infobox h4 , .infobox h3 {
+	margin-bottom:8px;
+	margin-top:1px;
+	width: 100%;
+	text-align: center;
+}
+
+
+/* main container for each item */
+.databox {
+	position:relative;
+	border:1px solid #ccc;
+	font-size:9pt;
+	margin-top:4px;
+}
+/* height of main container and actual bar graph */
+.databox , .graphbox .bargraph {
+	height:12pt;
+}
+/* positioning of data title  */
+.databox .dataname {
+	position:absolute;
+	top:1pt;
+	left:2px;
+}
+/* positioning of the value shown in boxes */
+.databox .datavalue {
+	position:absolute;
+	top:1pt;
+	right:2px;
+}
+
+/* graph colors */
+.databox .graphok {
+	background:#0d0;
+}
+.databox .graphwarn {
+	background:yellow;
+}
+.databox .grapherror {
+	background:red;
+}
+
+/* modifier for graph* classes, when inside a "status box" */
+.statusbox .datavalue {
+	width:60px;
+	text-align:center;
+	font-weight:Bold;
+}
+
+#sysinfo table th {
+	text-align:right;
+}
+
+
+#syslog ul {
+	list-style-type:none;
+	padding-left:0;
+	margin:0;
+}
+#syslog ul li {
+	position:relative;
+	margin-bottom:0.2em;
+	border-bottom:1px dashed #ccc;
+	margin-top:1px;
+	color:#333;
+}
+#syslog ul li>div {
+    padding-left:2px;
+}
+#syslog ul li .notification_buttons {
+    position:absolute;
+	right:0;
+	top:0;
+}
+#syslog ul li .notification_buttons a {
+	cursor:pointer;
+}
+#syslog ul li.notify_critical>div, #syslog ul li.notify_security>div {
+	/*background:#F7181C;*/
+	background:#f6921d;
+}
+#syslog ul li.notify_critical h4, #syslog ul li.notify_security h4 {
+	color:white;
+}
+/*
+
+/*
+#syslog .notify_ignore_btn {
+	background-image:url(images/notify_delete.png);
+	background-repeat:no-repeat;
+	width:16px;
+	height:16px;
+	display:inline;
+}
+*/
+
+#syslog h4 {
+	margin:0;
+	font-weight:normal;
+}
+#syslog h4 span {
+	cursor:pointer;
+}
+/* hide details by default */
+#syslog div.syslog_detail {
+	display:none;
+	font-size:75%;
+	height:7em;
+	overflow:auto;
+}
+#syslog div.syslog_detail span {
+	font-style:italic;
+}
+
+#syslog h4 {
+	text-align: left;
+}
+

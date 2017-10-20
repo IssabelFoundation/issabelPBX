@@ -1,0 +1,104 @@
+#!/bin/bash
+# This script is called when the user executes 'amportal start/stop/chown'
+
+#function to start our drivers
+function dahdiconfig_start_it_up() {
+    if which wanrouter > /dev/null 2>&1
+        then
+            echo STARTING WANROUTER FOR SANGOMA CARDS
+            exe=$(which wanrouter)
+            #Start Wanrouter but echo output to a temporary file so that we don't get useless information if wanrouter exits other than 0
+            $exe start > wanrouter_tmp 2>&1
+            #get exit status of command above
+            status=$?
+            #read our temporary file into variable
+            msg="`cat wanrouter_tmp`"
+            #remove our temporary file
+            rm wanrouter_tmp
+            #if exits status was anything but 0 then we don't have wanpipe cards installed, don't display output
+            if [ $status -ne 0 ]; then
+                echo No Wanrouter Cards Installed
+            else
+                #Display output of the wanrouter
+                echo "$msg"
+                echo Wanrouter Started
+                #wanrouter starts dahdi for us so we dont need to continue
+                return 0
+            fi
+    fi
+    
+    if [ -f $DAHDIEXEC ]
+        then
+            echo -e '\n'
+            echo STARTING DAHDI FOR DIGIUM CARDS
+            $DAHDIEXEC start
+            echo Dahdi Started
+            echo -e '\n'
+    else
+        echo -e '\n'
+        echo DAHDI NOT FOUND [Suggest Uninstalling the Dahdi Configuration Module]!
+        echo -e '\n'
+    fi
+}
+
+#Store the command variable outside of the function context
+f_command=$1
+
+#This happens AFTER asterisk has been stopped
+function stop_asterisk_hook_dahdiconfig() {
+    #look for wanrouter. Echo output to null
+    if which wanrouter > /dev/null 2>&1
+        then
+            echo STOPPING WANROUTER FOR SANGOMA CARDS
+            exe=$(which wanrouter)
+            $exe stop
+    fi
+    
+    if [ -f $DAHDIEXEC ]
+        then
+            echo -e '\n'
+            echo STOPPING DAHDI FOR DIGIUM CARDS
+            $DAHDIEXEC stop
+            echo Dahdi Stopped
+            echo -e '\n'
+    fi
+    
+    if [ "$f_command" == "restart" ]
+        then
+            dahdiconfig_start_it_up
+    fi
+}
+
+#This is a hack so we can start BEFORE asterisk starts
+if [ "$1" == "start" ]
+    then
+        dahdiconfig_start_it_up
+fi
+
+#chown our files to....us
+function chown_asterisk_hook_dahdiconfig() {
+    #Check for System.conf
+    if [ -f $DAHDISYSTEMLOC ]
+        then
+            #Change permissions regardless
+            chown $AMPASTERISKUSER:$AMPASTERISKGROUP /etc/dahdi/system.conf
+    fi
+    #Check for Dahdi.conf (modprobe)
+    if [ -f $DAHDIMODPROBELOC ]
+        then
+            #Change permissions regardless
+            chown $AMPASTERISKUSER:$AMPASTERISKGROUP /etc/modprobe.d/dahdi.conf
+    fi
+    #Change module permissions
+    if [ -f $DAHDIMODULESLOC ]
+        then
+            #Change permissions regardless
+            chown -R $AMPASTERISKUSER:$AMPASTERISKGROUP /etc/dahdi/modules
+    fi
+    #Change wanpipe global.conf permissions
+    if [ -f '/etc/wanpipe/global.conf' ]
+        then
+            #Change permissions regardless
+            chown -R $AMPASTERISKUSER:$AMPASTERISKGROUP /etc/wanpipe/global.conf
+    fi
+}

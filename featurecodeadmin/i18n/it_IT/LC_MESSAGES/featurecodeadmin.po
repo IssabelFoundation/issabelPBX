@@ -1,0 +1,238 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+msgid "Feature Code Admin"
+msgstr "Amministrazione Codici Sevizi"
+
+msgid "Admin"
+msgstr ""
+
+msgid "Feature Codes"
+msgstr "Codici Servizi"
+
+msgid "Featurecode: "
+msgstr "Codice Sevizio"
+
+msgid "featuredescription"
+msgstr "descrizionecodice"
+
+msgid ""
+"You have feature code conflicts with extension numbers in other modules. "
+"This will result in unexpected and broken behavior."
+msgstr ""
+"Hai un codice servizio in conflitto con altre numerazione di interni di "
+"altri moduli. Questo potrebbe causare comportamenti strani ed inaspetatti."
+
+msgid "Feature Code Conflicts with other Extensions"
+msgstr "Un Codice Servizio va in conflitto con un altro interno"
+
+msgid "Use"
+msgstr "Utilizzare"
+
+msgid "Default"
+msgstr "Predefinito"
+
+msgid "Feature"
+msgstr "Servizio"
+
+msgid "Status"
+msgstr "Stato"
+
+msgid "moduledescription"
+msgstr "descrizionemodulo"
+
+msgid "Disabled"
+msgstr "Disattivato"
+
+msgid "Enabled"
+msgstr "Attivato"
+
+msgid "Submit Changes"
+msgstr "Conferma Cambiamenti"
+
+msgid ""
+"Please enter a Feature Code or check Use Default for all Enabled Feature "
+"Codes"
+msgstr ""
+"Prego immettere un Codice Servizio o impostare su Utilizza Predefinito per "
+"l'attivazione di tutti i Codici Servizi"
+
+msgid "Feature Codes have been duplicated"
+msgstr "Alcuni Codici Servizio sono dublicati"
+
+msgid "Are you sure you wish to proceed?"
+msgstr "Sei sicuro di voler procedere?"
+
+#~ msgid "Blacklist a number"
+#~ msgstr "Inserisce un numero in Blacklist"
+
+#~ msgid "Blacklist the last caller"
+#~ msgstr "Inserisce l'ultimo chiamante in Blacklist"
+
+#~ msgid "Remove a number from the blacklist"
+#~ msgstr "Rimuove un numero dalla Blacklist"
+
+#~ msgid "Call Forward"
+#~ msgstr "Trasferimento di chiamata"
+
+#~ msgid "Call Forward All Activate"
+#~ msgstr "Attiva Trasferimento di Chiamata Incondizionato"
+
+#~ msgid "Call Forward All Deactivate"
+#~ msgstr "Disattiva Trasferimento di Chiamata Incondizionato"
+
+#~ msgid "Call Forward All Prompting Deactivate"
+#~ msgstr ""
+#~ "Disattiva Trasferimento di Chiamata Incondizionato (chiede dettagli)"
+
+#~ msgid "Call Forward Busy Activate"
+#~ msgstr "Attiva Trasferimento di Chiamata su Occupato"
+
+#~ msgid "Call Forward Busy Deactivate"
+#~ msgstr "Disattiva Trasferimento di Chiamata su Occupato"
+
+#~ msgid "Call Forward Busy Prompting Deactivate"
+#~ msgstr "Disattiva Trasferimento di Chiamata su Occupato (chiede dettagli)"
+
+#~ msgid "Call Forward No Answer/Unavailable Activate"
+#~ msgstr "Attiva Trasferimento su Nessuna Risposta/Non disponibile"
+
+#~ msgid "Call Forward No Answer/Unavailable Deactivate"
+#~ msgstr "Disattiva Trasferimento su Nessuna Risposta/Non disponibile"
+
+#~ msgid "Call Waiting"
+#~ msgstr "Avviso di Chiamata"
+
+#~ msgid "Call Waiting - Activate"
+#~ msgstr "Attiva Avviso di Chiamata"
+
+#~ msgid "Call Waiting - Deactivate"
+#~ msgstr "Disattiva Avviso di Chiamata"
+
+#~ msgid "Core"
+#~ msgstr "Sistema"
+
+#~ msgid "Call Pickup (Can be used with GXP-2000)"
+#~ msgstr "Call Pickup"
+
+#~ msgid "Simulate Incoming Call"
+#~ msgstr "Simulazione chiamata in entrata"
+
+#~ msgid "Simulate Incoming FAX Call"
+#~ msgstr "Simulazione chiamata FAX in entrata"
+
+#~ msgid "User Logoff"
+#~ msgstr "Disconessione Utente"
+
+#~ msgid "User Logon"
+#~ msgstr "Connessione Utente"
+
+#~ msgid "Dictation"
+#~ msgstr "Dettatura"
+
+#~ msgid "Email completed dictation"
+#~ msgstr "Invio Email a Dettatura completata"
+
+#~ msgid "Perform dictation"
+#~ msgstr "Esecuzione Dettatura"
+
+#~ msgid "Do-Not-Disturb (DND)"
+#~ msgstr "Non Disturbare (DND)"
+
+#~ msgid "DND Activate"
+#~ msgstr "Attiva Non Disturbare"
+
+#~ msgid "DND Deactivate"
+#~ msgstr "Disattiva Non Disturbare"
+
+#~ msgid "Info Services"
+#~ msgstr "Servizi di informazione"
+
+#~ msgid "Call Trace"
+#~ msgstr "Ultimi numeri chiamati"
+
+#~ msgid "Directory"
+#~ msgstr "Elenco Telefonico"
+
+#~ msgid "Echo Test"
+#~ msgstr "Test dell'Eco"
+
+#~ msgid "Speak Your Exten Number"
+#~ msgstr "Riproduzione Numero Interno"
+
+#~ msgid "Speaking Clock"
+#~ msgstr "Ora e Data"
+
+#~ msgid "Misc Applications"
+#~ msgstr "Applicazioni Varie"
+
+#~ msgid "Paging and Intercom"
+#~ msgstr "Paging e Intercom"
+
+#~ msgid "Intercom prefix"
+#~ msgstr "Prefisso Intercom"
+
+#~ msgid "User Intercom Allow"
+#~ msgstr "Permetti Intercom"
+
+#~ msgid "User Intercom Disallow"
+#~ msgstr "Non permettere Intercom"
+
+#~ msgid "Phonebook Directory"
+#~ msgstr "Rubrica telefonica"
+
+#~ msgid "Phonebook dial-by-name directory"
+#~ msgstr "Rubrica telefonica (chiama-per-nome)"
+
+#~ msgid "Recordings"
+#~ msgstr "Registrazioni"
+
+#~ msgid "Check Recording"
+#~ msgstr "Controllo registrazione"
+
+#~ msgid "Save Recording"
+#~ msgstr "Registrazione"
+
+#~ msgid "Speed dial functions"
+#~ msgstr "Funzioni Selezione breve"
+
+#~ msgid "Set user speed dial"
+#~ msgstr "Imposta numero in Selezione breve"
+
+#~ msgid "Speeddial prefix"
+#~ msgstr "Prefisso Selezione breve"
+
+#~ msgid "Dial Voicemail"
+#~ msgstr "Menu Casella Vocale"
+
+#~ msgid "My Voicemail"
+#~ msgstr "Menu propria Casella Vocale"
+
+#~ msgid "Please select an extension!"
+#~ msgstr "Selezionare un interno!"
+
+#~ msgid "Day Night Mode"
+#~ msgstr "Servizio Giorno Notte"
+
+#~ msgid "Day/Night Control Toggle"
+#~ msgstr "Codice Servizio Giorno/Notte"
+
+#~ msgid "Silent Monitor"
+#~ msgstr "Ascolto Chiamate"
+
+#~ msgid "Silent Monitor Private Whisper Mode"
+#~ msgstr "Ascolto Chiamate Modalità Private Whisper"
+
+#~ msgid "Silent Monitor Whisper Mode"
+#~ msgstr "Ascolto Chiamate Modalità Whisper"

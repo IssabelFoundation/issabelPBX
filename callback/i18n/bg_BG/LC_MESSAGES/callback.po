@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2008-11-03 11:29+0200\n"
+"Last-Translator: \n"
+"Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Callback"
+msgstr "Обратно Обаждане"
+
+msgid "Applications"
+msgstr ""
+
+#, php-format
+msgid "Callback: %s"
+msgstr "Обратно Обаждане: %s"
+
+msgid "Add Callback"
+msgstr "Добави Обратно Обаждане"
+
+msgid "Callback "
+msgstr "Обратно Обаждане"
+
+msgid "deleted"
+msgstr "изтрито"
+
+msgid "Delete Callback"
+msgstr "Изтрий Обратно Обаждане"
+
+msgid "Callback:"
+msgstr "Обратно Обаждане:"
+
+msgid ""
+"A callback will hang up on the caller and then call them back, directing "
+"them to the selected destination. This is useful for reducing mobile phone "
+"charges as well as other applications. Outbound calls will proceed according "
+"to the dial patterns in Outbound Routes."
+msgstr ""
+"Обратното Обаждане ще затвори на обаждащия се и ще му се обади обратно. Това "
+"е полезно за съкращаване на сметките на мобилните телефони, както и за други "
+"приложения. Изходящите обаждания ще се провеждат според схемите на избиране "
+"в Изходящи Маршрути."
+
+msgid "Edit Callback"
+msgstr "Редактирай Обратно Обаждане"
+
+msgid "Callback Description:"
+msgstr "Описание на Обратно Обаждане"
+
+msgid "Enter a description for this callback."
+msgstr "Въведете описание за това Обратно Обаждане."
+
+msgid "Callback Number:"
+msgstr "Номер Обратно Обаждане:"
+
+msgid ""
+"Optional: Enter the number to dial for the callback.  Leave this blank to "
+"just dial the incoming CallerID Number"
+msgstr ""
+
+msgid "Delay Before Callback:"
+msgstr "Пауза Преди Обратно Обаждане"
+
+msgid ""
+"Optional: Enter the number of seconds the system should wait before calling "
+"back."
+msgstr ""
+"Незадължително: Въведете брой секунди за които системата ще изчаква преди да "
+"се обади обратно."
+
+msgid "Destination after Callback"
+msgstr "Направление след Обратно Обаждане"
+
+msgid "Submit Changes"
+msgstr "Приеми Промените"
+
+#~ msgid ""
+#~ "Optional: Enter the number to dial for the callback.  Leave this blank to "
+#~ "just dial the incoming Caller ID Number"
+#~ msgstr ""
+#~ "Незадължително: Въведете номер за избиране за обратно обаждане. Оставете "
+#~ "празно за да избира CallerID номера."

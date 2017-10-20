@@ -1,0 +1,233 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX Swedish language for vmblast
+# Copyright (C) 2009, 2010, 2011 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX vmblast\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-20 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#, php-format
+msgid "Voicemail Group %s: %s"
+msgstr "Röstgrupp %s: %s"
+
+msgid "Voicemail Group: "
+msgstr "Röstbrevlådegrupp:"
+
+msgid "Exclude"
+msgstr "Exkludera"
+
+msgid "Include"
+msgstr "Inkludera"
+
+msgid "Default Group Inclusion"
+msgstr "Standard gruppinkludering"
+
+msgid "Default VMblast Group"
+msgstr "Standardgrupp för Röstgrupper"
+
+msgid ""
+"You can include or exclude this extension/user from being part of the "
+"default voicemail blast group when creating or editing. Choosing this option "
+"will be ignored if the user does not have a voicemail box."
+msgstr ""
+"Du kan inkludera eller exkludera denna anknytning/användare från att vara "
+"med i standardgruppen för Röstutskick"
+
+msgid "Upgrading vmblast to add audio_label field.."
+msgstr "Uppgraderar vmblast, lägger till fältet audio_label.."
+
+msgid "Not Required"
+msgstr "Inte nödvändig"
+
+msgid "Done"
+msgstr "Klar"
+
+msgid "Upgrading vmblast to add password field.."
+msgstr "Uppgraderar vmblast med fältet password.."
+
+msgid "Dropping grplist.."
+msgstr "Kastar grplist.."
+
+msgid "error populating vmblast_groups table"
+msgstr "fel när tabellen vmblast_groups fylldes på"
+
+msgid "populated new table"
+msgstr "fyller på ny tabell"
+
+msgid "Dropping old grplist field.."
+msgstr "Kastar den gamla fältet grplist.."
+
+msgid "failed to drop field"
+msgstr "kunde inte kasta fältet"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Not Needed"
+msgstr "Behövs inte"
+
+msgid "Warning! Extension"
+msgstr "Varning! Anknytning"
+
+msgid "is not allowed for your account"
+msgstr "är inte tillåtet för din anknytning"
+
+msgid "Add VMBlast Group"
+msgstr "Lägg till röstgrupp"
+
+msgid " [DEFAULT]"
+msgstr " [STANDARD]"
+
+msgid "VMBlast Group"
+msgstr "Röstgrupp"
+
+msgid "deleted"
+msgstr "borttagen"
+
+msgid "Delete Group"
+msgstr "Ta bort grupp"
+
+msgid "Conflicting Extensions"
+msgstr "Konfliktande anknytningar"
+
+msgid "Edit VMBlast Group"
+msgstr "Redigera röstgrupp"
+
+msgid "VMBlast Number"
+msgstr "Röstgruppsnummer"
+
+msgid "The number users will dial to voicemail boxes in this VMBlast group"
+msgstr "Det nummer användare anger när dom ska ringa denna röstgrupp"
+
+msgid "Group Description:"
+msgstr "Gruppbeskrivning:"
+
+msgid "Provide a descriptive title for this VMBlast Group."
+msgstr "Skriv in en giltig beskrivning för denna röstgrupp"
+
+msgid "Audio Label:"
+msgstr "Ljudetikett:"
+
+msgid ""
+"Play this message to the caller so they can confirm they have dialed the "
+"proper voice mail group number, or have the system simply read the group "
+"number."
+msgstr ""
+"Spela upp detta meddelande så att uppringaren kan verifiera att den har ring "
+"den rätta röstgruppen, eller låt systemet läsa upp gruppnumret."
+
+msgid "Read Group Number"
+msgstr "Läs upp gruppnumret"
+
+msgid "Beep Only - No Confirmation"
+msgstr "Endast pip - ingen bekräftelse"
+
+msgid ""
+"The group number will be played to the caller so they can confirm they have "
+"dialed the proper voice mail group number.<br><br>You must install and "
+"enable the \"Systems Recordings\" Module to edit this option and choose from "
+"recordings."
+msgstr ""
+"Gruppnumret kommer att spelas upp för uppringaren så den vet att det är rätt "
+"röstgrupp den ringt till.<br><br>Du måste ha installerat och aktiverat "
+"modulen \"Systeminspelningar\" för att redigera detta val och välja "
+"inspelningar."
+
+msgid "Optional Password"
+msgstr "Valfritt lösenord"
+
+msgid ""
+"You can optionally include a password to authenticate before providing "
+"access to this group voicemail list."
+msgstr ""
+"Du kan valfritt inkludera ett lösenord som måste knappas in före tillgång "
+"till denna röstgrupp ges."
+
+msgid "Voicemail Box List:"
+msgstr "Lista med röstbrevlådor:"
+
+msgid ""
+"Select voice mail boxes to add to this group. Use Ctrl key to select "
+"multiple.."
+msgstr ""
+"Välj vilka röstbrevlådor du vill ha i denna grupp. Använd Ctrl-tangenten för "
+"att välja flera.."
+
+msgid "Default VMBlast Group"
+msgstr "Standard röstgrupp"
+
+msgid ""
+"Each PBX system can have a single Default Voicemail Blast Group. If "
+"specified, extensions can be automatically added (or removed) from this "
+"default group in the Extensions (or Users) tab.<br />Making this group the "
+"default will uncheck the option from the current default group if specified."
+msgstr ""
+"Varje installation av IssabelPBX kan ha en standard röstgrupp. Om denna är "
+"angiven, kan anknytningar automatiskt läggas till (eller tas bort) från "
+"denna standard röstgrupp i Anknytningar (eller Användare).<br>Om denna grupp "
+"anges som standard kommer den nuvarande standard röstgruppen att avaktiveras."
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+msgid "Invalid Group Number specified"
+msgstr "Ogiltigt gruppnummer angivet"
+
+msgid "Group numbers with more than one digit cannot begin with 0"
+msgstr "Gruppnummer med mer än en siffra kan inte starta med 0"
+
+msgid "Please enter an extension list."
+msgstr "Skriv in en anknytningslista"
+
+msgid "Please enter a valid Group Description"
+msgstr "Skriv in en giltig gruppbeskrivning"
+
+msgid "Please enter a valid numeric password, only numbers are allowed"
+msgstr "Skriv in ett giltigt lösenord, endast siffror"
+
+msgid "Please select at least one extension"
+msgstr "Välj minst en anknytning"
+
+msgid "Voicemail Blasting"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Creates a group of extensions that calls a group of voicemail boxes and "
+"allows you to leave a message for them all at once."
+msgstr ""
+"Skapar en grupp av anknytningar som används för att ringa upp deras "
+"röstbrevlådor  och lämna ett meddelande till dessa röstbrevlådor med ett "
+"enda samtal"
+
+#~ msgid "VoiceMail Blasting"
+#~ msgstr "Röstgrupper"
+
+#~ msgid "Internal Options & Configuration"
+#~ msgstr "Interna val och konfigurationer"

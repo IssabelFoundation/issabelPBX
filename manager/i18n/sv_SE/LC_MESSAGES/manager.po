@@ -1,0 +1,155 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# IssabelPBX language for manager
+# Copyright (C) 2011 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2011-03-20 00:00+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+msgid "Error writing the manager additional file."
+msgstr "Fel vid skrivning till manager_additional.conf"
+
+msgid "This manager already exists"
+msgstr "Denna hanterare finns redan"
+
+msgid "Choose Manager:"
+msgstr "Välj hanterare:"
+
+msgid "Choose the user that PHPAGI will use to connect the Asterisk API."
+msgstr ""
+"Välj den användare PHPAGI ska använda när den ansluter till Asterisk API."
+
+msgid "Increasing read field size if needed.."
+msgstr "Utökar fältet read om detta behövs.."
+
+msgid "error encountered, not altered"
+msgstr "fel uppstod, ingen ändring utförd"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "Increasing write field size if needed.."
+msgstr "Utökar fältet write om detta behövs.."
+
+msgid "Asterisk API"
+msgstr "Asterisk API"
+
+msgid "Settings"
+msgstr ""
+
+msgid "Add Manager"
+msgstr "Lägg till hanterare"
+
+msgid "Manager"
+msgstr "Hanterare"
+
+msgid "deleted"
+msgstr "borttagen"
+
+msgid "Manager:"
+msgstr "Hanterare:"
+
+msgid "Delete Manager"
+msgstr "Ta bort hanterare"
+
+msgid "Edit Manager"
+msgstr "Redigera hanterare"
+
+msgid "Manager name:"
+msgstr "Namn på hanterare:"
+
+msgid "Name of the manager without space."
+msgstr "Skriv in ett namn på en hanterare, använd inga mellanslag"
+
+msgid "Manager secret:"
+msgstr "Lösenord för hanteraren:"
+
+msgid "Password for the manager."
+msgstr "Skriv in ett lösenord hanteraren ska använda."
+
+msgid "Deny:"
+msgstr "Förbjud (deny):"
+
+msgid ""
+"If you want to deny many hosts or networks, use & char as separator.<br/><br/"
+">Example: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
+msgstr ""
+"Om du vill förbjuda många datorer eller nätverk, använd & som "
+"separationstecken.<br><br>Exempel: "
+"192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
+
+msgid "Permit:"
+msgstr "Tillåt (permit):"
+
+msgid ""
+"If you want to permit many hosts or networks, use & char as separator. Look "
+"at deny example."
+msgstr ""
+"Om du vill tillåta många datorer eller nätverk, använd & som "
+"separationstecken. Exempel: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
+
+msgid "Rights"
+msgstr "Rättigheter"
+
+msgid "Read"
+msgstr "Läs"
+
+msgid "Write"
+msgstr "Skriv"
+
+msgid "Check Asterisk documentation."
+msgstr "Läs i dokumentationen för Asterisk"
+
+msgid "Check All/None."
+msgstr "Markera alla/inga."
+
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+msgid "The manager name cannot be empty or may not have any space in it."
+msgstr "Namnet på hanteraren kan inte vara tomt eller ha mellanslag."
+
+msgid "The manager secret cannot be empty."
+msgstr "Lösenordet för hanteraren kan inte vara tomt."
+
+msgid "The manager deny is not well formatted."
+msgstr "Formateringen för förbjud (deny) är inte korrekt formaterat."
+
+msgid "The manager permit is not well formatted."
+msgstr "Formateringen för tillåt (permit) är inte korrekt formaterat."
+
+msgid "The manager read field is not well formatted."
+msgstr "Hanterarens läsfält är inte korrekt formaterat."
+
+msgid "The manager write field is not well formatted."
+msgstr "Hanterarens skrivfält är inte korrekt formaterat."
+
+#~ msgid "System Administration"
+#~ msgstr "Systemadministration"
+
+#~ msgid "The manager read and write properties cannot be empty."
+#~ msgstr "Hanterarens rättigheter för läs och skriv kan inte vara tomma."
