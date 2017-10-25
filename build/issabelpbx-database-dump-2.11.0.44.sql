@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES ('need_reload','true'),('version','2.11.0'),('ALLOW_SIP_ANON','no');
+INSERT INTO `admin` VALUES ('need_reload','false'),('version','2.11.0'),('ALLOW_SIP_ANON','no');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
