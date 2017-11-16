@@ -629,13 +629,8 @@ class ext_gotoiftime extends extension {
 	var $condition;
 	function ext_gotoiftime($condition, $true_priority) {
 	    global $version;
-	    if (version_compare($version, "1.6", "ge")) {
 		//change from '|' to ','
 		$this->condition = str_replace("|", ",", $condition);
-		    }
-		else {
-		    $this->condition = $condition;
-		    }
 		$this->true_priority = $true_priority;
 	}
 	function output() {
