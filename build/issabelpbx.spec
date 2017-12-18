@@ -159,7 +159,7 @@ cp %{SOURCE6} $RPM_BUILD_ROOT/etc/asterisk.issabel/
 # CDR dump as CSV
 mkdir -p $RPM_BUILD_ROOT/var/log/asterisk/cdr-csv/
 #chown -R asterisk.asterisk $RPM_BUILD_ROOT/var/log/asterisk/
-#touch $RPM_BUILD_ROOT/var/log/asterisk/cdr-csv/Master.csv
+touch $RPM_BUILD_ROOT/var/log/asterisk/cdr-csv/Master.csv
 
 # IssabelPBX change the file /var/www/html/index.php (this is issabel file).
 # File /etc/pbx/aver.flag is a flag for prevent it.
