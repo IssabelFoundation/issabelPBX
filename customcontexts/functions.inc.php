@@ -270,7 +270,8 @@ function customcontexts_get_config($engine) {
 			$results2 = null;
 		}
 		foreach ($results2 as $inc) {
-			$time = isset($inc[1])?'|'.$inc[1]:'';
+			$time = isset($inc[1])?','.$inc[1]:'';
+			$time = str_replace("|", ",", $time);
 			switch ($inc[2]) {
 				case 'allowmatch':
 					if (is_array($dialpattern)) {
