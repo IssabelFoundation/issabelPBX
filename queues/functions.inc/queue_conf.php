@@ -167,7 +167,7 @@ class queues_conf {
 			//
 			if ($ast_ge_18 || $amp_conf['USEQUEUESTATE']) {
 				foreach ($members as $member) {
-					preg_match("/^Local\/([\d]+)\@*/",$member,$matches);
+					preg_match("/^[a-zA-Z].*\/([\d]+)\@*/",$member,$matches);
 					if (isset($matches[1]) && isset($users[$matches[1]])) {
 						$name = $users[$matches[1]];
 						str_replace(',','\,',$name);
