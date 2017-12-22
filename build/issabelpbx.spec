@@ -657,7 +657,7 @@ rm -rf $RPM_BUILD_ROOT
 #%config(noreplace) /var/www/html/admin/modules/fw_fop/op_buttons_additional.cfg
 #%config(noreplace) /var/www/html/admin/modules/fw_fop/op_buttons_custom.cfg
 /var/lib/asterisk/*
-#%config(noreplace) /var/log/asterisk/cdr-csv/Master.csv
+%config(noreplace) /var/log/asterisk/cdr-csv/Master.csv
 %dir /var/log/asterisk/cdr-csv
 %config(noreplace) /etc/amportal.conf
 %defattr(-, root, root)
