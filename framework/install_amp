@@ -1354,7 +1354,17 @@ if ($install_files)
 			die("We were not able to create the web modules directory, which is important\n");
 		}
 	}
-	if (!is_file("/etc/asterisk/voicemail.conf")) copy("/etc/asterisk/voicemail.conf.template","/etc/asterisk/voicemail.conf");
+    if (!is_file("/etc/asterisk/voicemail.conf")) {  
+        copy("/etc/asterisk/voicemail.conf.template","/etc/asterisk/voicemail.conf"); 
+    } else {  
+        exec("grep vm_email /etc/asterisk/voicemail.conf", $output, $return);
+        if($return==1) {
+            if(is_file("/etc/asterisk/voicemail.conf.template")) {
+                unlink("/etc/asterisk/voicemail.conf");
+                copy("/etc/asterisk/voicemail.conf.template","/etc/asterisk/voicemail.conf"); 
+            }
+        }
+    }
 	if (!is_dir("/var/spool/asterisk/voicemail/device")) amp_mkdir("/var/spool/asterisk/voicemail/device", "0755", true);
 	out("OK (".$num_copied." files copied, ".($num_files-$num_copied)." skipped)");
 
