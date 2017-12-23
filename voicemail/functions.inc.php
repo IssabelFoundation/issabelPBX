@@ -905,6 +905,23 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 	}
 }
 
+function voicemail_check_correct_voicemailconf() {
+    // Asterisk install can write a voicemail.conf file with sample data, we want to replace that with 
+    // issabelPBX .template file instead
+    global $amp_conf;
+
+    $vmtemplate = rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf.template";
+    $vmfile     = rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf";
+
+    if(is_file($vmfile) && is_file($vmtemplate)) {
+        exec("grep vm_email $vmfile", $output, $return);
+        if($return==1) {
+            unlink($vmfile);
+            copy($vmtemplate,$vmfile);
+        }
+    }
+}
+
 function voicemail_saveVoicemail($vmconf) {
 	global $amp_conf;
 
@@ -918,8 +935,11 @@ function voicemail_saveVoicemail($vmconf) {
 function voicemail_getVoicemail() {
 	global $amp_conf;
 
-	$vmconf = null;
-	$section = null;
+	$vmconf  = null;
+    $section = null;
+
+    voicemail_check_correct_voicemailconf();
+
 	// yes, this is hardcoded.. is this a bad thing?
 	parse_voicemailconf(rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf", $vmconf, $section);
 	
@@ -978,6 +998,9 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 	global $astman;
 	global $tz_settings;
 	global $gen_settings;
+
+    voicemail_check_correct_voicemailconf();
+
 	/* Ensure we get the most up-to-date voicemail.conf data. */
 	if ($action != 'dialplan') {
 		$vmconf = voicemail_getVoicemail();

@@ -82,15 +82,7 @@ function write_voicemailconf($filename, &$vmconf, &$section, $iteration = 0) {
 		if (!copy( rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf.template", $filename )){
 			return;
 		}
-    } else {
-        exec("grep vm_email ".rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf", $output, $return);
-        if($return==1) {
-            if(is_file("/etc/asterisk/voicemail.conf.template")) {
-                unlink("/etc/asterisk/voicemail.conf");
-                copy("/etc/asterisk/voicemail.conf.template","/etc/asterisk/voicemail.conf");
-            }
-        }
-    }
+    } 
 	
 		$fd = fopen($filename, "r");
 		while ($line = fgets($fd, 1024)) {
