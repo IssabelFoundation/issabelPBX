@@ -1,7 +1,7 @@
 Summary: IssabelPBX is a GUI configuration tool for Asterisk. Forked from FreePBX/AMP
 Name: issabelPBX
 Version: 2.11.0
-Release: 44
+Release: 45
 License: GPL
 Group: Applications/System
 Source0: issabelpbx-%{version}.%{release}.tgz
@@ -178,6 +178,9 @@ cp %{SOURCE12} $RPM_BUILD_ROOT/var/www/html/admin/views/
 %pre
 # Asegurarse de que este issabelPBX no sobreescriba una versión actualizada a mano
 if [ $1 -eq 2 ] ; then
+    if [ -f /var/www/html/admin/modules/framework/amp_conf/htdocs/index.php ]; then
+        rm -f /var/www/html/admin/modules/framework/amp_conf/htdocs/index.php
+    fi
     MYSQL_ROOTPWD=`grep mysqlrootpwd= /etc/issabel.conf | sed 's/^mysqlrootpwd=//'`
     ISSABELPBX_CURRVER=`echo "SELECT value FROM asterisk.admin WHERE variable = 'version';" | mysql -s -u root -p$MYSQL_ROOTPWD`
     mkdir -p $RPM_BUILD_ROOT/usr/share/issabelpbx/tmp/
