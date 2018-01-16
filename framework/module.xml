@@ -3,7 +3,7 @@
 	<modtype>framework</modtype>
 	<repo>standard</repo>
 	<name>IssabelPBX Framework</name>
-	<version>2.11.0.44</version>
+	<version>2.11.0.45</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
