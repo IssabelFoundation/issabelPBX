@@ -258,10 +258,11 @@ function queues_get_config($engine) {
 				$qgosub = '${QGOSUB}';
 				$qrule = '${QRULE}';
 				$qposition = '${QPOSITION}';
+				$qurl = '${QURL}';
 
 				// Queue(queuename[,options[,URL[,announceoverride[,timeout[,AGI[,macro[,gosub[,rule[,position]]]]]]]]])
 				//
-				$ext->add($c, $exten, 'qcall', new ext_queue($exten, $options, '', $agnc, $qmaxwait, $qagi, $qmacro, $qgosub, $qrule, $qposition));
+				$ext->add($c, $exten, 'qcall', new ext_queue($exten, $options, $qurl, $agnc, $qmaxwait, $qagi, $qmacro, $qgosub, $qrule, $qposition));
 
 				if($q['use_queue_context'] != '2') {
 					$ext->add($c, $exten, '', new ext_macro('blkvm-clr'));
