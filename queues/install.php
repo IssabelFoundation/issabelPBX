@@ -372,6 +372,21 @@ if(DB::IsError($results)) {
 	} else {
 		out(_("already exists"));
 	}
+	outn(_("checking for destcontinue field.."));
+        $sql = "SELECT `destcontinue` FROM queues_config";
+        $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+        if(DB::IsError($check)) {
+                // add new field
+                $sql = "ALTER TABLE queues_config ADD `destcontinue` VARCHAR( 50 ) NOT NULL DEFAULT ''";
+                $result = $db->query($sql);
+                if(DB::IsError($result)) {
+                        die_issabelpbx($result->getDebugInfo());
+                }
+                out(_("OK"));
+        } else {
+                out(_("already exists"));
+        }
+
 
 // Version 2.5 migrate to recording ids
 // Note: we purposely did not chnage the inital creation of the

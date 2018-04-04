@@ -170,7 +170,10 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_set('QRETRY', '${IF($[${LEN(${VQ_RETRY})}>0]?${VQ_RETRY}:' . $qretry . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_RETRY', ''));
 
-				$ext->add($c, $exten, 'qoptions', new ext_set('QOPTIONS', '${IF($[${LEN(${VQ_OPTIONS})}>0]?${VQ_OPTIONS}:' . ($options != '' ? $options : ' ') . ')}${QCANCELMISSED}${QRINGOPTS}${QRETRY}'));
+				if (strlen($q['gotocontinue']) > 0){
+					$ext->add($c, $exten, '', new ext_set('VQ_CONTINUE', 'c'));
+				}
+				$ext->add($c, $exten, 'qoptions', new ext_set('QOPTIONS', '${IF($[${LEN(${VQ_OPTIONS})}>0]?${VQ_OPTIONS}:' . ($options != '' ? $options : ' ') . ')}${QCANCELMISSED}${QRINGOPTS}${QRETRY}${VQ_CONTINUE}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_OPTIONS', ''));
 
 				// Set these up to be easily spliced into if we want to configure ability in queue modules
@@ -258,10 +261,11 @@ function queues_get_config($engine) {
 				$qgosub = '${QGOSUB}';
 				$qrule = '${QRULE}';
 				$qposition = '${QPOSITION}';
+				$qurl = '${QURL}';
 
 				// Queue(queuename[,options[,URL[,announceoverride[,timeout[,AGI[,macro[,gosub[,rule[,position]]]]]]]]])
 				//
-				$ext->add($c, $exten, 'qcall', new ext_queue($exten, $options, '', $agnc, $qmaxwait, $qagi, $qmacro, $qgosub, $qrule, $qposition));
+				$ext->add($c, $exten, 'qcall', new ext_queue($exten, $options, $qurl, $agnc, $qmaxwait, $qagi, $qmacro, $qgosub, $qrule, $qposition));
 
 				if($q['use_queue_context'] != '2') {
 					$ext->add($c, $exten, '', new ext_macro('blkvm-clr'));
@@ -298,6 +302,7 @@ function queues_get_config($engine) {
 				//VQ_DEST = str_replace(',','^',$vq['goto'])
 				$ext->add($c, $exten, '', new ext_set('QDEST', '${VQ_DEST}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_DEST', ''));
+				$ext->add($c, $exten, 'gotocontinue', new ext_gotoif('$["${QUEUESTATUS}"="CONTINUE"]',$q['gotocontinue']));
 				$ext->add($c, $exten, 'gotodest', new ext_gotoif('$["${QDEST}"=""]',$q['goto'],'${CUT(QDEST,^,1)},${CUT(QDEST,^,2)},${CUT(QDEST,^,3)}'));
 			
 				//dynamic agent login/logout
