@@ -302,7 +302,9 @@ function queues_get_config($engine) {
 				//VQ_DEST = str_replace(',','^',$vq['goto'])
 				$ext->add($c, $exten, '', new ext_set('QDEST', '${VQ_DEST}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_DEST', ''));
-				$ext->add($c, $exten, 'gotocontinue', new ext_gotoif('$["${QUEUESTATUS}"="CONTINUE"]',$q['gotocontinue']));
+				if (strlen($q['gotocontinue']) > 0){
+					$ext->add($c, $exten, 'gotocontinue', new ext_gotoif('$["${QUEUESTATUS}"="CONTINUE"]',$q['gotocontinue']));
+				}
 				$ext->add($c, $exten, 'gotodest', new ext_gotoif('$["${QDEST}"=""]',$q['goto'],'${CUT(QDEST,^,1)},${CUT(QDEST,^,2)},${CUT(QDEST,^,3)}'));
 			
 				//dynamic agent login/logout
