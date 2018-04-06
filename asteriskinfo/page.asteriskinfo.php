@@ -56,7 +56,7 @@ $modes = array(
 	"all" => $modeall
 );
 $arr_all = array(
-	$uptime => "show uptime",
+	$uptime => "core show uptime",
 	$activechannels => "show channels",
 	$sipchannels => "sip show channels",
 	$iax2channels => "iax2 show channels",
