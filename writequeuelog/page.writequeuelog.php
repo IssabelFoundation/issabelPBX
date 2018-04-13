@@ -124,6 +124,7 @@ echo $row['dest'];
 
 <?php
 //draw goto selects
+if($dest=='') { $dest='app-blackhole,hangup,1';  }
 echo drawselects($dest,0);
 ?>
 
