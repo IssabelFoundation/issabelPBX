@@ -31,8 +31,10 @@ $html .= '</div>';
 $html .= '<div id="login_icon_holder">';
 $html .= '<div class="login_item_title"><a href="#" class="login_item" id="login_admin" style="background-image: url(assets/images/sys-admin.png);"/>&nbsp</a><span class="login_item_text" style="display: block;width: 160px;text-align: center;">' . _('IssabelPBX Administration') . '</span></div>';
 
+/*
 $html .= '<div class="login_item_title"><a href="/recordings" '
                 . 'class="login_item" id="login_ari" style="background-image: url(assets/images/user-control.png);"/>&nbsp</a><span class="login_item_text" style="display: block;width: 160px;text-align: center;">' . _('User Control Panel') . '</span></div>';
+ */
 if ($panel) {
     $html .= '<div class="login_item_title"><a href="' . $panel . '" '
 		    . 'class="login_item" id="login_fop" style="background-image: url(assets/images/operator-panel.png);"/>&nbsp</a><span class="login_item_text" style="display: block;width: 160px;text-align: center;">' . _('Operator Panel') . '</span></div>';
