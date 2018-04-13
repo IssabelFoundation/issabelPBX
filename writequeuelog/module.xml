@@ -1,0 +1,27 @@
+<module>
+        <rawname>writequeuelog</rawname>
+        <repo>standard</repo>
+        <name>Write a line into queue log</name>
+        <version>2.11.0.0</version>
+        <category>Applications</category>
+        <publisher>Issabel Foundation</publisher>
+        <license>GPLv3+</license>
+        <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+        <description>
+            Adds the ability to write into queue_log
+        </description>
+        <menuitems>
+                <writequeuelog>Write in Queue Log</writequeuelog>
+        </menuitems>
+        <changelog>
+                *2.11.1.0*  Initial Release
+        </changelog>
+        <depends>
+                <version>2.5.0</version>
+        </depends>
+        <supported>
+                <version>2.10</version>
+        </supported>
+        <location>release/2.11/writequeuelog-2.11.0.0.tgz</location>
+        <md5sum>97c4ecdafb9b1d4deaf792f05420545f</md5sum>
+</module>
