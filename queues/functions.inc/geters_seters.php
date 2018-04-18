@@ -7,6 +7,7 @@ function queues_add(
 	$password,
 	$prefix,
 	$goto,
+	$gotocontinue,
 	$agentannounce_id,
 	$members,
 	$joinannounce_id,
@@ -162,6 +163,7 @@ function queues_add(
 		$callback_id    = 'none';
 	}
 	$dest			= isset($goto) ? $goto:'';
+	$destcontinue		= isset($gotocontinue) ? $gotocontinue:'';
 	$cwignore		= isset($cwignore) ? $cwignore:'0';
 	$queuewait		= isset($queuewait) ? $queuewait:'0';
 	$qregex			= isset($qregex) ? $db->escapeSimple($qregex):'';
@@ -186,6 +188,7 @@ function queues_add(
 				ivr_id,
 				callback_id,
 				dest,
+				destcontinue,
 				cwignore,
 				qregex,
 				queuewait,
@@ -210,6 +213,7 @@ function queues_add(
 				'$ivr_id',
 				'$callback_id',
 				'$dest',
+				'$destcontinue',
 				'$cwignore',
 				'$qregex',
 				'$queuewait',
@@ -354,6 +358,7 @@ function queues_get($account, $queues_conf_only=false) {
 		$results['joinannounce_id']  = $config['joinannounce_id'];
 		$results['password']      = $config['password'];
 		$results['goto']          = $config['dest'];
+		$results['gotocontinue']  = $config['destcontinue'];
 		$results['announcemenu']  = $config['ivr_id'];
 		$results['callback']      = $config['callback_id'];
 		$results['rtone']         = $config['ringing'];

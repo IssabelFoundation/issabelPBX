@@ -55,6 +55,12 @@ if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
 } else {
 	$goto = '';
 }
+if (isset($_REQUEST['goto1']) && isset($_REQUEST[$_REQUEST['goto1']."1"])) {
+        $gotocontinue = $_REQUEST[$_REQUEST['goto1']."1"];
+} else {
+        $gotocontinue = '';
+}
+
 if (isset($_REQUEST["members"])) {
 	$members = explode("\n",$_REQUEST["members"]);
 
@@ -145,7 +151,7 @@ if(isset($_REQUEST['action'])){
 				if (!empty($usage_arr)) {
 					$conflict_url = framework_display_extension_usage_alert($usage_arr);
 				} else {
-					queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
+					queues_add($account,$name,$password,$prefix,$goto,$gotocontinue,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
 					needreload();
           $_REQUEST['extdisplay'] = $account;
 					$this_dest = queues_getdest($account);
@@ -160,7 +166,7 @@ if(isset($_REQUEST['action'])){
 			break;
 			case "edit":  //just delete and re-add
 				queues_del($account);
-				queues_add($account,$name,$password,$prefix,$goto,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
+				queues_add($account,$name,$password,$prefix,$goto,$gotocontinue,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
 				needreload();
 				redirect_standard('extdisplay');
 			break;
@@ -1288,6 +1294,14 @@ if ($ast_ge_16) {
 	echo drawselects($goto,0);
 	?>
 	</table>
+	
+	<table>
+	<tr><td colspan="2"><br><h5><?php echo _("Queue Continue Destination")?><hr></h5></td></tr>
+        <?php
+        echo drawselects($gotocontinue,1);
+        ?>
+        </table>
+	
 
 	<table>
 		<tr><td colspan="2"><br><h5><?php echo _("Reset Queue Stats")?><hr></h5></td></tr>
@@ -1330,7 +1344,13 @@ function checkQ(theForm) {
 		}
 		whichitem++;
 	}
-
+	var whichitem = 0;
+        while (whichitem < theForm.goto1.length) {
+                if (theForm.goto1[whichitem].checked) {
+                        theForm.goto1.value=theForm.goto1[whichitem].value;
+                }
+                whichitem++;
+        }
 	if (!isInteger(theForm.account.value)) {
 		<?php echo "alert('"._("Queue Number must not be blank")."')"?>;
 		bad=true;

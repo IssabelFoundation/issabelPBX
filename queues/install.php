@@ -146,6 +146,7 @@ if(DB::IsError($results)) {
 		  `password` varchar(20) NOT NULL default '',
 		  ivr_id varchar(8) NOT NULL default '0',
 		  dest varchar(50) NOT NULL default '',
+		  destcontinue varchar(50) NOT NULL default '',
 		  cwignore tinyint(1) NOT NULL default '0',
 		  `qregex` VARCHAR( 255 ) NULL,
 			`queuewait` TINYINT( 1 ) DEFAULT 0,
@@ -172,6 +173,7 @@ if(DB::IsError($results)) {
 		  `password` varchar(20) NOT NULL default '',
 		  ivr_id varchar(8) NOT NULL default '0',
 		  dest varchar(50) NOT NULL default '',
+		  destcontinue varchar(50) NOT NULL default '',
 		  cwignore tinyint(1) NOT NULL default '0',
 			`queuewait` TINYINT( 1 ) DEFAULT 0,
 			`use_queue_context` TINYINT( 1 ) DEFAULT 0,
@@ -372,6 +374,21 @@ if(DB::IsError($results)) {
 	} else {
 		out(_("already exists"));
 	}
+	outn(_("checking for destcontinue field.."));
+        $sql = "SELECT `destcontinue` FROM queues_config";
+        $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+        if(DB::IsError($check)) {
+                // add new field
+                $sql = "ALTER TABLE queues_config ADD `destcontinue` VARCHAR( 50 ) NOT NULL DEFAULT ''";
+                $result = $db->query($sql);
+                if(DB::IsError($result)) {
+                        die_issabelpbx($result->getDebugInfo());
+                }
+                out(_("OK"));
+        } else {
+                out(_("already exists"));
+        }
+
 
 // Version 2.5 migrate to recording ids
 // Note: we purposely did not chnage the inital creation of the

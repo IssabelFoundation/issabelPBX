@@ -21,7 +21,7 @@ class dayNightObject {
 			$version = $engine_info['version'];
 			$this->DEVSTATE = version_compare($version, "1.6", "ge") ? "DEVICE_STATE" : "DEVSTATE";
 		} else {
-			$this->DEVSTATE = false;
+			$this->DEVSTATE = DEVICE_STATE;
 		}
 	}
 		
@@ -204,9 +204,7 @@ function daynight_toggle() {
 			continue;
 		}
 		$got_code = true;
-		if ($amp_conf['USEDEVSTATE']) {
-			$ext->addHint($id, $c, 'Custom:DAYNIGHT'.$index);
-		}
+		$ext->addHint($id, $c, 'Custom:DAYNIGHT'.$index);
 		$ext->add($id, $c, '', new ext_macro('user-callerid'));
 		$ext->add($id, $c, '', new ext_answer(''));
 		$ext->add($id, $c, '', new ext_wait('1'));
@@ -271,9 +269,7 @@ function daynight_toggle() {
 				$indexes = ltrim($indexes, '&');
 				$hint = ltrim($hint, '&');
 
-				if ($amp_conf['USEDEVSTATE']) {
-					$ext->addHint($id, $c . '*' . $exten, $hint);
-				}
+				$ext->addHint($id, $c . '*' . $exten, $hint);
 
 				if (strlen($indexes) == 0) {
 					$ext->add($id, $c . '*' . $exten, '', new ext_hangup(''));
@@ -313,15 +309,11 @@ function daynight_toggle() {
 		$ext->add($id, $c, '', new ext_gotoif('$["${DAYNIGHTMODE}" = "NIGHT"]', 'day', 'night'));
 
 		$ext->add($id, $c, 'day', new ext_setvar('DB(DAYNIGHT/C${INDEX})', 'DAY'));
-		if ($amp_conf['USEDEVSTATE']) {
-			$ext->add($id, $c, '', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:DAYNIGHT${INDEX})', 'NOT_INUSE'));
-		}
+		$ext->add($id, $c, '', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:DAYNIGHT${INDEX})', 'NOT_INUSE'));
 		$ext->add($id, $c, 'hook_day', new ext_goto('end2'));
 
 		$ext->add($id, $c, 'night', new ext_setvar('DB(DAYNIGHT/C${INDEX})', 'NIGHT'));
-		if ($amp_conf['USEDEVSTATE']) {
-			$ext->add($id, $c, '', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:DAYNIGHT${INDEX})', 'INUSE'));
-		}
+		$ext->add($id, $c, '', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:DAYNIGHT${INDEX})', 'INUSE'));
 		$ext->add($id, $c, 'hook_night', new ext_goto('end2'));
 
 		$ext->add($id, $c, 'end2', new ext_setvar('ITER', '$[${ITER} + 1]'));
