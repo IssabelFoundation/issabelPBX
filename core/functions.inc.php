@@ -13,6 +13,7 @@ class core_conf {
 	var $_iax_additional = array();
 	var $_dahdi_additional = array();
 	var $_featuregeneral = array();
+	var $_parkinggeneral = array();
 	var $_featuregeneralsection = array();
 	var $_featuremap     = array();
 	var $_applicationmap = array();
@@ -65,6 +66,7 @@ class core_conf {
 			'sip_general_additional.conf',
 			'iax_general_additional.conf',
 			'features_general_additional.conf',
+			'res_parking_additional.conf',
 			'features_applicationmap_additional.conf',
 			'features_featuremap_additional.conf',
 			'localprefixes.conf',
@@ -109,6 +111,9 @@ class core_conf {
 				break;
 			case 'zapata_additional.conf':
 				return $this->generate_zapata_additional($version);
+				break;
+			case 'res_parking_additional.conf':
+				return $this->generate_parkinggeneral_additional($version);
 				break;
 			case 'features_general_additional.conf':
 				return $this->generate_featuregeneral_additional($version);
@@ -259,6 +264,21 @@ class core_conf {
 
 		if (isset($this->_iax_general) && is_array($this->_iax_general)) {
 			foreach ($this->_iax_general as $values) {
+				$output .= $values['key']."=".$values['value']."\n";
+			}
+		}
+		return $output;
+	}
+
+	function addParkingGeneral($key, $value) {
+		$this->_parkinggeneral[] = array('key' => $key, 'value' => $value);
+	}
+
+	function generate_parkinggeneral_additional($ast_version) {
+		$output = '';
+
+		if (isset($this->_parkinggeneral) && is_array($this->_parkinggeneral)) {
+			foreach ($this->_parkinggeneral as $values) {
 				$output .= $values['key']."=".$values['value']."\n";
 			}
 		}

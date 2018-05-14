@@ -54,18 +54,36 @@ function parking_get_config($engine) {
         //
         $park_context = 'default';
         $hint_context = 'parkedcalls';
-        $core_conf->addFeatureGeneral('parkext', $lot['parkext']);
-        $core_conf->addFeatureGeneral('parkpos', $parkpos1."-".$parkpos2);
-        $core_conf->addFeatureGeneral('context', $hint_context);
-        $core_conf->addFeatureGeneral('parkext_exclusive', 'no');
-        $core_conf->addFeatureGeneral('parkingtime', $lot['parkingtime']);
-        $core_conf->addFeatureGeneral('comebacktoorigin', 'no'); //Set this to no as we can manage our own internal comebacktoorigin
-        $core_conf->addFeatureGeneral('parkedplay', $lot['parkedplay']);
-        $core_conf->addFeatureGeneral('courtesytone', 'beep');
-        $core_conf->addFeatureGeneral('parkedcalltransfers', $lot['parkedcalltransfers']);
-        $core_conf->addFeatureGeneral('parkedcallreparking', $lot['parkedcallreparking']);
-        $core_conf->addFeatureGeneral('parkedmusicclass', $lot['parkedmusicclass']);
-        $core_conf->addFeatureGeneral('findslot', $lot['findslot']);
+
+        $ast_ge_11 = version_compare($version,'11','ge');
+
+        if ($ast_ge_11) {
+            $core_conf->addParkingGeneral('parkext', $lot['parkext']);
+            $core_conf->addParkingGeneral('parkpos', $parkpos1."-".$parkpos2);
+            $core_conf->addParkingGeneral('context', $hint_context);
+            $core_conf->addParkingGeneral('parkext_exclusive', 'no');
+            $core_conf->addParkingGeneral('parkingtime', $lot['parkingtime']);
+            $core_conf->addParkingGeneral('comebacktoorigin', 'no'); //Set this to no as we can manage our own internal comebacktoorigin
+            $core_conf->addParkingGeneral('parkedplay', $lot['parkedplay']);
+            $core_conf->addParkingGeneral('courtesytone', 'beep');
+            $core_conf->addParkingGeneral('parkedcalltransfers', $lot['parkedcalltransfers']);
+            $core_conf->addParkingGeneral('parkedcallreparking', $lot['parkedcallreparking']);
+            $core_conf->addParkingGeneral('parkedmusicclass', $lot['parkedmusicclass']);
+            $core_conf->addParkingGeneral('findslot', $lot['findslot']);
+        } else {
+            $core_conf->addFeatureGeneral('parkext', $lot['parkext']);
+            $core_conf->addFeatureGeneral('parkpos', $parkpos1."-".$parkpos2);
+            $core_conf->addFeatureGeneral('context', $hint_context);
+            $core_conf->addFeatureGeneral('parkext_exclusive', 'no');
+            $core_conf->addFeatureGeneral('parkingtime', $lot['parkingtime']);
+            $core_conf->addFeatureGeneral('comebacktoorigin', 'no'); //Set this to no as we can manage our own internal comebacktoorigin
+            $core_conf->addFeatureGeneral('parkedplay', $lot['parkedplay']);
+            $core_conf->addFeatureGeneral('courtesytone', 'beep');
+            $core_conf->addFeatureGeneral('parkedcalltransfers', $lot['parkedcalltransfers']);
+            $core_conf->addFeatureGeneral('parkedcallreparking', $lot['parkedcallreparking']);
+            $core_conf->addFeatureGeneral('parkedmusicclass', $lot['parkedmusicclass']);
+            $core_conf->addFeatureGeneral('findslot', $lot['findslot']);
+        }
 
         $ext->addInclude('from-internal-additional', $ph);
         $ext->addInclude($ph, $hint_context, $lot['name']);
