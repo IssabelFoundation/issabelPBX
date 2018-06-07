@@ -452,6 +452,11 @@ if [ $1 -eq 2 ]; then #rpm update
     /var/lib/asterisk/bin/module_admin install customcontexts
     echo "4 instalo local" >>/tmp/issabel_rpm.log
     /var/lib/asterisk/bin/module_admin installlocal
+
+    # Copies files that mighty not be present on older versions
+    # Maybe all the /etc/asterisk.issabel directory needs to be copied...?
+    cp /etc/asterisk.issabel/res_parking.conf /etc/asterisk/
+
 fi
 
 # Creo unos links simbolicos para algunos archivos de configuracion.
