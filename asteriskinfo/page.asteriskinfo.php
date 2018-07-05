@@ -255,7 +255,7 @@ if (!$astman) {
 				<table border="0">
 					<tr>
 						<td>
-							<?php echo buildAsteriskInfo(); ?>
+							<?php echo buildAsteriskInfo($astver); ?>
 						</td>
 					</tr>
 				</table>
@@ -364,9 +364,8 @@ function getPeer($peer, $channelType = NULL){
 	}
 }
 
-function buildAsteriskInfo(){
+function buildAsteriskInfo($astver){
 	global $astman;
-	global $astver;
 	$uptime = _("Uptime: ");
 	$activesipchannels = _("Active SIP Channel(s): ");
 	$activeiax2channels = _("Active IAX2 Channel(s): ");
