@@ -71,9 +71,9 @@ if ($extdisplay) {
         $usage_list = framework_display_destination_usage(writequeuelog_getdest($extdisplay));
         if (!empty($usage_list)) {
         ?>
-            <tr><td colspan="2">
+            <table><tr><td colspan="2">
             <a href="#" class="info"><?php echo $usage_list['text']?>:<span><?php echo $usage_list['tooltip']?></span></a>
-            </td></tr><br /><br />
+            </td></tr></table><br /><br />
         <?php
         }
 
