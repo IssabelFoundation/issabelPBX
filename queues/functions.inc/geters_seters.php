@@ -270,7 +270,15 @@ function queues_del($account) {
 //get the existing queue extensions
 //
 function queues_list($listall=false) {
-	global $db;
+    global $db;
+
+    $sql = "SELECT `destcontinue` FROM queues_config";
+    $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+    if(DB::IsError($check)) {
+        $sql = "ALTER TABLE queues_config ADD `destcontinue` VARCHAR( 50 ) NOT NULL DEFAULT ''";
+        $result = $db->query($sql);
+    }
+
 	$sql = "SELECT extension, descr FROM queues_config ORDER BY extension";
 	$results = $db->getAll($sql);
 	if($db->IsError($results)) {
