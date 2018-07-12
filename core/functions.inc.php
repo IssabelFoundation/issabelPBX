@@ -66,6 +66,7 @@ class core_conf {
 			'sip_general_additional.conf',
 			'iax_general_additional.conf',
 			'features_general_additional.conf',
+			'manager_general_additional.conf',
 			'res_parking_additional.conf',
 			'features_applicationmap_additional.conf',
 			'features_featuremap_additional.conf',
@@ -114,6 +115,9 @@ class core_conf {
 				break;
 			case 'res_parking_additional.conf':
 				return $this->generate_parkinggeneral_additional($version);
+				break;
+			case 'manager_general_additional.conf':
+				return $this->generate_managergeneral_additional($version);
 				break;
 			case 'features_general_additional.conf':
 				return $this->generate_featuregeneral_additional($version);
@@ -284,6 +288,22 @@ class core_conf {
 		}
 		return $output;
 	}
+
+	function addManagerGeneral($key, $value) {
+		$this->_managergeneral[] = array('key' => $key, 'value' => $value);
+	}
+
+	function generate_managergeneral_additional($ast_version) {
+		$output = '';
+
+		if (isset($this->_managergeneral) && is_array($this->_managergeneral)) {
+			foreach ($this->_managergeneral as $values) {
+				$output .= $values['key']."=".$values['value']."\n";
+			}
+		}
+		return $output;
+	}
+
 
 	function addFeatureGeneral($key, $value) {
 		$this->_featuregeneral[] = array('key' => $key, 'value' => $value);
