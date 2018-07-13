@@ -20,8 +20,9 @@ Source12: issabel_advice.php
 
 BuildRoot: %{_tmppath}/%{name}-%{version}.%{release}-root
 BuildArch: noarch
-Requires(pre): asterisk >= 1.8, /sbin/pidof, /bin/tar, issabel-firstboot
-Requires(pre): php, php-pear-DB
+Requires: asterisk >= 1.8, /sbin/pidof, /bin/tar, issabel-firstboot
+Requires: php, php-pear-DB
+Requires: gettext
 Requires: issabel-framework >= 2.2.0-18
 AutoReqProv: no
 Obsoletes: freePBX
@@ -652,6 +653,19 @@ for i in /etc/asterisk/musiconhold*.conf ; do
         sed -i "s|^directory=/var/lib/asterisk/moh\(/\)\?$|directory=/var/lib/asterisk/mohmp3/|" $i
     fi
 done
+
+%triggerin -- gettext
+echo "Compling IssabelPBX translation files ..."
+# Recompile gettext .po files
+for A in `find /var/www/html/admin/modules -name \*.po`
+do
+POFILE=${A}
+MOFILE=${POFILE%.po}.mo
+PODIR=${A%$POFILE}
+msgfmt $POFILE -o $MOFILE
+done
+systemctl restart httpd
+
 
 %clean
 rm -rf $RPM_BUILD_ROOT
