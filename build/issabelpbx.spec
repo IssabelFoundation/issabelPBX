@@ -260,6 +260,24 @@ if [ $1 -eq 1 ] ; then # install
          
        sed -i -e "s/^\$amp_conf\['AMPDBPASS'\]\s*=\s*'\w*'/\$amp_conf['AMPDBPASS']  = '$AMI_ADMINPWD'/" /etc/issabelpbx.conf
     fi
+else
+    echo "Es un UPGRADE de RPM, revisar si manager.conf tiene el #include manager_general_additional.conf" >>/tmp/issabel_rpm.log
+
+    grep manager_general_additional /etc/asterisk/manager.conf >/dev/null
+    if [ $? -ne 0   ]; then
+        echo "manager.conf no incluye el include dek general_additional, debo agregarlo"  >>//tmp/issabel_rpm.log
+        sed -i '/^displayconnects/a #include manager_general_additional.conf' /etc/asterisk/manager.conf
+        sed -i '/^displayconnects/d' /etc/asterisk/manager.conf
+        if [ ! -f /etc/asterisk/manager_general_additional.conf  ]; then
+            touch /etc/asterisk/manager_general_additional.conf
+            echo "displayconnects=yes" >/etc/asterisk/manager_general_additional.conf
+            echo "timestampevents=yes" >>/etc/asterisk/manager_general_additional.conf
+            echo "webenabled=no" >>/etc/asterisk/manager_general_additional.conf
+            chown asterisk.asterisk /etc/asterisk/manager_general_additional.conf
+        fi
+    else
+        echo "ya lo tiene, no hago nada"
+    fi
 fi
 
 # La base de datos esta corriendo
