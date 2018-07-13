@@ -15,8 +15,8 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   $manager_settings['webenabled']        = isset($_POST['webenabled']) ? $_POST['webenabled'] : 'no';
   $manager_settings['displayconnects']   = isset($_POST['displayconnects']) ? $_POST['displayconnects'] : 'no';
   $manager_settings['timestampevents']   = isset($_POST['timestampevents']) ? $_POST['timestampevents'] : 'no';
-  $manager_settings['port']              = isset($_POST['port']) ? $_POST['port'] : '5038';
-  $manager_settings['bindaddr']          = isset($_POST['bindaddr']) ? $_POST['bindaddr'] : '5038';
+  //$manager_settings['port']              = isset($_POST['port']) ? $_POST['port'] : '5038';
+  //$manager_settings['bindaddr']          = isset($_POST['bindaddr']) ? $_POST['bindaddr'] : '5038';
   $manager_settings['channelvars']       = isset($_POST['channelvars']) ? $_POST['channelvars'] : 'no';
 
   $p_idx = 0;
@@ -143,7 +143,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
     </td>
   </tr>
  
-  <tr>
+  <!--tr>
     <td>
       <a href="#" class="info"><?php echo _("Bind Address")?><span><?php echo _("Asterisk: bindaddr. The IP address to bind to and listen for AMI. If set to 0.0.0.0 Asterisk will listen on all addresses. To bind to multiple IP addresses or ports, use the Other 'Manager Settings' fields where you can put settings such as:<br /> bindaddr=192.168.10.100:4555.<br />")?></span></a>
     </td>
@@ -159,7 +159,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
     <td>
       <input type="text" id="port" name="port" class="validate-ip-port" value="<?php echo $port ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
-  </tr>
+  </tr-->
 
   <tr>
     <td>

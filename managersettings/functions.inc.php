@@ -153,8 +153,8 @@ function managersettings_get($raw=false) {
   $manager_settings['webenabled']       = 'no';
   $manager_settings['displayconnects']  = 'no';
   $manager_settings['timestampevents']  = 'no';
-  $manager_settings['bindaddr']         = '0.0.0.0';
-  $manager_settings['port']             = '5038';
+  //$manager_settings['bindaddr']         = '0.0.0.0';
+  //$manager_settings['port']             = '5038';
   $manager_settings['channelvars']      = '';
 
   foreach ($raw_settings as $var) {

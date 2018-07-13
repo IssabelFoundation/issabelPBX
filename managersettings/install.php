@@ -25,12 +25,10 @@ if(DB::IsError($check)) {
 
 	outn(_("populating default values.."));
   $sip_settings =  array(
-    array('bindaddr'    ,'0.0.0.0', '0'),
-    array('port'    ,'5038', '1'),
-    array('webenabled'    ,'no' , '2'),
-    array('channelvars'    ,'' , '3'),
-    array('displayconnects'    ,'no' , '4'),
-    array('timestampevents'    ,'no' , '5'),
+    array('webenabled'    ,'no' , '1'),
+    array('channelvars'    ,'' , '2'),
+    array('displayconnects'    ,'no' , '3'),
+    array('timestampevents'    ,'no' , '4'),
     );
 
 	// Now insert minimal codec rows
@@ -39,7 +37,7 @@ if(DB::IsError($check)) {
 	if(DB::IsError($result)) {
 		out(_("fatal error occurred populating defaults, check module"));
 	} else {
-		out(_("bindaddr, port, webenabled, displayconnects, timestampevents added"));
+		out(_("webenabled, displayconnects, timestampevents added"));
 	}
 } else {
 	out(_("already exists"));
