@@ -1,10 +1,11 @@
 <module>
 	<rawname>dynroute</rawname>
+    <repo>standard</repo>
 	<name>Dynamic Routes</name>
 	<version>2.11.3.2</version>
 	<publisher>voipsupport.it</publisher>
 	<license>GPLv3+</license>
-	<type>setup</type>
+    <type>setup</type>
 	<category>Advanced</category>
 	<description>
 		Allows to route call based on lookup in sql database and/or user input and to store results in channel variables
