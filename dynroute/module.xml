@@ -1,0 +1,42 @@
+<module>
+	<rawname>dynroute</rawname>
+	<name>Dynamic Routes</name>
+	<version>2.11.3.2</version>
+	<publisher>voipsupport.it</publisher>
+	<license>GPLv3+</license>
+	<type>setup</type>
+	<category>Advanced</category>
+	<description>
+		Allows to route call based on lookup in sql database and/or user input and to store results in channel variables
+	</description>
+	<changelog>
+		See CHANGES.txt file in module directory for full details.
+		*2.11.3.2* Bug fix
+		*2.11.3.1* Bug fix
+		*2.11.3.0* Asterisk variable source type
+		*2.11.2.0* AGI support
+		*2.11.1.0* Web service support
+		*2.11.0.0* ODBC support, popover compatibility, GUI cleanup, Updated Italian, Dutch translations
+		*2.10.0.2* Bug fix for db server name that was not saved, cleanups, dutch translations
+		*2.10.0.1* Security: prevent scripts from being called directly.
+		Updated uninstall from sql to php script, cosmetic and tooltip corrections.
+		*2.10.0.0* Only update is to change Category to be compatible with new menu categories (now under Applications instead of Inbound Call Control)
+		*2.8.0.0* Added ability to get dtmf input (with optional announcement) and storage of input and/or sql result in channel variables for use in further dynamic routes or custom extensions.
+		*2.6.0.2* First Release
+	</changelog>
+	<depends>
+		<version>ge2.11</version>
+		<module></module>
+	</depends>
+	<menuitems>
+		<dynroute>Dynamic Routes</dynroute>
+	</menuitems>
+        <popovers>
+                <dynroute>
+                        <display>dynroute</display>
+			<action>add</action>
+                </dynroute>
+        </popovers>
+	<location>contributed_modules/release/dynroute-2.11.3.2.tgz</location>
+	<md5sum>045d0cf1961d0287d63d45a2593637ea</md5sum>
+</module>

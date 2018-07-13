@@ -1,0 +1,230 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dynamic Routing\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-05-19 23:09+0200\n"
+"PO-Revision-Date: 2013-05-19 23:13+0100\n"
+"Last-Translator: John Fawcett <john@voipsupport.it>\n"
+"Language-Team: cDGo IT Consultancy <info@cdgo.nl>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#, fuzzy
+msgid "There is a problem with installation Contact support\n"
+msgstr ""
+"Er is een probleem met de install.sql, de database kan niet worden "
+"aangemaakt. Neem contact op met support.\n"
+
+#, php-format
+msgid "Route: %s"
+msgstr "Route: %s"
+
+#, php-format
+msgid "Dynamic route: %s"
+msgstr "Dynamische route: %s"
+
+#, php-format
+msgid "Route: %s / Destination: %s"
+msgstr "Route: %s / Bestemming: %s"
+
+#, fuzzy
+msgid "Dynamic Routing"
+msgstr "Dynamische routes"
+
+msgid "Instructions"
+msgstr "Instructies"
+
+msgid "You use the Dynamic Routing module to route calls based on sql lookup."
+msgstr ""
+"U kunt de Dynamische Route module gebruiken om gespreken door te sturen op "
+"basis van een SQL lookup in een (externe) database.<br />"
+
+msgid "For configuration instructions see"
+msgstr ""
+
+msgid "Add Route"
+msgstr "Voeg een route toe"
+
+msgid "Edit Menu"
+msgstr "Bewerk Route"
+
+msgid "Delete"
+msgstr "Verwijder"
+
+msgid "Route"
+msgstr "Route"
+
+msgid "Change Name"
+msgstr "Pas de naam van de route aan"
+
+msgid "This changes the short name, visible on the right, of this Route"
+msgstr ""
+"Hiermee past u de naam aan van de route, welke zichtbaar is in het lijstje "
+"van routes aan de rechterzijde"
+
+msgid "Get DTMF input"
+msgstr "Luister naar DTMF tonen (de ingedrukte toetsen)"
+
+msgid ""
+"If checked reads in DTMF digis, the value is available in the sql query with "
+"special name of [INPUT]."
+msgstr ""
+"indien aangevinkt luistert de module naar DTMF tonen, en zal het ingetoetste "
+"cijfer(s) beschikbaar zijn voor de MySQL query met de tag [INPUT]"
+
+msgid "Timeout"
+msgstr "Timeout"
+
+msgid "The amount of time (in seconds) to wait for input"
+msgstr ""
+"Het aantal seconde zolang er gewacht wordt voor het intoetsen van de toetsen "
+"(DTMF tonen)."
+
+msgid "Input Variable"
+msgstr "Input variabele"
+
+msgid ""
+"Optional variable name if you want the dmtf input to be available later in "
+"the call (e.g. futher dynamic route query or to pass to agi script)"
+msgstr ""
+"optionele variabele naam voor het gebruik van de DTMF input op een later "
+"moment. (bv. extra dynamische routes of een agi script)"
+
+msgid "Result Variable"
+msgstr "Resultaat Variabele"
+
+msgid ""
+"Optional variable name if you want the query result to be available later in "
+"the call (e.g. futher dynamic route query or to pass to agi script)"
+msgstr ""
+"Optionele Variabele naam, indien het resultaat in een later stadium weer "
+"gebruikt dient te worden.(bv. extra dynamische routes of een agi script)"
+
+msgid "Announcement"
+msgstr "Aankondiging bericht"
+
+#, fuzzy
+msgid ""
+"Message to be played to the caller. To add additional recordings please use "
+"the \"System Recordings\" MENU above"
+msgstr ""
+"Aankondiging bericht welke wordt afgespeeld voor de beller. Om extra "
+"'Berichten' te maken dient u gebruik te maken van de menu keuze ' Admin => "
+"System Recordings (Systeem Opnames)'"
+
+msgid "None"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"Message to be played to the caller.<br><br>You must install and enable the "
+"\"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Aankondiging bericht welke wordt afgespeeld voor de beller. Om extra "
+"'Berichten' te maken dient u gebruik te maken van de menu keuze ' Admin => "
+"System Recordings (Systeem Opnames)'"
+
+msgid "Source type"
+msgstr "lookup soort"
+
+msgid ""
+"Select the source type, you can choose between:<ul><li>MySQL: It queries a "
+"MySQL database to retrieve the routing information</li><li>ODBC: It queries "
+"an ODBC data source to retrieve the routing information</li></ul>"
+msgstr ""
+"Selecteer het lookup soort, kunt u kiezen tussen: <ul> <li> MySQL: Het "
+"vraagt ​​een MySQL database om de routing informatie op te halen </ li> <li> "
+"ODBC: Het vraagt ​​een ODBC-gegevensbron aan de route-informatie </ ophalen "
+"li> </ ul>"
+
+msgid "ODBC"
+msgstr "ODBC"
+
+msgid "Function"
+msgstr "Functie"
+
+msgid ""
+"Name of the odbc function (excluding ODBC prefix) in /etc/asterisk/func_odbc."
+"conf"
+msgstr ""
+"Naam van de ODBC-functie (zonder ODBC prefix) in / etc / asterisk / "
+"func_odbc.conf"
+
+msgid "Query"
+msgstr "Query"
+
+#, fuzzy
+msgid "The query which gets the result out of the database"
+msgstr ""
+"De query (select) waarmee gegevens opgevraagd gaan worden uit de database"
+
+msgid "MySQL"
+msgstr "MySQL"
+
+msgid "Host"
+msgstr "Host"
+
+msgid "Hostname or IP address of the server running the MySQL database"
+msgstr ""
+"De server naam of het IP adres van de server waar de MySQL database van "
+"benaderd dient te worden."
+
+msgid "Database"
+msgstr "Database"
+
+msgid "The name of the database out of wich the information is being queried"
+msgstr ""
+"De naam van de database, welke je wilt gebruiken voor het opvragen van "
+"informatie"
+
+msgid "Username"
+msgstr "Loginnaam"
+
+msgid "The user/login name for accessing the database"
+msgstr ""
+"De gebruikers/login naam welke gebruikt dient te worden om toegang te "
+"krijgen tot de database"
+
+msgid "Password"
+msgstr "Wachtwoord"
+
+msgid "The password wich is needed to access the database"
+msgstr "Het wachtwoord voor de gebruikers/login naam"
+
+msgid "The query wich gets the result out of the database"
+msgstr ""
+"De query (select) waarmee gegevens opgevraagd gaan worden uit de database"
+
+msgid "Increase Destinations"
+msgstr "Meer bestemmingen"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Decrease Destinations"
+msgstr "Minder bestemmingen"
+
+msgid "Match"
+msgstr "Geëvenaard resultaat"
+
+msgid "Destination"
+msgstr "Bestemming"
+
+msgid "Default destination"
+msgstr "Default bestemming"
+
+msgid "Invalid destination"
+msgstr "Ongeldige bestemming"
+
+msgid "Leave blank to remove"
+msgstr "Laat leeg om te verwijderen"
+
+#~ msgid "Invalid option"
+#~ msgstr "Ongeldige optie"

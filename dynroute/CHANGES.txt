@@ -1,0 +1,86 @@
+    dynroute - Dynamic Route Module for IssabelPBX
+    Copyright (C) 2009-2014 John Fawcett john@voipsupport.it
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+2015 08 08
+	- Release 2.11.3.2
+	- bug fix for Asterisk variable config
+	- Release 2.11.3.1
+	- bug fix for Asterisk Variable not writing out correct dialplan
+	- Asterisk variable query no longer subject to escaping of quote marks
+
+2015 06 13
+	- Added Asterisk Variable source type
+	- Tidied up display / javascript
+	- Released 2.11.3
+
+
+2015 06 07
+	- Added AGI support. 
+	- Released 2.11.2.0
+	- Added webservice support. Depends on CURL function in asterisk
+	- Released 2.11.1.0
+
+2014 04 21
+	- Added GPLv3 headers to all files
+	- Released 2.11.0.0	
+
+2013 09 26
+	- if there is no query but dtmf input is checked, branch to destinations based on dtmf instead of query result
+
+2013 05 19
+	- popover compatibility - now seems to be ok but more testing would be useful
+	- fixed some issue with double quotes in the mysql and odbc queries so they display properly and are escaped in the configuration files
+	- 2.11.0.0 beta
+
+2013 05 18
+	- Cosmetic changes to interface and texts
+	- Updated Dutch translations
+	- Added Italian translations
+	- popover compatibilty preliminary work
+	- 2.11.0.0 alpha
+
+2013 05 17
+	- Added field for specifying default destination instead of having to use match value 'default' in the options section
+
+2013 05 16
+	- odbc support
+
+2012 09 02
+*2.10.0.2* released 
+	- Correct a typo in page.dynroute.php which stopped database server hostname from being saved.
+	- Update some strings to make the meaning of the fields clearer
+	- Added script to create pot file and recreated dynroute.pot
+	- Added Dutch translations thanks to Domé Giuliano
+	- Removed obsolete function localrunModuleSQL (originally copied from ivr when dynroute modules was created)
+	- Added example.sql for creating a routing database and table
+
+2012 05 14
+	- Goto default destination iff database connection not established
+	- Introduce [DID] variable for query which is substituted with CLID
+
+*2.10.0.1* 
+	- Security: prevent scripts from being called directly.
+	- Updated uninstall from sql to php script, cosmetic and tooltip corrections.
+
+*2.10.0.0*
+	- Only update is to change Category to be compatible with new menu categories (now under Applications instead of Inbound Call Control)
+
+*2.8.0.0*
+	- Added ability to get dtmf input (with optional announcement) and storage of input and/or sql result in channel variables for use in further dynamic routes or custom extensions.
+
+*2.6.0.2*
+	- First Release (combining code from ivr and cidlookup modules)
+

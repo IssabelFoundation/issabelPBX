@@ -1,0 +1,97 @@
+#!/usr/bin/php -q
+<?php
+   
+GLOBAL $stdin, $stdout, $stdlog, $parm_debug_on;
+   
+ob_implicit_flush(false);
+set_time_limit(30);
+error_reporting(0);
+
+
+$parm_error_log = '/tmp/error.log';
+
+// Set to 1 to turn on the log file
+$parm_debug_on = 1;
+
+
+if ($parm_debug_on)
+{
+	$stdlog = fopen( $parm_error_log, 'w' );
+	fputs( $stdlog, "---Start---\n" );
+}
+
+   
+$stdin = fopen( 'php://stdin', 'r' );
+$stdout = fopen( 'php://stdout', 'w' );
+   
+while ( !feof($stdin) ) 
+{
+	$temp = fgets( $stdin );
+      
+	// Strip off any new-line characters
+	$temp = str_replace( "\n", "", $temp );
+      
+	$s = explode( ":", $temp );
+	$agivar[$s[0]] = trim( $s[1] );
+
+	if ( ( $temp == "") || ($temp == "\n") )
+	{
+		break;
+	}
+} 
+
+
+$result=$argv[1]+$argv[2];
+execute_agi('SET VARIABLE dynroute '.$result);
+//execute_agi('SET VARIABLE xxxx '.$result); 
+// where xxxx is the AGI result variable defined in dynroute
+exit;
+
+//--------------------------------------------------
+// This function will send out the command and get
+// the response back
+//--------------------------------------------------
+function execute_agi( $command )
+
+{
+   GLOBAL $stdin, $stdout, $stdlog, $parm_debug_on;
+   
+   fputs( $stdout, $command . "\n" );
+   fflush( $stdout );
+   if ($parm_debug_on)
+       fputs( $stdlog, $command . "\n" );
+   
+   $resp = fgets( $stdin, 4096 );
+   
+   if ($parm_debug_on)
+       fputs( $stdlog, $resp );
+   
+   if ( preg_match("/^([0-9]{1,3}) (.*)/", $resp, $matches) ) 
+   {
+       if (preg_match('/result=([-0-9a-zA-Z]*)(.*)/', $matches[2], $match)) 
+       {
+           $arr['code'] = $matches[1];
+           $arr['result'] = $match[1];
+           if (isset($match[3]) && $match[3])
+               $arr['data'] = $match[3];
+           return $arr;
+       } 
+       else 
+       {
+           if ($parm_debug_on)
+               fputs( $stdlog, "Couldn't figure out returned string, Returning code=$matches[1] result=0\n" );
+           $arr['code'] = $matches[1];
+           $arr['result'] = 0;
+           return $arr;
+       }
+   } 
+   else 
+   {
+       if ($parm_debug_on)
+           fputs( $stdlog, "Could not process string, Returning -1\n" );
+       $arr['code'] = -1;
+       $arr['result'] = -1;
+       return $arr;
+   }
+}
+
