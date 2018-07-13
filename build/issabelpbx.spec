@@ -101,7 +101,7 @@ rmdir temp
 
 
 # Copio los archivos binarios de mysql en una carpeta temporal para ser utilizados en el POST
-# siempre y cuando se trate de una instalacion de Elastix.
+# siempre y cuando se trate de una instalacion de Issabel.
 cp %{SOURCE2} $RPM_BUILD_ROOT/usr/share/issabelpbx/tmp/
 
 # Copying some agi scripts needed by issabelpbx
@@ -245,7 +245,7 @@ if [ $1 -eq 1 ] ; then # install
     echo "Install on an existing system"
 
     # Este es el escenario en que la instalacion de IssabelPBX no es nueva
-    # sino que se instala en un Elastix ya instalado.
+    # sino que se instala en un Issabel ya instalado.
     # TODO: Comentado porque aun falta ver como cambiar algunas claves de archivos como
     # amportal.conf, algunos de asterisk y la base de datos asterisk.
     # Pienso que es mejor ver como se llama a /usr/bin/issabel-admin-passwords --change --IssabelPBX --silent $AMI_ADMINPWD
@@ -398,7 +398,7 @@ else
     else
         # Creo la base de datos, incluido el esquema de usuario/permiso
         echo "3 base existe , asumo instalacion iso, esperamos instalacion de base de datos hasta el primer boot" >>/tmp/issabel_rpm.log
-        echo "Assumed ISO installation. Delayed database installation until first Elastix boot..."
+        echo "Assumed ISO installation. Delayed database installation until first Issabel boot..."
         cp /usr/share/issabelpbx/tmp/issabelpbx-database-dump-%{version}.%{release}.sql /var/spool/issabel-mysqldbscripts/01-issabelpbx.sql
 
         # Ruta a módulos es incorrecta en 64 bits. Se corrige a partir de ruta de Asterisk.
@@ -634,23 +634,6 @@ for i in /etc/asterisk/musiconhold*.conf ; do
         sed -i "s|^directory=/var/lib/asterisk/moh\(/\)\?$|directory=/var/lib/asterisk/mohmp3/|" $i
     fi
 done
-
-# Arreglo de ruta FOPWEBROOT para incio de op_server.pl, arregla Elastix bug #2260
-#if [ $1 -eq 2 ] ; then
-#    if [ -e /var/www/html/admin/modules/fw_fop/safe_opserver ] ; then
-#        echo "Checking FOPWEBROOT path in /etc/amportal.conf..."
-#        if ! grep -q FOPWEBROOT /etc/amportal.conf ; then
-#            echo "FOPWEBROOT not found, adding..."
-#            echo FOPWEBROOT=/var/www/html/admin/modules/fw_fop >> /etc/amportal.conf
-#        fi
-#        CURR_FOPWEBROOT=`grep FOPWEBROOT /etc/amportal.conf | cut -d = -f 2`
-#        if [ "$CURR_FOPWEBROOT" != "/var/www/html/admin/modules/fw_fop" ] ; then
-#            echo "Fixing FOPWEBROOT ..."
-#            sed -ie 's|FOPWEBROOT=.*|FOPWEBROOT=/var/www/html/admin/modules/fw_fop|' /etc/amportal.conf
-#            /usr/sbin/amportal restart_fop
-#        fi
-#    fi
-#fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
