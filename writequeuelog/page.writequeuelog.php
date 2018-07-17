@@ -83,9 +83,6 @@ if ($extdisplay) {
 
 $helptext = _("Write queue log lets you append a line into the queue_log file for call center tracking purposes");
 echo $helptext;
-echo $row['dest'];
-
-
 
 ?>
 

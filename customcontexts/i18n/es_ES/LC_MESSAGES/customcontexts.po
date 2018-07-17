@@ -38,12 +38,12 @@ msgstr " v"
 
 #: functions.inc.php:448 functions.inc.php:604
 msgid "Add Class"
-msgstr "Agregar Classo"
+msgstr "Agregar Clase"
 
 #: functions.inc.php:439 functions.inc.php:463 functions.inc.php:593
 #: page.customcontexts.php:21 page.customcontextsadmin.php:24
 msgid "Class"
-msgstr "Classo"
+msgstr "Clase"
 
 #: functions.inc.php:838
 #, php-format
@@ -57,15 +57,15 @@ msgstr "Clase de Servicio: %s (%s)"
 
 #: functions.inc.php:620
 msgid "Duplicate Class"
-msgstr "Duplicar Classo"
+msgstr "Duplicar Clase"
 
 #: functions.inc.php:457 functions.inc.php:617
 msgid "Edit Class"
-msgstr "Editar Classo"
+msgstr "Editar Clase"
 
 #: functions.inc.php:459
 msgid "Remove Class"
-msgstr "Remover Classo"
+msgstr "Remover Clase"
 
 #: install.php:33
 msgid "Time Conditions Module required and not present .. aborting install"
@@ -89,8 +89,11 @@ msgstr ""
 "eliminando customcontexts_timegroups y mesas "
 "customcontexts_tiemgroups_detail .."
 
-#~ msgid "Class of Services"
-#~ msgstr "Classos Personalizados"
+msgid "Class of Service"
+msgstr "Clases de Servicio"
+
+msgid "Class of Service Admin"
+msgstr "Clases de Servicio (administrar)"
 
 #~ msgid "Connectivity"
 #~ msgstr "Conectividad"
