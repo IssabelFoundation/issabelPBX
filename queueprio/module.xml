@@ -1,32 +1,33 @@
 <module>
-  <rawname>queueprio</rawname>
-  <repo>extended</repo>
-  <name>Queue Priorities</name>
-  <version>2.11.0.2</version>
-	<publisher>Issabel Foundation</publisher>
-	<license>GPLv3+</license>
-	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-  <category>Applications</category>
-  <description>
-		Adds the ability to set a callers priority higher before entering a queue
-	</description>
-  <menuitems>
-    <queueprio>Queue Priorities</queueprio>
-  </menuitems>
-  <popovers>
-    <queueprio>
-      <display>queueprio</display>
-    </queueprio>
-  </popovers>
-  <changelog>
-  		*2.11.0.2* Initial Issabel Foundation release
-	</changelog>
-  <depends>
-    <version>2.5.0alpha1</version>
-  </depends>
-  <location>release/2.11/queueprio-2.11.0.0.tgz</location>
-  <md5sum>72e836e63a0c82ca961900cbf445def2</md5sum>
-  <supported>
-    <version>2.10</version>
-  </supported>
+    <rawname>queueprio</rawname>
+    <repo>extended</repo>
+    <name>Queue Priorities</name>
+    <version>2.11.0.2</version>
+    <publisher>Issabel Foundation</publisher>
+    <license>GPLv3+</license>
+    <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+    <category>Applications</category>
+    <embedcategory>Inbound Call Control</embedcategory>
+    <description>
+        Adds the ability to set a callers priority higher before entering a queue
+    </description>
+    <menuitems>
+        <queueprio>Queue Priorities</queueprio>
+    </menuitems>
+    <popovers>
+        <queueprio>
+            <display>queueprio</display>
+        </queueprio>
+    </popovers>
+    <changelog>
+        *2.11.0.2* Initial Issabel Foundation release
+    </changelog>
+    <depends>
+        <version>2.5.0alpha1</version>
+    </depends>
+    <location>release/2.11/queueprio-2.11.0.0.tgz</location>
+    <md5sum>72e836e63a0c82ca961900cbf445def2</md5sum>
+    <supported>
+        <version>2.10</version>
+    </supported>
 </module>

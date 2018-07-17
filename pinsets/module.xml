@@ -6,7 +6,8 @@
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<category>Settings</category>
+    <category>Settings</category>
+    <embedcategory>Internal Options &amp; Configuration</embedcategory>
 	<description>Allow creation of lists of PINs (numbers for passwords) that can be used by other modules (eg, trunks).</description>
 	<changelog>
 		*2.11.0.9* Initial Issabel Foundation release

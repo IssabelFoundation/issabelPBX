@@ -6,7 +6,8 @@
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<category>Applications</category>
+    <category>Applications</category>
+    <embedcategory>Remote Access</embedcategory>
 	<menuitems>
 		<callback>Callback</callback>
 	</menuitems>

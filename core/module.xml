@@ -1,7 +1,8 @@
 <module>
 	<rawname>core</rawname>
 	<repo>standard</repo>
-	<category>Applications</category>
+    <category>Applications</category>
+    <embedcategory>Basic</embedcategory>
 	<name>Core</name>
 	<version>2.11.0.35</version>
 	<publisher>Issabel Foundation</publisher>

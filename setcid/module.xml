@@ -4,6 +4,7 @@
         <name>Set CallerID</name>
         <version>2.11.1.0</version>
         <category>Applications</category>
+        <embedcategory>Inbound Call Control</embedcategory>
         <publisher>Issabel Foundation</publisher>
         <license>GPLv3+</license>
         <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>

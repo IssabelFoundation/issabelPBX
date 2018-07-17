@@ -6,7 +6,8 @@
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<category>Applications</category>
+    <category>Applications</category>
+    <embedcategory>Internal Options &amp; Configuration</embedcategory>
 	<description>Manages parking lot extensions and other options.
 	Parking is a way of putting calls "on hold", and then picking them up from any extension.
     </description>

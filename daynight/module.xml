@@ -6,7 +6,8 @@
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<category>Applications</category>
+    <category>Applications</category>
+    <embedcategory>Inbound Call Control</embedcategory>
 	<description>
 		Call Flow manual toggle control - allows for two destinations to be chosen and provides a feature code
 		that toggles between the two destinations.

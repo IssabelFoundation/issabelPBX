@@ -13,7 +13,8 @@
 		<version>2.5.0alpha1</version>
 		<module>recordings ge 3.3.8</module>
 	</depends>
-	<category>Applications</category>
+    <category>Applications</category>
+    <embedcategory>Inbound Call Control</embedcategory>
 	<description>
 		Much like a ring group, but works on individual extensions. When someone calls the extension, it can be setup to ring for a number of seconds before trying to ring other extensions and/or external numbers, or to ring all at once, or in other various 'hunt' configurations. Most commonly used to ring someone's cell phone if they don't answer their extension.
 	</description>

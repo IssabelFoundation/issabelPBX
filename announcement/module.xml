@@ -9,7 +9,8 @@
 	<changelog>
 		*2.11.0.4* Initial Issabel Foundation release
 	</changelog>
-	<category>Applications</category>
+    <category>Applications</category>
+    <embedcategory>Inbound Call Control</embedcategory>
 	<description>
 		Plays back one of the system recordings (optionally allowing the user to skip it) and then goes to another destination.
 	</description>

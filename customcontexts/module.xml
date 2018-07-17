@@ -3,7 +3,8 @@
 	<repo>unsupported</repo>
 	<name>Class of Service</name>
 	<version>2.11.0.2</version>
-	<category>Connectivity</category>
+    <category>Connectivity</category>
+    <embedcategory>Basic</embedcategory>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
 	<description>

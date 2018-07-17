@@ -6,7 +6,8 @@
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<category>Applications</category>
+    <category>Applications</category>
+    <embedcategory>Internal Options &amp; Configuration</embedcategory>
 	<description>Allows creating destinations that dial any local number (extensions, feature codes, outside phone numbers) that can be used by other modules (eg, IVR, time conditions) as a call destination.</description>
 	<changelog>
 		*2.11.0.4* Initial Issabel Foundation release

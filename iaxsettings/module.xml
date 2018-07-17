@@ -6,7 +6,8 @@
 	<publisher>Issabel Foundation</publisher>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
 	<license>AGPLv3</license>
-	<category>Settings</category>
+    <category>Settings</category>
+    <embedcategory>Advanced</embedcategory>
 	<menuitems>
 		<iaxsettings>Asterisk IAX Settings</iaxsettings>
 	</menuitems>

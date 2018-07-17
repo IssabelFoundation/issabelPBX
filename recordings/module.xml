@@ -7,7 +7,8 @@
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<canuninstall>no</canuninstall>
-	<category>Admin</category>
+    <category>Admin</category>
+    <embedcategory>Internal Options &amp; Configuration</embedcategory>
 	<description>Creates and manages system recordings, used by many other modules (eg, IVR).</description>
 	<changelog>
 		*3.4.0.3* Initial Issabel Foundation release

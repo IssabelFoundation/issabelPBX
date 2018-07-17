@@ -12,7 +12,8 @@
 		*2.11.1.6* Initial Issabel Foundation release
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
-	<category>Settings</category>
+    <category>Settings</category>
+    <embedcategory>Advanced</embedcategory>
 	<menuitems>
 		<voicemail>Voicemail Admin</voicemail>
 	</menuitems>

@@ -6,7 +6,8 @@
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<category>Reports</category>
+    <category>Reports</category>
+    <embedcategory>Advanced</embedcategory>
 	<description>
 		Provides a snapshot of the current Asterisk configuration
 	</description>

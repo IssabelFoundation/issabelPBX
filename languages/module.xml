@@ -1,32 +1,33 @@
 <module>
-  <rawname>languages</rawname>
-  <repo>extended</repo>
-  <name>Languages</name>
-  <version>2.11.0.2</version>
-	<publisher>Issabel Foundation</publisher>
-	<license>GPLv3+</license>
-	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-  <category>Applications</category>
-  <description>
-		Adds the ability to changes the language within a call flow and add language attribute to users.
-	</description>
-  <menuitems>
-    <languages>Languages</languages>
-  </menuitems>
-  <popovers>
-    <languages>
-      <display>languages</display>
-    </languages>
-  </popovers>
-  <changelog>
-  		*2.11.0.2* Initial Issabel Foundation release
-	</changelog>
-  <depends>
-    <version>2.5.0alpha1</version>
-  </depends>
-  <location>release/2.11/languages-2.11.0.0.tgz</location>
-  <md5sum>b587ea591f4dbf4ee8c1de52bcfb464c</md5sum>
-  <supported>
-    <version>2.10</version>
-  </supported>
+    <rawname>languages</rawname>
+    <repo>extended</repo>
+    <name>Languages</name>
+    <version>2.11.0.2</version>
+    <publisher>Issabel Foundation</publisher>
+    <license>GPLv3+</license>
+    <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+    <category>Applications</category>
+    <embedcategory>Internal Options &amp; Configuration</embedcategory>
+    <description>
+        Adds the ability to changes the language within a call flow and add language attribute to users.
+    </description>
+    <menuitems>
+        <languages>Languages</languages>
+    </menuitems>
+    <popovers>
+        <languages>
+            <display>languages</display>
+        </languages>
+    </popovers>
+    <changelog>
+        *2.11.0.2* Initial Issabel Foundation release
+    </changelog>
+    <depends>
+        <version>2.5.0alpha1</version>
+    </depends>
+    <location>release/2.11/languages-2.11.0.0.tgz</location>
+    <md5sum>b587ea591f4dbf4ee8c1de52bcfb464c</md5sum>
+    <supported>
+        <version>2.10</version>
+    </supported>
 </module>

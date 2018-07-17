@@ -7,7 +7,8 @@
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<description>Allows CallerID Lookup of incoming calls against different sources (OpenCNAM, MySQL, HTTP, ENUM, Phonebook Module)</description>
-	<category>Admin</category>
+    <category>Admin</category>
+    <embedcategory>Inbound Call Control</embedcategory>
 	<changelog>
 		*2.11.1.12* Initial Issabel Foundation release
 	</changelog>

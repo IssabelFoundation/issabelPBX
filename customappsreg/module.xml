@@ -6,7 +6,8 @@
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<category>Admin</category>
+    <category>Admin</category>
+    <embedcategory>Advanced</embedcategory>
 	<description>
 		Registry to add custom extensions and destinations that may be created and used so that the Extensions and Destinations Registry can include these.
 	</description>
