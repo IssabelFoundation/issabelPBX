@@ -239,7 +239,11 @@ function dynroute_get_dynroute_id($name) {
 		// It's not there. Create it and return the ID
 		sql("INSERT INTO dynroute (displayname )  values('$name')");
 		$res = $db->getRow("SELECT dynroute_id from dynroute where displayname='$name'");
+
+                sql("INSERT INTO dynroute_dests (dynroute_id,selection,default_dest,dest) VALUES ($res[0],'','y','app-blackhole,hangup,1')");
+
 	}
+
 	return ($res[0]);
 	
 }
