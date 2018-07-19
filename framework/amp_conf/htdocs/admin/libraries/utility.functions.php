@@ -389,18 +389,17 @@ function issabelpbx_error_handler($errno, $errstr, $errfile, $errline,  $errcont
                 $amp_conf['PHP_ERROR_HANDLER_OUTPUT'] = 'dbug';
         }
 
+        $errormsg = isset($errortype[$errno])?$errortype[$errno]:'Undefined Error';
+
         switch($amp_conf['PHP_ERROR_HANDLER_OUTPUT']) {
                 case 'issabelpbxlog':
-                        $txt = sprintf("%s] (%s:%s) - %s", $errortype[$errno], $errfile, $errline, $errstr);
+                        $txt = sprintf("%s] (%s:%s) - %s", $errormsg, $errfile, $errline, $errstr);
                         issabelpbx_log(FPBX_LOG_PHP,$txt);
                         break;
                 case 'off':
                         break;
                 case 'dbug':
                         default:
-						$errormsg = isset($errortype[$errno])
-									? $errortype[$errno]
-									: 'Undefined Error';
                         $txt = date("Y-M-d H:i:s")
                                 . "\t" . $errfile . ':' . $errline
                                 . "\n"
