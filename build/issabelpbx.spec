@@ -478,6 +478,17 @@ if [ $1 -eq 2 ]; then #rpm update
 
 fi
 
+# Copy custom.conf.sample files as *custom.conf if it does not exist
+for CUSTOM_FILE in /etc/asterisk/*custom*.conf.sample
+do
+    FINAL_FILE="${CUSTOM_FILE%.*}"
+    if [ ! -f $FINAL_FILE  ]; then
+    echo "mv $CUSTOM_FILE $FINAL_FILE" >>/tmp/issabel_rpm.log
+    "instalo timecondition y customcontext" >>/tmp/issabel_rpm.log
+        mv $CUSTOM_FILE $FINAL_FILE
+    fi
+done
+
 # Creo unos links simbolicos para algunos archivos de configuracion.
 # Esto solo es necesario en una instalacion desde cero, donde no se ejecute el comando
 # ./install_amp, pues este comando ya realiza esta tarea
