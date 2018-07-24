@@ -5013,12 +5013,14 @@ function core_devices_addsip($account) {
 
 		if (version_compare($amp_conf['ASTVERSION'],'11','ge')) {
 			$sipfields[] = array($account,'avpf',(isset($_REQUEST['avpf'])?$_REQUEST['avpf']:'no'),$flag++);
+			$sipfields[] = array($account,'force_avp',(isset($_REQUEST['force_avp'])?$_REQUEST['force_avp']:'no'),$flag++);
 			$sipfields[] = array($account,'icesupport',(isset($_REQUEST['icesupport'])?$_REQUEST['icesupport']:'no'),$flag++);
 			
 			// 2015-12-16 Alex: fields for dtls support
 			$sipfields[] = array($account,'dtlsenable',(isset($_REQUEST['dtlsenable'])?$_REQUEST['dtlsenable']:'no'),$flag++);
 			$sipfields[] = array($account,'dtlsverify',(isset($_REQUEST['dtlsverify'])?$_REQUEST['dtlsverify']:'no'),$flag++);
 			$sipfields[] = array($account,'dtlssetup',(isset($_REQUEST['dtlssetup'])?$_REQUEST['dtlssetup']:'actpass'),$flag++);
+			$sipfields[] = array($account,'rtcp_mux',(isset($_REQUEST['rtcp_mux'])?$_REQUEST['rtcp_mux']:'no'),$flag++);
 			$dtlscertfile = isset($_REQUEST['dtlscertfile'])?trim($_REQUEST['dtlscertfile']):'';
 			if ($dtlscertfile != '') $sipfields[] = array($account,'dtlscertfile',$dtlscertfile,$flag++);
 			$dtlsprivatekey = isset($_REQUEST['dtlsprivatekey'])?trim($_REQUEST['dtlsprivatekey']):'';
@@ -7663,6 +7665,8 @@ function core_devices_configpageinit($dispnum) {
 			$select[] = array('value' => 'yes', 'text' => _('Yes'));
 			$tt = _("Whether to Enable AVPF. Defaults to no. The WebRTC standard has selected AVPF as the audio video profile to use for media streams. This is not the default profile in use by Asterisk. As a result the following must be enabled to use WebRTC");
 			$tmparr['avpf'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
+			$tt = _("Force Asterisk to use avp");
+			$tmparr['force_avp'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
 		}
 
 		if (version_compare($amp_conf['ASTVERSION'],'11','ge')) {
@@ -7684,6 +7688,7 @@ function core_devices_configpageinit($dispnum) {
 			unset($select);
 			$select[] = array('value' => 'no', 'text' => _('No'));
 			$select[] = array('value' => 'yes', 'text' => _('Yes'));
+			$select[] = array('value' => 'fingerprint', 'text' => _('Fingerprint'));
 			$tt = _("Whether to verify that the provided peer cerificate is valid. Defaults to no.");
 			$tmparr['dtlsverify'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
 
@@ -7699,6 +7704,13 @@ function core_devices_configpageinit($dispnum) {
 			
 			$tt = _("Path to private key for certificate file");
 			$tmparr['dtlsprivatekey'] = array('value' => '', 'tt' => $tt, 'level' => 1);
+
+			unset($select);
+			$select[] = array('value' => 'no', 'text' => _('No'));
+			$select[] = array('value' => 'yes', 'text' => _('Yes'));
+			$tt = _("Enable rtcp-mux for working with Chrome >= 57");
+			$tmparr['rtcp_mux'] = array('value' => 'actpass', 'tt' => $tt, 'select' => $select, 'level' => 1);
+	
 		}
 
       unset($select);
