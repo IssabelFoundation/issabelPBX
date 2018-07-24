@@ -6,7 +6,7 @@ License: GPL
 Group: Applications/System
 Source0: issabelpbx-%{version}.%{release}.tgz
 Source1: issabelpbx-modules-%{version}.%{release}.tgz
-Source2: issabelpbx-database-dump-%{version}.%{release}.sql
+Source2: issabelpbx-database-dump.sql
 Source3: issabelpbx-rc.local
 Source4: issabelpbx-fake-config.php
 Source5: musiconhold_additional.conf
