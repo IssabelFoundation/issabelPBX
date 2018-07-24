@@ -7704,13 +7704,15 @@ function core_devices_configpageinit($dispnum) {
 			
 			$tt = _("Path to private key for certificate file");
 			$tmparr['dtlsprivatekey'] = array('value' => '', 'tt' => $tt, 'level' => 1);
+	
+		}
 
+		if (version_compare($amp_conf['ASTVERSION'],'13','ge')) {
 			unset($select);
 			$select[] = array('value' => 'no', 'text' => _('No'));
 			$select[] = array('value' => 'yes', 'text' => _('Yes'));
 			$tt = _("Enable rtcp-mux for working with Chrome >= 57");
-			$tmparr['rtcp_mux'] = array('value' => 'actpass', 'tt' => $tt, 'select' => $select, 'level' => 1);
-	
+			$tmparr['rtcp_mux'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
 		}
 
       unset($select);
