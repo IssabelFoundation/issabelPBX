@@ -24,7 +24,7 @@ BuildArch: noarch
 Requires: /sbin/pidof, /bin/tar, issabel-firstboot
 Requires: php, php-pear-DB
 Requires: gettext
-Requires: issabel-framework >= 2.2.0-18
+#Requires: issabel-framework >= 2.2.0-18
 AutoReqProv: no
 Obsoletes: freePBX
 Provides: freePBX
@@ -207,6 +207,12 @@ chmod 755 /etc/rc.d/rc.local
 
 echo "rc.local modified" >>/tmp/issabel_rpm.log
 
+# Cambio carpeta de archivos de configuración de Asterisk
+if [ ! -d /etc/asterisk ]; then
+    mkdir /etc/asterisk
+    chown asterisk.asterisk /etc/asterisk
+fi
+ 
 if [ -d /var/www/html/admin/modules/fw_fop ]; then
     rm -rf /var/www/html/admin/modules/fw_fop
     echo "fw_fop removed" >>/tmp/issabel_rpm.log
