@@ -20,7 +20,8 @@ Source12: issabel_advice.php
 
 BuildRoot: %{_tmppath}/%{name}-%{version}.%{release}-root
 BuildArch: noarch
-Requires: asterisk >= 1.8, /sbin/pidof, /bin/tar, issabel-firstboot
+#Requires: asterisk >= 1.8, /sbin/pidof, /bin/tar, issabel-firstboot
+Requires: /sbin/pidof, /bin/tar, issabel-firstboot
 Requires: php, php-pear-DB
 Requires: gettext
 Requires: issabel-framework >= 2.2.0-18
