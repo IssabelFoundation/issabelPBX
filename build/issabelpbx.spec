@@ -690,18 +690,24 @@ msgfmt $POFILE -o $MOFILE
 done
 systemctl restart httpd
 
-#%triggerin -- asterisk
-#echo "trigger install asterisk issabelpbx"
-#if [ -f /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf ]; then
-#    cp /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf /etc/asterisk
-#fi
+%triggerin -- asterisk11
+date >> /tmp/trigger_issabelpbx.log
+echo "trigger install asterisk11 issabelpbx" >>/tmp/trigger_issabelpbx.log
+grep "^writetimeout" /etc/asterisk/manager.conf >/dev/null
+if [ $? -gt 0 ]; then
+   # No writetimeout in manager.conf, it might be the stock asterisk one, we need to replace it with the issasbelPBX one
+   if [ -f /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf ]; then
+       ls -la /etc/iss* >>/tmp/trigger_issabelpbx.log
+       cp /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf /etc/asterisk
+       sed -i 's/AMPMGRPASS/amp111/' /etc/asterisk/manager.conf
+       asterisk -rx "manager reload"
+       /var/www/html/admin/modules/framework/install_amp
+   fi
+fi
 
-#%triggerin -- asterisk11
-#echo "trigger install asterisk11 issabelpbx"
-#if [ -f /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf ]; then
-#    cp /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf /etc/asterisk
-#fi
-
+%triggerin -- asterisk13
+date >> /tmp/trigger_issabelpbx.log
+echo "trigger install asterisk13 issabelpbx" >>/tmp/trigger_issabelpbx.log
 
 %clean
 rm -rf $RPM_BUILD_ROOT
