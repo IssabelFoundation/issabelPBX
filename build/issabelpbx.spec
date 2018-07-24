@@ -20,6 +20,7 @@ Source12: issabel_advice.php
 
 BuildRoot: %{_tmppath}/%{name}-%{version}.%{release}-root
 BuildArch: noarch
+#Requires: asterisk >= 1.8, /sbin/pidof, /bin/tar
 #Requires: asterisk >= 1.8, /sbin/pidof, /bin/tar, issabel-firstboot
 Requires: /sbin/pidof, /bin/tar, issabel-firstboot
 Requires: php, php-pear-DB
@@ -180,6 +181,7 @@ cp %{SOURCE12} $RPM_BUILD_ROOT/var/www/html/admin/views/
 %pre
 # Asegurarse de que este issabelPBX no sobreescriba una versión actualizada a mano
 if [ $1 -eq 2 ] ; then
+    echo "Upgrade IssabelPBX, check installed versions"
     if [ -f /var/www/html/admin/modules/framework/amp_conf/htdocs/index.php ]; then
         rm -f /var/www/html/admin/modules/framework/amp_conf/htdocs/index.php
     fi
@@ -187,6 +189,9 @@ if [ $1 -eq 2 ] ; then
     ISSABELPBX_CURRVER=`echo "SELECT value FROM asterisk.admin WHERE variable = 'version';" | mysql -s -u root -p$MYSQL_ROOTPWD`
     mkdir -p $RPM_BUILD_ROOT/usr/share/issabelpbx/tmp/
     echo $ISSABELPBX_CURRVER > $RPM_BUILD_ROOT/usr/share/issabelpbx/tmp/issabelPBXver
+
+    echo "Current installed version $ISSABELPBX_CURRVER"
+
     ISSABELPBX_NEWVER=%{version}.%{release}
     php -r "function c(\$a,\$b){while(count(\$a)>0&&count(\$b)>0){\$ax=array_shift(\$a);\$bx=array_shift(\$b);if(\$ax>\$bx)return 1;if(\$ax<\$bx)return -1;}if(count(\$a)>0)return 1;if(count(\$b)>0)return -1;return 0;}exit(c(explode('.', '$ISSABELPBX_CURRVER'), explode('.', '$ISSABELPBX_NEWVER'))>0?1:0);"
     res=$?
@@ -301,14 +306,13 @@ if [ x`pidof mysqld` != "x" ] ; then
         # Por ahora no hago nada pero creo que se deberia invocar al instalador aqui install_amp
         echo "Installing IssabelPBX... "
         echo "Installing IssabelPBX... existe la base asterisk, descomprimo el tgz de issabelpbx" >>/tmp/issabel_rpm.log
-        tar -xvzf /usr/share/issabelpbx/tmp/issabelpbx-%{version}.%{release}.tgz -C /usr/share/issabelpbx/tmp/
+        tar -xvzf /usr/share/issabelpbx/tmp/issabelpbx-%{version}.%{release}.tgz -C /usr/share/issabelpbx/tmp/ >/dev/null
 
         # IssabelPBX change the file /var/www/html/index.php (this is issabel file).
         # File /etc/pbx/aver.flag is a flag for prevent it.
         mkdir -p /etc/pbx/
         touch    /etc/pbx/aver.flag
         rm -rf   /usr/share/issabelpbx/tmp/issabelpbx/amp_conf/htdocs/index.php
-        echo "touch /etc/pbx/aver.flag and remove /usr/share/issabelpbx/tmp/issabelpbx/amp_conf/htdocs/index.php" >>/tmp/issabel_rpm.log
 
         # IssabelPBX su script install_amp con la opcion --force-version sobrescribe todos los archivos
         # que esten en la carpeta ../amp_conf/astetc/* como el archivo extensions_custom.conf es creado
@@ -317,10 +321,9 @@ if [ x`pidof mysqld` != "x" ] ; then
         # archivo de configuracion extensions_custom.conf no debe ser modificado por ningun proceso, este
         # solo puede modificarse manualmente por el usuario del servidor.
         rm -rf /usr/share/issabelpbx/tmp/issabelpbx/amp_conf/astetc/extensions_custom.conf
-        echo "borro el extensions_custom del directorio extract de freepbx" >>/tmp/issabel_rpm.log
 
         # Se copia los archivos dentro de la carpeta amp_conf/htdocs/admin/modules/
-        tar -xvzf /usr/share/issabelpbx/tmp/issabelpbx-modules-%{version}.%{release}.tgz -C /usr/share/issabelpbx/tmp/issabelpbx/amp_conf/htdocs/admin/modules/
+        tar -xvzf /usr/share/issabelpbx/tmp/issabelpbx-modules-%{version}.%{release}.tgz -C /usr/share/issabelpbx/tmp/issabelpbx/amp_conf/htdocs/admin/modules/ >/dev/null
         echo "extract de modules en amp_conf/htdcos/admin/modules" >>/tmp/issabel_rpm.log
 
         # Si existe un archivo cbmysql.conf se reemplaza
@@ -396,6 +399,7 @@ if [ x`pidof mysqld` != "x" ] ; then
             mkdir /etc/asterisk
             chown asterisk.asterisk /etc/asterisk
         fi
+
         mv -f /etc/asterisk.issabel/* /etc/asterisk/
         
         # Restaurar archivo cbmysql.conf previo
@@ -472,11 +476,9 @@ if [ $1 -eq 2 ]; then #rpm update
     mysql -u root $final_mysql_password asterisk -e "TRUNCATE TABLE modules"
     mysql -u root $final_mysql_password asterisk -e "TRUNCATE TABLE module_xml"
 
-
     echo "4 instalo timecondition y customcontext" >>/tmp/issabel_rpm.log
     /var/lib/asterisk/bin/module_admin install timeconditions
     /var/lib/asterisk/bin/module_admin install customcontexts
-    echo "4 instalo local" >>/tmp/issabel_rpm.log
     /var/lib/asterisk/bin/module_admin installlocal
 
     # Copies files that mighty not be present on older versions
@@ -485,16 +487,20 @@ if [ $1 -eq 2 ]; then #rpm update
 
 fi
 
+echo "About to copy custom.conf.sample files if any"
+
 # Copy custom.conf.sample files as *custom.conf if it does not exist
 for CUSTOM_FILE in /etc/asterisk/*custom*.conf.sample
 do
+    if [ $CUSTOM_FILE != '/etc/asterisk/*custom*.conf.sample'  ]; then
     FINAL_FILE="${CUSTOM_FILE%.*}"
-    if [ ! -f $FINAL_FILE  ]; then
-    echo "mv $CUSTOM_FILE $FINAL_FILE" >>/tmp/issabel_rpm.log
-    "instalo timecondition y customcontext" >>/tmp/issabel_rpm.log
+    if [ ! -f $FINAL_FILE   ]; then
+        echo "mv $CUSTOM_FILE $FINAL_FILE" >>/tmp/issabel_rpm.log
         mv $CUSTOM_FILE $FINAL_FILE
     fi
+    fi
 done
+
 
 # Creo unos links simbolicos para algunos archivos de configuracion.
 # Esto solo es necesario en una instalacion desde cero, donde no se ejecute el comando
@@ -683,6 +689,18 @@ PODIR=${A%$POFILE}
 msgfmt $POFILE -o $MOFILE
 done
 systemctl restart httpd
+
+#%triggerin -- asterisk
+#echo "trigger install asterisk issabelpbx"
+#if [ -f /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf ]; then
+#    cp /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf /etc/asterisk
+#fi
+
+#%triggerin -- asterisk11
+#echo "trigger install asterisk11 issabelpbx"
+#if [ -f /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf ]; then
+#    cp /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf /etc/asterisk
+#fi
 
 
 %clean
