@@ -7802,18 +7802,19 @@ function core_devices_configpageload() {
 
     if ( $action == 'del' ) { // Deleted
 
-        if ( $display != 'extensions' )
+        if ( $display != 'extensions' ) {
             $currentcomponent->addguielem('_top', new gui_subheading('del', $extdisplay.' '._("deleted"), false));
+        }
 
     } elseif ( $extdisplay == '' && $tech_hardware == '' ) { // Adding
 
-            if ( $display != 'extensions') {
-                $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Add Device")), 0);
-            } else {
-                $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Add an Extension")), 0);
-            }
-            $currentcomponent->addguielem('_top', new gui_label('instructions', _("Please select your Device below then click Submit")));
-            $currentcomponent->addguielem('Device', new gui_selectbox('tech_hardware', $currentcomponent->getoptlist('devicelist'), '', _("Device"), '', false));
+        if ( $display != 'extensions') {
+            $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Add Device")), 0);
+        } else {
+            $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Add an Extension")), 0);
+        }
+        $currentcomponent->addguielem('_top', new gui_label('instructions', _("Please select your Device below then click Submit")));
+        $currentcomponent->addguielem('Device', new gui_selectbox('tech_hardware', $currentcomponent->getoptlist('devicelist'), '', _("Device"), '', false));
 
     } else {
 
@@ -7903,22 +7904,22 @@ function core_devices_configpageload() {
                     $devoptjs = isset($devoptarr['jsvalidation']) ? $devoptarr['jsvalidation'] : '';
                     $devoptfailmsg = isset($devoptarr['failvalidationmsg']) ? $devoptarr['failvalidationmsg'] : '';
 
-          // We compare the existing secret against what might be in the put to detect changes when validating
-          if ($devopt == "secret") {
-            $currentcomponent->addguielem($section, new gui_hidden($devopname . "_origional", $devoptcurrent), 4);
+                    // We compare the existing secret against what might be in the put to detect changes when validating
+                    if ($devopt == "secret") {
+                        $currentcomponent->addguielem($section, new gui_hidden($devopname . "_origional", $devoptcurrent), 4);
                         if ($devoptcurrent == '' && empty($extdisplay)) {
                             $devoptcurrent = md5(uniqid());
                         }
-          }
+                    }
 
                     if ( $devoptarr['level'] == 0 || $amp_conf['ALWAYS_SHOW_DEVICE_DETAILS'] && $devoptarr['level'] < 2 || $extdisplay != '') { // editing to show advanced as well
-            // Added optional selectbox to enable the unsupported misdn module
-            $tooltip = isset($devoptarr['tt']) ? $devoptarr['tt'] : '';
+                        // Added optional selectbox to enable the unsupported misdn module
+                        $tooltip = isset($devoptarr['tt']) ? $devoptarr['tt'] : '';
                         if (isset($devoptarr['select'])) {
-                          $currentcomponent->addguielem($section, new gui_selectbox($devopname, $devoptarr['select'], $devoptcurrent, $devopt, $tooltip, $devoptjs, $devoptfailmsg), 4);
-            } else {
-                          $currentcomponent->addguielem($section, new gui_textbox($devopname, $devoptcurrent, $devopt, $tooltip, $devoptjs, $devoptfailmsg), 4);
-            }
+                            $currentcomponent->addguielem($section, new gui_selectbox($devopname, $devoptarr['select'], $devoptcurrent, $devopt, $tooltip, $devoptjs, $devoptfailmsg), 4);
+                        } else {
+                            $currentcomponent->addguielem($section, new gui_textbox($devopname, $devoptcurrent, $devopt, $tooltip, $devoptjs, $devoptfailmsg), 4);
+                        }
                     } else { // add so only basic
                         $currentcomponent->addguielem($section, new gui_hidden($devopname, $devoptcurrent), 4);
                     }
