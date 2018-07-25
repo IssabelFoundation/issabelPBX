@@ -224,8 +224,8 @@ if [ -d /var/www/html/admin/modules/fw_fop ]; then
 fi
 
 if [ -f /etc/issabel.conf ]; then
-    echo "exists /etc/issabel.conf, check if we have /etc/issabelpbx.conf...." >>/tmp/issabel_rpm.log
-    echo "Checking if issabelpbx was already installed ..."
+    echo "Checking if issabelpbx was already installed ..." 
+    echo "Checking if issabelpbx was already installed ..."  >>/tmp/issabel_rpm.log
     if [ ! -f /etc/issabelpbx.conf ] ; then
         echo "It was not installed, is IssabelPBX installed? ..." >>/tmp/issabel_rpm.log
         echo "It was not installed, is IssabelPBX installed? ..."
@@ -234,6 +234,7 @@ if [ -f /etc/issabel.conf ]; then
             echo "IssabelPBX is installed, so force module updates for IssabelPBX by removing modules and modules_xml table contents"
             # Force regeneration of modules table when upgrading from IssabelPBX
             issabel_root_password=`grep mysqlrootpwd= /etc/issabel.conf | sed 's/^mysqlrootpwd=//'`
+            echo "root password for mysql is $issabel_root_password" >>/tmp/issabel_rpm.log
             echo "root password for mysql is $issabel_root_password"
             final_mysql_password="-p$issabel_root_password"
 
@@ -243,6 +244,7 @@ if [ -f /etc/issabel.conf ]; then
                 final_mysql_password='';
             fi
 
+            echo "Truncating modules and module_xml tables" >>/tmp/issabel_rpm.log
             echo "Truncating modules and module_xml tables"
             mysql -u root $final_mysql_password asterisk -e "TRUNCATE TABLE modules"
             mysql -u root $final_mysql_password asterisk -e "TRUNCATE TABLE module_xml"
@@ -269,16 +271,18 @@ if [ $1 -eq 1 ] ; then # install
 
        AMI_ADMINPWD=`grep amiadminpwd= /etc/issabel.conf | sed 's/^amiadminpwd=//'`
 
+       echo "/etc/issabel.conf found with AMI password $AMI_ADMINPWD!" >>/tmp/issabel_rpm.log
        echo "/etc/issabel.conf found with AMI password $AMI_ADMINPWD!"
          
        sed -i -e "s/^\$amp_conf\['AMPDBPASS'\]\s*=\s*'\w*'/\$amp_conf['AMPDBPASS']  = '$AMI_ADMINPWD'/" /etc/issabelpbx.conf
+       sed -i -e "s/AMPMGRPASS/$AMI_ADMINPWD/" /etc/asterisk/manager.conf
     fi
 else
     echo "Es un UPGRADE de RPM, revisar si manager.conf tiene el #include manager_general_additional.conf" >>/tmp/issabel_rpm.log
 
     grep manager_general_additional /etc/asterisk/manager.conf >/dev/null
     if [ $? -ne 0   ]; then
-        echo "manager.conf no incluye el include dek general_additional, debo agregarlo"  >>//tmp/issabel_rpm.log
+        echo "manager.conf no incluye el include de general_additional, debo agregarlo"  >>//tmp/issabel_rpm.log
         sed -i '/^displayconnects/a #include manager_general_additional.conf' /etc/asterisk/manager.conf
         sed -i '/^displayconnects/d' /etc/asterisk/manager.conf
         if [ ! -f /etc/asterisk/manager_general_additional.conf  ]; then
@@ -288,17 +292,15 @@ else
             echo "webenabled=no" >>/etc/asterisk/manager_general_additional.conf
             chown asterisk.asterisk /etc/asterisk/manager_general_additional.conf
         fi
-    else
-        echo "ya lo tiene, no hago nada"
     fi
 fi
 
 # La base de datos esta corriendo
 if [ x`pidof mysqld` != "x" ] ; then
-    echo "mysql esta corriendo" >>/tmp/issabel_rpm.log
     # La base de datos existe
     # NOTA: Es muy importante notar que si la db esta corriendo y la base 'asterisk' existe no necesariamente
     #       tendria q ejecutar el script ./install_amp porque no necesariamente quiero actualizar
+    echo "MySQL is running!" >>/tmp/issabel_rpm.log
     echo "MySQL is running!"
 
     if [ -d "/var/lib/mysql/asterisk" ]; then
@@ -328,7 +330,8 @@ if [ x`pidof mysqld` != "x" ] ; then
 
         # Si existe un archivo cbmysql.conf se reemplaza
         if [ -f /etc/asterisk/cbmysql.conf ] ; then
-            echo "1 Saving cbmysql.conf ...";
+            echo "1 Saving cbmysql.conf ..." >>/tmp/issabel_rpm.log
+            echo "1 Saving cbmysql.conf ..."
             mv /etc/asterisk/cbmysql.conf /etc/asterisk/cbmysql.conf.bak_%{name}-%{version}-%{release}
         fi
 
@@ -340,7 +343,8 @@ if [ x`pidof mysqld` != "x" ] ; then
         
         # Restaurar archivo cbmysql.conf previo
         if [ -f /etc/asterisk/cbmysql.conf.bak_%{name}-%{version}-%{release} ] ; then
-            echo "1 Restoring cbmysql.conf ...";
+            echo "1 Restoring cbmysql.conf ..." >>/tmp/issabel_rpm.log
+            echo "1 Restoring cbmysql.conf ..."
             mv /etc/asterisk/cbmysql.conf.bak_%{name}-%{version}-%{release} /etc/asterisk/cbmysql.conf
         fi
 
@@ -371,13 +375,15 @@ if [ x`pidof mysqld` != "x" ] ; then
         fi
 
 
+        echo "Installing database from SQL dump... $issabel_root_password" >>/tmp/issabel_rpm.log
         echo "Installing database from SQL dump... $issabel_root_password"
-        mysql -u root $final_mysql_password < /usr/share/issabelpbx/tmp/issabelpbx-database-dump-%{version}.%{release}.sql
+        mysql -u root $final_mysql_password < /usr/share/issabelpbx/tmp/issabelpbx-database-dump.sql
         ret=$?
         if [ $ret -ne 0 ] ; then
                	exit $ret
         fi	
 
+        echo "Grant access to asteriskuser to databases..." >>/tmp/issabel_rpm.log
         echo "Grant access to asteriskuser to databases..."
         mysql -u root $final_mysql_password -e "GRANT ALL ON asterisk.* TO asteriskuser@localhost IDENTIFIED BY 'palosanto'"
 
@@ -390,7 +396,8 @@ if [ x`pidof mysqld` != "x" ] ; then
 
         # Si existe un archivo cbmysql.conf se reemplaza
         if [ -f /etc/asterisk/cbmysql.conf ] ; then
-            echo "2 Saving cbmysql.conf ...";
+            echo "2 Saving cbmysql.conf ..." >>/tmp/issabel_rpm.log
+            echo "2 Saving cbmysql.conf ..."
             mv /etc/asterisk/cbmysql.conf /etc/asterisk/cbmysql.conf.bak_%{name}-%{version}-%{release}
         fi
 
@@ -400,15 +407,18 @@ if [ x`pidof mysqld` != "x" ] ; then
             chown asterisk.asterisk /etc/asterisk
         fi
 
-        mv -f /etc/asterisk.issabel/* /etc/asterisk/
+        echo "Copio /etc/asterisk.isabel a /etc/asterisk" >> /tmp/issabel_rpm.log
+        ls -la /etc/asterisk.issabel/manager.conf >>/tmp/issabel_rpm.log
+        cp /etc/asterisk.issabel/* /etc/asterisk/
         
         # Restaurar archivo cbmysql.conf previo
         if [ -f /etc/asterisk/cbmysql.conf.bak_%{name}-%{version}-%{release} ] ; then
-            echo "2 Restoring cbmysql.conf ...";
+            echo "2 Restoring cbmysql.conf ..." >>/tmp/issabel_rpm.log
+            echo "2 Restoring cbmysql.conf ..."
             mv /etc/asterisk/cbmysql.conf.bak_%{name}-%{version}-%{release} /etc/asterisk/cbmysql.conf
         fi
     fi
-        echo "2 ejecuto module admin para instalar timeconditions y customcontexts" >>/tmp/issabel_rpm.log
+    echo "2 ejecuto module admin para instalar timeconditions y customcontexts" >>/tmp/issabel_rpm.log
 
     /var/lib/asterisk/bin/module_admin install timeconditions
     /var/lib/asterisk/bin/module_admin install customcontexts
@@ -420,16 +430,15 @@ else
     # La base de datos existe
     if [ -d "/var/lib/mysql/asterisk" ]; then
         # Abortar instalacion
-        echo "3 base apagada aborto instalacion" >>/tmp/issabel_rpm.log
-
+        echo "MySQL service down!!!. Please start this service before installing this RPM. Aborting..." >>/tmp/issabel_rpm.log
         echo "MySQL service down!!!. Please start this service before installing this RPM. Aborting..."
         exit 255
     # La base de datos NO existe
     else
-        # Creo la base de datos, incluido el esquema de usuario/permiso
-        echo "3 base existe , asumo instalacion iso, esperamos instalacion de base de datos hasta el primer boot" >>/tmp/issabel_rpm.log
+        # Mysql apagado y la base de datos no existe... Creo la base de datos, incluido el esquema de usuario/permiso
+        echo "Assumed ISO installation. Delayed database installation until first Issabel boot..." >>/tmp/issabel_rpm.log
         echo "Assumed ISO installation. Delayed database installation until first Issabel boot..."
-        cp /usr/share/issabelpbx/tmp/issabelpbx-database-dump-%{version}.%{release}.sql /var/spool/issabel-mysqldbscripts/01-issabelpbx.sql
+        cp /usr/share/issabelpbx/tmp/issabelpbx-database-dump.sql /var/spool/issabel-mysqldbscripts/01-issabelpbx.sql
 
         # Ruta a módulos es incorrecta en 64 bits. Se corrige a partir de ruta de Asterisk.
         RUTAREAL=`grep astmoddir /etc/asterisk/asterisk.conf | sed 's|^.* \(/.\+\)$|\1|' -`
@@ -437,7 +446,9 @@ else
         sed --in-place "s|/usr/lib/asterisk/modules|$RUTAREAL|g" /etc/amportal.conf
 
         # Cambio carpeta de archivos de configuración de Asterisk
-        mv -f /etc/asterisk.issabel/* /etc/asterisk/
+        echo "Copio /etc/asterisk.isabel a /etc/asterisk" >> /tmp/issabel_rpm.log
+        ls -la /etc/asterisk.issabel/manager.conf >>/tmp/issabel_rpm.log
+        cp /etc/asterisk.issabel/* /etc/asterisk/
 
         if [ ! -f "/etc/asterisk/extensions_custom.conf" ]; then
             echo "cp /etc/asterisk/extensions_custom.conf.sample /etc/asterisk/extensions_custom.conf" >>/tmp/issabel_rpm.log
@@ -461,7 +472,7 @@ if [ $1 -eq 2 ]; then #rpm update
     ##cp -ra /var/www/html/recordings/theme/images/* /var/www/html/admin/images/
 
     # Force regeneration of modules table after UPGRADE
-    echo "4 trunco las tablas module y module_xml" >>/tmp/issabel_rpm.log
+    echo "Trunco las tablas module y module_xml" >>/tmp/issabel_rpm.log
 
     issabel_root_password=`grep mysqlrootpwd= /etc/issabel.conf | sed 's/^mysqlrootpwd=//'`
 
@@ -483,10 +494,13 @@ if [ $1 -eq 2 ]; then #rpm update
 
     # Copies files that mighty not be present on older versions
     # Maybe all the /etc/asterisk.issabel directory needs to be copied...?
+    echo "copy rest of conf files from asterisk.issabel, is there something?" >>/tmp/issabel_rpm.log
+    ls -la /etc/asterisk.issabel/res_parking.conf >>/tmp/issabel_rpm.log
     cp /etc/asterisk.issabel/res_parking.conf /etc/asterisk/
 
 fi
 
+echo "About to copy custom.conf.sample files if any" >>/tmp/issabel_rpm.log
 echo "About to copy custom.conf.sample files if any"
 
 # Copy custom.conf.sample files as *custom.conf if it does not exist
@@ -513,22 +527,29 @@ done
 # Esto es porque por omision asterisk pone estos archivos y hay que borrarlos
 # Ademas en versiones del este rpm menores a 2.4 se ponian archivos regulares en lugar de los
 # links a los archivos dentro de issabelpbx, lo cual estaba mal
+
+echo "About to Do symlinks" >>/tmp/issabel_rpm.log
 for etcdir in `find /var/www/html/admin/modules/ -name etc` ; do
 # TODO: parece que issabelpbx está sobreescribiendo /etc/asterisk/cbmysql.conf con su propia versión, destruye contraseña de mysql
 # TODO: hay que testear si /etc/asterisk/$BN es realmente un symlink, que no esté roto, y que realmente apunta a $astconf
 #       podría bastar con borrar y volver a crear si es realmente un symlink ( verificar si funciona test con -h )
     for astconf in $etcdir/*conf ; do
         BN=`basename $astconf`
+        echo "check symlink $BN" >>/tmp/issabel_rpm.log
         if [ -f "/etc/asterisk/$BN" ] ; then
             if [ -h "/etc/asterisk/$BN" ] ; then
+                echo "Deleting old symlink /etc/asterisk/$BN ..." >>/tmp/issabel_rpm.log
                 echo "Deleting old symlink /etc/asterisk/$BN ..."
                 rm -f /etc/asterisk/$BN
             else
+                echo "Backing up old /etc/asterisk/$BN as /etc/asterisk/$BN.old_%{name}-%{version}-%{release}" >>/tmp/issabel_rpm.log
                 echo "Backing up old /etc/asterisk/$BN as /etc/asterisk/$BN.old_%{name}-%{version}-%{release}"
+                echo "mv /etc/asterisk/$BN /etc/asterisk/$BN.old_%{name}-%{version}-%{release}" >>/tmp/issabel_rpm.log
                 mv /etc/asterisk/$BN /etc/asterisk/$BN.old_%{name}-%{version}-%{release}
             fi
         fi
         if [ ! -e "/etc/asterisk/$BN" ]; then
+            echo "ln -s $astconf /etc/asterisk/$BN" >>/tmp/issabel_rpm.log
             ln -s $astconf /etc/asterisk/$BN
         fi        
     done
@@ -662,10 +683,12 @@ done
 
 # Explicitly set MOHDIR=mohmp3 in amportal.conf
 if ! grep -q -s '^MOHDIR' /etc/amportal.conf ; then
+    echo 'No MOHDIR directive found in /etc/amportal.conf, setting to mohmp3 ...' >>/tmp/issabel_rpm.log
     echo 'No MOHDIR directive found in /etc/amportal.conf, setting to mohmp3 ...'
     echo -e "\n\nMOHDIR=mohmp3" >> /etc/amportal.conf
 fi
 if grep -q -s '^MOHDIR=moh$' /etc/amportal.conf ; then
+    echo "Fixing MOHDIR to point to mohmp3 instead of moh in /etc/amportal.conf ..." >>/tmp/issabel_rpm.log
     echo "Fixing MOHDIR to point to mohmp3 instead of moh in /etc/amportal.conf ..."
     sed -i "s/^MOHDIR=moh$/MOHDIR=mohmp3/" /etc/amportal.conf
 fi
@@ -673,6 +696,7 @@ fi
 # Change moh to mohmp3 on all Asterisk configuration files touched by IssabelPBX
 for i in /etc/asterisk/musiconhold*.conf ; do
     if ! grep -q -s '^directory=/var/lib/asterisk/moh$' $i ; then
+        echo "Replacing instances of moh with mohmp3 in $i ..." >>/tmp/issabel_rpm.log
         echo "Replacing instances of moh with mohmp3 in $i ..."
         sed -i "s|^directory=/var/lib/asterisk/moh\(/\)\?$|directory=/var/lib/asterisk/mohmp3/|" $i
     fi
@@ -690,24 +714,27 @@ msgfmt $POFILE -o $MOFILE
 done
 systemctl restart httpd
 
-%triggerin -- asterisk11
-date >> /tmp/trigger_issabelpbx.log
-echo "trigger install asterisk11 issabelpbx" >>/tmp/trigger_issabelpbx.log
-grep "^writetimeout" /etc/asterisk/manager.conf >/dev/null
-if [ $? -gt 0 ]; then
-   # No writetimeout in manager.conf, it might be the stock asterisk one, we need to replace it with the issasbelPBX one
-   if [ -f /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf ]; then
-       ls -la /etc/iss* >>/tmp/trigger_issabelpbx.log
-       cp /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf /etc/asterisk
-       sed -i 's/AMPMGRPASS/amp111/' /etc/asterisk/manager.conf
-       asterisk -rx "manager reload"
-       /var/www/html/admin/modules/framework/install_amp
-   fi
-fi
-
-%triggerin -- asterisk13
-date >> /tmp/trigger_issabelpbx.log
-echo "trigger install asterisk13 issabelpbx" >>/tmp/trigger_issabelpbx.log
+#%triggerin -- asterisk11
+#date >> /tmp/trigger_issabelpbx.log
+#echo "trigger install asterisk11 issabelpbx" >>/tmp/trigger_issabelpbx.log
+#grep "^writetimeout" /etc/asterisk/manager.conf >/dev/null
+#if [ $? -gt 0 ]; then
+#   # No writetimeout in manager.conf, it might be the stock asterisk one, we need to replace it with the issasbelPBX one
+#   if [ -f /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf ]; then
+#       ls -la /etc/iss* >>/tmp/trigger_issabelpbx.log
+#       cp /var/www/html/admin/modules/framework/amp_conf/astetc/manager.conf /etc/asterisk
+#       sed -i 's/AMPMGRPASS/amp111/' /etc/asterisk/manager.conf
+#       service asterisk restart
+#
+#       if [ -f /etc/issabel.conf  ]; then
+#           issabel_root_password=`grep mysqlrootpwd= /etc/issabel.conf | sed 's/^mysqlrootpwd=//'`
+#           /var/www/html/admin/modules/framework/install_amp --username=root --password=${issabel_root_password}
+#       else 
+#           /var/www/html/admin/modules/framework/install_amp --username=root 
+#       fi
+#       service asterisk restart
+#   fi
+#fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
