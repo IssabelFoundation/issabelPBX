@@ -74,54 +74,58 @@ if (isset($_REQUEST["members"])) {
 
         // check if an agent (starts with a or A)
 
-    $exten_prefix = strtoupper(substr($members[$key],0,1));
+        $exten_prefix = strtoupper(substr($members[$key],0,1));
         $this_member = preg_replace("/[^0-9#\,*]/", "", $members[$key]);
-    switch ($exten_prefix) {
-    case 'A':
-      $exten_type = 'Agent';
-      break;
-    case 'S':
-      $exten_type = 'SIP';
-      break;
-    case 'X':
-      $exten_type = 'IAX2';
-      break;
-    case 'Z':
-      $exten_type = 'ZAP';
-      break;
-    case 'D':
-      $exten_type = 'DAHDI';
-      break;
-    default;
-      $exten_type = 'Local';
-    }
+        switch ($exten_prefix) {
+            case 'A':
+                $exten_type = 'Agent';
+                break;
+            case 'S':
+                $exten_type = 'SIP';
+                break;
+            case 'X':
+                $exten_type = 'IAX2';
+                break;
+            case 'Z':
+                $exten_type = 'ZAP';
+                break;
+            case 'D':
+                $exten_type = 'DAHDI';
+                break;
+            default;
+                $exten_type = 'Local';
+        }
 
         $penalty_pos = strrpos($this_member, ",");
         if ( $penalty_pos === false ) {
-                $penalty_val = 0;
+            $penalty_val = 0;
         } else {
-                $penalty_val = substr($this_member, $penalty_pos+1); // get penalty
-                $this_member = substr($this_member,0,$penalty_pos); // clean up ext
-                $this_member = preg_replace("/[^0-9#*]/", "", $this_member); //clean out other ,'s
-                $penalty_val = preg_replace("/[^0-9*]/", "", $penalty_val); // get rid of #'s if there
-                $penalty_val = ($penalty_val == "") ? 0 : $penalty_val;
+            $penalty_val = substr($this_member, $penalty_pos+1); // get penalty
+            $this_member = substr($this_member,0,$penalty_pos); // clean up ext
+            $this_member = preg_replace("/[^0-9#*]/", "", $this_member); //clean out other ,'s
+            $penalty_val = preg_replace("/[^0-9*]/", "", $penalty_val); // get rid of #'s if there
+            $penalty_val = ($penalty_val == "") ? 0 : $penalty_val;
         }
 
         // remove blanks // prefix with the channel
         if (empty($this_member))
             unset($members[$key]);
         else {
-      switch($exten_type) {
-        case 'Agent':
-        case 'SIP':
-        case 'IAX2':
-        case 'ZAP':
-        case 'DAHDI':
-                $members[$key] = "$exten_type/$this_member,$penalty_val";
-          break;
-        case 'Local':
-                $members[$key] = "$exten_type/$this_member@$exten_context/n,$penalty_val";
-      }
+            switch($exten_type) {
+                case 'Agent':
+                    if(version_compare($astver, '13', 'ge')) {
+                        $members[$key] = "Local/$this_member@agents,$penalty_val,Agent/$this_member,Agent:$this_member";
+                        break;
+                    }
+                case 'SIP':
+                case 'IAX2':
+                case 'ZAP':
+                case 'DAHDI':
+                    $members[$key] = "$exten_type/$this_member,$penalty_val";
+                    break;
+                case 'Local':
+                    $members[$key] = "$exten_type/$this_member@$exten_context/n,$penalty_val";
+            }
         }
     }
     // check for duplicates, and re-sequence
@@ -208,7 +212,7 @@ if ($action == 'delete') {
 
   $mem_array = array();
   foreach ($member as $mem) {
-    if (preg_match("/^(Local|Agent|SIP|DAHDI|ZAP|IAX2)\/([\d]+).*,([\d]+)$/",$mem,$matches)) {
+    if (preg_match("/^(Local|Agent|SIP|DAHDI|ZAP|IAX2)\/([\d]+).*,([\d]+)(.*)$/",$mem,$matches)) {
       switch ($matches[1]) {
         case 'Agent':
           $exten_prefix = 'A';
@@ -226,7 +230,12 @@ if ($action == 'delete') {
           $exten_prefix = 'D';
           break;
         case 'Local':
-          $exten_prefix = '';
+          if(preg_match("/@agents/",$mem)) {
+              // Asterisk 13 pseudo agents
+              $exten_prefix = 'A';
+          } else {
+              $exten_prefix = '';
+          }
           break;
       }
       $mem_array[] = $exten_prefix.$matches[2].','.$matches[3];
