@@ -374,7 +374,6 @@ if [ x`pidof mysqld` != "x" ] ; then
             final_mysql_password='';
         fi
 
-
         echo "Installing database from SQL dump... $issabel_root_password" >>/tmp/issabel_rpm.log
         echo "Installing database from SQL dump... $issabel_root_password"
         mysql -u root $final_mysql_password < /usr/share/issabelpbx/tmp/issabelpbx-database-dump.sql
@@ -497,6 +496,12 @@ if [ $1 -eq 2 ]; then #rpm update
     echo "copy rest of conf files from asterisk.issabel, is there something?" >>/tmp/issabel_rpm.log
     ls -la /etc/asterisk.issabel/res_parking.conf >>/tmp/issabel_rpm.log
     cp /etc/asterisk.issabel/res_parking.conf /etc/asterisk/
+
+    for A in /usr/share/issabelpbx/tmp/issabelpbx/SQL/update*
+    do
+        echo "5 applying sql upgrade $A"
+        mysql -u root $final_mysql_password asterisk < $A >/dev/null
+    done
 
 fi
 
