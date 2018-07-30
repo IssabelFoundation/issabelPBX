@@ -564,23 +564,6 @@ if(DB::IsError($result)) {
 	out(_("Adding primary index to extension field on users table"));
 }
 
-$sql = "DESC alldestinations";
-$result = $db->query($sql);
-if(DB::IsError($result)) {
-    $sql="CREATE VIEW `alldestinations` AS SELECT `users`.`extension` AS `extension`,`users`.`name` AS `name`,'from-internal' AS `context`,'extension' AS `type` from `users` UNION SELECT `queues_config`.`extension` AS `extension`,`queues_config`.`descr` AS `descr`,'ext-queues' AS `context`,'queue' AS `type` from `queues_config` UNION SELECT `ringgroups`.`grpnum` AS `grpnum`,`ringgroups`.`description` AS `description`,'ext-group' AS `context`,'ringgroup' AS `type` from `ringgroups`";
-
-	$result = $db->query($sql);
-    if(DB::IsError($result)) {
-        out(print_r($result,1));
-		out(_("Unable to create alldestinations view"));
-		issabelpbx_log(FPBX_LOG_ERROR, "Unable to create alldestinations view");
-	} else {
-		out(_("Adding alldestinations view"));
-	}
-} else {
-    out(_('No need to create alldestinations view'));
-}
-
 // The following are from General Settings that may need to be migrated.
 // We will first create them all, the define_conf_settings() method will
 // not change the value if already set. We will update the settings
