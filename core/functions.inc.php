@@ -5568,7 +5568,9 @@ function core_users_add($vars, $editmode=false) {
     //escape quotes and any other bad chars:
     if(!get_magic_quotes_gpc()) {
         $outboundcid = isset($outboundcid) ? $db->escapeSimple($outboundcid) : '';
+        $outboundcid_db = str_replace('\"','"',$outboundcid);
         $name = isset($name) ? $db->escapeSimple($name) : '';
+        $name_db = str_replace('\"','"',$name);
     }
 
     //if voicemail is enabled, set the box@context to use
@@ -5597,12 +5599,12 @@ function core_users_add($vars, $editmode=false) {
     $sql .= implode(", ", array_map('q', array(
         $extension,
         isset($password)?$password:'',
-        isset($name)?$name:'',
+        isset($name_db)?$name_db:'',
         isset($voicemail)?$voicemail:'default',
         isset($ringtimer)?$ringtimer:'',
         isset($noanswer)?$noanswer:'',
         isset($recording)?$recording:'',
-        isset($outboundcid)?$outboundcid:'',
+        isset($outboundcid_db)?$outboundcid_db:'',
         isset($sipname)?$sipname:'',
     )));
   $sql .= ", $noanswer_cid, $busy_cid, $chanunavail_cid, $noanswer_dest, $busy_dest, $chanunavail_dest)";
