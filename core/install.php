@@ -576,6 +576,8 @@ if (empty($check)) {
 	} else {
 		out(_("Adding alldestinations view"));
 	}
+} else {
+    out(print_r($check,1));
 }
 
 // The following are from General Settings that may need to be migrated.
