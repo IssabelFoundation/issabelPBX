@@ -525,7 +525,7 @@ foreach ($new_cols as $col) {
 $sql = "SHOW KEYS FROM devices WHERE Key_name='tech'";
 $check = $db->getOne($sql);
 if (empty($check)) {
-	$sql = "ALTER TABLE devices ADD KEY `id` (`id`), ADD KEY `tech` (`tech`)";
+	$sql = "ALTER TABLE devices ADD PRIMARY KEY `id` (`id`), ADD KEY `tech` (`tech`)";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
 		out(_("Unable to add index to tech field in devices"));
@@ -535,16 +535,46 @@ if (empty($check)) {
 	}
 }
 
-$sql = "SHOW KEYS FROM users WHERE Key_name='extensions'";
+$sql = "SHOW KEYS FROM users WHERE Key_name='extension'";
 $check = $db->getOne($sql);
 if (empty($check)) {
-	$sql = "ALTER TABLE users ADD KEY `extension` (`extension`), ADD KEY `extension` (`extension`)";
+	$sql = "ALTER TABLE users ADD PRIMARY KEY `extension` (`extension`)";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
 		out(_("Unable to add index to extensions field in users"));
 		issabelpbx_log(FPBX_LOG_ERROR, "Failed to add index to extensions field in the users table");
 	} else {
 		out(_("Adding index to extensions field in the users"));
+	}
+}
+
+$result = $db->query("ALTER TABLE devices ADD PRIMARY KEY `id` (`id`)");
+if(DB::IsError($result)) {
+	out(_("No need to set primary index on devices table"));
+	issabelpbx_log(FPBX_LOG_ERROR, "No need to set primary index on devices table");
+} else {
+	out(_("Adding primary index to id field on devices table"));
+}
+
+$result = $db->query("ALTER TABLE users ADD PRIMARY KEY `extension` (`extension`)");
+if(DB::IsError($result)) {
+	out(_("No need to set primary index on users table"));
+	issabelpbx_log(FPBX_LOG_ERROR, "No need to set primary index on users table");
+} else {
+	out(_("Adding primary index to extension field on users table"));
+}
+
+$sql = "DESC alldestinations";
+$check = $db->getOne($sql);
+if (empty($check)) {
+    $sql="CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `alldestinations` AS select `users`.`extension` AS `extension`,`users`.`name` AS `name`,'from-internal' AS `context`,'extension' AS `type` from `users` union select `queues_config`.`extension` AS `extension`,`queues_config`.`descr` AS `descr`,'ext-queues' AS `context`,'queue' AS `type` from `queues_config` union select `ringgroups`.`grpnum` AS `grpnum`,`ringgroups`.`description` AS `description`,'ext-group' AS `context`,'ringgroup' AS `type` from `ringgroups`";
+
+	$result = $db->query($sql);
+	if(DB::IsError($result)) {
+		out(_("Unable to create alldestinations view"));
+		issabelpbx_log(FPBX_LOG_ERROR, "Unable to create alldestinations view");
+	} else {
+		out(_("Adding alldestinations view"));
 	}
 }
 
