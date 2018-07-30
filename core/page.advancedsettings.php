@@ -52,7 +52,7 @@ $display_friendly_name	= $conf['AS_DISPLAY_FRIENDLY_NAME']['value'];
 $current_category		= '';
 $row					= 0;
 
-echo '<input type="image" src="images/spinner.gif" style="display:none">';
+echo '<input type="image" src="/admin/images/spinner.gif" style="display:none">';
 echo '<table class="alt_table">';
 foreach ($conf as $c){
 	if ($c['level'] > $display_level || $c['hidden'] && !$display_hidden || $c['readonly'] && !$display_readonly) {
@@ -136,11 +136,11 @@ foreach ($conf as $c){
 	}
 	echo '</td>';
 	if(!$c['readonly'] || $amp_conf['AS_OVERRIDE_READONLY'] && !$c['hidden']){
-		echo '<td><input type="image" class="adv_set_default" src="images/default-option.png" data-key="'.$c['keyword'].'" data-default="'.$c['defaultval'].'" title="'._('Revert to Default').'"'
+		echo '<td><input type="image" class="adv_set_default" src="/admin/images/default-option.png" data-key="'.$c['keyword'].'" data-default="'.$c['defaultval'].'" title="'._('Revert to Default').'"'
 			. ' data-type="' . (($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '') . '" '
 			. (($amp_conf[$c['keyword']] == $c['defaultval']) ? ' style="display:none" ' : '')
 			.'></td>';
-		echo '<td class="savetd"><input type="image" class="save" src="images/accept.png" data-key="'
+		echo '<td class="savetd"><input type="image" class="save" src="/admin/images/accept.png" data-key="'
 			. $c['keyword']
 			. '" title="' . _('Save') . '"'
 			. ' data-type="' . (($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '') . '" '
