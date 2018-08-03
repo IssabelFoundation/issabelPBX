@@ -7,4 +7,4 @@
 touch /var/lock/subsys/local
 /usr/local/sbin/motd.sh > /etc/motd
 /usr/sbin/fxotune -s
-/usr/sbin/amportal start
+#/usr/sbin/amportal start
