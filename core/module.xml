@@ -4,14 +4,15 @@
     <category>Applications</category>
     <embedcategory>Basic</embedcategory>
     <name>Core</name>
-    <version>2.11.0.46</version>
+    <version>2.11.0.47</version>
     <publisher>Issabel Foundation</publisher>
     <license>GPLv3+</license>
     <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <candisable>no</candisable>
     <canuninstall>no</canuninstall>
     <changelog>
-        *2.11.0.46* Added options for features and manager settings
+        *2.11.0.47* Bump release for Aug 2018 iso
+        *2.11.0.45* Added options for features and manager settings
         *2.11.0.35* Initial Issabel Foundation release
     </changelog>
     <depends>

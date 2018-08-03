@@ -1,7 +1,7 @@
 Summary: IssabelPBX is a GUI configuration tool for Asterisk. Forked from FreePBX/AMP
 Name: issabelPBX
 Version: 2.11.0
-Release: 46
+Release: 47
 License: GPL
 Group: Applications/System
 Source0: issabelpbx-%{version}.%{release}.tgz
