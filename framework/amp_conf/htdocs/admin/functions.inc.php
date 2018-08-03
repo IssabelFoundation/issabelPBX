@@ -260,6 +260,10 @@ function engine_getinfo($force_read=false) {
                 $response = $astman->send_request('Command', array('Command'=>'show version'));
             }
             $verinfo = $response['data'];
+            // perhaps not fully booted yet
+            if (preg_match('/No such command/',$response['data'])) {
+                $verinfo = exec('asterisk -V');
+            }
         } else {
             // could not connect to asterisk manager, try console
             $verinfo = exec('asterisk -V');
