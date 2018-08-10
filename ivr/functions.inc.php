@@ -622,7 +622,7 @@ function ivr_save_entries($id, $entries){
 
 //draw uvr entires table header
 function ivr_draw_entries_table_header_ivr() {
-	return  array(_('Ext'), _('Destination'), fpbx_label(_('Return'), _('Return to IVR')), _('Delete'));
+    return  array( fpbx_label(_('Ext'),_('Any digit selection will be saved in the IVR_DIGIT_PRESSED chanel variable')), _('Destination'), fpbx_label(_('Return'), _('Return to IVR')), _('Delete') );
 }
 
 //draw actualy entires
