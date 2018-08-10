@@ -1,6 +1,7 @@
-<?php /* $Id$ */
-//	License for all code of this IssabelPBX module can be found in the license file inside the module directory
-//	Copyright 2006-2014 Schmooze Com Inc.
+<?php /* $Id: page.trunks.php 1145 2006-03-14 19:53:20Z mheydon1973 $ */
+// routing.php Copyright (C) 2004 Greg MacLellan (greg@mtechsolutions.ca)
+// Asterisk Management Portal Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
+// Copyright 2006-2014 Schmooze Com Inc.
 //
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 

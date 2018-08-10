@@ -1,4 +1,7 @@
-<?php /* $Id$ */
+<?php /* $Id: page.queues.php 1124 2006-03-13 21:39:16Z rcourtna $ */
+//Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
+//
+
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 //used for switch on config.php

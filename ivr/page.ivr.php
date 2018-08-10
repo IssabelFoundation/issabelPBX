@@ -1,4 +1,6 @@
-<?php 
+<?php /* $Id: page.ivr.php 1003 2006-03-01 17:05:10Z diego_iastrubni $ */
+//Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
+//
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 /* $Id$ */

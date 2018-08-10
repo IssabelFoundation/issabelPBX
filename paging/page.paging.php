@@ -1,5 +1,6 @@
 <?php 
-/* $Id$ */
+/* $Id: page.paging.php 1159 2006-03-16 14:36:27Z qldrob $ */
+//Copyright (C) 2006 Rob Thomas (xrobau@gmail.com)
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 $get_vars = array(

@@ -1,4 +1,6 @@
 <?php /* $Id */
+//Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
+//
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 isset($_REQUEST['action'])?$action = $_REQUEST['action']:$action='';

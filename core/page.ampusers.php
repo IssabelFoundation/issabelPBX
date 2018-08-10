@@ -1,7 +1,8 @@
-<?php /* $Id$ */
-//	License for all code of this IssabelPBX module can be found in the license file inside the module directory
+<?php /* $Id: page.ampusers.php 1166 2006-03-17 04:29:23Z qldrob $ */
+//  routing.php Copyright (C) 2004 Greg MacLellan (greg@mtechsolutions.ca)
+//  Asterisk Management Portal Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
 //	Copyright 2006-2014 Schmooze Com Inc.
-//
+
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 $userdisplay = isset($_REQUEST['userdisplay'])?$_REQUEST['userdisplay']:'';

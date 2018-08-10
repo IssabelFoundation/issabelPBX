@@ -1,4 +1,6 @@
-<?php
+<?php /* $Id: page.recordings.php 1137 2006-03-14 17:04:46Z mheydon1973 $ */
+//Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
+
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 /* $Id$ */
 
