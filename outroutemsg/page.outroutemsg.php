@@ -46,7 +46,7 @@ if ($action != 'submit') {
 <input type="hidden" name="display" value="<?php echo $dispnum ?>"/>
 <input type="hidden" name="action" value="submit"/>
 <table>
-<tr><td colspan="2"><h5><?php echo _("Standard Routes")?><hr></h5></td></tr>
+<tr><td colspan="2"><h5><?php echo _("Standard Routes")?></h5></td></tr>
 <tr>
 	<td><a href="#" class="info"><?php echo _("Message or Tone")?><span><?php echo _("Message or tone to be played if no trunks are available.")?></span></a></td>
 	<td align=right>
@@ -65,7 +65,9 @@ if ($action != 'submit') {
 	</td>
 </tr>
 
-<tr><td colspan="2"><h5><?php echo _("Intra-Company Routes")?><hr></h5></td></tr>
+<tr><td colspan=2><hr/></td></tr>
+
+<tr><td colspan="2"><h5><?php echo _("Intra-Company Routes")?></h5></td></tr>
 <tr>
 	<td><a href="#" class="info"><?php echo _("Message or Tone")?><span><?php echo _("Message or tone to be played if no trunks are available. Used on routes marked as intra-company only.")?></span></a></td>
 	<td align=right>
@@ -84,7 +86,9 @@ if ($action != 'submit') {
 	</td>
 </tr>
 
-<tr><td colspan="2"><h5><?php echo _("Emergency Routes")?><hr></h5></td></tr>
+<tr><td colspan=2><hr/></td></tr>
+
+<tr><td colspan="2"><h5><?php echo _("Emergency Routes")?></h5></td></tr>
 <tr>
 	<td><a href="#" class="info"><?php echo _("Message or Tone")?><span><?php echo _("Message or tone to be played if no trunks are available. Used on all emergency routes. Consider a message instructing callers to find an alternative means of calling emergency services such as a cell phone or alarm system panel.")?></span></a></td>
 	<td align=right>
@@ -103,9 +107,11 @@ if ($action != 'submit') {
 	</td>
 </tr>
 
+<tr><td colspan=2><hr/></td></tr>
+
 <tr><td colspan="2"><br><h4><?php echo _("Trunk Failures")?></h4></td></tr>
 
-<tr><td colspan="2"><h5><?php echo _("Unallocated Numbers")?><hr></h5></td></tr>
+<tr><td colspan="2"><h5><?php echo _("Unallocated Numbers")?></h5></td></tr>
 <tr>
 	<td><a href="#" class="info"><?php echo _("Message or Tone")?><span><?php echo _("Message or tone to be played if destination number is unallocated/does not exists.")?></span></a></td>
 	<td align=right>
@@ -124,7 +130,9 @@ if ($action != 'submit') {
 	</td>
 </tr>
 
-<tr><td colspan="2"><h5><?php echo _("No Answer")?><hr></h5></td></tr>
+<tr><td colspan=2><hr/></td></tr>
+
+<tr><td colspan="2"><h5><?php echo _("No Answer")?></h5></td></tr>
 <tr>
 	<td><a href="#" class="info"><?php echo _("Message or Tone")?><span><?php echo _("Message or tone to be played if there was no answer. Default message is:<br>\"The number is not answering.\"<br> Hangupcause is 18 or 19")?></span></a></td>
 	<td align=right>
@@ -142,7 +150,9 @@ if ($action != 'submit') {
 	</td>
 </tr>
 
-<tr><td colspan="2"><h5><?php echo _("Number or Address Incomplete")?><hr></h5></td></tr>
+<tr><td colspan=2><hr/></td></tr>
+
+<tr><td colspan="2"><h5><?php echo _("Number or Address Incomplete")?></h5></td></tr>
 <tr>
 	<td><a href="#" class="info"><?php echo _("Message or Tone")?><span><?php echo _("Message or tone to be played if trunk reports Number or Address Incomplete. Usually this means that the number you have dialed is to short. Default message is:<br>\"The number you have dialed is not in service. Please check the number and try again.\"<br>Hangupcause is 28")?></span></a></td>
 	<td align=right>
@@ -160,9 +170,12 @@ if ($action != 'submit') {
 	</td>
 </tr>
 
+<tr><td colspan=2><hr/></td></tr>
+
 <tr>
 	<td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
 </tr>
+
 </table>
 
 </form>
