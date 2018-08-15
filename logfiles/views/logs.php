@@ -22,6 +22,6 @@ $show = array(
 $html .= form_button($show);
 $html .= '</div>';
 $html .= '<div id="log_view" class="pre"></div>';
-$html .= '<script type="text/javascript" src="modules/logfiles/assets/js/views/logs.js"></script>';
+$html .= '<script type="text/javascript" src="/admin/modules/logfiles/assets/js/views/logs.js"></script>';
 echo $html;
 ?>
