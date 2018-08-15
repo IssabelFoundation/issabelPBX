@@ -173,11 +173,11 @@ foreach ($logfiles as $l) {
 }
 
 $html .= $table->generate() . br();
-$html .= '<img class="IVREntries" src="modules/logfiles/assets/images/add.png" style="cursor:pointer" title="' . _('New Log File') 
+$html .= '<img class="IVREntries" src="/admin/modules/logfiles/assets/images/add.png" style="cursor:pointer" title="' . _('New Log File') 
 		. '" id="add_entry">';
 
 $html .= br(4) . form_submit('save', _('Save'));
 $html .= form_close();
-$html .= '<script type="text/javascript" src="modules/logfiles/assets/js/views/settings.js"></script>';
+$html .= '<script type="text/javascript" src="/admin/modules/logfiles/assets/js/views/settings.js"></script>';
 echo $html;
 ?>
