@@ -3,11 +3,12 @@
 	<repo>standard</repo>
 	<name>Asterisk Logfiles</name>
 	<canuninstall>no</canuninstall>
-	<version>2.11.1.3</version>
+	<version>2.11.1.4</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+        *2.11.1.4* Rebranding
 		*2.11.1.3* Initial Issabel Foundation release
 	</changelog>
 	<category>Reports</category>
@@ -17,7 +18,7 @@
 		<logfiles_settings category="Settings">Asterisk Logfile Settings</logfiles_settings>
 	</menuitems>
 	<supported>
-		<version>2.11</version>
+		<version>2.11.0.47</version>
 	</supported>
 	<location></location>
 	<md5sum></md5sum>

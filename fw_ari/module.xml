@@ -3,18 +3,19 @@
 	<modtype>framework</modtype>
 	<repo>standard</repo>
 	<name>IssabelPBX ARI Framework</name>
-	<version>2.11.1.5</version>
+	<version>2.11.1.6</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+        *2.11.1.5* Rebranding
 		*2.11.1.5* Initial Issabel Foundation release
 	</changelog>
 	<description>
 		This module provides a facility to install bug fixes to the ARI code that is not otherwise housed in a module, it used to be part of framework but has been removed to isolate ARI from Framework updates.
 	</description>
 	<supported>
-		<version>2.10</version>
+		<version>2.11.0.47</version>
 	</supported>
 	<category>Admin</category>i
 		<menuitems>
@@ -26,6 +27,5 @@
 			requires_auth="false"
 		>User Panel</fw_ari>
 	</menuitems>
-	<location>release/2.11/fw_ari-2.11.0.0.tgz</location>
-	<md5sum>751792b204e454cb74ff42e95cdc2c30</md5sum>
+	<location>release/2.11/fw_ari-2.11.1.5.tgz</location>
 </module>

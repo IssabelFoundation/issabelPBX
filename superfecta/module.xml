@@ -20,7 +20,7 @@
 	</menuitems>
 	<info>https://github.com/POSSA/Caller-ID-Superfecta/wiki</info>
 	<supported>
-		<version>2.10</version>
+		<version>2.11.0.47</version>
 	</supported>
 	<location>release/2.11/superfecta-2.11.18.tgz</location>
 </module>
