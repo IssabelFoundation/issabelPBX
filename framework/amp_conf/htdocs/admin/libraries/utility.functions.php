@@ -1286,45 +1286,6 @@ function download_file($file, $name = '', $type = '', $force_download = false) {
 	}
 }
 
-
-/**
- * Get data from a pdf file. Requires pdfinfo
- *
- * @author Moshe Brevda mbrevda => gmail ~ com
- * @pram string - /path/to/file
- * @returns array - details about the pdf.
- * The following details are returned
- *		(values returned are depndant on the pdfinfo binary)
- *		author
- *		creationdate
- *		creator
- *		encrypted
- *		filesize
- *		moddate
- *		optimized
- *		pages
- *		pagesize
- *		pdfversion
- *		producer
- *		tagged
- *		title
- */
-function fpbx_pdfinfo($pdf) {
-	$pdfinfo = array();
-	exec(ipbx_which('pdfinfo') . ' ' . $pdf, $pdf_details, $ret_code);
-
-	if($ret_code !== 0) {
-		return false;
-	}
-
-	foreach($pdf_details as $detail) {
-		list($key, $value) = preg_split('/:\s*/', $detail, 2);
-		$pdfinfo[strtolower(preg_replace('/[^A-Za-z]/', '', $key))] = $value;
-	}
-	ksort($pdfinfo);
-	return $pdfinfo;
-}
-
 /**
  * Update AMI credentials in manager.conf
  *
