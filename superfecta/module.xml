@@ -20,8 +20,11 @@
 	</menuitems>
 	<info>https://github.com/POSSA/Caller-ID-Superfecta/wiki</info>
 	<supported>
-		<version>2.11.0.47</version>
-	</supported>
+		<version>2.11.0</version>
+    </supported>
+	<depends>
+        <module>framework ge 2.11.0.48</module>
+	</depends>
 	<location></location>
     <md5sum></md5sum>
 </module>

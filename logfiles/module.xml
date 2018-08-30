@@ -18,8 +18,11 @@
 		<logfiles_settings category="Settings">Asterisk Logfile Settings</logfiles_settings>
 	</menuitems>
 	<supported>
-		<version>2.11.0.47</version>
-	</supported>
+		<version>2.11.0</version>
+    </supported>
+    <depends>
+       <module>framework ge 2.11.0.48</module>
+    </depends>
 	<location></location>
 	<md5sum></md5sum>
 </module>

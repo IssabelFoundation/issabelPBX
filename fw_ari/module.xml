@@ -15,8 +15,11 @@
 		This module provides a facility to install bug fixes to the ARI code that is not otherwise housed in a module, it used to be part of framework but has been removed to isolate ARI from Framework updates.
 	</description>
 	<supported>
-		<version>2.11.0.47</version>
-	</supported>
+		<version>2.11.0</version>
+    </supported>
+    <depends>
+       <module>framework ge 2.11.0.48</module>
+    </depends>
 	<category>Admin</category>i
 		<menuitems>
 		<fw_ari

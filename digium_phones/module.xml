@@ -20,12 +20,13 @@
 	<depends>
 		<phpversion>5.2.0</phpversion>
 		<version>2.10</version>
-	</depends>
+        <module>framework ge 2.11.0.48</module>
+    </depends>
 	<menuitems>
 		<digium_phones needsenginedb="yes">Digium Phones</digium_phones>
 	</menuitems>
 	<supported>
-		<version>2.11.0.47</version>
+		<version>2.11.0</version>
 	</supported>
     <location>release/2.11/digium_phones-2.11.3.2.tgz</location>
     <md5sum>0000</md5sum>
