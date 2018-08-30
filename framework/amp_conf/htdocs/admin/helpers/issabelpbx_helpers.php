@@ -28,19 +28,6 @@ function ipbx_label($text, $help = '') {
 }
 
 /**
- * short IssabelPBX Section header generator
- * long Function used to generate IssabelPBX GUI sections
- *
- * @author Philippe Lindheimer
- * @param string $text
- * @return string
- * {@source } 
- */
-function fpbx_section_header($text) {
-	return '<br><h5>' . $text . '<hr></h5>';
-}
-
-/**
  * Text Input Field With Enable/Disable Checkbox
  *
  * @access	public
