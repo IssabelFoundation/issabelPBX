@@ -19,7 +19,7 @@
         <module>framework ge 2.11.0.48</module>
 	</depends>
 	<supported>
-		version>2.11.0</version>
+        <version>2.11.0</version>
 	</supported>
 	<location>release/2.11/fax-2.11.0.10.tgz</location>
     <md5sum>0000</md5sum>
