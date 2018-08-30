@@ -29,8 +29,8 @@
             <action>add</action>
         </paging>
     </popovers>
-    <location>release/2.11/paging-2.11.0.10.tgz</location>
-    <md5sum>0a800b7068ce596aeff11247d09cba18</md5sum>
+    <location></location>
+    <md5sum></md5sum>
     <supported>
 		<version>2.11.0.47</version>
     </supported>

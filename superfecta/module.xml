@@ -22,5 +22,6 @@
 	<supported>
 		<version>2.11.0.47</version>
 	</supported>
-	<location>release/2.11/superfecta-2.11.18.tgz</location>
+	<location></location>
+    <md5sum></md5sum>
 </module>

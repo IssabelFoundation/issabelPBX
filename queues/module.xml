@@ -32,5 +32,6 @@
 	<supported>
 		<version>2.11.0.47</version>
 	</supported>
-	<location>release/2.11/queues-2.11.0.29.tgz</location>
+	<location></location>
+    <md5sum></md5sum>
 </module>

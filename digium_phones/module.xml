@@ -27,5 +27,6 @@
 	<supported>
 		<version>2.11.0.47</version>
 	</supported>
-        <location>release/2.11/digium_phones-2.11.3.2.tgz</location>
+    <location>release/2.11/digium_phones-2.11.3.2.tgz</location>
+    <md5sum>0000</md5sum>
 </module>
