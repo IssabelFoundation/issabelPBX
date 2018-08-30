@@ -8,10 +8,10 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 function fw_langpacks_print_errors($src, $dst, $errors) {
 	out("error copying files:");
 	out(sprintf(_("'cp -ru' from src: '%s' to dst: '%s'...details follow"), $src, $dst));
-	issabelpbx_log(FPBX_LOG_ERROR, sprintf(_("fw_langpacks couldn't copy file to %s"),$dst));
+	issabelpbx_log(IPBX_LOG_ERROR, sprintf(_("fw_langpacks couldn't copy file to %s"),$dst));
 	foreach ($errors as $error) {
 		out("$error");
-		issabelpbx_log(FPBX_LOG_ERROR, _("cp error output: $error"));
+		issabelpbx_log(IPBX_LOG_ERROR, _("cp error output: $error"));
 	}
 }
 global $amp_conf;
@@ -19,7 +19,7 @@ global $amp_conf;
 $debug = false;
 $dryrun = false;
 
-/** verison_compare that works with freePBX version numbers
+/** verison_compare that works with IssabelPBX version numbers
  *  included here because there are some older versions of functions.inc.php that do not have
  *  it included as it was added during 2.3.0beta1
  */

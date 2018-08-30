@@ -8,7 +8,7 @@ $html .= form_hidden('id', $id);
 $table = new CI_Table;
 
 //name
-$label	= fpbx_label(_('Backup Name'));
+$label	= ipbx_label(_('Backup Name'));
 $data 	= array(
 			'name' => 'name', 
 			'value' => $name
@@ -17,7 +17,7 @@ $data 	= array(
 $table->add_row($label, form_input($data));
 
 //description
-$label	= fpbx_label(_('Description'), _('Description or notes for this backup'));
+$label	= ipbx_label(_('Description'), _('Description or notes for this backup'));
 $data 	= array(
 			'name' => 'desc', 
 			'value' => $desc
@@ -27,7 +27,7 @@ $data 	= array(
 $table->add_row($label, form_input($data));
 
 //email
-$label = fpbx_label(_('Status Email'), _('Email to send status messages to when this task is run'));
+$label = ipbx_label(_('Status Email'), _('Email to send status messages to when this task is run'));
 $data = array(
 			'name' => 'email',
 			'value' => $email
@@ -56,10 +56,10 @@ foreach ($templates as $t) {
 $template_list .= '</ul>';
 
 $table->set_heading(
-			fpbx_label(_('Backup Items'), 
+			ipbx_label(_('Backup Items'), 
 				_('Drag templates and drop them in the items table to add the templates items to the table'))
 			, 
-			fpbx_label(_('Templates'), _('Drag templates and drop them in the Backup Items table. '
+			ipbx_label(_('Templates'), _('Drag templates and drop them in the Backup Items table. '
 										. 'Add as many templates as you need')));
 $table->add_row($current, array('data' => $template_list, 'style' => 'padding-left: 100px;padding-right: 100px'));
 $html .= $table->generate();
@@ -69,7 +69,7 @@ $html .= $table->clear();
 //HOOKS
 //pre backup hook
 $html .= heading(_('Hooks'), 5) . '<hr class="backup-hr"/>';
-$label	= fpbx_label(_('Pre-backup Hook'), _('A script to be run BEFORE a backup is started.'));
+$label	= ipbx_label(_('Pre-backup Hook'), _('A script to be run BEFORE a backup is started.'));
 $data 	= array(
 			'name' => 'prebu_hook', 
 			'value' => $prebu_hook
@@ -78,7 +78,7 @@ $data 	= array(
 $table->add_row($label, form_input($data));
 
 //post backup hook
-$label	= fpbx_label(_('Post-backup Hook'), _('A script to be run AFTER a backup is completed.'));
+$label	= ipbx_label(_('Post-backup Hook'), _('A script to be run AFTER a backup is completed.'));
 $data 	= array(
 			'name' => 'postbu_hook', 
 			'value' => $postbu_hook
@@ -87,7 +87,7 @@ $data 	= array(
 $table->add_row($label, form_input($data));
 
 //pre-restore backup hook
-$label	= fpbx_label(_('Pre-restore Hook'), _('A script to be run BEFORE a backup is restored.'));
+$label	= ipbx_label(_('Pre-restore Hook'), _('A script to be run BEFORE a backup is restored.'));
 $data 	= array(
 			'name' => 'prere_hook', 
 			'value' => $prere_hook
@@ -97,7 +97,7 @@ $data 	= array(
 $table->add_row($label, form_input($data));
 
 //post-restore backup hook
-$label	= fpbx_label(_('Post-restore Hook'), _('A script to be run AFTER a backup is restored.'));
+$label	= ipbx_label(_('Post-restore Hook'), _('A script to be run AFTER a backup is restored.'));
 $data 	= array(
 			'name' => 'postre_hook', 
 			'value' => $postre_hook
@@ -121,7 +121,7 @@ foreach ($servers as $s) {
 	}
 }
 
-$label = fpbx_label(
+$label = ipbx_label(
 			_('Backup Server'), 
 			_('Select the server to be backed up (this server, or any other SSH server)')
 		);
@@ -135,13 +135,13 @@ $data = array(
 	'value'		=> 'true',
 	'checked'	=> ($restore == 'true' ? true : false),
 );
-$label = fpbx_label(_('Restore Here'), 'Restored backup to this server after the backup is complete');
+$label = ipbx_label(_('Restore Here'), 'Restored backup to this server after the backup is complete');
 $label = array('data' => form_label($label, 'restore'), 'class' => 'remote ');
 $data = array('data' => form_checkbox($data), 'class' => 'remote ');
 $table->add_row($label, $data);
 
 //disbale trunks
-$label = fpbx_label(_('Disable Registered Trunks'), 
+$label = ipbx_label(_('Disable Registered Trunks'), 
 		'After a restore, disable any trunks that use registration. This is helpfull to '
 		. 'prevent the Primary and Standby systems from "fighting" for the '
 		. 'registration, resulting in some calls routed to the Standby system.');
@@ -156,7 +156,7 @@ $data = array('data' => form_checkbox($data), 'class' => 'remote restore');
 $table->add_row($label, $data);
 
 //apply configs
-$label = fpbx_label(_('Apply Configs'), 
+$label = ipbx_label(_('Apply Configs'), 
 		'Equivalence of clicking the red button, will happen automatically after a restore on a Standby system');
 $data = array(
 	'name'		=> 'applyconfigs',
@@ -205,7 +205,7 @@ foreach ($servers as $s) {
 }
 $avalible_servers .= '</ul>';
 $table->set_heading(
-			fpbx_label(_('Storage Servers'), 
+			ipbx_label(_('Storage Servers'), 
 				_('drag servers from the Available Servers list to add them as Storage Servers'))
 			, _('Available Servers'));
 $table->add_row($current_servers, array('data' => $avalible_servers, 'style' => 'padding-left: 100px;padding-right: 100px'));
@@ -227,7 +227,7 @@ $html .= load_view(dirname(__FILE__) . '/../cron.php', $cron);
 
 //MAINTENANCE
 $html .= heading(_('Maintenance'), 5) . '<hr class="backup-hr"/>';
-$label	= fpbx_label(_('Delete after'), _('Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren\'t time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting'));
+$label	= ipbx_label(_('Delete after'), _('Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren\'t time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting'));
 $data 	= array(
 			'name' 	=> 'delete_time', 
 			'value' => $delete_time,
@@ -244,7 +244,7 @@ $data2 = array(
 			'years'		=> _('Years')
 );
 $table->add_row($label, form_input($data) . ' ' . form_dropdown('delete_time_type', $data2, $delete_time_type));
-$label	= fpbx_label(_('Delete after'), _('Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting'));
+$label	= ipbx_label(_('Delete after'), _('Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting'));
 $data 	= array(
 			'name'	=> 'delete_amount', 
 			'value' => $delete_amount,

@@ -170,11 +170,9 @@
                 $.getJSON("config.php?quietmode=1&handler=file&module=superfecta&file=ajax.html.php&type=options&scheme={$scheme}&source="+parent_id, function(json) {
                     if(json.success && json.show) {
                         $('#options').fadeIn('slow').html(json.data);
-						//Freepbx help for 2.10 - 2.11
 						//We must re-run this everytime we reload a source's options.
 						$("a.info").each(function(){$(this).after('<span class="help">?<span>'+$(this).find('span').html()+'</span></span>');$(this).find('span').remove();$(this).replaceWith($(this).html())})
                         $(".help").on('mouseenter',function(){side=fpbx.conf.text_dir=='lrt'?'left':'right';var pos=$(this).offset();var offset=(200-pos.side)+"px";$(this).find("span").css(side,offset).stop(true,true).delay(500).animate({opacity:"show"},750);}).on('mouseleave',function(){$(this).find("span").stop(true,true).animate({opacity:"hide"},"fast");});
-						//end Freepbx help options
 						$('#form_options_'+parent_id).submit(function() { 
                             $(this).ajaxSubmit(); 
                             alert("Saved!");

@@ -23,17 +23,17 @@ if ($extdisplay) {
 }
 
 //extension
-$label = fpbx_label(_('Paging Extension'),
+$label = ipbx_label(_('Paging Extension'),
 			_('The number users will dial to page this group'));
 $table->add_row($label, form_input('pagenbr', $extdisplay, 'class="extdisplay"'));
 
 //description
-$label = fpbx_label(_('Group Description'),
+$label = ipbx_label(_('Group Description'),
 			_('Provide a descriptive title for this Page Group.'));
 $table->add_row($label, form_input('description', $description));
 
 //device list
-$label = fpbx_label(_('Device List'), 
+$label = ipbx_label(_('Device List'), 
 			_('Devices to page. Please note, paging calls the '
 			. 'actual device (and not the user). Amount of pagable devices is '
 			. 'restricted by the advanced setting key PAGINGMAXPARTICIPANTS '
@@ -100,7 +100,7 @@ $force_page == 2 ? $data['checked'] = 'checked' : '';
 $whisper = form_label(_('Whisper'), 'force_page_whisper')
 		. form_radio($data);
 
-$label = fpbx_label(_('Busy Extensions'), ul($help));
+$label = ipbx_label(_('Busy Extensions'), ul($help));
 $table->add_row(
 	$label, 
 	'<span class="radioset">'
@@ -109,7 +109,7 @@ $table->add_row(
 );
 
 //duplex
-$label = fpbx_label(_('Duplex'), 
+$label = ipbx_label(_('Duplex'), 
 			_('Paging is typically one way for announcements only. '
 			. 'Checking this will make the paging duplex, allowing all '
 			. 'phones in the paging group to be able to talk and be '
@@ -117,7 +117,7 @@ $label = fpbx_label(_('Duplex'),
 $table->add_row($label, form_checkbox('duplex', 1, $duplex));
 
 //default
-$label = fpbx_label(_('Default Page Group'));
+$label = ipbx_label(_('Default Page Group'));
 $table->add_row($label, form_checkbox('default_group', 1, $default_group));
 
 $html .= $table->generate();

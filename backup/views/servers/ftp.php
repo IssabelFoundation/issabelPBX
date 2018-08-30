@@ -10,7 +10,7 @@ $html .= form_hidden('id', $id);
 $table = new CI_Table;
 
 //name
-$label	= fpbx_label(_('Server Name'));
+$label	= ipbx_label(_('Server Name'));
 $data 	= array(
 			'name' => 'name', 
 			'value' => $name
@@ -19,7 +19,7 @@ $data = backup_server_writeable('name', $readonly, $data);
 $table->add_row($label, form_input($data));
 
 //decription
-$label	= fpbx_label(_('Description'), _('Description or notes for this server'));
+$label	= ipbx_label(_('Description'), _('Description or notes for this server'));
 $data 	= array(
 			'name' => 'desc', 
 			'value' => $desc
@@ -28,7 +28,7 @@ $data = backup_server_writeable('desc', $readonly, $data);
 $table->add_row($label, form_input($data));
 
 //hostname
-$label = fpbx_label(_('Hostname'), _('IP address or FQDN of remote ftp host'));
+$label = ipbx_label(_('Hostname'), _('IP address or FQDN of remote ftp host'));
 $data  = array(
 			'name' => 'host', 
 			'value' => $host,
@@ -44,7 +44,7 @@ $data = array(
 			'required' => ''
 		);
 $data = backup_server_writeable('port', $readonly, $data);
-$table->add_row(fpbx_label(_('Port'), _('remote ftp port')), form_input($data));
+$table->add_row(ipbx_label(_('Port'), _('remote ftp port')), form_input($data));
 		
 //user name
 $data = array(
@@ -53,10 +53,10 @@ $data = array(
 			'required' => ''
 		);
 $data = backup_server_writeable('user', $readonly, $data);
-$table->add_row(fpbx_label(_('User Name')), form_input($data));
+$table->add_row(ipbx_label(_('User Name')), form_input($data));
 		
 //ftp key
-$label	= fpbx_label(_('Password'));
+$label	= ipbx_label(_('Password'));
 $data 	= array(
 			'name' => 'password', 
 			'value' => $password,
@@ -67,7 +67,7 @@ $table->add_row($label, form_input($data));
 
 
 //remote directory
-$label	= fpbx_label(_('Path'), _('Path where files are stored'));
+$label	= ipbx_label(_('Path'), _('Path where files are stored'));
 $data 	= array(
 			'name' => 'path', 
 			'value' => $path
@@ -76,7 +76,7 @@ $data = backup_server_writeable('path', $readonly, $data);
 $table->add_row($label, form_input($data));
 
 //connection type key
-$label	= fpbx_label(_('Transfer Mode'));
+$label	= ipbx_label(_('Transfer Mode'));
 $lableactive = form_label('Active', 'transferactive');
 $active = array(
 			'name'	=> 'transfer', 

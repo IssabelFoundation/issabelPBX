@@ -44,7 +44,7 @@ switch ($var['action']) {
 		}
 		
 		//ensure uploaded file is a valid tar file
-		exec(fpbx_which('tar') . ' -tf ' . $_FILES['upload']['tmp_name'], $array, $ret_code);
+		exec(ipbx_which('tar') . ' -tf ' . $_FILES['upload']['tmp_name'], $array, $ret_code);
 		if ($ret_code !== 0) {
 			echo _('Error verifying uploaded file!');
 			$var['action'] = '';

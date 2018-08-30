@@ -71,7 +71,7 @@ class connectdirs {
       // e.g. ln -s /var/www/html/admin/modules/ringgroups/assets /var/www/html/admin/assets/ringgroups
       //
       if (!symlink($dir, $targetdir)) {
-        issabelpbx_log(FPBX_LOG_ERROR, "Can Not $dir to $targetdir");
+        issabelpbx_log(IPBX_LOG_ERROR, "Can Not $dir to $targetdir");
       }
 
     }
@@ -143,22 +143,22 @@ class connectdirs {
             $f = $amp_conf['ASTETCDIR'].'/backup/'.basename($dest).".bk.".time();
             rename($dest,$f);
             if (!symlink($src, $dest)) {
-                issabelpbx_log(FPBX_LOG_ERROR, 'Cannot symlink '.$src.' to '.$dest.'. Check Permissions?');
+                issabelpbx_log(IPBX_LOG_ERROR, 'Cannot symlink '.$src.' to '.$dest.'. Check Permissions?');
             } else {
                 $this->symlink_notice_modules .= "<br />&nbsp;&nbsp;&nbsp;".$dest;
             }
         } else {
-            issabelpbx_log(FPBX_LOG_ERROR, $dest.' already exists, and is not a symlink!');
+            issabelpbx_log(IPBX_LOG_ERROR, $dest.' already exists, and is not a symlink!');
             $this->symlink_error_modules .= "<br />&nbsp;&nbsp;&nbsp;".$dest." from ".basename($moduledir)."/".$subdir." (Already exists, not a link)";
         }
       } else if (readlink($dest) != $src) {
         //users need to be aware of symlink conflicts. We should attempt to resolve them properly though. So lets do that.
-        issabelpbx_log(FPBX_LOG_ERROR, $dest.' already exists, and is linked to something else!');
+        issabelpbx_log(IPBX_LOG_ERROR, $dest.' already exists, and is linked to something else!');
         $this->symlink_error_modules .= "<br />&nbsp;&nbsp;&nbsp;".$dest." from ".basename($moduledir)."/".$subdir." (Already exists, linked to something else)";
       }
     } else {
       if (!symlink($src, $dest)) {
-        issabelpbx_log(FPBX_LOG_ERROR, 'Cannot symlink '.$src.' to '.$dest.'. Check Permissions?');
+        issabelpbx_log(IPBX_LOG_ERROR, 'Cannot symlink '.$src.' to '.$dest.'. Check Permissions?');
       }
     }
   }
@@ -187,7 +187,7 @@ class connectdirs {
                   if (file_exists_wrapper($targetfile)) {
                       if (is_link($targetfile)) {
               if (!$this->err_unlink($targetfile)) {
-                              issabelpbx_log(FPBX_LOG_ERROR, "$targetfile is a symblolic link, failed to unlink!");
+                              issabelpbx_log(IPBX_LOG_ERROR, "$targetfile is a symblolic link, failed to unlink!");
                               break;
                           }
                       }
@@ -198,7 +198,7 @@ class connectdirs {
                       // copy was successful, make sure it has execute permissions
                       chmod($targetfile,0754);
                   } else {
-                      issabelpbx_log(FPBX_LOG_ERROR, "$targetfile failed to copy from module directory");
+                      issabelpbx_log(IPBX_LOG_ERROR, "$targetfile failed to copy from module directory");
                   }
               }
           }
@@ -248,7 +248,7 @@ class connectdirs {
 function report_errors($errno, $errstr, $errfile, $errline) {
   global $db;
   $escaped_string = $db->escapeSimple($errstr);
-    issabelpbx_log(FPBX_LOG_ERROR, "php reported: '$escaped_string' after copy or unlink attempt!");
+    issabelpbx_log(IPBX_LOG_ERROR, "php reported: '$escaped_string' after copy or unlink attempt!");
   $conn_dirs = connectdirs::create();
   $conn_dirs->add_cp_error($errstr."\n");
 }
@@ -310,7 +310,7 @@ if ($argc > 1) {
           case "--debug":
         // set to false temporarily, not with issabelpbx_conf as we don't want it subsequently committed
         //
-        $amp_conf['FPBXDBUGDISABLE'] = false;
+        $amp_conf['IPBXDBUGDISABLE'] = false;
               debug(_("Debug mode enabled"),false);
           break;
           case "--run-install":

@@ -855,12 +855,12 @@ function module_download($modulename, $force = false, $progress_callback = null,
 			}
 			exec("tar zxf ".escapeshellarg($filename)." -C ".escapeshellarg($amp_conf['AMPWEBROOT'].'/admin/modules/_cache/'), $output, $exitcode);
 			if ($exitcode != 0) {
-        issabelpbx_log(FPBX_LOG_ERROR,sprintf(_("failed to open %s module archive into _cache directory."),$filename));
+        issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("failed to open %s module archive into _cache directory."),$filename));
 				return array(sprintf(_('Could not untar %s to %s'), $filename, $amp_conf['AMPWEBROOT'].'/admin/modules/_cache'));
       } else {
         // since untarring was successful, remvove the tarball so they do not accumulate
         if (unlink($filename) === false) {
-          issabelpbx_log(FPBX_LOG_WARNING,sprintf(_("failed to delete %s from cache directory after opening module archive."),$filename));
+          issabelpbx_log(IPBX_LOG_WARNING,sprintf(_("failed to delete %s from cache directory after opening module archive."),$filename));
         }
       }
 			exec("rm -rf ".$amp_conf['AMPWEBROOT']."/admin/modules/$modulename", $output, $exitcode);
@@ -903,7 +903,7 @@ function module_download($modulename, $force = false, $progress_callback = null,
 			$url = $u;
 			break;
 		}
-		issabelpbx_log(FPBX_LOG_ERROR,sprintf(_('Failed download module tarball from %s, server may be down'),$u));
+		issabelpbx_log(IPBX_LOG_ERROR,sprintf(_('Failed download module tarball from %s, server may be down'),$u));
 	}
 	if (!$headers || !$url) {
 		return array(sprintf(_("Unable to connect to servers from URLs provided: %s"), implode(',',$url_list)));
@@ -977,12 +977,12 @@ function module_download($modulename, $force = false, $progress_callback = null,
 	}
 	exec("tar zxf ".escapeshellarg($filename)." -C ".escapeshellarg($amp_conf['AMPWEBROOT'].'/admin/modules/_cache/'), $output, $exitcode);
 	if ($exitcode != 0) {
-    issabelpbx_log(FPBX_LOG_ERROR,sprintf(_("failed to open %s module archive into _cache directory."),$filename));
+    issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("failed to open %s module archive into _cache directory."),$filename));
 		return array(sprintf(_('Could not untar %s to %s'), $filename, $amp_conf['AMPWEBROOT'].'/admin/modules/_cache'));
 	} else {
     // since untarring was successful, remvove the tarball so they do not accumulate
     if (unlink($filename) === false) {
-      issabelpbx_log(FPBX_LOG_WARNING,sprintf(_("failed to delete %s from cache directory after opening module archive."),$filename));
+      issabelpbx_log(IPBX_LOG_WARNING,sprintf(_("failed to delete %s from cache directory after opening module archive."),$filename));
     }
   }
 	exec("rm -rf ".$amp_conf['AMPWEBROOT']."/admin/modules/$modulename", $output, $exitcode);
@@ -1062,12 +1062,12 @@ function module_handleupload($uploaded_file) {
 	}
 	exec("tar ".$tar_z_arg."xf ".escapeshellarg($filename)." -C ".escapeshellarg($amp_conf['AMPWEBROOT'].'/admin/modules/_cache/'), $output, $exitcode);
 	if ($exitcode != 0) {
-    issabelpbx_log(FPBX_LOG_ERROR,sprintf(_("failed to open %s module archive into _cache directory."),$filename));
+    issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("failed to open %s module archive into _cache directory."),$filename));
 		return array(sprintf(_('Could not untar %s to %s'), $filename, $amp_conf['AMPWEBROOT'].'/admin/modules/_cache'));
 	} else {
     // since untarring was successful, remvove the tarball so they do not accumulate
     if (unlink($filename) === false) {
-      issabelpbx_log(FPBX_LOG_WARNING,sprintf(_("failed to delete %s from cache directory after opening module archive."),$filename));
+      issabelpbx_log(IPBX_LOG_WARNING,sprintf(_("failed to delete %s from cache directory after opening module archive."),$filename));
     }
 	}
 	exec("rm -rf ".$amp_conf['AMPWEBROOT']."/admin/modules/$modulename", $output, $exitcode);
@@ -1516,13 +1516,13 @@ function _module_runscripts_include($modulexml, $type) {
 			if(!is_array($items['fileinclude'][$type])) {
 				$ret = _modules_doinclude($moduledir.'/'.$items['fileinclude'][$type], $modulename);
 				if (!$ret) {
-					issabelpbx_log(FPBX_LOG_WARNING,sprintf(_("failed to include %s during %s of the %s module."),$items['fileinclude'][$type],$type,$modulename));
+					issabelpbx_log(IPBX_LOG_WARNING,sprintf(_("failed to include %s during %s of the %s module."),$items['fileinclude'][$type],$type,$modulename));
 				}
 			} else {
 				foreach($items['fileinclude'][$type] as $key => $filename) {
 					$ret = _modules_doinclude($moduledir.'/'.$filename, $modulename);
 					if (!$ret) {
-						issabelpbx_log(FPBX_LOG_WARNING,sprintf(_("failed to include %s during %s of the %s module."),$filename,$type,$modulename));
+						issabelpbx_log(IPBX_LOG_WARNING,sprintf(_("failed to include %s during %s of the %s module."),$filename,$type,$modulename));
 					}
 				}
 			}

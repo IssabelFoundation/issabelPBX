@@ -263,22 +263,22 @@ foreach ($phonebooks as $phonebookid=>$phonebook) {
 			$extension .= '<option value="' . $user[0] . '">' . $user[0] . ' | ' . $user[1] . '</option>';
 		}
 		$extension .= '</select>';
-		$table->add_row(array( 'data' => fpbx_label('Extension:', 'The local extension for this phonebook entry.'), 'class' => 'template_name'),
+		$table->add_row(array( 'data' => ipbx_label('Extension:', 'The local extension for this phonebook entry.'), 'class' => 'template_name'),
 			array( 'data' => $extension)
 			);
-		$table->add_row(array( 'data' => fpbx_label('Has Voicemail:', 'If set to yes, then when viewing this contact, a soft "to VM" key will be present when dialing or transferring to this contact.  Defaults to No.'), 'class' => 'template_name'),
+		$table->add_row(array( 'data' => ipbx_label('Has Voicemail:', 'If set to yes, then when viewing this contact, a soft "to VM" key will be present when dialing or transferring to this contact.  Defaults to No.'), 'class' => 'template_name'),
 			array( 'data' => '<select id="has_voicemail" name="has_voicemail">
 				<option value="" selected>No (Default)</option>
 				<option value="yes">Yes</option>
 			</select>')
 			);
-		$table->add_row(array( 'data' => fpbx_label('Can Intercom:', 'If set to yes, and if this contact is a member of a phone\'s Rapid Dial keys, then this contact will display a "Intercom" key when the contact is not on a call and the contact\'s details are viewed inside the Contacts application.  Defaults to no.'), 'class' => 'template_name'),
+		$table->add_row(array( 'data' => ipbx_label('Can Intercom:', 'If set to yes, and if this contact is a member of a phone\'s Rapid Dial keys, then this contact will display a "Intercom" key when the contact is not on a call and the contact\'s details are viewed inside the Contacts application.  Defaults to no.'), 'class' => 'template_name'),
 			array( 'data' => '<select id="can_intercom" name="can_intercom">
 				<option value="" selected>No (Default)</option>
 				<option value="yes">Yes</option>
 			</select>')
 			);
-		$table->add_row(array( 'data' => fpbx_label('Can Monitor:', 'If set to yes, and if this contact is a member of a phone\'s Rapid Dial keys, then this contact will display a "Monitor" key when the contact is on a call and the contact\'s details are viewed inside the Contacts application.  Defaults to no.'), 'class' => 'template_name'),
+		$table->add_row(array( 'data' => ipbx_label('Can Monitor:', 'If set to yes, and if this contact is a member of a phone\'s Rapid Dial keys, then this contact will display a "Monitor" key when the contact is on a call and the contact\'s details are viewed inside the Contacts application.  Defaults to no.'), 'class' => 'template_name'),
 			array( 'data' => '<select id="can_monitor" name="can_monitor">
 				<option value="" selected>No (Default)</option>
 				<option value="yes">Yes</option>
@@ -297,19 +297,19 @@ foreach ($phonebooks as $phonebookid=>$phonebook) {
 	<div id="editingphonebookentriesentryexternal" style="display: none;">
 		
 		<?php
-		$table->add_row(array( 'data' => fpbx_label('Number:', 'Sets the number to be dialled for this contact.'), 'class' => 'template_name'),
+		$table->add_row(array( 'data' => ipbx_label('Number:', 'Sets the number to be dialled for this contact.'), 'class' => 'template_name'),
 			array( 'data' => '<input type="text" id="externalextension" name="externalextension" />')
 			);
 
-		$table->add_row(array( 'data' => fpbx_label('Label:', 'Sets the label for this contact.'), 'class' => 'template_name'),
+		$table->add_row(array( 'data' => ipbx_label('Label:', 'Sets the label for this contact.'), 'class' => 'template_name'),
 			array( 'data' => '<input type="text" id="label" name="label" />')
 			);
 
-		$table->add_row(array( 'data' => fpbx_label('Subscribe:', 'If checked, and if this Phonebook is marked for a phone\'s Rapid Dial keys, then a SIP SUBSCRIBE will be made for this contact.'), 'class' => 'template_name'),
+		$table->add_row(array( 'data' => ipbx_label('Subscribe:', 'If checked, and if this Phonebook is marked for a phone\'s Rapid Dial keys, then a SIP SUBSCRIBE will be made for this contact.'), 'class' => 'template_name'),
 			array( 'data' => '<input type="checkbox" id="subscribe_to" name="subscribe_to" />')
 			);
 
-		$table->add_row(array( 'data' => fpbx_label('Subscription URL:', 'If this contact is marked for Subscribe and if it is part of a Phonebook that is marked for a phone\'s Rapid Dial keys, sets the subscription URI'), 'class' => 'template_name'),
+		$table->add_row(array( 'data' => ipbx_label('Subscription URL:', 'If this contact is marked for Subscribe and if it is part of a Phonebook that is marked for a phone\'s Rapid Dial keys, sets the subscription URI'), 'class' => 'template_name'),
 			array( 'data' => '<input type="text" id="subscription_url" name="subscription_url" />')
 			);
 		

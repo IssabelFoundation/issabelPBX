@@ -164,10 +164,10 @@ foreach ($statuses as $statusid=>$status) {
 <?php
 $table = new CI_Table();
 
-$table->add_row(array( 'data' => fpbx_label('Status Name:', 'A named identifier for the status.'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('Status Name:', 'A named identifier for the status.'), 'class' => 'template_name'),
 	array( 'data' => '<input type="hidden" id="statusid" name="statusid" /><input type="text" id="statusname" name="statusname"/>')
 	);
-$table->add_row(array( 'data' => fpbx_label('Status Type:', 'The type of status.'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('Status Type:', 'The type of status.'), 'class' => 'template_name'),
 	array( 'data' => '<select id="status" name="status">
 			<option value="available">' . type_display("available") . '</option>
 			<option value="dnd">' . type_display("dnd") . '</option>
@@ -176,7 +176,7 @@ $table->add_row(array( 'data' => fpbx_label('Status Type:', 'The type of status.
 			<option value="chat">' . type_display("chat") . '</option>
 		</select>')
 	);
-$table->add_row(array( 'data' => fpbx_label('Send 486:', 'Controls whether a phone sends a 486 response when in the specified status. Defaults to No.'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('Send 486:', 'Controls whether a phone sends a 486 response when in the specified status. Defaults to No.'), 'class' => 'template_name'),
 	array( 'data' => '<select id="send486" name="send486">
 			<option value="no" selected>No (Default)</option>
 			<option value="yes">Yes</option>

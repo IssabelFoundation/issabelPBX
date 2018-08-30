@@ -16,7 +16,7 @@ $data = array(
 			'value'			=> $dateformat,
 			'placeholder'	=> 'Date Format'
             );
-$label = fpbx_label(_('Date Format'), _('Customize the display of debug message time stamps. '
+$label = ipbx_label(_('Date Format'), _('Customize the display of debug message time stamps. '
 									. 'See strftime(3) Linux manual for format specifiers. '
 									. 'Note that there is also a fractional second parameter '
 									. 'which may be used in this field.  Use %1q for tenths, '
@@ -54,7 +54,7 @@ $help_li[] = _('Sequential: Rename archived logs in order, such that the newest 
 $help_li[] = _('Rotate: Rotate all the old files, such that the oldest has the highest sequence '
 			. 'number (expected behavior for Unix administrators).');
 $help_li[] = _('Timestamp: Rename the logfiles using a timestamp instead of a sequence number when "logger rotate" is executed.');
-$label = fpbx_label(_('Log rotation'), _('Log rotation strategy: ' . ul($help_li)));
+$label = ipbx_label(_('Log rotation'), _('Log rotation strategy: ' . ul($help_li)));
 $table->add_row($label, '<span class="radioset">' . $rotateseq . $rotaterot . $rotatetime . '</radioset>');
 
 
@@ -75,7 +75,7 @@ $hostnameno = array(
 );
 $hostnameno = form_label(_('No'), 'hostnameno') . form_radio($hostnameno);
 
-$label = fpbx_label(_('Append Hostname'), _('Appends the hostname to the name of the log files'));
+$label = ipbx_label(_('Append Hostname'), _('Appends the hostname to the name of the log files'));
 $table->add_row($label, '<span class="radioset">' . $hostnameyes . $hostnameno . '</radioset>');
 
 
@@ -96,7 +96,7 @@ $queuelogno = array(
 );
 $queuelogno = form_label(_('No'), 'queuelogno') . form_radio($queuelogno);
 
-$label = fpbx_label(_('Log Queues'), _('Log queue events to a file'));
+$label = ipbx_label(_('Log Queues'), _('Log queue events to a file'));
 $table->add_row($label, '<span class="radioset">' . $queuelogyes . $queuelogno . '</radioset>');
 
 $html .= $table->generate();
@@ -113,26 +113,26 @@ $table->set_template(array('table_open' => '<table class="alt_table" id="logfile
 //draw table header with help on every option
 $has_security_option = version_compare($amp_conf['ASTVERSION'],'11.0','ge');
 $heading = array(
-			fpbx_label(_('File Name'), _('Name of file, relative to TODO!!!!. Use absolute path for a different location')),
-			fpbx_label(_('Debug'), 'debug: ' . _('Messages used for debuging. '
+			ipbx_label(_('File Name'), _('Name of file, relative to TODO!!!!. Use absolute path for a different location')),
+			ipbx_label(_('Debug'), 'debug: ' . _('Messages used for debuging. '
 									. 'Do not report these as error\'s unless you have a '
 									. 'specific issue that you are attempting to debug. '
 									. 'Also note that Debug messages are also very verbose '
 									. 'and can and do fill up logfiles (and disk storage) quickly.')),
-			fpbx_label(_('DTMF'), 'dtmf: ' . _('Keypresses as understood by asterisk. Usefull for debuging IVR and VM issues.')),
-			fpbx_label(_('Error'), 'error: ' . _('Critical errors and issues')),
-			fpbx_label(_('Fax'), 'fax: ' . _('Transmition and receiving of faxes')),
-			fpbx_label(_('Notice'), 'notice: ' . _('Messages of specific actions, such as a phone registration or call completion')),
-			fpbx_label(_('Verbose'), 'verbose: ' . _('Step-by-step messages of every step of a call flow. '
+			ipbx_label(_('DTMF'), 'dtmf: ' . _('Keypresses as understood by asterisk. Usefull for debuging IVR and VM issues.')),
+			ipbx_label(_('Error'), 'error: ' . _('Critical errors and issues')),
+			ipbx_label(_('Fax'), 'fax: ' . _('Transmition and receiving of faxes')),
+			ipbx_label(_('Notice'), 'notice: ' . _('Messages of specific actions, such as a phone registration or call completion')),
+			ipbx_label(_('Verbose'), 'verbose: ' . _('Step-by-step messages of every step of a call flow. '
 										. 'Always enable and review if calls dont flow as expected')),
-			fpbx_label(_('Warning'), 'warning: ' . _('Possible issues with dialplan syntaxt or call flow, but not critical.'))
+			ipbx_label(_('Warning'), 'warning: ' . _('Possible issues with dialplan syntaxt or call flow, but not critical.'))
 		);
 
 if ($has_security_option) { 
-	$heading[] = fpbx_label(_('Security'), 'security: ' . _('Notification of security related events such as authentication attempts.')); 
+	$heading[] = ipbx_label(_('Security'), 'security: ' . _('Notification of security related events such as authentication attempts.')); 
 }
 
-$heading[] = fpbx_label(_('Delete'));
+$heading[] = ipbx_label(_('Delete'));
 $table->set_heading($heading);
 
 

@@ -13,17 +13,17 @@
  */
 global $amp_conf;
 
-$pidof = fpbx_which("pidof");
+$pidof = ipbx_which("pidof");
 if ($pidof === false) {
 	$pidof = "/sbin/pidof";
 }
-$awk = fpbx_which("awk");
-$ps = fpbx_which("ps");
-$grep = fpbx_which("grep");
-$xargs = fpbx_which("xargs");
-$echo = fpbx_which("echo");
-$kill = fpbx_which("kill");
-$killall = fpbx_which("killall");
+$awk = ipbx_which("awk");
+$ps = ipbx_which("ps");
+$grep = ipbx_which("grep");
+$xargs = ipbx_which("xargs");
+$echo = ipbx_which("echo");
+$kill = ipbx_which("kill");
+$killall = ipbx_which("killall");
 
 outn("Checking FOP servers status..");
 $pid_length = trim(`$pidof -x op_server.pl | $awk '{print length($0)}'`);

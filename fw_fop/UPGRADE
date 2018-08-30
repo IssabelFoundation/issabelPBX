@@ -19,7 +19,7 @@ o Upgrading from version .27 to .28:
             positions for a button.
 
     New experimental button type [DID/5555555]
-        It will try to match Freepbx FROM_DID incoming calls
+        It will try to match IssabelPBX FROM_DID incoming calls
 
 
 	New paramter "passvars" in op_server.cfg to pass extra values to

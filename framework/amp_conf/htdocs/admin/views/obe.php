@@ -17,7 +17,7 @@ if ($errors) {
 	$html .= '</span>';
 }
 //username
-$label = fpbx_label(_('Username'), _('Admin user name'));
+$label = ipbx_label(_('Username'), _('Admin user name'));
 $data = array(
 			'name' => 'username',
 			'value'	=> $username,
@@ -27,7 +27,7 @@ $data = array(
 $table->add_row($label, form_input($data));
 
 //password
-$label = fpbx_label(_('Password'), _('Admin password'));
+$label = ipbx_label(_('Password'), _('Admin password'));
 $data = array(
 			'name' => 'password',
 			'type' => 'password',
@@ -39,7 +39,7 @@ $data = array(
 $table->add_row($label, form_input($data));
 
 //confirm password
-$label = fpbx_label(_('Confirm Password'));
+$label = ipbx_label(_('Confirm Password'));
 $data = array(
 			'name' => 'confirm_password',
 			'value'	=> $confirm_password,
@@ -51,7 +51,7 @@ $data = array(
 $table->add_row($label, form_input($data));
 
 //email address
-$label = fpbx_label(_('Admin Email address'));
+$label = ipbx_label(_('Admin Email address'));
 $data = array(
 			'name' 	=> 'email_address',
 			'value'	=> $email_address,
@@ -62,7 +62,7 @@ $data = array(
 $table->add_row($label, form_input($data));
 
 //Confirm email address
-$label = fpbx_label(_('Confirm Email address'));
+$label = ipbx_label(_('Confirm Email address'));
 $data = array(
 			'name' => 'confirm_email',
 			'value'	=> $confirm_email,

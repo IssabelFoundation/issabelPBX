@@ -46,7 +46,7 @@ $dirname = $amp_conf['AMPWEBROOT'] . '/admin';
 
 
 if (isset($bootstrap_settings['bootstrapped'])) {
-  issabelpbx_log(FPBX_LOG_ERROR,"Bootstrap has already been called once, bad code somewhere");
+  issabelpbx_log(IPBX_LOG_ERROR,"Bootstrap has already been called once, bad code somewhere");
   return;
 } else {
   $bootstrap_settings['bootstrapped'] = true;
@@ -131,7 +131,7 @@ if (!$bootstrap_settings['skip_astman']) {
 
         if($i<10) {
             unset( $astman );
-            issabelpbx_log(FPBX_LOG_CRITICAL,"Connection attmempt to AMI failed");
+            issabelpbx_log(IPBX_LOG_CRITICAL,"Connection attmempt to AMI failed");
         }
     }
 } else {
@@ -191,7 +191,7 @@ if ($restrict_mods_local !== true) {
             $needs_zend = isset($module['depends']['phpcomponent']) 
                 && stristr($module['depends']['phpcomponent'], 'zend');
             if (!$force_autoload && $needs_zend) {
-                fpbx_framework_autoloader(true);
+                ipbx_framework_autoloader(true);
                 $force_autoload = true;
             }
 

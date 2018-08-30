@@ -73,7 +73,7 @@ class issabelpbx_conf {
   'AMPSBIN'        => array(CONF_TYPE_DIR, '/usr/sbin'),
   'AMPWEBROOT'     => array(CONF_TYPE_DIR, '/var/www/html'),
   'MOHDIR'         => array(CONF_TYPE_DIR, 'mohmp3'),
-  'FPBXDBUGFILE'	 => array(CONF_TYPE_DIR, '/tmp/issabelpbx_debug.log'),
+  'IPBXDBUGFILE'	 => array(CONF_TYPE_DIR, '/tmp/issabelpbx_debug.log'),
 
   'ENABLECW'       => array(CONF_TYPE_BOOL, true),
   'CWINUSEBUSY'    => array(CONF_TYPE_BOOL, true),
@@ -1126,13 +1126,13 @@ class issabelpbx_conf {
 	function _setting_change_special($keyword, $prep_value) {
 		switch ($keyword) {
 			case 'AMPMGRPASS':
-				fpbx_ami_update(false, $prep_value);
+				ipbx_ami_update(false, $prep_value);
 			break;
 			case 'AMPMGRUSER':
-				fpbx_ami_update($prep_value, false);
+				ipbx_ami_update($prep_value, false);
 			break;
 			case 'ASTMGRWRITETIMEOUT':
-				fpbx_ami_update(false, false, true);
+				ipbx_ami_update(false, false, true);
 			break;
 			default:
 			break;
@@ -1163,7 +1163,7 @@ if (!function_exists('parse_amportal_conf')) {
 
     $issabelpbx_conf =& issabelpbx_conf::create();
 
-    issabelpbx_log(FPBX_LOG_ERROR,'parse_amportal_conf() is deprecated. Use of bootstrap.php creates $amp_conf');
+    issabelpbx_log(IPBX_LOG_ERROR,'parse_amportal_conf() is deprecated. Use of bootstrap.php creates $amp_conf');
     return $issabelpbx_conf->parse_amportal_conf($conf);
   }
 }

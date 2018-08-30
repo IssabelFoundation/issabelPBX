@@ -56,7 +56,7 @@ AMPASTERISKWEBUSER=$AMPASTERISKUSER
 AMPASTERISKWEBGROUP=$AMPASTERISKGROUP
 AMPVMUMASK=077
 ASTETCDIR=/etc/asterisk
-FPBXDBUGFILE=/var/log/asterisk/issabelpbx_debug
+IPBXDBUGFILE=/var/log/asterisk/issabelpbx_debug
 ASTSTOPTIMEOUT=120
 ASTSTOPPOLLINT=2
 
@@ -224,12 +224,12 @@ chown_asterisk() {
 	#chmod u+x,g+x $(readlink -f $AMPBIN)/*
 	chown -R $AMPASTERISKUSER:$AMPASTERISKGROUP $(readlink -f $AMPBIN)
 
-	if [ "$FPBXDBUGFILE" != "" -a -e "$FPBXDBUGFILE" ]; then
-		chown $AMPASTERISKWEBUSER:$AMPASTERISKWEBGROUP $(readlink -f $FPBXDBUGFILE)
+	if [ "$IPBXDBUGFILE" != "" -a -e "$IPBXDBUGFILE" ]; then
+		chown $AMPASTERISKWEBUSER:$AMPASTERISKWEBGROUP $(readlink -f $IPBXDBUGFILE)
 	fi
 
-	if [ "$FPBX_LOG_FILE" != "" -a -e "$FPBX_LOG_FILE" ]; then
-		chown $AMPASTERISKWEBUSER:$AMPASTERISKWEBGROUP $(readlink -f $FPBX_LOG_FILE)
+	if [ "$IPBX_LOG_FILE" != "" -a -e "$IPBX_LOG_FILE" ]; then
+		chown $AMPASTERISKWEBUSER:$AMPASTERISKWEBGROUP $(readlink -f $IPBX_LOG_FILE)
 	fi
 		
 	if [ "$ASTAGIDIR" != "" ]; then
@@ -514,16 +514,16 @@ case "$1" in
 				echo `wget http://myip.issabel.org:5060/whatismyip.php -O - -q|sed 's/<[^>]*>//g'`
 			;;
 			dbug)
-				if [ ! -f $FPBXDBUGFILE ]; then 
-					touch tail -f $FPBXDBUGFILE
-					chown $AMPASTERISKUSER:$AMPASTERISKGROUP $FPBXDBUGFILE
+				if [ ! -f $IPBXDBUGFILE ]; then 
+					touch tail -f $IPBXDBUGFILE
+					chown $AMPASTERISKUSER:$AMPASTERISKGROUP $IPBXDBUGFILE
 				fi
 				if [ -f '/var/log/httpd/error_log' ]; then
 					httpd_error='/var/log/httpd/error_log'
 				fi 
 				#enable dbug in case its disabled
-				$AMPBIN/issabelpbx_setting FPBXDBUGDISABLE 0
-				tail -f $FPBXDBUGFILE $httpd_error
+				$AMPBIN/issabelpbx_setting IPBXDBUGDISABLE 0
+				tail -f $IPBXDBUGFILE $httpd_error
 			;;
 			mysql|m)
 				mysql -u$AMPDBUSER -D$AMPDBNAME -p$AMPDBPASS
@@ -555,7 +555,7 @@ case "$1" in
 		*)
 
 #formating variables defined at top of file
-echo -e "                         $b $u FPBX admin options menu$ux$bx
+echo -e "                         $b $u IPBX admin options menu$ux$bx
 
 
 useage: ${b}amportal$bx (${b}admin$bx|${b}a$bx) <option>

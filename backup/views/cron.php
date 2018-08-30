@@ -29,7 +29,7 @@ I.e. if Day of Month is set to 12 and Day of Week is not set, the Backup will be
 the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the Backup will run ONLY
  on a Monday, and ONLY if it's the 12th of the month.
 EOM;
-$label = fpbx_label(_('Run Automatically'), _($txt));
+$label = ipbx_label(_('Run Automatically'), _($txt));
 $html .= $label . ' ' . form_dropdown('cron_schedule', $data, $cron_schedule);
 $data = array(
 	'name'		=> 'cron_random',

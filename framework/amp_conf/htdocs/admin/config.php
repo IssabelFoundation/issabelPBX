@@ -137,12 +137,12 @@ if (!$quietmode) {
 }
 
 //draw up menu
-$fpbx_menu = array();
+$ipbx_menu = array();
 
-// pointer to current item in $fpbx_menu, if applicable
+// pointer to current item in $ipbx_menu, if applicable
 $cur_menuitem = null;
 
-// add module sections to $fpbx_menu
+// add module sections to $ipbx_menu
 if(is_array($active_modules)){
     foreach($active_modules as $key => $module) {
 
@@ -204,7 +204,7 @@ if(is_array($active_modules)){
 
                 // item is an assoc array, with at least 
                 //array(module=> name=>, category=>, type=>, display=>)
-                $fpbx_menu[$itemKey] = $item;
+                $ipbx_menu[$itemKey] = $item;
                 
                 // allow a module to replace our main index page
                 if (($item['display'] == 'index') && ($display == '')) {
@@ -214,7 +214,7 @@ if(is_array($active_modules)){
                 // check current item
                 if ($display == $item['display']) {
                     // found current menuitem, make a reference to it
-                    $cur_menuitem =& $fpbx_menu[$itemKey];
+                    $cur_menuitem =& $ipbx_menu[$itemKey];
                 }
             }
         }
@@ -248,13 +248,13 @@ if(!$quietmode && is_array($active_modules)){
 }
 
 // extensions vs device/users ... this is a bad design, but hey, it works
-if (!$quietmode && isset($fpbx_menu["extensions"])) {
+if (!$quietmode && isset($ipbx_menu["extensions"])) {
     if (isset($amp_conf["AMPEXTENSIONS"]) 
         && ($amp_conf["AMPEXTENSIONS"] == "deviceanduser")) {
-        unset($fpbx_menu["extensions"]);
+        unset($ipbx_menu["extensions"]);
     } else {
-        unset($fpbx_menu["devices"]);
-        unset($fpbx_menu["users"]);
+        unset($ipbx_menu["devices"]);
+        unset($ipbx_menu["users"]);
     }
 }
 
@@ -461,7 +461,7 @@ if ($quietmode) {
     $show_normal = $fw_popover_process ? fwmsg::errors() : true;
     if ($show_normal) {
         // provide beta status
-        if (isset($fpbx_menu[$display]['beta']) && strtolower($fpbx_menu[$display]['beta']) == 'yes') {
+        if (isset($ipbx_menu[$display]['beta']) && strtolower($ipbx_menu[$display]['beta']) == 'yes') {
             $fw_gui_html .= load_view($amp_conf['VIEW_BETA_NOTICE']);
         }
         $fw_gui_html .= $content;
@@ -514,7 +514,7 @@ if ($quietmode) {
     set_language();
 
     // send menu
-    $menu['fpbx_menu']        = $fpbx_menu; //array of modules & settings
+    $menu['ipbx_menu']        = $ipbx_menu; //array of modules & settings
     $menu['display']        = $display; //currently displayed item
     $menu['authtype']        = $amp_conf['AUTHTYPE'];
     $menu['reload_confirm']    = $amp_conf['RELOADCONFIRM'];
@@ -523,7 +523,7 @@ if ($quietmode) {
     echo load_view($amp_conf['VIEW_MENU'], $menu);
 
     // provide beta status
-    if (isset($fpbx_menu[$display]['beta']) && strtolower($fpbx_menu[$display]['beta']) == 'yes') {
+    if (isset($ipbx_menu[$display]['beta']) && strtolower($ipbx_menu[$display]['beta']) == 'yes') {
         echo load_view($amp_conf['VIEW_BETA_NOTICE']);
     }
 

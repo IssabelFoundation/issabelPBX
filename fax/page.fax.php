@@ -60,19 +60,19 @@ $trans_rates = array(
 			</tr>			
 			
 			<tr><td colspan="3"><h5><?php echo _("Fax Transport Options")?><hr/></h5></td></tr>
-			<tr><td><?php echo fpbx_label(_("Error Correction Mode"), 
+			<tr><td><?php echo ipbx_label(_("Error Correction Mode"), 
 			_("Error Correction Mode (ECM) option is used to specify whether
 			 to use ecm mode or not.")); ?></td>
        <td><span class="radioset"><input type="radio" name="ecm" id="ecm_yes" value="yes" <?php echo (($fax['ecm'] == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><label for="ecm_yes"><?php echo _("Yes")?></label>
        <input type="radio" name="ecm" value="no" id="ecm_no"  <?php echo (($fax['ecm'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><label for="ecm_no"><?php echo _("No")?></label></span></td>
 			</tr>				
 			<tr>
-				<td><?php echo fpbx_label(_("Maximum transfer rate"), 
+				<td><?php echo ipbx_label(_("Maximum transfer rate"), 
 				_("Maximum transfer rate used during fax rate negotiation.")); ?></td>
 				<td><?php echo form_dropdown('maxrate', $trans_rates, $fax['maxrate']); ?></td>		
 			</tr>	
 			<tr>
-				<td><?php echo fpbx_label(_("Minimum transfer rate"), 
+				<td><?php echo ipbx_label(_("Minimum transfer rate"), 
 				_("Minimum transfer rate used during fax rate negotiation.")); ?></td>
 				<td><?php echo form_dropdown('minrate', $trans_rates, $fax['minrate']); ?></td>				
 			</tr>

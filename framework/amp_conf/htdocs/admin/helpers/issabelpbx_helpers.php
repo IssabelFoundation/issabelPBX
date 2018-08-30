@@ -13,7 +13,7 @@
  *
  * {@source } 
  */
-function fpbx_label($text, $help = '') {
+function ipbx_label($text, $help = '') {
 	if ($help) {
 		$ret = '<a href="#" class="info" tabindex="-1">'
 				. $text
@@ -52,7 +52,7 @@ function fpbx_section_header($text) {
  * @param	bool
  * @return	string
  */
-function fpbx_form_input_check($data = '', $value = '', $extra = '', $label = 'Enable', $disabled_value = 'DEFAULT', $check_enables = true) {
+function ipbx_form_input_check($data = '', $value = '', $extra = '', $label = 'Enable', $disabled_value = 'DEFAULT', $check_enables = true) {
 	if (!is_array($data)) {
 		$data['name'] = $data['id'] = $data;
 	}

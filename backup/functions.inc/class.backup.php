@@ -112,7 +112,7 @@ class Backup {
 			//get pid that set the lock and ensure its still running
 			$pid = file_get_contents($this->lock_file);
 
-			exec(fpbx_which('ps') . ' h ' . $pid, $ret, $status);
+			exec(ipbx_which('ps') . ' h ' . $pid, $ret, $status);
 			//exit code ($status) will be 0 if running, or 1 if pid not found
 			if ($status === 0) {
 				return false;
@@ -154,7 +154,7 @@ class Backup {
 					}
 
 					//copy file
-					$cmd[] = fpbx_which('cp');
+					$cmd[] = ipbx_which('cp');
 					$cmd[] = $i['path'];
 					$cmd[] = $dest;
 
@@ -180,7 +180,7 @@ class Backup {
 					//build command. Were using tar to copy files for two reasons:
 					//a. it's recursive
 					//b. it offers excludes
-					$cmd[] = fpbx_which('tar') . ' cf - ' . $i['path'];
+					$cmd[] = ipbx_which('tar') . ' cf - ' . $i['path'];
 					if ($i['exclude']) {
 						$excludes = is_array($i['exclude'])
 									? $i['exclude']
@@ -189,7 +189,7 @@ class Backup {
 							$cmd[] = " --exclude='$x'";
 						}
 					}
-					$cmd[] = ' | ' . fpbx_which('tar') . ' xf - -C ' . $this->b['_tmpdir'];
+					$cmd[] = ' | ' . ipbx_which('tar') . ' xf - -C ' . $this->b['_tmpdir'];
 					exec(implode(' ', $cmd));
 					unset($cmd);
 					break;
@@ -197,7 +197,7 @@ class Backup {
 					//build command
 					$s = str_replace('server-', '', $i['path']);
 					$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql';
-					$cmd[] = fpbx_which('mysqldump');
+					$cmd[] = ipbx_which('mysqldump');
 					$cmd[] = '--host='		. backup__($this->s[$s]['host']);
 					$cmd[] = '--port='		. backup__($this->s[$s]['port']);
 					$cmd[] = '--user='		. backup__($this->s[$s]['user']);
@@ -216,7 +216,7 @@ class Backup {
 					// restoring using the PEAR $db class
 					//
 					$cmd[] = ' | ';
-					$cmd[] = fpbx_which('grep');
+					$cmd[] = ipbx_which('grep');
 					$cmd[] = "-v '^\/\*\|^SET'";
 					$cmd[] = ' > ' .  $sql_file;
 
@@ -233,7 +233,7 @@ class Backup {
 							backup__($this->s[$s]['dbname']), $sql_file, backup__($this->s[$s]['host'])
 						);
 						backup_log($error_string);
-						issabelpbx_log(FPBX_LOG_FATAL, $error_string);
+						issabelpbx_log(IPBX_LOG_FATAL, $error_string);
 					}
 					break;
 				case 'astdb':
@@ -265,7 +265,7 @@ class Backup {
 
 	function create_backup_file($to_stdout = false) {
 		$this->build_manifest();
-		$cmd[] = fpbx_which('tar');
+		$cmd[] = ipbx_which('tar');
 		$cmd[] = 'zcf';
 		$cmd[] = $to_stdout ? '-' : $this->b['_tmpfile'];
 		$cmd[] = '-C ' . $this->b['_tmpdir'];
@@ -294,7 +294,7 @@ class Backup {
 					//php doesnt support files > 2GB
 					//see here for a posible solution:
 					//http://ca3.php.net/manual/en/function.fopen.php#37791
-					$cmd[] = fpbx_which('cp');
+					$cmd[] = ipbx_which('cp');
 					$cmd[] = $this->b['_tmpfile'];
 					$cmd[] = $path . '/' . $this->b['_file'] . '.tgz';
 
@@ -377,7 +377,7 @@ class Backup {
 					$s['host'] = backup__($s['host']);
 
 					//ensure directory structure
-					$cmd[] = fpbx_which('ssh');
+					$cmd[] = ipbx_which('ssh');
 					$cmd[] = '-o StrictHostKeyChecking=no -i';
 					$cmd[] = $s['key'];
 					$cmd[] = $s['user'] . '\@' . $s['host'];
@@ -389,7 +389,7 @@ class Backup {
 					unset($cmd);
 
 					//put file
-					$cmd[] = fpbx_which('scp');
+					$cmd[] = ipbx_which('scp');
 					$cmd[] = '-o StrictHostKeyChecking=no -i';
 					$cmd[] = $s['key'];
 					$cmd[] = '-P ' . $s['port'];
@@ -530,7 +530,7 @@ class Backup {
 				$dir = ftp_nlist($handle, '.');
 				break;
 			case 'ssh':
-				$cmd[] = fpbx_which('ssh');
+				$cmd[] = ipbx_which('ssh');
 				$cmd[] = '-o StrictHostKeyChecking=no -i';
 				$cmd[] = $data['key'];
 				$cmd[] = $data['user'] . '\@' . $data['host'];
@@ -588,7 +588,7 @@ class Backup {
 					unset($delete[$key]);
 					break;
 				case 'ssh':
-					$cmd[] = fpbx_which('ssh');
+					$cmd[] = ipbx_which('ssh');
 					$cmd[] = '-o StrictHostKeyChecking=no -i';
 					$cmd[] = $data['key'];
 					$cmd[] = $data['user'] . '\@' . $data['host'];

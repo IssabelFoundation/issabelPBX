@@ -1187,7 +1187,7 @@ function displayRepoSelect($buttons) {
     <table width="600px">
       <tr>
         <td>
-          <?php echo fpbx_label(_("Repositories"), $tooltip); ?>
+          <?php echo ipbx_label(_("Repositories"), $tooltip); ?>
         </td><td>
           <table>
             <tr class="repo_boxes">

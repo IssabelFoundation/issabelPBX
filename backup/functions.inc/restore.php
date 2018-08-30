@@ -166,7 +166,7 @@ function backup_get_manifest_db($bu) {
  * extracts a manifest from a tarball
  */
 function backup_get_manifest_tarball($bu) {
-	$cmd[] = fpbx_which('tar');
+	$cmd[] = ipbx_which('tar');
 	$cmd[] = 'zxOf ' . $bu;
 	$cmd[] = './manifest';
 	$cmd[] = '2> /dev/null';
@@ -285,7 +285,7 @@ function backup_restore_locate_file($id, $path) {
 			$s['path'] = backup__($s['path']);
 			$s['user'] = backup__($s['user']);
 			$s['host'] = backup__($s['host']);
-			$cmd[] = fpbx_which('scp');
+			$cmd[] = ipbx_which('scp');
 			$cmd[] = '-o StrictHostKeyChecking=no -i';
 			$cmd[] = $s['key'];
 			$cmd[] = '-P ' . $s['port'];
@@ -324,7 +324,7 @@ function backup_migrate_legacy($bu) {
 	//get legacy name based on the directory the legacy backup was origionally created in
 	//were expcecting to see something like: /tmp/ampbackups.20110310.16.00.00/
 	//in the tarball
-	$cmd[] = fpbx_which('tar');
+	$cmd[] = ipbx_which('tar');
 	$cmd[] = 'tf';
 	$cmd[] = $bu;
 	exec(implode(' ', $cmd), $res);
@@ -346,7 +346,7 @@ function backup_migrate_legacy($bu) {
 	$dir = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . $legacy_name;
 	mkdir($dir, 0755, true);
 
-	$cmd[] = fpbx_which('tar');
+	$cmd[] = ipbx_which('tar');
 	$cmd[] = '-zxf';
 	$cmd[] = $bu;
 	$cmd[] = ' -C ' . $dir;
@@ -358,7 +358,7 @@ function backup_migrate_legacy($bu) {
 	//exctract sub tarballs
 	foreach (scandir($dir2) as $file) {
 		if (substr($file, -7) == '.tar.gz') {
-			$cmd[] = fpbx_which('tar');
+			$cmd[] = ipbx_which('tar');
 			$cmd[] = '-zxf';
 			$cmd[] = $dir2 . '/' . $file;
 			$cmd[] = ' -C ' . $dir2;
@@ -424,14 +424,14 @@ function backup_migrate_legacy($bu) {
 		$ret['mysql']['db'] = array('file' => 'mysql-db.sql');
 
 		// remove SET and comments that later break restores when using pear
-		$cmd[] = fpbx_which('grep');
+		$cmd[] = ipbx_which('grep');
 		$cmd[] = "-v '^\/\*\|^SET\|^--'";
 		$cmd[] = $src;
 		$cmd[] = ' > ' .  $dst;
 		exec(implode(' ', $cmd), $file, $status);
 		if ($status) {
 			// The grep failed, if there is a $dst file remove it and either way rename the $src
-			issabelpbx_log(FPBX_LOG_ERROR,
+			issabelpbx_log(IPBX_LOG_ERROR,
 				_("Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in current state"));
 			if (is_file($dst)) {
 				unlink($dst);
@@ -452,14 +452,14 @@ function backup_migrate_legacy($bu) {
 
 
 		// remove SET and comments that later break restores when using pear
-		$cmd[] = fpbx_which('grep');
+		$cmd[] = ipbx_which('grep');
 		$cmd[] = "-v '^\/\*\|^SET\|^--'";
 		$cmd[] = $src;
 		$cmd[] = ' > ' .  $dst;
 		exec(implode(' ', $cmd), $file, $status);
 		if ($status) {
 			// The grep failed, if there is a $dst file remove it and either way rename the $src
-			issabelpbx_log(FPBX_LOG_ERROR, _("Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr.sql in current state"));
+			issabelpbx_log(IPBX_LOG_ERROR, _("Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr.sql in current state"));
 			if (is_file($dst)) {
 				unlink($dst);
 			}
@@ -488,7 +488,7 @@ function backup_migrate_legacy($bu) {
 			. time() . '-'
 			. $legacy_name
 			. '.tgz';
-	$cmd[] = fpbx_which('tar');
+	$cmd[] = ipbx_which('tar');
 	$cmd[] = '-zcf';
 	$cmd[] = $dest;
 	$cmd[] = '-C ' . $dir2;

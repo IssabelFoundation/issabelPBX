@@ -91,11 +91,11 @@ function callme_startcall($to, $from, $new_path)
 	global $astman;
 
   if (!preg_match("/^[0-9*#+]+$/",$to)) { 
-		issabelpbx_log(FPBX_LOG_SECURITY, sprintf(_('Malformed callme number passed to callme_startcall $to field could be Security Breach: %s'), $to));
+		issabelpbx_log(IPBX_LOG_SECURITY, sprintf(_('Malformed callme number passed to callme_startcall $to field could be Security Breach: %s'), $to));
 		return false;
 	}
   if (!preg_match("/^[0-9]+$/",$from)) { 
-		issabelpbx_log(FPBX_LOG_SECURITY, sprintf(_('Malformed callme number passed to callme_startcall $from field could be Security Breach: %s'), $to));
+		issabelpbx_log(IPBX_LOG_SECURITY, sprintf(_('Malformed callme number passed to callme_startcall $from field could be Security Breach: %s'), $to));
 		return false;
 	}
 	// TODO: should I check that new_path is a valid sound file to play and bomb out if not as possible security protection?

@@ -53,7 +53,7 @@ if (isset($vars['restore'], $vars['items'])) {
 			backup_log(_('A large number of files have been selected for restore. Please be '
 						. 'patient - this process will take a while.'));
 		}
-		$cmd[] = fpbx_which('tar');
+		$cmd[] = ipbx_which('tar');
 		$cmd[] = 'zxf';
 		$cmd[] = $vars['restore'];
 		//switch to root so that files get put back where they belong
@@ -103,7 +103,7 @@ if (isset($vars['restore'], $vars['items'])) {
 		$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
 		
 		//get db
-		$cmd[] = fpbx_which('tar');
+		$cmd[] = ipbx_which('tar');
 		$cmd[] = 'zxOf';
 		$cmd[] = $vars['restore'];
 		$cmd[] = './' . $file;
@@ -114,7 +114,7 @@ if (isset($vars['restore'], $vars['items'])) {
 		unset($cmd);
 		
 		backup_log(_('Getting CDR size...'));
-		$cmd[] = fpbx_which('wc');
+		$cmd[] = ipbx_which('wc');
 		$cmd[] = ' -l';
 		$cmd[] = $path;
 
@@ -208,7 +208,7 @@ if (isset($vars['restore'], $vars['items'])) {
 			$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
 		
 			//get db
-			$cmd[] = fpbx_which('tar');
+			$cmd[] = ipbx_which('tar');
 			$cmd[] = 'zxOf';
 			$cmd[] = $vars['restore'];
 			$cmd[] = './' . $file;
@@ -219,7 +219,7 @@ if (isset($vars['restore'], $vars['items'])) {
 			unset($cmd);
 		
 			backup_log(_('Getting Settings size...'));
-			$cmd[] = fpbx_which('wc');
+			$cmd[] = ipbx_which('wc');
 			$cmd[] = ' -l';
 			$cmd[] = $path;
 		
@@ -304,7 +304,7 @@ if (isset($vars['restore'], $vars['items'])) {
 		//restore astdb
 		if ($manifest['astdb'] != '') {
 			backup_log(_('Restoring astDB...'));
-			$cmd[] = fpbx_which('tar');
+			$cmd[] = ipbx_which('tar');
 			$cmd[] = 'zxOf';
 			$cmd[] = $vars['restore'];
 			$cmd[] = './' . $manifest['astdb'];
@@ -330,7 +330,7 @@ if (isset($vars['restore'], $vars['items'])) {
 	//the DB is authoritative, fetch whatever we have set there
 	backup_log(_('Cleaning up...'));
 	$issabelpbx_conf =& issabelpbx_conf::create();
-	fpbx_ami_update($issabelpbx_conf->get_conf_setting('AMPMGRUSER', true), 
+	ipbx_ami_update($issabelpbx_conf->get_conf_setting('AMPMGRUSER', true), 
 					$issabelpbx_conf->get_conf_setting('AMPMGRPASS', true));
 	
 	// Update AstDB

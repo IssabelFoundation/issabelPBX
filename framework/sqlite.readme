@@ -19,7 +19,7 @@ a) Syntax for auto_increment is (for example)
 	  `id` integer NOT NULL PRIMARY KEY AUTOINCREMENT
    ALL OTHER FORMS WILL NOT WORK. Note that this code is supported
    by php5, but php4 does not like AUTOINCREMENT since it uses AUTO_INCREMENT.
-   Look at the install.php of the freePBX modules to see a work-around.
+   Look at the install.php of the IssabelPBX modules to see a work-around.
 b) Only  one primary key per table is supported
 c) ALTER is not supported (really? I am not sure)
 d) SUBSTRING is not supported

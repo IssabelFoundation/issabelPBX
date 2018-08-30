@@ -8,10 +8,10 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 function fw_ari_print_errors($src, $dst, $errors) {
 	out("error copying files:");
 	out(sprintf(_("'cp -rf' from src: '%s' to dst: '%s'...details follow"), $src, $dst));
-	issabelpbx_log(FPBX_LOG_ERROR, sprintf(_("fw_ari couldn't copy file to %s"),$dst));
+	issabelpbx_log(IPBX_LOG_ERROR, sprintf(_("fw_ari couldn't copy file to %s"),$dst));
 	foreach ($errors as $error) {
 		out("$error");
-		issabelpbx_log(FPBX_LOG_ERROR, _("cp error output: $error"));
+		issabelpbx_log(IPBX_LOG_ERROR, _("cp error output: $error"));
 	}
 }
 

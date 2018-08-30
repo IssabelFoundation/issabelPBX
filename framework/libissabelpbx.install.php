@@ -555,7 +555,7 @@ function issabelpbx_settings_init($commit_to_db = false) {
         $set['options'] .= ', LOG_SQL, SQL';
     }
     $set['name'] = 'IssabelPBX Log Routing';
-    $set['description'] = "Determine where to send log information if the log is enabled ('Disable IssabelPBX Log' (AMPDISABLELOG) false. There are two places to route the log messages. 'FILE' will send all log messages to the defined 'IssabelPBX Log File' (FPBX_LOG_FILE). All the other settings will route the log messages to your System Logging subsystem (syslog) using the specified log level. Syslog can be configured to route different levels to different locations. See 'syslog' documentation (man syslog) on your system for more details.";
+    $set['description'] = "Determine where to send log information if the log is enabled ('Disable IssabelPBX Log' (AMPDISABLELOG) false. There are two places to route the log messages. 'FILE' will send all log messages to the defined 'IssabelPBX Log File' (IPBX_LOG_FILE). All the other settings will route the log messages to your System Logging subsystem (syslog) using the specified log level. Syslog can be configured to route different levels to different locations. See 'syslog' documentation (man syslog) on your system for more details.";
     $set['emptyok'] = 0;
     $set['readonly'] = 0;
     $set['sortorder'] = -190;
@@ -595,7 +595,7 @@ function issabelpbx_settings_init($commit_to_db = false) {
     $set['type'] = CONF_TYPE_BOOL;
     $issabelpbx_conf->define_conf_setting('LOG_NOTIFICATIONS',$set);
 
-    // FPBX_LOG_FILE
+    // IPBX_LOG_FILE
     $set['value'] = $amp_conf['ASTLOGDIR'] . '/issabelpbx.log';
     $set['options'] = '';
     $set['name'] = 'IssabelPBX Log File';
@@ -604,7 +604,7 @@ function issabelpbx_settings_init($commit_to_db = false) {
     $set['readonly'] = 0;
     $set['sortorder'] = -150;
     $set['type'] = CONF_TYPE_TEXT;
-    $issabelpbx_conf->define_conf_setting('FPBX_LOG_FILE',$set);
+    $issabelpbx_conf->define_conf_setting('IPBX_LOG_FILE',$set);
 
     // PHP_ERROR_HANDLER_OUTPUT
     $set['value'] = 'issabelpbxlog';
@@ -1495,7 +1495,7 @@ function issabelpbx_settings_init($commit_to_db = false) {
     $set['category'] = 'Developer and Customization';
     $set['level'] = 2;
 
-    // FPBXDBUGFILE
+    // IPBXDBUGFILE
     $set['value'] = $amp_conf['ASTLOGDIR'] . '/issabelpbx_dbug';
     $set['options'] = '';
     $set['name'] = 'Debug File';
@@ -1503,17 +1503,17 @@ function issabelpbx_settings_init($commit_to_db = false) {
     $set['emptyok'] = 0;
     $set['readonly'] = 0;
     $set['type'] = CONF_TYPE_TEXT;
-    $issabelpbx_conf->define_conf_setting('FPBXDBUGFILE',$set);
+    $issabelpbx_conf->define_conf_setting('IPBXDBUGFILE',$set);
 
-    // FPBXDBUGDISABLE
+    // IPBXDBUGDISABLE
     $set['value'] = true;
     $set['options'] = '';
     $set['name'] = 'Disable IssabelPBX dbug Logging';
-    $set['description'] = 'Set to true to stop all dbug() calls from writing to the Debug File (FPBXDBUGFILE)';
+    $set['description'] = 'Set to true to stop all dbug() calls from writing to the Debug File (IPBXDBUGFILE)';
     $set['emptyok'] = 0;
     $set['readonly'] = 0;
     $set['type'] = CONF_TYPE_BOOL;
-    $issabelpbx_conf->define_conf_setting('FPBXDBUGDISABLE',$set);
+    $issabelpbx_conf->define_conf_setting('IPBXDBUGDISABLE',$set);
 
     // DIE_ISSABELPBX_VERBOSE
     $set['value'] = false;
@@ -2368,7 +2368,7 @@ function issabelpbx_settings_init($commit_to_db = false) {
 
     // SIPUSERAGENT
     //
-    $set['value'] = 'FPBX';
+    $set['value'] = 'IPBX';
     $set['options'] = '';
     $set['name'] = 'SIP User Agent';
     $set['description'] = 'User Agent prefix';

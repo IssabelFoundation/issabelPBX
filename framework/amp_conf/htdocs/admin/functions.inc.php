@@ -16,7 +16,7 @@ if (!defined('PHP_VERSION_ID')) {
     define('PHP_VERSION_ID', ($version[0] * 10000 + $version[1] * 100 + $version[2]));
 }
 
-spl_autoload_register('fpbx_framework_autoloader');
+spl_autoload_register('ipbx_framework_autoloader');
 
 //class that handels issabelpbx global setting. Dont autoload - we ALWAYS need this anyway
 require_once($dirname . '/libraries/issabelpbx_conf.class.php');
@@ -84,7 +84,7 @@ if (!function_exists('config_item')) {
 require_once($dirname . '/helpers/form_helper.php');
 
 //issabelpbx autoloader
-function fpbx_framework_autoloader($class) {
+function ipbx_framework_autoloader($class) {
     global $amp_conf;
     $dirname = $amp_conf['AMPWEBROOT'] . '/admin';
     if (substr($class, 0, 3) == 'gui') {
@@ -226,9 +226,9 @@ function ast_with_dahdi() {
         $issabelpbx_conf =& issabelpbx_conf::create();
         if ($issabelpbx_conf->conf_setting_exists('ZAP2DAHDICOMPAT')) {
             $issabelpbx_conf->set_conf_values(array('ZAP2DAHDICOMPAT' => true), true, true);
-            issabelpbx_log(FPBX_LOG_NOTICE, _("Auto set ZAP2DAHDICOMPAT to true because we are running a version of Asterisk greater than 1.4.21"));
+            issabelpbx_log(IPBX_LOG_NOTICE, _("Auto set ZAP2DAHDICOMPAT to true because we are running a version of Asterisk greater than 1.4.21"));
         } else {
-            issabelpbx_log(FPBX_LOG_ERROR, _("issabelpbx setting  ZAP2DAHDICOMPAT not found, somethng is corrupt in the conf database?"));
+            issabelpbx_log(IPBX_LOG_ERROR, _("issabelpbx setting  ZAP2DAHDICOMPAT not found, somethng is corrupt in the conf database?"));
         }
 
         $ast_with_dahdi = true;

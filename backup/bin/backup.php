@@ -75,7 +75,7 @@ if (isset($vars['id']) && $vars['id']) {
 				exit();
 			}
 			backup_log(_('Connecting to remote server...'));
-			$cmd[] = fpbx_which('ssh');
+			$cmd[] = ipbx_which('ssh');
 			$cmd[] = '-o StrictHostKeyChecking=no -i';
 			$cmd[] = backup__($s[$b->b['bu_server']]['key']);
 			$cmd[] = '-p';
@@ -104,7 +104,7 @@ if (isset($vars['id']) && $vars['id']) {
 			unset($cmd);
 
 			backup_log(_('Verifying received file...'));
-			$cmd[] = fpbx_which('tar');
+			$cmd[] = ipbx_which('tar');
 			$cmd[] = '-zxOf';
 			$cmd[] = $b->b['_tmpfile'];
 			$cmd[] = '&> /dev/null';

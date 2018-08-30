@@ -1204,7 +1204,7 @@ if ($ast_ge_16) {
     <tr><td colspan="2"><br><h5><?php echo _("Events, Stats and Advanced")?><hr></h5></td></tr>
 
     <tr>
-        <td><?php echo fpbx_label(_("Event When Called"), _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."));?></td>
+        <td><?php echo ipbx_label(_("Event When Called"), _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."));?></td>
         <td>
             <?php
                 $agentevents_true_label = form_label(_('Enabled'), 'agentevents_true');
@@ -1241,7 +1241,7 @@ if ($ast_ge_16) {
     </tr>
 
     <tr>
-        <td><?php echo fpbx_label(_("Member Status Event"), _("When set to YES, the following manager event will be generated: QueueMemberStatus"));?></td>
+        <td><?php echo ipbx_label(_("Member Status Event"), _("When set to YES, the following manager event will be generated: QueueMemberStatus"));?></td>
         <td>
             <?php
                 $memberevents_true_label = form_label(_('Enabled'), 'memberevents_true');

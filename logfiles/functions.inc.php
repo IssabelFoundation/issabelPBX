@@ -113,7 +113,7 @@ function logfiles_get_logfile($lines = 500, $file) {
     }
 
     $channels = array();
-    exec(fpbx_which('tail') . ' -n' . $lines . ' ' . $logfile, $log);
+    exec(ipbx_which('tail') . ' -n' . $lines . ' ' . $logfile, $log);
     foreach($log as $l){
         switch (true) {
             case strpos($l, 'INFO'):

@@ -174,7 +174,7 @@ class queues_conf {
             
 						$qnostate = queues_get_qnostate($matches[1]);
 						if ($qnostate == 'ignorestate') {
-							issabelpbx_log(FPBX_LOG_NOTICE,"Ignoring State information for Queue Member: ".$matches[1]);
+							issabelpbx_log(IPBX_LOG_NOTICE,"Ignoring State information for Queue Member: ".$matches[1]);
 							$output .= "member=$member,$name\n";
 						} else {
 							$output .= "member=$member,$name,hint:".$matches[1]."@ext-local\n";
@@ -191,7 +191,7 @@ class queues_conf {
 						str_replace(',','\,',$name);
 						$qnostate = queues_get_qnostate($matches[1]);
 						if ($qnostate == 'ignorestate') {
-							issabelpbx_log(FPBX_LOG_NOTICE,"Ignoring State information for Queue Member: ".$matches[1]);
+							issabelpbx_log(IPBX_LOG_NOTICE,"Ignoring State information for Queue Member: ".$matches[1]);
 							$output .= "member=$member,$name\n";
 						} else {
 							$output .= "member=$member,$name,".$devices[$matches[1]]."\n";

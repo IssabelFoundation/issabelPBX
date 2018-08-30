@@ -529,7 +529,7 @@ if (empty($check)) {
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
 		out(_("Unable to add index to tech field in devices"));
-		issabelpbx_log(FPBX_LOG_ERROR, "Failed to add index to tech field in the devices table");
+		issabelpbx_log(IPBX_LOG_ERROR, "Failed to add index to tech field in the devices table");
 	} else {
 		out(_("Adding index to tech field in the devices"));
 	}
@@ -542,7 +542,7 @@ if (empty($check)) {
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
 		out(_("Unable to add index to extensions field in users"));
-		issabelpbx_log(FPBX_LOG_ERROR, "Failed to add index to extensions field in the users table");
+		issabelpbx_log(IPBX_LOG_ERROR, "Failed to add index to extensions field in the users table");
 	} else {
 		out(_("Adding index to extensions field in the users"));
 	}
@@ -551,7 +551,7 @@ if (empty($check)) {
 $result = $db->query("ALTER TABLE devices ADD PRIMARY KEY `id` (`id`)");
 if(DB::IsError($result)) {
 	out(_("No need to set primary index on devices table"));
-	issabelpbx_log(FPBX_LOG_ERROR, "No need to set primary index on devices table");
+	issabelpbx_log(IPBX_LOG_ERROR, "No need to set primary index on devices table");
 } else {
 	out(_("Adding primary index to id field on devices table"));
 }
@@ -559,7 +559,7 @@ if(DB::IsError($result)) {
 $result = $db->query("ALTER TABLE users ADD PRIMARY KEY `extension` (`extension`)");
 if(DB::IsError($result)) {
 	out(_("No need to set primary index on users table"));
-	issabelpbx_log(FPBX_LOG_ERROR, "No need to set primary index on users table");
+	issabelpbx_log(IPBX_LOG_ERROR, "No need to set primary index on users table");
 } else {
 	out(_("Adding primary index to extension field on users table"));
 }

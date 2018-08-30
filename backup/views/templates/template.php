@@ -9,7 +9,7 @@ $html .= form_hidden('id', $id);
 $table = new CI_Table;
 
 //name
-$label	= fpbx_label(_('Template Name'));
+$label	= ipbx_label(_('Template Name'));
 $data 	= array(
 			'name' => 'name', 
 			'value' => $name
@@ -18,7 +18,7 @@ $immortal ? $data['disabled'] = '' : '';
 $table->add_row($label, form_input($data));
 
 //description
-$label	= fpbx_label(_('Description'), _('Description or notes for this server'));
+$label	= ipbx_label(_('Description'), _('Description or notes for this server'));
 $data 	= array(
 			'name' => 'desc', 
 			'value' => $desc

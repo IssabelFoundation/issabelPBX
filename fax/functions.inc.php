@@ -784,7 +784,7 @@ function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = arr
     switch ($type) {
         case 'pdf2tif':
         case 'ps2tif':
-            $gs = fpbx_which('gs');
+            $gs = ipbx_which('gs');
             if (!$gs) {
                 dbug('gs not found, not converting ' . $in);
                 return $in;
@@ -792,7 +792,7 @@ function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = arr
             $gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE=letter ';
             break;
         case 'tif2pdf':
-            $tiff2pdf = fpbx_which('tiff2pdf');
+            $tiff2pdf = ipbx_which('tiff2pdf');
             if (!$tiff2pdf) {
                 dbug('tiff2pdf not found, not converting ' . $in);
                 return $in;
@@ -844,7 +844,7 @@ function fax_tiffinfo($file, $opt = '') {
         return false;
     }
 
-    $tiffinfo    = fpbx_which('tiffinfo');
+    $tiffinfo    = ipbx_which('tiffinfo');
     $info        = array();
 
     if (!$tiffinfo) {

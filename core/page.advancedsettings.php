@@ -22,7 +22,7 @@ if($var['action'] === 'setkey') {
 		$issabelpbx_conf->set_conf_values(array($keyword => trim($var['value'])),true,$amp_conf['AS_OVERRIDE_READONLY']);
 		$status = $issabelpbx_conf->get_last_update_status();
 		if ($status[$keyword]['saved']) {
-			issabelpbx_log(FPBX_LOG_INFO,sprintf(_("Advanced Settings changed issabelpbx_conf setting: [$keyword] => [%s]"),$var['value']));
+			issabelpbx_log(IPBX_LOG_INFO,sprintf(_("Advanced Settings changed issabelpbx_conf setting: [$keyword] => [%s]"),$var['value']));
 			needreload();
 		}
 		echo json_encode($status[$keyword]);

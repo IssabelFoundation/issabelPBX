@@ -929,7 +929,7 @@ if($installamp_clean || $uninstallamp) {
     	}
 	}
 	if(!$uninstallamp && !empty($oldampconf) && $oldampconf['AMPDBENGINE'] == 'mysql') {
-        outn("Reinitalize & Reinstall Freepbx's Asterisk Database?:\n [y] ");
+        outn("Reinitalize & Reinstall IssabelPBX's Asterisk Database?:\n [y] ");
     	$key = trim(fgets(STDIN,1024));
     	switch($key) {
     	    case "n":
@@ -944,7 +944,7 @@ if($installamp_clean || $uninstallamp) {
 
         		if(DB::IsError($cleandb)) {
                 	out("FAILED");
-                	fatal("Try not selecting 'y' on Reinitalize & Reinstall Freepbx's Asterisk Database");
+                	fatal("Try not selecting 'y' on Reinitalize & Reinstall IssabelPBX's Asterisk Database");
                 } else {
         	        $sql = "SHOW TABLES FROM ".$oldampconf['AMPDBNAME'];
         	        $tables = $cleandb->getAll($sql);
@@ -961,7 +961,7 @@ if($installamp_clean || $uninstallamp) {
     	}
     }
 	if($uninstallamp && (!empty($oldampconf) || !empty($new_username))) {
-	    outn("Uninstall Freepbx's Asterisk Database?:\n [y] ");
+	    outn("Uninstall IssabelPBX's Asterisk Database?:\n [y] ");
 		$u_username = !empty($oldampconf["AMPDBUSER"]) ? $oldampconf["AMPDBUSER"] : $new_username;
 		$u_password = !empty($oldampconf["AMPDBPASS"]) ? $oldampconf["AMPDBPASS"] : (!empty($new_password) ? $new_password : '');
 		$u_host = !empty($oldampconf["AMPDBHOST"]) ? $oldampconf["AMPDBHOST"] : (!empty($dbhost) ? $dbhost : 'localhost');

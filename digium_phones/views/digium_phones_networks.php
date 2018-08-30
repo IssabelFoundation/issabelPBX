@@ -96,13 +96,13 @@ foreach ($networks as $networkid=>$network) {
 	<?php
 	dbug($networks[$editnetwork]);
 	$table = new CI_Table();
-	$table->add_row(fpbx_label('Network Name:', 'Sets an identifier for the network.  This will be present in the phone\'s preferences menu and is used to manually select a network from the phone, if required.'),
+	$table->add_row(ipbx_label('Network Name:', 'Sets an identifier for the network.  This will be present in the phone\'s preferences menu and is used to manually select a network from the phone, if required.'),
 			array( 'data' => '<input type="text" id="networkname" name="networkname" value="' . ($editnetwork == -1 ? "readonly" : $networks[$editnetwork]['name']) . '" />'));
-	$table->add_row(fpbx_label('Network CIDR:', 'Defines a network address, represented using CIDR notation.  For more information about CIDR notation, please see http://en.wikipedia.org/wiki/CIDR_notation.  If the phone, when it boots, discovers that its IP address matches the CIDR of an Network it has been assigned, then it will use those Network settings for accessing the PBX.'),
+	$table->add_row(ipbx_label('Network CIDR:', 'Defines a network address, represented using CIDR notation.  For more information about CIDR notation, please see http://en.wikipedia.org/wiki/CIDR_notation.  If the phone, when it boots, discovers that its IP address matches the CIDR of an Network it has been assigned, then it will use those Network settings for accessing the PBX.'),
 			array( 'data' => '<input type="text" id="cidr" name="cidr" value="' . ($editnetwork == -1 ? "readonly" : $networks[$editnetwork]['settings']['cidr']) . '" />'));
-	$table->add_row(fpbx_label('Registration Address:', 'Sets the SIP hostname or IP address used by the phone to access the PBX.'),
+	$table->add_row(ipbx_label('Registration Address:', 'Sets the SIP hostname or IP address used by the phone to access the PBX.'),
 			array( 'data' => '<input type="text" id="registration_address" name="registration_address" value="' . ($editnetwork == -1 ? "readonly" : $networks[$editnetwork]['settings']['registration_address']) . '" />'));
-	$table->add_row(fpbx_label('Registration Port:', 'Sets the port used by the phone to access the PBX.'),
+	$table->add_row(ipbx_label('Registration Port:', 'Sets the port used by the phone to access the PBX.'),
 			array( 'data' => '<input type="text" id="registration_port" name="registration_port" value="' . ($editnetwork == -1 ? "readonly" : $networks[$editnetwork]['settings']['registration_port']) . '" />'));
 	
 	

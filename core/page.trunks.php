@@ -564,8 +564,8 @@ if ($helptext != '') {
 	$data['size'] = '20';
 	$data['tabindex'] = $tabindex++;
 
-	$dialopts_label = fpbx_label(_('Asterisk Trunk Dial Options'), _('Asterisk Dial command options to be used when calling out this trunk. To override the Advanced Settings default, check the box and then provide the required options for this trunk')) . "\n";
-	$dialopts_box = fpbx_form_input_check($data, '', '', '<small>' . _('Override') . '</small>', $amp_conf['TRUNK_OPTIONS'], true) . "\n";
+	$dialopts_label = ipbx_label(_('Asterisk Trunk Dial Options'), _('Asterisk Dial command options to be used when calling out this trunk. To override the Advanced Settings default, check the box and then provide the required options for this trunk')) . "\n";
+	$dialopts_box = ipbx_form_input_check($data, '', '', '<small>' . _('Override') . '</small>', $amp_conf['TRUNK_OPTIONS'], true) . "\n";
 ?>
 			<tr>
 				<td>

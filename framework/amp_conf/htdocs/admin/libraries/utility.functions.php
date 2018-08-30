@@ -2,31 +2,20 @@
 
 define('EOL', isset($_SERVER['REQUEST_METHOD']) ? "<br />" :  PHP_EOL);
 
-define("FPBX_LOG_FATAL",    "FATAL");
-define("FPBX_LOG_CRITICAL", "CRITICAL");
-define("FPBX_LOG_SECURITY", "SECURITY");
-define("FPBX_LOG_UPDATE",   "UPDATE");
-define("FPBX_LOG_ERROR",    "ERROR");
-define("FPBX_LOG_WARNING",  "WARNING");
-define("FPBX_LOG_NOTICE",   "NOTICE");
-define("FPBX_LOG_INFO",     "INFO");
-define("FPBX_LOG_PHP",      "PHP");
-
-
-
-/* Proxy function for FPBX compatibility */
-function die_freepbx($text, $extended_text="", $type="FATAL") {
-    die_issabelpbx($text,$extended_text,$type);
-}
-
-function freepbx_log($level,$message) {
-    issabelpbx_log($level,$message);
-}
+define("IPBX_LOG_FATAL",    "FATAL");
+define("IPBX_LOG_CRITICAL", "CRITICAL");
+define("IPBX_LOG_SECURITY", "SECURITY");
+define("IPBX_LOG_UPDATE",   "UPDATE");
+define("IPBX_LOG_ERROR",    "ERROR");
+define("IPBX_LOG_WARNING",  "WARNING");
+define("IPBX_LOG_NOTICE",   "NOTICE");
+define("IPBX_LOG_INFO",     "INFO");
+define("IPBX_LOG_PHP",      "PHP");
 
 /** IssabelPBX Logging facility to FILE or syslog
  * @param  string   The level/severity of the error. Valid levels use constants:
- *                  FPBX_LOG_FATAL, FPBX_LOG_CRITICAL, FPBX_LOG_SECURITY, FPBX_LOG_UPDATE,
- *                  FPBX_LOG_ERROR, FPBX_LOG_WARNING, FPBX_LOG_NOTICE, FPBX_LOG_INFO.
+ *                  IPBX_LOG_FATAL, IPBX_LOG_CRITICAL, IPBX_LOG_SECURITY, IPBX_LOG_UPDATE,
+ *                  IPBX_LOG_ERROR, IPBX_LOG_WARNING, IPBX_LOG_NOTICE, IPBX_LOG_INFO.
  * @param  string   The error message
  */
 function issabelpbx_log($level, $message) {
@@ -77,8 +66,8 @@ function issabelpbx_log($level, $message) {
 			default:
 				// during initial install, there may be no log file provided because the script has not fully bootstrapped
 				// so we will default to a pre-install log file name. We will make a file name mandatory with a proper
-				// default in FPBX_LOG_FILE
-				$log_file	= isset($amp_conf['FPBX_LOG_FILE']) ? $amp_conf['FPBX_LOG_FILE'] : '/tmp/issabelpbx_pre_install.log';
+				// default in IPBX_LOG_FILE
+				$log_file	= isset($amp_conf['IPBX_LOG_FILE']) ? $amp_conf['IPBX_LOG_FILE'] : '/tmp/issabelpbx_pre_install.log';
 
 				// PHP Throws an error on install running of install_amp because the tiemzone isn't set. This is something that
 				// should be done in the php.ini file but we will make an attempt to set it to something if we can't derive it
@@ -137,7 +126,7 @@ function compress_framework_css() {
 		//because that will force browsers to reload vs. caching it
 		$mainstyle_css_generated = $ms_path.'/mstyle_autogen_' . time() . '.css';
 		//remove any stale generated css files
-		exec(fpbx_which('rm') . ' -f ' . $ms_path . '/mstyle_autogen_*');
+		exec(ipbx_which('rm') . ' -f ' . $ms_path . '/mstyle_autogen_*');
 
 		$ret = file_put_contents($mainstyle_css_generated, $new_css);
 
@@ -157,7 +146,7 @@ function compress_framework_css() {
 
 			// If it is a regular file (could have been first time and previous was blank then delete old
 			if (is_file($mainstyle_css_gen) && !unlink($mainstyle_css_gen)) {
-				issabelpbx_log(FPBX_LOG_WARNING,
+				issabelpbx_log(IPBX_LOG_WARNING,
 							sprintf(_('failed to delete %s from assets/css directory after '
 									. 'creating updated CSS file.'),
 									$mainstyle_css_generated_full_path));
@@ -171,7 +160,7 @@ function die_issabelpbx($text, $extended_text="", $type="FATAL") {
 	global $amp_conf;
 
 	$bt = debug_backtrace();
-	issabelpbx_log(FPBX_LOG_FATAL, "die_issabelpbx(): ".$text);
+	issabelpbx_log(IPBX_LOG_FATAL, "die_issabelpbx(): ".$text);
 
 	if (isset($_SERVER['REQUEST_METHOD'])) {
 		// running in webserver
@@ -291,7 +280,7 @@ function issabelpbx_debug($string, $option='', $filename='') {
 /**
  * IssabelPBX Debugging function
  * This function can be called as follows:
- * dbug() - will just print a time stamp to the debug log file ($amp_conf['FPBXDBUGFILE'])
+ * dbug() - will just print a time stamp to the debug log file ($amp_conf['IPBXDBUGFILE'])
  * dbug('string') - same as above + will print the string
  * dbug('string',$array) - same as above + will print_r the array after the message
  * dbug($array) - will print_r the array with no message (just a time stamp)
@@ -309,7 +298,7 @@ function dbug(){
 	// Check if it is set to avoid un-defined errors if using in code portions that are
 	// not yet bootstrapped. Default to enabling it.
 	//
-	if (isset($amp_conf['FPBXDBUGDISABLE']) && $amp_conf['FPBXDBUGDISABLE']) {
+	if (isset($amp_conf['IPBXDBUGDISABLE']) && $amp_conf['IPBXDBUGDISABLE']) {
 		return;
 	}
 
@@ -394,7 +383,7 @@ function issabelpbx_error_handler($errno, $errstr, $errfile, $errline,  $errcont
         switch($amp_conf['PHP_ERROR_HANDLER_OUTPUT']) {
                 case 'issabelpbxlog':
                         $txt = sprintf("%s] (%s:%s) - %s", $errormsg, $errfile, $errline, $errstr);
-                        issabelpbx_log(FPBX_LOG_PHP,$txt);
+                        issabelpbx_log(IPBX_LOG_PHP,$txt);
                         break;
                 case 'off':
                         break;
@@ -421,7 +410,7 @@ function out($text,$log=true) {
 	// if not set, could be bootstrapping so default to true
 	if ($log && (!isset($amp_conf['LOG_OUT_MESSAGES']) || $amp_conf['LOG_OUT_MESSAGES'])) {
 		$outn_function_buffer .= $text;
-		issabelpbx_log(FPBX_LOG_INFO,$outn_function_buffer);
+		issabelpbx_log(IPBX_LOG_INFO,$outn_function_buffer);
 		$outn_function_buffer = '';
  	}
 }
@@ -440,7 +429,7 @@ function outn($text,$log=true) {
 function error($text,$log=true) {
 	echo "[ERROR] ".$text.EOL;
 	if ($log) {
-		issabelpbx_log(FPBX_LOG_ERROR,$text);
+		issabelpbx_log(IPBX_LOG_ERROR,$text);
 	}
 }
 
@@ -450,7 +439,7 @@ function error($text,$log=true) {
 function fatal($text,$log=true) {
 	echo "[FATAL] ".$text.EOL;
 	if ($log) {
-		issabelpbx_log(FPBX_LOG_FATAL,$text);
+		issabelpbx_log(IPBX_LOG_FATAL,$text);
 	}
 	exit(1);
 }
@@ -492,7 +481,7 @@ function file_get_contents_url($file_url) {
 			if ($retcode) {
 				// if server isn't available for some reason should return non-zero
 				// so we return and we don't set the flag below
-				issabelpbx_log(FPBX_LOG_ERROR,sprintf(_('Failed to get remote file, mirror site may be down: %s'),$fn));
+				issabelpbx_log(IPBX_LOG_ERROR,sprintf(_('Failed to get remote file, mirror site may be down: %s'),$fn));
 				continue;
 
 				// We are here if contents were blank. It's possible that whatever we were getting were suppose to be blank
@@ -754,18 +743,18 @@ function dbug_write($txt, $check = false){
 	// dbug can be used prior to bootstrapping and initialization, so we set
 	// it if not defined here to a default.
 	//
-	if (!isset($amp_conf['FPBXDBUGFILE'])) {
-		$amp_conf['FPBXDBUGFILE'] = '/var/log/asterisk/issabelpbx_dbug';
+	if (!isset($amp_conf['IPBXDBUGFILE'])) {
+		$amp_conf['IPBXDBUGFILE'] = '/var/log/asterisk/issabelpbx_dbug';
 	}
 
 // If not check set max size just under 2G which is the php limit before it gets upset
 	if($check) { $max_size = 52428800; } else { $max_size = 2000000000; }
 	//optionaly ensure that dbug file is smaller than $max_size
-	$size = file_exists($amp_conf['FPBXDBUGFILE']) ? sprintf("%u", filesize($amp_conf['FPBXDBUGFILE'])) + strlen($txt) : 0;
+	$size = file_exists($amp_conf['IPBXDBUGFILE']) ? sprintf("%u", filesize($amp_conf['IPBXDBUGFILE'])) + strlen($txt) : 0;
 	if ($size > $max_size) {
-		file_put_contents($amp_conf['FPBXDBUGFILE'], $txt);
+		file_put_contents($amp_conf['IPBXDBUGFILE'], $txt);
 	} else {
-		file_put_contents($amp_conf['FPBXDBUGFILE'], $txt, FILE_APPEND);
+		file_put_contents($amp_conf['IPBXDBUGFILE'], $txt, FILE_APPEND);
 	}
 }
 
@@ -948,7 +937,7 @@ function dbug_printtree($dir, $indent = "\t") {
  * @pram string
  * @retruns string
  */
-function fpbx_which($app) {
+function ipbx_which($app) {
 	// don't know if we will always have an open class and not even sure if
 	// $amp_conf will be set so to be safe deal with it all here.
 	//
@@ -1261,7 +1250,7 @@ function download_file($file, $name = '', $type = '', $force_download = false) {
 				$finfo = new finfo(FILEINFO_MIME);
 				$type = $finfo->file($file);
 			} else {
-				exec(fpbx_which('file') . ' -ib ' . $file, $res);
+				exec(ipbx_which('file') . ' -ib ' . $file, $res);
 				$type = $res[0];
 			}
 		}
@@ -1322,7 +1311,7 @@ function download_file($file, $name = '', $type = '', $force_download = false) {
  */
 function fpbx_pdfinfo($pdf) {
 	$pdfinfo = array();
-	exec(fpbx_which('pdfinfo') . ' ' . $pdf, $pdf_details, $ret_code);
+	exec(ipbx_which('pdfinfo') . ' ' . $pdf, $pdf_details, $ret_code);
 
 	if($ret_code !== 0) {
 		return false;
@@ -1347,7 +1336,7 @@ function fpbx_pdfinfo($pdf) {
  *
  * allows IssabelPBX to update the manager credentials primarily used by Advanced Settings and Backup and Restore.
  */
-function fpbx_ami_update($user=false, $pass=false, $writetimeout = false) {
+function ipbx_ami_update($user=false, $pass=false, $writetimeout = false) {
 	global $amp_conf, $astman;
 	$conf_file = $amp_conf['ASTETCDIR'] . '/manager.conf';
 	$ret = $ret2 = 0;
@@ -1358,9 +1347,9 @@ function fpbx_ami_update($user=false, $pass=false, $writetimeout = false) {
 		if ($ret) {
 			dbug($output);
 			dbug($ret);
-			issabelpbx_log(FPBX_LOG_ERROR,sprintf(_("Failed changing AMI user to [%s], internal failure details follow:"),$amp_conf['AMPMGRUSER']));
+			issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("Failed changing AMI user to [%s], internal failure details follow:"),$amp_conf['AMPMGRUSER']));
 			foreach ($output as $line) {
-				issabelpbx_log(FPBX_LOG_ERROR,sprintf(_("AMI failure details:"),$line));
+				issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("AMI failure details:"),$line));
 			}
 		}
 	}
@@ -1371,9 +1360,9 @@ function fpbx_ami_update($user=false, $pass=false, $writetimeout = false) {
 		if ($ret2) {
 			dbug($output);
 			dbug($ret2);
-			issabelpbx_log(FPBX_LOG_ERROR,sprintf(_("Failed changing AMI password to [%s], internal failure details follow:"),$amp_conf['AMPMGRPASS']));
+			issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("Failed changing AMI password to [%s], internal failure details follow:"),$amp_conf['AMPMGRPASS']));
 			foreach ($output as $line) {
-				issabelpbx_log(FPBX_LOG_ERROR,sprintf(_("AMI failure details:"),$line));
+				issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("AMI failure details:"),$line));
 			}
 		}
 
@@ -1399,9 +1388,9 @@ function fpbx_ami_update($user=false, $pass=false, $writetimeout = false) {
 		if ($ret3) {
 			dbug($output);
 			dbug($ret3);
-			issabelpbx_log(FPBX_LOG_ERROR,sprintf(_("Failed changing AMI writetimout to [%s], internal failure details follow:"),$amp_conf['ASTMGRWRITETIMEOUT']));
+			issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("Failed changing AMI writetimout to [%s], internal failure details follow:"),$amp_conf['ASTMGRWRITETIMEOUT']));
 			foreach ($output as $line) {
-				issabelpbx_log(FPBX_LOG_ERROR,sprintf(_("AMI failure details:"),$line));
+				issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("AMI failure details:"),$line));
 			}
 		}
 	}
@@ -1414,11 +1403,11 @@ function fpbx_ami_update($user=false, $pass=false, $writetimeout = false) {
 	} else {
 		unset($output);
 		dbug("no astman connection so trying to force through linux command line");
-		exec(fpbx_which('asterisk') . " -rx 'module reload manager'", $output, $ret2);
+		exec(ipbx_which('asterisk') . " -rx 'module reload manager'", $output, $ret2);
 		if ($ret2) {
 			dbug($output);
 			dbug($ret2);
-			issabelpbx_log(FPBX_LOG_ERROR,_("Failed to reload AMI, manual reload will be necessary, try: [asterisk -rx 'module reload manager']"));
+			issabelpbx_log(IPBX_LOG_ERROR,_("Failed to reload AMI, manual reload will be necessary, try: [asterisk -rx 'module reload manager']"));
 		}
 	}
 	return true;

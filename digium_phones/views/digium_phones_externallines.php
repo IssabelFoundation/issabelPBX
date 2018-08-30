@@ -93,31 +93,31 @@ foreach ($externallines as $externallineid=>$externalline) {
 <div id="editingexternalline" style="display: none;">
 <?php
 $table = new CI_Table();
-$table->add_row(array( 'data' => fpbx_label('Line Name', 'Sets an identifier for the line.  This will be present in the phone\'s preferences menu and is used to manually select a line from the phone, if required.'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('Line Name', 'Sets an identifier for the line.  This will be present in the phone\'s preferences menu and is used to manually select a line from the phone, if required.'), 'class' => 'template_name'),
 	array( 'data' => '<input type="text" id="linename" name="linename" />	<input type="hidden" id="externalline" name="externalline" />')
 	);
-$table->add_row(array( 'data' => fpbx_label('User ID', 'The user identifier to be associated with this external line when contacting the remote server.'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('User ID', 'The user identifier to be associated with this external line when contacting the remote server.'), 'class' => 'template_name'),
 	array( 'data' => '<input type="text" id="userid" name="userid" />')
 	);
-$table->add_row(array( 'data' => fpbx_label('Auth Name', 'The name used as an additional authentication parameter to the remote server for this external line. This can normally be left blank.'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('Auth Name', 'The name used as an additional authentication parameter to the remote server for this external line. This can normally be left blank.'), 'class' => 'template_name'),
 	array( 'data' => '<input type="text" id="authname" name="authname" />')
 	);
-$table->add_row(array( 'data' => fpbx_label('Secret', 'The password to use for authenticating to the remote server for this external line.'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('Secret', 'The password to use for authenticating to the remote server for this external line.'), 'class' => 'template_name'),
 	array( 'data' => '<input type="text" id="secret" name="secret" />')
 	);
-$table->add_row(array( 'data' => fpbx_label('Server Address', 'The address of the server this external line will use to place calls.'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('Server Address', 'The address of the server this external line will use to place calls.'), 'class' => 'template_name'),
 	array( 'data' => '<input type="text" id="server_address" name="server_address" />')
 	);
-$table->add_row(array( 'data' => fpbx_label('Server Port', 'The port on which to contact the server for this external line.'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('Server Port', 'The port on which to contact the server for this external line.'), 'class' => 'template_name'),
 	array( 'data' => '<input type="text" id="server_port" name="server_port" value="5060"/>')
 	);
-$table->add_row(array( 'data' => fpbx_label('Transport', 'The SIP transport to use for this external line.'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('Transport', 'The SIP transport to use for this external line.'), 'class' => 'template_name'),
 	array( 'data' => '<select id="server_transport" name="server_transport"><option value="udp" selected>UDP (Default)</option><option value="tcp">TCP</option></select>')
 	);
-$table->add_row(array( 'data' => fpbx_label('Caller ID', 'The Caller ID to be presented to the called party when using this external line.'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('Caller ID', 'The Caller ID to be presented to the called party when using this external line.'), 'class' => 'template_name'),
 	array( 'data' => '<input type="text" id="callerid" name="callerid" />')
 	);
-$table->add_row(array( 'data' => fpbx_label('Register', 'Whether to register this external line to the specified server.'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('Register', 'Whether to register this external line to the specified server.'), 'class' => 'template_name'),
 	array( 'data' => '<select id="register" name="register"><option value="yes" selected>Yes (Default)</option><option value="no">No</option></select>')
 	);
 	

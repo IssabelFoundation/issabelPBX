@@ -29,7 +29,7 @@ if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc
 
 // Force autoloader to load all the includes since Zend issues can break and make this fail when this is run
 //
-fpbx_framework_autoloader(true);
+ipbx_framework_autoloader(true);
 
 function doReload() {
 	$result = do_reload();

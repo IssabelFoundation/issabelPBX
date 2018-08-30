@@ -32,14 +32,14 @@ $files .= '</div></div>';
 //databases
 if ($manifest['fpbx_db'] || $manifest['astdb']) {
 	$files .= br(2);
-	$files .= fpbx_label(_('PBX Settings'), _('Restore all setting stored in the database'));
+	$files .= ipbx_label(_('PBX Settings'), _('Restore all setting stored in the database'));
 	$files .= ' ' . form_checkbox('restore[settings]', 'true');
 }
 
 //cdr's
 if ($manifest['fpbx_cdrdb']) {
 	$files .= br(2);
-	$files .= fpbx_label(_('CDR\'s'), _('Restore CDR records stored in this backup'));
+	$files .= ipbx_label(_('CDR\'s'), _('Restore CDR records stored in this backup'));
 	$files .= ' ' . form_checkbox('restore[cdr]', 'true');
 }
 $files .= '</div>';

@@ -630,7 +630,7 @@ class guiinput extends guielement {
 		// prompt in first column
 		$output .= "\t\t<td>";
 		if ($this->helptext != '') {
-			$output .= fpbx_label($this->prompttext,$this->helptext);
+			$output .= ipbx_label($this->prompttext,$this->helptext);
 		} else {
 			$output .= $this->prompttext;
 		}

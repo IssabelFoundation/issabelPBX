@@ -10,7 +10,7 @@ $html .= form_hidden('id', $id);
 $table = new CI_Table;
 
 //name
-$label	= fpbx_label(_('Server Name'));
+$label	= ipbx_label(_('Server Name'));
 $data 	= array(
 			'name'		=> 'name', 
 			'value'		=> $name
@@ -19,7 +19,7 @@ $data = backup_server_writeable('name', $readonly, $data);
 $table->add_row($label, form_input($data));
 
 //decription
-$label	= fpbx_label(_('Description'), _('Description or notes for this server'));
+$label	= ipbx_label(_('Description'), _('Description or notes for this server'));
 $data 	= array(
 			'name'		=> 'desc', 
 			'value'		=> $desc
@@ -28,7 +28,7 @@ $data = backup_server_writeable('desc', $readonly, $data);
 $table->add_row($label, form_input($data));
 
 //hostname
-$label = fpbx_label(_('Email Address'), _('Email address where backups should be emailed to'));
+$label = ipbx_label(_('Email Address'), _('Email address where backups should be emailed to'));
 $data  = array(
 			'name' 		=> 'addr', 
 			'value'		=> $addr,
@@ -39,7 +39,7 @@ $data = backup_server_writeable('addr', $readonly, $data);
 $table->add_row($label, form_input($data));
 
 //size
-$label = fpbx_label(
+$label = ipbx_label(
 			_('Max Email Size'), 
 			_('The maximum size a backup can be and still be emailed. '
 			. 'Some email servers limit the size of email attachments, '

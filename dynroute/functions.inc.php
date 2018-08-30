@@ -1,5 +1,5 @@
 <?php
-//    dynroute - Dynamic Route Module for Freepbx
+//    dynroute - Dynamic Route Module for IssabelPBX
 //    Copyright (C) 2018 Issabel Foundation
 //    Copyright (C) 2009-2014 John Fawcett john@voipsupport.it
 //

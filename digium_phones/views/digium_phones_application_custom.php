@@ -132,15 +132,15 @@ foreach ($customapps as $customappid=>$customapp) {
 <?php
 $table = new CI_Table();
 
-$table->add_row(array( 'data' => fpbx_label('Custom Application Name:', 'A named identifier for the Custom Application.  This name must match the name in app.json'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('Custom Application Name:', 'A named identifier for the Custom Application.  This name must match the name in app.json'), 'class' => 'template_name'),
 	array( 'data' => '<input type="hidden" id="customappid" name="customappid" /><input type="text" id="customappname" name="customappname"/>')
 	);
 	
-$table->add_row(array( 'data' => fpbx_label('File:', ''), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('File:', ''), 'class' => 'template_name'),
 	array( 'data' => '<input type="file" id="customappfile" name="customappfile" />')
 	);
 	
-$table->add_row(array( 'data' => fpbx_label('Automatically Start Application:', 'Controls whether the Custom Application starts on phone boot.'), 'class' => 'template_name'),
+$table->add_row(array( 'data' => ipbx_label('Automatically Start Application:', 'Controls whether the Custom Application starts on phone boot.'), 'class' => 'template_name'),
 	array( 'data' => '<select id="autostart" name="autostart">
 			<option value="no" selected>No (Default)</option>
 			<option value="yes">Yes</option>

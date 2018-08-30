@@ -29,7 +29,7 @@ I.e. if Day of Month is set to 12 and Day of Week is not set, the queue stats wi
 the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the queue stats will be reset ONLY
  on a Monday, and ONLY if it's the 12th of the month.
 EOM;
-$label = fpbx_label(_('Run'), _($txt));
+$label = ipbx_label(_('Run'), _($txt));
 $html .= $label . ' ' . form_dropdown('cron_schedule', $data, $cron_schedule);
 $data = array(
 	'name'		=> 'cron_random',

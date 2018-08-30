@@ -161,7 +161,7 @@ foreach ($queues as $queueid=>$queue) {
 		<div class="dragdropFrame">
 			<div class="dragdrop">
 <?php
-	echo fpbx_label('Available Devices', 'Displays a listing of devices.');
+	echo ipbx_label('Available Devices', 'Displays a listing of devices.');
 	echo '<ul id="availableDevices" class="devices ui-menu ui-widget ui-widget-content ui-corner-all ui-sortable">';
 	
 	foreach ($devices as $deviceid=>$device) {
@@ -173,7 +173,7 @@ foreach ($queues as $queueid=>$queue) {
 	}
 	echo '</ul>';
 	echo '</div><div class="dragdrop">';
-	echo fpbx_label('Managers', 'Managers are devices that have permission to view queue details, but are not themselves members of the queue.');
+	echo ipbx_label('Managers', 'Managers are devices that have permission to view queue details, but are not themselves members of the queue.');
 	echo '<ul id="managersS" class="devices ui-menu ui-widget ui-widget-content ui-corner-all ui-sortable">';
 
 	

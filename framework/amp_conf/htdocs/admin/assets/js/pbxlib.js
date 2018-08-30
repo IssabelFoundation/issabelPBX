@@ -510,9 +510,9 @@ function popOverDisplay() {
     }).val(parent.$('#popover-frame').data('popover-class')).appendTo(pform);
 }
 
-function fpbx_reload_confirm() {
+function ipbx_reload_confirm() {
     if (!fpbx.conf.RELOADCONFIRM) {
-        fpbx_reload();
+        ipbx_reload();
     }
     $('<div></div>').html('Reloading will apply all configuration changes made ' + 'in IssabelPBX to your PBX engine and make them active.').dialog({
         title: 'Confirm reload',
@@ -526,7 +526,7 @@ function fpbx_reload_confirm() {
             text: fpbx.msg.framework.continuemsg,
             click: function() {
                 $(this).dialog("destroy").remove();
-                fpbx_reload();
+                ipbx_reload();
             }
         }, {
             text: fpbx.msg.framework.cancel,
@@ -537,7 +537,7 @@ function fpbx_reload_confirm() {
     });
 }
 
-function fpbx_reload() {
+function ipbx_reload() {
     $('<div></div>').progressbar({
         value: 100
     })
@@ -592,7 +592,7 @@ function issabelpbx_reload_error(txt) {
             text: fpbx.msg.framework.retry,
             click: function() {
                 $(this).dialog("destroy").remove();
-                fpbx_reload();
+                ipbx_reload();
             }
         }, {
             text: fpbx.msg.framework.cancel,
@@ -660,7 +660,7 @@ $(document).ready(function() {
                 break;
         }
     })
-    $('#fpbx_lang > li').click(function() {
+    $('#ipbx_lang > li').click(function() {
         $.cookie('lang', $(this).data('lang'));
         window.location.reload();
     })
@@ -702,9 +702,9 @@ $(document).ready(function() {
     })
     $('#button_reload').click(function() {
         if (fpbx.conf.RELOADCONFIRM == 'true') {
-            fpbx_reload_confirm();
+            ipbx_reload_confirm();
         } else {
-            fpbx_reload();
+            ipbx_reload();
         }
     });
     $('#MENU_BRAND_IMAGE_TANGO_LEFT').click(function() {
@@ -760,7 +760,7 @@ $(document).ready(function() {
         $('input[type=submit][name=Submit]').click();
     });
     $(document).bind('keydown', 'ctrl+shift+a', function() {
-        fpbx_reload();
+        ipbx_reload();
     });
     $('#user_logout').click(function() {
         url = window.location.pathname;

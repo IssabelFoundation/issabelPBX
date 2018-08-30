@@ -61,7 +61,7 @@ if (DB::IsError($confs)) { // no error... Already there
     $results = $dbcdr->query($sql);
     if(DB::IsError($results)) {
         out(_('Unable to add recordingfile field to cdr table'));
-        issabelpbx_log(FPBX_LOG_ERROR,"failed to add recordingfile field to cdr table");
+        issabelpbx_log(IPBX_LOG_ERROR,"failed to add recordingfile field to cdr table");
     } else {
         out(_("Added field recordingfile to cdr"));
     }
@@ -80,7 +80,7 @@ foreach($cid_fields as $cf) {
     	$results = $dbcdr->query($sql);
     	if(DB::IsError($results)) {
         	out(_("Unable to add $cf field to cdr table"));
-        	issabelpbx_log(FPBX_LOG_ERROR,"failed to add $cf field to cdr table");
+        	issabelpbx_log(IPBX_LOG_ERROR,"failed to add $cf field to cdr table");
     	} else {
         	out(_("Added field $cf to cdr"));
 					// TODO: put onetime notification about old src field searches and query that could be

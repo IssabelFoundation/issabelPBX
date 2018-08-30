@@ -68,7 +68,7 @@ global $chan_dahdi;
 //
 $fopwebroot = $amp_conf['AMPWEBROOT'] . '/admin/modules/fw_fop';
 if ($amp_conf['FOPWEBROOT'] != $fopwebroot) {
-    issabelpbx_log(FPBX_LOG_CRITICAL, _("fw_fop is NOT confgured as your Operator Panel, attempting to disable, FOPWEBROOT: " . $amp_conf['FOPWEBROOT'] . "."));
+    issabelpbx_log(IPBX_LOG_CRITICAL, _("fw_fop is NOT confgured as your Operator Panel, attempting to disable, FOPWEBROOT: " . $amp_conf['FOPWEBROOT'] . "."));
     out(sprintf(_("fw_fop is NOT confgured as your Operator Panel, FOPWEBROOT: %s."), $amp_conf['FOPWEBROOT']));
     outn(_("disabling fw_fop.."));
     if (is_array($errors = module_disable('fw_fop'))) {
@@ -216,7 +216,7 @@ if (isset($autoqueuepos)) {$queuepos = $autoqueuepos;}
 $fhandle = fopen($op_conf,"w" );
 if ($fhandle === false) {
     out(sprintf(_("fw_fop cannot create/overwrite config file: %s"), $op_conf));
-    issabelpbx_log(FPBX_LOG_CRITICAL, _("fw_fop failed to create/overwrite config file $op_conf."));
+    issabelpbx_log(IPBX_LOG_CRITICAL, _("fw_fop failed to create/overwrite config file $op_conf."));
     return false;
 }
 fwrite($fhandle, $warning_banner);

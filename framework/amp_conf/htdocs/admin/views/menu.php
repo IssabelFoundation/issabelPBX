@@ -19,35 +19,35 @@ if ($amp_conf['USE_ISSABELPBX_MENU_CONF']) {
   if (file_exists($fd)) {
     $favorites = @parse_ini_file($fd,true);
     if ($favorites !== false) foreach ($favorites as $menuitem => $setting) {
-      if (isset($fpbx_menu[$menuitem])) {
+      if (isset($ipbx_menu[$menuitem])) {
         foreach($setting as $key => $value) {
           switch ($key) {
             case 'category':
             case 'name':
-              $fpbx_menu[$menuitem][$key] = htmlspecialchars($value);
+              $ipbx_menu[$menuitem][$key] = htmlspecialchars($value);
             break;
             case 'type':
               // this is really deprecated but ???
               if (strtolower($value)=='setup' || strtolower($value)=='tool') {
-                $fpbx_menu[$menuitem][$key] = strtolower($value);
+                $ipbx_menu[$menuitem][$key] = strtolower($value);
               }
             break;
             case 'sort':
               if (is_numeric($value) && $value > -10 && $value < 10) {
-                $fpbx_menu[$menuitem][$key] = $value;
+                $ipbx_menu[$menuitem][$key] = $value;
               }
             break;
             case 'remove':
               // parse_ini_file sets all forms of yes/true to 1 and no/false to nothing
               if ($value == '1') {
-                unset($fpbx_menu[$menuitem]);
+                unset($ipbx_menu[$menuitem]);
               }
             break;
           }
         }
       }
 		} else {
-			issabelpbx_log('FPBX_LOG_ERROR', _("Syntax error in your issabelpbx_menu.conf file"));
+			issabelpbx_log('IPBX_LOG_ERROR', _("Syntax error in your issabelpbx_menu.conf file"));
 		}
   }
 }
@@ -55,8 +55,8 @@ if ($amp_conf['USE_ISSABELPBX_MENU_CONF']) {
 
 // TODO: these categories are not localizable
 //
-if (isset($fpbx_menu) && is_array($fpbx_menu)) {	// && issabelpbx_menu.conf not defined
-	if (empty($favorites)) foreach ($fpbx_menu as $mod => $deets) {
+if (isset($ipbx_menu) && is_array($ipbx_menu)) {	// && issabelpbx_menu.conf not defined
+	if (empty($favorites)) foreach ($ipbx_menu as $mod => $deets) {
 		switch(strtolower($deets['category'])) {
 			case 'admin':
 			case 'applications':
@@ -71,7 +71,7 @@ if (isset($fpbx_menu) && is_array($fpbx_menu)) {	// && issabelpbx_menu.conf not 
 				break;
 		}
   } else {
-	  foreach ($fpbx_menu as $mod => $deets) {
+	  foreach ($ipbx_menu as $mod => $deets) {
 			$menu[$deets['category']][] = $deets;
 		}
   }
@@ -138,7 +138,7 @@ if (isset($fpbx_menu) && is_array($fpbx_menu)) {	// && issabelpbx_menu.conf not 
 if($amp_conf['SHOWLANGUAGE']) {
 	$out .= '<a id="language-menu-button" '
 		. 'class="button-right ui-widget-content ui-state-default">' . _('Language') . '</a>';
-	$out .= '<ul id="fpbx_lang" style="display:none;">';
+	$out .= '<ul id="ipbx_lang" style="display:none;">';
 	$out .= '<li data-lang="en_US"><a href="#">'. _('English') . '</a></li>';
 	$out .= '<li data-lang="bg_BG"><a href="#">' . _('Bulgarian') . '</a></li>';
 	$out .= '<li data-lang="zh_CN"><a href="#">' . _('Chinese') . '</a></li>';

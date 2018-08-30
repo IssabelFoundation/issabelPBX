@@ -12,7 +12,7 @@ include_once("./includes/bootstrap.php");
 $pageaction = $_REQUEST['action'];
 
 if (!isset($_SESSION['ari_user']['extension']) || $pageaction === 'c' && !isset($_SESSION['ari_user']['recfiles'][$_REQUEST['recindex']])) {
-	issabelpbx_log(FPBX_LOG_SECURITY, _("Potential malicious access blocked in the User Portal (ARI)"));
+	issabelpbx_log(IPBX_LOG_SECURITY, _("Potential malicious access blocked in the User Portal (ARI)"));
 	die; // Disable anonymous or malicious access.
 }
 
