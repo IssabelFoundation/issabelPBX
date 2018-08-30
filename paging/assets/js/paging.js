@@ -98,8 +98,8 @@ function dev_limit(id) {
 	}
 	
 	//if key isnt set, just return true
-	if (typeof fpbx.conf.PAGINGMAXPARTICIPANTS == 'undefined') {
+	if (typeof ipbx.conf.PAGINGMAXPARTICIPANTS == 'undefined') {
 		return true;
 	}
-	return $('#selected_dev > span').length < fpbx.conf.PAGINGMAXPARTICIPANTS;
+	return $('#selected_dev > span').length < ipbx.conf.PAGINGMAXPARTICIPANTS;
 }

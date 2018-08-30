@@ -28,7 +28,7 @@ $html .= '</div>'; //page
 
 //localized strings and other javascript values that need to be set dynamically
 //TODO: this should be done via callbacks so that all modules can hook in to it
-$fpbx['conf'] = $amp_conf;
+$ipbx['conf'] = $amp_conf;
 $clean = array(
 		'AMPASTERISKUSER',
 		'AMPASTERISKGROUP',
@@ -61,40 +61,40 @@ $clean = array(
 );
 	
 foreach ($clean as $var) {
-	if (isset($fpbx['conf'][$var])) {
-		unset($fpbx['conf'][$var]);
+	if (isset($ipbx['conf'][$var])) {
+		unset($ipbx['conf'][$var]);
 	}
 }
 
 
-$fpbx['conf']['text_dir']		= isset($_COOKIE['lang']) && in_array($_COOKIE['lang'], array('he_IL'))
+$ipbx['conf']['text_dir']		= isset($_COOKIE['lang']) && in_array($_COOKIE['lang'], array('he_IL'))
 									? 'rtl' : 'ltr';
-$fpbx['conf']['uniqueid']		= sql('SELECT data FROM module_xml WHERE id = "installid"', 'getOne');
-$fpbx['conf']['dist']			= _module_distro_id();
-$fpbx['conf']['ver']			= get_framework_version();
-$fpbx['conf']['reload_needed']  = $reload_needed; 
-$fpbx['msg']['framework']['reload_unidentified_error'] = _(" error(s) occurred, you should view the notification log on the dashboard or main screen to check for more details.");
-$fpbx['msg']['framework']['close'] = _("Close");
-$fpbx['msg']['framework']['continuemsg'] = _("Continue");//continue is a resorved word!
-$fpbx['msg']['framework']['cancel'] = _("Cancel");
-$fpbx['msg']['framework']['retry'] = _("Retry");
-$fpbx['msg']['framework']['update'] = _("Update");
-$fpbx['msg']['framework']['save'] = _("Save");
-$fpbx['msg']['framework']['bademail'] = _("Invalid email address");
-$fpbx['msg']['framework']['updatenotifications'] = _("Update Notifications");
-$fpbx['msg']['framework']['securityissue'] = _("Security Issue");
-$fpbx['msg']['framework']['validation']['duplicate'] = _(" extension number already in use by: ");
-$fpbx['msg']['framework']['noupdates'] = _("Are you sure you want to disable automatic update notifications? This could leave your system at risk to serious security vulnerabilities. Enabling update notifications will NOT automatically install them but will make sure you are informed as soon as they are available.");
-$fpbx['msg']['framework']['noupemail'] = _("Are you sure you don't want to provide an email address where update notifications will be sent. This email will never be transmitted off the PBX. It is used to send update and security notifications when they are detected.");
-$fpbx['msg']['framework']['invalid_responce'] = _("Error: Did not receive valid response from server");
-$fpbx['msg']['framework']['invalid_response'] = $fpbx['msg']['framework']['invalid_responce']; // TYPO ABOVE
-$fpbx['msg']['framework']['validateSingleDestination']['required'] = _('Please select a "Destination"');
-$fpbx['msg']['framework']['validateSingleDestination']['error'] = _('Custom Goto contexts must contain the string "custom-".  ie: custom-app,s,1'); 
-$fpbx['msg']['framework']['weakSecret']['length'] = _("The secret must be at minimum six characters in length.");
-$fpbx['msg']['framework']['weakSecret']['types'] = _("The secret must contain at least two numbers and two letters.");
+$ipbx['conf']['uniqueid']		= sql('SELECT data FROM module_xml WHERE id = "installid"', 'getOne');
+$ipbx['conf']['dist']			= _module_distro_id();
+$ipbx['conf']['ver']			= get_framework_version();
+$ipbx['conf']['reload_needed']  = $reload_needed; 
+$ipbx['msg']['framework']['reload_unidentified_error'] = _(" error(s) occurred, you should view the notification log on the dashboard or main screen to check for more details.");
+$ipbx['msg']['framework']['close'] = _("Close");
+$ipbx['msg']['framework']['continuemsg'] = _("Continue");//continue is a resorved word!
+$ipbx['msg']['framework']['cancel'] = _("Cancel");
+$ipbx['msg']['framework']['retry'] = _("Retry");
+$ipbx['msg']['framework']['update'] = _("Update");
+$ipbx['msg']['framework']['save'] = _("Save");
+$ipbx['msg']['framework']['bademail'] = _("Invalid email address");
+$ipbx['msg']['framework']['updatenotifications'] = _("Update Notifications");
+$ipbx['msg']['framework']['securityissue'] = _("Security Issue");
+$ipbx['msg']['framework']['validation']['duplicate'] = _(" extension number already in use by: ");
+$ipbx['msg']['framework']['noupdates'] = _("Are you sure you want to disable automatic update notifications? This could leave your system at risk to serious security vulnerabilities. Enabling update notifications will NOT automatically install them but will make sure you are informed as soon as they are available.");
+$ipbx['msg']['framework']['noupemail'] = _("Are you sure you don't want to provide an email address where update notifications will be sent. This email will never be transmitted off the PBX. It is used to send update and security notifications when they are detected.");
+$ipbx['msg']['framework']['invalid_responce'] = _("Error: Did not receive valid response from server");
+$ipbx['msg']['framework']['invalid_response'] = $ipbx['msg']['framework']['invalid_responce']; // TYPO ABOVE
+$ipbx['msg']['framework']['validateSingleDestination']['required'] = _('Please select a "Destination"');
+$ipbx['msg']['framework']['validateSingleDestination']['error'] = _('Custom Goto contexts must contain the string "custom-".  ie: custom-app,s,1'); 
+$ipbx['msg']['framework']['weakSecret']['length'] = _("The secret must be at minimum six characters in length.");
+$ipbx['msg']['framework']['weakSecret']['types'] = _("The secret must contain at least two numbers and two letters.");
 
 if ($covert) {
-	$fpbx['conf'] = array (
+	$ipbx['conf'] = array (
 			'ASTVERSION' => '',
 			'uniqueid' => '',
 			'reload_needed' => '',
@@ -105,8 +105,8 @@ if ($covert) {
 }
 
 $html .= "\n" . '<script type="text/javascript">'
-		. 'var fpbx='
-		. json_encode($fpbx)
+		. 'var ipbx='
+		. json_encode($ipbx)
 		. ";\n"
 
 		. 'var extmap='
@@ -157,10 +157,10 @@ if ($amp_conf['BROWSER_STATS']) {
 	$ga = "<script type=\"text/javascript\">
 			var _gaq=_gaq||[];
 			_gaq.push(['_setAccount','UA-asdf],
-					['_setCustomVar',1,'type',fpbx.conf.dist.pbx_type,2],
-					['_setCustomVar',2,'typever',fpbx.conf.dist.pbx_version,3],
-					['_setCustomVar',3,'astver',fpbx.conf.ASTVERSION,3],
-					['_setCustomVar',4,'fpbxver',fpbx.conf.ver,3],
+					['_setCustomVar',1,'type',ipbx.conf.dist.pbx_type,2],
+					['_setCustomVar',2,'typever',ipbx.conf.dist.pbx_version,3],
+					['_setCustomVar',3,'astver',ipbx.conf.ASTVERSION,3],
+					['_setCustomVar',4,'ipbxver',ipbx.conf.ver,3],
 					['_setCustomVar',5,'display',$.urlParam('display'),3],
 					['_trackPageview']);
 			(function(){
@@ -218,7 +218,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
 
 									},
 									{
-										text: fpbx.msg.framework.cancel,
+										text: ipbx.msg.framework.cancel,
 										click: function() {
 												//set cookie to prevent prompting again in this session
 												$.cookie('skip_cf_check', 'true');

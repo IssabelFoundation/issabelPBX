@@ -346,14 +346,14 @@ function isFilenameChar(c) {
 function validateSingleDestination(theForm, formNum, bRequired) {
     var gotoType = theForm.elements['goto' + formNum].value;
     if (bRequired && gotoType == '') {
-        alert(fpbx.msg.framework.validateSingleDestination.required);
+        alert(ipbx.msg.framework.validateSingleDestination.required);
         return false;
     } else {
         if (gotoType == 'custom') {
             var gotoFld = theForm.elements['custom' + formNum];
             var gotoVal = gotoFld.value;
             if (gotoVal.indexOf('custom-') == -1) {
-                alert(fpbx.msg.framework.validateSingleDestination.error);
+                alert(ipbx.msg.framework.validateSingleDestination.error);
                 gotoFld.focus();
                 return false;
             }
@@ -369,11 +369,11 @@ function weakSecret() {
         return false;
     }
     if (password.length <= 5) {
-        alert(fpbx.msg.framework.weakSecret.length);
+        alert(ipbx.msg.framework.weakSecret.length);
         return true;
     }
     if (password.match(/[a-z].*[a-z]/i) == null || password.match(/\d\D*\d/) == null) {
-        alert(fpbx.msg.framework.weakSecret.types);
+        alert(ipbx.msg.framework.weakSecret.types);
         return true;
     }
     return false;
@@ -439,7 +439,7 @@ function bind_dests_double_selects() {
                     $(e.target).dialog("destroy").remove();
                 },
                 buttons: [{
-                    text: fpbx.msg.framework.save,
+                    text: ipbx.msg.framework.save,
                     click: function() {
                         pform = $('#popover-frame').contents().find('.popover-form').first();
                         if (pform.length == 0) {
@@ -448,7 +448,7 @@ function bind_dests_double_selects() {
                         pform.submit();
                     }
                 }, {
-                    text: fpbx.msg.framework.cancel,
+                    text: ipbx.msg.framework.cancel,
                     click: function() {
                         $(this).dialog("close");
                     }
@@ -511,7 +511,7 @@ function popOverDisplay() {
 }
 
 function ipbx_reload_confirm() {
-    if (!fpbx.conf.RELOADCONFIRM) {
+    if (!ipbx.conf.RELOADCONFIRM) {
         ipbx_reload();
     }
     $('<div></div>').html('Reloading will apply all configuration changes made ' + 'in IssabelPBX to your PBX engine and make them active.').dialog({
@@ -523,13 +523,13 @@ function ipbx_reload_confirm() {
             $(e.target).dialog("destroy").remove();
         },
         buttons: [{
-            text: fpbx.msg.framework.continuemsg,
+            text: ipbx.msg.framework.continuemsg,
             click: function() {
                 $(this).dialog("destroy").remove();
                 ipbx_reload();
             }
         }, {
-            text: fpbx.msg.framework.cancel,
+            text: ipbx.msg.framework.cancel,
             click: function() {
                 $(this).dialog("destroy").remove();
             }
@@ -561,18 +561,18 @@ function ipbx_reload() {
             if (!data.status) {
                 var r = '<h3>' + data.message + '<\/h3>' + '<a href="#" id="error_more_info">click here for more info</a>' + '<pre style="display:none">' + data.retrieve_conf + "<\/pre>";
                 if (data.num_errors) {
-                    r += '<p>' + data.num_errors + fpbx.msg.framework.reload_unidentified_error + "<\/p>";
+                    r += '<p>' + data.num_errors + ipbx.msg.framework.reload_unidentified_error + "<\/p>";
                 }
                 issabelpbx_reload_error(r);
             } else {
-                if (fpbx.conf.DEVELRELOAD != 'true') {
+                if (ipbx.conf.DEVELRELOAD != 'true') {
                     toggle_reload_button('hide');
                 }
             }
         },
         error: function(reqObj, status) {
             box.dialog("destroy").remove();
-            var r = '<p>' + fpbx.msg.framework.invalid_responce + '<\/p>' + "<p>XHR response code: " + reqObj.status + " XHR responseText: " + reqObj.resonseText + " jQuery status: " + status + "<\/p>";
+            var r = '<p>' + ipbx.msg.framework.invalid_responce + '<\/p>' + "<p>XHR response code: " + reqObj.status + " XHR responseText: " + reqObj.resonseText + " jQuery status: " + status + "<\/p>";
             issabelpbx_reload_error(r);
         }
     });
@@ -589,13 +589,13 @@ function issabelpbx_reload_error(txt) {
             $(e.target).dialog("destroy").remove();
         },
         buttons: [{
-            text: fpbx.msg.framework.retry,
+            text: ipbx.msg.framework.retry,
             click: function() {
                 $(this).dialog("destroy").remove();
                 ipbx_reload();
             }
         }, {
-            text: fpbx.msg.framework.cancel,
+            text: ipbx.msg.framework.cancel,
             click: function() {
                 $(this).dialog("destroy").remove();
             }
@@ -626,7 +626,7 @@ $(document).ready(function() {
         $(this).replaceWith($(this).html())
     })
     $(".help").on('mouseenter', function() {
-        side = fpbx.conf.text_dir == 'lrt' ? 'left' : 'right';
+        side = ipbx.conf.text_dir == 'lrt' ? 'left' : 'right';
         var pos = $(this).offset();
         var offset = (200 - pos.side) + "px";
         $(this).find("span").css(side, offset).stop(true, true).delay(500).animate({
@@ -679,7 +679,7 @@ $(document).ready(function() {
             }
         });
     });
-    if (fpbx.conf.reload_needed) {
+    if (ipbx.conf.reload_needed) {
         toggle_reload_button('show');
     }
     $('.sortable').menu();
@@ -701,7 +701,7 @@ $(document).ready(function() {
         }
     })
     $('#button_reload').click(function() {
-        if (fpbx.conf.RELOADCONFIRM == 'true') {
+        if (ipbx.conf.RELOADCONFIRM == 'true') {
             ipbx_reload_confirm();
         } else {
             ipbx_reload();
@@ -747,7 +747,7 @@ $(document).ready(function() {
             exten = $('.duplicate-exten', this);
             if (exten.length > 0) {
                 extnum = exten.val();
-                alert(extnum + fpbx.msg.framework.validation.duplicate + extmap[extnum]);
+                alert(extnum + ipbx.msg.framework.validation.duplicate + extmap[extnum]);
                 return false;
             }
             return true;
@@ -796,12 +796,12 @@ $(document).ready(function() {
                 $(e.target).dialog("destroy").remove();
             },
             buttons: [{
-                text: fpbx.msg.framework.continuemsg,
+                text: ipbx.msg.framework.continuemsg,
                 click: function() {
                     $(this).find('form').trigger('submit');
                 }
             }, {
-                text: fpbx.msg.framework.cancel,
+                text: ipbx.msg.framework.cancel,
                 click: function() {
                     $(this).dialog("destroy").remove();
                 }

@@ -12,7 +12,7 @@ if ($amp_conf['FORCE_JS_CSS_IMG_DOWNLOAD']) {
 
 
 // Brandable logos in footer
-//fpbx logo
+//ipbx logo
 /*
 $html .= '<a target="_blank" href="' 
 		. $amp_conf['BRAND_IMAGE_ISSABELPBX_LINK_FOOT']

@@ -72,8 +72,8 @@
 			<td><a href="#" class="info"><?php echo _("Linked Extension")?>:<span><?php echo _("This is the extension this user is linked to from the Extensions page. A single user can only be linked to one extension, and one extension can only be linked to a single user. If using Rest Apps on a phone, this is the extension that will be mapped to the API permissions set below for this user.")?></span></a></td>
 			<td>
 				<select id="defaultextension" name="defaultextension">
-					<?php foreach($dfpbxusers as $dfpbxuser) {?>
-						<option value="<?php echo $dfpbxuser['ext']?>" <?php echo $dfpbxuser['selected'] ? 'selected' : '' ?>><?php echo $dfpbxuser['name']?> &lt;<?php echo $dfpbxuser['ext']?>&gt;</option>
+					<?php foreach($dipbxusers as $dipbxuser) {?>
+						<option value="<?php echo $dipbxuser['ext']?>" <?php echo $dipbxuser['selected'] ? 'selected' : '' ?>><?php echo $dipbxuser['name']?> &lt;<?php echo $dipbxuser['ext']?>&gt;</option>
 					<?php } ?>
 				</select>
 			</td>
@@ -82,8 +82,8 @@
 			<td><a href="#" class="info"><?php echo _("Additional Assigned Extensions")?>:<span><?php echo _("Additional Extensions over which this user will have control.")?></span></a></td>
 			<td>
 				<div class="extensions-list">
-				<?php foreach($fpbxusers as $fpbxuser) {?>
-					<label><input class="extension-checkbox" data-name="<?php echo $fpbxuser['name']?>" data-extension="<?php echo $fpbxuser['ext']?>" type="checkbox" name="assigned[]" value="<?php echo $fpbxuser['ext']?>" <?php echo $fpbxuser['selected'] ? 'checked' : '' ?>> <?php echo $fpbxuser['name']?> &lt;<?php echo $fpbxuser['ext']?>&gt;</label><br />
+				<?php foreach($ipbxusers as $ipbxuser) {?>
+					<label><input class="extension-checkbox" data-name="<?php echo $ipbxuser['name']?>" data-extension="<?php echo $ipbxuser['ext']?>" type="checkbox" name="assigned[]" value="<?php echo $ipbxuser['ext']?>" <?php echo $ipbxuser['selected'] ? 'checked' : '' ?>> <?php echo $ipbxuser['name']?> &lt;<?php echo $ipbxuser['ext']?>&gt;</label><br />
 				<?php } ?>
 				</div>
 			</td>

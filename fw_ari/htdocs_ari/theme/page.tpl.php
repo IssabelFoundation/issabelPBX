@@ -106,34 +106,34 @@
   </div>
 	<?php
 
-		$fpbx['conf']					= array();
+		$ipbx['conf']					= array();
 
-		$fpbx['conf']['text_dir']		= isset($_COOKIE['lang']) && in_array($_COOKIE['lang'], array('he_IL'))
+		$ipbx['conf']['text_dir']		= isset($_COOKIE['lang']) && in_array($_COOKIE['lang'], array('he_IL'))
 											? 'rtl' : 'ltr';
-		$fpbx['conf']['uniqueid']		= sql('SELECT data FROM module_xml WHERE id = "installid"', 'getOne');
-		$fpbx['conf']['dist']			= _module_distro_id();
-		$fpbx['conf']['ver']			= get_framework_version();
-		//$fpbx['conf']['reload_needed']  = $reload_needed;
-		$fpbx['msg']['framework']['reload_unidentified_error'] = _(" error(s) occurred, you should view the notification log on the dashboard or main screen to check for more details.");
-		$fpbx['msg']['framework']['close'] = _("Close");
-		$fpbx['msg']['framework']['continuemsg'] = _("Continue");//continue is a resorved word!
-		$fpbx['msg']['framework']['cancel'] = _("Cancel");
-		$fpbx['msg']['framework']['retry'] = _("Retry");
-		$fpbx['msg']['framework']['invalid_responce'] = _("Error: Did not receive valid response from server");
-		$fpbx['msg']['framework']['validateSingleDestination']['required'] = _('Please select a "Destination"');
-		$fpbx['msg']['framework']['validateSingleDestination']['error'] = _('Custom Goto contexts must contain the string "custom-".  ie: custom-app,s,1');
-		$fpbx['msg']['framework']['weakSecret']['length'] = _("The secret must be at minimum six characters in length.");
-		$fpbx['msg']['framework']['weakSecret']['types'] = _("The secret must contain at least two numbers and two letters.");
+		$ipbx['conf']['uniqueid']		= sql('SELECT data FROM module_xml WHERE id = "installid"', 'getOne');
+		$ipbx['conf']['dist']			= _module_distro_id();
+		$ipbx['conf']['ver']			= get_framework_version();
+		//$ipbx['conf']['reload_needed']  = $reload_needed;
+		$ipbx['msg']['framework']['reload_unidentified_error'] = _(" error(s) occurred, you should view the notification log on the dashboard or main screen to check for more details.");
+		$ipbx['msg']['framework']['close'] = _("Close");
+		$ipbx['msg']['framework']['continuemsg'] = _("Continue");//continue is a resorved word!
+		$ipbx['msg']['framework']['cancel'] = _("Cancel");
+		$ipbx['msg']['framework']['retry'] = _("Retry");
+		$ipbx['msg']['framework']['invalid_responce'] = _("Error: Did not receive valid response from server");
+		$ipbx['msg']['framework']['validateSingleDestination']['required'] = _('Please select a "Destination"');
+		$ipbx['msg']['framework']['validateSingleDestination']['error'] = _('Custom Goto contexts must contain the string "custom-".  ie: custom-app,s,1');
+		$ipbx['msg']['framework']['weakSecret']['length'] = _("The secret must be at minimum six characters in length.");
+		$ipbx['msg']['framework']['weakSecret']['types'] = _("The secret must contain at least two numbers and two letters.");
 
 		if (!isset($_SESSION['ari_user'])) {
-			$fpbx['conf'] = array('uniqueid' => '',
+			$ipbx['conf'] = array('uniqueid' => '',
 								'dist' => '',
 								'ver' => '');
 		}
 
 		$html .= "\n" . '<script type="text/javascript">'
-				. 'var fpbx='
-				. json_encode($fpbx)
+				. 'var ipbx='
+				. json_encode($ipbx)
 		 		. '</script>';
 
 		if ($amp_conf['USE_GOOGLE_CDN_JS']) {
@@ -175,12 +175,12 @@
 			$ga = "<script type=\"text/javascript\">
 					var _gaq=_gaq||[];
 					_gaq.push(['_setAccount','UA-25724109-1'],
-							['_setCustomVar',1,'type',fpbx.conf.dist.pbx_type,2],
-							['_setCustomVar',2,'typever',fpbx.conf.dist.pbx_version,3],
-							['_setCustomVar',3,'astver',fpbx.conf.ASTVERSION,3],
-							['_setCustomVar',4,'fpbxver',fpbx.conf.ver,3],
+							['_setCustomVar',1,'type',ipbx.conf.dist.pbx_type,2],
+							['_setCustomVar',2,'typever',ipbx.conf.dist.pbx_version,3],
+							['_setCustomVar',3,'astver',ipbx.conf.ASTVERSION,3],
+							['_setCustomVar',4,'ipbxver',ipbx.conf.ver,3],
 							['_setCustomVar',5,'display','ari',3],
-							/*['_setCustomVar',1,'uniqueid',fpbx.conf.uniqueid,1],
+							/*['_setCustomVar',1,'uniqueid',ipbx.conf.uniqueid,1],
 							['_setCustomVar',1,'lang',$.cookie('lang')||'en_US',3],
 							*/['_trackPageview']);
 					(function(){
@@ -229,7 +229,7 @@
 
 											},
 											{
-												text: fpbx.msg.framework.cancel,
+												text: ipbx.msg.framework.cancel,
 												click: function() {
 														//set cookie to prevent prompting again in this session
 														$.cookie('skip_cf_check', 'true');

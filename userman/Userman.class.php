@@ -186,8 +186,8 @@ class Userman implements BMO {
 					$assigned = array();
 					$default = null;
 				}
-				$fpbxusers = array();
-				$dfpbxusers = array();
+				$ipbxusers = array();
+				$dipbxusers = array();
 				$cul = array();
 				foreach(core_users_list() as $list) {
 					$cul[$list[0]] = array(
@@ -196,18 +196,18 @@ class Userman implements BMO {
 					);
 				}
 				foreach($cul as $e => $u) {
-					$fpbxusers[] = array("ext" => $e, "name" => $u['name'], "selected" => in_array($e,$assigned));
+					$ipbxusers[] = array("ext" => $e, "name" => $u['name'], "selected" => in_array($e,$assigned));
 				}
 
 				$iuext = $this->getAllInUseExtensions();
-				$dfpbxusers[] = array("ext" => 'none', "name" => 'none', "selected" => false);
+				$dipbxusers[] = array("ext" => 'none', "name" => 'none', "selected" => false);
 				foreach($cul as $e => $u) {
 					if($e != $default && in_array($e,$iuext)) {
 						continue;
 					}
-					$dfpbxusers[] = array("ext" => $e, "name" => $u['name'], "selected" => ($e == $default));
+					$dipbxusers[] = array("ext" => $e, "name" => $u['name'], "selected" => ($e == $default));
 				}
-				$html .= load_view(dirname(__FILE__).'/views/users.php',array("dfpbxusers" => $dfpbxusers, "fpbxusers" => $fpbxusers, "hookHtml" => $module_hook->hookHtml, "user" => $user, "message" => $this->message));
+				$html .= load_view(dirname(__FILE__).'/views/users.php',array("dipbxusers" => $dipbxusers, "ipbxusers" => $ipbxusers, "hookHtml" => $module_hook->hookHtml, "user" => $user, "message" => $this->message));
 			break;
 			case 'general':
 				$html .= load_view(dirname(__FILE__).'/views/general.php',array("email" => $this->getGlobalsetting('emailbody'), "message" => $this->message, "brand" => $this->brand));

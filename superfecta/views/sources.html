@@ -172,7 +172,7 @@
                         $('#options').fadeIn('slow').html(json.data);
 						//We must re-run this everytime we reload a source's options.
 						$("a.info").each(function(){$(this).after('<span class="help">?<span>'+$(this).find('span').html()+'</span></span>');$(this).find('span').remove();$(this).replaceWith($(this).html())})
-                        $(".help").on('mouseenter',function(){side=fpbx.conf.text_dir=='lrt'?'left':'right';var pos=$(this).offset();var offset=(200-pos.side)+"px";$(this).find("span").css(side,offset).stop(true,true).delay(500).animate({opacity:"show"},750);}).on('mouseleave',function(){$(this).find("span").stop(true,true).animate({opacity:"hide"},"fast");});
+                        $(".help").on('mouseenter',function(){side=ipbx.conf.text_dir=='lrt'?'left':'right';var pos=$(this).offset();var offset=(200-pos.side)+"px";$(this).find("span").css(side,offset).stop(true,true).delay(500).animate({opacity:"show"},750);}).on('mouseleave',function(){$(this).find("span").stop(true,true).animate({opacity:"hide"},"fast");});
 						$('#form_options_'+parent_id).submit(function() { 
                             $(this).ajaxSubmit(); 
                             alert("Saved!");

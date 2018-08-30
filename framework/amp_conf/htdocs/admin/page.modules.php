@@ -94,7 +94,7 @@ if (!$quietmode) {
 		$('.repo_boxes').find('input[type=checkbox]').button();
 		$('#show_auto_update').click(function() {
 			autoupdate_box = $('#db_online').dialog({
-				title: fpbx.msg.framework.updatenotifications,
+				title: ipbx.msg.framework.updatenotifications,
 				resizable: false,
 				modal: true,
 				position: ['center', 50],
@@ -108,15 +108,15 @@ if (!$quietmode) {
 					$('#update_email').focus();
 				},
 				buttons: [ {
-					text: fpbx.msg.framework.save,
+					text: ipbx.msg.framework.save,
 					click: function() {
 						if ($('#update_email')[0].validity.typeMismatch) {
-							alert(fpbx.msg.framework.bademail + ' : ' + $('#update_email').focus().val());
+							alert(ipbx.msg.framework.bademail + ' : ' + $('#update_email').focus().val());
 							$('#update_email').focus();
 						} else {
 							update_email = $('#update_email').val();
 							if (isEmpty(update_email)) {
-								if (!confirm(fpbx.msg.framework.noupemail)) {
+								if (!confirm(ipbx.msg.framework.noupemail)) {
 									return false;
 								}
 							}
@@ -140,13 +140,13 @@ if (!$quietmode) {
 									}
       					},
       					error: function(data) {
-									alert(fpbx.msg.framework.invalid_response);
+									alert(ipbx.msg.framework.invalid_response);
       					}
     					});
 						}
 					}
 				}, {
-					text: fpbx.msg.framework.cancel,
+					text: ipbx.msg.framework.cancel,
 					click: function() {
 						//console.log('pressed cancel button');
 						$(this).dialog("close");
@@ -158,7 +158,7 @@ if (!$quietmode) {
 			e.preventDefault();
 			$.each($(this).data('sec'), function(index, value) {
 				$('#security-' + value).dialog({
-					title: fpbx.msg.framework.securityissue + ' ' + value,
+					title: ipbx.msg.framework.securityissue + ' ' + value,
 					resizable: false,
 					position: [50+20*index, 50+20*index],
 					width: '450px',
@@ -169,7 +169,7 @@ if (!$quietmode) {
 						//console.log('calling open');
 					},
 					buttons: [ {
-						text: fpbx.msg.framework.close,
+						text: ipbx.msg.framework.close,
 						click: function() {
 							//console.log('pressed cancel button');
 							$(this).dialog("close");

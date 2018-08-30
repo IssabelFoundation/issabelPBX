@@ -599,7 +599,7 @@ function generate_module_repo_url($path, $add_options=false) {
   	$distro_info = _module_distro_id();
   	$options .= "&distro=".urlencode($distro_info['pbx_type']);
   	$options .= "&distrover=".urlencode($distro_info['pbx_version']);
-  	$options .= "&fpbxver=".urlencode(getversion());
+  	$options .= "&ipbxver=".urlencode(getversion());
   	if (function_exists('core_users_list')) {
 			$options .= "&ucount=".urlencode(count(core_users_list()));
 		}
