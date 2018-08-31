@@ -22,7 +22,7 @@
 		*2.11.0.22* Initial Issabel Foundation release
 	</changelog>
 	<supported>
-		<version>2.11.0.47</version>
+		<version>2.11</version>
 	</supported>
 	<location>release/2.11/backup-2.11.0.23.tgz</location>
 </module>

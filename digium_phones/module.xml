@@ -20,7 +20,7 @@
 	<depends>
 		<phpversion>5.2.0</phpversion>
 		<version>2.10</version>
-        <module>framework ge 2.11.0.48</module>
+        <module>framework ge 2.11.0.47</module>
     </depends>
 	<menuitems>
 		<digium_phones needsenginedb="yes">Digium Phones</digium_phones>

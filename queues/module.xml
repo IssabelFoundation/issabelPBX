@@ -20,7 +20,7 @@
 		<version>2.5.0alpha1</version>
 		<module>recordings ge 3.3.8</module>
         <module>core ge 2.11.0.0rc1.2</module>
-        <module>framework ge 2.11.0.48</module>
+        <module>framework ge 2.11.0.47</module>
 	</depends>
 	<menuitems>
 		<queues needsenginedb="yes">Queues</queues>

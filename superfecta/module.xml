@@ -23,7 +23,7 @@
 		<version>2.11.0</version>
     </supported>
 	<depends>
-        <module>framework ge 2.11.0.48</module>
+        <module>framework ge 2.11.0.47</module>
 	</depends>
 	<location></location>
     <md5sum></md5sum>
