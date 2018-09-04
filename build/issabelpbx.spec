@@ -445,7 +445,7 @@ else
         sed --in-place "s|/usr/lib/asterisk/modules|$RUTAREAL|g" /etc/amportal.conf
 
         # Cambio carpeta de archivos de configuración de Asterisk
-        echo "Copio /etc/asterisk.isabel a /etc/asterisk" >> /tmp/issabel_rpm.log
+        echo "Copio /etc/asterisk.issabel a /etc/asterisk" >> /tmp/issabel_rpm.log
         ls -la /etc/asterisk.issabel/manager.conf >>/tmp/issabel_rpm.log
         cp /etc/asterisk.issabel/* /etc/asterisk/
 
