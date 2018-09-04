@@ -2705,8 +2705,6 @@ LOCK TABLES `writequeuelog` WRITE;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-DROP VIEW `alldestinations`;
-
 CREATE VIEW `alldestinations` AS SELECT `users`.`extension` AS `extension`,`users`.`name` AS `name`,'from-internal' AS `context`,'extension' AS `type` from `users` UNION SELECT `queues_config`.`extension` AS `extension`,`queues_config`.`descr` AS `descr`,'ext-queues' AS `context`,'queue' AS `type` from `queues_config` UNION SELECT `ringgroups`.`grpnum` AS `grpnum`,`ringgroups`.`description` AS `description`,'ext-group' AS `context`,'ringgroup' AS `type` from `ringgroups`;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
