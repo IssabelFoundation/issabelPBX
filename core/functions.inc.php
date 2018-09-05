@@ -2294,11 +2294,19 @@ function core_do_get_config($engine) {
           // generated contexts that don't have an 'outbound-allroutes' wrapper around them, of course in those cases the
           // CID part of the dialplan will not get executed
           if (!isset($add_extra_pri1[$fpattern['base_pattern']])) {
-            $ext->add($context, $fpattern['base_pattern'], '', new ext_macro('user-callerid,LIMIT,EXTERNAL'));
+            if ($route['intracompany_route'] != '') {
+              $ext->add($context, $fpattern['base_pattern'], '', new ext_macro('user-callerid,LIMIT'));
+            } else {
+              $ext->add($context, $fpattern['base_pattern'], '', new ext_macro('user-callerid,LIMIT,EXTERNAL'));
+            }
             $add_extra_pri1[$fpattern['base_pattern']] = true;
           }
           if ($fpattern['base_pattern'] != $exten) {
-            $ext->add($context, $exten, '', new ext_macro('user-callerid,LIMIT,EXTERNAL'));
+            if ($route['intracompany_route'] != '') {
+              $ext->add($context, $exten, '', new ext_macro('user-callerid,LIMIT'));
+            } else {
+              $ext->add($context, $exten, '', new ext_macro('user-callerid,LIMIT,EXTERNAL'));
+            }
           }
           $ext->add($context, $exten, '', new ext_noop_trace(sprintf(_('Calling Out Route: %s'),'${SET(OUTBOUND_ROUTE_NAME='.$route['name'].')}'),1));
                     if ($route['dest']) {
