@@ -1,3 +1,2 @@
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `alldestinations` AS select `users`.`extension` AS `extension`,`users`.`name` AS `name`,'from-internal' AS `context`,'extension' AS `type` from `users` union select `queues_config`.`extension` AS `extension`,`queues_config`.`descr` AS `descr`,'ext-queues' AS `context`,'queue' AS `type` from `queues_config` union select `ringgroups`.`grpnum` AS `grpnum`,`ringgroups`.`description` AS `description`,'ext-group' AS `context`,'ringgroup' AS `type` from `ringgroups`;
 UPDATE issabelpbx_settings SET value='1.9.1' WHERE keyword='JQUERYUI_VER';
 
