@@ -285,18 +285,36 @@ msgstr ""
 
 msgid ""
 "Creates and manages system recordings, used by many other modules (eg, IVR)."
-msgstr ""
+msgstr "Crear y administrar grabaciones de sistema, utilizadas por otros módulos (como el de IVR)"
 
 msgid "Recordings Crypt Key"
-msgstr ""
+msgstr "Clave de encriptación de grabaciones"
 
 msgid "System Setup"
-msgstr ""
+msgstr "Configuración del Sistema"
 
 msgid ""
 "Crypt key used by this recordings module when accessing the recording files. "
 "Change from the default of "
-msgstr ""
+msgstr "Llave de encriptación a usar cuando se accede a los archivos de grabación. Cambiar desde el valor por omisión "
 
 msgid " if desired."
-msgstr ""
+msgstr " si lo desea."
+
+msgid "Record using phone"
+msgstr "Grabar desde el teléfono"
+
+msgid "Record using browser"
+msgstr "Grabar desde el navegador"
+
+msgid "Upload recording"
+msgstr "Subir grabación"
+
+msgid "Record"
+msgstr "Grabar"
+
+msgid "Pause"
+msgstr "Pausar"
+
+msgid "Stop"
+msgstr "Detener"

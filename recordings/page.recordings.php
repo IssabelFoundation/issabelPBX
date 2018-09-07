@@ -201,12 +201,12 @@ function recording_addpage($usersnum,$pepe) {
   <div id="tabs-2">
  
     <div id="controls">
-         <button id="recordButton" class='audio'>Record</button>
-         <button id="pauseButton"  class='audio' >Pause</button>
-         <button id="stopButton"  class='audio' >Stop</button>
+         <button id="recordButton" class='audio'><?php echo _('Record');?></button>
+         <button id="pauseButton"  class='audio' ><?php echo _('Pause');?></button>
+         <button id="stopButton"  class='audio' ><?php echo _('Stop');?></button>
     </div>
     <div id="formats">Format: start recording to see sample rate</div>
-        <h3>Recordings</h3>
+        <h3><?php echo _('Recordings');?></h3>
         <ol id="recordingsList"></ol>
 
  
