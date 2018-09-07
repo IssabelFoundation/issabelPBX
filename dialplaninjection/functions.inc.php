@@ -207,7 +207,7 @@ global $currentcomponent;
 	else
 	{
 //need to get page name/type dynamically
-		$descerr = 'Description must be alpha-numeric and may not be left blank!';
+		$descerr = _('Description must be alpha-numeric and may not be left blank!');
 //exten should have js function to check range too. - on hold for now because i allow patterns now.
 		$extenerr = 'Extension must be a dial pattern!';
 		$query = ($_SERVER['QUERY_STRING'])?$_SERVER['QUERY_STRING']:'type=setup&display=dialplaninjection&extdisplay='.$extdisplay;
@@ -215,11 +215,11 @@ global $currentcomponent;
 		$info = '';
 		if (!$extdisplay) {
 			$currentcomponent->addguielem('_top', new gui_pageheading('title', _("Add Injection"), false), 0);
-			$currentcomponent->addguielem('_top', new gui_subheading('subtitle', "Injection", false), 0);
-			$currentcomponent->addguielem('_top', new gui_textbox('description', '', 'Description', 'This will display as the name of this injection.', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
-			$currentcomponent->addguielem('_top', new gui_textbox('exten', '', 'Extension', 'If selected, will allow dialing this injection directly. (May be left blank and may be a pattern. You may use a pipe | to strip the preceeding digits.)', '!isDialpattern()', $extenerr, true), 3);
+			$currentcomponent->addguielem('_top', new gui_subheading('subtitle', _("Injection"), false), 0);
+			$currentcomponent->addguielem('_top', new gui_textbox('description', '', _('Description'), _('This will display as the name of this injection.'), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+			$currentcomponent->addguielem('_top', new gui_textbox('exten', '', _('Extension'), _('If selected, will allow dialing this injection directly. (May be left blank and may be a pattern. You may use a pipe | to strip the preceeding digits.)'), '!isDialpattern()', $extenerr, true), 3);
 			$selhtml = drawselects(null,0);
-			$currentcomponent->addguielem('_bottom', new gui_subheading('desttitle', "Destination", false), 0);
+			$currentcomponent->addguielem('_bottom', new gui_subheading('desttitle', _("Destination"), false), 0);
 			$currentcomponent->addguielem('_bottom', new guielement('dest0', $selhtml, ''),0);
 		}
 		else
@@ -230,24 +230,24 @@ global $currentcomponent;
 			$destination = $savedinjection[2];
 			$exten = $savedinjection[3];
 			$selhtml = drawselects($destination ,0);
-			$currentcomponent->addguielem('_bottom', new gui_subheading('desttitle', "Destination", false), 0);
+			$currentcomponent->addguielem('_bottom', new gui_subheading('desttitle', _("Destination"), false), 0);
 			$currentcomponent->addguielem('_bottom', new guielement('dest0', $selhtml, ''),0);
 			$currentcomponent->addguielem('_top', new gui_hidden('extdisplay', $injection));
 			$currentcomponent->addguielem('_top', new gui_pageheading('title', _("Edit Injection").": $description", false), 0);
 			$currentcomponent->addguielem('_top', new gui_link('del', _("Delete Injection")." $injection", $delURL, true, false), 0);
-			$currentcomponent->addguielem('_top', new gui_subheading('subtitle', "Injection", false), 0);
-			$currentcomponent->addguielem('_top', new gui_textbox('description', $description, 'Description', 'This will display as the name of this injection.', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
-			$currentcomponent->addguielem('_top', new gui_textbox('exten', $exten, 'Extension', 'If selected, will allow dialing this injection directly. (May be left blank and may be a pattern. You may use a pipe | to strip the preceeding digits.)', '!isDialpattern()', $extenerr, true), 3);
+			$currentcomponent->addguielem('_top', new gui_subheading('subtitle', _("Injection"), false), 0);
+			$currentcomponent->addguielem('_top', new gui_textbox('description', $description, _('Description'), _('This will display as the name of this injection.'), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+			$currentcomponent->addguielem('_top', new gui_textbox('exten', $exten, _('Extension'), _('If selected, will allow dialing this injection directly. (May be left blank and may be a pattern. You may use a pipe | to strip the preceeding digits.)'), '!isDialpattern()', $extenerr, true), 3);
 			$cmdlist = dialplaninjection_getcommands($injection);
 			$cmdtext='';
 			foreach ($cmdlist as $val) {
 //				$currentcomponent->addguielem('Commands', new gui_textbox('commands['.$val[0].']', $val[1], 'Command', 'This command will be injected into the dialplan.', '','', false),3);
 				$cmdtext .= $val[1]."\n";
 			}
-			$commandsdesc = 'These command will be injected into the dialplan. There is no need to type the extension or priority, just type the commands.';
-			$commandshtml = '<tr><td valign="top"><a href="#" class="info">Commands<span>'.$commandsdesc.'</span></a></td><td><textarea cols="50" rows="5" wrap="off" id="commands" name="commands">'.$cmdtext.'</textarea></td></tr>';
-			$currentcomponent->addguielem('Commands', new guielement('commandsbox',$commandshtml,''), 3);
-			$currentcomponent->addguielem('Commands', new gui_selectbox('newcommand', $currentcomponent->getoptlist('commandslist'), '', 'New Command', 'Choose a command type from the list and submit to add a new command.',true,"javascript:document.frm_dialplaninjection.commands.value += '\\n' + document.frm_dialplaninjection.newcommand.options[document.frm_dialplaninjection.newcommand.selectedIndex].value;"));
+			$commandsdesc = _('These command will be injected into the dialplan. There is no need to type the extension or priority, just type the commands.');
+			$commandshtml = '<tr><td valign="top"><a href="#" class="info">'._('Commands').'<span>'.$commandsdesc.'</span></a></td><td><textarea cols="50" rows="5" wrap="off" id="commands" name="commands">'.$cmdtext.'</textarea></td></tr>';
+			$currentcomponent->addguielem(_('Commands'), new guielement('commandsbox',$commandshtml,''), 3);
+			$currentcomponent->addguielem(_('Commands'), new gui_selectbox('newcommand', $currentcomponent->getoptlist('commandslist'), '', _('New Command'), _('Choose a command type from the list and submit to add a new command.'),true,"javascript:document.frm_dialplaninjection.commands.value += '\\n' + document.frm_dialplaninjection.newcommand.options[document.frm_dialplaninjection.newcommand.selectedIndex].value;"));
 		}
 		$currentcomponent->addguielem('_bottom', new gui_link('link', _(dialplaninjection_getmodulevalue('moduledisplayname')." v".dialplaninjection_getmodulevalue('moduleversion')), 'http://www.issabel.org', true, false), 9);
 	}

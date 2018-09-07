@@ -1,0 +1,44 @@
+msgid "Add"
+msgstr "Añadir"
+
+msgid "Add Injection"
+msgstr "Añadir Inyección"
+
+msgid "Edit Injection"
+msgstr "Editar Inyección"
+
+msgid "Delete Injection"
+msgstr "Eliminar Inyección"
+
+msgid "Injection"
+msgstr "Inyección"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "This will display as the name of this injection."
+msgstr "Nombre para este inyección de dialplan."
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Extension"
+msgstr "Extensión"
+
+msgid "If selected, will allow dialing this injection directly. (May be left blank and may be a pattern. You may use a pipe | to strip the preceeding digits.)"
+msgstr "Si se completa permitirá marcar directamente a esta inyección. (Puede ser dejado en blanco o puede usar un patrón. Puede usar un pipe | para eliminar prefijos.)"
+
+msgid "Description must be alpha-numeric and may not be left blank!'"
+msgstr "La descripción debe ser alfanumérica o dejada en blanco!"
+
+msgid "These command will be injected into the dialplan. There is no need to type the extension or priority, just type the commands."
+msgstr "Estos comandos serán inyectados en el dialplan. No hace falta ingresar la prioridad, simplemente los comandos."
+
+msgid "Commands"
+msgstr "Comandos"
+
+msgid "New Command"
+msgstr "Nuevo Comando"
+
+msgid "Choose a command type from the list and submit to add a new command."
+msgstr "Elija un tipo de comando de la lista para ser agregado."
