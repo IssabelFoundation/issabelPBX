@@ -69,121 +69,123 @@ msgid "OK"
 msgstr ""
 
 msgid "Not Needed"
-msgstr ""
+msgstr "no es necesario"
 
 msgid "Warning! Extension"
-msgstr ""
+msgstr "Atención! Extensión"
 
 msgid "is not allowed for your account"
-msgstr ""
+msgstr "no está permitido en su cuenta"
 
 msgid "Add VMBlast Group"
-msgstr ""
+msgstr "Agregar Grupo"
 
 msgid " [DEFAULT]"
-msgstr ""
+msgstr " [OMISION]"
 
 msgid "VMBlast Group"
-msgstr ""
+msgstr "Grupo de correo de voz"
 
 msgid "deleted"
-msgstr ""
+msgstr "borrado"
 
 msgid "Delete Group"
-msgstr ""
+msgstr "Borrar Grupo"
 
 msgid "Conflicting Extensions"
-msgstr ""
+msgstr "Conflicto de Extensión"
 
 msgid "Edit VMBlast Group"
-msgstr ""
+msgstr "Editar Grupo de correo de voz"
 
 msgid "VMBlast Number"
-msgstr ""
+msgstr "Número"
 
 msgid "The number users will dial to voicemail boxes in this VMBlast group"
-msgstr ""
+msgstr "El número que los usuarios marcarán para enviar correo de voz masivo a este grupo"
 
 msgid "Group Description:"
-msgstr ""
+msgstr "Descripción"
 
 msgid "Provide a descriptive title for this VMBlast Group."
-msgstr ""
+msgstr "Porvea un título descriptivo para este grupo de correo de voz"
 
 msgid "Audio Label:"
-msgstr ""
+msgstr "Etiqueta de Audio:"
 
 msgid ""
 "Play this message to the caller so they can confirm they have dialed the "
 "proper voice mail group number, or have the system simply read the group "
 "number."
-msgstr ""
+msgstr "Anunciar este mensaje al llamador para confirmar el grupo."
 
 msgid "Read Group Number"
-msgstr ""
+msgstr "Leer número de grupo"
 
 msgid "Beep Only - No Confirmation"
-msgstr ""
+msgstr "Sólo Beep - Sin confirmación"
 
 msgid ""
 "The group number will be played to the caller so they can confirm they have "
 "dialed the proper voice mail group number.<br><br>You must install and "
 "enable the \"Systems Recordings\" Module to edit this option and choose from "
 "recordings."
-msgstr ""
+msgstr "El número de grupo será anunciado al llamante como confirmación."
 
 msgid "Optional Password"
-msgstr ""
+msgstr "Clave opcional"
 
 msgid ""
 "You can optionally include a password to authenticate before providing "
 "access to this group voicemail list."
-msgstr ""
+msgstr "Opcionalmente puede utilizar una clave de autenticación antes de dar acceso a este grupo."
 
 msgid "Voicemail Box List:"
-msgstr ""
+msgstr "Lista de buzones de voz:"
 
 msgid ""
 "Select voice mail boxes to add to this group. Use Ctrl key to select "
 "multiple.."
-msgstr ""
+msgstr "Elija buzones de voz a agregar a este grupo. Use Ctrl para elegir varios"
 
 msgid "Default VMBlast Group"
-msgstr ""
+msgstr "Grupo por omisión"
 
 msgid ""
 "Each PBX system can have a single Default Voicemail Blast Group. If "
 "specified, extensions can be automatically added (or removed) from this "
 "default group in the Extensions (or Users) tab.<br />Making this group the "
 "default will uncheck the option from the current default group if specified."
-msgstr ""
+msgstr "Puede haber un sólo grupo por omisión. Si se especifica, "
+"extensiones pueden ser agregadas o quitadas automáticamente de este "
+"grupo por omisión directamente desde la configuración de Extensión. "
 
 msgid "Submit Changes"
-msgstr ""
+msgstr "Guardar Cambios"
 
 msgid "Invalid Group Number specified"
-msgstr ""
+msgstr "Número de grupo inválido"
 
 msgid "Group numbers with more than one digit cannot begin with 0"
-msgstr ""
+msgstr "El número de grupo no puede empezar con cdero"
 
 msgid "Please enter an extension list."
-msgstr ""
+msgstr "Por favor ingrese una lista de extensiones."
 
 msgid "Please enter a valid Group Description"
-msgstr ""
+msgstr "Por favor ingrese un nombre de grupo válido"
 
 msgid "Please enter a valid numeric password, only numbers are allowed"
-msgstr ""
+msgstr "Por favor ingrese una clave numérica válida, solo son permitidos números."
 
 msgid "Please select at least one extension"
-msgstr ""
+msgstr "Por favor elija al menos una extensión"
 
 msgid "Voicemail Blasting"
-msgstr ""
+msgstr "Correo de voz masivo"
 
 msgid "Applications"
-msgstr ""
+msgstr "Aplicaciones"
 
 msgid ""
 "Creates a group of extensions that calls a group of voicemail boxes and "
