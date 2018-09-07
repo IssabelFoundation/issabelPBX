@@ -1,0 +1,91 @@
+#controls {
+  display: flex;
+  margin-top: 2rem;
+  width:500px;
+}
+button.audio {
+  flex-grow: 1;
+  height: 2.5rem;
+  min-width: 2rem;
+  border: none;
+  border-radius: 0.15rem;
+  background: #ed341d;
+  margin-left: 2px;
+  box-shadow: inset 0 -0.15rem 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+button.audio:hover, button.audio:focus {
+  outline: none;
+  background: #c72d1c;
+}
+button.audio::-moz-focus-inner {
+  border: 0;
+}
+button.audio:active {
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+  line-height: 3rem;
+}
+button.audio:disabled {
+  pointer-events: none;
+  background: lightgray;
+}
+button.audio:first-child {
+  margin-left: 0;
+}
+audio {
+  display: block;
+  width: 100%;
+  margin-top: 0.2rem;
+}
+li.audio {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+#formats {
+  margin-top: 0.5rem;
+  font-size: 80%;
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  border-radius: 3px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.btn:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.btn:hover,
+.btn:focus {
+  color: #303641;
+  text-decoration: none;
+  outline: none;
+}
+.btn-primary {
+  color: #ffffff;
+  background-color: #303641;
+  border-color: #303641;
+}
+
