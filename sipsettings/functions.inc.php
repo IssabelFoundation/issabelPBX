@@ -343,7 +343,7 @@ function sipsettings_get($raw=false) {
   $sip_settings['ALLOW_SIP_ANON']    = 'no';
   $sip_settings['bindaddr']          = '';
   $sip_settings['bindport']          = '';
-  $sip_settings['allowguest']        = 'yes';
+  $sip_settings['allowguest']        = 'no';
   $sip_settings['srvlookup']         = 'no';
   $sip_settings['callevents']		= 'no';
 
