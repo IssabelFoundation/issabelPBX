@@ -287,7 +287,7 @@ function recording_addpage($usersnum,$pepe) {
     } 
     ?>
 
-    <?php if(isset($_GET['fname']) || !empty($usersnum)) { 
+    <?php if(isset($_GET['fname']) || !empty($usersnum) || isset($_FILES['ivrfile'])) {
 
 ?>
 
