@@ -29,7 +29,12 @@ if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc
 
 // Force autoloader to load all the includes since Zend issues can break and make this fail when this is run
 //
-ipbx_framework_autoloader(true);
+if(function_exists('fpbx_framework_autoloader')) {
+    // support legacy IssabelPBX 
+    fpbx_framework_autoloader(true);
+} else {
+    ipbx_framework_autoloader(true);
+}
 
 function doReload() {
 	$result = do_reload();
