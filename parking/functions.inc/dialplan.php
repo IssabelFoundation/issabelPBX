@@ -55,7 +55,7 @@ function parking_get_config($engine) {
         $park_context = 'default';
         $hint_context = 'parkedcalls';
 
-        $ast_ge_11 = version_compare($version,'11','ge');
+        $ast_ge_11 = version_compare($version,'11','gt');
 
         if ($ast_ge_11) {
             $core_conf->addParkingGeneral('parkext', $lot['parkext']);
