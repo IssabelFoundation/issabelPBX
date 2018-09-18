@@ -16,6 +16,8 @@
     if (is_bool($val)) {
       echo "export " . trim($key) . "=" . ($val?"TRUE":"FALSE") ."\n";
     } else {
-      echo "export " . trim($key) . "=" . escapeshellcmd(trim($val)) ."\n";
+      if(!strstr($val," ")) {
+        echo "export " . trim($key) . "=" . escapeshellcmd(trim($val)) ."\n";
+      }
     }
   }
