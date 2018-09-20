@@ -32,6 +32,15 @@ function setcid_get_config($engine) {
  */
 function setcid_list() {
     global $db;
+
+    // check if variables field is on db, if not create it
+    $sql = "SELECT `variables` FROM setcid";
+    $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+    if(DB::IsError($check)) {
+        $sql = "ALTER TABLE setcid ADD `variables` TEXT NOT NULL DEFAULT ''";
+        $result = $db->query($sql);
+    }
+
     $sql = "SELECT cid_id, description, cid_name, cid_num, dest, variables FROM setcid ORDER BY description ";
     $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
     if($db->IsError($results)) {
