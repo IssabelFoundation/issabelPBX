@@ -3,6 +3,7 @@
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //    License for all code of this IssabelPBX module can be found in the license file inside the module directory
 //    Copyright 2006-2014 Schmooze Com Inc.
+//    Copyright 2018 Issabel Foundation
 //
 
 class core_conf {
@@ -1069,6 +1070,7 @@ function core_do_get_config($engine) {
                     $core_conf->addSipGeneral('tos_audio','ef');   // Recommended setting from doc/ip-tos.txt
                     $core_conf->addSipGeneral('tos_video','af41'); // Recommended setting from doc/ip-tos.txt
                     $core_conf->addSipGeneral('alwaysauthreject','yes');
+                    $core_conf->addSipGeneral('allowguest','no');
           if ($ast_lt_161) {
                       $core_conf->addSipGeneral('limitonpeers','yes');
           }
