@@ -117,7 +117,7 @@ if (isset($_REQUEST["members"])) {
             switch($exten_type) {
                 case 'Agent':
                     if(version_compare($astver, '13', 'ge')) {
-                        $members[$key] = "Local/$this_member@agents,$penalty_val,Agent/$this_member,Agent:$this_member";
+                        $members[$key] = "Local/$this_member@agents,$penalty_val,Agent/$this_member,Agent:$this_member,no";
                         break;
                     }
                 case 'SIP':
