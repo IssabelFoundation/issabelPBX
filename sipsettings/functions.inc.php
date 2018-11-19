@@ -84,6 +84,7 @@ class sipsettings_validate {
 function sipsettings_hookGet_config($engine) {
   global $core_conf;
 	global $ext;  // is this the best way to pass this?
+  $sip_settings=array();
 
   switch($engine) {
     case "asterisk":
@@ -143,11 +144,13 @@ function sipsettings_hookGet_config($engine) {
         }
         unset($codecs);
 
-        if ($interim_settings['videosupport'] == 'yes') {
-          asort($video_codecs);
-          foreach ($video_codecs as $codec => $enabled) {
-            if ($enabled != '') {
-              $core_conf->addSipGeneral('allow',$codec);
+        if(isset($interim_settings['videosupport'])) {
+          if ($interim_settings['videosupport'] == 'yes') {
+            asort($video_codecs);
+            foreach ($video_codecs as $codec => $enabled) {
+              if ($enabled != '') {
+                $core_conf->addSipGeneral('allow',$codec);
+              }
             }
           }
         }
@@ -155,8 +158,9 @@ function sipsettings_hookGet_config($engine) {
 
         /* next figure out what we need to write out (deal with things like nat combos, etc. */
 
-        $nat_mode = $interim_settings['nat_mode'];
-        $jbenable = $interim_settings['jbenable'];
+        $nat_mode = isset($interim_settings['nat_mode'])?$interim_settings['nat_mode']:'';
+        $jbenable = isset($interim_settings['jbenable'])?$interim_settings['jbenable']:'';
+
         if (is_array($interim_settings)) foreach ($interim_settings as $key => $value) {
           switch ($key) {
             case 'nat_mode':
