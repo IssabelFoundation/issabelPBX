@@ -1317,8 +1317,7 @@ function voicemail_get_settings($vmconf, $action, $extension="") {
 	}
 	return $settings;
 }
-function voicemail_update_usage($vmail_info, $context="", $extension="", $args) {
-	global $vmail_root;
+function voicemail_update_usage($vmail_root,$vmail_info, $context="", $extension="", $args) {
 	$take_action = false;
 
 	if (isset($args["del_msgs"]) && $args["del_msgs"] == "true") {
@@ -1442,41 +1441,14 @@ function voicemail_del_greeting_files($vmail_root, $context="", $exten="", $name
 function voicemail_get_storage($path) {
 	$storage_result = array();
 	$matches        = array();
-	foreach (glob($path) as $filename) {
-		$storage_result[] = $filename;
-	}
-	if (preg_match("/[0-9]*\.*[0-9]*[a-zA-Z]*/", $storage_result[0], $matches) > 0) {
-		$storage = $matches[0];
-		unset($matches);
-		$matches = array();
-		# Expecting storage value as #.#U where # = number, . = dot, and U = units (e.g. M, K, etc.)
-		# Massage the string so that there is a space between the number value and character(s)
-		# denoting the unit
-		#
-		# Extract the numeric part. /[0-9]*\.*[0-9]*[a-zA-Z]*/
-		if (preg_match("/[0-9]*\.*[0-9]*/", $storage, $matches)) {
-			$st_num = $matches[0];
-		} else {
-			$st_num = "0";
-		}
-		unset($matches);
-		$matches = array();
-		if (preg_match("/[a-zA-Z]+$/", $storage, $matches)) {
-			$st_unit = $matches[0];
-		} else {
-			$st_unit = "";	
-		}
-		# reset $storage to new string
-		$storage = $st_num . "&nbsp;" . $st_unit;
-	} else {
-		$storage = "unknown";
-	}
+        $storage = `du -sh $path | awk '{print \$1}'`;
 	return $storage;
 }
-function voicemail_get_usage($vmail_info, $scope, &$acts_total, &$acts_act, &$acts_unact, &$disabled_count,
+
+function voicemail_get_usage($vmail_root,$vmail_info, $scope, &$acts_total, &$acts_act, &$acts_unact, &$disabled_count,
 							&$msg_total, &$msg_in, &$msg_other,&$name, &$unavail, &$busy, &$temp, &$abandoned,
 							&$storage, $context="", $extension="") {
-	global $vmail_root;
+
 	$msg_total = 0;
 	$msg_in    = 0;
 	$msg_other = 0;
@@ -1652,8 +1624,7 @@ function voicemail_count_msg($path) {
 	}
 	return $msg_cnt;
 }
-function voicemail_get_greeting_timestamps($name=0, $unavail=0, $busy=0, $temp=0, $context="", $extension="") {
-	global $vmail_root;
+function voicemail_get_greeting_timestamps($vmail_root,$name=0, $unavail=0, $busy=0, $temp=0, $context="", $extension="") {
 	if ($context == "" || $extension == "") {
 		return null;
 	}
