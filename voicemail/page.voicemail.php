@@ -451,6 +451,13 @@ switch ($action) {
 		$output = '';
 		/* get settings */
 		$settings = voicemail_get_settings($uservm, $action, $extension);
+                $ksettings = array_keys($settings);
+                $display_gen_settings=array();
+                foreach($gen_settings as $key=>$data) {
+                    if(in_array($key,$ksettings)) {
+                        $display_gen_settings[$key]=$data;
+                    } 
+                }
 		/* Get Asterisk version. */
 		$ast_info = engine_getinfo();
 		$version = $ast_info["version"];
@@ -460,9 +467,9 @@ switch ($action) {
 			$id_prefix = "acct";
 			$display_settings = $acct_settings;
 		} else {
-			show_view(dirname(__FILE__).'/views/settings.php',array('action' => $action, 'extension' => $extension, 'version' => $version, 'settings' => $settings, 'tooltips' => $tooltips, 'display_settings' => $gen_settings, 'display_tips' => $tooltips["general"], 'id_prefix' => 'gen'));
+			show_view(dirname(__FILE__).'/views/settings.php',array('action' => $action, 'extension' => $extension, 'version' => $version, 'settings' => $settings, 'tooltips' => $tooltips, 'display_settings' => $display_gen_settings, 'display_tips' => $tooltips["general"], 'id_prefix' => 'gen'));
 			$id_prefix = "gen";
-			$display_settings = $gen_settings;
+			$display_settings = $display_gen_settings;
 		}
 
 		$display_name_row = "";
@@ -561,7 +568,7 @@ switch ($action) {
 		*/
 		$scope = voicemail_get_scope($extension);
 		if ($need_update) {
-			voicemail_update_usage($vmail_info, $context, $extension, $_REQUEST);
+			voicemail_update_usage($vmail_root,$vmail_info, $context, $extension, $_REQUEST);
 			if (!empty($extension)) {
 				$url = "config.php?display=$display&ext=$extension&action=$action&updated=true";
 			} else {
@@ -570,7 +577,7 @@ switch ($action) {
 			redirect($url);
 		}
 
-		voicemail_get_usage($vmail_info, 
+		voicemail_get_usage($vmail_root,$vmail_info, 
 			$scope, 
 			$acts_total, 
 			$acts_act, 
@@ -615,7 +622,7 @@ switch ($action) {
 			$settings = !empty($settings) ? $settings : '';
 			show_view(dirname(__FILE__).'/views/settings.php',array('action' => $action, 'extension' => $extension, 'version' => $version, 'settings' => $settings, 'tooltips' => $tooltips, 'display_settings' => $acct_settings, 'display_tips' => $tooltips["account"], 'id_prefix' => 'acct'));
 			/* Get timestamps, if applicable */
-			$vals['ts'] = voicemail_get_greeting_timestamps($name, $unavail, $busy, $temp, $context, $extension);
+			$vals['ts'] = voicemail_get_greeting_timestamps($vmail_root,$name, $unavail, $busy, $temp, $context, $extension);
 			$vals['name_ts'] = ($vals['ts']["name"] > 0) ? $vals['ts']["name"] : '0';
 			$vals['unavail_ts'] = ($vals['ts']["unavail"] > 0) ? $vals['ts']["unavail"] : '0';
 			$vals['busy_ts'] = ($vals['ts']["busy"] > 0) ? $vals['ts']["busy"] : '0';
