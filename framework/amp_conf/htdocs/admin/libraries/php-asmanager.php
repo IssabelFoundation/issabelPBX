@@ -280,6 +280,12 @@ class AGI_AsteriskManager {
 
                     // store parameter in $parameters
                     $parameters[substr($buffer, 0, $a)] = substr($buffer, $a + 2);
+
+                    // Asterisk 16
+                    if(substr($buffer, 0, $a)=='Output' && !isset($parameters['data'])) {
+                        $parameters['data']=substr($buffer, $a + 2);
+                    }
+
                 }
                 $buffer = trim(fgets($this->socket, 4096));
             }
