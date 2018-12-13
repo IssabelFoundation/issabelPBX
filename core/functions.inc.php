@@ -5186,6 +5186,7 @@ function core_devices_addzap($account) {
             array($account,'accountcode',$db->escapeSimple((isset($_REQUEST['accountcode']))?$_REQUEST['accountcode']:'')),
             array($account,'callgroup',$db->escapeSimple((isset($_REQUEST['callgroup']))?$_REQUEST['callgroup']:$amp_conf['DEVICE_CALLGROUP'])),
             array($account,'pickupgroup',$db->escapeSimple((isset($_REQUEST['pickupgroup']))?$_REQUEST['pickupgroup']:$amp_conf['DEVICE_PICKUPGROUP'])),
+            array($account,'group',$db->escapeSimple((isset($_REQUEST['group']))?$_REQUEST['group']:'63')),
             array($account,'channel',$db->escapeSimple(($_REQUEST['channel'])?$_REQUEST['channel']:''))
         );
     }
@@ -5234,6 +5235,7 @@ function core_devices_adddahdi($account) {
             array($account,'accountcode',$db->escapeSimple((isset($_REQUEST['accountcode']))?$_REQUEST['accountcode']:'')),
             array($account,'callgroup',$db->escapeSimple((isset($_REQUEST['callgroup']))?$_REQUEST['callgroup']:$amp_conf['DEVICE_CALLGROUP'])),
             array($account,'pickupgroup',$db->escapeSimple((isset($_REQUEST['pickupgroup']))?$_REQUEST['pickupgroup']:$amp_conf['DEVICE_PICKUPGROUP'])),
+            array($account,'group',$db->escapeSimple((isset($_REQUEST['group']))?$_REQUEST['group']:'63')),
             array($account,'channel',$db->escapeSimple(($_REQUEST['channel'])?$_REQUEST['channel']:''))
         );
     }
@@ -7462,6 +7464,8 @@ function core_devices_configpageinit($dispnum) {
         $tmparr['callgroup'] = array('value' => $amp_conf['DEVICE_CALLGROUP'], 'tt' => $tt, 'level' => 1);
         $tt = _("Pickupgroups(s) that this device can pickup calls from, can be one or more groups, e.g. '1,3-5' would be in groups 1,3,4,5. Device does not have to be in a group to be able to pickup calls from that group.");
         $tmparr['pickupgroup'] = array('value' => $amp_conf['DEVICE_PICKUPGROUP'], 'tt' => $tt, 'level' => 1);
+        $tt = _("Channel group that this device is part from, so you can dial the group via DAHDI/gX where X is the group number (Max 63)");
+        $tmparr['group'] = array('value' => 63, 'tt' => $tt, 'level' => 1);
         $tt = _("Mailbox for this device. This should not be changed unless you know what you are doing.");
         $tmparr['mailbox'] = array('value' => '', 'tt' => $tt, 'level' => 2);
         $currentcomponent->addgeneralarrayitem('devtechs', 'zap', $tmparr);
@@ -7517,6 +7521,8 @@ function core_devices_configpageinit($dispnum) {
         $tmparr['callgroup'] = array('value' => $amp_conf['DEVICE_CALLGROUP'], 'tt' => $tt, 'level' => 1);
         $tt = _("Pickupgroups(s) that this device can pickup calls from, can be one or more groups, e.g. '1,3-5' would be in groups 1,3,4,5. Device does not have to be in a group to be able to pickup calls from that group.");
         $tmparr['pickupgroup'] = array('value' => $amp_conf['DEVICE_PICKUPGROUP'], 'tt' => $tt, 'level' => 1);
+        $tt = _("Channel group that this device is part from, so you can dial the group via DAHDI/gX where X is the group number (Max 63)");
+        $tmparr['group'] = array('value' => 63, 'tt' => $tt, 'level' => 1);
         $tt = _("Mailbox for this device. This should not be changed unless you know what you are doing.");
         $tmparr['mailbox'] = array('value' => '', 'tt' => $tt, 'level' => 2);
         $currentcomponent->addgeneralarrayitem('devtechs', 'dahdi', $tmparr);
