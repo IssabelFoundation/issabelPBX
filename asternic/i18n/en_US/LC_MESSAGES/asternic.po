@@ -3,7 +3,7 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # IssabelPBX language template for asternic
-# Copyright (C) 2008-2015 Sangoma, Inc.
+# Copyright (C) 2016 Issabel Foundation 
 #
 msgid ""
 msgstr ""
@@ -14,12 +14,12 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: asternic.i18n.php:8
 msgid ""
-"A module for QueueMetrics, that allows you to set if IVR selections should "
+"A module for Asternic, that allows you to set if IVR selections should "
 "be logged to the queue logs."
 msgstr ""
 
@@ -27,14 +27,11 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: asternic.i18n.php:4
-#: asternic.i18n.php:10
-msgid "QueueMetrics"
+#: asternic.i18n.php:4 asternic.i18n.php:10
+msgid "Asternic"
 msgstr ""
 
-#: page.asternic.php:20
-#: asternic.i18n.php:6
-#: asternic.i18n.php:12
+#: page.asternic.php:20 asternic.i18n.php:6 asternic.i18n.php:12
 msgid "Settings"
 msgstr ""
 
@@ -43,7 +40,7 @@ msgid "Submit Changes"
 msgstr ""
 
 #: page.asternic.php:22
-msgid "When checked, IVR selections will be reported by QueueMetrics"
+msgid "When checked, IVR selections will be reported by Asternic"
 msgstr ""
 
 #: install.php:42
