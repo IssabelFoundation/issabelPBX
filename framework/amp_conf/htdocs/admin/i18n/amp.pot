@@ -4,6 +4,7 @@
 #
 # IssabelPBX language template for amp
 # Copyright (C) 2008-2015 Sangoma, Inc.
+# Copyright 2013 Schmooze Com Inc
 #
 msgid ""
 msgstr ""

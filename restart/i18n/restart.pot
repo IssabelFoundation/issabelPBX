@@ -4,6 +4,7 @@
 #
 # IssabelPBX language template for restart
 # Copyright (C) 2008-2016 Sangoma, Inc.
+# Copyright 2013 Schmooze Com Inc
 #
 msgid ""
 msgstr ""
