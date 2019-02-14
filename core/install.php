@@ -1353,7 +1353,7 @@ if(!$issabelpbx_conf->conf_setting_exists('HTTPSENABLED')) {
         $issabelpbx_conf->define_conf_setting('HTTPSBINDADDRESS',$set);
 
         // HTTPSCERTFILE
-        $set['value'] = '/var/lib/asterisk/keys/localhost.crt';
+        $set['value'] = '/etc/asterisk/keys/asterisk.pem';
         $set['defaultval'] =& $set['value'];
         $set['options'] = '';
         $set['name'] = 'Certificate file';
@@ -1365,7 +1365,7 @@ if(!$issabelpbx_conf->conf_setting_exists('HTTPSENABLED')) {
         $issabelpbx_conf->define_conf_setting('HTTPSCERTFILE',$set);
 
         // HTTPSPRIVATEKEY
-        $set['value'] = '/var/lib/asterisk/keys/localhost.key';
+        $set['value'] = '';
         $set['defaultval'] =& $set['value'];
         $set['options'] = '';
         $set['name'] = 'Private key file';
