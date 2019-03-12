@@ -185,6 +185,8 @@ function dynroute_get_config($engine) {
 						$ext->add($id, 's', '', new ext_setvar('CURLOPT(conntimeout)','5'));
 						$ext->add($id, 's', '', new ext_setvar('CURLOPT(ftptimeout)','5'));
 						$ext->add($id, 's', '', new ext_setvar('CURLOPT(httptimeout)','5'));
+						$ext->add($id, 's', '', new ext_setvar('CURLOPT(ssl_verifyhost)','0'));
+						$ext->add($id, 's', '', new ext_setvar('CURLOPT(ssl_verifypeer)','0'));
 						$ext->add($id, 's', '', new ext_setvar('dynroute', '${CURL'.'("'.$query.'")}'));
 						$ext->add($id, 's', '', new ext_gotoif('$["${dynroute}" = ""]',$id.',1,1'));
 						if ($item['chan_var_name_res'] != '')
