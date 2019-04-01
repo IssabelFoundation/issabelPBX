@@ -171,7 +171,7 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_set('VQ_RETRY', ''));
 
 				if (strlen($q['gotocontinue']) > 0){
-					$ext->add($c, $exten, '', new ext_set('VQ_CONTINUE', 'c'));
+					$ext->add($c, $exten, '', new ext_set('VQ_ONTINUE', 'c'));
 				}
 				$ext->add($c, $exten, 'qoptions', new ext_set('QOPTIONS', '${IF($[${LEN(${VQ_OPTIONS})}>0]?${VQ_OPTIONS}:' . ($options != '' ? $options : ' ') . ')}${QCANCELMISSED}${QRINGOPTS}${QRETRY}${VQ_CONTINUE}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_OPTIONS', ''));
@@ -270,6 +270,10 @@ function queues_get_config($engine) {
 				if($q['use_queue_context'] != '2') {
 					$ext->add($c, $exten, '', new ext_macro('blkvm-clr'));
 				}
+
+                                // Reset CALLFILENAME if CONTINUE to avoid delete the file
+                                $ext->add($c, $exten, '', new ext_execif('$["${QUEUESTATUS}"="CONTINUE"]','Set','CALLFILENAME=""'));
+
 				// cancel any recording previously requested
 
 				$ext->add($c, $exten, '', new ext_gosub('1','s','sub-record-cancel'));
