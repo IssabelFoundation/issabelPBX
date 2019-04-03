@@ -582,8 +582,8 @@ $globals_convert['MIXMON_DIR'] = '';
 $globals_convert['MIXMON_POST'] = '';
 $globals_convert['MIXMON_FORMAT'] = 'wav';
 
-$globals_convert['DIAL_OPTIONS'] = 'Ttr';
-$globals_convert['TRUNK_OPTIONS'] = 'Tt';
+$globals_convert['DIAL_OPTIONS'] = 'tr';
+$globals_convert['TRUNK_OPTIONS'] = 't';
 $globals_convert['RINGTIMER'] = '15';
 $globals_convert['TONEZONE'] = 'us';
 
