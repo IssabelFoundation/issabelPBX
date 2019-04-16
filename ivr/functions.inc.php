@@ -122,7 +122,8 @@ function ivr_get_config($engine) {
 							$ext->add($c, $e['selection'], '',
 								new ext_gotoif('$["x${IVR_CONTEXT_${CONTEXT}}" = "x"]',
 									$e['dest'] . ':${IVR_CONTEXT_${CONTEXT}},return,1'));
-						} else {
+                        } else {
+                            $ext->add($c, $e['selection'], '', new ext_setvar('__IVR_DIGIT_PRESSED', '${EXTEN}'));
 							$ext->add($c, $e['selection'],'ivrsel-' . $e['selection'], new ext_goto($e['dest']));
 						}
 					}
@@ -414,7 +415,7 @@ function ivr_configpageload() {
 	$currentcomponent->addoptlistitem('recordings', 'default', _('Default'));
 	//$currentcomponent->addguielem($section, new gui_textbox('timeout_time', stripslashes($ivr['timeout_time']), _('Timeout'), _('Amount of time to be concidered a timeout')));
 	$currentcomponent->addguielem($section, new guielement('timeout_time',
-		'<tr class="IVROptionsDTMF"><td>' . fpbx_label(_('Timeout'), _('Amount of time to be considered a timeout')).'</td><td><input type="number" name="timeout_time" value="'
+		'<tr class="IVROptionsDTMF"><td>' . ipbx_label(_('Timeout'), _('Amount of time to be considered a timeout')).'</td><td><input type="number" name="timeout_time" value="'
 					. $ivr['timeout_time']
 					.'" required></td></tr>'));
 	//invalid
@@ -621,7 +622,7 @@ function ivr_save_entries($id, $entries){
 
 //draw uvr entires table header
 function ivr_draw_entries_table_header_ivr() {
-	return  array(_('Ext'), _('Destination'), fpbx_label(_('Return'), _('Return to IVR')), _('Delete'));
+    return  array( ipbx_label(_('Ext'),_('Any digit selection will be saved in the IVR_DIGIT_PRESSED chanel variable')), _('Destination'), ipbx_label(_('Return'), _('Return to IVR')), _('Delete') );
 }
 
 //draw actualy entires
