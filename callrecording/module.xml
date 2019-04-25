@@ -2,13 +2,14 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>2.11.0.9</version>
+	<version>2.11.0.10</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<category>Applications</category>
+    <embedcategory>Inbound Call Control</embedcategory>
 	<description>
 		Provides much of the call recording functionality.
 	</description>
@@ -21,6 +22,7 @@
 		</callrecording>
  	</popovers>
 	<changelog>
+		*2.11.0.10* Embed in Issabel Menu
 		*2.11.0.9* Initial Issabel Foundation release
 	</changelog>
 	<supported>
