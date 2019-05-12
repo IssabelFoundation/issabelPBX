@@ -44,6 +44,9 @@ function outroutemsg_get_config($engine) {
 			case CONGESTION_TONE:
 				$ext->add($contextname, $exten, '', new ext_playtones("congestion"));
 				break;
+			case INFO_TONE:
+				$ext->add($contextname, $exten, '', new ext_playtones("info"));
+				break;
 			default:
 				$message = recordings_get_file($outroutemsg_ids['default_msg_id']);
 				$message = ($message != "") ? $message : "all-circuits-busy-now&pls-try-call-later";
@@ -59,6 +62,9 @@ function outroutemsg_get_config($engine) {
 				break;
 			case CONGESTION_TONE:
 				$ext->add($contextname, $exten, '', new ext_playtones("congestion"));
+				break;
+			case INFO_TONE:
+				$ext->add($contextname, $exten, '', new ext_playtones("info"));
 				break;
 			default:
 				$message = recordings_get_file($outroutemsg_ids['intracompany_msg_id']);
@@ -76,6 +82,9 @@ function outroutemsg_get_config($engine) {
 			case CONGESTION_TONE:
 				$ext->add($contextname, $exten, '', new ext_playtones("congestion"));
 				break;
+			case INFO_TONE:
+				$ext->add($contextname, $exten, '', new ext_playtones("info"));
+				break;
 			default:
 				$message = recordings_get_file($outroutemsg_ids['emergency_msg_id']);
 				$message = ($message != "") ? $message : "all-circuits-busy-now&pls-try-call-later";
@@ -88,6 +97,9 @@ function outroutemsg_get_config($engine) {
 		switch ($outroutemsg_ids['unallocated_msg_id']) {
 			case DEFAULT_MSG:
 				$ext->add($contextname, $exten, '', new ext_playback("you-dialed-wrong-number"));
+				break;
+			case CONGESTION_TONE:
+				$ext->add($contextname, $exten, '', new ext_playtones("congestion"));
 				break;
 			case INFO_TONE:
 				$ext->add($contextname, $exten, '', new ext_playtones("info"));
