@@ -14,8 +14,9 @@ class core_conf {
     var $_iax_additional = array();
     var $_dahdi_additional = array();
     var $_featuregeneral = array();
-    var $_parkinggeneral = array();
     var $_featuregeneralsection = array();
+    var $_parkinggeneral = array();
+    var $_parkinggeneralsection = array();
     var $_featuremap     = array();
     var $_applicationmap = array();
     var $_res_odbc       = array();
@@ -279,12 +280,22 @@ class core_conf {
         $this->_parkinggeneral[] = array('key' => $key, 'value' => $value);
     }
 
+    function addParkingGeneralSection($section, $key, $value) {
+        $this->_parkinggeneralsection[$section][] = array('key' => $key, 'value' => $value);
+    }
+
     function generate_parkinggeneral_additional($ast_version) {
         $output = '';
 
         if (isset($this->_parkinggeneral) && is_array($this->_parkinggeneral)) {
             foreach ($this->_parkinggeneral as $values) {
                 $output .= $values['key']."=".$values['value']."\n";
+            }
+            foreach ($this->_parkinggeneralsection as $section => $values) {
+                $output .= "\n[$section]\n";
+                foreach ($values as $value) {
+                    $output .= $value['key'] . "=" . $value['value'] . "\n";
+                }
             }
         }
         return $output;
