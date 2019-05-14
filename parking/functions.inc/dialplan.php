@@ -27,129 +27,171 @@ function parking_get_config($engine) {
         $por = 'park-orphan-routing';
         $ph  = 'park-hints';
         $pd  = 'park-dial';
-        $lot = parking_get();
-        parking_generate_parked_call();
-        parking_generate_parkedcallstimeout();
-        parking_generate_park_dial($pd, $por, $lot);
-        
+        $lots = parking_get();
 
-        //--------------------------------------
-        // End Here if there is a parkpro module
-        //
-        if (function_exists('parkpro_get_config')) {
-            return true;
-        }
+        foreach($lots as $lot) {
 
-        $fcc = new featurecode('parking', 'parkedcall');
-        $parkfetch_code = $fcc->getCodeActive();
-        unset($fcc);
+            parking_generate_parked_call();
+            parking_generate_parkedcallstimeout();
+            parking_generate_park_dial($pd, $por, $lot);
 
-        // Need to setup featurecode.conf configuration for the parking lot:
-        //
-        $parkpos1    = $lot['parkpos'];
-        $parkpos2    = $parkpos1 + $lot['numslots'] - 1;
+            $fcc = new featurecode('parking', 'parkedcall');
+            $parkfetch_code = $fcc->getCodeActive();
+            unset($fcc);
 
-        // A bit confusing, park_context is when we call to park which seems to want 'default' from various testing
-        // hint_context is basically the actual context thus what we set in config file and what we point hints at
-        //
-        $park_context = 'default';
-        $hint_context = 'parkedcalls';
-
-        $ast_ge_11 = version_compare($version,'11','gt');
-
-        if ($ast_ge_11) {
-            $core_conf->addParkingGeneral('parkext', $lot['parkext']);
-            $core_conf->addParkingGeneral('parkpos', $parkpos1."-".$parkpos2);
-            $core_conf->addParkingGeneral('context', $hint_context);
-            $core_conf->addParkingGeneral('parkext_exclusive', 'no');
-            $core_conf->addParkingGeneral('parkingtime', $lot['parkingtime']);
-            $core_conf->addParkingGeneral('comebacktoorigin', 'no'); //Set this to no as we can manage our own internal comebacktoorigin
-            $core_conf->addParkingGeneral('parkedplay', $lot['parkedplay']);
-            $core_conf->addParkingGeneral('courtesytone', 'beep');
-            $core_conf->addParkingGeneral('parkedcalltransfers', $lot['parkedcalltransfers']);
-            $core_conf->addParkingGeneral('parkedcallreparking', $lot['parkedcallreparking']);
-            $core_conf->addParkingGeneral('parkedmusicclass', $lot['parkedmusicclass']);
-            $core_conf->addParkingGeneral('findslot', $lot['findslot']);
-        } else {
-            $core_conf->addFeatureGeneral('parkext', $lot['parkext']);
-            $core_conf->addFeatureGeneral('parkpos', $parkpos1."-".$parkpos2);
-            $core_conf->addFeatureGeneral('context', $hint_context);
-            $core_conf->addFeatureGeneral('parkext_exclusive', 'no');
-            $core_conf->addFeatureGeneral('parkingtime', $lot['parkingtime']);
-            $core_conf->addFeatureGeneral('comebacktoorigin', 'no'); //Set this to no as we can manage our own internal comebacktoorigin
-            $core_conf->addFeatureGeneral('parkedplay', $lot['parkedplay']);
-            $core_conf->addFeatureGeneral('courtesytone', 'beep');
-            $core_conf->addFeatureGeneral('parkedcalltransfers', $lot['parkedcalltransfers']);
-            $core_conf->addFeatureGeneral('parkedcallreparking', $lot['parkedcallreparking']);
-            $core_conf->addFeatureGeneral('parkedmusicclass', $lot['parkedmusicclass']);
-            $core_conf->addFeatureGeneral('findslot', $lot['findslot']);
-        }
-
-        $ext->addInclude('from-internal-additional', $ph);
-        $ext->addInclude($ph, $hint_context, $lot['name']);
-
-        // Each lot needs a routing table to handle orphaned calls in the event
-        // that the call were to timeout if they were routed to return to
-        // originator, we route them to the ${PLOT} previously set
-
-        if ($lot['comebacktoorigin'] == 'yes') {
-
-            // If they haven't provided a destination then we need to make a context to
-            // handle orphaned calls, we'll require destinations but this is a stop gap
-            // to be nice to cusotmers and broken systems.
+            // Need to setup featurecode.conf configuration for the parking lot:
             //
-            if (!$lot['dest']) {
-                $ext->add($por, $lot['parkext'], '', new ext_noop('ERROR: No Alternate Destination Available for Orphaned Call'));
-                $ext->add($por, $lot['parkext'], '', new ext_playback('sorry&an-error-has-occured'));
-                $ext->add($por, $lot['parkext'], '', new ext_hangup(''));
+            $parkpos1    = $lot['parkpos'];
+            $parkpos2    = $parkpos1 + $lot['numslots'] - 1;
+
+            // A bit confusing, park_context is when we call to park which seems to want 'default' from various testing
+            // hint_context is basically the actual context thus what we set in config file and what we point hints at
+            //
+            $park_context = 'default';
+
+            $alphaname = preg_replace("/[^A-za-z0-9]/","",$lot['name']);
+
+            if($lot['defaultlot']=='no') {
+                $hint_context = 'parkedcalls_'.$alphaname;
             } else {
-                $ext->add($por, $lot['parkext'], '', new ext_goto($lot['dest']));
-            }
-        }
-
-        // Setup the specific items to do in the park-return-routing context for each lot, we will deal
-        // with the per slot routing to this extension in the per slot loop below
-        //
-        parking_generate_sub_return_routing($lot, $pd, $parkpos1, $parkpos2);
-
-        // Now we have to create the hints and the specific parking slots for picking up the calls since 
-        // we do not use the dynamic generated ParkedCall() 
-        // 
-        $hv_all = '';
-        for ($slot = $parkpos1; $slot <= $parkpos2; $slot++) {
-
-            $ext->add($ph, $slot, '', new ext_macro('parked-call',$slot . ',' . ($lot['type'] == 'public' ? $park_context : '${CHANNEL(parkinglot)}')));
-
-            if ($lot['generatehints'] == 'yes') {
-                $hv = "park:$slot@$hint_context";
-                $hv_all .= $hv.'&';
-                $ext->addHint($ph, $slot, $hv);
-            }
-        }
-        $hv_all = rtrim($hv_all,'&');
-        if ($parkfetch_code != '') {
-            $ext->add($ph, $parkfetch_code, '', new ext_macro('parked-call', ',' . $park_context));
-            $ext->add($ph, $parkfetch_code.$lot['parkext'], '', new ext_macro('parked-call', ',' . $park_context));
-            if ($lot['generatehints'] == 'yes') {
-                $ext->addHint($ph, $parkfetch_code, $hv_all);
-                $ext->addHint($ph, $parkfetch_code.$lot['parkext'], $hv_all);
+                $hint_context = 'parkedcalls';
             }
 
-            if ($amp_conf['USEDEVSTATE']) {
-                $device_list = core_devices_list("all", 'full', true);
-                foreach ($device_list as $device) {
-                    if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
-                        $ext->add($ph, $parkfetch_code.$device['id'], '', new ext_macro('parked-call', ',' . $park_context));
-                        $ext->addHint($ph, $parkfetch_code.$device['id'], "Custom:PARK".$device['id']);
+            $ast_ge_11 = version_compare($version,'11','gt');
+
+            $lotname = 'parkinglot_'.$alphaname;
+
+            if ($ast_ge_11) {
+
+                if($lot['defaultlot']=='no') {
+
+                    $core_conf->addParkingGeneralSection($lotname,'parkext', $lot['parkext']);
+                    $core_conf->addParkingGeneralSection($lotname,'parkpos', $parkpos1."-".$parkpos2);
+                    $core_conf->addParkingGeneralSection($lotname,'context', $hint_context);
+                    $core_conf->addParkingGeneralSection($lotname,'parkext_exclusive', 'no');
+                    $core_conf->addParkingGeneralSection($lotname,'parkingtime', $lot['parkingtime']);
+                    $core_conf->addParkingGeneralSection($lotname,'comebacktoorigin', 'no'); //Set this to no as we can manage our own internal comebacktoorigin
+                    $core_conf->addParkingGeneralSection($lotname,'parkedplay', $lot['parkedplay']);
+                    $core_conf->addParkingGeneralSection($lotname,'courtesytone', 'beep');
+                    $core_conf->addParkingGeneralSection($lotname,'parkedcalltransfers', $lot['parkedcalltransfers']);
+                    $core_conf->addParkingGeneralSection($lotname,'parkedcallreparking', $lot['parkedcallreparking']);
+                    $core_conf->addParkingGeneralSection($lotname,'parkedmusicclass', $lot['parkedmusicclass']);
+                    $core_conf->addParkingGeneralSection($lotname,'findslot', $lot['findslot']);
+     
+                } else {
+    
+                    $core_conf->addParkingGeneral('parkext', $lot['parkext']);
+                    $core_conf->addParkingGeneral('parkpos', $parkpos1."-".$parkpos2);
+                    $core_conf->addParkingGeneral('context', $hint_context);
+                    $core_conf->addParkingGeneral('parkext_exclusive', 'no');
+                    $core_conf->addParkingGeneral('parkingtime', $lot['parkingtime']);
+                    $core_conf->addParkingGeneral('comebacktoorigin', 'no'); //Set this to no as we can manage our own internal comebacktoorigin
+                    $core_conf->addParkingGeneral('parkedplay', $lot['parkedplay']);
+                    $core_conf->addParkingGeneral('courtesytone', 'beep');
+                    $core_conf->addParkingGeneral('parkedcalltransfers', $lot['parkedcalltransfers']);
+                    $core_conf->addParkingGeneral('parkedcallreparking', $lot['parkedcallreparking']);
+                    $core_conf->addParkingGeneral('parkedmusicclass', $lot['parkedmusicclass']);
+                    $core_conf->addParkingGeneral('findslot', $lot['findslot']);
+                }
+            } else {
+    
+                if($lot['defaultlot']=='no') {
+    
+                    $core_conf->addFeatureGeneralSection($lotname,'parkext', $lot['parkext']);
+                    $core_conf->addFeatureGeneralSection($lotname,'parkpos', $parkpos1."-".$parkpos2);
+                    $core_conf->addFeatureGeneralSection($lotname,'context', $hint_context);
+                    $core_conf->addFeatureGeneralSection($lotname,'parkext_exclusive', 'no');
+                    $core_conf->addFeatureGeneralSection($lotname,'parkingtime', $lot['parkingtime']);
+                    $core_conf->addFeatureGeneralSection($lotname,'comebacktoorigin', 'no'); //Set this to no as we can manage our own internal comebacktoorigin
+                    $core_conf->addFeatureGeneralSection($lotname,'parkedplay', $lot['parkedplay']);
+                    $core_conf->addFeatureGeneralSection($lotname,'courtesytone', 'beep');
+                    $core_conf->addFeatureGeneralSection($lotname,'parkedcalltransfers', $lot['parkedcalltransfers']);
+                    $core_conf->addFeatureGeneralSection($lotname,'parkedcallreparking', $lot['parkedcallreparking']);
+                    $core_conf->addFeatureGeneralSection($lotname,'parkedmusicclass', $lot['parkedmusicclass']);
+                    $core_conf->addFeatureGeneralSection($lotname,'findslot', $lot['findslot']);
+     
+                } else {
+    
+                    $core_conf->addFeatureGeneral('parkext', $lot['parkext']);
+                    $core_conf->addFeatureGeneral('parkpos', $parkpos1."-".$parkpos2);
+                    $core_conf->addFeatureGeneral('context', $hint_context);
+                    $core_conf->addFeatureGeneral('parkext_exclusive', 'no');
+                    $core_conf->addFeatureGeneral('parkingtime', $lot['parkingtime']);
+                    $core_conf->addFeatureGeneral('comebacktoorigin', 'no'); //Set this to no as we can manage our own internal comebacktoorigin
+                    $core_conf->addFeatureGeneral('parkedplay', $lot['parkedplay']);
+                    $core_conf->addFeatureGeneral('courtesytone', 'beep');
+                    $core_conf->addFeatureGeneral('parkedcalltransfers', $lot['parkedcalltransfers']);
+                    $core_conf->addFeatureGeneral('parkedcallreparking', $lot['parkedcallreparking']);
+                    $core_conf->addFeatureGeneral('parkedmusicclass', $lot['parkedmusicclass']);
+                    $core_conf->addFeatureGeneral('findslot', $lot['findslot']);
+                }
+            }
+    
+            $ext->addInclude('from-internal-additional', $ph);
+            $ext->addInclude($ph, $hint_context, $lot['name']);
+
+            // Each lot needs a routing table to handle orphaned calls in the event
+            // that the call were to timeout if they were routed to return to
+            // originator, we route them to the ${PLOT} previously set
+    
+            if ($lot['comebacktoorigin'] == 'yes') {
+
+                // If they haven't provided a destination then we need to make a context to
+                // handle orphaned calls, we'll require destinations but this is a stop gap
+                // to be nice to cusotmers and broken systems.
+                //
+                if (!$lot['dest']) {
+                    $ext->add($por, $lot['parkext'], '', new ext_noop('ERROR: No Alternate Destination Available for Orphaned Call'));
+                    $ext->add($por, $lot['parkext'], '', new ext_playback('sorry&an-error-has-occured'));
+                    $ext->add($por, $lot['parkext'], '', new ext_hangup(''));
+                } else {
+                    $ext->add($por, $lot['parkext'], '', new ext_goto($lot['dest']));
+                }
+            }
+
+            // Setup the specific items to do in the park-return-routing context for each lot, we will deal
+            // with the per slot routing to this extension in the per slot loop below
+            //
+            parking_generate_sub_return_routing($lot, $pd, $parkpos1, $parkpos2);
+
+            // Now we have to create the hints and the specific parking slots for picking up the calls since 
+            // we do not use the dynamic generated ParkedCall() 
+            // 
+            $hv_all = '';
+            for ($slot = $parkpos1; $slot <= $parkpos2; $slot++) {
+    
+                $ext->add($ph, $slot, '', new ext_macro('parked-call',$slot . ',' . ($lot['type'] == 'public' ? $park_context : '${CHANNEL(parkinglot)}')));
+    
+                if ($lot['generatehints'] == 'yes') {
+                    $hv = "park:$slot@$hint_context";
+                    $hv_all .= $hv.'&';
+                    $ext->addHint($ph, $slot, $hv);
+                }
+            }
+            $hv_all = rtrim($hv_all,'&');
+            if ($parkfetch_code != '') {
+                $ext->add($ph, $parkfetch_code, '', new ext_macro('parked-call', ',' . $park_context));
+                $ext->add($ph, $parkfetch_code.$lot['parkext'], '', new ext_macro('parked-call', ',' . $park_context));
+                if ($lot['generatehints'] == 'yes') {
+                    $ext->addHint($ph, $parkfetch_code, $hv_all);
+                    $ext->addHint($ph, $parkfetch_code.$lot['parkext'], $hv_all);
+                }
+    
+                if ($amp_conf['USEDEVSTATE']) {
+                    $device_list = core_devices_list("all", 'full', true);
+                    foreach ($device_list as $device) {
+                        if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
+                            $ext->add($ph, $parkfetch_code.$device['id'], '', new ext_macro('parked-call', ',' . $park_context));
+                            $ext->addHint($ph, $parkfetch_code.$device['id'], "Custom:PARK".$device['id']);
+                        }
                     }
                 }
             }
+    
+            if ($lot['autocidpp'] == 'exten' || $lot['autocidpp'] == 'name') {
+                parking_generate_sub_park_user($lot);
+            }
         }
-
-        if ($lot['autocidpp'] == 'exten' || $lot['autocidpp'] == 'name') {
-            parking_generate_sub_park_user($lot);
-        }
-        break;
     }
 }
 

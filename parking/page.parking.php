@@ -26,15 +26,7 @@ $parking_defaults = array(
 );
 
 $data = array();
-if(isset($_REQUEST['delete']) && isset($id)) {
-    if(function_exists('parkpro_del')) {
-        if(parkpro_del($id)) {
-            $action = '';
-            $id = '';
-            
-        }
-    }
-}
+
 if(!empty($action) && ($action == 'update' || $action == 'add')) {
     $vars = array();
     foreach(array_keys($parking_defaults) as $k) {
@@ -51,6 +43,10 @@ if(!empty($action) && ($action == 'update' || $action == 'add')) {
             $action = 'modify';
         }
     }
+} else if($action=='delete' && $id<>'') {
+    parking_delete($id);
+    needreload();
+    redirect_standard();
 }
    
 $all_pl['lots'] = parking_get('all');

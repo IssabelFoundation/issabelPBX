@@ -2,7 +2,8 @@
 
 <div class="rnav">
 	<ul>
-		<li><a href="config.php?display=parking"><?php echo _('Overview') ?></a></li>
+        <li><a href="config.php?display=parking&type=setup&action=add"><?php echo _('Add Park Slot');?></a></li>
+
         <li><hr></li>
         <?php foreach($lots as $l) {?>
         <li><a href="config.php?display=parking&amp;id=<?php echo $l['id']?>&amp;action=modify"><?php echo $l['defaultlot'] == 'yes' ? '<strong>[D]</strong> ' : ''?><?php echo $l['name']?></a></li>

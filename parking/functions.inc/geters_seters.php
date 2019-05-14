@@ -12,19 +12,17 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
  * @param mixed $id
  * @return array
  */
-function parking_get($id='default') {
+function parking_get($id='') {
 	global $db;
 
-	if (function_exists('parkpro_get')) {
-		return parkpro_get($id);
-	}
-	$sql = "SELECT * FROM parkplus WHERE defaultlot = 'yes' LIMIT 1";
+	$sql = "SELECT * FROM parkplus";
 	if ($id == 'all' || $id == '') {
 		$res = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
 		foreach($res as $vq) {
 			$results[$vq['id']] = $vq;
 		}
 	} else {
+	    $sql = "SELECT * FROM parkplus WHERE id=$id";
 		$results = sql($sql,'getRow',DB_FETCHMODE_ASSOC);
 	}
 	return $results;
@@ -46,9 +44,6 @@ function parking_save($parms=array()) {
 
 	if (!empty($parms['id'])) {
 		$var['id'] = $db->escapeSimple($parms['id']);
-	}
-	if (!function_exists('parkpro_get')) {
-		$var['id'] = 1;
 	}
 	$var['name'] = "Parking Lot";
 	$var['type'] = 'public';

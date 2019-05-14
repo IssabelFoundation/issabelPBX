@@ -1,3 +1,12 @@
+<?php if ($id && $id>1){ ?>
+    <a href='config.php?display=parking&amp;action=delete&amp;id=<?php echo $id?>'><img src='images/user_delete.png'> <?php echo _("Delete Parking Lot")?></a>
+    <?php if($dids_using) {?>
+        <small><?php sprintf(_("There are %s DIDs using this source that will no longer have lookups if deleted."),$dids_using)?></small>
+    <?php } ?>
+<?php } ?>
+
+
+
 <form id="parkform" action="config.php?display=parking&amp;id=<?php echo $id?>&amp;action=update" method="post">
     <table width="40%">
         <tr>

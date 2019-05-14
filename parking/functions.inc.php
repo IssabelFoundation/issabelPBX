@@ -4,16 +4,19 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed');}
 //	Copyright 2013 Schmooze Com Inc.
 //
 
-	include_once(dirname(__FILE__) . '/functions.inc/registries.php');
-	include_once(dirname(__FILE__) . '/functions.inc/geters_seters.php');
-	include_once(dirname(__FILE__) . '/functions.inc/dialplan.php');
+include_once(dirname(__FILE__) . '/functions.inc/registries.php');
+include_once(dirname(__FILE__) . '/functions.inc/geters_seters.php');
+include_once(dirname(__FILE__) . '/functions.inc/dialplan.php');
     
-    function parking_views($view,$data) {
-        if(function_exists('parkpro_view')) {
-            $o = parkpro_view($view,$data);
-            if($o) {
-                return $o;
-            }
-        }
-        return load_view(dirname(__FILE__).'/views/'.$view.'.php',$data);
+function parking_views($view,$data) {
+    return load_view(dirname(__FILE__).'/views/'.$view.'.php',$data);
+}
+
+function parking_delete($id) {
+    global $db;
+    $sql = "DELETE FROM parkplus WHERE id = ".$db->escapeSimple($id);
+    $result = $db->query($sql);
+    if($db->IsError($result)) {
+        die_issabelpbx($result->getMessage().$sql);
     }
+}
