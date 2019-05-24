@@ -123,7 +123,7 @@ function ivr_get_config($engine) {
 								new ext_gotoif('$["x${IVR_CONTEXT_${CONTEXT}}" = "x"]',
 									$e['dest'] . ':${IVR_CONTEXT_${CONTEXT}},return,1'));
                         } else {
-                            $ext->add($c, $e['selection'], '', new ext_setvar('__IVR_DIGIT_PRESSED', $e['selection']));
+                            $ext->add($c, $e['selection'], '', new ext_setvar('__IVR_DIGIT_PRESSED', '${EXTEN}'));
 							$ext->add($c, $e['selection'],'ivrsel-' . $e['selection'], new ext_goto($e['dest']));
 						}
 					}
