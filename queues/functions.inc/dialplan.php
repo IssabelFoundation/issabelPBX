@@ -270,9 +270,13 @@ function queues_get_config($engine) {
 				if($q['use_queue_context'] != '2') {
 					$ext->add($c, $exten, '', new ext_macro('blkvm-clr'));
 				}
-				// cancel any recording previously requested
 
+				// Reset CALLFILENAME if QUEUE CONTINUE to avoid delete the file  (venturinog)
+				$ext->add($c, $exten, '', new ext_execif('$["${QUEUESTATUS}"="CONTINUE"]','Set','CALLFILENAME=""'));
+
+				// cancel any recording previously requested
 				$ext->add($c, $exten, '', new ext_gosub('1','s','sub-record-cancel'));
+
 				// If we are here, disable the NODEST as we want things to resume as normal
 				$ext->add($c, $exten, '', new ext_setvar('__NODEST', ''));
 				$ext->add($c, $exten, '', new ext_setvar('_QUEUE_PRIO', '0'));
