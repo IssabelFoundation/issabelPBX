@@ -197,6 +197,7 @@ class connectdirs {
                     if ($this->err_copy($sourcefile,$targetfile)) {
                         // copy was successful, make sure it has execute permissions
                         chmod($targetfile,0754);
+                        chown($targetfile,'asterisk');
                     } else {
                         issabelpbx_log(IPBX_LOG_ERROR, "$targetfile failed to copy from module directory");
                     }
