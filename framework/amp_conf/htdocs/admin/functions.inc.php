@@ -260,13 +260,7 @@ function engine_getinfo($force_read=false) {
                 $response = $astman->send_request('Command', array('Command'=>'show version'));
             }
 
-            if(isset($response['Output'])) { 
-                // Asterisk 16
-                $verinfo = $response['Output'];
-            } else {
-                // Asterisk older than 16
-                $verinfo = $response['data'];
-            }
+            $verinfo = $response['data'];
 
             // perhaps not fully booted yet
             if (preg_match('/No such command/',$response['data'])) {
