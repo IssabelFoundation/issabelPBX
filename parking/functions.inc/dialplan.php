@@ -291,6 +291,7 @@ function parking_generate_sub_return_routing($lot, $pd) {
 
 function parking_generate_parked_call() {
     global $ext;
+    global $version;
 
     // macro-parked-call
     // pickup a parked call from a specified slot
@@ -299,11 +300,16 @@ function parking_generate_parked_call() {
     //
     $pc = 'macro-parked-call';
     $exten = 's';
+    $ast_ge_11 = version_compare($version,'11','gt');
 
     //
     // Determine from parked channel if we were previously recording and if so keep doing so
     //
-    $ext->add($pc, $exten, '', new ext_agi('parkfetch.agi,${ARG1}'));
+    if ($ast_ge_11) {
+        $ext->add($pc, $exten, '', new ext_agi('parkfetch.agi,${ARG1},${ARG2}'));
+    } else {
+        $ext->add($pc, $exten, '', new ext_agi('parkfetch.agi,${ARG1}'));
+    }
     $ext->add($pc, $exten, '', new ext_gotoif('$["${REC_STATUS}" != "RECORDING"]','next'));
     $ext->add($pc, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
     $ext->add($pc, $exten, '', new ext_set('CDR(recordingfile)','${CALLFILENAME}.${MON_FMT}'));
@@ -322,7 +328,11 @@ function parking_generate_parked_call() {
 
     // ParkedCalls can't handle picking up the default lot as 'parkedcalls' context, it wants 'default'
     //
-    $ext->add($pc, $exten, '', new ext_parkedcall('${ARG1},${ARG2}'));
+    if ($ast_ge_11) {
+        $ext->add($pc, $exten, '', new ext_parkedcall('${ARG2},${ARG1}'));
+    } else {
+        $ext->add($pc, $exten, '', new ext_parkedcall('${ARG1},${ARG2}'));
+    }
     $ext->add($pc, 'h', '', new ext_macro('hangupcall'));
 }
 
