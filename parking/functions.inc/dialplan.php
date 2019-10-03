@@ -300,12 +300,12 @@ function parking_generate_parked_call() {
     //
     $pc = 'macro-parked-call';
     $exten = 's';
-    $ast_ge_11 = version_compare($version,'11','gt');
+    $ast_ge_13 = version_compare($version,'13','gt');
 
     //
     // Determine from parked channel if we were previously recording and if so keep doing so
     //
-    if ($ast_ge_11) {
+    if ($ast_ge_13) {
         $ext->add($pc, $exten, '', new ext_agi('parkfetch.agi,${ARG1},${ARG2}'));
     } else {
         $ext->add($pc, $exten, '', new ext_agi('parkfetch.agi,${ARG1}'));
@@ -328,7 +328,7 @@ function parking_generate_parked_call() {
 
     // ParkedCalls can't handle picking up the default lot as 'parkedcalls' context, it wants 'default'
     //
-    if ($ast_ge_11) {
+    if ($ast_ge_13) {
         $ext->add($pc, $exten, '', new ext_parkedcall('${ARG2},${ARG1}'));
     } else {
         $ext->add($pc, $exten, '', new ext_parkedcall('${ARG1},${ARG2}'));
