@@ -1,0 +1,41 @@
+<module>
+	<rawname>trunkbalance</rawname>
+	<name>Trunk Balance</name>
+	<version>1.1.4</version>
+	<publisher>POSSA</publisher>
+	<license>GPLv2+</license>
+	<candisable>yes</candisable>
+	<canuninstall>yes</canuninstall>
+	<type>setup</type>
+	<category>Other</category>
+	<changelog>
+		*1.1.4* Remove auto check for updates
+		*1.1.2* Added trunk disable toggle
+		*1.1.1* Allow multiple matching and non-matching rules
+		*1.1.0* Additional flexibility for billing periods
+		*1.0.2* pass dialed number directly to dialout macro
+		*1.0.1* fixed max unique call logic
+		*1.0.0* revised to work with FreePBX 2.10
+		*0.0.4.3* Allow balance of DAHDI trunks and move to Github
+		*0.0.4.2* bug fix
+		*0.0.4.1* added timeconditions module dependency
+		*0.0.4* added time condition
+		*0.0.3.3* bug fix
+		*0.0.3.2* bug fix
+		*0.0.3* freePBX 2.6 dependency
+		*0.0.2* display bug with Freepbx 2.5; improved uninstall. 
+		*0.0.1* alpha release
+	</changelog>	
+	<embedcategory>Advanced</embedcategory>
+	<depends>
+		<module>core</module>
+		<version>ge 2.6</version>
+		<module>timeconditions ge2.6</module>
+	</depends>
+	<description>Restrict outbound calls or balance calls over multiple trunks based on user specified parameters</description>
+	<menuitems>
+		<trunkbalance>Trunk Balance</trunkbalance>
+	</menuitems>
+	<info>https://github.com/POSSA/freepbx-trunk-balancing</info>
+	<location>http://pbxossa.org/files/trunkbalance/</location>
+</module>
