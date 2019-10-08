@@ -7,7 +7,7 @@
 	<candisable>yes</candisable>
 	<canuninstall>yes</canuninstall>
     <repo>extended</repo>
-	<category>Other</category>
+	<category>Advanced</category>
 	<changelog>
 		*1.1.4* Remove auto check for updates
 		*1.1.2* Added trunk disable toggle
