@@ -6,7 +6,7 @@
 	<license>GPLv2+</license>
 	<candisable>yes</candisable>
 	<canuninstall>yes</canuninstall>
-	<type>setup</type>
+    <repo>extended</repo>
 	<category>Other</category>
 	<changelog>
 		*1.1.4* Remove auto check for updates

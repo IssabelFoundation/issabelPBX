@@ -5,9 +5,9 @@
 	<changelog>
 		*1.0* Module changed to new dialpan. Module is now compatible with Asterisk 1.6X and newer with all BLF functionality.
 	</changelog>
-	<type>setup</type>
+    <repo>extended</repo>
 	<publisher>Issabel Foundation</publisher>
-	<category>Inbound Call Control</category>
+	<category>Applications</category>
     <embedcategory>Internal Options &amp; Configuration</embedcategory>
 	<description>
 		The boss-secretary module creates a special ring group which includes
