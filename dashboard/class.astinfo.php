@@ -268,7 +268,7 @@ class astinfo {
 			$response = $this->astman->send_request('Command',array('Command'=>"show version"));
 		}
 		$astout = explode("\n",$response['data']);
-		
+        if(count($astout)==1) { $astout[1]=$astout[0]; } // asterisk 16 has one line only
 		if (!preg_match('/^Asterisk /i', $astout[1])) {
 			return false;
 		} else {
