@@ -230,7 +230,7 @@ class AGI_AsteriskManager {
                     if(!count($parameters)) {// first line in a response?
                         $type = strtolower(substr($buffer, 0, $a));
                         if(substr($buffer, $a + 2) == 'Follows') {
-                            // A follows response means there is a miltiline field that follows.
+                            // A follows response means there is a multiline field that follows.
                             $parameters['data'] = '';
                             $buff = fgets($this->socket, 4096);
                             while(substr($buff, 0, 6) != '--END ') {
@@ -241,15 +241,22 @@ class AGI_AsteriskManager {
                     }
 
                     // store parameter in $parameters
-                    $parameters[substr($buffer, 0, $a)] = substr($buffer, $a + 2);
-
-                    // Asterisk 16
-                    if(substr($buffer, 0, $a)=='Output' && !isset($parameters['data'])) {
-                        $parameters['data']=substr($buffer, $a + 2);
+                    if(!isset( $parameters[substr($buffer, 0, $a)])) {
+                        $parameters[substr($buffer, 0, $a)] = substr($buffer, $a + 2);
+                    } else {
+                        // Asterisk 16
+                        $parameters[substr($buffer, 0, $a)] .= substr($buffer, $a + 2)."\r\n";
                     }
 
                 }
                 $buffer = trim(fgets($this->socket, 4096));
+            }
+
+            // In Asterisk 16, instead of Follows and data, we have all in output, pass it to data
+            if(isset($parameters['Message'])) {
+                if($parameters['Message']=="Command output follows") {
+                   $parameters['data']=$parameters['Output'];
+                }
             }
 
             // process response
