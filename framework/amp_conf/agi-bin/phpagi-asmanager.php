@@ -201,6 +201,10 @@ class AGI_AsteriskManager {
             }
             $reconnects--;
         }
+        if($action == 'Command' && empty($response['data']) && !empty($response['Output'])) {
+            $response['data'] = $response['Output'];
+            unset($response['Output']);
+        }
         return $response;
     }
 
@@ -213,7 +217,7 @@ class AGI_AsteriskManager {
      * @param boolean $allow_timeout if the socket times out, return an empty array
      * @return array of parameters, empty on timeout
      */
-    function wait_response($allow_timeout = false) {
+    function wait_response($allow_timeout = false, $return_on_event = false) {
         $timeout = false;
         do {
             $type = NULL;
@@ -230,7 +234,7 @@ class AGI_AsteriskManager {
                     if(!count($parameters)) {// first line in a response?
                         $type = strtolower(substr($buffer, 0, $a));
                         if(substr($buffer, $a + 2) == 'Follows') {
-                            // A follows response means there is a multiline field that follows.
+                            // A 'follows' response means there is a multiline field that follows.
                             $parameters['data'] = '';
                             $buff = fgets($this->socket, 4096);
                             while(substr($buff, 0, 6) != '--END ') {
@@ -238,25 +242,26 @@ class AGI_AsteriskManager {
                                 $buff = fgets($this->socket, 4096);
                             }
                         }
+                    } elseif(count($parameters) == 2) {
+                        if($parameters['Response'] == "Success" && isset($parameters['Message']) && $parameters['Message'] == 'Command output follows') {
+                            // A 'Command output follows' response means there is a muiltiline field that follows.
+                            // This is Asterisk 14 Logic:
+                            $parameters['data'] = "Privilege: Command\n"; //Add this to make Asterisk 14 look/work like < 13
+                            $parameters['data'] .= preg_replace("/^Output:\s*/","",$buffer)."\n";
+                            $buff = fgets($this->socket, 4096);
+                            while($buff !== "\r\n") {
+                                $buff = preg_replace("/^Output:\s*/","",$buff);
+                                $parameters['data'] .= trim($buff)."\n";
+                                $buff = fgets($this->socket, 4096);
+                            }
+                            break;
+                        }
                     }
 
                     // store parameter in $parameters
-                    if(!isset( $parameters[substr($buffer, 0, $a)])) {
-                        $parameters[substr($buffer, 0, $a)] = substr($buffer, $a + 2);
-                    } else {
-                        // Asterisk 16
-                        $parameters[substr($buffer, 0, $a)] .= substr($buffer, $a + 2)."\r\n";
-                    }
-
+                    $parameters[substr($buffer, 0, $a)] = substr($buffer, $a + 2);
                 }
                 $buffer = trim(fgets($this->socket, 4096));
-            }
-
-            // In Asterisk 16, instead of Follows and data, we have all in output, pass it to data
-            if(isset($parameters['Message'])) {
-                if($parameters['Message']=="Command output follows") {
-                   $parameters['data']=$parameters['Output'];
-                }
             }
 
             // process response
@@ -274,7 +279,7 @@ class AGI_AsteriskManager {
                     $this->log('Unhandled response packet ('.$type.') from Manager: ' . print_r($parameters, true));
                     break;
             }
-        } while($type != 'response' && $type != 'message' && !$timeout);
+        } while(($return_on_event && ($type != 'event' && $type != 'response' && $type != 'message' && !$timeout)) || (!$return_on_event && ($type != 'response' && $type != 'message' && !$timeout)));
         $this->log("returning from wait_response with with type: $type",10);
         $this->log('$parmaters: '.print_r($parameters,true),10);
         $this->log('$buffer: '.print_r($buffer,true),10);
