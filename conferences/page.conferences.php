@@ -364,7 +364,7 @@ the meetme list CLI command.")?></span></a></td>
 		  <select name="users" tabindex="<?php echo ++$tabindex;?>">
 			<?php
 			$default = (($users) ? $users : 0);
-			echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'._("No Limit").'</option>';
+			echo '<option value="0" '.($i == $default ? 'SELECTED' : '').'>'._("No Limit").'</option>';
 			for ($i=2; $i <= 20; $i++) {
 			  echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.'</option>';
 			}
