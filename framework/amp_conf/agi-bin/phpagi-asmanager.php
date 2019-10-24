@@ -1342,8 +1342,8 @@ class AGI_AsteriskManager {
      * @return bool True if if it exists
      */
     function app_exists($app) {
-        $r = $this->command("core show application $app");
-        return (strpos($r['data'],"Your application(s) is (are) not registered") === false);
+        $r = $this->command("core show applications like $app");
+        return (strpos($r['data'],"0 Applications Matching") === false);
     }
 
     /** Returns whether a give channeltype exists in this Asterisk install
