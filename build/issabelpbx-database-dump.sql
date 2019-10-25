@@ -15,7 +15,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `asterisk` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `asterisk` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
 
 USE `asterisk`;
 
@@ -30,7 +30,7 @@ CREATE TABLE `admin` (
   `variable` varchar(20) NOT NULL DEFAULT '',
   `value` varchar(80) NOT NULL DEFAULT '',
   PRIMARY KEY (`variable`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `ampusers` (
   `deptname` varchar(20) NOT NULL DEFAULT '',
   `sections` blob NOT NULL,
   PRIMARY KEY (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +88,7 @@ CREATE TABLE `announcement` (
   `noanswer` tinyint(1) NOT NULL DEFAULT '0',
   `repeat_msg` varchar(2) NOT NULL DEFAULT '',
   PRIMARY KEY (`announcement_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +115,7 @@ CREATE TABLE `backup` (
   `data` longtext,
   `email` longtext,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,7 +138,7 @@ CREATE TABLE `backup_cache` (
   `id` varchar(50) NOT NULL,
   `manifest` longtext,
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +162,7 @@ CREATE TABLE `backup_details` (
   `key` varchar(50) DEFAULT NULL,
   `index` varchar(25) DEFAULT NULL,
   `value` varchar(250) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,7 +186,7 @@ CREATE TABLE `backup_items` (
   `type` varchar(50) DEFAULT NULL,
   `path` text,
   `exclude` text
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,7 +241,7 @@ CREATE TABLE `backup_old` (
   `remoterestore` varchar(5) DEFAULT NULL,
   `overwritebackup` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -264,7 +264,7 @@ CREATE TABLE `backup_server_details` (
   `server_id` int(11) NOT NULL,
   `key` varchar(50) DEFAULT NULL,
   `value` varchar(250) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -318,7 +318,7 @@ CREATE TABLE `backup_template_details` (
   `type` varchar(50) DEFAULT NULL,
   `path` text,
   `exclude` text
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -373,7 +373,7 @@ CREATE TABLE `callback` (
   `sleep` int(11) DEFAULT NULL,
   `deptname` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`callback_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -398,7 +398,7 @@ CREATE TABLE `callrecording` (
   `description` varchar(50) DEFAULT NULL,
   `dest` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`callrecording_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -422,7 +422,7 @@ CREATE TABLE `callrecording_module` (
   `cidnum` varchar(50) DEFAULT '',
   `callrecording` varchar(10) DEFAULT NULL,
   `display` varchar(20) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -486,7 +486,7 @@ CREATE TABLE `cidlookup_incoming` (
   `cidlookup_id` int(11) NOT NULL,
   `extension` varchar(50) DEFAULT NULL,
   `cidnum` varchar(30) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -513,7 +513,7 @@ CREATE TABLE `cronmanager` (
   `lasttime` int(11) NOT NULL DEFAULT '0',
   `command` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`module`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -538,7 +538,7 @@ CREATE TABLE `custom_destinations` (
   `description` varchar(40) NOT NULL DEFAULT '',
   `notes` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`custom_dest`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -562,7 +562,7 @@ CREATE TABLE `custom_extensions` (
   `description` varchar(40) NOT NULL DEFAULT '',
   `notes` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`custom_exten`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -593,7 +593,7 @@ CREATE TABLE `customcontexts_contexts` (
   `featurefailpincdr` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`context`),
   UNIQUE KEY `description` (`description`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -618,7 +618,7 @@ CREATE TABLE `customcontexts_contexts_list` (
   `locked` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`context`),
   UNIQUE KEY `description` (`description`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -646,7 +646,7 @@ CREATE TABLE `customcontexts_includes` (
   `userules` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`context`,`include`),
   KEY `sort` (`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -672,7 +672,7 @@ CREATE TABLE `customcontexts_includes_list` (
   `missing` tinyint(1) NOT NULL DEFAULT '0',
   `sort` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`context`,`include`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -696,7 +696,7 @@ CREATE TABLE `customcontexts_module` (
   `id` varchar(50) NOT NULL DEFAULT '',
   `value` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -734,7 +734,7 @@ CREATE TABLE `customerdb` (
   `username` varchar(25) DEFAULT NULL,
   `password` varchar(25) DEFAULT NULL,
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -759,7 +759,7 @@ CREATE TABLE `dahdi` (
   `data` varchar(255) NOT NULL DEFAULT '',
   `flags` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`,`keyword`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -783,7 +783,7 @@ CREATE TABLE `dahdichandids` (
   `description` varchar(40) NOT NULL DEFAULT '',
   `did` varchar(60) NOT NULL DEFAULT '',
   PRIMARY KEY (`channel`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -807,7 +807,7 @@ CREATE TABLE `daynight` (
   `dmode` varchar(40) NOT NULL DEFAULT '',
   `dest` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`ext`,`dmode`,`dest`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -836,7 +836,7 @@ CREATE TABLE `devices` (
   `emergency_cid` varchar(100) DEFAULT NULL,
   PRIMARY KEY `id` (`id`),
   KEY `tech` (`tech`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -938,7 +938,7 @@ CREATE TABLE `dialplaninjection_module` (
   `id` varchar(50) NOT NULL DEFAULT '',
   `value` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -970,7 +970,7 @@ CREATE TABLE `disa` (
   `hangup` varchar(10) DEFAULT NULL,
   `keepcid` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`disa_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1063,7 +1063,7 @@ CREATE TABLE `extensions` (
   `descr` text,
   `flags` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`context`,`extension`,`priority`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1087,7 +1087,7 @@ CREATE TABLE `fax_details` (
   `key` varchar(50) DEFAULT NULL,
   `value` varchar(510) DEFAULT NULL,
   UNIQUE KEY `key` (`key`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1114,7 +1114,7 @@ CREATE TABLE `fax_incoming` (
   `detectionwait` varchar(5) DEFAULT NULL,
   `destination` varchar(50) DEFAULT NULL,
   `legacy_email` varchar(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1139,7 +1139,7 @@ CREATE TABLE `fax_users` (
   `faxemail` text,
   `faxattachformat` varchar(10) DEFAULT NULL,
   UNIQUE KEY `user` (`user`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1168,7 +1168,7 @@ CREATE TABLE `featurecodes` (
   `providedest` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`modulename`,`featurename`),
   KEY `enabled` (`enabled`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1203,7 +1203,7 @@ CREATE TABLE `findmefollow` (
   `pre_ring` smallint(6) NOT NULL DEFAULT '0',
   `ringing` varchar(80) DEFAULT NULL,
   PRIMARY KEY (`grpnum`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1227,7 +1227,7 @@ CREATE TABLE `gabcast` (
   `channbr` varchar(50) DEFAULT NULL,
   `pin` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`ext`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1250,7 +1250,7 @@ CREATE TABLE `globals` (
   `variable` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`variable`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1276,7 +1276,7 @@ CREATE TABLE `iax` (
   `data` varchar(255) NOT NULL,
   `flags` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`,`keyword`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1301,7 +1301,7 @@ CREATE TABLE `iaxsettings` (
   `seq` tinyint(1) NOT NULL DEFAULT '0',
   `type` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`keyword`,`seq`,`type`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1339,7 +1339,7 @@ CREATE TABLE `incoming` (
   `pricid` varchar(20) DEFAULT NULL,
   `pmmaxretries` varchar(2) DEFAULT NULL,
   `pmminlength` varchar(2) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1363,7 +1363,7 @@ CREATE TABLE `indications_zonelist` (
   `iso` varchar(20) NOT NULL,
   `conf` blob,
   PRIMARY KEY (`iso`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1404,7 +1404,7 @@ CREATE TABLE `inventorydb` (
   `pbxbox` varchar(20) DEFAULT NULL,
   `extrainfo` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1468,7 +1468,7 @@ CREATE TABLE `issabelpbx_settings` (
   `emptyok` tinyint(1) DEFAULT '1',
   `sortorder` int(11) DEFAULT '0',
   PRIMARY KEY (`keyword`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1534,7 +1534,7 @@ CREATE TABLE `ivr_entries` (
   `selection` varchar(10) DEFAULT NULL,
   `dest` varchar(50) DEFAULT NULL,
   `ivr_ret` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1557,7 +1557,7 @@ CREATE TABLE `language_incoming` (
   `extension` varchar(50) DEFAULT NULL,
   `cidnum` varchar(50) DEFAULT NULL,
   `language` varchar(10) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1582,7 +1582,7 @@ CREATE TABLE `languages` (
   `description` varchar(50) DEFAULT NULL,
   `dest` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`language_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1612,7 +1612,7 @@ CREATE TABLE `logfile_logfiles` (
   `warning` varchar(25) DEFAULT NULL,
   `security` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1636,7 +1636,7 @@ CREATE TABLE `logfile_settings` (
   `key` varchar(100) NOT NULL DEFAULT '',
   `value` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`key`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1664,7 +1664,7 @@ CREATE TABLE `manager` (
   `read` varchar(255) DEFAULT NULL,
   `write` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`manager_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1685,7 +1685,7 @@ CREATE TABLE `managersettings` (
   `seq` tinyint(1) NOT NULL DEFAULT '0',
   `type` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`keyword`,`seq`,`type`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1713,7 +1713,7 @@ CREATE TABLE `meetme` (
   `joinmsg_id` int(11) DEFAULT NULL,
   `music` varchar(80) DEFAULT NULL,
   `users` tinyint(4) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1786,7 +1786,7 @@ CREATE TABLE `module_xml` (
   `time` int(11) NOT NULL DEFAULT '0',
   `data` mediumblob NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1844,7 +1844,7 @@ CREATE TABLE `notifications` (
   `candelete` tinyint(4) NOT NULL DEFAULT '0',
   `timestamp` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`module`,`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1870,7 +1870,7 @@ CREATE TABLE `outbound_route_patterns` (
   `match_cid` varchar(60) NOT NULL DEFAULT '',
   `prepend_digits` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`route_id`,`match_pattern_prefix`,`match_pattern_pass`,`match_cid`,`prepend_digits`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1894,7 +1894,7 @@ CREATE TABLE `outbound_route_sequence` (
   `route_id` int(11) NOT NULL,
   `seq` int(11) NOT NULL,
   PRIMARY KEY (`route_id`,`seq`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1919,7 +1919,7 @@ CREATE TABLE `outbound_route_trunks` (
   `trunk_id` int(11) NOT NULL,
   `seq` int(11) NOT NULL,
   PRIMARY KEY (`route_id`,`trunk_id`,`seq`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1975,7 +1975,7 @@ CREATE TABLE `outroutemsg` (
   `keyword` varchar(40) NOT NULL DEFAULT '',
   `data` varchar(10) NOT NULL,
   PRIMARY KEY (`keyword`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1999,7 +1999,7 @@ CREATE TABLE `paging_autoanswer` (
   `var` varchar(20) NOT NULL,
   `setting` varchar(255) NOT NULL,
   PRIMARY KEY (`useragent`,`var`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2025,7 +2025,7 @@ CREATE TABLE `paging_config` (
   `duplex` int(1) NOT NULL DEFAULT '0',
   `description` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`page_group`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2048,7 +2048,7 @@ CREATE TABLE `paging_groups` (
   `page_number` varchar(50) NOT NULL DEFAULT '',
   `ext` varchar(25) NOT NULL DEFAULT '',
   PRIMARY KEY (`page_number`,`ext`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2127,7 +2127,7 @@ CREATE TABLE `phpagiconf` (
   `setuid` tinyint(1) DEFAULT NULL,
   `basedir` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`phpagiid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2151,7 +2151,7 @@ CREATE TABLE `pinset_usage` (
   `dispname` varchar(30) NOT NULL DEFAULT '',
   `foreign_id` varchar(30) NOT NULL DEFAULT '',
   PRIMARY KEY (`dispname`,`foreign_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2177,7 +2177,7 @@ CREATE TABLE `pinsets` (
   `addtocdr` tinyint(1) DEFAULT NULL,
   `deptname` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`pinsets_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2202,7 +2202,7 @@ CREATE TABLE `queueprio` (
   `description` varchar(50) DEFAULT NULL,
   `dest` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`queueprio_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2247,7 +2247,7 @@ CREATE TABLE `queues_config` (
   `callback_id` varchar(8) NOT NULL DEFAULT '',
   `destcontinue` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`extension`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2272,7 +2272,7 @@ CREATE TABLE `queues_details` (
   `data` varchar(150) NOT NULL DEFAULT '',
   `flags` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`,`keyword`,`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2338,7 +2338,7 @@ CREATE TABLE `ringgroups` (
   `cpickup` varchar(10) DEFAULT NULL,
   `recording` varchar(10) DEFAULT 'dontcare',
   PRIMARY KEY (`grpnum`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2365,7 +2365,7 @@ CREATE TABLE `setcid` (
   `dest` varchar(255) DEFAULT NULL,
   `variables` text,
   PRIMARY KEY (`cid_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2390,7 +2390,7 @@ CREATE TABLE `sip` (
   `data` varchar(255) NOT NULL,
   `flags` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`,`keyword`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2415,7 +2415,7 @@ CREATE TABLE `sipsettings` (
   `seq` tinyint(1) NOT NULL DEFAULT '0',
   `type` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`keyword`,`seq`,`type`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2445,7 +2445,7 @@ CREATE TABLE `timeconditions` (
   `generate_hint` tinyint(1) DEFAULT '0',
   `priority` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`timeconditions_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2469,7 +2469,7 @@ CREATE TABLE `timegroups_details` (
   `timegroupid` int(11) NOT NULL DEFAULT '0',
   `time` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2493,7 +2493,7 @@ CREATE TABLE `timegroups_groups` (
   `description` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `display` (`description`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2519,7 +2519,7 @@ CREATE TABLE `trunk_dialpatterns` (
   `prepend_digits` varchar(50) NOT NULL DEFAULT '',
   `seq` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`trunkid`,`match_pattern_prefix`,`match_pattern_pass`,`prepend_digits`,`seq`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2553,7 +2553,7 @@ CREATE TABLE `trunks` (
   `disabled` varchar(4) DEFAULT 'off',
   `continue` varchar(4) DEFAULT 'off',
   PRIMARY KEY (`trunkid`,`tech`,`channelid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2591,7 +2591,7 @@ CREATE TABLE `users` (
   `busy_dest` varchar(255) DEFAULT '',
   `chanunavail_dest` varchar(255) DEFAULT '',
   PRIMARY KEY (`extension`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2616,7 +2616,7 @@ CREATE TABLE `vmblast` (
   `audio_label` int(11) NOT NULL DEFAULT '-1',
   `password` varchar(20) NOT NULL,
   PRIMARY KEY (`grpnum`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2639,7 +2639,7 @@ CREATE TABLE `vmblast_groups` (
   `grpnum` varchar(50) NOT NULL DEFAULT '',
   `ext` varchar(25) NOT NULL DEFAULT '',
   PRIMARY KEY (`grpnum`,`ext`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2662,7 +2662,7 @@ CREATE TABLE `voicemail_admin` (
   `variable` varchar(30) NOT NULL DEFAULT '',
   `value` varchar(80) NOT NULL DEFAULT '',
   PRIMARY KEY (`variable`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2693,7 +2693,7 @@ CREATE TABLE `writequeuelog` (
   `dest` varchar(255) DEFAULT NULL,
   `qlog_extra` text,
   PRIMARY KEY (`qlog_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
