@@ -446,7 +446,7 @@ function drawListMenu($results, $skip, $type, $dispnum, $extdisplay, $descriptio
     if (isset($results)) {
         foreach ($results as $key=>$result) {
             $index= $index + 1;
-            echo "\t<li><a".($extdisplay==$result[0] ? ' class="current"':''). " href=\"config.php?type=".$type."&display=".$dispnum."&extdisplay={$result[0]}\">{$result[1]} &lt;{$result[0]}&gt;</a></li>\n";
+            echo "\t<li><a".($extdisplay==$result[0] ? ' class="current"':''). " href=\"config.php?type=".$type."&display=".$dispnum."&extdisplay={$result[0]}\"><bdi>{$result[1]}</bdi> &lt;{$result[0]}&gt;</a></li>\n";
         }
     }
     echo "</ul>\n";
