@@ -1067,7 +1067,7 @@ function core_do_get_config($engine) {
             if (isset($core_conf) && is_a($core_conf, "core_conf")) {
                 $section = 'asterisk';
                 $core_conf->addResOdbc($section, array('enabled' => 'yes'));
-                $core_conf->addResOdbc($section, array('dsn' => 'MySQL-asteriskcdrdb'));
+                $core_conf->addResOdbc($section, array('dsn' => 'asterisk'));
                 $core_conf->addResOdbc($section, array('pooling' => 'no'));
                 $core_conf->addResOdbc($section, array('limit' => '1'));
                 $core_conf->addResOdbc($section, array('pre-connect' => 'yes'));
