@@ -1064,6 +1064,17 @@ function core_do_get_config($engine) {
             $ast_ge_162 = version_compare($version, '1.6.2', 'ge');
             $ast_ge_10 = version_compare($version, '10', 'ge');
 
+            if (isset($core_conf) && is_a($core_conf, "core_conf")) {
+                $section = 'asterisk';
+                $core_conf->addResOdbc($section, array('enabled' => 'yes'));
+                $core_conf->addResOdbc($section, array('dsn' => 'MySQL-asteriskcdrdb'));
+                $core_conf->addResOdbc($section, array('pooling' => 'no'));
+                $core_conf->addResOdbc($section, array('limit' => '1'));
+                $core_conf->addResOdbc($section, array('pre-connect' => 'yes'));
+                $core_conf->addResOdbc($section, array('username' => $amp_conf['AMPDBUSER']));
+                $core_conf->addResOdbc($section, array('password' => $amp_conf['AMPDBPASS']));
+            }
+
             // Now add to sip_general_addtional.conf
             //
             if (isset($core_conf) && is_a($core_conf, "core_conf")) {
@@ -1082,9 +1093,9 @@ function core_do_get_config($engine) {
                     $core_conf->addSipGeneral('tos_video','af41'); // Recommended setting from doc/ip-tos.txt
                     $core_conf->addSipGeneral('alwaysauthreject','yes');
                     $core_conf->addSipGeneral('allowguest','no');
-          if ($ast_lt_161) {
-                      $core_conf->addSipGeneral('limitonpeers','yes');
-          }
+                    if ($ast_lt_161) {
+                        $core_conf->addSipGeneral('limitonpeers','yes');
+                    }
                 } else {
                     $core_conf->addSipGeneral('tos','0x68'); // This really doesn't do anything with astersk not running as root
                 }
@@ -1112,23 +1123,23 @@ function core_do_get_config($engine) {
                 $fcc = new featurecode($modulename, 'automon');
                 $code = $fcc->getCodeActive();
                 unset($fcc);
-        // $automon = $amp_conf['AUTOMIXMON'] && !$ast_lt_16 ? 'automixmon' : 'automon';
+                // $automon = $amp_conf['AUTOMIXMON'] && !$ast_lt_16 ? 'automixmon' : 'automon';
                 if ($code != '') {
-          // was this for automixmon
+                    // was this for automixmon
                     // $core_conf->addFeatureMap($automon,$code);
-          $core_conf->addApplicationMap('apprecord', $code . ',caller,Macro,one-touch-record', true);
+                    $core_conf->addApplicationMap('apprecord', $code . ',caller,Macro,one-touch-record', true);
 
                     /* At this point we are not using hints since we have not found a good way to be always
                      * consistent on both sides of the channel
                      *
-           * $ext->addInclude('from-internal-additional', 'device-hints');
-           * $device_list = core_devices_list("all", 'full', true);
-           * foreach ($device_list as $device) {
-           *     if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
-           *    $ext->add('device-hints', $code.$device['id'], '', new ext_noop("AutoMixMon Hint for: ".$device['id']));
-           *    $ext->addHint('device-hints', $code.$device['id'], "Custom:RECORDING".$device['id']);
-           *   }
-           * }
+                     * $ext->addInclude('from-internal-additional', 'device-hints');
+                     * $device_list = core_devices_list("all", 'full', true);
+                     * foreach ($device_list as $device) {
+                     *     if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
+                     *    $ext->add('device-hints', $code.$device['id'], '', new ext_noop("AutoMixMon Hint for: ".$device['id']));
+                     *    $ext->addHint('device-hints', $code.$device['id'], "Custom:RECORDING".$device['id']);
+                     *   }
+                     * }
                      */
                 }
 
