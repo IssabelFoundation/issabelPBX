@@ -45,6 +45,8 @@ class connectdirs {
         $this->symlink_sound_dirs['sounds']         = $amp_conf['ASTVARLIBDIR'] . '/sounds';
 
         $this->cp_dirs['agi-bin']             = $amp_conf['ASTAGIDIR'];
+        $this->cp_dirs['odbc']                = "/etc/asterisk/odbc";
+
 
         $this->nt = notifications::create($db);
     }
