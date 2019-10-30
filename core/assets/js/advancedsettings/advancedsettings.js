@@ -36,12 +36,12 @@ $(document).ready(function() {
 					value: myval
 					},
 			beforeSend: function(XMLHttpRequest, set) {
-				mythis.attr({src: 'images/spinner.gif'})
+				mythis.attr({src: '/admin/images/spinner.gif'})
 			},
 			dataType: 'json',
 			success: function(data, textStatus, XMLHttpRequest) {
 				//console.log(data);
-				mythis.attr({src: 'images/accept.png'});
+				mythis.attr({src: '/admin/images/accept.png'});
 				if (!data.validated) {
 					alert(data.msg);
 				}
