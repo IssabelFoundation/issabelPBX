@@ -407,6 +407,10 @@ function tb_get_url_contents($url, $post_data=false, $referrer=false, $cookie_fi
 	curl_setopt($crl, CURLOPT_CONNECTTIMEOUT, $curl_timeout);
 	curl_setopt($crl, CURLOPT_FAILONERROR, true);
 	curl_setopt($crl, CURLOPT_TIMEOUT, $curl_timeout);
+
+    curl_setopt($crl, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($crl, CURLOPT_SSL_VERIFYPEER, 0);
+
 	if ($cookie_file) {
 		curl_setopt($crl, CURLOPT_COOKIEJAR, $cookie_file);
 		curl_setopt($crl, CURLOPT_COOKIEFILE, $cookie_file);
