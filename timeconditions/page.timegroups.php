@@ -76,20 +76,25 @@ $(document).ready(function(){
     }
   });
 
-  $('#autofill').on('click',function() { 
-       value = $('#countries').val();
-       issurl = window.location.href.split('#')[0];
-       issurl += '&action=holidayfill&country='+value; 
-       console.log(issurl);
+  $('#autofill').on('click',function(e) { 
 
-       $.ajax(issurl, {
-           success: function(data) {
-               window.location.reload();
-           },
-           error: function() {
-              alert('An Error Occured');
-           }
-       });
+       e.preventDefault();
+
+       if (window.confirm("<?php echo _("This action will remove all configured times in this groups and recreate them based on holiday calendars by Google and other providers. Are you sure you want to continue?") ?>")) {
+
+           value = $('#countries').val();
+           issurl = window.location.href.split('#')[0];
+           issurl += '&action=holidayfill&country='+value; 
+
+           $.ajax(issurl, {
+               success: function(data) {
+                   window.location.reload();
+               },
+               error: function() {
+                  alert('An Error Occured');
+               }
+           });
+       }
   });
 
 
