@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Announcements"
-msgstr "Noticias"
+msgstr "Anuncios"
 
 msgid "Applications"
 msgstr "Aplicaciones"
