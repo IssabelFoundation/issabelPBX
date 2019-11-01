@@ -16,7 +16,7 @@ msgstr ""
 
 #: functions.inc.php:682
 msgid " deleted!"
-msgstr "Eliminado."
+msgstr " eliminado!"
 
 #: install.php:227
 #, php-format
@@ -243,7 +243,7 @@ msgstr "Por favor, introduzca un nombre para la condición horaria válido."
 
 #: functions.inc.php:716
 msgid "Remove Section and Submit Current Settings"
-msgstr ""
+msgstr "Quitar sección y guardar datos"
 
 #: page.timeconditions.php:125
 msgid "Reset Override"
@@ -456,6 +456,19 @@ msgstr "Iniciando migración"
 #: functions.inc.php:292
 msgid "true goto"
 msgstr ""
+
+msgid "Add"
+msgstr "Agregar"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Country"
+msgstr "País"
+
+msgid "Autofill Holiday"
+msgstr "Autorellenar Festivos"
+
 
 #~ msgid "text"
 #~ msgstr "texto"

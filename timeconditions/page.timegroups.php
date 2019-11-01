@@ -3,8 +3,13 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 $dispnum = 'timegroups'; //used for switch on config.php
 
+if(isset($_REQUEST['action'])) {
+    if($_REQUEST['action']=='holidayfill') {
+        fill_holidays($_REQUEST['extdisplay'],$_REQUEST['country']);
+        die('ok set');
+    }
+}
 ?>
-
 
 <div class="rnav">
 <?php 
@@ -70,6 +75,24 @@ $(document).ready(function(){
       $(this).closest('form').submit();
     }
   });
+
+  $('#autofill').on('click',function() { 
+       value = $('#countries').val();
+       issurl = window.location.href.split('#')[0];
+       issurl += '&action=holidayfill&country='+value; 
+       console.log(issurl);
+
+       $.ajax(issurl, {
+           success: function(data) {
+               window.location.reload();
+           },
+           error: function() {
+              alert('An Error Occured');
+           }
+       });
+  });
+
+
 });
 </script>
 

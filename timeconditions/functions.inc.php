@@ -43,8 +43,8 @@ function timeconditions_destinations() {
     }
 }
 
-/*  
-Generates dialplan for conferences
+/*
+Generates dialplan for time conditions
 We call this with retrieve_conf
 */
 function timeconditions_get_config($engine) {
@@ -692,6 +692,20 @@ function timeconditions_timegroups_configpageload() {
         $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Add Time Group"), false), 0);
         $currentcomponent->addguielem(_("Time Group"), new gui_textbox('description', '', _("Description"), _("This will display as the name of this Time Group."), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
     } else {
+
+        $langparts = preg_split("/_/",$_COOKIE['lang']);
+        $curlang = strtolower($langparts[0]);
+
+        $countries=array();
+        if(($fp = fopen("countries.csv","r",TRUE)) !== FALSE) {
+            while (($data = fgetcsv($fp, 1000, ",")) !== FALSE) {
+                if($data[0]=='Name') { continue; }
+                $iso = $curlang.".".strtolower($data[1]);
+                $countries[]=array('value'=>$iso,'text'=>$data[0]);
+            }
+            fclose($fp);
+        } 
+
         $savedtimegroup= timeconditions_timegroups_get_group($extdisplay);
         $timegroup = $savedtimegroup[0];
         $description = $savedtimegroup[1];
@@ -709,11 +723,15 @@ function timeconditions_timegroups_configpageload() {
             $currentcomponent->addguielem(_("Used By"), new gui_link('link'.$count++, $label, $timegroup_link, true, false), 4);
         }
 
+        $fill = new gui_selectbox('countries', $countries, '', _('Country'), _('Select country to retrieve holiday information.'), false);
+        $filltext = "<tr><td>"._('Country')."</td><td>".$fill->html_input."</td></tr>";
+        $filltext .= '<tr><td colspan="2"><input type="button" id="autofill" class="autofill" value="'._("Autofill Holiday").'"/></td></tr>';
+        $currentcomponent->addguielem(_('Autofill Holiday'), new guielement('test0', $filltext, ''),3);
 
-        $currentcomponent->addguielem(_("Time Group"), new gui_textbox('description', $description, _("Description"), _("This will display as the name of this Time Group."), '', '', false), 3);
+        $currentcomponent->addguielem(_("Time Group"), new gui_textbox('description', $description, _("Description"), _("This will display as the name of this Time Group."), '', '', false), 4);
         $timelist = timeconditions_timegroups_get_times($extdisplay);
         foreach ($timelist as $val) {
-            $timehtml = timeconditions_timegroups_drawtimeselects('times['.$val[0].']',$val[1]);
+            $timehtml = timeconditions_timegroups_drawtimeselects('times['.$val[0].']',$val[1],$val[2]);
             $timehtml = '<tr><td colspan="2"><table>'.$timehtml.'</table></td></tr>';
             $timehtml .= '<tr><td colspan="2"><input type="button" class="remove_section" value="'._("Remove Section and Submit Current Settings").'"/></td></tr>';
             $currentcomponent->addguielem($val[1], new guielement('dest0', $timehtml, ''),5);
@@ -758,14 +776,24 @@ function timeconditions_timegroups_get_times($timegroup, $convert=false) {
     if ($convert) {
         $ast_ge_16 = version_compare($version,'1.6','ge');
     }
-    $sql = "SELECT id, time FROM timegroups_details WHERE timegroupid = $timegroup";
+
+    $sql = "SELECT `name` FROM timegroups_details";
+    $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+    if(DB::IsError($check)) {
+        $sql = "ALTER TABLE timegroups_details ADD `name` VARCHAR( 100 ) NOT NULL DEFAULT '' AFTER id";
+        $result = $db->query($sql);
+    }
+
+
+
+    $sql = "SELECT id, time, name FROM timegroups_details WHERE timegroupid = $timegroup";
     $results = $db->getAll($sql);
     if(DB::IsError($results)) {
         $results = null;
     }
     foreach ($results as $val) {
         $times = ($convert && $ast_ge_16) ? strtr($val[1],'|',',') : $val[1];
-        $tmparray[] = array($val[0], $times);
+        $tmparray[] = array($val[0], $times, $val[2]);
     }
     return $tmparray;
 }
@@ -845,14 +873,13 @@ function timeconditions_timegroups_edit_group($timegroup,$description) {
 //update the timegroup_detail under a single timegroup from the timegroups page
 function timeconditions_timegroups_edit_times($timegroup,$times) {
     global $db;
-
     $sql = "delete from timegroups_details where timegroupid = $timegroup";
     $db->query($sql);
     foreach ($times as $key=>$val) {
         extract($val);
         $time = timeconditions_timegroups_buildtime( $hour_start, $minute_start, $hour_finish, $minute_finish, $wday_start, $wday_finish, $mday_start, $mday_finish, $month_start, $month_finish);
         if (isset($time) && $time != '' && $time <> '*|*|*|*') {
-            $sql = "INSERT timegroups_details (timegroupid, time) VALUES ($timegroup, '$time')";
+            $sql = "INSERT timegroups_details (timegroupid, time, name ) VALUES ($timegroup, '$time', '$display_name')";
             $db->query($sql);
         }
     }
@@ -900,7 +927,9 @@ function timeconditions_timegroups_drawgroupselect($elemname, $currentvalue = ''
 
 //---------------------------------stolen from time conditions and heavily modified------------------------------------------
 
-function timeconditions_timegroups_drawtimeselects($name, $time) {
+function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
+    global $currentcomponent;
+
     $html = '';
     // ----- Load Time Pattern Variables -----
     if (isset($time)) {
@@ -908,6 +937,10 @@ function timeconditions_timegroups_drawtimeselects($name, $time) {
     } else {
         list($time_hour, $time_wday, $time_mday, $time_month) = Array('*','-','-','-');
     }
+    $html = $html.'<tr>';
+    $html = $html.'<td>'._('Name').'</td>';
+    $html = $html.'<td><input type="text" name="'.$name.'[display_name]" id="displayname_'.$name.'" size="35" tabindex="" value="'.$displayname.'"></td>';
+    $html = $html.'</tr>';
     $html = $html.'<tr>';
     $html = $html.'<td>'._("Time to start:").'</td>';
     $html = $html.'<td>';
@@ -1520,4 +1553,128 @@ function timeconditions_timegroups_buildtime( $hour_start, $minute_start, $hour_
 }
 
 //---------------------------end stolen from timeconditions-------------------------------------
+
+function get_http_response_code($url) {
+    $headers = get_headers($url);
+    return substr($headers[0], 9, 3);
+}
+
+function curl_get_contents($url) {
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HEADER, false);
+    $data = curl_exec($curl);
+    curl_close($curl);
+    return $data;
+}
+
+function fill_holidays($timegroup,$country) {
+
+    $timegroup = intval($timegroup);
+    $country = preg_replace("/[^A-Za-z\.]/",'',$country);
+
+    $partes = preg_split("/\./",$country);
+    $isocountry = $partes[1];
+    $countryname = '';
+
+    $mes = array();
+    $mes[1]='jan';
+    $mes[2]='feb';
+    $mes[3]='mar';
+    $mes[4]='apr';
+    $mes[5]='may';
+    $mes[6]='jul';
+    $mes[7]='jul';
+    $mes[8]='aug';
+    $mes[9]='sep';
+    $mes[10]='oct';
+    $mes[11]='nov';
+    $mes[12]='dec';
+
+    if(($fp = fopen("countries.csv","r",TRUE)) !== FALSE) {
+        while (($data = fgetcsv($fp, 1000, ",")) !== FALSE) {
+            if($data[0]=='Name') { continue; }
+            if($isocountry==strtolower($data[1])) {
+                $countryname = strtolower($data[0]);
+                $countryname = strtok($countryname,' ');
+                break;
+            }
+        }
+        fclose($fp);
+    }
+
+    $urls = array();
+    $urls[] = "https://calendar.google.com/calendar/ical/$country%23holiday%40group.v.calendar.google.com/public/basic.ics";
+    $urls[] = "https://www.officeholidays.com/ics-clean/$countryname";
+
+    $url = "";
+    foreach($urls as $url) {
+
+        $resp = get_http_response_code($url);
+        if($resp == '200' || $resp == '301') {
+
+            $lines = explode("\n",curl_get_contents($url));
+
+            if(count($lines)>8) {
+                break;
+            }
+        }
+        $url='';
+    }
+
+    $feriado=array();
+    $cnt=0;
+    foreach($lines as $line) {
+        $line=trim($line);
+
+        if(preg_match("/^BEGIN:VEVENT/",$line)) {
+            $cnt++;
+        }
+        if(preg_match("/^END:VEVENT/",$line)) {
+            $year = substr($start,0,4);
+            $curyear = date('Y');
+            if($curyear == $year) {
+                $feriado[$cnt][$desc]="$start";
+            }
+        }
+        if($cnt>0) {
+
+            if(preg_match("/^DTSTART/",$line)) {
+                $partes = preg_split("/:/",$line);
+                $start = $partes[1];
+            }
+            if(preg_match("/^SUMMARY/",$line)) {
+                $partes = preg_split("/:/",$line);
+                $desc = $partes[1];
+            }
+        }
+    }
+
+    $times=array();
+    foreach($feriado as $idx=>$data) {
+        foreach($data as $name=>$dia) {
+            $year  = substr($dia,0,4);
+            $month = $mes[intval(substr($dia,4,2))];
+            $day   = intval(substr($dia,6,2));
+
+            $newtime = array ( 
+                'display_name'  => $name, 
+                'minute_start'  => '-', 
+                'minute_finish' => '-', 
+                'hour_start'    => '-', 
+                'hour_finish'   => '-', 
+                'wday_start'    => '-', 
+                'wday_finish'   => '-',
+                'mday_start'    => $day,
+                'mday_finish'   => $day,
+                'month_start'   => $month,
+                'month_finish'  => $month
+            );
+            $times[] = $newtime;
+        }
+    }
+    timeconditions_timegroups_edit_times($timegroup,$times);
+    return;
+}
 ?>
