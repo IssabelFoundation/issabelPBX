@@ -1671,9 +1671,10 @@ function fill_holidays($timegroup,$country) {
                 'month_start'   => $month,
                 'month_finish'  => $month
             );
-            $times[] = $newtime;
+            $times[$dia] = $newtime;
         }
     }
+    ksort($times);
     timeconditions_timegroups_edit_times($timegroup,$times);
     return;
 }
