@@ -1,7 +1,7 @@
 <module>
 	<rawname>trunkbalance</rawname>
 	<name>Trunk Balance</name>
-	<version>1.1.4</version>
+	<version>1.1.5</version>
 	<publisher>POSSA</publisher>
 	<license>GPLv2+</license>
 	<candisable>yes</candisable>
@@ -9,6 +9,7 @@
     <repo>extended</repo>
 	<category>Advanced</category>
 	<changelog>
+		*1.1.5* Accept Self Signed Certs in URL
 		*1.1.4* Remove auto check for updates
 		*1.1.2* Added trunk disable toggle
 		*1.1.1* Allow multiple matching and non-matching rules
