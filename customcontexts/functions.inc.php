@@ -393,7 +393,7 @@ function customcontexts_devices_configpageload() {
   $tech = $_REQUEST['tech'];
   $curcontext = $_REQUEST['customcontext'];
 
-	$currentcomponent->addguielem('Device Options', new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, 'Class of Service', 'You have the '.customcontexts_getmodulevalue('moduledisplayname').' Module installed! You can select a custom context from this list to limit this user to portions of the dialplan you defined in the '.customcontexts_getmodulevalue('moduledisplayname').' module.',true, "javascript:if (document.frm_devices.customcontext.value) {document.frm_devices.devinfo_context.value = document.frm_devices.customcontext.value} else {document.frm_devices.devinfo_context.value = 'from-internal'}"));
+	$currentcomponent->addguielem('Device Options', new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, 'Class of Service', 'You have the '.customcontexts_getmodulevalue('moduledisplayname').' Module installed! You can select a class of service from this list to limit this user to portions of the dialplan you defined in the '.customcontexts_getmodulevalue('moduledisplayname').' module.',true, "javascript:if (document.frm_devices.customcontext.value) {document.frm_devices.devinfo_context.value = document.frm_devices.customcontext.value} else {document.frm_devices.devinfo_context.value = 'from-internal'}"));
 
   $js = '<script type="text/javascript">$(document).ready(function(){$("#devinfo_context").parent().parent().hide();});</script>';
   $currentcomponent->addguielem('Device Options', new guielement('test-html', $js, ''));
@@ -407,7 +407,7 @@ function customcontexts_extensions_configpageload() {
   $tech = $_REQUEST['tech'];
   $curcontext = $_REQUEST['customcontext'];
 
-	$currentcomponent->addguielem('Device Options', new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, 'Class of Service', 'You have the '.customcontexts_getmodulevalue('moduledisplayname').' Module installed! You can select a custom context from this list to limit this user to portions of the dialplan you defined in the '.customcontexts_getmodulevalue('moduledisplayname').' module.',true, "javascript:if (document.frm_extensions.customcontext.value) {document.frm_extensions.devinfo_context.value = document.frm_extensions.customcontext.value} else {document.frm_extensions.devinfo_context.value = 'from-internal'}"));
+	$currentcomponent->addguielem('Device Options', new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, 'Class of Service', 'You have the '.customcontexts_getmodulevalue('moduledisplayname').' Module installed! You can select a class of service from this list to limit this user to portions of the dialplan you defined in the '.customcontexts_getmodulevalue('moduledisplayname').' module.',true, "javascript:if (document.frm_extensions.customcontext.value) {document.frm_extensions.devinfo_context.value = document.frm_extensions.customcontext.value} else {document.frm_extensions.devinfo_context.value = 'from-internal'}"));
 
   $js = '<script type="text/javascript">$(document).ready(function(){$("#devinfo_context").parent().parent().hide();});</script>';
   $currentcomponent->addguielem('Device Options', new guielement('test-html', $js, ''));
@@ -444,11 +444,11 @@ global $currentcomponent;
 		$delURL = $_SERVER['PHP_SELF'].'?'.$query.'&action=del';
 		$info = 'The context which contains includes which you would like to make available to '.customcontexts_getmodulevalue('moduledisplayname').'. Any context you enter here will be parsed for includes and you can then include them in your own '.customcontexts_getmodulevalue('moduledisplayname').'. Removing them here does NOT delete the context, rather makes them unavailable to your '.customcontexts_getmodulevalue('moduledisplayname').'.';
 	  $currentcomponent->addguielem('_top', new gui_hidden('action', ($extdisplay ? 'edit' : 'add')));
-		$currentcomponent->addguielem('_bottom', new gui_link('help', _(customcontexts_getmodulevalue('moduledisplayname')." v".customcontexts_getmodulevalue('moduleversion')), 'http://www.issabel.org/support/documentation/module-documentation/classofservice', true, false), 0);
+//		$currentcomponent->addguielem('_bottom', new gui_link('help', _(customcontexts_getmodulevalue('moduledisplayname')." v".customcontexts_getmodulevalue('moduleversion')), 'http://www.issabel.org/support/documentation/module-documentation/classofservice', true, false), 0);
 		if (!$extdisplay) {
 			$currentcomponent->addguielem('_top', new gui_pageheading('title', _("Add Class"), false), 0);
-			$currentcomponent->addguielem('Class', new gui_textbox('extdisplay', '', 'Class', $info, 'isWhitespace() || !isFilename()', $contexterr, false), 3);
-			$currentcomponent->addguielem('Class', new gui_textbox('description', '', 'Description', 'This will display as a heading for the available includes on the '.customcontexts_getmodulevalue('moduledisplayname').' page.', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+			$currentcomponent->addguielem('Class', new gui_textbox('extdisplay', '', _('Class'), $info, 'isWhitespace() || !isFilename()', $contexterr, false), 3);
+			$currentcomponent->addguielem('Class', new gui_textbox('description', '', _('Description'), 'This will display as a heading for the available includes on the '.customcontexts_getmodulevalue('moduledisplayname').' page.', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
 		}	else {
 			$savedcontext = customcontexts_customcontextsadmin_get($extdisplay);
 			$context = $savedcontext[0];
@@ -463,7 +463,7 @@ global $currentcomponent;
 			{
 				$currentcomponent->addguielem('_top', new gui_label('del', _("Class").": $context can not be removed!", $delURL, true, false), 0);
 			}
-			$currentcomponent->addguielem('Class', new gui_textbox('description', $description, 'Description', 'This will display as a heading for the available includes on the '.customcontexts_getmodulevalue('moduledisplayname').' page.', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+			$currentcomponent->addguielem('Class', new gui_textbox('description', $description, _('Description'), 'This will display as a heading for the available includes on the '.customcontexts_getmodulevalue('moduledisplayname').' page.', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
 			$inclist = customcontexts_getincludeslist($extdisplay);
 			foreach ($inclist as $val) {
 				if ($val[2] > 0) {
@@ -599,12 +599,12 @@ global $currentcomponent;
 		$query = 'type=setup&display=customcontexts&extdisplay='.$extdisplay;
 		$delURL = $_SERVER['PHP_SELF'].'?'.$query.'&action=del';
 		$dupURL = $_SERVER['PHP_SELF'].'?'.$query.'&action=dup';
-		$info = 'The custom context to make will be available in your dialplan. These contexts can be used as a context for a device/extension to allow them limited access to your dialplan.';
-		$currentcomponent->addguielem('_bottom', new gui_link('ver', _(customcontexts_getmodulevalue('moduledisplayname')." v".customcontexts_getmodulevalue('moduleversion')), 'http://www.issabel.org/support/documentation/module-documentation/classofservice', true, false), 0);
+		$info = 'Class of service name. It will be available in your dialplan. These classes of service can be used as a context for a device/extension to allow them limited access to your dialplan.';
+//		$currentcomponent->addguielem('_bottom', new gui_link('ver', _(customcontexts_getmodulevalue('moduledisplayname')." v".customcontexts_getmodulevalue('moduleversion')), 'http://www.issabel.org/support/documentation/module-documentation/classofservice', true, false), 0);
 		if (!$extdisplay) {
 			$currentcomponent->addguielem('_top', new gui_pageheading('title', _("Add Class"), false), 0);
-			$currentcomponent->addguielem('Class', new gui_textbox('extdisplay', '', 'Class', $info, 'isWhitespace() || !isFilename()', $contexterr, false), 3);
-			$currentcomponent->addguielem('Class', new gui_textbox('description', '', 'Description', 'This will display as the name of this custom context.', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+			$currentcomponent->addguielem('Class', new gui_textbox('extdisplay', '', _('Class'), $info, 'isWhitespace() || !isFilename()', $contexterr, false), 3);
+			$currentcomponent->addguielem('Class', new gui_textbox('description', '', _('Description'), 'This will display as the name of this class of service.', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
 		}	else {
 			$savedcontext = customcontexts_customcontexts_get($extdisplay);
 			$context = $savedcontext[0];
@@ -617,7 +617,7 @@ global $currentcomponent;
 			$currentcomponent->addguielem('_top', new gui_hidden('extdisplay', $extdisplay));
 			$currentcomponent->addguielem('_top', new gui_pageheading('title', _("Edit Class").": $description", false), 0);
 			//$currentcomponent->addguielem('_top', new gui_link('del', _("Delete Class")." $context", $delURL, true, false), 0);
-			$currentcomponent->addguielem('_top', new guielement('del', '<tr><td colspan ="2"><a href="'.$delURL.'" onclick="return confirm(\'Are you sure you want to delete '.$context.'?\')">Delete Class '.$context.'</a></td></tr>', ''),3);
+			$currentcomponent->addguielem('_top', new guielement('del', '<tr><td colspan ="2"><a href="'.$delURL.'" onclick="return confirm(\'Are you sure you want to delete '.$context.'?\')">'._('Delete Class').' '.$context.'</a></td></tr>', ''),3);
 			$currentcomponent->addguielem('_top', new gui_link('dup', _("Duplicate Class")." $context", $dupURL, true, false), 3);
 			$showsort = customcontexts_getmodulevalue('displaysortforincludes');
 			if ($showsort == 1) {
@@ -627,10 +627,10 @@ global $currentcomponent;
 				$sortURL = $_SERVER['PHP_SELF'].'?'.$query.'&showsort=1';
 				$currentcomponent->addguielem('_top', new gui_link('showsort', "Show Sort Option", $sortURL, true, false), 0);
 			}
-			$currentcomponent->addguielem('Class', new gui_textbox('newcontext', $extdisplay, 'Class', $info, 'isWhitespace() || !isFilename()', $contexterr, false), 2);
-			$currentcomponent->addguielem('Class', new gui_textbox('description', $description, 'Description', 'This will display as the name of this custom context.', '', '', false), 2);
+			$currentcomponent->addguielem('Class', new gui_textbox('newcontext', $extdisplay, _('Class'), $info, 'isWhitespace() || !isFilename()', $contexterr, false), 2);
+			$currentcomponent->addguielem('Class', new gui_textbox('description', $description, _('Description'), 'This will display as the name of this class of service.', '', '', false), 2);
 			$ruledesc = 'If defined, you will have the option for each portion of the dialplan to Allow Rule, and that inclued will only be available if the number dialed matches these rules, or Deny Rule, and that include will only be available if the dialed number does NOT match these rules. You may use a pipe | to strip the preceeding digits.';
-			$ruleshtml = '<tr><td valign="top"><a href="#" class="info">Dial Rules<span>'.$ruledesc.'</span></a></td><td><textarea cols="20" rows="5" id="dialpattern" name="dialpattern">'.$rulestext.'</textarea></td></tr>';
+			$ruleshtml = '<tr><td valign="top"><a href="#" class="info">'._('Dial Rules').'<span>'.$ruledesc.'</span></a></td><td><textarea cols="20" rows="5" id="dialpattern" name="dialpattern">'.$rulestext.'</textarea></td></tr>';
 			$currentcomponent->addguielem('Class', new guielement('rulesbox',$ruleshtml,''), 3);
 
 			$currentcomponent->addguielem('Failover Destination', new gui_textbox('failpin', $failpin, 'PIN', 'Enter a numeric PIN to require authentication before continuing to destination.', '!isPINList()', 'PIN must be numeric!', true), 4);

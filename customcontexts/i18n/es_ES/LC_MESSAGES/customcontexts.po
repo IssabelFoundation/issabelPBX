@@ -40,10 +40,19 @@ msgstr " v"
 msgid "Add Class"
 msgstr "Agregar Clase"
 
+msgid "Delete Class"
+msgstr "Eliminar Clase"
+
+msgid "Add"
+msgstr "Agregar"
+
 #: functions.inc.php:439 functions.inc.php:463 functions.inc.php:593
 #: page.customcontexts.php:21 page.customcontextsadmin.php:24
 msgid "Class"
 msgstr "Clase"
+
+msgid "Description"
+msgstr "Descripción"
 
 #: functions.inc.php:838
 #, php-format
@@ -94,6 +103,12 @@ msgstr "Clases de Servicio"
 
 msgid "Class of Service Admin"
 msgstr "Clases de Servicio (administrar)"
+
+msgid "Dial Rules"
+msgstr "Reglas de Marcado"
+
+msgid "Submit"
+msgstr "Enviar cambios"
 
 #~ msgid "Connectivity"
 #~ msgstr "Conectividad"
