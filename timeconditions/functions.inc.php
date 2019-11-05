@@ -359,14 +359,46 @@ function timeconditions_get($id){
 
 function timeconditions_del($id){
     global $astman;
+
+    // remove all feature codes from the one deleted and anything above
+    $results = sql("SELECT timeconditions_id FROM timeconditions WHERE timeconditions_id>=\"$id\"","getAll",DB_FETCHMODE_ASSOC);
+    if(is_array($results)){
+        foreach($results as $result){
+            $subid   = $result['timeconditions_id'];
+            $fcc  = new featurecode('timeconditions', 'toggle-mode-'.$subid);
+            $fcc->delete();
+            unset($fcc);
+            if ($astman != null) {
+                $astman->database_del("TC",$subid);
+            }
+        }
+    }
+
+    // remove actual db entry
     $results = sql("DELETE FROM timeconditions WHERE timeconditions_id = \"$id\"","query");
 
-    $fcc = new featurecode('timeconditions', 'toggle-mode-'.$id);
-    $fcc->delete();
-    unset($fcc);
-    if ($astman != null) {
-        $astman->database_del("TC",$id);
+    // reindex after deletion on DB entry 
+    $results = sql("UPDATE timeconditions SET timeconditions_id=timeconditions_id-1 WHERE timeconditions_id>\"$id\"","query");
+
+    // recreate feature codes
+    $autoincrement=1;
+    $results = sql("SELECT timeconditions_id,displayname FROM timeconditions","getAll",DB_FETCHMODE_ASSOC);
+    if(is_array($results)){
+        foreach($results as $result){
+            $autoincrement++;
+            $id   = $result['timeconditions_id'];
+            $name = $result['displayname'];
+            $fcc  = new featurecode('timeconditions', 'toggle-mode-'.$id);
+            $fcc->delete();
+            unset($fcc);
+            if ($astman != null) {
+                $astman->database_del("TC",$id);
+            }
+            timeconditions_create_fc($id, $name);
+        }
     }
+    // set autoincrement
+    $results = sql("ALTER TABLE timeconditions AUTO_INCREMENT=$autoincrement");
 }
 
 //obsolete handled in timegroups module
