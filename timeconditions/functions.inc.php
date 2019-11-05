@@ -358,7 +358,7 @@ function timeconditions_get($id){
 }
 
 function timeconditions_del($id){
-    global $astnam;
+    global $astman;
     $results = sql("DELETE FROM timeconditions WHERE timeconditions_id = \"$id\"","query");
 
     $fcc = new featurecode('timeconditions', 'toggle-mode-'.$id);
