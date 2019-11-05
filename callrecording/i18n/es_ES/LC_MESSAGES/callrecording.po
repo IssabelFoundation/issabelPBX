@@ -1,0 +1,70 @@
+msgid ""
+"Call Recordings provide the ability to force a call to be recorded or not "
+"recorded based on a call flow and override all other recording settings. "
+"If a call is to be recorded, it can start immediately which will incorporate "
+"any announcements, hold music, etc. prior to being answered, or it can have "
+"recording start at the time that call is answered."
+
+msgstr ""
+"Esta función le permite forzar la grabación de una llamada o no, basado "
+"en un flujo de llamado especial, pasando por alto todas las demás opciones "
+"de grabación. Puede elegirse grabar desde que se atiende (excluyendo música "
+"en espera u otros anuncios), o bien grabar desde el comienzo lo que incluirá "
+"todo sonido, música o anuncio previo a ser atendido."
+
+msgid "Add Call Recording"
+msgstr "Añadir Grabación"
+
+msgid "Add Call Recording Instance"
+msgstr "Añadir Instancia de Grabación"
+
+msgid "Edit Call Recording Instance"
+msgstr "Editar Instancia de Grabación"
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Submit Changes"
+msgstr "Guardar Cambios"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Call Recording Mode"
+msgstr "Modo de Grabación"
+
+msgid "Allow"
+msgstr "Permitir"
+
+msgid "Never"
+msgstr "Nunca"
+
+msgid "Record on Answer"
+msgstr "Grabar al Atender"
+
+msgid "Record Immediately"
+msgstr "Grabar inmediatamente"
+
+msgid "Edit: "
+msgstr "Editar: "
+
+msgid "Delete"
+msgstr "Elimiar"
+
+msgid "The descriptive name of this call recording instance. For example \"French Main IVR\""
+msgstr "Nombre descriptivo de esta instancia de grabación. Por ejemplo \"Menú Principal Francés\""
+
+msgid ""
+"Controls or overrides the call recording behavior for calls continuing through this call flow. "
+"Allow will honor the normal downstream call recording settings. Record on Answer starts "
+"recording when the call would otherwise be recorded ignoring any settings that say otherwise. "
+"Record Immediately will start recording right away capturing ringing, announcements, MoH, etc. "
+"Never will disallow recording regardless of downstream settings."
+
+msgstr ""
+"Inicia o anula la grabación para llamados que continuen pasando por este flujo de llamado. "
+"Permitir va a honrar las configuraciones de grabación subsiguientes. Grabar al atender "
+"comenzará la grabación cuando el llamado sea atendido ignorando otras configuraciones que "
+"puedan contradecirlo. Grabar inmediatamente comenzará la grabación inmediatamente, capturando "
+"sonidos de progreso, ring, música en espera, anunciones, etc. Nunca va a no permitir grabaciones "
+"no importa que otras configuraciones de grabación continúen en el flujo descendente."

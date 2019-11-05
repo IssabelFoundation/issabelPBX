@@ -39,7 +39,7 @@ msgstr ""
 
 #: page.daynight.php:18
 msgid "Add Call Flow Toggle Code"
-msgstr ""
+msgstr "Agregar Código de Control de Flujo"
 
 #: daynight.i18n.php:6 daynight.i18n.php:12
 msgid "Applications"
@@ -67,7 +67,7 @@ msgstr ""
 
 #: daynight.i18n.php:4 daynight.i18n.php:10
 msgid "Call Flow Control"
-msgstr ""
+msgstr "Control de Flujo de Llamadas"
 
 #: daynight.i18n.php:16
 msgid "Call Flow Control Module"
@@ -80,11 +80,11 @@ msgstr ""
 
 #: page.daynight.php:70
 msgid "Call Flow Toggle Control"
-msgstr ""
+msgstr "Control de Flujo de Llamadas"
 
 #: page.daynight.php:121
 msgid "Call Flow Toggle Feature Code Index:"
-msgstr ""
+msgstr "Indice de Control de Flujo de Llamada:"
 
 #: functions.inc.php:635
 msgid "Call Flow Toggle Mode Association"
@@ -120,7 +120,7 @@ msgstr "Descripción"
 
 #: page.daynight.php:147
 msgid "Description for this Call Flow Toggle Control"
-msgstr ""
+msgstr "Descripción para este código de control de flujo"
 
 #: page.daynight.php:261
 #, php-format
@@ -172,12 +172,16 @@ msgid ""
 "Message to be played in normal mode (Green/BLF off).<br>To add additional "
 "recordings use the \"System Recordings\" MENU to the left"
 msgstr ""
+"Mensaje a reproducir en modo normal (Verde/BLF apagado).<br>Para agregar "
+"mensajes elija \"Grabaciones del Sistema\" del menú de la izquierda."
 
 #: page.daynight.php:183
 msgid ""
 "Message to be played in override mode (Red/BLF on).<br>To add additional "
 "recordings use the \"System Recordings\" MENU to the left"
 msgstr ""
+"Mensaje a reproducir en modo anulado (Rojo/BLF encendido).<br>Para agregar "
+"mensajes elija \"Grabaciones del Sistema\" del menú de la izquierda."
 
 #: functions.inc.php:642
 msgid "No Association"
@@ -189,7 +193,7 @@ msgstr ""
 
 #: page.daynight.php:216
 msgid "Normal Flow (Green/BLF off)"
-msgstr ""
+msgstr "Flujo Normal (Verde/BLF apagado)"
 
 #: install.php:83
 msgid "OK"
@@ -205,7 +209,7 @@ msgstr ""
 
 #: page.daynight.php:217
 msgid "Override Flow (Red/BLF on)"
-msgstr ""
+msgstr "Flujo Anulado (Rojo/BLF encendido)"
 
 #: page.daynight.php:240
 msgid "Please enter a valid numeric password, only numbers are allowed"
@@ -214,11 +218,11 @@ msgstr ""
 
 #: page.daynight.php:166
 msgid "Recording for Normal Mode"
-msgstr ""
+msgstr "Grabación para modo normal"
 
 #: page.daynight.php:183
 msgid "Recording for Override Mode"
-msgstr ""
+msgstr "Grabación para modo de anulación"
 
 #: page.daynight.php:111 page.daynight.php:224
 msgid "Save"
@@ -228,13 +232,17 @@ msgstr "Guardar"
 msgid ""
 "There are a total of 10 Feature code objects, 0-9, each can control a call "
 "flow and be toggled using the call flow toggle feature code plus the index."
-msgstr ""
+msgstr "Hay un total de 10 códigos de funcionalidad, 0-0, cada uno puede "
+"controlar el flujo de llamados y puede ser activado o desactivado usando "
+"el código de funcionalidad correspondiente."
 
 #: page.daynight.php:153
 msgid ""
 "This will change the current state for this Call Flow Toggle Control, or set "
 "the initial state when creating a new one."
 msgstr ""
+"Esto cambiará el estado actual de este control, o configurará el estado "
+"inicial cuando se cree uno nuevo."
 
 #: page.daynight.php:112 page.daynight.php:225
 #, php-format

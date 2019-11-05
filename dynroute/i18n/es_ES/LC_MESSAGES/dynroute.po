@@ -33,6 +33,9 @@ msgstr "Ruta: %s / Destino: %s"
 msgid "Dynamic Routing"
 msgstr "Rutas Dinámicas"
 
+msgid "Dynamic Routes"
+msgstr "Rutas Dinámicas"
+
 msgid "Instructions"
 msgstr "Instrucciones"
 

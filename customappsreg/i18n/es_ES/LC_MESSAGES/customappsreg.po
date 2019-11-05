@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Custom Applications"
-msgstr ""
+msgstr "Destinos Personalizados"
 
 msgid "Admin"
 msgstr ""

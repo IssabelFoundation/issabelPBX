@@ -154,7 +154,7 @@ msgid ""
 msgstr ""
 
 msgid "Submit Changes"
-msgstr ""
+msgstr "Guardar Cambios"
 
 msgid "Please enter a valid Paging Extension"
 msgstr ""
@@ -169,7 +169,7 @@ msgid "Page Group"
 msgstr ""
 
 msgid "Paging and Intercom"
-msgstr ""
+msgstr "Intercom y Paginación"
 
 msgid "Applications"
 msgstr ""

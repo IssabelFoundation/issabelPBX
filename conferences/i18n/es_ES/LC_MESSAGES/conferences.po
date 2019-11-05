@@ -35,7 +35,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Conferences"
-msgstr ""
+msgstr "Conferencias"
 
 msgid "Applications"
 msgstr ""
@@ -212,7 +212,7 @@ msgid "Yes"
 msgstr "Sí"
 
 msgid "Talker Optimization:"
-msgstr ""
+msgstr "Optimización de Orador"
 
 msgid ""
 "Turns on talker optimization. With talker optimization, Asterisk treats "
@@ -223,9 +223,13 @@ msgid ""
 "causing no\n"
 "buildup in background noise."
 msgstr ""
+"Activa la optimización de orador. Los participantes que no esten "
+"hablando seran considerados en mudo, de modo que no se hará "
+"codificación al transmitir, y el audio recibido que no sea registrado "
+"como de habla, será omitido, lo que reducirá el ruido ambiente."
 
 msgid "Talker Detection:"
-msgstr ""
+msgstr "Detección de Orador"
 
 msgid ""
 "Sets talker detection. Asterisk will sends events on the Manager Interface "
@@ -293,16 +297,16 @@ msgid "Record the conference call"
 msgstr "Graba las llamadas de la conferencia."
 
 msgid "Maximum Participants:"
-msgstr ""
+msgstr "Participantes Máximos"
 
 msgid "Maximum Number of users allowed to join this conference."
-msgstr ""
+msgstr "Númeró máximo de usuarios permitidos en esta conferencia."
 
 msgid "No Limit"
-msgstr ""
+msgstr "Sin Límite"
 
 msgid "Mute on Join:"
-msgstr ""
+msgstr "Mudo al Unirse:"
 
 msgid ""
 "Mute everyone when they initially join the conference. Please note that if "
