@@ -4693,6 +4693,7 @@ function core_devices_add($id,$tech,$dial,$devicetype,$user,$description,$emerge
   if ($tech == '' || trim($tech) == 'virtual') {
     return true;
   }
+    if($tech=='webrtc') { $tech='sip'; }
 
     $display = isset($_REQUEST['display'])?$_REQUEST['display']:'';
 
@@ -7795,6 +7796,7 @@ function core_devices_configpageinit($dispnum) {
         // Devices list
         if ($_SESSION["AMP_user"]->checkSection('999')) {
             $currentcomponent->addoptlistitem('devicelist', 'sip_generic', _("Generic SIP Device"));
+            $currentcomponent->addoptlistitem('devicelist', 'webrtc_generic', _("Generic WebRTC Device"));
             $currentcomponent->addoptlistitem('devicelist', 'iax2_generic', _("Generic IAX2 Device"));
             $currentcomponent->addoptlistitem('devicelist', 'dahdi_generic', _("Generic DAHDi Device"));
             $currentcomponent->addoptlistitem('devicelist', 'custom_custom', _("Other (Custom) Device"));
@@ -7936,7 +7938,41 @@ function core_devices_configpageload() {
 
             $device_uses = sprintf(_("This device uses %s technology."),$devinfo_tech).(strtoupper($devinfo_tech) == 'ZAP' && ast_with_dahdi()?" ("._("Via DAHDi compatibility mode").")":"");
             $currentcomponent->addguielem($section, new gui_label('techlabel', $device_uses),4);
-            $devopts = $currentcomponent->getgeneralarrayitem('devtechs', $devinfo_tech);
+
+            if($devinfo_tech=='webrtc') {
+                $devopts = $currentcomponent->getgeneralarrayitem('devtechs', 'sip');
+
+                $devopts['transport']['value']='wss,ws,udp,tcp,tls';
+                $devopts['encryption']['value']='yes';
+                $devopts['avpf']['value']='yes';
+                $devopts['avpf']['value']='yes';
+                $devopts['force_avp']['value']='yes';
+                $devopts['icesupport']['value']='yes';
+                $devopts['dtlsenable']['value']='yes';
+                $devopts['dtlsverify']['value']='fingerprint';
+                $devopts['dtlssetup']['value']='actpass';
+
+                if(isset($amp_conf['HTTPSPRIVATEKEY'])) {
+                   $privkey = ($amp_conf['HTTPSPRIVATEKEY']<>'')?$amp_conf['HTTPSPRIVATEKEY']:'/etc/asterisk/keys/asterisk.pem';
+                } else {
+                   $privkey = '/etc/asterisk/keys/asterisk.pem';
+                }
+
+                if(isset($amp_conf['HTTPSCERTFILE'])) {
+                   $certfile = ($amp_conf['HTTPSCERTFILE']<>'')?$amp_conf['HTTPSCERTFILE']:'/etc/asterisk/keys/asterisk.pem';
+                } else {
+                   $certfile = '/etc/asterisk/keys/asterisk.pem';
+                }
+
+                $devopts['dtlscertfile']['value']=$certfile;
+                $devopts['dtlsprivatekey']['value']=$privkey;
+
+                $devinfo_tech='sip';
+
+            } else {
+                $devopts = $currentcomponent->getgeneralarrayitem('devtechs', $devinfo_tech);
+            }
+
             if (is_array($devopts)) {
                 foreach ($devopts as $devopt=>$devoptarr) {
                     $devopname = 'devinfo_'.$devopt;
