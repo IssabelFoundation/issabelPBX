@@ -2196,8 +2196,8 @@ msgstr "Dispositivo IAX2 genérico"
 msgid "Generic SIP Device"
 msgstr "Dispositivo SIP genérico"
 
-msgid "Generic WebRTC Device"
-msgstr "Dispositivo WebRTC genérico"
+msgid "SIP WebRTC Device"
+msgstr "Dispositivo WebRTC SIP"
 
 #: amp_conf/htdocs/admin/views/menu.php:145
 msgid "German"
