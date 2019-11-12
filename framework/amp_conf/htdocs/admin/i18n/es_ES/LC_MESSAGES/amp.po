@@ -950,8 +950,8 @@ msgid ""
 "development and maintenance efforts. No private information is transmitted."
 msgstr ""
 "Al comprobar actualizaciones se transmitirá cierta información sobre su "
-"instalación: versiones de Issabel, Asterisk y PHP de forma totalmente "
-"anónima."
+"instalación: versiones de Issabel, Asterisk y PHP y un identificador de "
+"servidor generado al azar. No se transmite ninguna información privada. "
 
 #: ../core/install.php:149
 msgid "Checking if directdids need migrating.."
@@ -1023,7 +1023,7 @@ msgstr "Cerrar"
 
 #: amp_conf/htdocs/admin/page.modules.php:1208
 msgid "Commercial"
-msgstr "Comerciales"
+msgstr "Comercial"
 
 #: amp_conf/htdocs/admin/page.modules.php:593
 msgid "Confirm"
@@ -1906,7 +1906,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:1200
 msgid "Extended"
-msgstr ""
+msgstr "Extendido"
 
 #: ../core/functions.inc.php:7038 ../core/page.did.php:169
 #: ../core/page.extensions.php:9
@@ -4182,7 +4182,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:1204
 msgid "Unsupported"
-msgstr "No soportados"
+msgstr "Fuera de Soporte"
 
 #: amp_conf/htdocs/admin/page.modules.php:1077
 msgid "Untarring.."
