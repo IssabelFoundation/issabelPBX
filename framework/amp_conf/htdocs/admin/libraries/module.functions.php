@@ -1870,7 +1870,28 @@ function _module_distro_id() {
     if (!$pbx_version) {
       $pbx_version = '2.X+';
     }
+  // Issabel
+  } elseif (is_dir('/usr/share/issabel')) {
+    $pbx_type = 'issabel';
+    $pbx_version = '';
+    if (class_exists('PDO') && file_exists('/var/www/db/settings.db')) {
+      $issabel_db = new PDO('sqlite:/var/www/db/settings.db');
+      $result = $issabel_db->query("SELECT value FROM settings WHERE key='issabel_version_release'");
+      if ($result !== false) foreach ($result as $row) {
+        if (isset($row['value'])) {
+          $pbx_version = $row['value'];
+          break;
+        }
+      }
+    }
+    if (!$pbx_version && file_exists('/usr/share/issabel/pre_issabel_version.info')) {
+      $pbx_version = trim(file_get_contents('/usr/share/issabel/pre_issabel_version.info'));
+    }
+    if (!$pbx_version) {
+      $pbx_version = '4.0.0';
+    }
 
+ 
   // PIAF
   } elseif (file_exists('/etc/pbx/.version') || file_exists('/etc/pbx/.color')) {
     $pbx_type = 'piaf';
