@@ -912,7 +912,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:1215
 msgid "Check Online"
-msgstr ""
+msgstr "Comprobar en Línea"
 
 #: ../core/page.trunks.php:586
 msgid "Check this to disable this trunk in all routes where it is used."
@@ -949,6 +949,9 @@ msgid ""
 "provide proper update information and track version usage to focus "
 "development and maintenance efforts. No private information is transmitted."
 msgstr ""
+"Al comprobar actualizaciones se transmitirá cierta información sobre su "
+"instalación: versiones de Issabel, Asterisk y PHP de forma totalmente "
+"anónima."
 
 #: ../core/install.php:149
 msgid "Checking if directdids need migrating.."
@@ -986,6 +989,10 @@ msgid ""
 "to start with the Basic repository and update all modules, then go back and "
 "review the others."
 msgstr ""
+"Elija los repositorios que desea comprobar por nuevos móudulos. Cualer "
+"actualización será detectada incluso si el repositorio no está seleccionado. "
+"Si está instalando en un nuevo sistema, seleccione el repositorio Básico en "
+"primer lugar, luego siga con el resto."
 
 #: ../core/page.did.php:299
 msgid "Clear Destination & Submit"
@@ -1016,7 +1023,7 @@ msgstr "Cerrar"
 
 #: amp_conf/htdocs/admin/page.modules.php:1208
 msgid "Commercial"
-msgstr ""
+msgstr "Comerciales"
 
 #: amp_conf/htdocs/admin/page.modules.php:593
 msgid "Confirm"
@@ -3465,7 +3472,7 @@ msgstr "Eliminando el campo %s de la table de usuarios..."
 
 #: amp_conf/htdocs/admin/page.modules.php:1190
 msgid "Repositories"
-msgstr ""
+msgstr "Repositorios"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:678
 #, php-format
@@ -4175,7 +4182,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:1204
 msgid "Unsupported"
-msgstr ""
+msgstr "No soportados"
 
 #: amp_conf/htdocs/admin/page.modules.php:1077
 msgid "Untarring.."
@@ -4223,7 +4230,7 @@ msgstr "Enviar módulo"
 
 #: amp_conf/htdocs/admin/page.modules.php:1173
 msgid "Upload modules"
-msgstr ""
+msgstr "Enviar módulos"
 
 #: ../core/page.trunks.php:687
 #, php-format
