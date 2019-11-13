@@ -898,8 +898,8 @@ END;
           echo "<option value='$gp'"; 
           if ($gp == $channelid) 
             echo ' selected="1"'; 
-            echo ">$gp</option>\n"; 
           }
+          echo ">$gp</option>\n"; 
   ?> 
             </select> 
             <input type="hidden" size="14" name="usercontext" value="notneeded"/> 

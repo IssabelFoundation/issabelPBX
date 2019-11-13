@@ -1890,7 +1890,6 @@ function _module_distro_id() {
     if (!$pbx_version) {
       $pbx_version = '4.0.0';
     }
-
  
   // PIAF
   } elseif (file_exists('/etc/pbx/.version') || file_exists('/etc/pbx/.color')) {
