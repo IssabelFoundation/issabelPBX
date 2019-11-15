@@ -217,7 +217,7 @@ msgstr "***NO EXISTE CÓDIGO DE CARACTERÍSTICA***"
 
 #: ../core/page.routing.php:566 ../core/page.trunks.php:677
 msgid "+ Add More Dial Pattern Fields"
-msgstr ""
+msgstr "+ Agregar Más Patrones de Marcado"
 
 #: ../core/page.routing.php:472
 msgid "---No Change---"
@@ -570,7 +570,7 @@ msgstr ""
 
 #: ../core/page.trunks.php:528
 msgid "Allow Any CID"
-msgstr ""
+msgstr "Permitir Cualquier CID"
 
 #: ../core/functions.inc.php:7486 ../core/functions.inc.php:7634
 msgid ""
@@ -671,7 +671,7 @@ msgstr "Captura de llamada general de Asterisk"
 
 #: ../core/page.trunks.php:566
 msgid "Asterisk Trunk Dial Options"
-msgstr ""
+msgstr "Opciones Dial de Asterisk"
 
 #: ../core/functions.inc.php:7477 ../core/functions.inc.php:7569
 msgid "Asterisk connection type, usually friend for endpoints."
@@ -729,7 +729,7 @@ msgstr ""
 
 #: ../core/page.trunks.php:529
 msgid "Block Foreign CIDs"
-msgstr ""
+msgstr "Bloquear CID Foráneos"
 
 #: amp_conf/htdocs/admin/page.modules.php:704
 #: amp_conf/htdocs/admin/page.modules.php:788
@@ -754,7 +754,7 @@ msgstr ""
 
 #: ../core/page.trunks.php:522
 msgid "CID Options"
-msgstr ""
+msgstr "Opciones CID"
 
 #: ../core/functions.inc.php:7258 ../core/functions.inc.php:7267
 #: ../core/functions.inc.php:7272
@@ -922,7 +922,7 @@ msgstr ""
 
 #: ../core/page.trunks.php:581
 msgid "Check to always try next trunk"
-msgstr ""
+msgstr "Marque para siempre probar con el siguiente troncal"
 
 #: upgrades/2.9.0alpha1/tables.php:40 upgrades/2.9.0alpha1/tables.php:56
 #: ../core/install.php:495 ../core/install.php:511
@@ -1000,18 +1000,18 @@ msgstr "Limpiar destino y enviar"
 
 #: ../core/page.trunks.php:678
 msgid "Clear all Fields"
-msgstr ""
+msgstr "Limpiar todos los Campos"
 
 #: ../core/page.trunks.php:653 ../core/page.trunks.php:666
 #: ../core/page.trunks.php:1057
 msgid "Click here to insert a new pattern"
-msgstr ""
+msgstr "Pinche aquí para agregar un patrón"
 
 #: ../core/page.routing.php:546 ../core/page.routing.php:559
 #: ../core/page.routing.php:807 ../core/page.trunks.php:654
 #: ../core/page.trunks.php:667 ../core/page.trunks.php:1058
 msgid "Click here to remove this pattern"
-msgstr ""
+msgstr "Pinche aquí para remover este patrón"
 
 #: amp_conf/htdocs/admin/page.modules.php:279
 msgid "Click to configure Update Notifications"
@@ -1055,7 +1055,7 @@ msgstr ""
 
 #: ../core/page.trunks.php:578
 msgid "Continue if Busy"
-msgstr ""
+msgstr "Continuar si da Ocupado"
 
 #: upgrades/2.8.0/custom-context.php:86
 #: upgrades/2.8.0rc1/custom-context.php:87
@@ -1441,7 +1441,7 @@ msgstr "Asistente de reglas de marcación"
 
 #: ../core/page.trunks.php:610
 msgid "Dialed Number Manipulation Rules"
-msgstr ""
+msgstr "Reglas de Manipulación Número Marcado"
 
 #: ../core/page.routing.php:503
 msgid ""
@@ -1560,7 +1560,7 @@ msgstr ""
 
 #: ../core/page.trunks.php:1003
 msgid "Duplicate Trunk"
-msgstr ""
+msgstr "Duplicar Troncal"
 
 #: upgrades/2.8.0alpha2/tables.php:117
 msgid "ERROR - could not drop table"
@@ -2117,7 +2117,7 @@ msgstr ""
 
 #: ../core/page.trunks.php:531
 msgid "Force Trunk CID"
-msgstr ""
+msgstr "Forzar CID del Troncal"
 
 #: amp_conf/htdocs/admin/libraries/utility.functions.php:497
 #, php-format
@@ -3101,7 +3101,7 @@ msgstr "CID saliente"
 
 #: ../core/page.trunks.php:513
 msgid "Outbound CallerID"
-msgstr ""
+msgstr "CallerID Saliente"
 
 #: ../core/functions.inc.php:7186
 msgid "Outbound Concurrency Limit"
@@ -3451,7 +3451,7 @@ msgstr "La recarga falló porque el guión retrieve_conf encontró un error: %s"
 
 #: ../core/page.trunks.php:530
 msgid "Remove CNAM"
-msgstr ""
+msgstr "Remover CNAM"
 
 #: ../core/page.trunks.php:684 ../core/page.trunks.php:692
 msgid "Remove prefix from local numbers"
@@ -4311,7 +4311,7 @@ msgstr "Usuario:"
 
 #: amp_conf/htdocs/admin/views/obe.php:20
 msgid "Username"
-msgstr ""
+msgstr "Usuario"
 
 #: ../core/page.ampusers.php:266
 msgid ""
@@ -5470,6 +5470,100 @@ msgstr ""
 #: ../core/install.php:1024
 msgid "zap devices migrated"
 msgstr ""
+
+
+msgid "Outbound"
+msgstr "Saliente"
+
+msgid "Inbound"
+msgstr "Entrante"
+
+msgid "None"
+msgstr "Ninguno"
+
+msgid "Send"
+msgstr "Enviar"
+
+msgid "Receive"
+msgstr "Recibir"
+
+msgid "Secret"
+msgstr "Contraseña"
+
+msgid "Transport"
+msgstr "Transporte"
+
+msgid "Both"
+msgstr "Ambos"
+
+msgid "Max Retries"
+msgstr "Reintentos Máximos"
+
+msgid "Expiration"
+msgstr "Expiración"
+
+msgid "Qualify Frequency"
+msgstr "Frecunecia Qualify"
+
+msgid "Symmetric RTP"
+msgstr "RTP Simétrico"
+
+msgid "Rewrite Contact"
+msgstr "Reescribir Contacto"
+
+msgid "Inband Progress"
+msgstr "Progreso Inband"
+
+msgid "Permanent Auth Rejection"
+msgstr "Rechazo Auth Permanente"
+
+msgid "Direct Media"
+msgstr "Medios Directos"
+
+msgid "Trust RPID/PAI"
+msgstr "Confiar RPID/PAI"
+
+msgid "Support T.38 UDPTL"
+msgstr "Soporte T.38 UDPTL"
+
+msgid "T.38 UDPTL NAT"
+msgstr ""
+
+msgid "T.38 UDPTL Error Correction"
+msgstr "Corrección Errores T.38 UDPTL"
+
+msgid "Fax Detect"
+msgstr "Detección de Fax"
+
+msgid "General Retry Interval"
+msgstr "Intervalo de Reintento General"
+
+msgid "DTMF Mode"
+msgstr "Modo DTMF"
+
+msgid "PJSIP Settings"
+msgstr "Configuraciones PJSIP"
+
+msgid "PJSIP Advanced Settings"
+msgstr "Configuraciones PJSIP Avanzadas"
+
+msgid "From Domain"
+msgstr "Dominio From"
+
+msgid "From User"
+msgstr "Usuario From"
+
+msgid "Context"
+msgstr "Contexto"
+
+msgid "Audio Codecs"
+msgstr "Codecs de Audio"
+
+msgid "SIP Server"
+msgstr "Servidor SIP"
+
+msgid "SIP Server Port"
+msgstr "Puerto Servidor SIP"
 
 #~ msgid "Tools"
 #~ msgstr "Herramientas"
