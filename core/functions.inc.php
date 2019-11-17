@@ -1830,7 +1830,7 @@ function core_do_get_config($engine) {
           $ext->add($tcontext, $tcustom, '', new ext_set('CALLERID(number)','${CALLERID(number):0:40}'));
           $ext->add($tcontext, $tcustom, '', new ext_set('CALLERID(name)','${CALLERID(name):0:40}'));
 
-                    $ext->add($tcontext,$tcustom,'',new ext_set('DIAL_TRUNK_OPTIONS', '${IF($["${DB_EXISTS(TRUNK/${DIAL_TRUNK}/dialopts)}" = "1"]?${DB_RESULT}:${TRUNK_OPTIONS})}'));
+          $ext->add($tcontext,$tcustom,'',new ext_set('DIAL_TRUNK_OPTIONS', '${IF($["${DB_EXISTS(TRUNK/${DIAL_TRUNK}/dialopts)}" = "1"]?${DB_RESULT}:${TRUNK_OPTIONS})}'));
           $ext->add($tcontext,$tcustom,'',new ext_dial('${EVAL(${TDIAL_STRING})}', '${TRUNK_RING_TIMER},${DIAL_TRUNK_OPTIONS}'));
           $ext->add($tcontext,$tcustom,'hangit',new ext_hangup());
         }
@@ -1848,7 +1848,7 @@ function core_do_get_config($engine) {
           $ext->add($tcontext,$texten,'',new ext_gosubif('$["${PREFIX_TRUNK_${DIAL_TRUNK}}" != ""]','sub-flp-${DIAL_TRUNK},s,1'));
           $ext->add($tcontext,$texten,'',new ext_set('OUTNUM', '${OUTPREFIX_${DIAL_TRUNK}}${DIAL_NUMBER}'));  // OUTNUM is the final dial number
 
-                    $ext->add($tcontext,$texten,'',new ext_set('DIAL_TRUNK_OPTIONS', '${IF($["${DB_EXISTS(TRUNK/${DIAL_TRUNK}/dialopts)}" = "1"]?${DB_RESULT}:${TRUNK_OPTIONS})}'));
+          $ext->add($tcontext,$texten,'',new ext_set('DIAL_TRUNK_OPTIONS', '${IF($["${DB_EXISTS(TRUNK/${DIAL_TRUNK}/dialopts)}" = "1"]?${DB_RESULT}:${TRUNK_OPTIONS})}'));
           $ext->add($tcontext,$texten,'',new ext_dial('${TDIAL_STRING}/${OUTNUM}', '${TRUNK_RING_TIMER},${DIAL_TRUNK_OPTIONS}'));
           // Address Security Vulnerability in many earlier versions of Asterisk from an external source tranmitting a
           // malicious CID that can cause overflows in the Asterisk code.
@@ -4695,9 +4695,9 @@ function core_devices_add($id,$tech,$dial,$devicetype,$user,$description,$emerge
     global $astman;
     global $db;
 
-  if ($tech == '' || trim($tech) == 'virtual') {
-    return true;
-  }
+    if ($tech == '' || trim($tech) == 'virtual') {
+        return true;
+    }
     if($tech=='webrtc') { $tech='sip'; }
 
     $display = isset($_REQUEST['display'])?$_REQUEST['display']:'';
@@ -4893,9 +4893,9 @@ function core_devices_get($account){
     //get all the variables for the meetme
     $sql = "SELECT * FROM devices WHERE id = '$account'";
     $results = sql($sql,"getRow",DB_FETCHMODE_ASSOC);
-  if (empty($results)) {
-    return array();
-  }
+    if (empty($results)) {
+        return array();
+    }
 
     //take care of sip/iax/zap config
     $funct = "core_devices_get".strtolower($results['tech']);
@@ -8026,7 +8026,7 @@ function core_devices_configprocess() {
     }
 
     //create vars from the request
-  $tech = $action = null;
+    $tech = $action = null;
     extract($_REQUEST);
 
     if ($tech == "virtual" || $action == "edit" && $tech == '') {
