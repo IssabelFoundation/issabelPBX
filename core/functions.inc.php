@@ -247,6 +247,11 @@ class core_conf {
     }
 
     function addSipGeneral($key, $value) {
+        foreach($this->_sip_general as $idx => $arreglo) {
+            if($arreglo['key']==$key && ($key=='allowguest' || $key=='notifyringing')) {
+                unset($this->_sip_general[$idx]);
+            }
+        }
         $this->_sip_general[] = array('key' => $key, 'value' => $value);
     }
 
