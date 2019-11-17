@@ -2206,6 +2206,10 @@ msgstr "Dispositivo SIP genérico"
 msgid "SIP WebRTC Device"
 msgstr "Dispositivo WebRTC SIP"
 
+msgid "Generic PJSIP Device"
+msgstr "Dispositivo PJSIP genérico"
+
+
 #: amp_conf/htdocs/admin/views/menu.php:145
 msgid "German"
 msgstr ""
@@ -2896,11 +2900,11 @@ msgstr "No hay módulos para mostrar."
 
 #: ../core/functions.inc.php:7666
 msgid "None (virtual exten)"
-msgstr ""
+msgstr "Ninguno (extensión virtual)"
 
 #: ../core/page.routing.php:758
 msgid "Normal Congestion"
-msgstr ""
+msgstr "Congestión Normal"
 
 #: ../core/page.trunks.php:578
 msgid ""
