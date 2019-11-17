@@ -6344,8 +6344,8 @@ function core_trunks_list($assoc = false) {
 function core_trunks_addRegister($trunknum,$tech,$reg,$disable_flag=0) {
     global $db;
     $reg = $db->escapeSimple(trim($reg));
-        $trunkreg = "tr-reg-$trunknum";
-        sql("INSERT INTO $tech (id, keyword, data, flags) values (".q($trunkreg).", 'register', ".q($reg).', '.q($disable_flag).')');
+    $trunkreg = "tr-reg-$trunknum";
+    sql("INSERT INTO $tech (id, keyword, data, flags) values (".q($trunkreg).", 'register', ".q($reg).', '.q($disable_flag).')');
 }
 
 
