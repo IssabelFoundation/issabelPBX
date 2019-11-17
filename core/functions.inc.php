@@ -7801,7 +7801,13 @@ function core_devices_configpageinit($dispnum) {
         // Devices list
         if ($_SESSION["AMP_user"]->checkSection('999')) {
             $currentcomponent->addoptlistitem('devicelist', 'sip_generic', _("Generic SIP Device"));
-            $currentcomponent->addoptlistitem('devicelist', 'webrtc_generic', _("SIP WebRTC Device"));
+
+            if(isset($amp_conf['HTTPSCERTFILE'])) {
+                if($amp_conf['HTTPSCERTFILE']<>'') {
+                    $currentcomponent->addoptlistitem('devicelist', 'webrtc_generic', _("Generic WebRTC Device"));
+                }
+            }
+
             $currentcomponent->addoptlistitem('devicelist', 'iax2_generic', _("Generic IAX2 Device"));
             $currentcomponent->addoptlistitem('devicelist', 'dahdi_generic', _("Generic DAHDi Device"));
             $currentcomponent->addoptlistitem('devicelist', 'custom_custom', _("Other (Custom) Device"));
