@@ -7804,7 +7804,7 @@ function core_devices_configpageinit($dispnum) {
 
             if(isset($amp_conf['HTTPSCERTFILE'])) {
                 if($amp_conf['HTTPSCERTFILE']<>'') {
-                    $currentcomponent->addoptlistitem('devicelist', 'webrtc_generic', _("Generic WebRTC Device"));
+                    $currentcomponent->addoptlistitem('devicelist', 'webrtc_generic', _("SIP WebRTC Device"));
                 }
             }
 
