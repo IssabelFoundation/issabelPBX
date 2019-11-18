@@ -231,7 +231,7 @@ function checkAnnouncement(theForm) {
 }
 
 function checkid() {
-    if($('#recording_id').val()==0) {
+    if($('#recording_id').val()==0 || $('#recording_id').val() == null) {
         $('#tts_lang').prop('disabled',false);
         $('#tts_text').prop('disabled',false);
         $('#allow_skip').prop('disabled',true);
