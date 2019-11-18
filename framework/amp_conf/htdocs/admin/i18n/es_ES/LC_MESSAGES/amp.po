@@ -5548,6 +5548,9 @@ msgstr "Modo DTMF"
 msgid "PJSIP Settings"
 msgstr "Configuraciones PJSIP"
 
+msgid "Asterisk PJSIP Settings"
+msgstr "Configuraciones PJSIP"
+
 msgid "PJSIP Advanced Settings"
 msgstr "Configuraciones PJSIP Avanzadas"
 

@@ -173,7 +173,7 @@ msgstr ""
 "ser consciente de que existe tal extensión y pueda detectar conflictos o "
 "informar de extensiones personalizadas a otros módulos para que puedan hacer "
 "uso de esa información. No debería poner aquí extensiones que cree con el "
-"módulo de Aplicaciones variasm ya que esas no son personalizadas."
+"módulo Otras Aplicaciones ya que esas no son personalizadas."
 
 msgid "Conflicting Extensions"
 msgstr "Extensiones en conflicto"
