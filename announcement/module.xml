@@ -1,34 +1,35 @@
 <module>
-	<rawname>announcement</rawname>
-	<repo>standard</repo>
-	<name>Announcements</name>
-	<version>2.11.0.4</version>
-	<publisher>Issabel Foundation</publisher>
-	<license>GPLv3+</license>
-	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<changelog>
-		*2.11.0.4* Initial Issabel Foundation release
-	</changelog>
+    <rawname>announcement</rawname>
+    <repo>standard</repo>
+    <name>Announcements</name>
+    <version>2.11.0.5</version>
+    <publisher>Issabel Foundation</publisher>
+    <license>GPLv3+</license>
+    <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+    <changelog>
+        *2.11.0.5* Adds Text to Speech support via PicoTTS
+        *2.11.0.4* Initial Issabel Foundation release
+    </changelog>
     <category>Applications</category>
     <embedcategory>Inbound Call Control</embedcategory>
-	<description>
-		Plays back one of the system recordings (optionally allowing the user to skip it) and then goes to another destination.
-	</description>
-	<depends>
-		<version>2.5.0alpha1</version>
-		<module>recordings ge 3.3.8</module>
-	</depends>
-	<menuitems>
-		<announcement>Announcements</announcement>
-	</menuitems>
-	<popovers>
-		<announcement>
-			<display>announcement</display>
-		</announcement>
- 	</popovers>
-	<supported>
-		<version>2.10</version>
-	</supported>
-	<location>release/2.11/announcement-2.11.0.0.tgz</location>
-	<md5sum>704dee25bbe8e854fa4e126018b83864</md5sum>
+    <description>
+        Plays back one of the system recordings or TTS (optionally allowing the user to skip it) and then goes to another destination.
+    </description>
+    <depends>
+        <version>2.5.0alpha1</version>
+        <module>recordings ge 3.3.8</module>
+    </depends>
+    <menuitems>
+        <announcement>Announcements</announcement>
+    </menuitems>
+    <popovers>
+        <announcement>
+            <display>announcement</display>
+        </announcement>
+     </popovers>
+    <supported>
+        <version>2.10</version>
+    </supported>
+    <location>release/2.11/announcement-2.11.0.5.tgz</location>
+    <md5sum>704dee25bbe8e854fa4e126018b83864</md5sum>
 </module>

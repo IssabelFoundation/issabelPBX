@@ -166,3 +166,14 @@ msgstr "Eliminar"
 
 msgid "Invalid description specified"
 msgstr "La descripción especificada no es válida"
+
+msgid "Text to Speech"
+msgstr "Texto a Voz"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Text"
+msgstr "Texto"
+
+
