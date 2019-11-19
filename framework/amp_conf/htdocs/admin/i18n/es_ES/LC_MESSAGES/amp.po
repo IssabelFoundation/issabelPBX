@@ -5557,6 +5557,9 @@ msgstr "Configuraciones PJSIP Avanzadas"
 msgid "From Domain"
 msgstr "Dominio From"
 
+msgid "Authentication"
+msgstr "Autenticación"
+
 msgid "From User"
 msgstr "Usuario From"
 
