@@ -355,6 +355,7 @@ function customcontexts_configpageinit($dispnum) {
         case 'iax2':
         case 'iax':
         case 'sip':
+        case 'pjsip':
         case 'dahdi':
         case 'zap':
           $_REQUEST['tech'] = $tech;
