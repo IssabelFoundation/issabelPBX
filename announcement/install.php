@@ -22,6 +22,25 @@ if(DB::IsError($check)) {
 	die_issabelpbx("Can not create announcement table");
 }
 
+//Version 2.11.0.5 - Add TTS fields
+$sql = "SELECT tts_lang FROM announcement";
+$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if(DB::IsError($check)) {
+        // add new field
+    $sql = "ALTER TABLE announcement ADD `tts_lang` VARCHAR( 10 ) NOT NULL DEFAULT 'en-US';";
+    $result = $db->query($sql);
+    if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }
+}
+
+$sql = "SELECT tts_text FROM announcement";
+$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if(DB::IsError($check)) {
+        // add new field
+    $sql = "ALTER TABLE announcement ADD `tts_text` TEXT NOT NULL DEFAULT '';";
+    $result = $db->query($sql);
+    if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }
+}
+
 // Version 0.3 adds auto-return to IVR
 $sql = "SELECT return_ivr FROM announcement";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
