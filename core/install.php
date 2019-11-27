@@ -298,7 +298,7 @@ function __migrate_trunks_to_table() {
 		`continue` VARCHAR( 4 ) DEFAULT 'off',
 
 		PRIMARY KEY  (`trunkid`, `tech`, `channelid`)
-	)
+	) CHARACTER SET utf8 COLLATE utf8_unicode_ci
 	";
 	$check = $db->query($sql);
 	if(DB::IsError($check)) {
@@ -1377,4 +1377,139 @@ if(!$issabelpbx_conf->conf_setting_exists('HTTPSENABLED')) {
         $issabelpbx_conf->define_conf_setting('HTTPSPRIVATEKEY',$set);
 
         $issabelpbx_conf->commit_conf_settings();
+}
+
+
+
+$sql='SELECT default_character_set_name FROM information_schema.SCHEMATA S WHERE schema_name = "asterisk"';
+$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if($check['default_character_set_name']=='latin1') {
+    out(_("converting tables to utf8"));
+    $sql = "ALTER DATABASE asterisk CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci";
+    $res = $db->query($sql);
+    if (DB::IsError($res)) {
+	out(_("error occured"));
+    }
+
+$tables = array(
+'admin,utf8mb4',
+'ampusers,utf8',
+'announcement,utf8mb4',
+'backup,utf8mb4',
+'backup_cache,utf8mb4',
+'backup_details,utf8mb4',
+'backup_items,utf8mb4',
+'backup_old,utf8mb4',
+'backup_server_details,utf8mb4',
+'backup_servers,utf8mb4',
+'backup_template_details,utf8mb4',
+'backup_templates,utf8mb4',
+'bosssecretary_boss,utf8mb4',
+'bosssecretary_chief,utf8mb4',
+'bosssecretary_group,utf8mb4',
+'bosssecretary_group_numbers_free,utf8mb4',
+'bosssecretary_secretary,utf8mb4',
+'callback,utf8mb4',
+'callrecording,utf8mb4',
+'callrecording_module,utf8mb4',
+'cidlookup,utf8mb4',
+'cidlookup_incoming,utf8mb4',
+'cronmanager,utf8mb4',
+'custom_destinations,utf8mb4',
+'custom_extensions,utf8mb4',
+'customcontexts_contexts,utf8mb4',
+'customcontexts_contexts_list,utf8mb4',
+'customcontexts_includes,utf8mb4',
+'customcontexts_includes_list,utf8mb4',
+'customcontexts_module,utf8mb4',
+'customerdb,utf8mb4',
+'dahdi,utf8mb4',
+'dahdichandids,utf8mb4',
+'daynight,utf8',
+'devices,utf8mb4',
+'dialplaninjection_commands,utf8mb4',
+'dialplaninjection_commands_list,utf8mb4',
+'dialplaninjection_dialplaninjections,utf8mb4',
+'dialplaninjection_module,utf8mb4',
+'disa,utf8mb4',
+'dynroute,utf8mb4',
+'dynroute_dests,utf8mb4',
+'extensions,utf8mb4',
+'fax_details,utf8mb4',
+'fax_incoming,utf8mb4',
+'fax_users,utf8mb4',
+'featurecodes,utf8mb4',
+'findmefollow,utf8mb4',
+'gabcast,utf8mb4',
+'globals,utf8',
+'iax,utf8mb4',
+'iaxsettings,utf8mb4',
+'incoming,utf8mb4',
+'indications_zonelist,utf8mb4',
+'inventorydb,utf8mb4',
+'issabelpbx_log,utf8mb4',
+'issabelpbx_settings,utf8mb4',
+'ivr_details,utf8mb4',
+'ivr_entries,utf8mb4',
+'language_incoming,utf8mb4',
+'languages,utf8mb4',
+'logfile_logfiles,utf8mb4',
+'logfile_settings,utf8mb4',
+'manager,utf8mb4',
+'managersettings,utf8mb4',
+'meetme,utf8mb4',
+'miscapps,utf8mb4',
+'miscdests,utf8mb4',
+'module_xml,utf8mb4',
+'modules,utf8mb4',
+'notifications,utf8mb4',
+'outbound_route_patterns,utf8',
+'outbound_route_sequence,utf8mb4',
+'outbound_route_trunks,utf8mb4',
+'outbound_routes,utf8mb4',
+'outroutemsg,utf8mb4',
+'paging_autoanswer,utf8',
+'paging_config,utf8',
+'paging_groups,utf8mb4',
+'parkplus,utf8mb4',
+'phpagiconf,utf8mb4',
+'pinset_usage,utf8mb4',
+'pinsets,utf8mb4',
+'queueprio,utf8mb4',
+'queues_config,utf8mb4',
+'queues_details,utf8mb4',
+'recordings,utf8mb4',
+'ringgroups,utf8mb4',
+'setcid,utf8mb4',
+'sip,utf8mb4',
+'sippeers,utf8mb4',
+'sipsettings,utf8mb4',
+'texttospeech,utf8mb4',
+'timeconditions,utf8mb4',
+'timegroups_details,utf8mb4',
+'timegroups_groups,utf8mb4',
+'trunk_dialpatterns,utf8mb4',
+'trunks,utf8',
+'users,utf8mb4',
+'vmblast,utf8mb4',
+'vmblast_groups,utf8mb4',
+'voicemail_admin,utf8mb4',
+'writequeuelog,utf8mb4'
+);
+
+    foreach($tables as $element) {
+        $parts = preg_split("/,/",$element);
+        $tbl = $parts[0];
+        $chr = $parts[1];
+        $res = $db->query("DESC $tbl");
+        if (!DB::IsError($res)) {
+            $sql = "ALTER TABLE $tbl CONVERT TO CHARACTER SET $chr COLLATE ${chr}_unicode_ci";
+            $res2 = $db->query($sql);
+            if (DB::IsError($res2)) {
+                out(_("error occured converting table $tbl"));
+            }
+        }
+    }
+
+
 }
