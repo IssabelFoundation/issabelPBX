@@ -147,4 +147,21 @@ if(DB::IsError($check)) {
 	out(_("already migrated"));
 }
 
+// Version 2.11.0.5 adds tts options por picoTTS
+$sql = "SELECT tts_lang FROM announcement";
+$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if(DB::IsError($check)) {
+	// add new field
+	outn(_("adding tts_lang and tts_text fields.."));
+    $sql = "ALTER TABLE announcement ADD `tts_lang` VARCHAR( 10 ) NOT NULL DEFAULT 'en-US'";
+    $result = $db->query($sql);
+    if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }
+
+    $sql = "ALTER TABLE announcement ADD `tts_text` TEXT NOT NULL DEFAULT ''";
+    $result = $db->query($sql);
+    if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }
+}
+
+
+
 ?>
