@@ -294,6 +294,9 @@ else
             chown asterisk.asterisk /etc/asterisk/manager_general_additional.conf
         fi
     fi
+
+    for A in `/var/lib/asterisk/bin/module_admin list | grep Pending | awk '{print $1}'`; do /var/lib/asterisk/bin/module_admin install $A; done
+
 fi
 
 # La base de datos esta corriendo
