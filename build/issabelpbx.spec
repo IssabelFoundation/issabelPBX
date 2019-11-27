@@ -25,6 +25,7 @@ BuildArch: noarch
 Requires: /sbin/pidof, /bin/tar, issabel-firstboot
 Requires: php, php-pear-DB
 Requires: gettext
+Requires: picotts
 #Requires: issabel-framework >= 2.2.0-18
 AutoReqProv: no
 Obsoletes: freePBX
