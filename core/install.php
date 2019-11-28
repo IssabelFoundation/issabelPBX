@@ -1328,58 +1328,70 @@ $set['module'] = '';
 $set['category'] = 'Asterisk Builtin mini-HTTP server';
 
 if(!$issabelpbx_conf->conf_setting_exists('HTTPSENABLED')) {
-        // HTTPSENABLED
-        $set['value'] = false;
-        $set['defaultval'] =& $set['value'];
-        $set['options'] = '';
-        $set['name'] = 'Enable HTTPS support for the mini-HTTP Server';
-        $set['description'] = 'Whether to enable HTTPS support for the Asterisk HTTP interface. Default is no.';
-        $set['emptyok'] = 0;
-        $set['level'] = 1;
-        $set['readonly'] = 0;
-        $set['type'] = CONF_TYPE_BOOL;
-        $issabelpbx_conf->define_conf_setting('HTTPSENABLED',$set);
-
-        // HTTPSBINDADDRESS
-        $set['value'] = '127.0.0.1:8089';
-        $set['defaultval'] =& $set['value'];
-        $set['options'] = '';
-        $set['name'] = 'HTTPS Bind Address/Port';
-        $set['description'] = 'Address and port to bind to for HTTPS. Default is 127.0.0.1:8089';
-        $set['emptyok'] = 0;
-        $set['type'] = CONF_TYPE_TEXT;
-        $set['level'] = 2;
-        $set['readonly'] = 0;
-        $issabelpbx_conf->define_conf_setting('HTTPSBINDADDRESS',$set);
-
-        // HTTPSCERTFILE
-        $set['value'] = '/etc/asterisk/keys/asterisk.pem';
-        $set['defaultval'] =& $set['value'];
-        $set['options'] = '';
-        $set['name'] = 'Certificate file';
-        $set['description'] = 'Full path to certificate file for HTTPS.';
-        $set['emptyok'] = 0;
-        $set['type'] = CONF_TYPE_TEXT;
-        $set['level'] = 2;
-        $set['readonly'] = 0;
-        $issabelpbx_conf->define_conf_setting('HTTPSCERTFILE',$set);
-
-        // HTTPSPRIVATEKEY
-        $set['value'] = '';
-        $set['defaultval'] =& $set['value'];
-        $set['options'] = '';
-        $set['name'] = 'Private key file';
-        $set['description'] = 'Full path to private key file for HTTPS. If empty, default is to look into certificate file for private key.';
-        $set['emptyok'] = 1;
-        $set['type'] = CONF_TYPE_TEXT;
-        $set['level'] = 2;
-        $set['readonly'] = 0;
-        $issabelpbx_conf->define_conf_setting('HTTPSPRIVATEKEY',$set);
-
-        $issabelpbx_conf->commit_conf_settings();
+    // HTTPSENABLED
+    $set['value'] = false;
+    $set['defaultval'] =& $set['value'];
+    $set['options'] = '';
+    $set['name'] = 'Enable HTTPS support for the mini-HTTP Server';
+    $set['description'] = 'Whether to enable HTTPS support for the Asterisk HTTP interface. Default is no.';
+    $set['emptyok'] = 0;
+    $set['level'] = 1;
+    $set['readonly'] = 0;
+    $set['type'] = CONF_TYPE_BOOL;
+    $issabelpbx_conf->define_conf_setting('HTTPSENABLED',$set);
+} else {
+    $issabelpbx_conf->set_conf_values(array('HTTPSENABLED' => true),true,true);
 }
 
+if(!$issabelpbx_conf->conf_setting_exists('HTTPSBINDADDR')) {
+    // HTTPSBINDADDRESS
+    $set['value'] = '127.0.0.1:8089';
+    $set['defaultval'] =& $set['value'];
+    $set['options'] = '';
+    $set['name'] = 'HTTPS Bind Address/Port';
+    $set['description'] = 'Address and port to bind to for HTTPS. Default is 127.0.0.1:8089';
+    $set['emptyok'] = 0;
+    $set['type'] = CONF_TYPE_TEXT;
+    $set['level'] = 2;
+    $set['readonly'] = 0;
+    $issabelpbx_conf->define_conf_setting('HTTPSBINDADDRESS',$set);
+} else {
+    $issabelpbx_conf->set_conf_values(array('HTTPSBINDADDR' => '127.0.0.1:8089'),true,true);
+}
 
+if(!$issabelpbx_conf->conf_setting_exists('HTTPSCERTFILE')) {
+    // HTTPSCERTFILE
+    $set['value'] = '/etc/asterisk/keys/asterisk.pem';
+    $set['defaultval'] =& $set['value'];
+    $set['options'] = '';
+    $set['name'] = 'Certificate file';
+    $set['description'] = 'Full path to certificate file for HTTPS.';
+    $set['emptyok'] = 0;
+    $set['type'] = CONF_TYPE_TEXT;
+    $set['level'] = 2;
+    $set['readonly'] = 0;
+    $issabelpbx_conf->define_conf_setting('HTTPSCERTFILE',$set);
+} else {
+    $issabelpbx_conf->set_conf_values(array('HTTPSCERTFILE' => '/etc/asterisk/keys/asterisk.pem'),true,true);
+}
+
+if(!$issabelpbx_conf->conf_setting_exists('HTTPSPRIVATEKEY')) {
+    // HTTPSPRIVATEKEY
+    $set['value'] = '';
+    $set['defaultval'] =& $set['value'];
+    $set['options'] = '';
+    $set['name'] = 'Private key file';
+    $set['description'] = 'Full path to private key file for HTTPS. If empty, default is to look into certificate file for private key.';
+    $set['emptyok'] = 1;
+    $set['type'] = CONF_TYPE_TEXT;
+    $set['level'] = 2;
+    $set['readonly'] = 0;
+    $issabelpbx_conf->define_conf_setting('HTTPSPRIVATEKEY',$set);
+} else {
+    $issabelpbx_conf->set_conf_values(array('HTTPSPRIVATEKEY' => ''),true,true);
+}
+
+$issabelpbx_conf->commit_conf_settings();
 
 $sql='SELECT default_character_set_name FROM information_schema.SCHEMATA S WHERE schema_name = "asterisk"';
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
