@@ -1178,7 +1178,7 @@ if ((preg_match('/^Asterisk (\d+(\.\d+)*)(-?(.*))$/', $verinfo, $matches)) ||
 	if ((version_compare($matches[1], "1.6") < 0)) {
 		fatal("Asterisk 1.6, 1.8 or 10 is required for this version of IssabelPBX. Detected version is: ".$matches[1]);
 	}
-	if (version_compare($matches[1], "16", "ge")) {
+	if (version_compare($matches[1], "17", "ge")) {
 		fatal("Asterisk 1.6, 1.8, 10, 11, 12, 13 or 16 is required for this version of IssabelPBX. Detected version is: ".$matches[1]);
 	}
 	out("{$matches[1]}");
