@@ -10,12 +10,10 @@
 //MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //GNU General Public License for more details.
 ?>
-<!--
-<font color="red"><strong>You have installed the Dialplan Injection Module!<BR>
-	</strong></font><BR>
--->
 <?php
 dialplaninjection_updatedb();
+
+out(_('You have installed the dialplan injection module!'));
 
 //bring db up to date on install/upgrade
 function dialplaninjection_updatedb() {
@@ -163,8 +161,5 @@ $sql = "INSERT IGNORE INTO `dialplaninjection_commands_list` (description, comma
 	$sql = "update `dialplaninjection_module` set `value` = '0.1.1' where `id` = 'moduleversion';";
 	$db->query($sql);
 }
-
-
-?>
 
 
