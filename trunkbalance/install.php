@@ -15,7 +15,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //
 //    see <http://www.gnu.org/licenses/>.
 //
-outn(_("Installing Trunk Balance"));
+out(_("Installing Trunk Balance"));
 
 global $db;
 global $amp_conf;
@@ -95,7 +95,7 @@ foreach($cols as $key=>$val) {
 			die_issabelpbx( "Can not add column ".$key.": " . $check->getMessage() .  "<br>");
 		}
 		else {
-            outn(_("Added column $key to $tablename table"));
+            out(_("Added column $key to $tablename table"));
 		}
 	}
 }
