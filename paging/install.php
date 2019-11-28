@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `paging_autoanswer` (
 	`var` VARCHAR( 20 ) NOT NULL ,
 	`setting` VARCHAR( 255 ) NOT NULL ,
 	PRIMARY KEY ( `useragent` , `var` )
-);";
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci";
 $result = $db->query($sql);
 if(DB::IsError($result)) {
 	die_issabelpbx($result->getDebugInfo());
@@ -84,7 +84,7 @@ if(DB::IsError($check)) {
 			duplex     INTEGER(1) NOT NULL default '0',
 			description VARCHAR(255) NOT NULL default '',
 			PRIMARY KEY (page_group)
-		)";
+		) CHARACTER SET utf8 COLLATE utf8_unicode_ci";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
 		die_issabelpbx($result->getDebugInfo());
