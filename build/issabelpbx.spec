@@ -26,6 +26,7 @@ Requires: /sbin/pidof, /bin/tar, issabel-firstboot
 Requires: php, php-pear-DB
 Requires: gettext
 Requires: picotts
+Requires: mysql-connector-odbc >= 5.3.13
 #Requires: issabel-framework >= 2.2.0-18
 AutoReqProv: no
 Obsoletes: freePBX
@@ -295,7 +296,15 @@ else
         fi
     fi
 
-    for A in `/var/lib/asterisk/bin/module_admin list | grep Pending | awk '{print $1}'`; do /var/lib/asterisk/bin/module_admin install $A; done
+    echo "Install core y frameworks primero, si o si" >>/tmp/issabel_rpm.log
+    /var/lib/asterisk/bin/module_admin install framework;
+    /var/lib/asterisk/bin/module_admin install core; 
+ 
+    for A in `/var/lib/asterisk/bin/module_admin list | grep Pending | awk '{print $1}'`
+    do
+       echo "Install pending upgrade $A" >>/tmp/issabel_rpm.log
+       /var/lib/asterisk/bin/module_admin install $A; 
+    done
 
 fi
 
@@ -352,11 +361,11 @@ if [ x`pidof mysqld` != "x" ] ; then
             mv /etc/asterisk/cbmysql.conf.bak_%{name}-%{version}-%{release} /etc/asterisk/cbmysql.conf
         fi
 
-        echo "1 ejecuto module admin para instalar timeconditions y customcontexts" >>/tmp/issabel_rpm.log
-         /var/lib/asterisk/bin/module_admin install timeconditions
-         /var/lib/asterisk/bin/module_admin install customcontexts
-        echo "1 ejecuto module admin para instalar local" >>/tmp/issabel_rpm.log
-         /var/lib/asterisk/bin/module_admin installlocal
+        #echo "1 ejecuto module admin para instalar timeconditions y customcontexts" >>/tmp/issabel_rpm.log
+        # /var/lib/asterisk/bin/module_admin install timeconditions
+        # /var/lib/asterisk/bin/module_admin install customcontexts
+        #echo "1 ejecuto module admin para instalar local" >>/tmp/issabel_rpm.log
+        # /var/lib/asterisk/bin/module_admin installlocal
         echo "1 ejecuto module admin para desinstalar sipstation e irc" >>/tmp/issabel_rpm.log
          /var/lib/asterisk/bin/module_admin delete sipstation
          /var/lib/asterisk/bin/module_admin delete irc
