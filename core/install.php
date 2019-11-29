@@ -1327,6 +1327,8 @@ unset($set);
 $set['module'] = '';
 $set['category'] = 'Asterisk Builtin mini-HTTP server';
 
+$issabelpbx_conf->set_conf_values(array('HTTPENABLED' => true),true,true);
+
 if(!$issabelpbx_conf->conf_setting_exists('HTTPSENABLED')) {
     // HTTPSENABLED
     $set['value'] = false;
