@@ -1347,18 +1347,18 @@ if(!$issabelpbx_conf->conf_setting_exists('HTTPSENABLED')) {
 
 if(!$issabelpbx_conf->conf_setting_exists('HTTPSBINDADDR')) {
     // HTTPSBINDADDRESS
-    $set['value'] = '127.0.0.1:8089';
+    $set['value'] = '0.0.0.0:8089';
     $set['defaultval'] =& $set['value'];
     $set['options'] = '';
     $set['name'] = 'HTTPS Bind Address/Port';
-    $set['description'] = 'Address and port to bind to for HTTPS. Default is 127.0.0.1:8089';
+    $set['description'] = 'Address and port to bind to for HTTPS. Default is 0.0.0.0:8089';
     $set['emptyok'] = 0;
     $set['type'] = CONF_TYPE_TEXT;
     $set['level'] = 2;
     $set['readonly'] = 0;
     $issabelpbx_conf->define_conf_setting('HTTPSBINDADDRESS',$set);
 } else {
-    $issabelpbx_conf->set_conf_values(array('HTTPSBINDADDR' => '127.0.0.1:8089'),true,true);
+    $issabelpbx_conf->set_conf_values(array('HTTPSBINDADDR' => '0.0.0.0:8089'),true,true);
 }
 
 if(!$issabelpbx_conf->conf_setting_exists('HTTPSCERTFILE')) {
