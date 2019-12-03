@@ -1,0 +1,28 @@
+<module>
+    <rawname>dynamicfeatures</rawname>
+    <repo>extended</repo>
+    <name>Dynamic Features</name>
+    <version>2.11.0.0</version>
+    <publisher>Issabel Foundation</publisher>
+    <license>GPLv3+</license>
+    <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+    <category>Applications</category>
+    <embedcategory>Internal Options &amp; Configuration</embedcategory>
+    <description>
+        Adds the ability to configure custom dynamic features to be executed while on a call
+    </description>
+    <menuitems>
+        <dynamicfeatures>Dynamic Features</dynamicfeatures>
+    </menuitems>
+    <changelog>
+        *2.11.0.0* Initial Issabel Foundation release
+    </changelog>
+    <depends>
+        <version>2.11.0</version>
+    </depends>
+    <location>release/2.11/dynamicfeatures-2.11.0.0.tgz</location>
+    <md5sum>b587ea591f4dbf4ee8c1de52bcfb464c</md5sum>
+    <supported>
+        <version>2.10</version>
+    </supported>
+</module>

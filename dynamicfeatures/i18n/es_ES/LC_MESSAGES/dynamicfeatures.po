@@ -1,0 +1,57 @@
+# IssabelPBX language template
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+
+msgid "Dynamic Features"
+msgstr "Funcionalidades Dinámicas"
+
+msgid "Add Dynamic Feature"
+msgstr "Añadir Funcionalidad Dinámica"
+
+msgid "Edit Dynamic Feature"
+msgstr "Modificar Funcionalidad Dinámica"
+
+msgid "Edit: "
+msgstr "Modificar: "
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Dynamic Features allow you to define custom feature codes  mapped to Asterisk applications. In this way you can trigger some action over an active call by dialing the configured feature code"
+msgstr "Las funcionalidades dinámicas le permiten definir códigos personalizados para ejecutar una aplicación durante una llamada activa."
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "DTMF"
+msgstr "DTMF"
+
+msgid "Activate On"
+msgstr "Activar En"
+
+msgid "Application"
+msgstr "Aplicación"
+
+msgid "Arguments"
+msgstr "Argumentos"
+
+msgid "Music on Hold"
+msgstr "Música en Espera"
+
+msgid "Submit Changes"
+msgstr "Enviar Cambios"
+
+
