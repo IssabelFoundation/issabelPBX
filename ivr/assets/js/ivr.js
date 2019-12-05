@@ -22,43 +22,45 @@ $(document).ready(function(){
 		}
 	});
 
-	//fix for popovers because jquery wont bubble up a real "submit()" correctly.
-	//See ISSABELPBX-8122 for more information
-	$('form[name=frm_ivr]')[0].onsubmit = function() {
-		//set timeout/invalid destination, removing hidden field if there is no valus being set
-		if ($('#invalid_loops').val() != 'disabled') {
-			invalid = $('[name=' + $('[name=gotoinvalid]').val() + 'invalid]').val();
-			$('#invalid_destination').val(invalid)
-		} else {
-			$('#invalid_destination').remove()
-		}
+    //fix for popovers because jquery wont bubble up a real "submit()" correctly.
+    //See ISSABELPBX-8122 for more information
+    if($('form[name=frm_ivr]').length>0) {
+        $('form[name=frm_ivr]')[0].onsubmit = function() {
+            //set timeout/invalid destination, removing hidden field if there is no valus being set
+            if ($('#invalid_loops').val() != 'disabled') {
+                invalid = $('[name=' + $('[name=gotoinvalid]').val() + 'invalid]').val();
+                $('#invalid_destination').val(invalid)
+            } else {
+                $('#invalid_destination').remove()
+            }
 
-		if ($('#timeout_loops').val() != 'disabled') {
-			timeout = $('[name=' + $('[name=gototimeout]').val() + 'timeout]').val();
-			$('#timeout_destination').val(timeout)
-		} else {
-			$('#timeout_destination').remove()
-		}
+            if ($('#timeout_loops').val() != 'disabled') {
+                timeout = $('[name=' + $('[name=gototimeout]').val() + 'timeout]').val();
+                $('#timeout_destination').val(timeout)
+            } else {
+                $('#timeout_destination').remove()
+            }
 
 
-		//set goto fileds for destinations
-		$('[name^=goto]').each(function(){
-			num = $(this).attr('name').replace('goto', '');
-			dest = $('[name=' + $(this).val() + num + ']').val();
-			$(this).parent().find('input[name="entries[goto][]"]').val(dest)
-			//console.log(num, dest, $(this).parent().find('input[name="entries[goto][]"]').val())
-		})
+            //set goto fileds for destinations
+            $('[name^=goto]').each(function(){
+                num = $(this).attr('name').replace('goto', '');
+                dest = $('[name=' + $(this).val() + num + ']').val();
+                $(this).parent().find('input[name="entries[goto][]"]').val(dest)
+                //console.log(num, dest, $(this).parent().find('input[name="entries[goto][]"]').val())
+            })
 
-		//set ret_ivr checkboxes to SOMETHING so that they get sent back
-		$('[name="entries[ivr_ret][]"]').not(':checked').each(function(){
-			$(this).attr('checked', 'checked').val('uncheked')
-		})
+            //set ret_ivr checkboxes to SOMETHING so that they get sent back
+            $('[name="entries[ivr_ret][]"]').not(':checked').each(function(){
+                $(this).attr('checked', 'checked').val('uncheked')
+            })
 
-		//disable dests so that they dont get posted
-		$('.destdropdown, .destdropdown2').attr("disabled", "disabled");
+            //disable dests so that they dont get posted
+            $('.destdropdown, .destdropdown2').attr("disabled", "disabled");
 
-		setTimeout(restore_form_elemens, 100);
-	}
+            setTimeout(restore_form_elemens, 100);
+        }
+    }
 
 	//delete rows on click
 	$('.delete_entrie').live('click', function(){
