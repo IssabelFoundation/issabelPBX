@@ -243,6 +243,7 @@ class AGI_AsteriskManager {
                             }
                         }
                     } elseif(count($parameters) == 2) {
+                        if(!isset($parameters['Response'])) { $parameters['Response']=''; }
                         if($parameters['Response'] == "Success" && isset($parameters['Message']) && $parameters['Message'] == 'Command output follows') {
                             // A 'Command output follows' response means there is a muiltiline field that follows.
                             // This is Asterisk 14 Logic:
