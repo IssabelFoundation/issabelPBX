@@ -16,8 +16,8 @@ if (! function_exists("outn")) {
 chmod(dirname(__FILE__) . '/superfecta.agi', 0755);
 
 //a list of the columns that need to be included in the table. Functions below will add and delete columns as necessary.
-$cols['source'] = "varchar(255) NOT NULL";
-$cols['field'] = "varchar(255) NOT NULL";
+$cols['source'] = "varchar(170) NOT NULL";
+$cols['field'] = "varchar(170) NOT NULL";
 $cols['value'] = "text default NULL";
 
 // create the tables for options if it doesn't exist
