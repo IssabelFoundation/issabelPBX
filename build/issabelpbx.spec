@@ -720,16 +720,40 @@ for i in /etc/asterisk/musiconhold*.conf ; do
     fi
 done
 
+# Recompile gettext .po files
+for A in `find /var/www/html/admin/modules -name \*.po`
+do
+    POFILE=${A}
+    MOFILE=${POFILE%.po}.mo
+    msgfmt $POFILE -o $MOFILE
+done
+
+for A in `find /var/www/html/admin/i18n -name \*.po`
+do
+    POFILE=${A}
+    MOFILE=${POFILE%.po}.mo
+    msgfmt $POFILE -o $MOFILE
+done
+
+systemctl restart httpd
+
 %triggerin -- gettext
 echo "Compling IssabelPBX translation files ..."
 # Recompile gettext .po files
 for A in `find /var/www/html/admin/modules -name \*.po`
 do
-POFILE=${A}
-MOFILE=${POFILE%.po}.mo
-PODIR=${A%$POFILE}
-msgfmt $POFILE -o $MOFILE
+    POFILE=${A}
+    MOFILE=${POFILE%.po}.mo
+    msgfmt $POFILE -o $MOFILE
 done
+
+for A in `find /var/www/html/admin/i18n -name \*.po`
+do
+    POFILE=${A}
+    MOFILE=${POFILE%.po}.mo
+    msgfmt $POFILE -o $MOFILE
+done
+
 systemctl restart httpd
 
 #%triggerin -- asterisk11
