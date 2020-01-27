@@ -15,11 +15,11 @@ function blacklist_get_config($engine) {
 		case "asterisk":
 
 			$id = "app-blacklist";
+			$c  = "s";
 			$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 			$ext->add($id, $c, '', new ext_macro('user-callerid'));
 
 			$id = "app-blacklist-check";
-			$c = "s";
 			// LookupBlackList doesn't seem to match empty astdb entry for "blacklist/", so we
 			// need to check for the setting and if set, send to the blacklisted area
 			// The gotoif below is not a typo.  For some reason, we've seen the CID number set to Unknown or Unavailable
