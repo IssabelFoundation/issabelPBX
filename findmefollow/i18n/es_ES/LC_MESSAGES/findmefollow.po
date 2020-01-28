@@ -29,21 +29,21 @@ msgid ""
 msgstr ""
 
 msgid "Force Follow Me"
-msgstr ""
+msgstr "Forzar Sígueme"
 
 msgid "Edit Follow Me Settings"
-msgstr ""
+msgstr "Modificar configuración Sígueme"
 
 msgid "Add Follow Me Settings"
-msgstr ""
+msgstr "Añadir configuración Sígueme"
 
 #, php-format
 msgid "Follow-Me: %s (%s)"
-msgstr ""
+msgstr "Sígueme: %s (%s)"
 
 #, php-format
 msgid "Follow-Me User: %s"
-msgstr ""
+msgstr "Usuario Sígueme: %s"
 
 msgid "Findme Follow Toggle"
 msgstr ""
