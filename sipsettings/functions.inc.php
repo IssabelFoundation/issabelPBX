@@ -242,6 +242,106 @@ function sipsettings_hookGet_config($engine) {
     return true;
 }
 
+function pjsipsettings_get($raw=false) {
+
+    $sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `pjsipsettings` ORDER BY `type`, `seq`";
+    $raw_settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+
+    // Pull this out of admin table where it is special cased because of migration from General Settings
+    //
+    $sql = "SELECT `variable` keyword, `value` data FROM `admin` WHERE `variable` = 'ALLOW_SIP_ANON'";
+    $sip_anon = sql($sql,"getRow",DB_FETCHMODE_ASSOC);
+    if (!empty($sip_anon)) {
+        $sip_anon['type'] = SIP_NORMAL;
+        $sip_anon['seq'] = 10;
+        $raw_settings[] = $sip_anon;
+    }
+
+    /* Just give the SQL table if more convenient (such as in hookGet_config */
+    if ($raw) {
+        return $raw_settings;
+    }
+
+    /* Initialize first, then replace with DB, to make sure we have defaults */
+
+    $pjsip_settings['nat']               = 'no';
+    $pjsip_settings['nat_mode']          = 'externip';
+    $pjsip_settings['externip_val']      = '';
+    $pjsip_settings['externhost_val']    = '';
+    $pjsip_settings['externrefresh']     = '120';
+    $pjsip_settings['localnet_0']        = '';
+    $pjsip_settings['netmask_0']         = '255.255.255.0';
+
+    $pjsip_settings['codecs']            =  array(
+        'ulaw'     => '1',
+        'alaw'     => '2',
+        'slin'     => '',
+        'g726'     => '',
+        'gsm'      => '3',
+        'g729'     => '',
+        'ilbc'     => '',
+        'g723'     => '',
+        'g726aal2' => '',
+        'adpcm'    => '',
+        'lpc10'    => '',
+        'speex'    => '',
+        'g722'     => '',
+        'siren7'   => '',
+        'siren14'  => '',
+        'speex16'  => '',
+        'slin16'   => '',
+        'g719'     => '',
+        'speex32'  => '',
+        'slin12'   => '',
+        'slin24'   => '',
+        'slin32'   => '',
+        'slin44'   => '',
+        'slin48'   => '',
+        'slin96'   => '',
+        'slin192'  => '',
+        'opus'     => '',
+        'silk8'    => '',
+        'silk12'   => '',
+        'silk16'   => '',
+        'silk24'   => '',
+    );
+
+    $pjsip_settings['registertimeout']   = '20';
+    $pjsip_settings['registerattempts']  = '0';
+    $pjsip_settings['maxexpiry']         = '3600';
+    $pjsip_settings['minexpiry']         = '60';
+    $pjsip_settings['defaultexpiry']     = '120';
+
+    $pjsip_settings['context']           = '';
+    $pjsip_settings['ALLOW_SIP_ANON']    = 'no';
+    $pjsip_settings['bindaddr']          = '0.0.0.0';
+    $pjsip_settings['bindport']          = '5066';
+    $pjsip_settings['tlsbindaddr']       = '0.0.0.0';
+    $pjsip_settings['tlsbindport']       = '5067';
+    $pjsip_settings['certfile']          = '/etc/asterisk/keys/asterisk.pem';
+    $pjsip_settings['sip_language']      = '';
+
+    $pjsip_settings['allowguest']        = 'no';
+
+    foreach ($raw_settings as $var) {
+        switch ($var['type']) {
+        case SIP_NORMAL:
+            $pjsip_settings[$var['keyword']]                 = $var['data'];
+            break;
+        case SIP_CODEC:
+            $pjsip_settings['codecs'][$var['keyword']]       = $var['data'];
+            break;
+
+ 
+        default:
+            // Error should be above
+        }
+    }
+    unset($raw_settings);
+
+    return $pjsip_settings;
+}
+
 function sipsettings_get($raw=false) {
 
     $sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `sipsettings` ORDER BY `type`, `seq`";
@@ -398,6 +498,7 @@ function sipsettings_edit($sip_settings) {
 
     // TODO: this is where I will build validation before saving
     //
+    $bindport='';
     $integer_msg = _("%s must be a non-negative integer");
     foreach ($sip_settings as $key => $val) {
         switch ($key) {
@@ -410,6 +511,7 @@ function sipsettings_edit($sip_settings) {
         case 'bindport':
             $msg = _("Bind Port (bindport) must be between 1024..65535, default 5060");
             $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'1',SIP_NORMAL);
+            $bindport = $val;
             break;
 
         case 'rtpholdtimeout':
@@ -559,6 +661,175 @@ function sipsettings_edit($sip_settings) {
                 die_issabelpbx($result->getDebugInfo()."<br><br>".'error adding to sipsettings table');
             }
         }
+
+        if($bindport<>'') {
+            $sql = "SELECT id FROM devices WHERE tech='sip'";
+
+            $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+            if(DB::IsError($results)) {
+                die($results->getMessage());
+            }
+            foreach($results as $result) {
+                $sql = "UPDATE sip SET data='".$bindport."' WHERE keyword='port' AND id='".$result['id']."'";
+                $results = $db->query($sql);
+                if (DB::IsError($results)) {
+                    die_issabelpbx($results->getMessage()."<br><br>".$sql);
+                }
+            }
+        }
+ 
+        return true;
+    }
+}
+
+function pjsipsettings_edit($pjsip_settings) {
+    global $db;
+    global $amp_conf;
+    $save_settings = array();
+    $save_to_admin = array(); // Used only by ALLOW_SIP_ANON for now
+    $vd = new  sipsettings_validate();
+
+    $codecs = $pjsip_settings['codecs'];
+
+    // TODO: this is where I will build validation before saving
+    //
+    $integer_msg = _("%s must be a non-negative integer");
+    foreach ($pjsip_settings as $key => $val) {
+        switch ($key) {
+        case 'bindaddr':
+            $msg = _("Bind Address (bindaddr) must be an IP address.");
+            $ipv6_ok = version_compare($amp_conf['ASTVERSION'],'1.8','ge');
+            $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg,$ipv6_ok)),'2',SIP_NORMAL);
+            break;
+
+        case 'bindport':
+            $msg = _("Bind Port (bindport) must be between 1024..65535, default 5060");
+            $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'1',SIP_NORMAL);
+            break;
+
+        case 'rtpholdtimeout':
+            // validation: must be > $pjsip_settings['rtptimeout'] (and of course a proper number)
+            //$vd->log_error();
+            if ($val < $pjsip_settings['rtptimeout']) {
+                $msg = _("rtpholdtimeout must be higher than rtptimeout");
+                $vd->log_error($val, $key, $msg);
+            }
+            $msg = sprintf($integer_msg,$key);
+            $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val, $key, $msg)),'10',SIP_NORMAL);
+            break;
+
+        case 'rtptimeout':
+        case 'rtpkeepalive':
+        case 'checkmwi':
+        case 'registertimeout':
+        case 'minexpiry':
+        case 'maxexpiry':
+        case 'defaultexpiry':
+            $msg = sprintf($integer_msg,$key);
+            $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'10',SIP_NORMAL);
+            break;
+
+        case 'maxcallbitrate':
+        case 'registerattempts':
+            $msg = sprintf($integer_msg,$key);
+            $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'10',SIP_NORMAL);
+            break;
+
+
+        case 'sip_language':
+            $msg = ("Language must be alphanumeric and installed");
+            $save_settings[] = array($key,$db->escapeSimple($vd->is_alphanumeric($val,$key,$msg)),'0',SIP_NORMAL);
+            break;
+
+        case 'context':
+            $msg = sprintf(_("%s must be alphanumeric"),$key);
+            $save_settings[] = array($key,$db->escapeSimple($vd->is_alphanumeric($val,$key,$msg)),'0',SIP_NORMAL);
+            break;
+
+        case 'externrefresh':
+            $msg = sprintf($integer_msg,$key);
+            $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg)),'41',SIP_NORMAL);
+            break;
+
+        case 'nat':
+            $save_settings[] = array($key,$val,'39',SIP_NORMAL);
+            break;
+
+        case 'externip_val':
+            if (trim($val) == '' && $pjsip_settings['nat_mode'] == 'externip') {
+                $msg = _("External IP can not be blank");
+                $vd->log_error($val, $key, $msg);
+            }
+            $save_settings[] = array($key,$val,'40',SIP_NORMAL);
+            break;
+
+        case 'externhost_val':
+            if (trim($val) == '' && $pjsip_settings['nat_mode'] == 'externhost') {
+                $msg = _("Dynamic Host can not be blank");
+                $vd->log_error($val, $key, $msg);
+            }
+            $save_settings[] = array($key,$val,'40',SIP_NORMAL);
+            break;
+        case 'allowguest':
+            $save_settings[] = array($key,$val,'10',SIP_NORMAL);
+            break;
+        case 'ALLOW_SIP_ANON':
+            $save_to_admin[] = array($key,$val);
+            break;
+        default:
+            if (substr($key,0,9) == "localnet_") {
+                // ip validate this and store
+                $seq = substr($key,9);
+                $msg = _("Localnet setting must be an IP address");
+                $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),(42+$seq),SIP_NORMAL);
+            } else if (substr($key,0,8) == "netmask_") {
+                // ip validate this and store
+                $seq = substr($key,8);
+                $msg = _("Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)");
+                $save_settings[] = array($key,$db->escapeSimple($vd->is_netmask($val,$key,$msg)),$seq,SIP_NORMAL);
+            } else if (substr($key,0,15) == "sip_custom_key_") {
+                $seq = substr($key,15);
+                $save_settings[] = array($db->escapeSimple($val),$db->escapeSimple($pjsip_settings["sip_custom_val_$seq"]),($seq),SIP_CUSTOM);
+            } else if (substr($key,0,15) == "sip_custom_val_") {
+                // skip it, we will seek it out when we see the sip_custom_key
+            } else {
+                $save_settings[] = array($key,$val,'0',SIP_NORMAL);
+            }
+        }
+    }
+
+    /* if there were any validation errors, we will return them and not proceed with saving */
+    if (count($vd->errors)) {
+        return $vd->errors;
+    } else {
+        $seq = 0;
+        foreach ($codecs as $key => $val) {
+            $save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,SIP_CODEC);
+        }
+        $seq = 0;
+        foreach ($video_codecs as $key => $val) {
+            $save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,SIP_VIDEO_CODEC);
+        }
+
+        // TODO: normally don't like doing delete/insert but otherwise we would have do update for each
+        //       individual setting and then an insert if there was nothing to update. So this is cleaner
+        //       this time around.
+        //
+        sql("DELETE FROM `pjsipsettings` WHERE 1");
+        $compiled = $db->prepare('INSERT INTO `pjsipsettings` (`keyword`, `data`, `seq`, `type`) VALUES (?,?,?,?)');
+        $result = $db->executeMultiple($compiled,$save_settings);
+        if(DB::IsError($result)) {
+            die_issabelpbx($result->getDebugInfo()."<br><br>".'error adding to pjsipsettings table');
+        }
+
+        if (!empty($save_to_admin)) {
+            $compiled = $db->prepare("REPLACE INTO `admin` (`variable`, `value`) VALUES (?,?)");
+            $result = $db->executeMultiple($compiled,$save_to_admin);
+            if(DB::IsError($result)) {
+                die_issabelpbx($result->getDebugInfo()."<br><br>".'error adding to pjsipsettings table');
+            }
+        }
+
         return true;
     }
 }

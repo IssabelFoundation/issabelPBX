@@ -23,6 +23,7 @@ if(DB::IsError($check)) {
 	// table does not exist, create it
 	sql($sql);
 
+
 	outn(_("populating default codecs.."));
   $sip_settings =  array(
     array('ulaw'    ,'1', '0'),
@@ -51,6 +52,32 @@ if(DB::IsError($check)) {
 } else {
 	out(_("already exists"));
 }
+
+
+$sql = <<< END
+CREATE TABLE IF NOT EXISTS `pjsipsettings` (
+  `keyword` VARCHAR (50) NOT NULL default '',
+  `data`    VARCHAR (255) NOT NULL default '',
+  `seq`     TINYINT (1),
+  `type`    TINYINT (1) NOT NULL default '0',
+  PRIMARY KEY (`keyword`,`seq`,`type`)
+)
+END;
+
+outn(_("checking for pjsipsettings table.."));
+$tsql = "SELECT * FROM `pjsipsettings` limit 1";
+$check = $db->getRow($tsql, DB_FETCHMODE_ASSOC);
+if(DB::IsError($check)) {
+	out(_("none, creating table"));
+	// table does not exist, create it
+	sql($sql);
+
+} else {
+	out(_("already exists"));
+}
+
+
+
 
 out(_("Migrate rtp.conf values if needed and initialize"));
 
