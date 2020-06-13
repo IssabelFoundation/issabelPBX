@@ -61,6 +61,8 @@ class core_conf {
         global $chan_dahdi;
 
         $files = array(
+            'pjsip_additional.conf',
+            'pjsip_transport_additional.conf',
             'sip_additional.conf',
             'sip_registrations.conf',
             'iax_additional.conf',
@@ -93,6 +95,12 @@ class core_conf {
                 break;
             case 'sip_additional.conf':
                 return $this->generate_sip_additional($version);
+                break;
+            case 'pjsip_additional.conf':
+                return $this->generate_pjsip_additional($version);
+                break;
+            case 'pjsip_transport_additional.conf':
+                return $this->generate_pjsip_transport_additional($version);
                 break;
             case 'sip_registrations.conf':
                 return $this->generate_sip_registrations($version);
@@ -386,6 +394,603 @@ class core_conf {
         return $output;
     }
 
+    function generate_pjsip_transport_additional($ast_version) {
+        global $db;
+
+        $output1 = array();
+        $output2 = array();
+        $output3 = array();
+        $output4 = array();
+
+        $output1[] = "[transport-udp]";
+        $output1[] = "type=transport";
+        $output1[] = "protocol=udp";
+        $output1[] = "allow_reload=true";
+           
+        $output2[] = "[transport-tcp]";
+        $output2[] = "type=transport";
+        $output2[] = "protocol=tcp";
+        $output2[] = "allow_reload=true";
+
+        $output3[] = "[transport-tls]";
+        $output3[] = "type=transport";
+        $output3[] = "protocol=tls";
+        $output3[] = "allow_reload=true";
+        $output3[] = "ca_list_file=/etc/pki/tls/certs/ca-bundle.crt";
+
+        $output4[] = "[transport-ws]";
+        $output4[] = "type=transport";
+        $output4[] = "protocol=ws";
+        $output4[] = "allow_reload=true";
+ 
+        $output5[] = "[transport-wss]";
+        $output5[] = "type=transport";
+        $output5[] = "protocol=wss";
+        $output5[] = "allow_reload=true";
+ 
+        $sql = "SELECT keyword,data FROM pjsipsettings";
+
+        $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+        if(DB::IsError($results)) {
+            die($results->getMessage());
+        }
+
+        $bindaddr_df     = '0.0.0.0';
+        $bindport_df     = '5066';
+        $tlsbindaddr_df  = '0.0.0.0';
+        $tlsbindport_df  = '5067';
+
+        $localnet     = array();
+        $netmask      = array();
+
+        foreach($results as $result) {
+            $kw     = strtolower($result['keyword']);
+            $value  = strtolower($result['data']);
+            if($kw=='bindaddr') {
+                $bindaddr = ($value<>'')?$value:$bindaddr_df;
+            } else
+            if($kw=='bindport') {
+                $bindport = ($value<>'')?$value:$bindport_df;
+            } else
+            if($kw=='tlsbindaddr') {
+                $tlsbindaddr = ($value<>'')?$value:$tlsbindaddr_df;
+            } else
+            if($kw=='tlsbindport') {
+                $tlsbindport = ($value<>'')?$value:$tlsbindport_df; 
+            } else 
+            if($kw=='certfile') {
+                $output3[]="cert_file=$value";
+            } else
+            if(substr($kw,0,8)=="localnet") {
+                $parts = preg_split("/_/",$kw);
+                $localnet[$parts[1]]=$value;
+            } else
+            if(substr($kw,0,7)=="netmask") {
+                $parts = preg_split("/_/",$kw);
+                $netmask[$parts[1]]=$value;
+            } else 
+            if($kw=='externip_val') {
+                $externip = $value;
+            } else 
+            if($kw=='externhost_val') {
+                $externhost = $value;
+            } else 
+            if($kw=='nat_mode') {
+                $natmode = $value;
+            } else
+            if($kw=='nat') {
+                $nat=$value;
+            }
+        }
+
+        $output1[]="bind=$bindaddr:$bindport";
+        $output2[]="bind=$bindaddr:$bindport";
+        $output3[]="bind=$tlsbindaddr:$tlsbindport";
+        $output4[]="bind=$bindaddr:$bindport";
+        $output5[]="bind=$bindaddr:$bindport";
+
+        if($nat=='yes') {
+            if($natmode=='externhost') { 
+                $output1[]="external_media_address=".$externhost;
+                $output1[]="external_signaling_address=".$externhost;
+                $output2[]="external_media_address=".$externhost;
+                $output2[]="external_signaling_address=".$externhost;
+                $output3[]="external_media_address=".$externhost;
+                $output3[]="external_signaling_address=".$externhost;
+                $output4[]="external_media_address=".$externhost;
+                $output4[]="external_signaling_address=".$externhost;
+                $output5[]="external_media_address=".$externhost;
+                $output5[]="external_signaling_address=".$externhost;
+            } else 
+            if($natmode=='externip') {
+                $output1[]="external_media_address=".$externip;
+                $output1[]="external_signaling_address=".$externip;
+                $output2[]="external_media_address=".$externip;
+                $output2[]="external_signaling_address=".$externip;
+                $output3[]="external_media_address=".$externip;
+                $output3[]="external_signaling_address=".$externip;
+                $output4[]="external_media_address=".$externip;
+                $output4[]="external_signaling_address=".$externip;
+                $output5[]="external_media_address=".$externip;
+                $output5[]="external_signaling_address=".$externip;
+            }
+
+            foreach($localnet as $idx=>$value) {
+                $output1[]="local_net=".$value."/".$netmask[$idx];
+                $output2[]="local_net=".$value."/".$netmask[$idx];
+                $output3[]="local_net=".$value."/".$netmask[$idx];
+                $output4[]="local_net=".$value."/".$netmask[$idx];
+                $output5[]="local_net=".$value."/".$netmask[$idx];
+            }
+        }
+
+
+        $output.= implode("\n",$output1);
+        $output.= "\n";
+        $output.= "\n";
+        $output.= implode("\n",$output2);
+        $output.= "\n";
+        $output.= "\n";
+        $output.= implode("\n",$output3);
+        $output.= "\n";
+        $output.= "\n";
+        $output.= implode("\n",$output4);
+        $output.= "\n";
+        $output.= "\n";
+        $output.= implode("\n",$output5);
+        $output.= "\n";
+        $output.= "\n";
+        $output.= "\n";
+
+        return $output; 
+    }
+
+    function generate_pjsip_additional($ast_version) {
+
+        global $db;
+        global $astman;
+
+        $additional = "";
+        $output1 = array();
+        $output2 = array();
+        $output3 = array();
+
+        $allowguest = sql("SELECT `data` FROM `pjsipsettings` WHERE `keyword` = 'allowguest'",'getOne');
+        $output0 = array();
+        if($allowguest=='yes') {
+            $output0[]="[anonymous]";
+            $output0[]="type=endpoint";
+            $output0[]="context=from-sip-external";
+            $output0[]="allow=all";
+            $output0[]="transport=udp,tcp,ws,wss";
+            $output0[]="";
+        }
+
+        $deflang = sql("SELECT `data` FROM `pjsipsettings` WHERE `keyword` = 'sip_language'",'getOne');
+        $default_language = ($deflang<>'')?$deflang:'';
+
+        $sql = "SELECT data,sip.id from sip LEFT JOIN devices ON devices.id=sip.id where tech='pjsip' and keyword='account' group by data";
+
+        $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+        if(DB::IsError($results)) {
+            die($results->getMessage());
+        }
+
+        $output='';
+        // allow guest - anonymous
+        $output.= implode("\n",$output0);
+        $output.= "\n";
+
+        foreach ($results as $result) {
+
+            $account = $result['data'];
+            $id      = $result['id'];
+
+            if($astman) {
+                $endpoint_lang = $astman->database_get("AMPUSER",$account."/language");
+            }
+            $lang = ($endpoint_lang<>'')?$endpoint_lang:$default_language;
+
+            $output1 = array();
+            $output2 = array();
+            $output3 = array();
+
+            $output1[] = "[$account]";
+            $output1[] = "auth=auth$account";
+            $output1[] = "aors=$account";
+            $output1[] = "type=endpoint";
+            if($lang<>'') {
+                $output1[] = "language=$lang";
+            }
+           
+            $output2[] = "[auth$account]";
+            $output2[] = "type=auth";
+            $output2[] = "auth_type=userpass"; 
+            $output2[] = "username=$account";
+
+            $output3[] = "[$account]";
+            $output3[] = "type=aor";
+
+            $cod=array();
+            $sql = "SELECT keyword FROM pjsipsettings WHERE type=1 AND data<>'' ORDER BY data";
+            $res = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+            if(DB::IsError($results2_pre)) {
+                die($results2->getMessage());
+            }
+            foreach ($res as $element) {
+                $cod[]=$element['keyword'];
+            }
+            $codecs = implode(",",$cod);
+
+            $sql = "SELECT keyword,data from sip where id='$id' and keyword <> 'account' and flags <> 1 order by flags, keyword DESC";
+            $results2_pre = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+            if(DB::IsError($results2_pre)) {
+                die($results2->getMessage());
+            }
+
+            $results2 = array();
+            foreach ($results2_pre as $element) {
+                if (strtolower(trim($element['keyword'])) != 'secret') {
+                    $options = explode("&", $element['data']);
+                    foreach ($options as $option) {
+                        if (($element['keyword'] == 'disallow' && $option == 'all') | ($element['keyword'] == 'deny')) {
+                            array_unshift($results2,array('keyword'=>$element['keyword'],'data'=>$option));
+                        } else {
+                            $results2[] = array('keyword'=>$element['keyword'],'data'=>$option);
+                        }
+                    }
+                } else {
+                    $results2[] = array('keyword'=>$element['keyword'],'data'=>str_replace(';','\;',$element['data']));
+                }
+            }
+            unset($results2_pre);
+
+            $context='';
+            foreach ($results2 as $result2) {
+                $option = strtolower($result2['data']);
+                $kw     = strtolower($result2['keyword']);
+                switch ($kw) {
+                        case 'dtmfmode':
+                        case 'insecure':
+                        case 'canreinvite':
+                        case 'port':
+                        case 'qualify':
+                        case 'dtlsenable':
+                        case 'dial':
+                        case 'encryption':
+                        case 'host':
+                            break;
+                        case 'sendrpid':
+                            $output1[]='send_rpid='.$result2['data'];
+                            break;
+                        case 'trustrpid':
+                            $output1[]='trust_id_inbound='.$result2['data'];
+                            break;
+                        case 'disallow':
+                            if($option<>'') {
+                                $output1[]='disallow='.$option;
+                            } else {
+                                $output1[]='disallow=all';
+                            }
+                            break;
+                        case 'allow':
+                            if($option<>'') {
+                                $output1[]='allow='.$option;
+                            } else {
+                                $output1[]='allow='.$codecs;
+                            }
+                            break;
+                        case 'transport':
+                            $output1[]='transport='.$result2['data'];
+                            break;
+                        case 'allow':
+                            if($result2['data']=='') $result2['data']='all';
+                            $output1[]='allow='.$result2['data'];
+                            break;
+                        case 'pickupgroup':
+                            $output1[]='pickup_group='.$result2['data'];
+                            break;
+                        case 'callgroup':
+                            $output1[]='call_group='.$result2['data'];
+                            break;
+                        case 'dtmfmode':
+                            $output1[]='dtmf_mode='.$result2['data'];
+                            break;
+                        case 'icesupport':
+                            $output1[]='ice_support='.$result2['data'];
+                            break;
+                        case 'avpf':
+                            $output1[]='use_avpf='.$result2['data'];
+                            break;
+                        case 'dtlsverify':
+                            $output1[]='dtls_verify='.$result2['data'];
+                            break;
+                        case 'dtlssetup':
+                            $output1[]='dtls_setup='.$result2['data'];
+                            break;
+                        case 'qualifyfreq':
+                            $output3[] = "qualify_frequency=".$result2['data'];
+                            break;
+                        case 'type':
+                            $output1[] = "type=endpoint";
+                            break;
+                        case 'secret':
+                            $output2[] = "password=".$result2['data'];
+                            break;
+                        case 'nat':
+                            if ($option=='yes') {
+                                $output1[]="rtp_symmetric=yes";
+                                $output1[]="force_rport=yes";
+                                $output1[]="rewrite_contact=yes";
+                            } else if($option=='no' || $option=='never') {
+                                $output1[]="rtp_symmetric=no";
+                                $output1[]="force_rport=no";
+                                $output1[]="rewrite_contact=no";
+                            } else {
+                                $output1[]="rtp_symmetric=no";
+                                $output1[]="force_rport=yes";
+                                $output1[]="rewrite_contact=yes";
+                            }
+                            break;
+                        case 'accountcode':
+                            if ($option != '')
+                                $output1[] = $result2['keyword']."=".$result2['data'];
+                            break;
+                        case 'callerid':
+                        case 'mailbox':
+                            $text = substr($this->map_dev_user($account, $result2['keyword'], $result2['data']),0,-1);
+                            $text = preg_replace("/mailbox=/","mailboxes=",$text);
+                            $output1[] = $text;
+                            break;
+                        case 'max_contacts':
+                            $output3[]=$kw."=".intval($option);
+                            break;
+                        case 'qualify_timeout':
+                            $output3[]=$kw."=".$option;
+                            break;
+                        case 'authenticate_qualify':
+                            $output3[]=$kw."=".$option;
+                            break;
+                        default:
+                            $output1[] = $result2['keyword']."=".$result2['data'];
+                    }
+            }
+
+            $output.= implode("\n",$output1);
+            $output.= "\n";
+            $output.= "\n";
+            $output.= implode("\n",$output2);
+            $output.= "\n";
+            $output.= "\n";
+            $output.= implode("\n",$output3);
+            $output.= "\n";
+            $output.= "\n";
+
+        }
+
+
+        //trunks
+
+        $username = array();
+        $server   = array();
+        $aor      = array();
+        $auth     = array();
+        $reg      = array();
+        $endp     = array();
+        $match    = array();
+        $authentication = array();
+        $registration = array();
+        $server = array();
+
+        $sql = "SELECT channelid,keyword,data FROM trunks LEFT JOIN sip ON CONCAT('pjsip-',trunkid)=sip.id WHERE tech='pjsip' UNION ";
+        $sql .= "SELECT channelid,keyword,data FROM trunks LEFT JOIN sip ON CONCAT('tr-reg-',trunkid)=sip.id WHERE tech='pjsip' ";
+        $res = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+        if(DB::IsError($results2_pre)) {
+            die($results2->getMessage());
+        }
+
+        foreach ($res as $element) {
+           $channelid = $element['channelid'];
+           $keyword   = $element['keyword'];
+           $data      = $element['data'];
+           if($keyword=='registration') {
+               $registration[$channelid]=$data;
+               if($data=='receive' ) {
+                   $aor[$channelid]['max_contacts']="1";
+               } 
+               if($data=='none') {
+                   $aor[$channelid]['contact']="sip:#SERVER#";
+               } else {
+                   $aor[$channelid]['contact']="sip:#USER#@#SERVER#";
+               }
+           } else if ($keyword == "authentication") {
+               $authentication[$channelid]=$data;
+               if($data=='outbound') {
+                   $endp[$channelid]['outbound_auth']=$channelid;
+               } else if($data=='inbound') {
+                   $endp[$channelid]['auth']=$channelid;
+               } else if($data=='both') {
+                   $endp[$channelid]['outbound_auth']=$channelid;
+                   $endp[$channelid]['auth']=$channelid;
+               }
+           } else if ($keyword == "username") {
+               if($data<>'') {
+                   $auth[$channelid]['username']=$data;
+               } else {
+                   $auth[$channelid]['username']=$channelid;
+               }
+           } else if ($keyword == "secret") {
+               $auth[$channelid]['secret']=$data;
+           } else if ($keyword == "server") {
+               $server[$channelid]=$data;
+           } else if ($keyword == "qualify_frequency") {
+               $aor[$channelid]['qualify_frequency']=$data;
+           } else if ($keyword == "support_path") {
+               $aor[$channelid]['support_path']=$data;
+           } else if ($keyword == "match") {
+               $match[$channelid]=$data;
+           } else if ($keyword == "retry_interval") {
+               $reg[$channelid]['retry_interval']=$data;
+           } else if ($keyword == "max_retries") {
+               $reg[$channelid]['max_retries']=$data;
+           } else if ($keyword == "expiration") {
+               $reg[$channelid]['expiration']=$data;
+           } else if ($keyword == "transport") {
+               $reg[$channelid]['transport']=$data;
+               $endp[$channelid]['transport']=$data;
+           } else if ($keyword == "auth_rejection_permanent") {
+               $reg[$channelid]['auth_rejection_permanent']=$data;
+           } else if ($keyword == "context") {
+               $endp[$channelid]['context']=$data;
+           } else if ($keyword == "direct_media") {
+               $endp[$channelid]['direct_media']=$data;
+           } else if ($keyword == "rtp_symmetric") {
+               $endp[$channelid]['rtp_symmetric']=$data;
+           } else if ($keyword == "rewrite_contact") {
+               $endp[$channelid]['rewrite_contact']=$data;
+           } else if ($keyword == "dtmf_mode") {
+               $endp[$channelid]['dtmf_mode']=$data;
+           } else if ($keyword == "trust_id_inbound") {
+               $endp[$channelid]['trust_id_inbound']=$data;
+           } else if ($keyword == "fax_detect") {
+               $endp[$channelid]['fax_detect']=$data;
+           } else if ($keyword == "t38_udptl") {
+               $endp[$channelid]['t38_udptl']=$data;
+           } else if ($keyword == "t38_udptl_nat") {
+               $endp[$channelid]['t38_udptl_nat']=$data;
+           } else if ($keyword == "t38_udptl_ec") {
+               $endp[$channelid]['t38_udptl_ec']=$data;
+           } else if ($keyword == "codecs") {
+               $endp[$channelid]['allow']=$data;
+           } else if ($keyword == "from_domain") {
+               $endp[$channelid]['from_domain']=$data;
+           } else if ($keyword == "from_user") {
+               $endp[$channelid]['from_user']=$data;
+           }
+        }
+
+        $output_aor = array();
+        foreach($aor as $id=>$data) {
+            $output_aor[]="[$id]";
+            $output_aor[]="type=aor";
+            foreach($data as $key=>$val) {
+                if($key=='contact') {
+                    if($registration[$id]=='receive') {
+                        $val=''; // we do not want contact in aor  
+                    } else {
+                        $val = preg_replace("/#SERVER#/",$server[$id],$val);
+                        if($authentication[$id]=='outbound') {
+                            $val = preg_replace("/#USER#/",$auth[$id]['username'],$val);
+                        } else {
+                            $val = preg_replace("/#USER#/",$id,$val);
+                        }
+                    }
+                } 
+                if(trim($val)<>'') {
+                    $output_aor[]="$key=$val";
+                }
+            }
+            $output_aor[]="";
+        }
+
+        $output_auth = array();
+        foreach($auth as $id=>$data) {
+            $output_auth[]="[$id]";
+            $output_auth[]="type=auth";
+            $output_auth[]="auth_type=userpass";
+            foreach($data as $key=>$val) {
+                if($key=='secret') {
+                    if($authentication[$id]=='none') {
+                         $output_auth[]="password=";
+                    } else {
+                         $output_auth[]="password=$val";
+                    }
+                } else {
+                    if(trim($val)<>'') {
+                        $output_auth[]="$key=$val";
+                    } else {
+                        if($key=='username') {
+                            $output_auth[]="username=$id";
+                        }
+                    }
+                }
+            }
+            if($authentication[$id]<>'outbound') {
+                $output_auth[]="username=$id";
+            }
+            $output_auth[]="";
+        }
+ 
+        $output_identify = array();
+        foreach($server as $id=>$value) {
+            $output_identify[]="[$id]";
+            $output_identify[]="type=identify";
+            $output_identify[]="endpoint=$id";
+
+            $thismatch = $value;
+            if(isset($match[$id])) {
+                if(trim($match[$id])<>"") {
+                    $thismatch = $match[$id];
+                }
+            }
+            $output_identify[]="match=".$thismatch;
+            $output_identify[]="";
+        }
+ 
+        $output_registration = array();
+        foreach($registration as $id=>$value) {
+            if($value=='send') {
+                $output_registration[]="[$id]";
+                $output_registration[]="type=registration";
+                $output_registration[]="endpoint=$id";
+                $output_registration[]="line=yes";
+                $output_registration[]="outbound_auth=$id";
+                $output_registration[]="server_uri=sip:".$server[$id];
+                if($authentication[$id]=='outbound') {
+                    $output_registration[]="client_uri=sip:".$auth[$id]['username']."@".$server[$id];
+                } else {
+                    $output_registration[]="client_uri=sip:".$id."@".$server[$id];
+                }
+                foreach($reg[$id] as $key=>$val) {
+                    if(trim($val)<>'') {
+                        $output_registration[]="$key=$val";
+                    }
+                }
+            }
+            $output_registration[]="";
+        }
+
+        $output_endpoint = array();
+        foreach($endp as $id=>$data) {
+            $output_endpoint[]="[$id]";
+            $output_endpoint[]="type=endpoint";
+            $output_endpoint[]="aors=$id";
+            $output_endpoint[]="disallow=all";
+            foreach($data as $key=>$val) {
+                if(trim($val)<>'') {
+                    $output_endpoint[]="$key=$val";
+                }
+            }
+            $output_endpoint[]="";
+        }
+
+        $output.= "; Trunks\n";
+        $output.= "\n";
+        $output.= "\n";
+        $output.= implode("\n",$output_aor);
+        $output.= "\n";
+        $output.= implode("\n",$output_auth);
+        $output.= "\n";
+        $output.= implode("\n",$output_identify);
+        $output.= "\n";
+        $output.= implode("\n",$output_registration);
+        $output.= "\n";
+        $output.= implode("\n",$output_endpoint);
+        $output.= "\n";
+
+        return $output;
+    }
+
     function generate_sip_additional($ast_version) {
         global $db;
 
@@ -451,7 +1056,7 @@ class core_conf {
             }
         }
 
-        $sql = "SELECT data,id from $table_name where keyword='account' and flags <> 1 group by data";
+        $sql = "SELECT data,$table_name.id from $table_name LEFT JOIN devices ON devices.id=$table_name.id where keyword='account' and flags <> 1 AND (tech='sip' OR (tech is null AND sip.id NOT LIKE 'pjsip%')) group by data";
         $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
         if(DB::IsError($results)) {
            die($results->getMessage());
@@ -571,7 +1176,7 @@ class core_conf {
         $table_name = "sip";
         $output = "";
 
-        $sql = "SELECT keyword,data FROM $table_name WHERE `id` LIKE 'tr-reg-%' AND keyword <> 'account' AND flags <> 1";
+        $sql = "SELECT keyword,data FROM $table_name LEFT JOIN trunks ON substr(id,8)=trunks.trunkid WHERE `id` LIKE 'tr-reg-%' AND keyword <> 'account' AND flags <> 1 AND tech<>'pjsip'";
         $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
         if(DB::IsError($results)) {
             die($results->getMessage());
@@ -2720,7 +3325,13 @@ function core_do_get_config($engine) {
       }
 
             $ext->add($context, $exten, '', new ext_gotoif('$["${custom}" = "AMP"]', 'customtrunk'));
-            $ext->add($context, $exten, '', new ext_dial('${OUT_${DIAL_TRUNK}}/${OUTNUM}', '${TRUNK_RING_TIMER},${DIAL_TRUNK_OPTIONS}'));  // Regular Trunk Dial
+
+// pjsip trunk dial
+            $ext->add($context, $exten, '', new ext_set('DIALSTR', '${OUT_${DIAL_TRUNK}}/${OUTNUM}}')); 
+            $ext->add($context, $exten, '', new ext_gosubif('$["${DIALSTR:0:5}" = "PJSIP"]','pjsipdial,1'));
+            $ext->add($context, $exten, '', new ext_dial('${DIALSTR}', '${TRUNK_RING_TIMER},${DIAL_TRUNK_OPTIONS}'));  // Regular Trunk Dial
+
+//            $ext->add($context, $exten, '', new ext_dial('${OUT_${DIAL_TRUNK}}/${OUTNUM}', '${TRUNK_RING_TIMER},${DIAL_TRUNK_OPTIONS}'));  // Regular Trunk Dial
             $ext->add($context, $exten, '', new ext_noop('Dial failed for some reason with DIALSTATUS = ${DIALSTATUS} and HANGUPCAUSE = ${HANGUPCAUSE}'));
             $ext->add($context, $exten, '', new ext_gotoif('$["${ARG4}" = "on"]','continue,1', 's-${DIALSTATUS},1'));
 
@@ -2733,6 +3344,12 @@ function core_do_get_config($engine) {
             $ext->add($context, $exten, '', new ext_noop('Dial failed for some reason with DIALSTATUS = ${DIALSTATUS} and HANGUPCAUSE = ${HANGUPCAUSE}'));
             $ext->add($context, $exten, '', new ext_gotoif('$["${ARG4}" = "on"]','continue,1', 's-${DIALSTATUS},1'));
             $ext->add($context, $exten, 'chanfull', new ext_noop('max channels used up'));
+
+            $exten = "pjsipdial";
+            $ext->add($context,$exten,'', new ext_set('PJ', '${CUT(DIALSTR,/,2)}'));
+            $ext->add($context,$exten,'', new ext_set('DIALSTR', 'PJSIP/${OUTNUM}@${PJ}'));
+            $ext->add($context,$exten,'', new ext_return(''));
+
 
             $exten = 's-BUSY';
             /*
@@ -4342,6 +4959,9 @@ function core_do_get_config($engine) {
         $ext->add($mcontext,$exten,'', new ext_set('LOOPCNT', '${FIELDQTY(DEVICES,&)}'));
         $ext->add($mcontext,$exten,'', new ext_set('ITER', '1'));
         $ext->add($mcontext,$exten,'begin', new ext_set('THISDIAL', '${DB(DEVICE/${CUT(DEVICES,&,${ITER})}/dial)}'));
+
+        $ext->add($mcontext,$exten,'', new ext_gosubif('$["${THISDIAL:0:5}" = "PJSIP"]','pjsipdial,1'));
+
         if ($chan_dahdi) {
           $ext->add($mcontext,$exten,'', new ext_gosubif('$["${ASTCHANDAHDI}" = "1"]','zap2dahdi,1'));
         }
@@ -4371,6 +4991,11 @@ function core_do_get_config($engine) {
           $ext->add($mcontext,$exten,'', new ext_set('THISDIAL', '${NEWDIAL:0:$[${LEN(${NEWDIAL})}-1]}'));
           $ext->add($mcontext,$exten,'', new ext_return(''));
         }
+
+        $exten = "pjsipdial";
+        $ext->add($mcontext,$exten,'', new ext_set('PJ', '${CUT(THISDIAL,/,2)}'));
+        $ext->add($mcontext,$exten,'', new ext_set('THISDIAL', '${PJSIP_DIAL_CONTACTS(${PJ})}'));
+        $ext->add($mcontext,$exten,'', new ext_return(''));
 
             /*
              * There are reported bugs in Asterisk Blind Trasfers that result in Dial() returning and continuing
@@ -4812,8 +5437,10 @@ function core_devices_add($id,$tech,$dial,$devicetype,$user,$description,$emerge
         exec("/bin/ln -s /var/spool/asterisk/voicemail/".$vmcontext."/".$user."/ /var/spool/asterisk/voicemail/device/".$id);
     }
 
+    $tech = strtolower($tech);
+
     //take care of sip/iax/zap config
-    $funct = "core_devices_add".strtolower($tech);
+    $funct = "core_devices_add".$tech;
 
   // before calling device specifc funcitions, get rid of any bogus fields in the REQUEST array
   //
@@ -4885,7 +5512,9 @@ function core_devices_del($account,$editmode=false){
     }
 
     //take care of sip/iax/zap config
-    $funct = "core_devices_del".strtolower($devinfo['tech']);
+    $tech = strtolower($devinfo['tech']);
+    if($tech=='pjsip') { $tech='sip'; }
+    $funct = "core_devices_del".$tech;
     if(function_exists($funct)){
         $funct($account);
     }
@@ -4900,7 +5529,9 @@ function core_devices_get($account){
     }
 
     //take care of sip/iax/zap config
-    $funct = "core_devices_get".strtolower($results['tech']);
+    $tech = strtolower($results['tech']);
+    if($tech=='pjsip') { $tech='sip'; }
+    $funct = "core_devices_get".$tech;
     if (!empty($results['tech']) && function_exists($funct)) {
         $devtech = $funct($account);
         if (is_array($devtech)){
@@ -4998,8 +5629,12 @@ function core_users2astdb(){
 //    is "true" the correct value...?
 }
 
+function core_devices_addpjsip($account) {
+    core_devices_addsip($account,'pjsip');
+}
+
 //add to sip table
-function core_devices_addsip($account) {
+function core_devices_addsip($account,$pjsip='') {
     global $db;
     global $amp_conf;
 
@@ -5009,9 +5644,17 @@ function core_devices_addsip($account) {
             $keyword = substr($req, 8);
             $data = trim($data);
             if ( $keyword == 'dial' && $data == '' ) {
-                $sipfields[] = array($account, $keyword, 'SIP/'.$account, $flag++);
+                if($pjsip=='pjsip') {
+                    $sipfields[] = array($account, $keyword, 'PJSIP/'.$account, $flag++);
+                } else {
+                    $sipfields[] = array($account, $keyword, 'SIP/'.$account, $flag++);
+                }
             } elseif ($keyword == 'mailbox' && $data == '') {
-                $sipfields[] = array($account,'mailbox',$account.'@device', $flag++);
+                if($pjsip=='pjsip') {
+                    $sipfields[] = array($account,'mailbox',$account, $flag++);
+                } else {
+                    $sipfields[] = array($account,'mailbox',$account.'@device', $flag++);
+                }
             } elseif ($keyword == 'vmexten' && $data == '') {
                 // don't add it
             } elseif (in_array($keyword, array('dtlscertfile', 'dtlsprivatekey')) && $data == '') {
@@ -6094,6 +6737,11 @@ function core_trunks_del($trunknum, $tech = null) {
         case "iax":
         case "sip":
             sql("DELETE FROM `$tech` WHERE `id` IN ('tr-peer-$trunknum', 'tr-user-$trunknum', 'tr-reg-$trunknum')");
+            break;
+        case "pjsip":
+            $tech='sip';
+            sql("DELETE FROM `$tech` WHERE `id` IN ('pjsip-$trunknum', 'tr-reg-$trunknum')");
+
         break;
     }
     sql("DELETE FROM `trunks` WHERE `trunkid` = '$trunknum'");
@@ -6150,6 +6798,35 @@ function core_trunks_backendAdd($trunknum, $tech, $channelid, $dialoutprefix, $m
                 core_trunks_addRegister($trunknum,'sip',$register,$disable_flag);
             }
         break;
+        case "pjsip":
+            core_trunks_addSipOrIax($userconfig,'sip',$channelid,$trunknum,$disable_flag,'pjsip');
+            if ($register == "send") {
+                $pjuser   = '';
+                $pjsecret = '';
+                $pjserver = '';
+                $pjport   = '';
+
+                $lineas = explode("\n",$userconfig);
+                foreach($lineas as $linea) {
+                    $partes = preg_split("/=/",$linea);
+                    if($partes[0]=='username') {
+                        $pjuser=$partes[1];
+                    } else if($partes[0]=='secret') {
+                        $pjsecret=$partes[1];
+                    } else if($partes[0]=='server') {
+                        $pjserver=$partes[1];
+                    } else if($partes[0]=='port') {
+                        $pjport=$partes[1];
+                    }
+                }
+
+                $register_string = $pjuser.":".$pjsecret."@".$pjserver;
+                if($pjport<>'') { $register_string.=":".$pjport; }
+ 
+                core_trunks_addRegister($trunknum,'pjsip',$register_string,$disable_flag);
+            }
+        break;
+
     }
 
     $sql = "
@@ -6205,6 +6882,9 @@ function core_trunks_addSipOrIax($config,$table,$channelid,$trunknum,$disable_fl
         case 'user':
             $trunknum = 'tr-user-'.$trunknum;
             break;
+        case 'pjsip':
+            $trunknum = 'pjsip-'.$trunknum;
+           break;
     }
 
     $confitem['account'] = $channelid;
@@ -6346,6 +7026,9 @@ function core_trunks_list($assoc = false) {
 function core_trunks_addRegister($trunknum,$tech,$reg,$disable_flag=0) {
     global $db;
     $reg = $db->escapeSimple(trim($reg));
+    if($tech=='pjsip') { 
+        $tech='sip';
+    }
     $trunkreg = "tr-reg-$trunknum";
     sql("INSERT INTO $tech (id, keyword, data, flags) values (".q($trunkreg).", 'register', ".q($reg).', '.q($disable_flag).')');
 }
@@ -6443,6 +7126,8 @@ function core_trunks_getTrunkPeerDetails($trunknum) {
 
     $tech = core_trunks_getTrunkTech($trunknum);
 
+    if($tech=='pjsip') { $tech='sip'; }
+
     if (!core_trunk_has_registrations($tech)) {
         return '';
     }
@@ -6472,7 +7157,11 @@ function core_trunks_getTrunkUserConfig($trunknum) {
         return '';
     }
 
-    $results = sql("SELECT keyword,data FROM $tech WHERE `id` = 'tr-user-$trunknum' ORDER BY flags, keyword DESC","getAll");
+    if($tech=='pjsip') {
+        $results = sql("SELECT keyword,data FROM sip WHERE `id` = 'pjsip-$trunknum' ORDER BY flags, keyword DESC","getAll");
+    } else {
+        $results = sql("SELECT keyword,data FROM $tech WHERE `id` = 'tr-user-$trunknum' ORDER BY flags, keyword DESC","getAll");
+    }
 
     foreach ($results as $result) {
         if ($result[0] != 'account') {
@@ -6488,6 +7177,7 @@ function core_trunks_getTrunkUserConfig($trunknum) {
 //get trunk account register string
 function core_trunks_getTrunkRegister($trunknum) {
     $tech = core_trunks_getTrunkTech($trunknum);
+    if($tech=='pjsip') { $tech='sip'; }
     if (!core_trunk_has_registrations($tech)){
         return '';
     }
@@ -7003,8 +7693,8 @@ function general_generate_indications() {
     $notify->delete('core', 'INDICATIONS');
 
     $indication_warning = ";--------------------------------------------------------------------------------;
-; Do NOT edit this file as it is auto-generated by IssabelPBX. All modifications to ;
-; this file must be done via the web gui.                                        ;
+; Do NOT edit this file as it is auto-generated by IssabelPBX. All modifications    ;
+; to this file must be done via the web gui.                                        ;
 ;--------------------------------------------------------------------------------;\n\n";
      fwrite($fd, $indication_warning);
     fwrite($fd, "[general]\ncountry=".$country."\n\n[".$country."]\n");
@@ -7793,6 +8483,62 @@ function core_devices_configpageinit($dispnum) {
         $currentcomponent->addgeneralarrayitem('devtechs', 'sip', $tmparr);
         unset($tmparr);
 
+        // start pjsip, reuse sip settings, remove not used, add new
+        unset($tmparr['insecure']);
+        unset($tmparr['canreinvite']);
+        unset($tmparr['port']);
+        unset($tmparr['qualify']);
+        unset($tmparr['dial']);
+        unset($tmparr['dtlsenable']);
+        unset($tmparr['encryption']);
+        unset($tmparr['host']);
+        unset($tmparr['nat']);
+        unset($tmparr['type']);
+        unset($tmparr['vmexten']);
+
+        unset($select);
+        $select[] = array('value' => 'transport-udp', 'text' => _('UDP'));
+        $select[] = array('value' => 'transport-tcp', 'text' => _('TCP'));
+        $select[] = array('value' => 'transport-tls', 'text' => _('TLS'));
+        $select[] = array('value' => 'transport-ws', 'text' => _('WS'));
+        $select[] = array('value' => 'transport-wss', 'text' => _('WSS'));
+        $tt = _("Transport setting: if phone is behind some kind of NAT, chose transport NAT");
+        $tmparr['transport'] = array('value' => 'transport-udp', 'tt' => $tt, 'select' => $select, 'level' => 1);
+
+        unset($select);
+        $select[] = array('value' => 'yes', 'text' => _('Yes'));
+        $select[] = array('value' => 'no', 'text' => _('No'));
+        $select[] = array('value' => 'route', 'text' => _('Route'));
+        $tt = _("NAT setting, see Asterisk documentation for details. Yes usually works for both internal and external devices. Set to No if the device will always be internal.");
+        $tmparr['nat'] = array('value' => $amp_conf['DEVICE_SIP_NAT'], 'tt' => $tt, 'select' => $select, 'level' => 0);
+
+        $tt = _("Accountcode for this device.");
+        $tmparr['accountcode'] = array('value' => '', 'tt' => $tt, 'level' => 1);
+
+        $tt = _("Maximum number of SIP devices that can register to this extension.");
+        $tmparr['max_contacts'] = array('value' => '1', 'tt' => $tt, 'level' => 1);
+
+        $tt= _("Qualify timeout in fractional seconds (default: '3.0')");
+        $tmparr['qualify_timeout'] = array('value' => '3.0', 'tt' => $tt, 'level' => 2);
+
+        $tt= _("Authenticates a qualify request if needed");
+        $tmparr['authenticate_qualify'] = array('value' => 'no', 'tt' => $tt, 'level' => 2);
+
+        unset($select);
+        $select[] = array('value' => 'yes', 'text' => _('Yes'));
+        $select[] = array('value' => 'no', 'text' => _('No'));
+        $tt = _("Determines whether media may flow directly between endpoints.");
+        $tmparr['direct_media'] = array('value' => $amp_conf['DEVICE_SIP_CANREINVITE'], 'tt' => $tt, 'select' => $select, 'level' => 1);
+
+        unset($select);
+        $select[] = array('value' => 'yes', 'text' => _('Yes'));
+        $select[] = array('value' => 'no', 'text' => _('No'));
+        $tt = _("Determines whether res_pjsip will use the media transport received in the offer SDP in the corresponding answer SDP.");
+        $tmparr['media_use_received_transport'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
+
+        $currentcomponent->addgeneralarrayitem('devtechs', 'pjsip', $tmparr);
+        unset($tmparr);
+
         // custom
         $tmparr = array();
         $tt = _("How to dial this device. This will be device specific. For example, a custom device which is really a remote SIP URI might be configured such as SIP/joe@somedomain.com");
@@ -7803,6 +8549,7 @@ function core_devices_configpageinit($dispnum) {
         // Devices list
         if ($_SESSION["AMP_user"]->checkSection('999')) {
             $currentcomponent->addoptlistitem('devicelist', 'sip_generic', _("Generic SIP Device"));
+            $currentcomponent->addoptlistitem('devicelist', 'pjsip_generic', _("Generic PJSIP Device"));
 
             if(isset($amp_conf['HTTPSCERTFILE'])) {
                 if($amp_conf['HTTPSCERTFILE']<>'') {

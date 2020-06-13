@@ -16,6 +16,44 @@ if (isset($_REQUEST['copytrunk'])) {
   $action = 'copytrunk';
 }
 
+
+ $codecs = array(
+    'ulaw'     => '',
+    'alaw'     => '',
+    'gsm'      => '',
+    'g726'     => '',
+    'g722'     => '',
+    'slin'     => '',
+    'g729'     => '',
+    'ilbc'     => '',
+    'g723'     => '',
+    'g726aal2' => '',
+    'adpcm'    => '',
+    'lpc10'    => '',
+    'speex'    => '',
+    'siren7'   => '',
+    'siren14'  => '',
+    'speex16'  => '',
+    'slin16'   => '',
+    'g719'     => '',
+    'speex32'  => '',
+    'slin12'   => '',
+    'slin24'   => '',
+    'slin32'   => '',
+    'slin44'   => '',
+    'slin48'   => '',
+    'slin96'   => '',
+    'slin192'  => '',
+    'opus'     => '',
+    'silk8'    => '',
+    'silk12'   => '',
+    'silk16'   => '',
+    'silk24'   => '',
+    );
+
+
+
+
 $tech         = strtolower(isset($_REQUEST['tech'])?htmlentities($_REQUEST['tech']):'');
 $outcid       = isset($_REQUEST['outcid'])?$_REQUEST['outcid']:'';
 $maxchans     = isset($_REQUEST['maxchans'])?$_REQUEST['maxchans']:'';
@@ -30,11 +68,63 @@ $disabletrunk = isset($_REQUEST['disabletrunk'])?$_REQUEST['disabletrunk']:'off'
 $continue     = isset($_REQUEST['continue'])?$_REQUEST['continue']:'off';
 $provider     = isset($_REQUEST['provider'])?$_REQUEST['provider']:'';
 $trunk_name   = isset($_REQUEST['trunk_name'])?$_REQUEST['trunk_name']:'';
+$pjsip_context= isset($_REQUEST['pjsip_context'])?$_REQUEST['pjsip_context']:'from-pstn';
+$pjsip_inband_progress= isset($_REQUEST['pjsip_inband_progress'])?$_REQUEST['pjsip_inband_progress']:'no';
+$pjsip_auth_rejection_permanent= isset($_REQUEST['pjsip_auth_rejection_permanent'])?$_REQUEST['pjsip_auth_rejection_permanent']:'no';
+$pjsip_direct_media= isset($_REQUEST['pjsip_direct_media'])?$_REQUEST['pjsip_direct_media']:'no';
+$pjsip_qualify_frequency= isset($_REQUEST['pjsip_qualify_frequency'])?$_REQUEST['pjsip_qualify_frequency']:'60';
+$pjsip_max_retries= isset($_REQUEST['pjsip_max_retries'])?$_REQUEST['pjsip_max_retries']:'10';
+$pjsip_retry_interval= isset($_REQUEST['pjsip_retry_interval'])?$_REQUEST['pjsip_retry_interval']:'60';
+$pjsip_expiration= isset($_REQUEST['pjsip_expiration'])?$_REQUEST['pjsip_expiration']:'3600';
+$pjsip_transport= isset($_REQUEST['pjsip_transport'])?$_REQUEST['pjsip_transport']:'transport-udp';
+$pjsip_rtp_symmetric= isset($_REQUEST['pjsip_rtp_symmetric'])?$_REQUEST['pjsip_rtp_symmetric']:'yes';
+$pjsip_rewrite_contact= isset($_REQUEST['pjsip_rewrite_contact'])?$_REQUEST['pjsip_rewrite_contact']:'yes';
+$pjsip_dtmf_mode= isset($_REQUEST['pjsip_dtmf_mode'])?$_REQUEST['pjsip_dtmf_mode']:'auto';
+$pjsip_trust_id_inbound= isset($_REQUEST['pjsip_trust_id_inbound'])?$_REQUEST['pjsip_trust_id_inbound']:'no';
+$pjsip_fax_detect= isset($_REQUEST['pjsip_fax_detect'])?$_REQUEST['pjsip_fax_detect']:'no';
+$pjsip_t38_udptl= isset($_REQUEST['pjsip_t38_udptl'])?$_REQUEST['pjsip_t38_udptl']:'no';
+$pjsip_t38_udptl_nat= isset($_REQUEST['pjsip_t38_udptl_nat'])?$_REQUEST['pjsip_t38_udptl_nat']:'no';
+$pjsip_t38_udptl_ec= isset($_REQUEST['pjsip_t38_udptl_ec'])?$_REQUEST['pjsip_t38_udptl_ec']:'none';
+$pjsip_support_path= isset($_REQUEST['pjsip_support_path'])?$_REQUEST['pjsip_support_path']:'no';
+
+
+$post_codec = isset($_REQUEST['codec']) ? $_REQUEST['codec'] : array(); 
+
+if(count($post_codec)>0) {
+    $pri = 1;
+    foreach (array_keys($post_codec) as $codec) {
+        $codecs[$codec] = $pri++;
+    }
+    asort($codecs);
+    $sel_codec=array();
+    foreach($codecs as $key=>$val) {
+        if($val<>''){
+            $sel_codec[$val]=$key;
+       }
+    }
+    $pjsip_codecs=implode(",",$sel_codec);
+}
+
+if(isset($_REQUEST['pjsip_registration'])) { $register=$_REQUEST['pjsip_registration']; }
 
 $failtrunk    = isset($_REQUEST['failtrunk'])?$_REQUEST['failtrunk']:'';
 $failtrunk_enable = ($failtrunk == "")?'':'CHECKED';
 
 $dialopts     = isset($_REQUEST['dialopts'])?$_REQUEST['dialopts']:false;
+
+$pjsipconfig='';
+foreach($_REQUEST as $key=>$val) {
+    if(substr($key,0,5)=='pjsip') {
+        $newkey = substr($key,6);
+        $pjsipconfig .="$newkey=$val\n";
+    }
+}
+
+
+if($pjsipconfig<>'') {
+    $pjsipconfig.="codecs=$pjsip_codecs\n";
+    $userconfig=$pjsipconfig;
+}
 
 // Check if they uploaded a CSV file for their route patterns
 //
@@ -151,7 +241,7 @@ switch ($action) {
 	case "addtrunk":
 		$trunknum = core_trunks_add($tech, $channelid, $dialoutprefix, $maxchans, $outcid, $peerdetails, $usercontext, $userconfig, $register, $keepcid, trim($failtrunk), $disabletrunk, $trunk_name, $provider, $continue, $dialopts);
 		
-    core_trunks_update_dialrules($trunknum, $dialpattern_insert);
+		core_trunks_update_dialrules($trunknum, $dialpattern_insert);
 		needreload();
 		redirect_standard();
 	break;
@@ -159,15 +249,15 @@ switch ($action) {
 		core_trunks_edit($trunknum, $channelid, $dialoutprefix, $maxchans, $outcid, $peerdetails, $usercontext, $userconfig, $register, $keepcid, trim($failtrunk), $disabletrunk, $trunk_name, $provider, $continue, $dialopts);
 		
 		// this can rewrite too, so edit is the same
-    core_trunks_update_dialrules($trunknum, $dialpattern_insert, true);
+		core_trunks_update_dialrules($trunknum, $dialpattern_insert, true);
 		needreload();
 		redirect_standard('extdisplay');
 	break;
 	case "deltrunk":
 	
 		core_trunks_del($trunknum);
-    core_trunks_delete_dialrules($trunknum);
-    core_routing_trunk_delbyid($trunknum);
+		core_trunks_delete_dialrules($trunknum);
+		core_routing_trunk_delbyid($trunknum);
 		needreload();
 		redirect_standard();
 	break;
@@ -348,6 +438,7 @@ if (!$tech && !$extdisplay) {
 <?php
 	$baseURL   = $_SERVER['PHP_SELF'].'?display='.urlencode($display).'&';
   $trunks[] = array('url'=> $baseURL.'tech=SIP', 'tlabel' =>  _("Add SIP Trunk"));
+  $trunks[] = array('url'=> $baseURL.'tech=PJSIP', 'tlabel' =>  _("Add PJSIP Trunk"));
   $trunks[] = array('url'=> $baseURL.'tech=DAHDI', 'tlabel' =>  _("Add DAHDi Trunk"));
   $trunks[] = array('url'=> $baseURL.'tech=IAX2', 'tlabel' =>  _("Add IAX2 Trunk"));
   //--------------------------------------------------------------------------------------
@@ -385,7 +476,7 @@ if (!$tech && !$extdisplay) {
 	
 			$channelid = htmlentities($trunk_details['channelid']);
 
-			if ($tech!="custom" && $tech!="dundi") {  // custom trunks will not have user/peer details in database table
+			if ($tech!="custom" && $tech!="dundi" && $tech!="pjsip") {  // custom trunks will not have user/peer details in database table
 				// load from db
 				if (empty($peerdetails)) {	
 					$peerdetails = core_trunks_getTrunkPeerDetails($trunknum);
@@ -399,9 +490,29 @@ if (!$tech && !$extdisplay) {
 				}
 					
 				if (empty($register)) {	
-					$register = core_trunks_getTrunkRegister($trunknum);
-				}
-			}
+                    $register = core_trunks_getTrunkRegister($trunknum);
+                }
+            } else if ($tech=="pjsip") {
+                if (empty($register)) {    
+                    $register = core_trunks_getTrunkRegister($trunknum);
+                    $userconfig = core_trunks_getTrunkUserConfig($trunknum);
+                                        // ok, this is ugly, but we need this done fast, not pretty
+                    $lineas = explode("\n",$userconfig);
+                                        foreach($lineas as $linea) {
+                                            $partes = preg_split("/=/",$linea);
+                                            if($partes[0]=='codecs') {
+                                                $storedcodecs=explode(",",$partes[1]);
+                                                $pri=1;
+                                                foreach($storedcodecs as $codecname) {
+                                                    $codecs[$codecname]=$pri++; 
+                                                }
+                                            } else {
+                                                $varname = "pjsip_".$partes[0];
+                                                $$varname=$partes[1];
+                                            }
+                    }
+                }
+            }
 		}
     if (count($dialpattern_array) == 0) {
       $dialpattern_array = core_trunks_get_dialrules($trunknum);
@@ -845,7 +956,7 @@ END;
     		    <td><input type="button" onclick="parent.location='config.php?quietmode=1&amp;handler=file&amp;file=export.html.php&amp;module=core&amp;display=trunks&amp;extdisplay=<?php echo $extdisplay;?>'" value="Export"></td>
     		</tr>
     		<?php } ?>
-			<?php if ($tech != "enum") { ?>
+			<?php if ($tech != "enum" && $tech != "pjsip") { ?>
 			<tr>
 				<td colspan="2">
         <h4><?php echo _("Outgoing Settings")?><hr></h4>
@@ -905,7 +1016,7 @@ END;
             <input type="hidden" size="14" name="usercontext" value="notneeded"/> 
           </td> 
         </tr> 
-  <?php  
+  <?php 
       }
     break; 
     //--------------------------------------------------------------------------------------
@@ -992,6 +1103,562 @@ END;
 				</tr>
 	<?php 
 		break;
+                case "pjsip":
+?>
+				<tr>
+					<td colspan="2">
+						<h4><?php echo _("PJSIP Settings")?><hr/></h4>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<a href=# class="info"><?php echo _("Trunk Name")?><span><?php echo _("Give this trunk a unique name.  Example: mypjsipprovider")?></span></a>: 
+					</td><td>
+						<input type="text" size="14" id="pjsip_channelid" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>"/>
+					</td>
+				</tr>
+	
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Username")?><span><?php echo _("Authentication user name for this trunk.")?></span></a>:
+</td> 
+<td> 
+<input type="text" size="30" name="pjsip_username" id="pjsip_username" data-originalvalue="<?php echo htmlspecialchars($pjsip_username) ?>" value="<?php echo htmlspecialchars($pjsip_username) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Secret")?><span><?php echo _("Authentication password for this trunk.")?></span></a>:
+</td> 
+<td> 
+<input type="text" size="30" name="pjsip_secret" value="<?php echo htmlspecialchars($pjsip_secret) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Authentication")?><span><?php echo _("When to use authentication on this trunk.")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_authentication" id="pjsip_authentication" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $auths = array();
+     $auths[_('Outbound')]='outbound';
+     $auths[_('Inbound')]='inbound';
+     $auths[_('Both')]='both';
+     $auths[_('None')]='none';
+
+     foreach($auths as $key=>$val) {
+         echo "<option value='$val'"; 
+         if ($val == $pjsip_authentication) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$key</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Registration")?><span><?php echo _("When to use registration on this trunk.")?></span></a>:
+</td> 
+<td> 
+<select id="pjsip_registration" name="pjsip_registration" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $regs = array();
+     $regs[_('Send')]='send';
+     $regs[_('Receive')]='receive';
+     $regs[_('None')]='none';
+
+     foreach($regs as $key=>$val) {
+         echo "<option value='$val'"; 
+         if ($val == $pjsip_registration) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$key</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("SIP Server")?><span><?php echo _("Hostname or IP address of your VoIP provider.")?></span></a>:
+</td> 
+<td> 
+<input type="text" size="30" name="pjsip_server" id="pjsip_server" value="<?php echo htmlspecialchars($pjsip_server) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("SIP Server Port")?><span><?php echo _("SIP port your VoIP provider listens to.")?></span></a>:
+</td> 
+<td> 
+<input type="text" size="30" name="pjsip_port" id="pjsip_port" value="<?php echo htmlspecialchars($pjsip_port) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Context")?><span><?php echo _("Dialplan context to use for inbound calls.")?></span></a>:
+</td> 
+<td> 
+<input type="text" size="30" name="pjsip_context" value="<?php echo htmlspecialchars($pjsip_context) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Transport")?><span><?php echo _("Transport to use.")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_transport" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $transports = array();
+     $transports['UDP']='transport-udp';
+     $transports['TCP']='transport-tcp';
+     $transports['TLS']='transport-tls';
+     $transports['WS']='transport-ws';
+     $transports['WSS']='transport-wss';
+
+     foreach($transports as $key=>$val) {
+         echo "<option value='$val'"; 
+         if ($val == $pjsip_transport) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$key</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+
+				<tr>
+					<td colspan="2">
+						<h4><?php echo _("PJSIP Advanced Settings")?><hr/></h4>
+					</td>
+				</tr>
+
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("DTMF Mode")?><span><?php echo _("The DTMF signaling mode used by this trunk, usually RFC for most trunks<br/><ul><li>Auto [Asterisk 13] - DTMF is sent as RFC 4733 if the other side supports it or as INBAND if not.</li><li>rfc4733 - DTMF is sent out of band of the main audio stream.This supercedes the older RFC-2833 used within the older chan_sip.</li><li>inband - DTMF is sent as part of audio stream.</li><li>info - DTMF is sent as SIP INFO packets..</li></ul>")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_dtmf_mode" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $select = array();
+     $select['auto'] = _('Auto');
+     $select['rfc4733']  = _('RFC 4733');
+     $select['inband']   = _('Inband');
+     $select['info']     = _('Info');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'"; 
+         if ($key == $pjsip_dtmf_mode) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$val</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("From Domain")?><span><?php echo _("Domain to use in From header for requests to this trunk.")?></span></a>:
+</td> 
+<td> 
+<input type="text" size="30" name="pjsip_from_domain" value="<?php echo htmlspecialchars($pjsip_from_domain) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("From User")?><span><?php echo _("Username to use in From header for requests to this trunk.")?></span></a>:
+</td> 
+<td> 
+<input type="text" size="30" name="pjsip_from_user" value="<?php echo htmlspecialchars($pjsip_from_user) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("General Retry Interval")?><span><?php echo _("The number of seconds Asterisk will wait before attempting to send another REGISTER request to the registrar.")?></span></a>:
+</td> 
+<td>
+<input type="text" size="30" name="pjsip_retry_interval" value="<?php echo htmlspecialchars($pjsip_retry_interval) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Max Retries")?><span><?php echo _("How many times Asterisk will attempt to re-attempt registration before permanently giving up. Maximum of 10000000")?></span></a>:
+</td> 
+<td>
+<input type="text" size="30" name="pjsip_max_retries" value="<?php echo htmlspecialchars($pjsip_max_retries) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
+</td> 
+</tr>
+
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Expiration")?><span><?php echo _("Expiration time for registrations in seconds")?></span></a>:
+</td> 
+<td>
+<input type="text" size="30" name="pjsip_expiration" value="<?php echo htmlspecialchars($pjsip_expiration) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
+</td> 
+</tr>
+
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Qualify Frequency")?><span><?php echo _("Interval at which to qualify.")?></span></a>:
+</td> 
+<td>
+<input type="text" size="30" name="pjsip_qualify_frequency" value="<?php echo htmlspecialchars($pjsip_qualify_frequency) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Symmetric RTP")?><span><?php echo _("Enforce that RTP must be symmetric. This should almost always be on.")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_rtp_symmetric" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $select = array();
+     $select['yes'] = _('Yes');
+     $select['no']  = _('No');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'"; 
+         if ($key == $pjsip_rtp_symmetric) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$val</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Rewrite Contact")?><span><?php echo _("Allow Contact header to be rewritten with the source IP address-port.")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_rewrite_contact" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $select = array();
+     $select['yes'] = _('Yes');
+     $select['no']  = _('No');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'"; 
+         if ($key == $pjsip_rewrite_contact) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$val</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Inband Progress")?><span><?php echo _("Determines whether chan_pjsip will indicate ringing using inband progress.")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_inband_progress" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $select = array();
+     $select['yes'] = _('Yes');
+     $select['no']  = _('No');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'"; 
+         if ($key == $pjsip_inband_progress) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$val</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Permanent Auth Rejection")?><span><?php echo _("Determines whether failed authentication challenges are treated as permanent failures.")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_auth_rejection_permanent" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $select = array();
+     $select['yes'] = _('Yes');
+     $select['no']  = _('No');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'"; 
+         if ($key == $pjsip_auth_rejection_permanent) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$val</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Direct Media")?><span><?php echo _("Determines whether media may flow directly between endpoints.")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_direct_media" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $select = array();
+     $select['yes'] = _('Yes');
+     $select['no']  = _('No');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'"; 
+         if ($key == $pjsip_direct_media) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$val</option>\n"; 
+     }
+?>
+</select>
+
+</td> 
+</tr>
+
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Trust RPID/PAI")?><span><?php echo _("Trust the Remote-Party-ID and/or P-Asserted-Identity header")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_trust_id_inbound" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $select = array();
+     $select['yes'] = _('Yes');
+     $select['no']  = _('No');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'"; 
+         if ($key == $pjsip_trust_id_inbound) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$val</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Support T.38 UDPTL")?><span><?php echo _("Whether T.38 UDPTL support is enabled or not.")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_t38_udptl" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $select = array();
+     $select['yes'] = _('Yes');
+     $select['no']  = _('No');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'"; 
+         if ($key == $pjsip_t38_udptl) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$val</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("T.38 UDPTL NAT")?><span><?php echo _("Whether NAT support is enabled on UDPTL sessions.")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_t38_udptl_nat" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $select = array();
+     $select['yes'] = _('Yes');
+     $select['no']  = _('No');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'"; 
+         if ($key == $pjsip_t38_udptl_nat) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$val</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("T.38 UDPTL Error Correction")?><span><?php echo _("T.38 UDPTL error correction method.")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_t38_udptl_ec" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $select = array();
+     $select['none'] = _('None');
+     $select['fec']  = _('Forward');
+     $select['redundancy']  = _('Redundancy');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'"; 
+         if ($key == $pjsip_t38_udptl_ec) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$val</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Fax Detect")?><span><?php echo _("This option can be set to send the session to the fax extension when a CNG tone is detected.")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_fax_detect" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $select = array();
+     $select['yes'] = _('Yes');
+     $select['no']  = _('No');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'"; 
+         if ($key == $pjsip_fax_detect) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$val</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Match (Permit)")?><span><?php echo _("IP addresses or networks to match against. The value is a comma-delimited list of IP addresses. IP addresses may have a subnet mask appended. The subnet mask may be written in either CIDR or dot-decimal notation. Separate the IP address and subnet mask with a slash ('/'). This setting is automatically generated by the PBX if left blank")?></span></a>:
+</td> 
+<td>
+<input type="text" size="30" name="pjsip_match" value="<?php echo htmlspecialchars($pjsip_match) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
+</td> 
+</tr>
+
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo _("Support Path")?><span><?php echo _("When this option is enabled, outbound REGISTER requests will advertise support for Path headers so that intervening proxies can add to the Path header as necessary..")?></span></a>:
+</td> 
+<td> 
+<select name="pjsip_support_path" tabindex="<?php echo ++$tabindex;?>"/> 
+<?php
+     $select = array();
+     $select['yes'] = _('Yes');
+     $select['no']  = _('No');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'"; 
+         if ($key == $pjsip_support_path) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$val</option>\n"; 
+     }
+?>
+</select>
+</td> 
+</tr>
+
+
+  <tr>
+    <td colspan="2"><h5><?php echo _("Audio Codecs")?><hr></h5></td>
+  </tr>
+  <tr>
+    <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled. Drag to re-order.")?></span></a></td>
+    <td>
+<?php
+  $seq = 1;
+echo '<ul class="sortable">';
+  $hasone=0;
+  foreach ($codecs as $codec => $codec_state) {
+      if($codec_state=='')  { $codec_state=1000; }  else { $hasone=1; }; 
+      $codecs[$codec]=$codec_state;
+  }
+
+  if($hasone==0) {
+      $codecs['ulaw']=1;
+      $codecs['alaw']=2;
+      $codecs['gsm']=3;
+      $codecs['g726']=4;
+      $codecs['g722']=5;
+  }
+
+  asort($codecs);
+  foreach ($codecs as $codec => $codec_state) {
+    $tabindex++;
+    $codec_trans = _($codec);
+    if($codec_state==1000) $codec_state=0;
+    $codec_checked = $codec_state ? 'checked' : '';
+        echo '<li><a href="#">'
+                . '<img src="admin/modules/core/assets/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
+                . '<input type="checkbox" '
+                . ($codec_checked ? 'value="'. $seq++ . '" ' : '')
+                . 'name="codec[' . $codec . ']" '
+                . 'id="'. $codec . '" '
+                . 'class="audio-codecs" tabindex="' . $tabindex. '" '
+                . $codec_checked
+                . ' />'
+                . '<label for="'. $codec . '"> '
+                . '<small>' . $codec_trans . '</small>'
+                . ' </label></a></li>';
+  }
+echo '</ul>';
+?>
+
+    </td>
+  </tr>
+
+
+
+
+
+
+
+<?php
+
 	}
   // implementation of module hook
   // object was initialized in config.php
@@ -1032,7 +1699,44 @@ $(document).ready(function(){
       focusClass: "text-normal"
     }).removeClass('dpt-nodisplay').addClass('dpt-display').unbind('mouseover');
   });
+
+  enable_disable_auth($('#pjsip_authentication').val());
+  enable_disable_reg($('#pjsip_registration').val());
+
 }); 
+
+$('#pjsip_authentication').on('change', function() {
+   enable_disable_auth(this.value);
+});
+
+function enable_disable_auth(value) {
+   if(value=='none') {
+       $('#pjsip_username').prop('disabled',true).attr('placeholder','<?php echo _('Authetication disabled'); ?>').val('');
+       $('#pjsip_registration').prop('disabled',true);
+   } else if(value=='outbound') {
+      $('#pjsip_username').val($('#pjsip_username').data('originalvalue'));
+      $('#pjsip_username').prop('disabled',false).attr('placeholder','');
+       $('#pjsip_registration').prop('disabled',false);
+   } else {
+       $('#pjsip_username').prop('disabled',true).attr('placeholder','<?php echo _('Username is trunk name'); ?>').val('');
+       $('#pjsip_registration').prop('disabled',false);
+   }
+
+}
+
+$('#pjsip_registration').on('change', function() {
+    enable_disable_reg(this.value);
+});
+
+function enable_disable_reg(value) {
+    if(value=='receive') {
+        $('#pjsip_server').prop('disabled',true);
+        $('#pjsip_port').prop('disabled',true);
+    } else {
+        $('#pjsip_server').prop('disabled',false);
+        $('#pjsip_port').prop('disabled',false);
+    }
+}
 
 function patternsRemove(idx) {
   $("#prepend_digit_"+idx).parent().parent().remove();
@@ -1161,7 +1865,6 @@ document.trunkEdit.trunk_name.focus();
 
 function trunkEdit_onsubmit(act) {
   var theForm = document.trunkEdit;
-
 	var msgInvalidOutboundCID = "<?php echo _('Invalid Outbound CallerID'); ?>";
 	var msgInvalidMaxChans = "<?php echo _('Invalid Maximum Channels'); ?>";
 	var msgInvalidDialRules = "<?php echo _('Invalid Dial Rules'); ?>";
@@ -1198,7 +1901,7 @@ function trunkEdit_onsubmit(act) {
     }
   }
 	
-	<?php if ($tech != "enum" && $tech != "custom" && $tech != "dundi") { ?>
+	<?php if ($tech != "enum" && $tech != "custom" && $tech != "dundi" && $tech != "pjsip") { ?>
 	defaultEmptyOK = true;
 	if (isEmpty(theForm.channelid.value) || isWhitespace(theForm.channelid.value))
 		return warnInvalid(theForm.channelid, msgInvalidTrunkName);
@@ -1211,7 +1914,12 @@ function trunkEdit_onsubmit(act) {
 
 	if (theForm.channelid.value == theForm.usercontext.value) 
 		return warnInvalid(theForm.usercontext, msgInvalidTrunkAndUserSame);
+	<?php } else if ($tech == "pjsip") { ?>
+	defaultEmptyOK = true;
+	if (isEmpty(theForm.channelid.value) || isWhitespace(theForm.channelid.value))
+		return warnInvalid(theForm.channelid, msgInvalidTrunkName);
 	<?php } ?>
+
 
 	<?php if ($tech == "sip" || substr($tech,0,3) == "iax") { ?>
 	if ((isEmpty(theForm.usercontext.value) || isWhitespace(theForm.usercontext.value)) && 
