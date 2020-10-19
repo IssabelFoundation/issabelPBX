@@ -1263,7 +1263,7 @@ if ($ast_ge_16) {
                 );
                 $eventmemberstatus = isset($eventmemberstatus)
                                     ? $eventmemberstatus
-                                    : $amp_conf['QUEUES_EVENTS_MEMEBER_STATUS_DEFAULT'];
+                                    : $amp_conf['QUEUES_EVENTS_MEMBER_STATUS_DEFAULT'];
                 if (in_array($eventmemberstatus, array('yes', 1, true), true)) {
                     $memberevents_true['checked'] = true;
                 } elseif (in_array($eventmemberstatus, array('no', 0, false), true)) {
