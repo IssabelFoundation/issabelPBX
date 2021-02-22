@@ -63,8 +63,8 @@ if($db->IsError($res)) {
 		`ivr_id` int(11) NOT NULL,
 		`selection` varchar(10) default NULL,
 		`dest` varchar(50) default NULL,
-		`ivr_ret` tinyint(1) NOT NULL default '0'),
-        `spoken` varchar(250) NOT NULL default ''");
+		`ivr_ret` tinyint(1) NOT NULL default '0',
+        `spoken` varchar(250) NOT NULL default '')");
 	out('Migration 2.10 not needed');
 
 	outn(_("Checking for spoken.."));
