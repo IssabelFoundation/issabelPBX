@@ -33,6 +33,14 @@ function ivr_destinations() {
 function ivr_get_config($engine) {
 	global $ext;
 
+	$show_spoken=0;
+	$engineinfo = engine_getinfo();
+	$astver =  $engineinfo['version'];
+	$ast_ge_1616 = version_compare($astver, '16.16', 'ge');
+	if(file_exists("/etc/asterisk/res-speech-vosk.conf") && $ast_ge_1616) {
+		$show_spoken=1;
+	}
+
 	switch($engine) {
 		case "asterisk":
 			$ddial_contexts = array();
@@ -95,14 +103,48 @@ function ivr_get_config($engine) {
 				$ext->add($c, 's', 'start', new ext_digittimeout(3));
 				//$ext->add($ivr_id, 's', '', new ext_responsetimeout($ivr['timeout_time']));
 
-				$ext->add($c, 's', '', new ext_execif('$["${IVR_MSG}" != ""]','Background','${IVR_MSG}'));
-				$ext->add($c, 's', '', new ext_waitexten($ivr['timeout_time']));
-
-
-				// Actually add the IVR entires now
 				$entries = ivr_get_entries($ivr['id']);
 
+				$do_spoken_dialplan=0;
+
 				if ($entries) {
+					if($show_spoken==1) {
+						foreach($entries as $e) {
+							if($e['spoken']!='') {
+								$do_spoken_dialplan=1;
+							}
+						}
+					}
+				}
+
+				if($do_spoken_dialplan==0) {
+					$ext->add($c, 's', '', new ext_execif('$["${IVR_MSG}" != ""]','Background','${IVR_MSG}'));
+					$ext->add($c, 's', '', new ext_waitexten($ivr['timeout_time']));
+				} else {
+					$ext->add($c, 's', '', new ext_speechcreate());
+					$ext->add($c, 's', '', new ext_gotoif('$["${ERROR}" = "1"]','skipspeech'));
+					$ext->add($c, 's', '', new ext_execif('$["${IVR_MSG}" != ""]','SpeechBackground','${IVR_MSG},'.$ivr['timeout_time']));
+					$ext->add($c, 's', '', new ext_execif('$["${IVR_MSG}X" = "X"]','SpeechBackground','silence/5,'.$ivr['timeout_time']));
+					$ext->add($c, 's', '', new ext_setvar('RESULT', '${SPEECH_TEXT(0)}'));
+				}
+
+				// Actually add the IVR entires now
+				if ($entries) {
+					// pass for spoken text
+					if($do_spoken_dialplan==1) {
+						foreach($entries as $e) {
+							if($e['spoken']!='') {
+								$words = preg_split("/,/",$e['spoken']);
+								foreach($words as $word) {
+									$ext->add($c, 's', '', new ext_execif('$["${RESULT}" = "'.$word.'"]','Set','RESULT='.$e['selection']));
+								}
+							}
+						}
+						$ext->add($c, 's', '', new ext_goto('${RESULT},1'));
+						$ext->add($c, 's', 'skipspeech', new ext_execif('$["${IVR_MSG}" != ""]','Background','${IVR_MSG}'));
+						$ext->add($c, 's', '', new ext_waitexten($ivr['timeout_time']));
+					}
+
 					foreach($entries as $e) {
 						//dont set a t or i if there already defined above
 						if ($e['selection'] == 't' && $ivr['timeout_loops'] != 'disabled') {
@@ -122,8 +164,8 @@ function ivr_get_config($engine) {
 							$ext->add($c, $e['selection'], '',
 								new ext_gotoif('$["x${IVR_CONTEXT_${CONTEXT}}" = "x"]',
 									$e['dest'] . ':${IVR_CONTEXT_${CONTEXT}},return,1'));
-                        } else {
-                            $ext->add($c, $e['selection'], '', new ext_setvar('__IVR_DIGIT_PRESSED', '${EXTEN}'));
+						} else {
+							$ext->add($c, $e['selection'], '', new ext_setvar('__IVR_DIGIT_PRESSED', $e['selection']));
 							$ext->add($c, $e['selection'],'ivrsel-' . $e['selection'], new ext_goto($e['dest']));
 						}
 					}
@@ -269,6 +311,13 @@ function ivr_get_config($engine) {
 //replaces ivr_list(), returns all details of any ivr
 function ivr_get_details($id = '') {
 	global $db;
+
+    $sql = "SELECT `spoken` FROM ivr_entries";
+    $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+    if(DB::IsError($check)) {
+        $sql = "ALTER TABLE ivr_entries ADD spoken varchar(200) not null default ''";
+        $result = $db->query($sql);
+    }
 
 	$sql = "SELECT *, announcement announcement_id FROM ivr_details";
 	if ($id) {
@@ -605,12 +654,13 @@ function ivr_save_entries($id, $entries){
 							'ivr_id'	=> $id,
 							'selection' 	=> $entries['ext'][$i],
 							'dest'		=> $entries['goto'][$i],
-							'ivr_ret'	=> (isset($entries['ivr_ret'][$i]) ? $entries['ivr_ret'][$i] : '')
-						);
+                            'ivr_ret'	=> (isset($entries['ivr_ret'][$i]) ? $entries['ivr_ret'][$i] : ''),
+                            'spoken'    => isset($entries['spoken'][$i])?$entries['spoken'][$i]:''
+                        );
 			}
 
 		}
-		$sql = $db->prepare('INSERT INTO ivr_entries VALUES (?, ?, ?, ?)');
+		$sql = $db->prepare('INSERT INTO ivr_entries VALUES (?, ?, ?, ?, ?)');
 		$res = $db->executeMultiple($sql, $d);
 		if ($db->IsError($res)){
 			die_issabelpbx($res->getDebugInfo());
@@ -622,7 +672,26 @@ function ivr_save_entries($id, $entries){
 
 //draw uvr entires table header
 function ivr_draw_entries_table_header_ivr() {
-    return  array( ipbx_label(_('Ext'),_('Any digit selection will be saved in the IVR_DIGIT_PRESSED chanel variable')), _('Destination'), ipbx_label(_('Return'), _('Return to IVR')), _('Delete') );
+
+    $show_spoken=0;
+    $engineinfo = engine_getinfo();
+    $astver     = $engineinfo['version'];
+    $ast_ge_1616 = version_compare($astver, '16.16', 'ge');
+    if(file_exists("/etc/asterisk/res-speech-vosk.conf") && $ast_ge_1616) {
+        $show_spoken=1;
+    }
+
+    $headers = array();
+    $headers[] = ipbx_label(_('Ext'),_('Any digit selection will be saved in the IVR_DIGIT_PRESSED chanel variable'));
+    $headers[] = _('Destination');
+    $headers[] = ipbx_label(_('Return'), _('Return to IVR'));
+
+    if($show_spoken==1) {
+        $headers[] = _('Spoken');
+    }
+    $headers[] = _('Delete');
+
+    return $headers;
 }
 
 //draw actualy entires
@@ -638,7 +707,7 @@ function ivr_draw_entries($id){
 		}
 	}
 
-	$entries['blank'] = array('selection' => '', 'dest' => '', 'ivr_ret' => '');
+	$entries['blank'] = array('selection' => '', 'dest' => '', 'ivr_ret' => '', 'spoken'=>'');
 	//assign to a vatriable first so that it can be passed by reference
 	$array = array('id' => '', 'ext' => '');
 	$entries['blank']['hooks'] = mod_func_iterator('draw_entries_ivr', $array);

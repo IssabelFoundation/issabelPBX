@@ -3,13 +3,14 @@
 	<modtype>framework</modtype>
 	<repo>standard</repo>
 	<name>IssabelPBX Framework</name>
-	<version>2.11.0.48</version>
+	<version>2.11.0.49</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+        *2.11.0.49* Spoken/ASR support
         *2.11.0.48* Multi Park, ODBC functions, Supports for Asterisk 16
         *2.11.0.47* Bump release for Aug 2018 iso and rebranding
         *2.11.0.46* Add default res_parking.conf used in asterisk 13

@@ -63,8 +63,27 @@ if($db->IsError($res)) {
 		`ivr_id` int(11) NOT NULL,
 		`selection` varchar(10) default NULL,
 		`dest` varchar(50) default NULL,
-		`ivr_ret` tinyint(1) NOT NULL default '0')");
+		`ivr_ret` tinyint(1) NOT NULL default '0'),
+        `spoken` varchar(250) NOT NULL default ''");
 	out('Migration 2.10 not needed');
+
+	outn(_("Checking for spoken.."));
+    $sql = "SELECT `spoken` FROM ivr_entries";
+    $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+    if(DB::IsError($check)) {
+        $sql = "ALTER TABLE ivr_entries ADD spoken varchar(200) not null default ''";
+        $result = $db->query($sql);
+		if($db->IsError($result)) {
+			out(_("fatal error"));
+			die_issabelpbx($result->getDebugInfo());
+		} else {
+			out(_("added"));
+		}
+	} else {
+		out(_("not needed"));
+	}
+
+
 } else {
 	// Now, we need to check for upgrades.
 	// V1.0, old IVR. You shouldn't see this, but check for it anyway, and assume that it's 2.0

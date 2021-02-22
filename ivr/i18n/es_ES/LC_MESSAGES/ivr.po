@@ -363,3 +363,6 @@ msgstr ""
 
 #~ msgid "Invalid option"
 #~ msgstr "Opción no válida"
+
+msgid "Spoken"
+msgstr "Hablado"

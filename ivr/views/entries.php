@@ -8,6 +8,11 @@ foreach($headers as $mod => $header) {
 }
 $table->set_heading($h);
 
+$show_spoken=0;
+if(file_exists("/etc/asterisk/res-speech-vosk.conf")) {
+    $show_spoken=1;
+}
+
 $count = 0;
 foreach ($entries as $e) {
 	$count++;
@@ -38,6 +43,18 @@ foreach ($entries as $e) {
 			. 'IVR which could lead to strange results if there was an IVR called in the '
 			. 'call path but not immediately before this'));
 
+    if($show_spoken==1) {
+
+        $row[] = form_input(
+				array(
+					'name'			=> 'entries[spoken][]',
+					'value'			=> $e['spoken'],
+					'placeholder'	=> _('spoken word'),
+				)
+            );
+
+    }
+	
 	//delete buttom
 	$row[] = '<img src="images/trash.png" style="cursor:pointer" title="' 
 	. _('Delete this entry. Dont forget to click Submit to save changes!') 
