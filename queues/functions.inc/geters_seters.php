@@ -30,9 +30,10 @@ function queues_add(
 ) {
  	global $db,$astman,$amp_conf;
 
-	$ast_ge_16 = version_compare($amp_conf['ASTVERSION'] , '1.6', 'ge');
-	$ast_ge_18 = version_compare($amp_conf['ASTVERSION'] , '1.8', 'ge');
+	$ast_ge_1dot6 = version_compare($amp_conf['ASTVERSION'] , '1.6', 'ge');
+	$ast_ge_1dot8 = version_compare($amp_conf['ASTVERSION'] , '1.8', 'ge');
 	$ast_ge_11 = version_compare($amp_conf['ASTVERSION'] , '11', 'ge');
+	$ast_ge_16 = version_compare($amp_conf['ASTVERSION'] , '16', 'ge');
 
 	if (trim($account) == '') {
 		echo "<script>javascript:alert('"._("Bad Queue Number, can not be blank")."');</script>";
@@ -102,7 +103,7 @@ function queues_add(
 		$fields[] = array($account,'autopauseunavail',(isset($_REQUEST['autopauseunavail']))?$_REQUEST['autopauseunavail']:'no',0);
 	}
 
-	if($ast_ge_16) {
+	if($ast_ge_1dot6) {
 		$fields[] = array(
 			$account,
 			'timeoutpriority',
@@ -114,7 +115,7 @@ function queues_add(
 			(isset($_REQUEST['penaltymemberslimit']))?$_REQUEST['penaltymemberslimit']:'0',
 			0);
 	}
-	if($ast_ge_18) {
+	if($ast_ge_1dot8) {
 		$fields[] = array(
 			$account,
 			'answered_elsewhere',
