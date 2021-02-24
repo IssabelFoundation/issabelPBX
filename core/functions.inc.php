@@ -8496,6 +8496,10 @@ function core_devices_configpageinit($dispnum) {
         unset($tmparr['type']);
         unset($tmparr['vmexten']);
 
+        $tt = _("Password (secret) configured for the device. Should be alphanumeric with at least 2 letters and numbers to keep secure.");
+        $tmparr = array();
+        $tmparr['secret'] = array('value' => '', 'tt' => $tt, 'level' => 0, 'jsvalidation' => $secret_validation, 'failvalidationmsg' => $msgInvalidSecret);
+
         unset($select);
         $select[] = array('value' => 'transport-udp', 'text' => _('UDP'));
         $select[] = array('value' => 'transport-tcp', 'text' => _('TCP'));
