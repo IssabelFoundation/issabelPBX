@@ -8481,7 +8481,6 @@ function core_devices_configpageinit($dispnum) {
         $tt = _("IP Address range to allow access to, in the form of network/netmask. This can be a very useful security option when dealing with remote extensions that are at a known location (such as a branch office) or within a known ISP range for some home office situations.");
         $tmparr['permit'] = array('value' => '0.0.0.0/0.0.0.0', 'tt' => $tt, 'level' => 1);
         $currentcomponent->addgeneralarrayitem('devtechs', 'sip', $tmparr);
-        unset($tmparr);
 
         // start pjsip, reuse sip settings, remove not used, add new
         unset($tmparr['insecure']);
@@ -8495,10 +8494,6 @@ function core_devices_configpageinit($dispnum) {
         unset($tmparr['nat']);
         unset($tmparr['type']);
         unset($tmparr['vmexten']);
-
-        $tt = _("Password (secret) configured for the device. Should be alphanumeric with at least 2 letters and numbers to keep secure.");
-        $tmparr = array();
-        $tmparr['secret'] = array('value' => '', 'tt' => $tt, 'level' => 0, 'jsvalidation' => $secret_validation, 'failvalidationmsg' => $msgInvalidSecret);
 
         unset($select);
         $select[] = array('value' => 'transport-udp', 'text' => _('UDP'));
