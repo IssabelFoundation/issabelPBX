@@ -140,6 +140,7 @@ function ivr_get_config($engine) {
 								}
 							}
 						}
+						$ext->add($c, 's', '', new ext_execif('$["${RESULT}x" = "x"]','Set','RESULT=t'));
 						$ext->add($c, 's', '', new ext_goto('${RESULT},1'));
 						$ext->add($c, 's', 'skipspeech', new ext_execif('$["${IVR_MSG}" != ""]','Background','${IVR_MSG}'));
 						$ext->add($c, 's', '', new ext_waitexten($ivr['timeout_time']));
