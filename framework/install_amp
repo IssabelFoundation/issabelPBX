@@ -1472,6 +1472,7 @@ if (!$dryrun) {
 		$parse1 = explode(':',$file);
 		$parse2 = explode(';',$parse1[1]);
 		$rawfile = trim($parse2[0]);
+        if(substr($rawfile,0,1)=='"' && substr($rawfile,-1)=='"') { $rawfile=substr($rawfile,1,-1); }
 		if ($rawfile == '') {
 			continue;
 		}
