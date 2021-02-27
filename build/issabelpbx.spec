@@ -735,6 +735,7 @@ do
     msgfmt $POFILE -o $MOFILE
 done
 
+amportal a r
 systemctl restart httpd
 
 %triggerin -- gettext

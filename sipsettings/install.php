@@ -72,6 +72,11 @@ if(DB::IsError($check)) {
 	// table does not exist, create it
 	sql($sql);
 
+    sql("INSERT INTO pjsipsettings (keyword,data) values ('bindport','5066')");
+    sql("INSERT INTO pjsipsettings (keyword,data) values ('tlsbindport','5067')");
+    sql("INSERT INTO pjsipsettings (keyword,data) values ('certtfile','/etc/asterisk/keys/asterisk.pem')");
+    sql("INSERT INTO pjsipsettings (keyword,data) values ('ALLOW_SIP_ANON','no')");
+
 } else {
 	out(_("already exists"));
 }
