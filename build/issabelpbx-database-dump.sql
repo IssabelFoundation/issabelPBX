@@ -67,7 +67,7 @@ CREATE TABLE `ampusers` (
 
 LOCK TABLES `ampusers` WRITE;
 /*!40000 ALTER TABLE `ampusers` DISABLE KEYS */;
-INSERT INTO `ampusers` VALUES ('admin','cb40ccb4c9df87d49fe0bb8ef5510ce77924797f','','','','*');
+INSERT INTO `ampusers` VALUES ('admin','d033e22ae348aeb5660fc2140aec35850c4da997','','','','*');
 /*!40000 ALTER TABLE `ampusers` ENABLE KEYS */;
 UNLOCK TABLES;
 
