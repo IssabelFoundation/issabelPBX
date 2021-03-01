@@ -8,7 +8,7 @@ class ampuser {
 	var $_deptname;
 	var $_sections;
 	
-	function ampuser($username) {
+	function __construct($username) {
 		$this->username = $username;
 		if ($user = $this->getAmpUser($username)) {
 			$this->_password = $user["password_sha1"];
