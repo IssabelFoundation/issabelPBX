@@ -72,17 +72,47 @@ if(DB::IsError($check)) {
 	// table does not exist, create it
 	sql($sql);
 
-    sql("INSERT INTO pjsipsettings (keyword,data) values ('bindport','5066')");
-    sql("INSERT INTO pjsipsettings (keyword,data) values ('tlsbindport','5067')");
-    sql("INSERT INTO pjsipsettings (keyword,data) values ('certtfile','/etc/asterisk/keys/asterisk.pem')");
-    sql("INSERT INTO pjsipsettings (keyword,data) values ('ALLOW_SIP_ANON','no')");
+	sql("INSERT INTO pjsipsettings (keyword,data) values ('bindport','5066')");
+	sql("INSERT INTO pjsipsettings (keyword,data) values ('tlsbindport','5067')");
+	sql("INSERT INTO pjsipsettings (keyword,data) values ('certtfile','/etc/asterisk/keys/asterisk.pem')");
+	sql("INSERT INTO pjsipsettings (keyword,data) values ('ALLOW_SIP_ANON','no')");
 
-} else {
-	out(_("already exists"));
+} 
+
+out(_("Check for pjsipsettings values.."));
+$sql = "SELECT data FROM pjsipsettings WHERE keyword = 'bindport'";
+$PJbindport = sql($sql,'getOne');
+if (!$PJbindport) {
+	sql("INSERT INTO pjsipsettings (keyword,data) values ('bindport','5066')");
+	out(_("Add bindport.."));
+}
+$sql = "SELECT data FROM pjsipsettings WHERE keyword = 'tlsbindport'";
+$PJtlsbindport = sql($sql,'getOne');
+if (!$PJtlsbindport) {
+	sql("INSERT INTO pjsipsettings (keyword,data) values ('tlsbindport','5067')");
+	out(_("Add tlsbindport.."));
+}
+$sql = "SELECT data FROM pjsipsettings WHERE keyword = 'certtfile'";
+$PJcerttfile = sql($sql,'getOne');
+if (!$PJcerttfile) {
+	sql("INSERT INTO pjsipsettings (keyword,data) values ('certtfile','/etc/asterisk/keys/asterisk.pem')");
+	out(_("Add certfile.."));
+}
+$sql = "SELECT data FROM pjsipsettings WHERE keyword = 'ALLOW_SIP_ANON'";
+$PJALLOW_SIP_ANON = sql($sql,'getOne');
+if (!$PJALLOW_SIP_ANON) {
+	sql("INSERT INTO pjsipsettings (keyword,data) values ('ALLOW_SIP_ANON','no')");
+	out(_("Add ALLOW_SIP_ANON.."));
 }
 
-
-
+$sql = "SELECT data FROM pjsipsettings WHERE data = '1' and type = 1";
+$PJcodecs = sql($sql,'getOne');
+if (!$PJcodecs) {
+	sql("INSERT INTO pjsipsettings (keyword,data,seq,type) values ('ulaw', '1', 0, 1), 
+	('alaw', '1', 1, 1), ('slin', '', 2, 1), ('g726', '', 3, 1), ('gsm', '1', 4, 1), 
+	('g729', '', 5, 1), ('ilbc', '1', 6, 1), ('g723', '', 7, 1), ('g726aal2', '', 8, 1), 
+	('adpcm', '', 9, 1), ('lpc10', '', 10, 1), ('speex', '', 11, 1), ('g722', '', 12, 1)");
+}
 
 out(_("Migrate rtp.conf values if needed and initialize"));
 
