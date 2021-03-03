@@ -1811,6 +1811,39 @@ function core_do_get_config($engine) {
                 }
             }
 
+            // sip header functions
+            $c = 'func-set-sipheader'; // Context
+            $e = 's'; // Exten
+
+            $ext->add($c,$e,'', new \ext_noop('Sip Add Header function called. Adding ${ARG1} = ${ARG2}'));
+            $ext->add($c,$e,'', new \ext_set('HASH(__SIPHEADERS,${ARG1})', '${ARG2}'));
+            $ext->add($c,$e,'', new \ext_return());
+
+            /*
+            * Apply a SIP Header to the call that's about to be made
+            */
+
+            $c = 'func-apply-sipheaders';
+
+            $ext->add($c,$e,'', new \ext_noop('Applying SIP Headers to channel ${CHANNEL}'));
+            $ext->add($c,$e,'', new \ext_set('TECH', '${CUT(CHANNEL,/,1)}'));
+            $ext->add($c,$e,'', new \ext_set('SIPHEADERKEYS', '${HASHKEYS(SIPHEADERS)}'));
+            $ext->add($c,$e,'', new \ext_while('$["${SET(sipkey=${SHIFT(SIPHEADERKEYS)})}" != ""]'));
+            $ext->add($c,$e,'', new \ext_set('sipheader', '${HASH(SIPHEADERS,${sipkey})}'));
+            $ext->add($c,$e,'', new \ext_execif('$["${sipheader}" = "unset" & "${TECH}" = "SIP"]','SIPRemoveHeader','${sipkey}:'));
+            $ext->add($c,$e,'', new \ext_execif('$["${sipheader}" = "unset" & "${TECH}" = "PJSIP"]','Set','PJSIP_HEADER(remove,${sipkey})='));
+
+            // rfc7462
+            $ext->add($c,$e,'', new \ext_execif('$["${sipkey}" = "Alert-Info" & ${REGEX("^<[^>]*>" ${sipheader})} != 1 & ${REGEX("\;info=" ${sipheader})} != 1]', 'Set', 'sipheader=<http://127.0.0.1>\;info=${sipheader}'));
+            $ext->add($c,$e,'', new \ext_execif('$["${sipkey}" = "Alert-Info" & ${REGEX("^<[^>]*>" ${sipheader})} != 1]', 'Set', 'sipheader=<http://127.0.0.1>${sipheader}'));
+
+            $ext->add($c,$e,'', new \ext_execif('$["${TECH}" = "SIP" & "${sipheader}" != "unset"]','SIPAddHeader','${sipkey}:${sipheader}'));
+            $ext->add($c,$e,'', new \ext_execif('$["${TECH}" = "PJSIP" & "${sipheader}" != "unset"]','Set','PJSIP_HEADER(add,${sipkey})=${sipheader}'));
+            $ext->add($c,$e,'', new \ext_endwhile(''));
+            $ext->add($c,$e,'', new \ext_return());
+
+
+
       /* This needs to be before outbound-routes since they can have a wild-card in them
        *
         ;------------------------------------------------------------------------
@@ -1833,8 +1866,8 @@ function core_do_get_config($engine) {
       $ext->addInclude('from-internal-additional', $context); // Add the include from from-internal
       $exten = '_LC-.';
       $ext->add($context, $exten, '', new ext_noop_trace('IN '.$context.' with - RT: ${RT}, RG_IDX: ${RG_IDX}'));
-      $ext->add($context, $exten, '', new ext_execif('$["${ALERT_INFO}"!=""]', 'SIPAddHeader','Alert-Info: ${ALERT_INFO}'));
-      $ext->add($context, $exten, '', new ext_dial('${DB(DEVICE/${EXTEN:3}/dial)}', '${RT},${DIAL_OPTIONS}M(auto-confirm^${RG_IDX})'));
+      $ext->add($context, $exten, '', new ext_gosubif('$["${ALERT_INFO}"!="" & "${HASH(SIPHEADERS,Alert-Info)}"=""]', 'func-set-sipheader,s,1',false,'Alert-Info,${ALERT_INFO}',false));
+      $ext->add($context, $exten, '', new ext_dial('${DB(DEVICE/${EXTEN:3}/dial)}', '${RT},${DIAL_OPTIONS}b(func-apply-sipheaders^s^1)M(auto-confirm^${RG_IDX})'));
 
       /* This needs to be before outbound-routes since they can have a wild-card in them
        *
@@ -4872,9 +4905,10 @@ function core_do_get_config($engine) {
         $ext->add($mcontext,$exten,'', new ext_gosubif('$[${REGEX("^[\+]?[0-9]+$" ${CALLERID(number)})} = 1]','ctset,1','ctclear,1'));
         //TODO: do we need to check for anything beyond auto-blkvm in this call path?
         $ext->add($mcontext,$exten,'skiptrace', new ext_set('D_OPTIONS', '${IF($["${NODEST}"!="" & ${REGEX("(M[(]auto-blkvm[)])" ${ARG2})} != 1]?${ARG2}M(auto-blkvm):${ARG2})}'));
-        $ext->add($mcontext,$exten,'', new ext_execif('$["${ALERT_INFO}"!=""]', 'SIPAddHeader', 'Alert-Info: ${ALERT_INFO}'));
+        //$ext->add($mcontext,$exten,'', new ext_execif('$["${ALERT_INFO}"!=""]', 'SIPAddHeader', 'Alert-Info: ${ALERT_INFO}'));
+        $ext->add($mcontext,$exten,'', new ext_gosubif('$["${ALERT_INFO}"!="" & "${HASH(SIPHEADERS,Alert-Info)}"=""]', 'func-set-sipheader,s,1',false,'Alert-Info,${ALERT_INFO}',false));
         //TODO: Do I need to  re-propagage anything from ${SIPADDHEADER} ?
-        $ext->add($mcontext,$exten,'', new ext_execif('$["${SIPADDHEADER}"!=""]', 'SIPAddHeader', '${SIPADDHEADER}'));
+        //$ext->add($mcontext,$exten,'', new ext_execif('$["${SIPADDHEADER}"!=""]', 'SIPAddHeader', '${SIPADDHEADER}'));
         if ($ast_ge_14) {
           $ext->add($mcontext,$exten,'', new ext_execif('$["${MOHCLASS}"!=""]', 'Set', 'CHANNEL(musicclass)=${MOHCLASS}'));
         } else {
@@ -4901,7 +4935,7 @@ function core_do_get_config($engine) {
           $ext->add($mcontext,$exten,'', new ext_set('CONNECTEDLINE(num)', '${EXTTOCALL}'));
           $ext->add($mcontext,$exten,'', new ext_set('D_OPTIONS', '${D_OPTIONS}I'));
         }
-        $ext->add($mcontext,$exten,'godial', new ext_dial('${DSTRING}', '${ARG1},${D_OPTIONS}'));
+        $ext->add($mcontext,$exten,'godial', new ext_dial('${DSTRING}', '${ARG1},${D_OPTIONS}b(func-apply-sipheaders^s^1)'));
         $ext->add($mcontext,$exten,'', new ext_execif('$["${DIALSTATUS}"="ANSWER" & "${CALLER_DEST}"!=""]', 'MacroExit'));
 
         $ext->add($mcontext,$exten,'', new ext_execif('$["${DIALSTATUS_CW}"!=""]', 'Set', 'DIALSTATUS=${DIALSTATUS_CW}'));
