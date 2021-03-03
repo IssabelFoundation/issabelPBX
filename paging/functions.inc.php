@@ -134,7 +134,7 @@ function paging_get_config($engine) {
                     $ext->add($context, $code, '', new ext_set('CONNECTEDLINE(name,i)', '${DB(AMPUSER/${EXTEN:' . $len . '}/cidname)}'));
                     $ext->add($context, $code, '', new ext_set('CONNECTEDLINE(num)', '${EXTEN:' . $len . '}'));
                 }
-                $ext->add($context, $code, 'godial', new ext_dial('${DIAL}','${DTIME},' . $dopt . '${DOPTIONS}${INTERCOM_EXT_DOPTIONS}'));
+                $ext->add($context, $code, 'godial', new ext_dial('${DIAL}','${DTIME},' . $dopt . '${DOPTIONS}${INTERCOM_EXT_DOPTIONS}b(autoanswer^s^1(${ALERTINFO},${CALLINFO}))'));
 
 
         $ext->add($context, $code, 'end', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
@@ -356,14 +356,23 @@ function paging_get_config($engine) {
             if ($has_answermacro) {
                 $ext->add($macro, "s", '', new ext_gotoif('$["${ANSWERMACRO}" != ""]','macro2'));
             }
-            $ext->add($macro, "s", '', new ext_execif('$["${ALERTINFO}" != ""]', 'SipAddHeader','${ALERTINFO}'));
-            $ext->add($macro, "s", '', new ext_execif('$["${CALLINFO}" != ""]', 'SipAddHeader','${CALLINFO}'));
+            $ext->add($macro, "s", '', new ext_gosubif('$["${ALERT_INFO}"!="" & "${HASH(SIPHEADERS,Alert-Info)}"=""]', 'func-set-sipheader,s,1', false, 'Alert-Info,${ALERT_INFO}', false));
+            $ext->add($macro, "s", '', new ext_gosubif('$["${CALLINFO}"!="" & "${HASH(SIPHEADERS,Call-Info)}"=""]', 'func-set-sipheader,s,1',false,'Call-Info,${CALLINFO}', false));
             $ext->add($macro, "s", '', new ext_execif('$["${SIPURI}" != ""]', 'Set','__SIP_URI_OPTIONS=${SIPURI}'));
             $ext->add($macro, "s", 'macro', new ext_macro('${DB(DEVICE/${ARG1}/autoanswer/macro)}','${ARG1}'), 'n',2);
             if ($has_answermacro) {
                 $ext->add($macro, "s", 'macro2', new ext_macro('${ANSWERMACRO}','${ARG1}'), 'n',2);
             }
-            
+
+
+            // Macro to apply SIP Headers to channel.
+            //   function ext_gosubif($condition, $true_priority, $false_priority = false, $true_args = '', $false_args = '') {
+            //
+            $ext->add("autoanswer", "s", '', new ext_gosubif('$["${ARG1}" != ""]', 'func-set-sipheader,s,1', false, 'Alert-Info,${ARG1}'));
+            $ext->add("autoanswer", "s", '', new ext_gosubif('$["${ARG2}" != ""]', 'func-set-sipheader,s,1', false, 'Call-Info,${ARG2}'));
+            $ext->add("autoanswer", "s", '', new ext_gosub('func-apply-sipheaders,s,1'));
+            $ext->add("autoanswer", "s", '', new ext_return());
+
             //auto answer stuff
             //set autoanswer variables
             if (!empty($custom_vars)) {
@@ -408,7 +417,7 @@ function paging_get_config($engine) {
             } else {
                 $ext->add($apppaging, "_PAGE.", 'SKIPCHECK', new ext_macro('autoanswer', '${EXTEN:4}'));
             }
-            $ext->add($apppaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
+            $ext->add($apppaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}b(autoanswer^s^1(${ALERTINFO},${CALLINFO}))'));
             $ext->add($apppaging, "_PAGE.", 'skipself', new ext_hangup());
 
             // Try ChanSpy Version
