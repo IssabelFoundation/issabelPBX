@@ -8160,6 +8160,10 @@ function core_users_configprocess() {
 function core_devices_configpageinit($dispnum) {
     global $currentcomponent, $amp_conf;
 
+    $engineinfo = engine_getinfo();
+    $astver =  $engineinfo['version'];
+    $pjsip_enabled = version_compare($astver, '13.00.00', 'ge');
+
     if ( $dispnum == 'devices' || $dispnum == 'extensions' ) {
 
         // We don't call: $currentcomponent->addgeneralarray('devtechs') because the first
@@ -8582,7 +8586,10 @@ function core_devices_configpageinit($dispnum) {
         // Devices list
         if ($_SESSION["AMP_user"]->checkSection('999')) {
             $currentcomponent->addoptlistitem('devicelist', 'sip_generic', _("Generic SIP Device"));
-            $currentcomponent->addoptlistitem('devicelist', 'pjsip_generic', _("Generic PJSIP Device"));
+
+            if($pjsip_enabled) {
+                $currentcomponent->addoptlistitem('devicelist', 'pjsip_generic', _("Generic PJSIP Device"));
+            }
 
             if(isset($amp_conf['HTTPSCERTFILE'])) {
                 if($amp_conf['HTTPSCERTFILE']<>'') {

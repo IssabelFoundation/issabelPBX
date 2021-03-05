@@ -129,6 +129,14 @@ switch ($action) {
     /* only get them if first time load, if they pressed submit, use values from POST */
     $pjsip_settings = pjsipsettings_get();
 }
+$error_displays=array();
+$engineinfo = engine_getinfo();
+$astver =  $engineinfo['version'];
+$ast_ge_11 = version_compare($astver, '11.99.99', 'le');
+if($ast_ge_11) {
+    $nopjsipsupport = array(array("js"=>"","div"=>_("<b>PJSIP does not work with Asterisk 11<br/><br/>REPEAT</br><br/>PJSIP does not work with Asterisk 11, you must upgrade Asterisk if you want to use PJSIP</b><br><br>")));
+    $error_displays = array_merge($error_displays,$nopjsipsupport);
+}
 $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 
 ?>
