@@ -2,19 +2,20 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>2.11.0.10</version>
+    <version>2.11.0.11</version>
     <publisher>Issabel Foundation</publisher>
     <license>GPLv3+</license>
     <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <embedcategory>Internal Options &amp; Configuration</embedcategory>
     <changelog>
+        *2.11.0.11* Support for pjsip and sip headers
         *2.11.0.10* Rebranding
         *2.11.0.9* Initial Issabel Foundation release
     </changelog>
     <depends>
         <version>2.11.0</version>
-        <module>framework ge 2.11.0.47</module>
+        <module>framework ge 2.11.0.49</module>
     </depends>
     <description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones. 
         Also creates an Intercom feature code that can be used as a prefix to talk directly to one person, as well as optional feature codes to block/allow intercom calls to all users as well as blocking specific users or only allowing specific users.</description>
