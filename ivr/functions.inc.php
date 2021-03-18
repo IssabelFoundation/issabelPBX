@@ -136,7 +136,7 @@ function ivr_get_config($engine) {
 							if($e['spoken']!='') {
 								$words = preg_split("/,/",$e['spoken']);
 								foreach($words as $word) {
-									$ext->add($c, 's', '', new ext_execif('$["${RESULT}" = "'.$word.'"]','Set','RESULT='.$e['selection']));
+									$ext->add($c, 's', '', new ext_execif('$["${RESULT}" =~ "'.$word.'"]','Set','RESULT='.$e['selection']));
 								}
 							}
 						}
