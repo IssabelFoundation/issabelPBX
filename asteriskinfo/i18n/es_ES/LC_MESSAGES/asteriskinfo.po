@@ -157,5 +157,50 @@ msgstr ""
 msgid "Unmonitored: "
 msgstr "Sin monitorizar:"
 
+msgid "PJSip Info"
+msgstr "Información PJSip"
+
+msgid "PJSip Endpoints:"
+msgstr "Endpoints PJSip:"
+
+msgid "Available"
+msgstr "Disponibles"
+
+msgid "Unavailable"
+msgstr "No disponibles"
+
+msgid "Unknown"
+msgstr "Desconocido"
+
+msgid "Online-Unmonitored"
+msgstr "En línea"
+
+msgid "Offline-Unmonitored"
+msgstr "Fuera de línea"
+
+msgid "PJSip Registrations: "
+msgstr "Registraciones PJSip: "
+
+msgid "Active PJSIP Channel(s): "
+msgstr "Canales PJSIP activos: "
+
+msgid "PJSip Transports"
+msgstr "Transportes PJSip"
+
+msgid "PJSip Registrations"
+msgstr "Registraciones PJSip"
+
+msgid "PJSip Endpoints"
+msgstr "Endpoints PJSip"
+
+msgid "PJSip Contacts"
+msgstr "Contactos PJSip"
+
+msgid "PJSip Auths"
+msgstr "Autenticaciones PJSip"
+
+msgid "PJSip AORs"
+msgstr "PJSip AORs"
+
 #~ msgid "Conference Info"
 #~ msgstr "Información de conferencias"
