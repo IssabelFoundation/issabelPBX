@@ -618,7 +618,7 @@ msgstr "Cualquier DID"
 
 #: amp.i18n.php:30
 msgid "Applications"
-msgstr ""
+msgstr "Aplicaciones"
 
 #: ../core/page.ampusers.php:232
 msgid "Apply Changes Bar"
@@ -626,7 +626,7 @@ msgstr "Barra de aplicación de cambios"
 
 #: amp_conf/htdocs/admin/views/menu.php:168
 msgid "Apply Config"
-msgstr ""
+msgstr "Aplicar Cambios"
 
 #: amp_conf/htdocs/admin/views/footer.php:88
 msgid ""
@@ -1047,7 +1047,7 @@ msgstr "Congestión"
 
 #: amp.i18n.php:40
 msgid "Connectivity"
-msgstr ""
+msgstr "Conectividad"
 
 #: amp_conf/htdocs/admin/views/footer.php:78
 msgid "Continue"
@@ -3662,7 +3662,7 @@ msgstr ""
 
 #: amp.i18n.php:50
 msgid "Settings"
-msgstr ""
+msgstr "Configuraciones"
 
 #: ../core/page.trunks.php:685 ../core/page.trunks.php:693
 msgid "Setup directory assistance"
@@ -5551,6 +5551,9 @@ msgstr "Configuraciones PJSIP"
 msgid "Asterisk PJSIP Settings"
 msgstr "Configuraciones PJSIP"
 
+msgid "Asterisk SIP Settings"
+msgstr "Configuraciones SIP"
+
 msgid "PJSIP Advanced Settings"
 msgstr "Configuraciones PJSIP Avanzadas"
 
@@ -5574,6 +5577,9 @@ msgstr "Servidor SIP"
 
 msgid "SIP Server Port"
 msgstr "Puerto Servidor SIP"
+
+msgid "Other"
+msgstr "Otros"
 
 #~ msgid "Tools"
 #~ msgstr "Herramientas"
@@ -5687,8 +5693,8 @@ msgstr "Puerto Servidor SIP"
 #~ msgid "Management"
 #~ msgstr "Gestión"
 
-#~ msgid "Reports"
-#~ msgstr "Informes"
+msgid "Reports"
+msgstr "Informes"
 
 #~ msgid "Panel"
 #~ msgstr "Panel"
