@@ -984,6 +984,10 @@ foreach($output as $file) {
         if ($retcode != 0) {
             error("Error code $retcode: trying to create empty file $target");
         }
+        exec("chown asterisk.asterisk $target", $output, $retcode);
+        if ($retcode != 0) {
+            error("Error code $retcode: trying to create empty file $target");
+        }
     }
 }
 
