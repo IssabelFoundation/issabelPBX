@@ -137,7 +137,7 @@ if($ast_ge_11) {
     $nopjsipsupport = array(array("js"=>"","div"=>_("<b>PJSIP does not work with Asterisk 11<br/><br/>REPEAT</br><br/>PJSIP does not work with Asterisk 11, you must upgrade Asterisk if you want to use PJSIP</b><br><br>")));
     $error_displays = array_merge($error_displays,$nopjsipsupport);
 }
-$error_displays = array_merge($error_displays,sipsettings_check_custom_files());
+$error_displays = array_merge($error_displays,pjsipsettings_check_custom_files());
 
 ?>
   <h2><?php echo _("Edit PJSIP Settings"); ?></h2>
@@ -631,14 +631,11 @@ function process_errors($errors) {
   return $error_display;
 }
 
-function sipsettings_check_custom_files() {
+function pjsipsettings_check_custom_files() {
   global $amp_conf;
   $errors = array();
 
-  $custom_files[] = $amp_conf['ASTETCDIR']."/sip.conf";
-  $custom_files[] = $amp_conf['ASTETCDIR']."/sip_nat.conf";
-  $custom_files[] = $amp_conf['ASTETCDIR']."/sip_general_custom.conf";
-  $custom_files[] = $amp_conf['ASTETCDIR']."/sip_custom.conf";
+  $custom_files = array();
 
   foreach ($custom_files as $file) {
     if (file_exists($file)) {
