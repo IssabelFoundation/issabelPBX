@@ -94,6 +94,7 @@ function ivr_get_config($engine) {
 				}
 
 				$ext->add($c, 's', '', new ext_gotoif('$["${CDR(disposition)}" = "ANSWERED"]','skip'));
+				$ext->add($c, 's', '', new ext_gotoif('$["${CDR(answer)}" != ""]','skip'));
 				$ext->add($c, 's', '', new ext_answer(''));
 				$ext->add($c, 's', '', new ext_wait('1'));
 
