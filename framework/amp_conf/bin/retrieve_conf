@@ -835,8 +835,8 @@ function write_file($filename,$contents,$use_warning_banner=true) {
             }
             fwrite($fd, $contents);
             fclose($fd);
-            chown($filename,'asterisk');
-            chgrp($filename,'asterisk');
+            chown(addslash($asterisk_conf['astetcdir']).$filename,'asterisk');
+            chgrp(addslash($asterisk_conf['astetcdir']).$filename,'asterisk');
         }
     }
 }
