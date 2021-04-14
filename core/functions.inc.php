@@ -1474,7 +1474,7 @@ function core_destinations() {
     global $amp_conf;
     //static destinations
     $extens = array();
-    $td = textdomain();
+    //$td = textdomain();
     textdomain("amp");
     $category = _("Terminate Call");
     $ds_id = 'blackhole';
@@ -1484,7 +1484,7 @@ function core_destinations() {
     $extens[] = array('destination' => 'app-blackhole,zapateller,1', 'description' => _("Play SIT Tone (Zapateller)"), 'category' => $category, 'id' => $ds_id);
     $extens[] = array('destination' => 'app-blackhole,musiconhold,1', 'description' => _("Put caller on hold forever"), 'category' => $category, 'id' => $ds_id);
     $extens[] = array('destination' => 'app-blackhole,ring,1', 'description' => _("Play ringtones to caller until they hangup"), 'category' => $category, 'id' => $ds_id);
-    textdomain($td);
+    //textdomain($td);
 
     //get the list of meetmes
     $results = core_users_list();
