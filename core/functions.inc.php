@@ -483,6 +483,12 @@ class core_conf {
             }
         }
 
+        if(!isset($bindaddr)) $bindaddr = $bindaddr_df;
+        if(!isset($bindport)) $bindport = $bindport_df;
+
+        if(!isset($tlsbindaddr)) $tlsbindaddr = $tlsbindaddr_df;
+        if(!isset($tlsbindport)) $tlsbindport = $tlsbindport_df;
+
         $output1[]="bind=$bindaddr:$bindport";
         $output2[]="bind=$bindaddr:$bindport";
         $output3[]="bind=$tlsbindaddr:$tlsbindport";
