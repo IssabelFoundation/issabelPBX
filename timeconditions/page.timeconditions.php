@@ -74,7 +74,7 @@ if ($action == 'delete') {
 	} else {
     $tccode = '';
   }
-  $tcval = $thisItem['tcval'];
+  $tcval = isset($thisItem['tcval'])?$thisItem['tcval']:'';
 ?>
 	<form autocomplete="off" name="edit" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return edit_onsubmit();">
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
