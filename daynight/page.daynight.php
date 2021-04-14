@@ -3,7 +3,6 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 /* $Id: page.ivr.php 3790 2007-02-16 18:52:53Z p_lindheimer $ */
 
 $dispnum = "daynight"; //used for switch on config.php
-$tabindex = 0;
 
 $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
 $password = isset($_REQUEST['password'])?$_REQUEST['password']:'';
@@ -56,6 +55,7 @@ function daynight_show_edit($post, $add="") {
 	global $db;
 	global $itemid;
 
+	$tabindex = 0;
 	$fcc = new featurecode('daynight', 'toggle-mode-'.$itemid);
 	$code = $fcc->getCodeActive();
 	unset($fcc);
