@@ -440,8 +440,10 @@ class core_conf {
         $tlsbindaddr_df  = '0.0.0.0';
         $tlsbindport_df  = '5067';
 
-        $localnet     = array();
-        $netmask      = array();
+        $localnet        = array();
+        $netmask         = array();
+
+        $cert_file       = '';
 
         foreach($results as $result) {
             $kw     = strtolower($result['keyword']);
@@ -460,6 +462,7 @@ class core_conf {
             } else 
             if($kw=='certfile') {
                 $output3[]="cert_file=$value";
+                $cert_file=$value;
             } else
             if(substr($kw,0,8)=="localnet") {
                 $parts = preg_split("/_/",$kw);
@@ -488,6 +491,10 @@ class core_conf {
 
         if(!isset($tlsbindaddr)) $tlsbindaddr = $tlsbindaddr_df;
         if(!isset($tlsbindport)) $tlsbindport = $tlsbindport_df;
+
+        if($cert_file=='') {
+            $output[3]="cert_file='/etc/asterisk/keys/asterisk.pem'";
+        }
 
         $output1[]="bind=$bindaddr:$bindport";
         $output2[]="bind=$bindaddr:$bindport";
