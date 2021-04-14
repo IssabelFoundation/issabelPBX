@@ -493,7 +493,7 @@ class core_conf {
         if(!isset($tlsbindport)) $tlsbindport = $tlsbindport_df;
 
         if($cert_file=='') {
-            $output3[]="cert_file='/etc/asterisk/keys/asterisk.pem'";
+            $output3[]="cert_file=/etc/asterisk/keys/asterisk.pem";
         }
 
         $output1[]="bind=$bindaddr:$bindport";
@@ -630,10 +630,15 @@ class core_conf {
             if(DB::IsError($results2_pre)) {
                 die($results2->getMessage());
             }
-            foreach ($res as $element) {
-                $cod[]=$element['keyword'];
+
+            if(count($res)==0) {
+                $codecs='ulaw,alaw,gsm';
+            } else {
+                foreach ($res as $element) {
+                    $cod[]=$element['keyword'];
+                }
+                $codecs = implode(",",$cod);
             }
-            $codecs = implode(",",$cod);
 
             $sql = "SELECT keyword,data from sip where id='$id' and keyword <> 'account' and flags <> 1 order by flags, keyword DESC";
             $results2_pre = $db->getAll($sql, DB_FETCHMODE_ASSOC);
