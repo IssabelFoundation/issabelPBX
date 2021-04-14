@@ -1,4 +1,9 @@
 <!-- right side menu -->
+<?php
+if(!isset($message)) $message='';
+if(!isset($thisItem_description)) $thisItem_description='';
+if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']='';
+?>
 <div class="rnav"><ul>
     <li><a id="<?php echo ($itemid=='' ? 'current':'') ?>" href="config.php?display=cidlookup"><?php echo _("Add CID Lookup Source")?></a></li>
     <?php
