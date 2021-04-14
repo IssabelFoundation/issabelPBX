@@ -30,6 +30,9 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
     $p_idx++;
   }
 
+  if(!isset($manager_custom_key_0)) { $manager_custom_key_0=''; }
+  if(!isset($manager_custom_val_0)) { $manager_custom_val_0=''; }
+
   switch ($action) {
     case "edit":  //just delete and re-add
       if (($errors = managersettings_edit($manager_settings)) !== true) {
@@ -143,24 +146,6 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
     </td>
   </tr>
  
-  <!--tr>
-    <td>
-      <a href="#" class="info"><?php echo _("Bind Address")?><span><?php echo _("Asterisk: bindaddr. The IP address to bind to and listen for AMI. If set to 0.0.0.0 Asterisk will listen on all addresses. To bind to multiple IP addresses or ports, use the Other 'Manager Settings' fields where you can put settings such as:<br /> bindaddr=192.168.10.100:4555.<br />")?></span></a>
-    </td>
-    <td>
-      <input type="text" id="bindaddr" name="bindaddr" class="validate-ip" value="<?php echo $bindaddr ?>" tabindex="<?php echo ++$tabindex;?>">
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <a href="#" class="info"><?php echo _("Bind Port")?><span><?php echo _("Asterisk: bindport. TCP Port that Asterisk will bind to and listen for Manager users. The Manager standard is 5038 and in most cases this is what you want. It is recommended to leave this as default.")?></span></a>
-    </td>
-    <td>
-      <input type="text" id="port" name="port" class="validate-ip-port" value="<?php echo $port ?>" tabindex="<?php echo ++$tabindex;?>">
-    </td>
-  </tr-->
-
   <tr>
     <td>
       <a href="#" class="info"><?php echo _("Channel Variables")?><span><?php echo _("Comma separated list of channel variables to broadcast inside AMI events")?></span></a>
