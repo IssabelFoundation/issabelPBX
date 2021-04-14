@@ -723,6 +723,9 @@ function fax_write_conf(){
     $file=fopen($amp_conf['ASTETCDIR'].'/res_fax_digium.conf','w');
     fwrite($file, $data);
     fclose($file);
+
+    chown($amp_conf['ASTETCDIR'].'/res_fax.conf','asterisk');
+    chgrp($amp_conf['ASTETCDIR'].'/res_fax_digium.conf','asterisk');
 }
 
 /**
