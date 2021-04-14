@@ -3674,7 +3674,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:660
 msgid "Show only upgradeable"
-msgstr ""
+msgstr "Mostrar sólo actualizables"
 
 #: ../core/page.did.php:240
 msgid "Signal RINGING"

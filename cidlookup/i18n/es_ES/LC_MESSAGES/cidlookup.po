@@ -361,8 +361,8 @@ msgstr "eliminado"
 #~ msgid "CallerID Lookup"
 #~ msgstr "Búsqueda de identificador de llamante"
 
-#~ msgid "CallerID Lookup Sources"
-#~ msgstr "Búsqueda de llamantes"
+msgid "CallerID Lookup Sources"
+msgstr "Fuentes de CallerID"
 
 #~ msgid "CID Lookup source"
 #~ msgstr "Fuente de búsqueda de CID"
