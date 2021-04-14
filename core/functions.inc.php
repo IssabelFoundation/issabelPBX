@@ -493,7 +493,7 @@ class core_conf {
         if(!isset($tlsbindport)) $tlsbindport = $tlsbindport_df;
 
         if($cert_file=='') {
-            $output[3]="cert_file='/etc/asterisk/keys/asterisk.pem'";
+            $output3[]="cert_file='/etc/asterisk/keys/asterisk.pem'";
         }
 
         $output1[]="bind=$bindaddr:$bindport";
