@@ -32,6 +32,7 @@ function dialplaninjection_hookGet_config($engine) {
 //
 function dialplaninjection_getinjections() {
     global $db;
+    $tmparray=array();
     $sql = "select id, description, exten from dialplaninjection_dialplaninjections order by description";
     $results = $db->getAll($sql);
     if(DB::IsError($results))
@@ -161,6 +162,7 @@ function dialplaninjection_get_config($engine) {
 // it allows dialplaninjection to be chosen as destinations
 function dialplaninjection_destinations() {
     $injections =  dialplaninjection_getinjections();
+    $extens = array();
     if (is_array($injections)) {
         foreach ($injections as $r) {
             //            $extens[] = array('destination' => 'dialplaninjections,injection-'.$r[0].',1', 'description' => $r[1]);
