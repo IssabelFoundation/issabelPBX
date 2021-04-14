@@ -10,6 +10,8 @@ $ast_ge_16 = version_compare($amp_conf['ASTVERSION'], "1.6", "ge");
 isset($_REQUEST['action'])?$action = $_REQUEST['action']:$action='';
 isset($_REQUEST['number'])?$number = $_REQUEST['number']:$number='';
 
+$filter_blocked = false;
+
 if($ast_ge_16) {
 	isset($_REQUEST['description'])?$description = $_REQUEST['description']:$description='';
 }
@@ -106,7 +108,6 @@ if (is_array($numbers)) {
 
 <?php
 // Why should I specify type=setup ???
-	$filter_blocked = false;
 	foreach ($numbers as $num)	{
 		if($num == "blocked")  { // Don't display the blocked/unknown CID as an item, but keep track of it for displaying the checkbox later
 			$filter_blocked = true;
