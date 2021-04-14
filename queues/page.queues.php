@@ -144,8 +144,9 @@ if (isset($_REQUEST["dynmembers"])) {
     if (!$dynmembers) {
         $dynmembers = null;
     }
+} else {
+    $dynmembers = null;
 }
-
 
 // do if we are submitting a form
 if(isset($_REQUEST['action'])){
