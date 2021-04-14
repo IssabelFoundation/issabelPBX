@@ -107,9 +107,12 @@ if ($extdisplay) {
 
 $helptext = _("Set CallerID allows you to change the caller id of the call and then continue on to the desired destination. For example, you may want to change the caller id form \"John Doe\" to \"Sales: John Doe\". Please note, the text you enter is what the callerid is changed to. To append to the current callerid, use the proper asterisk variables, such as \"\${CALLERID(name)}\" for the currently set callerid name and \"\${CALLERID(num)}\" for the currently set callerid number.");
 echo $helptext;
-echo $row['dest'];
+if(isset($row['dest'])) {
+    echo $row['dest'];
+}
 
-
+if(!isset($variables_custom_key_0)) { $variables_custom_key_0=''; }
+if(!isset($variables_custom_val_0)) { $variables_custom_val_0=''; }
 
 ?>
 
