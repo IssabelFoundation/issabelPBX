@@ -21,6 +21,7 @@ class core_conf {
     var $_applicationmap = array();
     var $_res_odbc       = array();
     var $_rtp_additional    = array();
+    var $_manager_general    = array();
     var $dev_user_map;
 
     // map the actual vmcontext and user devicename if the device is fixed
@@ -315,14 +316,14 @@ class core_conf {
     }
 
     function addManagerGeneral($key, $value) {
-        $this->_managergeneral[] = array('key' => $key, 'value' => $value);
+        $this->_manager_general[] = array('key' => $key, 'value' => $value);
     }
 
     function generate_managergeneral_additional($ast_version) {
         $output = '';
 
-        if (isset($this->_managergeneral) && is_array($this->_managergeneral)) {
-            foreach ($this->_managergeneral as $values) {
+        if (isset($this->_manager_general) && is_array($this->_manager_general)) {
+            foreach ($this->_manager_general as $values) {
                 $output .= $values['key']."=".$values['value']."\n";
             }
         }
