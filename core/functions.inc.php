@@ -8546,6 +8546,7 @@ function core_devices_configpageinit($dispnum) {
         unset($tmparr['qualify']);
         //unset($tmparr['dial']);
         unset($tmparr['dtlsenable']);
+        unset($tmparr['dtlscertfile']);
         unset($tmparr['encryption']);
         unset($tmparr['host']);
         unset($tmparr['nat']);
