@@ -414,12 +414,12 @@ echo '</ul>';
       <table width="100%">
         <tr>
           <td>
-			<span class="radioset">
+            <span class="radioset">
             <input id="ALLOW_SIP_ANON-YES" type="radio" name="ALLOW_SIP_ANON" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $ALLOW_SIP_ANON=="yes"?"checked=\"yes\"":""?>/>
             <label for="ALLOW_SIP_ANON-YES"><?php echo _("Yes") ?></label>
             <input id="ALLOW_SIP_ANON-NO" type="radio" name="ALLOW_SIP_ANON" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $ALLOW_SIP_ANON=="no"?"checked=\"no\"":""?>/>
             <label for="ALLOW_SIP_ANON-NO"><?php echo _("No") ?></label>
-			</span>
+            </span>
           </td>
         </tr>
       </table>
@@ -438,55 +438,6 @@ echo '</ul>';
 
 
   <tr><td colspan="2"><br /></td></tr>
-
-<!--
-  <tr>
-    <td>
-      <a href="#" class="info"><?php echo _("Other SIP Settings")?><span><?php echo _("You may set any other SIP settings not present here that are allowed to be configured in the General section of sip.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields. Blank boxes will be deleted when submitted.")?></span></a>
-    </td>
-    <td>
-      <input type="text" id="sip_custom_key_0" name="sip_custom_key_0" class="sip-custom" value="<?php echo $sip_custom_key_0 ?>" tabindex="<?php echo ++$tabindex;?>"> =
-      <input type="text" id="sip_custom_val_0" name="sip_custom_val_0" value="<?php echo $sip_custom_val_0 ?>" tabindex="<?php echo ++$tabindex;?>">
-    </td>
-  </tr>
-
-<?php
-  $idx = 1;
-  $var_sip_custom_key = "sip_custom_key_$idx";
-  $var_sip_custom_val = "sip_custom_val_$idx";
-  while (isset($$var_sip_custom_key)) {
-    if ($$var_sip_custom_key != '') {
-      $tabindex++;
-      echo <<< END
-  <tr>
-    <td>
-    </td>
-    <td>
-      <input type="text" id="sip_custom_key_$idx" name="sip_custom_key_$idx" class="sip-custom" value="{$$var_sip_custom_key}" tabindex="$tabindex"> =
-END;
-      $tabindex++;
-      echo <<< END
-      <input type="text" id="sip_custom_val_$idx" name="sip_custom_val_$idx" value="{$$var_sip_custom_val}" tabindex="$tabindex">
-    </td>
-  </tr>
-END;
-    }
-    $idx++;
-    $var_sip_custom_key = "sip_custom_key_$idx";
-    $var_sip_custom_val = "sip_custom_val_$idx";
-  }
-  $tabindex += 60; // make room for dynamic insertion of new fields
-?>
--->
-
-<!--
-  <tr id="sip-custom-buttons">
-    <td></td>
-    <td><br \>
-      <input type="button" id="sip-custom-add"  value="<?php echo $add_field ?>" />
-    </td>
-  </tr>
--->
 
   <tr>
     <td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo $submit_changes ?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
