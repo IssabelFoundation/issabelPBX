@@ -164,6 +164,7 @@ function recording_addpage($usersnum) {
     global $fc_save;
     global $fc_check;
     global $recordings_save_path;
+    $tabindex = 0;
 
     ?>
     <div class="content">
@@ -255,7 +256,7 @@ function recording_addpage($usersnum) {
         $rname = rtrim(basename($_FILES['ivrfile']['name'], $suffix), '.');
     } 
 
-    if(isset($_GET['fname'])) { $rname = $_GET['fname']; }
+    if(isset($_GET['fname'])) { $rname = $_GET['fname']; } else { $rname=''; }
 
    $self  = $_SERVER['PHP_SELF'];
    $query = $_SERVER['QUERY_STRING'];
