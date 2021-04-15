@@ -221,7 +221,7 @@ function customappsreg_customdests_getunknown() {
 
 	$results = array();
 
-	$my_probs = framework_list_problem_destinations($my_hash, false);
+	$my_probs = framework_list_problem_destinations('', false);
 
 	if (!empty($my_probs)) {
 		foreach ($my_probs as $problem) {
