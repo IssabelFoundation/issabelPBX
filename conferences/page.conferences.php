@@ -66,9 +66,9 @@ if ($account != "" && !checkRange($account)){
 //Check to see if conference application is only confbridge
 global $amp_conf;
 global $astman;
-if ($astver === null) {
-	$engineinfo = engine_getinfo();
-	$astver =  $engineinfo['version'];
+if (!isset($astver)) {
+    $engineinfo = engine_getinfo();
+    $astver =  $engineinfo['version'];
 }
 
 //get meetme rooms
