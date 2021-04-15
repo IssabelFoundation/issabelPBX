@@ -60,6 +60,11 @@ if(isset($_REQUEST['action'])){
 //get unique ring groups
 $gresults = vmblast_list();
 $default_grp = vmblast_get_default_grp();
+$gresult = array();
+
+if(count($gresult)==0) {
+    $gresult[0]='';
+}
 
 if (isset($gresults)) {
 	foreach ($gresults as $gresult) {
@@ -67,6 +72,11 @@ if (isset($gresults)) {
 		echo "<li><a class=\"".($extdisplay==$gresult[0] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&extdisplay=".urlencode("GRP-".$gresult[0])."\">".$gresult[1]." ({$gresult[0]})$hl</a></li>";
 	}
 }
+
+
+
+
+
 ?>
 </ul></div>
 <?php

@@ -160,7 +160,7 @@ switch ($action) {
 
 }
 
-function recording_addpage($usersnum,$pepe) {
+function recording_addpage($usersnum) {
     global $fc_save;
     global $fc_check;
     global $recordings_save_path;
