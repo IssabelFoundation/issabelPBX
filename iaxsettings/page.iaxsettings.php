@@ -547,7 +547,6 @@ function iaxsettings_check_custom_files() {
   global $amp_conf;
   $errors = array();
 
-  $custom_files[] = $amp_conf['ASTETCDIR']."/iax.conf";
   $custom_files[] = $amp_conf['ASTETCDIR']."/iax_general_custom.conf";
   $custom_files[] = $amp_conf['ASTETCDIR']."/iax_custom.conf";
 
