@@ -49,8 +49,8 @@ function customcontexts_hookGet_config($engine) {
 			$db->query($sql);
 			$sql = 'SELECT context FROM customcontexts_contexts_list';
 			$sections = $db->getAll($sql);
-			if(DB::IsError($results)) {
- 				$results = null;
+			if(DB::IsError($sections)) {
+ 				$sections = null;
 			}
 			foreach ($sections as $section) {
 				$section = $section[0];
