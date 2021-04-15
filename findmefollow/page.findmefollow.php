@@ -27,7 +27,7 @@ isset($_REQUEST['fixedcid'])?$fixedcid = $_REQUEST['fixedcid']:$fixedcid='';
 if (isset($_REQUEST['ddial'])) {
 	$ddial =	$_REQUEST['ddial'];
 }	else {
-	$ddial == isset($_REQUEST['ddial_value']) ? $_REQUEST['ddial_value'] : ($amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '');
+	$ddial = isset($_REQUEST['ddial_value']) ? $_REQUEST['ddial_value'] : ($amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '');
 }
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
