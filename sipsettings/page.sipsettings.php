@@ -1017,7 +1017,6 @@ function sipsettings_check_custom_files() {
   global $amp_conf;
   $errors = array();
 
-  $custom_files[] = $amp_conf['ASTETCDIR']."/sip.conf";
   $custom_files[] = $amp_conf['ASTETCDIR']."/sip_nat.conf";
   $custom_files[] = $amp_conf['ASTETCDIR']."/sip_general_custom.conf";
   $custom_files[] = $amp_conf['ASTETCDIR']."/sip_custom.conf";
