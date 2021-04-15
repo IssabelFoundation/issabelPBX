@@ -258,13 +258,12 @@ function recording_addpage($usersnum) {
 
     if(isset($_GET['fname'])) { $rname = $_GET['fname']; } else { $rname=''; }
 
-   $self  = $_SERVER['PHP_SELF'];
-   $query = $_SERVER['QUERY_STRING'];
-   parse_str($query,$parameters);
-   unset($parameters['fname']);
-   $final_query = http_build_query($parameters);
+    $self  = $_SERVER['PHP_SELF'];
+    $query = $_SERVER['QUERY_STRING'];
+    parse_str($query,$parameters);
+    unset($parameters['fname']);
+    $final_query = http_build_query($parameters);
 
-//print_r($_SERVER);
 ?>
         
     <form name="prompt" action="<?php echo $self."?".$final_query;?>" method="post" onsubmit="return rec_onsubmit();">
