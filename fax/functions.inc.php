@@ -492,6 +492,9 @@ function fax_hook_core($viewing_itemid, $target_menuid){
     }
 
     $fax=fax_get_incoming($extension,$cidnum);
+    if(!isset($fax['legacy_email'])) { $fax['legacy_email']='';}
+    if(!isset($fax['detection'])) { $fax['detection']='';}
+    if(!isset($fax['detectionwait'])) { $fax['detectionwait']='';}
     $html='';
     if($target_menuid == 'did'){
     $fax_dahdi_faxdetect=fax_dahdi_faxdetect();
