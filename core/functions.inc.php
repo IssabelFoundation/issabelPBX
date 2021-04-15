@@ -445,6 +445,7 @@ class core_conf {
         $netmask         = array();
 
         $cert_file       = '';
+        $nat             = '';
 
         foreach($results as $result) {
             $kw     = strtolower($result['keyword']);
@@ -538,8 +539,7 @@ class core_conf {
             }
         }
 
-
-        $output.= implode("\n",$output1);
+        $output= implode("\n",$output1);
         $output.= "\n";
         $output.= "\n";
         $output.= implode("\n",$output2);
@@ -628,8 +628,8 @@ class core_conf {
             $cod=array();
             $sql = "SELECT keyword FROM pjsipsettings WHERE type=1 AND data<>'' ORDER BY data";
             $res = $db->getAll($sql, DB_FETCHMODE_ASSOC);
-            if(DB::IsError($results2_pre)) {
-                die($results2->getMessage());
+            if(DB::IsError($res)) {
+                die($res->getMessage());
             }
 
             if(count($res)==0) {
@@ -804,8 +804,8 @@ class core_conf {
         $sql = "SELECT channelid,keyword,data FROM trunks LEFT JOIN sip ON CONCAT('pjsip-',trunkid)=sip.id WHERE tech='pjsip' UNION ";
         $sql .= "SELECT channelid,keyword,data FROM trunks LEFT JOIN sip ON CONCAT('tr-reg-',trunkid)=sip.id WHERE tech='pjsip' ";
         $res = $db->getAll($sql, DB_FETCHMODE_ASSOC);
-        if(DB::IsError($results2_pre)) {
-            die($results2->getMessage());
+        if(DB::IsError($res)) {
+            die($res->getMessage());
         }
 
         foreach ($res as $element) {
