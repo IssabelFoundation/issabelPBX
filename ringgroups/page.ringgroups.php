@@ -107,12 +107,19 @@ if(isset($_POST['action'])){
 <?php
 //get unique ring groups
 $gresults = ringgroups_list();
+$gresult  = array();
 
 if (isset($gresults)) {
 	foreach ($gresults as $gresult) {
 		echo "<li><a class=\"".($extdisplay=='GRP-'.$gresult[0] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&extdisplay=".urlencode("GRP-".$gresult[0])."\">".$gresult[1]." ({$gresult[0]})</a></li>";
 	}
 }
+
+if(count($gresult)==0) {
+    $gresult[0]='';
+}
+
+
 ?>
 </ul></div>
 
