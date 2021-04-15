@@ -179,11 +179,13 @@ function parking_get_config($engine) {
     
                 if ($amp_conf['USEDEVSTATE']) {
                     $device_list = core_devices_list("all", 'full', true);
-                    foreach ($device_list as $device) {
-                        if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
-                            $ext->add($ph, $parkfetch_code.$device['id'], '', new ext_macro('parked-call', ',' . $park_context));
-                            $ext->addHint($ph, $parkfetch_code.$device['id'], "Custom:PARK".$device['id']);
-                        }
+					if(is_array($device_list)) {
+	                    foreach ($device_list as $device) {
+    	                    if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
+        	                    $ext->add($ph, $parkfetch_code.$device['id'], '', new ext_macro('parked-call', ',' . $park_context));
+            	                $ext->addHint($ph, $parkfetch_code.$device['id'], "Custom:PARK".$device['id']);
+                	        }
+                  	  }
                     }
                 }
             }
