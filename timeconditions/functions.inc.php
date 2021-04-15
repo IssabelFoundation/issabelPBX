@@ -668,7 +668,7 @@ function timeconditions_timegroups_get_times($timegroup)
 function timeconditions_timegroups_buildtime( $hour_start, $minute_start, $hour_finish, $minute_finish, $wday_start, $wday_finish, $mday_start, $mday_finish, $month_start, $month_finish)
     should never be needed by another module, as this module should be the only place creating the time string, as it returns the string to other modules.
 
-function timeconditions_timegroups_drawtimeselects($name, $time)
+function timeconditions_timegroups_drawtimeselects($name, $time, $displayname)
     should never be needed by another module, as this module should be the only place drawing the time selects
  */
 
@@ -769,7 +769,7 @@ function timeconditions_timegroups_configpageload() {
             $currentcomponent->addguielem($val[0].' - '.$val[1], new guielement('dest0', $timehtml, ''),5);
         }
     }
-    $timehtml = timeconditions_timegroups_drawtimeselects('times[new]',null);
+    $timehtml = timeconditions_timegroups_drawtimeselects('times[new]',null,'');
     $timehtml = '<tr><td colspan="2"><table>'.$timehtml.'</table></td></tr>';
     $currentcomponent->addguielem(_("New Time"), new guielement('dest0', $timehtml, ''),6);
     $currentcomponent->addguielem('_top', new gui_hidden('action', ($extdisplay ? 'edit' : 'add')));
