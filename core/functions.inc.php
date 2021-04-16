@@ -8547,11 +8547,33 @@ function core_devices_configpageinit($dispnum) {
         //unset($tmparr['dial']);
         unset($tmparr['dtlsenable']);
         unset($tmparr['dtlscertfile']);
+        unset($tmparr['dtlsprivatekey']);
         unset($tmparr['encryption']);
         unset($tmparr['host']);
         unset($tmparr['nat']);
         unset($tmparr['type']);
         unset($tmparr['vmexten']);
+
+        $tt = _("Path to certificate file to present");
+        $tmparr['dtls_cert_file'] = array('value' => '', 'tt' => $tt, 'level' => 1);
+
+        $tt = _("Path to private key for certificate file");
+        $tmparr['dtls_private_key'] = array('value' => '', 'tt' => $tt, 'level' => 1);
+
+        $tt = _("Path to certificate authority file to present");
+        $tmparr['dtls_ca_file'] = array('value' => '', 'tt' => $tt, 'level' => 1);
+
+        $tt = _("Message Context");
+        $tmparr['message_context'] = array('value' => '', 'tt' => $tt, 'level' => 1);
+
+        $tt = _("Subscribe Context");
+        $tmparr['subscribe_context'] = array('value' => '', 'tt' => $tt, 'level' => 1);
+
+        unset($select);
+        $select[] = array('value' => 'yes', 'text' => _('Yes'));
+        $select[] = array('value' => 'no', 'text' => _('No'));
+        $tt = _("Allow subscribe.");
+        $tmparr['allow_subscribe'] = array('value' => 'yes', 'tt' => $tt, 'select' => $select, 'level' => 1);
 
         unset($select);
         $select[] = array('value' => 'transport-udp', 'text' => _('UDP'));
