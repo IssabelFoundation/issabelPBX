@@ -8561,7 +8561,14 @@ function core_devices_configpageinit($dispnum) {
         $tmparr['dtls_private_key'] = array('value' => '', 'tt' => $tt, 'level' => 1);
 
         $tt = _("Path to certificate authority file to present");
-        $tmparr['dtls_ca_file'] = array('value' => '', 'tt' => $tt, 'level' => 1);
+        $tmparr['dtls_ca_file'] = array('value' => '/etc/pki/tls/certs/ca-bundle.crt', 'tt' => $tt, 'level' => 1);
+
+        unset($select);
+        $select[] = array('value' => 'dtls', 'text' => _('dtls'));
+        $select[] = array('value' => 'sdes', 'text' => _('sdes'));
+        $select[] = array('value' => 'no', 'text' => _('No'));
+        $tt = _("Media Encryption");
+        $tmparr['media_encryption'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
 
         $tt = _("Message Context");
         $tmparr['message_context'] = array('value' => '', 'tt' => $tt, 'level' => 1);
