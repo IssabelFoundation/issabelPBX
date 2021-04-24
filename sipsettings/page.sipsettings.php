@@ -140,6 +140,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   $sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'no';
   $sip_settings['srvlookup']         = isset($_POST['srvlookup']) ? $_POST['srvlookup'] : 'no';
   $sip_settings['callevents']        = isset($_POST['callevents']) ? $_POST['callevents'] : 'no'; 
+  $sip_settings['websocket_enabled'] = isset($_POST['websocket_enabled']) ? $_POST['websocket_enabled'] : 'yes'; 
 
   $p_idx = 0;
   $n_idx = 0;
@@ -803,6 +804,26 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
     </td>
   </tr>
 
+  <tr>
+    <td>
+      <a href="#" class="info"><?php echo _("Enable Websocket")?><span><?php echo _("Enable websocket connection handling thorugh chan_sip. If you want to handle websockets/webrtc via PJSIP, set this to no")?></span></a>
+    </td>
+    <td>
+      <table width="100%">
+        <tr>
+          <td>
+            <span class="radioset">
+            <input id="websocket_enabled-yes" type="radio" name="websocket_enabled" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $websocket_enabled=="yes"?"checked=\"yes\"":""?>/>
+            <label for="websocket_enabled-yes"><?php echo _("Yes") ?></label>
+            <input id="websocket_enabled-no" type="radio" name="websocket_enabled" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $websocket_enabled=="no"?"checked=\"no\"":""?>/>
+            <label for="websocket_enabled-no"><?php echo _("No") ?></label>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+ 
   <tr><td colspan="2"><br /></td></tr>
 
   <tr>
