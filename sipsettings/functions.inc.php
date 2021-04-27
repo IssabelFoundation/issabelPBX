@@ -447,7 +447,8 @@ function sipsettings_get($raw=false) {
     $sip_settings['context']           = '';
     $sip_settings['ALLOW_SIP_ANON']    = 'no';
     $sip_settings['bindaddr']          = '';
-    $sip_settings['bindport']          = '';
+    $sip_settings['bindport']          = '5060';
+    $sip_settings['tlsbindport']       = '5061';
     $sip_settings['allowguest']        = 'no';
     $sip_settings['srvlookup']         = 'no';
     $sip_settings['callevents']        = 'yes';
@@ -513,6 +514,12 @@ function sipsettings_edit($sip_settings) {
             $msg = _("Bind Port (bindport) must be between 1024..65535, default 5060");
             $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'1',SIP_NORMAL);
             $bindport = $val;
+            break;
+
+        case 'tlsbindport':
+            $msg = _("TLS Bind Port (tlsbindport) must be between 1024..65535, default 5061");
+            $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'1',SIP_NORMAL);
+            $tlsbindport = $val;
             break;
 
         case 'rtpholdtimeout':
@@ -649,6 +656,7 @@ function sipsettings_edit($sip_settings) {
         //       individual setting and then an insert if there was nothing to update. So this is cleaner
         //       this time around.
         //
+
         sql("DELETE FROM `sipsettings` WHERE 1");
         $compiled = $db->prepare('INSERT INTO `sipsettings` (`keyword`, `data`, `seq`, `type`) VALUES (?,?,?,?)');
         $result = $db->executeMultiple($compiled,$save_settings);

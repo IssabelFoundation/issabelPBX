@@ -137,6 +137,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   $sip_settings['ALLOW_SIP_ANON']    = isset($_POST['ALLOW_SIP_ANON']) ? $_POST['ALLOW_SIP_ANON'] : 'no';
   $sip_settings['bindaddr']          = isset($_POST['bindaddr']) ? htmlspecialchars($_POST['bindaddr']) : '';
   $sip_settings['bindport']          = isset($_POST['bindport']) ? htmlspecialchars($_POST['bindport']) : '';
+  $sip_settings['tlsbindport']       = isset($_POST['tlsbindport']) ? htmlspecialchars($_POST['tlsbindport']) : '';
   $sip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'no';
   $sip_settings['srvlookup']         = isset($_POST['srvlookup']) ? $_POST['srvlookup'] : 'no';
   $sip_settings['callevents']        = isset($_POST['callevents']) ? $_POST['callevents'] : 'no'; 
@@ -166,6 +167,8 @@ switch ($action) {
     /* only get them if first time load, if they pressed submit, use values from POST */
     $sip_settings = sipsettings_get();
 }
+
+
 $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 
 ?>
@@ -722,6 +725,16 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
       <input type="text" id="bindport" name="bindport" class="validate-ip-port" value="<?php echo $bindport ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
+
+  <tr>
+    <td>
+      <a href="#" class="info"><?php echo _("TLS Bind Port")?><span><?php echo _("Asterisk: TLS bindport. Local incoming TLS Port that Asterisk will bind to and listen for SIP messages. The SIP standard is 5061 and in most cases this is what you want. It is recommended to leave this blank.")?></span></a>
+    </td>
+    <td>
+      <input type="text" id="tlsbindport" name="tlsbindport" class="validate-ip-port" value="<?php echo $tlsbindport ?>" tabindex="<?php echo ++$tabindex;?>">
+    </td>
+  </tr>
+
 
   <tr>
     <td>
