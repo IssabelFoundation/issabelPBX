@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Dictation"
-msgstr ""
+msgstr "Dictado"
 
 msgid "Applications"
 msgstr ""
@@ -32,25 +32,25 @@ msgid "Disabled"
 msgstr "Deshabilitado"
 
 msgid "Dictation Services"
-msgstr ""
+msgstr "Servicios de Dictado"
 
 msgid "Please enter a valid Email Address"
-msgstr ""
+msgstr "Ingrese un email válido por favor"
 
 msgid "Dictation Service"
-msgstr ""
+msgstr "Servicio de Dictado"
 
 msgid "Dictation Format"
-msgstr ""
+msgstr "Formato de Dictado"
 
 msgid "Email Address"
-msgstr ""
+msgstr "Dirección de Email"
 
 msgid "The email address that completed dictations are sent to."
-msgstr ""
+msgstr "La dirección de correo donde se envían los dictados."
 
 msgid "Perform dictation"
-msgstr ""
+msgstr "Realizar dictado"
 
 msgid "Email completed dictation"
-msgstr ""
+msgstr "Enviar dictado por correo"

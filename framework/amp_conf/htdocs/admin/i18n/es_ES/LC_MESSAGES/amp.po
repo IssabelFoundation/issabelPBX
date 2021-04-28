@@ -652,7 +652,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7196
 msgid "Assigned DID/CID"
-msgstr ""
+msgstr "DID/CID Asignados"
 
 #: ../core/functions.inc.php:7165
 msgid "Asterisk Dial Options"
@@ -750,7 +750,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7130
 msgid "CID Num Alias"
-msgstr ""
+msgstr "Alias de CallerID numérico"
 
 #: ../core/page.trunks.php:522
 msgid "CID Options"
@@ -775,7 +775,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7176
 msgid "Call Forward Ring Time"
-msgstr ""
+msgstr "Duración de Timbrado Redirección de Llamada"
 
 #: ../core/functions.inc.php:994
 msgid "Call Recording Module Not Enabled"
@@ -783,7 +783,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7193
 msgid "Call Screening"
-msgstr ""
+msgstr "Filtrado de llamadas"
 
 #: ../core/functions.inc.php:7193
 msgid ""
@@ -2396,11 +2396,11 @@ msgstr ""
 
 #: ../core/functions.inc.php:7235
 msgid "Inbound External Calls"
-msgstr ""
+msgstr "Llamadas Entrantes External"
 
 #: ../core/functions.inc.php:7237
 msgid "Inbound Internal Calls"
-msgstr ""
+msgstr "Llamadas Entrantes Internas"
 
 #: ../core/functions.inc.php:5343
 #, php-format
@@ -2446,7 +2446,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7191
 msgid "Internal Auto Answer"
-msgstr ""
+msgstr "Auto Contestar Internos"
 
 #: ../core/page.advancedsettings.php:97
 #, php-format
@@ -2977,7 +2977,7 @@ msgstr "Bajo demanda"
 
 #: ../core/functions.inc.php:7239
 msgid "On Demand Recording"
-msgstr ""
+msgstr "Grabación a Demanda"
 
 #: amp_conf/htdocs/admin/libraries/cronmanager.class.php:88
 msgid "Online Updates are Disabled"
@@ -3026,7 +3026,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7242
 msgid "Optional Destinations"
-msgstr ""
+msgstr "Destinos Opcionales"
 
 #: ../core/page.routing.php:410
 msgid ""
@@ -3117,11 +3117,11 @@ msgstr "Prefijo de marcación externa"
 
 #: ../core/functions.inc.php:7236
 msgid "Outbound External Calls"
-msgstr ""
+msgstr "Llamadas Salientes External"
 
 #: ../core/functions.inc.php:7238
 msgid "Outbound Internal Calls"
-msgstr ""
+msgstr "Llamadas Salientes Internas"
 
 #: ../core/functions.inc.php:6782
 #, php-format
@@ -3200,7 +3200,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7194
 msgid "Pinless Dialing"
-msgstr ""
+msgstr "Marcado sin Pin"
 
 #: ../core/functions.inc.php:800
 msgid "Play SIT Tone (Zapateller)"
@@ -3394,7 +3394,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7240
 msgid "Record Priority Policy"
-msgstr ""
+msgstr "Política de Prioridad de Grabación"
 
 #: ../core/functions.inc.php:7227
 msgid "Recording Options"
@@ -3516,7 +3516,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7167
 msgid "Ring Time"
-msgstr ""
+msgstr "Duración de timbrado"
 
 #: ../core/page.did.php:140 ../core/page.trunks.php:425
 msgid "Route"

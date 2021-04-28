@@ -80,16 +80,16 @@ msgid "IVR Announce: %s"
 msgstr "Anuncio de IVR: %s"
 
 msgid "Use State"
-msgstr ""
+msgstr "Usar Estado"
 
 msgid "Ignore State"
-msgstr ""
+msgstr "Ignorar Estado"
 
 msgid "Extension Options"
-msgstr ""
+msgstr "Opciones de Extensión"
 
 msgid "Queue State Detection"
-msgstr ""
+msgstr "Detecíon de Estado en Cola"
 
 msgid ""
 "If this extension is part of a Queue then the Queue will attempt to use the "
