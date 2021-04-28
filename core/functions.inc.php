@@ -715,18 +715,23 @@ class core_conf {
                         case 'dtmfmode':
                             $output1[]='dtmf_mode='.$result2['data'];
                             break;
+                        case 'ice_support':
                         case 'icesupport':
                             $output1[]='ice_support='.$result2['data'];
                             break;
+                        case 'use_avpf':
                         case 'avpf':
                             $output1[]='use_avpf='.$result2['data'];
                             break;
+                        case 'dtls_verify':
                         case 'dtlsverify':
                             $output1[]='dtls_verify='.$result2['data'];
                             break;
+                        case 'dtls_setup':
                         case 'dtlssetup':
                             $output1[]='dtls_setup='.$result2['data'];
                             break;
+                        case 'qualify_frequency':
                         case 'qualifyfreq':
                             $output3[] = "qualify_frequency=".$result2['data'];
                             break;
@@ -8547,13 +8552,35 @@ function core_devices_configpageinit($dispnum) {
         //unset($tmparr['dial']);
         unset($tmparr['dtlsenable']);
         unset($tmparr['dtlscertfile']);
+        unset($tmparr['dtlsverify']);
+        unset($tmparr['dtlssetup']);
         unset($tmparr['dtlsprivatekey']);
+        unset($tmparr['icesupport']);
         unset($tmparr['encryption']);
         unset($tmparr['host']);
         unset($tmparr['nat']);
         unset($tmparr['type']);
         unset($tmparr['vmexten']);
+        unset($tmparr['avpf']);
+        unset($tmparr['force_avp']);
 
+        if (version_compare($amp_conf['ASTVERSION'],'11','ge')) {
+            unset($select);
+            $select[] = array('value' => 'no', 'text' => _('No'));
+            $select[] = array('value' => 'yes', 'text' => _('Yes'));
+            $tt = _("Whether to Enable ICE Support. Defaults to no. ICE (Interactive Connectivity Establishment) is a protocol for Network Address Translator(NAT) traversal for UDP-based multimedia sessions established with the offer/answer model. This option is commonly enabled in WebRTC setups");
+            $tmparr['ice_support'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
+        }
+ 
+        if (version_compare($amp_conf['ASTVERSION'],'11','ge')) {
+            unset($select);
+            $select[] = array('value' => 'no', 'text' => _('No'));
+            $select[] = array('value' => 'yes', 'text' => _('Yes'));
+            $tt = _("Whether to Enable AVPF. Defaults to no. The WebRTC standard has selected AVPF as the audio video profile to use for media streams. This is not the default profile in use by Asterisk. As a result the following must be enabled to use WebRTC");
+            $tmparr['use_avpf'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
+        }
+
+ 
         $tt = _("Path to certificate file to present");
         $tmparr['dtls_cert_file'] = array('value' => '/etc/asterisk/keys/asterisk.pem', 'tt' => $tt, 'level' => 1);
 
@@ -8562,6 +8589,20 @@ function core_devices_configpageinit($dispnum) {
 
         $tt = _("Path to certificate authority file to present");
         $tmparr['dtls_ca_file'] = array('value' => '/etc/pki/tls/certs/ca-bundle.crt', 'tt' => $tt, 'level' => 1);
+
+        unset($select);
+        $select[] = array('value' => 'actpass', 'text' => _('Incoming and Outgoing'));
+        $select[] = array('value' => 'active',  'text' => _('Outgoing only'));
+        $select[] = array('value' => 'passive', 'text' => _('Incoming only'));
+        $tt = _("Behavior on DTLS incoming and outgoing connections. Defaults to actpass.");
+        $tmparr['dtls_setup'] = array('value' => 'actpass', 'tt' => $tt, 'select' => $select, 'level' => 1);
+
+        unset($select);
+        $select[] = array('value' => 'no', 'text' => _('No'));
+        $select[] = array('value' => 'yes', 'text' => _('Yes'));
+        $select[] = array('value' => 'fingerprint', 'text' => _('Fingerprint'));
+        $tt = _("Whether to verify that the provided peer cerificate is valid. Defaults to no.");
+        $tmparr['dtls_verify'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
 
         unset($select);
         $select[] = array('value' => 'dtls', 'text' => _('dtls'));
