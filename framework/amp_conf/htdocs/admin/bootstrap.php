@@ -131,7 +131,7 @@ if (!$bootstrap_settings['skip_astman']) {
 
         if($i<10) {
             unset( $astman );
-            issabelpbx_log(IPBX_LOG_CRITICAL,"Connection attmempt to AMI failed");
+            issabelpbx_log(IPBX_LOG_CRITICAL,"Connection attempt to AMI failed: ".$amp_conf["ASTMANAGERHOST"].":".$amp_conf["ASTMANAGERPORT"]." ".$amp_conf["AMPMGRUSER"].":".$amp_conf["AMPMGRPASS"]);
         }
     }
 } else {
