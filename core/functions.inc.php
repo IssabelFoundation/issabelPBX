@@ -5384,6 +5384,7 @@ function core_devices_add($id,$tech,$dial,$devicetype,$user,$description,$emerge
         return true;
     }
     if($tech=='webrtc') { $tech='sip'; }
+    if($tech=='webrtcpjsip') { $tech='pjsip'; }
 
     $display = isset($_REQUEST['display'])?$_REQUEST['display']:'';
 
@@ -8684,6 +8685,9 @@ function core_devices_configpageinit($dispnum) {
             if(isset($amp_conf['HTTPSCERTFILE'])) {
                 if($amp_conf['HTTPSCERTFILE']<>'') {
                     $currentcomponent->addoptlistitem('devicelist', 'webrtc_generic', _("SIP WebRTC Device"));
+                    if($pjsip_enabled) {
+                        $currentcomponent->addoptlistitem('devicelist', 'webrtcpjsip_generic', _("PJSIP WebRTC Device"));
+                    }
                 }
             }
 
@@ -8858,6 +8862,33 @@ function core_devices_configpageload() {
                 $devopts['dtlsprivatekey']['value']=$privkey;
 
                 $devinfo_tech='sip';
+            
+            } elseif($devinfo_tech=='webrtcpjsip') {
+                $devopts = $currentcomponent->getgeneralarrayitem('devtechs', 'pjsip');
+                $devopts['transport']['value']='transport-wss';
+                $devopts['use_avpf']['value']='yes'; 
+                $devopts['rtcp_mux']['value']='yes';
+                $devopts['ice_support']['value']='yes';
+                $devopts['media_encryption']['value']='dtls';
+                $devopts['dtls_verify']['value']='fingerprint';
+                $devopts['media_use_received_transport']['value']='yes';
+                $devopts['disallow']['value']='all';
+                $devopts['allow']['value']='ulaw,alaw,g722,gsm,vp9,vp8,h264,opus';
+                $devopts['dtls_setup']['value']='actpass';
+                if(isset($amp_conf['HTTPSPRIVATEKEY'])) {
+                   $privkey = ($amp_conf['HTTPSPRIVATEKEY']<>'')?$amp_conf['HTTPSPRIVATEKEY']:'/etc/asterisk/keys/asterisk.pem';
+                } else {
+                   $privkey = '/etc/asterisk/keys/asterisk.pem';
+                }
+
+                if(isset($amp_conf['HTTPSCERTFILE'])) {
+                   $certfile = ($amp_conf['HTTPSCERTFILE']<>'')?$amp_conf['HTTPSCERTFILE']:'/etc/asterisk/keys/asterisk.pem';
+                } else {
+                   $certfile = '/etc/asterisk/keys/asterisk.pem';
+                }
+                $devopts['dtls_cert_file']['value']=$certfile;
+                $devopts['dtls_private_key']['value']=$privkey;
+                $devinfo_tech='pjsip';
 
             } else {
                 $devopts = $currentcomponent->getgeneralarrayitem('devtechs', $devinfo_tech);

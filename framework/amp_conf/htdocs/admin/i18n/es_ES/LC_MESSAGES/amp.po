@@ -2209,6 +2209,8 @@ msgstr "Dispositivo WebRTC SIP"
 msgid "Generic PJSIP Device"
 msgstr "Dispositivo PJSIP genérico"
 
+msgid "PJSIP WebRTC Device"
+msgstr "Dispositivo WebRTC PJSIP"
 
 #: amp_conf/htdocs/admin/views/menu.php:145
 msgid "German"
