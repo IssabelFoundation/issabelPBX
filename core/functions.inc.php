@@ -8835,12 +8835,12 @@ function core_devices_configpageload() {
                 $devopts['transport']['value']='wss,ws,udp,tcp,tls';
                 $devopts['encryption']['value']='yes';
                 $devopts['avpf']['value']='yes';
-                $devopts['avpf']['value']='yes';
                 $devopts['force_avp']['value']='yes';
                 $devopts['icesupport']['value']='yes';
                 $devopts['dtlsenable']['value']='yes';
                 $devopts['dtlsverify']['value']='fingerprint';
                 $devopts['dtlssetup']['value']='actpass';
+                $devopts['rtcp_mux']['value']='yes';
 
                 if(isset($amp_conf['HTTPSPRIVATEKEY'])) {
                    $privkey = ($amp_conf['HTTPSPRIVATEKEY']<>'')?$amp_conf['HTTPSPRIVATEKEY']:'/etc/asterisk/keys/asterisk.pem';
