@@ -6,5 +6,6 @@
 
 touch /var/lock/subsys/local
 /usr/local/sbin/motd.sh > /etc/motd
+if [ -f /etc/fxotune.conf ]; then
 /usr/sbin/fxotune -s
-#/usr/sbin/amportal start
+fi
