@@ -602,6 +602,7 @@ class core_conf {
 
             if($astman) {
                 $endpoint_lang = $astman->database_get("AMPUSER",$account."/language");
+                $endpoint_parkinglot = $astman->database_get("AMPUSER",$account."/parkinglot");
             }
             $lang = ($endpoint_lang<>'')?$endpoint_lang:$default_language;
 
@@ -615,6 +616,9 @@ class core_conf {
             $output1[] = "type=endpoint";
             if($lang<>'') {
                 $output1[] = "language=$lang";
+            }
+            if($endpoint_parkinglot<>'') {
+                $output1[] = "set_var=CHANNEL(parkinglot)=$endpoint_parkinglot";
             }
            
             $output2[] = "[auth$account]";
@@ -1016,7 +1020,7 @@ class core_conf {
     }
 
     function generate_sip_additional($ast_version) {
-        global $db;
+        global $db, $astman;
 
         $table_name = "sip";
         $additional = "";
@@ -1155,6 +1159,14 @@ class core_conf {
                     }
                 }
             }
+
+            if($astman) {
+                $endpoint_parkinglot = $astman->database_get("AMPUSER",$account."/parkinglot");
+                if($endpoint_parkinglot<>'') {
+                    $output .= "setvar=CHANNEL(parkinglot)=$endpoint_parkinglot\n";
+                }
+            }
+
             switch (substr($id,0,8)) {
                 case 'tr-peer-':
                     if ($context == '') {
@@ -6427,6 +6439,16 @@ function core_users_add($vars, $editmode=false) {
             echo "ERROR: this state should not exist<br>";
         }
 
+        if(isset($parkinglot)) {
+            if (trim($parkinglot) <> '') {
+                $astman->database_put("AMPUSER",$extension."/parkinglot","$parkinglot");
+            } else {
+                $astman->database_del("AMPUSER",$extension."/parkinglot");
+            }
+        } else {
+            $astman->database_del("AMPUSER",$extension."/parkinglot");
+        }
+
         // Moved VmX setup to voicemail module since it is part of voicemail
         //
     } else {
@@ -6488,6 +6510,8 @@ function core_users_get($extension){
 
         $pinless=$astman->database_get("AMPUSER",$extension."/pinless");
         $results['pinless'] = (trim($pinless) == 'NOPASSWD') ? 'enabled' : 'disabled';
+
+        $results['parkinglot'] = $astman->database_get("AMPUSER",$extension."/parkinglot");
 
         $results['ringtimer'] = (int) $astman->database_get("AMPUSER",$extension."/ringtimer");
 
@@ -7857,6 +7881,7 @@ function dev_grp($a, $b) {
 function core_users_configpageload() {
     global $currentcomponent;
     global $amp_conf;
+    global $active_modules;
 
     // Ensure variables possibly extracted later exist
     $name = $outboundcid = $sipname = $cid_masquerade = $newdid_name = $newdid = $newdidcid = $call_screen = $pinless = null;
@@ -8011,9 +8036,26 @@ function core_users_configpageload() {
         }
 
         $section = _("Extension Options");
-        $currentcomponent->addguielem($section, new gui_textbox('outboundcid', $outboundcid, _("Outbound CID"), _("Overrides the CallerID when dialing out a trunk. Any setting here will override the common outbound CallerID set in the Trunks admin.<br><br>Format: <b>\"caller name\" &lt;#######&gt;</b><br><br>Leave this field blank to disable the outbound CallerID feature for this user."), '!isCallerID()', $msgInvalidOutboundCID, true),3);
-        $ringtimer = (isset($ringtimer) ? $ringtimer : '0');
 
+        $currentcomponent->addguielem($section, new gui_textbox('outboundcid', $outboundcid, _("Outbound CID"), _("Overrides the CallerID when dialing out a trunk. Any setting here will override the common outbound CallerID set in the Trunks admin.<br><br>Format: <b>\"caller name\" &lt;#######&gt;</b><br><br>Leave this field blank to disable the outbound CallerID feature for this user."), '!isCallerID()', $msgInvalidOutboundCID, true),3);
+
+        $has_park = isset($active_modules['parking'])?1:0;
+        if($has_park==1) {
+            $plots = parking_get('all');
+            if(count($plots)>1) {
+                $select_parking_lot=array();
+                foreach($plots as $plot) {
+                    if($plot['name']=='Default Lot') {
+                        $currentcomponent->addoptlistitem('parkinglots', '', _("Default Lot"));
+                    } else {
+                        $currentcomponent->addoptlistitem('parkinglots', 'parkinglot_'.$plot['name'], $plot['name']);
+                    }
+                } 
+                $currentcomponent->addguielem($section, new gui_selectbox('parkinglot', $currentcomponent->getoptlist('parkinglots'), $parkinglot, _("Parkinglot"), _("Parking lot assigned to this extension."), false));
+            }
+        }
+
+        $ringtimer = (isset($ringtimer) ? $ringtimer : '0');
         $dialopts = isset($dialopts) ? $dialopts : false;
         $disable_dialopts = $dialopts === false;
         $currentcomponent->addguielem($section, new gui_textbox_check('dialopts', $dialopts, _("Asterisk Dial Options"), _("Cryptic Asterisk Dial Options, check to customize for this extension or un-check to use system defaults set in Advanced Options. These will not apply to trunk options which are configured with the trunk."), '', '', true, 0, $disable_dialopts, '<small>' . _("Override") . '</small>', $amp_conf['DIAL_OPTIONS'], true));
