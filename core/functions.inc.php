@@ -8806,8 +8806,8 @@ function core_devices_configpageload() {
         $msgInvalidExtNum = _("Please enter a valid extension number.");
 
         // Actual gui
-        $currentcomponent->addguielem('_top', new gui_hidden('action', ($extdisplay ? 'edit' : 'add')));
-        $currentcomponent->addguielem('_top', new gui_hidden('extdisplay', $extdisplay));
+        //$currentcomponent->addguielem('_top', new gui_hidden('action', ($extdisplay ? 'edit' : 'add')));
+        //$currentcomponent->addguielem('_top', new gui_hidden('extdisplay', $extdisplay));
 
         if ( $display != 'extensions' ) {
             $section = _("Device Info");
