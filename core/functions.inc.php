@@ -6332,6 +6332,10 @@ function core_users_add($vars, $editmode=false) {
     //
     $name = preg_replace(array('/</','/>/'), array('(',')'), trim($name));
 
+    $vars[$vars[$noanswer_dest].'0'] = isset($vars[$vars[$noanswer_dest].'0'])?$vars[$vars[$noanswer_dest].'0']:'';
+    $vars[$vars[$busy_dest].'1'] = isset($vars[$vars[$busy_dest].'1'])?$vars[$vars[$busy_dest].'1']:'';
+    $vars[$vars[$chanunavail_dest].'2'] = isset($vars[$vars[$chanunavail_dest].'2'])?$vars[$vars[$chanunavail_dest].'2']:'';
+
   $noanswer_dest = !empty($noanswer_dest) && $vars[$vars[$noanswer_dest].'0'] != '' ? q($vars[$vars[$noanswer_dest].'0']) : "''";
   $noanswer_cid = isset($noanswer_cid) ? q($noanswer_cid) : "''";
   $busy_dest = !empty($busy_dest) && $vars[$vars[$busy_dest].'1'] != '' ? q($vars[$vars[$busy_dest].'1']) : "''";
