@@ -29,11 +29,12 @@ function parking_get_config($engine) {
         $pd  = 'park-dial';
         $lots = parking_get();
 
+        parking_generate_parkedcallstimeout();
+        parking_generate_park_dial($pd, $por, $lot);
+
         foreach($lots as $lot) {
 
             parking_generate_parked_call();
-            parking_generate_parkedcallstimeout();
-            parking_generate_park_dial($pd, $por, $lot);
 
             $fcc = new featurecode('parking', 'parkedcall');
             $parkfetch_code = $fcc->getCodeActive();
@@ -349,7 +350,7 @@ function parking_generate_parkedcallstimeout() {
     $exten = '_[0-9a-zA-Z*#].';
 
     $ext->add($pc, $exten, '', new ext_noop_trace('Slot: ${PARKINGSLOT} returned directed at ${EXTEN}'));
-    $ext->add($pc, $exten, '', new ext_set('PARK_TARGET','${EXTEN}'));
+    $ext->add($pc, $exten, '', new ext_set('PARK_TARGET','${REPLACE(EXTEN,_,/)}'));
     $ext->add($pc, $exten, '', new ext_gotoif('$["${REC_STATUS}" != "RECORDING"]','next'));
     $ext->add($pc, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
     $ext->add($pc, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MIXMON_FORMAT}','a','${MIXMON_POST}'));
@@ -364,10 +365,10 @@ function parking_generate_park_dial($pd, $por, $lot) {
     // then it will move on to priority 2 ... so we need to catch that and then route the call to the park-orphan-routing context to
     // determine where their final destinaition lies.
     //
+
     foreach (array('t', '_[0-9a-zA-Z*#].') as $exten) {
-        //$ext->add($pd, $exten, '', new ext_goto('1', '${PLOT}', $por));
+        $ext->add($pd, $exten, '', new ext_dial('${PARK_TARGET}','15,b(func-apply-sipheaders^s^1),tr'));
         $ext->add($pd, $exten, '', new ext_noop('WARNING: PARKRETURN to: [${EXTEN}] failed with: [${DIALSTATUS}]. Trying Alternate Dest On Parking Lot ${PARKINGSLOT}'));
-        //$ext->add($pd, $exten, '', new ext_goto('1', '${PLOT}', $por));
-        $ext->add($pd, $exten, '', new ext_goto('1', $lot['parkext'], $por));
+        $ext->add($pd, $exten, '', new ext_goto('1', '${PLOT}', 'park-orphan-routing'));
     }
 }
