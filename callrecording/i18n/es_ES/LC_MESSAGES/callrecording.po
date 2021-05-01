@@ -68,3 +68,6 @@ msgstr ""
 "puedan contradecirlo. Grabar inmediatamente comenzará la grabación inmediatamente, capturando "
 "sonidos de progreso, ring, música en espera, anunciones, etc. Nunca va a no permitir grabaciones "
 "no importa que otras configuraciones de grabación continúen en el flujo descendente."
+
+msgid "Call Recording"
+msgstr "Grabación de LLamadas"

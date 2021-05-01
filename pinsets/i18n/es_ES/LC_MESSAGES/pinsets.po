@@ -18,15 +18,17 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Unnamed"
-msgstr ""
+msgstr "Sin nombre"
 
 msgid "PIN Set"
-msgstr ""
+msgstr "Conjunto de PIN"
 
 msgid ""
 "Optional: Select a PIN set to use. If using this option, leave the Route "
 "Password field blank."
 msgstr ""
+"Opcional: Elija un PIN a utilizar. Si utiliza esta opción, deje el "
+"campo Password de Ruta en blanco"
 
 msgid "None"
 msgstr ""
@@ -65,62 +67,65 @@ msgid "Add Password Set"
 msgstr ""
 
 msgid "PIN Set "
-msgstr ""
+msgstr "Conjunto de PIN "
 
 msgid "deleted"
-msgstr ""
+msgstr "eliminado"
 
 msgid "Delete PIN Set"
-msgstr ""
+msgstr "Eliminar Conjunto de PIN"
 
 msgid "PIN Set:"
-msgstr ""
+msgstr "Conjunto de PIN:"
 
 msgid "Add PIN Set"
-msgstr ""
+msgstr "Añadir Conjunto de PIN"
 
 msgid ""
 "PIN Sets are used to manage lists of PINs that can be used to access "
 "restricted features such as Outbound Routes. The PIN can also be added to "
 "the CDR record's 'accountcode' field."
 msgstr ""
+"Conjuntos de PIN se utilizan para administrar listas de PIN que pueden "
+"ser usados para restringir funcionalidad como ser rutas salientes. El "
+"PIN también puede mostrarse en el campo accountcode del registro CDR"
 
 msgid "Edit PIN Set"
-msgstr ""
+msgstr "Modificar Conjunto de PIN"
 
 msgid "New PIN Set"
-msgstr ""
+msgstr "Nuevo Conjunto de PIN"
 
 msgid "PIN Set Description:"
-msgstr ""
+msgstr "Descripción"
 
 msgid "Record In CDR?:"
-msgstr ""
+msgstr "Registrar en CDR?:"
 
 msgid ""
 "Select this box if you would like to record the PIN in the call detail "
 "records when used"
-msgstr ""
+msgstr "Marque el casillero si desea registrarel PIN en el CDR"
 
 msgid "PIN List:"
-msgstr ""
+msgstr "Lista de PIN:"
 
 msgid "Enter a list of one or more PINs.  One PIN per line."
-msgstr ""
+msgstr "Ingrese una lista de uno o más PINes. Uno por línea."
 
 msgid "Submit Changes"
-msgstr ""
+msgstr "Enviar Cambios"
 
 msgid "Please enter a valid Description"
-msgstr ""
+msgstr "Por favor ingrese una descripción válida"
 
 msgid "PIN Sets"
-msgstr ""
+msgstr "Conjunto de PIN"
 
 msgid "Settings"
-msgstr ""
+msgstr "Configuración"
 
 msgid ""
 "Allow creation of lists of PINs (numbers for passwords) that can be used by "
 "other modules (eg, trunks)."
-msgstr ""
+msgstr "Permite la creación de lista de PIN que podrán ser usados en otros módulos, como ser Trocales"

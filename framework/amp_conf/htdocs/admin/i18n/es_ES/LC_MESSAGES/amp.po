@@ -497,7 +497,7 @@ msgstr ""
 
 #: ../core/page.routing.php:488
 msgid "Additional Settings"
-msgstr ""
+msgstr "Configuraciones Adicionales"
 
 #: ../core/functions.inc.php:7673
 msgid "Adhoc"
@@ -3538,15 +3538,15 @@ msgstr "Contraseña de la ruta"
 
 #: ../core/page.routing.php:461
 msgid "Route Position"
-msgstr ""
+msgstr "Posición"
 
 #: ../core/page.routing.php:397
 msgid "Route Settings"
-msgstr ""
+msgstr "Configuración de Ruta"
 
 #: ../core/page.routing.php:423
 msgid "Route Type"
-msgstr ""
+msgstr "Tipo de Ruta"
 
 #: ../core/page.routing.php:840
 msgid "Route name is invalid, please try again"
@@ -4099,7 +4099,7 @@ msgstr "El usuario/extensión %s ya está en uso"
 
 #: ../core/page.routing.php:454
 msgid "Time Group:"
-msgstr ""
+msgstr "Grupo Horario:"
 
 #: amp_conf/htdocs/admin/views/login.php:12
 msgid "To get started, please enter your credentials:"
