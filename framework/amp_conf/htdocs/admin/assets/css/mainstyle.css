@@ -490,3 +490,11 @@ input[type="submit"]{ height: 25px;}
 	-moz-transform: rotate(90deg);
 	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
 }
+
+h5, .h5 {
+    font-size: 1.2em;
+    padding: 5px;
+    background-color: #eee;
+    border-bottom: 3px solid #CCB3FF;
+    margin: 15px 0;
+}
