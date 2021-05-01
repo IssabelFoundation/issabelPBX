@@ -86,7 +86,7 @@ msgid "Ignore State"
 msgstr "Ignorar Estado"
 
 msgid "Extension Options"
-msgstr "Opciones de Extensión"
+msgstr "Opciones de la extensión"
 
 msgid "Queue State Detection"
 msgstr "Detecíon de Estado en Cola"
