@@ -435,7 +435,7 @@ if [ x`pidof mysqld` != "x" ] ; then
     /var/lib/asterisk/bin/module_admin install timeconditions
     /var/lib/asterisk/bin/module_admin install customcontexts
     echo "2 ejecuto module admin para instalar local" >>/tmp/issabel_rpm.log
-    /var/lib/asterisk/bin/module_admin installlocal
+    /var/lib/asterisk/bin/module_admin installlocal >>/tmp/issabel_rpm.log
 
 # La base de datos esta apagada
 else
