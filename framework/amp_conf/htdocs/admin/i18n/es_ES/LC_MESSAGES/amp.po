@@ -371,17 +371,17 @@ msgstr "Añadir"
 #: ../core/functions.inc.php:7751
 #, php-format
 msgid "Add %s Device"
-msgstr ""
+msgstr "Añadir Dispositivo %s"
 
 #: ../core/functions.inc.php:7753
 #, php-format
 msgid "Add %s Extension"
-msgstr ""
+msgstr "Añadir Extensión %s"
 
 #: ../core/page.trunks.php:464
 #, php-format
 msgid "Add %s Trunk"
-msgstr ""
+msgstr "Añadir Troncal %s"
 
 #: ../core/page.ampusers.php:147
 msgid "Add Administrator"
@@ -397,11 +397,11 @@ msgstr "Añadir línea troncal personalizada"
 
 #: ../core/page.dahdichandids.php:63
 msgid "Add DAHDI Channel"
-msgstr ""
+msgstr "Añadir Canal DAHDI"
 
 #: ../core/page.trunks.php:350
 msgid "Add DAHDi Trunk"
-msgstr ""
+msgstr "Añadir Troncal DAHDI"
 
 #: ../core/page.trunks.php:359
 msgid "Add DUNDi Trunk"
