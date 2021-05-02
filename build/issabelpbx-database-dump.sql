@@ -985,6 +985,34 @@ LOCK TABLES `disa` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `dynamicfeatures`
+--
+
+DROP TABLE IF EXISTS `dynamicfeatures`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dynamicfeatures` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `dtmf` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `activate_on` enum('self','peer') COLLATE utf8mb4_unicode_ci DEFAULT 'peer',
+  `application` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `arguments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `moh_class` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dynamicfeatures`
+--
+
+LOCK TABLES `dynamicfeatures` WRITE;
+/*!40000 ALTER TABLE `dynamicfeatures` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dynamicfeatures` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `dynroute`
 --
 
