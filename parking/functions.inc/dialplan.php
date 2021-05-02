@@ -30,7 +30,7 @@ function parking_get_config($engine) {
         $lots = parking_get();
 
         parking_generate_parkedcallstimeout();
-        parking_generate_park_dial($pd, $por, $lot);
+        parking_generate_park_dial($pd, $por);
 
         foreach($lots as $lot) {
 
@@ -364,7 +364,7 @@ function parking_generate_parkedcallstimeout() {
     $ext->add($pc, $exten, 'next', new ext_goto('1','${PARKINGSLOT}','park-return-routing'));
 }
 
-function parking_generate_park_dial($pd, $por, $lot) {
+function parking_generate_park_dial($pd, $por) {
     global $ext;
     // park-dial
     // This is a special context where calls are routed if they are being sent back to the parker. The parking application dynamically
@@ -376,6 +376,6 @@ function parking_generate_park_dial($pd, $por, $lot) {
     foreach (array('t', '_[0-9a-zA-Z*#].') as $exten) {
         $ext->add($pd, $exten, '', new ext_dial('${PARK_TARGET}','15,b(func-apply-sipheaders^s^1),tr'));
         $ext->add($pd, $exten, '', new ext_noop('WARNING: PARKRETURN to: [${EXTEN}] failed with: [${DIALSTATUS}]. Trying Alternate Dest On Parking Lot ${PARKINGSLOT}'));
-        $ext->add($pd, $exten, '', new ext_goto('1', '${PLOT}', 'park-orphan-routing'));
+        $ext->add($pd, $exten, '', new ext_goto('1', '${PLOT}', $por));
     }
 }
