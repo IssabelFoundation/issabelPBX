@@ -99,10 +99,10 @@ msgstr ""
 "customcontexts_tiemgroups_detail .."
 
 msgid "Class of Service"
-msgstr "Clases de Servicio"
+msgstr "Clase de Servicio"
 
 msgid "Class of Service Admin"
-msgstr "Clases de Servicio (administrar)"
+msgstr "Administrar Clases de Servicio"
 
 msgid "Dial Rules"
 msgstr "Reglas de Marcado"
