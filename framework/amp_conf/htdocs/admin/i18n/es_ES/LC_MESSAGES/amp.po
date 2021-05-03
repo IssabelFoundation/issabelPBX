@@ -2448,7 +2448,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7191
 msgid "Internal Auto Answer"
-msgstr "Auto Contestar Internos"
+msgstr "Auto Contestar Internas"
 
 #: ../core/page.advancedsettings.php:97
 #, php-format
@@ -4478,10 +4478,16 @@ msgid ""
 "other circumstances such as blind transfers and when a Follow Me is "
 "configured and enabled. If Disabled, the phone rings as a normal phone."
 msgstr ""
+"Si se configura en Intercom, las llamadas recibidas de otros usuarios internos "
+"se tratarán como si fueran de intercomunicador, con lo que serán auto contestadas "
+"si el dispositivo soporta esa funcionalidad. Todas las configuraciones de listas "
+"blancas y negras serán honradas si están configuradas. Las llamadas externas "
+"seguirán timbrando normalmente, como así también en otros casos como ser transferencias "
+"o desvíos por followme. Si se deja desactivado, el dispositivo timbrará normalmente."
 
 #: ../core/page.routing.php:461
 msgid "Where to insert this route or relocate it relative to the other routes."
-msgstr ""
+msgstr "En que posición insertar esta ruta o reubicarla relativa a otras rutas."
 
 #: ../core/functions.inc.php:7562
 msgid ""
