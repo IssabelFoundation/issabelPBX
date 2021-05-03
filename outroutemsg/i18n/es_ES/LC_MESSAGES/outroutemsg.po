@@ -90,3 +90,6 @@ msgstr "Enviar Cambios"
 
 msgid "Info Tone"
 msgstr "Tono Info"
+
+msgid "Unallocated Numbers"
+msgstr "Números no asignados"
