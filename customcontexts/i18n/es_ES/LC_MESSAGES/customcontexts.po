@@ -110,8 +110,8 @@ msgstr "Reglas de Marcado"
 msgid "Submit"
 msgstr "Enviar cambios"
 
-msgid "Device Options"
-msgstr "Opciones del dispositivo"
+msgid "Extension Options"
+msgstr "Opciones de la extensión"
 
 #~ msgid "Connectivity"
 #~ msgstr "Conectividad"
