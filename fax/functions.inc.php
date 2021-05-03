@@ -89,9 +89,9 @@ function fax_configpageload() {
     if ($display == 'extensions' || $display == 'users') {
         if($extdisplay!=''){
             $fax=fax_get_user($extdisplay);
-            $faxenabled=$fax['faxenabled'];
-            $faxemail=$fax['faxemail'];
-            $faxattachformat=$fax['faxattachformat'];
+            $faxenabled=isset($fax['faxenabled'])?$fax['faxenabled']:'';
+            $faxemail=isset($fax['faxemail'])?$fax['faxemail']:'';
+            $faxattachformat=isset($fax['faxattachformat'])?$fax['faxattachformat']:'';
         }//get settings in to variables
         $section = _('Fax');
         $toggleemail='if($(this).attr(\'checked\')){$(\'[id^=fax]\').removeAttr(\'disabled\');}else{$(\'[id^=fax]\').attr(\'disabled\',\'true\');$(this).removeAttr(\'disabled\');}';

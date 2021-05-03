@@ -341,6 +341,8 @@ function voicemail_configpageinit($pagename) {
 		document.getElementById('delete0').disabled=dval;
 		document.getElementById('delete1').disabled=dval;
 		";
+        $vmops_imapuser = isset($vmops_imapuser) ? $vmops_imapuser : '';
+        $vmops_imappassword = isset($vmops_imappassword) ? $vmops_imappassword : '';
 		if ($amp_conf['VM_SHOW_IMAP'] || $vmops_imapuser || $vmops_imappassword) {
 			$js .="
 			document.getElementById('imapuser').disabled=dval; 
@@ -821,6 +823,7 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 				$vmoptions[$vmoption[0]] = $vmoption[1];
 			}
 		}
+        $imapuser = isset($imapuser) ? $imapuser : '';
 		if ($imapuser!='' && $imapuser!='') { 
 			$vmoptions['imapuser'] = $imapuser; 
 			$vmoptions['imappassword'] = $imappassword; 
