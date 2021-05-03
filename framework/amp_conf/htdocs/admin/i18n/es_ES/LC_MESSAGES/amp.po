@@ -2869,7 +2869,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:6966
 msgid "No Limit"
-msgstr ""
+msgstr "Sin Límites"
 
 #: ../core/page.did.php:229
 msgid "No Music"
@@ -3111,7 +3111,7 @@ msgstr "CallerID Saliente"
 
 #: ../core/functions.inc.php:7186
 msgid "Outbound Concurrency Limit"
-msgstr ""
+msgstr "Límite Llamadas Salientes Simultáneas"
 
 #: ../core/page.trunks.php:836
 msgid "Outbound Dial Prefix"

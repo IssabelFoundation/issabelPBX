@@ -1,0 +1,92 @@
+# IssabelPBX language template
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-23 09:52+0000\n"
+"PO-Revision-Date: 2021-04-23 09:52+0000\n"
+"Last-Translator: Nicolas <nicolas@issabel.com>\n"
+"Language-Team: Issabel <translations@issabel.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Route Congestion Messages"
+msgstr "Mensajes de Ruta Congestionada"
+
+msgid "Can not create outroutemsg table"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Configures message or congestion tones played when all trunks are busy in a "
+"route. Allows different messages for Emergency Routes and Intra-Company "
+"Routes"
+msgstr ""
+
+msgid "No Routes Available"
+msgstr "No hay rutas creadas"
+
+msgid "Standard Routes"
+msgstr "Rutas Estándar"
+
+msgid "Message or Tone"
+msgstr "Mensaje o Tono"
+
+msgid "Message or tone to be played if no trunks are available."
+msgstr "Mensaje o Tono a reproducir si no hay troncales disponibles."
+
+msgid "Default Message"
+msgstr "Mensaje por defecto"
+
+msgid "Congestion Tones"
+msgstr "Tono de Congestión"
+
+msgid "Intra-Company Routes"
+msgstr "Rutas Intra-Compañía"
+
+msgid ""
+"Message or tone to be played if no trunks are available. Used on routes "
+"marked as intra-company only."
+msgstr "Mensaje o tono a reproducir si no hay troncales disponibles. Usado solo en rutas marcadas como intra compañía"
+
+msgid "Emergency Routes"
+msgstr "Rutas de Emergencia"
+
+msgid ""
+"Message or tone to be played if no trunks are available. Used on all "
+"emergency routes. Consider a message instructing callers to find an "
+"alternative means of calling emergency services such as a cell phone or "
+"alarm system panel."
+msgstr ""
+
+msgid "Trunk Failures"
+msgstr "Fallos en Troncal"
+
+msgid "No Answer"
+msgstr "Sin Respuesta"
+
+msgid ""
+"Message or tone to be played if there was no answer. Default message is:<br>"
+"\"The number is not answering.\"<br> Hangupcause is 18 or 19"
+msgstr ""
+
+msgid "Number or Address Incomplete"
+msgstr "Número o Dirección Incompletos"
+
+msgid ""
+"Message or tone to be played if trunk reports Number or Address Incomplete. "
+"Usually this means that the number you have dialed is to short. Default "
+"message is:<br>\"The number you have dialed is not in service. Please check "
+"the number and try again.\"<br>Hangupcause is 28"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr "Enviar Cambios"
+
+msgid "Info Tone"
+msgstr "Tono Info"
