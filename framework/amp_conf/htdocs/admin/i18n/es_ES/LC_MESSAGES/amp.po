@@ -2398,7 +2398,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7235
 msgid "Inbound External Calls"
-msgstr "Llamadas Entrantes External"
+msgstr "Llamadas Entrantes Externas"
 
 #: ../core/functions.inc.php:7237
 msgid "Inbound Internal Calls"
@@ -3119,7 +3119,7 @@ msgstr "Prefijo de marcación externa"
 
 #: ../core/functions.inc.php:7236
 msgid "Outbound External Calls"
-msgstr "Llamadas Salientes External"
+msgstr "Llamadas Salientes Externas"
 
 #: ../core/functions.inc.php:7238
 msgid "Outbound Internal Calls"
