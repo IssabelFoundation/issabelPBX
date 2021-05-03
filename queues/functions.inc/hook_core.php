@@ -74,7 +74,7 @@ function queues_configpageload() {
 				. "this route is taken due to the nature of how Queues handle "
 				. "Local channels, such as subsequent transfers will continue to "
 				. "show the member as busy until the original call is terminated. "
-				. "In most cases, this SHOULD BE set to 'Use State'."), false));
+				. "In most cases, this SHOULD BE set to 'Use State'."), false),2);
 	}
 }
 
