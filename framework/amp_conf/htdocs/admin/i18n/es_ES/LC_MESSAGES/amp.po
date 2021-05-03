@@ -1519,7 +1519,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:6932
 msgid "Don't Care"
-msgstr ""
+msgstr "Indistinto"
 
 #: amp_conf/htdocs/admin/page.modules.php:1099
 msgid "Done."
