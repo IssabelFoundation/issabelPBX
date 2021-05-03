@@ -656,7 +656,7 @@ msgstr "DID/CID Asignados"
 
 #: ../core/functions.inc.php:7165
 msgid "Asterisk Dial Options"
-msgstr ""
+msgstr "Opciones Dail de Asterisk"
 
 #: ../core/page.trunks.php:566
 msgid ""
