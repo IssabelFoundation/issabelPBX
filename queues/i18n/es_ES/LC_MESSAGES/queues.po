@@ -89,7 +89,7 @@ msgid "Extension Options"
 msgstr "Opciones de la extensión"
 
 msgid "Queue State Detection"
-msgstr "Detecíon de Estado en Cola"
+msgstr "Detección de Estado en Cola"
 
 msgid ""
 "If this extension is part of a Queue then the Queue will attempt to use the "
