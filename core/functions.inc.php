@@ -779,6 +779,9 @@ class core_conf {
                         case 'authenticate_qualify':
                             $output3[]=$kw."=".$option;
                             break;
+                        case 'remove_existing':
+                            $output3[]=$kw."=".$option;
+                            break;
                         default:
                             $output1[] = $result2['keyword']."=".$result2['data'];
                     }
@@ -8697,6 +8700,12 @@ function core_devices_configpageinit($dispnum) {
 
         $tt = _("Maximum number of SIP devices that can register to this extension.");
         $tmparr['max_contacts'] = array('value' => '1', 'tt' => $tt, 'level' => 1);
+
+        unset($select);
+        $select[] = array('value' => 'yes', 'text' => _('Yes'));
+        $select[] = array('value' => 'no', 'text' => _('No'));
+        $tt = _("Allow a registration to succeed by displacing any existing contacts that now exceed the max_contacts count. Enable this when you have max_contacts value to be greater than one and rewrite_contact is set to yes. The removed contact is likely the old contact created by rewrite_contact that the device is refreshing.");
+        $tmparr['remove_existing'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 0);
 
         $tt= _("Qualify timeout in fractional seconds (default: '3.0')");
         $tmparr['qualify_timeout'] = array('value' => '3.0', 'tt' => $tt, 'level' => 2);
