@@ -148,7 +148,7 @@ if ($action == 'delete') {
         <input type="hidden" name="orig_account" value="<?php echo $extdisplay; ?>">
 <?php        }?>
     <table>
-    <tr><td colspan="2"><h5><?php echo ($extdisplay != "" ? _("Edit Conference") : _("Add Conference")) ?><hr></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo ($extdisplay != "" ? _("Edit Conference") : _("Add Conference")) ?></h5></td></tr>
     <tr>
         <td><a href="#" class="info"><?php echo _("Conference Number:")?><span><?php echo _("Use this number to dial into the conference.")?></span></a></td>
         <td><input type="text" name="account" value="<?php echo $extdisplay ?>" tabindex="<?php echo ++$tabindex;?>"></td>
@@ -166,7 +166,7 @@ if ($action == 'delete') {
         <td><input size="8" type="text" name="adminpin" value="<?php echo $adminpin; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Conference Options")?><hr></h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo _("Conference Options")?></h5></td></tr>
 <?php if(function_exists('recordings_list')) { //only include if recordings is enabled?>
     <tr>
         <td><a href="#" class="info"><?php echo _("Join Message:")?><span><?php echo _("Message to be played to the caller before joining the conference.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
