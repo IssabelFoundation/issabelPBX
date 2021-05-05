@@ -113,7 +113,7 @@ msgid "is not allowed for your account"
 msgstr ""
 
 msgid "Choose a user/extension:"
-msgstr ""
+msgstr "Elija una extensión:"
 
 msgid "deleted"
 msgstr ""
