@@ -444,6 +444,9 @@ msgstr "Añadir ruta"
 msgid "Add SIP Trunk"
 msgstr "Añadir línea troncal SIP"
 
+msgid "Add PJSIP Trunk"
+msgstr "Añadir línea troncal PJSIP"
+
 #: ../core/page.routing.php:749 ../core/page.trunks.php:299
 msgid "Add Trunk"
 msgstr "Añadir línea troncal"
