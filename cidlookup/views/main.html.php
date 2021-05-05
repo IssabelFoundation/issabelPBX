@@ -40,7 +40,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
 	<table>
 	    <tr>
             <td colspan="2">
-                <h5><?php echo ($itemid ? _("Edit Source") : _("Add Source")) ?></h5><hr>
+                <h5><?php echo ($itemid ? _("Edit Source") : _("Add Source")) ?></h5>
             </td>
         </tr>
 	    <tr>
@@ -87,7 +87,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     	<tr>
     		<td colspan="2">
     			<div id="opencnam" style="display: none">
-    				<h5><?php echo _("OpenCNAM") ?></h5><hr>
+    				<h5><?php echo _("OpenCNAM") ?></h5>
     				<p style="display:block;max-width:345px;max-height:40px;margin-left:auto;margin-right:auto;margin-bottom:40px;font-style:italic;font-size:12px;"><b>NOTE:</b> OpenCNAM's Hobbyist Tier (default) only allows you to do 60 cached CallerID lookups per hour. If you get more than 60 incoming calls per hour, or want real-time CallerID information (more accurate), you should use the Professional Tier.</p>
     				<p style="display:block;max-width:345px;max-height:40px;margin-left:auto;margin-right:auto;margin-bottom:20px;font-style:italic;font-size:12px;">If you'd like to create an OpenCNAM Professional Tier account, you can do so on their website: <a href="https://www.opencnam.com/register" target="_blank">https://www.opencnam.com/register</a></p>
     				<table cellpadding="2" cellspacing="0" width="100%">
@@ -125,7 +125,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     				<table cellpadding="2" cellspacing="0" width="100%">
     					<tr>
                             <td colspan="2">
-                                <h5>HTTP(S)</h5><hr>
+                                <h5>HTTP(S)</h5>
                             </td>
                         </tr>
     					<tr>
@@ -186,7 +186,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     				<table cellpadding="2" cellspacing="0" width="100%">
     					<tr>
                             <td colspan="2">
-                                <h5><?php echo _("MySQL") ?></h5><hr>
+                                <h5><?php echo _("MySQL") ?></h5>
                             </td>
                         </tr>
     					<tr>
@@ -247,7 +247,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     				<table cellpadding="2" cellspacing="0" width="100%">
     				  <tr>
                           <td colspan="2">
-                              <h5><?php echo _("SugarCRM") ?></h5><hr>
+                              <h5><?php echo _("SugarCRM") ?></h5>
                           </td>
                       </tr>
     				  <tr>
@@ -265,7 +265,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     				<table cellpadding="2" cellspacing="0" width="100%">
     				  <tr>
                           <td colspan="2">
-                              <h5><?php echo _("Superfecta") ?></h5><hr>
+                              <h5><?php echo _("Superfecta") ?></h5>
                           </td>
                       </tr>
     				  <tr>
