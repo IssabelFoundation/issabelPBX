@@ -602,7 +602,7 @@ if ($helptext != '') {
             <table>
             <tr>
                 <td colspan="2">
-                    <h4><?php echo _("General Settings")?><hr></h4>
+                    <h5><?php echo _("General Settings")?></h5>
                 </td>
             </tr>
             <tr>
@@ -710,7 +710,7 @@ if ($helptext != '') {
 ?>
 
     <tr>
-      <td colspan="2"><h4>
+      <td colspan="2"><h5>
       <a href=# class="info"><?php echo _("Dialed Number Manipulation Rules")?><span>
       <?php echo _("These rules can manipulate the dialed number before sending it out this trunk. If no rule applies, the number is not changed. The original dialed number is passed down from the route where some manipulation may have already occurred. This trunk has the option to further manipulate the number. If the number matches the combined values in the <b>prefix</b> plus the <b>match pattern</b> boxes, the rule will be applied and all subsequent rules ignored.<br/> Upon a match, the <b>prefix</b>, if defined, will be stripped. Next the <b>prepend</b> will be inserted in front of the <b>match pattern</b> and the resulting number will be sent to the trunk. All fields are optional.")?><br /><br /><b><?php echo _("Rules:")?></b><br />
       <b>X</b>&nbsp;&nbsp;&nbsp; <?php echo _("matches any digit from 0-9")?><br />
@@ -723,7 +723,7 @@ if ($helptext != '') {
       <b><?php echo _("match pattern:")?></b>&nbsp;&nbsp;&nbsp; <?php echo _("The dialed number will be compared against the <b>prefix</b> plus this pattern. Upon a match, this portion of the number will be sent to the trunks after removing the <b>prefix</b> and appending the <b>prepend</b> digits")?><br />
         <?php echo _("You can completely replace a number by matching on the <b>prefix</b> only, replacing it with a <b>prepend</b> and leaving the <b>match pattern</b> blank."); ?>
       </span></a>
-      <hr></h4></td>
+      </h5></td>
     </tr>
 
     <tr><td colspan="2"><div class="dialpatterns"><table>
@@ -951,7 +951,7 @@ END;
             <?php if ($tech != "enum" && $tech != "pjsip") { ?>
             <tr>
                 <td colspan="2">
-        <h4><?php echo _("Outgoing Settings")?><hr></h4>
+        <h5><?php echo _("Outgoing Settings")?></h5>
                 </td>
             </tr>
             <?php } ?>
@@ -1057,7 +1057,7 @@ END;
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <h4><?php echo _("Incoming Settings")?></h4>
+                        <h5><?php echo _("Incoming Settings")?></h5>
                     </td>
                 </tr>
                 <tr>
@@ -1080,7 +1080,7 @@ END;
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <h4><?php echo _("Registration")?></h4>
+                        <h5><?php echo _("Registration")?></h5>
                     </td>
                 </tr>
                 <tr>
@@ -1099,7 +1099,7 @@ END;
 ?>
                 <tr>
                     <td colspan="2">
-                        <h4><?php echo _("PJSIP Settings")?><hr/></h4>
+                        <h5><?php echo _("PJSIP Settings")?></h5>
                     </td>
                 </tr>
 
@@ -1236,7 +1236,7 @@ END;
 
                 <tr>
                     <td colspan="2">
-                        <h4><?php echo _("PJSIP Advanced Settings")?><hr/></h4>
+                        <h5><?php echo _("PJSIP Advanced Settings")?></h5>
                     </td>
                 </tr>
 
