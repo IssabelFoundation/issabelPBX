@@ -95,7 +95,7 @@ if (!empty($conflict_url)) {
     <input type="hidden" name="old_custom_exten" value="<?php echo $custom_exten; ?>">
     <input type="hidden" name="action" value="<?php echo ($custom_exten != '' ? 'edit' : 'add'); ?>">
     <table>
-    <tr><td colspan="2"><h5><?php  echo ($custom_exten ? _("Edit Custom Extension") : _("Add Custom Extension")) ?><hr></h5></td></tr>
+    <tr><td colspan="2"><h5><?php  echo ($custom_exten ? _("Edit Custom Extension") : _("Add Custom Extension")) ?></h5></td></tr>
     <tr>
         <td><a href="#" class="info"><?php echo _("Custom Extension")?>:<span><?php echo _("This is the Extension or Feature Code you are using in your dialplan that you want the IssabelPBX Extension Registry to be aware of.")?></span></a></td>
         <td><input size="10" type="text" name="extdisplay" id="extdisplay" value="<?php  echo $custom_exten; ?>" tabindex="<?php echo ++$tabindex;?>"></td>

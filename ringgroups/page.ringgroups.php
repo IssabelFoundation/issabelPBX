@@ -198,7 +198,7 @@ if ($action == 'delGRP') {
 			<input type="hidden" name="display" value="<?php echo $dispnum?>">
 			<input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edtGRP' : 'addGRP'); ?>">
 			<table>
-			<tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Ring Group") : _("Add Ring Group")) ?><hr></h5></td></tr>
+			<tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Ring Group") : _("Add Ring Group")) ?></h5></td></tr>
 			<tr>
 <?php
 	if ($extdisplay) {
@@ -408,7 +408,7 @@ if ($action == 'delGRP') {
 				</td>
 			</tr>
 <?php } ?>
-			<tr><td colspan="2"><h5><?php echo _("Change External CID Configuration") ?><hr></h5></td></tr>
+			<tr><td colspan="2"><h5><?php echo _("Change External CID Configuration") ?></h5></td></tr>
 			<tr>
 				<td>
 				<a href="#" class="info"><?php echo _("Mode")?>:
@@ -441,7 +441,7 @@ if ($action == 'delGRP') {
 				<td><input size="30" type="text" name="fixedcid" id="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>" <?php echo $fixedcid_disabled ?>></td>
 			</tr>
 
-			<tr><td colspan="2"><h5><?php echo _("Call Recording") ?><hr></h5></td></tr>
+			<tr><td colspan="2"><h5><?php echo _("Call Recording") ?></h5></td></tr>
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Record Calls")?><span><?php echo _('You can always record calls that come into this ring group, never record them, or allow the extension that answers to do on-demand recording. If recording is denied then one-touch on demand recording will be blocked.')?></span></a></td>
 				<td><span class="radioset">
@@ -457,7 +457,7 @@ if ($action == 'delGRP') {
 			echo $module_hook->hookHtml;
 ?>
 
-			<tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?>:<hr></h5></td></tr>
+			<tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?>:</h5></td></tr>
 
 <?php
 //draw goto selects

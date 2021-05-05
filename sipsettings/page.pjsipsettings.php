@@ -182,7 +182,7 @@ $error_displays = array_merge($error_displays,pjsipsettings_check_custom_files()
 ?>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("NAT Settings") ?><hr></h5></td>
+    <td colspan="2"><h5><?php echo _("NAT Settings") ?></h5></td>
   </tr>
 
   <tr>
@@ -288,7 +288,7 @@ END;
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("TCP/UDP Transport") ?><hr></h5></td>
+    <td colspan="2"><h5><?php echo _("TCP/UDP Transport") ?></h5></td>
   </tr>
 
 
@@ -315,7 +315,7 @@ $tt = _("Asterisk: bindaddr. The IP address to bind to and listen for calls on t
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("TLS Transport") ?><hr></h5></td>
+    <td colspan="2"><h5><?php echo _("TLS Transport") ?></h5></td>
   </tr>
 
 <?php
@@ -349,7 +349,7 @@ $tt = _("Asterisk: bindaddr. The IP address to bind to and listen for calls on t
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Audio Codecs")?><hr></h5></td>
+    <td colspan="2"><h5><?php echo _("Audio Codecs")?></h5></td>
   </tr>
   <tr>
     <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration. Drag to re-order.")?></span></a></td>
@@ -381,7 +381,7 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><hr></h5></td>
+    <td colspan="2"><h5></h5></td>
   </tr>
 
   <tr>

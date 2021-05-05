@@ -50,7 +50,7 @@ if(isset($_REQUEST['action'])) {
     	    echo "<input type=\"hidden\" name=\"editdescripton\" value=\"\">";
 	    }?>
 	<table>
-	<tr><td colspan="2"><h5><?php echo _("Add or replace entry") ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo _("Add or replace entry") ?></h5></td></tr>
 
         <tr>
     	        <td><a href="#" class="info"><?php echo _("Number/CallerID:")?>
@@ -89,7 +89,7 @@ if (is_array($numbers)) {
 ?>
 <table cellpadding="5">
         <tr>
-		<td colspan="4"><h5><?php echo _("Blacklist entries") ?><hr></h5></td>
+		<td colspan="4"><h5><?php echo _("Blacklist entries") ?></h5></td>
 	</tr>
 
 	<tr>

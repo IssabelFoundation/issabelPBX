@@ -625,7 +625,7 @@ function daynight_hook_timeconditions($viewing_itemid, $target_menuid) {
 			$html = '';
 			$html = '<tr><td colspan="2"><h5>';
 			$html .= _("Call Flow Toggle Mode Association");
-			$html .= '<hr></h5></td></tr>';
+			$html .= '</h5></td></tr>';
 			$html .= '<tr>';
 			$html .= '<td><a href="#" class="info">';
 			$html .= _("Associate with").'<span>'._("If a selection is made, this timecondition will be associated with the specified call flow toggle  featurecode. This means that if the Call Flow Feature code is set to override (Red/BLF on) then this time condition will always go to its True destination if the chosen association is to 'Force Time Condition True Destination' and it will always go to its False destination if the association is with the 'Force Time Condition False Destination'. When the associated Call Flow Control Feature code is in its Normal mode (Green/BLF off), then then this Time Condition will operate as normal based on the current time. The Destinations that are part of any Associated Call Flow Control Feature Code will have no affect on where a call will go if passing through this time condition. The only thing that is done when making an association is allowing the override state of a Call Flow Toggle to force this time condition to always follow one of its two destinations when that associated Call Flow Toggle is in its override (Red/BLF on) state.").'.</span></a>:</td>';

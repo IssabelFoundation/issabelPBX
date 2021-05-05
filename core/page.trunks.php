@@ -1596,7 +1596,7 @@ END;
 
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Audio Codecs")?><hr></h5></td>
+    <td colspan="2"><h5><?php echo _("Audio Codecs")?></h5></td>
   </tr>
   <tr>
     <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled. Drag to re-order.")?></span></a></td>

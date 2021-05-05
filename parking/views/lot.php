@@ -10,7 +10,7 @@
 <form id="parkform" action="config.php?display=parking&amp;id=<?php echo $id?>&amp;action=update" method="post">
     <table width="40%">
         <tr>
-            <td colspan="2"><h5><?php echo _("Parking Lot Options")?><hr></h5></td>
+            <td colspan="2"><h5><?php echo _("Parking Lot Options")?></h5></td>
         </tr>
         <tr>
             <td><a href=# class="info"><?php echo _("Parking Lot Extension:")?><span><?php echo _("This is the extension where you will transfer a call to park it")?></span></a></td>
@@ -83,7 +83,7 @@
             </td>
     	</tr>
         <tr>
-            <td colspan="2"><h5><?php echo _("Returned Call Behavior")?><hr></h5></td>
+            <td colspan="2"><h5><?php echo _("Returned Call Behavior")?></h5></td>
         </tr>
         <tr>
             <td><a href="#" class="info"><?php echo _("Pickup Courtesy Tone:")?><span><?php echo _("Whom to play the courtesy tone to when a parked call is retrieved.")?></span></a></td>
@@ -169,7 +169,7 @@
         <?php }
         ?>
         <tr>
-            <td colspan="2"><h5><?php echo _("Alternate Destination")?><hr></h5></td>
+            <td colspan="2"><h5><?php echo _("Alternate Destination")?></h5></td>
         </tr>
         <tr>
             <td><a href="#" class="info"><?php echo _("Come Back to Origin:")?><span><?php echo _("Where to send a parked call that has timed out. If set to yes then the parked call will be sent back to the originating device that sent the call to this parking lot. If the origin is busy then we will send the call to the Destination selected below. If set to no then we will send the call directly to the destination selected below")?></span></a></td>

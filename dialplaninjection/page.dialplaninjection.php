@@ -23,7 +23,7 @@ drawListMenu($contexts, $skip, $type, $display, $extdisplay, _("Injection"));
 </div>
 
 <!--
-			<tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?>:<hr></h5></td></tr>
+			<tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?>:</h5></td></tr>
 -->
 <?php 
 //draw goto selects

@@ -128,7 +128,7 @@ if ($action == 'delGRP') {
 			<input type="hidden" name="action" value="<?php echo ($extdisplay != '' ? 'editGRP' : 'addGRP'); ?>">
 			<table>
 			<tr>
-				<td colspan="2"><h5><?php  echo ($extdisplay != '' ? _("Edit VMBlast Group") : _("Add VMBlast Group")) ?><hr></h5>
+				<td colspan="2"><h5><?php  echo ($extdisplay != '' ? _("Edit VMBlast Group") : _("Add VMBlast Group")) ?></h5>
 				</td>
 			</tr>
 			<tr>

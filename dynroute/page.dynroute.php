@@ -203,7 +203,7 @@ function dynroute_show_edit($id, $nbroptions, $post) {
                    <td colspan="2">
                        <div id="url"> 
                                 <table cellpadding="2" cellspacing="0" width="100%">
-                                        <tr><td colspan="2"><h5><?php echo _("URL") ?><hr></h5></div></td></tr>
+                                        <tr><td colspan="2"><h5><?php echo _("URL") ?></h5></div></td></tr>
                                         </tr>
                                                 <td><a href="#" class="info"><?php echo _("URL")?><span><?php echo _("The url that returns the result")?></span></a></td>
                                                 <td><input type="text" name="url_query" size="50" value="<?php echo (isset($dynroute_details['url_query']) ? htmlentities($dynroute_details['url_query']) : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
@@ -217,7 +217,7 @@ function dynroute_show_edit($id, $nbroptions, $post) {
                    <td colspan="2">
                        <div id="astvar">
                                 <table cellpadding="2" cellspacing="0" width="100%">
-                                        <tr><td colspan="2"><h5><?php echo _("Asterisk variable") ?><hr></h5></div></td></tr>
+                                        <tr><td colspan="2"><h5><?php echo _("Asterisk variable") ?></h5></div></td></tr>
                                         </tr>
                                                 <td><a href="#" class="info"><?php echo _("Variable string")?><span><?php echo _("The string containing one or more asterisk variables")?></span></a></td>
                                                 <td><input type="text" name="astvar_query" size="50" value="<?php echo (isset($dynroute_details['astvar_query']) ? htmlentities($dynroute_details['astvar_query']) : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
@@ -231,7 +231,7 @@ function dynroute_show_edit($id, $nbroptions, $post) {
                    <td colspan="2">
                        <div id="agi">
                                 <table cellpadding="2" cellspacing="0" width="100%">
-                                        <tr><td colspan="2"><h5><?php echo _("AGI") ?><hr></h5></div></td></tr>
+                                        <tr><td colspan="2"><h5><?php echo _("AGI") ?></h5></div></td></tr>
                                         <tr>
                                                 <td><a href="#" class="info"><?php echo _("AGI script and parameters")?><span><?php echo _("Name of the AGI script. Optional parameters may be appended using the , as separator")?></span></a></td>
                                                 <td><input type="text" name="agi_query" size="50" value="<?php echo (isset($dynroute_details['agi_query']) ? htmlentities($dynroute_details['agi_query']) : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
@@ -249,7 +249,7 @@ function dynroute_show_edit($id, $nbroptions, $post) {
                    <td colspan="2">
                        <div id="odbc">
                                 <table cellpadding="2" cellspacing="0" width="100%">
-                                        <tr><td colspan="2"><h5><?php echo _("ODBC") ?><hr></h5></div></td></tr>
+                                        <tr><td colspan="2"><h5><?php echo _("ODBC") ?></h5></div></td></tr>
                                         <tr>
                                                 <td><a href="#" class="info"><?php echo _("Function")?><span><?php echo _("Name of the odbc function (excluding ODBC prefix) in /etc/asterisk/func_odbc.conf")?></span></a></td>
                                                 <td><input type="text" name="odbc_func" value="<?php echo (isset($dynroute_details['odbc_func']) ? htmlentities($dynroute_details['odbc_func']) : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
@@ -269,7 +269,7 @@ function dynroute_show_edit($id, $nbroptions, $post) {
                    <td colspan="2">
                        <div id="mysql">
                                 <table cellpadding="2" cellspacing="0" width="100%">
-                                        <tr><td colspan="2"><h5><?php echo _("MySQL") ?><hr></h5></div></td></tr>
+                                        <tr><td colspan="2"><h5><?php echo _("MySQL") ?></h5></div></td></tr>
                                         <tr>
                         <td><a href="#" class="info"><?php echo _("Host");?><span><?php echo _("Hostname or IP address of the server running the MySQL database");?></span></a></td>
                         <td><input type="text" name="mysql_host" value="<?php echo (isset($dynroute_details['mysql_host']) ? $dynroute_details['mysql_host'] : '') ?>" tabindex="<?php echo ++$tabindex;?>"></td>

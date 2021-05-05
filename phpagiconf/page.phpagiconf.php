@@ -54,7 +54,7 @@ if (is_array($thisConfig)) {
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
 	<input type="hidden" name="action" value="<?php echo (is_array($thisConfig) ? 'edit' : 'add') ?>">
 	<table>
-	<tr><td colspan="2"><h5><?php echo _("Main config:"); ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo _("Main config:"); ?></h5></td></tr>
 	<tr><td><input type="hidden" name="id" value="<?php echo $phpagiid; ?>"></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Debug:")?><span><?php echo _("Enable PHPAGI debugging.")?></span></a></td>
@@ -82,12 +82,12 @@ if (is_array($thisConfig)) {
 		<td><a href="#" class="info"><?php echo _("Temporary directory:")?><span><?php echo _("Temporary directory for storing temporary output.")?></span></a></td>
 		<td><input size=40 type="text" name="tempdir" value="<?php echo $tempdir; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
-	<tr><td colspan="2"><h5><?php echo _("Festival config:"); ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo _("Festival config:"); ?></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Path to text2wave:")?><span><?php echo _("Path to text2wave binary.")?></span></a></td>
 		<td><input type="text" name="festival_text2wave" value="<?php echo $festival_text2wave; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
-	<tr><td colspan="2"><h5><?php echo _("Asterisk API settings:"); ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo _("Asterisk API settings:"); ?></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Server:")?><span><?php echo _("Server to connect to.")?></span></a></td>
 		<td><input type="text" name="asman_server" value="<?php echo $asman_server; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
@@ -97,7 +97,7 @@ if (is_array($thisConfig)) {
 		<td><input type="text" name="asman_port" value="<?php echo $asman_port; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 <?php echo $module_hook->hookHtml; ?>
-	<tr><td colspan="2"><h5><?php echo _("Fast AGI config:"); ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo _("Fast AGI config:"); ?></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("setuid:")?><span><?php echo _("Drop privileges to owner of script.")?></span></a></td>
 		<td><select name="setuid" tabindex="<?php echo ++$tabindex;?>">
@@ -109,7 +109,7 @@ if (is_array($thisConfig)) {
 		<td><a href="#" class="info"><?php echo _("Basedir:")?><span><?php echo _("Path to AGI scripts folder.")?></span></a></td>
 		<td><input size=40 type="text" name="basedir" value="<?php echo $basedir; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
-	<tr><td colspan="2"><h5><?php echo _("Cepstral config:"); ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo _("Cepstral config:"); ?></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Swift path:")?><span><?php echo _("Path to cepstral TTS binary.")?></span></a></td>
 		<td><input type="text" name="cepstral_swift" value="<?php echo $cepstral_swift; ?>" tabindex="<?php echo ++$tabindex;?>"></td>

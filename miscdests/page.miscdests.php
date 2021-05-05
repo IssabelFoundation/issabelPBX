@@ -80,7 +80,7 @@ if ($action == 'delete') {
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
 	<input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add') ?>">
 	<table>
-	<tr><td colspan="2"><h5><?php echo ($extdisplay ? _("Edit Misc Destination") : _("Add Misc Destination")) ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo ($extdisplay ? _("Edit Misc Destination") : _("Add Misc Destination")) ?></h5></td></tr>
 <?php		if ($extdisplay){ ?>
 		<tr><td><input type="hidden" name="id" value="<?php echo $extdisplay; ?>"></td></tr>
 <?php		} ?>

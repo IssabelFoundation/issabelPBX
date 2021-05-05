@@ -70,7 +70,7 @@ echo $helptext;
 	<input type="hidden" name="language_id" value="<?php echo $extdisplay; ?>">
 	<input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
 	<table>
-	<tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Language Instance") : _("Add Language Instance")) ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Language Instance") : _("Add Language Instance")) ?></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("The descriptive name of this language instance. For example \"French Main IVR\"")?></span></a></td>
 		<td><input size="30" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
@@ -78,7 +78,7 @@ echo $helptext;
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Language Code")?>:<span><?php echo _("The Asterisk language code you want to change to. For example \"fr\" for French, \"de\" for German")?></span></a></td>
 		<td><input size="14" type="text" name="lang_code" value="<?php echo $lang_code; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td> </tr>
-	<tr><td colspan="2"><br><h5><?php echo _("Destination")?>:<hr></h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo _("Destination")?>:</h5></td></tr>
 
 <?php 
 //draw goto selects

@@ -85,7 +85,7 @@ if ($action == 'delete') {
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
 	<input type="hidden" name="action" value="<?php echo ($managerdisplay ? 'edit' : 'add') ?>">
 	<table>
-	<tr><td colspan="2"><h5><?php echo ($managerdisplay ? _("Edit Manager") : _("Add Manager")) ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo ($managerdisplay ? _("Edit Manager") : _("Add Manager")) ?></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Manager name:")?><span><?php echo _("Name of the manager without space.")?></span></a></td>
 		<td><input type="text" name="name" value="<?php echo (isset($name) ? $name : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
@@ -103,7 +103,7 @@ if ($action == 'delete') {
 		<td><input size="56" type="text" name="permit" value="<?php echo (isset($permit) ? $permit : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr>
-		<td colspan="2"><h5><?php echo _("Rights")?><hr></h5></td>
+		<td colspan="2"><h5><?php echo _("Rights")?></h5></td>
 	</tr>
 	<tr>
 		<td colspan="2">

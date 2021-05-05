@@ -82,7 +82,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   }
 ?>
   <tr>
-    <td colspan="2"><h5><?php echo _("General Asterisk Manager Settings")?><hr></h5></td>
+    <td colspan="2"><h5><?php echo _("General Asterisk Manager Settings")?></h5></td>
   </tr>
   <tr>
 

@@ -88,7 +88,7 @@ if ($action == 'delete') {
 	<input type="hidden" name="action" value="<?php echo ($itemid ? 'edit' : 'add') ?>">
 	<input type="hidden" name="deptname" value="<?php echo $_SESSION["AMP_user"]->_deptname ?>">
 	<table>
-	<tr><td colspan="2"><h5><?php echo ($itemid ? _("Edit Callback") : _("Add Callback")) ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo ($itemid ? _("Edit Callback") : _("Add Callback")) ?></h5></td></tr>
 
 <?php		if ($itemid){ ?>
 		<input type="hidden" name="account" value="<?php echo $itemid; ?>">
@@ -106,7 +106,7 @@ if ($action == 'delete') {
 		<td><a href="#" class="info"><?php echo _("Delay Before Callback:")?><span><?php echo _("Optional: Enter the number of seconds the system should wait before calling back.")?></span></a></td>
 		<td><input size="3" type="text" name="sleep" value="<?php echo (isset($thisItem['sleep']) ? $thisItem['sleep'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
-	<tr><td colspan="2"><br><h5><?php echo _("Destination after Callback")?>:<hr></h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo _("Destination after Callback")?>:</h5></td></tr>
 
 <?php 
 //draw goto selects

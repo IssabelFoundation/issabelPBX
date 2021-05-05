@@ -287,7 +287,7 @@ if ($action == 'delete') {
     <input type="hidden" name="display" value="<?php echo $dispnum?>">
     <input type="hidden" name="action" value="<?php echo (($extdisplay != '') ? 'edit' : 'add') ?>">
     <table>
-    <tr><td colspan="2"><h5><?php echo ($extdisplay ? _("Edit Queue") : _("Add Queue")) ?><hr></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo ($extdisplay ? _("Edit Queue") : _("Add Queue")) ?></h5></td></tr>
     <tr>
 <?php        if ($extdisplay != ''){ ?>
         <input type="hidden" name="account" value="<?php echo $extdisplay; ?>">
@@ -475,7 +475,7 @@ if ($action == 'delete') {
         </td>
     </tr>
 
-    <tr><td colspan="2"><br><h5><?php echo _("General Queue Options")?><hr></h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo _("General Queue Options")?></h5></td></tr>
 
     <tr>
         <td>
@@ -704,7 +704,7 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
     }
 ?>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Timing & Agent Options")?><hr></h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo _("Timing & Agent Options")?></h5></td></tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Max Wait Time:")?><span><?php echo _("The maximum number of seconds a caller can wait in a queue before being pulled out.  (0 for unlimited).")?></span></a></td>
@@ -928,7 +928,7 @@ if ($ast_ge_16) {
         </td>
     </tr>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Capacity Options")?><hr></h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo _("Capacity Options")?></h5></td></tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Max Callers:")?><span><?php echo _("Maximum number of people waiting in the queue (0 for unlimited)")?></span></a></td>
@@ -1043,7 +1043,7 @@ if ($ast_ge_16) {
 }
 ?>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Caller Position Announcements")?><hr></h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo _("Caller Position Announcements")?></h5></td></tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Frequency:")?><span><?php echo _("How often to announce queue position and estimated holdtime (0 to Disable Announcements).")?></span></a></td>
@@ -1086,7 +1086,7 @@ if ($ast_ge_16) {
         </td>
     </tr>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Periodic Announcements")?><hr></h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo _("Periodic Announcements")?></h5></td></tr>
 
 <?php if(function_exists('vqplus_callback_get') && function_exists('ivr_get_details')) {
     if (isset($callback) && $callback != 'none') {
@@ -1209,7 +1209,7 @@ if ($ast_ge_16) {
     </tr>
 <?php } ?>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Events, Stats and Advanced")?><hr></h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo _("Events, Stats and Advanced")?></h5></td></tr>
 
     <tr>
         <td><?php echo ipbx_label(_("Event When Called"), _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."));?></td>
@@ -1309,14 +1309,14 @@ if ($ast_ge_16) {
     echo $module_hook->hookHtml;
 ?>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Fail Over Destination")?><hr></h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo _("Fail Over Destination")?></h5></td></tr>
     <?php
     echo drawselects($goto,0);
     ?>
     </table>
     
     <table>
-    <tr><td colspan="2"><br><h5><?php echo _("Queue Continue Destination")?><hr></h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo _("Queue Continue Destination")?></h5></td></tr>
         <?php
         echo drawselects($gotocontinue,1);
         ?>
@@ -1324,7 +1324,7 @@ if ($ast_ge_16) {
     
 
     <table>
-        <tr><td colspan="2"><br><h5><?php echo _("Reset Queue Stats")?><hr></h5></td></tr>
+        <tr><td colspan="2"><br><h5><?php echo _("Reset Queue Stats")?></h5></td></tr>
         <tr><td colspan="2">
             <?php echo load_view(dirname(__FILE__) . '/views/cron.php', $cronVars); ?>
         </td></tr>

@@ -154,7 +154,7 @@ $error_displays = array_merge($error_displays,iaxsettings_check_custom_files());
   }
 ?>
   <tr>
-    <td colspan="2"><h5><?php echo _("Audio Codecs")?><hr></h5></td>
+    <td colspan="2"><h5><?php echo _("Audio Codecs")?></h5></td>
   </tr>
   <tr>
     <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration. Drag to re-order.")?></span></a></td>
@@ -234,7 +234,7 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Video Codecs")?><hr></h5></td>
+    <td colspan="2"><h5><?php echo _("Video Codecs")?></h5></td>
   </tr>
 
   <tr>
@@ -289,7 +289,7 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Registration Settings") ?><hr></h5></td>
+    <td colspan="2"><h5><?php echo _("Registration Settings") ?></h5></td>
   </tr>
 
   <tr>
@@ -303,7 +303,7 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Jitter Buffer Settings") ?><hr></h5></td>
+    <td colspan="2"><h5><?php echo _("Jitter Buffer Settings") ?></h5></td>
   </tr>
 
   <tr>
@@ -366,7 +366,7 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Advanced General Settings") ?><hr></h5></td>
+    <td colspan="2"><h5><?php echo _("Advanced General Settings") ?></h5></td>
   </tr>
 
   <tr>

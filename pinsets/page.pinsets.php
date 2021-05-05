@@ -76,7 +76,7 @@ if ($action == 'delete') {
 	<input type="hidden" name="deptname" value="<?php echo $_SESSION["AMP_user"]->_deptname ?>">
 
 	<table>
-	<tr><td colspan="2"><h5><?php echo ($itemid ? _("Edit PIN Set") : _("New PIN Set")) ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo ($itemid ? _("Edit PIN Set") : _("New PIN Set")) ?></h5></td></tr>
 
 <?php		if ($itemid){ ?>
 		<input type="hidden" name="account" value="<?php echo $itemid; ?>">

@@ -188,7 +188,7 @@ if (isset($inroutes)) {
 		<input type="hidden" name="didfilter" value="<?php echo $didfilter ?>">
 		<input type="hidden" name="rnavsort" value="<?php echo $rnavsort ?>">
 		<table>
-		<tr><td colspan="2"><h5><?php echo ($extdisplay ? _('Edit Incoming Route') : _('Add Incoming Route')) ?><hr></h5></td></tr>
+		<tr><td colspan="2"><h5><?php echo ($extdisplay ? _('Edit Incoming Route') : _('Add Incoming Route')) ?></h5></td></tr>
 		<tr>
 			<td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _('Provide a meaningful description of what this incoming route is')?></span></a>:</td>
 			<td><input type="text" name="description" value="<?php echo isset($description)?$description:''; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
@@ -207,7 +207,7 @@ if (isset($inroutes)) {
 			<td><input type="checkbox" name="pricid" value="CHECKED" <?php echo $pricid ?>  tabindex="<?php echo ++$tabindex;?>"/></td>
 		</tr>
 
-		<tr><td colspan="2"><h5><?php echo _("Options")?><hr></h5></td></tr>
+		<tr><td colspan="2"><h5><?php echo _("Options")?></h5></td></tr>
 		<tr>
 			<td><a href="#" class="info"><?php echo _("Alert Info")?><span><?php echo _('ALERT_INFO can be used for distinctive ring with SIP devices.')?></span></a>:</td>
 			<td><input type="text" name="alertinfo" size="10" value="<?php echo $alertinfo ?>" tabindex="<?php echo ++$tabindex;?>"></td>
@@ -246,7 +246,7 @@ if (isset($inroutes)) {
 			<td><input type="text" name="delay_answer" size="3" value="<?php echo ($delay_answer != '0')?$delay_answer:'' ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 		</tr>
 
-		<tr><td colspan="2"><h5><?php echo _("Privacy")?><hr></h5></td></tr>
+		<tr><td colspan="2"><h5><?php echo _("Privacy")?></h5></td></tr>
 
 		<tr>
 			<td><a href="#" class="info"><?php echo _("Privacy Manager")?><span><?php echo _('If no CallerID has been received, Privacy Manager will ask the caller to enter their phone number. If an user/extension has Call Screening enabled, the incoming caller will be be prompted to say their name when the call reaches the user/extension.')?></span></a>:</td>
@@ -288,7 +288,7 @@ if (isset($inroutes)) {
 	// object was initialized in config.php
 	echo $module_hook->hookHtml;
 ?>
-		<tr><td colspan="2"><h5><?php echo _("Set Destination")?><hr></h5></td></tr>
+		<tr><td colspan="2"><h5><?php echo _("Set Destination")?></h5></td></tr>
 
 <?php 
 //draw goto selects

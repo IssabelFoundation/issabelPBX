@@ -235,7 +235,7 @@ if ($action == 'add') {
 	<input type="hidden" name="display" value="<?php echo $display?>">
 	<input type="hidden" name="action" value="addednew">
 	<table>
-	<tr><td colspan="2"><h5><?php echo _("Add Music Category")?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo _("Add Music Category")?></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Category Name:")?><span><?php echo _("Allows you to Set up Different Categories for music on hold.  This is useful if you would like to specify different Hold Music or Commercials for various ACD Queues.")?> </span></a></td>
 		<td><input type="text" name="category" value=""></td>
@@ -276,7 +276,7 @@ function addcategory_onsubmit() {
 	<input type="hidden" name="display" value="<?php echo $display?>">
 	<input type="hidden" name="action" value="addednewstream">
 	<table>
-	<tr><td colspan="2"><h5><?php echo _("Add Streaming Category")?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo _("Add Streaming Category")?></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Category Name:")?><span><?php echo _("Allows you to Set up Different Categories for music on hold.  This is useful if you would like to specify different Hold Music or Commercials for various ACD Queues.")?> </span></a></td>
 		<td><input type="text" name="category" value=""></td>
@@ -354,7 +354,7 @@ function addstream_onsubmit() {
 		<input type="hidden" name="display" value="<?php echo $display?>">
 		<input type="hidden" name="action" value="editednewstream">
 		<table>
-		<tr><td colspan="2"><h5><?php echo _("Edit Streaming Category").": $category"?><hr></h5></td></tr>
+		<tr><td colspan="2"><h5><?php echo _("Edit Streaming Category").": $category"?></h5></td></tr>
 		<tr>
 			<td><a href="#" class="info"><?php echo _("Application:")?><span><?php echo _("This is the \"application=\" line used to provide the streaming details to Asterisk. See information on musiconhold.conf configuration for different audio and Internet streaming source options.")?> </span></a></td>
 			<td><input type="text" name="stream" size="80" value="<?php echo $application[0]?>"></td>

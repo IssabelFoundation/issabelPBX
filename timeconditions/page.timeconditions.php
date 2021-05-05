@@ -81,7 +81,7 @@ if ($action == 'delete') {
 	<input type="hidden" name="action" value="<?php echo ($itemid ? 'edit' : 'add') ?>">
 	<input type="hidden" name="deptname" value="<?php echo $_SESSION["AMP_user"]->_deptname ?>">
 	<table>
-	<tr><td colspan="2"><h5><?php echo ($itemid ? _("Edit Time Condition") : _("Add Time Condition")) ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo ($itemid ? _("Edit Time Condition") : _("Add Time Condition")) ?></h5></td></tr>
 
 <?php		if ($itemid){ ?>
 		<input type="hidden" name="account" value="<?php echo $itemid; ?>">
@@ -153,7 +153,7 @@ if ($action == 'delete') {
 	// object was initialized in config.php
 	echo $module_hook->hookHtml;
 ?>
-	<tr><td colspan="2"><br><h5><?php echo _("Destination if time matches")?>:<hr></h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo _("Destination if time matches")?>:</h5></td></tr>
 <?php
 //draw goto selects
 if (isset($thisItem)) {
@@ -163,7 +163,7 @@ if (isset($thisItem)) {
 }
 ?>
 
-	<tr><td colspan="2"><br><h5><?php echo _("Destination if time does not match")?>:<hr></h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo _("Destination if time does not match")?>:</h5></td></tr>
 
 <?php
 //draw goto selects

@@ -71,7 +71,7 @@ echo "<p>".$helptext."</p>\n";
 	<input type="hidden" name="channel" value="<?php echo $extdisplay; ?>">
 	<input type="hidden" name="action" value="<?php echo ($extdisplay != '' ? 'edit' : 'add'); ?>">
 	<table>
-	<tr><td colspan="2"><h5><?php  echo ($extdisplay != '' ? _("Edit Channel").": ".$extdisplay : _("Add Channel")) ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php  echo ($extdisplay != '' ? _("Edit Channel").": ".$extdisplay : _("Add Channel")) ?></h5></td></tr>
 <?php
 	if ($extdisplay == '') {
 ?>

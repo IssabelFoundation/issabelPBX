@@ -394,7 +394,7 @@ if ($extdisplay) { // editing
 		<input type="hidden" id="reporoutekey" name="reporoutekey" value="">
 		<table>
     <tr>
-      <td colspan="2"><h5><?php echo _("Route Settings") ?><hr></h5></td>
+      <td colspan="2"><h5><?php echo _("Route Settings") ?></h5></td>
     </tr>
 
 		<tr>
@@ -485,7 +485,7 @@ if ($extdisplay) { // editing
 	if (!empty($module_hook->hookHtml)) {
 ?>
     <tr>
-      <td colspan="2"><h5><?php echo _("Additional Settings") ?><hr></h5></td>
+      <td colspan="2"><h5><?php echo _("Additional Settings") ?></h5></td>
     </tr>
 <?php
 	  echo $module_hook->hookHtml;
@@ -505,7 +505,7 @@ if ($extdisplay) { // editing
       <b><?php echo _("match pattern:")?></b>&nbsp;&nbsp;&nbsp; <?php echo _("The dialed number will be compared against the  prefix + this match pattern. Upon a match, the match pattern portion of the dialed number will be sent to the trunks")?><br />
       <b><?php echo _("CallerID:")?></b>&nbsp;&nbsp;&nbsp; <?php echo _("If CallerID is supplied, the dialed number will only match the prefix + match pattern if the CallerID being transmitted matches this. When extensions make outbound calls, the CallerID will be their extension number and NOT their Outbound CID. The above special matching sequences can be used for CallerID matching similar to other number matches.")?><br />
       </span></a>
-      <hr></h5></td>
+      </h5></td>
     </tr>
 
     <tr><td colspan="2"><div class="dialpatterns"><table>
@@ -673,7 +673,7 @@ END;
 		</tr>
 		<?php } ?>
     <tr>
-      <td colspan="2"><h5><a href=# class="info"><?php echo _("Trunk Sequence for Matched Routes")?><span><?php echo _("The Trunk Sequence controls the order of trunks that will be used when the above Dial Patterns are matched. <br><br>For Dial Patterns that match long distance numbers, for example, you'd want to pick the cheapest routes for long distance (ie, VoIP trunks first) followed by more expensive routes (POTS lines).")?><br></span></a><hr></h5></td>
+      <td colspan="2"><h5><a href=# class="info"><?php echo _("Trunk Sequence for Matched Routes")?><span><?php echo _("The Trunk Sequence controls the order of trunks that will be used when the above Dial Patterns are matched. <br><br>For Dial Patterns that match long distance numbers, for example, you'd want to pick the cheapest routes for long distance (ie, VoIP trunks first) followed by more expensive routes (POTS lines).")?><br></span></a></h5></td>
     </tr>
 <?php 
 $key = -1;
@@ -752,7 +752,7 @@ for ($i=0; $i < $num_new_boxes; $i++) {
 <?php } // if $extdisplay ?>
 
     <tr>
-      <td colspan="2"><h5><a href=# class="info"><?php echo _("Optional Destination on Congestion")?><span><?php echo _("If all the trunks fail because of Asterisk 'CONGESTION' dialstatus you can optionally go to a destination such as a unique recorded message or anywhere else. This destination will NOT be engaged if the trunk is reporting busy, invalid numbers or anything else that would imply the trunk was able to make an 'intelligent' choice about the number that was dialed. The 'Normal Congestion' behavior is to play the 'All Circuits Busy' recording or other options configured in the Route Congestion Messages module when installed.")?><br></span></a><hr></h5></td>
+      <td colspan="2"><h5><a href=# class="info"><?php echo _("Optional Destination on Congestion")?><span><?php echo _("If all the trunks fail because of Asterisk 'CONGESTION' dialstatus you can optionally go to a destination such as a unique recorded message or anywhere else. This destination will NOT be engaged if the trunk is reporting busy, invalid numbers or anything else that would imply the trunk was able to make an 'intelligent' choice about the number that was dialed. The 'Normal Congestion' behavior is to play the 'All Circuits Busy' recording or other options configured in the Route Congestion Messages module when installed.")?><br></span></a></h5></td>
     </tr>
 <?php
 echo drawselects(!empty($dest)?$dest:null,0,false,true,_("Normal Congestion"),false);

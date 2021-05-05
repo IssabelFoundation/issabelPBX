@@ -175,7 +175,7 @@ if ($extdisplay == "") {
             <input type="hidden" name="display" value="<?php echo $dispnum?>">
             <input type="hidden" name="action" value="<?php echo (($extdisplay != "") ? 'edtGRP' : 'addGRP'); ?>">
             <table>
-            <tr><td colspan="2"><h5><?php  echo (($extdisplay != "") ? _("Edit Follow Me") : _("Add Follow Me")) ?><hr></h5></td></tr>
+            <tr><td colspan="2"><h5><?php  echo (($extdisplay != "") ? _("Edit Follow Me") : _("Add Follow Me")) ?></h5></td></tr>
             <tr>
 <?php
     if ($extdisplay != "") { 
@@ -343,7 +343,7 @@ if ($extdisplay == "") {
                 <td><input size="30" type="text" name="dring" value="<?php  echo $dring ?>" tabindex="<?php echo ++$tabindex;?>"></td>
             </tr>
 
-            <tr><td colspan="2"><h5><?php echo _("Call Confirmation Configuration") ?><hr></h5></td></tr>
+            <tr><td colspan="2"><h5><?php echo _("Call Confirmation Configuration") ?></h5></td></tr>
 
             <tr>
                 <td><a href="#" class="info"><?php echo _("Confirm Calls")?><span><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall/ringall-prim  ring strategy')?></span></a>:</td>
@@ -389,7 +389,7 @@ if ($extdisplay == "") {
             </tr>
 <?php } ?>
 
-            <tr><td colspan="2"><h5><?php echo _("Change External CID Configuration") ?><hr></h5></td></tr>
+            <tr><td colspan="2"><h5><?php echo _("Change External CID Configuration") ?></h5></td></tr>
             <tr>
                 <td>
                 <a href="#" class="info"><?php echo _("Mode")?>:
@@ -422,7 +422,7 @@ if ($extdisplay == "") {
         <td><input size="30" type="text" name="fixedcid" id="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>" <?php echo $fixedcid_disabled ?>></td>
             </tr>
             
-            <tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?>:<hr></h5></td></tr>
+            <tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?>:</h5></td></tr>
 
 <?php 
 //draw goto selects

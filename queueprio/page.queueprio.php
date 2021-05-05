@@ -69,7 +69,7 @@ echo $helptext;
 	<input type="hidden" name="queueprio_id" value="<?php echo $extdisplay; ?>">
 	<input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
 	<table>
-	<tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Queue Priority Instance") : _("Add Queue Priority Instance")) ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Queue Priority Instance") : _("Add Queue Priority Instance")) ?></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("The descriptive name of this Queue Priority instance.")?></span></a></td>
 		<td><input size="30" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
@@ -86,7 +86,7 @@ echo $helptext;
 			?>		
 			</select>		
 		</td>
-	<tr><td colspan="2"><br><h5><?php echo _("Destination")?>:<hr></h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo _("Destination")?>:</h5></td></tr>
 
 <?php 
 //draw goto selects

@@ -81,7 +81,7 @@ if (!empty($usage_list)) {
 	<input type="hidden" name="old_custom_dest" value="<?php echo $custom_dest; ?>">
 	<input type="hidden" name="action" value="<?php echo ($custom_dest != '' ? 'edit' : 'add'); ?>">
 	<table>
-	<tr><td colspan="2"><h5><?php  echo ($custom_dest ? _("Edit Custom Destination") : _("Add Custom Destination")) ?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php  echo ($custom_dest ? _("Edit Custom Destination") : _("Add Custom Destination")) ?></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Custom Destination")?>:
 			<span>

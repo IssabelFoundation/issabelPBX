@@ -72,7 +72,7 @@ echo $helptext;
     <input type="hidden" name="id" value="<?php echo $extdisplay; ?>">
     <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
     <table>
-    <tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Dynamic Feature") : _("Add Dynamic Feature")) ?><hr></h5></td></tr>
+    <tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Dynamic Feature") : _("Add Dynamic Feature")) ?></h5></td></tr>
     <tr>
         <td><a href="#" class="info"><?php echo _("Name")?>:<span><?php echo _("The descriptive name of this dynamic feature. For example \"playback_rules\"")?></span></a></td>
         <td><input size="30" type="text" name="name" value="<?php  echo $name; ?>" tabindex="<?php echo ++$tabindex;?>"></td>

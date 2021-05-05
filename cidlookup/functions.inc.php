@@ -10,7 +10,7 @@ function cidlookup_hook_core($viewing_itemid, $target_menuid) {
 	if ($target_menuid == 'did')	{
 		$html = '<tr><td colspan="2"><h5>';
 		$html .= _("CID Lookup Source");
-		$html .= '<hr></h5></td></tr>';
+		$html .= '</h5></td></tr>';
 		$html .= '<tr>';
 		$html .= '<td><a href="#" class="info">';
 		$html .= _("Source").'<span>'._("Sources can be added in Caller Name Lookup Sources section").'.</span></a>:</td>';

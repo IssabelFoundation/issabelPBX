@@ -163,7 +163,7 @@ $module_local = trunkbalance_xml2array("modules/trunkbalance/module.xml");
 		<td><a href="#" class="info"><?php echo _("Apply all non-matching rules:")?><span><?php echo _("By default, this module will apply ANY of the multiple matching rules. Select this option if you want to apply ALL rules. This setting has no affect unless multiple rules are specified")?></span></a></td>
 		<td><input type="checkbox"  name="notdp_andor" <?php echo (($thisItem['notdp_andor'] == "on") ? "checked" : "") ; ?> tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
-	<tr><td colspan="2"><h5>Billing Cycle Configuration<hr></h5></td></tr>
+	<tr><td colspan="2"><h5>Billing Cycle Configuration</h5></td></tr>
 		<td><a href="#" class="info"><?php echo _("Choose billing cycle:")?><span><?php echo _("Choose the time period that the billing cycle will resest to")?></span></a></td>
 		<td><SELECT id="billing_cycle" name="billing_cycle" tabindex="<?php echo ++$tabindex;?>"><OPTION VALUE="-1">none selected</option>
 		<OPTION VALUE="floating" <?php if ($thisItem['billing_cycle']=="floating") echo _("selected=\"selected\""); ?>  >Floating</OPTION>
@@ -202,7 +202,7 @@ $module_local = trunkbalance_xml2array("modules/trunkbalance/module.xml");
 		<td><a href="#" class="info"><?php echo _("Ending Date:")?><span><?php echo _("Enter the date when this balanced trunk should expire. YYYY-MM-DD HH:mm - Keep empty to disable")?></span></a></td>
 		<td><input type="text" name="endingdate" value="<?php echo (isset($thisItem['endingdate']) ? $thisItem['endingdate'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
-	<tr><td colspan="2"><h5>Usage Limits Configuration<hr></h5></td></tr>
+	<tr><td colspan="2"><h5>Usage Limits Configuration</h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Include Inbound Calls:")?><span><?php echo _("Outbound calls are counted automatically, enable this setting to include inbound calls when determining usage limits.")?></span></a></td>
 		<td><input type="checkbox"  name="count_inbound" <?php echo (($thisItem['count_inbound'] == "on") ? "checked" : "") ; ?> tabindex="<?php echo ++$tabindex;?>"></td>
@@ -223,13 +223,13 @@ $module_local = trunkbalance_xml2array("modules/trunkbalance/module.xml");
 		<td><a href="#" class="info"><?php echo _("Max. Number of Different outbound Calls:")?><span><?php echo _("Enter the maximum number of different outbound phone numbers allowed per billing period. The include inbound calls and include unanswered calls settings do not apply to this item.")?></span></a></td>
 		<td><input type="number" name="maxidentical" value="<?php echo (isset($thisItem['maxidentical']) ? $thisItem['maxidentical'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
-	<tr><td colspan="2"><h5>Load Balancing Configuration<hr></h5></td></tr>
+	<tr><td colspan="2"><h5>Load Balancing Configuration</h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Load Ratio:")?><span><?php echo _("Enter the ratio of calls that this trunk should accept. For instance to allow 1/3 of outbound calls to complete, you should enter 3 to let this trunk accept 1 out of 3 calls.")?></span></a></td>
 		<td><input type="number" name="loadratio" value="<?php echo (isset($thisItem['loadratio']) ? $thisItem['loadratio'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 
-	<tr><td colspan="2"><h5>URL Configuration<hr></h5></td></tr>
+	<tr><td colspan="2"><h5>URL Configuration</h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("URL:")?><span><?php echo _("Enter a URL to load, substitute the string \$OUTNUM\$ in place of the outbound dialled digits.")?></span></a></td>
 		<td><textarea name="url" tabindex="<?php echo ++$tabindex;?>" style="width:250px;height:150px;"><?php echo (isset($thisItem['url']) ? $thisItem['url'] : ''); ?></textarea></td>

@@ -255,7 +255,7 @@ foreach ($modes as $mode => $value) {
 if (!$astman) {
 ?>
     <tr class="boxheader">
-        <td colspan="2" align="center"><h5><?php echo _("ASTERISK MANAGER ERROR")?><hr></h5></td>
+        <td colspan="2" align="center"><h5><?php echo _("ASTERISK MANAGER ERROR")?></h5></td>
     </tr>
         <tr class="boxbody">
             <td>
@@ -278,7 +278,7 @@ if (!$astman) {
                   if ($value) {
 ?>
             <tr class="boxheader">
-                <td colspan="2" align="center"><h5><?php echo _("$key")?><hr></h5></td>
+                <td colspan="2" align="center"><h5><?php echo _("$key")?></h5></td>
             </tr>
             <tr class="boxbody">
                 <td>
@@ -303,7 +303,7 @@ if (!$astman) {
         } else {
     ?>
             <tr class="boxheader">
-                <td colspan="2" align="center"><h5><?php echo _("Summary")?><hr></h5></td>
+                <td colspan="2" align="center"><h5><?php echo _("Summary")?></h5></td>
             </tr>
             <tr class="boxbody">
                 <td>

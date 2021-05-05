@@ -82,7 +82,7 @@ if ($action == 'delete') {
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
 	<input type="hidden" name="action" value="<?php echo ($ttsid ? 'edit' : 'add') ?>">
 	<table>
-	<tr><td colspan="2"><h5><?php echo _("Main settings"); ?>:<hr></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo _("Main settings"); ?>:</h5></td></tr>
 <?php		if ($ttsid){ ?>
 		<tr><td><input type="hidden" name="id" value="<?php echo $ttsid; ?>"></td></tr>
 <?php		} ?>
@@ -95,7 +95,7 @@ if ($action == 'delete') {
 		<td><textarea name="text" cols=50 rows=5><?php echo (isset($text) ? $text : ''); ?></textarea></td>
 	</tr>
 
-	<tr><td colspan="2"><br><h5><?php echo _("TTS Engine")?>:<hr></h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo _("TTS Engine")?>:</h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Choose an engine")?>:<span><?php echo _("List of TTS engines detected on the server. Choose the one you want to use for the current sentence.")?></span></a></td>
 		<td>
@@ -123,7 +123,7 @@ if ($action == 'delete') {
 		</td>
 	</tr>
 
-	<tr><td colspan="2"><br><h5><?php echo _("After the Text To Speech was played go to")?>:<hr></h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo _("After the Text To Speech was played go to")?>:</h5></td></tr>
 <?php
 //draw goto selects
 if (isset($thisTTS)) {

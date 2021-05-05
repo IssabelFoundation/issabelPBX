@@ -87,7 +87,7 @@ if ($extdisplay) {
             <input type="hidden" name="announcement_id" value="<?php echo $extdisplay; ?>">
             <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
             <table>
-            <tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Announcement") : _("Add Announcement")) ?><hr></h5></td></tr>
+            <tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Announcement") : _("Add Announcement")) ?></h5></td></tr>
             <tr>
                 <td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("The name of this announcement")?></span></a></td>
                 <td><input size="15" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
@@ -150,7 +150,7 @@ if ($extdisplay) {
 if(tts_enabled()) {
 ?>
 
-<tr><td colspan="2"><br><h5><?php echo _("Text to Speech")?>:<hr></h5></td></tr>
+<tr><td colspan="2"><br><h5><?php echo _("Text to Speech")?>:</h5></td></tr>
 
 <?php
      $arrOptionsLang = array( 'en-US'=>'en-US', 'es-ES'=>'es-ES', 'fr-FR'=>'fr-FR', 'it-IT'=>'it-IT','de-DE'=>'de-DE','en-GB'=>'en-GB'  );
@@ -180,7 +180,7 @@ foreach($arrOptionsLang as $key=>$val) {
 ?>
 
 </tr>    
-    <tr><td colspan="2"><br><h5><?php echo _("Destination after playback")?>:<hr></h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo _("Destination after playback")?>:</h5></td></tr>
 
 <?php 
 //draw goto selects

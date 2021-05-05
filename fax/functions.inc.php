@@ -509,7 +509,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
             alert('._('"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to."').');return false; }    }) });</script>';
         $html .= '<tr><td colspan="2"><h5>';
         $html.=_('Fax Detect');
-        $html.='<hr></h5></td></tr>';
+        $html.='</h5></td></tr>';
         $html.='<tr>';
         $html.='<td><a href="#" class="info">';
         $html.=_("Detect Faxes").'<span>'._("Attempt to detect faxes on this DID.")."<ul><li>"._("No: No attempts are made to auto-determine the call type; all calls sent to destination below. Use this option if this DID is used exclusively for voice OR fax.")."</li><li>"._("Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line")."</li>";

@@ -143,7 +143,7 @@ if (is_array($numbers)) {
   <tr><td colspan="4"<h2><?php echo _('Phone Book')?></h2></td></tr>
   <tr><td colspan="4"><?php echo _('Use this module to create system wide speed dial numbers that can be dialed from any phone.')?><br><br></td></tr>
 
-	<tr><td colspan="4"><h5><?php echo _("Add or replace entry") ?><hr></h5></td></tr>
+	<tr><td colspan="4"><h5><?php echo _("Add or replace entry") ?></h5></td></tr>
 
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Name:")?><span><?php echo _("Enter the name")?></span></a></td>
@@ -179,7 +179,7 @@ if (is_array($numbers)) {
 
 <table cellpadding="5" width="100%">
 
-	<tr><td colspan="4"><h5><?php echo _("Import from CSV") ?><hr></h5></td></tr>
+	<tr><td colspan="4"><h5><?php echo _("Import from CSV") ?></h5></td></tr>
 
         <tr>
                 <td><a href="#" class="info"><?php echo _("File:")?>
