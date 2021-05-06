@@ -2456,7 +2456,7 @@ msgstr "Auto Contestar Internas"
 #: ../core/page.advancedsettings.php:97
 #, php-format
 msgid "Internal Name: %s"
-msgstr ""
+msgstr "Nombre Interno: %s"
 
 #: ../core/page.routing.php:660
 msgid "International"
@@ -2464,17 +2464,17 @@ msgstr "Internacionales"
 
 #: ../core/page.routing.php:426
 msgid "Intra-Company"
-msgstr ""
+msgstr "Intra-Compañía"
 
 #: ../core/page.trunks.php:522
 msgid ""
 "Intra-Company Routes will always trasmit an extension's internal number and "
 "name."
-msgstr ""
+msgstr "Rutas instra-compañia transmitirán el nombre y extensión como callerid."
 
 #: ../core/page.did.php:319
 msgid "Invalid CallerID prefix."
-msgstr ""
+msgstr "Prefijo de CallerID inválido"
 
 #: ../core/functions.inc.php:5817 ../core/page.dahdichandids.php:110
 msgid "Invalid Channel Number, must be numeric and not blank"
@@ -2510,12 +2510,12 @@ msgstr "Nombre de línea troncal no válido"
 
 #: amp_conf/htdocs/admin/config.php:340
 msgid "Invalid Username or Password"
-msgstr ""
+msgstr "Nombre de usuario o contraseña inválido"
 
 #: amp_conf/htdocs/admin/page.modules.php:22
 #: amp_conf/htdocs/admin/views/footer.php:83
 msgid "Invalid email address"
-msgstr ""
+msgstr "Dirección de email inválida"
 
 #: ../core/page.routing.php:283 ../core/page.trunks.php:285
 msgid "Invalid format for NPA-NXX code (must be format: NXXNXX)"
@@ -2523,11 +2523,11 @@ msgstr ""
 
 #: ../core/page.trunks.php:789
 msgid "Invalid number. Only 0-9, #,  and * are allowed."
-msgstr ""
+msgstr "Número inválido. Solo se permite 0-9, # y *"
 
 #: ../core/page.trunks.php:784
 msgid "Invalid pattern. Only 0-9, #, *"
-msgstr ""
+msgstr "Patrón inválido. Utilice sólo 0-9, #, *"
 
 #: ../core/page.trunks.php:756 ../core/page.trunks.php:775
 msgid "Invalid pattern. Only 0-9, #, *, Z, N, X and . are allowed."
@@ -2547,12 +2547,12 @@ msgstr ""
 #: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:989
 #: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:1008
 msgid "Invalid value supplied to select"
-msgstr ""
+msgstr "Valor inválido en la selección"
 
 #: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:1035
 #, php-format
 msgid "Invalid value supplied violates the validation regex: %s"
-msgstr ""
+msgstr "Valor inválido, viola la validación de expresión regular: %s"
 
 #: ../core/page.trunks.php:1173
 msgid ""
@@ -2571,7 +2571,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/views/menu.php:140
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #: ../core/page.routing.php:478
 #, php-format
@@ -2588,7 +2588,7 @@ msgstr ""
 #: amp_conf/htdocs/admin/page.modules.php:919
 #, php-format
 msgid "License: %s"
-msgstr ""
+msgstr "Licencia: %s"
 
 #: ../core/page.routing.php:656
 msgid "Local 7 digit"
@@ -2635,7 +2635,7 @@ msgstr ""
 msgid ""
 "Mailbox for this device. This should not be changed unless you know what you "
 "are doing."
-msgstr ""
+msgstr "Buzón de voz para este dispositivo. No debe cambiar esto a menos que sepa lo que está haciendo."
 
 #: amp_conf/htdocs/admin/page.modules.php:612
 #: amp_conf/htdocs/admin/page.modules.php:659
@@ -2645,7 +2645,7 @@ msgstr "Gestionar módulos locales"
 
 #: ../core/page.did.php:260
 msgid "Max attempts"
-msgstr ""
+msgstr "Intentos máximos"
 
 #: ../core/page.trunks.php:543 ../core/page.trunks.php:547
 msgid "Maximum Channels"
@@ -2673,13 +2673,13 @@ msgstr ""
 
 #: ../core/page.did.php:273
 msgid "Min Length"
-msgstr ""
+msgstr "Longitud mínima"
 
 #: ../core/page.did.php:273
 msgid ""
 "Minimum amount of digits CallerID needs to contain in order to be considered "
 "valid"
-msgstr ""
+msgstr "Número mínimo de caracteres que debe poseer un CallerID para ser considerado válido"
 
 #: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:304
 #, php-format
@@ -2707,7 +2707,7 @@ msgstr "Módulo"
 #: amp_conf/htdocs/admin/libraries/module.functions.php:774
 #: amp_conf/htdocs/admin/libraries/module.functions.php:1124
 msgid "Module "
-msgstr ""
+msgstr "Módulo"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:600
 #, php-format
