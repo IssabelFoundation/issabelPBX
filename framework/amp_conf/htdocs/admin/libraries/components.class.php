@@ -348,7 +348,7 @@ class component {
 								. _($section) 
 								. "</h5>";
 					} else {
-						$htmlout .= '<hr>';
+						//$htmlout .= '<hr>';
 					}
 
 					$htmlout .= "</td>\n";
