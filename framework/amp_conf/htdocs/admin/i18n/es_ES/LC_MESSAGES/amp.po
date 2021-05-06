@@ -1428,7 +1428,7 @@ msgstr ""
 
 #: ../core/page.routing.php:496
 msgid "Dial Patterns that will use this Route"
-msgstr ""
+msgstr "Patrones de marcación a usar en esta Ruta"
 
 #: ../core/page.trunks.php:682
 msgid "Dial Rules Wizards"
@@ -3027,7 +3027,7 @@ msgstr ""
 
 #: ../core/page.routing.php:755
 msgid "Optional Destination on Congestion"
-msgstr ""
+msgstr "Destino opcional en caso de Congestión"
 
 #: ../core/functions.inc.php:7242
 msgid "Optional Destinations"
@@ -4132,7 +4132,7 @@ msgstr ""
 
 #: ../core/page.routing.php:676
 msgid "Trunk Sequence for Matched Routes"
-msgstr ""
+msgstr "Secuencia de troncal para rutas coincidentes"
 
 #: ../core/functions.inc.php:904
 #, php-format
