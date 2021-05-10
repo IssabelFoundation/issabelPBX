@@ -77,7 +77,7 @@ msgstr ""
 "de devolver la llamada."
 
 msgid "Destination after Callback"
-msgstr "Destino después de devolver la llamada:"
+msgstr "Destino después de devolver la llamada"
 
 msgid "Submit Changes"
 msgstr "Enviar cambios"
