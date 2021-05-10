@@ -570,7 +570,9 @@ function voicemail_configpageload() {
 		$currentcomponent->addguielem($section, new gui_selectbox('vmx_state', $currentcomponent->getoptlist('vmxena'), $vmx_state, _('VmX Locater&trade;'), _("Enable/Disable the VmX Locater feature for this user. When enabled all settings are controlled by the user in the User Portal (ARI). Disabling will not delete any existing user settings but will disable access to the feature"), false, "frm_{$display}_vmx_disable_fields()",$disable),5,6);
 
 		$vmxhtml = voicemail_draw_vmxgui($extdisplay, $disable);
-		$vmxhtml = '<tr class="VmXLocater"><td colspan="2"><table>'.$vmxhtml.'</table></td></tr>';
+
+        $mysec = preg_replace('/[^A-Za-z]/', '' ,$section);
+        $vmxhtml = '<tr class="'.$mysec.'"><td colspan="2"><table>'.$vmxhtml.'</table></td></tr>';
 
 		$msgValidNumber = _("Please enter a valid phone number using number digits only");
 		$vmxcustom_validate = "
