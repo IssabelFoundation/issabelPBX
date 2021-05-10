@@ -468,7 +468,7 @@ function ivr_configpageload() {
 	$currentcomponent->addguielem($section, new guielement('timeout_time',
 		'<tr class="IVROptionsDTMF"><td>' . ipbx_label(_('Timeout'), _('Amount of time to be considered a timeout')).'</td><td><input type="number" name="timeout_time" value="'
 					. $ivr['timeout_time']
-					.'" required></td></tr>'));
+					.'" required class="w100"></td></tr>'));
 	//invalid
 	$currentcomponent->addguielem($section,
 		new gui_selectbox('invalid_loops', $currentcomponent->getoptlist('ivr_repeat_loops'),

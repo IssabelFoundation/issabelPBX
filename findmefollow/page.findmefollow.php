@@ -184,7 +184,7 @@ if ($extdisplay == "") {
                 <input size="5" type="hidden" name="account" value="<?php  echo $extdisplay; ?>">
 <?php         } else { ?>
                 <td><a href="#" class="info"><?php echo _("group number")?>:<span><?php echo _("The number users will dial to ring extensions in this ring group")?></span></a></td>
-                <td><input size="5" type="text" name="account" value="<?php  echo $gresult[0] + 1; ?>"></td>
+                <td><input size="5" type="text" name="account" value="<?php  echo $gresult[0] + 1; ?>" class='w100'></td>
 <?php         } ?>
             </tr>
 
@@ -200,7 +200,7 @@ if ($extdisplay == "") {
                 </span></a>
                 </td>
                 <td>
-                    <select name="pre_ring" tabindex="<?php echo ++$tabindex;?>">
+                    <select name="pre_ring" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
                         $default = (isset($pre_ring) ? $pre_ring : 0);
                         for ($i=0; $i <= 60; $i++) {
@@ -226,7 +226,7 @@ if ($extdisplay == "") {
                 </a>
                 </td>
                 <td>
-                    <select name="strategy" tabindex="<?php echo ++$tabindex;?>">
+                    <select name="strategy" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
                         $default = (isset($strategy) ? $strategy : 'ringall');
                                                 $items = array('ringallv2','ringallv2-prim','ringall','ringall-prim','hunt','hunt-prim','memoryhunt','memoryhunt-prim','firstavailable','firstnotonphone');
@@ -246,7 +246,7 @@ if ($extdisplay == "") {
                         </span>
                     </a>
                 </td>
-                <td><input size="4" type="text" name="grptime" value="<?php  echo $grptime?$grptime:20 ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+                <td><input type="text" name="grptime" value="<?php  echo $grptime?$grptime:20 ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
             </tr>
 
             <tr>
@@ -259,7 +259,7 @@ if ($extdisplay == "") {
         }
         ($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows);
 ?>
-                    <textarea id="grplist" cols="15" rows="<?php  echo $rows ?>" name="grplist" tabindex="<?php echo ++$tabindex;?>"><?php echo implode("\n",$grplist);?></textarea>
+                    <textarea id="grplist" cols="15" rows="<?php  echo $rows ?>" name="grplist" tabindex="<?php echo ++$tabindex;?>" style='width:100%;height:3em;'><?php echo implode("\n",$grplist);?></textarea>
                 </td>
             </tr>
 
@@ -272,7 +272,7 @@ if ($extdisplay == "") {
                 </a>
                 </td>
                 <td>
-                    <select onChange="insertExten();" id="insexten" tabindex="<?php echo ++$tabindex;?>">
+                    <select onChange="insertExten();" id="insexten" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                         <option value=""><?php echo _("(pick extension)")?></option>
     <?php
                         $results = core_users_list();
@@ -288,7 +288,7 @@ if ($extdisplay == "") {
             <tr>
                 <td><a href="#" class="info"><?php echo _("Announcement:")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
                 <td>
-                    <select name="annmsg_id" tabindex="<?php echo ++$tabindex;?>">
+                    <select name="annmsg_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
                         $tresults = recordings_list();
                         $default = (isset($annmsg_id) ? $annmsg_id : '');
@@ -317,7 +317,7 @@ if ($extdisplay == "") {
             <tr>
                 <td><a href="#" class="info"><?php echo _("Play Music On Hold?")?><span><?php echo _("If you select a Music on Hold class to play, instead of 'Ring', they will hear that instead of Ringing while they are waiting for someone to pick up.")?></span></a></td>
                 <td>
-                    <select name="ringing" tabindex="<?php echo ++$tabindex;?>">
+                    <select name="ringing" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
                         $tresults = music_list();
                         $cur = (isset($ringing) ? $ringing : 'Ring');
@@ -335,12 +335,12 @@ if ($extdisplay == "") {
 
             <tr>
                 <td><a href="#" class="info"><?php echo _("CID Name Prefix")?>:<span><?php echo _('You can optionally prefix the Caller ID name when ringing extensions in this group. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span></a></td>
-                <td><input size="4" type="text" name="grppre" value="<?php  echo $grppre ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+                <td><input type="text" name="grppre" value="<?php  echo $grppre ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
             </tr>
 
             <tr>
                 <td><a href="#" class="info"><?php echo _("Alert Info")?>:<span><?php echo _('You can optionally include an Alert Info which can create distinctive rings on SIP phones.')?></span></a></td>
-                <td><input size="30" type="text" name="dring" value="<?php  echo $dring ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+                <td><input type="text" name="dring" value="<?php  echo $dring ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
             </tr>
 
             <tr><td colspan="2"><h5><?php echo _("Call Confirmation Configuration") ?></h5></td></tr>
@@ -356,7 +356,7 @@ if ($extdisplay == "") {
             <tr>
                 <td><a href="#" class="info"><?php echo _("Remote Announce:")?><span><?php echo _("Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
                 <td>
-                    <select name="remotealert_id" tabindex="<?php echo ++$tabindex;?>">
+                    <select name="remotealert_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
                         $tresults = recordings_list();
                         $default = (isset($remotealert_id) ? $remotealert_id : '');
@@ -373,7 +373,7 @@ if ($extdisplay == "") {
             <tr>
                 <td><a href="#" class="info"><?php echo _("Too-Late Announce:")?><span><?php echo _("Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
                 <td>
-                <select name="toolate_id" tabindex="<?php echo ++$tabindex;?>">
+                <select name="toolate_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
                         $tresults = recordings_list();
                         $default = (isset($toolate_id) ? $toolate_id : '');
@@ -403,7 +403,7 @@ if ($extdisplay == "") {
                 </a>
                 </td>
                 <td>
-                    <select name="changecid" id="changecid" tabindex="<?php echo ++$tabindex;?>">
+                    <select name="changecid" id="changecid" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
                         $default = (isset($changecid) ? $changecid : 'default');
                         echo '<option value="default" '.($default == 'default' ? 'SELECTED' : '').'>'._("Default");
@@ -419,7 +419,7 @@ if ($extdisplay == "") {
 
             <tr>
                 <td><a href="#" class="info"><?php echo _("Fixed CID Value")?>:<span><?php echo _('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".')?></span></a></td>
-        <td><input size="30" type="text" name="fixedcid" id="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>" <?php echo $fixedcid_disabled ?>></td>
+        <td><input type="text" name="fixedcid" id="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>" class='w100' <?php echo $fixedcid_disabled ?>></td>
             </tr>
             
             <tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?>:</h5></td></tr>
