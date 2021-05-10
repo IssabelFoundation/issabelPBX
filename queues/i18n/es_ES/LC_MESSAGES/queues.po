@@ -307,6 +307,15 @@ msgstr ""
 msgid "Queue No Answer:"
 msgstr ""
 
+msgid "MoH Only"
+msgstr "Sólo música"
+
+msgid "Agent Ringing"
+msgstr "Timbrado de Agente"
+
+msgid "Ring Only"
+msgstr "Sólo Timbrado"
+
 msgid ""
 "If checked, the queue will not answer the call. Under most circumstance you "
 "should always have the queue answering calls. If not, then it's possible "
@@ -318,7 +327,7 @@ msgid ""
 msgstr ""
 
 msgid "Generate Device Hints:"
-msgstr ""
+msgstr "Generar Hints de Dispositivo:"
 
 msgid ""
 "If checked, individual hints and dialplan will be generated for each SIP and "
@@ -331,7 +340,7 @@ msgid ""
 msgstr ""
 
 msgid "Call Confirm:"
-msgstr ""
+msgstr "Confirmar Llamada:"
 
 msgid ""
 "If checked, any queue member that is actually an outside telephone number, "
@@ -341,7 +350,7 @@ msgid ""
 msgstr ""
 
 msgid "Call Confirm Announce:"
-msgstr ""
+msgstr "Anuncio de Confirmación de Llamada:"
 
 msgid ""
 "Announcement played to the Queue Memeber announcing the Queue call and "
@@ -440,7 +449,7 @@ msgid "(pick extension)"
 msgstr "(Seleccione una extensión)"
 
 msgid "Dynamic Members"
-msgstr ""
+msgstr "Miembros Dinámicos"
 
 msgid ""
 "Dynamic Members are extensions or callback numbers that can log in and out "
@@ -454,7 +463,7 @@ msgid ""
 msgstr ""
 
 msgid "Restrict Dynamic Agents"
-msgstr ""
+msgstr "Restringir Agentes Dinámicos"
 
 msgid ""
 "Restrict dynamic queue member logins to only those listed in the Dynamic "
@@ -463,7 +472,7 @@ msgid ""
 msgstr ""
 
 msgid "Agent Restrictions"
-msgstr ""
+msgstr "Restricciones de Agente"
 
 msgid ""
 "When set to 'Call as Dialed' the queue will call an extension just as if the "
@@ -483,19 +492,19 @@ msgid ""
 msgstr ""
 
 msgid "Call as Dialed"
-msgstr ""
+msgstr "Llamar como se ha marcado"
 
 msgid "No Follow-Me or Call Forward"
-msgstr ""
+msgstr "Sin Followme ni Desvío"
 
 msgid "Extensions Only"
-msgstr ""
+msgstr "Sólo extensiones"
 
 msgid "General Queue Options"
-msgstr ""
+msgstr "Opciones Generales de Cola"
 
 msgid "Ring Strategy:"
-msgstr ""
+msgstr "Estrategia de Timbrado:"
 
 msgid "ringall"
 msgstr "Sonar todos"
@@ -564,7 +573,7 @@ msgid ""
 msgstr ""
 
 msgid "Autofill:"
-msgstr ""
+msgstr "Autorelleno:"
 
 msgid ""
 "Starting with Asterisk 1.4, if this is checked, and multiple agents are "
@@ -576,7 +585,7 @@ msgid ""
 msgstr ""
 
 msgid "Skip Busy Agents:"
-msgstr ""
+msgstr "Saltear Agentes Ocupados:"
 
 msgid ""
 "When set to 'Yes' agents who are on an occupied phone will be skipped as if "
@@ -608,7 +617,7 @@ msgid "Queue calls only (ringinuse=no)"
 msgstr ""
 
 msgid "Queue Weight"
-msgstr ""
+msgstr "Peso de Cola"
 
 msgid ""
 "Gives queues a 'weight' option, to ensure calls waiting in a higher priority "
@@ -682,7 +691,7 @@ msgid "gsm"
 msgstr "GSM"
 
 msgid "Recording Mode:"
-msgstr ""
+msgstr "Modo de Grabación:"
 
 msgid ""
 "Choose to 'Include Hold Time' in the recording so it starts as soon as they "
@@ -691,28 +700,28 @@ msgid ""
 msgstr ""
 
 msgid "Include Hold Time"
-msgstr ""
+msgstr "Incluir Tiempo Esperando"
 
 msgid "After Answered"
-msgstr ""
+msgstr "Luego de Atendido"
 
 msgid "Caller Volume Adjustment:"
-msgstr ""
+msgstr "Ajuste de Volúmen Llamante:"
 
 msgid "Adjust the recording volume of the caller."
-msgstr ""
+msgstr "Ajusta el volúmen de quien llama"
 
 msgid "No Adjustment"
-msgstr ""
+msgstr "Sin Ajustes"
 
 msgid "Agent Volume Adjustment:"
-msgstr ""
+msgstr "Ajuste de Volúmen Agente:"
 
 msgid "Adjust the recording volume of the queue member (Agent)."
-msgstr ""
+msgstr "Ajusta el volúmen del miembro de cola (Agente)."
 
 msgid "Mark calls answered elsewhere:"
-msgstr ""
+msgstr "Marcar llamada como atendida en otro sitio:"
 
 msgid ""
 "Enabling this option, all calls are marked as 'answered elsewhere' when "
@@ -721,7 +730,7 @@ msgid ""
 msgstr ""
 
 msgid "Timing & Agent Options"
-msgstr ""
+msgstr "Opciones de Agente y Duraciones"
 
 msgid "Max Wait Time:"
 msgstr "Tiempo máximo de espera:"
@@ -737,7 +746,7 @@ msgid "Unlimited"
 msgstr "Sin límite"
 
 msgid "Max Wait Time Mode:"
-msgstr ""
+msgstr "Modo de Tiempo máximo:"
 
 msgid ""
 "Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
@@ -753,7 +762,7 @@ msgid "Strict"
 msgstr "Estricto"
 
 msgid "Loose"
-msgstr ""
+msgstr "Tolerante"
 
 msgid "Agent Timeout:"
 msgstr "Tiempo de espera de agente:"
@@ -767,7 +776,7 @@ msgstr ""
 "Un valor distinto o sin límite puede ser especificado también por extensión."
 
 msgid "Agent Timeout Restart:"
-msgstr ""
+msgstr "Reinicio de Tiempo de Espera de Agente:"
 
 msgid ""
 "If timeoutrestart is set to yes, then the time out for an agent to answer is "
@@ -794,7 +803,7 @@ msgid "No Retry"
 msgstr "No reintentar"
 
 msgid "Wrap-Up-Time:"
-msgstr ""
+msgstr "Tiempo Wrap-up"
 
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
@@ -805,7 +814,7 @@ msgid ""
 msgstr ""
 
 msgid "Member Delay:"
-msgstr ""
+msgstr "Demora Miembro:"
 
 msgid ""
 "If you wish to have a delay before the member is connected to the caller (or "
@@ -837,7 +846,7 @@ msgstr ""
 "módulo de 'Grabaciones del sistema' para poder usar esta opción."
 
 msgid "Report Hold Time:"
-msgstr ""
+msgstr "Reportar Tiempo de Espera"
 
 msgid ""
 "If you wish to report the caller's hold time to the member before they are "
@@ -845,7 +854,7 @@ msgid ""
 msgstr ""
 
 msgid "Capacity Options"
-msgstr ""
+msgstr "Opciones de Capacidad"
 
 msgid "Max Callers:"
 msgstr "Llamantes máximos:"
@@ -862,6 +871,15 @@ msgid ""
 "Determines if new callers will be admitted to the Queue, if not, the "
 "failover destination will be immediately pursued. The options include:"
 msgstr ""
+
+msgid "Always"
+msgstr "Siempre"
+
+msgid "When No Free Agents"
+msgstr "Cuando no hay agentes libres"
+
+msgid "When No Ready Agents"
+msgstr "Cuando no hay agentes listos"
 
 msgid "Always allows the caller to join the Queue."
 msgstr ""
@@ -894,7 +912,7 @@ msgid ""
 msgstr ""
 
 msgid "Join Empty:"
-msgstr "Entrar si vacía:"
+msgstr "Entrar si la cola está vacía:"
 
 msgid ""
 "Determines if callers should be exited prematurely from the queue in "
@@ -931,10 +949,10 @@ msgid ""
 msgstr ""
 
 msgid "Leave Empty:"
-msgstr ""
+msgstr "Salir si la cola está vacía:"
 
 msgid "Penalty Members Limit:"
-msgstr ""
+msgstr "Límite de Penalidad de Miembros:"
 
 msgid ""
 "Asterisk: penaltymemberslimit. A limit can be set to disregard penalty "
@@ -944,10 +962,10 @@ msgid ""
 msgstr ""
 
 msgid "Honor Penalties"
-msgstr ""
+msgstr "Respetar Penalidades"
 
 msgid "Caller Position Announcements"
-msgstr "Anuncios de la posición del llamante"
+msgstr "Anuncios de Posición"
 
 msgid "Frequency:"
 msgstr "Frecuencia:"
@@ -980,10 +998,10 @@ msgid "Once"
 msgstr "Sólo una vez"
 
 msgid "Periodic Announcements"
-msgstr "Anuncios periódicos"
+msgstr "Anuncios Periódicos"
 
 msgid "IVR Break Out Menu:"
-msgstr ""
+msgstr "Menú de salida IVR"
 
 msgid ""
 "You can optionally present an existing IVR as a 'break out' menu."
@@ -1034,18 +1052,18 @@ msgstr ""
 "(indique el valor 0 para deshabilitar los anuncios)."
 
 msgid "Events, Stats and Advanced"
-msgstr ""
+msgstr "Eventos, Estadísticas y Avanzadas"
 
-msgid "Event When Called:"
-msgstr ""
+msgid "Event When Called"
+msgstr "Eventos al Llamar"
 
 msgid ""
 "When this option is set to YES, the following manager events will be "
 "generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."
 msgstr ""
 
-msgid "Member Status Event:"
-msgstr ""
+msgid "Member Status Event"
+msgstr "Eventos de Miembro de Cola"
 
 msgid ""
 "When set to YES, the following manager event will be generated: "
@@ -1053,7 +1071,7 @@ msgid ""
 msgstr ""
 
 msgid "Service Level:"
-msgstr ""
+msgstr "Nivel de Servicio:"
 
 msgid ""
 "Used for service level statistics (calls answered within service level time "
@@ -1061,7 +1079,7 @@ msgid ""
 msgstr ""
 
 msgid "Agent Regex Filter"
-msgstr ""
+msgstr "Filtro Regex de Agente"
 
 msgid ""
 "Provides an optional regex expression that will be applied against the agent "
@@ -1112,6 +1130,36 @@ msgstr ""
 
 msgid "Queues Module"
 msgstr ""
+
+msgid "Hourly"
+msgstr "Cada hora"
+
+msgid "Daily"
+msgstr "Diariamente"
+
+msgid "Weekly"
+msgstr "Semanalmente"
+
+msgid "Monthly"
+msgstr "Mensualmente"
+
+msgid "Annually"
+msgstr "Anualmente"
+
+msgid "Reboot"
+msgstr "Cada reinicio"
+
+msgid "Custom"
+msgstr "Personalizado"
+
+msgid "Auto Pause:"
+msgstr "Pausa Automática"
+
+msgid "Auto Pause on Busy:"
+msgstr "Pausa Automática cuando Ocupado:"
+
+msgid "Auto Pause Delay:"
+msgstr "Demora Pausa Automática:"
 
 msgid ""
 "Queues: persistentmembers. Store each dynamic member in each queue in the "
@@ -1173,6 +1221,18 @@ msgid ""
 "queue behavior and should be avoided"
 msgstr ""
 
+msgid "Queue Continue Destination"
+msgstr "Destino de continuación de Cola"
+
+msgid "Reset Queue Stats"
+msgstr "Resetear Estadísticas de Cola"
+
+
+msgid "Run"
+msgstr "Ejecución"
+
+msgid "Never"
+msgstr "Nunca"
 #~ msgid ""
 #~ "You can optionally prefix the Caller ID name of callers to the queue. ie: "
 #~ "If you prefix with \"Sales:\", a call from John Doe would display as "
