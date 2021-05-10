@@ -21,29 +21,29 @@ msgstr "Añadir IVR"
 
 #, php-format
 msgid "Edit IVR: %s"
-msgstr ""
+msgstr "Modificar IVR: %s"
 
 #, php-format
 msgid "Delete IVR: %s"
-msgstr ""
+msgstr "Eliminar IVR: %s"
 
 msgid "IVR General Options"
-msgstr ""
+msgstr "Opciones Generales del IVR"
 
 msgid "IVR Name"
-msgstr ""
+msgstr "Nombre"
 
 msgid "Name of this IVR."
-msgstr ""
+msgstr "Elija un nombre para este IVR"
 
 msgid "IVR Description"
-msgstr ""
+msgstr "Descripción"
 
 msgid "Description of this ivr."
-msgstr ""
+msgstr "Describa a este IVR"
 
 msgid "IVR Options (DTMF)"
-msgstr ""
+msgstr "Opciones de IVR (DTMF)"
 
 msgid "None"
 msgstr "Ninguno"
@@ -55,10 +55,10 @@ msgid "Greeting to be played on entry to the Ivr."
 msgstr ""
 
 msgid "Disabled"
-msgstr ""
+msgstr "Deshabilitado"
 
 msgid "Extensions"
-msgstr ""
+msgstr "Extensiones"
 
 msgid "Completely disabled"
 msgstr ""
@@ -67,7 +67,7 @@ msgid "Enabled for all extensions on a system"
 msgstr ""
 
 msgid "Direct Dial"
-msgstr ""
+msgstr "Marcado Directo"
 
 msgid ""
 "Provides options for callers to direct dial an extension. Direct dialing can "
@@ -81,10 +81,10 @@ msgid "Timeout"
 msgstr "Tiempo de espera"
 
 msgid "Amount of time to be considered a timeout"
-msgstr ""
+msgstr "Tiempo requerido para considerarse exceso de tiempo"
 
 msgid "Invalid Retries"
-msgstr ""
+msgstr "Reintentos Inválidos"
 
 msgid ""
 "Number of times to retry when receiving an invalid/unmatched response from "
@@ -92,7 +92,7 @@ msgid ""
 msgstr ""
 
 msgid "Invalid Retry Recording"
-msgstr ""
+msgstr "Grabación de reintento inválido"
 
 msgid ""
 "Prompt to be played when an invalid/unmatched response is received, before "
@@ -100,7 +100,7 @@ msgid ""
 msgstr ""
 
 msgid "Invalid Recording"
-msgstr ""
+msgstr "Grabación opción inválida"
 
 msgid ""
 "Prompt to be played before sending the caller to an alternate destination "
@@ -109,25 +109,25 @@ msgid ""
 msgstr ""
 
 msgid "Invalid Destination"
-msgstr ""
+msgstr "Destino Inválido"
 
 msgid "Destination to send the call to after Invalid Recording is played."
 msgstr ""
 
 msgid "Timeout Retries"
-msgstr ""
+msgstr "Reintentos Tiempo Excedido"
 
 msgid "Timeout Retry Recording"
-msgstr ""
+msgstr "Grabación Reintento por Tiempo Excedido"
 
 msgid "Timeout Recording"
-msgstr ""
+msgstr "Grabación por Tiempo Excedido"
 
 msgid "Timeout Destination"
-msgstr ""
+msgstr "Destino Tiempo Excedido"
 
 msgid "Return to IVR after VM"
-msgstr ""
+msgstr "Retornar al IVR luego de Buzón de Voz"
 
 msgid ""
 "If checked, upon exiting voicemail a caller will be returned to this IVR if "
@@ -135,16 +135,16 @@ msgid ""
 msgstr ""
 
 msgid "IVR Entries"
-msgstr ""
+msgstr "Entradas del IVR"
 
 msgid "Ext"
 msgstr ""
 
 msgid "Destination"
-msgstr ""
+msgstr "Destino"
 
 msgid "Return"
-msgstr ""
+msgstr "Retorno"
 
 msgid "Return to IVR"
 msgstr "Volver al IVR"
@@ -366,3 +366,21 @@ msgstr ""
 
 msgid "Spoken"
 msgstr "Hablado"
+
+msgid "Submit"
+msgstr "Enviar cambios"
+
+msgid "Add a new IVR"
+msgstr "Añadir nuevo IVR"
+
+msgid "Append Announcement on Invalid"
+msgstr "Repetir Anuncio por opción Inválida"
+
+msgid "Append Announcement on Timeout"
+msgstr "Repetir Anuncio por tiempo excedido"
+
+msgid "Return on Invalid"
+msgstr "Retornar por opción Inválida"
+
+msgid "Return on Timeout"
+msgstr "Retornar por tiempo excedido"
