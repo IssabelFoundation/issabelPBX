@@ -1313,17 +1313,13 @@ if ($ast_ge_16) {
     <?php
     echo drawselects($goto,0);
     ?>
-    </table>
     
-    <table>
     <tr><td colspan="2"><br><h5><?php echo _("Queue Continue Destination")?></h5></td></tr>
         <?php
         echo drawselects($gotocontinue,1);
         ?>
-        </table>
     
 
-    <table>
         <tr><td colspan="2"><br><h5><?php echo _("Reset Queue Stats")?></h5></td></tr>
         <tr><td colspan="2">
             <?php echo load_view(dirname(__FILE__) . '/views/cron.php', $cronVars); ?>
