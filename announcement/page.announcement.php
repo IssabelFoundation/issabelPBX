@@ -90,14 +90,14 @@ if ($extdisplay) {
             <tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Announcement") : _("Add Announcement")) ?></h5></td></tr>
             <tr>
                 <td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("The name of this announcement")?></span></a></td>
-                <td><input size="15" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+                <td><input size="15" type="text" class='w100' name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
             </tr>
 
 <?php if(function_exists('recordings_list')) { //only include if recordings is enabled?>
     <tr>
         <td><a href="#" class="info"><?php echo _("Recording")?><span><?php echo _("Message to be played.<br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
         <td>
-            <select id="recording_id" name="recording_id"  tabindex="<?php echo ++$tabindex;?>">
+            <select id="recording_id" name="recording_id"  tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
                 $tresults = recordings_list();
                 $default = (isset($recording_id) ? $recording_id : '');
@@ -116,7 +116,7 @@ if ($extdisplay) {
     <tr>
         <td><a href="#" class="info"><?php echo _("Repeat")?><span><?php echo _("Key to press that will allow for the message to be replayed. If you choose this option there will be a short delay inserted after the message. If a longer delay is needed it should be incorporated into the recording.")?></span></a></td>
         <td>
-            <select name="repeat_msg"  tabindex="<?php echo ++$tabindex;?>">
+            <select name="repeat_msg"  tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
                 $default = isset($repeat_msg) ? $repeat_msg : '';
                 for ($i=0; $i<=9; $i++ ) {
@@ -158,7 +158,7 @@ if(tts_enabled()) {
 <tr>
 <td><?php echo _('Language');?></td>
 <td>
-<select name='tts_lang' id='tts_lang'>
+<select name='tts_lang' id='tts_lang' class='componentSelect'>
 <?php
 foreach($arrOptionsLang as $key=>$val) {
     echo "<option val='$key' ";
@@ -172,7 +172,7 @@ foreach($arrOptionsLang as $key=>$val) {
 
 <tr>
 <td><?php echo _('Text');?></td>
-<td><textarea name=tts_text id=tts_text><?php echo $tts_text;?></textarea></td>
+<td><textarea name=tts_text id=tts_text style='width: 400px; height:100px;'><?php echo $tts_text;?></textarea></td>
 </tr>
 
 <?php

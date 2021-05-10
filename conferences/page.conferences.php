@@ -151,19 +151,19 @@ if ($action == 'delete') {
     <tr><td colspan="2"><h5><?php echo ($extdisplay != "" ? _("Edit Conference") : _("Add Conference")) ?></h5></td></tr>
     <tr>
         <td><a href="#" class="info"><?php echo _("Conference Number:")?><span><?php echo _("Use this number to dial into the conference.")?></span></a></td>
-        <td><input type="text" name="account" value="<?php echo $extdisplay ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+        <td><input type="text" name="account" value="<?php echo $extdisplay ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
     </tr>
     <tr>
         <td><a href="#" class="info"><?php echo _("Conference Name:")?><span><?php echo _("Give this conference a brief name to help you identify it.")?></span></a></td>
-        <td><input type="text" name="name" value="<?php echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+        <td><input type="text" name="name" value="<?php echo $description; ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
     </tr>
     <tr>
         <td><a href="#" class="info"><?php echo _("User PIN:")?><span><?php echo _("You can require callers to enter a password before they can enter this conference.<br><br>This setting is optional.<br><br>If either PIN is entered, the user will be prompted to enter a PIN.")?></span></a></td>
-        <td><input size="8" type="text" name="userpin" value="<?php echo $userpin; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+        <td><input size="8" type="text" name="userpin" value="<?php echo $userpin; ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
     </tr>
     <tr>
         <td><a href="#" class="info"><?php echo _("Admin PIN:")?><span><?php echo _("Enter a PIN number for the admin user.<br><br>This setting is optional unless the 'leader wait' option is in use, then this PIN will identify the leader.")?></span></a></td>
-        <td><input size="8" type="text" name="adminpin" value="<?php echo $adminpin; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+        <td><input size="8" type="text" name="adminpin" value="<?php echo $adminpin; ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
     </tr>
 
     <tr><td colspan="2"><br><h5><?php echo _("Conference Options")?></h5></td></tr>
@@ -171,7 +171,7 @@ if ($action == 'delete') {
     <tr>
         <td><a href="#" class="info"><?php echo _("Join Message:")?><span><?php echo _("Message to be played to the caller before joining the conference.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
         <td>
-            <select name="joinmsg_id" tabindex="<?php echo ++$tabindex;?>">
+            <select name="joinmsg_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
                 $tresults = recordings_list();
                 echo '<option value="">'._("None")."</option>";
@@ -195,7 +195,7 @@ if ($action == 'delete') {
     <tr>
         <td><a href="#" class="info"><?php echo _("Leader Wait:")?><span><?php echo _("Wait until the conference leader (admin user) arrives before starting the conference")?></span></a></td>
         <td>
-            <select name="opt#w" tabindex="<?php echo ++$tabindex;?>">
+            <select name="opt#w" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
                 $optselect = strpos($options, "w");
                 echo '<option value=""' . ($optselect === false ? ' SELECTED' : '') . '>'._("No") . '</option>';
@@ -217,7 +217,7 @@ are not speaking as being muted, meaning that no encoding is done on transmissio
 and that received audio that is not registered as talking is omitted, causing no
 buildup in background noise.")?></span></a></td>
         <td>
-            <select name="opt#o">
+            <select name="opt#o" class='componentSelect'>
             <?php
                 $optselect = strpos($options, "o");
                 echo '<option value=""' . ($optselect === false ? ' SELECTED' : '') . '>'._("No") . '</option>';
@@ -233,7 +233,7 @@ buildup in background noise.")?></span></a></td>
 the channel that is talking. The talker will also be identified on the output of
 the meetme list CLI command.")?></span></a></td>
         <td>
-            <select name="opt#T">
+            <select name="opt#T" class='componentSelect'>
             <?php
                 $optselect = strpos($options, "T");
                 echo '<option value=""' . ($optselect === false ? ' SELECTED' : '') . '>'._("No") . '</option>';
@@ -250,7 +250,7 @@ the meetme list CLI command.")?></span></a></td>
     <tr>
         <td><a href="#" class="info"><?php echo _("Quiet Mode:")?><span><?php echo _("Quiet mode (do not play enter/leave sounds)")?></span></a></td>
         <td>
-            <select name="opt#q" tabindex="<?php echo ++$tabindex;?>">
+            <select name="opt#q" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
                 $optselect = strpos($options, "q");
                 echo '<option value=""' . ($optselect === false ? ' SELECTED' : '') . '>'._("No") . '</option>';
@@ -262,7 +262,7 @@ the meetme list CLI command.")?></span></a></td>
     <tr>
         <td><a href="#" class="info"><?php echo _("User Count:")?><span><?php echo _("Announce user(s) count on joining conference")?></span></a></td>
         <td>
-            <select name="opt#c" tabindex="<?php echo ++$tabindex;?>">
+            <select name="opt#c" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
                 $optselect = strpos($options, "c");
                 echo '<option value=""' . ($optselect === false ? ' SELECTED' : '') . '>'._("No") . '</option>';
@@ -277,7 +277,7 @@ the meetme list CLI command.")?></span></a></td>
     <tr>
         <td><a href="#" class="info"><?php echo _("User join/leave:")?><span><?php echo _("Announce user join/leave")?></span></a></td>
         <td>
-            <select name="opt#i" tabindex="<?php echo ++$tabindex;?>">
+            <select name="opt#i" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
                 $optselect = strpos($options, "i");
                 echo '<option value=""' . ($optselect === false ? ' SELECTED' : '') . '>'._("No") . '</option>';
@@ -292,7 +292,7 @@ the meetme list CLI command.")?></span></a></td>
     <tr>
         <td><a href="#" class="info"><?php echo _("Music on Hold:")?><span><?php echo _("Enable Music On Hold when the conference has a single caller")?></span></a></td>
         <td>
-            <select name="opt#M" tabindex="<?php echo ++$tabindex;?>">
+            <select name="opt#M" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
                 $optselect = strpos($options, "M");
                 echo '<option value=""' . ($optselect === false ? ' SELECTED' : '') . '>'._("No") . '</option>';
@@ -306,7 +306,7 @@ the meetme list CLI command.")?></span></a></td>
                 <tr>
                                 <td><a href="#" class="info"><?php echo _("Music on Hold Class:")?><span><?php echo _("Music (or Commercial) played to the caller while they wait in line for the conference to start. Choose \"inherit\" if you want the MoH class to be what is currently selected, such as by the inbound route.<br><br>  This music is defined in the \"Music on Hold\" to the left.")?></span></a></td>
                                 <td>
-                                                <select name="music" tabindex="<?php echo ++$tabindex;?>">
+                                                <select name="music" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                                                 <?php
                                                                 $tresults = music_list();
                                                                 array_unshift($tresults,'inherit');
@@ -330,7 +330,7 @@ the meetme list CLI command.")?></span></a></td>
     <tr>
         <td><a href="#" class="info"><?php echo _("Allow Menu:")?><span><?php echo _("Present Menu (user or admin) when '*' is received ('send' to menu)")?></span></a></td>
         <td>
-            <select name="opt#s" tabindex="<?php echo ++$tabindex;?>">
+            <select name="opt#s" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
                 $optselect = strpos($options, "s");
                 echo '<option value=""' . ($optselect === false ? ' SELECTED' : '') . '>'._("No") . '</option>';
@@ -345,7 +345,7 @@ the meetme list CLI command.")?></span></a></td>
     <tr>
         <td><a href="#" class="info"><?php echo _("Record Conference:")?><span><?php echo _("Record the conference call")?></span></a></td>
         <td>
-            <select name="opt#r" tabindex="<?php echo ++$tabindex;?>">
+            <select name="opt#r" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                 <?php
                 $optselect = strpos($options, "r");
                 echo '<option value=""' . ($optselect === false ? ' SELECTED' : '') . '>'._("No") . '</option>';
@@ -361,7 +361,7 @@ the meetme list CLI command.")?></span></a></td>
     <tr>
         <td><a href="#" class="info"><?php echo _("Maximum Participants:")?><span><?php echo _("Maximum Number of users allowed to join this conference.")?></span></a></td>
         <td>
-          <select name="users" tabindex="<?php echo ++$tabindex;?>">
+          <select name="users" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
             $default = (($users) ? $users : 0);
             echo '<option value="0" '.($i == $default ? 'SELECTED' : '').'>'._("No Limit").'</option>';
@@ -375,7 +375,7 @@ the meetme list CLI command.")?></span></a></td>
     <tr>
         <td><a href="#" class="info"><?php echo _("Mute on Join:")?><span><?php echo _("Mute everyone when they initially join the conference. Please note that if you do not have 'Leader Wait' set to yes you must have 'Allow Menu' set to Yes to unmute yourself")?></span></a></td>
         <td>
-                <select name="opt#m" tabindex="<?php echo ++$tabindex;?>">
+                <select name="opt#m" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                 <?php
                         $optselect = strpos($options, "m");
                         echo '<option value=""' . ($optselect === false ? ' SELECTED' : '') . '>'._("No") . '</option>';

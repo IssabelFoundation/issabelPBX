@@ -126,7 +126,7 @@ function daynight_show_edit($post, $add="") {
 <?php
 			if ($add == "add" && $itemid =="") {
 ?>
-			<select name="itemid" tabindex="<?php echo ++$tabindex;?>">
+			<select name="itemid" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 			<?php
 				$ids = daynight_get_avail();
 				foreach ($ids as $id) {
@@ -154,7 +154,7 @@ function daynight_show_edit($post, $add="") {
 		</span></a>
 		</td>
 		<td>
-			<select name="state" tabindex="<?php echo ++$tabindex;?>">
+			<select name="state" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 				<option value="DAY" <?php echo ($state == 'DAY' ? 'SELECTED':'') ?> ><?php echo _("Normal (Green/BLF off)");?></option> 
 				<option value="NIGHT" <?php echo ($state == 'NIGHT' ? 'SELECTED':'') ?> ><?php echo _("Override (Red/BLF on)");?></option> 
 			</select>
@@ -165,7 +165,7 @@ function daynight_show_edit($post, $add="") {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Recording for Normal Mode")?><span><?php echo _("Message to be played in normal mode (Green/BLF off).<br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
 		<td>
-			<select name="day_recording_id"  tabindex="<?php echo ++$tabindex;?>">
+			<select name="day_recording_id"  tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 			<?php
 				$tresults = recordings_list();
 				$default = (isset($day_recording_id) ? $day_recording_id : '');
@@ -182,7 +182,7 @@ function daynight_show_edit($post, $add="") {
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Recording for Override Mode")?><span><?php echo _("Message to be played in override mode (Red/BLF on).<br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
 		<td>
-			<select name="night_recording_id"  tabindex="<?php echo ++$tabindex;?>">
+			<select name="night_recording_id"  tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 			<?php
 				$default = (isset($night_recording_id) ? $night_recording_id : '');
 				echo '<option value="0">' ._("Default") ."</option>\n";
@@ -200,7 +200,7 @@ function daynight_show_edit($post, $add="") {
 
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Optional Password")?>:<span><?php echo _('You can optionally include a password to authenticate before toggling the call flow. If left blank anyone can use the feature code and it will be un-protected')?></span></a></td>
-		<td><input size="12" type="text" name="password" value="<?php  echo $password ?>" tabindex="<?php echo ++$tabindex;?>">
+		<td><input size="12" type="text" name="password" value="<?php  echo $password ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'>
 		</td>
 	</tr>
 	<tr>
@@ -257,7 +257,7 @@ function daynight_show_edit($post, $add="") {
 //
 function drawdestinations($count, $mode, $dest) { ?>
 	<tr> 
-		<td style="text-align:right;">
+		<td>
 		<a href="#" class="info"><strong><?php echo $mode?></strong><span><?php echo sprintf(_("Destination to use when set to %s mode"),$mode);?></span></a>
 		</td>
 		<td> 
