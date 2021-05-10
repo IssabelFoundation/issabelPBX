@@ -29,6 +29,7 @@ $framework_css = ($amp_conf['DISABLE_CSS_AUTOGEN'] || !file_exists($amp_conf['ma
 $css_ver = '.' . filectime($framework_css);
 $html .= '<link href="' . $framework_css.$version_tag.$css_ver . '" rel="stylesheet" type="text/css">';
 
+$html .= '<link href="assets/css/chosen.css" rel="stylesheet" type="text/css">';
 //include jquery-ui css
 if ($amp_conf['DISABLE_CSS_AUTOGEN'] == true) {
 	$html .= '<link href="' . $amp_conf['JQUERY_CSS'] . $version_tag . '" rel="stylesheet" type="text/css">';
@@ -57,6 +58,7 @@ if ($amp_conf['USE_GOOGLE_CDN_JS']) {
 	$html .= '<script type="text/javascript" src="assets/js/jquery-' . $amp_conf['JQUERY_VER'] . '.min.js"></script>';
 }
 		
+	$html .= '<script type="text/javascript" src="assets/js/chosen.jquery.js"></script>';
 $html .= '</head>';
 
 //open body

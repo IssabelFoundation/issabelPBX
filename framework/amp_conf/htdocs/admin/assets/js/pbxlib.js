@@ -824,6 +824,8 @@ $(document).ready(function() {
     // Fix for fluctuating widht for hover items in right menu, make it fixed
     $('.rnav > .ui-menu > .ui-menu-item').width('200px');
 
+    $('.componentSelect').chosen({width:'100%', disable_search: true});
+
 });
 (function(jQuery) {
     jQuery.hotkeys = {

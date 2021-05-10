@@ -650,14 +650,14 @@ class guiinput extends guielement {
 
 // Textbox
 class gui_textbox extends guiinput {
-	function gui_textbox($elemname, $currentvalue = '', $prompttext = '', $helptext = '', $jsvalidation = '', $failvalidationmsg = '', $canbeempty = true, $maxchars = 0, $disable=false) {
+	function gui_textbox($elemname, $currentvalue = '', $prompttext = '', $helptext = '', $jsvalidation = '', $failvalidationmsg = '', $canbeempty = true, $maxchars = 0, $disable=false, $extraclass='w100') {
 		// call parent class contructor
 		parent::__construct($elemname, $currentvalue, $prompttext, $helptext, $jsvalidation, $failvalidationmsg, $canbeempty);
 		
 		$maxlength = ($maxchars > 0) ? " maxlength=\"$maxchars\"" : '';
 		$tabindex = guielement::gettabindex();
 		$disable_state = $disable ? 'disabled="true"':'';
-		$this->html_input = "<input type=\"text\" name=\"$this->_elemname\" id=\"$this->_elemname\" size=\"35\" $disable_state $maxlength tabindex=\"$tabindex\" value=\"" . htmlspecialchars($this->currentvalue) . "\">";
+		$this->html_input = "<input class='$extraclass' type=\"text\" name=\"$this->_elemname\" id=\"$this->_elemname\" size=\"35\" $disable_state $maxlength tabindex=\"$tabindex\" value=\"" . htmlspecialchars($this->currentvalue) . "\">";
 	}
 }
 
@@ -668,7 +668,7 @@ class gui_textbox_check extends gui_textbox {
 		if ($disable) {
 			$currentvalue = $disabled_value;
 		}
-		parent::__construct($elemname, $currentvalue, $prompttext, $helptext, $jsvalidation, $failvalidationmsg, $canbeempty, $maxchars, $disable);
+		parent::__construct($elemname, $currentvalue, $prompttext, $helptext, $jsvalidation, $failvalidationmsg, $canbeempty, $maxchars, $disable, '');
 
 		$cb_state = $disable && $check_enables || !$disable && !$check_enables ? '':' CHECKED';
 
@@ -717,7 +717,7 @@ class gui_selectbox extends guiinput {
 		
 		$tabindex = guielement::gettabindex();
 		$disable_state = $disable ? 'disabled="true"':'';
-		$output .= "\n\t\t\t<select name=\"$this->_elemname\" id=\"$this->_elemname\" tabindex=\"$tabindex\" $disable_state $onchange >\n";
+		$output .= "\n\t\t\t<select name=\"$this->_elemname\" id=\"$this->_elemname\" class=\"componentSelect\" tabindex=\"$tabindex\" $disable_state $onchange >\n";
 		// include blank option if required
 		if ($canbeempty)
 			$output .= "<option value=\"\">&nbsp;</option>";			
