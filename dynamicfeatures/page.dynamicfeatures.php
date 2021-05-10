@@ -75,18 +75,18 @@ echo $helptext;
     <tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Dynamic Feature") : _("Add Dynamic Feature")) ?></h5></td></tr>
     <tr>
         <td><a href="#" class="info"><?php echo _("Name")?>:<span><?php echo _("The descriptive name of this dynamic feature. For example \"playback_rules\"")?></span></a></td>
-        <td><input size="30" type="text" name="name" value="<?php  echo $name; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+        <td><input type="text" name="name" value="<?php  echo $name; ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
     </tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("DTMF")?>:<span><?php echo _("The DTMF sequence to trigger this dynamic feature")?></span></a></td>
-        <td><input size="14" type="text" name="dtmf" value="<?php echo $dtmf; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td> 
+        <td><input type="text" name="dtmf" value="<?php echo $dtmf; ?>"  tabindex="<?php echo ++$tabindex;?>" class='w100'/></td> 
     </tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Activate On")?>:<span><?php echo _("On what leg to execute the application, could be set to 'self' or 'peer'")?></span></a></td>
         <td>
-            <select name="activate_on"  tabindex="<?php echo ++$tabindex;?>"/>
+            <select name="activate_on"  tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/>
                 <option value='self' <?php if($activate_on=='self') echo  " selected "; ?>>self</option>
                 <option value='peer' <?php if($activate_on=='peer') echo  " selected "; ?>>peer</option>
             </select>
@@ -95,18 +95,18 @@ echo $helptext;
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Application")?>:<span><?php echo _("The application to run")?></span></a></td>
-        <td><input size="14" type="text" name="application" value="<?php echo $application; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td> 
+        <td><input type="text" name="application" value="<?php echo $application; ?>"  tabindex="<?php echo ++$tabindex;?>" class='w100'/></td> 
     </tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Arguments")?>:<span><?php echo _("Arguments to pass to the application")?></span></a></td>
-        <td><input size="14" type="text" name="arguments" value="<?php echo $arguments; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td> 
+        <td><input type="text" name="arguments" value="<?php echo $arguments; ?>"  tabindex="<?php echo ++$tabindex;?>" class='w100'/></td> 
     </tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Music on Hold")?>:<span><?php echo _("Music on Hold class to play to other leg while application is being run")?></span></a></td>
         <td>
-            <select name="moh_class" tabindex="<?php echo ++$tabindex;?>">
+            <select name="moh_class" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
             $tresults = music_list();
             $cur = (isset($moh_class) && $moh_class != "" ? $moh_class : 'default');
