@@ -394,7 +394,7 @@ function customcontexts_devices_configpageload() {
   $tech = $_REQUEST['tech'];
   $curcontext = $_REQUEST['customcontext'];
 
-	$currentcomponent->addguielem(_('Extension Options'), new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, 'Class of Service', 'You have the '.customcontexts_getmodulevalue('moduledisplayname').' Module installed! You can select a class of service from this list to limit this user to portions of the dialplan you defined in the '.customcontexts_getmodulevalue('moduledisplayname').' module.',true, "javascript:if (document.frm_devices.customcontext.value) {document.frm_devices.devinfo_context.value = document.frm_devices.customcontext.value} else {document.frm_devices.devinfo_context.value = 'from-internal'}"),2);
+	$currentcomponent->addguielem(_('Extension Options'), new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, _('Class of Service'), 'You have the '.customcontexts_getmodulevalue('moduledisplayname').' Module installed! You can select a class of service from this list to limit this user to portions of the dialplan you defined in the '.customcontexts_getmodulevalue('moduledisplayname').' module.',true, "javascript:if (document.frm_devices.customcontext.value) {document.frm_devices.devinfo_context.value = document.frm_devices.customcontext.value} else {document.frm_devices.devinfo_context.value = 'from-internal'}"),2);
 
   $js = '<script type="text/javascript">$(document).ready(function(){$("#devinfo_context").parent().parent().hide();});</script>';
   $currentcomponent->addguielem(_('Extension Options'), new guielement('test-html', $js, ''));
@@ -408,7 +408,7 @@ function customcontexts_extensions_configpageload() {
   $tech = $_REQUEST['tech'];
   $curcontext = $_REQUEST['customcontext'];
 
-	$currentcomponent->addguielem(_('Extension Options'), new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, 'Class of Service', 'You have the '.customcontexts_getmodulevalue('moduledisplayname').' Module installed! You can select a class of service from this list to limit this user to portions of the dialplan you defined in the '.customcontexts_getmodulevalue('moduledisplayname').' module.',true, "javascript:if (document.frm_extensions.customcontext.value) {document.frm_extensions.devinfo_context.value = document.frm_extensions.customcontext.value} else {document.frm_extensions.devinfo_context.value = 'from-internal'}"),2);
+	$currentcomponent->addguielem(_('Extension Options'), new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, _('Class of Service'), 'You have the '.customcontexts_getmodulevalue('moduledisplayname').' Module installed! You can select a class of service from this list to limit this user to portions of the dialplan you defined in the '.customcontexts_getmodulevalue('moduledisplayname').' module.',true, "javascript:if (document.frm_extensions.customcontext.value) {document.frm_extensions.devinfo_context.value = document.frm_extensions.customcontext.value} else {document.frm_extensions.devinfo_context.value = 'from-internal'}"),2);
 
   $js = '<script type="text/javascript">$(document).ready(function(){$("#devinfo_context").parent().parent().hide();});</script>';
   $currentcomponent->addguielem(_('Extension Options'), new guielement('test-html', $js, ''));
