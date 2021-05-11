@@ -3529,11 +3529,11 @@ msgstr "Ruta"
 
 #: ../core/page.routing.php:410
 msgid "Route CID"
-msgstr ""
+msgstr "Identificador CID de Ruta"
 
 #: ../core/page.routing.php:402
 msgid "Route Name"
-msgstr "Nombre de la ruta"
+msgstr "Nombre de Ruta"
 
 #: ../core/page.routing.php:418
 msgid "Route Password"
@@ -6009,3 +6009,4 @@ msgstr "Usar Estado"
 
 msgid "Ignore State"
 msgstr "Ignorar Estado"
+
