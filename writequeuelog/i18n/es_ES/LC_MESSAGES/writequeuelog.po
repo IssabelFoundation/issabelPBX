@@ -118,3 +118,6 @@ msgstr "Descripción inválida"
 
 msgid "Write in Queue Log"
 msgstr "Escribir en Queue Log"
+
+msgid "Write In Queue Log"
+msgstr "Escribir en Queue Log"
