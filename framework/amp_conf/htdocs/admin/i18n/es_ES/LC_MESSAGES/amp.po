@@ -6003,3 +6003,9 @@ msgstr "Informes"
 
 #~ msgid "Add Zap Channel"
 #~ msgstr "Añadir canal Zap:"
+
+msgid "Use State"
+msgstr "Usar Estado"
+
+msgid "Ignore State"
+msgstr "Ignorar Estado"
