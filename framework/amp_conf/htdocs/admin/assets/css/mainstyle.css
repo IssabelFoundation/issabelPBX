@@ -531,3 +531,10 @@ select {
   color: transparent;
   text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
+
+#techlabel {
+  font-weight:bold;
+  width:100%;
+  padding: 0;
+  line-height: 2em;
+}
