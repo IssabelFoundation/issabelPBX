@@ -13,7 +13,7 @@ $table->add_row(array('colspan' => 2,
 
 $label = ipbx_label(_('Announcement'),
 			_('Annoucement to be played to remote part. Default is a beep'));
-$table->add_row($label, form_dropdown('announce', $rec_list, $announce));
+$table->add_row($label, form_dropdown('announce', $rec_list, $announce,'class="componentSelect"'));
 
 $html .= $table->generate();
 $html .= br(2) . form_submit('submit', _('Save'));

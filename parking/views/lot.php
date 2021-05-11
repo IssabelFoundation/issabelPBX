@@ -8,26 +8,26 @@
 
 
 <form id="parkform" action="config.php?display=parking&amp;id=<?php echo $id?>&amp;action=update" method="post">
-    <table width="40%">
+    <table>
         <tr>
             <td colspan="2"><h5><?php echo _("Parking Lot Options")?></h5></td>
         </tr>
         <tr>
             <td><a href=# class="info"><?php echo _("Parking Lot Extension:")?><span><?php echo _("This is the extension where you will transfer a call to park it")?></span></a></td>
             <td>
-                <input type="text" id="parkext" name="parkext" size="5" value="<?php echo $parkext?>">
+                <input type="text" id="parkext" name="parkext" value="<?php echo $parkext?>" class='w100'>
             </td>
         </tr>
         <tr>
             <td><a href=# class="info"><?php echo _("Parking Lot Name:")?><span><?php echo _("Provide a Descriptive Title for this Parking Lot")?></span></a></td>
             <td>
-                <input id="name" type="textbox" name="name" size="30" value="<?php echo $name?>">
+                <input id="name" type="text" name="name" value="<?php echo $name?>" class='w100'>
             </td>
         </tr>
         <tr>
             <td><a href=# class="info"><?php echo _("Parking Lot Starting Position:")?><span><?php echo _("The starting postion of the parking lot")?></span></a></td>
             <td>
-                <input type="text" id="parkpos" name="parkpos" size="5" value="<?php echo $parkpos?>">
+                <input type="text" id="parkpos" name="parkpos" value="<?php echo $parkpos?>" class='w100'>
             </td>
         </tr>
     	<tr>
@@ -39,13 +39,13 @@
     	<tr>
     	    <td><a href="#" class="info"><?php echo _("Parking Timeout (seconds):")?><span><?php echo _("The timeout period in seconds that a parked call will attempt to ring back the original parker if not answered")?></span></a></td>
     		<td>
-                <input type="number" min="0" id="parkingtime" name="parkingtime" value="<?php echo $parkingtime?>">
+                <input type="number" min="0" id="parkingtime" name="parkingtime" value="<?php echo $parkingtime?>" class='w100'>
     		</td>
     	</tr>
     	<tr>
     		<td><a href="#" class="info"><?php echo _("Parked Music Class:")?><span><?php echo _("This is the music class that will be played to a parked call while in the parking lot UNLESS the call flow prior to parking the call explicitly set a different music class, such as if the call came in through a queue or ring group.")?></span></a></td>
     		<td>
-    			<select name="parkedmusicclass">
+    			<select name="parkedmusicclass" class='componentSelect'>
                 <?php
                     $tresults = music_list();
                     $none = array_search('none',$tresults);
@@ -122,19 +122,19 @@
     	<tr>
     	    <td><a href=# class="info"><?php echo _("Parking Alert-Info:")?><span><?php echo _("Alert-Info to add to the call prior to sending back to the Originator or to the Alternate Destination.")?><br></span></a></td>
     	    <td>
-                <input type="text" size="30" name="alertinfo" value="<?php echo htmlspecialchars($alertinfo)?>"/>
+                <input type="text" size="30" name="alertinfo" value="<?php echo htmlspecialchars($alertinfo)?>" class='w100'/>
             </td>
     	</tr>
     	<tr>
     	    <td><a href=# class="info"><?php echo _("CallerID Prepend:")?><span><?php echo _("String to prepend to the current Caller ID associated with the parked call prior to sending back to the Originator or the Alternate Destination.") ?><br></span></a></td>
     	    <td>
-                <input type="text" size="30" name="cidpp" value="<?php echo htmlspecialchars($cidpp)?>"/>
+                <input type="text" size="30" name="cidpp" value="<?php echo htmlspecialchars($cidpp)?>" class='w100'/>
             </td>
     	</tr>
     	<tr>
     		<td><a href="#" class="info"><?php echo _("Auto CallerID Prepend:")?><span><?php echo _("These options will be appended after CallerID Prepend if set. Otherwise they will appear first. The automatic options are as follows:<ul><li><strong>None:</strong> No Automatic Prepend</li><li><strong>Slot:</strong> Parking lot they were parked on</li><li><strong>Extension:</strong> The extension number that parked the call</li><li><strong>Name:</strong> The user who parked the call</li></ul>")?></span></a></td>
     		<td>
-    			<select name="autocidpp">
+    			<select name="autocidpp" class='componentSelect'>
 						<option value="none" <?php echo ($autocidpp == 'none' ? 'selected' : '')?>><?php echo _("None") ?></option>
 						<option value="slot" <?php echo ($autocidpp == 'slot' ? 'selected' : '')?>><?php echo _("Slot") ?></option>
 						<option value="exten" <?php echo ($autocidpp == 'exten' ? 'selected' : '')?>><?php echo _("Extension") ?></option>
@@ -146,7 +146,7 @@
         	<tr>
         		<td><a href="#" class="info"><?php echo _("Announcement:")?><span><?php echo _("Optional message to be played to the call prior to sending back to the Originator or the Alternate Destination.") ?></span></a></td>
         		<td>
-        			<select name="announcement_id">
+        			<select name="announcement_id" class='componentSelect'>
         			<?php
         				$tresults = recordings_list();
         				echo '<option value="">'._("None")."</option>";

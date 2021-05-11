@@ -28,7 +28,7 @@ msgstr "Agregar Campo"
 
 #: ../page.writequeuelog.php:46 ../page.writequeuelog.php:81
 msgid "Add Write Queue Log"
-msgstr "Agregar Write Queue Log"
+msgstr "Agregar Escribir en Queue Log"
 
 #: ../page.writequeuelog.php:69
 msgid "Edit: "
@@ -116,3 +116,5 @@ msgstr "Borrar"
 msgid "Invalid description specified"
 msgstr "Descripción inválida"
 
+msgid "Write in Queue Log"
+msgstr "Escribir en Queue Log"

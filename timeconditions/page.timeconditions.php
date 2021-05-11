@@ -89,7 +89,7 @@ if ($action == 'delete') {
 
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Time Condition name:")?><span><?php echo _("Give this Time Condition a brief name to help you identify it.")?></span></a></td>
-		<td><input type="text" name="displayname" value="<?php echo (isset($thisItem['displayname']) ? $thisItem['displayname'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+		<td><input type="text" name="displayname" value="<?php echo (isset($thisItem['displayname']) ? $thisItem['displayname'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
 	</tr>
 <?php
   if ($itemid && $thisItem['tcstate'] !== false) {
@@ -122,7 +122,7 @@ if ($action == 'delete') {
   <tr>
 		<td><a href="#" class="info"><?php echo _("Change Override:")?><span><?php echo sprintf(_("This Time Condition can be set to Temporarily go to the 'matched' or 'unmatched' destination in which case the override will automatically reset once the current time span has elapsed. If set to Permanent it will stay overridden until manually reset. All overrides can be removed with the Reset Override option. Temporary Overrides can also be toggled with the %s feature code, which will also remove a Permanent Override if set but can not set a Permanent Override which must be done here or with other applications such as an XML based phone options."),$tcval)?></span></a></td>
     <td>
-      <select name="tcstate_new" tabindex="<?php echo ++$tabindex;?>">
+      <select name="tcstate_new" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
         <option value="unchanged" SELECTED><?php echo _("Unchanged");?></option>
         <option value="auto" ><?php echo _("Reset Override");?></option>
         <option value="true" ><?php echo _("Temporary matched");?></option>

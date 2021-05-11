@@ -939,7 +939,7 @@ function timeconditions_timegroups_drawgroupselect($elemname, $currentvalue = ''
     $output = '';
     $onchange = ($onchange != '') ? " onchange=\"$onchange\"" : '';
 
-    $output .= "\n\t\t\t<select name=\"$elemname\" tabindex=\"".++$tabindex."\" id=\"$elemname\"$onchange>\n";
+    $output .= "\n\t\t\t<select class='componentSelect' name=\"$elemname\" tabindex=\"".++$tabindex."\" id=\"$elemname\"$onchange>\n";
     // include blank option if required
     if ($canbeempty) {
         $output .= '<option value="">'.($default_option == '' ? _("--Select a Group--") : $default_option).'</option>';

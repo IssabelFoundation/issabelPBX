@@ -106,15 +106,15 @@ echo $helptext;
 	<tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Misc Application") : _("Add Misc Application")) ?></h5></td></tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("The name of this application")?></span></a></td>
-		<td><input size="15" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+		<td><input class='w100' type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Feature Code")?>:<span><?php echo _("The feature code/extension users can dial to access this application. This can also be modified on the Feature Codes page.")?></span></a></td>
-		<td><input type="text" class="extdisplay" name="ext" value="<?php echo $ext; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td>
+		<td><input type="text" class="extdisplay w100" name="ext" value="<?php echo $ext; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td>
 	</tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Feature Status")?>:<span><?php echo _("If this code is enabled or not.")?></span></a></td>
-		<td><select name="enabled" tabindex="<?php echo ++$tabindex;?>">
+		<td><select name="enabled" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 			<option value="1" <?php if ($enabled) echo "SELECTED"; ?>><?php echo _("Enabled");?></option>
 			<option value="0" <?php if (!$enabled) echo "SELECTED"; ?>><?php echo _("Disabled");?></option>
 		</select></td>

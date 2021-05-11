@@ -86,12 +86,12 @@ if ($action == 'delete') {
 <?php		} ?>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Description:")?><span><?php echo _("Give this Misc Destination a brief name to help you identify it.")?></span></a></td>
-		<td><input type="text" name="description" value="<?php echo (isset($description) ? $description : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+		<td><input type="text" name="description" value="<?php echo (isset($description) ? $description : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
 	</tr>
 	<tr>
 		<td><a href="#" class="info"><?php echo _("Dial:")?><span><?php echo _("Enter the number this destination will simulate dialing, exactly as you would dial it from an internal phone. When you route a call to this destination, it will be as if the caller dialed this number from an internal phone.") ?></span></a></td>
 		<td>
-			<input type="text" name="destdial" value="<?php echo (isset($destdial) ? $destdial : ''); ?>" tabindex="<?php echo ++$tabindex;?>">&nbsp;&nbsp;
+			<input type="text" name="destdial" value="<?php echo (isset($destdial) ? $destdial : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'>&nbsp;&nbsp;
 		</td>
 	</tr>
 	<tr>

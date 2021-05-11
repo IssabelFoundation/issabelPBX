@@ -15,14 +15,14 @@ msgstr ""
 
 #, php-format
 msgid "Ring Group %s: "
-msgstr "Grupo de extensiones %s:"
+msgstr "Grupo de timbrado %s:"
 
 #, php-format
 msgid "Ring Group: %s"
-msgstr "Grupo de extensiones: %s"
+msgstr "Grupo de timbrado: %s"
 
 msgid "This ringgroup"
-msgstr "Este grupo de extensiones"
+msgstr "Este grupo de timbrado"
 
 msgid "is already in use"
 msgstr "ya está en uso"
@@ -32,7 +32,7 @@ msgstr "EN USO"
 
 #, php-format
 msgid "Ring Group: %s (%s)"
-msgstr "Grupo de extensiones: %s (%s)"
+msgstr "Grupo de timbrado: %s (%s)"
 
 msgid "added field cwignore to ringgroups table"
 msgstr ""
@@ -108,39 +108,39 @@ msgid "is not allowed for your account"
 msgstr "no está permitida por su cuenta."
 
 msgid "Add Ring Group"
-msgstr "Añadir grupo de extensiones"
+msgstr "Añadir grupo de timbrado"
 
 msgid "Ring Group"
-msgstr "Grupo de extensiones"
+msgstr "Grupo de timbrado"
 
 msgid "deleted"
 msgstr "eliminado"
 
 msgid "Delete Group"
-msgstr "Eliminar grupo de extensiones"
+msgstr "Eliminar grupo de timbrado"
 
 msgid "Conflicting Extensions"
 msgstr "Extensiones en conflicto"
 
 msgid "Edit Ring Group"
-msgstr "Editar grupo de extensiones"
+msgstr "Editar grupo de timbrado"
 
 msgid "Ring-Group Number"
-msgstr "Número del grupo de extensiones"
+msgstr "Número del grupo de timbrado"
 
 msgid "The number users will dial to ring extensions in this ring group"
 msgstr ""
 "El número al que los usuarios deberán llamar para contactar con este grupo "
-"de extensiones."
+"de timbrado."
 
 msgid "Group Description"
-msgstr "Descripción del grupo de extensiones:"
+msgstr "Descripción del grupo de timbrado:"
 
 msgid "Provide a descriptive title for this Ring Group."
-msgstr "Indique una descripción para este grupo de extensiones."
+msgstr "Indique una descripción para este grupo de timbrado."
 
 msgid "Ring Strategy:"
-msgstr ""
+msgstr "Estrategia de Timbrado"
 
 msgid "ringall"
 msgstr "Sonar todos"
@@ -195,8 +195,8 @@ msgstr ""
 "Hace sonar el primer canal que no esté al teléfono, ignorando la opción de "
 "llamada en espera."
 
-msgid "Ring Time (max 60 sec)"
-msgstr ""
+msgid "Ring Time (max 300 sec)"
+msgstr "Tiempo Timbre (máximo 300 segundos)"
 
 #, fuzzy
 msgid ""
@@ -279,7 +279,7 @@ msgid "default"
 msgstr "Por defecto"
 
 msgid "CID Name Prefix"
-msgstr ""
+msgstr "Prefijo de Identificador de Nombre"
 
 msgid ""
 "You can optionally prefix the CallerID name when ringing extensions in this "
@@ -294,7 +294,7 @@ msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr ""
 
 msgid "Ignore CF Settings"
-msgstr ""
+msgstr "Ignorar Desvíos"
 
 msgid ""
 "When checked, agents who attempt to Call Forward will be ignored, this "
@@ -325,7 +325,7 @@ msgstr ""
 "agente."
 
 msgid "Enable Call Pickup"
-msgstr ""
+msgstr "Habilitar Captura de Llamada"
 
 msgid ""
 "Checking this will allow calls to the Ring Group to be picked up with the "
@@ -367,7 +367,7 @@ msgid "Default"
 msgstr "Por defecto"
 
 msgid "Too-Late Announce:"
-msgstr ""
+msgstr "Anuncio Demasiado Tarde:"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "
@@ -379,22 +379,22 @@ msgstr ""
 "use la opción 'Grabaciones del sistema' del menú de la izquierda."
 
 msgid "Change External CID Configuration"
-msgstr ""
+msgstr "Cambio de Identificador Externo"
 
 msgid "Mode"
-msgstr ""
+msgstr "Modo"
 
 msgid "Transmits the Callers CID if allowed by the trunk."
-msgstr ""
+msgstr "Transmitir el Identificador de quien llame si lo permite el troncal."
 
 msgid "Fixed CID Value"
-msgstr ""
+msgstr "Valor de Identificador Fijo"
 
 msgid "Always transmit the Fixed CID Value below."
-msgstr ""
+msgstr "Siempre transmitir el Identificador fijo definido más abajo."
 
 msgid "Outside Calls Fixed CID Value"
-msgstr ""
+msgstr "Valor fijo de Identificador de llamadas externas"
 
 msgid ""
 "Transmit the Fixed CID Value below on calls that come in from outside only. "
@@ -403,7 +403,7 @@ msgid ""
 msgstr ""
 
 msgid "Use Dialed Number"
-msgstr ""
+msgstr "Usar Número Marcado"
 
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
@@ -429,10 +429,10 @@ msgid ""
 msgstr ""
 
 msgid "Call Recording"
-msgstr ""
+msgstr "Grabación de Llamadas"
 
 msgid "Record Calls"
-msgstr ""
+msgstr "Grabar Llamadas"
 
 msgid ""
 "You can always record calls that come into this ring group, never record "
@@ -441,13 +441,13 @@ msgid ""
 msgstr ""
 
 msgid "Always"
-msgstr ""
+msgstr "Siempre"
 
 msgid "On Demand"
-msgstr ""
+msgstr "A Demanda"
 
 msgid "Never"
-msgstr ""
+msgstr "Nunca"
 
 msgid "Destination if no answer"
 msgstr "Destino si no hay respuesta"
