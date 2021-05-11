@@ -1000,7 +1000,7 @@ CREATE TABLE `dynamicfeatures` (
   `arguments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT '',
   `moh_class` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2509,6 +2509,38 @@ LOCK TABLES `timegroups_groups` WRITE;
 /*!40000 ALTER TABLE `timegroups_groups` DISABLE KEYS */;
 /*!40000 ALTER TABLE `timegroups_groups` ENABLE KEYS */;
 UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `trunkbalance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `trunkbalance` (
+  `trunkbalance_id` int(11) NOT NULL AUTO_INCREMENT,
+  `desttrunk_id` int(11) DEFAULT '0',
+  `disabled` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dialpattern` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dp_andor` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `notdialpattern` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `notdp_andor` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `billing_cycle` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `billingtime` time DEFAULT NULL,
+  `billing_day` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `billingdate` smallint(6) DEFAULT '0',
+  `billingperiod` int(11) DEFAULT '0',
+  `endingdate` datetime DEFAULT NULL,
+  `count_inbound` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `count_unanswered` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `loadratio` int(11) DEFAULT '1',
+  `maxtime` int(11) DEFAULT '-1',
+  `maxnumber` int(11) DEFAULT '-1',
+  `maxidentical` int(11) DEFAULT '-1',
+  `timegroup_id` int(11) DEFAULT '-1',
+  `url` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_timeout` int(11) DEFAULT '10',
+  `regex` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`trunkbalance_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `trunk_dialpatterns`
