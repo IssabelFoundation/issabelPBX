@@ -431,7 +431,7 @@ if ($extdisplay) { // editing
     <tr>
       <td><a href="#" class="info"><?php echo _("Music On Hold?")?><span><?php echo _("You can choose which music category to use. For example, choose a type appropriate for a destination country which may have announcements in the appropriate language.")?></span></a></td>
       <td>
-        <select name="mohsilence" tabindex="<?php echo ++$tabindex;?>">
+        <select name="mohsilence" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
         <?php
           $tresults = music_list();
           $cur = (isset($mohsilence) && $mohsilence != "" ? $mohsilence : 'default');
@@ -460,7 +460,7 @@ if ($extdisplay) { // editing
 		<tr>
 			<td><a href="#" class="info"><?php echo _("Route Position")?><span><?php echo _("Where to insert this route or relocate it relative to the other routes.")?></span></a></td>
 			<td>
-				<select name="route_seq" tabindex="<?php echo ++$tabindex;?>">
+				<select name="route_seq" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 				<?php
           if ($route_seq != 0) {
             echo '<option value="0"'.($route_seq == 0 ? ' SELECTED' : '').'>'.sprintf(_('First before %s'),$routepriority[0]['name'])."</option>\n";

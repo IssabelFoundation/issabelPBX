@@ -241,7 +241,7 @@ function pinsets_hook_core($viewing_itemid, $target_menuid) {
         <tr>
           <td><a href="#" class="info">'._("PIN Set").'<span>'._('Optional: Select a PIN set to use. If using this option, leave the Route Password field blank.').'</span></a>:</td>
           <td>
-            <select name="pinsets">
+            <select name="pinsets" class="componentSelect">
               <option value="">'._('None').'</option>
       ';
       if (is_array($pinsets)) {
