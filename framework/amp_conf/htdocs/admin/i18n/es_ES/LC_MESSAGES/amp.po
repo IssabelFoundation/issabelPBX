@@ -225,7 +225,7 @@ msgstr ""
 
 #: ../core/page.routing.php:455
 msgid "---Permanent Route---"
-msgstr ""
+msgstr "---Ruta Permanente---"
 
 #: amp_conf/htdocs/admin/views/beta_notice.php:8
 msgid "-This page is currently BETA-"

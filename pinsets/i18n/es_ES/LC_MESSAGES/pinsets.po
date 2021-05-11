@@ -31,7 +31,7 @@ msgstr ""
 "campo Password de Ruta en blanco"
 
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 msgid "checking if migration required.."
 msgstr ""
