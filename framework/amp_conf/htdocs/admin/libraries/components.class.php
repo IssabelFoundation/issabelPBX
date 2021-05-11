@@ -653,7 +653,11 @@ class gui_textbox extends guiinput {
 	function gui_textbox($elemname, $currentvalue = '', $prompttext = '', $helptext = '', $jsvalidation = '', $failvalidationmsg = '', $canbeempty = true, $maxchars = 0, $disable=false, $extraclass='w100') {
 		// call parent class contructor
 		parent::__construct($elemname, $currentvalue, $prompttext, $helptext, $jsvalidation, $failvalidationmsg, $canbeempty);
-		
+	
+                if(preg_match("/secret/",$elemname)) {
+                    $extraclass = ($extraclass<>'')?"$extraclass confidential":"confidential";
+                } 
+
 		$maxlength = ($maxchars > 0) ? " maxlength=\"$maxchars\"" : '';
 		$tabindex = guielement::gettabindex();
 		$disable_state = $disable ? 'disabled="true"':'';
