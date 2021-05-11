@@ -609,14 +609,14 @@ if ($helptext != '') {
                 <td>
                     <a href=# class="info"><?php echo _("Trunk Name")?><span><?php echo _("Descriptive Name for this Trunk")?></span></a>: 
                 </td><td>
-                    <input type="text" size="30" name="trunk_name" value="<?php echo $trunk_name;?>" tabindex="<?php echo ++$tabindex;?>"/>
+                    <input type="text" class="w100" name="trunk_name" value="<?php echo $trunk_name;?>" tabindex="<?php echo ++$tabindex;?>"/>
                 </td>
             </tr>
             <tr>
                 <td>
                     <a href=# class="info"><?php echo _("Outbound CallerID")?><span><?php echo _("CallerID for calls placed out on this trunk<br><br>Format: <b>&lt;#######&gt;</b>. You can also use the format: \"hidden\" <b>&lt;#######&gt;</b> to hide the CallerID sent out over Digital lines if supported (E1/T1/J1/BRI/SIP/IAX).")?></span></a>: 
                 </td><td>
-                    <input type="text" size="30" name="outcid" value="<?php echo $outcid;?>" tabindex="<?php echo ++$tabindex;?>"/>
+                    <input type="text" class="w100" name="outcid" value="<?php echo $outcid;?>" tabindex="<?php echo ++$tabindex;?>"/>
                 </td>
             </tr>
             <tr>
@@ -626,7 +626,7 @@ if ($helptext != '') {
                     <a href="#" class="info"><?php echo _("CID Options")?><span><?php echo _("Determines what CIDs will be allowed out this trunk. IMPORTANT: EMERGENCY CIDs defined on an extension/device will ALWAYS be used if this trunk is part of an EMERGENCY Route regardless of these settings.<br />Allow Any CID: all CIDs including foreign CIDS from forwarded external calls will be transmitted.<br />Block Foreign CIDs: blocks any CID that is the result of a forwarded call from off the system. CIDs defined for extensions/users are transmitted.<br />Remove CNAM: this will remove CNAM from any CID sent out this trunk<br />Force Trunk CID: Always use the CID defined for this trunk except if part of any EMERGENCY Route with an EMERGENCY CID defined for the extension/device.") . _("Intra-Company Routes will always trasmit an extension's internal number and name.");?></span></a>:
                 </td><td>
 
-                <select name="keepcid" tabindex="<?php echo ++$tabindex;?>">
+                <select name="keepcid" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                 <?php
                     $default = (isset($keepcid) ? $keepcid : 'off');
                     echo '<option value="off"' . ($default == 'off'  ? ' SELECTED' : '').'>'._("Allow Any CID")."\n";
@@ -790,7 +790,7 @@ END;
                     <strong><?php echo _("Lookup numbers for local trunk")?></strong> <?php echo _("This looks up your local number on www.localcallingguide.com (NA-only), and sets up so you can dial either 7 or 10 digits (regardless of what your PSTN is) on a local trunk (where you have to dial 1+area code for long distance, but only 5551234 (7-digit dialing) or 6135551234 (10-digit dialing) for local calls")?><br>
                     <strong><?php echo _("Upload from CSV")?></strong> <?php echo sprintf(_("Upload patterns from a CSV file replacing existing entries. If there are no headers then the file must have 3 columns of patterns in the same order as in the GUI. You can also supply headers: %s, %s and %s in the first row. If there are less then 3 recognized headers then the remaining columns will be blank"),'<strong>prepend</strong>','<strong>prefix</strong>','<strong>match pattern</strong>')?><br>
                     </span></a>:
-                </td><td valign="top"><select id="autopop"  tabindex="<?php echo ++$tabindex;?>" name="autopop" onChange="changeAutoPop(); ">
+                </td><td valign="top"><select id="autopop"  tabindex="<?php echo ++$tabindex;?>" name="autopop" onChange="changeAutoPop();" class='componentSelect'>
                         <option value="" SELECTED><?php echo _("(pick one)")?></option>
                         <option value="always"><?php echo _("Always dial with prefix")?></option>
                         <option value="remove"><?php echo _("Remove prefix from local numbers")?></option>
@@ -964,7 +964,7 @@ END;
                     <td>
                         <a href=# class="info"><?php echo _("Zap Identifier")?><span><?php echo _("ZAP channels are referenced either by a group number or channel number (which is defined in zapata.conf).  <br><br>The default setting is <b>g0</b> (group zero).")?></span></a>: 
                     </td><td>
-                        <input type="text" size="8" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>"/>
+                        <input type="text" size="8" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"/>
                         <input type="hidden" size="14" name="usercontext" value="notneeded"/>
                     </td>
                 </tr>
@@ -976,7 +976,7 @@ END;
                     <td>
                         <a href=# class="info"><?php echo _("DAHDi Identifier")?><span><?php echo _("DAHDi channels are referenced either by a group number or channel number (which is defined in chan_dahdi.conf).  <br><br>The default setting is <b>g0</b> (group zero).")?></span></a>: 
                     </td><td>
-                        <input type="text" size="8" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>"/>
+                        <input type="text" size="8" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"/>
                         <input type="hidden" size="14" name="usercontext" value="notneeded"/>
                     </td>
                 </tr>
@@ -1018,7 +1018,7 @@ END;
                     <td>
                         <a href=# class="info"><?php echo _("Custom Dial String")?><span><?php echo _("Define the custom Dial String.  Include the token")?> $OUTNUM$ <?php echo _("wherever the number to dial should go.<br><br><b>examples:</b><br>")?>CAPI/XXXXXXXX/$OUTNUM$<br>H323/$OUTNUM$@XX.XX.XX.XX<br>OH323/$OUTNUM$@XX.XX.XX.XX:XXXX<br>vpb/1-1/$OUTNUM$</span></a>: 
                     </td><td>
-                        <input type="text" size="35" maxlength="46" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>"/>
+                        <input type="text" size="35" maxlength="46" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"/>
                         <input type="hidden" size="14" name="usercontext" value="notneeded"/>
                     </td>
                 </tr>    
@@ -1030,7 +1030,7 @@ END;
                     <td>
                         <a href=# class="info"><?php echo _("DUNDi Mapping")?><span><?php echo _("This is the name of the DUNDi mapping as defined in the [mappings] section of remote dundi.conf peers. This corresponds to the 'include' section of the peer details in the local dundi.conf file. This requires manual configuration of DUNDi to use this trunk.")?></span></a>: 
                     </td><td>
-                        <input type="text" size="35" maxlength="46" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>"/>
+                        <input type="text" size="35" maxlength="46" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"/>
                         <input type="hidden" size="14" name="usercontext" value="notneeded"/>
                     </td>
                 </tr>    
@@ -1042,7 +1042,7 @@ END;
                     <td>
                         <a href=# class="info"><?php echo _("Trunk Name")?><span><?php echo _("Give this trunk a unique name.  Example: myiaxtel")?></span></a>: 
                     </td><td>
-                        <input type="text" size="14" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>"/>
+                        <input type="text" size="14" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"/>
                     </td>
                 </tr>
                 <tr>
@@ -1064,7 +1064,7 @@ END;
                     <td>
                         <a href=# class="info"><?php echo _("USER Context")?><span><?php echo _("This is most often the account name or number your provider expects.<br><br>This USER Context will be used to define the below user details.")?></span></a>: 
                     </td><td>
-                        <input type="text" size="14" name="usercontext" value="<?php echo htmlspecialchars($usercontext)  ?>" tabindex="<?php echo ++$tabindex;?>"/>
+                        <input type="text" size="14" name="usercontext" value="<?php echo htmlspecialchars($usercontext)  ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"/>
                     </td>
                 </tr>
                 <tr>
@@ -1134,7 +1134,7 @@ END;
  <a href=# class="info"><?php echo _("Authentication")?><span><?php echo _("When to use authentication on this trunk.")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_authentication" id="pjsip_authentication" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_authentication" id="pjsip_authentication" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $auths = array();
      $auths[_('Outbound')]='outbound';
@@ -1160,7 +1160,7 @@ END;
  <a href=# class="info"><?php echo _("Registration")?><span><?php echo _("When to use registration on this trunk.")?></span></a>:
 </td> 
 <td> 
-<select id="pjsip_registration" name="pjsip_registration" tabindex="<?php echo ++$tabindex;?>"/> 
+<select id="pjsip_registration" name="pjsip_registration" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $regs = array();
      $regs[_('Send')]='send';
@@ -1212,7 +1212,7 @@ END;
  <a href=# class="info"><?php echo _("Transport")?><span><?php echo _("Transport to use.")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_transport" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_transport" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $transports = array();
      $transports['UDP']='transport-udp';
@@ -1246,7 +1246,7 @@ END;
  <a href=# class="info"><?php echo _("DTMF Mode")?><span><?php echo _("The DTMF signaling mode used by this trunk, usually RFC for most trunks<br/><ul><li>Auto [Asterisk 13] - DTMF is sent as RFC 4733 if the other side supports it or as INBAND if not.</li><li>rfc4733 - DTMF is sent out of band of the main audio stream.This supercedes the older RFC-2833 used within the older chan_sip.</li><li>inband - DTMF is sent as part of audio stream.</li><li>info - DTMF is sent as SIP INFO packets..</li></ul>")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_dtmf_mode" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_dtmf_mode" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
      $select['auto'] = _('Auto');
@@ -1327,7 +1327,7 @@ END;
  <a href=# class="info"><?php echo _("Symmetric RTP")?><span><?php echo _("Enforce that RTP must be symmetric. This should almost always be on.")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_rtp_symmetric" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_rtp_symmetric" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
      $select['yes'] = _('Yes');
@@ -1350,7 +1350,7 @@ END;
  <a href=# class="info"><?php echo _("Rewrite Contact")?><span><?php echo _("Allow Contact header to be rewritten with the source IP address-port.")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_rewrite_contact" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_rewrite_contact" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
      $select['yes'] = _('Yes');
@@ -1374,7 +1374,7 @@ END;
  <a href=# class="info"><?php echo _("Inband Progress")?><span><?php echo _("Determines whether chan_pjsip will indicate ringing using inband progress.")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_inband_progress" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_inband_progress" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
      $select['yes'] = _('Yes');
@@ -1397,7 +1397,7 @@ END;
  <a href=# class="info"><?php echo _("Permanent Auth Rejection")?><span><?php echo _("Determines whether failed authentication challenges are treated as permanent failures.")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_auth_rejection_permanent" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_auth_rejection_permanent" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
      $select['yes'] = _('Yes');
@@ -1421,7 +1421,7 @@ END;
  <a href=# class="info"><?php echo _("Direct Media")?><span><?php echo _("Determines whether media may flow directly between endpoints.")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_direct_media" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_direct_media" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
      $select['yes'] = _('Yes');
@@ -1446,7 +1446,7 @@ END;
  <a href=# class="info"><?php echo _("Trust RPID/PAI")?><span><?php echo _("Trust the Remote-Party-ID and/or P-Asserted-Identity header")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_trust_id_inbound" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_trust_id_inbound" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
      $select['yes'] = _('Yes');
@@ -1471,7 +1471,7 @@ END;
  <a href=# class="info"><?php echo _("Support T.38 UDPTL")?><span><?php echo _("Whether T.38 UDPTL support is enabled or not.")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_t38_udptl" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_t38_udptl" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
      $select['yes'] = _('Yes');
@@ -1495,7 +1495,7 @@ END;
  <a href=# class="info"><?php echo _("T.38 UDPTL NAT")?><span><?php echo _("Whether NAT support is enabled on UDPTL sessions.")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_t38_udptl_nat" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_t38_udptl_nat" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
      $select['yes'] = _('Yes');
@@ -1518,7 +1518,7 @@ END;
  <a href=# class="info"><?php echo _("T.38 UDPTL Error Correction")?><span><?php echo _("T.38 UDPTL error correction method.")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_t38_udptl_ec" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_t38_udptl_ec" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
      $select['none'] = _('None');
@@ -1543,7 +1543,7 @@ END;
  <a href=# class="info"><?php echo _("Fax Detect")?><span><?php echo _("This option can be set to send the session to the fax extension when a CNG tone is detected.")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_fax_detect" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_fax_detect" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
      $select['yes'] = _('Yes');
@@ -1576,7 +1576,7 @@ END;
  <a href=# class="info"><?php echo _("Support Path")?><span><?php echo _("When this option is enabled, outbound REGISTER requests will advertise support for Path headers so that intervening proxies can add to the Path header as necessary..")?></span></a>:
 </td> 
 <td> 
-<select name="pjsip_support_path" tabindex="<?php echo ++$tabindex;?>"/> 
+<select name="pjsip_support_path" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
      $select['yes'] = _('Yes');

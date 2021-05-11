@@ -23,7 +23,7 @@ function cidlookup_hook_core($viewing_itemid, $target_menuid) {
 		$html .= ' }';
 		$html .= '}';
 		$html .= '</script>';
-		$html .= '<td><select name="cidlookup_id" onChange="javascript:openCNAMNoteDisplay(this, this.selectedIndex)">';
+		$html .= '<td><select name="cidlookup_id" onChange="javascript:openCNAMNoteDisplay(this, this.selectedIndex)" class="componentSelect">';
 		$sources = cidlookup_list();
 		$current = cidlookup_did_get($viewing_itemid);
 		foreach ($sources as $source)

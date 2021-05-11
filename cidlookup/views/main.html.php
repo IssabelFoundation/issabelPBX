@@ -64,7 +64,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
                 </a>
             </td>
     		<td>
-    			<select id="sourcetype" name="sourcetype" tabindex="<?php echo ++$tabindex;?>">
+    			<select id="sourcetype" name="sourcetype" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
     				<option value="opencnam" <?php echo ($thisItem['sourcetype'] == 'opencnam' ? 'selected' : '')?>><?php echo _("OpenCNAM")?></option>
     				<option value="internal" <?php echo ($thisItem['sourcetype'] == 'internal' ? 'selected' : '')?>><?php echo _("Internal")?></option>
     				<option value="enum" <?php echo ($thisItem['sourcetype'] == 'enum' ? 'selected' : '')?>>ENUM</option>
