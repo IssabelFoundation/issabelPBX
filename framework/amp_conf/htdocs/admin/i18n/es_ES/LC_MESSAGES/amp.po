@@ -1891,7 +1891,7 @@ msgstr ""
 
 #: ../core/page.routing.php:671 ../core/page.trunks.php:843
 msgid "Export Dialplans as CSV"
-msgstr ""
+msgstr "Exportar Plan de Marcado como CSV"
 
 #: ../core/page.trunks.php:843
 #, php-format
