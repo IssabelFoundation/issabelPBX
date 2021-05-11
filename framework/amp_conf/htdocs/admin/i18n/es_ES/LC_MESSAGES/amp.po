@@ -1555,11 +1555,11 @@ msgstr "Descargando %s"
 
 #: ../core/page.routing.php:329
 msgid "Drag up or down to reposition, click to choose"
-msgstr ""
+msgstr "Arrastre arriba o abajo para cambiar posición. Click para seleccionar"
 
 #: ../core/page.routing.php:766
 msgid "Duplicate Route"
-msgstr ""
+msgstr "Duplicar Ruta"
 
 #: ../core/page.trunks.php:1003
 msgid "Duplicate Trunk"
