@@ -21,18 +21,19 @@ if (isset($_GET["extensions"], $_GET["ajax"]))
 		{
 			foreach ($result as $extension)
 			{
-				echo $extension["extension"] . " extension is " . $extension["type"] . " at '" . $extension["label"] ."' group <br />";
+                                $msg = _("%s extension is %s at %s group");
+                                echo sprintf($msg,$extension["extension"],_($extension["type"]),$extension["label"])."<br/>";
 			}
 
 		}
 		else
 		{
-			echo "Not matches";
+			echo _("No results found");
 		}
 	}
 	else
 	{
-		echo "Critery invalid!";
+		echo _("Invalid Criteria");
 	}
 	exit(1);
 }
@@ -42,7 +43,7 @@ if (isset($_GET["extensions"], $_GET["ajax"]))
 	$title = _("Boss Secretary");
 	$messages	= "";
 	$params = array();
-	
+
 	
 	if (isset($_POST["cleanAdd"]) || (isset($_POST["cleanEdit"])) || isset($_POST["submitAdd"]) || isset($_POST["submitEdit"]))
 	{
@@ -135,18 +136,18 @@ if (isset($_GET["extensions"], $_GET["ajax"]))
 		{
 			if (bosssecretary_group_delete($group))
 			{
-				$content = "<br /> Group was deleted successfully <br /> <br /> <br /> <h3>Choose a group or add one:</h3> ";
+				$content = "<br /> "._('Group was deleted successfully')." <br /> <br /> <br /> <h3>"._('Choose a group or add one:')."</h3> ";
 				needreload();
 			}
 			else
 			{
-				$content = "<br /> Group was not deleted, please try it again <br /> <br /> <br /><h3>Choose a group or add one:</h3>";
+				$content = "<br /> "._('Group was not deleted, please try it again')." <br /> <br /> <br /><h3>"._('Choose a group or add one:')."</h3>";
 			}
 		}
 	}	
 	else
 	{
-		$content = "<br /> <br /> <br /> <h3>Choose a group or add one:</h3>";
+		$content = "<br /> <br /> <br /> <h3>"._('Choose a group or add one:')."</h3>";
 	}
 	
 

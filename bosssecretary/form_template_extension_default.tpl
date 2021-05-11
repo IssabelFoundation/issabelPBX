@@ -2,7 +2,7 @@
 <form method="post" name=bosssecretary action="{form_url}">
 <table>
 			<tr>
-				<td colspan="2"><h5>{form_title}</h5> <hr /> </td>
+				<td colspan="2"><h5>{form_title}</h5> </td>
 			</tr>			
 			<tr>
 				<td colspan="2"><a href="#" class="info"><span>Extension To Lock Or UnLock Bosssecretary Group</span>Extension Lock/Unlock:</a> <input type="text" name= "extension" value="{extension}"/></td>				

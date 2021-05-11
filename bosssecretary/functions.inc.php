@@ -815,7 +815,7 @@ function bosssecretary_create_nav_groups_links($groups, $dispnum)
 {
 	$links = array();
 	$link["url"] = "config.php?display=$dispnum&bsgroupdisplay=".BOSSSECRETARY_PARAM_PREFIX. "add";
-	$link["text"] = "Add Group";
+	$link["text"] = _("Add Group");
 	array_push($links, $link);
 	if (!empty($groups))
 	{
@@ -887,6 +887,11 @@ function bosssecretary_set_params_to_edit( $records)
 
 
 function bosssecretary_content($title, $content, $messages){
+
+    $extenlabel = _('Extension');
+    $searchlabel = _('Search');
+    $searchgrouplabel = _('Search Group');
+
 	echo <<<OUTPUT
 
 
@@ -901,7 +906,7 @@ function getExtensions(extensions)
 	xmlHttp=GetXmlHttpObject(setExtensions);
 	xmlHttp.open("GET", url , true);
 	xmlHttp.send(null);
-	document.getElementById('divExtensions').innerHTML = "Searching";
+	document.getElementById('divExtensions').innerHTML = _("Searching");
 	return true;
 }
 
@@ -948,10 +953,10 @@ function GetXmlHttpObject(handler){
 <form method="post" name=searchbosssecretary action="config.php?display=bosssecretary" onsubmit="getExtensions(document.getElementById('extensions').value); return false;">
 <table>
 			<tr>
-				<td colspan="2"><h5>Buscar grupo</h5> <hr /> </td>
+				<td colspan="2"><h5>$searchgrouplabel</h5> </td>
 			</tr>			
 			<tr>
-				<td colspan="2"><label>Extension:</label> <input type="text" id="extensions" name= "extension" value=""/> <input type="button" name="submitSearch" onclick="getExtensions(document.getElementById('extensions').value);" value="Search" /></td>				
+				<td colspan="2"><label>$extenlabel:</label> <input type="text" id="extensions" name= "extension" value=""/> <input type="button" name="submitSearch" onclick="getExtensions(document.getElementById('extensions').value);" value="$searchlabel" /></td>				
 			</tr>
 
 			<tr>
@@ -975,23 +980,34 @@ OUTPUT;
 
 function bosssecretary_get_form_add( array $params)
 {
-	$vars["form_title"] = "Add Group";
+	$vars["form_title"] = _("Add Group");
 	$vars["form_url"] = "config.php?display=bosssecretary&bsgroupdisplay=".BOSSSECRETARY_PARAM_PREFIX. "add";
 	$vars["bosses_extensions"] 		=	(isset($params["bosses"])) ? implode($params["bosses"], "\n") : '';
 	$vars["secretaries_extensions"]	=	(isset($params["secretaries"])) ? implode($params["secretaries"], "\n") : '';
 	$vars["chiefs_extensions"]	=	(isset($params["chiefs"])) ? implode($params["chiefs"], "\n") : '';
 	$vars["group_label"] = (isset($params["group_label"])) ? $params["group_label"] : '';
 	$vars["delete_button"] = "";
-	$vars["action"] = "Add";
+	$vars["action"] = _("Add");
 	$vars["message_details"] = $params["message_details"];
 	$vars["message_title"] = $params["message_title"];
+        $vars["clean_and_remove_duplicates"] = _('Clean and remove duplicates');
+        $vars["group_label_title"]=_("Group Label:");
+        $vars["bosses_label"] = _('Bosses');
+        $vars["secretaries_label"] = _('Secretaries');
+        $vars["chiefs_label"] = _('Chiefs');
+        $vars["bosses_help"] = _('Put bosses extensions here');
+        $vars["secretaries_help"] = _('Put secretaries extensions here');
+        $vars["chiefs_help"] = _('Put chiefs extensions here');
+        $vars["save"] = _('Save');
+
+
 	return bosssecretary_get_form($vars);
 }
 
 
 function bosssecretary_get_form_edit( array $params)
 {
-	$vars["form_title"] = "Edit Group";
+	$vars["form_title"] = _("Edit Group");
 	$vars["form_url"] = "config.php?display=bosssecretary&bsgroupdisplay=".BOSSSECRETARY_PARAM_PREFIX. $params["group_number"];
 	$vars["bosses_extensions"] = (isset($params["bosses"])) ? implode($params["bosses"], "\n") : '';
 	$vars["secretaries_extensions"] = (isset($params["secretaries"])) ? implode($params["secretaries"], "\n") : '';
@@ -999,11 +1015,25 @@ function bosssecretary_get_form_edit( array $params)
 	$vars["group_number"] = $params["group_number"];
 	$vars["group_label"] = $params["group_label"];
 	$vars["delete_button"] = bosssecretary_get_delete_button();
-	$vars["action"] = "Edit";
+	$vars["action"] = _("Edit");
 	$vars["message_details"] = $params["message_details"];
 	$vars["message_title"] = $params["message_title"];
-	$vars["delete_question"] = "Do you really to want delete " . $vars["group_number"] . " (" .$vars["group_label"] . ") group?";
+
+	$vars["delete_question"] = sprintf(_("Do you really to want delete %s (%s) group?"), $vars["group_number"], $vars["group_label"]);
+
+
 	$vars["delete_url"] = "config.php?display=bosssecretary&bsgroupdelete=".BOSSSECRETARY_PARAM_PREFIX. $params["group_number"];
+        $vars["group_label_title"]=_("Group Label:");
+        $vars["clean_and_remove_duplicates"] = _('Clean and remove duplicates');
+        $vars["bosses_label"] = _('Bosses');
+        $vars["secretaries_label"] = _('Secretaries');
+        $vars["chiefs_label"] = _('Chiefs');
+        $vars["bosses_help"] = _('Put bosses extensions here');
+        $vars["secretaries_help"] = _('Put secretaries extensions here');
+        $vars["chiefs_help"] = _('Put chiefs extensions here');
+        $vars["save"] = _('Save');
+
+
 	return bosssecretary_get_form($vars);
 }
 
@@ -1041,7 +1071,7 @@ function bosssecretary_get_form ( array $vars)
 function bosssecretary_get_delete_button()
 {
 	$sForm = file_get_contents(dirname(__FILE__). "/delete_button.tpl");
-	return str_replace("{delete_button_label}", "Delete Group", $sForm);
+	return str_replace("{delete_button_label}", _("Delete Group"), $sForm);
 }
 
 
