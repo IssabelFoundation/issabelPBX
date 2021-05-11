@@ -361,6 +361,76 @@ INSERT INTO `backup_templates` VALUES (1,'Config Backup','Configurations only','
 UNLOCK TABLES;
 
 --
+-- Table structure for table `bosssecretary_boss`
+--
+
+DROP TABLE IF EXISTS `bosssecretary_boss`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bosssecretary_boss` (
+  `id_group` int(10) unsigned NOT NULL,
+  `boss_extension` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_group`,`boss_extension`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `bosssecretary_chief`
+--
+
+DROP TABLE IF EXISTS `bosssecretary_chief`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bosssecretary_chief` (
+  `id_group` int(10) unsigned NOT NULL,
+  `chief_extension` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_group`,`chief_extension`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `bosssecretary_group`
+--
+
+DROP TABLE IF EXISTS `bosssecretary_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bosssecretary_group` (
+  `id_group` int(10) NOT NULL,
+  `label` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_group`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `bosssecretary_group_numbers_free`
+--
+
+DROP TABLE IF EXISTS `bosssecretary_group_numbers_free`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bosssecretary_group_numbers_free` (
+  `group_number` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`group_number`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `bosssecretary_secretary`
+--
+
+DROP TABLE IF EXISTS `bosssecretary_secretary`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bosssecretary_secretary` (
+  `id_group` int(11) NOT NULL,
+  `secretary_extension` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_group`,`secretary_extension`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
 -- Table structure for table `callback`
 --
 
