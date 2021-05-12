@@ -343,3 +343,21 @@ msgstr "NOTA: Si permite este contexto entonces automaticamente permitirá todos
 
 msgid "Class %s deleted"
 msgstr "Clase %s eliminada"
+
+msgid "Includes Descriptions"
+msgstr "Descripción de Inclusiones"
+
+msgid "This will display as a heading for the available includes on the %s page"
+msgstr "Se mostará este nombre como encabezado en la lista de contextos a incluir en la página %s"
+
+msgid "This will display as the name of the include on the %s page"
+msgstr "Se mostrará este nombre en el contexto de inclusión en la página de %s"
+
+msgid "NOTE: This include should have a description denoting the fact that allowing it may allow another ENTIRE context!"
+msgstr "ATENCION: El nombre debe dejar en claro que permitiendo este contexto podrían permitir acceso a otros contextos ENTEROS!"
+
+msgid "Class %s cannot be removed"
+msgstr "La clase %s no puede ser eliminada"
+
+msgid "The context which contains includes which you would like to make available to %s. Any context you enter here will be parsed for includes and you can then include them in your own %s. Removing them here does NOT delete the context, rather makes them unavailable to your %s."
+msgstr "El contexto que contenga las inclusiones que desee hacer disponibles en la %s. Cualquier contexto que ingrese aquí será revisado por inclusiones, y luego podrá incluirlas individualmente en su %s. Eliminarlas de aquí NO elimina el contexto, solo lo hace inalcanzable para su %s."

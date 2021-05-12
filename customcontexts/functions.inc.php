@@ -443,13 +443,13 @@ global $currentcomponent;
         //need to get module name/type dynamically
         $query = ($_SERVER['QUERY_STRING'])?$_SERVER['QUERY_STRING']:'type=tool&display=customcontextsadmin&extdisplay='.$extdisplay;
         $delURL = $_SERVER['PHP_SELF'].'?'.$query.'&action=del';
-        $info = 'The context which contains includes which you would like to make available to '.customcontexts_getmodulevalue('moduledisplayname').'. Any context you enter here will be parsed for includes and you can then include them in your own '.customcontexts_getmodulevalue('moduledisplayname').'. Removing them here does NOT delete the context, rather makes them unavailable to your '.customcontexts_getmodulevalue('moduledisplayname').'.';
+        $info = sprintf(_('The context which contains includes which you would like to make available to %s. Any context you enter here will be parsed for includes and you can then include them in your own %s. Removing them here does NOT delete the context, rather makes them unavailable to your %s.'),customcontexts_getmodulevalue('moduledisplayname'),customcontexts_getmodulevalue('moduledisplayname'),customcontexts_getmodulevalue('moduledisplayname'));
       $currentcomponent->addguielem('_top', new gui_hidden('action', ($extdisplay ? 'edit' : 'add')));
 //        $currentcomponent->addguielem('_bottom', new gui_link('help', _(customcontexts_getmodulevalue('moduledisplayname')." v".customcontexts_getmodulevalue('moduleversion')), 'http://www.issabel.org/support/documentation/module-documentation/classofservice', true, false), 0);
         if (!$extdisplay) {
             $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Add Class"), false), 0);
             $currentcomponent->addguielem('Class', new gui_textbox('extdisplay', '', _('Class'), $info, 'isWhitespace() || !isFilename()', $contexterr, false), 3);
-            $currentcomponent->addguielem('Class', new gui_textbox('description', '', _('Description'), 'This will display as a heading for the available includes on the '.customcontexts_getmodulevalue('moduledisplayname').' page.', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+            $currentcomponent->addguielem('Class', new gui_textbox('description', '', _('Description'), sprintf(_('This will display as a heading for the available includes on the %s page'),_(customcontexts_getmodulevalue('moduledisplayname'))), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
         }    else {
             $savedcontext = customcontexts_customcontextsadmin_get($extdisplay);
             $context = $savedcontext[0];
@@ -462,15 +462,15 @@ global $currentcomponent;
             }
             else
             {
-                $currentcomponent->addguielem('_top', new gui_label('del', _("Class").": $context can not be removed!", $delURL, true, false), 0);
+                $currentcomponent->addguielem('_top', new gui_label('del', sprintf(_("Class %s cannot be removed"),$context), $delURL, true, false), 0);
             }
-            $currentcomponent->addguielem('Class', new gui_textbox('description', $description, _('Description'), 'This will display as a heading for the available includes on the '.customcontexts_getmodulevalue('moduledisplayname').' page.', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+            $currentcomponent->addguielem('Class', new gui_textbox('description', $description, _('Description'), sprintf(_('This will display as a heading for the available includes on the %s page'),_(customcontexts_getmodulevalue('moduledisplayname'))), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
             $inclist = customcontexts_getincludeslist($extdisplay);
             foreach ($inclist as $val) {
                 if ($val[2] > 0) {
-                    $currentcomponent->addguielem('Includes Descriptions', new gui_textbox('includes['.$val[0].']', $val[1], '<font color="red"><strong>'.$val[0].'</strong></font>', 'This will display as the name of the include on the '.customcontexts_getmodulevalue('moduledisplayname').' page.<BR><font color="red"><strong>NOTE: This include should have a description denoting the fact that allowing it may allow another ENTIRE context!</strong></font>', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+                    $currentcomponent->addguielem('Includes Descriptions', new gui_textbox('includes['.$val[0].']', $val[1], '<font color="red"><strong>'.$val[0].'</strong></font>', sprintf(_('This will display as the name of the include on the %s page'),_(customcontexts_getmodulevalue('moduledisplayname'))).'<BR><font color="red"><strong>'._('NOTE: This include should have a description denoting the fact that allowing it may allow another ENTIRE context!').'</strong></font>', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
                 } else {
-                    $currentcomponent->addguielem('Includes Descriptions', new gui_textbox('includes['.$val[0].']', $val[1], $val[0], 'This will display as the name of the include on the '.customcontexts_getmodulevalue('moduledisplayname').' page.', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+                    $currentcomponent->addguielem('Includes Descriptions', new gui_textbox('includes['.$val[0].']', $val[1], $val[0], sprintf(_('This will display as the name of the include on the %s page'),_(customcontexts_getmodulevalue('moduledisplayname'))), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
                 }
 
             }
