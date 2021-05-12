@@ -139,7 +139,7 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 				<input type="hidden" name="origcustom_<?php echo $featureid; ?>" value="<?php echo $featurecodecustom; ?>">
 			</td>
 			<td>
-				<select name="ena#<?php echo $featureid; ?>">
+				<select name="ena#<?php echo $featureid; ?>" class='componentSelect'>
 				<option <?php if ($featureena == true) echo ("selected "); ?>value="1"><?php echo _("Enabled"); ?></option>
 				<option <?php if ($featureena == false) echo ("selected "); ?>value="0"><?php echo _("Disabled"); ?></option>
 				</select>
