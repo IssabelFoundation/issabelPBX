@@ -340,3 +340,6 @@ msgstr "Está seguro que quiere borrar %s ?"
 
 msgid "NOTE: Allowing this include may automatically allow another ENTIRE context!"
 msgstr "NOTA: Si permite este contexto entonces automaticamente permitirá todos los contextos internos independientemente de lo que seleccione más abajo!"
+
+msgid "Class %s deleted"
+msgstr "Clase %s eliminada"

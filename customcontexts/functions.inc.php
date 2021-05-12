@@ -438,7 +438,7 @@ global $currentcomponent;
     $extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
     $action= isset($_REQUEST['action'])?$_REQUEST['action']:null;
     if ($action == 'del') {
-        $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Class").": $extdisplay"." deleted!", false), 0);
+        $currentcomponent->addguielem('_top', new gui_pageheading('title', sprintf(_("Class %s deleted"),$extdisplay), false), 0);
     } else {
         //need to get module name/type dynamically
         $query = ($_SERVER['QUERY_STRING'])?$_SERVER['QUERY_STRING']:'type=tool&display=customcontextsadmin&extdisplay='.$extdisplay;
@@ -592,7 +592,7 @@ global $currentcomponent;
         customcontexts_setmodulevalue('displaysortforincludes', $showsort);
     }
     if ($action == 'del') {
-        $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Class").": $extdisplay"." deleted!", false), 0);
+        $currentcomponent->addguielem('_top', new gui_pageheading('title', sprintf(_("Class %s deleted"),$extdisplay), false), 0);
     } else {
         //need to get page name/type dynamically
         //caused trouble on dup or del after dup or rename
