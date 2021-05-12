@@ -113,28 +113,230 @@ msgstr "Enviar cambios"
 msgid "Extension Options"
 msgstr "Opciones de la extensión"
 
-#~ msgid "Connectivity"
-#~ msgstr "Conectividad"
+msgid "Class of service name. It will be available in your dialplan. These classes of service can be used as a context for a device/extension to allow them limited access to your dialplan."
+msgstr "Nombre de la Clase de Servicio. Se hará disponible en el plan de marcado. Las clases de servicio pueden usarse como un contexto para dispositivo/extensión y otorgar acceso limitado al plan de marcado."
 
-#~ msgid ""
-#~ "Creates custom contexts which can be used to allow limited access to "
-#~ "dialplan applications. Allows for time restrictions on any dialplan "
-#~ "access. Allows for pattern matching to allow/deny. Allows for failover "
-#~ "destinations, and PIN protected failover. This can be very useful for "
-#~ "multi-tennant systems. Inbound routing can be done using DID or zap "
-#~ "channel routing,\tthis module allows for selective outbound routing. "
-#~ "House/public phones can be placed in a restricted context allowing them "
-#~ "only internal calls."
-#~ msgstr ""
-#~ "Crea contextos personalizados que pueden ser utilizados para permitir "
-#~ "acceso limitado a las aplicaciones del dialplan. Permite las "
-#~ "restricciones de tiempo en cualquier acceso al dialplan. Permite la "
-#~ "comparación de patrones para permitir / denegar. Permite destinos "
-#~ "failover, y PIN failover  protegido. Esto puede ser muy útil para "
-#~ "sistemas multi-Tennant. El erutamiento inboubd se puede hacer mediante "
-#~ "DID o a través canal zap, → este módulo permite enrutamiento  outbound  "
-#~ "selectivo. Casa / teléfonos públicos se pueden colocar en un contexto "
-#~ "restringido permitiéndo sólo llamadas internas."
+msgid "This will display as the name of this class of service."
+msgstr "Ingrese una descripción para esta clase de servicio."
 
-#~ msgid "Class of Services Admin"
-#~ msgstr "Administración de contextos personlizado"
+msgid "Set All"
+msgstr "Configurar Todos"
+
+msgid "Set All To:"
+msgstr "Configurar Todos para:"
+
+msgid "Default Internal Context"
+msgstr "Contexto Interno por Defecto"
+
+msgid "Call Parking"
+msgstr "Aparacamiento de Llamadas"
+
+msgid "Custom Internal Dialplan"
+msgstr "Plan de Marcado Interno Personalizado"
+
+msgid "ENTIRE Basic Internal Dialplan"
+msgstr "Plan de Marcado Interno Básico en su TOTALIDAD"
+
+msgid "Choose allow to allow access to all includes, choose deny to deny access."
+msgstr "Elija Permitir para permitir acceso a todos los contextos incluídos, elija Denegar para no permitirlo."
+
+msgid "If defined, you will have the option for each portion of the dialplan to Allow Rule, and that include will only be available if the number dialed matches these rules, or Deny Rule, and that include will only be available if the dialed number does NOT match these rules. You may use a pipe | to strip the preceeding digits."
+msgstr "Si configura una regla, entonces cada contexto que esté configurado como 'Permitir Reglas' será permitido si el patrón coincide con el utilizado, mientras que si el contexto está configurado como 'Denegar Reglas' entonces se permitirá si el número marcado NO concuerda con estas reglas. Puede usar un pipe | para remover los digitos precedentes."
+
+msgid "Choose a priority with which to sort this option. Lower numbers have a higher priority."
+msgstr "Elija una prioridad. Números más bajos tendrás prioridad más alta."
+
+msgid "Failover Destination"
+msgstr "Destino en caso de fallo"
+
+msgid "Outbound Routes"
+msgstr "Rutas Salientes"
+
+msgid "Feature Code Failover Destination"
+msgstr "Código de Característica de Destino en caso de fallo"
+
+msgid "Internal Dialplan"
+msgstr "Plan de Marcado Interno"
+
+msgid "Allow"
+msgstr "Permitir"
+
+msgid "Deny"
+msgstr "Denegar"
+
+msgid "Allow Rules"
+msgstr "Permitir Reglas"
+
+msgid "Deny Rules"
+msgstr "Denegar Reglas"
+
+msgid ": Choose allow to allow access to this include, choose deny to deny access."
+msgstr ": Elija Permitir para permitir este contexto, elija Denegar para no permitirlo."
+
+msgid "Priority"
+msgstr "Prioridad"
+
+msgid "app pbdirectory"
+msgstr "App Directorio Telefónico"
+
+msgid "app fax"
+msgstr "App Fax"
+
+msgid "DND On"
+msgstr "Activar No Molestar"
+
+msgid "DND Off"
+msgstr "Desactivar No Molestar"
+
+msgid "DND Toggle"
+msgstr "Alternar No Molestar"
+
+msgid "ext-injections"
+msgstr "Inyección de Plan de Marcado"
+
+msgid "ext-dnd-hints"
+msgstr "Hints de No Molestar"
+
+msgid "app recordings"
+msgstr "Grabaciones de Sistema"
+
+msgid "Follow Me toggle"
+msgstr "Alternar Sígueme"
+
+msgid "Follow Me"
+msgstr "Sígueme"
+
+msgid "fmgrps"
+msgstr "Sígueme Grupo"
+
+msgid "Call Waiting Off"
+msgstr "Desactivar Llamada en Espera"
+
+msgid "Call Waiting On"
+msgstr "Activar Llamada en Espera"
+
+msgid "app dictate record"
+msgstr "Dictado - Grabación"
+
+msgid "app dictate send"
+msgstr "Dictado - Envío"
+
+msgid "Call Forward toggle"
+msgstr "Alternar Desvío de Llamada"
+
+msgid "Call Forward Busy Off"
+msgstr "Desactivar Desvío Ocupado"
+
+msgid "CF Busy any Off"
+msgstr "Desactivar Desvío Ocupado Siempre"
+
+msgid "Call Forward Off"
+msgstr "Desactivar Desvío"
+
+msgid "CF any Off"
+msgstr "Desactivar Desvío Siempre"
+
+msgid "Queues"
+msgstr "Colas"
+
+msgid "Conferences"
+msgstr "Conferencias"
+
+msgid "Call Forward Busy On"
+msgstr "Activar Desvío Ocupado"
+
+msgid "CF Busy prompt On"
+msgstr "Activar anuncio Desvío Ocupado"
+
+msgid "Call Forward On"
+msgstr "Activar Desvío de Llamada"
+
+msgid "CF prompt On"
+msgstr "Activar anuncio Desvío"
+
+msgid "ext-cf-hints"
+msgstr "Hints de Desvío"
+
+msgid "app calltrace"
+msgstr "App Traza de Llamada"
+
+msgid "app echo test"
+msgstr "App Test de Eco"
+
+msgid "app speakextennum"
+msgstr "App Decir Extensión"
+
+msgid "app speakingclock"
+msgstr "App Reloj Parlante"
+
+msgid "park hints"
+msgstr "Hints de Aparcamiento"
+
+msgid "Dial VM"
+msgstr "Acceder a Buzón de Voz"
+
+msgid "Voicemail Main"
+msgstr "App Buzón de Voz"
+
+msgid "ext-bosssecretary"
+msgstr "Jefe Secretaria"
+
+msgid "app speeddial"
+msgstr "Marcado Rápido"
+
+msgid "app blacklist"
+msgstr "Lista Negra"
+
+msgid "Ring Groups"
+msgstr "Grupos de Timbrado"
+
+msgid "grps"
+msgstr "Grupos de Timbrado auxiliar"
+
+msgid "app user logonoff"
+msgstr "Logon/Logoff de Usuario"
+
+msgid "Extensions Confirm"
+msgstr "Confirmación de Extensión"
+
+msgid "findmefollow ringallv2"
+msgstr "Ringall de Sígueme"
+
+msgid "app pickup"
+msgstr "Captura de Llamada"
+
+msgid "app zapbarge"
+msgstr "ZapBarge"
+
+msgid "app chanspy"
+msgstr "ChanSpy"
+
+msgid "ext-test"
+msgstr ""
+
+msgid "Extensions"
+msgstr "Extensiones"
+
+msgid "Call Forward Unavailable Off"
+msgstr "Desactivar Desvío No Disponible"
+
+msgid "Call Forward Unavailable On"
+msgstr "Activar Desvío No Disponible"
+
+msgid "CF Unavailable On"
+msgstr "Activar Desvío No Disponible"
+
+msgid "ALL OUTBOUND ROUTES"
+msgstr "TODAS LAS RUTAS SALIENTES"
+
+msgid "PIN must be numeric!'"
+msgstr "El PIN debe ser numérico!"
+
+msgid "Enter a numeric PIN to require authentication before continuing to destination."
+msgstr "Ingrese un PIN numérico para autenticar antes de continuar al destino."
+
+msgid "Are you sure you want to delete %s ?"
+msgstr "Está seguro que quiere borrar %s ?"
+
+msgid "NOTE: Allowing this include may automatically allow another ENTIRE context!"
+msgstr "NOTA: Si permite este contexto entonces automaticamente permitirá todos los contextos internos independientemente de lo que seleccione más abajo!"
