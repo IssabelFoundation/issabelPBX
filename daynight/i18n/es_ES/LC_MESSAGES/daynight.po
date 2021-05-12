@@ -232,9 +232,9 @@ msgstr "Guardar"
 msgid ""
 "There are a total of 10 Feature code objects, 0-9, each can control a call "
 "flow and be toggled using the call flow toggle feature code plus the index."
-msgstr "Hay un total de 10 códigos de funcionalidad, 0-0, cada uno puede "
+msgstr "Hay un total de 10 códigos de característica, 0-9, cada uno puede "
 "controlar el flujo de llamados y puede ser activado o desactivado usando "
-"el código de funcionalidad correspondiente."
+"el código de característica correspondiente."
 
 #: page.daynight.php:153
 msgid ""
