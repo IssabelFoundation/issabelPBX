@@ -594,24 +594,26 @@ $conf_change_desc = _("Your Conference Room App (ASTCONFAPP) was automatically c
 $conf_missing = _("No Conference Room App");
 $conf_missing_desc = _("Neither app_meetme nor app_confbridge is configured in Asterisk, conferencing, paging and other functionality will not work properly");
 
-if ($amp_conf['ASTCONFAPP'] == 'app_meetme' && !$astman->app_exists('meetme')) {
-    if ($astman->app_exists('confbridge')) {
-        $issabelpbx_conf->set_conf_values(array('ASTCONFAPP' => 'app_confbridge'), true, true);
-        $nt->add_notice('framework', 'ASTCONFAPPCHG', $conf_change, sprintf($conf_change_desc,'app_meetme','app_confbridge','app_meetme'));
-        $nt->delete('framework', 'ASTCONFAPPMISSING');
+if (!$bootstrap_settings['astman_connected']) {
+    if ($amp_conf['ASTCONFAPP'] == 'app_meetme' && !$astman->app_exists('meetme')) {
+        if ($astman->app_exists('confbridge')) {
+            $issabelpbx_conf->set_conf_values(array('ASTCONFAPP' => 'app_confbridge'), true, true);
+            $nt->add_notice('framework', 'ASTCONFAPPCHG', $conf_change, sprintf($conf_change_desc,'app_meetme','app_confbridge','app_meetme'));
+            $nt->delete('framework', 'ASTCONFAPPMISSING');
+        } else {
+            $nt->add_error('framework', 'ASTCONFAPPMISSING', $conf_missing, $conf_missing_desc);
+        }
+    } elseif ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && !$astman->app_exists('confbridge')) {
+        if ($astman->app_exists('meetme')) {
+            $issabelpbx_conf->set_conf_values(array('ASTCONFAPP' => 'app_meetme'), true, true);
+            $nt->add_notice('framework', 'ASTCONFAPPCHG', $conf_change, sprintf($conf_change_desc,'app_confbridge','app_meetme','app_confbridge'));
+            $nt->delete('framework', 'ASTCONFAPPMISSING');
+        } else {
+            $nt->add_error('framework', 'ASTCONFAPPMISSING', $conf_missing, $conf_missing_desc);
+        }
     } else {
-        $nt->add_error('framework', 'ASTCONFAPPMISSING', $conf_missing, $conf_missing_desc);
-    }
-} elseif ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && !$astman->app_exists('confbridge')) {
-    if ($astman->app_exists('meetme')) {
-        $issabelpbx_conf->set_conf_values(array('ASTCONFAPP' => 'app_meetme'), true, true);
-        $nt->add_notice('framework', 'ASTCONFAPPCHG', $conf_change, sprintf($conf_change_desc,'app_confbridge','app_meetme','app_confbridge'));
         $nt->delete('framework', 'ASTCONFAPPMISSING');
-    } else {
-        $nt->add_error('framework', 'ASTCONFAPPMISSING', $conf_missing, $conf_missing_desc);
     }
-} else {
-    $nt->delete('framework', 'ASTCONFAPPMISSING');
 }
 
 // Check for and report any extension conflicts
