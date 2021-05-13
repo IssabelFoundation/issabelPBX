@@ -556,7 +556,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
         $html.='<table class=faxdetect '.($fax?'':'style="display: none;"').'>';
         $info=engine_getinfo();
         $html.='<tr><td width="156px"><a href="#" class="info">'._('Fax Detection type').'<span>'._("Type of fax detection to use.")."<ul><li>".$dahdi.": "._("use ").$dahdi._(" fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in ").$dahdi.".conf</li><li>"._("Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files")."</li><li>"._("NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk")."</li></ul>".'.</span></a>:</td>';
-        $html.='<td><select name="faxdetection" tabindex="'.++$tabindex.'">';
+        $html.='<td><select name="faxdetection" tabindex="'.++$tabindex.'" class="componentSelect">';
         //$html.='<option value="Auto"'.($faxdetection == 'auto' ? 'SELECTED' : '').'>'. _("Auto").'</option>';<li>Auto: allow the system to chose the best fax detection method</li>
         $html.='<option value="dahdi" '.($fax['detection'] == 'dahdi' ? 'SELECTED' : '').' '.($fax_dahdi_faxdetect?'':'disabled').'>'.$dahdi.'</option>';
         $html.='<option value="nvfax"'.($fax['detection'] == 'nvfax' ? 'SELECTED' : '').($fax_detect['nvfax']?'':'disabled').'>'. _("NVFax").'</option>';
@@ -564,7 +564,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
         $html.='</select></td></tr>';
 
         $html.='<tr><td><a href="#" class="info">'._("Fax Detection Time").'<span>'._('How long to wait and try to detect fax. Please note that callers to a '.$dahdi.' channel will hear ringing for this amount of time (i.e. the system wont "answer" the call, it will just play ringing)').'.</span></a>:</td>';
-        $html.='<td><select name="faxdetectionwait" tabindex="'.++$tabindex.'">';
+        $html.='<td><select name="faxdetectionwait" tabindex="'.++$tabindex.'" class="componentSelect">';
         if(!$fax['detectionwait']){$fax['detectionwait']=4;}//default wait time is 4 second
         for($i=2;$i < 11; $i++){
             $html.='<option value="'.$i.'" '.($fax['detectionwait']==$i?'SELECTED':'').'>'.$i.'</option>';
@@ -574,7 +574,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
             $html.='</table>';
             $html.='<table class="legacyemail"'.($fax['legacy_email'] === null ? ' style="display: none;"':'').'>';
             $html.='<tr ><td><a href="#" class="info">'._("Fax Email Destination").'<span>'._('Address to email faxes to on fax detection.<br />PLEASE NOTE: In this version of IssabelPBX, you can now set the fax destination from a list of destinations. Extensions/Users can be fax enabled in the user/extension screen and set an email address there. This will create a new destination type that can be selected. To upgrade this option to the full destination list, select YES to Detect Faxes and select a destination. After clicking submit, this route will be upgraded. This Legacy option will no longer be available after the change, it is provided to handle legacy migrations from previous versions of IssabelPBX only.').'.</span></a>:</td>';
-            $html.='<td><input name="legacy_email" value="'.$fax['legacy_email'].'"></td></tr>';
+            $html.='<td><input name="legacy_email" value="'.$fax['legacy_email'].'" class="w100"></td></tr>';
             $html.='</table>';
             $html.='<table class="faxdest27 faxdetect" style="display: none" >';
     }
