@@ -762,19 +762,19 @@ msgstr "Opciones CID"
 #: ../core/functions.inc.php:7258 ../core/functions.inc.php:7267
 #: ../core/functions.inc.php:7272
 msgid "CID Prefix"
-msgstr ""
+msgstr "Prefijo CID"
 
 #: ../core/page.did.php:205
 msgid "CID Priority Route"
-msgstr ""
+msgstr "Ruta Prioritaria por CID"
 
 #: ../core/page.did.php:215
 msgid "CID name prefix"
-msgstr ""
+msgstr "Prefijo Identificador de Nombre"
 
 #: ../core/install.php:970
 msgid "CRITICAL ERROR"
-msgstr ""
+msgstr "ERROR CRITICO"
 
 #: ../core/functions.inc.php:7176
 msgid "Call Forward Ring Time"
@@ -782,7 +782,7 @@ msgstr "Duración de Timbrado Redirección de Llamada"
 
 #: ../core/functions.inc.php:994
 msgid "Call Recording Module Not Enabled"
-msgstr ""
+msgstr "Módulo de grabación no habilitado"
 
 #: ../core/functions.inc.php:7193
 msgid "Call Screening"
@@ -819,7 +819,7 @@ msgstr ""
 
 #: ../core/page.did.php:200
 msgid "CallerID Number"
-msgstr ""
+msgstr "Número de Identificador CID"
 
 #: ../core/page.trunks.php:513
 msgid ""
@@ -4040,6 +4040,11 @@ msgid ""
 "If there is a specific DID/CID route for this CID, that route will still "
 "take the call when that DID is called."
 msgstr ""
+"Esto afecta a rutas por CID que no tengan un DID especificado. Si se activa, "
+"las llamadas con ese CID serán enrutada spor esta ruta, incluso si hubiera una "
+"ruta para el DID en el que ingresó la llamada. El comportamiento normal es que "
+"la ruta por DID tenga prioridad. Si existe una ruta específica DID/CID para este "
+"CID, esa ruta será tomada cuando se llame a dicho DID."
 
 #: ../core/page.trunks.php:961
 msgid ""
