@@ -103,7 +103,7 @@ $set_users = findmefollow_list();
 
 if (isset($gresults)) {
     foreach ($gresults as $gresult) {
-        $defined = is_array($set_users) ? (in_array($gresult[0], $set_users) ? "(edit)" : "(add)") : "add";
+        $defined = is_array($set_users) ? (in_array($gresult[0], $set_users) ? _("(edit)") : _("(add)")) : _("(add)");
                 echo "<li><a class=\"".($extdisplay=='GRP-'.$gresult[0] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&extdisplay=".urlencode("GRP-".$gresult[0])."\">"._("$gresult[1]")." <{$gresult[0]}> $defined  </a></li>";
 
     }

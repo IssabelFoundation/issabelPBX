@@ -450,3 +450,12 @@ msgid ""
 msgstr ""
 "Número CID inválido. Debe estar en formato sólo numérico con la opciíon "
 "de formato E164 usando un \"+\" inicial"
+
+msgid "(add)"
+msgstr "(añadir)"
+
+msgid "(edit)"
+msgstr "(modificar)"
+
+msgid "Normal Extension Behavior"
+msgstr "Comportamiento Normal de Extensión"
