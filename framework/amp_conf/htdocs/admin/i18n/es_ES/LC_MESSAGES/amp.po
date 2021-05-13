@@ -3692,7 +3692,7 @@ msgstr "Mostrar sólo actualizables"
 
 #: ../core/page.did.php:240
 msgid "Signal RINGING"
-msgstr ""
+msgstr "Señalizar TIMBRE"
 
 #: ../core/install.php:11
 msgid "Simulate Incoming Call"
@@ -3704,6 +3704,9 @@ msgid ""
 "notice this happening if you can send calls directly to a phone, but if you "
 "send it to an IVR, it won't connect the call."
 msgstr ""
+"Algunos dispositivos o proveedores requieren que se les envie RINGING antes "
+"del ANSWER. Notará que esto sucede si puede enviar llamadas directamente a un "
+"teléfono, pero si las manda a un IVR la llamada no conecta."
 
 #: ../core/page.advancedsettings.php:43
 msgid ""
