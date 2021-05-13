@@ -1197,6 +1197,15 @@ msgid ""
 "effecting the specified channel(s). Once you have assigned DIDs you can use "
 "standard Inbound Routes with the specified DIDs to route your calls."
 msgstr ""
+"Este módulo le permite asignar DID a canales DAHDI específicos. "
+"Puede especificar el mismo DID a varios canales. Este sería un "
+"escenario común si tiene varias lineas analógicas rotativas de "
+"su proveedor. DEBE especificar el contexto from-analog para que "
+"esta configuración surta efecto. Será una linea que se verá:<br /><br /"
+">context = from-analog<br /><br />en el archivo chan_dahdi.conf "
+"para los canales especificados. Una vez que haya asigando un DID "
+"podrá usar Rutas Entrantes estándar para los DIDs asignados."
+
 
 #: ../core/page.trunks.php:873
 msgid "DAHDi Identifier"
@@ -3793,11 +3802,11 @@ msgstr ""
 
 #: ../core/page.dahdichandids.php:79
 msgid "The DAHDI Channel number to map to a DID"
-msgstr ""
+msgstr "El número de canal DAHDI para mapear a este DID"
 
 #: ../core/functions.inc.php:7403
 msgid "The DAHDi channel number for this port."
-msgstr ""
+msgstr "El número de canal DAHDI para este puerto."
 
 #: ../core/page.dahdichandids.php:90
 msgid ""
@@ -3805,6 +3814,9 @@ msgid ""
 "be treated as if it came in with this DID and can be managed with Inbound "
 "Routing on DIDs"
 msgstr ""
+"El DID asignado a este canal. La llamada entrante en este canal "
+"será tratado como si ingresara desde dicho DID y podrá ser administrado "
+"mediante Rutas Entrantes de manera regular"
 
 #: ../core/functions.inc.php:7521
 msgid ""
