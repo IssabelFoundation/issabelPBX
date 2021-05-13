@@ -78,25 +78,31 @@ msgid ""
 msgstr ""
 
 msgid "Fax Detect"
-msgstr ""
+msgstr "Detectar Fax"
 
 msgid "Detect Faxes"
-msgstr ""
+msgstr "Detectar Fax"
 
 msgid "Attempt to detect faxes on this DID."
-msgstr ""
+msgstr "Intentar detectar señar de fax en este DID."
 
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination below. Use this option if this DID is used exclusively for voice "
 "OR fax."
 msgstr ""
+"No: No se intentará detectar el tipo de llamada; todas las llamadas "
+"se enviarán al destino especificado abajo. Use esta opción si el DID se usa "
+"exclusivamente para voz o para fax, pero no ambos."
 
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
 "receive both voice and fax calls on this line"
 msgstr ""
+"Si: intentar detectar el tipo de llamada y enrutar la misma al destino de fax "
+"si se detecta como tal, de otro modo enviar al destino regular. Use esta opción "
+"para recibir llamadas de voz o fax en esta línea."
 
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
@@ -147,18 +153,19 @@ msgid "Sip"
 msgstr ""
 
 msgid "Fax Detection Time"
-msgstr ""
+msgstr "Duración de Detección de Fax"
 
 msgid "How long to wait and try to detect fax. Please note that callers to a "
-msgstr ""
+msgstr "Que tanto tiempo esperar intentando detectar fax. Tenga en cuenta que usuarios llamando a canales "
 
 msgid ""
 " channel will hear ringing for this amount of time (i.e. the system wont "
 "\"answer\" the call, it will just play ringing)"
 msgstr ""
+" escucharán timbrar la extensión por esta cantidad de tiempo (el sistema no atenderá la linea, solo proveerá tono de timbre)"
 
 msgid "Fax Email Destination"
-msgstr ""
+msgstr "Email de Destino del Fax"
 
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
