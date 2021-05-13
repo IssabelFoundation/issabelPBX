@@ -2860,7 +2860,7 @@ msgstr "Sin acción"
 
 #: ../core/functions.inc.php:7257
 msgid "No Answer"
-msgstr ""
+msgstr "No Atiende"
 
 #: ../core/page.advancedsettings.php:88
 msgid "No Default Provided"
@@ -2930,7 +2930,7 @@ msgstr "No instalado; disponible localmente"
 
 #: ../core/functions.inc.php:7271
 msgid "Not Reachable"
-msgstr ""
+msgstr "Inalcanzable"
 
 #: upgrades/2.5.0/removefiles.php:23
 msgid "Not Required"
