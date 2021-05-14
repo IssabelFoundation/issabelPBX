@@ -251,7 +251,7 @@ function dialplaninjection_configpageload() {
             $currentcomponent->addguielem(_('Commands'), new guielement('commandsbox',$commandshtml,''), 3);
             $currentcomponent->addguielem(_('Commands'), new gui_selectbox('newcommand', $currentcomponent->getoptlist('commandslist'), '', _('New Command'), _('Choose a command type from the list and submit to add a new command.'),true,"javascript:document.frm_dialplaninjection.commands.value += '\\n' + document.frm_dialplaninjection.newcommand.options[document.frm_dialplaninjection.newcommand.selectedIndex].value;"));
         }
-        $currentcomponent->addguielem('_bottom', new gui_link('link', _(dialplaninjection_getmodulevalue('moduledisplayname')." v".dialplaninjection_getmodulevalue('moduleversion')), 'http://www.issabel.org', true, false), 9);
+        // $currentcomponent->addguielem('_bottom', new gui_link('link', _(dialplaninjection_getmodulevalue('moduledisplayname')." v".dialplaninjection_getmodulevalue('moduleversion')), 'http://www.issabel.org', true, false), 9);
     }
     $currentcomponent->addguielem('_top', new gui_hidden('action', ($extdisplay ? 'edit' : 'add')));
 }
