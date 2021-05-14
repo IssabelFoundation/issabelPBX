@@ -638,6 +638,9 @@ msgid ""
 "PBX. It is used to send update and security notifications when they are "
 "detected."
 msgstr ""
+"Está seguro que no quiere especificar una direccion de correo donde "
+"recibir notificaciones sobre actualizaciones y seguridad? El email "
+"nunca será transmitido fuera de la PBX."
 
 #: amp_conf/htdocs/admin/views/footer.php:87
 msgid ""
@@ -646,6 +649,9 @@ msgid ""
 "update notifications will NOT automatically install them but will make sure "
 "you are informed as soon as they are available."
 msgstr ""
+"Está seguro que quiere desacxtivar notificaciones sobre actualizaciones automáticas? "
+"Est puede dejar a su sistema en riesgo. Activando estas notificaciones NO realizará "
+"dichas actualizaciones de forma automática, solo se le serán notificadas."
 
 #: ../core/page.trunks.php:716
 msgid "Are you sure you want to disable this trunk in all routes it is used?"
@@ -3597,7 +3603,7 @@ msgstr ""
 #: amp_conf/htdocs/admin/views/footer.php:82
 #: ../core/page.advancedsettings.php:145
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: ../core/functions.inc.php:6960
 msgid "Screen Caller: Memory"
@@ -3613,15 +3619,15 @@ msgstr "Seguridad"
 
 #: amp_conf/htdocs/admin/views/footer.php:85
 msgid "Security Issue"
-msgstr ""
+msgstr "Vulnerabilidad"
 
 #: ../core/functions.inc.php:7560
 msgid "Send P-Asserted-Identity header"
-msgstr ""
+msgstr "Enviar encabezado P-Asserted-Identity"
 
 #: ../core/functions.inc.php:7557
 msgid "Send Remote-Party-ID header"
-msgstr ""
+msgstr "Enviar encabezado Remote-Party-ID"
 
 #: ../core/page.trunks.php:425
 msgid "Sequence"
@@ -3637,6 +3643,8 @@ msgid ""
 "For example, choose a type appropriate for routes coming in from a country "
 "which may have announcements in their language."
 msgstr ""
+"Especifique la clase de música en espera a ser utilizada en las llamadas "
+"que ingresen por esta ruta."
 
 #: ../core/functions.inc.php:7188
 msgid "Set the initial/current Call Waiting state for this user's extension"

@@ -1,6 +1,7 @@
 <?php
 global $amp_conf;
 global $module_name, $active_modules;
+set_language();
 $version	 = get_framework_version();
 $version_tag = '?load_version=' . urlencode($version);
 if ($amp_conf['FORCE_JS_CSS_IMG_DOWNLOAD']) {
@@ -92,6 +93,7 @@ $ipbx['msg']['framework']['validateSingleDestination']['required'] = _('Please s
 $ipbx['msg']['framework']['validateSingleDestination']['error'] = _('Custom Goto contexts must contain the string "custom-".  ie: custom-app,s,1'); 
 $ipbx['msg']['framework']['weakSecret']['length'] = _("The secret must be at minimum six characters in length.");
 $ipbx['msg']['framework']['weakSecret']['types'] = _("The secret must contain at least two numbers and two letters.");
+$ipbx['msg']['framework']['add'] = _("Add");
 
 if ($covert) {
 	$ipbx['conf'] = array (
