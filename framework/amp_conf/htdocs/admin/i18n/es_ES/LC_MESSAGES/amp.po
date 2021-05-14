@@ -4945,11 +4945,11 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/helpers/issabelpbx_helpers.php:105
 msgid "choose one"
-msgstr ""
+msgstr "elija uno"
 
 #: amp_conf/htdocs/admin/views/obe.php:70
 msgid "confirm email"
-msgstr ""
+msgstr "confirmar email"
 
 #: upgrades/2.8.0alpha2/tables.php:95
 msgid "continuing.."
@@ -4999,7 +4999,7 @@ msgstr ""
 #: upgrades/2.6.0beta1/tables.php:317 ../core/install.php:471
 #: ../core/install.php:858 ../core/install.php:944
 msgid "done"
-msgstr ""
+msgstr "listo"
 
 #: upgrades/2.8.0/custom-context.php:104
 #: upgrades/2.8.0rc1/custom-context.php:105
