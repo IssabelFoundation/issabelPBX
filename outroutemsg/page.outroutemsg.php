@@ -50,7 +50,7 @@ if ($action != 'submit') {
 <tr>
 	<td><a href="#" class="info"><?php echo _("Message or Tone")?><span><?php echo _("Message or tone to be played if no trunks are available.")?></span></a></td>
 	<td align=right>
-		<select name="default_msg_id" id="default_msg_id" tabindex="<?php echo ++$tabindex;?>">
+		<select name="default_msg_id" id="default_msg_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 		<?php
 			echo '<option value="'.DEFAULT_MSG.'"'.(DEFAULT_MSG == $default_msg_id ? ' SELECTED' : '').'>'._("Default Message")."</option>\n";
 			echo '<option value="'.CONGESTION_TONE.'"'.(CONGESTION_TONE == $default_msg_id ? ' SELECTED' : '').'>'._("Congestion Tones")."</option>\n";
@@ -71,7 +71,7 @@ if ($action != 'submit') {
 <tr>
 	<td><a href="#" class="info"><?php echo _("Message or Tone")?><span><?php echo _("Message or tone to be played if no trunks are available. Used on routes marked as intra-company only.")?></span></a></td>
 	<td align=right>
-		<select name="intracompany_msg_id" id="intracompany_msg_id" tabindex="<?php echo ++$tabindex;?>">
+		<select name="intracompany_msg_id" id="intracompany_msg_id" tabindex="<?php echo ++$tabindex;?>"  class='componentSelect'>
 		<?php
 			echo '<option value="'.DEFAULT_MSG.'"'.(DEFAULT_MSG == $intracompany_msg_id ? ' SELECTED' : '').'>'._("Default Message")."</option>\n";
 			echo '<option value="'.CONGESTION_TONE.'"'.(CONGESTION_TONE == $intracompany_msg_id ? ' SELECTED' : '').'>'._("Congestion Tones")."</option>\n";
@@ -92,7 +92,7 @@ if ($action != 'submit') {
 <tr>
 	<td><a href="#" class="info"><?php echo _("Message or Tone")?><span><?php echo _("Message or tone to be played if no trunks are available. Used on all emergency routes. Consider a message instructing callers to find an alternative means of calling emergency services such as a cell phone or alarm system panel.")?></span></a></td>
 	<td align=right>
-		<select name="emergency_msg_id" id="emergency_msg_id" tabindex="<?php echo ++$tabindex;?>">
+		<select name="emergency_msg_id" id="emergency_msg_id" tabindex="<?php echo ++$tabindex;?>"  class='componentSelect'>
 		<?php
 			echo '<option value="'.DEFAULT_MSG.'"'.(DEFAULT_MSG == $emergency_msg_id ? ' SELECTED' : '').'>'._("Default Message")."</option>\n";
 			echo '<option value="'.CONGESTION_TONE.'"'.(CONGESTION_TONE == $emergency_msg_id ? ' SELECTED' : '').'>'._("Congestion Tones")."</option>\n";
@@ -115,7 +115,7 @@ if ($action != 'submit') {
 <tr>
 	<td><a href="#" class="info"><?php echo _("Message or Tone")?><span><?php echo _("Message or tone to be played if destination number is unallocated/does not exists.")?></span></a></td>
 	<td align=right>
-		<select name="unallocated_msg_id" id="unallocated_msg_id" tabindex="<?php echo ++$tabindex;?>">
+		<select name="unallocated_msg_id" id="unallocated_msg_id" tabindex="<?php echo ++$tabindex;?>"  class='componentSelect'>
 		<?php
 			echo '<option value="'.DEFAULT_MSG.'"'.(DEFAULT_MSG == $unallocated_msg_id ? ' SELECTED' : '').'>'._("Default Message")."</option>\n";
 			echo '<option value="'.CONGESTION_TONE.'"'.(CONGESTION_TONE == $unallocated_msg_id ? ' SELECTED' : '').'>'._("Congestion Tones")."</option>\n";
@@ -136,7 +136,7 @@ if ($action != 'submit') {
 <tr>
 	<td><a href="#" class="info"><?php echo _("Message or Tone")?><span><?php echo _("Message or tone to be played if there was no answer. Default message is:<br>\"The number is not answering.\"<br> Hangupcause is 18 or 19")?></span></a></td>
 	<td align=right>
-		<select name="no_answer_msg_id" id="no_answer_msg_id" tabindex="<?php echo ++$tabindex;?>">
+		<select name="no_answer_msg_id" id="no_answer_msg_id" tabindex="<?php echo ++$tabindex;?>"  class='componentSelect'>
 		<?php
 			echo '<option value="'.DEFAULT_MSG.'"'.(DEFAULT_MSG == $no_answer_msg_id ? ' SELECTED' : '').'>'._("Default Message")."</option>\n";
 			echo '<option value="'.CONGESTION_TONE.'"'.(CONGESTION_TONE == $no_answer_msg_id ? ' SELECTED' : '').'>'._("Congestion Tones")."</option>\n";
@@ -156,7 +156,7 @@ if ($action != 'submit') {
 <tr>
 	<td><a href="#" class="info"><?php echo _("Message or Tone")?><span><?php echo _("Message or tone to be played if trunk reports Number or Address Incomplete. Usually this means that the number you have dialed is to short. Default message is:<br>\"The number you have dialed is not in service. Please check the number and try again.\"<br>Hangupcause is 28")?></span></a></td>
 	<td align=right>
-		<select name="invalidnmbr_msg_id" id="invalidnmbr_msg_id" tabindex="<?php echo ++$tabindex;?>">
+		<select name="invalidnmbr_msg_id" id="invalidnmbr_msg_id" tabindex="<?php echo ++$tabindex;?>"  class='componentSelect'>
 		<?php
 			echo '<option value="'.DEFAULT_MSG.'"'.(DEFAULT_MSG == $invalidnmbr_msg_id ? ' SELECTED' : '').'>'._("Default Message")."</option>\n";
 			echo '<option value="'.CONGESTION_TONE.'"'.(CONGESTION_TONE == $invalidnmbr_msg_id ? ' SELECTED' : '').'>'._("Congestion Tones")."</option>\n";
