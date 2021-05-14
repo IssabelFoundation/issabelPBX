@@ -755,7 +755,7 @@ msgstr "Ocupado"
 
 #: ../core/functions.inc.php:7265
 msgid "Busy Voicemail if Enabled"
-msgstr ""
+msgstr "Buzón de voz Ocupado si está activo"
 
 #: ../core/functions.inc.php:7130
 msgid "CID Num Alias"
@@ -833,6 +833,9 @@ msgid ""
 "</b>. You can also use the format: \"hidden\" <b>&lt;#######&gt;</b> to hide "
 "the CallerID sent out over Digital lines if supported (E1/T1/J1/BRI/SIP/IAX)."
 msgstr ""
+"CallerID para llamadas realizadas desde este troncal<br><br>Format: <b>&lt;#######&gt;"
+"</b>. También puede usar el formato: \"hidden\" <b>&lt;#######&gt;</b> para ocultar "
+"el CallerID enviado por líneas digitales si éstas lo soportan (E1/T1/J1/BRI/SIP/IAX)."
 
 #: ../core/page.routing.php:506
 msgid "CallerID:"
@@ -4199,11 +4202,11 @@ msgstr "No se pudo guardar %s"
 
 #: ../core/functions.inc.php:7256 ../core/functions.inc.php:7270
 msgid "Unavail Voicemail if Enabled"
-msgstr ""
+msgstr "Buzón de voz No Disponible si está activo"
 
 #: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:34
 msgid "Undefined Category"
-msgstr ""
+msgstr "Categoría no Definida"
 
 #: amp_conf/htdocs/admin/page.modules.php:854
 #: amp_conf/htdocs/admin/page.modules.php:877
@@ -6031,10 +6034,4 @@ msgstr "Informes"
 
 #~ msgid "Add Zap Channel"
 #~ msgstr "Añadir canal Zap:"
-
-msgid "Use State"
-msgstr "Usar Estado"
-
-msgid "Ignore State"
-msgstr "Ignorar Estado"
 
