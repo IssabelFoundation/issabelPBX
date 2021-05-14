@@ -325,7 +325,7 @@ function addstream_onsubmit() {
 <?php
 } else {
 ?>
-
+<table><tr><td colspan=2>
 	<h5><?php echo _("Category:")?> <?php echo $category=="default"?_("default"):$category;?></h5>
 <?php
 	if (file_exists("{$path_to_dir}/.custom")) {
@@ -367,6 +367,8 @@ function addstream_onsubmit() {
 			<td colspan="2"><br><h6><input name="Submit" type="submit" value='<?php echo _("Submit Changes")?>' ></h6></td>
 		</tr>
 		</table>
+
+</tr></td></table>
 <script language="javascript">
 <!--
 
