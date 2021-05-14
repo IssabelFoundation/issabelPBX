@@ -60,7 +60,7 @@ msgid "Edit CallerID Instance"
 msgstr "Modificar Instancia de CallerID"
 
 msgid "Add CallerID Instance"
-msgstr "Añadir Instancia de CAllerID"
+msgstr "Añadir Instancia de CallerID"
 
 msgid "Description"
 msgstr "Descripción"
