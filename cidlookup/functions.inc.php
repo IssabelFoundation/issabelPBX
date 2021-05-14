@@ -30,7 +30,7 @@ function cidlookup_hook_core($viewing_itemid, $target_menuid) {
 			$html .= sprintf('<option value="%d" %s>%s</option>', $source['cidlookup_id'], ($current == $source['cidlookup_id']?'selected':''), $source['description']);
 		$html .= '</select></td></tr>';
 		$html .= '<tr style="display:none" id="opencnam_hobbyist_note"><td colspan="2">';
-		$html .= '<p style="max-width:345px;max-height:40px;font-style:italic;font-size:12px;margin-bottom:40px;"><b>NOTE:</b> OpenCNAM\'s Hobbyist Tier only allows you to do 10 cached CID lookups per hour. If you get more than 10 incoming calls per hour, or want real-time CID information (which is more accurate), you should use the Professional Tier, which is configurable via the CallerID Lookup Sources menu.</td></p>';
+		$html .= '<p style="max-width:345px;max-height:40px;font-style:italic;font-size:12px;margin-bottom:40px;"><b>'.dgettext('cidlookup','NOTE:').'</b> '._('OpenCNAM\'s Hobbyist Tier only allows you to do 60 cached CID lookups per hour. If you get more than 60 incoming calls per hour, or want real-time CID information (which is more accurate), you should use the Professional Tier, which is configurable via the CallerID Lookup Sources menu.').'</td></p>';
 		$html .= '</tr>';
 
 /*

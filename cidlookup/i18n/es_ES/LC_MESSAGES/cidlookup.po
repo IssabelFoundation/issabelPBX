@@ -41,8 +41,8 @@ msgid ""
 msgstr ""
 "Una fuente de búsqueda le permite utilizar una fuente para identificar el "
 "número de la persona que llama en las llamadas entrantes. De esta forma "
-"tendrá informes más detallados con la información extraida de su CRM. Puede "
-"instalar también el módulo \"Listín telefónico\" para tener una relación "
+"tendrá informes más detallados con la información extraida de su CRM. Si elije "
+"la fuente Internal se verificará contra la agenda de Issabel para la relación "
 "número <-> nombre. Tenga cuidado, ya que la búsqueda de nombres puede "
 "penalizar el rendimiento de su PBX"
 
@@ -200,13 +200,15 @@ msgstr ""
 
 #: bin/opencnam-alert.php:25
 msgid "OpenCNAM Throttle Reached!"
-msgstr ""
+msgstr "Límite de OpenCNAM alcanzado!"
 
 #: views/main.html.php:91
 msgid ""
 "OpenCNAM's Professional Tier lets you do as many real-time CNAM queries as "
 "you want, for a small fee. This is recommended for business users."
 msgstr ""
+"La capa profesional de OpenCNAM le permite realizar todas las consultas que "
+"desee sin límites, por un abono mensual. Esto se recomienda para usuarios corporativos."
 
 #: views/main.html.php:152
 msgid "Password to use in HTTP authentication"
@@ -262,8 +264,8 @@ msgid ""
 "Select the source type, you can choose between:<ul>\n"
 "                    <li>OpenCNAM: Use OpenCNAM [https://www.opencnam.com/]</"
 "li>\n"
-"                    <li>Internal: use astdb as lookup source, use phonebook "
-"module to populate it</li>\n"
+"                    <li>Internal: use astdb as lookup source, use Issabel "
+"address book to populate it</li>\n"
 "                    <li>ENUM: Use DNS to lookup caller names, it uses ENUM "
 "lookup zones as configured in enum.conf</li>\n"
 "                    <li>HTTP: It executes an HTTP GET passing the caller "
@@ -272,6 +274,17 @@ msgid ""
 "caller name</li>\n"
 "                    </ul>"
 msgstr ""
+"Elija el tipo de fuente entre las siguientes opciones:<ul>\n"
+"                    <li>OpenCNAM: Usar OpenCNAM [https://www.opencnam.com/]</"
+"li>\n"
+"                    <li>Internal: usar la agenda interna de Issabel mediante ASTDB</li> "
+"                    <li>ENUM: Usar DNS para buscar nombres usando zonas ENUM "
+"configuradas in enum.conf</li>\n"
+"                    <li>HTTP: Ejecuta una solicitud GET de HTTP pasando el número "
+"para obtener el nombre</li>\n"
+"                    <li>MySQL: Consulta una base de datos MySQL para obtener "
+"el nombre</li>\n"
+"                    </ul>"
 
 #: functions.inc.php:16
 msgid "Source"
@@ -317,7 +330,7 @@ msgstr ""
 
 #: views/main.html.php:91
 msgid "Use Professional Tier?"
-msgstr ""
+msgstr "Usar Capa Profesional"
 
 #: views/main.html.php:144
 msgid "Username to use in HTTP authentication"
@@ -337,18 +350,30 @@ msgid ""
 "Lookup Sources menu and enter your OpenCNAM Professional Tier credentials."
 "<br/>"
 msgstr ""
+"Ha excedido el límite de consultas gratuitas de OpenCPAM.<br><br> Para "
+"poder seguir consultando información, debe crear una cuenta profesional."
+"<br><br>Puede crear una en "
+"href=\"https://www.opencnam.com/register\">https://www.opencnam.com/"
+"register</a>.<br/><br/>Unva vez creada la cuenta, ingrese nuevamente para "
+"completar las credeenciales de acceso a OpenCNAM Profesional."
+"<br/>"
 
 #: views/main.html.php:99
 msgid ""
 "Your OpenCNAM Account SID. This can be found on your OpenCNAM dashboard "
 "page: https://www.opencnam.com/dashboard"
 msgstr ""
+"El CID de su cuenta OpenCNAM. Puede encontrarlo en el dashboard en "
+"https://www.opencnam.com/dashboard"
 
 #: views/main.html.php:107
 msgid ""
 "Your OpenCNAM Auth Token. This can be found on your OpenCNAM dashboard page: "
 "https://www.opencnam.com/dashboard"
 msgstr ""
+"El token de autenticación de OpenCNAM. Puede encontrarlo en el dashboard en "
+"https://www.opencnam.com/dashboard"
+
 
 #: install.php:107
 msgid "not present"
@@ -363,6 +388,18 @@ msgstr "eliminado"
 
 msgid "CallerID Lookup Sources"
 msgstr "Fuentes de CallerID"
+
+msgid "NOTE:"
+msgstr "NOTA:"
+
+msgid "OpenCNAM's Hobbyist Tier only allows you to do 60 cached CID lookups per hour. If you get more than 60 incoming calls per hour, or want real-time CID information (which is more accurate), you should use the Professional Tier, which is configurable via the CallerID Lookup Sources menu."
+msgstr "La capa Hobista de OpenCNAM le permite realizar 60 consultas por hora. Si recibe más de 60 llamadas por hora, o si desea información de identificación más precisa, debe contratar la capa Profesional, que se puede activar desde el menú Fuente de Búsqueda CallerID."
+
+msgid "OpenCNAM's Hobbyist Tier (default) only allows you to do 60 cached CallerID lookups per hour. If you get more than 60 incoming calls per hour, or want real-time CallerID information (more accurate), you should use the Professional Tier."
+msgstr "La capa Hobista de OpenCNAM le permite realizar 60 consultas por hora. Si recibe más de 60 llamadas por hora, o si desea información de identificación más precisa, debe contratar la capa Profesional, que se puede activar marcando la opciíon más abajo."
+
+msgid "If you'd like to create an OpenCNAM Professional Tier account, you can do so on their website: <a href='https://www.opencnam.com/register' target='_blank'>https://www.opencnam.com/register</a>"
+msgstr "Si desea crear un cuenta en la capa profesional puede hacerlo desde el sitio: <a href='https://www.opencnam.com/register' target='_blank'>https://www.opencnam.com/register</a>"
 
 #~ msgid "CID Lookup source"
 #~ msgstr "Fuente de búsqueda de CID"

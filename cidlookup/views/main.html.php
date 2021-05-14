@@ -56,7 +56,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
                 <a href="#" class="info"><?php echo _("Source type:")?>
                     <span><?php echo _("Select the source type, you can choose between:<ul>
                     <li>OpenCNAM: Use OpenCNAM [https://www.opencnam.com/]</li>
-                    <li>Internal: use astdb as lookup source, use phonebook module to populate it</li>
+                    <li>Internal: use astdb as lookup source, use Issabel address book to populate it</li>
                     <li>ENUM: Use DNS to lookup caller names, it uses ENUM lookup zones as configured in enum.conf</li>
                     <li>HTTP: It executes an HTTP GET passing the caller number as argument to retrieve the correct name</li>
                     <li>MySQL: It queries a MySQL database to retrieve caller name</li>
@@ -88,8 +88,8 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     		<td colspan="2">
     			<div id="opencnam" style="display: none">
     				<h5><?php echo _("OpenCNAM") ?></h5>
-    				<p style="display:block;max-width:345px;max-height:40px;margin-left:auto;margin-right:auto;margin-bottom:40px;font-style:italic;font-size:12px;"><b>NOTE:</b> OpenCNAM's Hobbyist Tier (default) only allows you to do 60 cached CallerID lookups per hour. If you get more than 60 incoming calls per hour, or want real-time CallerID information (more accurate), you should use the Professional Tier.</p>
-    				<p style="display:block;max-width:345px;max-height:40px;margin-left:auto;margin-right:auto;margin-bottom:20px;font-style:italic;font-size:12px;">If you'd like to create an OpenCNAM Professional Tier account, you can do so on their website: <a href="https://www.opencnam.com/register" target="_blank">https://www.opencnam.com/register</a></p>
+    				<p style="display:block;max-width:345px;margin-left:auto;margin-right:auto;margin-bottom:40px;font-style:italic;font-size:12px;"><b><?php echo _('NOTE:');?></b> <?php echo _("OpenCNAM's Hobbyist Tier (default) only allows you to do 60 cached CallerID lookups per hour. If you get more than 60 incoming calls per hour, or want real-time CallerID information (more accurate), you should use the Professional Tier.");?></p>
+    				<p style="display:block;max-width:345px;margin-left:auto;margin-right:auto;margin-bottom:20px;font-style:italic;font-size:12px;"><?php echo _("If you'd like to create an OpenCNAM Professional Tier account, you can do so on their website: <a href='https://www.opencnam.com/register' target='_blank'>https://www.opencnam.com/register</a>");?></p>
     				<table cellpadding="2" cellspacing="0" width="100%">
     					<tr>
     						<td width="50%">
