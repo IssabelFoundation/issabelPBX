@@ -38,10 +38,10 @@ msgid "Blacklist entries"
 msgstr "Elementos de la lista negra"
 
 msgid "Number/CallerID"
-msgstr ""
+msgstr "Número/CallerID"
 
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 msgid "Number"
 msgstr "Número"
@@ -56,22 +56,22 @@ msgid "Add or replace entry"
 msgstr "Añadir o modificar elemento"
 
 msgid "Number/CallerID:"
-msgstr ""
+msgstr "Número/CallerID:"
 
 msgid "Enter the number/CallerID you want to block"
-msgstr ""
+msgstr "Ingrese un número/CallerID que desee bloquear"
 
 msgid "Description:"
-msgstr ""
+msgstr "Descripción:"
 
 msgid "Enter a description for the number you want to block"
-msgstr ""
+msgstr "Ingrese una descripción para el número que desea bloquear"
 
 msgid "Block Unknown/Blocked Caller ID:"
-msgstr ""
+msgstr "Bloquear Caller ID Desconocidos"
 
 msgid "Check here to catch Unknown/Blocked Caller ID"
-msgstr ""
+msgstr "Marque esta opción para incluir números con Caller ID Bloqueado o desconocido."
 
 msgid "Submit Changes"
 msgstr "Enviar cambios"
