@@ -14,6 +14,7 @@
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
 # IssabelPBX language template for setcid
+# Copyright (C) 2021 Issabel Foudnation
 # Copyright (C) 2008, 2009, 2010 Bandwith.com
 #
 msgid ""
@@ -30,13 +31,13 @@ msgstr ""
 
 #, php-format
 msgid "Set CallerID %s: "
-msgstr ""
+msgstr "Establecer CallerID %s:"
 
 msgid "Add CallerID"
-msgstr ""
+msgstr "Añadir CallerID"
 
 msgid "Edit: "
-msgstr ""
+msgstr "Modificar:"
 
 msgid ""
 "Set CallerID allows you to change the caller id of the call and then "
@@ -45,60 +46,83 @@ msgid ""
 "text you enter is what the callerid is changed to. To append to the current "
 "callerid, use the proper asterisk variables, such as \"${CALLERID(name)}\" "
 "for the currently set callerid name and \"${CALLERID(num)}\" for the "
-"currently set callerid number."
+"currently set callerid number. You may also set any number of additional channel variables from here."
 msgstr ""
+"Establecer CallerID le permite cambiar el identificador de llamadas y luego "
+"continuar al destino deseado. Por ejemplo, puede cambiar el identificador "
+"de \"Juan Perez\" a \"Ventas: Juan Perez\". Tenga en cuenta que el texto "
+"que ingrese será el utilizado para la identificación. Si desea añadir al "
+"CallerID existente, puede usar variables como ser \"${CALLERID(name)}\" "
+"para el nombre de identificación actual, o \"${CALLERID(num)}\" para el número."
+"También puede establecer variables de canal desde este módulo."
 
 msgid "Edit CallerID Instance"
-msgstr ""
+msgstr "Modificar Instancia de CallerID"
 
 msgid "Add CallerID Instance"
-msgstr ""
+msgstr "Añadir Instancia de CAllerID"
 
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 msgid ""
 "The descriptive name of this CallerID instance. For example \"new name here\""
 msgstr ""
+"Un nombre descriptivo para esta instancia de CallerID."
 
 msgid "CallerID Name"
-msgstr ""
+msgstr "Nombre de Identificador"
 
 msgid ""
 "The CallerID Name that you want to change to. If you are appending to the "
 "current callerid, dont forget to include the appropriate asterisk variables. "
 "If you leave this box blank, the CallerID name will be blanked"
 msgstr ""
+"El nombre de CallerID que desee cambiar. Si desea añadir al existente, no olvide "
+"incluir la variable correspondiente \"${CALLERID(name)}\". Si deja esto en blanco "
+"entonces el identifcador de nombre será vaciado."
 
 msgid "CallerID Number"
-msgstr ""
+msgstr "Número de Identificador"
 
 msgid ""
 "The CallerID Number that you want to change to. If you are appending to the "
 "current callerid, dont forget to include the appropriate asterisk variables. "
 "If you leave this box blank, the CallerID number will be blanked"
 msgstr ""
+"El número de CallerID que desee cambiar. Si desea añadir al existente, no olvide "
+"incluir la variable correspondiente \"${CALLERID(num)}\". Si deja esto en blanco "
+"entonces el identifcador de nombre será vaciado."
 
 msgid "Destination"
-msgstr ""
+msgstr "Destino"
 
 msgid "Submit Changes"
-msgstr ""
+msgstr "Enviar Cambios"
 
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "Edit"
-msgstr ""
+msgstr "Modificar"
 
 msgid "Invalid description specified"
-msgstr ""
+msgstr "Descripción Inválida"
 
 msgid "Set CallerID"
-msgstr ""
+msgstr "Establecer CallerID"
 
 msgid "Applications"
-msgstr ""
+msgstr "Aplicaciones"
 
 msgid "Adds the ability to change the CallerID within a call flow."
-msgstr ""
+msgstr "Permite cambiar el identificador (CallerID) en un flujo de llamada."
+
+msgid "Other Variables"
+msgstr "Otras Variables"
+
+msgid "Add Variable"
+msgstr "Añadir Variable"
+
+msgid "You may set any other variables that will be set for the channel, with any name and value you want, as using Set() directly from the dialplan. They should be entered as:<br /> [variable] = [value]<br /> in the boxes below. Click the Add Variable box to add additional variables. Blank boxes will be deleted when submitted."
+msgstr "Puede configurar cualquier variable de canal, con cualquier nombre y valor, del mismo modo que usaría la aplicación Set() en el plan de marcado. Deben ser ingresadas como:<br /> [variable] = [valor]<br /> en los casilleros abajo. Pulse en Añadir Variable para agregar variables adicionales. Si las deja en blanco serán elimiadas al enviar los cambios."
