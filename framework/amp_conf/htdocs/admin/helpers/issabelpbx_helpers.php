@@ -89,7 +89,7 @@ function drawselects($goto, $i, $show_custom=false, $table=true, $nodest_msg='',
     
 	$html=$destmod=$errorclass=$errorstyle='';
   if ($nodest_msg == '') {
-	  $nodest_msg = '== '._('choose one').' ==';
+      $nodest_msg = '== '.dgettext('amp','choose one').' ==';
   }
 
 	if ($table) {
