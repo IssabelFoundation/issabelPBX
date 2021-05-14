@@ -33,8 +33,8 @@ function queues_set_qnostate($exten,$qnostate) {
 function queues_applyhooks() {
 	global $currentcomponent;
 
-	$currentcomponent->addoptlistitem('qnostate', 'usestate', _('Use State'));
-	$currentcomponent->addoptlistitem('qnostate', 'ignorestate',_('Ignore State'));
+    $currentcomponent->addoptlistitem('qnostate', 'usestate', dgettext('queues','Use State'));
+    $currentcomponent->addoptlistitem('qnostate', 'ignorestate',dgettext('queues','Ignore State'));
 	$currentcomponent->setoptlistopts('qnostate', 'sort', false);
 
 	// Add the 'process' function - this gets called when the page is loaded, to hook into 
