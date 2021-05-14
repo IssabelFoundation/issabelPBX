@@ -144,28 +144,28 @@ msgstr ""
 "Por favor, espere mientras la página se carga. Su archivo se está procesando."
 
 msgid "Volume 150%"
-msgstr ""
+msgstr "Volumen 150%"
 
 msgid "Volume 125%"
-msgstr ""
+msgstr "Volumen 125%"
 
 msgid "Volume 100%"
-msgstr ""
+msgstr "Volumen 100%"
 
 msgid "Volume 75%"
-msgstr ""
+msgstr "Volumen 75%"
 
 msgid "Volume 50%"
-msgstr ""
+msgstr "Volumen 50%"
 
 msgid "Volume 25%"
-msgstr ""
+msgstr "Volumen 25%"
 
 msgid "Volume 10%"
-msgstr ""
+msgstr "Volumen 10%"
 
 msgid "Volume Adjustment"
-msgstr "Ajuste de volumen"
+msgstr "Ajuste de Volumen"
 
 msgid ""
 "The volume adjustment is a linear value. Since loudness is logarithmic, the "
@@ -175,6 +175,12 @@ msgid ""
 "set the parameter: <strong>Convert Music Files to WAV</strong> to false in "
 "Advanced Settings"
 msgstr ""
+"El ajuste de volumen en un valor lineal. Debido a que es realmente logarítmico, el "
+"nivel lineal será un ajuste menor. Debe probar la música instalada para "
+"asegurarse tenga el volumen deseado. Esta funcionalidad convertirá archivo MP3 a "
+"formato WAV. Si no tiene mpg123 instalado, puede setear el parámetro "
+"<strong>Convertir Archivos de Música a WAV</strong> en falso dentro de Configuraciones "
+"Avanzadas"
 
 msgid "Do not encode wav to mp3"
 msgstr "No codificar de WAV a MP3"
