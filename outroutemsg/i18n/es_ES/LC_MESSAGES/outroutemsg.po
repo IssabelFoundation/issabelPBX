@@ -86,7 +86,7 @@ msgid ""
 msgstr ""
 
 msgid "Submit Changes"
-msgstr "Enviar Cambios"
+msgstr "Guardar Cambios"
 
 msgid "Info Tone"
 msgstr "Tono Info"

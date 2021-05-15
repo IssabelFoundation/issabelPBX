@@ -1,7 +1,7 @@
 <?php
 
 $html = ''; 
-$html .= heading(_('Paging'), 3) . '<hr class="paging-hr"/>';
+$html .= heading(_('Paging'), 2);
 
 $html .= form_open($_SERVER['REQUEST_URI'], 'id="page_opts_form"');
 $html .= form_hidden('display', $display);
@@ -16,10 +16,10 @@ if ($conflict_url) {
 }
 if ($extdisplay) {
 	$table->add_row(array('colspan' => 2,
-		'data' => heading(_('Modify Paging Group'), 5) . '<hr />'));
+		'data' => heading(_('Modify Paging Group'), 5) ));
 } else {
 	$table->add_row(array('colspan' => 2,
-		'data' => heading(_('Add Paging Group'), 5) . '<hr />'));
+		'data' => heading(_('Add Paging Group'), 5) ));
 }
 
 //extension
@@ -47,7 +47,7 @@ foreach ($device_list as $ext => $name) {
 		$notselected_dev .= '<span data-ext="' . $ext . '">' . $name .'</span>';
 	}
 } 
-$class = ' class="device_list ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ';
+$class = ' class="device_list ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" style="width:300px; height: 4em; margin:5px; padding:5px;" ';
 $selected_dev = form_fieldset(_('Selected'), $class . 'id="selected_dev" ' )
 				. $selected_dev 
 				. form_fieldset_close();
@@ -55,7 +55,7 @@ $notselected_dev = form_fieldset(_('Not Selected'), $class . 'id="notselected_de
 				. $notselected_dev 
 				. form_fieldset_close();
 $table->add_row($label);
-$table->add_row('', $selected_dev, $notselected_dev);
+$table->add_row($selected_dev, $notselected_dev);
 
 //busy ext
 $help[] = _('"Skip" will not page any busy extension. All other extensions '

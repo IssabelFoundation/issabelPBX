@@ -119,7 +119,7 @@ msgstr "Servidor:"
 
 #: page.phpagiconf.php:122
 msgid "Submit Changes"
-msgstr "Enviar Cambios"
+msgstr "Guardar Cambios"
 
 #: page.phpagiconf.php:114
 msgid "Swift path:"

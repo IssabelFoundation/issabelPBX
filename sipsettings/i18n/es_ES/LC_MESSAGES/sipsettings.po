@@ -76,7 +76,7 @@ msgid "Add Local Network Field"
 msgstr "Agregar Red Local"
 
 msgid "Submit Changes"
-msgstr "Enviar Cambios"
+msgstr "Guardar Cambios"
 
 msgid "Edit SIP Settings"
 msgstr "Editar Configuraciones SIP"

@@ -426,7 +426,7 @@ msgid "Destination if no answer"
 msgstr "Destino si no contesta"
 
 msgid "Submit Changes"
-msgstr "Enviar Cambios"
+msgstr "Guardar Cambios"
 
 msgid "Please enter an extension list."
 msgstr "Por favor ingrese una lista de extensiones."

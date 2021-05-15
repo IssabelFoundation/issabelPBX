@@ -98,7 +98,7 @@ msgid "Destination"
 msgstr "Destino"
 
 msgid "Submit Changes"
-msgstr "Enviar Cambios"
+msgstr "Guardar Cambios"
 
 msgid "Delete"
 msgstr "Eliminar"

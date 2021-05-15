@@ -14,19 +14,19 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Page Group: "
-msgstr ""
+msgstr "Grupo de Voceo:"
 
 msgid "Exclude"
-msgstr ""
+msgstr "Excluir"
 
 msgid "Include"
-msgstr ""
+msgstr "Incluir"
 
 msgid "Default Group Inclusion"
 msgstr ""
 
 msgid "Default Page Group"
-msgstr ""
+msgstr "Grupo de Voceo por defecto"
 
 msgid ""
 "You can include or exclude this extension/device from being part of the "
@@ -57,52 +57,68 @@ msgid ""
 "set to auto-answer should also work (such as the console extension if "
 "configured)."
 msgstr ""
+"Este módulo permite configurar grupos de voceo e intercomunicador para dispositivos "
+"que soporten dicha funcionalidad. Intercom se configura mediante <b>Códigos de Características</b/. "
+"Intercom debe ser habilitado en los dispositivos para que acepte llamadas entrantes. Es "
+"posible restringir llamadas de intercomunicación a extensiones específicas, o permitirlo para "
+"todas pero restringirlo en algunas en particular.<br /><br /> Este módulo "
+"funciona con teléfonos Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, SNOM y otros. "
+"Cualquier teléfono que pueda configurarse para atender automáticamente puede ser usado también, "
+"como ser la extensión de consola si se configura aprpiadamente."
 
 #, php-format
-msgid ""
-"Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom "
-"extension nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Enable all "
-"extensions to intercom you (except those explicitly denied)</td></"
-"tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow extension nnn to "
-"intercom you (even if others are disabled)</td></tr><tr><td><strong>%s</"
-"strong>:</td><td>Disable all extensions from intercom you (except those "
-"explicitly allowed)</td></tr><tr><td><strong>%snnn</strong>:</"
-"td><td>Explicitly deny extension nnn to intercom you (even if generally "
-"enabled)</td></tr></table>"
-msgstr ""
+msgid "Example  usage:"
+msgstr "Ejemplo de uso:"
+
+msgid "Intercom extension nnn"
+msgstr "Extensión de Intercom nnn"
+
+msgid "Enable all extensions to intercom you (except those explicitly denied)"
+msgstr "Permitir a todas las extensiones a intercomunicarse con usted (excepto las denegadas  explícitamente)"
+
+msgid "Explicitly allow extension nnn to intercom you (even if others are disabled)"
+msgstr "Permitir a la extensión nnn a intercomunicarse con usted (incluso si otros estan denegados)"
+
+msgid "Disable all extensions from intercom you (except those explicitly allowed)"
+msgstr "Denegar a todas las extensiones la intercomunicación con usted (excepto las permitidas explícitamente)"
+
+msgid "Explicitly deny extension nnn to intercom you (even if generally enabled)"
+msgstr "Denegar explícitamente la extensión nnn a que se intercomunique con usted (incluso si intercom está activado de forma general)"
 
 msgid ""
 "Intercom mode is currently disabled, it can be enabled in the Feature Codes "
 "Panel."
 msgstr ""
+"El modo Intercom está actualmente desactivado. Puedo habilitarlo desde el menú "
+"Códigos de Características."
 
 #, php-format
 msgid "Delete Group %s"
-msgstr ""
+msgstr "Elimitar Grupo %s"
 
 msgid "Conflicting Extensions"
-msgstr ""
+msgstr "Extensiones en Conflicto"
 
 msgid "Modify Paging Group"
-msgstr ""
+msgstr "Modificar Grupo de Voceo"
 
 msgid "Add Paging Group"
-msgstr ""
+msgstr "Añadir Grupo de Voceo"
 
 msgid "Paging Extension"
-msgstr ""
+msgstr "Extensión de Voceo"
 
 msgid "The number users will dial to page this group"
-msgstr ""
+msgstr "El número que los usuarios marcarán para vocear en este grupo"
 
 msgid "Group Description"
-msgstr ""
+msgstr "Descripción del Grupo"
 
 msgid "Provide a descriptive title for this Page Group."
-msgstr ""
+msgstr "Provea un nombre descriptivo para este Grupo de Voceo"
 
 msgid "Device List:"
-msgstr ""
+msgstr "Lista de Dispositivos:"
 
 msgid ""
 "Select Device(s) to page. This is the phone that should be paged. In most "
@@ -110,9 +126,11 @@ msgid ""
 "use \"Users & Devices\" this is the actual Device and not the User.  Use "
 "Ctrl key to select multiple.."
 msgstr ""
+"Eliga los dispositivo(s) a vocear. Este es el teléfono que debe ser alcanzado. "
+"En la mayoría de las instalaciones es la misma extensión."
 
 msgid "Force if busy"
-msgstr ""
+msgstr "Forzar si está ocupado"
 
 msgid ""
 "If yes, will not check if the device is in use before paging it. This means "
@@ -126,16 +144,16 @@ msgid ""
 msgstr ""
 
 msgid "The Whisper mode is new and considered experimental."
-msgstr ""
+msgstr "El modo Susurro es considerado experimental."
 
 msgid "No"
 msgstr ""
 
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 msgid "Whisper"
-msgstr ""
+msgstr "Susurro"
 
 msgid "Duplex"
 msgstr ""
@@ -145,6 +163,10 @@ msgid ""
 "the paging duplex, allowing all phones in the paging group to be able to "
 "talk and be heard by all. This makes it like an \"instant conference\""
 msgstr ""
+"El voceo es tipicamente un anuncio de una sóla via. Marcando esta opción "
+"hará posible una comunicación en duplex, permitiendo a los teléfonos del grupo "
+"hablar y ser escuchados por todo el grupo. Sería algo así como una \"conferencia instantánea\""
+
 
 msgid ""
 "Each PBX system can have a single Default Page Group. If specified, "
@@ -169,7 +191,7 @@ msgid "Page Group"
 msgstr ""
 
 msgid "Paging and Intercom"
-msgstr "Intercom y Paginación"
+msgstr "Intercom y Voceo"
 
 msgid "Applications"
 msgstr ""
@@ -181,3 +203,87 @@ msgid ""
 "feature codes to block/allow intercom calls to all users as well as blocking "
 "specific users or only allowing specific users."
 msgstr ""
+
+msgid "Overview"
+msgstr "Descripción"
+
+msgid "General Settings"
+msgstr "Configuración General"
+
+msgid "New Paging Group"
+msgstr "Nuevo Grupo de Voceo"
+
+msgid "Paging"
+msgstr "Voceo e Intercomunicador"
+
+msgid "Paging and Intercom settings"
+msgstr "Configuración de Voceo e Intercom"
+
+msgid "Auto-answer defaults"
+msgstr "Auto-atender por omisión"
+
+msgid "Announcement"
+msgstr "Anuncio"
+
+msgid "Annoucement to be played to remote part. Default is a beep"
+msgstr "Anuncio a reproducir a la pata remota. Por defecto se emite un tono (beep)"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Device List"
+msgstr "Lista de Dispositivos"
+
+msgid "Devices to page. Please note, paging calls the actual device (and not the user). Amount of pagable devices is restricted by the advanced setting key PAGINGMAXPARTICIPANTS and is currently set to "
+msgstr "Dispositivos a vocear. Tenga en cuenta que se marcará al dispositivo (no al usuario). La cantidad máxima de dispositivos puede configurarse en Configuraciones Avanzadas con la clave PAGINGMAXPARTICIPANTS cuyo valor actual es "
+
+msgid "Selected"
+msgstr "Seleccionados"
+
+msgid "Not Selected"
+msgstr "No Seleccionados"
+
+msgid "Busy Extensions"
+msgstr "Extensiones Ocupadas"
+
+msgid "\"Skip\" will not page any busy extension. All other extensions will be paged as normal"
+msgstr "\"Saltear\" no contactará a dispositivos ocupados. Los demás dispositivos serán voceados normalmente"
+
+
+msgid ""
+"\"Force\" will not check if the device is in use before paging "
+"it. This means conversations can be interrupted by a page "
+"(depending on how the device handles it). This is useful "
+"for \"emergency\" paging groups."
+msgstr ""
+"\"Forzar\" no verificará si los dispositivos están en uso antes de intentar "
+"contactarlos. Esto significa que pueden interrumpirse conversaciones por el voceo "
+"(dependiendo en cómo lo maneje cada dispositivo). Esto es útil para grupos "
+"de voceo de  \"emergencia\"."
+
+msgid ""
+"\"Whisper\" will attempt to use the ChanSpy capability on SIP "
+"channels, resulting in the page being \"sent to the "
+"device's earpiece \"whispered\" to the user but not heard "
+"by the remote party. If ChanSpy is not supported on the "
+"device or otherwise fails, no page will get through. It "
+"probably does not make too much sense to choose duplex if "
+"using Whisper mode."
+msgstr ""
+"\"Susurro\" intentará utilizar la funcionalidad whisper de ChanSpy "
+"en canales SIP. Como resultado el voceo será susurrado al usuario pero "
+"no escuchado por la otra pata. Si ChanSpy no está soportado en el "
+"dispositivo o falla por algún motivo, entonces no se realizará ningún "
+"voceo. No tiene sentido activar esta opcion si marca la opción Duplex"
+
+msgid "Submit"
+msgstr "Guardar Cambios"
+
+msgid "Skip"
+msgstr "Saltear"
+
+msgid "Force"
+msgstr "Forzar"
+
+msgid "Delete"
+msgstr "Eliminar"

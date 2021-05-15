@@ -114,7 +114,7 @@ msgid "Enter a list of one or more PINs.  One PIN per line."
 msgstr "Ingrese una lista de uno o más PINes. Uno por línea."
 
 msgid "Submit Changes"
-msgstr "Enviar Cambios"
+msgstr "Guardar Cambios"
 
 msgid "Please enter a valid Description"
 msgstr "Por favor ingrese una descripción válida"
