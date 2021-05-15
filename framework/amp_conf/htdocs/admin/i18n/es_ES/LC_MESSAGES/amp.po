@@ -2366,6 +2366,10 @@ msgid ""
 "the incoming caller will be be prompted to say their name when the call "
 "reaches the user/extension."
 msgstr ""
+"Si no se recibió un CallerID, el Gestor de Privacidad le permite preguntar "
+"a quien llame cual es su número de teléfono. Si una extensión tiene activada "
+"el filtrado de llamadas, se le solicitará a quien llame que diga su nombre "
+"cuando la llamada se dirija a la extensión."
 
 #: ../core/page.routing.php:454
 msgid ""
@@ -2374,6 +2378,10 @@ msgid ""
 "times specified in that Time Group. If left as default of Permanent Route "
 "then it will always be available."
 msgstr ""
+"Si esta ruta debe estar disponible solo en cietos horarios, elija el Grupo "
+"Horario correspondiente. La ruta será ignorada fuera de los horarios especificados "
+"en ese grupo. Si se deja sin configurar o como ruta permamnente, entonces estará "
+"disponible en cualquier horario."
 
 #: ../core/functions.inc.php:7131
 msgid ""
@@ -2381,6 +2389,8 @@ msgid ""
 "anonymous sip calls, you can supply a friendly name that can be used in "
 "addition to the users extension to call them."
 msgstr ""
+"Si desea soportar marcado directo SIP debe proporcionar un nombre amistoso "
+"para ser usado adicionalmente al número de extensión convencional."
 
 #: amp_conf/htdocs/admin/views/welcome.php:55
 #, php-format
