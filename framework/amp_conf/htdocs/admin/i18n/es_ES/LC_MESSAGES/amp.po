@@ -311,6 +311,10 @@ msgid ""
 "10x4, etc).<br><br>Format should be: <b>XXXXXXXXXX</b><br><br>.An optional "
 "CID can also be associated with this DID by setting the next box"
 msgstr ""
+"Número de línea directa asociado a esta extensión. El DID debe ingresarse "
+"en el mismo formato en que es provisto por el proveedor (podría ser un número completo, "
+"a veces los últimos 4 dígitos, etc).<br><br>El formato debe ser: <b>XXXXXXXXXX</b><br><br>. "
+"También puede especificar un CID opcional en el siguiente casillero."
 
 #: ../core/functions.inc.php:4431 ../core/functions.inc.php:4521
 msgid "A route for this DID/CID already exists!"
@@ -590,6 +594,9 @@ msgid ""
 "'ulaw&g729'. Codecs allowed in the general settings will also be allowed "
 "unless removed with the 'disallow' directive."
 msgstr ""
+"Permitir codecs especificados, separados por '&' en el orden de prioridad que se liste. "
+"Por ejemplo 'ulaw&g729'. Los codecs especificados en la configuración general también "
+"serán permitidos a menos que los excluya listándolos en la directiva 'disallow'"
 
 #: upgrades/2.8.0/custom-context.php:55
 #: upgrades/2.8.0rc1/custom-context.php:55
@@ -864,6 +871,8 @@ msgid ""
 "Callgroup(s) that this device is part of, can be one or more callgroups, e."
 "g. '1,3-5' would be in groups 1,3,4,5."
 msgstr ""
+"Grupos de llamada a los que pertenece este dispositivo, puede ser uno o más grupos. "
+"Por ejemplo: '1,3-5' colocaría a esta extensión en los grupos 1,3,4 y 5"
 
 #: ../core/functions.inc.php:2259
 #, php-format
@@ -1543,6 +1552,10 @@ msgid ""
 "general settings and then specify specific codecs separated by '&' on the "
 "'allow' setting, or just disallow specific codecs separated by '&'."
 msgstr ""
+"Codecs no permitidos. Ponga este campo en 'all' para desactivar los codecs "
+"definidos en la configuración general y luego especifique codecs individuales "
+"separados por '&' en el campo 'allow', o bien desactive codecs individuales listandolos "
+"uno por uno separados por '&'"
 
 #: upgrades/2.9.0alpha1/migrate_ampconf.php:155 ../core/install.php:867
 #, php-format
@@ -2216,7 +2229,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7585
 msgid "Frequency in seconds to send qualify messages to the endpoint."
-msgstr ""
+msgstr "Frecuencia (en segundos) para enviar mensajes de qualify al endpoint."
 
 #: ../core/page.advancedsettings.php:99
 #, php-format
@@ -2297,6 +2310,7 @@ msgid ""
 "How to dial this device, this should not be changed unless you know what you "
 "are doing."
 msgstr ""
+"Como marcar a este dispositivo, no debe cambiar esto a menos que sepa lo que está haciendo."
 
 #: ../core/functions.inc.php:7653
 msgid ""
@@ -2330,10 +2344,14 @@ msgid ""
 "that are at a known location (such as a branch office) or within a known ISP "
 "range for some home office situations."
 msgstr ""
+"Rango de direcciones IP que desee permitir el acceso, en el formato red/máscara. "
+"Esto puede ser muy util desde un punto de vista de seguridad cuando se trate de extensiones remotas "
+"que se encuentren en locaciones conocidas (como ser una sucursal) o dentro de un "
+"ISP conocido en algunas situaciones de Home Office"
 
 #: ../core/functions.inc.php:7494 ../core/functions.inc.php:7644
 msgid "IP Address range to deny access to, in the form of network/netmask."
-msgstr ""
+msgstr "Rango de direcciones IP que desee denegar el acceso, en el formato red/máscara."
 
 #: ../core/page.routing.php:506
 msgid ""
@@ -2857,6 +2875,9 @@ msgid ""
 "both internal and external devices. Set to No if the device will always be "
 "internal."
 msgstr ""
+"Configuración NAT, revise la documentación de Asterisk para detalles. Poner 'Si' "
+"funciona por lo general para dispositivos tanto internos como externso. Si pone 'No' "
+"el dispositivo será considerado siempre interno."
 
 #: ../core/page.ampusers.php:166
 msgid "NOTE:"
@@ -3247,7 +3268,7 @@ msgstr ""
 msgid ""
 "Password (secret) configured for the device. Should be alphanumeric with at "
 "least 2 letters and numbers to keep secure."
-msgstr ""
+msgstr "Contraseña (secreta) para este dispositivo. Debe ser alfanumérica con al menos 2 letras y 2 números."
 
 #: ../core/page.ampusers.php:179
 msgid "Password<span>Create a password for this new user</span>"
@@ -3268,6 +3289,9 @@ msgid ""
 "groups, e.g. '1,3-5' would be in groups 1,3,4,5. Device does not have to be "
 "in a group to be able to pickup calls from that group."
 msgstr ""
+"Grupos de captura de los que este dispositivo podrá capturar llamadas, puede ser "
+"uno o más, por ejemplo: '1,3-5' permitirá la captura de llamadas en los grupos 1,3,4 y 5."
+"Un dispositivo no tiene que pertenecer a un grupo para poder capturar llamadas del mismo."
 
 #: ../core/functions.inc.php:7194
 msgid "Pinless Dialing"
@@ -3890,7 +3914,7 @@ msgstr ""
 #: ../core/functions.inc.php:7521
 msgid ""
 "The DTMF signaling mode used by this device, usually rfc2833 for most phones."
-msgstr ""
+msgstr "La señalización DTMF a utilizar en este dispositivo, usualmente rfc2833 para la mayoría de los teléfonos."
 
 #: ../core/page.trunks.php:1167
 msgid ""
@@ -4587,6 +4611,8 @@ msgid ""
 "should be enabled to the settings used by your device for CONNECTEDLINE() "
 "functionality to work if supported by the endpoint."
 msgstr ""
+"Si Asterisk debe enviar ecabezdos RPID (o PAI). Usualmente se habilita "
+"para que trabaje la faunción CONNECTEDLINE() en un endpoint que lo soporte."
 
 #: ../core/functions.inc.php:7552
 msgid ""
@@ -4594,6 +4620,8 @@ msgid ""
 "should be yes for CONNECTEDLINE() functionality to work if supported by the "
 "endpoint."
 msgstr ""
+"Si Asterisk debe confiar en la configuración RPID de este dispositivo. Usualmente "
+"deber ser Si para que trabaje la funcionalidad CONNECTEDLINE() en un endpoint que lo soporte."
 
 #: ../core/functions.inc.php:7609
 msgid ""
@@ -4602,6 +4630,10 @@ msgid ""
 "default profile in use by Asterisk. As a result the following must be "
 "enabled to use WebRTC"
 msgstr ""
+"Si desea activar AVPF. El valor por defecto es no. El standard WebRTC ha "
+"elegido AVPF como el perfil de audio y video para el flujo de medios. Este "
+"no es el perfil por defecto usado por Asterisk. Por lo tanto, si desea utilizar "
+"esta extensión mediante WebRTC debe ponerlo en 'Si'"
 
 #: ../core/functions.inc.php:7617
 msgid ""
@@ -4610,6 +4642,10 @@ msgid ""
 "for UDP-based multimedia sessions established with the offer/answer model. "
 "This option is commonly enabled in WebRTC setups"
 msgstr ""
+"Si desea activar soporte ICE. El valor por defecto es no. ICE (Interactive "
+"Connectivity Establishment) es un protocolo para perforar NAT en sesiones "
+"multimedia basadas en UDP, con un modelo oferta/respouesta. Debe actviar esta "
+"opción si desea utilizar la extensión con WebRTC"
 
 #: ../core/functions.inc.php:7624
 msgid ""
@@ -5684,6 +5720,63 @@ msgstr "Puerto Servidor SIP"
 msgid "Other"
 msgstr "Otros"
 
+msgid "Transport setting: if phone is behind some kind of NAT, chose transport NAT"
+msgstr "Configuración de Transporte: si el teléfono se encuentra detrás de NAT, elija transporte NAT"
+
+msgid "Enable rtcp-mux for working with Chrome >= 57"
+msgstr "Active rtcp-mux para trabajar con WebRTC en Chrome >= 57"
+
+msgid "Path to certificate file to present"
+msgstr "Ruta del archivo de certificado a presentar"
+
+msgid "Path to private key for certificate file"
+msgstr "Ruta de la llave privada para el archivo de certificado"
+
+msgid "Path to certificate authority file to present"
+msgstr "Ruta del archivo de autoridad de certificado a presentar"
+
+msgid "Behavior on DTLS incoming and outgoing connections. Defaults to actpass."
+msgstr "Comportamiento de DTLS en conexiones entrantes y salientes. Por defecto se utiliza 'actpass'."
+
+msgid "Whether to verify that the provided peer cerificate is valid. Defaults to no."
+msgstr "Si desea verificar la validez de los certificados. Por defecto es 'no'. Si tiene certificado autofirmado, elija 'fingerprint'"
+
+msgid "Reports"
+msgstr "Informes"
+
+msgid "Media Encryption"
+msgstr "Activar o no Encriptación de Medios"
+
+msgid "Message Context"
+msgstr "Contexto de plan de marcado para mensajes"
+
+msgid "Subscribe Context"
+msgstr "Contexto a usar para suscripciones. Usualmente deberá usar 'ext-local'"
+
+msgid "Allow subscribe."
+msgstr "Permitir o no suscripciones (necesarios para activar BLF en los disositivos que lo soporten)."
+
+msgid "Maximum number of SIP devices that can register to this extension."
+msgstr "Número máximo de dispositivos SIP que pueden registrar con esta extensión."
+
+msgid "Allow a registration to succeed by displacing any existing contacts that now exceed the max_contacts count. Enable this when you have max_contacts value to be greater than one and rewrite_contact is set to yes. The removed contact is likely the old contact created by rewrite_contact that the device is refreshing."
+msgstr "" 
+"Permitir que una registración tenga éxito aunque exceda el valor de 'max_contacts', desplazando registraciones existentes. Activa esta opciíon cuando tenga "
+"un valor de max_contacts mayor a uno y rewrite_contact esté configurado en 'Si'. El registro a remover será posiblemente el anterior creado por rewrite_contact cuando "
+"el dispositivo refresca un registro."
+
+msgid "Qualify timeout in fractional seconds (default: '3.0')"
+msgstr "Tiempo de expiración de qualify en segundos fraccionales (por defecto: '3.0')"
+
+msgid "Authenticates a qualify request if needed"
+msgstr "Autentica una solicitud qualify de ser necesario"
+
+msgid "Determines whether media may flow directly between endpoints."
+msgstr "Determina si los medios pueden fluir directamente entre dispositivos."
+
+msgid "Determines whether res_pjsip will use the media transport received in the offer SDP in the corresponding answer SDP."
+msgstr "Determina si res_pjsip usará el transporte de medios recibido en la oferta SDP en la correspondiente respuesta a esa oferta." 
+
 #~ msgid "Tools"
 #~ msgstr "Herramientas"
 
@@ -5795,9 +5888,6 @@ msgstr "Otros"
 
 #~ msgid "Management"
 #~ msgstr "Gestión"
-
-msgid "Reports"
-msgstr "Informes"
 
 #~ msgid "Panel"
 #~ msgstr "Panel"
