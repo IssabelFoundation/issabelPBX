@@ -438,7 +438,7 @@ function ivr_configpageload() {
 	//build repeat_loops select list and defualt it to 3
 	//while addoptlist is not usually required, declaring this is the only way to prevent sorting on the list
 	$currentcomponent->addoptlist('ivr_repeat_loops', false);
-	$currentcomponent->addoptlistitem('ivr_repeat_loops', 'disabled', 'Disabled');
+	$currentcomponent->addoptlistitem('ivr_repeat_loops', 'disabled', _('Disabled'));
 	for($i=0; $i <11; $i++){
 		$currentcomponent->addoptlistitem('ivr_repeat_loops', $i, $i);
 	}
