@@ -674,7 +674,7 @@ msgstr "DID/CID Asignados"
 
 #: ../core/functions.inc.php:7165
 msgid "Asterisk Dial Options"
-msgstr "Opciones Dail de Asterisk"
+msgstr "Opciones de marcado de Asterisk"
 
 #: ../core/page.trunks.php:566
 msgid ""
@@ -815,6 +815,14 @@ msgid ""
 "and all users on the system will have that new introduction associated with "
 "the caller's CallerID."
 msgstr ""
+"Filtrado de Llamadas requiere que los llamantes digan su nombre, que luego "
+"será reproducido al usuario que podrá aceptar o rechazar la llamada. "
+"Filtrado con memoria solo verificará cada CallerID una sóla vez. "
+"Filtrado sin memoria requerirá a quien llame decir su nombre cada vez que llame. "
+"En cualquier modo siempre se anunciará con el nombre registrado en su última "
+"interacción en base al CallerID. Si cualquier extensión es configurada con la opción "
+"Memoria, cuando ese usuario sea llamado, quién llame deberá presentarse nuevamente "
+"y todos las demás extensiones del sistema escucharán esa presentación de allí en más."
 
 #: ../core/functions.inc.php:7188
 msgid "Call Waiting"
@@ -1180,6 +1188,10 @@ msgid ""
 "check to use system defaults set in Advanced Options. These will not apply "
 "to trunk options which are configured with the trunk."
 msgstr ""
+"Opciones de comando Dial de Asterisk. Marque para modificar las opciones "
+"para esta extensión, o deje desmarcado para usar las opciones por defecto "
+"colocadas en Configuraciones Avanzadas. Lo que figure aquí no se aplicará "
+"sobre las opciones del troncal que se configuran en el mismo troncal"
 
 #: amp_conf/htdocs/admin/views/footer_content.php:34
 #, php-format
@@ -1746,6 +1758,8 @@ msgid ""
 "Enabling Pinless Dialing will allow this extension to bypass any pin codes "
 "normally required on outbound calls"
 msgstr ""
+"Si activa esta opción, esta extensión se salteará el requerimiento de ingresar "
+"cualquier código PIN que sea configurado para rutas salientes."
 
 #: ../core/functions.inc.php:7480
 msgid "Endpoint port number to use, usually 4569."
@@ -2695,10 +2709,13 @@ msgid ""
 "been compromised. It will limit the number of simultaneous calls that can be "
 "made on the compromised extension."
 msgstr ""
+"Número máximo de llamadas salientes simultaneas que podrá realizar esta extensión. "
+"Esto sirve como mitigación en caso de que su sistema haya sido comprometido. Limitará "
+"la cantidad simultánea de llamadas que esta extensión puede realizar."
 
 #: ../core/functions.inc.php:7464
 msgid "Media Only"
-msgstr ""
+msgstr "Sólo Medios"
 
 #: amp_conf/htdocs/admin/libraries/view.functions.php:19
 msgid "Memory Limit Changed"
@@ -2993,6 +3010,11 @@ msgid ""
 "ring. Default will use the current Ring Time. If voicemail is disabled and "
 "their is not destination specified, it will be forced into Always mode"
 msgstr ""
+"Duración de timbrado durante un desvío de llamada por cualquier motivo, antes "
+"de continuar al buzón de voz o al destino especificado. Si elige 'Siempre' no "
+"dejará de timbrar nunca. Por defecto se usa el tiempo de timbrado general. Si "
+"el buzón de voz está desactivado y no hay un destino configurado, se asume el modo "
+"'Siempre'"
 
 #: ../core/functions.inc.php:7167
 msgid ""
@@ -3000,6 +3022,9 @@ msgid ""
 "value set in Advanced Settings. If no voicemail is configured this will be "
 "ignored."
 msgstr ""
+"Duración de timbrado antes de dirigir la llamada al buzón de voz. Por defecto "
+"se usa el valor definido en Conifguraciones Avanzadas. Si no hay buzón de voz "
+"configurado entonces esta configuración será ignorada."
 
 #: ../core/page.trunks.php:787
 msgid "Number to dial when calling directory assistance on this trunk"
@@ -3193,6 +3218,10 @@ msgid ""
 "<br><br>Format: <b>\"caller name\" &lt;#######&gt;</b><br><br>Leave this "
 "field blank to disable the outbound CallerID feature for this user."
 msgstr ""
+"Sobreescribe el Identifcador de llamada con este valor cuando la llamada "
+"se enruta por un troncal. Lo que ponga aquí sobreescribirá al Identificador "
+"configurado en el Troncal.<br><br>Formato:<b>\"nombre\" &lt;#######&gt;</b><br><br> Deje "
+"el campo vacío para desactivar la funcionalidad de CallerID saliente para este usuario."
 
 #: ../core/page.trunks.php:946
 msgid "PEER Details"
@@ -3670,7 +3699,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7188
 msgid "Set the initial/current Call Waiting state for this user's extension"
-msgstr ""
+msgstr "Configura el modo inicial de Llamada en Espera para esta extensión"
 
 #: amp_conf/htdocs/admin/views/obe.php:78
 msgid "Set up my Account"
@@ -3807,6 +3836,11 @@ msgid ""
 "the general support number (a ringgroup or queue). There will be no effect "
 "on external calls."
 msgstr ""
+"El Identificador numérico a usar para llamadas internas, si es distinto al "
+"número de extensión. Eso se puede usar para enmascararse como un usuario distinto. "
+"Un ejemplo sería un equipo de soporte que quiera mostrar el número general del "
+"grupo en lugar del individual de la persona. Este valor no afecta a llamadas "
+"con destinos externos"
 
 #: ../core/functions.inc.php:994
 msgid ""
@@ -3820,6 +3854,8 @@ msgid ""
 "The CallerID name for calls from this user will be set to this name. Only "
 "enter the name, NOT the number."
 msgstr ""
+"El Identificador de Nombre a mostrar para llamdas originadas por este usuario."
+"Sólo ingrese un nombre, NO un número."
 
 #: ../core/functions.inc.php:7785
 msgid ""
@@ -4055,6 +4091,9 @@ msgid ""
 "This CallerID will always be set when dialing out an Outbound Route flagged "
 "as Emergency.  The Emergency CID overrides all other CallerID settings."
 msgstr ""
+"Este CallerID será utilizado siempre que se marque por una Ruta Saliente "
+"configurada como de Emergencia. El CallerID de emergencia tiene prioridad "
+"sobre cualquier otro CID que pueda estar configurado previamente."
 
 #: ../core/functions.inc.php:4635
 msgid "This device id is already in use"

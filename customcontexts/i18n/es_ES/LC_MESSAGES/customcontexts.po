@@ -361,3 +361,6 @@ msgstr "La clase %s no puede ser eliminada"
 
 msgid "The context which contains includes which you would like to make available to %s. Any context you enter here will be parsed for includes and you can then include them in your own %s. Removing them here does NOT delete the context, rather makes them unavailable to your %s."
 msgstr "El contexto que contenga las inclusiones que desee hacer disponibles en la %s. Cualquier contexto que ingrese aquí será revisado por inclusiones, y luego podrá incluirlas individualmente en su %s. Eliminarlas de aquí NO elimina el contexto, solo lo hace inalcanzable para su %s."
+
+msgid "You have the %s  Module installed! You can select a class of service from this list to limit this user to portions of the dialplan you defined in the %s module."
+msgstr "Tiene el módulo %s instalado! Puede seleccionar una clase de servicio de esta lista para limitar el acceso a los contextos del plan de marcado que desee, que puede definir en el módulo %s."
