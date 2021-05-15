@@ -107,9 +107,9 @@ function fax_configpageload() {
             $currentcomponent->addguielem('_top', new gui_link_label('faxdests', "&nbsp;Fax".$usage_list['text'], $usage_list['tooltip'], true), 5);
         }
 
-        $currentcomponent->addguielem($section, new gui_checkbox('faxenabled',$faxenabled,_('Enabled'), _('Enable this user to receive faxes'),'true','',$toggleemail));
+        $currentcomponent->addguielem($section, new gui_checkbox('faxenabled',$faxenabled,_('Enabled'), dgettext('fax','Enable this user to receive faxes'),'true','',$toggleemail));
 
-        $currentcomponent->addguielem($section, new gui_textbox('faxemail', $faxemail, _('Fax Email'), _('Enter an email address where faxes sent to this extension will be delivered.'), '!isEmail()', _('Please Enter a valid email address for fax delivery.'), TRUE, '', ($faxenabled == 'true')?'':'true'));
+        $currentcomponent->addguielem($section, new gui_textbox('faxemail', $faxemail, dgettext('fax','Fax Email'), dgettext('fax','Enter an email address where faxes sent to this extension will be delivered.'), '!isEmail()', _('Please Enter a valid email address for fax delivery.'), TRUE, '', ($faxenabled == 'true')?'':'true'));
 
         $currentcomponent->addoptlist('faxattachformatopts', false);
         $currentcomponent->addoptlistitem('faxattachformatopts', 'pdf', 'pdf');
@@ -121,7 +121,7 @@ function fax_configpageload() {
                 'faxattachformat',
                 $currentcomponent->getoptlist('faxattachformatopts'),
                 $faxattachformat,
-                _('Attachment Format'),
+                dgettext('fax','Attachment Format'),
                 _('Formats to convert incoming fax files to before emailing.'),
                 false
             )
