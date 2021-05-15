@@ -122,7 +122,7 @@ function fax_configpageload() {
                 $currentcomponent->getoptlist('faxattachformatopts'),
                 $faxattachformat,
                 dgettext('fax','Attachment Format'),
-                _('Formats to convert incoming fax files to before emailing.'),
+                dgettext('fax','Formats to convert incoming fax files to before emailing.'),
                 false
             )
         );
