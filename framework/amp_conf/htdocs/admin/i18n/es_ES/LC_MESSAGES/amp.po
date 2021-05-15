@@ -323,7 +323,7 @@ msgstr "Ya existe una ruta con este DID/CID: %s/%s"
 
 #: ../core/page.dahdichandids.php:86
 msgid "A useful description describing this channel"
-msgstr ""
+msgstr "Una descripción para este canal"
 
 #: ../core/functions.inc.php:7095
 msgid "A user will enter this password when logging onto a device."
@@ -333,7 +333,7 @@ msgstr ""
 
 #: ../core/page.did.php:211
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
-msgstr ""
+msgstr "Puede usar ALERT_INFO para utilizar un timbre distintivo en algunos dipositivos SIP."
 
 #: ../core/page.ampusers.php:242
 msgid "ALL SECTIONS"
@@ -344,12 +344,12 @@ msgstr "TODAS LAS SECCIONES"
 #: amp_conf/htdocs/admin/libraries/utility.functions.php:1393
 #, php-format
 msgid "AMI failure details:"
-msgstr ""
+msgstr "Detalles del fallo AMI:"
 
 #: ../core/page.advancedsettings.php:94
 #, php-format
 msgid "Acceptable Values: %s - %s"
-msgstr ""
+msgstr "Valores Aceptables: %s - %s"
 
 #: ../core/page.ampusers.php:187
 msgid "Access Restrictions"
@@ -358,7 +358,7 @@ msgstr "Restricciones de acceso"
 #: ../core/functions.inc.php:7390 ../core/functions.inc.php:7445
 #: ../core/functions.inc.php:7490 ../core/functions.inc.php:7638
 msgid "Accountcode for this device."
-msgstr ""
+msgstr "Código de cuenta para este dispositivo."
 
 #: amp_conf/htdocs/admin/page.modules.php:832
 msgid "Action"
@@ -466,6 +466,10 @@ msgid ""
 "put Private, Blocked, Unknown, Restricted, Anonymous and Unavailable in "
 "order to catch these special cases if the Telco transmits them."
 msgstr ""
+"Agregue un CID para un enrutamiento por DID + CID más específico. Un DID debe "
+"ser especificado en el casillero de arriba. Adicionalmente a secuencias de marcado "
+"estandar, debe poner Private, Blocked, Unknown, Restricted, Anonymous y Unavailable si "
+"desea capturar estos casos si su proveedor los transmite."
 
 #: ../core/page.trunks.php:346
 msgid "Add a Trunk"
@@ -477,12 +481,12 @@ msgstr "Añadir una extensión"
 
 #: ../core/page.trunks.php:355
 msgid "Add mISDN Trunk"
-msgstr ""
+msgstr "Añadir Troncal mISDN"
 
 #: amp_conf/htdocs/admin/helpers/issabelpbx_helpers.php:114
 #, php-format
 msgid "Add new %s &#133"
-msgstr ""
+msgstr "Añadir nuevo %s &#133"
 
 #: amp_conf/htdocs/admin/page.modules.php:76
 msgid ""
@@ -493,6 +497,11 @@ msgid ""
 "is STRONGLY advised that you keep this enabled and keep updated of these "
 "important notifications to avoid costly security vulnerabilities."
 msgstr ""
+"Complete su dirección de correo para recibir notificaciones sobre actualizacios "
+"y problemas de seguridad. Esta dirección no es transmitida ni compartida con "
+"nadie y se usa solamente para enviar correos con notificaciones. Se recomienda "
+"que complete este campo para no quedar expuesto a potenciales problemas de "
+"seguridad por falta de actualización."
 
 #: ../core/install.php:483
 msgid "Added pmmaxretries and pmminlength"
@@ -4639,6 +4648,9 @@ msgid ""
 "\", a call from John Doe would display as \"Sales:John Doe\" on the "
 "extensions that ring."
 msgstr ""
+"Puede añadir un prefijo al Identificador por nombre. Ej: si pone \"Ventas:"
+"\", una llamada con el nombre Juan Perez se mostrará como \"Ventas:Juan Perez \" en "
+"el dispositivo que reciba la llamada."
 
 #: amp_conf/htdocs/admin/page.modules.php:633
 msgid ""
