@@ -1052,7 +1052,7 @@ END;
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <textarea rows="10" cols="40" name="peerdetails" tabindex="<?php echo ++$tabindex;?>"><?php echo htmlspecialchars($peerdetails) ?></textarea>
+                        <textarea rows="10" cols="40" style='width:100%; height:10em;' name="peerdetails" tabindex="<?php echo ++$tabindex;?>"><?php echo htmlspecialchars($peerdetails) ?></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -1075,7 +1075,7 @@ END;
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <textarea rows="10" cols="40" name="userconfig" tabindex="<?php echo ++$tabindex;?>"><?php echo htmlspecialchars($userconfig); ?></textarea>
+                        <textarea rows="10" cols="40" style='width:100%; height:10em;' name="userconfig" tabindex="<?php echo ++$tabindex;?>"><?php echo htmlspecialchars($userconfig); ?></textarea>
                     </td>
                 </tr>
                 <tr>
