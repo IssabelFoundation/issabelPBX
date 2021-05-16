@@ -541,8 +541,8 @@ function ipbx_reload() {
     $('<div></div>').progressbar({
         value: 100
     })
-    var box = $('<div></div>').html('<progress style="width: 100%">' + 'Please wait...' + '</progress>').dialog({
-        title: 'Reloading...',
+    var box = $('<div></div>').html('<progress style="width: 100%">' + ipbx.msg.framework.pleasewait + '</progress>').dialog({
+        title: ipbx.msg.framework.reloading,
         resizable: false,
         modal: true,
         height: 50,
