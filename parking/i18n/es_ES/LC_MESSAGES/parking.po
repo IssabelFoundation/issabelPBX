@@ -1,0 +1,359 @@
+# IssabelPBX language template
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-18 14:32+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Pickup ParkedCall Any"
+msgstr "Capturar Cualquier Parqueo"
+
+msgid "Park Prefix"
+msgstr "Prefijo Parqueo"
+
+msgid "Pickup ParkedCall Prefix"
+msgstr "Prefijo Captura Llamada Aparcada"
+
+#, php-format
+msgid "creating table %s if needed"
+msgstr ""
+
+msgid "ERROR: too many default lots detected, deleting and reinitializing"
+msgstr ""
+
+msgid "Initializing default parkinglot.."
+msgstr ""
+
+msgid "done"
+msgstr ""
+
+msgid "migrating old parkinglot data"
+msgstr ""
+
+#, php-format
+msgid "%s no longer supported"
+msgstr ""
+
+msgid "migrated ... dropping old table parkinglot"
+msgstr ""
+
+#, php-format
+msgid "ParkPlus: ParkCall %s"
+msgstr ""
+
+msgid "INUSE"
+msgstr ""
+
+#, php-format
+msgid "ParkPlus: PickupSlot %s"
+msgstr ""
+
+#, php-format
+msgid "Parking Lot: %s (%s)"
+msgstr "Lote de Parqueo: %s (%s)"
+
+msgid "Parking Lot"
+msgstr "Lote de Parqueo"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Manages parking lot extensions and other options.\tParking is a way of "
+"putting calls "
+msgstr ""
+
+msgid "Parking"
+msgstr ""
+
+msgid "Parking Lot Options"
+msgstr "Opciones del Lote de Parqueo"
+
+msgid "Parking Lot Extension:"
+msgstr "Extensión del Lote de Parqueo:"
+
+msgid "This is the extension where you will transfer a call to park it"
+msgstr "Esta es la extensión que usará para transferir llamadas a este lote y aparcarla"
+
+msgid "Parking Lot Name:"
+msgstr "Nombre del Lote de Parqueo:"
+
+msgid "Provide a Descriptive Title for this Parking Lot"
+msgstr "Provea un nombre descriptivo para este Lote de Parqueo"
+
+msgid "Parking Lot Starting Position:"
+msgstr "Posición Inicial del Lote"
+
+msgid "The starting postion of the parking lot"
+msgstr "La posición inicial disponible para este Lote de Parqueo"
+
+msgid "Number of Slots:"
+msgstr "Número de Posiciones:"
+
+msgid ""
+"The total number of parking lot spaces to configure. Example, if 70 is the "
+"extension and 8 slots are configured, the parking slots will be 71-78"
+msgstr ""
+"Cantidad total de posiciones disponibles para aparcar llamadas. Por ejemplo, si la extensión "
+"de parqueo es 70 e indica 8 lotes, las posiciones disponibles serán de la 71 a 78"
+
+
+msgid "Parking Timeout (seconds):"
+msgstr "Tiempo Máximo de Parqueo (segundos):"
+
+msgid ""
+"The timeout period in seconds that a parked call will attempt to ring back "
+"the original parker if not answered"
+msgstr ""
+"El tiempo máximo que una llamada puede estar aparcada antes de ser devuelta"
+"a quien la hubiera aparcado originalmente"
+
+
+msgid "Parked Music Class:"
+msgstr "Clase de Música en Espera"
+
+msgid ""
+"This is the music class that will be played to a parked call while in the "
+"parking lot UNLESS the call flow prior to parking the call explicitly set a "
+"different music class, such as if the call came in through a queue or ring "
+"group."
+msgstr ""
+"Indica la clase de música en espera que se ejecutará a loas personas "
+"que hayan sido aparcadas en este lote, a menos que previamente se haya "
+"configurado una clase distinta desde otra aplicación, como ser un grupo "
+"de timbrado o una cola."
+
+
+msgid "default"
+msgstr ""
+
+msgid "BLF Capabilities:"
+msgstr "Capacidad BLF:"
+
+msgid "Enable this to have Asterisk 'hints' generated to use with BLF buttons."
+msgstr "Active esta opción para generar 'hints' que pueden ser monitoreados por BLF en dispositivos que lo soporten."
+
+msgid "Enable"
+msgstr "Activar"
+
+msgid "Disable"
+msgstr "Desactivar"
+
+msgid "Find Slot:"
+msgstr "Encontrar Posición:"
+
+msgid ""
+"Next: If you want the parking lot to seek the next sequential parking slot "
+"relative to the the last parked call instead of seeking the first available "
+"slot. First: Use the first parking lot slot available"
+msgstr ""
+"Siguiente: Si desea que se busque la siguiente posición secuencial relativa "
+"al último llamado aparcado. Primera: Usar la primera posición disponible."
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "First"
+msgstr "Primera"
+
+msgid "Returned Call Behavior"
+msgstr "Comportamiento de Devolución de Llamada"
+
+msgid "Pickup Courtesy Tone:"
+msgstr "Tono de Cortesía al Capturar"
+
+msgid "Whom to play the courtesy tone to when a parked call is retrieved."
+msgstr "A quién reproducir el tono de cortesía cuando una llamada es recuperada."
+
+msgid "Caller"
+msgstr "Quien llama"
+
+msgid "Parked"
+msgstr "Quien aparcó"
+
+msgid "Both"
+msgstr "Ambos"
+
+msgid "Transfer Capability:"
+msgstr "Capacidad de Transferencia:"
+
+msgid ""
+"Asterisk: parkedcalltransfers. Enables or disables DTMF based transfers when "
+"picking up a parked call."
+msgstr ""
+"Asterisk: parkedcalltransfers. Habilita o no la posibilidad de transferir usando DTMF "
+"luego de recuperar una llamada aparcada."
+
+msgid "Neither"
+msgstr "Ninguno"
+
+msgid "Re-Parking Capability:"
+msgstr "Capacidad para Re-Aparcar"
+
+msgid ""
+"Asterisk: parkedcallreparking. Enables or disables DTMF based parking when "
+"picking up a parked call."
+msgstr "Asterisk: parkedcallreparking. Habilita o no el parqueo usando DTMF cuando "
+"se recupera una llamada aparcada."
+
+msgid "Parking Alert-Info:"
+msgstr "Alert-Info en Parqueo"
+
+msgid ""
+"Alert-Info to add to the call prior to sending back to the Originator or to "
+"the Alternate Destination."
+msgstr ""
+"Encablezado Alert-Info a agregar antes de enviar la llamada al parqueador original o "
+"a su destino alternativo."
+
+msgid "CallerID Prepend:"
+msgstr "Anteponer CallerID:"
+
+msgid ""
+"String to prepend to the current Caller ID associated with the parked call "
+"prior to sending back to the Originator or the Alternate Destination."
+msgstr ""
+"Cadena a anteponer al Caller ID asociado a la llamada aparcada antes de enviarla "
+"de reotrno al parqueador original o a su destino alternativo."
+
+msgid "Auto CallerID Prepend:"
+msgstr "Anteponer CallerID Automático:"
+
+msgid ""
+"These options will be appended after CallerID Prepend if set. Otherwise they "
+"will appear first. The automatic options are as follows:<ul><li><strong>None:"
+"</strong> No Automatic Prepend</li><li><strong>Slot:</strong> Parking lot "
+"they were parked on</li><li><strong>Extension:</strong> The extension number "
+"that parked the call</li><li><strong>Name:</strong> The user who parked the "
+"call</li></ul>"
+msgstr ""
+"Estas opciones se antepondrán al CallerID luego de la anteposición previa si existe. "
+"Si no aparecerán primero. Las opciones automáticas son las siguientes:<ul><li><strong>Nada:"
+"</strong> No se antepone nada automáticamente</li><li><strong>Posición:</strong> La posición "
+"dónde fueron aparcados</li><li><strong>Extensión:</strong> El número de extensión "
+"que aparcó la llamada</li><li><strong>Nombre:</strong> El usuario que aparcó la "
+"llamada</li></ul>"
+
+msgid "None"
+msgstr "Nada"
+
+msgid "Slot"
+msgstr "Posición"
+
+msgid "Extension"
+msgstr "Extensión"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Announcement:"
+msgstr "Anuncio:"
+
+msgid ""
+"Optional message to be played to the call prior to sending back to the "
+"Originator or the Alternate Destination."
+msgstr ""
+"Mensaje opcional a reproducir antes de enviarla de retonro al aparcador o al destino alternativo."
+
+msgid ""
+"You must install and enable the \"Systems Recordings\" Module to edit this "
+"option"
+msgstr ""
+"Debe instalar y activar \"Grabaciones de Sistema\" para poder usar esta opción."
+
+msgid "Alternate Destination"
+msgstr "Destino Alternativo"
+
+msgid "Come Back to Origin:"
+msgstr "Retornar al Origen:"
+
+msgid ""
+"Where to send a parked call that has timed out. If set to yes then the "
+"parked call will be sent back to the originating device that sent the call "
+"to this parking lot. If the origin is busy then we will send the call to the "
+"Destination selected below. If set to no then we will send the call directly "
+"to the destination selected below"
+msgstr ""
+"A dónde enviar una llamada aparcada cuando alcanza el tiempo máximo. Si se pone en 'si' "
+"entonces la llamada será enviada a quien la haya aparcado originalmente. Si este origen "
+"está ocupado entonces será enviada al destino seleccionado abajo. Si se pone en 'no' "
+"entonces se enviará directamente al destino especificado abajo."
+
+msgid "Yes"
+msgstr "Si"
+
+msgid "No"
+msgstr "No"
+
+msgid "Destination:"
+msgstr "Destino:"
+
+msgid "Submit Changes"
+msgstr "Enviar Cambios"
+
+msgid "Add Park Slot"
+msgstr "Añadir Lote de Parqueo"
+
+msgid "This module is used to configure Parking Lot(s) in Asterisk."
+msgstr "Este módulo se usa para configurar Lotes de Parqueo en Asterisk."
+
+msgid ""
+"Simply transfer the call to said parking lot extension. Asterisk will then "
+"read back the parking lot number the call has been placed in. To retrieve "
+"the call simply dial that number back."
+msgstr ""
+"Simplemente transfiera una llamada a la extensión de un lote. Asterisk le "
+"anunicará la posición en el que fue ubicado. Para capturar la llamada nuevamente "
+"marque dicho número de posición."
+
+msgid "Example usage"
+msgstr "Ejemplo de uso"
+
+msgid "*2nn:"
+msgstr ""
+
+msgid ""
+"Attended Transfer call into Park lot nnn (It will announce the slot back to "
+"you)"
+msgstr "Transferencia supervisada al Lote número nnn (se le anunciará la posición de parqueo)"
+
+msgid "nn:"
+msgstr ""
+
+msgid "Park Yourself into Parking lot nnn (Announcing your parked slot to you)"
+msgstr "Aparcarse a uno mismo en el lote nnn (se le anunciará su propia posición)"
+
+msgid ""
+"There are also different levels of Parking. To see what level you have and "
+"to see options and features you'd get from other modules please see the "
+"chart below"
+msgstr ""
+
+msgid "Paging"
+msgstr ""
+
+msgid "Paging Provides the Ability to setup Park and Announce"
+msgstr ""
+
+msgid "Paging Pro"
+msgstr ""
+
+msgid "Paging Pro enables the Ability to setup Park and Announce"
+msgstr ""
+
+msgid "Park Pro"
+msgstr ""
+
+msgid "Park Pro enables the Ability to setup Park and Announce"
+msgstr ""
+
+msgid "Overview"
+msgstr ""
