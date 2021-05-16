@@ -94,7 +94,7 @@ $gen_settings = array(		"adsifdn" 			=> array("ver" => 1.2, "len" => 4, "type" =
 				"charset"  			=> array("ver" => 1.2, "len" => 32, "type" => "char", "default" => ""),
         			"cidinternalcontexts" 		=> array("ver" => 1.2, "len" => 640, "type" => "char", "default" => ""),
 				"dialout"  			=> array("ver" => 1.2, "len" => 80, "type" => "char", "default" => ""),
-				"emailbody" 			=> array("ver" => 1.2, "len" => $dlen, "type" => "char", "default" => ""),
+				"emailbody" 			=> array("ver" => 1.2, "len" => $dlen, "type" => "textarea", "default" => ""),
 				"emaildateformat" 		=> array("ver" => 1.2, "len" => 32, "type" => "char", "default" => ""),
 				"emailsubject"                  => array("ver" => 1.2, "len" => $dlen, "type" => "char", "default" => ""),
 				"envelope"                      => array("ver" => 1.2, "len" => $dlen, "type" => "flag", "default" => "yes"),
@@ -540,6 +540,8 @@ switch ($action) {
 					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input type='radio' name='$id' id='$id' tabindex='1' value='yes' $yes_selected />" . _("yes");
 					$output .= "<input type='radio' name='$id' id='$id' tabindex='1' value='no' $no_selected />" . _("no");
 					$output .= "</td></tr>";
+				} else if ($descrip["type"] == "textarea") {
+					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<textarea cols=100 rows=10 size='$text_size' maxlength='$len' type='$text_type' name='$id' id='$id' tabindex='1'>".htmlentities($val)."</textarea></td></tr>";
 				} else {
 					$text_type = ($key == "pwd" || $key == "authpassword")?"password":"text";
 					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input size='$text_size' maxlength='$len' type='$text_type' name='$id' id='$id' tabindex='1' value=\"".htmlentities($val)."\" /></td></tr>";
@@ -559,7 +561,7 @@ switch ($action) {
 		}
 		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
 		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
-		$output .= "<tr><td></td><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='Submit' />" . $update_notice . "</td></tr>";
+		$output .= "<tr><td></td><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='".('Submit')."' />" . $update_notice . "</td></tr>";
 		echo $output;
 		break;
 	case "usage":
