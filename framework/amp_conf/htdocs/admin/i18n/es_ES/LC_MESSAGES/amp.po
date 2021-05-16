@@ -842,6 +842,10 @@ msgid ""
 "it. The higher of the two determines the policy, on a tie the global policy "
 "(caller or callee) determines the policy."
 msgstr ""
+"Prioridad de la política de grabación en relación a otras extensinoes que "
+"tengan conflicto en su política (una extensión con grabación activada y otra no). "
+"La prioridad más alta entre ambas es la que se aplicará. Si empatan, se aplica "
+"la configuración global."
 
 #: ../core/page.routing.php:516
 msgid "CallerID"
@@ -1753,6 +1757,9 @@ msgid ""
 "overall calling policy rules still apply and if calls are already being "
 "recorded they can not be paused."
 msgstr ""
+"Habilitar o deshabilitar la posibilidad de realizar grabaciones a demanda "
+"(a un toque). La política de grabación general sigue funcionando y si las "
+"llamadas ya están siendo grabadas, no podrán ser pausadas."
 
 #: amp_conf/htdocs/admin/page.modules.php:805
 msgid "Enabled"
@@ -3497,19 +3504,19 @@ msgstr "Opciones de grabación"
 
 #: ../core/functions.inc.php:7238
 msgid "Recording of calls made to other extensions on the system."
-msgstr ""
+msgstr "Grabación de llamadas realizadas a otras extensiones del sistema."
 
 #: ../core/functions.inc.php:7237
 msgid "Recording of calls received from other extensions on the system."
-msgstr ""
+msgstr "Grabación de llamadas recibidas de otras extensiones del sistema."
 
 #: ../core/functions.inc.php:7235
 msgid "Recording of inbound calls from external sources."
-msgstr ""
+msgstr "Grabación de llamadas entrantes provenientes de fuentes externas"
 
 #: ../core/functions.inc.php:7236
 msgid "Recording of outbound calls to external sources."
-msgstr ""
+msgstr "Grabación de llamadas salientes realizadas al exterior."
 
 #: ../core/page.advancedsettings.php:156 ../core/page.trunks.php:1004
 msgid "Refresh Page"

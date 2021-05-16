@@ -56,6 +56,8 @@ msgstr "Habilita a este usuario a recibir faxes"
 msgid "Fax Email"
 msgstr ""
 
+msgid "Formats to convert incoming fax files to before emailing."
+msgstr "Formato a convertir el fax recibido antes de enviarlo por correo electrónico."
 msgid ""
 "Enter an email address where faxes sent to this extension will be delivered."
 msgstr "Ingrese una dirección de correo donde se enviarán los faxes enviados a esta extensión"
