@@ -4437,7 +4437,7 @@ msgstr ""
 #: ../core/page.routing.php:576 ../core/page.routing.php:664
 #: ../core/page.trunks.php:687 ../core/page.trunks.php:696
 msgid "Upload from CSV"
-msgstr ""
+msgstr "Subir desde CSV"
 
 #: amp_conf/htdocs/admin/page.modules.php:666
 msgid "Upload module"
@@ -5885,6 +5885,17 @@ msgstr "Determina si los medios pueden fluir directamente entre dispositivos."
 msgid "Determines whether res_pjsip will use the media transport received in the offer SDP in the corresponding answer SDP."
 msgstr "Determina si res_pjsip usará el transporte de medios recibido en la oferta SDP en la correspondiente respuesta a esa oferta." 
 
+msgid "no"
+msgstr "no"
+
+msgid "yes"
+msgstr "si"
+
+msgid "Reloading..."
+msgstr "Recargando..."
+
+msgid "Please Wait"
+msgstr "Por favor espere"
 
 #~ msgid "Tools"
 #~ msgstr "Herramientas"
@@ -6238,12 +6249,6 @@ msgstr "Determina si res_pjsip usará el transporte de medios recibido en la ofe
 #~ msgstr ""
 #~ "Selecciones Sí si utiliza un formato de reloj de 24 horas o No si usa un "
 #~ "formato de reloj de 12 horas (AM/PM)"
-
-msgid "no"
-msgstr "no"
-
-msgid "yes"
-msgstr "si"
 
 #~ msgid "Security Settings"
 #~ msgstr "Opciones de seguridad"

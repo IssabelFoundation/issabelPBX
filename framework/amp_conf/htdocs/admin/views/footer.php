@@ -94,6 +94,9 @@ $ipbx['msg']['framework']['validateSingleDestination']['error'] = _('Custom Goto
 $ipbx['msg']['framework']['weakSecret']['length'] = _("The secret must be at minimum six characters in length.");
 $ipbx['msg']['framework']['weakSecret']['types'] = _("The secret must contain at least two numbers and two letters.");
 $ipbx['msg']['framework']['add'] = _("Add");
+$ipbx['msg']['framework']['reloading'] = _("Reloading...");
+$ipbx['msg']['framework']['pleasewait'] = _("Please Wait");
+
 
 if ($covert) {
 	$ipbx['conf'] = array (
