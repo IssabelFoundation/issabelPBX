@@ -36,6 +36,12 @@ msgstr "Sí"
 msgid "no"
 msgstr "No"
 
+msgid "Disable Standard Prompt"
+msgstr "Deshabilitar Instrucciones Estandar"
+
+msgid "Check this box to disable the standard voicemail instructions that follow the user recorded message. These standard instructions tell the caller to leave a message after the beep. This can be individually controlled for users who have VMX locater enabled."
+msgstr "Marque esta opción si desea desactivar las instrucciones estandar que se indican al usuario. Estas instrucciones le dicen a quien llama que deje un mensaje luego del tono. Esto puede controlarse individualmente para usuarios que tengan habilitado VMX."
+
 msgid "Please enter a valid Voicemail Password, using digits only"
 msgstr ""
 "Por favor, introduzca una contraseña válida para el buzón de voz, usando "
@@ -279,23 +285,29 @@ msgstr "Administración de Buzón de Voz"
 msgid "Timezone Definitions"
 msgstr "Definiciones de Zona Horaria"
 
+msgid "Dialplan Behavior"
+msgstr "Comportamiento de Plan de Marcado"
+
+msgid "General Dialplan Settings"
+msgstr "Configuracíon General del Plan de Marcado"
+
 msgid "Basic Settings For: "
-msgstr ""
+msgstr "Configuración Básica para:"
 
 msgid "Basic settings view is for individual accounts."
-msgstr ""
+msgstr "Configuración básicas para cuentas individuales."
 
 msgid "Advanced Settings For: "
-msgstr ""
+msgstr "Configuración avanzadas para:"
 
 msgid "System Settings"
-msgstr ""
+msgstr "Configuración de Sistema"
 
 msgid "Usage Statistics For: "
-msgstr ""
+msgstr "Estadísticas de Uso para:"
 
 msgid "System Usage Statistics"
-msgstr ""
+msgstr "Estadísticas de Uso"
 
 msgid "Invalid Action"
 msgstr ""
@@ -331,13 +343,13 @@ msgid "ok"
 msgstr "ok"
 
 msgid "Timezone definition name"
-msgstr ""
+msgstr "Nombre para la definición de zona horaria"
 
 msgid "Time announcement for message playback"
-msgstr ""
+msgstr "Anuncio de horario al reproducir un mensaje"
 
 msgid "Remove the timezone definition"
-msgstr ""
+msgstr "Eliminar definición de zona horaria"
 
 msgid "The ADSI feature descriptor number to download to"
 msgstr ""
@@ -376,16 +388,16 @@ msgid ""
 msgstr ""
 
 msgid "Email body."
-msgstr ""
+msgstr "Cuerpo del mensaje"
 
 msgid "Load date format config for Voicemail mail."
 msgstr ""
 
 msgid "Email subject"
-msgstr ""
+msgstr "Asunto del mensaje"
 
 msgid "How many seconds of silence before we end the recording"
-msgstr ""
+msgstr "Cuántos segundos de silencio antes de que finalice la grabación"
 
 msgid ""
 "Turn on/off envelope playback before message playback. [ON by default] This "
@@ -684,238 +696,246 @@ msgid "Call me number. Can be used from within ARI."
 msgstr ""
 
 msgid "System View Links:"
-msgstr ""
+msgstr "Enlaces de Vistas:"
 
 msgid ""
 "A timezone definition specifies how the Voicemail system announces the time."
 msgstr ""
+"Una definición de zona horaria especifica como debe anunciarse una fecha y hora en el sistema de buzón de voz."
 
 msgid ""
 "For example, the time a message was left will be announced according to the "
 "user's timezone on message playback."
 msgstr ""
+"Por ejemplo, el horario en que un mensaje fue dejado será anunciado de acuerdo "
+"a la zona horaria definida para ese usuario."
 
 msgid "Entries below will be written to Voicemail configuration as-is."
-msgstr ""
+msgstr "Las entradas subsiguientes serán escritas en la configuración de voicemail tal como las escriba."
 
 msgid ""
 "Please be sure to follow the format for timezone definitions described below."
-msgstr ""
+msgstr "Por favor asegúrese de seguir un formato adecuado de acuerdo a su descripción."
 
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 msgid "Timezone Definition"
-msgstr ""
+msgstr "Definición de Zona Horaria"
 
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "New Name"
-msgstr ""
+msgstr "Nuevo Nombre"
 
 msgid "New Timezone Definition"
-msgstr ""
+msgstr "Nueva Definición de Zona Horaria"
 
 msgid "Timezone definition format is: "
-msgstr ""
+msgstr "El formato de definición de zona horaria es:"
 
 msgid "timezone|values"
-msgstr ""
+msgstr "zona horaria/valores"
 
 msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
-msgstr ""
+msgstr "Las <i>Zonas Horarias</i> son listadas en /usr/share/zoneinfo"
 
 msgid "The <i>values</i> supported in the timezone definition string include:"
-msgstr ""
+msgstr "Los <i>valores</i> soportados en esta campo son:"
 
 msgid "'filename'"
 msgstr ""
 
 msgid "The name of a sound file (the file name must be single-quoted)"
-msgstr ""
+msgstr "El nombre de un archivo de audio (el archivo debe entrecomillares con comilla simple)"
 
 msgid "variable"
 msgstr ""
 
 msgid "A variable to be substituted (see below for supported variable values)"
-msgstr ""
+msgstr "Una variable a sustituir (vea abajo para los valores de variable soportados)"
 
 msgid "Supported <i>variables</i>:"
-msgstr ""
+msgstr "Variables Soportadas:"
 
 msgid "A or a"
-msgstr ""
+msgstr "A o a"
 
 msgid "Day of week (Saturday, Sunday, ...)"
-msgstr ""
+msgstr "Día de la semana (Sábado, Domingo, ...)"
 
 msgid "B or b or h"
-msgstr ""
+msgstr "B o b o h"
 
 msgid "Month name (January, February, ...)"
-msgstr ""
+msgstr "Nombre del mes (Enero, Febrero, ...)"
 
 msgid "d or e"
-msgstr ""
+msgstr "d o e "
 
 msgid "numeric day of month (first, second, ..., thirty-first)"
-msgstr ""
+msgstr "día del mes numérico (primero, segundo, ...)"
 
 msgid "Y"
 msgstr ""
 
 msgid "Year"
-msgstr ""
+msgstr "Año"
 
 msgid "I or l"
-msgstr ""
+msgstr "I o l"
 
 msgid "Hour, 12 hour clock"
-msgstr ""
+msgstr "Hora, reloj de 12 horas"
 
 msgid "H"
 msgstr ""
 
 msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
-msgstr ""
+msgstr "Hora, reloj de 24 horas (digitos simples precedidos por cero)"
 
 msgid "k"
 msgstr ""
 
 msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
-msgstr ""
+msgstr "Hora, reloj de 24 horas (digitos simples sin preceder con cero)"
 
 msgid "M"
 msgstr ""
 
 msgid "Minute, with 00 pronounced as \"o'clock\""
-msgstr ""
+msgstr "Minuto, con 00 pronunciado como 'en punto'"
 
 msgid "N"
 msgstr ""
 
 msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
-msgstr ""
+msgstr "Minuto, con 9 pronunciado como 'ciento' (modo militar)"
 
 msgid "P or p"
-msgstr ""
+msgstr "P o p"
 
 msgid "AM or PM"
-msgstr ""
+msgstr "AM o PM"
 
 msgid "Q"
 msgstr ""
 
 msgid "\"today\", \"yesterday\" or ABdY"
-msgstr ""
+msgstr "\"hoy\", \"ayer\" o ABdY"
 
 msgid "q"
 msgstr ""
 
 msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
-msgstr ""
+msgstr "\"\" (para hoy), \"ayer\", día de semana, or ABdY"
 
 msgid "R"
 msgstr ""
 
 msgid "24 hour time, including minute"
-msgstr ""
+msgstr "Hora en formato 24 horas incluyendo minutos"
 
 msgid "Account View Links:"
-msgstr ""
+msgstr "Enlaces de Vista de Cuenta:"
 
 msgid "Settings"
-msgstr ""
+msgstr "Configuración"
 
 msgid "Usage"
-msgstr ""
+msgstr "Uso"
 
 msgid "Advanced Settings"
-msgstr ""
+msgstr "Configuración Avanzada"
 
 msgid "No name defined; this is configured from the Extensions or Users page."
-msgstr ""
+msgstr "No hay nombre definido; esto se configura desde el módulo Extensiones."
 
 msgid "Call-Me Number"
-msgstr ""
+msgstr "Número Llámame"
 
 msgid "undefined"
-msgstr ""
+msgstr "no definido"
 
 msgid ""
 "Selecting \"undefined\" will remove this option from the user's Voicemail "
 "configuration entry. (System default will be used.)"
 msgstr ""
+"Si elige \"no definido\" se removerá esta opción de la configuración del buzón de "
+"voz del usuario. (se usará el valor por defecto de sistema.)"
 
 msgid "Number of Accounts:"
-msgstr ""
+msgstr "Cantidad de Cuentas:"
 
 msgid "Total ( Activated / Unactivated / Disabled )"
-msgstr ""
+msgstr "Total (Activas / Inactivas / Deshabilitadas )"
 
 msgid "Number of Messages:"
-msgstr ""
+msgstr "Cantidad de Mensajes:"
 
 msgid "Total ( Messages in inboxes / Messages in other folders )"
-msgstr ""
+msgstr "Total ( Mensajes en buzón de entrada / en otras carpetas )"
 
 msgid "Remove all messages"
-msgstr ""
+msgstr "Eliminar todos los mensajes"
 
 msgid "Recorded Names:"
-msgstr ""
+msgstr "Nombres Grabados:"
 
 msgid "Number of recorded name greetings"
-msgstr ""
+msgstr "Cantidad de saludos grabados"
 
 msgid "Remove all recorded names"
-msgstr ""
+msgstr "Eliminar todos los nombres grabados"
 
 msgid "Unavailable Greetings:"
-msgstr ""
+msgstr "Saludos de No Disponible:"
 
 msgid "Number of recorded unavailable greetings"
-msgstr ""
+msgstr "Cantidad de saludos de no disponible grabados"
 
 msgid "Remove all unavailable greetings"
-msgstr ""
+msgstr "Eliminar todos los saludos de no disponible"
 
 msgid "Busy Greetings:"
-msgstr ""
+msgstr "Saludos de Ocupado:"
 
 msgid "Number of recorded busy greetings"
-msgstr ""
+msgstr "Cantidad de saludos de ocupado grabados"
 
 msgid "Remove all busy greetings"
-msgstr ""
+msgstr "Eliminar todos los saludos de ocupado"
 
 msgid "Temporary Greetings:"
-msgstr ""
+msgstr "Saludos Temporales:"
 
 msgid "Number of recorded temporary greetings"
-msgstr ""
+msgstr "Cantidad de saludos temporales grabados"
 
 msgid "Remove all temporary greetings"
-msgstr ""
+msgstr "Eliminar todos los saludos temporales grabados"
 
 msgid "Abandoned Greetings:"
-msgstr ""
+msgstr "Saludos Abandonados:"
 
 msgid ""
 "Number of abandoned greetings. Such greetings were recorded by the user but "
 "were NOT accepted, so the sound file remains on disk but is not used as a "
 "greeting."
 msgstr ""
+"Cantidad de saludos abandonados. Son los saludos que fueron grabados por usuarios "
+"pero NO fueron aceptados. El sonido permanece en disco pero no es usado en "
+"ningún saludo."
 
 msgid "Remove all abandoned greetings (> 1 day old)"
-msgstr ""
+msgstr "Eliminar todos los saludos abandonados (> 1 día)"
 
 msgid "Storage Used:"
-msgstr ""
+msgstr "Almacenamiento Utilizado:"
 
 msgid "Disk space currently in use by Voicemail data"
-msgstr ""
+msgstr "Espacio en disco utilizado por los datos de Buzón de Voz"
 
 msgid "File timestamp: "
 msgstr ""
@@ -955,6 +975,9 @@ msgstr ""
 
 msgid "Storage Used"
 msgstr ""
+
+msgid "Submit"
+msgstr "Enviar"
 
 msgid "This module allows you to configure Voicemail for a user or extension"
 msgstr ""

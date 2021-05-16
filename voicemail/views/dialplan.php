@@ -101,7 +101,7 @@
 			
 		</td>
 		<td colspan='2'>
-			<input type='submit' name='action' id='action' value='Submit' />
+			<input type='submit' name='action' id='action' value='<?php echo _('Submit');?>' />
 		</td>
 	</tr>
 </table>

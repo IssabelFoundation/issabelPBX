@@ -103,6 +103,6 @@
 		<td>
 		
 		</td>
-		<td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='Submit' /></td>
+		<td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='<?php echo_('Submit');?>' /></td>
 	</tr>
 </table>
