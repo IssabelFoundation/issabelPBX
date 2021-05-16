@@ -29,7 +29,10 @@ msgid "Call Forward All Deactivate"
 msgstr "Desactivar todos los desvíos de llamada"
 
 msgid "Call Forward All Prompting Deactivate"
-msgstr ""
+msgstr "Desactivar instrucciones de Desvío de Llamada siempre"
+
+msgid "Call Forward All Prompting Activate"
+msgstr "Activar instrucciones de Desvío de Llamada siempre"
 
 msgid "Call Forward Busy Activate"
 msgstr "Activar desvío de llamada cuando esté ocupado"
@@ -38,7 +41,10 @@ msgid "Call Forward Busy Deactivate"
 msgstr "Desactivar desvío de llamada cuando esté ocupado"
 
 msgid "Call Forward Busy Prompting Deactivate"
-msgstr ""
+msgstr "Desactivar instrucciones de Desvío de Llamada cuando ocupado"
+
+msgid "Call Forward Busy Prompting Activate"
+msgstr "Activar instrucciones de Desvío de Llamada cuando ocupado"
 
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr "Activar desvío de llamada cuando no conteste o no esté disponible"
@@ -47,4 +53,9 @@ msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr "Desactivar desvío de llamada cuando no conteste o no esté disponible"
 
 msgid "Call Forward Toggle"
-msgstr ""
+msgstr "Alternar Desvío de Llamada"
+
+msgid "Call Forward No Answer/Unavailable Prompting Activate"
+msgstr "Activar instrucciones de Desvío de Llamada no conteste o no disponible"
+
+

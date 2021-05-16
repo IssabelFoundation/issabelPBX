@@ -260,6 +260,9 @@ msgstr ""
 msgid "changing primary keys to all fields.."
 msgstr "Cambiando claves primarias a todos los campos..."
 
+msgid "All: Call Flow Toggle"
+msgstr "Todos: Alternar Flujo de Llamada"
+
 #~ msgid "Day/Night (%s) : %s"
 #~ msgstr "Día/Noche (%s): %s"
 

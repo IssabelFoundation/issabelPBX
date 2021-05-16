@@ -334,3 +334,8 @@ msgid ""
 "You must set Allow Menu to Yes when not using a Leader or Admin in your "
 "conference, otherwise you will be unable to unmute yourself"
 msgstr ""
+
+msgid "Conference Status"
+msgstr "Estado de Conferencia"
+
+

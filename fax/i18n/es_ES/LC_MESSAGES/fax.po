@@ -188,7 +188,7 @@ msgid "Where to send the call if we detect that its a fax"
 msgstr ""
 
 msgid "Dial System FAX"
-msgstr ""
+msgstr "Marcar Fax del Sistema"
 
 msgid "Migrating fax_incoming table..."
 msgstr ""

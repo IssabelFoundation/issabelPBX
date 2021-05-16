@@ -46,7 +46,7 @@ msgid "Follow-Me User: %s"
 msgstr "Usuario Sígueme: %s"
 
 msgid "Findme Follow Toggle"
-msgstr ""
+msgstr "Alternar Sígueme"
 
 msgid "Cannot connect to Asterisk Manager with "
 msgstr ""

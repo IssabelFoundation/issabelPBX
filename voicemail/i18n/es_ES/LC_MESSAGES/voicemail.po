@@ -972,6 +972,9 @@ msgid ""
 "fields populated, they will be displayed even if this is set to false."
 msgstr ""
 
+msgid "Direct Dial Prefix"
+msgstr "Prefijo de Marcado Directo"
+
 #~ msgid "Voicemail & Directory"
 #~ msgstr "Buzón de voz y directorio"
 

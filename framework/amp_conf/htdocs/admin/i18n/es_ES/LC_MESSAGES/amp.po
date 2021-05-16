@@ -2498,19 +2498,19 @@ msgstr "En uso por"
 
 #: ../core/install.php:15
 msgid "In-Call Asterisk Attended Transfer"
-msgstr ""
+msgstr "Transferencia Asistida Asterisk"
 
 #: ../core/install.php:14
 msgid "In-Call Asterisk Blind Transfer"
-msgstr ""
+msgstr "Transferencia Ciega Asterisk"
 
 #: ../core/install.php:17
 msgid "In-Call Asterisk Disconnect Code"
-msgstr ""
+msgstr "Desconectar Llamada Asterisk"
 
 #: ../core/install.php:16
 msgid "In-Call Asterisk Toggle Call Recording"
-msgstr ""
+msgstr "Alternar Grabación Asterisk"
 
 #: ../core/functions.inc.php:7235
 msgid "Inbound External Calls"
@@ -4510,11 +4510,11 @@ msgstr "Extensión del usuario:"
 
 #: ../core/install.php:8
 msgid "User Logoff"
-msgstr ""
+msgstr "Egreso de Usuario"
 
 #: ../core/install.php:7
 msgid "User Logon"
-msgstr ""
+msgstr "Ingreso de Usuario"
 
 #: ../core/functions.inc.php:7095
 msgid "User Password"

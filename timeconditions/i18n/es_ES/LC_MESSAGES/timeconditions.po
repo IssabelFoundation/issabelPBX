@@ -472,5 +472,8 @@ msgstr "Autorellenar Festivos"
 msgid "This action will remove all configured times in this groups and recreate them based on holiday calendars by Google and other providers. Are you sure you want to continue?"
 msgstr "Esta acción borrará todos los horarios configurados en este grupo y los recreará en base a calendarios de festivos provistos por Google y otros proveedores. Está seguro que desea continuar?"
 
+msgid "All: Time Condition Override"
+msgstr "Todas: Ignorar condiciones horarias"
+
 #~ msgid "text"
 #~ msgstr "texto"

@@ -1242,6 +1242,17 @@ msgstr "Ejecución"
 
 msgid "Never"
 msgstr "Nunca"
+
+msgid "Queue Callers"
+msgstr "Llamadas en Cola"
+
+msgid "Queue Pause Toggle"
+msgstr "Alternar Pausa en Cola"
+
+msgid "Queue Toggle"
+msgstr "Alternar Cola"
+
+
 #~ msgid ""
 #~ "You can optionally prefix the Caller ID name of callers to the queue. ie: "
 #~ "If you prefix with \"Sales:\", a call from John Doe would display as "

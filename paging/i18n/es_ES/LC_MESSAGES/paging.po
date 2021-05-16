@@ -34,13 +34,13 @@ msgid ""
 msgstr ""
 
 msgid "Intercom prefix"
-msgstr ""
+msgstr "Prefijo Intercom"
 
 msgid "User Intercom Allow"
-msgstr ""
+msgstr "Permitir Intercom a Usuario"
 
 msgid "User Intercom Disallow"
-msgstr ""
+msgstr "iDenegar Intercom a Usuario"
 
 msgid "Disabled"
 msgstr ""
