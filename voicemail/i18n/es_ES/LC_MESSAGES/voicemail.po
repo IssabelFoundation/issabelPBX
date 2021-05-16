@@ -376,6 +376,12 @@ msgid ""
 "be permitted."
 msgstr ""
 
+msgid "UPDATE COMPLETED"
+msgstr "ACTUALIZACION EXITOSA"
+
+msgid "UPDATE FAILED"
+msgstr "OCURRIO UN FALLO AL ACTUALIZAR"
+
 msgid "The character set for Voicemail messages"
 msgstr ""
 
