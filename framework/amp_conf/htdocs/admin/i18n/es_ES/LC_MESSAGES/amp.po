@@ -2900,6 +2900,11 @@ msgid ""
 "number, ex: username:password@switch.voipprovider.com/didnumber in order for "
 "any DID matching to work."
 msgstr ""
+"La mayoría de los proveedores VoIP requieren que sus sitema se REGISTRE con ellos. "
+"Ingrese la línea de registro en este campo.<br><br>Ejemplo:<br><br>usuario:clave@switch.voipprovider.com."
+"<br><br>Varios proveedores requieren además que indique un número de DID "
+"para que el emparejamiento por DID funcione en llamadas entrantes. Por "
+"ejemplo:<br><br> usuario:clave@switch.voipprovider.com/numero_de_did<br>"
 
 #: ../core/page.routing.php:709
 msgid "Move Down"
@@ -5427,11 +5432,11 @@ msgstr ""
 
 #: ../core/page.routing.php:515 ../core/page.trunks.php:629
 msgid "match pattern"
-msgstr ""
+msgstr "patrón de coincidencia"
 
 #: ../core/page.routing.php:505 ../core/page.trunks.php:619
 msgid "match pattern:"
-msgstr ""
+msgstr "patrón de coincidencia:"
 
 #: ../core/page.routing.php:498 ../core/page.trunks.php:612
 msgid "matches any digit from 0-9"
@@ -5539,11 +5544,11 @@ msgstr ""
 
 #: ../core/page.routing.php:514 ../core/page.trunks.php:628
 msgid "prefix"
-msgstr ""
+msgstr "prefijo"
 
 #: ../core/page.routing.php:504 ../core/page.trunks.php:618
 msgid "prefix:"
-msgstr ""
+msgstr "prefijo:"
 
 #: ../core/install.php:809
 msgid "preparing"
@@ -5560,11 +5565,11 @@ msgstr ""
 
 #: ../core/page.routing.php:513 ../core/page.trunks.php:627
 msgid "prepend"
-msgstr ""
+msgstr "anteponer"
 
 #: ../core/page.routing.php:503 ../core/page.trunks.php:617
 msgid "prepend:"
-msgstr ""
+msgstr "anteponer:"
 
 #: ../core/page.routing.php:546 ../core/page.routing.php:559
 #: ../core/page.routing.php:807 ../core/page.trunks.php:654
