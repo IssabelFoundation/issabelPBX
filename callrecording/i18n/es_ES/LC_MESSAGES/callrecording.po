@@ -71,3 +71,15 @@ msgstr ""
 
 msgid "Call Recording"
 msgstr "Grabación de LLamadas"
+
+msgid "Controls or overrides the call recording behavior for calls coming into this DID. Allow will honor the normal downstream call recording settings. Record on Answer starts recording when the call would otherwise be recorded ignoring any settings that say otherwise. Record Immediately will start recording right away capturing ringing, announcements, MoH, etc. Never will disallow recording regardless of downstream settings."
+msgstr ""
+"Inicia o anula la grabación para llamados que ingresen en este DID. "
+"Permitir va a honrar las configuraciones de grabación subsiguientes. Grabar al atender "
+"comenzará la grabación cuando el llamado sea atendido ignorando otras configuraciones que "
+"puedan contradecirlo. Grabar inmediatamente comenzará la grabación inmediatamente, capturando "
+"sonidos de progreso, ring, música en espera, anunciones, etc. Nunca va a no permitir grabaciones "
+"no importa que otras configuraciones de grabación continúen en el flujo descendente."
+
+
+

@@ -700,7 +700,7 @@ msgstr "Opciones Dial de Asterisk"
 
 #: ../core/functions.inc.php:7477 ../core/functions.inc.php:7569
 msgid "Asterisk connection type, usually friend for endpoints."
-msgstr ""
+msgstr "Tipo de conexión SIP, usualmente 'friend' para teléfonos."
 
 #: ../core/functions.inc.php:7358 ../core/functions.inc.php:7405
 #: ../core/functions.inc.php:7468 ../core/functions.inc.php:7543
@@ -708,6 +708,8 @@ msgid ""
 "Asterisk context this device will send calls to. Only change this is you "
 "know what you are doing."
 msgstr ""
+"El contexto del plan de marcado al que el dispositivo enviará llamadas. "
+"Cambie esto solo si sabe lo que está haciendo."
 
 #: ../core/functions.inc.php:7642
 msgid ""
@@ -716,6 +718,10 @@ msgid ""
 "blank, the default vmexten setting is automatically configured by the "
 "voicemail module. Only change this on devices that may have special needs."
 msgstr ""
+"Extensión del dialplan de Asterisk para enrutar a buzón de voz para este dispositivo. "
+"Algunos dispositivos usan esto para auto programar el botón de buzón de voz en el mismo. Si "
+"lo deja en blanco, la opción por defecto será utilizada automáticamente por el módulo "
+"de buzón de voz. Sólo modifique este campo para dispositivos que lo requieran."
 
 #: amp_conf/htdocs/admin/views/welcome_nomanager.php:7
 msgid "Asterisk may not be running."
@@ -1446,6 +1452,9 @@ msgid ""
 "extension/device."
 msgstr ""
 
+msgid "Force Asterisk to use avp"
+msgstr "Forzar a Asterisk a usar avp"
+
 #: ../core/functions.inc.php:7719 ../core/functions.inc.php:7729
 #: ../core/page.devices.php:8
 msgid "Device"
@@ -1783,13 +1792,15 @@ msgstr ""
 
 #: ../core/functions.inc.php:7480
 msgid "Endpoint port number to use, usually 4569."
-msgstr ""
+msgstr "Número de puerto a usar, usualmente 4569"
 
 #: ../core/functions.inc.php:7580
 msgid ""
 "Endpoint port number to use, usually 5060. Some 2 ports devices such as ATA "
 "may used 5061 for the second port."
 msgstr ""
+"Número de puerto a usar, usualmente 5060. Algunos dispositivos podrían usar "
+"el puerto 5061 para la segunda línea."
 
 #: amp_conf/htdocs/admin/views/menu.php:142
 msgid "English"
@@ -2146,7 +2157,7 @@ msgstr ""
 #: ../core/page.routing.php:466
 #, php-format
 msgid "First before %s"
-msgstr ""
+msgstr "Primera antes de %s"
 
 #: ../core/functions.inc.php:7672
 msgid "Fixed"
@@ -2309,7 +2320,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7470 ../core/functions.inc.php:7546
 msgid "Host settings for this device, almost always dynamic for endpoints."
-msgstr ""
+msgstr "Configuración de Host para este dispositivo, casi siempre querrá usar 'dynamic' para teléfonos."
 
 #: ../core/functions.inc.php:7388 ../core/functions.inc.php:7443
 #: ../core/functions.inc.php:7488 ../core/functions.inc.php:7636
@@ -2379,6 +2390,13 @@ msgid ""
 "Congestion' behavior is to play the 'All Circuits Busy' recording or other "
 "options configured in the Route Congestion Messages module when installed."
 msgstr ""
+"Si todos los troncales fallan con 'CONGESTION' puede enrutar la llamada "
+"a otro destino como ser un anuncion en particular o cualquier otro sitio. "
+"Este destino NO será buscado si el troncal reporta ocupado, número inválido "
+"o cualquier otro motivo que implique que el troncal logró hacer algún tipo "
+"de enrutamiento para el número marcado. El comportamiento regular de 'Congestión Normal' "
+"es reproducir el mensaje de 'Todas las líneas están ocupadas' u otro mensaje "
+"diferente si se configura en el módulo de Mensajes de Congestión."
 
 #: ../core/page.routing.php:413
 msgid ""
@@ -2386,6 +2404,10 @@ msgid ""
 "CID. The extension's Emergency CID will still be used if the route is an "
 "Emergency Route and the Extension has a defined Emergency CID."
 msgstr ""
+"Si se marca, el CID saliente de la extensión será ignorado en favor del "
+"valor que indique en este campo. El CID de emergencia tendrá prevalencia "
+"si la ruta está marcada como ruta de emergencia y la extensión tiene definido "
+"un identificador de emergencia."
 
 #: ../core/page.trunks.php:597
 msgid ""
@@ -2652,7 +2674,7 @@ msgstr "Idioma"
 #: ../core/page.routing.php:478
 #, php-format
 msgid "Last after %s"
-msgstr ""
+msgstr "Última luego de %s"
 
 #: ../core/page.did.php:316
 msgid ""
@@ -3103,17 +3125,17 @@ msgstr ""
 
 #: ../core/functions.inc.php:7267
 msgid "Optional CID Prefix to add before sending to this busy destination."
-msgstr ""
+msgstr "Prefijo CID opcional a agregar antes de enviar al destino Ocupado"
 
 #: ../core/functions.inc.php:7258
 msgid ""
 "Optional CID Prefix to add before sending to this no answer destination."
-msgstr ""
+msgstr "Prefijo CID opcional a agregar antes de enviar al destino No Atiende"
 
 #: ../core/functions.inc.php:7272
 msgid ""
 "Optional CID Prefix to add before sending to this not reachable destination."
-msgstr ""
+msgstr "Prefijo CID opcional a agregar antes de enviar al destino Inalcanzable"
 
 #: ../core/page.routing.php:755
 msgid "Optional Destination on Congestion"
@@ -3131,6 +3153,12 @@ msgid ""
 "it's CID</li><li>Forwarded call CIDs (CF, Follow Me, Ring Groups, etc)</"
 "li><li>Extension/User CIDs if checked</li></ul>"
 msgstr ""
+"CallerID opcional de la ruta. Si se configura, este valor sobreescribirá cualquier "
+"otro CID especificado excepto:<ul><li>CID de EMERGENCIA de extensión/dispositivo si la ruta  "
+"se marca como EMERGENCIA</li><li>CID del troncal si el torncal se configura para forzar su "
+"propio CID</li><li>CID de llamada desviada (Desvío, Sígueme, Grupos de Timbrado, etc)</"
+"li><li>CID de Extensión/Usuario si se marca</li></ul>"
+
 
 #: ../core/functions.inc.php:7252
 msgid ""
@@ -3138,16 +3166,21 @@ msgid ""
 "otherwise idle phone. If the phone is in use and the call is simply ignored, "
 "then the busy destination will be used."
 msgstr ""
+"Destino opcional donde se enrutará la llamada si ésta no es atendida. Si "
+"el teléfono está en uso y la llamada se ignora, entonces se usara el destino de "
+"Ocupado"
 
 #: ../core/functions.inc.php:7254
 msgid "Optional destination call is routed to when the call is not answered."
-msgstr ""
+msgstr "Destino opcional donde se enrutará la llamada si ésta no es atendida."
 
 #: ../core/functions.inc.php:7263
 msgid ""
 "Optional destination the call is routed to when the phone is busy or the "
 "call is rejected by the user."
-msgstr ""
+msgstr  ""
+"Destino opcional donde se enrutará la llamada cuando el teléfono esté "
+"ocupado o la llamada sea rechazada por el usuario."
 
 #: ../core/functions.inc.php:7261
 msgid ""
@@ -3156,12 +3189,18 @@ msgid ""
 "call if the phone is in use and the user chooses not to pickup the second "
 "call."
 msgstr ""
+"Destino opcional donde se enrutará la llamada cuando el teléfono esté "
+"ocupado o la llamada sea rechazada por el usuario. Este destino también "
+"se utilizará en una llamada sin atender si el teléfono está en llamada y el usuario "
+"decide no contestar la segunda llamada."
 
 #: ../core/functions.inc.php:7269
 msgid ""
 "Optional destination the call is routed to when the phone is offline, such "
 "as a softphone currently off or a phone unplugged."
 msgstr ""
+"Destino opcional donde se enrutará la llamada cuando el teléfono esté "
+"fuera de línea o desconectado."
 
 #: ../core/page.routing.php:418
 msgid ""
@@ -3178,6 +3217,8 @@ msgid ""
 "CID setting (if set).  Select this option if this route is used for "
 "emergency dialing (ie: 911)."
 msgstr ""
+"Opcional: Si marca Emergencia se utilizará el identificador de emergencia (si estuviera configurado). "
+"Marque esta opción en caso que la ruta sea utilizada para llamadas de emergencia (ej: 911)"
 
 #: ../core/page.routing.php:423
 msgid ""
@@ -3185,7 +3226,9 @@ msgid ""
 "connection, preserving the internal CallerID information instead of the "
 "outbound CID of either the extension or trunk."
 msgstr ""
-
+"Opcional: Marcando Intra-Compañía tratará esta ruta como una conexión "
+"propia, preservando el CallerID de la extensión en lugar del que se configure "
+"en el CID saliente ya sea de la extensión o del troncal."
 #: ../core/page.did.php:209
 msgid "Options"
 msgstr "Opciones"
@@ -3237,7 +3280,7 @@ msgstr "Invalidar"
 
 #: ../core/page.routing.php:413
 msgid "Override Extension"
-msgstr ""
+msgstr "Anular Extensión"
 
 #: ../core/functions.inc.php:7160
 msgid ""
@@ -3492,7 +3535,7 @@ msgstr ""
 #: ../core/functions.inc.php:7536
 msgid ""
 "Re-Invite policy for this device, see Asterisk documentation for details."
-msgstr ""
+msgstr "Política de Re-Invite de este dispositivo, lea la documentación de Asterisk para detalles."
 
 #: ../core/functions.inc.php:7240
 msgid "Record Priority Policy"
@@ -3753,16 +3796,12 @@ msgid ""
 "the msec threshhold. Setting to no will turn this off. Can also be helpful "
 "to keep NAT pinholes open."
 msgstr ""
-
-#: ../core/functions.inc.php:7482
-msgid ""
-"Setting to yes (equivalent to 2000 msec) will send an OPTIONS packet to the "
-"endpoint periodically (default every minute). Used to monitor the health of "
-"the endpoint. If delays are longer then the qualify time, the endpoint will "
-"be taken offline and considered unreachable. Can be set to a value which is "
-"the msec threshold. Setting to no will turn this off. Can also be helpful to "
-"keep NAT pinholes open."
-msgstr ""
+"Si se configura en 'si' se enviará un paquete OPTIONS al dispositivo periódicamente "
+"(equivalente a 2 segundos). Se utiliza para monitorear la estabilidad de la conexión "
+"con el teléfono. Si se demora o no responde a tiempo, el teléfono será marcado "
+"como fuera de línea y considerado inalcanzable. Puede ponerse un valor "
+"especificado en milisegundos. Si se pone en 'no' se desactiva esta funcionalidad. "
+"Esta opción es util para mantener NAT abiertos."
 
 #: amp.i18n.php:50
 msgid "Settings"
@@ -3826,7 +3865,7 @@ msgstr "Enviar"
 #: ../core/page.ampusers.php:250 ../core/page.dahdichandids.php:95
 #: ../core/page.routing.php:765 ../core/page.trunks.php:1002
 msgid "Submit Changes"
-msgstr "Enviar cambios"
+msgstr "Guardar Cambios"
 
 #: amp_conf/htdocs/admin/functions.inc.php:410
 msgid ""
@@ -4201,6 +4240,15 @@ msgid ""
 "certificates have been generated and configured. If you are using websockets "
 "(such as WebRTC) then you must select an option that includes WS"
 msgstr ""
+"Aquí se configuran los transportes permitidas para este dispositivo y el "
+"tranporte primario para llamadas salientes. El transporte por defecto solo se usa "
+"para llamadas salientes hasta que ocurre una registración. Durante la registración "
+"del peer el tipo de transporte puede cambiar a otro que el peer solicite. En "
+"la mayoría de los casos no debe cambiar esta configuración ya que la mayoría de "
+"los dispositivos enviarán una registración en conjunto con el host=dynamic. "
+"Si utiliza TCP y/o TLS debe asegurarse de activar los parámetros apropiados "
+"como ser certificados y parámetros de encriptación deben ser específicados en "
+"las configuraciones SIP generales. Si utiliza WebRTC, seleciones una oción que incluya WS"
 
 #: ../core/page.trunks.php:429
 msgid "This trunk is not used by any routes!"
@@ -4630,6 +4678,9 @@ msgstr ""
 "Si Asterisk debe confiar en la configuración RPID de este dispositivo. Usualmente "
 "deber ser Si para que trabaje la funcionalidad CONNECTEDLINE() en un endpoint que lo soporte."
 
+msgid "Whether to Enable DTLS for this peer. Defaults to no."
+msgstr "Si desea activar DTLS para este peer. El valor por defecto es 'no'."
+
 #: ../core/functions.inc.php:7609
 msgid ""
 "Whether to Enable AVPF. Defaults to no. The WebRTC standard has selected "
@@ -4660,12 +4711,17 @@ msgid ""
 "outgoing calls to a peer. Calls will fail with HANGUPCAUSE=58 if the peer "
 "does not support SRTP. Defaults to no."
 msgstr ""
+"Si desea ofrecer medios encriptados con SRTP (y sólamente SRTP) en llamadas "
+"salientes de este peer. Las llamadas fallarán con HANGUPCAUSE=28 si el peer "
+"no soporta SRTP. El valor por defecto es 'no'"
 
 #: ../core/functions.inc.php:7422
 msgid ""
 "Whether to turn on echo cancellation when bridging between DAHDi channels. "
 "See DAHDi documentation for details."
 msgstr ""
+"Si desea activar cancelación de eco cuando se enlacen canales DAHDi. "
+"Lea la documentación DAHDi para más información."
 
 #: ../core/functions.inc.php:7372
 msgid ""
@@ -4726,6 +4782,9 @@ msgid ""
 "appropriate for a destination country which may have announcements in the "
 "appropriate language."
 msgstr ""
+"Puede elegir la clase de música en espera a usar. Por ejemplo, elija una "
+"clase apropiada para el país de destino que pueda contener anuncios en el "
+"idioma que corresponda."
 
 #: ../core/page.trunks.php:620
 msgid ""
@@ -5783,6 +5842,7 @@ msgstr "Determina si los medios pueden fluir directamente entre dispositivos."
 
 msgid "Determines whether res_pjsip will use the media transport received in the offer SDP in the corresponding answer SDP."
 msgstr "Determina si res_pjsip usará el transporte de medios recibido en la oferta SDP en la correspondiente respuesta a esa oferta." 
+
 
 #~ msgid "Tools"
 #~ msgstr "Herramientas"
