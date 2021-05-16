@@ -1042,6 +1042,13 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 					/* First update all general opts that are already in vmconf */
 					foreach ($vmconf["general"] as $key => $val) {
 						$id = "gen__$key";
+                                                if(isset($args[$id])) {
+                                                    if($key=='emailbody') {
+                                                        $final = preg_replace("/\r\n|\r|\n/","\\n",$args[$id]);
+                                                        $final = preg_replace("/\t/","\\t",$final);
+                                                        $args[$id]=$final;
+                                                    }
+                                                }
 						$vmconf["general"][$key] = isset($args[$id])?$args[$id]:$vmconf["general"][$key];
 						/* Bad to have empty fields in vmconf. */
 						/* also make sure no boolean undefined fields left in there */
@@ -1313,6 +1320,11 @@ function voicemail_get_settings($vmconf, $action, $extension="") {
 			} else {
 				if (is_array($vmconf) && is_array($vmconf["general"])) {
 					$settings = $vmconf["general"];
+                                        if(isset($settings['emailbody'])) {
+                                            $final = str_replace('\n',"\n",$settings['emailbody']);
+                                            $final = str_replace('\t',"\t",$final);
+                                            $settings['emailbody']=$final;
+                                        }
 				}
 			}
 			break;
