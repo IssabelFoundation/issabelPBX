@@ -102,12 +102,12 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 			?>
 			<tr>
 				<td colspan="4">
-					<h4>
+					<h5>
 					<?php echo $currentmodule; ?>
 					<?php if ($moduleena == false) {?>
 					<i>(<?php echo _("Disabled"); ?>)</i>
 					<?php } ?>
-					</h4>
+					</h5>
 				</td>
 			</tr>
 			<?php
