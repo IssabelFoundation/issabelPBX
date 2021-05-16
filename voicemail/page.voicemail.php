@@ -354,7 +354,7 @@ if ($action == "Go") {
 	$action = "usage";
 	/* Clear extension */
 	$extension = "";
-} else if ($action == "Submit") {
+} else if ($action == _("Submit")) {
 	/* "Submit" is for performing some kind of update to settings (for page type of general, account OR timezone settings) OR to the files on disk. */
 	/* page_type can be settings, account, tz or usage. */
 	$action = (isset($_REQUEST["page_type"]) && !empty($_REQUEST["page_type"]))?$_REQUEST["page_type"]:"";;
@@ -537,9 +537,19 @@ switch ($action) {
 							$undef_selected = "checked=checked";
 							break;
 					}
-					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input type='radio' name='$id' id='$id' tabindex='1' value='yes' $yes_selected />" . _("yes");
-					$output .= "<input type='radio' name='$id' id='$id' tabindex='1' value='no' $no_selected />" . _("no");
-					$output .= "</td></tr>";
+
+
+
+
+
+$output.= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<span class='radioset ui-buttonset'><input type='radio' name='$id' id='${id}0' tabindex='' value='yes' $yes_selected class='ui-helper-hidden-accessible'><label for='${id}0' class='ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left' role='button'><span class='ui-button-text'>si</span></label> <input type='radio' name='$id' id='${id}1' tabindex='' value='no' $no_selected class='ui-helper-hidden-accessible'><label for='${id}1' class='ui-state-active ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right' role='button'><span class='ui-button-text'>no</span></label> </span></td>";
+
+
+//					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input type='radio' name='$id' id='$id' tabindex='1' value='yes' $yes_selected />" . _("yes");
+//					$output .= "<input type='radio' name='$id' id='$id' tabindex='1' value='no' $no_selected />" . _("no");
+//					$output .= "</td>";
+
+                                        $output .= "</tr>";
 				} else if ($descrip["type"] == "textarea") {
 					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<textarea cols=100 rows=10 size='$text_size' maxlength='$len' type='$text_type' name='$id' id='$id' tabindex='1'>".htmlentities($val)."</textarea></td></tr>";
 				} else {
@@ -559,8 +569,8 @@ switch ($action) {
 				$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input size='$text_size' type='text' name='$id' id='$id' tabindex='1' value=\"".htmlentities($val)."\" /></td></tr>";
 			}
 		}
-		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
-		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
+		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>"._('UPDATE FAILED')."</u></b>":"";
+		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>"._('UPDATE COMPLETED')."</u></b>":"";
 		$output .= "<tr><td></td><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='"._('Submit')."' />" . $update_notice . "</td></tr>";
 		echo $output;
 		break;
