@@ -14,10 +14,10 @@
 				</td>
 				<td colspan='2'>
 					<h5>
-						<a style="<?php echo ($sys_view_flag && $action == "dialplan") ? 'color:#ff9933' : ''?>" href='config.php?display=voicemail&amp;action=dialplan'>Dialplan Behavior</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-						<a style="<?php echo ($sys_view_flag && $action == "settings") ? 'color:#ff9933' : ''?>" href='config.php?display=voicemail&amp;action=settings'>Settings</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-						<a style="<?php echo ($sys_view_flag && $action == "usage") ? 'color:#ff9933' : ''?>" href='config.php?display=voicemail&amp;action=usage'>Usage</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-						<a style="<?php echo ($sys_view_flag && $action == "tz") ? 'color:#ff9933' : ''?>" href='config.php?display=voicemail&amp;action=tz'>Timezone Definitions</a>
+						<a style="<?php echo ($sys_view_flag && $action == "dialplan") ? 'color:#ff9933' : ''?>" href='config.php?display=voicemail&amp;action=dialplan'><?php echo _('Dialplan Behavior');?></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+						<a style="<?php echo ($sys_view_flag && $action == "settings") ? 'color:#ff9933' : ''?>" href='config.php?display=voicemail&amp;action=settings'><?php echo _('Settings');?></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+						<a style="<?php echo ($sys_view_flag && $action == "usage") ? 'color:#ff9933' : ''?>" href='config.php?display=voicemail&amp;action=usage'><?php echo _('Usage');?></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+						<a style="<?php echo ($sys_view_flag && $action == "tz") ? 'color:#ff9933' : ''?>" href='config.php?display=voicemail&amp;action=tz'><?php echo _('Timezone Definitions');?></a>
 					</h5>
 				</td>
 			</tr>
