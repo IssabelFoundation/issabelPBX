@@ -1,4 +1,4 @@
-<table border='0' cellpadding='0.3px' cellspacing='2px' width="80%">
+<table border='0' cellpadding='0.3px' cellspacing='2px' width="75%">
 	<tr>
 		<td colspan='2'>
 			<hr />
