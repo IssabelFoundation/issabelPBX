@@ -549,7 +549,7 @@ msgstr "Administradores"
 
 #: amp.i18n.php:48
 msgid "Advanced Settings"
-msgstr ""
+msgstr "Configuración Avanzada"
 
 #: ../core/page.did.php:211
 msgid "Alert Info"
@@ -557,19 +557,19 @@ msgstr ""
 
 #: ../core/functions.inc.php:7591
 msgid "All - TCP Primary"
-msgstr ""
+msgstr "Todos - TCP Primario"
 
 #: ../core/functions.inc.php:7592
 msgid "All - TLS Primary"
-msgstr ""
+msgstr "Todos - TLS Primario"
 
 #: ../core/functions.inc.php:7590
 msgid "All - UDP Primary"
-msgstr ""
+msgstr "Todos - UDP Primario"
 
 #: ../core/functions.inc.php:7594
 msgid "All - WS Primary"
-msgstr ""
+msgstr "Todos - WS Primario"
 
 #: ../core/page.did.php:75
 msgid "All DIDs"
@@ -689,6 +689,9 @@ msgid ""
 "override the Advanced Settings default, check the box and then provide the "
 "required options for this trunk"
 msgstr ""
+"Opciones del comando Dial de Asterisk a usar cuando se llame mediante este troncal. "
+"Para anular las opciones generales definidas en Configuraciones Avanzadas marque "
+"el casillero e ingrese las opciones que desee."
 
 #: ../core/install.php:13
 msgid "Asterisk General Call Pickup"
@@ -867,7 +870,7 @@ msgid ""
 "</b>. You can also use the format: \"hidden\" <b>&lt;#######&gt;</b> to hide "
 "the CallerID sent out over Digital lines if supported (E1/T1/J1/BRI/SIP/IAX)."
 msgstr ""
-"CallerID para llamadas realizadas desde este troncal<br><br>Format: <b>&lt;#######&gt;"
+"CallerID para llamadas realizadas desde este troncal<br><br>Formato: <b>&lt;#######&gt;"
 "</b>. También puede usar el formato: \"hidden\" <b>&lt;#######&gt;</b> para ocultar "
 "el CallerID enviado por líneas digitales si éstas lo soportan (E1/T1/J1/BRI/SIP/IAX)."
 
@@ -1436,7 +1439,7 @@ msgstr "Descripción para la versión %s"
 
 #: ../core/page.trunks.php:506
 msgid "Descriptive Name for this Trunk"
-msgstr ""
+msgstr "Nombre descriptivo para esta línea troncal"
 
 #: ../core/page.trunks.php:522
 msgid ""
@@ -1451,6 +1454,17 @@ msgid ""
 "except if part of any EMERGENCY Route with an EMERGENCY CID defined for the "
 "extension/device."
 msgstr ""
+"Determina que CID será permitido en este troncal. IMPORTANTE: el CID de "
+"EMERGENCIA definido en una extensión/dispositivo tendrá prioridad si este "
+"troncal es parte de una ruta de Emergencia, sin tener en cuenta este valor.<br><br>"
+"<b>Permitir cualquier CID</b>: todos los identificadores incluyendo CID externos "
+"serán retransmitidos.<br><br><b>Bloquear CID Foráneos</b>: bloquea cualquier CID que sea "
+"resultado de un desvío de llamada desde fuera del sistema. CID definidos para "
+"extensiones serán transmitidos.<br><br><b>Remover CNAM</b>: esta opción quitará el identificador "
+"de nombre de cualquier CID enviado por este troncal<br><br><b>Forzar CID del Troncal</b>: "
+"Usar siempre el CID especificado aquí excepto si es parte de una ruta de EMERGENCIA, "
+"en cuyo caso se usará el CID de emergencia si estuviera definido."
+
 
 msgid "Force Asterisk to use avp"
 msgstr "Forzar a Asterisk a usar avp"
@@ -2302,13 +2316,14 @@ msgstr "Obtener ayuda para %s"
 
 #: ../core/page.trunks.php:939
 msgid "Give this trunk a unique name.  Example: myiaxtel"
-msgstr ""
+msgstr "Elija un nombre único para este troncal. Por ejemplo: myiaxtel"
 
 #: ../core/functions.inc.php:7783
 msgid ""
 "Give your device a unique integer ID.  The device will use this ID to "
 "authenticate to the system."
 msgstr ""
+"Dele al dispositivo un identificador entero único. El dispositivo usará este identificador para autenticar con su sistema."
 
 #: ../core/functions.inc.php:797
 msgid "Hangup"
@@ -2795,10 +2810,14 @@ msgid ""
 "retained. For example, if you use the \"allow/deny\" directives make sure "
 "deny comes first."
 msgstr ""
+"Modifique los parámetros de conexión del PEER para su proveedor VoIP."
+"<br><br>Podría tener que agregar las líneas por defecto listadas abajo, dependiendo de "
+"su proveedor.<br><br>ATENCION: El orden es importante y será retenido. Por ejemplo si "
+"añade líneas 'allow/deny' asegúrese de poner deny primero en la lista."
 
 #: ../core/page.trunks.php:968
 msgid "Modify the default USER connection parameters for your VoIP provider."
-msgstr ""
+msgstr "Modifique los parámetros de conexión de USUARIO para su proveedor VoIP."
 
 #: amp_conf/htdocs/admin/page.modules.php:688
 msgid "Module"
@@ -3022,6 +3041,9 @@ msgid ""
 "continue to the next configured trunk or destination even when the channel "
 "reports BUSY or INVALID NUMBER."
 msgstr ""
+"Normalmente se intentará enviar la llamada por el troncal siguiente en caso que el "
+"primero retorne 'CONGESTION' de alguna manera. Si marca esta casilla forzará a intentar "
+"el troncal siguiente incluso cuando el anterior devuelva 'OCUPADO' o 'NUMERO INVALIDO'."
 
 #: amp_conf/htdocs/admin/page.modules.php:767
 #, php-format
@@ -3796,7 +3818,7 @@ msgid ""
 "the msec threshhold. Setting to no will turn this off. Can also be helpful "
 "to keep NAT pinholes open."
 msgstr ""
-"Si se configura en 'si' se enviará un paquete OPTIONS al dispositivo periódicamente "
+"Si se configura en 'yes' se enviará un paquete OPTIONS al dispositivo periódicamente "
 "(equivalente a 2 segundos). Se utiliza para monitorear la estabilidad de la conexión "
 "con el teléfono. Si se demora o no responde a tiempo, el teléfono será marcado "
 "como fuera de línea y considerado inalcanzable. Puede ponerse un valor "
@@ -3888,11 +3910,11 @@ msgstr ""
 
 #: ../core/functions.inc.php:7597
 msgid "TCP Only"
-msgstr ""
+msgstr "TCP Solamente"
 
 #: ../core/functions.inc.php:7598
 msgid "TLS Only"
-msgstr ""
+msgstr "TLS Solamente"
 
 #: ../core/functions.inc.php:795
 msgid "Terminate Call"
@@ -3967,6 +3989,8 @@ msgid ""
 "The Outbound Dial Prefix contains non-standard characters. If these are "
 "intentional the press OK to continue."
 msgstr ""
+"El prefijo de marcado saliente contiene caracteres no estandar. Si esto es "
+"intencional pulse OK para continuar."
 
 #: ../core/page.routing.php:676
 msgid ""
@@ -4044,14 +4068,20 @@ msgid ""
 "that need time to obtain dial tone to avoid eating digits.<br><br>Most users "
 "should leave this option blank."
 msgstr ""
+"El prefijo de marcado saliente se usa para añadir un prefijo a todas las llamadas "
+"que salgan por este troncal. Por ejemplo, si este troncal está detrás de otra PBX "
+"o es una línea Centrex, entonces podría necesitar prefijar con 9 para acceder a una "
+"línea externa. Otro caso común de uso es prefijar con 'w' en una línea POTS (análoga) "
+"que necesita de algún tiempo para obtener tono de marcado y eviar que se pierdan dígitos. "
+"<br><br>En la mayoría de los casos, debe dejar este casillero en blanco"
 
 #: amp_conf/htdocs/admin/views/footer.php:93
 msgid "The secret must be at minimum six characters in length."
-msgstr ""
+msgstr "La clave debe tener al menos seis caractéres de largo."
 
 #: amp_conf/htdocs/admin/views/footer.php:94
 msgid "The secret must contain at least two numbers and two letters."
-msgstr ""
+msgstr "La clave debe tener al menos dos números y dos letras"
 
 #: amp_conf/htdocs/admin/views/noaccess.php:4
 msgid ""
@@ -4193,6 +4223,9 @@ msgid ""
 "This is most often the account name or number your provider expects."
 "<br><br>This USER Context will be used to define the below user details."
 msgstr ""
+"Casi siempre aquí debe poner el nombre de cuenta o número de cuenta que le proveyó "
+"su proveedor de servicios.<br><br>El contexto de USUARIO se utilizará para definir "
+"los detalles del mismo."
 
 #: ../core/page.trunks.php:927
 msgid ""
@@ -4240,7 +4273,7 @@ msgid ""
 "certificates have been generated and configured. If you are using websockets "
 "(such as WebRTC) then you must select an option that includes WS"
 msgstr ""
-"Aquí se configuran los transportes permitidas para este dispositivo y el "
+"Aquí se configuran los transportes permitidos para este dispositivo y el "
 "tranporte primario para llamadas salientes. El transporte por defecto solo se usa "
 "para llamadas salientes hasta que ocurre una registración. Durante la registración "
 "del peer el tipo de transporte puede cambiar a otro que el peer solicite. En "
@@ -4317,7 +4350,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7596
 msgid "UDP Only"
-msgstr ""
+msgstr "UDP Solamente"
 
 #: ../core/page.trunks.php:961
 msgid "USER Context"
@@ -4551,7 +4584,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7600
 msgid "WS Only"
-msgstr ""
+msgstr "WS Solamente"
 
 #: amp_conf/htdocs/admin/views/welcome.php:13
 msgid "Warning"
@@ -4890,11 +4923,15 @@ msgid ""
 "For example, if you use the \"allow/deny\" directives make sure deny \n"
 "\t\t\t\tcomes first."
 msgstr ""
+"Quizás deba agregar las líneas por defecto listadas abajo, dependiendo de su"
+"proveedor.<br><br>ATENCION: El orden es importante y será retenido. Por ejemplo, si usa "
+"las diretivas 'allow/deny' asegúrese de que deny figure primero."
 
 #: ../core/page.trunks.php:1172
 msgid ""
 "You must define an Outbound CallerID when Choosing this CID Options value"
 msgstr ""
+"Debe definir un CallerID Saliente cuando elige este valor de Opciones de CID"
 
 #: upgrades/2.9.0alpha1/migrate_ampconf.php:197
 msgid "You must have a proper issabelpbx.conf file to proceed"
@@ -6197,11 +6234,11 @@ msgstr "Determina si res_pjsip usará el transporte de medios recibido en la ofe
 #~ "Selecciones Sí si utiliza un formato de reloj de 24 horas o No si usa un "
 #~ "formato de reloj de 12 horas (AM/PM)"
 
-#~ msgid "no"
-#~ msgstr "No"
+msgid "no"
+msgstr "no"
 
-#~ msgid "yes"
-#~ msgstr "Sí"
+msgid "yes"
+msgstr "si"
 
 #~ msgid "Security Settings"
 #~ msgstr "Opciones de seguridad"
