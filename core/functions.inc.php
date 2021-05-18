@@ -8492,7 +8492,7 @@ function core_devices_configpageinit($dispnum) {
 
         $tt = _("Endpoint port number to use, usually 5060. Some 2 ports devices such as ATA may used 5061 for the second port.");
         $tmparr['port'] = array('value' => '5060', 'tt' => $tt, 'level' => 1);
-        $tt = _("Setting to yes (equivalent to 2000 msec) will send an OPTIONS packet to the endpoint periodically (default every minute). Used to monitor the health of the endpoint. If delays are longer then the qualify time, the endpoint will be taken offline and considered unreachable. Can be set to a value which is the msec threshhold. Setting to no will turn this off. Can also be helpful to keep NAT pinholes open.");
+        $tt = _("Setting to yes (equivalent to 2000 msec) will send an OPTIONS packet to the endpoint periodically (default every minute). Used to monitor the health of the endpoint. If delays are longer then the qualify time, the endpoint will be taken offline and considered unreachable. Can be set to a value which is the msec threshold. Setting to no will turn this off. Can also be helpful to keep NAT pinholes open.");
         $tmparr['qualify'] = array('value' => $amp_conf['DEVICE_QUALIFY'], 'tt' => $tt, 'level' => 1);
         if (version_compare($amp_conf['ASTVERSION'],'1.6','ge')) {
             $tt = _("Frequency in seconds to send qualify messages to the endpoint.");
