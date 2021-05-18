@@ -105,7 +105,8 @@ foreach ($conf as $c){
 		case CONF_TYPE_DIR:
 		case CONF_TYPE_INT:
 			$readonly = !$c['readonly'] || $amp_conf['AS_OVERRIDE_READONLY'] && !$c['hidden'] ? '' : 'readonly="readonly"';
-			echo '<input class="valueinput" id="'.$c['keyword'].'" type="text" size="60" value="'.htmlspecialchars($amp_conf[$c['keyword']]).'" data-valueinput-orig="'.$amp_conf[$c['keyword']].'" '.$readonly.'/>';
+                        $extracss = ($c['keyword']=='AMPMGRPASS')?" confidential ":"";
+			echo '<input class="valueinput '.$extracss.'" id="'.$c['keyword'].'" type="text" size="60" value="'.htmlspecialchars($amp_conf[$c['keyword']]).'" data-valueinput-orig="'.$amp_conf[$c['keyword']].'" '.$readonly.'/>';
 			break;
 		case CONF_TYPE_SELECT:
 			echo '<select class="valueinput" id="'.$c['keyword'].'" data-valueinput-orig="'.$amp_conf[$c['keyword']].'">';
