@@ -653,7 +653,7 @@ class gui_textbox extends guiinput {
 	function gui_textbox($elemname, $currentvalue = '', $prompttext = '', $helptext = '', $jsvalidation = '', $failvalidationmsg = '', $canbeempty = true, $maxchars = 0, $disable=false, $extraclass='w100') {
 		// call parent class contructor
 		parent::__construct($elemname, $currentvalue, $prompttext, $helptext, $jsvalidation, $failvalidationmsg, $canbeempty);
-	
+                $html_input_extra = '';
                 if(preg_match("/secret/",$elemname)) {
                     $extraclass = ($extraclass<>'')?"$extraclass confidential":"confidential";
                     $html_input_extra = "<td><p class='js-copybtn'>&#10064;</p></td>";
