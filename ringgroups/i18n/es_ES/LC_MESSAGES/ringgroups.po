@@ -15,14 +15,14 @@ msgstr ""
 
 #, php-format
 msgid "Ring Group %s: "
-msgstr "Grupo de timbrado %s:"
+msgstr "Grupo de extensiones %s:"
 
 #, php-format
 msgid "Ring Group: %s"
-msgstr "Grupo de timbrado: %s"
+msgstr "Grupo de extensiones: %s"
 
 msgid "This ringgroup"
-msgstr "Este grupo de timbrado"
+msgstr "Este grupo de extensiones"
 
 msgid "is already in use"
 msgstr "ya está en uso"
@@ -32,7 +32,7 @@ msgstr "EN USO"
 
 #, php-format
 msgid "Ring Group: %s (%s)"
-msgstr "Grupo de timbrado: %s (%s)"
+msgstr "Grupo de extensiones: %s (%s)"
 
 msgid "added field cwignore to ringgroups table"
 msgstr ""
@@ -108,36 +108,36 @@ msgid "is not allowed for your account"
 msgstr "no está permitida por su cuenta."
 
 msgid "Add Ring Group"
-msgstr "Añadir grupo de timbrado"
+msgstr "Añadir grupo de extensiones"
 
 msgid "Ring Group"
-msgstr "Grupo de timbrado"
+msgstr "Grupo de extensiones"
 
 msgid "deleted"
 msgstr "eliminado"
 
 msgid "Delete Group"
-msgstr "Eliminar grupo de timbrado"
+msgstr "Eliminar grupo de extensiones"
 
 msgid "Conflicting Extensions"
 msgstr "Extensiones en conflicto"
 
 msgid "Edit Ring Group"
-msgstr "Editar grupo de timbrado"
+msgstr "Editar grupo de extensiones"
 
 msgid "Ring-Group Number"
-msgstr "Número del grupo de timbrado"
+msgstr "Número del grupo de extensiones"
 
 msgid "The number users will dial to ring extensions in this ring group"
 msgstr ""
 "El número al que los usuarios deberán llamar para contactar con este grupo "
-"de timbrado."
+"de extensiones."
 
 msgid "Group Description"
-msgstr "Descripción del grupo de timbrado:"
+msgstr "Descripción del grupo de extensiones:"
 
 msgid "Provide a descriptive title for this Ring Group."
-msgstr "Indique una descripción para este grupo de timbrado."
+msgstr "Indique una descripción para este grupo de extensiones."
 
 msgid "Ring Strategy:"
 msgstr "Estrategia de Timbrado"
@@ -489,3 +489,6 @@ msgid ""
 "callee has to confirm if they actually want to take the call before the "
 "caller is transferred."
 msgstr ""
+
+msgid "Ring Group Module"
+msgstr "Módulo de Grupo de extensions"

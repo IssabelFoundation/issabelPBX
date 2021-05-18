@@ -275,7 +275,19 @@ msgstr ""
 
 #: ../core/page.advancedsettings.php:43
 msgid "<b>IMPORTANT:</b> Use extreme caution when making changes!"
-msgstr ""
+msgstr "<b>IMPORTANTE:</b> Tenga mucho cuidado cuando realice cambios!"
+
+msgid "Advanced Settings Details"
+msgstr "Detalle de Configuraciones Avanzadas"
+
+msgid "Display Friendly Name"
+msgstr "Mostrar Nombre Amistoso"
+
+msgid "Display Readonly Settings"
+msgstr "Mostrar Configuraciones de Sólo Lectura"
+
+msgid "Override Readonly Settings"
+msgstr "Anular Configuraciones de Sólo Lectura"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:695
 #, php-format
@@ -703,7 +715,7 @@ msgstr "Opciones Dial de Asterisk"
 
 #: ../core/functions.inc.php:7477 ../core/functions.inc.php:7569
 msgid "Asterisk connection type, usually friend for endpoints."
-msgstr "Tipo de conexión SIP, usualmente 'friend' para teléfonos."
+msgstr "Tipo de conexión de Asterisk, usualmente 'friend' para teléfonos."
 
 #: ../core/functions.inc.php:7358 ../core/functions.inc.php:7405
 #: ../core/functions.inc.php:7468 ../core/functions.inc.php:7543
@@ -1345,7 +1357,19 @@ msgstr "Por defecto"
 
 #: amp_conf/htdocs/admin/libraries/utility.functions.php:1376
 msgid "Default Asterisk Manager Password Used"
-msgstr ""
+msgstr "Contraseña por defecto de Asterisk Manager en uso"
+
+msgid "Asterisk Manager Password"
+msgstr "Contaseña Asterisk Manager"
+
+msgid "Password for accessing the Asterisk Manager Interface (AMI), this will be automatically updated in manager.conf."
+msgstr "Contraseña a utilizar para acceder al Asterisk Manager (AMI), esta se actualizará automáticamente en manager.conf."
+
+msgid "Asterisk Manager User"
+msgstr "Usuario Asterisk Manager"
+
+msgid "Username for accessing the Asterisk Manager Interface (AMI), this will be automatically updated in manager.conf."
+msgstr "Nombre de usuario para acceder al Asterisk Manager (AMI), este se actualizará automáticamente en manager.conf."
 
 #: ../core/functions.inc.php:7788
 msgid "Default User"
@@ -1354,7 +1378,7 @@ msgstr "Usuario por defecto"
 #: ../core/page.advancedsettings.php:88
 #, php-format
 msgid "Default Value: %s"
-msgstr ""
+msgstr "Valor por Defecto: %s"
 
 #: ../core/page.did.php:200
 msgid ""
@@ -1364,10 +1388,30 @@ msgid ""
 "and Unavailable in order to catch these special cases if the Telco transmits "
 "them."
 msgstr ""
+"Defina el CallerID numérico a emparejar en las llamadas entrantes.<br><br>Deje "
+"este campo en blanco para emparejar con cualquiera. Adicionalmente a secuencias "
+"de marcado estandar, tambien puede poner Private, Blocked, Unknown, Restricted, "
+"Anonymous y Unavailable para capturar estos casos especiales si es que su proveedor "
+"los transmite."
+
+msgid "Whether to enable HTTPS support for the Asterisk HTTP interface. Default is no."
+msgstr "Si desea activar soporte HTTPS en el mini servidor web. Por defecto se encuentra inactivo."
+
+msgid "Whether Asterisk should serve static content from http-static (HTML pages, CSS, javascript, etc.). Default is no."
+msgstr "Si Asterisk debe servir contenido estátido de la carpeta http-static (páginas HTML, CSS, javascript, etc). Por defecto se encuentra desactivado."
+
+msgid "Whether the Asterisk HTTP interface is enabled or not. This is for Asterisk, it is not directly related for IssabelPBX usage and the value of this setting is irrelevant for accessing core IssabelPBX settings. Default is no."
+msgstr "Si la interfaz HTTP de Asterisk debe activarse o no. Esto es exclusivo de Asterisk, no está relacionado con el acceso a IssabelPBX que se sirve desde el servidor web instalado, no el de Asterisk. Por defecto se encuentra desactivado."
+
+msgid "Address to bind to. Default is 0.0.0.0"
+msgstr "Dirección IP a enlazar. Por defecto es 0.0.0.0 (todas las direcciones del servidor)"
+
+msgid "Port to bind to. Default is 8088"
+msgstr "Puerto a enlazar. Por defecto se usa 8088"
 
 #: ../core/page.trunks.php:915
 msgid "Define the custom Dial String.  Include the token"
-msgstr ""
+msgstr "Defina una cadena Dial personalizada. Incluya el token"
 
 #: ../core/page.did.php:196
 msgid ""
@@ -2134,7 +2178,7 @@ msgstr "Se ha producido un error al ejecutar los guiones de desinstalación"
 
 #: amp_conf/bin/issabelpbx-cron-scheduler.php:59
 msgid "Failed to send online update email"
-msgstr ""
+msgstr "Fallo an enviar email de actualizaciones"
 
 #: ../core/functions.inc.php:6899
 msgid "Failed to write indications.conf"
@@ -2142,11 +2186,11 @@ msgstr "No se pudo guardar el archivo indications.conf"
 
 #: ../core/page.advancedsettings.php:87 ../core/page.advancedsettings.php:133
 msgid "False"
-msgstr ""
+msgstr "Falso"
 
 #: ../core/install.php:856
 msgid "Fatal DB error trying to delete globals, trying to carry on"
-msgstr ""
+msgstr "Error fatal de DB al intentar eliminar globales, intentaré continuar"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:631
 #, php-format
@@ -2160,13 +2204,13 @@ msgstr "Ha fallado la comprobación de integridad del archivo %s; abortando"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:1016
 msgid "File must be in tar or tar+gzip (.tar, .tgz or .tar.gz) format"
-msgstr ""
+msgstr "El archivo debe estar en formato tar o tar+gzip (.tar, .tgz o .tar.gz)"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:1021
 msgid ""
 "Filename not in correct format: must be modulename-version.[tar|tar.gz|tgz] "
 "(eg. custommodule-0.1.tgz)"
-msgstr ""
+msgstr "El nombre de archivo no tiene el formato esperado: debe ser nombredemodulo-version.[tar|tar.gz|tgz] (ej. custommodule-0.1.tgz)"
 
 #: ../core/page.routing.php:466
 #, php-format
@@ -2223,11 +2267,11 @@ msgstr "IssabelPBX"
 
 #: amp_conf/htdocs/admin/views/login.php:32
 msgid "IssabelPBX Administration"
-msgstr ""
+msgstr "Administración de IssabelPBX"
 
 #: ../core/page.advancedsettings.php:42
 msgid "IssabelPBX Advanced Settings"
-msgstr ""
+msgstr "Configuraciones Avanzadas de IssabelPBX"
 
 #: amp.i18n.php:56
 msgid "IssabelPBX Support"
@@ -2266,7 +2310,7 @@ msgstr "Frecuencia (en segundos) para enviar mensajes de qualify al endpoint."
 #: ../core/page.advancedsettings.php:99
 #, php-format
 msgid "Friendly Name: %s"
-msgstr ""
+msgstr "Nombre Amistoso: %s"
 
 #: ../core/page.did.php:77
 msgid "General DIDs"
@@ -2278,11 +2322,11 @@ msgstr "Opciones generales"
 
 #: ../core/install.php:850
 msgid "General Settings migrated"
-msgstr ""
+msgstr "Configuraciones Generales migradas"
 
 #: ../core/functions.inc.php:7662
 msgid "Generic DAHDi Device"
-msgstr ""
+msgstr "Dispositivo DAHDi genérico"
 
 #: ../core/functions.inc.php:7661
 msgid "Generic IAX2 Device"
@@ -2361,10 +2405,12 @@ msgid ""
 "IAX security setting. See IAX documentation and device compatibility for "
 "details."
 msgstr ""
+"Configuración de seguridad de IAX. Revise la documentación IAX y la compatibilidad "
+"de dispositivos para más detalles."
 
 #: ../core/functions.inc.php:7465
 msgid "IAX transfer capabilities, see the Asterisk documentation for details."
-msgstr ""
+msgstr "Capacidad de transferencia IAX, revise la documentación de Asterisk para más detalles."
 
 #: amp_conf/htdocs/admin/page.modules.php:1013
 msgid "ID"
@@ -2565,6 +2611,42 @@ msgstr ""
 #: ../core/functions.inc.php:7191
 msgid "Internal Auto Answer"
 msgstr "Auto Contestar Internas"
+
+msgid "Asterisk Builtin mini-HTTP server"
+msgstr "Mini Servidor HTTP de Asterisk"
+
+msgid "Certificate file"
+msgstr "Archivo de Certificado"
+
+msgid "Enable HTTPS support for the mini-HTTP Server"
+msgstr "Habilitar soporte HTTPS al mini servidor HTTP"
+
+msgid "Enable Static Content"
+msgstr "Habilitar Contenido Estático"
+
+msgid "Enable the mini-HTTP Server"
+msgstr "Habilitar el mini servidor HTTP"
+
+msgid "HTTP Bind Address"
+msgstr "Dirección IP para HTTP"
+
+msgid "HTTP Bind Port"
+msgstr "Puerto para HTTP"
+
+msgid "HTTP Prefix"
+msgstr "Prefijo HTTP"
+
+msgid "HTTPS Bind Address/Port"
+msgstr "Direción IP/Puerto para HTTPS"
+
+msgid "Private key file"
+msgstr "Archivo de Llave Privada"
+
+msgid "Full path to private key file for HTTPS. If empty, default is to look into certificate file for private key."
+msgstr "Ruta completa de la llave privada para usar para HTTPS. Si se deja en blanco, se buscará la misma dentro del archivo de certificado."
+
+msgid "Full path to certificate file for HTTPS."
+msgstr "Ruta copleta del archivo de certificado para HTTPS."
 
 #: ../core/page.advancedsettings.php:97
 #, php-format
@@ -2992,11 +3074,11 @@ msgstr "No Atiende"
 
 #: ../core/page.advancedsettings.php:88
 msgid "No Default Provided"
-msgstr ""
+msgstr "No se proveyó valor por defecto"
 
 #: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:33
 msgid "No Description Provided"
-msgstr ""
+msgstr "No se proveyó una descripción"
 
 #: ../core/functions.inc.php:6966
 msgid "No Limit"
@@ -3590,7 +3672,7 @@ msgstr "Grabación de llamadas salientes realizadas al exterior."
 
 #: ../core/page.advancedsettings.php:156 ../core/page.trunks.php:1004
 msgid "Refresh Page"
-msgstr ""
+msgstr "Refrescar Página"
 
 #: ../core/page.trunks.php:984
 msgid "Register String"
@@ -3684,7 +3766,7 @@ msgstr "Volver"
 
 #: ../core/page.advancedsettings.php:139
 msgid "Revert to Default"
-msgstr ""
+msgstr "Revertir a valor por defecto"
 
 #: ../core/functions.inc.php:7167
 msgid "Ring Time"
@@ -3820,7 +3902,7 @@ msgid ""
 "endpoint periodically (default every minute). Used to monitor the health of "
 "the endpoint. If delays are longer then the qualify time, the endpoint will "
 "be taken offline and considered unreachable. Can be set to a value which is "
-"the msec threshhold. Setting to no will turn this off. Can also be helpful "
+"the msec threshold. Setting to no will turn this off. Can also be helpful "
 "to keep NAT pinholes open."
 msgstr ""
 "Si se configura en 'yes' se enviará un paquete OPTIONS al dispositivo periódicamente "
@@ -3873,6 +3955,11 @@ msgid ""
 "that appears. You can restore the default setting by clicking on the icon to "
 "the right of the values if not set at default."
 msgstr ""
+"Algunas de estas configuraciones pueden dejar a su sistema inoperable. Le "
+"recomendamos respaldar su configuración antes de realizar ningún cambio. Las "
+"configuraciones de sólo lectura son usualmente más volátiles, puede cambiarlas "
+"configurando 'Anular configuraciones de sólo lectura' en verdadero. Una vez "
+"realizado un cambio debe aplicarlo pulsando el ícono a la derecha del valor. "
 
 #: amp_conf/htdocs/admin/views/menu.php:154
 msgid "Spanish"
@@ -4324,7 +4411,7 @@ msgstr ""
 
 #: ../core/page.advancedsettings.php:87 ../core/page.advancedsettings.php:131
 msgid "True"
-msgstr ""
+msgstr "Verdadero"
 
 #: ../core/page.trunks.php:506 ../core/page.trunks.php:939
 msgid "Trunk Name"
@@ -5329,17 +5416,23 @@ msgstr ""
 
 #: ../core/page.advancedsettings.php:90
 msgid "field can be left blank"
-msgstr ""
+msgstr "el campo se puede dejar en blanco"
+
+msgid "HTTP Prefix allows you to specify a prefix for all requests to the server. For example, if the prefix is set to \"asterisk\" then all requests must begin with /asterisk. If this field is blank it is akin to saying all requests must being with /, essentially no prefix"
+msgstr "El prefijo HTTP le permite definir un prefijo a requerir para todas las solicitudes al servidor. Por ejemplo, si el prefijo se configura como \"asterisk\" entonces todas las solicitudes al servidor deberán comenzar con /asterisk. Si se deja en blanco, entonces todas las solicitudes deberán comenzar con /, esencialmente sin usar ningún prefijo."
+
+msgid "Address and port to bind to for HTTPS. Default is 0.0.0.0:8089"
+msgstr "Dirección IP y puerto a enlazar para HTTPS. Por defecto se usa 0.0.0.0:8089"
 
 #: install.php:132
 #, php-format
 msgid "file/directory: %s removed successfully"
-msgstr ""
+msgstr "archivo/carpeta: %s removido con éxito"
 
 #: install.php:9
 #, php-format
 msgid "framework couldn't copy file to %s"
-msgstr ""
+msgstr "framework no pudo copiar el archivo a %s"
 
 #: install.php:120
 msgid "framework file install done, removing packages from module"
@@ -5890,6 +5983,9 @@ msgstr "no"
 
 msgid "yes"
 msgstr "si"
+
+msgid "System Setup"
+msgstr "Configuración del Sistema"
 
 msgid "Reloading..."
 msgstr "Recargando..."

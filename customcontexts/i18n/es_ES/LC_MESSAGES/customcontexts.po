@@ -288,10 +288,10 @@ msgid "app blacklist"
 msgstr "Lista Negra"
 
 msgid "Ring Groups"
-msgstr "Grupos de Timbrado"
+msgstr "Grupo de Extensiones"
 
 msgid "grps"
-msgstr "Grupos de Timbrado auxiliar"
+msgstr "Grupo de Extensiones auxiliar"
 
 msgid "app user logonoff"
 msgstr "Logon/Logoff de Usuario"

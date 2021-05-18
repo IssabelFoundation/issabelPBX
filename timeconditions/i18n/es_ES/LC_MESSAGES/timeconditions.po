@@ -339,7 +339,7 @@ msgstr "Condición horaria"
 
 #: timeconditions.i18n.php:18
 msgid "Time Condition Module"
-msgstr ""
+msgstr "Módulo de Condiciones Horarias"
 
 #: page.timeconditions.php:89
 msgid "Time Condition name:"
