@@ -656,12 +656,13 @@ class gui_textbox extends guiinput {
 	
                 if(preg_match("/secret/",$elemname)) {
                     $extraclass = ($extraclass<>'')?"$extraclass confidential":"confidential";
+                    $html_input_extra = "<td><p class='js-copybtn'>&#10064;</p></td>";
                 } 
 
 		$maxlength = ($maxchars > 0) ? " maxlength=\"$maxchars\"" : '';
 		$tabindex = guielement::gettabindex();
 		$disable_state = $disable ? 'disabled="true"':'';
-		$this->html_input = "<input class='$extraclass' type=\"text\" name=\"$this->_elemname\" id=\"$this->_elemname\" size=\"35\" $disable_state $maxlength tabindex=\"$tabindex\" value=\"" . htmlspecialchars($this->currentvalue) . "\">";
+		$this->html_input = "<input class='$extraclass' type=\"text\" name=\"$this->_elemname\" id=\"$this->_elemname\" size=\"35\" $disable_state $maxlength tabindex=\"$tabindex\" value=\"" . htmlspecialchars($this->currentvalue) . "\">".$html_input_extra;
 	}
 }
 
