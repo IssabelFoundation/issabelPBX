@@ -37,6 +37,27 @@ $title         = isset($content['title'])?$content['title']:"";
 <head>
 <title>Issabel - <?php echo $title; ?></title>
 <link rel="stylesheet" href="<?php echo $theme; ?>/styles.css">
+<script src="/themes/tenant/js/lottie.min.js"></script>
+<script src="/libs/js/jquery/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+var baseurl = '';
+
+$(document).ready(function() {
+    var anim;
+    var animData = {
+        container: document.getElementById('denied'),
+        renderer: 'svg',
+        loop: false,
+        autoplay: true,
+        rendererSettings: {
+            progressiveLoad: false
+        },
+        path: '/images/denied.json'
+    };
+    anim = bodymovin.loadAnimation(animData);
+    anim.setSpeed(1.5);
+});
+</script>
 </head>
 
 <body bgcolor="#ffffff" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" <?php echo $styleBody; ?> >
@@ -44,7 +65,8 @@ $title         = isset($content['title'])?$content['title']:"";
     <tr>
        <td class="menulogo" valign="top">
            <a target="_blank" href="http://www.issabel.org">
-               <img border="0" src="<?php echo $image; ?>"/>
+               <!--img border="0" src="<?php echo $image; ?>"/-->
+<div id='denied'></div>
            </a>
        </td>
     </tr>
