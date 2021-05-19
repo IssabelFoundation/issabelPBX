@@ -381,7 +381,7 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Advanced Settings")?></h5></td>
+    <td colspan="2"><h5><?php echo _("Advanced General Settings")?></h5></td>
   </tr>
 
   <tr>
