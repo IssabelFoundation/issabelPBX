@@ -131,5 +131,8 @@ msgstr "Marca de Tiempo"
 #~ msgstr ""
 #~ "Actualizar bitácora completa de depuración de Asterisk (últimas %s líneas)"
 
-#~ msgid "Asterisk Log Files"
-#~ msgstr "Archivos de bitácora de Asterisk"
+msgid "Asterisk Log Files"
+msgstr "Archivos de bitácora de Asterisk"
+
+msgid "Show"
+msgstr "Mostrar"
