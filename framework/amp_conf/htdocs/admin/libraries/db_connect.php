@@ -27,7 +27,7 @@ switch ($amp_conf['AMPDBENGINE']) {
         /* datasource in in this style:
         dbengine://username:password@host/database */
 
-        $dbengine = 'mysql';
+        $dbengine = 'mysqli';
 
         $datasource = $dbengine . '://'
                     . $amp_conf['AMPDBUSER']
