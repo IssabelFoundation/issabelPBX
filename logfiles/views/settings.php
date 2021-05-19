@@ -113,7 +113,7 @@ $table->set_template(array('table_open' => '<table class="alt_table" id="logfile
 //draw table header with help on every option
 $has_security_option = version_compare($amp_conf['ASTVERSION'],'11.0','ge');
 $heading = array(
-			ipbx_label(_('File Name'), _('Name of file, relative to TODO!!!!. Use absolute path for a different location')),
+			ipbx_label(_('File Name'), _('Name of file. Use absolute path for a different location.')),
 			ipbx_label(_('Debug'), 'debug: ' . _('Messages used for debuging. '
 									. 'Do not report these as error\'s unless you have a '
 									. 'specific issue that you are attempting to debug. '
