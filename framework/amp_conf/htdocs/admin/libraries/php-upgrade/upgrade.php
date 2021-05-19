@@ -2043,7 +2043,7 @@ if (!function_exists("convert_uudecode")) {
          
          #-- current line length prefix
          unset($num);
-         $num = ord($line{0}) - 32;
+         $num = ord($line[0]) - 32;
          if (($num <= 0) || ($num > 62)) {  // 62 is the maximum line length
             break;          // according to uuencode(5), so we stop here too
          }
@@ -2177,7 +2177,7 @@ if (!function_exists("strpbrk")) {
       
       #-- check with every symbol from $char_list
       for ($n = 0; $n < $len; $n++) {
-         $l = strpos($haystack, $char_list{$n});
+         $l = strpos($haystack, $char_list[$n]);
          
          #-- get left-most occourence
          if (($l !== false) && ($l < $min)) {
@@ -2974,7 +2974,7 @@ if (!function_exists("str_shuffle")) {
          }
          
          #-- cut out elected char, add to result string
-         $r .= $str{$n};
+         $r .= $str[$n];
          $str = substr($str, 0, $n) . substr($str, $n + 1);
       }
       return($r);
