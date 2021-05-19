@@ -31,6 +31,7 @@ $theme	       = "/themes/$theme";
 $currentYear   = date("Y");
 $msg           = isset($content['msg'])?$content['msg']:"";
 $title         = isset($content['title'])?$content['title']:"";
+$islicensed    = isset($content['islicensed'])?$content['islicensed']:"";
 ?>
 
 <html>
@@ -75,7 +76,7 @@ $(document).ready(function() {
     <?php echo $msg; ?>
   <div/>
   <br /><br />
-  <div align="center" class="copyright"><a href="http://www.issabel.org" target='_blank'>Issabel</a> is licensed under <a href="http://www.opensource.org/licenses/gpl-license.php" target='_blank'>GPL</a>. 2006 - <?php echo $currentYear; ?>.</div>
+  <div align="center" class="copyright"><a href="http://www.issabel.org" target='_blank'>Issabel</a> <?php echo $islicensed; ?> <a href="http://www.opensource.org/licenses/gpl-license.php" target='_blank'>GPL</a>. 2006 - <?php echo $currentYear; ?>.</div>
   <br />
 </body>
 </html>
