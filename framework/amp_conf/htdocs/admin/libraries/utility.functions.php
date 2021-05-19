@@ -1047,20 +1047,20 @@ function _getopt() {
 	$options				= array();
 
 	for ($i = 0; $i < strlen ($short_option);) {
-		if ($short_option{$i} != ":") {
+		if ($short_option[$i] != ":") {
 			if ($i == strlen ($short_option) - 1) {
-				$short_no_value[] = $short_option{$i};
+				$short_no_value[] = $short_option[$i];
 				break;
-			} else if ($short_option{$i+1} != ":") {
-				$short_no_value[] = $short_option{$i};
+			} else if ($short_option[$i+1] != ":") {
+				$short_no_value[] = $short_option[$i];
 				$i++;
 				continue;
-			} elseif ($short_option{$i+1} == ":" && $short_option{$i+2} != ":") {
-				$short_required_value[] = $short_option{$i};
+			} elseif ($short_option[$i+1] == ":" && $short_option[$i+2] != ":") {
+				$short_required_value[] = $short_option[$i];
 				$i += 2;
 				continue;
-				} elseif ($short_option{$i+1} == ":" && $short_option{$i+2} == ":") {
-				$short_optional_value[] = $short_option{$i};
+				} elseif ($short_option[$i+1] == ":" && $short_option[$i+2] == ":") {
+				$short_optional_value[] = $short_option[$i];
 				$i += 3;
 				continue;
 			}
@@ -1099,7 +1099,7 @@ function _getopt() {
 			continue;
 		}
 
-		if ($flag_array[$i]{0} != "-") {
+		if ($flag_array[$i][0] != "-") {
 			$i++;
 			continue;
 		}
@@ -1120,7 +1120,7 @@ function _getopt() {
 					$i += 2;
 					continue;
 				} elseif (in_array(substr($flag_array[$i], 2), $long_optional_value)) {
-					if ($flag_array[$i+1] != "" && $flag_array[$i+1]{0} != "-") {
+					if ($flag_array[$i+1] != "" && $flag_array[$i+1][0] != "-") {
 						$options[$key][] = $flag_array[$i+1];
 						$i += 2;
 					} else {
@@ -1137,31 +1137,31 @@ function _getopt() {
 					continue;
 				}
 			}
-		} else if ( $flag_array[$i]{0} == "-" && $flag_array[$i]{1} != "-" ) {
+		} else if ( $flag_array[$i][0] == "-" && $flag_array[$i][1] != "-" ) {
 			for ( $j=1; $j < strlen($flag_array[$i]); $j++ ) {
-				if ( in_array( $flag_array[$i]{$j}, $short_required_value ) || in_array( $flag_array[$i]{$j}, $short_optional_value )) {
+				if ( in_array( $flag_array[$i][$j], $short_required_value ) || in_array( $flag_array[$i][$j], $short_optional_value )) {
 
 					if ( $j == strlen($flag_array[$i]) - 1  ) {
-						if ( in_array( $flag_array[$i]{$j}, $short_required_value ) ) {
-							$options[$flag_array[$i]{$j}][] = $flag_array[$i+1];
+						if ( in_array( $flag_array[$i][$j], $short_required_value ) ) {
+							$options[$flag_array[$i][$j]][] = $flag_array[$i+1];
 							$i += 2;
-						} else if (in_array($flag_array[$i]{$j}, $short_optional_value ) && $flag_array[$i+1] != "" && $flag_array[$i+1]{0} != "-" ) {
-							$options[$flag_array[$i]{$j}][] = $flag_array[$i+1];
+						} else if (in_array($flag_array[$i][$j], $short_optional_value ) && $flag_array[$i+1] != "" && $flag_array[$i+1][0] != "-" ) {
+							$options[$flag_array[$i][$j]][] = $flag_array[$i+1];
 							$i += 2;
 						} else {
-							$options[$flag_array[$i]{$j}][] = FALSE;
+							$options[$flag_array[$i][$j]][] = FALSE;
 							$i ++;
 						}
 						$plus_i = 0;
 						break;
 					} else {
-						$options[$flag_array[$i]{$j}][] = substr ( $flag_array[$i], $j + 1 );
+						$options[$flag_array[$i][$j]][] = substr ( $flag_array[$i], $j + 1 );
 							$i ++;
 						$plus_i = 0;
 						break;
 					}
-				} else if(in_array($flag_array[$i]{$j}, $short_no_value)) {
-					$options[$flag_array[$i]{$j}][] = FALSE;
+				} else if(in_array($flag_array[$i][$j], $short_no_value)) {
+					$options[$flag_array[$i][$j]][] = FALSE;
 					$plus_i = 1;
 					continue;
 				}
