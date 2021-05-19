@@ -417,7 +417,7 @@ msgstr "Añadir Canal DAHDI"
 
 #: ../core/page.trunks.php:350
 msgid "Add DAHDi Trunk"
-msgstr "Añadir Troncal DAHDI"
+msgstr "Añadir línea troncal DAHDI"
 
 #: ../core/page.trunks.php:359
 msgid "Add DUNDi Trunk"
@@ -2776,6 +2776,9 @@ msgid ""
 "undefined behavior can result when nothing is specified. The CID Options can "
 "control when this CID is used. Do you still want to continue?"
 msgstr ""
+"Es muy recomendable que defina un CallerID saliente en todo troncal, ya que "
+"puede obtener resultados variables en caso de que no especifique ninguno. Las opciones "
+"de CID le permiten controlar cuál usar. Desea continuar?"
 
 #: amp_conf/htdocs/admin/views/menu.php:149
 msgid "Italian"
