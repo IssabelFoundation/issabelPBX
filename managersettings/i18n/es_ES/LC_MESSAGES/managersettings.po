@@ -135,3 +135,9 @@ msgstr "Agregar Campo"
 #: ../page.managersettings.php:218
 msgid "Submit Changes"
 msgstr "Guardar Cambios"
+
+msgid "yes"
+msgstr "si"
+
+msgid "no"
+msgstr "no"

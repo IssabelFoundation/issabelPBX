@@ -144,3 +144,9 @@ msgstr ""
 #: ../page.managersettings.php:218
 msgid "Submit Changes"
 msgstr ""
+
+msgid "yes"
+msgstr "yes"
+
+msgid "no"
+msgstr "no"
