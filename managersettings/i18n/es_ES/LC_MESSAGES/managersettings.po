@@ -127,6 +127,12 @@ msgid ""
 "Add Field box to add additional fields. Blank boxes will be deleted when "
 "submitted."
 msgstr ""
+"Si lo desea puede agregar cualquier configuración posible de Manager que "
+"sea valida en la sección General de manager.conf. No se hará control de errores "
+"sobre lo que escriba, así que sea cuidadoso. Deben ser ingresados como:<br>"
+"[configuración] = [valor]<br> en los casilleros de abajo. Pulse el botón "
+"Agregar Campo para añadir tantos como desee. Los casilleros en blanco serán "
+"ignorados cuando guarde los cambios."
 
 #: ../page.managersettings.php:213
 msgid "Add Field"
