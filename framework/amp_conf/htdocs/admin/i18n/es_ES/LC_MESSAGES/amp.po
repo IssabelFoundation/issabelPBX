@@ -1375,6 +1375,27 @@ msgstr "Nombre de usuario para acceder al Asterisk Manager (AMI), este se actual
 msgid "Default User"
 msgstr "Usuario por defecto"
 
+msgid "Dialplan and Operational"
+msgstr "Plan de Marcado y Operacional"
+
+msgid "Device Settings"
+msgstr "Configuraciones de Dispositivo"
+
+msgid "Developer and Customization"
+msgstr "Desarrollador y Personalizaciones"
+
+msgid "Debug File"
+msgstr "Archivo de Depuración"
+
+msgid "Developer Mode"
+msgstr "Modo Desarrollador"
+
+msgid "Always Download Web Assets"
+msgstr "Descargar Siempre Componentes Web"
+
+msgid "GUI Behavior"
+msgstr "Comportamiento GUI"
+
 #: ../core/page.advancedsettings.php:88
 #, php-format
 msgid "Default Value: %s"
