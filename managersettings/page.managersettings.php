@@ -96,9 +96,9 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
           <td>
             <span class="radioset">
             <input id="webenabled-yes" type="radio" name="webenabled" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $webenabled=="yes"?"checked=\"yes\"":""?>/>
-            <label for="webenabled-yes">yes</label>
+            <label for="webenabled-yes"><?php echo _('yes');?></label>
             <input id="webenabled-no" type="radio" name="webenabled" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $webenabled=="no"?"checked=\"no\"":""?>/>
-            <label for="webenabled-no">no</label>
+            <label for="webenabled-no"><?php echo _('no');?></label>
             </span>
           </td>
         </tr>
@@ -116,9 +116,9 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
           <td>
             <span class="radioset">
             <input id="displayconnects-yes" type="radio" name="displayconnects" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $displayconnects=="yes"?"checked=\"yes\"":""?>/>
-            <label for="displayconnects-yes">yes</label>
+            <label for="displayconnects-yes"><?php echo _('yes');?></label>
             <input id="displayconnects-no" type="radio" name="displayconnects" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $displayconnects=="no"?"checked=\"no\"":""?>/>
-            <label for="displayconnects-no">no</label>
+            <label for="displayconnects-no"><?php echo _('no');?></label>
             </span>
           </td>
         </tr>
@@ -136,9 +136,9 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
           <td>
             <span class="radioset">
             <input id="timestampevents-yes" type="radio" name="timestampevents" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $timestampevents=="yes"?"checked=\"yes\"":""?>/>
-            <label for="timestampevents-yes">yes</label>
+            <label for="timestampevents-yes"><?php echo _('yes');?></label>
             <input id="timestampevents-no" type="radio" name="timestampevents" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $timestampevents=="no"?"checked=\"no\"":""?>/>
-            <label for="timestampevents-no">no</label>
+            <label for="timestampevents-no"><?php echo _('no');?></label>
             </span>
           </td>
         </tr>
