@@ -190,7 +190,7 @@ if(!DB::IsError($legacy_settings)) {
       $detection = $detection_type[$row['answer']];
       switch ($row['faxexten']) {
         case 'disabled':
-          continue; // go back to foreach for now
+          // continue; // go back to foreach for now
         break;
 
         case 'system':
