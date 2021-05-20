@@ -60,7 +60,7 @@ class http_request {
 
 
    #-- constructor
-   function http_request($method="GET", $url="", $params=NULL) {
+   function __construct($method="GET", $url="", $params=NULL) {
       $this->headers["User-Agent"] = "http_query/17.2 {$GLOBALS[ewiki_config][ua]}";
       $this->headers["Accept"] = "text/html, application/xml;q=0.9, text/xml;q=0.7, xml/*;q=0.6, text/plain;q=0.5, text/*;q=0.1, image/png;q=0.8, image/*;q=0.4, */*+xml;q=0.3; application/x-msword;q=0.001, */*;q=0.075";
       $this->headers["Accept-Language"] = "en, eo, es;q=0.2, fr;q=0.1, nl;q=0.1, de;q=0.1";
@@ -437,7 +437,7 @@ class http_response {
    var $content = "";
    
    
-   function http_response() {
+   function __construct() {
    }
    
 

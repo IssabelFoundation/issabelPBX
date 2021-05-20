@@ -29,7 +29,7 @@ class xml2Array {
 	var $attributes;
 	var $data;
 	
-	function xml2Array($strInputXML = false) {
+	function __construct($strInputXML = false) {
 		if (!empty($strInputXML)) {
 			$this->data = $this->parseAdvanced($strInputXML);
 		}

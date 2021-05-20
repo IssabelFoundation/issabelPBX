@@ -82,7 +82,7 @@ if (!function_exists("ftp_connect")) {
           $r .= $line;
 
           #-- error/status number separated by space
-          if ($line{3} === " ") {
+          if ($line[3] === " ") {
              $err = (int) substr($line, 0, 3);
              if ($err >= 100) {
                 $fc["err"] = $err;

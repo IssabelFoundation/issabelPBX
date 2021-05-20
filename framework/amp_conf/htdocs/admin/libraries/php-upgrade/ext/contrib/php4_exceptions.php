@@ -80,7 +80,7 @@ if (!class_exists("exception")) {
       var $backtrace = NULL;
       
       #-- constructor
-      function Exception($message="", $code=0) {
+      function __construct($message="", $code=0) {
       
          #-- values
          $this->message = $message;

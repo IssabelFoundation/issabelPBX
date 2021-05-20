@@ -12,7 +12,7 @@ class modulelist{
 		}
 		return $obj;
 	}
-	function modulelist(&$db) {
+	function __construct(&$db) {
 		$this->_db =& $db;
 		$module_serialized = sql("SELECT `data` FROM `module_xml` WHERE `id` = 'mod_serialized'","getOne");
 		if (isset($module_serialized) && $module_serialized) {

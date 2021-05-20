@@ -15,7 +15,7 @@ class cronmanager {
 		return $obj;
 	}
 
-	function cronmanager(&$db) {
+	function __construct(&$db) {
 		$this->_db =& $db;
 	}
 

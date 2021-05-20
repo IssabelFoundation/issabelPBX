@@ -42,7 +42,7 @@ class notifications{
 	*
 	* @param object Database Object
 	*/
-	function notifications(&$db) {
+	function __construct(&$db) {
 		$this->_db =& $db;
 	}
 

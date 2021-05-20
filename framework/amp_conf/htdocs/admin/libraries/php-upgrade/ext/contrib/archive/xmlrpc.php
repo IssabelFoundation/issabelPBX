@@ -307,7 +307,7 @@ function xmlrpc_response_unmarshall(&$response) {
 class xmlrpc_connection {
 
    #-- init
-   function xmlrpc_connection($url, $autodiscovery=0) {
+   function __construct($url, $autodiscovery=0) {
       global $xmlrpc_response_headers;
       $this->server = $url;
       $this->plus = 0;
@@ -590,7 +590,7 @@ class xmlrpc_error {
    var $no;
    var $str;
    
-   function xmlrpc_error($no, $str, $type=1) {
+   function __construct($no, $str, $type=1) {
       $this->type = $type;
       $this->no = $no;
       $this->str = $str;
@@ -853,7 +853,7 @@ class xmlrpc_xtype {
    var $scalar = "";
    var $xmlrpc_type = "string";
    var $tag = "string";
-   function xmlrpc_type($str) {
+   function __construct($str) {
       $this->data = $str;
    }
    function out() {
@@ -861,7 +861,7 @@ class xmlrpc_xtype {
    }
 }
 class xmlrpc_base64 extends xmlrpc_xtype {
-   function xmlrpc_base64($str) {
+   function __construct($str) {
       $this->tag = "base64";
       $this->xmlrpc_type = "base64";
       if (XMLRPC_AUTO_UTF8 >= 2) {
@@ -880,7 +880,7 @@ class xmlrpc_base64 extends xmlrpc_xtype {
    }
 }
 class xmlrpc_datetime extends xmlrpc_xtype {
-   function xmlrpc_datetime($t) {
+   function __construct($t) {
       $this->tag = "dateTime.iso8601";
       $this->xmlrpc_type = "datetime";
       if (($t > 0) && ($t[8] != "T")) {
