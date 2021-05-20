@@ -4545,6 +4545,9 @@ msgstr "Actualizar a %s y habilitar"
 msgid "Upgrades, installs, enables and disables:"
 msgstr "Actualizaciones, instalaciones, activaciones y desactivaciones:"
 
+msgid "Status"
+msgstr "Estado"
+
 #: ../core/page.routing.php:576 ../core/page.routing.php:664
 #: ../core/page.trunks.php:687 ../core/page.trunks.php:696
 msgid "Upload from CSV"
