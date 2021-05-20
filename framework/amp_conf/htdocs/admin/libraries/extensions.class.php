@@ -1406,7 +1406,7 @@ class ext_sayalpha extends extension {
 class ext_saynumber extends extension {
 	var $gender;
 	function __construct($data, $gender = 'f') {
-		parent::extension($data);
+		parent::__construct($data);
 		$this->gender = $gender;
 	}
 	function output() {
