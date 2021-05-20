@@ -690,7 +690,7 @@ class gui_password extends guiinput {
 	function __construct($elemname, $currentvalue = '', $prompttext = '', $helptext = '', $jsvalidation = '', $failvalidationmsg = '', $canbeempty = true, $maxchars = 0, $disable=false) {
 		// call parent class contructor
 		$parent_class = get_parent_class($this);
-		parent::$parent_class($elemname, $currentvalue, $prompttext, $helptext, $jsvalidation, $failvalidationmsg, $canbeempty);
+		parent::__construct($elemname, $currentvalue, $prompttext, $helptext, $jsvalidation, $failvalidationmsg, $canbeempty);
 		
 		$maxlength = ($maxchars > 0) ? " maxlength=\"$maxchars\"" : '';
 		$tabindex = guielement::gettabindex();
@@ -744,7 +744,7 @@ class gui_selectbox extends guiinput {
 class gui_checkbox extends guiinput {
 	function __construct($elemname, $checked=false, $prompttext='', $helptext='', $value='on', $post_text = '', $jsonclick = '', $disable=false) {
 		$parent_class = get_parent_class($this);
-		parent::$parent_class($elemname, '', $prompttext, $helptext);
+		parent::__construct($elemname, '', $prompttext, $helptext);
 
 		$itemchecked = $checked ? 'checked' : '';
 		$disable_state = $disable ? 'disabled="true"' : '';
@@ -763,7 +763,7 @@ class gui_radio extends guiinput {
 		}
 
 		$parent_class = get_parent_class($this);
-		parent::$parent_class($elemname, $currentvalue, $prompttext, $helptext);
+		parent::__construct($elemname, $currentvalue, $prompttext, $helptext);
 
 		$this->html_input = $this->buildradiobuttons($valarray, $currentvalue, $disable);
 	}
@@ -794,7 +794,7 @@ class gui_drawselects extends guiinput {
 		$parent_class = get_parent_class($this);
 		$jsvalidation = isset($jsvalidation) ? $jsvalidation : '';
 		$jsvalidationtest = isset($jsvalidationtest) ? $jsvalidationtest : '';
-		parent::$parent_class($elemname, '', $prompttext, $helptext, $jsvalidation, $failvalidationmsg, '', $jsvalidationtest);
+		parent::__construct($elemname, '', $prompttext, $helptext, $jsvalidation, $failvalidationmsg, '', $jsvalidationtest);
 		
 		$this->html_input=drawselects($dest, $index, false, false, $nodest_msg, $required);
 
@@ -807,7 +807,7 @@ class gui_textarea extends guiinput {
 	function __construct($elemname, $currentvalue = '', $prompttext = '', $helptext = '', $jsvalidation = '', $failvalidationmsg = '', $canbeempty = true, $maxchars = 0) {
 		// call parent class contructor
 		$parent_class = get_parent_class($this);
-		parent::$parent_class($elemname, $currentvalue, $prompttext, $helptext, $jsvalidation, $failvalidationmsg, $canbeempty);
+		parent::__construct($elemname, $currentvalue, $prompttext, $helptext, $jsvalidation, $failvalidationmsg, $canbeempty);
 		
 		$maxlength = ($maxchars > 0) ? " maxlength=\"$maxchars\"" : '';
 	
@@ -885,6 +885,7 @@ class gui_pageheading extends guitext {
 		// call parent class contructor
 		$parent_class = get_parent_class($this);
 		parent::__construct($elemname, $text);
+//		parent::__construct($elemname, $text);
 
 		// H2
 		$this->html_text = "<h2 id=\"$this->_elemname\">$text</h2>";
@@ -896,7 +897,7 @@ class gui_subheading extends guitext {
 	function __construct($elemname, $text, $uselang = true) {
 		// call parent class contructor
 		$parent_class = get_parent_class($this);
-		parent::$parent_class($elemname, $text);
+		parent::__construct($elemname, $text);
 
 		// H3
 		$this->html_text = "<h3 id=\"$this->_elemname\">$text</h3>";		
@@ -909,7 +910,7 @@ class gui_link extends guitext {
 		
 		// call parent class contructor
 		$parent_class = get_parent_class($this);
-		parent::$parent_class($elemname, $text);
+		parent::__construct($elemname, $text);
 
 		// A tag
 		$this->html_text = "<a href=\"$url\" id=\"$this->_elemname\">$text</a>";
@@ -919,7 +920,7 @@ class gui_link_label extends guitext {
 	function __construct($elemname, $text, $tooltip, $uselang = true) {
 		// call parent class contructor
 		$parent_class = get_parent_class($this);
-		parent::$parent_class($elemname, $text);
+		parent::__construct($elemname, $text);
 
 		// A tag
 		$this->html_text = "<a href=\"#\" class=\"info\" id=\"$this->_elemname\">$text:<span>$tooltip</span></a>";
