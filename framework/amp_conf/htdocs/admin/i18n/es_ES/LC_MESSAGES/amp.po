@@ -4543,7 +4543,7 @@ msgstr "Actualizar a %s y habilitar"
 
 #: amp_conf/htdocs/admin/page.modules.php:578
 msgid "Upgrades, installs, enables and disables:"
-msgstr ""
+msgstr "Actualizaciones, instalaciones, activaciones y desactivaciones:"
 
 #: ../core/page.routing.php:576 ../core/page.routing.php:664
 #: ../core/page.trunks.php:687 ../core/page.trunks.php:696
