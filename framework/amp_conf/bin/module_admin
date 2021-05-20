@@ -167,6 +167,7 @@ function doUpgrade($modulename, $force) {
 }
 
 function doInstallLocal($force) {
+  $modules = array();
   $module_info=module_getinfo(false, MODULE_STATUS_NOTINSTALLED);
   foreach ($module_info as $module) {
     if ($module['rawname'] != 'builtin') {
