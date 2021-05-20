@@ -108,7 +108,7 @@ class AGIDB {
   public $dbtype;
   public $dbhandle; 
 
-  function AGIDB($AGI=null) { 
+  function __construct($AGI=null) { 
 	// This gets called when 'new AGIDB(..)' is run.
 
 	if (!class_exists('AGI')) {
