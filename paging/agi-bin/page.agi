@@ -152,7 +152,7 @@ foreach ($page_members as $pm) {
 				default:
 					// State is not amicable to spy or normal 
 					// (such as RINGING) so skip it
-					continue;
+					// continue;
 				break;
 			}
 		}
