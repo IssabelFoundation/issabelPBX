@@ -530,7 +530,7 @@ class guielement {
 class gui_hidden extends guielement {
 	function __construct($elemname, $currentvalue = '', $table=true) {
 		// call parent class contructor
-		guielement::guielement($elemname, '', '');
+		guielement::__construct($elemname, '', '');
 		
 		$this->_html = "<input type=\"hidden\" name=\"$this->_elemname\" id=\"$this->_elemname\" value=\"" . htmlentities($currentvalue) . "\">";
 		
@@ -560,7 +560,7 @@ class guiinput extends guielement {
 	function __construct($elemname, $currentvalue = '', $prompttext = '', $helptext = '', $jsvalidation = '', $failvalidationmsg = '', $canbeempty = true, $jsvalidationtest='') {
 
 		// call parent class contructor
-		guielement::guielement($elemname, '', '');
+		guielement::__construct($elemname, '', '');
 		
 		// current valid of the field
 		$this->currentvalue = $currentvalue;
@@ -710,7 +710,7 @@ class gui_selectbox extends guiinput {
 		// currently no validation fucntions availble for select boxes
 		// using the normal $canbeempty to flag if a blank option is provided
 		$parent_class = get_parent_class($this);
-		parent::$parent_class($elemname, $currentvalue, $prompttext, $helptext);
+		parent::__construct($elemname, $currentvalue, $prompttext, $helptext);
 
 		$this->html_input = $this->buildselectbox($valarray, $currentvalue, $canbeempty, $onchange, $disable);
 	}
@@ -830,7 +830,7 @@ class guitext extends guielement {
 
 	function __construct($elemname, $html_text = '') {
 		// call parent class contructor
-		guielement::guielement($elemname, '', '');
+		guielement::__construct($elemname, '', '');
 		
 		$this->html_text = $html_text;
 	}
@@ -871,7 +871,7 @@ class gui_label extends guitext {
 	function __construct($elemname, $text, $uselang = true) {
 		// call parent class contructor
 		$parent_class = get_parent_class($this);
-		parent::$parent_class($elemname, $text);
+		parent::__construct($elemname, $text);
 		
 		// nothing really needed here as it's just whatever text was passed
 		// but suppose we should do something with the element name
@@ -884,7 +884,7 @@ class gui_pageheading extends guitext {
 	function __construct($elemname, $text, $uselang = true) {
 		// call parent class contructor
 		$parent_class = get_parent_class($this);
-		parent::$parent_class($elemname, $text);
+		parent::__construct($elemname, $text);
 
 		// H2
 		$this->html_text = "<h2 id=\"$this->_elemname\">$text</h2>";
