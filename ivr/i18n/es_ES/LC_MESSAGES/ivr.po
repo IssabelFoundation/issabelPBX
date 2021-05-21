@@ -45,6 +45,9 @@ msgstr "Describa a este IVR"
 msgid "IVR Options (DTMF)"
 msgstr "Opciones de IVR (DTMF)"
 
+msgid "Number of times to retry when no DTMF is heard and the IVR choice times out."
+msgstr "Cantidad de veces a reintentar cuando no se detecta DTMF y se alcanza el tiempo máximo de espera."
+
 msgid "None"
 msgstr "Ninguno"
 
@@ -120,6 +123,24 @@ msgstr "Destino Inválido"
 
 msgid "Destination to send the call to after Invalid Recording is played."
 msgstr "Destino al cuál enviar al usuario luego de que se reproduce el anuncio de opción inválida"
+
+msgid "After playing the Invalid Retry Recording the system will replay the main IVR Announcement"
+msgstr "Luego de reproducir el mensaje de opción inválida el sistema repitirá el anuncio principal"
+
+msgid "Check this box to have this option return to a parent IVR if it was called from a parent IVR. If not, it will go to the chosen destination.<br><br>The return path will be to any IVR that was in the call path prior to this IVR which could lead to strange results if there was an IVR called in the call path but not immediately before this"
+msgstr "Marque este casillero para retornar al IVR padre si es que se llegó aquí desde otro IVR. Si no, irá al destino seleccionado.<br><br>El regreso se hará a cualquier IVR que haya sido ejecutado previamente a este, lo que puede llevar a resultados extraños si ese IVR previo no se ejecuto inmediatamente antes, sino más atrás en el flujo de la llamada."
+
+msgid "Prompt to be played when a timeout occurs, before prompting the caller to try again"
+msgstr "Instrucción a reproducir cuando se excede el tiempo máximo, antes de instruir al usuario que intente nuevamente"
+
+msgid "After playing the Timeout Retry Recording the system will replay the main IVR Announcement"
+msgstr "Luego de reproducir el mensaje de reintentar por tiempo excedido, el sistema volverá a reproducir el anuncio principal del IVR"
+
+msgid "Destination to send the call to after Timeout Recording is played."
+msgstr "Destino a enviar al usuario luego de que se reproduzca el mensaje de tiempo excedido."
+
+msgid "Any digit selection will be saved in the IVR_DIGIT_PRESSED chanel variable"
+msgstr "Cualquier selección será guardada en la variable de canal IVR_DIGIT_PRESSED"
 
 msgid "Timeout Retries"
 msgstr "Reintentos Tiempo Excedido"
