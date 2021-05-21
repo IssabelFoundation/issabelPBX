@@ -110,10 +110,10 @@ msgid " dial"
 msgstr " llame al"
 
 msgid "Start speaking at the tone. Press # when finished."
-msgstr ""
+msgstr "Compience a hablar al escuchar el tono. Marque # para finalizar."
 
 msgid "and speak the message you wish to record. Press # when finished."
-msgstr ""
+msgstr "y diga el mensaje que desea grabar. Marque # al finalizar."
 
 msgid ""
 "If you wish to make and verify recordings from your phone, please enter your "
@@ -151,7 +151,7 @@ msgid "After recording or uploading,"
 msgstr "Tras grabar o enviar,"
 
 msgid "dial"
-msgstr ""
+msgstr "marque"
 
 msgid "to listen to your recording."
 msgstr "para escuchar su grabación."
