@@ -200,7 +200,7 @@ msgstr ""
 "mostrará en el módulo de \"Grabaciones del sistema\""
 
 msgid "Change Name"
-msgstr "ambiar nombre"
+msgstr "Cambiar nombre"
 
 msgid "This changes the short name, visible on the right, of this recording"
 msgstr "Esto cambia el nombre corto de esta grabación, visible en la derecha"
