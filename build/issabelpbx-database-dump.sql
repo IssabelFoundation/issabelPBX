@@ -103,6 +103,20 @@ LOCK TABLES `announcement` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `asternicivr_options`
+--
+
+DROP TABLE IF EXISTS `asternicivr_options`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `asternicivr_options` (
+  `keyword` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `value` text COLLATE utf8mb4_unicode_ci,
+  UNIQUE KEY `keyword` (`keyword`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `backup`
 --
 
