@@ -1,0 +1,27 @@
+<module>
+	<rawname>asternicivr</rawname>
+	<name>Asternici IVR</name>
+	<version>1.0</version>
+	<repo>unsupported</repo>
+	<publisher>Asternic</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<category>Settings</category>
+        <embedcategory>Internal Options &amp; Configuration</embedcategory>
+	<description>A module for Asternic Call Center Stats PRO, that allows you to set if IVR selections should be logged as URL variable for reporting by Asternic via the URL plugin.</description>
+	<depends>
+		<module>ivr ge 2.11.0.1</module>
+		<version>2.11.0alpha1</version>
+		<phpversion>5.3.0</phpversion>
+	</depends>
+	<menuitems>
+		<asternic>Asternic IVR</asternic>
+	</menuitems>
+	<changelog>
+		*1.0* Initial release
+	</changelog>
+	<supported>
+		<version>2.11</version>
+	</supported>
+	<location>release/2.11/asternic-2.11.0.0.tgz</location>
+</module>

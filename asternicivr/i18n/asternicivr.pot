@@ -1,0 +1,71 @@
+# This file is part of IssabelPBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# IssabelPBX language template for asternic
+# Copyright (C) 2018 Issabel Foundation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-24 14:23+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: asternic.i18n.php:8
+msgid ""
+"A module for Asternic, that allows you to set if IVR selections should "
+"be logged to the queue logs."
+msgstr ""
+
+#: install.php:40
+msgid "OK"
+msgstr ""
+
+#: asternic.i18n.php:4
+#: asternic.i18n.php:10
+msgid "Asternic"
+msgstr ""
+
+#: page.asternic.php:20
+#: asternic.i18n.php:6
+#: asternic.i18n.php:12
+msgid "Settings"
+msgstr ""
+
+#: page.asternic.php:25
+msgid "Submit Changes"
+msgstr ""
+
+#: page.asternic.php:22
+msgid "When checked, IVR selections will be reported by Asternic in the URL field"
+msgstr ""
+
+#: install.php:42
+msgid "already exists"
+msgstr ""
+
+#: install.php:30
+msgid "checking for ivr_logging field..."
+msgstr ""
+
+#: install.php:26
+msgid "creating asternicivr...ok"
+msgstr ""
+
+#: uninstall.php:8
+msgid "done"
+msgstr ""
+
+#: uninstall.php:6
+msgid "dropping table asternicivr.."
+msgstr ""
+
+#: install.php:9
+msgid "asternicivr table already exists, exiting"
+msgstr ""
