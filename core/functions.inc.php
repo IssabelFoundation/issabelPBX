@@ -1482,9 +1482,9 @@ class core_conf {
 function core_destination_popovers() {
     global $amp_conf;
     if ($amp_conf['AMPEXTENSIONS'] == "deviceanduser") {
-        $ret['users'] = 'Users';
+        $ret['users'] = _('Users');
     } else {
-        $ret['extensions'] = 'Extensions';
+        $ret['extensions'] = _('Extensions');
     }
     return $ret;
 }
@@ -1533,11 +1533,11 @@ function core_destinations() {
         $cat_id = ($amp_conf['AMPEXTENSIONS'] == "deviceanduser")?'users':'extensions';
         $cat    = ($amp_conf['AMPEXTENSIONS'] == "deviceanduser")?'Users':'Extensions';
         foreach($results as $result) {
-            $extens[] = array('destination' => 'from-did-direct,'.$result['0'].',1', 'description' => ' <'.$result['0'].'> '.$result['1'], 'category' => $cat, 'id' => $cat_id);
+            $extens[] = array('destination' => 'from-did-direct,'.$result['0'].',1', 'description' => ' <'.$result['0'].'> '.$result['1'], 'category' => dgettext('core',$cat), 'id' => $cat_id);
             if(isset($vmboxes[$result['0']])) {
-                $extens[] = array('destination' => 'ext-local,vmb'.$result['0'].',1', 'description' => '<'.$result[0].'> '.$result[1].' (busy)', 'category' => 'Voicemail', 'id' => 'voicemail');
-                $extens[] = array('destination' => 'ext-local,vmu'.$result['0'].',1', 'description' => '<'.$result[0].'> '.$result[1].' (unavail)', 'category' => 'Voicemail', 'id' => 'voicemail');
-                $extens[] = array('destination' => 'ext-local,vms'.$result['0'].',1', 'description' => '<'.$result[0].'> '.$result[1].' (no-msg)', 'category' => 'Voicemail', 'id' => 'voicemail');
+                $extens[] = array('destination' => 'ext-local,vmb'.$result['0'].',1', 'description' => '<'.$result[0].'> '.$result[1].' (busy)', 'category' => dgettext('voicemail','Voicemail'), 'id' => 'voicemail');
+                $extens[] = array('destination' => 'ext-local,vmu'.$result['0'].',1', 'description' => '<'.$result[0].'> '.$result[1].' (unavail)', 'category' => dgettext('voicemail','Voicemail'), 'id' => 'voicemail');
+                $extens[] = array('destination' => 'ext-local,vms'.$result['0'].',1', 'description' => '<'.$result[0].'> '.$result[1].' (no-msg)', 'category' => dgettext('voicemail','Voicemail'), 'id' => 'voicemail');
             }
         }
     }
@@ -1548,7 +1548,7 @@ function core_destinations() {
             case 'enum':
                 break;
             default:
-                $extens[] = array('destination' => 'ext-trunk,'.$trunk['trunkid'].',1', 'description' => $trunk['name'].' ('.$trunk['tech'].')', 'category' => 'Trunks', 'id' => 'trunks');
+                $extens[] = array('destination' => 'ext-trunk,'.$trunk['trunkid'].',1', 'description' => $trunk['name'].' ('.$trunk['tech'].')', 'category' => _('Trunks'), 'id' => 'trunks');
                 break;
         }
     }

@@ -30,7 +30,7 @@ function callrecording_destinations() {
 function callrecording_destination_popovers() {
 	global $module_page;
 	if ($module_page != 'callrecording') {
-		$ret['callrecording'] = 'Call Recording';
+		$ret['callrecording'] = dgettext('callrecording','Call Recording');
 	} else {
 		$ret = array();
 	}
