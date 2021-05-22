@@ -59,6 +59,9 @@ msgstr "Descripción"
 msgid "Class of Service: %s"
 msgstr "Clase de Servicio: %s"
 
+msgid "Full Internal Access"
+msgstr "Acceso Interno Total"
+
 #: functions.inc.php:867
 #, php-format
 msgid "Class of Service: %s (%s)"

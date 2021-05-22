@@ -326,7 +326,7 @@ function customcontexts_get_config($engine) {
 //this may seem a bit strange, but it works simply it sends the user to the EXTEN he dialed (or IVR option) within the selected context
 function customcontexts_destinations() {
     $contexts =  customcontexts_getcontexts();
-    $extens[] = array('destination' => 'from-internal,${EXTEN},1', 'description' => 'Full Internal Access');
+    $extens[] = array('destination' => 'from-internal,${EXTEN},1', 'description' => dgettext('customcontexts','Full Internal Access'));
     if (is_array($contexts)) {
         foreach ($contexts as $r) {
             $extens[] = array('destination' => $r[0].',${EXTEN},1', 'description' => $r[1]);
