@@ -419,9 +419,8 @@ function bind_dests_double_selects() {
                 width: window.innerWidth - (window.innerWidth * .10),
                 height: window.innerHeight - (window.innerHeight * .10),
                 create: function() {
-                    $("body").scrollTop(0).css({
-                        overflow: 'hidden'
-                    });
+                    mitop = $(window).scrollTop();
+                    $(this).parent().css('top',mitop+'px');
                 },
                 close: function(e) {
                     var id = $(this).data('id');
