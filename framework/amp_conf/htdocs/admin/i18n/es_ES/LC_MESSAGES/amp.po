@@ -4458,11 +4458,11 @@ msgstr ""
 
 #: amp.i18n.php:46
 msgid "Trunks"
-msgstr "Líneas"
+msgstr "Líneas Troncales"
 
 #: amp_conf/htdocs/admin/page.modules.php:1014
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: ../core/functions.inc.php:7596
 msgid "UDP Only"
