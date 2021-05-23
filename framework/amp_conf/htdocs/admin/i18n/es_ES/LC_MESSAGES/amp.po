@@ -6020,6 +6020,15 @@ msgstr "Recargando..."
 msgid "Please Wait"
 msgstr "Por favor espere"
 
+msgid "(busy)"
+msgstr "(ocupado)"
+
+msgid "(unavail)"
+msgstr "(no disponible)"
+
+msgid "(no-msg)"
+msgstr "(sin mensaje)"
+
 #~ msgid "Tools"
 #~ msgstr "Herramientas"
 
