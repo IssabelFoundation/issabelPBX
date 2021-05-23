@@ -113,25 +113,29 @@ a.info:link, a.info:hover {
 }
 
 /* End */
-.help span, a.info span{
-	display: none;
-	position:absolute;
-	z-index:1;
-	/*top:2em;*/
-	left:60px;
-	width:35em;
-	margin-top:22px;
-	border:1px solid #600080;
-	background-color:#eee6ff;
-	color:#4d0066;
-	text-align:justify;
-	font-size:15px;
-	font-weight:normal;
-	padding:8px 12px;
-	line-height:15px;
-	border-radius: 5px;
 
+.help span, a.info span{
+        display: none;
+        position:absolute;
+        z-index:1;
+        left:60px;
+        width:35em;
+        margin-top:22px;
+        border:1px solid #AED0EA;
+        background-color:#DEEDF7;
+        color:#2779AA;
+        text-align:justify;
+        font-size:15px;
+        font-weight:normal;
+        padding:8px 12px;
+        line-height:1.5em;
+        border-radius: 5px;
 }
+
+
+
+
+
 /***** login form ********/
 #loginform > input[type="text"], #loginform > input[type="password"] {
 	padding: 10px;
