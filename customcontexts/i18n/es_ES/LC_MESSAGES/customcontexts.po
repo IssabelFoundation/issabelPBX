@@ -38,13 +38,13 @@ msgstr " v"
 
 #: functions.inc.php:448 functions.inc.php:604
 msgid "Add Class"
-msgstr "Agregar Clase"
+msgstr "Añadir Clase"
 
 msgid "Delete Class"
 msgstr "Eliminar Clase"
 
 msgid "Add"
-msgstr "Agregar"
+msgstr "Añadir"
 
 #: functions.inc.php:439 functions.inc.php:463 functions.inc.php:593
 #: page.customcontexts.php:21 page.customcontextsadmin.php:24

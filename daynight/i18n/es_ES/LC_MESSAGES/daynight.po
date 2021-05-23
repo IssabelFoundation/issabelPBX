@@ -39,11 +39,11 @@ msgstr ""
 
 #: page.daynight.php:18
 msgid "Add Call Flow Toggle Code"
-msgstr "Agregar Código de Control de Flujo"
+msgstr "Añadir Código de Control de Flujo"
 
 #: daynight.i18n.php:6 daynight.i18n.php:12
 msgid "Applications"
-msgstr ""
+msgstr "Aplicaciones"
 
 #: functions.inc.php:639
 msgid "Associate with"
