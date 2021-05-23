@@ -624,8 +624,8 @@ global $currentcomponent;
             //$currentcomponent->addguielem('_top', new gui_link('del', _("Delete Class")." $context", $delURL, true, false), 0);
 
             $confirm_msg = sprintf(_('Are you sure you want to delete %s ?'),$context);
-            $currentcomponent->addguielem('_top', new guielement('del', '<tr><td colspan ="2"><a href="'.$delURL.'" onclick="return confirm(\''.$confirm_msg.'\')">'._('Delete Class').' '.$context.'</a></td></tr>', ''),3);
-            $currentcomponent->addguielem('_top', new gui_link('dup', _("Duplicate Class")." $context", $dupURL, true, false), 3);
+            $currentcomponent->addguielem('_top', new guielement('del', '<tr><td colspan ="2"><a href="'.$delURL.'" onclick="return confirm(\''.$confirm_msg.'\')"> <span><img width="16" height="16" border="0" title="'._('Delete Class').' '.$context.'" alt="" src="images/core_delete.png"></span> '._('Delete Class').' '.$context.'</a></td></tr>', ''),3);
+            $currentcomponent->addguielem('_top', new gui_link('dup', '<span><img width="16" height="16" border="0" title="'._('Duplicate Class').' '.$context.'" alt="" src="images/core_add.png"></span> '._("Duplicate Class")." $context", $dupURL, true, false), 3);
             $showsort = customcontexts_getmodulevalue('displaysortforincludes');
             if ($showsort == 1) {
             //$sortURL = $_SERVER['PHP_SELF'].'?'.$query.'&showsort=0';
