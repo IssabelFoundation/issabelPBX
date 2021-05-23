@@ -132,7 +132,7 @@ msgid "Default Internal Context"
 msgstr "Contexto Interno por Defecto"
 
 msgid "Call Parking"
-msgstr "Aparacamiento de Llamadas"
+msgstr "Parqueo de Llamadas"
 
 msgid "Custom Internal Dialplan"
 msgstr "Plan de Marcado Interno Personalizado"
@@ -273,7 +273,7 @@ msgid "app speakingclock"
 msgstr "App Reloj Parlante"
 
 msgid "park hints"
-msgstr "Hints de Aparcamiento"
+msgstr "Hints de Parqueo"
 
 msgid "Dial VM"
 msgstr "Acceder a Buzón de Voz"
@@ -367,3 +367,7 @@ msgstr "El contexto que contenga las inclusiones que desee hacer disponibles en 
 
 msgid "You have the %s  Module installed! You can select a class of service from this list to limit this user to portions of the dialplan you defined in the %s module."
 msgstr "Tiene el módulo %s instalado! Puede seleccionar una clase de servicio de esta lista para limitar el acceso a los contextos del plan de marcado que desee, que puede definir en el módulo %s."
+
+msgid "ALLOW ALL (Default)"
+msgstr "PERMITIR TODO (por defecto)"
+

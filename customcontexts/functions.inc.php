@@ -370,7 +370,7 @@ function customcontexts_configpageinit($dispnum) {
   }
 
     $contextssel  = customcontexts_getcontexts();
-    $currentcomponent->addoptlistitem('contextssel', 'from-internal', 'ALLOW ALL (Default)');
+    $currentcomponent->addoptlistitem('contextssel', 'from-internal', dgettext('customcontexts','ALLOW ALL (Default)'));
     foreach ($contextssel as $val) {
         $currentcomponent->addoptlistitem('contextssel', $val[0], $val[1]);
     }
