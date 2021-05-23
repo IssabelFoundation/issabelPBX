@@ -412,7 +412,7 @@ function bind_dests_double_selects() {
             popover_box_class = $(this).data('class');
             popover_box_mod = $(this).data('mod');
             popover_box = $('<div id="popover-box-id" data-id="' + id + '"></div>').html('<iframe data-popover-class="' + popover_box_class + '" id="popover-frame" frameBorder="0" src="' + urlStr + '" width="100%" height="95%"></iframe>').dialog({
-                title: 'Add',
+                title: ipbx.msg.framework.add,
                 resizable: false,
                 modal: true,
                 position: ['center', 50],
