@@ -1482,9 +1482,9 @@ class core_conf {
 function core_destination_popovers() {
     global $amp_conf;
     if ($amp_conf['AMPEXTENSIONS'] == "deviceanduser") {
-        $ret['users'] = _('Users');
+        $ret['users'] = dgettext('amp','Users');
     } else {
-        $ret['extensions'] = _('Extensions');
+        $ret['extensions'] = dgettext('amp','Extensions');
     }
     return $ret;
 }
