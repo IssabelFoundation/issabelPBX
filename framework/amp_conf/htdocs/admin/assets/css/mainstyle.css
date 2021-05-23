@@ -543,9 +543,13 @@ select {
   line-height: 2em;
 }
 
-
 code {
   background: #000;
   color: #fff;
   font-family: Helvetica, Arial, Sans-Serif;
 }
+
+table.box>tr>td {
+  padding:5px;
+}
+
