@@ -542,3 +542,10 @@ select {
   padding: 0;
   line-height: 2em;
 }
+
+
+code {
+  background: #000;
+  color: #fff;
+  font-family: Helvetica, Arial, Sans-Serif;
+}
