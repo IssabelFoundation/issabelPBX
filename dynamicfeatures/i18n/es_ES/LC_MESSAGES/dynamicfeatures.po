@@ -54,4 +54,23 @@ msgstr "Música en Espera"
 msgid "Submit Changes"
 msgstr "Enviar Cambios"
 
+msgid "The descriptive name of this dynamic feature. For example \"playback_rules\""
+msgstr "Nombre descriptivo para esta funcionalidad dinámica. Por ejemplo: \"reglas_de_reproduccion\""
 
+msgid "The DTMF sequence to trigger this dynamic feature"
+msgstr "Secuencia DTMF para disparar la funcionalidad dinámica"
+
+msgid "On what leg to execute the application, could be set to 'self' or 'peer'"
+msgstr "En que pata de la llamada ejecutar la aplicación, puede ser 'self' o 'peer'"
+
+msgid "The application to run"
+msgstr "La aplicación a ejecutar"
+
+msgid "Arguments to pass to the application"
+msgstr "Argumentos a pasar a la aplicación"
+
+msgid "Music on Hold class to play to other leg while application is being run"
+msgstr "Clase de música en espera a reproducir mientras se ejecuta la aplicación"
+
+msgid "none"
+msgstr "ninguna"
