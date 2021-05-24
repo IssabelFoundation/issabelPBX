@@ -182,13 +182,13 @@ msgid ""
 "submit, this route will be upgraded. This Legacy option will no longer be "
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of IssabelPBX only."
-msgstr ""
+msgstr "Dirección para enviar faxes por correo electrónico cuando se detecte un fax. <br /> TENGA EN CUENTA: En esta versión de IssabelPBX, ahora puede configurar el destino del fax a partir de una lista de destinos. Las extensiones / usuarios pueden habilitarse por fax en la pantalla de usuario / extensión y establecer una dirección de correo electrónico allí. Esto creará un nuevo tipo de destino que se puede seleccionar. Para actualizar esta opción a la lista de destinos completa, seleccione SI para Detectar faxes y seleccione un destino. Después de hacer clic en enviar, esta ruta se actualizará. Esta opción heredada ya no estará disponible después del cambio, se proporciona para manejar migraciones heredadas de versiones anteriores de IssabelPBX solamente."
 
 msgid "Fax Destination"
-msgstr ""
+msgstr "Destino de Fax"
 
 msgid "Where to send the call if we detect that its a fax"
-msgstr ""
+msgstr "Dónde enviar la llamada si se detecta un fax"
 
 msgid "Dial System FAX"
 msgstr "Marcar Fax del Sistema"
