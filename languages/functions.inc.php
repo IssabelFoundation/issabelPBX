@@ -275,7 +275,7 @@ function languages_hook_core($viewing_itemid, $target_menuid){
 	$html = '';
 	if ($target_menuid == 'did'){
 		$html.='<tr><td colspan="2"><h5>'._("Language").'</h5></td></tr>';
-		$html.='<tr><td><a href="#" class="info">'._('Language').'<span>'._("Allows you to set the language for this DID.").'</span></a>:</td>';
+		$html.='<tr><td><a href="#" class="info">'._('Language').':<span>'._("Allows you to set the language for this DID.").'</span></a></td>';
 		$html.='<td><input type="text" name="language" value="'.languages_incoming_get($extension,$cidnum).'"></td></tr>';
 	}
 	return $html;
