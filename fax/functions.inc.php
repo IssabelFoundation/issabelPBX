@@ -563,7 +563,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
         $html.='<option value="sip" '.($fax['detection'] == 'sip' ? 'SELECTED' : '').' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>'. _("Sip").'</option>';
         $html.='</select></td></tr>';
 
-        $html.='<tr><td><a href="#" class="info">'._("Fax Detection Time").'<span>'._('How long to wait and try to detect fax. Please note that callers to a '.$dahdi.' channel will hear ringing for this amount of time (i.e. the system wont "answer" the call, it will just play ringing)').'.</span></a>:</td>';
+        $html.='<tr><td><a href="#" class="info">'._("Fax Detection Time").'<span>'.dgettext('fax','How long to wait and try to detect fax. Please note that callers to a ').$dahdi.dgettext('fax',' channel will hear ringing for this amount of time (i.e. the system wont "answer" the call, it will just play ringing)').'.</span></a>:</td>';
         $html.='<td><select name="faxdetectionwait" tabindex="'.++$tabindex.'" class="componentSelect">';
         if(!$fax['detectionwait']){$fax['detectionwait']=4;}//default wait time is 4 second
         for($i=2;$i < 11; $i++){
