@@ -627,7 +627,7 @@ msgstr "Marcar siempre con prefijo"
 #: amp_conf/bin/issabelpbx-cron-scheduler.php:59
 #, php-format
 msgid "An attempt to send email to: %s with online update status failed"
-msgstr ""
+msgstr "Un intento de enviar correo a: %s con actualizaciones ha fallado"
 
 #: ../core/page.did.php:244
 msgid ""
@@ -636,6 +636,7 @@ msgid ""
 "external fax equipment or security systems are installed in parallel and you "
 "would like them to be able to seize the line."
 msgstr ""
+"Un retraso opcional para esperar antes de procesar esta ruta. El establecimiento de este valor retrasará que el canal responda a la llamada. Esto puede resultar útil si se instalan equipos de fax externos o sistemas de seguridad en paralelo y le gustaría que pudieran tomar la línea."
 
 #: ../core/page.routing.php:313
 msgid ""
@@ -1440,6 +1441,7 @@ msgid ""
 "<br><br>Leave this blank to match calls with any or no DID info.<br><br>You "
 "can also use a pattern match (eg _2[345]X) to match a range of numbers"
 msgstr ""
+"Defina el número DID esperado si su troncal pasa el DID en las llamadas entrantes. <br> <br> Deje este espacio en blanco para hacer coincidir las llamadas con cualquier información DID o sin ella. <br> <br> También puede utilizar una coincidencia de patrón (por ejemplo, _2 [345] X) para hacer coincidir un rango de números"
 
 #: ../core/page.dahdichandids.php:96
 msgid "Delete"
@@ -3646,7 +3648,7 @@ msgstr "Procesar"
 
 #: ../core/page.did.php:192
 msgid "Provide a meaningful description of what this incoming route is"
-msgstr ""
+msgstr "Proporcione una descripción para esta ruta entrante"
 
 #: amp_conf/htdocs/admin/page.modules.php:690
 msgid "Publisher"
