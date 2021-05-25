@@ -190,35 +190,35 @@ if (isset($inroutes)) {
 		<table>
 		<tr><td colspan="2"><h5><?php echo ($extdisplay ? _('Edit Incoming Route') : _('Add Incoming Route')) ?></h5></td></tr>
 		<tr>
-			<td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _('Provide a meaningful description of what this incoming route is')?></span></a></td>
+			<td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _('Provide a meaningful description of what this incoming route is')?></span></a></td>
 			<td><input type="text" name="description" value="<?php echo isset($description)?$description:''; ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
 		</tr>
 		<tr>
-			<td><a href="#" class="info"><?php echo _("DID Number")?>:<span><?php echo _('Define the expected DID Number if your trunk passes DID on incoming calls. <br><br>Leave this blank to match calls with any or no DID info.<br><br>You can also use a pattern match (eg _2[345]X) to match a range of numbers')?></span></a></td>
+			<td><a href="#" class="info"><?php echo _("DID Number")?><span><?php echo _('Define the expected DID Number if your trunk passes DID on incoming calls. <br><br>Leave this blank to match calls with any or no DID info.<br><br>You can also use a pattern match (eg _2[345]X) to match a range of numbers')?></span></a></td>
 			<td><input type="text" name="extension" autocomplete="cc-csc" class="w100 noextmap" value="<?php echo isset($extension)?$extension:''; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 		</tr>
 		<tr>
-			<td><a href="#" class="info"><?php echo _("CallerID Number")?>:<span><?php echo _('Define the CallerID Number to be matched on incoming calls.<br><br>Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put Private, Blocked, Unknown, Restricted, Anonymous and Unavailable in order to catch these special cases if the Telco transmits them.')?></span></a></td>
+			<td><a href="#" class="info"><?php echo _("CallerID Number")?><span><?php echo _('Define the CallerID Number to be matched on incoming calls.<br><br>Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put Private, Blocked, Unknown, Restricted, Anonymous and Unavailable in order to catch these special cases if the Telco transmits them.')?></span></a></td>
 			<td><input type="text" name="cidnum" value="<?php echo isset($cidnum)?$cidnum:'' ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
 		</tr>
 
 		<tr>
-			<td><a href="#" class="info"><?php echo _("CID Priority Route")?>:<span><?php echo _('This effects CID ONLY routes where no DID is specified. If checked, calls with this CID will be routed to this route, even if there is a route to the DID that was called. Normal behavior is for the DID route to take the calls. If there is a specific DID/CID route for this CID, that route will still take the call when that DID is called.')?></span></a></td>
+			<td><a href="#" class="info"><?php echo _("CID Priority Route")?><span><?php echo _('This effects CID ONLY routes where no DID is specified. If checked, calls with this CID will be routed to this route, even if there is a route to the DID that was called. Normal behavior is for the DID route to take the calls. If there is a specific DID/CID route for this CID, that route will still take the call when that DID is called.')?></span></a></td>
 			<td><input type="checkbox" name="pricid" value="CHECKED" <?php echo $pricid ?>  tabindex="<?php echo ++$tabindex;?>" class='w100'/></td>
 		</tr>
 
 		<tr><td colspan="2"><h5><?php echo _("Options")?></h5></td></tr>
 		<tr>
-			<td><a href="#" class="info"><?php echo _("Alert Info")?>:<span><?php echo _('ALERT_INFO can be used for distinctive ring with SIP devices.')?></span></a></td>
+			<td><a href="#" class="info"><?php echo _("Alert Info")?><span><?php echo _('ALERT_INFO can be used for distinctive ring with SIP devices.')?></span></a></td>
 			<td><input type="text" name="alertinfo" size="10" value="<?php echo $alertinfo ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
 		</tr>
 		<tr>
-			<td><a href="#" class="info"><?php echo _("CID name prefix")?>:<span><?php echo _('You can optionally prefix the CallerID name. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span></a></td>
+			<td><a href="#" class="info"><?php echo _("CID name prefix")?><span><?php echo _('You can optionally prefix the CallerID name. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span></a></td>
 			<td><input type="text" name="grppre" size="10" value="<?php echo $grppre ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
 		</tr>
 <?php   if (function_exists('music_list')) { ?>
 		<tr>
-			<td><a href="#" class="info"><?php echo _("Music On Hold")?>:<span><?php echo _("Set the MoH class that will be used for calls that come in on this route. For example, choose a type appropriate for routes coming in from a country which may have announcements in their language.")?></span></a></td>
+			<td><a href="#" class="info"><?php echo _("Music On Hold")?><span><?php echo _("Set the MoH class that will be used for calls that come in on this route. For example, choose a type appropriate for routes coming in from a country which may have announcements in their language.")?></span></a></td>
 			<td>
 				<select name="mohclass" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 				<?php
@@ -238,18 +238,18 @@ if (isset($inroutes)) {
 		</tr>
 <?php } ?>
 		<tr>
-			<td><a href="#" class="info"><?php echo _("Signal RINGING")?>:<span><?php echo _('Some devices or providers require RINGING to be sent before ANSWER. You\'ll notice this happening if you can send calls directly to a phone, but if you send it to an IVR, it won\'t connect the call.')?></span></a></td>
+			<td><a href="#" class="info"><?php echo _("Signal RINGING")?><span><?php echo _('Some devices or providers require RINGING to be sent before ANSWER. You\'ll notice this happening if you can send calls directly to a phone, but if you send it to an IVR, it won\'t connect the call.')?></span></a></td>
 			<td><input type="checkbox" name="ringing" value="CHECKED" <?php echo $ringing ?>  tabindex="<?php echo ++$tabindex;?>"/></td>
 		</tr>
 		<tr>
-			<td><a href="#" class="info"><?php echo _("Pause Before Answer")?>:<span><?php echo _("An optional delay to wait before processing this route. Setting this value will delay the channel from answering the call. This may be handy if external fax equipment or security systems are installed in parallel and you would like them to be able to seize the line.")?></span></a></td>
+			<td><a href="#" class="info"><?php echo _("Pause Before Answer")?><span><?php echo _("An optional delay to wait before processing this route. Setting this value will delay the channel from answering the call. This may be handy if external fax equipment or security systems are installed in parallel and you would like them to be able to seize the line.")?></span></a></td>
 			<td><input type="text" name="delay_answer" size="3" value="<?php echo ($delay_answer != '0')?$delay_answer:'' ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 		</tr>
 
 		<tr><td colspan="2"><h5><?php echo _("Privacy")?></h5></td></tr>
 
 		<tr>
-			<td><a href="#" class="info"><?php echo _("Privacy Manager")?>:<span><?php echo _('If no CallerID has been received, Privacy Manager will ask the caller to enter their phone number. If an user/extension has Call Screening enabled, the incoming caller will be be prompted to say their name when the call reaches the user/extension.')?></span></a></td>
+			<td><a href="#" class="info"><?php echo _("Privacy Manager")?><span><?php echo _('If no CallerID has been received, Privacy Manager will ask the caller to enter their phone number. If an user/extension has Call Screening enabled, the incoming caller will be be prompted to say their name when the call reaches the user/extension.')?></span></a></td>
 			<td>
 				<select name="privacyman" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 					<option value="0" <?php  echo ($privacyman == '0' ? 'SELECTED' : '')?>><?php echo _("No")?>
@@ -258,7 +258,7 @@ if (isset($inroutes)) {
 			</td>
 		</tr>
 		<tr class="pm_opts" <?php echo $privacyman == '0' ? 'style="display:none"':''?>>
-			<td><a href="#" class="info"><?php echo _("Max attempts")?>:<span><?php echo _('Number of attempts the caller has to enter a valid CallerID')?></span></a></td>
+			<td><a href="#" class="info"><?php echo _("Max attempts")?><span><?php echo _('Number of attempts the caller has to enter a valid CallerID')?></span></a></td>
 			<td>
 				<select name="pmmaxretries" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 					<?php
@@ -271,7 +271,7 @@ if (isset($inroutes)) {
 			</td>
 		</tr>	
 		<tr class="pm_opts" <?php echo $privacyman == '0' ? 'style="display:none"':''?>>
-			<td><a href="#" class="info"><?php echo _("Min Length")?>:<span><?php echo _('Minimum amount of digits CallerID needs to contain in order to be considered valid')?></span></a></td>
+			<td><a href="#" class="info"><?php echo _("Min Length")?><span><?php echo _('Minimum amount of digits CallerID needs to contain in order to be considered valid')?></span></a></td>
 			<td>
 				<select name="pmminlength" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 					<?php

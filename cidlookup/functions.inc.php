@@ -13,7 +13,7 @@ function cidlookup_hook_core($viewing_itemid, $target_menuid) {
 		$html .= '</h5></td></tr>';
 		$html .= '<tr>';
 		$html .= '<td><a href="#" class="info">';
-		$html .= _("Source").':<span>'._("Sources can be added in Caller Name Lookup Sources section").'.</span></a></td>';
+		$html .= _("Source").'<span>'._("Sources can be added in Caller Name Lookup Sources section").'.</span></a></td>';
 		$html .= '<script type="text/javascript">';
 		$html .= 'function openCNAMNoteDisplay(source, key) {';
 		$html .= ' if (source.options[key].text === "OpenCNAM") {';
@@ -37,7 +37,7 @@ function cidlookup_hook_core($viewing_itemid, $target_menuid) {
 		// Not yet fully implemented
 		$html .= '<tr>';
 		$html .= '<td><a href="#" class="info">';
-		$html .= _("Overwrite Caller Name").'<span>'._("This option let the source specified overwrite the caller name if already supplied from telco").'.</span></a>:</td>';
+		$html .= _("Overwrite Caller Name").'<span>'._("This option let the source specified overwrite the caller name if already supplied from telco").'.</span></a></td>';
 		$html .= '<td><input type="checkbox" name="overwrite" value="1"></td>';
 		$html .= '</tr>';
 */
