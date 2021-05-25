@@ -112,8 +112,8 @@ msgstr "Atención! La extensión"
 msgid "is not allowed for your account"
 msgstr "no está permitido en su cuenta"
 
-msgid "Choose a user/extension:"
-msgstr "Elija una extensión:"
+msgid "Choose a user/extension"
+msgstr "Elija una extensión"
 
 msgid "deleted"
 msgstr "eliminadas"
@@ -165,8 +165,8 @@ msgstr ""
 "con el Localizador VmX, donde desea que una llamada timbre una extension, y sólo si "
 "quien llama lo desea buscar vendrá aquí"
 
-msgid "Initial Ring Time:"
-msgstr "Tiempo Timbre Inicial:"
+msgid "Initial Ring Time"
+msgstr "Tiempo Timbre Inicial"
 
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
@@ -177,8 +177,8 @@ msgstr ""
 "con la lista Sígueme. La extensión también puede ser incluída en la lista "
 "sígueme. Si pone 0 se ignorará esta opción."
 
-msgid "Ring Strategy:"
-msgstr "Estrategia de Timbrado:"
+msgid "Ring Strategy"
+msgstr "Estrategia de Timbrado"
 
 msgid "ringallv2"
 msgstr ""
@@ -267,7 +267,7 @@ msgstr "Elija una extensión a agregar a la lista de extensiones arriba."
 msgid "(pick extension)"
 msgstr "(elija extensión)"
 
-msgid "Announcement:"
+msgid "Announcement"
 msgstr "Anuncio"
 
 msgid ""
@@ -338,8 +338,8 @@ msgstr ""
 "conectar la llamada. Esta funcionalidad solo funciona con estrategias ringall y "
 "ringall-prim"
 
-msgid "Remote Announce:"
-msgstr "Anuncio Remoto:"
+msgid "Remote Announce"
+msgstr "Anuncio Remoto"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
@@ -352,7 +352,7 @@ msgstr ""
 msgid "Default"
 msgstr "Por Defecto"
 
-msgid "Too-Late Announce:"
+msgid "Too-Late Announce"
 msgstr "Anuncio Demasiado Tarde"
 
 msgid ""
@@ -374,7 +374,7 @@ msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr "Transmite el CID si el troncal lo permite."
 
 msgid "Fixed CID Value"
-msgstr "Valor Identificador FIjo"
+msgstr "Valor Identificador Fijo"
 
 msgid "Always transmit the Fixed CID Value below."
 msgstr "Siempre transimte el CID Fijo especificado abajo."

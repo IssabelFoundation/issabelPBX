@@ -116,8 +116,8 @@ msgstr "Внимание! Вътрешна Линия"
 msgid "is not allowed for your account"
 msgstr "не е разрешена за вашия акаунт"
 
-msgid "Choose a user/extension:"
-msgstr "Изберете потребител/вътрешна линия:"
+msgid "Choose a user/extension"
+msgstr "Изберете потребител/вътрешна линия"
 
 msgid "deleted"
 msgstr "изтрит"
@@ -172,8 +172,8 @@ msgstr ""
 "VmX Намери Ме, при което искате обаждането да звъни на вътрешната линия, "
 "след което само ако обаждащият се избере да ви намери ще се прехвърли тук."
 
-msgid "Initial Ring Time:"
-msgstr "Първоначално Време на Звънене:"
+msgid "Initial Ring Time"
+msgstr "Първоначално Време на Звънене"
 
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
@@ -184,8 +184,8 @@ msgstr ""
 "следвай ме списъка. Вътрешната линия може също да се добави в следвай ме "
 "списъка. Установяването на 0 ще прескочи това."
 
-msgid "Ring Strategy:"
-msgstr "Стратегия на Звънене:"
+msgid "Ring Strategy"
+msgstr "Стратегия на Звънене"
 
 msgid "ringallv2"
 msgstr "звъни на всички версия 2"
@@ -246,7 +246,7 @@ msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr "звъни само на първия канал който не е отворен - игнорира CW"
 
 msgid "Ring Time (max 60 sec)"
-msgstr "Време на Звънене (max 60 секунди):"
+msgstr "Време на Звънене (max 60 секунди)"
 
 msgid ""
 "Time in seconds that the phones will ring. For all hunt style ring "
@@ -280,8 +280,8 @@ msgstr "Изберете вътрешна линия за поставяне в 
 msgid "(pick extension)"
 msgstr "(избери вътрешна линия)"
 
-msgid "Announcement:"
-msgstr "Съобщение:"
+msgid "Announcement"
+msgstr "Съобщение"
 
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
@@ -355,8 +355,8 @@ msgstr ""
 "обаждането да се достави. Тази услуга работи само със звъни на всички/звъни "
 "на всички - основна стратегия."
 
-msgid "Remote Announce:"
-msgstr "Кратко Съобщение:"
+msgid "Remote Announce"
+msgstr "Кратко Съобщение"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
@@ -370,8 +370,8 @@ msgstr ""
 msgid "Default"
 msgstr "По-Подразбиране"
 
-msgid "Too-Late Announce:"
-msgstr "Много-Късно Съобщение:"
+msgid "Too-Late Announce"
+msgstr "Много-Късно Съобщение"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "

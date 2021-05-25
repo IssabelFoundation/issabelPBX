@@ -114,7 +114,7 @@ if (isset($gresults)) {
 <?php 
 
 if ($extdisplay == "") {
-    echo '<br><h2>'._("Follow Me").'</h2><br><h3>'._('Choose a user/extension:').'</h3><br><br><br><br><br><br><br>';
+    echo '<br><h2>'._("Follow Me").'</h2><br><h3>'._('Choose a user/extension').'</h3><br><br><br><br><br><br><br>';
 } elseif ($action == 'delGRP') {
     echo '<br><h3>'._("Follow Me").' '.$account.' '._("deleted").'!</h3><br><br><br><br><br><br><br><br>';
 } else {
@@ -183,19 +183,19 @@ if ($extdisplay == "") {
 ?>
                 <input size="5" type="hidden" name="account" value="<?php  echo $extdisplay; ?>">
 <?php         } else { ?>
-                <td><a href="#" class="info"><?php echo _("group number")?>:<span><?php echo _("The number users will dial to ring extensions in this ring group")?></span></a></td>
+                <td><a href="#" class="info"><?php echo _("group number")?><span><?php echo _("The number users will dial to ring extensions in this ring group")?></span></a></td>
                 <td><input size="5" type="text" name="account" value="<?php  echo $gresult[0] + 1; ?>" class='w100'></td>
 <?php         } ?>
             </tr>
 
             <tr>
-                <td><a href="#" class="info"><?php echo _("Disable")?><span><?php echo _('By default (not checked) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.')?></span></a>:</td>
+                <td><a href="#" class="info"><?php echo _("Disable")?><span><?php echo _('By default (not checked) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.')?></span></a></td>
                 <td><input type="checkbox" name="ddial" value="CHECKED" <?php echo $ddial ?>   tabindex="<?php echo ++$tabindex;?>"/>
                 <input type="hidden" name="ddial_value" value="<?php  echo $ddial; ?>"></td>
             </tr>
 
             <tr>
-                <td><a href="#" class="info"><?php echo _("Initial Ring Time:")?>
+                <td><a href="#" class="info"><?php echo _("Initial Ring Time")?>
                 <span><?php echo _("This is the number of seconds to ring the primary extension prior to proceeding to the follow-me list. The extension can also be included in the follow-me list. A 0 setting will bypass this.")?>
                 </span></a>
                 </td>
@@ -213,7 +213,7 @@ if ($extdisplay == "") {
 
             <tr>
                 <td>
-                <a href="#" class="info"><?php echo _("Ring Strategy:")?>
+                <a href="#" class="info"><?php echo _("Ring Strategy")?>
                 <span>
                     <b><?php echo _("ringallv2")?></b>:  <?php echo _("ring Extension for duration set in Initial Ring Time, and then, while continuing call to extension, ring Follow-Me List for duration set in Ring Time.")?><br>
                     <b><?php echo _("ringall")?></b>:  <?php echo _("ring Extension for duration set in Initial Ring Time, and then terminate call to Extension and ring Follow-Me List for duration set in Ring Time.")?><br>
@@ -250,7 +250,7 @@ if ($extdisplay == "") {
             </tr>
 
             <tr>
-                <td valign="top"><a href="#" class="info"><?php echo _("Follow-Me List")?>:<span><br><?php echo _("List extensions to ring, one per line, or use the Extension Quick Pick below.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing).")?><br><br></span></a></td>
+                <td valign="top"><a href="#" class="info"><?php echo _("Follow-Me List")?><span><br><?php echo _("List extensions to ring, one per line, or use the Extension Quick Pick below.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing).")?><br><br></span></a></td>
                 <td valign="top">
 <?php
         $rows = count($grplist)+1; 
@@ -286,7 +286,7 @@ if ($extdisplay == "") {
 
 <?php if(function_exists('recordings_list')) { //only include if recordings is enabled?>
             <tr>
-                <td><a href="#" class="info"><?php echo _("Announcement:")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
+                <td><a href="#" class="info"><?php echo _("Announcement")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
                 <td>
                     <select name="annmsg_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
@@ -304,7 +304,7 @@ if ($extdisplay == "") {
             </tr>
 <?php }    else { ?>
             <tr>
-                <td><a href="#" class="info"><?php echo _("Announcement:")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
+                <td><a href="#" class="info"><?php echo _("Announcement")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
                 <td>
                     <?php
                         $default = (isset($annmsg_id) ? $annmsg_id : '');
@@ -334,19 +334,19 @@ if ($extdisplay == "") {
 <?php } ?>
 
             <tr>
-                <td><a href="#" class="info"><?php echo _("CID Name Prefix")?>:<span><?php echo _('You can optionally prefix the Caller ID name when ringing extensions in this group. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span></a></td>
+                <td><a href="#" class="info"><?php echo _("CID Name Prefix")?><span><?php echo _('You can optionally prefix the Caller ID name when ringing extensions in this group. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span></a></td>
                 <td><input type="text" name="grppre" value="<?php  echo $grppre ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
             </tr>
 
             <tr>
-                <td><a href="#" class="info"><?php echo _("Alert Info")?>:<span><?php echo _('You can optionally include an Alert Info which can create distinctive rings on SIP phones.')?></span></a></td>
+                <td><a href="#" class="info"><?php echo _("Alert Info")?><span><?php echo _('You can optionally include an Alert Info which can create distinctive rings on SIP phones.')?></span></a></td>
                 <td><input type="text" name="dring" value="<?php  echo $dring ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
             </tr>
 
             <tr><td colspan="2"><h5><?php echo _("Call Confirmation Configuration") ?></h5></td></tr>
 
             <tr>
-                <td><a href="#" class="info"><?php echo _("Confirm Calls")?><span><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall/ringall-prim  ring strategy')?></span></a>:</td>
+                <td><a href="#" class="info"><?php echo _("Confirm Calls")?><span><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall/ringall-prim  ring strategy')?></span></a></td>
                 <td> 
                     <input type="checkbox" name="needsconf" value="CHECKED" <?php echo $needsconf ?>   tabindex="<?php echo ++$tabindex;?>"/>
                 </td>
@@ -354,7 +354,7 @@ if ($extdisplay == "") {
 
 <?php if(function_exists('recordings_list')) { //only include if recordings is enabled?>
             <tr>
-                <td><a href="#" class="info"><?php echo _("Remote Announce:")?><span><?php echo _("Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
+                <td><a href="#" class="info"><?php echo _("Remote Announce")?><span><?php echo _("Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
                 <td>
                     <select name="remotealert_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
@@ -371,7 +371,7 @@ if ($extdisplay == "") {
                 </td>
             </tr>
             <tr>
-                <td><a href="#" class="info"><?php echo _("Too-Late Announce:")?><span><?php echo _("Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
+                <td><a href="#" class="info"><?php echo _("Too-Late Announce")?><span><?php echo _("Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
                 <td>
                 <select name="toolate_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
@@ -392,7 +392,7 @@ if ($extdisplay == "") {
             <tr><td colspan="2"><h5><?php echo _("Change External CID Configuration") ?></h5></td></tr>
             <tr>
                 <td>
-                <a href="#" class="info"><?php echo _("Mode")?>:
+                <a href="#" class="info"><?php echo _("Mode")?>
                 <span>
                     <b><?php echo _("Default")?></b>:  <?php echo _("Transmits the Callers CID if allowed by the trunk.")?><br>
                     <b><?php echo _("Fixed CID Value")?></b>:  <?php echo _("Always transmit the Fixed CID Value below.")?><br>
@@ -418,11 +418,11 @@ if ($extdisplay == "") {
             </tr>
 
             <tr>
-                <td><a href="#" class="info"><?php echo _("Fixed CID Value")?>:<span><?php echo _('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".')?></span></a></td>
+                <td><a href="#" class="info"><?php echo _("Fixed CID Value")?><span><?php echo _('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".')?></span></a></td>
         <td><input type="text" name="fixedcid" id="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>" class='w100' <?php echo $fixedcid_disabled ?>></td>
             </tr>
             
-            <tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?>:</h5></td></tr>
+            <tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?></h5></td></tr>
 
 <?php 
 //draw goto selects

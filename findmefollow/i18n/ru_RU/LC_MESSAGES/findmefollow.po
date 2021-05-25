@@ -123,8 +123,8 @@ msgstr "Внимание! Внутренний номер"
 msgid "is not allowed for your account"
 msgstr "не разрешен к использованию в вашем аккаунте"
 
-msgid "Choose a user/extension:"
-msgstr "Выбрать пользователя/внутренний номер:"
+msgid "Choose a user/extension"
+msgstr "Выбрать пользователя/внутренний номер"
 
 msgid "deleted"
 msgstr "удалено"
@@ -178,8 +178,8 @@ msgstr ""
 "внутренний номер, пользователь которого может непосредственно сам указать, "
 "хочет ли он, штобы поступающие звонки находили его везде, или нет."
 
-msgid "Initial Ring Time:"
-msgstr "Начальное время звонка:"
+msgid "Initial Ring Time"
+msgstr "Начальное время звонка"
 
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
@@ -190,8 +190,8 @@ msgstr ""
 "назначении (внутреннем номере), после чего следует по направлению, заданному "
 "указанием Следуйте сюда. Значение 0 будет пропускать первый шаг."
 
-msgid "Ring Strategy:"
-msgstr "Стратегия дозвона:"
+msgid "Ring Strategy"
+msgstr "Стратегия дозвона"
 
 #, fuzzy
 msgid "ringallv2"
@@ -297,8 +297,8 @@ msgstr "Выберите номера для добавления в конец 
 msgid "(pick extension)"
 msgstr "внутренний номер"
 
-msgid "Announcement:"
-msgstr "Приветствие:"
+msgid "Announcement"
+msgstr "Приветствие"
 
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
@@ -373,8 +373,8 @@ msgstr ""
 "которая перехватит этот вызов. Нажатием на 1 можно заблокировать такие "
 "действия. Опция действительна только при стратегии вызова звонят-все."
 
-msgid "Remote Announce:"
-msgstr "Удалённое приветствие:"
+msgid "Remote Announce"
+msgstr "Удалённое приветствие"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
@@ -388,7 +388,7 @@ msgstr ""
 msgid "Default"
 msgstr "По умолчанию"
 
-msgid "Too-Late Announce:"
+msgid "Too-Late Announce"
 msgstr "Сообщение Уже-поздно"
 
 msgid ""
