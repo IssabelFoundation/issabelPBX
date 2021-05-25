@@ -244,8 +244,8 @@ msgstr " "
 msgid "Add Queue"
 msgstr "添加等待队列"
 
-msgid "Queue"
-msgstr "等待队列"
+msgid "Queue:"
+msgstr "等待队列："
 
 msgid "deleted"
 msgstr "以删除"
@@ -256,14 +256,14 @@ msgstr "删除等待队列"
 msgid "Conflicting Extensions"
 msgstr "警告！你的帐户无法使用分机"
 
-msgid "Queue:"
-msgstr "等待队列："
+msgid "Queue"
+msgstr "等待队列"
 
 msgid "Edit Queue"
 msgstr "编辑等待队列"
 
-msgid "Queue Number:"
-msgstr "等待队列号码："
+msgid "Queue Number"
+msgstr "等待队列号码"
 
 msgid ""
 "Use this number to dial into the queue, or transfer callers to this number "
@@ -277,21 +277,21 @@ msgstr ""
 "><br />例如，如果队列号码为123：<br /><br /><b>123*是登录<br />123**是注销</"
 "b>"
 
-msgid "Queue Name:"
-msgstr "等待队列名："
+msgid "Queue Name"
+msgstr "等待队列名"
 
 msgid "Give this queue a brief name to help you identify it."
 msgstr "为这个队列取一个简短的名字以帮助你识别它。"
 
-msgid "Queue Password:"
-msgstr "等待队列密码："
+msgid "Queue Password"
+msgstr "等待队列密码"
 
 msgid ""
 "You can require agents to enter a password before they can log in to this "
 "queue.<br><br>This setting is optional."
 msgstr "你可以要求坐席在登录这个等待队列时输入密码。<br /><br />密码是可选的。"
 
-msgid "Queue No Answer:"
+msgid "Queue No Answer"
 msgstr ""
 
 msgid ""
@@ -304,7 +304,7 @@ msgid ""
 "member immediately available to take the call."
 msgstr ""
 
-msgid "Generate Device Hints:"
+msgid "Generate Device Hints"
 msgstr ""
 
 msgid ""
@@ -317,7 +317,7 @@ msgid ""
 "number) and qqq is this queue's number."
 msgstr ""
 
-msgid "Call Confirm:"
+msgid "Call Confirm"
 msgstr ""
 
 msgid ""
@@ -327,7 +327,7 @@ msgid ""
 "acknowledge the call before it is answered and delivered.."
 msgstr ""
 
-msgid "Call Confirm Announce:"
+msgid "Call Confirm Announce"
 msgstr ""
 
 msgid ""
@@ -343,7 +343,7 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-msgid "Call Confirm Announcement:"
+msgid "Call Confirm Announcement"
 msgstr ""
 
 msgid ""
@@ -352,7 +352,7 @@ msgid ""
 "Module to edit this option"
 msgstr ""
 
-msgid "CID Name Prefix:"
+msgid "CID Name Prefix"
 msgstr "主叫ID名的前缀"
 
 msgid ""
@@ -361,8 +361,8 @@ msgid ""
 "John Doe\" on the extensions that ring."
 msgstr ""
 
-msgid "Wait Time Prefix:"
-msgstr "等待时间前缀："
+msgid "Wait Time Prefix"
+msgstr "等待时间前缀"
 
 msgid ""
 "When set to Yes, the CID Name will be prefixed with the total wait time in "
@@ -476,8 +476,8 @@ msgstr ""
 msgid "General Queue Options"
 msgstr ""
 
-msgid "Ring Strategy:"
-msgstr "振铃策略："
+msgid "Ring Strategy"
+msgstr "振铃策略"
 
 msgid "ringall"
 msgstr "全部响铃"
@@ -538,7 +538,7 @@ msgid ""
 "documentation for specifics"
 msgstr ""
 
-msgid "Autofill:"
+msgid "Autofill"
 msgstr "自动填充"
 
 msgid ""
@@ -554,8 +554,8 @@ msgstr ""
 "队首呼叫寻找坐席时，挂起所有的其他的呼叫。这是Asterisk在1.2版本中的行为，并且"
 "对Asterisk 1.2没有影响。请查看Asterisk的文档以获得关于此功能的更多信息。"
 
-msgid "Skip Busy Agents:"
-msgstr "跳过忙的坐席："
+msgid "Skip Busy Agents"
+msgstr "跳过忙的坐席"
 
 msgid ""
 "When set to 'Yes' agents who are on an occupied phone will be skipped as if "
@@ -596,8 +596,8 @@ msgstr ""
 "为队列设定一个权重，保证两个队列都可用时，有高优先权的队列首先获得坐席的服"
 "务。"
 
-msgid "Music on Hold Class:"
-msgstr "等待音乐的类别："
+msgid "Music on Hold Class"
+msgstr "等待音乐的类别"
 
 msgid ""
 "Music (or Commercial) played to the caller while they wait in line for an "
@@ -615,8 +615,8 @@ msgstr "无"
 msgid "default"
 msgstr "默认"
 
-msgid "Ringing Instead of MoH:"
-msgstr "以振铃代替等待音乐："
+msgid "Ringing Instead of MoH"
+msgstr "以振铃代替等待音乐"
 
 msgid ""
 "Enabling this option make callers hear a ringing tone instead of Music on "
@@ -624,8 +624,8 @@ msgid ""
 "ignoring any configured periodic announcements configured."
 msgstr ""
 
-msgid "Join Announcement:"
-msgstr "加入通告："
+msgid "Join Announcement"
+msgstr "加入通告"
 
 msgid ""
 "Announcement played to callers once prior to joining the queue.<br><br>To "
@@ -642,8 +642,8 @@ msgstr ""
 "在加入这个队列之前，要播放给主叫的通告。<br /><br />请安装并启用“系统录音”模"
 "块以编辑这个选项"
 
-msgid "Call Recording:"
-msgstr "呼叫录音："
+msgid "Call Recording"
+msgstr "呼叫录音"
 
 msgid ""
 "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
@@ -659,7 +659,7 @@ msgstr "wav"
 msgid "gsm"
 msgstr "gsm"
 
-msgid "Recording Mode:"
+msgid "Recording Mode"
 msgstr ""
 
 msgid ""
@@ -674,7 +674,7 @@ msgstr ""
 msgid "After Answered"
 msgstr ""
 
-msgid "Caller Volume Adjustment:"
+msgid "Caller Volume Adjustment"
 msgstr ""
 
 msgid "Adjust the recording volume of the caller."
@@ -683,13 +683,13 @@ msgstr ""
 msgid "No Adjustment"
 msgstr ""
 
-msgid "Agent Volume Adjustment:"
+msgid "Agent Volume Adjustment"
 msgstr ""
 
 msgid "Adjust the recording volume of the queue member (Agent)."
 msgstr ""
 
-msgid "Mark calls answered elsewhere:"
+msgid "Mark calls answered elsewhere"
 msgstr ""
 
 msgid ""
@@ -701,8 +701,8 @@ msgstr ""
 msgid "Timing & Agent Options"
 msgstr ""
 
-msgid "Max Wait Time:"
-msgstr "等待时间上限："
+msgid "Max Wait Time"
+msgstr "等待时间上限"
 
 msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
@@ -712,7 +712,7 @@ msgstr "在一个主叫被从队列中取走之前，它可以等待的最长的
 msgid "Unlimited"
 msgstr "无限制"
 
-msgid "Max Wait Time Mode:"
+msgid "Max Wait Time Mode"
 msgstr ""
 
 msgid ""
@@ -731,8 +731,8 @@ msgstr "严格"
 msgid "Loose"
 msgstr ""
 
-msgid "Agent Timeout:"
-msgstr "坐席超时："
+msgid "Agent Timeout"
+msgstr "坐席超时"
 
 msgid ""
 "The number of seconds an agent's phone can ring before we consider it a "
@@ -742,7 +742,7 @@ msgstr ""
 "在坐席被判定为超时前，该坐席响铃的秒数。虽然可以设置成无限制或者其他时间，但"
 "响铃时间还是被系统响铃时间以及单个分机的响铃时间默认设置所限制。"
 
-msgid "Agent Timeout Restart:"
+msgid "Agent Timeout Restart"
 msgstr ""
 
 msgid ""
@@ -751,8 +751,8 @@ msgid ""
 "able to cancel a call with reject or similar."
 msgstr ""
 
-msgid "Retry:"
-msgstr "重试："
+msgid "Retry"
+msgstr "重试"
 
 msgid ""
 "The number of seconds we wait before trying all the phones again. Choosing "
@@ -766,8 +766,8 @@ msgstr ""
 msgid "No Retry"
 msgstr "无重试"
 
-msgid "Wrap-Up-Time:"
-msgstr "隐藏时间："
+msgid "Wrap-Up-Time"
+msgstr "隐藏时间"
 
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
@@ -777,7 +777,7 @@ msgid ""
 "this is honored across queues for members logged on to multiple queues."
 msgstr ""
 
-msgid "Member Delay:"
+msgid "Member Delay"
 msgstr ""
 
 msgid ""
@@ -786,8 +786,8 @@ msgid ""
 "of seconds to delay."
 msgstr ""
 
-msgid "Agent Announcement:"
-msgstr "坐席通告："
+msgid "Agent Announcement"
+msgstr "坐席通告"
 
 msgid ""
 "Announcement played to the Agent prior to bridging in the caller <br><br> "
@@ -808,7 +808,7 @@ msgstr ""
 "转过来的”或者“此呼叫是从技术支持队列转过来的”<br /><br />请安装并启用“系统录"
 "音”模块以编辑这个选项"
 
-msgid "Report Hold Time:"
+msgid "Report Hold Time"
 msgstr ""
 
 msgid ""
@@ -819,8 +819,8 @@ msgstr ""
 msgid "Capacity Options"
 msgstr ""
 
-msgid "Max Callers:"
-msgstr "最大呼叫数："
+msgid "Max Callers"
+msgstr "最大呼叫数"
 
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr "在队列中等待的人数的上限（0代表无限制）"
@@ -863,8 +863,8 @@ msgid ""
 "could become available."
 msgstr ""
 
-msgid "Join Empty:"
-msgstr "加入无坐席队列："
+msgid "Join Empty"
+msgstr "加入无坐席队列"
 
 msgid ""
 "Determines if callers should be exited prematurely from the queue in "
@@ -900,10 +900,10 @@ msgid ""
 "Never have a caller leave the Queue until the Max Wait Time has expired."
 msgstr ""
 
-msgid "Leave Empty:"
+msgid "Leave Empty"
 msgstr ""
 
-msgid "Penalty Members Limit:"
+msgid "Penalty Members Limit"
 msgstr ""
 
 msgid ""
@@ -919,8 +919,8 @@ msgstr ""
 msgid "Caller Position Announcements"
 msgstr "主叫位置通告"
 
-msgid "Frequency:"
-msgstr "频率："
+msgid "Frequency"
+msgstr "频率"
 
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
@@ -929,14 +929,14 @@ msgstr ""
 "可以向等待者通告他在队列中的位置和剩下的等待时间，在这里设置通告的频率（0表示"
 "不要通告）。"
 
-msgid "Announce Position:"
-msgstr "通告位置："
+msgid "Announce Position"
+msgstr "通告位置"
 
 msgid "Announce position of caller in the queue?"
 msgstr "向主叫通告在等待队列中的位置吗？"
 
-msgid "Announce Hold Time:"
-msgstr "通告等待的时间："
+msgid "Announce Hold Time"
+msgstr "通告等待的时间"
 
 msgid ""
 "Should we include estimated hold time in position announcements?  Either "
@@ -951,8 +951,8 @@ msgstr "一次"
 msgid "Periodic Announcements"
 msgstr "周期性通告："
 
-msgid "IVR Break Out Menu:"
-msgstr "插入IVR菜单："
+msgid "IVR Break Out Menu"
+msgstr "插入IVR菜单"
 
 msgid ""
 "You can optionally present an existing IVR as a 'break out' menu."
@@ -991,8 +991,8 @@ msgstr ""
 "此模块的更早的版本允许选择这样的队列，只要更改了此项设置，它就不会再以选项出"
 "现"
 
-msgid "Repeat Frequency:"
-msgstr "重复频率："
+msgid "Repeat Frequency"
+msgstr "重复频率"
 
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
@@ -1002,8 +1002,8 @@ msgstr "向呼叫者通告语音菜单的频率（0既禁用通告）。"
 msgid "Events, Stats and Advanced"
 msgstr ""
 
-msgid "Event When Called:"
-msgstr "被叫时产生事件："
+msgid "Event When Called"
+msgstr "被叫时产生事件"
 
 msgid ""
 "When this option is set to YES, the following manager events will be "
@@ -1012,7 +1012,7 @@ msgstr ""
 "选择了“是”以后，以下的几个管理器事件会被引发：AgentCalled、AgentDump、"
 "AgentConnect和AgentComplete。"
 
-msgid "Member Status Event:"
+msgid "Member Status Event"
 msgstr ""
 
 msgid ""
@@ -1020,7 +1020,7 @@ msgid ""
 "QueueMemberStatus"
 msgstr ""
 
-msgid "Service Level:"
+msgid "Service Level"
 msgstr ""
 
 msgid ""
