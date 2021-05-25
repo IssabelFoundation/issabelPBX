@@ -3837,8 +3837,8 @@ msgstr ""
 "deshabilitar el uso de contraseñas"
 
 #: ../core/page.routing.php:497 ../core/page.trunks.php:611
-msgid "Rules:"
-msgstr "Reglas:"
+msgid "Rules"
+msgstr "Reglas"
 
 #: amp_conf/htdocs/admin/views/menu.php:152
 msgid "Russian"
@@ -4420,8 +4420,8 @@ msgid "This user/extension %s is already in use"
 msgstr "El usuario/extensión %s ya está en uso"
 
 #: ../core/page.routing.php:454
-msgid "Time Group:"
-msgstr "Grupo Horario:"
+msgid "Time Group"
+msgstr "Grupo Horario"
 
 #: amp_conf/htdocs/admin/views/login.php:12
 msgid "To get started, please enter your credentials:"

@@ -451,7 +451,7 @@ if ($extdisplay) { // editing
 
 <?php if (function_exists('timeconditions_timegroups_drawgroupselect')) { ?>
     <tr>
-      <td><a href="#" class="info"><?php echo _("Time Group:")?><span><?php echo _("If this route should only be available during certain times then Select a Time Group created under Time Groups. The route will be ignored outside of times specified in that Time Group. If left as default of Permanent Route then it will always be available.")?></span></a></td>
+      <td><a href="#" class="info"><?php echo _("Time Group")?><span><?php echo _("If this route should only be available during certain times then Select a Time Group created under Time Groups. The route will be ignored outside of times specified in that Time Group. If left as default of Permanent Route then it will always be available.")?></span></a></td>
       <td><?php echo timeconditions_timegroups_drawgroupselect('time_group_id', $time_group_id, true, '', _('---Permanent Route---')); ?></td>
     </tr>
 		<tr>
@@ -494,7 +494,7 @@ if ($extdisplay) { // editing
     <tr>
       <td colspan="2"><h5>
       <a href=# class="info"><?php echo _("Dial Patterns that will use this Route")?><span>
-      <?php echo _("A Dial Pattern is a unique set of digits that will select this route and send the call to the designated trunks. If a dialed pattern matches this route, no subsequent routes will be tried. If Time Groups are enabled, subsequent routes will be checked for matches outside of the designated time(s).")?><br /><br /><b><?php echo _("Rules:")?></b><br />
+      <?php echo _("A Dial Pattern is a unique set of digits that will select this route and send the call to the designated trunks. If a dialed pattern matches this route, no subsequent routes will be tried. If Time Groups are enabled, subsequent routes will be checked for matches outside of the designated time(s).")?><br /><br /><b><?php echo _("Rules")?></b><br />
       <b>X</b>&nbsp;&nbsp;&nbsp; <?php echo _("matches any digit from 0-9")?><br />
       <b>Z</b>&nbsp;&nbsp;&nbsp; <?php echo _("matches any digit from 1-9")?><br />
       <b>N</b>&nbsp;&nbsp;&nbsp; <?php echo _("matches any digit from 2-9")?><br />

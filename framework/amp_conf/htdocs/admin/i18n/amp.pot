@@ -3563,7 +3563,7 @@ msgstr ""
 
 #: ../core/page.routing.php:497
 #: ../core/page.trunks.php:611
-msgid "Rules:"
+msgid "Rules"
 msgstr ""
 
 #: amp_conf/htdocs/admin/views/menu.php:152
@@ -4066,7 +4066,7 @@ msgid "This user/extension %s is already in use"
 msgstr ""
 
 #: ../core/page.routing.php:454
-msgid "Time Group:"
+msgid "Time Group"
 msgstr ""
 
 #: amp_conf/htdocs/admin/views/login.php:12
