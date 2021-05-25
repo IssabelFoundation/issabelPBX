@@ -125,8 +125,8 @@ msgstr "Ingrese una descripción para esta clase de servicio."
 msgid "Set All"
 msgstr "Configurar Todos"
 
-msgid "Set All To:"
-msgstr "Configurar Todos para:"
+msgid "Set All To"
+msgstr "Configurar Todos para"
 
 msgid "Default Internal Context"
 msgstr "Contexto Interno por Defecto"
