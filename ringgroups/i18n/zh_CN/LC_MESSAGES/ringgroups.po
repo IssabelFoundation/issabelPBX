@@ -142,8 +142,8 @@ msgstr "小组描述"
 msgid "Provide a descriptive title for this Ring Group."
 msgstr "为拨号小组提供一个描述性的标题"
 
-msgid "Ring Strategy:"
-msgstr "振铃策略："
+msgid "Ring Strategy"
+msgstr "振铃策略"
 
 msgid "ringall"
 msgstr "全部响铃"
@@ -227,8 +227,8 @@ msgstr "选择一个分机以添加到上面的分机列表的末尾。"
 msgid "(pick extension)"
 msgstr "（选取分机）"
 
-msgid "Announcement:"
-msgstr "通告："
+msgid "Announcement"
+msgstr "通告"
 
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
@@ -330,8 +330,8 @@ msgstr ""
 "由语音邮箱接听。要启用这个选项，需要远端在接通前在电话上按下1。这个功能只会在"
 "全部响铃的策略下起作用。"
 
-msgid "Remote Announce:"
-msgstr "远程公告："
+msgid "Remote Announce"
+msgstr "远程公告"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
@@ -344,8 +344,8 @@ msgstr ""
 msgid "Default"
 msgstr "默认"
 
-msgid "Too-Late Announce:"
-msgstr "按键太晚公告："
+msgid "Too-Late Announce"
+msgstr "按键太晚公告"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "

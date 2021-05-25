@@ -142,8 +142,8 @@ msgstr "Описание группы"
 msgid "Provide a descriptive title for this Ring Group."
 msgstr "Предложите понятное название для этой группы вызова"
 
-msgid "Ring Strategy:"
-msgstr "Стратегия дозвона:"
+msgid "Ring Strategy"
+msgstr "Стратегия дозвона"
 
 msgid "ringall"
 msgstr "звонят-все"
@@ -237,8 +237,8 @@ msgstr "Выберите внутренний номер для добавлен
 msgid "(pick extension)"
 msgstr "(выбрать внутренний номер)"
 
-msgid "Announcement:"
-msgstr "Приветствие:"
+msgid "Announcement"
+msgstr "Приветствие"
 
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
@@ -354,8 +354,8 @@ msgstr ""
 "которая перехватит этот вызов. Нажатием на 1 можно заблокировать такие "
 "действия. Опция действительна только при стратегии вызова звонят-все."
 
-msgid "Remote Announce:"
-msgstr "Удалённое приветствие: "
+msgid "Remote Announce"
+msgstr "Удалённое приветствие"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
@@ -369,8 +369,8 @@ msgstr ""
 msgid "Default"
 msgstr "По умолчанию"
 
-msgid "Too-Late Announce:"
-msgstr "Сообщение Уже-поздно:"
+msgid "Too-Late Announce"
+msgstr "Сообщение Уже-поздно"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "

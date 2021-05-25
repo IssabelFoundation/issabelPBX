@@ -137,7 +137,7 @@ msgstr ""
 msgid "Provide a descriptive title for this Ring Group."
 msgstr ""
 
-msgid "Ring Strategy:"
+msgid "Ring Strategy"
 msgstr ""
 
 msgid "ringall"
@@ -212,7 +212,7 @@ msgstr ""
 msgid "(pick extension)"
 msgstr ""
 
-msgid "Announcement:"
+msgid "Announcement"
 msgstr ""
 
 msgid ""
@@ -300,7 +300,7 @@ msgid ""
 "through. This feature only works with the ringall ring strategy"
 msgstr ""
 
-msgid "Remote Announce:"
+msgid "Remote Announce"
 msgstr ""
 
 msgid ""
@@ -312,7 +312,7 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-msgid "Too-Late Announce:"
+msgid "Too-Late Announce"
 msgstr ""
 
 msgid ""
