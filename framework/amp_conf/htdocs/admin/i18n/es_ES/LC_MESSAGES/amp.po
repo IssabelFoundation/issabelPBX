@@ -3484,11 +3484,11 @@ msgstr "Marcado sin Pin"
 
 #: ../core/functions.inc.php:800
 msgid "Play SIT Tone (Zapateller)"
-msgstr ""
+msgstr "Reproducir Tono SIT (Zapateller)"
 
 #: ../core/functions.inc.php:802
 msgid "Play ringtones to caller until they hangup"
-msgstr "Reproducir tonos de llamada al llamante hasta que cuelgue"
+msgstr "Timbrar hasta que cuelgue"
 
 #: amp_conf/htdocs/admin/page.modules.php:575
 msgid "Please confirm the following actions:"
@@ -3497,7 +3497,7 @@ msgstr "Por favor, confirme las siguientes acciones:"
 #: amp_conf/htdocs/admin/views/login.php:6
 #: amp_conf/htdocs/admin/views/obe.php:15
 msgid "Please correct the following errors:"
-msgstr ""
+msgstr "Por favor corrija los siguientes errores:"
 
 #: ../core/functions.inc.php:7347
 msgid "Please enter a Secret for this device"
@@ -3509,29 +3509,29 @@ msgstr "Por favor, introduzca un identificador de dispositivo"
 
 #: amp_conf/htdocs/admin/libraries/view.functions.php:538
 msgid "Please enter a password"
-msgstr ""
+msgstr "Por favor ingrese una contraseña"
 
 #: amp_conf/htdocs/admin/libraries/view.functions.php:535
 msgid "Please enter a username"
-msgstr ""
+msgstr "Por favor ingrese un nombre de usuario"
 
 #: ../core/functions.inc.php:7072
 msgid "Please enter a valid CID Num Alias (must be a valid number)."
-msgstr ""
+msgstr "Por favor ingrese un alias de identificador numérico válido (debe ser un número)"
 
 #: ../core/page.did.php:312
 msgid "Please enter a valid CallerID Number"
-msgstr ""
+msgstr "Por favor ingrese un identificador numérico válido"
 
 #: ../core/functions.inc.php:7078
 msgid ""
 "Please enter a valid CallerID Number or leave it blank for your Assigned DID/"
 "CID pair"
-msgstr ""
+msgstr "Por favor ingrese un identificador de nombre válido o déjelo en blanco"
 
 #: ../core/page.did.php:311
 msgid "Please enter a valid DID Number"
-msgstr ""
+msgstr "Por favor ingrese un número DID válido"
 
 #: ../core/functions.inc.php:7770
 msgid "Please enter a valid Description for this device"
@@ -3547,11 +3547,11 @@ msgstr "Por favor, introduzca un CID de emergencias válido"
 
 #: ../core/page.did.php:313
 msgid "Please enter a valid Fax Email or leave it empty to use the default"
-msgstr ""
+msgstr "Por favor ingrese un email válido o déjelo en blanco para usar el valor por defecto"
 
 #: ../core/functions.inc.php:7075
 msgid "Please enter a valid Outbound CID"
-msgstr ""
+msgstr "Por favor ingrese un identificador saliente válido"
 
 #: ../core/functions.inc.php:7071 ../core/functions.inc.php:7772
 msgid "Please enter a valid extension number."
