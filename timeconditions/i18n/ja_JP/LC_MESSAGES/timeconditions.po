@@ -88,8 +88,8 @@ msgid "August"
 msgstr "8月"
 
 #: page.timeconditions.php:121
-msgid "Change Override:"
-msgstr "上書きを変更："
+msgid "Change Override"
+msgstr "上書きを変更"
 
 #: install.php:214
 msgid "Checking for old timeconditions to upgrade.."
@@ -107,8 +107,8 @@ msgstr ""
 "せ、夜は直接IVRに行く等に使用できます。"
 
 #: page.timeconditions.php:117
-msgid "Current Override:"
-msgstr "現在の上書き:"
+msgid "Current Override"
+msgstr "現在の上書き"
 
 #: functions.inc.php:1303 functions.inc.php:1402
 msgid "December"
@@ -225,20 +225,20 @@ msgid "Monday"
 msgstr "月曜日"
 
 #: functions.inc.php:1175
-msgid "Month Day finish:"
-msgstr "終了日："
+msgid "Month Day finish"
+msgstr "終了日"
 
 #: functions.inc.php:1140
-msgid "Month Day start:"
-msgstr "開始日："
+msgid "Month Day start"
+msgstr "開始日"
 
 #: functions.inc.php:1309
-msgid "Month finish:"
-msgstr "終了月："
+msgid "Month finish"
+msgstr "終了月"
 
 #: functions.inc.php:1194
-msgid "Month start:"
-msgstr "開始月："
+msgid "Month start"
+msgstr "開始月"
 
 #: functions.inc.php:722
 msgid "New Time"
@@ -307,8 +307,8 @@ msgid "September"
 msgstr "9月"
 
 #: page.timegroups.php:17
-msgid "Server time:"
-msgstr "サーバー時刻："
+msgid "Server time"
+msgstr "サーバー時刻"
 
 #: page.timeconditions.php:176
 msgid "Submit"
@@ -382,20 +382,20 @@ msgid "Thursday"
 msgstr "木曜日"
 
 #: page.timeconditions.php:48
-msgid "Time Condition"
-msgstr "タイムコンディション"
+msgid "Time Condition:"
+msgstr "タイムコンディション："
 
 #: timeconditions.i18n.php:18
 msgid "Time Condition Module"
 msgstr "タイムコンディションモジュール"
 
 #: page.timeconditions.php:89
-msgid "Time Condition name:"
-msgstr "タイムコンディション名："
+msgid "Time Condition name"
+msgstr "タイムコンディション名"
 
 #: page.timeconditions.php:51
-msgid "Time Condition:"
-msgstr "タイムコンディション："
+msgid "Time Condition"
+msgstr "タイムコンディション"
 
 #: functions.inc.php:21 functions.inc.php:287
 #, php-format
@@ -408,24 +408,24 @@ msgstr "タイムコンディション"
 
 #: functions.inc.php:682 functions.inc.php:691 functions.inc.php:711
 #: page.timegroups.php:12
-msgid "Time Group"
-msgstr "タイムグループ"
-
-#: page.timeconditions.php:135
 msgid "Time Group:"
 msgstr "タイムグループ："
+
+#: page.timeconditions.php:135
+msgid "Time Group"
+msgstr "タイムグループ"
 
 #: timeconditions.i18n.php:14
 msgid "Time Groups"
 msgstr "タイムグループ"
 
 #: functions.inc.php:965
-msgid "Time to finish:"
-msgstr "終了時刻："
+msgid "Time to finish"
+msgstr "終了時刻"
 
 #: functions.inc.php:910
-msgid "Time to start:"
-msgstr "開始時刻："
+msgid "Time to start"
+msgstr "開始時刻"
 
 #: functions.inc.php:1037 functions.inc.php:1100
 msgid "Tuesday"
@@ -453,12 +453,12 @@ msgid "Wednesday"
 msgstr "水曜日"
 
 #: functions.inc.php:1077
-msgid "Week Day finish:"
-msgstr "終了曜日："
+msgid "Week Day finish"
+msgstr "終了曜日"
 
 #: functions.inc.php:1015
-msgid "Week Day start:"
-msgstr "開始曜日："
+msgid "Week Day start"
+msgstr "開始曜日"
 
 #: page.timeconditions.php:187
 msgid ""

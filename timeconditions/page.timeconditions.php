@@ -88,7 +88,7 @@ if ($action == 'delete') {
 <?php		}?>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Time Condition name:")?><span><?php echo _("Give this Time Condition a brief name to help you identify it.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Time Condition name")?><span><?php echo _("Give this Time Condition a brief name to help you identify it.")?></span></a></td>
 		<td><input type="text" name="displayname" value="<?php echo (isset($thisItem['displayname']) ? $thisItem['displayname'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
 	</tr>
 <?php
@@ -116,11 +116,11 @@ if ($action == 'delete') {
     }
 ?>
   <tr>
-		<td><a href="#" class="info"><?php echo _("Current Override:")?><span><?php echo _("Indicates the current state of this Time Condition. If it is in a Temporary Override state, it will automatically resume at the next time transition based on the associated Time Group. If in a Permanent Override state, it will stay in that state until changed here or through other means such as external XML applications on your phone. If No Override then it functions normally based on the time schedule.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Current Override")?><span><?php echo _("Indicates the current state of this Time Condition. If it is in a Temporary Override state, it will automatically resume at the next time transition based on the associated Time Group. If in a Permanent Override state, it will stay in that state until changed here or through other means such as external XML applications on your phone. If No Override then it functions normally based on the time schedule.")?></span></a></td>
     <td><?php echo $state_msg; ?></td>
 	</tr>
   <tr>
-		<td><a href="#" class="info"><?php echo _("Change Override:")?><span><?php echo sprintf(_("This Time Condition can be set to Temporarily go to the 'matched' or 'unmatched' destination in which case the override will automatically reset once the current time span has elapsed. If set to Permanent it will stay overridden until manually reset. All overrides can be removed with the Reset Override option. Temporary Overrides can also be toggled with the %s feature code, which will also remove a Permanent Override if set but can not set a Permanent Override which must be done here or with other applications such as an XML based phone options."),$tcval)?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Change Override")?><span><?php echo sprintf(_("This Time Condition can be set to Temporarily go to the 'matched' or 'unmatched' destination in which case the override will automatically reset once the current time span has elapsed. If set to Permanent it will stay overridden until manually reset. All overrides can be removed with the Reset Override option. Temporary Overrides can also be toggled with the %s feature code, which will also remove a Permanent Override if set but can not set a Permanent Override which must be done here or with other applications such as an XML based phone options."),$tcval)?></span></a></td>
     <td>
       <select name="tcstate_new" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
         <option value="unchanged" SELECTED><?php echo _("Unchanged");?></option>
@@ -134,7 +134,7 @@ if ($action == 'delete') {
 	</tr>
 <?php } ?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Time Group:")?><span><?php echo _("Select a Time Group created under Time Groups. Matching times will be sent to matching destination. If no group is selected, call will always go to no-match destination.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Time Group")?><span><?php echo _("Select a Time Group created under Time Groups. Matching times will be sent to matching destination. If no group is selected, call will always go to no-match destination.")?></span></a></td>
 		<td><?php echo timeconditions_timegroups_drawgroupselect('time', (isset($thisItem['time']) ? $thisItem['time'] : ''), true, ''); ?></td>
 	</tr>
 <?php
@@ -153,7 +153,7 @@ if ($action == 'delete') {
 	// object was initialized in config.php
 	echo $module_hook->hookHtml;
 ?>
-	<tr><td colspan="2"><br><h5><?php echo _("Destination if time matches")?>:</h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo _("Destination if time matches")?></h5></td></tr>
 <?php
 //draw goto selects
 if (isset($thisItem)) {
@@ -163,7 +163,7 @@ if (isset($thisItem)) {
 }
 ?>
 
-	<tr><td colspan="2"><br><h5><?php echo _("Destination if time does not match")?>:</h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo _("Destination if time does not match")?></h5></td></tr>
 
 <?php
 //draw goto selects

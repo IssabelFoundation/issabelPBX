@@ -63,7 +63,7 @@ msgid "August"
 msgstr ""
 
 #: page.timeconditions.php:121
-msgid "Change Override:"
+msgid "Change Override"
 msgstr ""
 
 #: install.php:214
@@ -79,7 +79,7 @@ msgid ""
 msgstr ""
 
 #: page.timeconditions.php:117
-msgid "Current Override:"
+msgid "Current Override"
 msgstr ""
 
 #: functions.inc.php:1303
@@ -203,19 +203,19 @@ msgid "Monday"
 msgstr ""
 
 #: functions.inc.php:1175
-msgid "Month Day finish:"
+msgid "Month Day finish"
 msgstr ""
 
 #: functions.inc.php:1140
-msgid "Month Day start:"
+msgid "Month Day start"
 msgstr ""
 
 #: functions.inc.php:1309
-msgid "Month finish:"
+msgid "Month finish"
 msgstr ""
 
 #: functions.inc.php:1194
-msgid "Month start:"
+msgid "Month start"
 msgstr ""
 
 #: functions.inc.php:722
@@ -288,7 +288,7 @@ msgid "September"
 msgstr ""
 
 #: page.timegroups.php:17
-msgid "Server time:"
+msgid "Server time"
 msgstr ""
 
 #: page.timeconditions.php:176
@@ -365,11 +365,11 @@ msgid "Time Condition Module"
 msgstr ""
 
 #: page.timeconditions.php:89
-msgid "Time Condition name:"
+msgid "Time Condition name"
 msgstr ""
 
 #: page.timeconditions.php:51
-msgid "Time Condition:"
+msgid "Time Condition"
 msgstr ""
 
 #: functions.inc.php:21
@@ -391,7 +391,7 @@ msgid "Time Group"
 msgstr ""
 
 #: page.timeconditions.php:135
-msgid "Time Group:"
+msgid "Time Group"
 msgstr ""
 
 #: timeconditions.i18n.php:14
@@ -399,11 +399,11 @@ msgid "Time Groups"
 msgstr ""
 
 #: functions.inc.php:965
-msgid "Time to finish:"
+msgid "Time to finish"
 msgstr ""
 
 #: functions.inc.php:910
-msgid "Time to start:"
+msgid "Time to start"
 msgstr ""
 
 #: functions.inc.php:1037
@@ -434,11 +434,11 @@ msgid "Wednesday"
 msgstr ""
 
 #: functions.inc.php:1077
-msgid "Week Day finish:"
+msgid "Week Day finish"
 msgstr ""
 
 #: functions.inc.php:1015
-msgid "Week Day start:"
+msgid "Week Day start"
 msgstr ""
 
 #: page.timeconditions.php:187

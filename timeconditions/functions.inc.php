@@ -974,7 +974,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'<td><input type="text" name="'.$name.'[display_name]" id="displayname_'.$name.'" size="35" tabindex="" value="'.$displayname.'"></td>';
     $html = $html.'</tr>';
     $html = $html.'<tr>';
-    $html = $html.'<td>'._("Time to start:").'</td>';
+    $html = $html.'<td>'._("Time to start").'</td>';
     $html = $html.'<td>';
     // Hour could be *, hh:mm, hh:mm-hhmm
     if ( $time_hour === '*' ) {
@@ -1029,7 +1029,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'</td>';
     $html = $html.'</tr>';
     $html = $html.'<tr>';
-    $html = $html.'<td>'._("Time to finish:").'</td>';
+    $html = $html.'<td>'._("Time to finish").'</td>';
     $html = $html.'<td>';
     $html = $html.'<select name="'.$name.'[hour_finish]">';
     $default = '';
@@ -1079,7 +1079,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     } else {
         $wday_start = $wday_finish = '-';
     }
-    $html = $html.'<td>'._("Week Day start:").'</td>';
+    $html = $html.'<td>'._("Week Day start").'</td>';
     $html = $html.'<td>';
     $html = $html.'<select name="'.$name.'[wday_start]">';
     if ( $wday_start == '-' ) {
@@ -1141,7 +1141,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'</td>';
     $html = $html.'</tr>';
     $html = $html.'<tr>';
-    $html = $html.'<td>'._("Week Day finish:").'</td>';
+    $html = $html.'<td>'._("Week Day finish").'</td>';
     $html = $html.'<td>';
     $html = $html.'<select name="'.$name.'[wday_finish]">';
 
@@ -1204,7 +1204,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'</td>';
     $html = $html.'</tr>';
     $html = $html.'<tr>';
-    $html = $html.'<td>'._("Month Day start:").'</td>';
+    $html = $html.'<td>'._("Month Day start").'</td>';
 
     // MDay could be *, day, day1-day2
     if ( $time_mday != '*' ) {
@@ -1239,7 +1239,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'</select>';
     $html = $html.'</td>';
     $html = $html.'<tr>';
-    $html = $html.'<td>'._("Month Day finish:").'</td>';
+    $html = $html.'<td>'._("Month Day finish").'</td>';
     $html = $html.'<td>';
     $html = $html.'<select name="'.$name.'[mday_finish]">';
     $default = '';
@@ -1258,7 +1258,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'</td>';
     $html = $html.'</tr>';
     $html = $html.'<tr>';
-    $html = $html.'<td>'._("Month start:").'</td>';
+    $html = $html.'<td>'._("Month start").'</td>';
 
     // Month could be *, month, month1-month2
     if ( $time_month != '*' ) {
@@ -1373,7 +1373,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'</td>';
     $html = $html.'</tr>';
     $html = $html.'<tr>';
-    $html = $html.'<td>'._("Month finish:").'</td>';
+    $html = $html.'<td>'._("Month finish").'</td>';
     $html = $html.'<td>';
     $html = $html.'<select name="'.$name.'[month_finish]">';
 
