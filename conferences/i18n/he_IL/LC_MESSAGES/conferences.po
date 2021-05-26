@@ -115,8 +115,8 @@ msgstr "ועידה"
 msgid "deleted"
 msgstr "נמחקה"
 
-msgid "Conference:"
-msgstr "ועידה:"
+msgid "Conference"
+msgstr "ועידה"
 
 #, php-format
 msgid "Delete Conference %s"
@@ -128,20 +128,20 @@ msgstr ""
 msgid "Edit Conference"
 msgstr "ערוך ועידה"
 
-msgid "Conference Number:"
-msgstr "מספר ועידה:"
+msgid "Conference Number"
+msgstr "מספר ועידה"
 
 msgid "Use this number to dial into the conference."
 msgstr "השתמש במספר זה כדי לחייג לתוך הועידה"
 
-msgid "Conference Name:"
-msgstr "שם הועידה:"
+msgid "Conference Name"
+msgstr "שם הועידה"
 
 msgid "Give this conference a brief name to help you identify it."
 msgstr "תן לועידה זו שם קצר שיעזור לך לזהות אותה."
 
-msgid "User PIN:"
-msgstr "סיסמת משתמש:"
+msgid "User PIN"
+msgstr "סיסמת משתמש"
 
 msgid ""
 "You can require callers to enter a password before they can enter this "
@@ -152,8 +152,8 @@ msgstr ""
 "<br /><br />הגדרה זו היא רשות.<br /><br />אם הוכנסה סיסמת משתמש כלשהיא, "
 "המשתמש יתבקש לחייגה בכניסה."
 
-msgid "Admin PIN:"
-msgstr "סיסמת מנהל:"
+msgid "Admin PIN"
+msgstr "סיסמת מנהל"
 
 msgid ""
 "Enter a PIN number for the admin user.<br><br>This setting is optional "
@@ -166,8 +166,8 @@ msgstr ""
 msgid "Conference Options"
 msgstr "אפשרויות ועידה"
 
-msgid "Join Message:"
-msgstr "הודעת הצטרפות:"
+msgid "Join Message"
+msgstr "הודעת הצטרפות"
 
 msgid ""
 "Message to be played to the caller before joining the conference.<br><br>To "
@@ -187,8 +187,8 @@ msgstr ""
 "הודעה שתושמע למתקשר לפני הכניסה לועידה.<br /><br />אתה חייב להתקין ולהפעיל "
 "את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זאת"
 
-msgid "Leader Wait:"
-msgstr "המתנה למנהל:"
+msgid "Leader Wait"
+msgstr "המתנה למנהל"
 
 msgid ""
 "Wait until the conference leader (admin user) arrives before starting the "
@@ -202,7 +202,7 @@ msgstr "לא"
 msgid "Yes"
 msgstr "כן"
 
-msgid "Talker Optimization:"
+msgid "Talker Optimization"
 msgstr ""
 
 msgid ""
@@ -215,7 +215,7 @@ msgid ""
 "buildup in background noise."
 msgstr ""
 
-msgid "Talker Detection:"
+msgid "Talker Detection"
 msgstr ""
 
 msgid ""
@@ -226,31 +226,31 @@ msgid ""
 "the meetme list CLI command."
 msgstr ""
 
-msgid "Quiet Mode:"
-msgstr "מצב שקט:"
+msgid "Quiet Mode"
+msgstr "מצב שקט"
 
 msgid "Quiet mode (do not play enter/leave sounds)"
 msgstr "מצב שקט (אל תשמיע צלילי כניסה/יציאה)"
 
-msgid "User Count:"
-msgstr "ספירת משתמשים:"
+msgid "User Count"
+msgstr "ספירת משתמשים"
 
 msgid "Announce user(s) count on joining conference"
 msgstr "הכרז על מספר הנמצאים בועידה בזמן הכניסה לועידה"
 
-msgid "User join/leave:"
-msgstr "כניסת/יציאת משתמש:"
+msgid "User join/leave"
+msgstr "כניסת/יציאת משתמש"
 
 msgid "Announce user join/leave"
 msgstr "הכרז על כניסה/יציאה של משתמשים"
 
-msgid "Music on Hold:"
-msgstr "מוסיקה בהמתנה:"
+msgid "Music on Hold"
+msgstr "מוסיקה בהמתנה"
 
 msgid "Enable Music On Hold when the conference has a single caller"
 msgstr "הפעל מוסיקה בהמתנה כאשר בועידה יש רק מתקשר אחד"
 
-msgid "Music on Hold Class:"
+msgid "Music on Hold Class"
 msgstr ""
 
 msgid ""
@@ -266,19 +266,19 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-msgid "Allow Menu:"
-msgstr "אפשר תפריט:"
+msgid "Allow Menu"
+msgstr "אפשר תפריט"
 
 msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
 msgstr "הצג תפריט (משתמש או מנהל) כאשר לוחצים על כוכבית ('שליחה' אל התפריט)"
 
-msgid "Record Conference:"
+msgid "Record Conference"
 msgstr ""
 
 msgid "Record the conference call"
 msgstr ""
 
-msgid "Maximum Participants:"
+msgid "Maximum Participants"
 msgstr ""
 
 msgid "Maximum Number of users allowed to join this conference."
@@ -287,7 +287,7 @@ msgstr ""
 msgid "No Limit"
 msgstr ""
 
-msgid "Mute on Join:"
+msgid "Mute on Join"
 msgstr ""
 
 msgid ""

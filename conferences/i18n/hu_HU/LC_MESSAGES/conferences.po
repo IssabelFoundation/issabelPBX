@@ -50,7 +50,7 @@ msgid "Conference: %s"
 msgstr ""
 
 msgid "Conference: "
-msgstr "Konferencia:"
+msgstr "Konferencia: "
 
 msgid "Checking if music field present.."
 msgstr ""
@@ -116,8 +116,8 @@ msgstr "Konferencia"
 msgid "deleted"
 msgstr "törölt"
 
-msgid "Conference:"
-msgstr "Konferencia:"
+msgid "Conference"
+msgstr "Konferencia"
 
 #, php-format
 msgid "Delete Conference %s"
@@ -129,20 +129,20 @@ msgstr "Mellékek ütközése"
 msgid "Edit Conference"
 msgstr "Konferencia szerkesztése"
 
-msgid "Conference Number:"
-msgstr "Konferenciaszám:"
+msgid "Conference Number"
+msgstr "Konferenciaszám"
 
 msgid "Use this number to dial into the conference."
 msgstr "A szám, amit a conferencia eléréséhez tárcsázni kell."
 
-msgid "Conference Name:"
+msgid "Conference Name"
 msgstr "Konferencianév"
 
 msgid "Give this conference a brief name to help you identify it."
 msgstr "Adj meg a konferenciának egy jellemző nevet."
 
-msgid "User PIN:"
-msgstr "Felhasználó PIN:"
+msgid "User PIN"
+msgstr "Felhasználó PIN"
 
 msgid ""
 "You can require callers to enter a password before they can enter this "
@@ -153,8 +153,8 @@ msgstr ""
 "<br><br>Opcionális beállítás<br><br>Ha megadsz egy PIN számot, akkor a "
 "felhasználónak ugyanezt a PIN-t kell majd a belépéshez megadnia."
 
-msgid "Admin PIN:"
-msgstr "Admin PIN:"
+msgid "Admin PIN"
+msgstr "Admin PIN"
 
 msgid ""
 "Enter a PIN number for the admin user.<br><br>This setting is optional "
@@ -168,8 +168,8 @@ msgstr ""
 msgid "Conference Options"
 msgstr "Konferencia opciók"
 
-msgid "Join Message:"
-msgstr "Csatlakozó üzenet:"
+msgid "Join Message"
+msgstr "Csatlakozó üzenet"
 
 msgid ""
 "Message to be played to the caller before joining the conference.<br><br>To "
@@ -191,8 +191,8 @@ msgstr ""
 "<br><br>Használatához a \"Rendszerfelvételek\" modult telepítened, és "
 "engedélyezed kell."
 
-msgid "Leader Wait:"
-msgstr "Vezetőre várakozás:"
+msgid "Leader Wait"
+msgstr "Vezetőre várakozás"
 
 msgid ""
 "Wait until the conference leader (admin user) arrives before starting the "
@@ -206,7 +206,7 @@ msgstr "Nem"
 msgid "Yes"
 msgstr "Igen"
 
-msgid "Talker Optimization:"
+msgid "Talker Optimization"
 msgstr ""
 
 msgid ""
@@ -219,7 +219,7 @@ msgid ""
 "buildup in background noise."
 msgstr ""
 
-msgid "Talker Detection:"
+msgid "Talker Detection"
 msgstr ""
 
 msgid ""
@@ -230,31 +230,31 @@ msgid ""
 "the meetme list CLI command."
 msgstr ""
 
-msgid "Quiet Mode:"
-msgstr "Néma üzemmód:"
+msgid "Quiet Mode"
+msgstr "Néma üzemmód"
 
 msgid "Quiet mode (do not play enter/leave sounds)"
 msgstr "Csendes mód (nem játszik le zenét ki- és belépéskor)"
 
-msgid "User Count:"
-msgstr "Felhasználószámlálás:"
+msgid "User Count"
+msgstr "Felhasználószámlálás"
 
 msgid "Announce user(s) count on joining conference"
 msgstr "Esemény a felhasználók csatlakozásakor"
 
-msgid "User join/leave:"
+msgid "User join/leave"
 msgstr "Felhasználók fel/lecsatlakozása"
 
 msgid "Announce user join/leave"
 msgstr "Esemény felhasználó fel/lecsatlakozásakor"
 
-msgid "Music on Hold:"
-msgstr "Háttérzene:"
+msgid "Music on Hold"
+msgstr "Háttérzene"
 
 msgid "Enable Music On Hold when the conference has a single caller"
 msgstr "Háttérzene engedélyezése, ha csak egy tagja van a konferenciának"
 
-msgid "Music on Hold Class:"
+msgid "Music on Hold Class"
 msgstr ""
 
 msgid ""
@@ -270,19 +270,19 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-msgid "Allow Menu:"
-msgstr "Elfogadva menü:"
+msgid "Allow Menu"
+msgstr "Elfogadva menü"
 
 msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
 msgstr "menü megmutatása (felhasználónak vagy adminnak) amikor '*' érkezik"
 
-msgid "Record Conference:"
-msgstr "Konferencia rögzítése:"
+msgid "Record Conference"
+msgstr "Konferencia rögzítése"
 
 msgid "Record the conference call"
 msgstr "Rögzíti a teljes konferenciabeszélgetést"
 
-msgid "Maximum Participants:"
+msgid "Maximum Participants"
 msgstr ""
 
 msgid "Maximum Number of users allowed to join this conference."
@@ -291,7 +291,7 @@ msgstr ""
 msgid "No Limit"
 msgstr ""
 
-msgid "Mute on Join:"
+msgid "Mute on Join"
 msgstr ""
 
 msgid ""

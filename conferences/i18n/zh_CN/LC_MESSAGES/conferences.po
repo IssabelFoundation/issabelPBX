@@ -130,20 +130,20 @@ msgstr "分机号冲突"
 msgid "Edit Conference"
 msgstr "编辑会议"
 
-msgid "Conference Number:"
-msgstr "会议号码："
+msgid "Conference Number"
+msgstr "会议号码"
 
 msgid "Use this number to dial into the conference."
 msgstr "拨打此号码以参加会议。"
 
-msgid "Conference Name:"
-msgstr "会议名称："
+msgid "Conference Name"
+msgstr "会议名称"
 
 msgid "Give this conference a brief name to help you identify it."
 msgstr "为此会议取一个简短的名称以帮助你标识它。"
 
-msgid "User PIN:"
-msgstr "使用PIN码："
+msgid "User PIN"
+msgstr "使用PIN码"
 
 msgid ""
 "You can require callers to enter a password before they can enter this "
@@ -154,8 +154,8 @@ msgstr ""
 "管是用户PIN码还是管理员PIN码，只要其中有一栏里设置了PIN码，用户在参加会议前会"
 "被提示需要输入PIN。"
 
-msgid "Admin PIN:"
-msgstr "管理员PIN码："
+msgid "Admin PIN"
+msgstr "管理员PIN码"
 
 msgid ""
 "Enter a PIN number for the admin user.<br><br>This setting is optional "
@@ -168,8 +168,8 @@ msgstr ""
 msgid "Conference Options"
 msgstr "会议选项"
 
-msgid "Join Message:"
-msgstr "入会消息："
+msgid "Join Message"
+msgstr "入会消息"
 
 msgid ""
 "Message to be played to the caller before joining the conference.<br><br>To "
@@ -189,8 +189,8 @@ msgstr ""
 "在主叫加入会议之前要播放的消息。<br /><br />要添加额外的消息，请使用左侧的“系"
 "统录音”菜单以编辑此选项。"
 
-msgid "Leader Wait:"
-msgstr "等待主持人："
+msgid "Leader Wait"
+msgstr "等待主持人"
 
 msgid ""
 "Wait until the conference leader (admin user) arrives before starting the "
@@ -203,7 +203,7 @@ msgstr "否"
 msgid "Yes"
 msgstr "是"
 
-msgid "Talker Optimization:"
+msgid "Talker Optimization"
 msgstr ""
 
 msgid ""
@@ -216,7 +216,7 @@ msgid ""
 "buildup in background noise."
 msgstr ""
 
-msgid "Talker Detection:"
+msgid "Talker Detection"
 msgstr ""
 
 msgid ""
@@ -227,31 +227,31 @@ msgid ""
 "the meetme list CLI command."
 msgstr ""
 
-msgid "Quiet Mode:"
-msgstr "安静模式："
+msgid "Quiet Mode"
+msgstr "安静模式"
 
 msgid "Quiet mode (do not play enter/leave sounds)"
 msgstr "安静模式（不播放入会/离会的提示音）"
 
-msgid "User Count:"
-msgstr "用户数量："
+msgid "User Count"
+msgstr "用户数量"
 
 msgid "Announce user(s) count on joining conference"
 msgstr "通告加入会议的用户数量"
 
-msgid "User join/leave:"
-msgstr "用户加入/离开："
+msgid "User join/leave"
+msgstr "用户加入/离开"
 
 msgid "Announce user join/leave"
 msgstr "通告用户的加入/离开"
 
-msgid "Music on Hold:"
+msgid "Music on Hold"
 msgstr "等待音乐"
 
 msgid "Enable Music On Hold when the conference has a single caller"
 msgstr "在会议只有一个用户参加时，启用等待音乐"
 
-msgid "Music on Hold Class:"
+msgid "Music on Hold Class"
 msgstr ""
 
 msgid ""
@@ -267,19 +267,19 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-msgid "Allow Menu:"
-msgstr "启用菜单："
+msgid "Allow Menu"
+msgstr "启用菜单"
 
 msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
 msgstr "在收到“*”（“发送”菜单）后，向用户或管理员展示菜单"
 
-msgid "Record Conference:"
-msgstr "会议录音："
+msgid "Record Conference"
+msgstr "会议录音"
 
 msgid "Record the conference call"
 msgstr "为会议录音"
 
-msgid "Maximum Participants:"
+msgid "Maximum Participants"
 msgstr ""
 
 msgid "Maximum Number of users allowed to join this conference."
@@ -288,7 +288,7 @@ msgstr ""
 msgid "No Limit"
 msgstr ""
 
-msgid "Mute on Join:"
+msgid "Mute on Join"
 msgstr ""
 
 msgid ""

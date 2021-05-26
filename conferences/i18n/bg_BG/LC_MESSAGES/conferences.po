@@ -116,8 +116,8 @@ msgstr "Конференция"
 msgid "deleted"
 msgstr "изтрита"
 
-msgid "Conference:"
-msgstr "Конференция:"
+msgid "Conference"
+msgstr "Конференция"
 
 #, php-format
 msgid "Delete Conference %s"
@@ -129,21 +129,21 @@ msgstr "Вътрешни Линии в Конфликт"
 msgid "Edit Conference"
 msgstr "Редактирай Конференция"
 
-msgid "Conference Number:"
-msgstr "Конференция Номер:"
+msgid "Conference Number"
+msgstr "Конференция Номер"
 
 msgid "Use this number to dial into the conference."
 msgstr "Използва този номер за набиране на конференцията."
 
-msgid "Conference Name:"
-msgstr "Име на Конференция:"
+msgid "Conference Name"
+msgstr "Име на Конференция"
 
 msgid "Give this conference a brief name to help you identify it."
 msgstr ""
 "Дайте на тази конференция описващо име за да ви помогне при идентифицирането."
 
-msgid "User PIN:"
-msgstr "Потребителски PIN:"
+msgid "User PIN"
+msgstr "Потребителски PIN"
 
 msgid ""
 "You can require callers to enter a password before they can enter this "
@@ -154,8 +154,8 @@ msgstr ""
 "присъединят към конференцията.<br><br>Тази настройка не е задължителна."
 "<br><br>Ако е въведен PIN, потребителите ще бъдат помолени да въведат PIN."
 
-msgid "Admin PIN:"
-msgstr "Администраторски PIN:"
+msgid "Admin PIN"
+msgstr "Администраторски PIN"
 
 msgid ""
 "Enter a PIN number for the admin user.<br><br>This setting is optional "
@@ -169,8 +169,8 @@ msgstr ""
 msgid "Conference Options"
 msgstr "Опции на Конференция"
 
-msgid "Join Message:"
-msgstr "Съобщение при Влизане:"
+msgid "Join Message"
+msgstr "Съобщение при Влизане"
 
 msgid ""
 "Message to be played to the caller before joining the conference.<br><br>To "
@@ -192,8 +192,8 @@ msgstr ""
 "към конференцията.<br><br>Трябва да сте инсталирали и разрешили Модул "
 "\"Системни Записи\" за да редактирате тази опция."
 
-msgid "Leader Wait:"
-msgstr "Изчакване на Водещия:"
+msgid "Leader Wait"
+msgstr "Изчакване на Водещия"
 
 msgid ""
 "Wait until the conference leader (admin user) arrives before starting the "
@@ -208,7 +208,7 @@ msgstr "Не"
 msgid "Yes"
 msgstr "Да"
 
-msgid "Talker Optimization:"
+msgid "Talker Optimization"
 msgstr ""
 
 msgid ""
@@ -221,7 +221,7 @@ msgid ""
 "buildup in background noise."
 msgstr ""
 
-msgid "Talker Detection:"
+msgid "Talker Detection"
 msgstr ""
 
 msgid ""
@@ -232,32 +232,32 @@ msgid ""
 "the meetme list CLI command."
 msgstr ""
 
-msgid "Quiet Mode:"
-msgstr "Тих Режим:"
+msgid "Quiet Mode"
+msgstr "Тих Режим"
 
 msgid "Quiet mode (do not play enter/leave sounds)"
 msgstr "Тих режим (не възпроизвежда влизане/излизане съобщения)."
 
-msgid "User Count:"
-msgstr "Брене на Потребителите:"
+msgid "User Count"
+msgstr "Брене на Потребителите"
 
 msgid "Announce user(s) count on joining conference"
 msgstr "Известява за броя на потребителите при влизане в конференцията."
 
-msgid "User join/leave:"
-msgstr "Потребител влиза/излиза:"
+msgid "User join/leave"
+msgstr "Потребител влиза/излиза"
 
 msgid "Announce user join/leave"
 msgstr "Известява за влизане/излизане на потребител"
 
-msgid "Music on Hold:"
-msgstr "Музика при Задържане:"
+msgid "Music on Hold"
+msgstr "Музика при Задържане"
 
 msgid "Enable Music On Hold when the conference has a single caller"
 msgstr ""
 "Разрешава Музика при Задържане когато конференцията има само един обаждащ се."
 
-msgid "Music on Hold Class:"
+msgid "Music on Hold Class"
 msgstr ""
 
 msgid ""
@@ -273,21 +273,21 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-msgid "Allow Menu:"
-msgstr "Позволи Меню:"
+msgid "Allow Menu"
+msgstr "Позволи Меню"
 
 msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
 msgstr ""
 "Представя Меню (потребител или администратор) когато '*' е получена "
 "('изпрати' към меню)."
 
-msgid "Record Conference:"
-msgstr "Записвай Конференция:"
+msgid "Record Conference"
+msgstr "Записвай Конференция"
 
 msgid "Record the conference call"
 msgstr "Записва конференцията."
 
-msgid "Maximum Participants:"
+msgid "Maximum Participants"
 msgstr ""
 
 msgid "Maximum Number of users allowed to join this conference."
@@ -296,7 +296,7 @@ msgstr ""
 msgid "No Limit"
 msgstr ""
 
-msgid "Mute on Join:"
+msgid "Mute on Join"
 msgstr ""
 
 msgid ""

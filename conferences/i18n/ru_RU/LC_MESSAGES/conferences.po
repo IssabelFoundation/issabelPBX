@@ -124,8 +124,8 @@ msgstr "Конференция"
 msgid "deleted"
 msgstr "удалено"
 
-msgid "Conference:"
-msgstr "Конференция:"
+msgid "Conference"
+msgstr "Конференция"
 
 #, php-format
 msgid "Delete Conference %s"
@@ -137,20 +137,20 @@ msgstr "Конфликт внутренних номеров"
 msgid "Edit Conference"
 msgstr "Изменить конференцию"
 
-msgid "Conference Number:"
-msgstr "Номер конференции:"
+msgid "Conference Number"
+msgstr "Номер конференции"
 
 msgid "Use this number to dial into the conference."
 msgstr "Чтобы позвонить в конференцию используйте этот номер."
 
-msgid "Conference Name:"
-msgstr "Название конференции:"
+msgid "Conference Name"
+msgstr "Название конференции"
 
 msgid "Give this conference a brief name to help you identify it."
 msgstr "Присвойте конференции короткое имя для идентификации."
 
-msgid "User PIN:"
-msgstr "PIN пользователя:"
+msgid "User PIN"
+msgstr "PIN пользователя"
 
 msgid ""
 "You can require callers to enter a password before they can enter this "
@@ -161,8 +161,8 @@ msgstr ""
 "<br><br>Это необязательный параметр.<br><br>Если указан PIN в этом поле, "
 "пользователю будет предложено набрать его."
 
-msgid "Admin PIN:"
-msgstr "PIN администратора:"
+msgid "Admin PIN"
+msgstr "PIN администратора"
 
 msgid ""
 "Enter a PIN number for the admin user.<br><br>This setting is optional "
@@ -175,7 +175,7 @@ msgstr ""
 msgid "Conference Options"
 msgstr "Опции конференции"
 
-msgid "Join Message:"
+msgid "Join Message"
 msgstr "Сообщение о подсоединении?"
 
 msgid ""
@@ -198,7 +198,7 @@ msgstr ""
 "<br><br>Необходимо инсталлировать и активировать модуль 'Запись сообщений' "
 "для изменения этой опции."
 
-msgid "Leader Wait:"
+msgid "Leader Wait"
 msgstr "Ждать организатора?"
 
 msgid ""
@@ -214,8 +214,8 @@ msgstr "Нет"
 msgid "Yes"
 msgstr "Да"
 
-msgid "Talker Optimization:"
-msgstr "Оптимизация для выступающего:"
+msgid "Talker Optimization"
+msgstr "Оптимизация для выступающего"
 
 msgid ""
 "Turns on talker optimization. With talker optimization, Asterisk treats "
@@ -231,8 +231,8 @@ msgstr ""
 "нагрузку на декодирование незадействованных каналов и снижая тем самым общий "
 "шум заднего плана."
 
-msgid "Talker Detection:"
-msgstr "Распознавание выступающего:"
+msgid "Talker Detection"
+msgstr "Распознавание выступающего"
 
 msgid ""
 "Sets talker detection. Asterisk will sends events on the Manager Interface "
@@ -246,34 +246,34 @@ msgstr ""
 "которому идёт активное выступление. Выступающий также идентифицируется в "
 "командном режиме CLI среди команд модуля meetme."
 
-msgid "Quiet Mode:"
-msgstr "Тихий режим:"
+msgid "Quiet Mode"
+msgstr "Тихий режим"
 
 msgid "Quiet mode (do not play enter/leave sounds)"
 msgstr ""
 "Тихий режим (не воспроизводятся сообщения о том кто вошёл или вышел из "
 "конференции)"
 
-msgid "User Count:"
+msgid "User Count"
 msgstr "Количество участников?"
 
 msgid "Announce user(s) count on joining conference"
 msgstr "Анонсировать количество участников конференции при подсоединении?"
 
-msgid "User join/leave:"
+msgid "User join/leave"
 msgstr "Участник подсоединился/отключился?"
 
 msgid "Announce user join/leave"
 msgstr "Анонсировать подсоединение/отключение участников?"
 
-msgid "Music on Hold:"
+msgid "Music on Hold"
 msgstr "Музыка в ожидании?"
 
 msgid "Enable Music On Hold when the conference has a single caller"
 msgstr "Использовать музыку в ожидании, если в конференции пока один участник?"
 
-msgid "Music on Hold Class:"
-msgstr "Класс Музыки в ожидании:"
+msgid "Music on Hold Class"
+msgstr "Класс Музыки в ожидании"
 
 msgid ""
 "Music (or Commercial) played to the caller while they wait in line for the "
@@ -292,21 +292,21 @@ msgstr "наследованый"
 msgid "default"
 msgstr "по умолчанию"
 
-msgid "Allow Menu:"
+msgid "Allow Menu"
 msgstr "Разрешить меню?"
 
 msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
 msgstr ""
 "Предоставить доступ в меню (участнику или администратору) при нажатии '*'?"
 
-msgid "Record Conference:"
+msgid "Record Conference"
 msgstr "Записывать конференцию?"
 
 msgid "Record the conference call"
 msgstr "Записывать содержание конференции?"
 
-msgid "Maximum Participants:"
-msgstr "Максимально участников:"
+msgid "Maximum Participants"
+msgstr "Максимально участников"
 
 msgid "Maximum Number of users allowed to join this conference."
 msgstr ""
@@ -316,7 +316,7 @@ msgstr ""
 msgid "No Limit"
 msgstr "Без ограничений"
 
-msgid "Mute on Join:"
+msgid "Mute on Join"
 msgstr "Отключение микрофона при подключении к конференции"
 
 msgid ""
