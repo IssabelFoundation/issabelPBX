@@ -72,19 +72,19 @@ msgstr "Redigera"
 msgid "Add or replace entry"
 msgstr "Lägg till eller byt ut"
 
-msgid "Number/CallerID:"
-msgstr "Nummer/Nummerpresentation:"
+msgid "Number/CallerID"
+msgstr "Nummer/Nummerpresentation"
 
 msgid "Enter the number/CallerID you want to block"
 msgstr "Skriv in det nummer eller nummerpresentation du vill svartlista"
 
-msgid "Description:"
-msgstr "Beskrivning:"
+msgid "Description"
+msgstr "Beskrivning"
 
 msgid "Enter a description for the number you want to block"
 msgstr "Skriv in en kortfattad beskrivning för numret du vill blockera"
 
-msgid "Block Unknown/Blocked Caller ID:"
+msgid "Block Unknown/Blocked Caller ID"
 msgstr "Spärra okända/spärrade nummerpresentationer"
 
 msgid "Check here to catch Unknown/Blocked Caller ID"

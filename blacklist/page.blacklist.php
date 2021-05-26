@@ -53,20 +53,20 @@ if(isset($_REQUEST['action'])) {
 	<tr><td colspan="2"><h5><?php echo _("Add or replace entry") ?></h5></td></tr>
 
         <tr>
-    	        <td><a href="#" class="info"><?php echo _("Number/CallerID:")?>
+    	        <td><a href="#" class="info"><?php echo _("Number/CallerID")?>
     		<span><?php echo _("Enter the number/CallerID you want to block")?></span></a></td>
                 <td><input type="text" name="number"></td>
         </tr>
         <?php if($ast_ge_16) {
     		echo "<tr>";
-                echo "<td><a href=\"#\" class=\"info\">"._("Description:");
+                echo "<td><a href=\"#\" class=\"info\">"._("Description");
                 echo "<span>"._("Enter a description for the number you want to block")."</span></a></td>";
                 echo "<td><input type=\"text\" name=\"description\"></td>";
         echo "</tr>";        
 	    }?>
 
         <tr>
-                <td><a href="#" class="info"><?php echo _("Block Unknown/Blocked Caller ID:")?>
+                <td><a href="#" class="info"><?php echo _("Block Unknown/Blocked Caller ID")?>
                 <span><?php echo _("Check here to catch Unknown/Blocked Caller ID")?></span></a></td>
                 <td><input type="checkbox" name="blocked" value="1" <?php echo ($filter_blocked === true?" checked=1":"");?></td>
         </tr>

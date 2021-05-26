@@ -55,19 +55,19 @@ msgstr "Editar"
 msgid "Add or replace entry"
 msgstr "Añadir o modificar elemento"
 
-msgid "Number/CallerID:"
-msgstr "Número/CallerID:"
+msgid "Number/CallerID"
+msgstr "Número/CallerID"
 
 msgid "Enter the number/CallerID you want to block"
 msgstr "Ingrese un número/CallerID que desee bloquear"
 
-msgid "Description:"
-msgstr "Descripción:"
+msgid "Description"
+msgstr "Descripción"
 
 msgid "Enter a description for the number you want to block"
 msgstr "Ingrese una descripción para el número que desea bloquear"
 
-msgid "Block Unknown/Blocked Caller ID:"
+msgid "Block Unknown/Blocked Caller ID"
 msgstr "Bloquear Caller ID Desconocidos"
 
 msgid "Check here to catch Unknown/Blocked Caller ID"

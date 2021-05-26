@@ -55,19 +55,19 @@ msgstr "Szerkesztés"
 msgid "Add or replace entry"
 msgstr "Bejegyzés hozzáadása, vagy lecserélése"
 
-msgid "Number/CallerID:"
+msgid "Number/CallerID"
 msgstr ""
 
 msgid "Enter the number/CallerID you want to block"
 msgstr ""
 
-msgid "Description:"
+msgid "Description"
 msgstr ""
 
 msgid "Enter a description for the number you want to block"
 msgstr ""
 
-msgid "Block Unknown/Blocked Caller ID:"
+msgid "Block Unknown/Blocked Caller ID"
 msgstr ""
 
 msgid "Check here to catch Unknown/Blocked Caller ID"

@@ -58,20 +58,20 @@ msgstr "Редактировать"
 msgid "Add or replace entry"
 msgstr "Добавить или заменить запись"
 
-msgid "Number/CallerID:"
-msgstr "Номер/Caller ID:"
+msgid "Number/CallerID"
+msgstr "Номер/Caller ID"
 
 msgid "Enter the number/CallerID you want to block"
 msgstr "Введите номер/Caller ID, который Вы хотите заблокировать"
 
-msgid "Description:"
-msgstr "Описание:"
+msgid "Description"
+msgstr "Описание"
 
 msgid "Enter a description for the number you want to block"
 msgstr "Описание номера, который Вы хотите заблокировать"
 
-msgid "Block Unknown/Blocked Caller ID:"
-msgstr "Заблокировать пустой Caller ID:"
+msgid "Block Unknown/Blocked Caller ID"
+msgstr "Заблокировать пустой Caller ID"
 
 msgid "Check here to catch Unknown/Blocked Caller ID"
 msgstr "Поставьте отметку здесь что бы заблокировать пустой Caller ID"
