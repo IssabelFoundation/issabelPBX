@@ -66,8 +66,8 @@ msgstr ""
 "があります。"
 
 #: views/main.html.php:99
-msgid "Account SID:"
-msgstr "アカウントSID:"
+msgid "Account SID"
+msgstr "アカウントSID"
 
 #: views/main.html.php:3
 msgid "Add CID Lookup Source"
@@ -82,20 +82,20 @@ msgid "Adding opencnam account columns to the cidlookup table..."
 msgstr "opencnamアカウントコラムをcidlookupテーブルに追加中.."
 
 #: views/main.html.php:107
-msgid "Auth Token:"
-msgstr "認証トークン："
+msgid "Auth Token"
+msgstr "認証トークン"
 
 #: functions.inc.php:12
 msgid "CID Lookup Source"
 msgstr "CID検索ソース"
 
 #: views/main.html.php:76
-msgid "Cache results:"
-msgstr "キャッシュ結果："
+msgid "Cache results"
+msgstr "キャッシュ結果"
 
 #: views/main.html.php:229
-msgid "Character Set:"
-msgstr "文字コード："
+msgid "Character Set"
+msgstr "文字コード"
 
 #: install.php:103
 msgid "Checking for cidlookup field in core's incoming table.."
@@ -118,8 +118,8 @@ msgid "Database name"
 msgstr "データベース名"
 
 #: views/main.html.php:197
-msgid "Database:"
-msgstr "データベース:"
+msgid "Database"
+msgstr "データベース"
 
 #: views/main.html.php:76
 msgid ""
@@ -162,8 +162,8 @@ msgid "Host name or IP address"
 msgstr "ホスト名 or IPアドレス"
 
 #: views/main.html.php:128 views/main.html.php:189
-msgid "Host:"
-msgstr "ホスト："
+msgid "Host"
+msgstr "ホスト"
 
 #: install.php:37 install.php:135
 msgid "Installing OpenCNAM CallerID Lookup Sources..."
@@ -234,24 +234,24 @@ msgid "Password to use in HTTP authentication"
 msgstr "HTTP認証で使用するパスワード"
 
 #: views/main.html.php:152 views/main.html.php:221
-msgid "Password:"
-msgstr "パスワード："
+msgid "Password"
+msgstr "パスワード"
 
 #: views/main.html.php:160
 msgid "Path of the file to GET<br/>e.g.: /cidlookup.php"
 msgstr "GETをするファイルのパス<br/>例：/cidlookup.php"
 
 #: views/main.html.php:160
-msgid "Path:"
-msgstr "パス："
+msgid "Path"
+msgstr "パス"
 
 #: views/main.html.php:136
 msgid "Port HTTP server is listening at (default 80)"
 msgstr "HTTPサービスがListenしているポート(デフォルト80)"
 
 #: views/main.html.php:136
-msgid "Port:"
-msgstr "ポート："
+msgid "Port"
+msgstr "ポート"
 
 #: views/main.html.php:168
 msgid ""
@@ -270,8 +270,8 @@ msgstr ""
 "SELECT name FROM phonebook WHERE number LIKE '%[NUMBER]%'"
 
 #: views/main.html.php:168 views/main.html.php:205
-msgid "Query:"
-msgstr "クエリー："
+msgid "Query"
+msgstr "クエリー"
 
 #: install.php:86
 msgid "Removing deprecated channel field from incoming.."
@@ -310,12 +310,12 @@ msgid "Source"
 msgstr "ソース"
 
 #: views/main.html.php:43
-msgid "Source Description:"
-msgstr "ソース説明："
+msgid "Source Description"
+msgstr "ソース説明"
 
 #: views/main.html.php:51
-msgid "Source type:"
-msgstr "ソースタイプ："
+msgid "Source type"
+msgstr "ソースタイプ"
 
 #: views/main.html.php:18
 #, php-format
@@ -356,8 +356,8 @@ msgid "Username to use in HTTP authentication"
 msgstr "HTTP認証で使用するユーザー名"
 
 #: views/main.html.php:144 views/main.html.php:213
-msgid "Username:"
-msgstr "ユーザー名："
+msgid "Username"
+msgstr "ユーザー名"
 
 #: bin/opencnam-alert.php:25
 msgid ""

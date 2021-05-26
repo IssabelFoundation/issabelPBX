@@ -45,7 +45,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
         </tr>
 	    <tr>
 		    <td>
-                <a href="#" class="info"><?php echo _("Source Description:")?><span><?php echo _("Enter a description for this source.")?></span></a>
+                <a href="#" class="info"><?php echo _("Source Description")?><span><?php echo _("Enter a description for this source.")?></span></a>
             </td>
 		    <td>
                 <input type="text" id="form_description" name="description" value="<?php echo $thisItem_description; ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -53,7 +53,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
 	    </tr>
 	    <tr>
 		    <td>
-                <a href="#" class="info"><?php echo _("Source type:")?>
+                <a href="#" class="info"><?php echo _("Source type")?>
                     <span><?php echo _("Select the source type, you can choose between:<ul>
                     <li>OpenCNAM: Use OpenCNAM [https://www.opencnam.com/]</li>
                     <li>Internal: use astdb as lookup source, use Issabel address book to populate it</li>
@@ -78,7 +78,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
 	    </tr>
 	    <tr id="cache_results">
 		    <td>
-                <a href="#" class="info"><?php echo _("Cache results:")?><span><?php echo _("Decide whether or not cache the results to astDB; it will overwrite present values. It does not affect Internal source behavior")?></span></a>
+                <a href="#" class="info"><?php echo _("Cache results")?><span><?php echo _("Decide whether or not cache the results to astDB; it will overwrite present values. It does not affect Internal source behavior")?></span></a>
             </td>
 		    <td>
                 <input type="checkbox" name="cache" value="1" <?php echo ($thisItem['cache'] == 1 ? 'checked' : ''); ?> tabindex="<?php echo ++$tabindex;?>">
@@ -101,7 +101,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     					</tr>
     					<tr class='opencnam_pro'>
     						<td width="50%">
-                                <a href="#" class="info"><?php echo _("Account SID:")?><span><?php echo _("Your OpenCNAM Account SID. This can be found on your OpenCNAM dashboard page: https://www.opencnam.com/dashboard")?></span></a>
+                                <a href="#" class="info"><?php echo _("Account SID")?><span><?php echo _("Your OpenCNAM Account SID. This can be found on your OpenCNAM dashboard page: https://www.opencnam.com/dashboard")?></span></a>
                             </td>
     						<td>
                                 <input type="text" id="opencnam_account_sid" name="opencnam_account_sid" value="<?php echo (isset($thisItem['opencnam_account_sid']) ? $thisItem['opencnam_account_sid'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -109,7 +109,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     					</tr>
     					<tr class='opencnam_pro'>
     						<td>
-                                <a href="#" class="info"><?php echo _("Auth Token:")?><span><?php echo _("Your OpenCNAM Auth Token. This can be found on your OpenCNAM dashboard page: https://www.opencnam.com/dashboard")?></span></a>
+                                <a href="#" class="info"><?php echo _("Auth Token")?><span><?php echo _("Your OpenCNAM Auth Token. This can be found on your OpenCNAM dashboard page: https://www.opencnam.com/dashboard")?></span></a>
                             </td>
     						<td>
                                 <input type="text" id="opencnam_auth_token" name="opencnam_auth_token" value="<?php echo (isset($thisItem['opencnam_auth_token']) ? $thisItem['opencnam_auth_token'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -130,7 +130,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
                         </tr>
     					<tr>
     						<td width="50%">
-                                <a href="#" class="info"><?php echo _("Host:")?><span><?php echo _("Host name or IP address")?></span></a>
+                                <a href="#" class="info"><?php echo _("Host")?><span><?php echo _("Host name or IP address")?></span></a>
                             </td>
     						<td>
                                 <input type="text" id="http_host" name="http_host" value="<?php echo (isset($thisItem['http_host']) ? $thisItem['http_host'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -138,7 +138,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     					</tr>
     					<tr>
     						<td>
-                                <a href="#" class="info"><?php echo _("Port:")?><span><?php echo _("Port HTTP server is listening at (default 80)")?></span></a>
+                                <a href="#" class="info"><?php echo _("Port")?><span><?php echo _("Port HTTP server is listening at (default 80)")?></span></a>
                             </td>
     						<td>
                                 <input type="text" name="http_port" value="<?php echo (isset($thisItem['http_port']) ? $thisItem['http_port'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -146,7 +146,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     					</tr>
     					<tr>
     						<td>
-                                <a href="#" class="info"><?php echo _("Username:")?><span><?php echo _("Username to use in HTTP authentication")?></span></a>
+                                <a href="#" class="info"><?php echo _("Username")?><span><?php echo _("Username to use in HTTP authentication")?></span></a>
                             </td>
     						<td>
                                 <input type="text" name="http_username" value="<?php echo (isset($thisItem['http_username']) ? $thisItem['http_username'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -154,7 +154,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     					</tr>
     					<tr>
     						<td>
-                                <a href="#" class="info"><?php echo _("Password:")?><span><?php echo _("Password to use in HTTP authentication")?></span></a>
+                                <a href="#" class="info"><?php echo _("Password")?><span><?php echo _("Password to use in HTTP authentication")?></span></a>
                             </td>
     						<td>
                                 <input type="text" name="http_password" value="<?php echo (isset($thisItem['http_password']) ? $thisItem['http_password'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -162,7 +162,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     					</tr>
     					<tr>
     						<td>
-                                <a href="#" class="info"><?php echo _("Path:")?><span><?php echo _("Path of the file to GET<br/>e.g.: /cidlookup.php")?></span></a>
+                                <a href="#" class="info"><?php echo _("Path")?><span><?php echo _("Path of the file to GET<br/>e.g.: /cidlookup.php")?></span></a>
                             </td>
     						<td>
                                 <input type="text" name="http_path" value="<?php echo (isset($thisItem['http_path']) ? $thisItem['http_path'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -170,7 +170,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     					</tr>
     					<tr>
     						<td>
-                                <a href="#" class="info"><?php echo _("Query:")?><span><?php echo _("Query string, special token '[NUMBER]' will be replaced with caller number<br/>e.g.: number=[NUMBER]&source=crm")?></span></a>
+                                <a href="#" class="info"><?php echo _("Query")?><span><?php echo _("Query string, special token '[NUMBER]' will be replaced with caller number<br/>e.g.: number=[NUMBER]&source=crm")?></span></a>
                             </td>
     						<td>
                                 <input type="text" name="http_query" value="<?php echo (isset($thisItem['http_query']) ? $thisItem['http_query'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -191,7 +191,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
                         </tr>
     					<tr>
     						<td width="50%">
-                                <a href="#" class="info"><?php echo _("Host:")?><span><?php echo _("MySQL Host")?></span></a>
+                                <a href="#" class="info"><?php echo _("Host")?><span><?php echo _("MySQL Host")?></span></a>
                             </td>
     						<td>
                                 <input type="text" id="mysql_host" name="mysql_host" value="<?php echo (isset($thisItem['mysql_host']) ? $thisItem['mysql_host'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -199,7 +199,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     					</tr>
     					<tr>
     						<td>
-                                <a href="#" class="info"><?php echo _("Database:")?><span><?php echo _("Database name")?></span></a>
+                                <a href="#" class="info"><?php echo _("Database")?><span><?php echo _("Database name")?></span></a>
                             </td>
     						<td>
                                 <input type="text" id="mysql_dbname" name="mysql_dbname" value="<?php echo (isset($thisItem['mysql_dbname']) ? $thisItem['mysql_dbname'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -207,7 +207,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     					</tr>
     					<tr>
     						<td>
-                                <a href="#" class="info"><?php echo _("Query:")?><span><?php echo _("Query, special token '[NUMBER]' will be replaced with caller number<br/>e.g.: SELECT name FROM phonebook WHERE number LIKE '%[NUMBER]%'")?></span></a>
+                                <a href="#" class="info"><?php echo _("Query")?><span><?php echo _("Query, special token '[NUMBER]' will be replaced with caller number<br/>e.g.: SELECT name FROM phonebook WHERE number LIKE '%[NUMBER]%'")?></span></a>
                             </td>
     						<td>
                                 <input type="text" id="mysql_query" name="mysql_query" value="<?php echo (isset($thisItem['mysql_query']) ? $thisItem['mysql_query'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -215,7 +215,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     					</tr>
     					<tr>
     						<td>
-                                <a href="#" class="info"><?php echo _("Username:")?><span><?php echo _("MySQL Username")?></span></a>
+                                <a href="#" class="info"><?php echo _("Username")?><span><?php echo _("MySQL Username")?></span></a>
                             </td>
     						<td>
                                 <input type="text" id="mysql_username" name="mysql_username" value="<?php echo (isset($thisItem['mysql_username']) ? $thisItem['mysql_username'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -223,7 +223,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     					</tr>
     					<tr>
     						<td>
-                                <a href="#" class="info"><?php echo _("Password:")?><span><?php echo _("MySQL Password")?></span></a>
+                                <a href="#" class="info"><?php echo _("Password")?><span><?php echo _("MySQL Password")?></span></a>
                             </td>
     						<td>
                                 <input type="text" id="mysql_password" name="mysql_password" value="<?php echo (isset($thisItem['mysql_password']) ? $thisItem['mysql_password'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -231,7 +231,7 @@ if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']=
     					</tr>
     					<tr>
     						<td>
-                                <a href="#" class="info"><?php echo _("Character Set:")?><span><?php echo _("MySQL Character Set. Leave blank for MySQL default latin1")?></span></a>
+                                <a href="#" class="info"><?php echo _("Character Set")?><span><?php echo _("MySQL Character Set. Leave blank for MySQL default latin1")?></span></a>
                             </td>
     						<td>
                                 <input type="text" id="mysql_charset" name="mysql_charset" value="<?php echo (isset($thisItem['mysql_charset']) ? $thisItem['mysql_charset'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>">

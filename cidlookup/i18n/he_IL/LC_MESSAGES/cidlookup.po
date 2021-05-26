@@ -45,7 +45,7 @@ msgstr ""
 "שם. שים לב, חיפוש שמות עשוי להאט את המרכזיה שלך!"
 
 #: views/main.html.php:99
-msgid "Account SID:"
+msgid "Account SID"
 msgstr ""
 
 #: views/main.html.php:3
@@ -61,7 +61,7 @@ msgid "Adding opencnam account columns to the cidlookup table..."
 msgstr ""
 
 #: views/main.html.php:107
-msgid "Auth Token:"
+msgid "Auth Token"
 msgstr ""
 
 #: functions.inc.php:12
@@ -69,11 +69,11 @@ msgid "CID Lookup Source"
 msgstr "מקור חיפוש זיהוי שיחה"
 
 #: views/main.html.php:76
-msgid "Cache results:"
-msgstr "שמור תוצאות במטמון:"
+msgid "Cache results"
+msgstr "שמור תוצאות במטמון"
 
 #: views/main.html.php:229
-msgid "Character Set:"
+msgid "Character Set"
 msgstr ""
 
 #: install.php:103
@@ -97,8 +97,8 @@ msgid "Database name"
 msgstr "שם מסד הנתונים"
 
 #: views/main.html.php:197
-msgid "Database:"
-msgstr "מסד הנתונים:"
+msgid "Database"
+msgstr "מסד הנתונים"
 
 #: views/main.html.php:76
 msgid ""
@@ -141,8 +141,8 @@ msgid "Host name or IP address"
 msgstr "שם מחשב מארח או כתובת IP"
 
 #: views/main.html.php:128 views/main.html.php:189
-msgid "Host:"
-msgstr "שם מחשב מארח:"
+msgid "Host"
+msgstr "שם מחשב מארח"
 
 #: install.php:37 install.php:135
 msgid "Installing OpenCNAM CallerID Lookup Sources..."
@@ -211,24 +211,24 @@ msgid "Password to use in HTTP authentication"
 msgstr "סיסמא שבה יש להשתמש באימות HTTP"
 
 #: views/main.html.php:152 views/main.html.php:221
-msgid "Password:"
-msgstr "סיסמא:"
+msgid "Password"
+msgstr "סיסמא"
 
 #: views/main.html.php:160
 msgid "Path of the file to GET<br/>e.g.: /cidlookup.php"
 msgstr "נתיב לקובץ שיועבר לפקודה GET<br />לדוגמא: /cidlookup.php"
 
 #: views/main.html.php:160
-msgid "Path:"
-msgstr "נתיב:"
+msgid "Path"
+msgstr "נתיב"
 
 #: views/main.html.php:136
 msgid "Port HTTP server is listening at (default 80)"
 msgstr "יציאה (פורט) שבו שרת ה HTTP מאזין (בברירת מחדל 80)"
 
 #: views/main.html.php:136
-msgid "Port:"
-msgstr "יציאה:"
+msgid "Port"
+msgstr "יציאה"
 
 #: views/main.html.php:168
 msgid ""
@@ -247,8 +247,8 @@ msgstr ""
 ">לדוגמא: SELECT name FROM phonebook WHERE number LIKE '%[NUMBER]%'"
 
 #: views/main.html.php:168 views/main.html.php:205
-msgid "Query:"
-msgstr "שאילתא:"
+msgid "Query"
+msgstr "שאילתא"
 
 #: install.php:86
 msgid "Removing deprecated channel field from incoming.."
@@ -275,12 +275,12 @@ msgid "Source"
 msgstr "מקור"
 
 #: views/main.html.php:43
-msgid "Source Description:"
-msgstr "תיאור המקור:"
+msgid "Source Description"
+msgstr "תיאור המקור"
 
 #: views/main.html.php:51
-msgid "Source type:"
-msgstr "סוג המקור:"
+msgid "Source type"
+msgstr "סוג המקור"
 
 #: views/main.html.php:18
 #, php-format
@@ -319,8 +319,8 @@ msgid "Username to use in HTTP authentication"
 msgstr "שם משתמש שבו יש להשתמש באימות HTTP"
 
 #: views/main.html.php:144 views/main.html.php:213
-msgid "Username:"
-msgstr "שם משתמש:"
+msgid "Username"
+msgstr "שם משתמש"
 
 #: bin/opencnam-alert.php:25
 msgid ""

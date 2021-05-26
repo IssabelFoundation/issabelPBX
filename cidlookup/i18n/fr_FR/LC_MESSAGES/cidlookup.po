@@ -45,7 +45,7 @@ msgstr ""
 "consultation de nom peu ralentir votre PBX"
 
 #: views/main.html.php:99
-msgid "Account SID:"
+msgid "Account SID"
 msgstr ""
 
 #: views/main.html.php:3
@@ -61,7 +61,7 @@ msgid "Adding opencnam account columns to the cidlookup table..."
 msgstr ""
 
 #: views/main.html.php:107
-msgid "Auth Token:"
+msgid "Auth Token"
 msgstr ""
 
 #: functions.inc.php:12
@@ -69,11 +69,11 @@ msgid "CID Lookup Source"
 msgstr "Source de Consultation de CID"
 
 #: views/main.html.php:76
-msgid "Cache results:"
-msgstr "Résulats du Cache :"
+msgid "Cache results"
+msgstr "Résulats du Cache "
 
 #: views/main.html.php:229
-msgid "Character Set:"
+msgid "Character Set"
 msgstr ""
 
 #: install.php:103
@@ -97,8 +97,8 @@ msgid "Database name"
 msgstr "Nom de la Base de Données"
 
 #: views/main.html.php:197
-msgid "Database:"
-msgstr "Base de Données :"
+msgid "Database"
+msgstr "Base de Données "
 
 #: views/main.html.php:76
 msgid ""
@@ -118,7 +118,7 @@ msgstr ""
 
 #: install.php:90
 msgid "ERROR: failed: "
-msgstr "ERREUR : échoué :"
+msgstr "ERREUR : échoué : "
 
 #: views/main.html.php:38
 msgid "Edit Source"
@@ -130,7 +130,7 @@ msgstr "Entrez une description pour cette source."
 
 #: install.php:81
 msgid "FATAL: failed to transform old routes: "
-msgstr "FATAL : n'a pas réussi à transformer les anciennes routes :"
+msgstr "FATAL : n'a pas réussi à transformer les anciennes routes: "
 
 #: install.php:41 install.php:139
 msgid "Failed to add OpenCNAM CallerID Lookup Source: "
@@ -141,8 +141,8 @@ msgid "Host name or IP address"
 msgstr "Nom de l'hôte ou adresse IP"
 
 #: views/main.html.php:128 views/main.html.php:189
-msgid "Host:"
-msgstr "Hôte :"
+msgid "Host"
+msgstr "Hôte "
 
 #: install.php:37 install.php:135
 msgid "Installing OpenCNAM CallerID Lookup Sources..."
@@ -211,24 +211,24 @@ msgid "Password to use in HTTP authentication"
 msgstr "Mot de Passe à utiliser lors de l'authentification HTTP"
 
 #: views/main.html.php:152 views/main.html.php:221
-msgid "Password:"
-msgstr "Mot de Passe :"
+msgid "Password"
+msgstr "Mot de Passe "
 
 #: views/main.html.php:160
 msgid "Path of the file to GET<br/>e.g.: /cidlookup.php"
 msgstr "Chemin du fichier à OBTENIR<br/>exemple : /cidlookup.php"
 
 #: views/main.html.php:160
-msgid "Path:"
-msgstr "Chemin :"
+msgid "Path"
+msgstr "Chemin "
 
 #: views/main.html.php:136
 msgid "Port HTTP server is listening at (default 80)"
 msgstr "Le port HTTP du serveur est en écoute sur (80 par défaut)"
 
 #: views/main.html.php:136
-msgid "Port:"
-msgstr "Port :"
+msgid "Port"
+msgstr "Port "
 
 #: views/main.html.php:168
 msgid ""
@@ -248,8 +248,8 @@ msgstr ""
 "[NUMBER]%'"
 
 #: views/main.html.php:168 views/main.html.php:205
-msgid "Query:"
-msgstr "Requête :"
+msgid "Query"
+msgstr "Requête "
 
 #: install.php:86
 msgid "Removing deprecated channel field from incoming.."
@@ -276,12 +276,12 @@ msgid "Source"
 msgstr "Source"
 
 #: views/main.html.php:43
-msgid "Source Description:"
-msgstr "Description de la Source :"
+msgid "Source Description"
+msgstr "Description de la Source "
 
 #: views/main.html.php:51
-msgid "Source type:"
-msgstr "Type de Source : "
+msgid "Source type"
+msgstr "Type de Source"
 
 #: views/main.html.php:18
 #, php-format
@@ -322,8 +322,8 @@ msgid "Username to use in HTTP authentication"
 msgstr "Nom d'utlisateur à utiliser lors de l'authentification HTTP"
 
 #: views/main.html.php:144 views/main.html.php:213
-msgid "Username:"
-msgstr "Nom d'utilisateur :"
+msgid "Username"
+msgstr "Nom d'utilisateur"
 
 #: bin/opencnam-alert.php:25
 msgid ""
