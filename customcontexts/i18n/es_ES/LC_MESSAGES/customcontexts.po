@@ -371,3 +371,8 @@ msgstr "Tiene el módulo %s instalado! Puede seleccionar una clase de servicio d
 msgid "ALLOW ALL (Default)"
 msgstr "PERMITIR TODO (por defecto)"
 
+msgid "app-queue-toggle"
+msgstr "Colas - Alternar Membresía"
+
+msgid "app-queue-caller-count"
+msgstr "Colas - Cantidad de Llamantes"
