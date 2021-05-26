@@ -98,7 +98,7 @@ function drawselects($goto, $i, $show_custom=false, $table=true, $nodest_msg='',
 
 	if(!isset($drawselect_destinations)){ 
 		$popover_hash = array();
-		$add_a_new = _('Add new %s &#133');
+        $add_a_new = dgettext('amp','Add new %s &#133');
 		//check for module-specific destination functions
 		foreach($active_modules as $rawmod => $module){
 			$funct = strtolower($rawmod.'_destinations');
