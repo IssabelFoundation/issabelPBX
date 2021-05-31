@@ -8638,13 +8638,13 @@ function core_devices_configpageinit($dispnum) {
 
  
         $tt = _("Path to certificate file to present");
-        $tmparr['dtls_cert_file'] = array('value' => '/etc/asterisk/keys/asterisk.pem', 'tt' => $tt, 'level' => 1);
+        $tmparr['dtls_cert_file'] = array('value' => '', 'tt' => $tt, 'level' => 1);
 
         $tt = _("Path to private key for certificate file");
         $tmparr['dtls_private_key'] = array('value' => '', 'tt' => $tt, 'level' => 1);
 
         $tt = _("Path to certificate authority file to present");
-        $tmparr['dtls_ca_file'] = array('value' => '/etc/pki/tls/certs/ca-bundle.crt', 'tt' => $tt, 'level' => 1);
+        $tmparr['dtls_ca_file'] = array('value' => '', 'tt' => $tt, 'level' => 1);
 
         unset($select);
         $select[] = array('value' => 'actpass', 'text' => _('Incoming and Outgoing'));
