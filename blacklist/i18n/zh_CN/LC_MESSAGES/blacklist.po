@@ -60,9 +60,6 @@ msgstr "编辑"
 msgid "Add or replace entry"
 msgstr "添加或取代项目"
 
-msgid "Number/CallerID"
-msgstr ""
-
 msgid "Enter the number/CallerID you want to block"
 msgstr ""
 

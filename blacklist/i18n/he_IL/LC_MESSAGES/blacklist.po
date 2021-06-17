@@ -56,9 +56,6 @@ msgstr "ערוך"
 msgid "Add or replace entry"
 msgstr "הוסף או החלף רשומה"
 
-msgid "Number/CallerID"
-msgstr ""
-
 msgid "Enter the number/CallerID you want to block"
 msgstr ""
 

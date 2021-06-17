@@ -72,9 +72,6 @@ msgstr "Redigera"
 msgid "Add or replace entry"
 msgstr "Lägg till eller byt ut"
 
-msgid "Number/CallerID"
-msgstr "Nummer/Nummerpresentation"
-
 msgid "Enter the number/CallerID you want to block"
 msgstr "Skriv in det nummer eller nummerpresentation du vill svartlista"
 

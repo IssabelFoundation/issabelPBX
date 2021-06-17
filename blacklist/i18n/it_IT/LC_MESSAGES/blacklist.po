@@ -41,9 +41,6 @@ msgstr "eliminata"
 msgid "Blacklist entries"
 msgstr "Voci in Blacklist"
 
-msgid "Number/CallerID"
-msgstr ""
-
 msgid "Description"
 msgstr ""
 

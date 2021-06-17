@@ -116,9 +116,6 @@ msgstr "Конференция"
 msgid "deleted"
 msgstr "изтрита"
 
-msgid "Conference"
-msgstr "Конференция"
-
 #, php-format
 msgid "Delete Conference %s"
 msgstr "Изтрий Конференция %s"

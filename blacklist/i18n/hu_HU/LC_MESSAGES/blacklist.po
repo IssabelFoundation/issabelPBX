@@ -55,9 +55,6 @@ msgstr "Szerkesztés"
 msgid "Add or replace entry"
 msgstr "Bejegyzés hozzáadása, vagy lecserélése"
 
-msgid "Number/CallerID"
-msgstr ""
-
 msgid "Enter the number/CallerID you want to block"
 msgstr ""
 

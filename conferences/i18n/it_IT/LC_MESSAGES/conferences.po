@@ -115,9 +115,6 @@ msgstr "Conferenza"
 msgid "deleted"
 msgstr "eliminata"
 
-msgid "Conference"
-msgstr "Conferenza"
-
 #, php-format
 msgid "Delete Conference %s"
 msgstr "Elimina Conferenza %s"
