@@ -96,9 +96,6 @@ msgstr "削除されました"
 msgid "Blacklist entries"
 msgstr "ブラックリストエントリー一覧"
 
-msgid "Description"
-msgstr "説明"
-
 msgid "Number"
 msgstr "番号"
 

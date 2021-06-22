@@ -63,9 +63,6 @@ msgstr "添加或取代项目"
 msgid "Enter the number/CallerID you want to block"
 msgstr ""
 
-msgid "Description"
-msgstr ""
-
 msgid "Enter a description for the number you want to block"
 msgstr ""
 

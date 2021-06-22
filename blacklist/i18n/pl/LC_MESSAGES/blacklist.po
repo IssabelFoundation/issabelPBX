@@ -75,9 +75,6 @@ msgstr ""
 msgid "Enter the number/CallerID you want to block"
 msgstr ""
 
-msgid "Description"
-msgstr ""
-
 msgid "Enter a description for the number you want to block"
 msgstr ""
 

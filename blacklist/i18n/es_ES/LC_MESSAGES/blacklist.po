@@ -58,9 +58,6 @@ msgstr "Añadir o modificar elemento"
 msgid "Enter the number/CallerID you want to block"
 msgstr "Ingrese un número/CallerID que desee bloquear"
 
-msgid "Description"
-msgstr "Descripción"
-
 msgid "Enter a description for the number you want to block"
 msgstr "Ingrese una descripción para el número que desea bloquear"
 

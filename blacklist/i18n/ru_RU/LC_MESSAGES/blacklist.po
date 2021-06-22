@@ -61,9 +61,6 @@ msgstr "Добавить или заменить запись"
 msgid "Enter the number/CallerID you want to block"
 msgstr "Введите номер/Caller ID, который Вы хотите заблокировать"
 
-msgid "Description"
-msgstr "Описание"
-
 msgid "Enter a description for the number you want to block"
 msgstr "Описание номера, который Вы хотите заблокировать"
 

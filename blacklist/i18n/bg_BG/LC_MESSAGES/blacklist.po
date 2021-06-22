@@ -66,9 +66,6 @@ msgstr "Добави или замени въведен номер"
 msgid "Enter the number/CallerID you want to block"
 msgstr "Въведете номер/CallerID който искате да блокирате"
 
-msgid "Description"
-msgstr "Описание"
-
 msgid "Enter a description for the number you want to block"
 msgstr "Въведете описание за номера който искате да блокирате"
 

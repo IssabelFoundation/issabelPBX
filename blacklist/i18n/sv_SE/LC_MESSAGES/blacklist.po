@@ -75,9 +75,6 @@ msgstr "Lägg till eller byt ut"
 msgid "Enter the number/CallerID you want to block"
 msgstr "Skriv in det nummer eller nummerpresentation du vill svartlista"
 
-msgid "Description"
-msgstr "Beskrivning"
-
 msgid "Enter a description for the number you want to block"
 msgstr "Skriv in en kortfattad beskrivning för numret du vill blockera"
 
