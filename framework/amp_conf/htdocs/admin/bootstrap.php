@@ -88,12 +88,9 @@ require_once($dirname . '/libraries/db_connect.php'); //PEAR must be installed
 // get settings
 $issabelpbx_conf =& issabelpbx_conf::create();
 
-// passing by reference, this means that the $amp_conf available to everyone is the same one as present
-// within the class, which is probably a direction we want to go to use the class.
-//
 $bootstrap_settings['amportal_conf_initialized'] = false;
-$amp_conf =& $issabelpbx_conf->parse_amportal_conf("/etc/amportal.conf",$amp_conf);
-$asterisk_conf =& $issabelpbx_conf->get_asterisk_conf();
+$amp_conf = $issabelpbx_conf->parse_amportal_conf("/etc/amportal.conf",$amp_conf);
+$asterisk_conf = $issabelpbx_conf->get_asterisk_conf();
 $bootstrap_settings['amportal_conf_initialized'] = true;
 
 //connect to cdrdb if requestes
