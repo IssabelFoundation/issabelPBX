@@ -29,7 +29,7 @@ class notifications{
 	* @param object Database Object
 	* @return object Notification object
 	*/
-	function &create(&$db) {
+	public static function &create(&$db) {
 		static $obj;
 		if (!isset($obj)) {
 			$obj = new notifications($db);

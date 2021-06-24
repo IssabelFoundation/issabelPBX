@@ -9,7 +9,7 @@ class vmxObject {
 	var $exten;
 
 	// contstructor
-	function vmxObject($myexten) {
+	function __create($myexten) {
 		$this->exten = $myexten;
 	}
 		
