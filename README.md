@@ -90,3 +90,5 @@ ASTERISK is a registered trademark of Digium, Inc.
 DAHDI is a registered trademark of Digium, Inc.
 
 FREEPBX is a registered trademark of Sangoma Technologies
+
+Este Fork es editado por Facundo García Payer
