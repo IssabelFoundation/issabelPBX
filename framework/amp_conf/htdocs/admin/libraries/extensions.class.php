@@ -491,7 +491,7 @@ class extensions {
 	 * 
 	 * This function can be called statically
 	 */
-	function gotoEmpty($value) {
+	static function gotoEmpty($value) {
 		return ($value === "" || $value === null || $value === false);
 	}
 }

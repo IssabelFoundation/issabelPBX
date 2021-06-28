@@ -503,7 +503,7 @@ class guielement {
 	function generatevalidation() {
 		return $this->_javascript;
 	}
-	function gettabindex() {
+	static function gettabindex() {
 		global $_guielement_tabindex;
 		return $_guielement_tabindex;
 	}
@@ -515,7 +515,7 @@ class guielement {
 		global $_guielement_formfields;
 		$_guielement_formfields++;
 	}
-	function getformfields() {
+	static function getformfields() {
 		global $_guielement_formfields;
 		return $_guielement_formfields;
 	}
