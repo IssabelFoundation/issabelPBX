@@ -7,7 +7,7 @@ class cronmanager {
 	 * note: time is the hour time of day a job should run, -1 indicates don't care
 	 */
 
-	function &create(&$db) {
+	static function &create(&$db) {
 		static $obj;
 		if (!isset($obj)) {
 			$obj = new cronmanager($db);
