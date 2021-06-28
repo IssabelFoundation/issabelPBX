@@ -656,7 +656,7 @@ function ivr_save_entries($id, $entries){
 							'ivr_id'	=> $id,
 							'selection' 	=> $entries['ext'][$i],
 							'dest'		=> $entries['goto'][$i],
-                            'ivr_ret'	=> (isset($entries['ivr_ret'][$i]) ? $entries['ivr_ret'][$i] : ''),
+                            'ivr_ret'	=> (isset($entries['ivr_ret'][$i]) ? intval($entries['ivr_ret'][$i]) : ''),
                             'spoken'    => isset($entries['spoken'][$i])?$entries['spoken'][$i]:''
                         );
 			}
