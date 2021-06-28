@@ -402,7 +402,7 @@ if ($action == 'delete') {
     <tr>
     <td valign="top"><a href="#" class="info"><?php echo _("Static Agents") ?><span><br><?php echo _("Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers). You can put a \",\" after the agent followed by a penalty value, see Asterisk documentation concerning penalties.<br /><br /> An advanced mode has been added which allows you to prefix an agent number with S, P, X, Z, D or A. This will force the agent number to be dialed as an Asterisk device of type SIP, PJSIP, IAX2, ZAP, DAHDi or Agent respectively. This mode is for advanced users and can cause known issues in IssabelPBX as you are by-passing the normal dialplan. If your 'Agent Restrictions' are not set to 'Extension Only' you will have problems with subsequent transfers to voicemail and other issues may also exist. (Channel Agent is deprecated starting with Asterisk 1.4 and gone in 1.6+.)") ?><br><br></span></a></td>
         <td valign="top">
-            <textarea style='width:100%;height:6em;' id="members" cols="15" rows="<?php  $rows = count($mem_array)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="members" tabindex="<?php echo ++$tabindex;?>"><?php echo implode("\n",$mem_array) ?></textarea>
+            <textarea style='width:100%;' id="members" cols="15" name="members" onkeyup="textAreaAdjust(this)" tabindex="<?php echo ++$tabindex;?>"><?php echo implode("\n",$mem_array) ?></textarea>
         </td>
     </tr>
 
@@ -430,7 +430,7 @@ if ($action == 'delete') {
     <tr>
         <td valign="top"><a href="#" class="info"><?php echo _('Dynamic Members') ?><span><br><?php echo _("Dynamic Members are extensions or callback numbers that can log in and out of the queue. When a member logs in to a queue, their penalty in the queue will be as specified here. Extensions included here will NOT automatically be logged in to the queue.") ?><br><br></span></a></td>
         <td valign="top">
-            <textarea style='width:100%;height:6em;' id="dynmembers" cols="15" rows="<?php  $rows = count($dynmembers)+1; echo (($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows) ); ?>" name="dynmembers" tabindex="<?php echo ++$tabindex;?>"><?php echo $dynmembers; ?></textarea>
+	    <textarea style='width:100%;' id="dynmembers" cols="15" name="dynmembers"  onkeyup="textAreaAdjust(this)" tabindex="<?php echo ++$tabindex;?>"><?php echo $dynmembers; ?></textarea>
         </td>
     </tr>
 
@@ -1335,6 +1335,17 @@ if ($ast_ge_16) {
 <script language="javascript">
 <!--
 
+
+$(document).ready(function() {
+    textAreaAdjust(document.getElementById('members'));
+    textAreaAdjust(document.getElementById('dynmembers'));
+});
+
+function textAreaAdjust(element) {
+  element.style.height = "1px";
+  element.style.height = (25+element.scrollHeight)+"px";
+}
+
 function insertExten(type) {
     exten = document.getElementById(type+'insexten').value;
 
@@ -1344,6 +1355,7 @@ function insertExten(type) {
     } else {
         grpList.value = grpList.value + '\n' + exten + ',0';
     }
+    textAreaAdjust(grpList);
 
     // reset element
     document.getElementById(type+'insexten').value = '';
