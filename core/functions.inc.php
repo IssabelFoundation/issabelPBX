@@ -7492,7 +7492,8 @@ function core_routing_renamebyid($route_id, $new_name) {
 // function core_routing_getroutepatterns($route)
 function core_routing_getroutepatternsbyid($route_id) {
   global $db;
-  $route_id = q($db->escapeSimple($route_id));
+  $tmp = $db->escapeSimple($route_id);
+  $route_id = q($tmp);
   $sql = "SELECT * FROM `outbound_route_patterns` WHERE `route_id` = $route_id ORDER BY `match_pattern_prefix`, `match_pattern_pass`";
   $patterns = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
   return $patterns;
@@ -7525,7 +7526,8 @@ function core_routing_formatpattern($pattern) {
 // function core_routing_getroutetrunks($route)
 function core_routing_getroutetrunksbyid($route_id) {
   global $db;
-  $route_id = q($db->escapeSimple($route_id));
+  $tmp = $db->escapeSimple($route_id);
+  $route_id = q($db->escapeSimple($q));
   $sql = "SELECT `trunk_id` FROM `outbound_route_trunks` WHERE `route_id` = $route_id ORDER BY `seq`";
     $trunks = $db->getCol($sql);
     if(DB::IsError($trunks)) {
