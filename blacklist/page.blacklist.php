@@ -87,10 +87,10 @@ if ($action == 'delete')
 if (is_array($numbers)) {
 
 ?>
-<table cellpadding="5">
-        <tr>
-		<td colspan="4"><h5><?php echo _("Blacklist entries") ?></h5></td>
-	</tr>
+<table class='table'>
+        <caption>
+		<h5><?php echo _("Blacklist entries") ?></h5>
+	</caption>
 
 	<tr>
 		
@@ -98,11 +98,12 @@ if (is_array($numbers)) {
 	if($ast_ge_16) {
 	    echo "<td><b>"._("Number/CallerID")."</b></td>";
 	    echo "<td><b>"._("Description")."</b></td>";
-		} else {
-		echo "<td><b>"._("Number")."</b></td>";
-		echo "<td>&nbsp;</td>";
-	    }
+	} else {
+            echo "<td><b>"._("Number")."</b></td>";
+            echo "<td>&nbsp;</td>";
+        }
 ?>		
+		<td>&nbsp;</td>		
 		<td>&nbsp;</td>		
 	</tr>
 
@@ -119,12 +120,15 @@ if (is_array($numbers)) {
 			printf('<td>%s</td>', $num['number']);
  			printf('<td>%s</td>', $num['description']);
 			printf('<td><a href="%s?type=setup&display=%s&number=%s&action=delete">%s</a></td>', 
-			 $_SERVER['PHP_SELF'], urlencode($dispnum), urlencode($num['number']), _("Delete"));
+				$_SERVER['PHP_SELF'], urlencode($dispnum), urlencode($num['number']), _("Delete"));
+
+			if($num['number']<>'blocked') {
 			printf('<td><a href="#" onClick="theForm.number.value = \'%s\'; 
 				theForm.editnumber.value = \'%s\' ;
 				theForm.description.value = \'%s\'; 
 				theForm.editdescription.value = \'%s\' ; 
 				theForm.action.value = \'edit\' ; ">%s</a></td>',$num['number'], $num['number'], $num['description'], $num['description'], _("Edit"));
+                        }
 			print('</tr>');
 			
 			} else {
@@ -132,7 +136,9 @@ if (is_array($numbers)) {
 			printf('<td>%s</td>', $num);
 			printf('<td><a href="%s?type=setup&display=%s&number=%s&action=delete">%s</a></td>', 
 			 $_SERVER['PHP_SELF'], urlencode($dispnum), urlencode($num), _("Delete"));
-			printf('<td><a href="#" onClick="theForm.number.value = \'%s\'; theForm.editnumber.value = \'%s\' ; theForm.action.value = \'edit\' ; ">%s</a></td>',$num, $num, _("Edit"));
+			if($num['number']<>'blocked') {
+				printf('<td><a href="#" onClick="theForm.number.value = \'%s\'; theForm.editnumber.value = \'%s\' ; theForm.action.value = \'edit\' ; ">%s</a></td>',$num, $num, _("Edit"));
+			}
 			print('</tr>');
 			}
 		}
