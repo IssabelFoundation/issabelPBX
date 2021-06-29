@@ -5301,7 +5301,7 @@ function core_did_add($incoming,$target=false){
              $cidnum = trim(str_replace($invalidDIDChars,"",$cidnum));
 
         $destination= ($target) ? $target : ${$goto0.'0'};
-        $sql="INSERT INTO incoming (cidnum,extension,destination,privacyman,pmmaxretries,pmminlength,alertinfo, ringing, mohclass, description, grppre, delay_answer, pricid) values ('$cidnum','$extension','$destination','$privacyman','$pmmaxretries','$pmminlength','$alertinfo', '$ringing', '$mohclass', '$description', '$grppre', '$delay_answer', '$pricid')";
+        $sql="INSERT INTO incoming (cidnum,extension,destination,privacyman,pmmaxretries,pmminlength,alertinfo, ringing, mohclass, description, grppre, delay_answer, pricid) values ('$cidnum','$extension','$destination','$privacyman','$pmmaxretries','$pmminlength','$alertinfo', '$ringing', '$mohclass', '$description', '$grppre', ".intval($delay_answer).", '$pricid')";
         sql($sql);
         return true;
     } else {
