@@ -191,10 +191,9 @@ function announcement_add($description, $recording_id, $allow_skip, $post_dest, 
     global $amp_conf;
 
     check_alter_table();
-
     $sql = "INSERT INTO announcement (description, recording_id, allow_skip, post_dest, return_ivr, noanswer, repeat_msg, tts_lang, tts_text) VALUES (".
         "'".$db->escapeSimple($description)."', ".
-        "'".$recording_id."', ".
+        "".intval($recording_id).", ".
         "'".($allow_skip ? 1 : 0)."', ".
         "'".$db->escapeSimple($post_dest)."', ".
         "'".($return_ivr ? 1 : 0)."', ".
