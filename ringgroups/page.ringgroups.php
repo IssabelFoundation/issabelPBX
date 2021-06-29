@@ -256,9 +256,8 @@ if ($action == 'delGRP') {
 				<td valign="top">
 <?php
 		$rows = count($grplist)+1;
-		($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows);
 ?>
-					<textarea style='width:100%;height:3em;' id="grplist" cols="15" rows="<?php  echo $rows ?>" name="grplist" tabindex="<?php echo ++$tabindex;?>"><?php echo implode("\n",$grplist);?></textarea>
+					<textarea style='width:100%;height:3em;' id="grplist" cols="15" onkeyup="textAreaAdjust(this)" name="grplist" tabindex="<?php echo ++$tabindex;?>"><?php echo implode("\n",$grplist);?></textarea>
 				</td>
 			</tr>
 
@@ -487,7 +486,13 @@ $(document).ready(function(){
 			$("#fixedcid").removeAttr("disabled");
 		}
 	});
+	textAreaAdjust(document.getElementById('grplist'));
 });
+
+function textAreaAdjust(element) {
+	element.style.height = "1px";
+	element.style.height = (5+element.scrollHeight)+"px";
+}
 
 function insertExten() {
 	exten = document.getElementById('insexten').value;
@@ -499,6 +504,7 @@ function insertExten() {
 		grpList.value = grpList.value + '\n' + exten;
 	}
 
+	textAreaAdjust(document.getElementById('grplist'));
 	// reset element
 	document.getElementById('insexten').value = '';
 }
