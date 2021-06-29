@@ -1343,7 +1343,7 @@ $(document).ready(function() {
 
 function textAreaAdjust(element) {
   element.style.height = "1px";
-  element.style.height = (25+element.scrollHeight)+"px";
+  element.style.height = (5+element.scrollHeight)+"px";
 }
 
 function insertExten(type) {
