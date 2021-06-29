@@ -85,7 +85,7 @@ function parking_save($parms=array()) {
 	$res = $db->query($sql,$var);
 	if (DB::IsError($res)) {
 		$id = false;
-		// TODO log error
+        die_issabelpbx($res->getDebugInfo() . "SQL - <br /> $sql" );
 	} elseif (empty($var['id'])) {
 		if(method_exists($db,'insert_id')) {
 			$id = $db->insert_id();
