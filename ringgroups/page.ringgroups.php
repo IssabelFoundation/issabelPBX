@@ -498,7 +498,7 @@ function insertExten() {
 	exten = document.getElementById('insexten').value;
 
 	grpList=document.getElementById('grplist');
-	if (grpList.value[ grpList.value.length - 1 ] == "\n") {
+    if (grpList.value.length == 0 || grpList.value[ grpList.value.length - 1 ] == "\n") {
 		grpList.value = grpList.value + exten;
 	} else {
 		grpList.value = grpList.value + '\n' + exten;

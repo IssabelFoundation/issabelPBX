@@ -1350,7 +1350,7 @@ function insertExten(type) {
     exten = document.getElementById(type+'insexten').value;
 
     grpList=document.getElementById(type+'members');
-    if (grpList.value[ grpList.value.length - 1 ] == "\n") {
+    if (grpList.value.length == 0 || grpList.value[ grpList.value.length - 1 ] == "\n") {
         grpList.value = grpList.value + exten + ',0';
     } else {
         grpList.value = grpList.value + '\n' + exten + ',0';
