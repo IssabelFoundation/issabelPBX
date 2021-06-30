@@ -261,7 +261,7 @@ class AGI_AsteriskManager {
             $type = NULL;
             $parameters = array();
 
-            if (feof($this->socket) || !$this->socket) {
+            if (feof($this->socket) || !$this->socket || !is_resource($this->socket)) {
                 $this->log("Got EOF in wait_response() from socket waiting for response, returning false",10);
                 return false;
             }
