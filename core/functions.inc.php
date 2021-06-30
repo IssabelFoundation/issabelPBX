@@ -7527,7 +7527,7 @@ function core_routing_formatpattern($pattern) {
 function core_routing_getroutetrunksbyid($route_id) {
   global $db;
   $tmp = $db->escapeSimple($route_id);
-  $route_id = q($db->escapeSimple($q));
+  $route_id = q($tmp);
   $sql = "SELECT `trunk_id` FROM `outbound_route_trunks` WHERE `route_id` = $route_id ORDER BY `seq`";
     $trunks = $db->getCol($sql);
     if(DB::IsError($trunks)) {
