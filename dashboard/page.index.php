@@ -507,7 +507,7 @@ include dirname(__FILE__)."/class.average_rate_calculator.php";
 include dirname(__FILE__)."/class.procinfo.php";
 include dirname(__FILE__)."/class.error.inc.php";
 
-$error = new Error;
+$error = new dashboardError;
 
 
 $sysinfo = new sysinfo;
