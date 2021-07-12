@@ -159,6 +159,10 @@ function compress_framework_css() {
 function die_issabelpbx($text, $extended_text="", $type="FATAL") {
 	global $amp_conf;
 
+    if(!isset($amp_conf['DIE_ISSABELPBX_VERBOSE'])) {
+        $amp_conf['DIE_ISSABELPBX_VERBOSE'] = true;
+    }
+
 	$bt = debug_backtrace();
 	issabelpbx_log(IPBX_LOG_FATAL, "die_issabelpbx(): ".$text);
 
