@@ -29,7 +29,7 @@ class sysinfo {
 
     var $parser;
   // get the distro name and icon when create the sysinfo object
-  function sysinfo() {
+  function __construct() {
   
     $this->parser = new Parser();
     $this->parser->df_param = 'Pl';
