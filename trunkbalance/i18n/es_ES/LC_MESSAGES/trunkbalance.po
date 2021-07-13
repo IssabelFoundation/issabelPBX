@@ -1,0 +1,89 @@
+msgid "Add Balanced Trunk"
+msgstr "Añadir Balanceo de Troncal"
+
+msgid "Each Balanced Trunk is an outbound trunk associated with a set of parameters to define the maximum use you want to do with it. For instance you have a provider that gives you 100 minutes long distance calls per month. You can define here that after 100 minutes of local call during the month this trunk will become unavailable and your route will switch to the next trunk in line."
+msgstr "Cada balanceo de troncal es una troncal saliente asociada a un conjunto de parámetros para definir el uso máximo que desea hacer con ella. Por ejemplo, tiene un proveedor que le brinda 100 minutos de llamadas de larga distancia al mes. Puede definir aquí que después de 100 minutos de llamada local durante el mes, esta línea troncal dejará de estar disponible y su ruta cambiará a la siguiente línea troncal."
+
+msgid "Add Trunk"
+msgstr "Añadir Troncal"
+
+msgid "Trunk Description"
+msgstr "Descripción de Troncal"
+
+msgid "Trunk Destination"
+msgstr "Destino de Troncal"
+
+msgid "Time Group"
+msgstr "Grupo Horario"
+
+msgid "Matching Rule"
+msgstr "Regla de Coincidencia"
+
+msgid "Apply all matching rules"
+msgstr "Aplicar todas las reglas de coincidencia"
+
+msgid "<b>Disable</b> Balanced Trunk"
+msgstr "<b>Desactivar</b> Balanceo de Troncal"
+
+msgid "Not Matching Rule"
+msgstr "Regla de Exclusión"
+
+msgid "Apply all non-matching rules"
+msgstr "Aplicar todas las reglas de exclusión"
+
+msgid "Billing Cycle Configuration"
+msgstr "Ciclo de Facturación"
+
+msgid "Choose billing cycle"
+msgstr "Elija ciclo de facturación"
+
+msgid "Billing Time"
+msgstr "Hora de Facturación"
+
+msgid "Billing Day"
+msgstr "Día de Facturación"
+
+msgid "Billing Date"
+msgstr "Fecha de Facturación"
+
+msgid "Floating Billing Time"
+msgstr "Hora de Facturación Flotante"
+
+msgid "Ending Date"
+msgstr "Fecha de Finalización"
+
+msgid "Usage Limits Configuration"
+msgstr "Límites de Uso"
+
+msgid "Include Inbound Calls"
+msgstr "Incluir Llamadas Entrantes"
+
+msgid "Include Unanswered Calls"
+msgstr "Incluir Llamadas no atendidas"
+
+msgid "Maximum inbound/outbound Calling Time"
+msgstr "Tiempo Máximo de llamadas entrantes/salientes"
+
+msgid "Maximum Number of inbound/outbound Calls"
+msgstr "Cantidad Máxima de llamadas entrantes/salientes"
+
+msgid "Max. Number of Different outbound Calls"
+msgstr "Cantidad máxima de llamadas salientes únicas"
+
+msgid "Load Balancing Configuration"
+msgstr "Balanceo de Carga"
+
+msgid "Load Ratio"
+msgstr "Relación de Carga"
+
+msgid "URL Configuration"
+msgstr "Configuración URL"
+
+msgid "URL Timeout"
+msgstr "Tiempo Máximo URL"
+
+msgid "Submit Changes"
+msgstr "Enviar Cambios"
+
+msgid "Add Load balanced Trunk"
+msgstr "Añadir Balanceo de Troncal"

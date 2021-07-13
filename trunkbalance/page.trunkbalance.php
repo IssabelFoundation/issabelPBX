@@ -88,7 +88,7 @@ if ($action == 'delete') {
 $module_local = trunkbalance_xml2array("admin/modules/trunkbalance/module.xml");
 	
 ?>
-	<h2><?php echo ($itemid ? _("Balanced Trunk:")." ". $itemid : _("Add Balanced Trunk")); ?></h2>
+	<h2><?php echo ($itemid ? _("Balanced Trunk")." ". $itemid : _("Add Balanced Trunk")); ?></h2>
 
 	<p style="width: 80%"><?php echo ($itemid ? '' : _("Each Balanced Trunk is an outbound trunk associated with a set of parameters to define the maximum use you want to do with it. For instance you have a provider that gives you 100 minutes long distance calls per month. You can define here that after 100 minutes of local call during the month this trunk will become unavailable and your route will switch to the next trunk in line.")); ?></p>
 
@@ -105,15 +105,15 @@ $module_local = trunkbalance_xml2array("admin/modules/trunkbalance/module.xml");
 <?php		}?>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("<b>Disable</b> Balanced Trunk $itemid:")?><span><?php echo _("If selected, this trunk is disabled and will not allow calls regardless of rules that follow")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("<b>Disable</b> Balanced Trunk")?><span><?php echo _("If selected, this trunk is disabled and will not allow calls regardless of rules that follow")?></span></a></td>
 		<td><input type="checkbox"  name="disabled" <?php echo (($thisItem['disabled'] == "on") ? "checked" : "") ; ?> tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Trunk Description:")?><span><?php echo _("Enter a description for this balanced trunk.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Trunk Description")?><span><?php echo _("Enter a description for this balanced trunk.")?></span></a></td>
 		<td><input type="text" name="description" value="<?php echo (isset($thisItem['description']) ? $thisItem['description'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Trunk Destination:")?><span><?php echo _("Select the destination trunk")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Trunk Destination")?><span><?php echo _("Select the destination trunk")?></span></a></td>
 		<td><SELECT id="desttrunk_id" name="desttrunk_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'><OPTION VALUE="0">Select...</option>
 <?php     
 			$trunklist = trunkbalance_listtrunk();
@@ -130,7 +130,7 @@ $module_local = trunkbalance_xml2array("admin/modules/trunkbalance/module.xml");
 			}?>
 		</SELECT></td>
 	</tr>
-		<tr><td><a href="#" class="info"><?php echo _("Time Group:")?><span><?php echo _("Trunk is only active during the times specified in the selected time group.")?></span></a></td>
+		<tr><td><a href="#" class="info"><?php echo _("Time Group")?><span><?php echo _("Trunk is only active during the times specified in the selected time group.")?></span></a></td>
 		<td><SELECT id="timegroup_id" name="timegroup_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'><OPTION VALUE="-1">none selected</option>
 			   <?php     
 			$timegrouplist = trunkbalance_listtimegroup();
@@ -148,23 +148,23 @@ $module_local = trunkbalance_xml2array("admin/modules/trunkbalance/module.xml");
 		</SELECT></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Matching Rule:")?><span><?php echo _("Enter the SQL matching pattern that will be applied to the CDR to calculate your rules on this trunk, separate multiple rules by commas. It will be inserted as WHERE dst LIKE 'your pattern'. For instance if you want to match all numbers starting by 0033 or 0044 you will enter 0033%, 0044%.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Matching Rule")?><span><?php echo _("Enter the SQL matching pattern that will be applied to the CDR to calculate your rules on this trunk, separate multiple rules by commas. It will be inserted as WHERE dst LIKE 'your pattern'. For instance if you want to match all numbers starting by 0033 or 0044 you will enter 0033%, 0044%.")?></span></a></td>
 		<td><input type="textarea" rows="5" cols="25" style="width:100%; height:4em;" name="dialpattern" value="<?php echo (isset($thisItem['dialpattern']) ? $thisItem['dialpattern'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Apply all matching rules:")?><span><?php echo _("By default, this module will apply ANY of the multiple matching rules. Select this option if you want to apply ALL rules. This setting has no affect unless multiple rules are specified")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Apply all matching rules")?><span><?php echo _("By default, this module will apply ANY of the multiple matching rules. Select this option if you want to apply ALL rules. This setting has no affect unless multiple rules are specified")?></span></a></td>
 		<td><input type="checkbox"  name="dp_andor" <?php echo (($thisItem['dp_andor'] == "on") ? "checked" : "") ; ?> tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>	
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Not Matching Rule:")?><span><?php echo _("Enter the matching pattern that will be excluded from the CDR matching to calculate your rules on this trunk, separate multiple rules by commas. It will be inserted as WHERE dst NOT LIKE 'your pattern'. For instance if you want to exclude all numbers starting by 0033 or 0044 you will enter 0033%, 0044%.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Not Matching Rule")?><span><?php echo _("Enter the matching pattern that will be excluded from the CDR matching to calculate your rules on this trunk, separate multiple rules by commas. It will be inserted as WHERE dst NOT LIKE 'your pattern'. For instance if you want to exclude all numbers starting by 0033 or 0044 you will enter 0033%, 0044%.")?></span></a></td>
 		<td><input type="textarea" rows="5" cols="25" style="width:100%; height:4em;" name="notdialpattern" value="<?php echo (isset($thisItem['notdialpattern']) ? $thisItem['notdialpattern'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Apply all non-matching rules:")?><span><?php echo _("By default, this module will apply ANY of the multiple matching rules. Select this option if you want to apply ALL rules. This setting has no affect unless multiple rules are specified")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Apply all non-matching rules")?><span><?php echo _("By default, this module will apply ANY of the multiple matching rules. Select this option if you want to apply ALL rules. This setting has no affect unless multiple rules are specified")?></span></a></td>
 		<td><input type="checkbox"  name="notdp_andor" <?php echo (($thisItem['notdp_andor'] == "on") ? "checked" : "") ; ?> tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
-	<tr><td colspan="2"><h5>Billing Cycle Configuration</h5></td></tr>
-		<td><a href="#" class="info"><?php echo _("Choose billing cycle:")?><span><?php echo _("Choose the time period that the billing cycle will resest to")?></span></a></td>
+	<tr><td colspan="2"><h5><?php echo _("Billing Cycle Configuration");?></h5></td></tr>
+		<td><a href="#" class="info"><?php echo _("Choose billing cycle")?><span><?php echo _("Choose the time period that the billing cycle will resest to")?></span></a></td>
 		<td><SELECT id="billing_cycle" name="billing_cycle" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'><OPTION VALUE="-1">none selected</option>
 		<OPTION VALUE="floating" <?php if ($thisItem['billing_cycle']=="floating") echo _("selected=\"selected\""); ?>  >Floating</OPTION>
 		<OPTION VALUE="day" <?php if ($thisItem['billing_cycle']=="day") echo _("selected=\"selected\""); ?>  >Day</OPTION>
@@ -173,11 +173,11 @@ $module_local = trunkbalance_xml2array("admin/modules/trunkbalance/module.xml");
 		</SELECT></td>
     </tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Billing Time:")?><span><?php echo _("Enter the time of day to reset the counter. Used for all non floating billing cycles.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Billing Time")?><span><?php echo _("Enter the time of day to reset the counter. Used for all non floating billing cycles.")?></span></a></td>
 		<td><input type="text" name="billingtime" value="<?php echo (isset($thisItem['billingtime']) ? $thisItem['billingtime'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Billing Day:")?><span><?php echo _("Enter the day of the week to reset the counter. Only used for weekly billing cycle.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Billing Day")?><span><?php echo _("Enter the day of the week to reset the counter. Only used for weekly billing cycle.")?></span></a></td>
 		
 		<td><SELECT id="billing_day" name="billing_day" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 			<OPTION VALUE="-1">none selected</option>
@@ -191,55 +191,55 @@ $module_local = trunkbalance_xml2array("admin/modules/trunkbalance/module.xml");
 		</SELECT></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Billing Date:")?><span><?php echo _("Enter the day of the month to reset the counter. Only used for Monthly billing cycle.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Billing Date")?><span><?php echo _("Enter the day of the month to reset the counter. Only used for Monthly billing cycle.")?></span></a></td>
 		<td><input type="number" name="billingdate" value="<?php echo (isset($thisItem['billingdate']) ? $thisItem['billingdate'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Floating Billing Time:")?><span><?php echo _("Enter the number of floating hours that should be included in the count. 0 to include all. This is only used for the floating billing cycle.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Floating Billing Time")?><span><?php echo _("Enter the number of floating hours that should be included in the count. 0 to include all. This is only used for the floating billing cycle.")?></span></a></td>
 		<td><input type="number" name="billingperiod" value="<?php echo (isset($thisItem['billingperiod']) ? $thisItem['billingperiod'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Ending Date:")?><span><?php echo _("Enter the date when this balanced trunk should expire. YYYY-MM-DD HH:mm - Keep empty to disable")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Ending Date")?><span><?php echo _("Enter the date when this balanced trunk should expire. YYYY-MM-DD HH:mm - Keep empty to disable")?></span></a></td>
 		<td><input type="text" name="endingdate" value="<?php echo (isset($thisItem['endingdate']) ? $thisItem['endingdate'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"></td>
 	</tr>
-	<tr><td colspan="2"><h5>Usage Limits Configuration</h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo _("Usage Limits Configuration");?></h5></td></tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Include Inbound Calls:")?><span><?php echo _("Outbound calls are counted automatically, enable this setting to include inbound calls when determining usage limits.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Include Inbound Calls")?><span><?php echo _("Outbound calls are counted automatically, enable this setting to include inbound calls when determining usage limits.")?></span></a></td>
 		<td><input type="checkbox"  name="count_inbound" <?php echo (($thisItem['count_inbound'] == "on") ? "checked" : "") ; ?> tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Include Unanswered Calls:")?><span><?php echo _("Answered calls are counted automatically, enable this setting to include unanswered calls when determining usage limits.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Include Unanswered Calls")?><span><?php echo _("Answered calls are counted automatically, enable this setting to include unanswered calls when determining usage limits.")?></span></a></td>
 		<td><input type="checkbox" name="count_unanswered" <?php echo (($thisItem['count_unanswered'] == "on") ? "checked" : "") ; ?> tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>	
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Maximum inbound/outbound Calling Time:")?><span><?php echo _("Enter the maximum total number of calling minutes per billing period. Be aware that the test is performed before the begining of the call and it will not break an active call.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Maximum inbound/outbound Calling Time")?><span><?php echo _("Enter the maximum total number of calling minutes per billing period. Be aware that the test is performed before the begining of the call and it will not break an active call.")?></span></a></td>
 		<td><input type="number" name="maxtime" value="<?php echo (isset($thisItem['maxtime']) ? $thisItem['maxtime'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Maximum Number of inbound/outbound Calls:")?><span><?php echo _("Enter the maximum number of calls per billing period.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Maximum Number of inbound/outbound Calls")?><span><?php echo _("Enter the maximum number of calls per billing period.")?></span></a></td>
 		<td><input type="number" name="maxnumber" value="<?php echo (isset($thisItem['maxnumber']) ? $thisItem['maxnumber'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Max. Number of Different outbound Calls:")?><span><?php echo _("Enter the maximum number of different outbound phone numbers allowed per billing period. The include inbound calls and include unanswered calls settings do not apply to this item.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Max. Number of Different outbound Calls")?><span><?php echo _("Enter the maximum number of different outbound phone numbers allowed per billing period. The include inbound calls and include unanswered calls settings do not apply to this item.")?></span></a></td>
 		<td><input type="number" name="maxidentical" value="<?php echo (isset($thisItem['maxidentical']) ? $thisItem['maxidentical'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"></td>
 	</tr>
-	<tr><td colspan="2"><h5>Load Balancing Configuration</h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo _("Load Balancing Configuration"); ?></h5></td></tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Load Ratio:")?><span><?php echo _("Enter the ratio of calls that this trunk should accept. For instance to allow 1/3 of outbound calls to complete, you should enter 3 to let this trunk accept 1 out of 3 calls.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Load Ratio")?><span><?php echo _("Enter the ratio of calls that this trunk should accept. For instance to allow 1/3 of outbound calls to complete, you should enter 3 to let this trunk accept 1 out of 3 calls.")?></span></a></td>
 		<td><input type="number" name="loadratio" value="<?php echo (isset($thisItem['loadratio']) ? $thisItem['loadratio'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"></td>
 	</tr>
 
-	<tr><td colspan="2"><h5>URL Configuration</h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo _("URL Configuration");?></h5></td></tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("URL:")?><span><?php echo _("Enter a URL to load, substitute the string \$OUTNUM\$ in place of the outbound dialled digits.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("URL")?><span><?php echo _("Enter a URL to load, substitute the string \$OUTNUM\$ in place of the outbound dialled digits.")?></span></a></td>
 		<td><textarea name="url" tabindex="<?php echo ++$tabindex;?>" style="width:250px;height:150px;"><?php echo (isset($thisItem['url']) ? $thisItem['url'] : ''); ?></textarea></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("URL Timeout:")?><span><?php echo _("Enter max seconds to wait for URL to respond.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("URL Timeout")?><span><?php echo _("Enter max seconds to wait for URL to respond.")?></span></a></td>
 		<td><input type="number" name="url_timeout" value="<?php echo (isset($thisItem['url_timeout']) ? $thisItem['url_timeout'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class="w100"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("regex:")?><span><?php echo _("Enter PCRE regex with delimiters to search the URL contents, substitute the string \$OUTNUM\$ in place of the outbound dialled digits. Separate multiple regexs on each line")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("regex")?><span><?php echo _("Enter PCRE regex with delimiters to search the URL contents, substitute the string \$OUTNUM\$ in place of the outbound dialled digits. Separate multiple regexs on each line")?></span></a></td>
 		<td><textarea name="regex" tabindex="<?php echo ++$tabindex;?>" style="width:250px;height:150px;"><?php echo (isset($thisItem['regex']) ? $thisItem['regex'] : ''); ?></textarea></td>
 		</tr>
 	<tr>
@@ -248,7 +248,7 @@ $module_local = trunkbalance_xml2array("admin/modules/trunkbalance/module.xml");
 </table>
 
 <p align="center" style="font-size:11px;"><br>
-Trunk Balance module verserion <?php echo $module_local['module']['version']?> is maintained by the developer community at the <a target="_blank" href="https://github.com/POSSA/freepbx-trunk-balancing"> PBX Open Source Software Alliance</a><br></p>
+Trunk Balance module version <?php echo $module_local['module']['version']?> is maintained by the developer community at the <a target="_blank" href="https://github.com/POSSA/freepbx-trunk-balancing"> PBX Open Source Software Alliance</a><br></p>
 
 <script language="javascript">
 <!--
