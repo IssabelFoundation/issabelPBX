@@ -51,7 +51,7 @@ msgstr ""
 
 #: page.printextensions.php:40
 msgid "Search Bounded Regex"
-msgstr "Buscar Expresión Regular Acotada"
+msgstr "Buscar Expresión Regular Limitada"
 
 #: page.printextensions.php:38
 msgid "Search Exact Exten"
@@ -59,7 +59,7 @@ msgstr "Buscar Extensión Exacta"
 
 #: page.printextensions.php:42
 msgid "Search Unbounded Regex"
-msgstr "Buscar Expresión Regular Libre"
+msgstr "Buscar Expresión Regular Ilimitada"
 
 #: page.printextensions.php:27
 msgid "Search:"
@@ -76,7 +76,7 @@ msgid ""
 "would search for all extensions of the form 20XX. The resulting lists of "
 "numbers all contain links to go directly to the edit pages and the Printer "
 "Friendly page will reflect the filtered list of numbers."
-msgstr ""
+msgstr "Puede reducir la lista de extensiones según un criterio de búsqueda. Si busca un número de extensión exacto, la página lo redireccionará a la página de edición para el número dado. También puede hacer una búsqueda de expresiones regulares limitada o ilimitada. La búsqueda limitada simplemente incluye los criterios de búsqueda entre un '^' y un '$', mientras que una búsqueda ilimitada es completamente libre. Todos los patrones de expresiones regulares normales son aceptables en su búsqueda. Entonces, por ejemplo, una búsqueda limitada de 20\\d\\d buscaría todas las extensiones de la forma 20XX. Todas las listas de números resultantes contienen enlaces para ir directamente a las páginas de edición y la página para imprimir reflejará la lista filtrada de números."
 
 #~ msgid "Name"
 #~ msgstr "Nombre"
