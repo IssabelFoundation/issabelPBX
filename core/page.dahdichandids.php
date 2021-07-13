@@ -1,7 +1,6 @@
 <?php 
-
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
-
+$tabindex = 0;
 $display = 'dahdichandids';
 $type = isset($_REQUEST['type']) ? $_REQUEST['type'] :  'setup';
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] :  '';
