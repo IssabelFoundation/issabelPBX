@@ -87,3 +87,111 @@ msgstr "Enviar Cambios"
 
 msgid "Add Load balanced Trunk"
 msgstr "Añadir Balanceo de Troncal"
+
+msgid "Enter a description for this balanced trunk."
+msgstr "Ingrese una descripción para esta troncal balanceada."
+
+msgid "Select the destination trunk"
+msgstr "Seleccione la línea troncal de destino"
+
+msgid "If selected, this trunk is disabled and will not allow calls regardless of rules that follow"
+msgstr "Si se selecciona, esta troncal está deshabilitada y no permitirá llamadas independientemente de las reglas que siguen"
+
+msgid "Trunk is only active during the times specified in the selected time group."
+msgstr "La línea troncal solo está activa durante las horas especificadas en el grupo de tiempo seleccionado."
+
+msgid "Enter the SQL matching pattern that will be applied to the CDR to calculate your rules on this trunk, separate multiple rules by commas. It will be inserted as WHERE dst LIKE 'your pattern'. For instance if you want to match all numbers starting by 0033 or 0044 you will enter 0033%, 0044%."
+msgstr "Ingrese el patrón de coincidencia de SQL que se aplicará al CDR para calcular sus reglas en esta troncal, separe las reglas múltiples con comas. Se insertará como WHERE dst LIKE 'su patrón'. Por ejemplo, si desea hacer coincidir todos los números que comienzan por 0033 o 0044, debe ingresar 0033%, 0044%."
+
+msgid "Enter the matching pattern that will be excluded from the CDR matching to calculate your rules on this trunk, separate multiple rules by commas. It will be inserted as WHERE dst NOT LIKE 'your pattern'. For instance if you want to exclude all numbers starting by 0033 or 0044 you will enter 0033%, 0044%."
+msgstr "Ingrese el patrón de coincidencia que se excluirá de la coincidencia de CDR para calcular sus reglas en esta troncal, separe las reglas múltiples con comas. Se insertará como WHERE dst NOT LIKE 'su patrón. Por ejemplo, si desea excluir todos los números que comienzan por 0033 o 0044, ingresará 0033%, 0044%."
+
+msgid "By default, this module will apply ANY of the multiple matching rules. Select this option if you want to apply ALL rules. This setting has no affect unless multiple rules are specified"
+msgstr "De forma predeterminada, este módulo aplicará CUALQUIERA de las múltiples reglas de coincidencia. Seleccione esta opción si desea aplicar TODAS las reglas. Esta configuración no tiene ningún efecto a menos que se especifiquen varias reglas"
+
+msgid "Choose the time period that the billing cycle will resest to"
+msgstr "Elija el período de tiempo al que se extenderá el ciclo de facturación"
+
+msgid "Enter the time of day to reset the counter. Used for all non floating billing cycles."
+msgstr "Ingrese la hora del día para restablecer el contador. Se utiliza para todos los ciclos de facturación no flotante."
+
+msgid "Enter the day of the week to reset the counter. Only used for weekly billing cycle."
+msgstr "Ingrese el día de la semana para reiniciar el contador. Sólo se usa para el ciclo de facturación semanal."
+
+msgid "Enter the day of the month to reset the counter. Only used for Monthly billing cycle."
+msgstr "Ingrese el día del mes para reiniciar el contador. Sólo se usa para el ciclo de facturación mensual."
+
+msgid "Enter the number of floating hours that should be included in the count. 0 to include all. This is only used for the floating billing cycle."
+msgstr "Ingrese el número de horas flotantes que deben incluirse en el recuento. 0 para incluir todo. Esto sólo se usa para el ciclo de facturación flotante."
+
+msgid "Enter the date when this balanced trunk should expire. YYYY-MM-DD HH:mm - Keep empty to disable"
+msgstr "Ingrese la fecha en la que debe expirar esta troncal balanceada. AAAA-MM-DD HH:mm - Mantenga vacío para deshabilitar."
+
+msgid "Outbound calls are counted automatically, enable this setting to include inbound calls when determining usage limits."
+msgstr "Las llamadas salientes se cuentan automáticamente, habilite esta configuración para incluir las llamadas entrantes al determinar los límites de uso."
+
+msgid "Answered calls are counted automatically, enable this setting to include unanswered calls when determining usage limits."
+msgstr "Las llamadas respondidas se cuentan automáticamente, habilite esta configuración para incluir las llamadas no respondidas al determinar los límites de uso."
+
+msgid "Enter the maximum total number of calling minutes per billing period. Be aware that the test is performed before the begining of the call and it will not break an active call."
+msgstr "Ingrese el número total máximo de minutos de llamadas por período de facturación. Tenga en cuenta que la prueba se realiza antes del comienzo de la llamada y no interrumpirá una llamada activa."
+
+msgid "Enter the maximum number of calls per billing period."
+msgstr "Ingrese el número máximo de llamadas por período de facturación."
+
+msgid "Enter the maximum number of different outbound phone numbers allowed per billing period. The include inbound calls and include unanswered calls settings do not apply to this item."
+msgstr "Ingrese la cantidad máxima de números de teléfono salientes diferentes permitidos por período de facturación. La configuración de incluir llamadas entrantes e incluir llamadas no respondidas no se aplica a este elemento."
+
+msgid "Enter the ratio of calls that this trunk should accept. For instance to allow 1/3 of outbound calls to complete, you should enter 3 to let this trunk accept 1 out of 3 calls."
+msgstr "Ingrese la proporción de llamadas que debe aceptar esta troncal. Por ejemplo, para permitir que se complete 1/3 de las llamadas salientes, debe ingresar 3 para permitir que esta troncal acepte 1 de cada 3 llamadas."
+
+msgid "Enter a URL to load, substitute the string $OUTNUM$ in place of the outbound dialled digits."
+msgstr "Ingrese una URL para cargar, utilice la variable $OUTNUM$ en lugar de los dígitos marcados salientes."
+
+msgid "Enter max seconds to wait for URL to respond."
+msgstr "Ingrese los segundos máximos para esperar a que la URL responda."
+
+msgid "Enter PCRE regex with delimiters to search the URL contents, substitute the string $OUTNUM$ in place of the outbound dialled digits. Separate multiple regexs on each line"
+msgstr "Ingrese una expresión regular PCRE con delimitadores para buscar el contenido de la URL, utilice la variable $OUTNUM$ en lugar de los dígitos marcados salientes. Separe varias expresiones regulares en cada línea"
+
+msgid "Monday"
+msgstr "Lunes"
+
+msgid "Tuesday"
+msgstr "Martes"
+
+msgid "Wednesday"
+msgstr "Miércoles"
+
+msgid "Thursday"
+msgstr "Jueves"
+
+msgid "Friday"
+msgstr "Viernes"
+
+msgid "Saturday"
+msgstr "Sábado"
+
+msgid "Sunday"
+msgstr "Domingo"
+
+msgid "Floating"
+msgstr "Flotante"
+
+msgid "Day"
+msgstr "Diario"
+
+msgid "Week"
+msgstr "Semanal"
+
+msgid "Month"
+msgstr "Mensual"
+
+msgid "Balanced Trunk"
+msgstr "Balanceo de Troncal"
+
+msgid "Delete Balanced Trunk"
+msgstr "Eliminar Balanceo de Troncal"
+
+msgid "Edit Trunk"
+msgstr "Modificar Troncal"
