@@ -61,7 +61,7 @@ if ($action == 'delete') {
 		//get details for this source
 		$thisItem = trunkbalance_get($itemid);
 	} else {
-		$thisItem = Array( 'description' => null, 'desttrunk_id' => null);
+		$thisItem = Array( 'description' => null, 'desttrunk_id' => null, 'disabled' => null, 'dp_andor' => null, 'notdp_andor' => null, 'billing_cycle'=>null, 'billing_day'=>null, 'count_inbound'=>null, 'count_unanswered'=>null);
 	}
 
 	$delURL = $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'].'&action=delete';
@@ -85,7 +85,7 @@ if ($action == 'delete') {
 //	}
 
 // get current verson of module
-$module_local = trunkbalance_xml2array("modules/trunkbalance/module.xml");
+$module_local = trunkbalance_xml2array("admin/modules/trunkbalance/module.xml");
 	
 ?>
 	<h2><?php echo ($itemid ? _("Balanced Trunk:")." ". $itemid : _("Add Balanced Trunk")); ?></h2>
@@ -248,7 +248,7 @@ $module_local = trunkbalance_xml2array("modules/trunkbalance/module.xml");
 </table>
 
 <p align="center" style="font-size:11px;"><br>
-Trunk Balance module verserion <?php echo $module_local[module][version]?> is maintained by the developer community at the <a target="_blank" href="https://github.com/POSSA/freepbx-trunk-balancing"> PBX Open Source Software Alliance</a><br></p>
+Trunk Balance module verserion <?php echo $module_local['module']['version']?> is maintained by the developer community at the <a target="_blank" href="https://github.com/POSSA/freepbx-trunk-balancing"> PBX Open Source Software Alliance</a><br></p>
 
 <script language="javascript">
 <!--

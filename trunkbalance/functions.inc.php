@@ -251,7 +251,7 @@ function trunkbalance_vercheck() {
 	// compare version numbers of local module.xml and remote module.xml 
 	// returns true if a new version is available
 	$newver = false;
-	$module_local = trunkbalance_xml2array("modules/trunkbalance/module.xml");
+	$module_local = trunkbalance_xml2array("admin/modules/trunkbalance/module.xml");
 	$module_remote = trunkbalance_xml2array("https://raw.github.com/POSSA/freepbx-trunk-balancing/master/module.xml");
 	if ( $foo= empty($module_local) or $bar = empty($module_remote) )
 	{
