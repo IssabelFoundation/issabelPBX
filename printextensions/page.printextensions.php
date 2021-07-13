@@ -138,10 +138,11 @@ foreach ($full_list as $key => $value) {
 	$module_select[$sub_heading_id] = $sub_heading;
 	$textext = $key != 'did' ? _("Extension") : _("Destination");
 	$html_txt_arr[$sub_heading] = "<div class=\"$sub_heading_id\"><table border=\"0\" width=\"75%\"><tr width='90%'><td><br><strong><a href=\"config.php?display=printextensions&sort_table=$sub_heading_id&sort_col=1\">".sprintf("%s",$sub_heading)."</a></strong></td><td width=\"10%\" align=\"right\"><br><strong><a href=\"config.php?display=printextensions&sort_table=$sub_heading_id&sort_col=2\">".$textext."</a></strong></td></tr>\n";
-	if ($_GET["sort_table"] == $sub_heading_id || $_POST["sort_table"] == $sub_heading_id) {
-		if ($_GET["sort_col"] == 1 || $_POST["sort_col"] == 1) {
-			asort($value);
-		} else {
+        if(isset($_REQUEST['sort_table'])) {
+		if ($_REQUEST["sort_table"] == $sub_heading_id) {
+			if ($_REQUEST["sort_col"] == 1) {
+				asort($value);
+			}
 		}
 	}
 	foreach ($value as $exten => $item) {
