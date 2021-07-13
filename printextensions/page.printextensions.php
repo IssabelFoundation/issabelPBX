@@ -201,6 +201,7 @@ if (!$quietmode) {
 $sub_heading_id =  'featurecodeadmin';
 if ((!$quietmode || isset($_REQUEST[$sub_heading_id])) && isset($full_list['featurecodeadmin'])) {
 	$featurecodes = featurecodes_getAllFeaturesDetailed(false);
+        $txtdom = $sub_heading_id;
 	$sub_heading =  modgettext::_($active_modules['featurecodeadmin']['name'], $txtdom);
 	$module_select[$sub_heading_id] = $sub_heading;
 	$html_txt_arr[$sub_heading] =  "<div class=\"$sub_heading_id\"><table border=\"0\" width=\"75%\"><tr colspan=\"2\" width='100%'><td><br /><strong>".sprintf("%s",$sub_heading)."</strong></td></tr>\n";
