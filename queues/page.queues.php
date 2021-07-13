@@ -3,7 +3,7 @@
 //
 
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
-
+$tabindex = 0;
 //used for switch on config.php
 $dispnum = 'queues';
 
