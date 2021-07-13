@@ -34,7 +34,7 @@ msgstr "Distribución de extensiones de la centralita"
 
 #: page.printextensions.php:111
 msgid "No Matches for the Requested Search"
-msgstr ""
+msgstr "No hay resultados"
 
 #: printextensions.i18n.php:4 printextensions.i18n.php:10
 msgid "Print Extensions"
@@ -51,19 +51,19 @@ msgstr ""
 
 #: page.printextensions.php:40
 msgid "Search Bounded Regex"
-msgstr ""
+msgstr "Buscar Expresión Regular Acotada"
 
 #: page.printextensions.php:38
 msgid "Search Exact Exten"
-msgstr ""
+msgstr "Buscar Extensión Exacta"
 
 #: page.printextensions.php:42
 msgid "Search Unbounded Regex"
-msgstr ""
+msgstr "Buscar Expresión Regular Libre"
 
 #: page.printextensions.php:27
 msgid "Search:"
-msgstr ""
+msgstr "Buscar"
 
 #: page.printextensions.php:28
 msgid ""
