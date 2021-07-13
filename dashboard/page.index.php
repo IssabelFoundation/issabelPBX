@@ -221,8 +221,8 @@ function show_sysstats() {
 		$rx->add( $net["rx_bytes"] );
 		$tx->add( $net["tx_bytes"] );
 		
-		$out .= draw_box($net_name." "._("receive"), number_format($rx->average()/1000,2)." KB/s");
-		$out .= draw_box($net_name." "._("transmit"), number_format($tx->average()/1000,2)." KB/s");
+		$out .= draw_box($net_name." "._("receive"), number_format(intval($rx->average())/1000,2)." KB/s");
+		$out .= draw_box($net_name." "._("transmit"), number_format(intval($tx->average())/1000,2)." KB/s");
 	}
 	return $out;
 }
