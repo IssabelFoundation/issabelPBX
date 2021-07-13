@@ -458,19 +458,19 @@ class sysinfo {
 		if ( $bufr != "ERROR" ) {
 			$bufe = explode("\n", $bufr);
 			foreach( $bufe as $buf ) {
-				if (preg_match('/^MemTotal:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
-					$results['ram']['total'] = $ar_buf[1];
-				} else if (preg_match('/^MemFree:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
-					$results['ram']['t_free'] = $ar_buf[1];
-				} else if (preg_match('/^Cached:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
-					$results['ram']['cached'] = $ar_buf[1];
-				} else if (preg_match('/^Buffers:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
-					$results['ram']['buffers'] = $ar_buf[1];
-				} else if (preg_match('/^SwapTotal:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
-					$results['swap']['total'] = $ar_buf[1];
-				} else if (preg_match('/^SwapFree:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
-					$results['swap']['free'] = $ar_buf[1];
-				} 
+                               if (preg_match('/^MemTotal:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
+                                        $results['ram']['total'] = intval($ar_buf[1]);
+                                } else if (preg_match('/^MemFree:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
+                                        $results['ram']['t_free'] = intval($ar_buf[1]);
+                                } else if (preg_match('/^Cached:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
+                                        $results['ram']['cached'] = intval($ar_buf[1]);
+                                } else if (preg_match('/^Buffers:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
+                                        $results['ram']['buffers'] = intval($ar_buf[1]);
+                                } else if (preg_match('/^SwapTotal:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
+                                        $results['swap']['total'] = intval($ar_buf[1]);
+                                } else if (preg_match('/^SwapFree:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
+                                        $results['swap']['free'] = intval($ar_buf[1]);
+                                }
 			} 
 
 			$results['ram']['t_used'] = $results['ram']['total'] - $results['ram']['t_free'];
