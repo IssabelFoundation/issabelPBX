@@ -70,7 +70,7 @@ if ($action == 'delete') {
 				<input type=\"hidden\" name=\"display\" value=\"{$dispnum}\">
 				<input type=\"hidden\" name=\"itemid\" value=\"{$itemid}\">
 				<input type=\"hidden\" name=\"action\" value=\"delete\">
-				<input type=submit value=\""._("Delete Balanced Trunk: $thisItem[description]")."\">
+                                <input type=submit value=\""._("Delete Balanced Trunk").": ".$thisItem[description]."\">
 			</form>";
 	
 
@@ -166,10 +166,10 @@ $module_local = trunkbalance_xml2array("admin/modules/trunkbalance/module.xml");
 	<tr><td colspan="2"><h5><?php echo _("Billing Cycle Configuration");?></h5></td></tr>
 		<td><a href="#" class="info"><?php echo _("Choose billing cycle")?><span><?php echo _("Choose the time period that the billing cycle will resest to")?></span></a></td>
 		<td><SELECT id="billing_cycle" name="billing_cycle" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'><OPTION VALUE="-1">none selected</option>
-		<OPTION VALUE="floating" <?php if ($thisItem['billing_cycle']=="floating") echo _("selected=\"selected\""); ?>  >Floating</OPTION>
-		<OPTION VALUE="day" <?php if ($thisItem['billing_cycle']=="day") echo _("selected=\"selected\""); ?>  >Day</OPTION>
-		<OPTION VALUE="week" <?php if ($thisItem['billing_cycle']=="week") echo _("selected=\"selected\""); ?>  >Week</OPTION>
-		<OPTION VALUE="month" <?php if ($thisItem['billing_cycle']=="month") echo _("selected=\"selected\""); ?>  >Month</OPTION>
+		<OPTION VALUE="floating" <?php if ($thisItem['billing_cycle']=="floating") echo _("selected=\"selected\""); ?>  ><?php echo _('Floating');?></OPTION>
+		<OPTION VALUE="day" <?php if ($thisItem['billing_cycle']=="day") echo _("selected=\"selected\""); ?>  ><?php echo _('Day');?></OPTION>
+		<OPTION VALUE="week" <?php if ($thisItem['billing_cycle']=="week") echo _("selected=\"selected\""); ?>  ><?php echo _('Week');?></OPTION>
+		<OPTION VALUE="month" <?php if ($thisItem['billing_cycle']=="month") echo _("selected=\"selected\""); ?>  ><?php echo _('Month');?></OPTION>
 		</SELECT></td>
     </tr>
 	<tr>
@@ -181,13 +181,13 @@ $module_local = trunkbalance_xml2array("admin/modules/trunkbalance/module.xml");
 		
 		<td><SELECT id="billing_day" name="billing_day" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 			<OPTION VALUE="-1">none selected</option>
-			<OPTION VALUE="Monday"  <?php if ($thisItem['billing_day']=="Monday") echo _("selected=\"selected\""); ?> >Monday</OPTION>
-			<OPTION VALUE="Tuesday" <?php if ($thisItem['billing_day']=="Tuesday") echo _("selected=\"selected\""); ?>  >Tuesday</OPTION>
-			<OPTION VALUE="Wednesday"  <?php if ($thisItem['billing_day']=="Wednesday") echo _("selected=\"selected\""); ?> >Wednesday</OPTION>
-			<OPTION VALUE="Thursday"  <?php if ($thisItem['billing_day']=="Thursday") echo _("selected=\"selected\""); ?> >Thursday</OPTION>
-			<OPTION VALUE="Friday" <?php if ($thisItem['billing_day']=="Friday") echo _("selected=\"selected\""); ?>  >Friday</OPTION>
-			<OPTION VALUE="Saturday"  <?php if ($thisItem['billing_day']=="Saturday") echo _("selected=\"selected\""); ?> >Saturday</OPTION>
-			<OPTION VALUE="Sunday" <?php if ($thisItem['billing_day']=="Sunday") echo _("selected=\"selected\""); ?>  >Sunday</OPTION>
+			<OPTION VALUE="Monday"  <?php if ($thisItem['billing_day']=="Monday") echo _("selected=\"selected\""); ?> ><?php echo _('Monday');?></OPTION>
+			<OPTION VALUE="Tuesday" <?php if ($thisItem['billing_day']=="Tuesday") echo _("selected=\"selected\""); ?>  ><?php echo _('Tuesday');?></OPTION>
+			<OPTION VALUE="Wednesday"  <?php if ($thisItem['billing_day']=="Wednesday") echo _("selected=\"selected\""); ?> ><?php echo _('Wednesday');?></OPTION>
+			<OPTION VALUE="Thursday"  <?php if ($thisItem['billing_day']=="Thursday") echo _("selected=\"selected\""); ?> ><?php echo _('Thursday');?></OPTION>
+			<OPTION VALUE="Friday" <?php if ($thisItem['billing_day']=="Friday") echo _("selected=\"selected\""); ?>  ><?php echo _('Friday');?></OPTION>
+			<OPTION VALUE="Saturday"  <?php if ($thisItem['billing_day']=="Saturday") echo _("selected=\"selected\""); ?> ><?php echo _('Saturday');?></OPTION>
+			<OPTION VALUE="Sunday" <?php if ($thisItem['billing_day']=="Sunday") echo _("selected=\"selected\""); ?>  ><?php echo _('Sunday');?></OPTION>
 		</SELECT></td>
 	</tr>
 	<tr>
