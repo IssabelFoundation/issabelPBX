@@ -387,6 +387,7 @@ function findmefollow_list($get_all=false) {
 //
 function findmefollow_allusers() {
         global $db;
+        $users = array();
         $sql = "SELECT extension,name FROM users ORDER BY extension";
         $results = $db->getAll($sql);
         if(DB::IsError($results)) {
