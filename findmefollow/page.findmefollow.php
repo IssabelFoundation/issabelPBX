@@ -453,8 +453,9 @@ $(document).ready(function(){
           $("#fixedcid").removeAttr("disabled");
         }
     });
-
-    textAreaAdjust(document.getElementById('grplist'));
+    if($('#grplist').length>0) {
+        textAreaAdjust(document.getElementById('grplist'));
+    }
 });
 
 function textAreaAdjust(element) {
