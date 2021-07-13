@@ -124,8 +124,8 @@ if ($action == 'delete') {
         <td><a href="#" class="info"><?php echo _("Caller ID Override"); ?><span><?php echo _("Determine if we keep the Caller ID being presented or if we override it. Default is Enable"); ?></span></a></td>
                                 <td>
             <span class="radioset">
-                <input type="radio" name="keepcid" id="keepcid0" tabindex="" value="0" <?php echo (isset($thisItem['keepcid']) && $thisItem['keepcid']!=true)?'CHECKED':''; ?>><label for="keepcid0">Disable</label>
-                <input type="radio" name="keepcid" id="keepcid1" tabindex="" value="1" <?php echo ($thisItem['keepcid'] || !isset($thisItem['keepcid']))?'CHECKED':''; ?>><label for="keepcid1">Enable</label>
+                <input type="radio" name="keepcid" id="keepcid0" tabindex="" value="0" <?php echo (isset($thisItem['keepcid']) && $thisItem['keepcid']!=true)?'CHECKED':''; ?>><label for="keepcid0"><?php echo _('Disable');?></label>
+                <input type="radio" name="keepcid" id="keepcid1" tabindex="" value="1" <?php echo ($thisItem['keepcid'] || !isset($thisItem['keepcid']))?'CHECKED':''; ?>><label for="keepcid1"><?php echo _('Enable');?></label>
             </span>
         </td>
     </tr>
