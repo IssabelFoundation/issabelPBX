@@ -393,6 +393,11 @@
       return $this->evaluate("GET VARIABLE $variable");
     }
 
+    function get_full_variable($variable)
+    {
+      return $this->evaluate("GET FULL VARIABLE $variable");
+    }
+
    /**
     * Hangup the specified channel. If no channel name is given, hang up the current channel.
     *
