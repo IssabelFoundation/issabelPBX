@@ -34,7 +34,7 @@ function writequeuelog_destinations() {
 
     // it makes no sense to point at another write queue log (and it can be an infinite loop)
     if ($module_page == 'writequeuelog') {
-        return false;
+        //return false;
     }
 
     // return an associative array with destination and description
