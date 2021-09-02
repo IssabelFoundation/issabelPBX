@@ -126,6 +126,10 @@ if($callFileNameType == "exten" && $extenRecordingOnDemand != "enabled") {
 $bridgePeer = getVariable($channel, "BRIDGEPEER");
 ot_debug("BRIDGEPEER: {$bridgePeer}");
 
+if($bridgePeer=="" || $channel=="") {
+    exit(0);
+}
+
 $myMaster = getVariable($channel, "MASTER_CHANNEL(CHANNEL(name))");
 //ot_debug("myMaster: {$myMaster}");
 $theirMaster = getVariable($bridgePeer, "MASTER_CHANNEL(CHANNEL(name))");
