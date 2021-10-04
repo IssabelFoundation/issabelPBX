@@ -151,7 +151,7 @@ class core_conf {
         }
     }
 
-    // If sipsettings isn't there this will try to set the rtp.conf value
+    // If sipsettingi isn't there this will try to set the rtp.conf value
     //
     function setDefaultRtp() {
         // if we have sipsettings then we don't need to do anything
@@ -1482,9 +1482,9 @@ class core_conf {
 function core_destination_popovers() {
     global $amp_conf;
     if ($amp_conf['AMPEXTENSIONS'] == "deviceanduser") {
-        $ret['users'] = 'Users';
+        $ret['users'] = dgettext('amp','Users');
     } else {
-        $ret['extensions'] = 'Extensions';
+        $ret['extensions'] = dgettext('amp','Extensions');
     }
     return $ret;
 }
@@ -1533,11 +1533,11 @@ function core_destinations() {
         $cat_id = ($amp_conf['AMPEXTENSIONS'] == "deviceanduser")?'users':'extensions';
         $cat    = ($amp_conf['AMPEXTENSIONS'] == "deviceanduser")?'Users':'Extensions';
         foreach($results as $result) {
-            $extens[] = array('destination' => 'from-did-direct,'.$result['0'].',1', 'description' => ' <'.$result['0'].'> '.$result['1'], 'category' => $cat, 'id' => $cat_id);
+            $extens[] = array('destination' => 'from-did-direct,'.$result['0'].',1', 'description' => ' <'.$result['0'].'> '.$result['1'], 'category' => dgettext('amp',$cat), 'id' => $cat_id);
             if(isset($vmboxes[$result['0']])) {
-                $extens[] = array('destination' => 'ext-local,vmb'.$result['0'].',1', 'description' => '<'.$result[0].'> '.$result[1].' (busy)', 'category' => 'Voicemail', 'id' => 'voicemail');
-                $extens[] = array('destination' => 'ext-local,vmu'.$result['0'].',1', 'description' => '<'.$result[0].'> '.$result[1].' (unavail)', 'category' => 'Voicemail', 'id' => 'voicemail');
-                $extens[] = array('destination' => 'ext-local,vms'.$result['0'].',1', 'description' => '<'.$result[0].'> '.$result[1].' (no-msg)', 'category' => 'Voicemail', 'id' => 'voicemail');
+                $extens[] = array('destination' => 'ext-local,vmb'.$result['0'].',1', 'description' => '<'.$result[0].'> '.$result[1].' '._('(busy)'), 'category' => dgettext('voicemail','Voicemail'), 'id' => 'voicemail');
+                $extens[] = array('destination' => 'ext-local,vmu'.$result['0'].',1', 'description' => '<'.$result[0].'> '.$result[1].' '._('(unavail)'), 'category' => dgettext('voicemail','Voicemail'), 'id' => 'voicemail');
+                $extens[] = array('destination' => 'ext-local,vms'.$result['0'].',1', 'description' => '<'.$result[0].'> '.$result[1].' '._('(no-msg)'), 'category' => dgettext('voicemail','Voicemail'), 'id' => 'voicemail');
             }
         }
     }
@@ -1548,7 +1548,7 @@ function core_destinations() {
             case 'enum':
                 break;
             default:
-                $extens[] = array('destination' => 'ext-trunk,'.$trunk['trunkid'].',1', 'description' => $trunk['name'].' ('.$trunk['tech'].')', 'category' => 'Trunks', 'id' => 'trunks');
+                $extens[] = array('destination' => 'ext-trunk,'.$trunk['trunkid'].',1', 'description' => $trunk['name'].' ('.$trunk['tech'].')', 'category' => _('Trunks'), 'id' => 'trunks');
                 break;
         }
     }
@@ -5301,7 +5301,7 @@ function core_did_add($incoming,$target=false){
              $cidnum = trim(str_replace($invalidDIDChars,"",$cidnum));
 
         $destination= ($target) ? $target : ${$goto0.'0'};
-        $sql="INSERT INTO incoming (cidnum,extension,destination,privacyman,pmmaxretries,pmminlength,alertinfo, ringing, mohclass, description, grppre, delay_answer, pricid) values ('$cidnum','$extension','$destination','$privacyman','$pmmaxretries','$pmminlength','$alertinfo', '$ringing', '$mohclass', '$description', '$grppre', '$delay_answer', '$pricid')";
+        $sql="INSERT INTO incoming (cidnum,extension,destination,privacyman,pmmaxretries,pmminlength,alertinfo, ringing, mohclass, description, grppre, delay_answer, pricid) values ('$cidnum','$extension','$destination','$privacyman','$pmmaxretries','$pmminlength','$alertinfo', '$ringing', '$mohclass', '$description', '$grppre', ".intval($delay_answer).", '$pricid')";
         sql($sql);
         return true;
     } else {
@@ -6078,7 +6078,7 @@ function core_hint_get($account){
 
     //create a string with & delimiter
     if (isset($dial) && is_array($dial)){
-        $hint = implode($dial,"&");
+        $hint = implode("&",$dial);
     } else {
         if (isset($results[0]['dial'])) {
             $hint = $results[0]['dial'];
@@ -7492,7 +7492,8 @@ function core_routing_renamebyid($route_id, $new_name) {
 // function core_routing_getroutepatterns($route)
 function core_routing_getroutepatternsbyid($route_id) {
   global $db;
-  $route_id = q($db->escapeSimple($route_id));
+  $tmp = $db->escapeSimple($route_id);
+  $route_id = q($tmp);
   $sql = "SELECT * FROM `outbound_route_patterns` WHERE `route_id` = $route_id ORDER BY `match_pattern_prefix`, `match_pattern_pass`";
   $patterns = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
   return $patterns;
@@ -7525,7 +7526,8 @@ function core_routing_formatpattern($pattern) {
 // function core_routing_getroutetrunks($route)
 function core_routing_getroutetrunksbyid($route_id) {
   global $db;
-  $route_id = q($db->escapeSimple($route_id));
+  $tmp = $db->escapeSimple($route_id);
+  $route_id = q($tmp);
   $sql = "SELECT `trunk_id` FROM `outbound_route_trunks` WHERE `route_id` = $route_id ORDER BY `seq`";
     $trunks = $db->getCol($sql);
     if(DB::IsError($trunks)) {
@@ -8492,7 +8494,7 @@ function core_devices_configpageinit($dispnum) {
 
         $tt = _("Endpoint port number to use, usually 5060. Some 2 ports devices such as ATA may used 5061 for the second port.");
         $tmparr['port'] = array('value' => '5060', 'tt' => $tt, 'level' => 1);
-        $tt = _("Setting to yes (equivalent to 2000 msec) will send an OPTIONS packet to the endpoint periodically (default every minute). Used to monitor the health of the endpoint. If delays are longer then the qualify time, the endpoint will be taken offline and considered unreachable. Can be set to a value which is the msec threshhold. Setting to no will turn this off. Can also be helpful to keep NAT pinholes open.");
+        $tt = _("Setting to yes (equivalent to 2000 msec) will send an OPTIONS packet to the endpoint periodically (default every minute). Used to monitor the health of the endpoint. If delays are longer then the qualify time, the endpoint will be taken offline and considered unreachable. Can be set to a value which is the msec threshold. Setting to no will turn this off. Can also be helpful to keep NAT pinholes open.");
         $tmparr['qualify'] = array('value' => $amp_conf['DEVICE_QUALIFY'], 'tt' => $tt, 'level' => 1);
         if (version_compare($amp_conf['ASTVERSION'],'1.6','ge')) {
             $tt = _("Frequency in seconds to send qualify messages to the endpoint.");
@@ -8638,13 +8640,13 @@ function core_devices_configpageinit($dispnum) {
 
  
         $tt = _("Path to certificate file to present");
-        $tmparr['dtls_cert_file'] = array('value' => '/etc/asterisk/keys/asterisk.pem', 'tt' => $tt, 'level' => 1);
+        $tmparr['dtls_cert_file'] = array('value' => '', 'tt' => $tt, 'level' => 1);
 
         $tt = _("Path to private key for certificate file");
         $tmparr['dtls_private_key'] = array('value' => '', 'tt' => $tt, 'level' => 1);
 
         $tt = _("Path to certificate authority file to present");
-        $tmparr['dtls_ca_file'] = array('value' => '/etc/pki/tls/certs/ca-bundle.crt', 'tt' => $tt, 'level' => 1);
+        $tmparr['dtls_ca_file'] = array('value' => '', 'tt' => $tt, 'level' => 1);
 
         unset($select);
         $select[] = array('value' => 'actpass', 'text' => _('Incoming and Outgoing'));
@@ -8737,22 +8739,45 @@ function core_devices_configpageinit($dispnum) {
 
         // Devices list
         if ($_SESSION["AMP_user"]->checkSection('999')) {
-            $currentcomponent->addoptlistitem('devicelist', 'sip_generic', _("Generic SIP Device"));
-
             if($pjsip_enabled) {
-                $currentcomponent->addoptlistitem('devicelist', 'pjsip_generic', _("Generic PJSIP Device"));
+                $pjsip_second = false;
+                $sql = "SELECT data FROM pjsipsettings WHERE keyword = 'bindport'";
+                $pjsip_port = sql($sql,'getOne');
+                if ($pjsip_port == '5060') {
+                    $currentcomponent->addoptlistitem('devicelist', 'pjsip_generic', _("Generic PJSIP Device")._(" - Port:").$pjsip_port);
+                } else { 
+                    $pjsip_second = true;
+                }
+            }
+
+            $sql = "SELECT data FROM sipsettings WHERE keyword = 'bindport'";
+            $sip_port = sql($sql,'getOne');
+            if ($sip_port == '') {
+                $sip_port = "5060";
+            }
+            $currentcomponent->addoptlistitem('devicelist', 'sip_generic', _("Generic SIP Device")._(" - Port:").$sip_port);
+
+            if($pjsip_enabled and $pjsip_second) {
+                 $currentcomponent->addoptlistitem('devicelist', 'pjsip_generic', _("Generic PJSIP Device")._(" - Port:").$pjsip_port);
             }
 
             if(isset($amp_conf['HTTPSCERTFILE'])) {
                 if($amp_conf['HTTPSCERTFILE']<>'') {
-                    $currentcomponent->addoptlistitem('devicelist', 'webrtc_generic', _("SIP WebRTC Device"));
-                    if($pjsip_enabled) {
+                    if ($pjsip_port != '5060') {
+                        $currentcomponent->addoptlistitem('devicelist', 'webrtc_generic', _("SIP WebRTC Device"));
+                    }
+                    if($pjsip_enabled and $sip_port != '5060') {
                         $currentcomponent->addoptlistitem('devicelist', 'webrtcpjsip_generic', _("PJSIP WebRTC Device"));
                     }
                 }
             }
 
-            $currentcomponent->addoptlistitem('devicelist', 'iax2_generic', _("Generic IAX2 Device"));
+            $sql = "SELECT data FROM iaxsettings WHERE keyword = 'bindport'";
+            $iax_port = sql($sql,'getOne');
+            if ($iax_port == '') {
+                $iax_port = "4569";
+            }
+            $currentcomponent->addoptlistitem('devicelist', 'iax2_generic', _("Generic IAX2 Device")._(" - Port:").$iax_port);
             $currentcomponent->addoptlistitem('devicelist', 'dahdi_generic', _("Generic DAHDi Device"));
             $currentcomponent->addoptlistitem('devicelist', 'custom_custom', _("Other (Custom) Device"));
         }
