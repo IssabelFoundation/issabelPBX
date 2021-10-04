@@ -192,6 +192,9 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
+msgid "Backup Module"
+msgstr "Módulo de Backup"
+
 #~ msgid "Are you sure you want to delete this File Set?"
 #~ msgstr "¿Está seguro de que desea eliminar esta copia de seguridad?"
 

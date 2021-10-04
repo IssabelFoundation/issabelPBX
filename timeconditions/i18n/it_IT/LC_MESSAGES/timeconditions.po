@@ -58,7 +58,7 @@ msgid "August"
 msgstr "Agosto"
 
 #: page.timeconditions.php:121
-msgid "Change Override:"
+msgid "Change Override"
 msgstr ""
 
 #: install.php:214
@@ -74,7 +74,7 @@ msgid ""
 msgstr ""
 
 #: page.timeconditions.php:117
-msgid "Current Override:"
+msgid "Current Override"
 msgstr ""
 
 #: functions.inc.php:1303 functions.inc.php:1402
@@ -189,20 +189,20 @@ msgid "Monday"
 msgstr "Lunedì"
 
 #: functions.inc.php:1175
-msgid "Month Day finish:"
-msgstr "Giorno del mese finale:"
+msgid "Month Day finish"
+msgstr "Giorno del mese finale"
 
 #: functions.inc.php:1140
-msgid "Month Day start:"
-msgstr "Giorno del mese iniziale:"
+msgid "Month Day start"
+msgstr "Giorno del mese iniziale"
 
 #: functions.inc.php:1309
-msgid "Month finish:"
-msgstr "Mese finale:"
+msgid "Month finish"
+msgstr "Mese finale"
 
 #: functions.inc.php:1194
-msgid "Month start:"
-msgstr "Mese iniziale:"
+msgid "Month start"
+msgstr "Mese iniziale"
 
 #: functions.inc.php:722
 msgid "New Time"
@@ -272,8 +272,8 @@ msgid "September"
 msgstr "Settembre"
 
 #: page.timegroups.php:17
-msgid "Server time:"
-msgstr "Ora server:"
+msgid "Server time"
+msgstr "Ora server"
 
 #: page.timeconditions.php:176
 msgid "Submit"
@@ -338,20 +338,20 @@ msgid "Thursday"
 msgstr "Giovedì"
 
 #: page.timeconditions.php:48
-msgid "Time Condition"
-msgstr "Condizione Temporale"
+msgid "Time Condition:"
+msgstr "Condizione Temporale:"
 
 #: timeconditions.i18n.php:18
 msgid "Time Condition Module"
 msgstr ""
 
 #: page.timeconditions.php:89
-msgid "Time Condition name:"
-msgstr "Nome Condizione Temporale:"
+msgid "Time Condition name"
+msgstr "Nome Condizione Temporale"
 
 #: page.timeconditions.php:51
-msgid "Time Condition:"
-msgstr "Condizione Temporale:"
+msgid "Time Condition"
+msgstr "Condizione Temporale"
 
 #: functions.inc.php:21 functions.inc.php:287
 #, php-format
@@ -364,24 +364,24 @@ msgstr "Condizioni Temporali"
 
 #: functions.inc.php:682 functions.inc.php:691 functions.inc.php:711
 #: page.timegroups.php:12
-msgid "Time Group"
-msgstr "Gruppo Temporale"
-
-#: page.timeconditions.php:135
 msgid "Time Group:"
 msgstr "Gruppo Temporale:"
+
+#: page.timeconditions.php:135
+msgid "Time Group"
+msgstr "Gruppo Temporale"
 
 #: timeconditions.i18n.php:14
 msgid "Time Groups"
 msgstr "Gruppi Temporali"
 
 #: functions.inc.php:965
-msgid "Time to finish:"
-msgstr "Ora finale:"
+msgid "Time to finish"
+msgstr "Ora finale"
 
 #: functions.inc.php:910
-msgid "Time to start:"
-msgstr "Ora iniziale:"
+msgid "Time to start"
+msgstr "Ora iniziale"
 
 #: functions.inc.php:1037 functions.inc.php:1100
 msgid "Tuesday"
@@ -409,12 +409,12 @@ msgid "Wednesday"
 msgstr "Mercoledì"
 
 #: functions.inc.php:1077
-msgid "Week Day finish:"
-msgstr "Giorno della settimana finale:"
+msgid "Week Day finish"
+msgstr "Giorno della settimana finale"
 
 #: functions.inc.php:1015
-msgid "Week Day start:"
-msgstr "Giorno della settimana iniziale:"
+msgid "Week Day start"
+msgstr "Giorno della settimana iniziale"
 
 #: page.timeconditions.php:187
 msgid ""

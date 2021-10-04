@@ -34,7 +34,7 @@ msgstr ""
 "seleccionado si está instalado."
 
 msgid "Allows you to set the language for this DID."
-msgstr ""
+msgstr "Le permite seleccionar el idioma para este DID"
 
 #, php-format
 msgid "Language Change: %s"

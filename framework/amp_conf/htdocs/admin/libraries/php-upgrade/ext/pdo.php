@@ -142,7 +142,7 @@ class PDO {
 	 * Public constructor
 	 *	http://us2.php.net/manual/en/function.pdo-construct.php
 	 */
-	function PDO($string_dsn, $string_username = '', $string_password = '', $array_driver_options = null) {
+	function __construct($string_dsn, $string_username = '', $string_password = '', $array_driver_options = null) {
 		$con = &$this->__getDNS($string_dsn);
 		if($con['dbtype'] === 'mysql') {
 			#<builtin>#require_once('PDO_mysql.class.php');
@@ -342,7 +342,7 @@ class PDO_mysql {
          * @Param	String		database user
          * @Param	String		database password
 	 */
-	function PDO_mysql(&$host, &$db, &$user, &$pass) {
+	function __construct(&$host, &$db, &$user, &$pass) {
 		if(!@$this->__connection = &mysql_connect($host, $user, $pass))
 			$this->__setErrors('DBCON');
 		else {
@@ -610,7 +610,7 @@ class PDOStatement_mysql {
          * @Param	Resource	database connection
          * @Param	Array		4 elements array to manage connection
 	 */
-	function PDOStatement_mysql(&$__query, &$__connection, &$__dbinfo) {
+	function __construct(&$__query, &$__connection, &$__dbinfo) {
 		$this->__query = &$__query;
 		$this->__connection = &$__connection;
 		$this->__dbinfo = &$__dbinfo;

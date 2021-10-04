@@ -95,6 +95,17 @@ function trunkbalance_add($post){
 	$url_timeout = $db->escapeSimple($post['url_timeout']);
 	$regex = $db->escapeSimple($post['regex']);
 
+	if($billingtime=='') $billingtime='00:00:00';
+	if($billingdate=='') $billingdate=0;
+	if($billingperiod=='') $billingperiod=0;
+	if($endingdate=='') $endingdate='0000-00-00 00:00:00';
+	if($loadratio=='') $loadratio=1;
+	if($maxtime=='') $maxtime=-1;
+	if($maxnumber=='') $maxnumber=-1;
+	if($maxidentical=='') $maxidentical=-1;
+	$timegroup_id = intval($timegroup_id);
+	if($url_timeout=='') $url_timeout=10;
+
 	$results = sql("
 		INSERT INTO trunkbalance
 			(desttrunk_id,
@@ -176,6 +187,17 @@ function trunkbalance_edit($id,$post){
 	$url_timeout = $db->escapeSimple($post['url_timeout']);
 	$regex = $db->escapeSimple($post['regex']);
 
+	if($billingtime=='') $billingtime='00:00:00';
+        if($billingdate=='') $billingdate=0;
+        if($billingperiod=='') $billingperiod=0;
+        if($endingdate=='') $endingdate='0000-00-00 00:00:00';
+        if($loadratio=='') $loadratio=1;
+        if($maxtime=='') $maxtime=-1;
+        if($maxnumber=='') $maxnumber=-1;
+        if($maxidentical=='') $maxidentical=-1;
+        $timegroup_id = intval($timegroup_id);
+	if($url_timeout=='') $url_timeout=10;
+
 	$olddescription=sql("SELECT `description`FROM `trunkbalance` WHERE trunkbalance_id='$id'","getOne");
 
 	$results = sql("
@@ -229,7 +251,7 @@ function trunkbalance_vercheck() {
 	// compare version numbers of local module.xml and remote module.xml 
 	// returns true if a new version is available
 	$newver = false;
-	$module_local = trunkbalance_xml2array("modules/trunkbalance/module.xml");
+	$module_local = trunkbalance_xml2array("admin/modules/trunkbalance/module.xml");
 	$module_remote = trunkbalance_xml2array("https://raw.github.com/POSSA/freepbx-trunk-balancing/master/module.xml");
 	if ( $foo= empty($module_local) or $bar = empty($module_remote) )
 	{

@@ -57,7 +57,7 @@ msgid "August"
 msgstr "Augusti"
 
 #: page.timeconditions.php:121
-msgid "Change Override:"
+msgid "Change Override"
 msgstr ""
 
 #: install.php:214
@@ -73,7 +73,7 @@ msgid ""
 msgstr ""
 
 #: page.timeconditions.php:117
-msgid "Current Override:"
+msgid "Current Override"
 msgstr ""
 
 #: functions.inc.php:1303 functions.inc.php:1402
@@ -190,20 +190,20 @@ msgid "Monday"
 msgstr "Måndag"
 
 #: functions.inc.php:1175
-msgid "Month Day finish:"
-msgstr "Slutdag:"
+msgid "Month Day finish"
+msgstr "Slutdag"
 
 #: functions.inc.php:1140
-msgid "Month Day start:"
-msgstr "Startdag:"
+msgid "Month Day start"
+msgstr "Startdag"
 
 #: functions.inc.php:1309
-msgid "Month finish:"
-msgstr "Slutmånad:"
+msgid "Month finish"
+msgstr "Slutmånad"
 
 #: functions.inc.php:1194
-msgid "Month start:"
-msgstr "Startmånad:"
+msgid "Month start"
+msgstr "Startmånad"
 
 #: functions.inc.php:722
 msgid "New Time"
@@ -272,8 +272,8 @@ msgid "September"
 msgstr "September"
 
 #: page.timegroups.php:17
-msgid "Server time:"
-msgstr "Servertid:"
+msgid "Server time"
+msgstr "Servertid"
 
 #: page.timeconditions.php:176
 msgid "Submit"
@@ -338,20 +338,20 @@ msgid "Thursday"
 msgstr "Torsdag"
 
 #: page.timeconditions.php:48
-msgid "Time Condition"
-msgstr "Tidsvillkor"
+msgid "Time Condition:"
+msgstr "Tidsvillkor:"
 
 #: timeconditions.i18n.php:18
 msgid "Time Condition Module"
 msgstr ""
 
 #: page.timeconditions.php:89
-msgid "Time Condition name:"
-msgstr "Namn för tidsvillkor:"
+msgid "Time Condition name"
+msgstr "Namn för tidsvillkor"
 
 #: page.timeconditions.php:51
-msgid "Time Condition:"
-msgstr "Tidsvillkor:"
+msgid "Time Condition"
+msgstr "Tidsvillkor"
 
 #: functions.inc.php:21 functions.inc.php:287
 #, php-format
@@ -364,24 +364,24 @@ msgstr "Tidsvillkor"
 
 #: functions.inc.php:682 functions.inc.php:691 functions.inc.php:711
 #: page.timegroups.php:12
-msgid "Time Group"
-msgstr "Tidgrupp"
+msgid "Time Group:"
+msgstr "Tidgrupp:"
 
 #: page.timeconditions.php:135
-msgid "Time Group:"
-msgstr "Tidgrupp"
+msgid "Time Group"
+msgstr "Tidgrup"
 
 #: timeconditions.i18n.php:14
 msgid "Time Groups"
 msgstr "Tidgrupper"
 
 #: functions.inc.php:965
-msgid "Time to finish:"
-msgstr "Sluttid:"
+msgid "Time to finish"
+msgstr "Sluttid"
 
 #: functions.inc.php:910
-msgid "Time to start:"
-msgstr "Startid:"
+msgid "Time to start"
+msgstr "Startid"
 
 #: functions.inc.php:1037 functions.inc.php:1100
 msgid "Tuesday"
@@ -409,12 +409,12 @@ msgid "Wednesday"
 msgstr "Onsdag"
 
 #: functions.inc.php:1077
-msgid "Week Day finish:"
-msgstr "Slut veckodag:"
+msgid "Week Day finish"
+msgstr "Slut veckodag"
 
 #: functions.inc.php:1015
-msgid "Week Day start:"
-msgstr "Start veckodag:"
+msgid "Week Day start"
+msgstr "Start veckodag"
 
 #: page.timeconditions.php:187
 msgid ""

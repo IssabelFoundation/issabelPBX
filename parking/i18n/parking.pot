@@ -77,25 +77,25 @@ msgstr ""
 msgid "Parking Lot Options"
 msgstr ""
 
-msgid "Parking Lot Extension:"
+msgid "Parking Lot Extension"
 msgstr ""
 
 msgid "This is the extension where you will transfer a call to park it"
 msgstr ""
 
-msgid "Parking Lot Name:"
+msgid "Parking Lot Name"
 msgstr ""
 
 msgid "Provide a Descriptive Title for this Parking Lot"
 msgstr ""
 
-msgid "Parking Lot Starting Position:"
+msgid "Parking Lot Starting Position"
 msgstr ""
 
 msgid "The starting postion of the parking lot"
 msgstr ""
 
-msgid "Number of Slots:"
+msgid "Number of Slots"
 msgstr ""
 
 msgid ""
@@ -103,7 +103,7 @@ msgid ""
 "extension and 8 slots are configured, the parking slots will be 71-78"
 msgstr ""
 
-msgid "Parking Timeout (seconds):"
+msgid "Parking Timeout (seconds)"
 msgstr ""
 
 msgid ""
@@ -111,7 +111,7 @@ msgid ""
 "the original parker if not answered"
 msgstr ""
 
-msgid "Parked Music Class:"
+msgid "Parked Music Class"
 msgstr ""
 
 msgid ""
@@ -124,7 +124,7 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-msgid "BLF Capabilities:"
+msgid "BLF Capabilities"
 msgstr ""
 
 msgid "Enable this to have Asterisk 'hints' generated to use with BLF buttons."
@@ -136,7 +136,7 @@ msgstr ""
 msgid "Disable"
 msgstr ""
 
-msgid "Find Slot:"
+msgid "Find Slot"
 msgstr ""
 
 msgid ""
@@ -154,7 +154,7 @@ msgstr ""
 msgid "Returned Call Behavior"
 msgstr ""
 
-msgid "Pickup Courtesy Tone:"
+msgid "Pickup Courtesy Tone"
 msgstr ""
 
 msgid "Whom to play the courtesy tone to when a parked call is retrieved."
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Both"
 msgstr ""
 
-msgid "Transfer Capability:"
+msgid "Transfer Capability"
 msgstr ""
 
 msgid ""
@@ -180,7 +180,7 @@ msgstr ""
 msgid "Neither"
 msgstr ""
 
-msgid "Re-Parking Capability:"
+msgid "Re-Parking Capability"
 msgstr ""
 
 msgid ""
@@ -188,7 +188,7 @@ msgid ""
 "picking up a parked call."
 msgstr ""
 
-msgid "Parking Alert-Info:"
+msgid "Parking Alert-Info"
 msgstr ""
 
 msgid ""
@@ -196,7 +196,7 @@ msgid ""
 "the Alternate Destination."
 msgstr ""
 
-msgid "CallerID Prepend:"
+msgid "CallerID Prepend"
 msgstr ""
 
 msgid ""
@@ -204,7 +204,7 @@ msgid ""
 "prior to sending back to the Originator or the Alternate Destination."
 msgstr ""
 
-msgid "Auto CallerID Prepend:"
+msgid "Auto CallerID Prepend"
 msgstr ""
 
 msgid ""
@@ -228,7 +228,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-msgid "Announcement:"
+msgid "Announcement"
 msgstr ""
 
 msgid ""
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Alternate Destination"
 msgstr ""
 
-msgid "Come Back to Origin:"
+msgid "Come Back to Origin"
 msgstr ""
 
 msgid ""
@@ -261,7 +261,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-msgid "Destination:"
+msgid "Destination"
 msgstr ""
 
 msgid "Submit Changes"

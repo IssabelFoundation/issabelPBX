@@ -62,8 +62,8 @@ msgid "August"
 msgstr "Август"
 
 #: page.timeconditions.php:121
-msgid "Change Override:"
-msgstr "Промяна на Отмяна:"
+msgid "Change Override"
+msgstr "Промяна на Отмяна"
 
 #: install.php:214
 msgid "Checking for old timeconditions to upgrade.."
@@ -82,8 +82,8 @@ msgstr ""
 "време да се насочва към IVR."
 
 #: page.timeconditions.php:117
-msgid "Current Override:"
-msgstr "Текуща Отмяна:"
+msgid "Current Override"
+msgstr "Текуща Отмяна"
 
 #: functions.inc.php:1303 functions.inc.php:1402
 msgid "December"
@@ -197,20 +197,20 @@ msgid "Monday"
 msgstr "Понеделник"
 
 #: functions.inc.php:1175
-msgid "Month Day finish:"
-msgstr "Ден от месеца за край:"
+msgid "Month Day finish"
+msgstr "Ден от месеца за край"
 
 #: functions.inc.php:1140
-msgid "Month Day start:"
-msgstr "Ден от месеца за начало:"
+msgid "Month Day start"
+msgstr "Ден от месеца за начало"
 
 #: functions.inc.php:1309
-msgid "Month finish:"
-msgstr "Месец за край:"
+msgid "Month finish"
+msgstr "Месец за край"
 
 #: functions.inc.php:1194
-msgid "Month start:"
-msgstr "Месец за начало:"
+msgid "Month start"
+msgstr "Месец за начало"
 
 #: functions.inc.php:722
 msgid "New Time"
@@ -279,8 +279,8 @@ msgid "September"
 msgstr "Септември"
 
 #: page.timegroups.php:17
-msgid "Server time:"
-msgstr "Сървърно Време:"
+msgid "Server time"
+msgstr "Сървърно Време"
 
 #: page.timeconditions.php:176
 msgid "Submit"
@@ -347,20 +347,20 @@ msgid "Thursday"
 msgstr "Четвъртък"
 
 #: page.timeconditions.php:48
-msgid "Time Condition"
-msgstr "Времево Условие"
+msgid "Time Condition:"
+msgstr "Времево Условие:"
 
 #: timeconditions.i18n.php:18
 msgid "Time Condition Module"
 msgstr "Модул Времеви Условия"
 
 #: page.timeconditions.php:89
-msgid "Time Condition name:"
-msgstr "Име на Времево Условие:"
+msgid "Time Condition name"
+msgstr "Име на Времево Условие"
 
 #: page.timeconditions.php:51
-msgid "Time Condition:"
-msgstr "Времево Условие:"
+msgid "Time Condition"
+msgstr "Времево Условие"
 
 #: functions.inc.php:21 functions.inc.php:287
 #, php-format
@@ -373,24 +373,24 @@ msgstr "Времеви Условия"
 
 #: functions.inc.php:682 functions.inc.php:691 functions.inc.php:711
 #: page.timegroups.php:12
-msgid "Time Group"
-msgstr "Времева Група"
-
-#: page.timeconditions.php:135
 msgid "Time Group:"
 msgstr "Времева Група:"
+
+#: page.timeconditions.php:135
+msgid "Time Group"
+msgstr "Времева Група"
 
 #: timeconditions.i18n.php:14
 msgid "Time Groups"
 msgstr "Времеви Групи"
 
 #: functions.inc.php:965
-msgid "Time to finish:"
-msgstr "Време (час/минути) за край:"
+msgid "Time to finish"
+msgstr "Време (час/минути) за край"
 
 #: functions.inc.php:910
-msgid "Time to start:"
-msgstr "Време (час/минути) за начало:"
+msgid "Time to start"
+msgstr "Време (час/минути) за начало"
 
 #: functions.inc.php:1037 functions.inc.php:1100
 msgid "Tuesday"
@@ -418,12 +418,12 @@ msgid "Wednesday"
 msgstr "Сряда"
 
 #: functions.inc.php:1077
-msgid "Week Day finish:"
-msgstr "Ден от седмицата за край:"
+msgid "Week Day finish"
+msgstr "Ден от седмицата за край"
 
 #: functions.inc.php:1015
-msgid "Week Day start:"
-msgstr "Ден от седмицата за начало:"
+msgid "Week Day start"
+msgstr "Ден от седмицата за начало"
 
 #: page.timeconditions.php:187
 msgid ""

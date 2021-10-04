@@ -3642,8 +3642,8 @@ msgstr ""
 "dezactiva"
 
 #: ../core/page.routing.php:497 ../core/page.trunks.php:611
-msgid "Rules:"
-msgstr "Reguli:"
+msgid "Rules"
+msgstr "Reguli"
 
 #: amp_conf/htdocs/admin/views/menu.php:152
 msgid "Russian"
@@ -4215,7 +4215,7 @@ msgid "This user/extension %s is already in use"
 msgstr "Acest utilizator/extensie %s este deja in uz"
 
 #: ../core/page.routing.php:454
-msgid "Time Group:"
+msgid "Time Group"
 msgstr ""
 
 #: amp_conf/htdocs/admin/views/login.php:12

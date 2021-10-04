@@ -136,9 +136,6 @@ msgstr "カンファレンス"
 msgid "deleted"
 msgstr "削除されました"
 
-msgid "Conference:"
-msgstr "カンファレンス："
-
 #, php-format
 msgid "Delete Conference %s"
 msgstr "カンファレンスの削除 %s"
@@ -149,20 +146,20 @@ msgstr "内線の競合"
 msgid "Edit Conference"
 msgstr "カンファレンスの編集"
 
-msgid "Conference Number:"
-msgstr "カンファレンス番号："
+msgid "Conference Number"
+msgstr "カンファレンス番号"
 
 msgid "Use this number to dial into the conference."
 msgstr "カンファレンスにダイヤルインするのにこの番号を使用します。"
 
-msgid "Conference Name:"
-msgstr "カンファレンス名："
+msgid "Conference Name"
+msgstr "カンファレンス名"
 
 msgid "Give this conference a brief name to help you identify it."
 msgstr "認識しやすいように、このカンファレンスに簡潔な名前を付けます。"
 
-msgid "User PIN:"
-msgstr "ユーザーPIN："
+msgid "User PIN"
+msgstr "ユーザーPIN"
 
 msgid ""
 "You can require callers to enter a password before they can enter this "
@@ -173,8 +170,8 @@ msgstr ""
 "とができます。<br><br>この設定はオプションです。<br><br>どちらかのPINが入力さ"
 "れた場合、ユーザーにはPINの入力プロンプトが表示されます。"
 
-msgid "Admin PIN:"
-msgstr "管理者PIN："
+msgid "Admin PIN"
+msgstr "管理者PIN"
 
 msgid ""
 "Enter a PIN number for the admin user.<br><br>This setting is optional "
@@ -188,8 +185,8 @@ msgstr ""
 msgid "Conference Options"
 msgstr "カンファレンスオプション"
 
-msgid "Join Message:"
-msgstr "参加メッセージ："
+msgid "Join Message"
+msgstr "参加メッセージ"
 
 msgid ""
 "Message to be played to the caller before joining the conference.<br><br>To "
@@ -209,8 +206,8 @@ msgstr ""
 "カンファレンスに参加する前に発信者に再生されるメッセージ。<br><br>このオプションを編集するには\"システム録音\"モジュールをインストールし有効にし"
 "なければなりません"
 
-msgid "Leader Wait:"
-msgstr "リーダー待ち："
+msgid "Leader Wait"
+msgstr "リーダー待ち"
 
 msgid ""
 "Wait until the conference leader (admin user) arrives before starting the "
@@ -223,8 +220,8 @@ msgstr "いいえ"
 msgid "Yes"
 msgstr "はい"
 
-msgid "Talker Optimization:"
-msgstr "話者最適化："
+msgid "Talker Optimization"
+msgstr "話者最適化"
 
 msgid ""
 "Turns on talker optimization. With talker optimization, Asterisk treats "
@@ -240,8 +237,8 @@ msgstr ""
 "ず、話として登録されていない受信音声は省略され、バックグラウンドノイズが発生"
 "しません。"
 
-msgid "Talker Detection:"
-msgstr "話者検知："
+msgid "Talker Detection"
+msgstr "話者検知"
 
 msgid ""
 "Sets talker detection. Asterisk will sends events on the Manager Interface "
@@ -254,32 +251,32 @@ msgstr ""
 "ターフェイスにイベントを送信します。meetmeリストCLIコマンドの出力によっても話"
 "者は識別されます。"
 
-msgid "Quiet Mode:"
-msgstr "サイレントモード："
+msgid "Quiet Mode"
+msgstr "サイレントモード"
 
 msgid "Quiet mode (do not play enter/leave sounds)"
 msgstr "サイレントモード(入室/退出音を再生しない)"
 
-msgid "User Count:"
-msgstr "ユーザー数カウント："
+msgid "User Count"
+msgstr "ユーザー数カウント"
 
 msgid "Announce user(s) count on joining conference"
 msgstr "カンファレンスに参加しているユーザーの数をアナウンスします"
 
-msgid "User join/leave:"
-msgstr "ユーザー参加/退出："
+msgid "User join/leave"
+msgstr "ユーザー参加/退出"
 
 msgid "Announce user join/leave"
 msgstr "ユーザーの参加/退出をアナウンスします"
 
-msgid "Music on Hold:"
-msgstr "保留音："
+msgid "Music on Hold"
+msgstr "保留音"
 
 msgid "Enable Music On Hold when the conference has a single caller"
 msgstr "カンファレンスの参加者が一人の場合は保留音を有効にします"
 
-msgid "Music on Hold Class:"
-msgstr "保留クラス音："
+msgid "Music on Hold Class"
+msgstr "保留クラス音"
 
 msgid ""
 "Music (or Commercial) played to the caller while they wait in line for the "
@@ -298,21 +295,21 @@ msgstr "継承"
 msgid "default"
 msgstr "デフォルト"
 
-msgid "Allow Menu:"
-msgstr "メニューを許可："
+msgid "Allow Menu"
+msgstr "メニューを許可"
 
 msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
 msgstr ""
 "'*'が押された際に(ユーザーor管理者)メニューを流します。(メニューに'送る')"
 
-msgid "Record Conference:"
-msgstr "カンファレンスを録音："
+msgid "Record Conference"
+msgstr "カンファレンスを録音"
 
 msgid "Record the conference call"
 msgstr "カンファレンス通話を録音します"
 
-msgid "Maximum Participants:"
-msgstr "最大参加者数："
+msgid "Maximum Participants"
+msgstr "最大参加者数"
 
 msgid "Maximum Number of users allowed to join this conference."
 msgstr "このカンファレンスに参加が許可される最大ユーザー数。"
@@ -320,8 +317,8 @@ msgstr "このカンファレンスに参加が許可される最大ユーザー
 msgid "No Limit"
 msgstr "無制限"
 
-msgid "Mute on Join:"
-msgstr "参加時にミュートします："
+msgid "Mute on Join"
+msgstr "参加時にミュートします"
 
 msgid ""
 "Mute everyone when they initially join the conference. Please note that if "

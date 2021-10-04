@@ -51,6 +51,12 @@ if ($action == 'delete') {
     //get details for this time condition
     $thisItem = disa_get($itemid);
 
+    if(is_null($thisItem)) {
+        $thisItem['hangup']='';
+        $thisItem['needconf']='';
+        $thisItem['keepcid']='';
+    }
+
     echo "<h2>".($itemid ? "DISA: ".$thisItem["displayname"]." ($itemid)" : _("Add DISA"))."</h2>\n";
 
     echo "<p>"._('DISA is used to allow people from the outside world to call into your PBX and then be able to dial out of the PBX so it appears that their call is coming from the office which can be handy when traveling. You can set a destination in an IVR that points to the DISA or set a DID. Make sure you password protect this to keep people from dialing in and using your PBX to make calls out.')."</p>\n"; 
@@ -118,8 +124,8 @@ if ($action == 'delete') {
         <td><a href="#" class="info"><?php echo _("Caller ID Override"); ?><span><?php echo _("Determine if we keep the Caller ID being presented or if we override it. Default is Enable"); ?></span></a></td>
                                 <td>
             <span class="radioset">
-                <input type="radio" name="keepcid" id="keepcid0" tabindex="" value="0" <?php echo (isset($thisItem['keepcid']) && $thisItem['keepcid']!=true)?'CHECKED':''; ?>><label for="keepcid0">Disable</label>
-                <input type="radio" name="keepcid" id="keepcid1" tabindex="" value="1" <?php echo ($thisItem['keepcid'] || !isset($thisItem['keepcid']))?'CHECKED':''; ?>><label for="keepcid1">Enable</label>
+                <input type="radio" name="keepcid" id="keepcid0" tabindex="" value="0" <?php echo (isset($thisItem['keepcid']) && $thisItem['keepcid']!=true)?'CHECKED':''; ?>><label for="keepcid0"><?php echo _('Disable');?></label>
+                <input type="radio" name="keepcid" id="keepcid1" tabindex="" value="1" <?php echo ($thisItem['keepcid'] || !isset($thisItem['keepcid']))?'CHECKED':''; ?>><label for="keepcid1"><?php echo _('Enable');?></label>
             </span>
         </td>
     </tr>

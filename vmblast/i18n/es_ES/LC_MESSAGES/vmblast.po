@@ -78,7 +78,7 @@ msgid "is not allowed for your account"
 msgstr "no está permitido en su cuenta"
 
 msgid "Add VMBlast Group"
-msgstr "Agregar Grupo de Correo de Voz Masivo"
+msgstr "Añadir Grupo de Correo de Voz Masivo"
 
 msgid " [DEFAULT]"
 msgstr " [OMISION]"

@@ -49,7 +49,7 @@ msgid "Conference: %s"
 msgstr "Conferenza: %s"
 
 msgid "Conference: "
-msgstr "Conferenza:"
+msgstr "Conferenza: "
 
 msgid "Checking if music field present.."
 msgstr ""
@@ -115,9 +115,6 @@ msgstr "Conferenza"
 msgid "deleted"
 msgstr "eliminata"
 
-msgid "Conference:"
-msgstr "Conferenza:"
-
 #, php-format
 msgid "Delete Conference %s"
 msgstr "Elimina Conferenza %s"
@@ -128,20 +125,20 @@ msgstr "Interni in conflitto"
 msgid "Edit Conference"
 msgstr "Modifica Conferenza"
 
-msgid "Conference Number:"
-msgstr "Numero Conferenza:"
+msgid "Conference Number"
+msgstr "Numero Conferenza"
 
 msgid "Use this number to dial into the conference."
 msgstr "Utilizzare questo numero per entrare nella conferenza."
 
-msgid "Conference Name:"
-msgstr "Nome Conferenza:"
+msgid "Conference Name"
+msgstr "Nome Conferenza"
 
 msgid "Give this conference a brief name to help you identify it."
 msgstr "Dare alla conferenza un nome breve per una facile identificazione."
 
-msgid "User PIN:"
-msgstr "PIN utente:"
+msgid "User PIN"
+msgstr "PIN utente"
 
 msgid ""
 "You can require callers to enter a password before they can enter this "
@@ -152,8 +149,8 @@ msgstr ""
 "conferenza.<br><br>Questa impostazione è opzionale.<br><br>Se nessun PIN è "
 "stato inserito il sistema richiederà di digitarlo."
 
-msgid "Admin PIN:"
-msgstr "PIN amministratore:"
+msgid "Admin PIN"
+msgstr "PIN amministratore"
 
 msgid ""
 "Enter a PIN number for the admin user.<br><br>This setting is optional "
@@ -167,8 +164,8 @@ msgstr ""
 msgid "Conference Options"
 msgstr "Opzioni Conferenza"
 
-msgid "Join Message:"
-msgstr "Messaggio di ingresso:"
+msgid "Join Message"
+msgstr "Messaggio di ingresso"
 
 msgid ""
 "Message to be played to the caller before joining the conference.<br><br>To "
@@ -190,8 +187,8 @@ msgstr ""
 "conferenza.<br><br>Bisogna installare e attivare il modulo \"Registrazioni "
 "di Sistema\" prima di modificare questa opzione."
 
-msgid "Leader Wait:"
-msgstr "Attendere l'amministratore:"
+msgid "Leader Wait"
+msgstr "Attendere l'amministratore"
 
 msgid ""
 "Wait until the conference leader (admin user) arrives before starting the "
@@ -205,7 +202,7 @@ msgstr "No"
 msgid "Yes"
 msgstr "Sì"
 
-msgid "Talker Optimization:"
+msgid "Talker Optimization"
 msgstr ""
 
 msgid ""
@@ -218,7 +215,7 @@ msgid ""
 "buildup in background noise."
 msgstr ""
 
-msgid "Talker Detection:"
+msgid "Talker Detection"
 msgstr ""
 
 msgid ""
@@ -229,33 +226,33 @@ msgid ""
 "the meetme list CLI command."
 msgstr ""
 
-msgid "Quiet Mode:"
-msgstr "Modalità silenziosa:"
+msgid "Quiet Mode"
+msgstr "Modalità silenziosa"
 
 msgid "Quiet mode (do not play enter/leave sounds)"
 msgstr ""
 "Attiva la modalità silenziosa, non riproduce i suoni quando si entra o esce "
 "dalla conferenza"
 
-msgid "User Count:"
-msgstr "Conteggio Utente:"
+msgid "User Count"
+msgstr "Conteggio Utente"
 
 msgid "Announce user(s) count on joining conference"
 msgstr "Annuncia il conteggio degli utenti quando entrano in conferenza"
 
-msgid "User join/leave:"
-msgstr "Ingresso/uscita utenti:"
+msgid "User join/leave"
+msgstr "Ingresso/uscita utenti"
 
 msgid "Announce user join/leave"
 msgstr "Annucia l'ingresso/uscita degli utenti"
 
-msgid "Music on Hold:"
+msgid "Music on Hold"
 msgstr "Musica di Attesa"
 
 msgid "Enable Music On Hold when the conference has a single caller"
 msgstr "Attiva la Musica di Attesa quando c'è solo un utente nella conferenza"
 
-msgid "Music on Hold Class:"
+msgid "Music on Hold Class"
 msgstr ""
 
 msgid ""
@@ -271,21 +268,21 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-msgid "Allow Menu:"
-msgstr "Permetti Menu:"
+msgid "Allow Menu"
+msgstr "Permetti Menu"
 
 msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
 msgstr ""
 "Presenta il menu (utente o amministratore) quando si preme '*' ('invia' al "
 "menu)"
 
-msgid "Record Conference:"
-msgstr "Registrare Conferenza:"
+msgid "Record Conference"
+msgstr "Registrare Conferenza"
 
 msgid "Record the conference call"
 msgstr "Registra la conferenza"
 
-msgid "Maximum Participants:"
+msgid "Maximum Participants"
 msgstr ""
 
 msgid "Maximum Number of users allowed to join this conference."
@@ -294,7 +291,7 @@ msgstr ""
 msgid "No Limit"
 msgstr ""
 
-msgid "Mute on Join:"
+msgid "Mute on Join"
 msgstr ""
 
 msgid ""

@@ -1,7 +1,6 @@
 <?php 
-
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
-
+$tabindex = 0;
 $display = 'dahdichandids';
 $type = isset($_REQUEST['type']) ? $_REQUEST['type'] :  'setup';
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] :  '';
@@ -76,18 +75,18 @@ echo "<p>".$helptext."</p>\n";
 	if ($extdisplay == '') {
 ?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Channel")?>:<span><?php echo _("The DAHDI Channel number to map to a DID")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Channel")?><span><?php echo _("The DAHDI Channel number to map to a DID")?></span></a></td>
 		<td><input size="5" type="text" name="channel" value="<?php  echo $channel; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 <?php
 	}
 ?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("A useful description describing this channel")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _("A useful description describing this channel")?></span></a></td>
 		<td><input size="40" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("DID")?>:<span><?php echo _("The DID that this channel represents. The incoming call on this channel will be treated as if it came in with this DID and can be managed with Inbound Routing on DIDs")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("DID")?><span><?php echo _("The DID that this channel represents. The incoming call on this channel will be treated as if it came in with this DID and can be managed with Inbound Routing on DIDs")?></span></a></td>
 		<td><input size="40" type="text" name="did" value="<?php echo $did; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td>
 	</tr>
 

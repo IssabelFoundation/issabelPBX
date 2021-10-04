@@ -63,20 +63,14 @@ msgstr "Редактирай"
 msgid "Add or replace entry"
 msgstr "Добави или замени въведен номер"
 
-msgid "Number/CallerID:"
-msgstr "Номер/CallerID:"
-
 msgid "Enter the number/CallerID you want to block"
 msgstr "Въведете номер/CallerID който искате да блокирате"
-
-msgid "Description:"
-msgstr "Описание:"
 
 msgid "Enter a description for the number you want to block"
 msgstr "Въведете описание за номера който искате да блокирате"
 
-msgid "Block Unknown/Blocked Caller ID:"
-msgstr "Блокирай Неразпознат/Блокиран Caller ID:"
+msgid "Block Unknown/Blocked Caller ID"
+msgstr "Блокирай Неразпознат/Блокиран Caller ID"
 
 msgid "Check here to catch Unknown/Blocked Caller ID"
 msgstr "Маркирайте за да улавяте Неразпознат/Блокиран Caller ID"

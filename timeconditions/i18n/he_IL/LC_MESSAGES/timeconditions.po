@@ -58,7 +58,7 @@ msgid "August"
 msgstr "אוגוסט"
 
 #: page.timeconditions.php:121
-msgid "Change Override:"
+msgid "Change Override"
 msgstr "שנה מעקף"
 
 #: install.php:214
@@ -74,8 +74,8 @@ msgid ""
 msgstr ""
 
 #: page.timeconditions.php:117
-msgid "Current Override:"
-msgstr "עקיפה נוכחי:"
+msgid "Current Override"
+msgstr "עקיפה נוכחי"
 
 #: functions.inc.php:1303 functions.inc.php:1402
 msgid "December"
@@ -188,20 +188,20 @@ msgid "Monday"
 msgstr "שני"
 
 #: functions.inc.php:1175
-msgid "Month Day finish:"
-msgstr "יום בחודש לסיים:"
+msgid "Month Day finish"
+msgstr "יום בחודש לסיים"
 
 #: functions.inc.php:1140
-msgid "Month Day start:"
-msgstr "יום בחודש להתחיל:"
+msgid "Month Day start"
+msgstr "יום בחודש להתחיל"
 
 #: functions.inc.php:1309
-msgid "Month finish:"
-msgstr "חודש סיום:"
+msgid "Month finish"
+msgstr "חודש סיום"
 
 #: functions.inc.php:1194
-msgid "Month start:"
-msgstr "חודש להתחיל:"
+msgid "Month start"
+msgstr "חודש להתחיל"
 
 #: functions.inc.php:722
 msgid "New Time"
@@ -267,8 +267,8 @@ msgid "September"
 msgstr "ספטמבר"
 
 #: page.timegroups.php:17
-msgid "Server time:"
-msgstr "שעה בשרת:"
+msgid "Server time"
+msgstr "שעה בשרת"
 
 #: page.timeconditions.php:176
 msgid "Submit"
@@ -333,20 +333,20 @@ msgid "Thursday"
 msgstr "חמישי"
 
 #: page.timeconditions.php:48
-msgid "Time Condition"
-msgstr "תנאי זמן"
+msgid "Time Condition:"
+msgstr "תנאי זמן:"
 
 #: timeconditions.i18n.php:18
 msgid "Time Condition Module"
 msgstr ""
 
 #: page.timeconditions.php:89
-msgid "Time Condition name:"
-msgstr "שם תנאי הזמן:"
+msgid "Time Condition name"
+msgstr "שם תנאי הזמן"
 
 #: page.timeconditions.php:51
-msgid "Time Condition:"
-msgstr "תנאי זמן:"
+msgid "Time Condition"
+msgstr "תנאי זמן"
 
 #: functions.inc.php:21 functions.inc.php:287
 #, php-format
@@ -359,11 +359,11 @@ msgstr "תנאיי זמנים"
 
 #: functions.inc.php:682 functions.inc.php:691 functions.inc.php:711
 #: page.timegroups.php:12
-msgid "Time Group"
-msgstr "קבוצת זמנים"
+msgid "Time Group:"
+msgstr "קבוצת זמנים:"
 
 #: page.timeconditions.php:135
-msgid "Time Group:"
+msgid "Time Group"
 msgstr "קבוצת זמנים"
 
 #: timeconditions.i18n.php:14
@@ -371,12 +371,12 @@ msgid "Time Groups"
 msgstr "קבוצות זמן"
 
 #: functions.inc.php:965
-msgid "Time to finish:"
-msgstr "זמן לסיים:"
+msgid "Time to finish"
+msgstr "זמן לסיים"
 
 #: functions.inc.php:910
-msgid "Time to start:"
-msgstr "זמן להתחיל:"
+msgid "Time to start"
+msgstr "זמן להתחיל"
 
 #: functions.inc.php:1037 functions.inc.php:1100
 msgid "Tuesday"
@@ -404,12 +404,12 @@ msgid "Wednesday"
 msgstr "רביעי"
 
 #: functions.inc.php:1077
-msgid "Week Day finish:"
-msgstr "יום בשבוע לסיים:"
+msgid "Week Day finish"
+msgstr "יום בשבוע לסיים"
 
 #: functions.inc.php:1015
-msgid "Week Day start:"
-msgstr "יום התחלה בשבוע:"
+msgid "Week Day start"
+msgstr "יום התחלה בשבוע"
 
 #: page.timeconditions.php:187
 msgid ""

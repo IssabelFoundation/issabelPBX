@@ -305,7 +305,7 @@ function dynroute_do_edit($id, $post) {
 		agi_query='$agi_query',
 		agi_var_name_res='$agi_var_name_res',
 		astvar_query='$astvar_query',
-		announcement_id='$annmsg_id',  
+		announcement_id=".intval($annmsg_id).",  
 		enable_dtmf_input='$enable_dtmf_input',  
 		timeout='$timeout',  
 		chan_var_name='$chan_var_name',  

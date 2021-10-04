@@ -3668,8 +3668,8 @@ msgstr ""
 "champ vide."
 
 #: ../core/page.routing.php:497 ../core/page.trunks.php:611
-msgid "Rules:"
-msgstr "Règles:"
+msgid "Rules"
+msgstr "Règles"
 
 #: amp_conf/htdocs/admin/views/menu.php:152
 msgid "Russian"
@@ -4237,7 +4237,7 @@ msgid "This user/extension %s is already in use"
 msgstr "L\\'extension %s est déjà utilisée"
 
 #: ../core/page.routing.php:454
-msgid "Time Group:"
+msgid "Time Group"
 msgstr ""
 
 #: amp_conf/htdocs/admin/views/login.php:12

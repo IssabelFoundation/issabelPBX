@@ -15,14 +15,14 @@ msgstr ""
 
 #, php-format
 msgid "Ring Group %s: "
-msgstr "Grupo de timbrado %s:"
+msgstr "Grupo de extensiones %s:"
 
 #, php-format
 msgid "Ring Group: %s"
-msgstr "Grupo de timbrado: %s"
+msgstr "Grupo de extensiones: %s"
 
 msgid "This ringgroup"
-msgstr "Este grupo de timbrado"
+msgstr "Este grupo de extensiones"
 
 msgid "is already in use"
 msgstr "ya está en uso"
@@ -32,7 +32,7 @@ msgstr "EN USO"
 
 #, php-format
 msgid "Ring Group: %s (%s)"
-msgstr "Grupo de timbrado: %s (%s)"
+msgstr "Grupo de extensiones: %s (%s)"
 
 msgid "added field cwignore to ringgroups table"
 msgstr ""
@@ -108,38 +108,38 @@ msgid "is not allowed for your account"
 msgstr "no está permitida por su cuenta."
 
 msgid "Add Ring Group"
-msgstr "Añadir grupo de timbrado"
+msgstr "Añadir grupo de extensiones"
 
 msgid "Ring Group"
-msgstr "Grupo de timbrado"
+msgstr "Grupo de extensiones"
 
 msgid "deleted"
 msgstr "eliminado"
 
 msgid "Delete Group"
-msgstr "Eliminar grupo de timbrado"
+msgstr "Eliminar grupo de extensiones"
 
 msgid "Conflicting Extensions"
 msgstr "Extensiones en conflicto"
 
 msgid "Edit Ring Group"
-msgstr "Editar grupo de timbrado"
+msgstr "Editar grupo de extensiones"
 
 msgid "Ring-Group Number"
-msgstr "Número del grupo de timbrado"
+msgstr "Número del grupo de extensiones"
 
 msgid "The number users will dial to ring extensions in this ring group"
 msgstr ""
 "El número al que los usuarios deberán llamar para contactar con este grupo "
-"de timbrado."
+"de extensiones."
 
 msgid "Group Description"
-msgstr "Descripción del grupo de timbrado:"
+msgstr "Descripción del grupo de extensiones"
 
 msgid "Provide a descriptive title for this Ring Group."
-msgstr "Indique una descripción para este grupo de timbrado."
+msgstr "Indique una descripción para este grupo de extensiones."
 
-msgid "Ring Strategy:"
+msgid "Ring Strategy"
 msgstr "Estrategia de Timbrado"
 
 msgid "ringall"
@@ -236,8 +236,8 @@ msgstr ""
 msgid "(pick extension)"
 msgstr "(Seleccione una extensión)"
 
-msgid "Announcement:"
-msgstr "Anuncio:"
+msgid "Announcement"
+msgstr "Anuncio"
 
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
@@ -350,8 +350,8 @@ msgstr ""
 "la tecla 1 en su teléfono antes de pasarle la llamada. Esta opción sólo "
 "funciona con la estrategia 'Sonar todos'."
 
-msgid "Remote Announce:"
-msgstr "Anuncio remoto:"
+msgid "Remote Announce"
+msgstr "Anuncio remoto"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
@@ -366,8 +366,8 @@ msgstr ""
 msgid "Default"
 msgstr "Por defecto"
 
-msgid "Too-Late Announce:"
-msgstr "Anuncio Demasiado Tarde:"
+msgid "Too-Late Announce"
+msgstr "Anuncio Demasiado Tarde"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "
@@ -400,7 +400,7 @@ msgid ""
 "Transmit the Fixed CID Value below on calls that come in from outside only. "
 "Internal extension to extension calls will continue to operate in default "
 "mode."
-msgstr ""
+msgstr "Transmite el valor CID fijo a continuación en las llamadas que provengan del exterior únicamente. Las llamadas internas de extensión a extensión seguirán funcionando en el modo predeterminado."
 
 msgid "Use Dialed Number"
 msgstr "Usar Número Marcado"
@@ -410,23 +410,23 @@ msgid ""
 "outside. Internal extension to extension calls will continue to operate in "
 "default mode. There must be a DID on the inbound route for this. This will "
 "be BLOCKED on trunks that block foreign CallerID"
-msgstr ""
+msgstr "Transmite el número que se marcó como CID para llamadas provenientes del exterior. Las llamadas internas de extensión a extensión seguirán funcionando en el modo predeterminado. Debe haber un DID en la ruta de entrada para esto. Esto se BLOQUEARÁ en los troncales que bloquean el CallerID externo"
 
 msgid "Force Dialed Number"
-msgstr ""
+msgstr "Forzar Número Marcado"
 
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
 "default mode. There must be a DID on the inbound route for this. This WILL "
 "be transmitted on trunks that block foreign CallerID"
-msgstr ""
+msgstr "Transmite el número que se marcó como CID para llamadas provenientes del exterior. Las llamadas internas de extensión a extensión seguirán funcionando en el modo predeterminado. Debe haber un DID en la ruta de entrada para esto. Esto se transmitirá en troncales que bloquean el identificador de llamadas externo"
 
 msgid ""
 "Fixed value to replace the CID with used with some of the modes above. "
 "Should be in a format of digits only with an option of E164 format using a "
 "leading \"+\"."
-msgstr ""
+msgstr "Valor fijo para reemplazar el CID con el que se usa con algunos de los modos anteriores. Debe tener un formato de dígitos solo con una opción de formato E164 con un \"+\" inicial"
 
 msgid "Call Recording"
 msgstr "Grabación de Llamadas"
@@ -438,7 +438,7 @@ msgid ""
 "You can always record calls that come into this ring group, never record "
 "them, or allow the extension that answers to do on-demand recording. If "
 "recording is denied then one-touch on demand recording will be blocked."
-msgstr ""
+msgstr "Siempre puede grabar las llamadas que entran en este grupo de extensiones, nunca grabarlas o permitir que la extensión que responde haga una grabación a pedido. Si se deniega la grabación, se bloqueará la grabación a pedido con un solo toque."
 
 msgid "Always"
 msgstr "Siempre"
@@ -489,3 +489,6 @@ msgid ""
 "callee has to confirm if they actually want to take the call before the "
 "caller is transferred."
 msgstr ""
+
+msgid "Ring Group Module"
+msgstr "Módulo de Grupo de extensions"

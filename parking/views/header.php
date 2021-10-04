@@ -11,4 +11,3 @@
 	</ul>
 </div>
 <h2><?php echo _('Parking Lot') ?></h2>
-<hr class="parking-hr"/>

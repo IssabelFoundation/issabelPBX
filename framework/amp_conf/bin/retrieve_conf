@@ -252,7 +252,8 @@ function report_errors($errno, $errstr, $errfile, $errline) {
     global $db;
     $escaped_string = $db->escapeSimple($errstr);
     issabelpbx_log(IPBX_LOG_ERROR, "php reported: '$escaped_string' after copy or unlink attempt!");
-    $conn_dirs = connectdirs::create();
+    $conn_dirs = new connectdirs;
+    $conn_dirs->create();
     $conn_dirs->add_cp_error($errstr."\n");
 }
 
@@ -335,7 +336,8 @@ if ($argc > 1) {
 // Define the notification class for logging to the dashboard
 //
 $nt = notifications::create($db);
-$con_dirs = connectdirs::create();
+$con_dirs = new connectdirs;
+$con_dirs->create();
 
 /*
  */
@@ -720,9 +722,7 @@ if(isset($active_modules) && is_array($active_modules)){
     ksort($funclist);
 
     //flatten the aray - will respect priority
-    $functions = array();
-    array_walk_recursive($funclist,
-        create_function('$a', 'global $functions; $functions[] = $a;'));
+    $functions = call_user_func_array('array_merge', $funclist);
 
     //run functions if they exists
     foreach ($functions as $function) {

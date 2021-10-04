@@ -235,7 +235,7 @@ function get_gif_image_height($image)
   $header_and_lsd = fread($fp, 13);
   fclose($fp); 
   // calc Height from Logical Screen Height bytes
-  $result = ord($header_and_lsd{8}) + ord($header_and_lsd{9}) * 255;
+  $result = ord($header_and_lsd[8]) + ord($header_and_lsd[9]) * 255;
   return $result;
 } 
 

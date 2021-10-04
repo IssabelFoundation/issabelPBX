@@ -44,12 +44,14 @@ if(file_exists("$documentRoot/modules/sec_advanced_settings/libs/paloSantoChange
 
        $advice = isset($arrLangModule['Unauthorized'])?$arrLangModule['Unauthorized']:'Unauthorized';
        $msg1   = isset($arrLangModule['You are not authorized to access this page.'])?$arrLangModule['You are not authorized to access this page.']:'You are not authorized to access this page.';
-       $msg2   = isset($arrLangModule["Enable direct access (Non-embedded) to IssabelBX in \"Security >> Advanced Security Settings\" menu."])?$arrLangModule["Enable direct access (Non-embedded) to IssabelPBX in \"Security >> Advanced Security Settings\" menu."]:"Enable direct access (Non-embedded) to IssabelPBX in \"Security >> Advanced Security Settings\" menu.";
+       $msg2   = isset($arrLangModule["Enable direct access (Non-embedded) to IssabelPBX in \"Security >> Advanced Security Settings\" menu."])?$arrLangModule["Enable direct access (Non-embedded) to IssabelPBX in \"Security >> Advanced Security Settings\" menu."]:"Enable direct access (Non-embedded) to IssabelPBX in \"Security >> Advanced Security Settings\" menu.";
        $title  = isset($arrLangModule['Advice'])?$arrLangModule['Advice']:'Advice';
+       $islicensed  = isset($arrLangModule['is licensed under'])?$arrLangModule['is licensed under']:'is licensed under';
 
        $template['content']['msg']   =  "<br /><b style='font-size:1.5em;'>$advice</b> <p>$msg1<br/>$msg2</p>";
        $template['content']['title'] = $title;
        $template['content']['theme'] = $arrConf['mainTheme'];
+       $template['content']['islicensed'] = $islicensed;
        showview("issabel_advice",$template);
        exit;
     }

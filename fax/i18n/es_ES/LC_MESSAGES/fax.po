@@ -111,42 +111,45 @@ msgid ""
 "This option is ONLY for supporting migrated legacy fax routes. You should "
 "upgrade this route by choosing YES, and selecting a valid destination!"
 msgstr ""
+"Legado: lo mismo que SI, sólo que podrá ingresar una dirección de email como "
+"el destino. Esta opción su usa solamente para rutas de fax migradas heredadas. "
+"Debería actualizar esta ruta eligiendo SI y eligiendo un destino válido!"
 
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
-msgstr ""
+msgstr "No se han detectado métodos de detección de fax. No es posible habilitar fax."
 
 msgid "No"
 msgstr ""
 
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 msgid "Legacy"
-msgstr ""
+msgstr "Legado"
 
 msgid "Fax Detection type"
-msgstr ""
+msgstr "Tipo de Detección de Fax"
 
 msgid "Type of fax detection to use."
-msgstr ""
+msgstr "Tipo de Detección de fax a utilizar."
 
 msgid "use "
-msgstr ""
+msgstr "usar "
 
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
-msgstr ""
+msgstr " detección de fax; requiere que 'faxdetect=' se configure como 'incoming' o 'both' en "
 
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
-msgstr ""
+msgstr "Sip: usar detección de fax SIP (t38). Requiere asterisk 1.6.2 o superior y faxdetect=yes en sip.conf"
 
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
-msgstr ""
+msgstr "NV Fax Detect: Utilizar detección de Fax NV. Requiere que el módulo NV esté instalado y funcionando"
 
 msgid "NVFax"
 msgstr ""
@@ -179,13 +182,13 @@ msgid ""
 "submit, this route will be upgraded. This Legacy option will no longer be "
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of IssabelPBX only."
-msgstr ""
+msgstr "Dirección para enviar faxes por correo electrónico cuando se detecte un fax. <br /> TENGA EN CUENTA: En esta versión de IssabelPBX, ahora puede configurar el destino del fax a partir de una lista de destinos. Las extensiones / usuarios pueden habilitarse por fax en la pantalla de usuario / extensión y establecer una dirección de correo electrónico allí. Esto creará un nuevo tipo de destino que se puede seleccionar. Para actualizar esta opción a la lista de destinos completa, seleccione SI para Detectar faxes y seleccione un destino. Después de hacer clic en enviar, esta ruta se actualizará. Esta opción heredada ya no estará disponible después del cambio, se proporciona para manejar migraciones heredadas de versiones anteriores de IssabelPBX solamente."
 
 msgid "Fax Destination"
-msgstr ""
+msgstr "Destino de Fax"
 
 msgid "Where to send the call if we detect that its a fax"
-msgstr ""
+msgstr "Dónde enviar la llamada si se detecta un fax"
 
 msgid "Dial System FAX"
 msgstr "Marcar Fax del Sistema"

@@ -264,8 +264,8 @@ msgstr "אינה מורשית עבור חשבונך."
 msgid "Add Queue"
 msgstr "הוסף תור"
 
-msgid "Queue"
-msgstr "תור"
+msgid "Queue:"
+msgstr "תור:"
 
 msgid "deleted"
 msgstr "נמחק"
@@ -276,14 +276,14 @@ msgstr "מחק תור"
 msgid "Conflicting Extensions"
 msgstr "התנגשות בין שלוחות"
 
-msgid "Queue:"
-msgstr "תור:"
+msgid "Queue"
+msgstr "תור"
 
 msgid "Edit Queue"
 msgstr "ערוך תור"
 
-msgid "Queue Number:"
-msgstr "מספר התור"
+msgid "Queue Number"
+msgstr "מספר התו"
 
 msgid ""
 "Use this number to dial into the queue, or transfer callers to this number "
@@ -298,14 +298,14 @@ msgstr ""
 "אחריו כדי לצאת מהתור.<br /><br />לדוגמא, אם מספר התור הוא 123:<br /><br /"
 "><b>123* = כניסה לשירות בתור<br />123** = יציאה מהשירות בתור</b>"
 
-msgid "Queue Name:"
-msgstr "שם התור:"
+msgid "Queue Name"
+msgstr "שם התור"
 
 msgid "Give this queue a brief name to help you identify it."
 msgstr "תן לתור זה שם קצר כדי לעזור לך לזהות אותו."
 
-msgid "Queue Password:"
-msgstr "סיסמא לתור"
+msgid "Queue Password"
+msgstr "סיסמא לתו"
 
 msgid ""
 "You can require agents to enter a password before they can log in to this "
@@ -315,8 +315,8 @@ msgstr ""
 "לתור.<br /><br />הגדרה זו היא רשות."
 
 #, fuzzy
-msgid "Queue No Answer:"
-msgstr "מספר התור"
+msgid "Queue No Answer"
+msgstr "מספר התו"
 
 msgid ""
 "If checked, the queue will not answer the call. Under most circumstance you "
@@ -328,8 +328,8 @@ msgid ""
 "member immediately available to take the call."
 msgstr ""
 
-msgid "Generate Device Hints:"
-msgstr ":Device Hints צור"
+msgid "Generate Device Hints"
+msgstr ":Device Hints צו"
 
 msgid ""
 "If checked, individual hints and dialplan will be generated for each SIP and "
@@ -341,7 +341,7 @@ msgid ""
 "number) and qqq is this queue's number."
 msgstr ""
 
-msgid "Call Confirm:"
+msgid "Call Confirm"
 msgstr ""
 
 msgid ""
@@ -352,8 +352,8 @@ msgid ""
 msgstr ""
 
 #, fuzzy
-msgid "Call Confirm Announce:"
-msgstr "הרכז מיקום בתור למתקשר"
+msgid "Call Confirm Announce"
+msgstr "הרכז מיקום בתור למתקש"
 
 msgid ""
 "Announcement played to the Queue Memeber announcing the Queue call and "
@@ -370,8 +370,8 @@ msgid "Default"
 msgstr "ברירת מחדל"
 
 #, fuzzy
-msgid "Call Confirm Announcement:"
-msgstr "הכרזת הצטרפות:"
+msgid "Call Confirm Announcement"
+msgstr "הכרזת הצטרפות"
 
 #, fuzzy
 msgid ""
@@ -382,8 +382,8 @@ msgstr ""
 "הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />אתה חייב להתקין ולהפעיל "
 "את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
 
-msgid "CID Name Prefix:"
-msgstr "קידומת לזיהוי מתקשר"
+msgid "CID Name Prefix"
+msgstr "קידומת לזיהוי מתקש"
 
 #, fuzzy
 msgid ""
@@ -395,8 +395,8 @@ msgstr ""
 "אם תקדים ב-\"Sales:\", אזי שיחה ממישהו ששמו John Doe תוצג בטלפון כך: "
 "\"Sales: John Doe\" בשלוחות שתצלצלנה."
 
-msgid "Wait Time Prefix:"
-msgstr "קידומת לזמן ההמתנה"
+msgid "Wait Time Prefix"
+msgstr "קידומת לזמן ההמתנ"
 
 msgid ""
 "When set to Yes, the CID Name will be prefixed with the total wait time in "
@@ -509,8 +509,8 @@ msgstr "שלוחה בלבד"
 msgid "General Queue Options"
 msgstr "אפשרויות תור"
 
-msgid "Ring Strategy:"
-msgstr "אסטרטגיית צלצול"
+msgid "Ring Strategy"
+msgstr "אסטרטגיית צלצו"
 
 msgid "ringall"
 msgstr "צלצל לכולם"
@@ -571,8 +571,8 @@ msgid ""
 "documentation for specifics"
 msgstr ""
 
-msgid "Autofill:"
-msgstr "מלא באופן אוטומטי"
+msgid "Autofill"
+msgstr "מלא באופן אוטומט"
 
 msgid ""
 "Starting with Asterisk 1.4, if this is checked, and multiple agents are "
@@ -583,8 +583,8 @@ msgid ""
 "documentation for more details of this feature."
 msgstr ""
 
-msgid "Skip Busy Agents:"
-msgstr "דלג על נציגים תפוסים"
+msgid "Skip Busy Agents"
+msgstr "דלג על נציגים תפוסי"
 
 msgid ""
 "When set to 'Yes' agents who are on an occupied phone will be skipped as if "
@@ -623,8 +623,8 @@ msgid ""
 "queue will deliver its calls first if there are agents common to both queues."
 msgstr ""
 
-msgid "Music on Hold Class:"
-msgstr "קטגורית המוזיקה בהמתנה לתור זה:"
+msgid "Music on Hold Class"
+msgstr "קטגורית המוזיקה בהמתנה לתור זה"
 
 msgid ""
 "Music (or Commercial) played to the caller while they wait in line for an "
@@ -642,8 +642,8 @@ msgstr "ללא"
 msgid "default"
 msgstr "ברירת מחדל"
 
-msgid "Ringing Instead of MoH:"
-msgstr "צלצול במקום מוזיקה בהתנה"
+msgid "Ringing Instead of MoH"
+msgstr "צלצול במקום מוזיקה בהתנ"
 
 msgid ""
 "Enabling this option make callers hear a ringing tone instead of Music on "
@@ -651,8 +651,8 @@ msgid ""
 "ignoring any configured periodic announcements configured."
 msgstr ""
 
-msgid "Join Announcement:"
-msgstr "הכרזת הצטרפות:"
+msgid "Join Announcement"
+msgstr "הכרזת הצטרפות"
 
 #, fuzzy
 msgid ""
@@ -672,8 +672,8 @@ msgstr ""
 "הכרזה שתושמע למתקשרים לפני הכניסה לתור.<br /><br />אתה חייב להתקין ולהפעיל "
 "את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
 
-msgid "Call Recording:"
-msgstr "הקלטת השיחות"
+msgid "Call Recording"
+msgstr "הקלטת השיחו"
 
 msgid ""
 "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
@@ -692,8 +692,8 @@ msgid "gsm"
 msgstr "gsm"
 
 #, fuzzy
-msgid "Recording Mode:"
-msgstr "הקלטת השיחות"
+msgid "Recording Mode"
+msgstr "הקלטת השיחו"
 
 msgid ""
 "Choose to 'Include Hold Time' in the recording so it starts as soon as they "
@@ -708,7 +708,7 @@ msgstr "הכרז זמן המתנה:"
 msgid "After Answered"
 msgstr ""
 
-msgid "Caller Volume Adjustment:"
+msgid "Caller Volume Adjustment"
 msgstr ""
 
 msgid "Adjust the recording volume of the caller."
@@ -718,13 +718,13 @@ msgid "No Adjustment"
 msgstr ""
 
 #, fuzzy
-msgid "Agent Volume Adjustment:"
-msgstr "הכרזה לנציג:"
+msgid "Agent Volume Adjustment"
+msgstr "הכרזה לנציג"
 
 msgid "Adjust the recording volume of the queue member (Agent)."
 msgstr ""
 
-msgid "Mark calls answered elsewhere:"
+msgid "Mark calls answered elsewhere"
 msgstr ""
 
 msgid ""
@@ -736,8 +736,8 @@ msgstr ""
 msgid "Timing & Agent Options"
 msgstr ""
 
-msgid "Max Wait Time:"
-msgstr "זמן המתנה מקסימלי"
+msgid "Max Wait Time"
+msgstr "זמן המתנה מקסימל"
 
 msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
@@ -750,8 +750,8 @@ msgid "Unlimited"
 msgstr "ללא הגבלה"
 
 #, fuzzy
-msgid "Max Wait Time Mode:"
-msgstr "זמן המתנה מקסימלי"
+msgid "Max Wait Time Mode"
+msgstr "זמן המתנה מקסימל"
 
 msgid ""
 "Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
@@ -769,8 +769,8 @@ msgstr "מוגבל"
 msgid "Loose"
 msgstr ""
 
-msgid "Agent Timeout:"
-msgstr "זמן מקסימלי לחיוג לנציג"
+msgid "Agent Timeout"
+msgstr "זמן מקסימלי לחיוג לנצי"
 
 msgid ""
 "The number of seconds an agent's phone can ring before we consider it a "
@@ -779,8 +779,8 @@ msgid ""
 msgstr ""
 
 #, fuzzy
-msgid "Agent Timeout Restart:"
-msgstr "זמן מקסימלי לחיוג לנציג"
+msgid "Agent Timeout Restart"
+msgstr "זמן מקסימלי לחיוג לנצי"
 
 msgid ""
 "If timeoutrestart is set to yes, then the time out for an agent to answer is "
@@ -788,8 +788,8 @@ msgid ""
 "able to cancel a call with reject or similar."
 msgstr ""
 
-msgid "Retry:"
-msgstr "ניסיון חוזר:"
+msgid "Retry"
+msgstr "ניסיון חוזר"
 
 msgid ""
 "The number of seconds we wait before trying all the phones again. Choosing "
@@ -801,8 +801,8 @@ msgstr ""
 msgid "No Retry"
 msgstr "ללא ניסיון חוזר"
 
-msgid "Wrap-Up-Time:"
-msgstr "זמן המתנה בין שיחה שהסתיימה לשיחה חדשה"
+msgid "Wrap-Up-Time"
+msgstr "זמן המתנה בין שיחה שהסתיימה לשיחה חדש"
 
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
@@ -813,8 +813,8 @@ msgid ""
 msgstr ""
 
 #, fuzzy
-msgid "Member Delay:"
-msgstr "סטטוס bmhd:"
+msgid "Member Delay"
+msgstr "סטטוס bmhd"
 
 msgid ""
 "If you wish to have a delay before the member is connected to the caller (or "
@@ -822,8 +822,8 @@ msgid ""
 "of seconds to delay."
 msgstr ""
 
-msgid "Agent Announcement:"
-msgstr "הכרזה לנציג:"
+msgid "Agent Announcement"
+msgstr "הכרזה לנציג"
 
 #, fuzzy
 msgid ""
@@ -848,8 +848,8 @@ msgstr ""
 "הבאה מגיעה מתור המכירות\" או\"שיחה זו מגיעה מתור התמיכה הטכנית\".<br /><br /"
 ">אתה חייב להתקין ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
 
-msgid "Report Hold Time:"
-msgstr "דווח זמן המתנה:"
+msgid "Report Hold Time"
+msgstr "דווח זמן המתנה"
 
 msgid ""
 "If you wish to report the caller's hold time to the member before they are "
@@ -859,8 +859,8 @@ msgstr ""
 msgid "Capacity Options"
 msgstr ""
 
-msgid "Max Callers:"
-msgstr "מספר ממתינים מקסימלי"
+msgid "Max Callers"
+msgstr "מספר ממתינים מקסימל"
 
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr "מספר אנשים מקסימלי שיכולים להמתין בתור (0 ללא הגבלה)"
@@ -904,8 +904,8 @@ msgid ""
 "could become available."
 msgstr ""
 
-msgid "Join Empty:"
-msgstr "אפשר כניסה לתור ריק:"
+msgid "Join Empty"
+msgstr "אפשר כניסה לתור ריק"
 
 msgid ""
 "Determines if callers should be exited prematurely from the queue in "
@@ -942,10 +942,10 @@ msgid ""
 msgstr ""
 
 #, fuzzy
-msgid "Leave Empty:"
-msgstr "יציאה מתור ללא נציג"
+msgid "Leave Empty"
+msgstr "יציאה מתור ללא נצי"
 
-msgid "Penalty Members Limit:"
+msgid "Penalty Members Limit"
 msgstr ""
 
 msgid ""
@@ -961,22 +961,22 @@ msgstr ""
 msgid "Caller Position Announcements"
 msgstr "הרכז מיקום בתור למתקשר"
 
-msgid "Frequency:"
-msgstr "תדירות:"
+msgid "Frequency"
+msgstr "תדירות"
 
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
 "Announcements)."
 msgstr ""
 
-msgid "Announce Position:"
-msgstr "הכרז מיקום:"
+msgid "Announce Position"
+msgstr "הכרז מיקום"
 
 msgid "Announce position of caller in the queue?"
 msgstr "הכרז למתקשר את מיקומו בתור?"
 
-msgid "Announce Hold Time:"
-msgstr "הכרז זמן המתנה:"
+msgid "Announce Hold Time"
+msgstr "הכרז זמן המתנה"
 
 msgid ""
 "Should we include estimated hold time in position announcements?  Either "
@@ -991,8 +991,8 @@ msgstr "פעם אחת"
 msgid "Periodic Announcements"
 msgstr "הודעה תקופתית"
 
-msgid "IVR Break Out Menu:"
-msgstr "נתב שיחות ליציאה מההמתנה בתור"
+msgid "IVR Break Out Menu"
+msgstr "נתב שיחות ליציאה מההמתנה בתו"
 
 msgid ""
 "You can optionally present an existing IVR as a 'break out' menu."
@@ -1024,8 +1024,8 @@ msgid ""
 "changing this setting, it will no longer appear as an option"
 msgstr ""
 
-msgid "Repeat Frequency:"
-msgstr "תדירות השמעה חוזרת"
+msgid "Repeat Frequency"
+msgstr "תדירות השמעה חוזר"
 
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
@@ -1035,7 +1035,7 @@ msgstr "בכל כמה זמן להשמיע למקשר את ההכרזה (0 לבי
 msgid "Events, Stats and Advanced"
 msgstr ""
 
-msgid "Event When Called:"
+msgid "Event When Called"
 msgstr ""
 
 msgid ""
@@ -1046,8 +1046,8 @@ msgstr ""
 "AgentDump, AgentConnect ו-AgentComplete."
 
 #, fuzzy
-msgid "Member Status Event:"
-msgstr "סטטוס bmhd:"
+msgid "Member Status Event"
+msgstr "סטטוס bmhd"
 
 #, fuzzy
 msgid ""
@@ -1057,8 +1057,8 @@ msgstr ""
 "אם אפשרות זאת מוגדרת ל'כן', אירועי המנהל הבאים יווצרו: AgentCalled, "
 "AgentDump, AgentConnect ו-AgentComplete."
 
-msgid "Service Level:"
-msgstr "רמת השרות"
+msgid "Service Level"
+msgstr "רמת השרו"
 
 msgid ""
 "Used for service level statistics (calls answered within service level time "

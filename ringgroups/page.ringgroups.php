@@ -206,18 +206,18 @@ if ($action == 'delGRP') {
 ?>
 				<input size="5" type="hidden" name="account" value="<?php  echo ltrim($extdisplay,'GRP-'); ?>" tabindex="<?php echo ++$tabindex;?>">
 <?php 		} else { ?>
-				<td><a href="#" class="info"><?php echo _("Ring-Group Number")?>:<span><?php echo _("The number users will dial to ring extensions in this ring group")?></span></a></td>
+				<td><a href="#" class="info"><?php echo _("Ring-Group Number")?><span><?php echo _("The number users will dial to ring extensions in this ring group")?></span></a></td>
 				<td><input class='w100' type="text" data-extdisplay="" name="account" value="<?php  if ($gresult[0]==0) { echo "600"; } else { echo $gresult[0] + 1; } ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 <?php 		} ?>
 			</tr>
 
 			<tr>
-		    <td> <a href="#" class="info"><?php echo _("Group Description")?>:<span><?php echo _("Provide a descriptive title for this Ring Group.")?></span></a></td>
+		    <td> <a href="#" class="info"><?php echo _("Group Description")?><span><?php echo _("Provide a descriptive title for this Ring Group.")?></span></a></td>
 				<td><input class='w100' maxlength="35" type="text" name="description" value="<?php echo htmlspecialchars($description); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 			</tr>
 
 			<tr>
-				<td> <a href="#" class="info"><?php echo _("Ring Strategy:")?>
+				<td> <a href="#" class="info"><?php echo _("Ring Strategy")?>
 				<span>
 					<b><?php echo _("ringall")?></b>:  <?php echo _("Ring all available channels until one answers (default)")?><br>
 					<b><?php echo _("hunt")?></b>: <?php echo _("Take turns ringing each available extension")?><br>
@@ -252,13 +252,12 @@ if ($action == 'delGRP') {
 			</tr>
 
 			<tr>
-				<td valign="top"><a href="#" class="info"><?php echo _("Extension List")?>:<span><br><?php echo _("List extensions to ring, one per line, or use the Extension Quick Pick below to insert them here.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a '#'.  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing)<br><br>Extensions without a '#' will not ring a user's Follow-Me. To dial Follow-Me, Queues and other numbers that are not extensions, put a '#' at the end.")?><br><br></span></a></td>
+				<td valign="top"><a href="#" class="info"><?php echo _("Extension List")?><span><br><?php echo _("List extensions to ring, one per line, or use the Extension Quick Pick below to insert them here.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a '#'.  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing)<br><br>Extensions without a '#' will not ring a user's Follow-Me. To dial Follow-Me, Queues and other numbers that are not extensions, put a '#' at the end.")?><br><br></span></a></td>
 				<td valign="top">
 <?php
 		$rows = count($grplist)+1;
-		($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows);
 ?>
-					<textarea style='width:100%;height:3em;' id="grplist" cols="15" rows="<?php  echo $rows ?>" name="grplist" tabindex="<?php echo ++$tabindex;?>"><?php echo implode("\n",$grplist);?></textarea>
+					<textarea style='width:100%;height:3em;' id="grplist" cols="15" onkeyup="textAreaAdjust(this)" name="grplist" tabindex="<?php echo ++$tabindex;?>"><?php echo implode("\n",$grplist);?></textarea>
 				</td>
 			</tr>
 
@@ -285,7 +284,7 @@ if ($action == 'delGRP') {
 
 <?php if(function_exists('recordings_list')) { //only include if recordings is enabled?>
 			<tr>
-				<td><a href="#" class="info"><?php echo _("Announcement:")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
+				<td><a href="#" class="info"><?php echo _("Announcement")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
 				<td>
 					<select name="annmsg_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 					<?php
@@ -303,7 +302,7 @@ if ($action == 'delGRP') {
 			</tr>
 <?php }	else { ?>
 			<tr>
-				<td><a href="#" class="info"><?php echo _("Announcement:")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
+				<td><a href="#" class="info"><?php echo _("Announcement")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
 				<td>
 					<?php
 						$default = (isset($annmsg_id) ? $annmsg_id : '');
@@ -334,38 +333,38 @@ if ($action == 'delGRP') {
 <?php } ?>
 
 			<tr>
-				<td><a href="#" class="info"><?php echo _("CID Name Prefix")?>:<span><?php echo _('You can optionally prefix the CallerID name when ringing extensions in this group. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span></a></td>
+				<td><a href="#" class="info"><?php echo _("CID Name Prefix")?><span><?php echo _('You can optionally prefix the CallerID name when ringing extensions in this group. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span></a></td>
 				<td><input class='w100' type="text" name="grppre" value="<?php  echo $grppre ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 			</tr>
 
 			<tr>
-				<td><a href="#" class="info"><?php echo _("Alert Info")?><span><?php echo _('ALERT_INFO can be used for distinctive ring with SIP devices.')?></span></a>:</td>
+				<td><a href="#" class="info"><?php echo _("Alert Info")?><span><?php echo _('ALERT_INFO can be used for distinctive ring with SIP devices.')?></span></a></td>
 				<td><input type="text" name="alertinfo" class='w100' value="<?php echo ($alertinfo)?$alertinfo:'' ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 			</tr>
 
 			<tr>
-		<td><a href="#" class="info"><?php echo _("Ignore CF Settings")?><span> <?php echo _("When checked, agents who attempt to Call Forward will be ignored, this applies to CF, CFU and CFB. Extensions entered with '#' at the end, for example to access the extension's Follow-Me, might not honor this setting .") ?></span></a>:</td>
+		<td><a href="#" class="info"><?php echo _("Ignore CF Settings")?><span> <?php echo _("When checked, agents who attempt to Call Forward will be ignored, this applies to CF, CFU and CFB. Extensions entered with '#' at the end, for example to access the extension's Follow-Me, might not honor this setting .") ?></span></a></td>
 				<td>
 					<input type="checkbox" name="cfignore" value="CHECKED" <?php echo $cfignore ?>   tabindex="<?php echo ++$tabindex;?>"/>
 				</td>
 			</tr>
 
 			<tr>
-		<td><a href="#" class="info"><?php echo _("Skip Busy Agent")?><span> <?php echo _("When checked, agents who are on an occupied phone will be skipped as if the line were returning busy. This means that Call Waiting or multi-line phones will not be presented with the call and in the various hunt style ring strategies, the next agent will be attempted.") ?></span></a>:</td>
+		<td><a href="#" class="info"><?php echo _("Skip Busy Agent")?><span> <?php echo _("When checked, agents who are on an occupied phone will be skipped as if the line were returning busy. This means that Call Waiting or multi-line phones will not be presented with the call and in the various hunt style ring strategies, the next agent will be attempted.") ?></span></a></td>
 				<td>
 					<input type="checkbox" name="cwignore" value="CHECKED" <?php echo $cwignore ?>   tabindex="<?php echo ++$tabindex;?>"/>
 				</td>
 			</tr>
 
 			<tr>
-				<td><a href="#" class="info"><?php echo _("Enable Call Pickup")?><span> <?php echo _("Checking this will allow calls to the Ring Group to be picked up with the directed call pickup feature using the group number. When not checked, individual extensions that are part of the group can still be picked up by doing a directed call pickup to the ringing extension, which works whether or not this is checked.") ?></span></a>:</td>
+				<td><a href="#" class="info"><?php echo _("Enable Call Pickup")?><span> <?php echo _("Checking this will allow calls to the Ring Group to be picked up with the directed call pickup feature using the group number. When not checked, individual extensions that are part of the group can still be picked up by doing a directed call pickup to the ringing extension, which works whether or not this is checked.") ?></span></a></td>
 				<td>
 					<input type="checkbox" name="cpickup" value="CHECKED" <?php echo $cpickup ?>   tabindex="<?php echo ++$tabindex;?>"/>
 				</td>
 			</tr>
 
 			<tr>
-				<td><a href="#" class="info"><?php echo _("Confirm Calls")?><span><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall ring strategy')?></span></a>:</td>
+				<td><a href="#" class="info"><?php echo _("Confirm Calls")?><span><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall ring strategy')?></span></a></td>
 				<td>
 					<input type="checkbox" name="needsconf" value="CHECKED" <?php echo $needsconf ?>   tabindex="<?php echo ++$tabindex;?>"/>
 				</td>
@@ -373,7 +372,7 @@ if ($action == 'delGRP') {
 
 <?php if(function_exists('recordings_list')) { //only include if recordings is enabled?>
 			<tr>
-				<td><a href="#" class="info"><?php echo _("Remote Announce:")?><span><?php echo _("Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
+				<td><a href="#" class="info"><?php echo _("Remote Announce")?><span><?php echo _("Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
 				<td>
 					<select name="remotealert_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 					<?php
@@ -391,7 +390,7 @@ if ($action == 'delGRP') {
 			</tr>
 
 			<tr>
-				<td><a href="#" class="info"><?php echo _("Too-Late Announce:")?><span><?php echo _("Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
+				<td><a href="#" class="info"><?php echo _("Too-Late Announce")?><span><?php echo _("Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
 				<td>
 					<select name="toolate_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 					<?php
@@ -437,7 +436,7 @@ if ($action == 'delGRP') {
 			</tr>
 
 			<tr>
-				<td><a href="#" class="info"><?php echo _("Fixed CID Value")?>:<span><?php echo _('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".')?></span></a></td>
+				<td><a href="#" class="info"><?php echo _("Fixed CID Value")?><span><?php echo _('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".')?></span></a></td>
 				<td><input class='w100' type="text" name="fixedcid" id="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>" <?php echo $fixedcid_disabled ?>></td>
 			</tr>
 
@@ -457,7 +456,7 @@ if ($action == 'delGRP') {
 			echo $module_hook->hookHtml;
 ?>
 
-			<tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?>:</h5></td></tr>
+			<tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?></h5></td></tr>
 
 <?php
 //draw goto selects
@@ -487,18 +486,25 @@ $(document).ready(function(){
 			$("#fixedcid").removeAttr("disabled");
 		}
 	});
+	textAreaAdjust(document.getElementById('grplist'));
 });
+
+function textAreaAdjust(element) {
+	element.style.height = "1px";
+	element.style.height = (5+element.scrollHeight)+"px";
+}
 
 function insertExten() {
 	exten = document.getElementById('insexten').value;
 
 	grpList=document.getElementById('grplist');
-	if (grpList.value[ grpList.value.length - 1 ] == "\n") {
+    if (grpList.value.length == 0 || grpList.value[ grpList.value.length - 1 ] == "\n") {
 		grpList.value = grpList.value + exten;
 	} else {
 		grpList.value = grpList.value + '\n' + exten;
 	}
 
+	textAreaAdjust(document.getElementById('grplist'));
 	// reset element
 	document.getElementById('insexten').value = '';
 }

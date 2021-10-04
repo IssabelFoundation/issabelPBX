@@ -142,8 +142,8 @@ msgstr "Описание на Групата"
 msgid "Provide a descriptive title for this Ring Group."
 msgstr "Наименование за тази Група на Звънене."
 
-msgid "Ring Strategy:"
-msgstr "Стратегия на Звънене:"
+msgid "Ring Strategy"
+msgstr "Стратегия на Звънене"
 
 msgid "ringall"
 msgstr "звъни на всички"
@@ -194,7 +194,7 @@ msgid "ring only the first channel which is not offhook - ignore CW"
 msgstr "звъни само на първия канал който не е отворен - игнорира CW"
 
 msgid "Ring Time (max 60 sec)"
-msgstr "Време на Звънене (max 60 секунди):"
+msgstr "Време на Звънене (max 60 секунди)"
 
 msgid ""
 "Time in seconds that the phones will ring. For all hunt style ring "
@@ -233,8 +233,8 @@ msgstr "Изберете вътрешна линия за поставяне в 
 msgid "(pick extension)"
 msgstr "(избери вътрешна линия)"
 
-msgid "Announcement:"
-msgstr "Съобщение:"
+msgid "Announcement"
+msgstr "Съобщение"
 
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
@@ -343,8 +343,8 @@ msgstr ""
 "обаждането да се достави. Тази услуга работи само със звъни на всички "
 "стратегия."
 
-msgid "Remote Announce:"
-msgstr "Кратко Съобщение:"
+msgid "Remote Announce"
+msgstr "Кратко Съобщение"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
@@ -358,8 +358,8 @@ msgstr ""
 msgid "Default"
 msgstr "По-Подразбиране"
 
-msgid "Too-Late Announce:"
-msgstr "Много-Късно Съобщение:"
+msgid "Too-Late Announce"
+msgstr "Много-Късно Съобщение"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "

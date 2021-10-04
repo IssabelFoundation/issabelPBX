@@ -117,7 +117,7 @@ msgstr "אזהרה! שלוחה"
 msgid "is not allowed for your account"
 msgstr "אינה מורשית עבור חשבונך"
 
-msgid "Choose a user/extension:"
+msgid "Choose a user/extension"
 msgstr ""
 
 msgid "deleted"
@@ -165,8 +165,8 @@ msgid ""
 "if the caller chooses to find you do you want it to come here."
 msgstr ""
 
-msgid "Initial Ring Time:"
-msgstr "זמן צלצול ראשוני:"
+msgid "Initial Ring Time"
+msgstr "זמן צלצול ראשוני"
 
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
@@ -177,8 +177,8 @@ msgstr ""
 "יכולה להיכלל גם ברשימת העקוב-אחרי. הגדרת 0 תעקוף זאת."
 
 #, fuzzy
-msgid "Ring Strategy:"
-msgstr "אסטרטגיית צלצול:"
+msgid "Ring Strategy"
+msgstr "אסטרטגיית צלצול"
 
 #, fuzzy
 msgid "ringallv2"
@@ -273,8 +273,8 @@ msgid "(pick extension)"
 msgstr "רשימת שלוחות"
 
 #, fuzzy
-msgid "Announcement:"
-msgstr "הכרזה:"
+msgid "Announcement"
+msgstr "הכרזה"
 
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
@@ -339,8 +339,8 @@ msgid ""
 "through. This feature only works with the ringall/ringall-prim  ring strategy"
 msgstr ""
 
-msgid "Remote Announce:"
-msgstr "הכרזה למרוחק:"
+msgid "Remote Announce"
+msgstr "הכרזה למרוחק"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
@@ -354,8 +354,8 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-msgid "Too-Late Announce:"
-msgstr "הכרזת יותר-מדי-מאוחר:"
+msgid "Too-Late Announce"
+msgstr "הכרזת יותר-מדי-מאוחר"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "

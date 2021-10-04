@@ -11,7 +11,7 @@ class featurecode {
 	var $_overridecodes;		// Overide defaults from featurecodes.conf
 
 	// CONSTRUCTOR
-	function featurecode($modulename, $featurename) {
+	function __construct($modulename, $featurename) {
 		global $amp_conf;
 
 		if ($modulename == '' || $featurename == '')

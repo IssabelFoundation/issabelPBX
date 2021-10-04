@@ -50,7 +50,7 @@ msgid "Conference: %s"
 msgstr "Konferens: %s"
 
 msgid "Conference: "
-msgstr "Konferens:"
+msgstr "Konferens: "
 
 msgid "Checking if music field present.."
 msgstr "Kontrollerar om musicfältet finns.."
@@ -116,9 +116,6 @@ msgstr "Konferens"
 msgid "deleted"
 msgstr "borttagen"
 
-msgid "Conference:"
-msgstr "Konferens:"
-
 #, php-format
 msgid "Delete Conference %s"
 msgstr "Ta bort konferens %s"
@@ -129,20 +126,20 @@ msgstr "Anknytningarna är i konflikt"
 msgid "Edit Conference"
 msgstr "Redigera konferens"
 
-msgid "Conference Number:"
-msgstr "Konferensnummer:"
+msgid "Conference Number"
+msgstr "Konferensnummer"
 
 msgid "Use this number to dial into the conference."
 msgstr "Använd detta nummer för att ringa till konferensen."
 
-msgid "Conference Name:"
-msgstr "Konferensnamn:"
+msgid "Conference Name"
+msgstr "Konferensnamn"
 
 msgid "Give this conference a brief name to help you identify it."
 msgstr "Ge konferensen ett kortfattat namn."
 
-msgid "User PIN:"
-msgstr "Användarlösenord:"
+msgid "User PIN"
+msgstr "Användarlösenord"
 
 msgid ""
 "You can require callers to enter a password before they can enter this "
@@ -153,8 +150,8 @@ msgstr ""
 "<br><br>Denna inställning är valfri.<br><br>Om ett lösenord (endast siffror) "
 "skrivs in får uppringaren en fråga om att mata in ett lösenord."
 
-msgid "Admin PIN:"
-msgstr "Administratörslösenord:"
+msgid "Admin PIN"
+msgstr "Administratörslösenord"
 
 msgid ""
 "Enter a PIN number for the admin user.<br><br>This setting is optional "
@@ -168,8 +165,8 @@ msgstr ""
 msgid "Conference Options"
 msgstr "Konferensval"
 
-msgid "Join Message:"
-msgstr "Anslutningsmeddelande:"
+msgid "Join Message"
+msgstr "Anslutningsmeddelande"
 
 msgid ""
 "Message to be played to the caller before joining the conference.<br><br>To "
@@ -191,8 +188,8 @@ msgstr ""
 "konferensen.<br><br>Du måste installera och aktivera modulen "
 "\"Systeminspelningar\" för att kunna redigera detta val"
 
-msgid "Leader Wait:"
-msgstr "Vänta på ledaren:"
+msgid "Leader Wait"
+msgstr "Vänta på ledaren"
 
 msgid ""
 "Wait until the conference leader (admin user) arrives before starting the "
@@ -207,7 +204,7 @@ msgstr "Nej"
 msgid "Yes"
 msgstr "Ja"
 
-msgid "Talker Optimization:"
+msgid "Talker Optimization"
 msgstr "Taloptimering"
 
 msgid ""
@@ -223,7 +220,7 @@ msgstr ""
 "betraktade som mikrofonavstängda. Detta betyder att ingen kodning sker och "
 "mottaget ljud som inte detekteras som prat elimineras"
 
-msgid "Talker Detection:"
+msgid "Talker Detection"
 msgstr "Taldetektering"
 
 msgid ""
@@ -237,31 +234,31 @@ msgstr ""
 "Managerinterfacet där identifiering av vilken kanal det är som innehåller "
 "tal. Talaren kommer också att identifieras och visas på meete listan"
 
-msgid "Quiet Mode:"
-msgstr "Tyst läge:"
+msgid "Quiet Mode"
+msgstr "Tyst läge"
 
 msgid "Quiet mode (do not play enter/leave sounds)"
 msgstr "Tyst läge (spela inte upp ljud för anslut/lämna)"
 
-msgid "User Count:"
-msgstr "Räkna användare:"
+msgid "User Count"
+msgstr "Räkna användare"
 
 msgid "Announce user(s) count on joining conference"
 msgstr "Berätta antalet användare när anslutning till konferensen sker"
 
-msgid "User join/leave:"
-msgstr "Användare ansluter/lämnar:"
+msgid "User join/leave"
+msgstr "Användare ansluter/lämnar"
 
 msgid "Announce user join/leave"
 msgstr "Annonsera när användare ansluter/lämnar"
 
-msgid "Music on Hold:"
-msgstr "Pausmusik:"
+msgid "Music on Hold"
+msgstr "Pausmusik"
 
 msgid "Enable Music On Hold when the conference has a single caller"
 msgstr "Aktivera pausmusik när det endast är en användare i konferensen"
 
-msgid "Music on Hold Class:"
+msgid "Music on Hold Class"
 msgstr "Klasser för pausmusik"
 
 msgid ""
@@ -281,21 +278,21 @@ msgstr "ärv"
 msgid "default"
 msgstr "standard"
 
-msgid "Allow Menu:"
-msgstr "Tillåt meny:"
+msgid "Allow Menu"
+msgstr "Tillåt meny"
 
 msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
 msgstr ""
 "Ge tillgång till en meny (användare eller administratör) när '*' trycks på "
 "telefonen"
 
-msgid "Record Conference:"
-msgstr "Spela in konferens:"
+msgid "Record Conference"
+msgstr "Spela in konferens"
 
 msgid "Record the conference call"
 msgstr "Välj om konferensen ska spelas in"
 
-msgid "Maximum Participants:"
+msgid "Maximum Participants"
 msgstr "Max antal deltagare"
 
 msgid "Maximum Number of users allowed to join this conference."
@@ -304,8 +301,8 @@ msgstr "Det maximala antalet deltagare som tillåts i konferensen"
 msgid "No Limit"
 msgstr "Ingen begränsning"
 
-msgid "Mute on Join:"
-msgstr "Stäng av ljud vid anslutning:"
+msgid "Mute on Join"
+msgstr "Stäng av ljud vid anslutning"
 
 msgid ""
 "Mute everyone when they initially join the conference. Please note that if "

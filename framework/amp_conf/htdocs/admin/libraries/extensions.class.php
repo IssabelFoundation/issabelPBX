@@ -491,7 +491,7 @@ class extensions {
 	 * 
 	 * This function can be called statically
 	 */
-	function gotoEmpty($value) {
+	static function gotoEmpty($value) {
 		return ($value === "" || $value === null || $value === false);
 	}
 }
@@ -499,7 +499,7 @@ class extensions {
 class extension { 
 	var $data;
 	
-	function extension($data = '') {
+	function __construct($data = '') {
 		$this->data = $data;
 	}
 	
@@ -518,7 +518,7 @@ class ext_gosub extends extension {
 	var $context;
 	var $args;
 	
-	function ext_gosub($pri, $ext = false, $context = false, $args='') {
+	function __construct($pri, $ext = false, $context = false, $args='') {
 		if ($context !== false && $ext === false) {
 			trigger_error("\$ext is required when passing \$context in ext_gosub::ext_gosub()");
 		}
@@ -541,7 +541,7 @@ class ext_gosub extends extension {
 class ext_messagesend extends extension {
 	var $to;
 	var $from;
-	function ext_messagesend($to, $from = null) {
+	function __construct($to, $from = null) {
 		$this->to = $to;
 		$this->from = $from;
 	}
@@ -566,7 +566,7 @@ class ext_gosubif extends extension {
 	var $true_priority;
 	var $false_priority;
 	var $condition;
-	function ext_gosubif($condition, $true_priority, $false_priority = false, $true_args = '', $false_args = '') {
+	function __construct($condition, $true_priority, $false_priority = false, $true_args = '', $false_args = '') {
 		$this->true_priority = $true_priority;
 		$this->false_priority = $false_priority;
 		$this->true_args = $true_args;
@@ -587,7 +587,7 @@ class ext_goto extends extension {
 	var $ext;
 	var $context;
 	
-	function ext_goto($pri, $ext = false, $context = false) {
+	function __construct($pri, $ext = false, $context = false) {
 		if ($context !== false && $ext === false) {
 			trigger_error("\$ext is required when passing \$context in ext_goto::ext_goto()");
 		}
@@ -610,7 +610,7 @@ class ext_gotoif extends extension {
 	var $true_priority;
 	var $false_priority;
 	var $condition;
-	function ext_gotoif($condition, $true_priority, $false_priority = false) {
+	function __construct($condition, $true_priority, $false_priority = false) {
 		$this->true_priority = $true_priority;
 		$this->false_priority = $false_priority;
 		$this->condition = $condition;
@@ -627,7 +627,7 @@ class ext_gotoif extends extension {
 class ext_gotoiftime extends extension {
 	var $true_priority;
 	var $condition;
-	function ext_gotoiftime($condition, $true_priority) {
+	function __construct($condition, $true_priority) {
 	    global $version;
 		//change from '|' to ','
 		$this->condition = str_replace("|", ",", $condition);
@@ -672,28 +672,29 @@ class ext_noop extends extension {
 }
 
 class ext_noop_trace extends extension {
-  var $string;
-  var $level;
+    var $string;
+    var $level;
   
-  function ext_noop_trace($string,$level=3) {
-    $this->string = $string;
-    $this->level = $level;
-  }
-	function output() {
-    global $amp_conf;
-    if ($amp_conf['NOOPTRACE'] != "" && ctype_digit($amp_conf['NOOPTRACE']) && $amp_conf['NOOPTRACE'] >= $this->level) {
-      return "Noop([TRACE](".$this->level.") ".$this->string.")";
-    } else {
-		  return false;
+    function __construct($string,$level=3) {
+        $this->string = $string;
+        $this->level = $level;
     }
-	}
+
+    function output() {
+        global $amp_conf;
+        if ($amp_conf['NOOPTRACE'] != "" && ctype_digit($amp_conf['NOOPTRACE']) && $amp_conf['NOOPTRACE'] >= $this->level) {
+            return "Noop([TRACE](".$this->level.") ".$this->string.")";
+        } else {
+              return false;
+        }
+    }
 }
 
 class ext_dial extends extension {
 	var $number;
 	var $options;
 	
-	function ext_dial($number, $options = "tr") {
+	function __construct($number, $options = "tr") {
 		$this->number = $number;
 		$this->options = $options;
 	}
@@ -710,7 +711,7 @@ class ext_originate extends extension {
 	var $arg2;
 	var $arg3;
 	
-	function ext_originate($tech_data, $type, $arg1, $arg2, $arg3 = '') {
+	function __construct($tech_data, $type, $arg1, $arg2, $arg3 = '') {
 		$this->tech_data = $tech_data;
 		$this->type = $type;
 		$this->arg1 = $arg1;
@@ -731,7 +732,7 @@ class ext_setvar {
 	var $var;
 	var $value;
 	
-	function ext_setvar($var, $value = '') {
+	function __construct($var, $value = '') {
 		$this->var = $var;
 		$this->value = $value;
 	}
@@ -746,7 +747,7 @@ class ext_setglobalvar {
 	var $var;
 	var $value;
 	
-	function ext_setglobalvar($var, $value) {
+	function __construct($var, $value) {
 		$this->var = $var;
 		$this->value = $value;
 	}
@@ -760,7 +761,7 @@ class ext_sipaddheader {
 	var $header;
 	var $value;
 	
-	function ext_sipaddheader($header, $value) {
+	function __construct($header, $value) {
 		$this->header = $header;
 		$this->value = $value;
 	}
@@ -774,7 +775,7 @@ class ext_sipgetheader {
 	var $header;
 	var $value;
 	
-	function ext_sipgetheader($value, $header) {
+	function __construct($value, $header) {
 		$this->value = $value;
 		$this->header = $header;
 	}
@@ -787,7 +788,7 @@ class ext_sipgetheader {
 class ext_alertinfo {
 	var $value;
 	
-	function ext_alertinfo($value) {
+	function __construct($value) {
 		$this->value = $value;
 	}
 	
@@ -850,7 +851,7 @@ class ext_waitexten extends extension {
 	var $seconds;
 	var $options;
 	
-	function ext_waitexten($seconds = "", $options = "") {
+	function __construct($seconds = "", $options = "") {
 		$this->seconds = $seconds;
 		$this->options = $options;
 	}
@@ -876,7 +877,7 @@ class ext_macro {
 	var $macro;
 	var $args;
 	
-	function ext_macro($macro, $args='') {
+	function __construct($macro, $args='') {
 		$this->macro = $macro;
 		$this->args = $args;
 	}
@@ -895,7 +896,7 @@ class ext_execif {
 	var $app_false;
 	var $data_false;
 	
-	function ext_execif($expr, $app_true, $data_true='', $app_false = '', $data_false = '') {
+	function __construct($expr, $app_true, $data_true='', $app_false = '', $data_false = '') {
 		$this->expr = $expr;
 		$this->app_true = $app_true;
 		$this->data_true = $data_true;
@@ -952,7 +953,7 @@ class ext_queue {
 	var $value;
 	
 	// Queue(queuename,options,URL,announceoverride,timeout,AGI,macro,gosub,rule,position)
-	function ext_queue($queuename, $options, $optionalurl, $announceoverride, $timeout, $agi='', $macro='', $gosub='', $rule='', $position='') {
+	function __construct($queuename, $options, $optionalurl, $announceoverride, $timeout, $agi='', $macro='', $gosub='', $rule='', $position='') {
 		$this->queuename = $queuename;
 		$this->options = $options;
 		$this->optionalurl = $optionalurl;
@@ -1008,7 +1009,7 @@ class ext_addqueuemember extends extension {
 	var $queue;
 	var $channel;
 	
-	function ext_addqueuemember($queue, $channel){
+	function __construct($queue, $channel){
 		$this->queue = $queue;
 		$this->channel = $channel;
 	}
@@ -1022,7 +1023,7 @@ class ext_removequeuemember extends extension {
 	var $queue;
 	var $channel;
 	
-	function ext_removequeuemember($queue, $channel){
+	function __construct($queue, $channel){
 		$this->queue = $queue;
 		$this->channel = $channel;
 	}
@@ -1036,7 +1037,7 @@ class ext_userevent extends extension {
 	var $eventname;
 	var $body;
 	
-	function ext_userevent($eventname, $body=""){
+	function __construct($eventname, $body=""){
 		$this->eventname = $eventname;
 		$this->body = $body;
 	}
@@ -1087,7 +1088,7 @@ class ext_read {
 	var $attempts; // added in ast 1.2
 	var $timeout;  // added in ast 1.2
 	
-	function ext_read($astvar, $filename='', $maxdigits='', $option='', $attempts ='', $timeout ='') {
+	function __construct($astvar, $filename='', $maxdigits='', $option='', $attempts ='', $timeout ='') {
 		$this->astvar = $astvar;
 		$this->filename = $filename;
 		$this->maxdigits = $maxdigits;
@@ -1106,7 +1107,7 @@ class ext_confbridge {
 	var $options;
 	var $pin;
 	
-	function ext_confbridge($confno, $options='', $pin='') {
+	function __construct($confno, $options='', $pin='') {
 		$this->confno = $confno;
 		$this->options = $options;
 		$this->pin = $pin;
@@ -1122,7 +1123,7 @@ class ext_meetmeadmin {
 	var $command;
 	var $user;
 
-	function ext_meetmeadmin($confno, $command, $user='') {
+	function __construct($confno, $command, $user='') {
 		$this->confno = $confno;
 		$this->command = $command;
 		$this->user = $user;
@@ -1139,7 +1140,7 @@ class ext_meetme {
 	var $pin;
 	var $app;
 	
-	function ext_meetme($confno, $options='', $pin='') {
+	function __construct($confno, $options='', $pin='') {
 		global $amp_conf;
 		$this->confno = $confno;
 		$this->options = $options;
@@ -1220,7 +1221,7 @@ class ext_authenticate {
 	var $pass;
 	var $options;
 	
-	function ext_authenticate($pass, $options='') {
+	function __construct($pass, $options='') {
 		$this->pass = $pass;
 		$this->options = $options;
 	}
@@ -1233,7 +1234,7 @@ class ext_vmauthenticate {
 	var $mailbox; 
 	var $options;
 
-	function ext_vmauthenticate($mailbox='', $options='') {
+	function __construct($mailbox='', $options='') {
 		$this->mailbox = $mailbox; 
 		$this->options = $options;
 	}
@@ -1282,7 +1283,7 @@ class ext_dbdeltree extends extension {
 class ext_dbget extends extension {
 	var $varname;
 	var $key;
-	function ext_dbget($varname, $key) {
+	function __construct($varname, $key) {
 		$this->varname = $varname;
 		$this->key = $key;
 	}
@@ -1292,7 +1293,7 @@ class ext_dbget extends extension {
 }
 class ext_dbput extends extension {
 	var $key;
-	function ext_dbput($key, $data) {
+	function __construct($key, $data) {
 		$this->key = $key;
 		$this->data = $data;
 	}
@@ -1404,8 +1405,8 @@ class ext_sayalpha extends extension {
 }
 class ext_saynumber extends extension {
 	var $gender;
-	function ext_saynumber($data, $gender = 'f') {
-		parent::extension($data);
+	function __construct($data, $gender = 'f') {
+		parent::__construct($data);
 		$this->gender = $gender;
 	}
 	function output() {
@@ -1419,7 +1420,7 @@ class ext_sayphonetic extends extension {
 }
 class ext_senddtmf extends extension {
 	var $digits;
-	function ext_senddtmf($digits) {
+	function __construct($digits) {
 		$this->digits = $digits;
 	} 
 	function output() {
@@ -1461,7 +1462,7 @@ class ext_lookupcidname extends extension {
 class ext_txtcidname extends extension {
 	var $cidnum;
 	
-	function ext_txtcidname($cidnum) {
+	function __construct($cidnum) {
 		$this->cidnum = $cidnum;
 	}
 	
@@ -1478,7 +1479,7 @@ class ext_mysql_connect extends extension {
 	var $dbname;
 	var $charset;
 	
-	function ext_mysql_connect($connid, $dbhost, $dbuser, $dbpass, $dbname, $charset='') {
+	function __construct($connid, $dbhost, $dbuser, $dbpass, $dbname, $charset='') {
 		$this->connid = $connid;
 		$this->dbhost = $dbhost;
 		$this->dbuser = $dbuser;
@@ -1502,7 +1503,7 @@ class ext_mysql_query extends extension {
 	var $connid;
 	var $query;
 	
-	function ext_mysql_query($resultid, $connid, $query) {
+	function __construct($resultid, $connid, $query) {
 		$this->resultid = $resultid;
 		$this->connid = $connid;
 		$this->query = $query;
@@ -1519,7 +1520,7 @@ class ext_mysql_fetch extends extension {
 	var $resultid;
 	var $fars;
 	
-	function ext_mysql_fetch($fetchid, $resultid, $vars) {
+	function __construct($fetchid, $resultid, $vars) {
 		$this->fetchid = $fetchid;
 		$this->resultid = $resultid;
 		$this->vars = $vars;
@@ -1533,7 +1534,7 @@ class ext_mysql_fetch extends extension {
 class ext_mysql_clear extends extension {
 	var $resultid;
 	
-	function ext_mysql_clear($resultid) {
+	function __construct($resultid) {
 		$this->resultid = $resultid;
 	}
 	
@@ -1545,7 +1546,7 @@ class ext_mysql_clear extends extension {
 class ext_mysql_disconnect extends extension {
 	var $connid;
 	
-	function ext_mysql_disconnect($connid) {
+	function __construct($connid) {
 		$this->connid = $connid;
 	}
 	
@@ -1565,7 +1566,7 @@ class ext_db_put extends extension {
 	var $key;
 	var $value;
 	
-	function ext_db_put($family, $key, $value) {
+	function __construct($family, $key, $value) {
 		$this->family = $family;
 		$this->key = $key;
 		$this->value = $value;
@@ -1602,7 +1603,7 @@ class ext_setmusiconhold extends extension {
 class ext_congestion extends extension {
 	var $time;
 
-	function ext_congestion($time = '20') {
+	function __construct($time = '20') {
 		$this->time = $time;
 	}
 	function output() {
@@ -1613,7 +1614,7 @@ class ext_congestion extends extension {
 class ext_busy extends extension {
 	var $time;
 
-	function ext_busy($time = '20') {
+	function __construct($time = '20') {
 		$this->time = $time;
 	}
 	function output() {
@@ -1629,7 +1630,7 @@ class ext_flite extends extension {
 class ext_chanspy extends extension {
 	var $prefix;
 	var $options;
-	function ext_chanspy($prefix = '', $options = '') {
+	function __construct($prefix = '', $options = '') {
 		$this->prefix = $prefix;
 		$this->options = $options;
 	}
@@ -1653,7 +1654,7 @@ class ext_dictate extends extension {
 class ext_chanisavail extends extension {
 	var $chan;
 	var $options;
-	function ext_chanisavail($chan, $options = '') {
+	function __construct($chan, $options = '') {
 		$this->chan = $chan;
 		$this->options = $options;
 	}
@@ -1680,7 +1681,7 @@ class ext_mixmonitor extends extension {
 	var $options;
 	var $postcommand;
 	
-	function ext_mixmonitor($file, $options = "", $postcommand = "") {
+	function __construct($file, $options = "", $postcommand = "") {
 		$this->file = $file;
 		$this->options = $options;
 		$this->postcommand = $postcommand;
@@ -1730,7 +1731,7 @@ class ext_tryexec extends extensions {
 class ext_speechcreate extends extension {
 	var $engine;
 	
-	function ext_speechcreate($engine = null)  {
+	function __construct($engine = null)  {
 		$this->engine = $engine;
 	}
 	
@@ -1742,7 +1743,7 @@ class ext_speechloadgrammar extends extension {
 	var $grammar_name;
 	var $path_to_grammar;
 
-	function ext_speechloadgrammar($grammar_name,$path_to_grammar)  {
+	function __construct($grammar_name,$path_to_grammar)  {
 		$this->grammar_name = $grammar_name;
 		$this->path_to_grammar = $path_to_grammar;
 	}
@@ -1754,7 +1755,7 @@ class ext_speechloadgrammar extends extension {
 class ext_speechunloadgrammar extends extension {
 	var $grammar_name;
 
-	function ext_speechunloadgrammar($grammar_name)  {
+	function __construct($grammar_name)  {
 		$this->grammar_name = $grammar_name;
 	}
 	
@@ -1765,7 +1766,7 @@ class ext_speechunloadgrammar extends extension {
 class ext_speechactivategrammar extends extension {
 	var $grammar_name;
 
-	function ext_speechactivategrammar($grammar_name)  {
+	function __construct($grammar_name)  {
 		$this->grammar_name = $grammar_name;
 	}
 	
@@ -1784,7 +1785,7 @@ class ext_speechbackground extends extension {
 	var $sound_file;
 	var $timeout;
 
-	function ext_speechbackground($sound_file,$timeout=null)  {
+	function __construct($sound_file,$timeout=null)  {
 		$this->sound_file = $sound_file;
 		$this->timeout = $timeout;
 	}
@@ -1796,7 +1797,7 @@ class ext_speechbackground extends extension {
 class ext_speechdeactivategrammar extends extension {
 	var $grammar_name;
 
-	function ext_speechdeactivategrammar($grammar_name)  {
+	function __construct($grammar_name)  {
 		$this->grammar_name = $grammar_name;
 	}
 	
@@ -1810,7 +1811,7 @@ class ext_backgrounddetect extends extension {
         var $silence;
         var $min;
         var $max;
-        function ext_backgrounddetect($filename,$silence=null,$min=null,$max=null)  {
+        function __construct($filename,$silence=null,$min=null,$max=null)  {
                 $this->filename = $filename;
                 $this->silence = $silence;
                 $this->min = $min; 
@@ -1825,7 +1826,7 @@ class ext_backgrounddetect extends extension {
 class ext_speechprocessingsound extends extension {
 	var $sound_file;
 
-	function ext_speechprocessingsound($sound_file)  {
+	function __construct($sound_file)  {
 		$this->sound_file = $sound_file;
 	}
 	
@@ -1846,7 +1847,7 @@ class ext_speechdestroy extends extension {
 // DTMF in ${SPEECH_TEXT(0)}
 class ext_speechdtmfmaxdigits  extends extension { 
 	var $digits;
-	function ext_speechdtmfmaxdigits($digits)  {
+	function __construct($digits)  {
 		$this->digits = $digits;
 	}
 	
@@ -1861,7 +1862,7 @@ class ext_speechdtmfmaxdigits  extends extension {
 // You need to set this to some other terminator.
 class ext_speechdtmfterminator  extends extension {
         var $digits;
-        function ext_speechdtmfterminator($terminator)  {
+        function __construct($terminator)  {
                 $this->terminator = $terminator;
         }
 
@@ -1885,7 +1886,7 @@ class ext_vqa extends extension {
 class ext_transfer extends extension {
     var $number;
 
-    function ext_transfer($number) {
+    function __construct($number) {
         $this->number = $number;
     }
 
@@ -1898,7 +1899,7 @@ class ext_log extends extension {
 	var $level;
 	var $msg;
 
-	function ext_log($level,$msg) {
+	function __construct($level,$msg) {
 		$this->level = $level;
 		$this->msg = $msg;
 	}

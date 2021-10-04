@@ -154,8 +154,8 @@ msgstr "Description du Groupe"
 msgid "Provide a descriptive title for this Ring Group."
 msgstr "Titre Descriptif pour ce Groupe de Sonnerie."
 
-msgid "Ring Strategy:"
-msgstr "Stratégie de Sonnerie :"
+msgid "Ring Strategy"
+msgstr "Stratégie de Sonnerie"
 
 msgid "ringall"
 msgstr "Sonner Partout"
@@ -248,8 +248,8 @@ msgstr ""
 msgid "(pick extension)"
 msgstr "(choisir extension)"
 
-msgid "Announcement:"
-msgstr "Annonce :"
+msgid "Announcement"
+msgstr "Annonce"
 
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
@@ -361,8 +361,8 @@ msgstr ""
 "Cette fonctionnalité ne fonctionne qu'avec les stratégies de sonnerie Sonner "
 "Partout/Sonner Partout-prim"
 
-msgid "Remote Announce:"
-msgstr "Annonce Distante :"
+msgid "Remote Announce"
+msgstr "Annonce Distante"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
@@ -376,8 +376,8 @@ msgstr ""
 msgid "Default"
 msgstr "Par défaut"
 
-msgid "Too-Late Announce:"
-msgstr "Annonce Trop Tard :"
+msgid "Too-Late Announce"
+msgstr "Annonce Trop Tard"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "

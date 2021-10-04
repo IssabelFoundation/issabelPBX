@@ -326,7 +326,7 @@ function customcontexts_get_config($engine) {
 //this may seem a bit strange, but it works simply it sends the user to the EXTEN he dialed (or IVR option) within the selected context
 function customcontexts_destinations() {
     $contexts =  customcontexts_getcontexts();
-    $extens[] = array('destination' => 'from-internal,${EXTEN},1', 'description' => 'Full Internal Access');
+    $extens[] = array('destination' => 'from-internal,${EXTEN},1', 'description' => dgettext('customcontexts','Full Internal Access'));
     if (is_array($contexts)) {
         foreach ($contexts as $r) {
             $extens[] = array('destination' => $r[0].',${EXTEN},1', 'description' => $r[1]);
@@ -370,7 +370,7 @@ function customcontexts_configpageinit($dispnum) {
   }
 
     $contextssel  = customcontexts_getcontexts();
-    $currentcomponent->addoptlistitem('contextssel', 'from-internal', 'ALLOW ALL (Default)');
+    $currentcomponent->addoptlistitem('contextssel', 'from-internal', dgettext('customcontexts','ALLOW ALL (Default)'));
     foreach ($contextssel as $val) {
         $currentcomponent->addoptlistitem('contextssel', $val[0], $val[1]);
     }
@@ -624,8 +624,8 @@ global $currentcomponent;
             //$currentcomponent->addguielem('_top', new gui_link('del', _("Delete Class")." $context", $delURL, true, false), 0);
 
             $confirm_msg = sprintf(_('Are you sure you want to delete %s ?'),$context);
-            $currentcomponent->addguielem('_top', new guielement('del', '<tr><td colspan ="2"><a href="'.$delURL.'" onclick="return confirm(\''.$confirm_msg.'\')">'._('Delete Class').' '.$context.'</a></td></tr>', ''),3);
-            $currentcomponent->addguielem('_top', new gui_link('dup', _("Duplicate Class")." $context", $dupURL, true, false), 3);
+            $currentcomponent->addguielem('_top', new guielement('del', '<tr><td colspan ="2"><a href="'.$delURL.'" onclick="return confirm(\''.$confirm_msg.'\')"> <span><img width="16" height="16" border="0" title="'._('Delete Class').' '.$context.'" alt="" src="images/core_delete.png"></span> '._('Delete Class').' '.$context.'</a></td></tr>', ''),3);
+            $currentcomponent->addguielem('_top', new gui_link('dup', '<span><img width="16" height="16" border="0" title="'._('Duplicate Class').' '.$context.'" alt="" src="images/core_add.png"></span> '._("Duplicate Class")." $context", $dupURL, true, false), 3);
             $showsort = customcontexts_getmodulevalue('displaysortforincludes');
             if ($showsort == 1) {
             //$sortURL = $_SERVER['PHP_SELF'].'?'.$query.'&showsort=0';
@@ -644,7 +644,7 @@ global $currentcomponent;
             $currentcomponent->addguielem('Feature Code Failover Destination', new gui_textbox('featurefailpin', $featurefailpin, 'PIN', _('Enter a numeric PIN to require authentication before continuing to destination.'), '!isPINList()', _('PIN must be numeric!'), true), 4);
             $currentcomponent->addguielem('Failover Destination', new gui_drawselects('dest0', 0, $faildest, _('Failover Destination')));
             $currentcomponent->addguielem('Feature Code Failover Destination', new gui_drawselects('dest1', 1, $featurefaildest, _('Failover Destination')));
-            $currentcomponent->addguielem('Set All', new gui_selectbox('setall', $currentcomponent->getoptlist('includeyn'), '', _('Set All To:'), _('Choose allow to allow access to all includes, choose deny to deny access.'),true,'javascript:for (i=0;i<document.forms[\'frm_customcontexts\'].length;i++) {if(document.forms[\'frm_customcontexts\'][i].type==\'select-one\' && document.forms[\'frm_customcontexts\'][i].name.indexOf(\'[allow]\') >= 0 ) {document.forms[\'frm_customcontexts\'][i].selectedIndex = document.forms[\'frm_customcontexts\'][\'setall\'].selectedIndex-1;}}'),2);
+            $currentcomponent->addguielem('Set All', new gui_selectbox('setall', $currentcomponent->getoptlist('includeyn'), '', _('Set All To'), _('Choose allow to allow access to all includes, choose deny to deny access.'),true,'javascript:for (i=0;i<document.forms[\'frm_customcontexts\'].length;i++) {if(document.forms[\'frm_customcontexts\'][i].type==\'select-one\' && document.forms[\'frm_customcontexts\'][i].name.indexOf(\'[allow]\') >= 0 ) {document.forms[\'frm_customcontexts\'][i].selectedIndex = document.forms[\'frm_customcontexts\'][\'setall\'].selectedIndex-1;}};$(\'.componentSelect\').trigger(\'chosen:updated\');'),2);
             $inclist = customcontexts_getincludes($extdisplay);
             foreach ($inclist as $val) {
                 if ($showsort == 1) {

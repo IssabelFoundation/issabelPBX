@@ -45,7 +45,7 @@ class PDO_sqlite {
          * @Param	String		database user
          * @Param	String		database password
 	 */
-	function PDO_sqlite(&$string_dsn) {
+	function __construct(&$string_dsn) {
 		if(!@$this->__connection = &sqlite_open($string_dsn))
 			$this->__setErrors('DBCON', true);
 		else
@@ -299,7 +299,7 @@ class PDOStatement_sqlite {
          * @Param	Resource	database connection
          * @Param	String		database file name
 	 */
-	function PDOStatement_sqlite(&$__query, &$__connection, &$__dbinfo) {
+	function __construct(&$__query, &$__connection, &$__dbinfo) {
 		$this->__query = &$__query;
 		$this->__connection = &$__connection;
 		$this->__dbinfo = &$__dbinfo;

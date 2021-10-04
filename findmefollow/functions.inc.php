@@ -297,7 +297,7 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 		$postdest = "ext-local,$grpnum,dest";
 	}
 
-	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring) VALUES ('".$db->escapeSimple($grpnum)."', '".$db->escapeSimple($strategy)."', ".$db->escapeSimple($grptime).", '".$db->escapeSimple($grppre)."', '".$db->escapeSimple($grplist)."', '".$db->escapeSimple($annmsg_id)."', '".$db->escapeSimple($postdest)."', '".$db->escapeSimple($dring)."', '$needsconf', '$remotealert_id', '$toolate_id', '$ringing', '$pre_ring')";
+	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring) VALUES ('".$db->escapeSimple($grpnum)."', '".$db->escapeSimple($strategy)."', ".$db->escapeSimple($grptime).", '".$db->escapeSimple($grppre)."', '".$db->escapeSimple($grplist)."', ".intval($annmsg_id).", '".$db->escapeSimple($postdest)."', '".$db->escapeSimple($dring)."', '$needsconf', ".intval($remotealert_id).", ".intval($toolate_id).", '$ringing', '$pre_ring')";
 	$results = sql($sql);
 
 	if ($astman) {
@@ -387,6 +387,7 @@ function findmefollow_list($get_all=false) {
 //
 function findmefollow_allusers() {
         global $db;
+        $users = array();
         $sql = "SELECT extension,name FROM users ORDER BY extension";
         $results = $db->getAll($sql);
         if(DB::IsError($results)) {

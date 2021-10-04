@@ -98,7 +98,7 @@ function drawselects($goto, $i, $show_custom=false, $table=true, $nodest_msg='',
 
 	if(!isset($drawselect_destinations)){ 
 		$popover_hash = array();
-		$add_a_new = _('Add new %s &#133');
+        $add_a_new = dgettext('amp','Add new %s &#133');
 		//check for module-specific destination functions
 		foreach($active_modules as $rawmod => $module){
 			$funct = strtolower($rawmod.'_destinations');
@@ -111,7 +111,7 @@ function drawselects($goto, $i, $show_custom=false, $table=true, $nodest_msg='',
 				modgettext::pop_textdomain();
 				if(is_Array($destArray)) {
 					foreach($destArray as $dest){
-						$cat=(isset($dest['category'])?$dest['category']:$module['displayname']);
+						$cat=(isset($dest['category'])?$dest['category']:dgettext($rawmod,$module['displayname']));
 						$ds_id = (isset($dest['id']) ? $dest['id'] : $rawmod);
 						$popover_hash[$ds_id] = $cat;
 						$drawselect_destinations[$cat][] = $dest;
@@ -134,11 +134,12 @@ function drawselects($goto, $i, $show_custom=false, $table=true, $nodest_msg='',
 						// We have popovers in XML, there were no destinations, and no mod_destination_popovers()
 						// funciton so generate the Add a new selection.
 						//
-						$drawselects_module_hash[$module['displayname']] = $rawmod;
-						$drawselects_id_hash[$module['displayname']] = $rawmod;
-						$drawselect_destinations[$module['displayname']][99999] = array(
+						$cat = dgettext($rawmod,$module['displayname']);
+						$drawselects_module_hash[$cat] = $rawmod;
+						$drawselects_id_hash[$cat] = $rawmod;
+						$drawselect_destinations[$cat][99999] = array(
 							"destination" => "popover",
-							"description" => sprintf($add_a_new, $module['displayname'])
+							"description" => sprintf($add_a_new, $cat)
 						);
 					}
 				}
@@ -206,9 +207,7 @@ function drawselects($goto, $i, $show_custom=false, $table=true, $nodest_msg='',
 	$html.='<option value="" style="background-color:white;">'.$nodest_msg.'</option>';
 	foreach($drawselects_module_hash as $mod => $disc){
 
-		$label_text = modgettext::_($mod, $drawselects_module_hash[$mod]);
-
-		/* end i18n */
+		$label_text = $mod;
 		$selected=($mod==$destmod)?' SELECTED ':' ';
 		$style=' style="'.(($mod=='Error')?'background-color:red;':'background-color:white;').'"';
 		$html.='<option value="'.str_replace(' ','_',$mod).'"'.$selected.$style.'>'.$label_text.'</option>';

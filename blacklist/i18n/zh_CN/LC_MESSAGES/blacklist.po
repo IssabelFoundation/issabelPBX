@@ -60,19 +60,13 @@ msgstr "编辑"
 msgid "Add or replace entry"
 msgstr "添加或取代项目"
 
-msgid "Number/CallerID:"
-msgstr ""
-
 msgid "Enter the number/CallerID you want to block"
-msgstr ""
-
-msgid "Description:"
 msgstr ""
 
 msgid "Enter a description for the number you want to block"
 msgstr ""
 
-msgid "Block Unknown/Blocked Caller ID:"
+msgid "Block Unknown/Blocked Caller ID"
 msgstr ""
 
 msgid "Check here to catch Unknown/Blocked Caller ID"

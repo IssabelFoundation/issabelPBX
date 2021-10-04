@@ -31,12 +31,34 @@ $theme	       = "/themes/$theme";
 $currentYear   = date("Y");
 $msg           = isset($content['msg'])?$content['msg']:"";
 $title         = isset($content['title'])?$content['title']:"";
+$islicensed    = isset($content['islicensed'])?$content['islicensed']:"";
 ?>
 
 <html>
 <head>
 <title>Issabel - <?php echo $title; ?></title>
 <link rel="stylesheet" href="<?php echo $theme; ?>/styles.css">
+<script src="/themes/tenant/js/lottie.min.js"></script>
+<script src="/libs/js/jquery/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+var baseurl = '';
+
+$(document).ready(function() {
+    var anim;
+    var animData = {
+        container: document.getElementById('denied'),
+        renderer: 'svg',
+        loop: false,
+        autoplay: true,
+        rendererSettings: {
+            progressiveLoad: false
+        },
+        path: '/images/denied.json'
+    };
+    anim = bodymovin.loadAnimation(animData);
+    anim.setSpeed(1.5);
+});
+</script>
 </head>
 
 <body bgcolor="#ffffff" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" <?php echo $styleBody; ?> >
@@ -44,7 +66,8 @@ $title         = isset($content['title'])?$content['title']:"";
     <tr>
        <td class="menulogo" valign="top">
            <a target="_blank" href="http://www.issabel.org">
-               <img border="0" src="<?php echo $image; ?>"/>
+               <!--img border="0" src="<?php echo $image; ?>"/-->
+<div id='denied'></div>
            </a>
        </td>
     </tr>
@@ -53,7 +76,7 @@ $title         = isset($content['title'])?$content['title']:"";
     <?php echo $msg; ?>
   <div/>
   <br /><br />
-  <div align="center" class="copyright"><a href="http://www.issabel.org" target='_blank'>Issabel</a> is licensed under <a href="http://www.opensource.org/licenses/gpl-license.php" target='_blank'>GPL</a>. 2006 - <?php echo $currentYear; ?>.</div>
+  <div align="center" class="copyright"><a href="http://www.issabel.org" target='_blank'>Issabel</a> <?php echo $islicensed; ?> <a href="http://www.opensource.org/licenses/gpl-license.php" target='_blank'>GPL</a>. 2006 - <?php echo $currentYear; ?>.</div>
   <br />
 </body>
 </html>

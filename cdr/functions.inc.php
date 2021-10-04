@@ -155,7 +155,7 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 		}
 		unset($pass);
 
-		$set = "('" . implode($next,"','") . "')"; 
+		$set = "('" . implode("','",$next) . "')"; 
 		$sql_next = $sql_base . "uniqueid IN $set OR linkedid IN $set" . $sql_order;
 		$last_criteria = $next;
 		$next = array();

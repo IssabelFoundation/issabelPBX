@@ -71,6 +71,7 @@ function parking_save($parms=array()) {
 		}
 	}
 	$var['defaultlot'] = isset($var['id']) && $var['id'] == 1 ? 'yes' : 'no';
+    $var['announcement_id'] = intval($var['announcement_id']);
 
 	$fields = "name, type, parkext, parkpos, numslots, parkingtime, parkedmusicclass, generatehints, generatefc, findslot, parkedplay, 
 		parkedcalltransfers, parkedcallreparking, alertinfo, cidpp, autocidpp, announcement_id, comebacktoorigin, dest, defaultlot";
@@ -85,7 +86,7 @@ function parking_save($parms=array()) {
 	$res = $db->query($sql,$var);
 	if (DB::IsError($res)) {
 		$id = false;
-		// TODO log error
+        die_issabelpbx($res->getDebugInfo() . "SQL - <br /> $sql" );
 	} elseif (empty($var['id'])) {
 		if(method_exists($db,'insert_id')) {
 			$id = $db->insert_id();

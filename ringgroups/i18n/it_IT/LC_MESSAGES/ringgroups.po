@@ -141,8 +141,8 @@ msgstr "Descrizione Gruppo"
 msgid "Provide a descriptive title for this Ring Group."
 msgstr "Il titolo descrittivo per questo gruppo"
 
-msgid "Ring Strategy:"
-msgstr "Strategia di Squillo:"
+msgid "Ring Strategy"
+msgstr "Strategia di Squillo"
 
 msgid "ringall"
 msgstr "ringall"
@@ -232,8 +232,8 @@ msgstr "Scegliere un interno da aggiungere alla fine della lista qui sopra."
 msgid "(pick extension)"
 msgstr "(scegliere l'interno)"
 
-msgid "Announcement:"
-msgstr "Annuncio:"
+msgid "Announcement"
+msgstr "Annuncio"
 
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
@@ -344,7 +344,7 @@ msgstr ""
 "l'utente remoto dovrà digitare 1 sul proprio telefono per accettare la "
 "chiamata. Questa opzione funziona solo con la strategia di squillo ringall."
 
-msgid "Remote Announce:"
+msgid "Remote Announce"
 msgstr "Annuncio Remoto"
 
 msgid ""
@@ -359,7 +359,7 @@ msgstr ""
 msgid "Default"
 msgstr "Predefinito"
 
-msgid "Too-Late Announce:"
+msgid "Too-Late Announce"
 msgstr "Annuncio Troppo-Tardi"
 
 msgid ""

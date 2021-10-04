@@ -809,7 +809,7 @@ switch ($extdisplay) {  // process, confirm, or nothing
 			echo "</span>\n";
 			if ($salert) {
 				echo "\t\t\t<span class=\"modulevul\"><a class=\"modulevul_tag\" href=\"#\" data-sec='" . json_encode($modules[$name]['vulnerabilities']['vul']) . "'><img src=\"images/notify_security.png\" alt=\"\" width=\"16\" height=\"16\" border=\"0\" title=\"" .
-					sprintf(_("Vulnerable to security issues %s"), implode($modules[$name]['vulnerabilities']['vul'], ', ')) .
+					sprintf(_("Vulnerable to security issues %s"), implode(', ',$modules[$name]['vulnerabilities']['vul'])) .
 					"\" /> " . sprintf(_("Vulnerable, Requires: %s"), $modules[$name]['vulnerabilities']['minver']) . "</a></span>\n";
 			}
 
@@ -918,7 +918,7 @@ switch ($extdisplay) {  // process, confirm, or nothing
 			}
 			echo "<h5>".sprintf(_("License: %s"), (isset($modules[$name]['license'])?$modules[$name]['license']:"GPLv2") )."</h5>";
 			if ($salert) {
-				echo "<h5>".sprintf(_("Fixes Vulnerabilities: %s"), implode($modules[$name]['vulnerabilities']['vul'], ', '))."</h5>";
+				echo "<h5>".sprintf(_("Fixes Vulnerabilities: %s"), implode(', ',$modules[$name]['vulnerabilities']['vul']))."</h5>";
 			}
 			if (isset($modules[$name]['description']) && !empty($modules[$name]['description'])) {
 				echo "<h5>".sprintf(_("Description for version %s"),$modules[$name]['version'])."</h5>";

@@ -6,7 +6,7 @@ $html = '';
 $html .= heading(_('Log File Settings'), 2);
 $html .= form_open($_SERVER['REQUEST_URI'], '', array('action' => 'save'));
 //general settings
-$html .= heading(_('General Settings'), 5) . '<hr style="width:50%: margin-left: 0; margin-right: 50%">';
+$html .= heading(_('General Settings'), 5);
 $table = new CI_Table;
 
 //date format
@@ -50,11 +50,11 @@ $rotatetime = array(
 );
 $rotatetime = form_label(_('Timestamp'), 'rotatetime') . form_radio($rotatetime);
 
-$help_li[] = _('Sequential: Rename archived logs in order, such that the newest has the highest sequence number');
+$help_li[] = _('Sequential: Rename archived logs in order, such that the newest has the highest sequence number.');
 $help_li[] = _('Rotate: Rotate all the old files, such that the oldest has the highest sequence '
 			. 'number (expected behavior for Unix administrators).');
 $help_li[] = _('Timestamp: Rename the logfiles using a timestamp instead of a sequence number when "logger rotate" is executed.');
-$label = ipbx_label(_('Log rotation'), _('Log rotation strategy: ' . ul($help_li)));
+$label = ipbx_label(_('Log rotation'), _('Log rotation strategy: ') . ul($help_li));
 $table->add_row($label, '<span class="radioset">' . $rotateseq . $rotaterot . $rotatetime . '</radioset>');
 
 
@@ -105,7 +105,7 @@ $html .= br(2);
 
 
 //log files
-$html .= heading(_('Log Files'), 5) . '<hr style="width:50%: margin-left: 0; margin-right: 50%">';
+$html .= heading(_('Log Files'), 5);
 
 $table = new CI_Table;
 $table->set_template(array('table_open' => '<table class="alt_table" id="logfile_entries">'));
@@ -113,7 +113,7 @@ $table->set_template(array('table_open' => '<table class="alt_table" id="logfile
 //draw table header with help on every option
 $has_security_option = version_compare($amp_conf['ASTVERSION'],'11.0','ge');
 $heading = array(
-			ipbx_label(_('File Name'), _('Name of file, relative to TODO!!!!. Use absolute path for a different location')),
+			ipbx_label(_('File Name'), _('Name of file. Use absolute path for a different location.')),
 			ipbx_label(_('Debug'), 'debug: ' . _('Messages used for debuging. '
 									. 'Do not report these as error\'s unless you have a '
 									. 'specific issue that you are attempting to debug. '

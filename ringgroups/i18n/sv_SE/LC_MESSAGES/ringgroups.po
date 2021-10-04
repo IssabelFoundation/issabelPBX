@@ -142,7 +142,7 @@ msgstr "Beskrivning för gruppen"
 msgid "Provide a descriptive title for this Ring Group."
 msgstr "Skriv in en kortfattat beskrivning för denna grupp"
 
-msgid "Ring Strategy:"
+msgid "Ring Strategy"
 msgstr "Ringstrategi"
 
 msgid "ringall"
@@ -236,7 +236,7 @@ msgstr ""
 msgid "(pick extension)"
 msgstr "(välj anknytning)"
 
-msgid "Announcement:"
+msgid "Announcement"
 msgstr "Påannonsering"
 
 msgid ""
@@ -345,7 +345,7 @@ msgstr ""
 "det att uppringaren trycker 1 för att samtalet ska kopplas upp. Denna "
 "funktion fungera endast med strategin ringalla."
 
-msgid "Remote Announce:"
+msgid "Remote Announce"
 msgstr "Fjärrannonsering"
 
 msgid ""
@@ -360,7 +360,7 @@ msgstr ""
 msgid "Default"
 msgstr "Standard"
 
-msgid "Too-Late Announce:"
+msgid "Too-Late Announce"
 msgstr "För-sent meddelande"
 
 msgid ""

@@ -192,8 +192,8 @@ msgstr "не разрешен к использованию в вашем акк
 msgid "Add Queue"
 msgstr "Добавить очередь"
 
-msgid "Queue"
-msgstr "Очередь"
+msgid "Queue:"
+msgstr "Очередь:"
 
 msgid "deleted"
 msgstr "удалено"
@@ -204,14 +204,14 @@ msgstr "Удалить очередь"
 msgid "Conflicting Extensions"
 msgstr "Конфликт внутренних номеров"
 
-msgid "Queue:"
-msgstr "Очередь:"
+msgid "Queue"
+msgstr "Очередь"
 
 msgid "Edit Queue"
 msgstr "Изменить очередь"
 
-msgid "Queue Number:"
-msgstr "Номер очереди:"
+msgid "Queue Number"
+msgstr "Номер очереди"
 
 msgid ""
 "Use this number to dial into the queue, or transfer callers to this number "
@@ -226,14 +226,14 @@ msgstr ""
 "же номер и '**' чтобы отключиться.<br><br>Например, если номер очереди 123:"
 "<br><b>123* = подключиться <br>123** = отключиться</b>"
 
-msgid "Queue Name:"
-msgstr "Название очереди:"
+msgid "Queue Name"
+msgstr "Название очереди"
 
 msgid "Give this queue a brief name to help you identify it."
 msgstr "Присвоить для очереди короткое название для идентификации."
 
-msgid "Queue Password:"
-msgstr "Пароль очереди:"
+msgid "Queue Password"
+msgstr "Пароль очереди"
 
 msgid ""
 "You can require agents to enter a password before they can log in to this "
@@ -250,8 +250,8 @@ msgstr "Пароль используется только при входе ч�
 "Если пользуетесь кодами переключения, Вы должны использовать параметр 'Ограничить Динамических Операторов' "
 "совместно со списком Динамических операторов для ограничения доступа в очередь."
 
-msgid "Queue No Answer:"
-msgstr "Отсутствие ответа в очереди:"
+msgid "Queue No Answer"
+msgstr "Отсутствие ответа в очереди"
 
 msgid ""
 "If checked, the queue will not answer the call. Under most circumstance you "
@@ -267,8 +267,8 @@ msgstr "Если параметр установлен, модуль очере�
 "это может быть использовано, например если нужен моментальный ответ свободного оператора или выход из "
 "очереди если моментальный ответ невозможен."
 
-msgid "Generate Device Hints:"
-msgstr "Генерация оповещений устройств:"
+msgid "Generate Device Hints"
+msgstr "Генерация оповещений устройств"
 
 msgid ""
 "If checked, individual hints and dialplan will be generated for each SIP and "
@@ -287,8 +287,8 @@ msgstr ""
 "код переключения, указанный в модуле Сервисные коды, ddd - номер устройства "
 "(обычно это всё тот же внутренний номер) и qqq - номер очереди."
 
-msgid "Call Confirm:"
-msgstr "Подтверждение приёма звонка: "
+msgid "Call Confirm"
+msgstr "Подтверждение приёма звонка"
 
 msgid ""
 "If checked, any queue member that is actually an outside telephone number, "
@@ -299,8 +299,8 @@ msgstr "Если установлено, для любого оператор о
 "номер переадресован, включено Follow-Me), будет принудительно включен режим подтверждения приёма "
 "звонка."
 
-msgid "Call Confirm Announce:"
-msgstr "Сообщение перед поступлением вызова для подтверждения:"
+msgid "Call Confirm Announce"
+msgstr "Сообщение перед поступлением вызова для подтверждения"
 
 msgid ""
 "Announcement played to the Queue Memeber announcing the Queue call and "
@@ -319,8 +319,8 @@ msgstr "Сообщение будет воспроизведено операт�
 msgid "Default"
 msgstr "По умолчанию"
 
-msgid "Call Confirm Announcement:"
-msgstr "Сообщение перед поступлением вызова для подтверждения:"
+msgid "Call Confirm Announcement"
+msgstr "Сообщение перед поступлением вызова для подтверждения"
 
 msgid ""
 "Announcement played to anyone using an external follow-me to receive the "
@@ -330,8 +330,8 @@ msgstr "Сообщение будет воспроизведено операт�
 "оператор переадресован через Follow-Me ."
 "Для добавления сообщений используйте раздел 'Системные Сообщения'."
 
-msgid "CID Name Prefix:"
-msgstr "Префикс для ИД имени:"
+msgid "CID Name Prefix"
+msgstr "Префикс для ИД имени"
 
 msgid ""
 "You can optionally prefix the CallerID name of callers to the queue. ie: If "
@@ -340,8 +340,8 @@ msgid ""
 msgstr "Вы можете установить префикс в CID имени звонка в очереди. Если Вы установили префикс: 'Продажи', "
 "то вызов от абонента 'Иван Сидоров' будет отображен как 'Продажи: Иван Сидоров'"
 
-msgid "Wait Time Prefix:"
-msgstr "Префикс индикации времени ожидания:"
+msgid "Wait Time Prefix"
+msgstr "Префикс индикации времени ожидания"
 
 msgid ""
 "When set to Yes, the CID Name will be prefixed with the total wait time in "
@@ -499,8 +499,8 @@ msgstr "Только внутренние абоненты"
 msgid "General Queue Options"
 msgstr "Общие параметры очереди"
 
-msgid "Ring Strategy:"
-msgstr "Стратегия дозвона:"
+msgid "Ring Strategy"
+msgstr "Стратегия дозвона"
 
 msgid "ringall"
 msgstr "звонят-все"
@@ -569,8 +569,8 @@ msgstr ""
 "случайный выбор использует занятость агентов как вес в качестве приоритета "
 "выбора, см. документацию Астериск для более детальной информации."
 
-msgid "Autofill:"
-msgstr "Автозаполнение:"
+msgid "Autofill"
+msgstr "Автозаполнение"
 
 msgid ""
 "Starting with Asterisk 1.4, if this is checked, and multiple agents are "
@@ -587,7 +587,7 @@ msgstr ""
 "1.2, поэтому задействовать эту возможность не удастся, если у вас 1.2. "
 "Смотрите документацию для более детального понимания этой опции."
 
-msgid "Skip Busy Agents:"
+msgid "Skip Busy Agents"
 msgstr "Пропускать занятых операторов"
 
 msgid ""
@@ -655,8 +655,8 @@ msgstr ""
 "приоритетом. Оператору будет подан звонок большим приоритетом очереди, если "
 "оператор обслуживаетс две и более очереди."
 
-msgid "Music on Hold Class:"
-msgstr "Класс Музыки в ожидании:"
+msgid "Music on Hold Class"
+msgstr "Класс Музыки в ожидании"
 
 msgid ""
 "Music (or Commercial) played to the caller while they wait in line for an "
@@ -676,7 +676,7 @@ msgstr "нет"
 msgid "default"
 msgstr "по умолчанию"
 
-msgid "Ringing Instead of MoH:"
+msgid "Ringing Instead of MoH"
 msgstr "Просто гудок вызова"
 
 msgid ""
@@ -687,8 +687,8 @@ msgstr ""
 "Эта опция посылает дозвонившемуся гудки вызова вместо Музыки в ожидании.<br/"
 ">Если эта опция задействована, две предидущие установки игнорируются."
 
-msgid "Join Announcement:"
-msgstr "Сообщение при попадании:"
+msgid "Join Announcement"
+msgstr "Сообщение при попадании"
 
 msgid ""
 "Announcement played to callers once prior to joining the queue.<br><br>To "
@@ -707,8 +707,8 @@ msgstr ""
 "очередь<br><br>Нужно инсталлировать и активировать модуль Запись сообщений, "
 "чтобы изменять эту опцию."
 
-msgid "Call Recording:"
-msgstr "Запись разговоров:"
+msgid "Call Recording"
+msgstr "Запись разговоров"
 
 msgid ""
 "Incoming calls to agents can be recorded. (saved to /var/spool/asterisk/"
@@ -726,8 +726,8 @@ msgstr "wav"
 msgid "gsm"
 msgstr "gsm"
 
-msgid "Recording Mode:"
-msgstr "Режим записи разговоров: "
+msgid "Recording Mode"
+msgstr "Режим записи разговоров"
 
 msgid ""
 "Choose to 'Include Hold Time' in the recording so it starts as soon as they "
@@ -743,8 +743,8 @@ msgstr "Время время ожидания"
 msgid "After Answered"
 msgstr "После ответа оператора"
 
-msgid "Caller Volume Adjustment:"
-msgstr "Подстройка громкости входяшего:"
+msgid "Caller Volume Adjustment"
+msgstr "Подстройка громкости входяшего"
 
 msgid "Adjust the recording volume of the caller."
 msgstr "Подстройка громкости записи."
@@ -752,14 +752,14 @@ msgstr "Подстройка громкости записи."
 msgid "No Adjustment"
 msgstr "Нет подстройки"
 
-msgid "Agent Volume Adjustment:"
-msgstr "Подстройка громкости оператора:"
+msgid "Agent Volume Adjustment"
+msgstr "Подстройка громкости оператора"
 
 msgid "Adjust the recording volume of the queue member (Agent)."
-msgstr "Подстройка громкости записи оператора:"
+msgstr "Подстройка громкости записи оператора"
 
-msgid "Mark calls answered elsewhere:"
-msgstr "Отмечать все вызовы как отвеченные:"
+msgid "Mark calls answered elsewhere"
+msgstr "Отмечать все вызовы как отвеченные"
 
 msgid ""
 "Enabling this option, all calls are marked as 'answered elsewhere' when "
@@ -772,8 +772,8 @@ msgstr "Данные параметр позволяет отмечать все
 msgid "Timing & Agent Options"
 msgstr "Параметры времени и операторов"
 
-msgid "Max Wait Time:"
-msgstr "Время ожидания, максимально:"
+msgid "Max Wait Time"
+msgstr "Время ожидания, максимально"
 
 msgid ""
 "The maximum number of seconds a caller can wait in a queue before being "
@@ -786,8 +786,8 @@ msgstr ""
 msgid "Unlimited"
 msgstr "Неограничено"
 
-msgid "Max Wait Time Mode:"
-msgstr "Режим времени максимального ожидания:"
+msgid "Max Wait Time Mode"
+msgstr "Режим времени максимального ожидания"
 
 msgid ""
 "Asterisk timeoutpriority. In 'Strict' mode, when the 'Max Wait Time' of a "
@@ -807,8 +807,8 @@ msgstr "Ограничено"
 msgid "Loose"
 msgstr "Неточный"
 
-msgid "Agent Timeout:"
-msgstr "Таймаут оператора:"
+msgid "Agent Timeout"
+msgstr "Таймаут оператора"
 
 msgid ""
 "The number of seconds an agent's phone can ring before we consider it a "
@@ -821,8 +821,8 @@ msgstr ""
 "значениями времени вызова по умолчанию, или индивидуальными для "
 "пользователей."
 
-msgid "Agent Timeout Restart:"
-msgstr "Задержка возврата оператора:"
+msgid "Agent Timeout Restart"
+msgstr "Задержка возврата оператора"
 
 msgid ""
 "If timeoutrestart is set to yes, then the time out for an agent to answer is "
@@ -832,8 +832,8 @@ msgstr "Этот параметр устанавливает время повт
 "принять звонок из очереди. Это может быть полезно, если операторы очереди имеют возможность "
 "отказа приема вызова из очереди."
 
-msgid "Retry:"
-msgstr "Повторить:"
+msgid "Retry"
+msgstr "Повторить"
 
 msgid ""
 "The number of seconds we wait before trying all the phones again. Choosing "
@@ -849,8 +849,8 @@ msgstr ""
 msgid "No Retry"
 msgstr "Не повторять"
 
-msgid "Wrap-Up-Time:"
-msgstr "Передышка:"
+msgid "Wrap-Up-Time"
+msgstr "Передышка"
 
 msgid ""
 "After a successful call, how many seconds to wait before sending a "
@@ -863,8 +863,8 @@ msgstr "Указывает сколько секунд агент останет
 "'Применить передышку для всех очередей' на странице 'Дополнительные настройки' и операторы, "
 "работающие в нескольких очередях будут иметь перерыв после вызова в любой очереди. "
 
-msgid "Member Delay:"
-msgstr "Задержка оператора:"
+msgid "Member Delay"
+msgstr "Задержка оператора"
 
 msgid ""
 "If you wish to have a delay before the member is connected to the caller (or "
@@ -873,8 +873,8 @@ msgid ""
 msgstr "Данный параметр позволяет установить задержку в секундах между ответом оператора и соединением с "
 "вызывающим абонентом (или оповещением)."
 
-msgid "Agent Announcement:"
-msgstr "Приветствие агенту:"
+msgid "Agent Announcement"
+msgstr "Приветствие агенту"
 
 msgid ""
 "Announcement played to the Agent prior to bridging in the caller <br><br> "
@@ -897,8 +897,8 @@ msgstr ""
 "\" или \"Звонок из очереди к Службе поддержки\".<br><br>Нужно инсталлировать "
 "и активировать модуль Запись сообщений для изменения этой опции."
 
-msgid "Report Hold Time:"
-msgstr "Сообщения о времени ожидания:"
+msgid "Report Hold Time"
+msgstr "Сообщения о времени ожидания"
 
 msgid ""
 "If you wish to report the caller's hold time to the member before they are "
@@ -910,8 +910,8 @@ msgstr ""
 msgid "Capacity Options"
 msgstr "Параметры ёмкости очереди"
 
-msgid "Max Callers:"
-msgstr "Позвонивших, максимально:"
+msgid "Max Callers"
+msgstr "Позвонивших, максимально"
 
 msgid "Maximum number of people waiting in the queue (0 for unlimited)"
 msgstr "Максимально  число ожидающих в очереди (0 - неограничено)"
@@ -962,8 +962,8 @@ msgid ""
 msgstr "Тоже самое, что и 'Нет', кроме наличия приостановленных операторов, которые могли бы "
 "стать активными."
 
-msgid "Join Empty:"
-msgstr "Попадать в пустую:"
+msgid "Join Empty"
+msgstr "Попадать в пустую"
 
 msgid ""
 "Determines if callers should be exited prematurely from the queue in "
@@ -1007,11 +1007,11 @@ msgid ""
 "Never have a caller leave the Queue until the Max Wait Time has expired."
 msgstr "Никогда не удалять вызов из очереди до истечения максимального времени ожидания."
 
-msgid "Leave Empty:"
-msgstr "ВЫходить из пустой очереди:"
+msgid "Leave Empty"
+msgstr "ВЫходить из пустой очереди"
 
-msgid "Penalty Members Limit:"
-msgstr "Органичение уровня доступности оператора:"
+msgid "Penalty Members Limit"
+msgstr "Органичение уровня доступности оператора"
 
 msgid ""
 "Asterisk: penaltymemberslimit. A limit can be set to disregard penalty "
@@ -1029,8 +1029,8 @@ msgstr "Соблюдать уровни доступности"
 msgid "Caller Position Announcements"
 msgstr "Сообщения о номере в очереди"
 
-msgid "Frequency:"
-msgstr "Частота:"
+msgid "Frequency"
+msgstr "Частота"
 
 msgid ""
 "How often to announce queue position and estimated holdtime (0 to Disable "
@@ -1039,14 +1039,14 @@ msgstr ""
 "Как часто будут повторяться ожидающему сообщения о его номере в очереди и "
 "времени ожидания (0 деактивирует Сообщения)."
 
-msgid "Announce Position:"
-msgstr "Сообщать номер в очереди:"
+msgid "Announce Position"
+msgstr "Сообщать номер в очереди"
 
 msgid "Announce position of caller in the queue?"
 msgstr "Сообщать ожидающему его номере в очереди?"
 
-msgid "Announce Hold Time:"
-msgstr "Сообщения о времени ожидания:"
+msgid "Announce Hold Time"
+msgstr "Сообщения о времени ожидания"
 
 msgid ""
 "Should we include estimated hold time in position announcements?  Either "
@@ -1062,8 +1062,8 @@ msgstr "Один раз"
 msgid "Periodic Announcements"
 msgstr "Периодичность сообщений"
 
-msgid "IVR Break Out Menu:"
-msgstr "Возможность выйти из Меню:"
+msgid "IVR Break Out Menu"
+msgstr "Возможность выйти из Меню"
 
 msgid ""
 "You can optionally present an existing IVR as a 'break out' menu."
@@ -1108,8 +1108,8 @@ msgstr ""
 "Ранние версии этого модуля разрешали сделать выбор в такой очереди, но когда "
 "выбор сделан, опция переставала быть видимой."
 
-msgid "Repeat Frequency:"
-msgstr "Частота повторений:"
+msgid "Repeat Frequency"
+msgstr "Частота повторений"
 
 msgid ""
 "How often to announce a voice menu to the caller (0 to Disable "
@@ -1121,8 +1121,8 @@ msgstr ""
 msgid "Events, Stats and Advanced"
 msgstr "События, Статистика и Допонительно"
 
-msgid "Event When Called:"
-msgstr "Событие, если звонят:"
+msgid "Event When Called"
+msgstr "Событие, если звонят"
 
 msgid ""
 "When this option is set to YES, the following manager events will be "
@@ -1132,16 +1132,16 @@ msgstr ""
 "генерироваться следующие события: AgentCalled, AgentDump, AgentConnect and "
 "AgentComplete."
 
-msgid "Member Status Event:"
-msgstr "События об изменениях состояния операторов:"
+msgid "Member Status Event"
+msgstr "События об изменениях состояния операторов"
 
 msgid ""
 "When set to YES, the following manager event will be generated: "
 "QueueMemberStatus"
 msgstr "Если установлено, будут генерироваться события AMI 'QueueMemberStatus'"
 
-msgid "Service Level:"
-msgstr "Уровень сервиса:"
+msgid "Service Level"
+msgstr "Уровень сервиса"
 
 msgid ""
 "Used for service level statistics (calls answered within service level time "

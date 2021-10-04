@@ -29,7 +29,7 @@ msgid ""
 msgstr ""
 
 #: views/main.html.php:99
-msgid "Account SID:"
+msgid "Account SID"
 msgstr ""
 
 #: views/main.html.php:3
@@ -46,7 +46,7 @@ msgid "Adding opencnam account columns to the cidlookup table..."
 msgstr ""
 
 #: views/main.html.php:107
-msgid "Auth Token:"
+msgid "Auth Token"
 msgstr ""
 
 #: functions.inc.php:12
@@ -54,11 +54,11 @@ msgid "CID Lookup Source"
 msgstr ""
 
 #: views/main.html.php:76
-msgid "Cache results:"
+msgid "Cache results"
 msgstr ""
 
 #: views/main.html.php:229
-msgid "Character Set:"
+msgid "Character Set"
 msgstr ""
 
 #: install.php:103
@@ -82,7 +82,7 @@ msgid "Database name"
 msgstr ""
 
 #: views/main.html.php:197
-msgid "Database:"
+msgid "Database"
 msgstr ""
 
 #: views/main.html.php:76
@@ -129,7 +129,7 @@ msgstr ""
 
 #: views/main.html.php:128
 #: views/main.html.php:189
-msgid "Host:"
+msgid "Host"
 msgstr ""
 
 #: install.php:37
@@ -204,7 +204,7 @@ msgstr ""
 
 #: views/main.html.php:152
 #: views/main.html.php:221
-msgid "Password:"
+msgid "Password"
 msgstr ""
 
 #: views/main.html.php:160
@@ -212,7 +212,7 @@ msgid "Path of the file to GET<br/>e.g.: /cidlookup.php"
 msgstr ""
 
 #: views/main.html.php:160
-msgid "Path:"
+msgid "Path"
 msgstr ""
 
 #: views/main.html.php:136
@@ -220,7 +220,7 @@ msgid "Port HTTP server is listening at (default 80)"
 msgstr ""
 
 #: views/main.html.php:136
-msgid "Port:"
+msgid "Port"
 msgstr ""
 
 #: views/main.html.php:168
@@ -237,7 +237,7 @@ msgstr ""
 
 #: views/main.html.php:168
 #: views/main.html.php:205
-msgid "Query:"
+msgid "Query"
 msgstr ""
 
 #: install.php:86
@@ -265,11 +265,11 @@ msgid "Source"
 msgstr ""
 
 #: views/main.html.php:43
-msgid "Source Description:"
+msgid "Source Description"
 msgstr ""
 
 #: views/main.html.php:51
-msgid "Source type:"
+msgid "Source type"
 msgstr ""
 
 #: views/main.html.php:18
@@ -310,7 +310,7 @@ msgstr ""
 
 #: views/main.html.php:144
 #: views/main.html.php:213
-msgid "Username:"
+msgid "Username"
 msgstr ""
 
 #: bin/opencnam-alert.php:25

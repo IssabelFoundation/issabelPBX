@@ -11,24 +11,22 @@ $data = array(
 			'reboot'	=> _('Reboot'),
 			'custom'	=> _('Custom')
 );
-$txt = <<<EOM
-Select how often to reset queue stats. The following schedule will be followed for all but custom:<br/>
-Hourly &nbsp&nbspRun once an hour, beginning of hour<br/>
-Daily &nbsp&nbsp&nbsp&nbspRun once a day, at midnight<br/>
-Weekly &nbsp&nbspRun once a week, midnight on Sun<br/>
-Monthly &nbsp&nbspRun once a month, midnight, first of month<br/>
-Annually &nbspRun once a year, midnight, Jan. 1<br/>
-Reboot &nbsp&nbspRun at startup of the server OR of the cron deamon (i.e. after every <code>service cron restart</code>)<br/>
-<br/>
-If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved
-<br/><br/>
-Never will never reset the queue stats automatically
-<br/><br/>
-If a custom schedule is selected, any section not specficed will be considered to be "any" (aka: wildcard).
-I.e. if Day of Month is set to 12 and Day of Week is not set, the queue stats will be reset on ANY 12th of
-the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the queue stats will be reset ONLY
- on a Monday, and ONLY if it's the 12th of the month.
-EOM;
+$txt = "Select how often to reset queue stats. The following schedule will be followed for all but custom:<br/>".
+"Hourly &nbsp;&nbsp;Run once an hour, beginning of hour<br/>".
+"Daily &nbsp;&nbsp;&nbsp;&nbsp;Run once a day, at midnight<br/>".
+"Weekly &nbsp;&nbsp;Run once a week, midnight on Sun<br/>".
+"Monthly &nbsp;&nbsp;Run once a month, midnight, first of month<br/>".
+"Annually &nbsp;Run once a year, midnight, Jan. 1<br/>".
+"Reboot &nbsp;&nbsp;Run at startup of the server OR of the cron deamon (i.e. after every <code>service cron restart</code>)<br/>".
+"<br/>".
+"If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved".
+"<br/><br/>".
+"Never will never reset the queue stats automatically".
+"<br/><br/>".
+"If a custom schedule is selected, any section not specficed will be considered to be \"any\" (aka: wildcard).".
+"I.e. if Day of Month is set to 12 and Day of Week is not set, the queue stats will be reset on ANY 12th of".
+"the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the queue stats will be reset ONLY".
+" on a Monday, and ONLY if it's the 12th of the month.";
 $label = ipbx_label(_('Run'), _($txt));
 $html .= $label . ' ' . form_dropdown('cron_schedule', $data, $cron_schedule);
 $data = array(

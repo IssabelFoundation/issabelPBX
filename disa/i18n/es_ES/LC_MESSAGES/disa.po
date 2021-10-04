@@ -164,3 +164,15 @@ msgstr ""
 
 msgid "Context cannot be blank"
 msgstr "El contexto no puede estar vacío"
+
+msgid "Caller ID Override"
+msgstr "Anulación de CallerID"
+
+msgid "Determine if we keep the Caller ID being presented or if we override it. Default is Enable"
+msgstr "Determina si mantenemos el identificador de llamadas que se presenta o si lo anulamos. El valor predeterminado es Activado"
+
+msgid "Enable"
+msgstr "Activado"
+
+msgid "Disable"
+msgstr "Desactivado"

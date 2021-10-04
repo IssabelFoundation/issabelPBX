@@ -1,6 +1,6 @@
 <?php 
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
-
+$tabindex = 0;
 $type    = isset($_REQUEST['type']) ? $_REQUEST['type'] : 'setup';
 $action  = isset($_REQUEST['action']) ? $_REQUEST['action'] :  '';
 
@@ -123,13 +123,13 @@ if(!isset($variables_custom_val_0)) { $variables_custom_val_0=''; }
     <table>
     <tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit CallerID Instance") : _("Add CallerID Instance")) ?></h5></td></tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("The descriptive name of this CallerID instance. For example \"new name here\"");?></span></a></td>
+        <td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _("The descriptive name of this CallerID instance. For example \"new name here\"");?></span></a></td>
         <td><input size="30" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("CallerID Name")?>:<span><?php echo _("The CallerID Name that you want to change to. If you are appending to the current callerid, dont forget to include the appropriate asterisk variables. If you leave this box blank, the CallerID name will be blanked");?></span></a></td>
+        <td><a href="#" class="info"><?php echo _("CallerID Name")?><span><?php echo _("The CallerID Name that you want to change to. If you are appending to the current callerid, dont forget to include the appropriate asterisk variables. If you leave this box blank, the CallerID name will be blanked");?></span></a></td>
         <td><input size="30" type="text" name="cid_name" value="<?php echo $cid_name; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td> </tr>
-    <td><a href="#" class="info"><?php echo _("CallerID Number")?>:<span><?php echo _("The CallerID Number that you want to change to. If you are appending to the current callerid, dont forget to include the appropriate asterisk variables. If you leave this box blank, the CallerID number will be blanked");?></span></a></td>
+    <td><a href="#" class="info"><?php echo _("CallerID Number")?><span><?php echo _("The CallerID Number that you want to change to. If you are appending to the current callerid, dont forget to include the appropriate asterisk variables. If you leave this box blank, the CallerID number will be blanked");?></span></a></td>
         <td><input size="30" type="text" name="cid_num" value="<?php echo $cid_num; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td> </tr>
 
 
@@ -186,7 +186,7 @@ END;
 
 
 
-    <tr><td colspan="2"><br><h5><?php echo _("Destination")?>:</h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo _("Destination")?></h5></td></tr>
 
 <?php 
 //draw goto selects

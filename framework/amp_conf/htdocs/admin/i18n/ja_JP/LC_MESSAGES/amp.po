@@ -3874,8 +3874,8 @@ msgstr ""
 "ておいてください"
 
 #: ../core/page.routing.php:497 ../core/page.trunks.php:611
-msgid "Rules:"
-msgstr "ルール："
+msgid "Rules"
+msgstr "ルール"
 
 #: amp_conf/htdocs/admin/views/menu.php:152
 msgid "Russian"
@@ -4495,8 +4495,8 @@ msgid "This user/extension %s is already in use"
 msgstr "このユーザー/内線番号 %s は既に使用中です"
 
 #: ../core/page.routing.php:454
-msgid "Time Group:"
-msgstr "時間グループ:"
+msgid "Time Group"
+msgstr "時間グループ"
 
 #: amp_conf/htdocs/admin/views/login.php:12
 msgid "To get started, please enter your credentials:"

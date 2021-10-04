@@ -5,14 +5,14 @@ class modulelist{
 	var $module_array = array();
 	var $_db;
 
-	function &create(&$db) {
+	public static function &create(&$db) {
 		static $obj;
 		if (!isset($obj)) {
 			$obj = new modulelist($db);
 		}
 		return $obj;
 	}
-	function modulelist(&$db) {
+	function __construct(&$db) {
 		$this->_db =& $db;
 		$module_serialized = sql("SELECT `data` FROM `module_xml` WHERE `id` = 'mod_serialized'","getOne");
 		if (isset($module_serialized) && $module_serialized) {

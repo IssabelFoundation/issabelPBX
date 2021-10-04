@@ -48,7 +48,7 @@ msgstr ""
 "a PBX rendszert."
 
 #: views/main.html.php:99
-msgid "Account SID:"
+msgid "Account SID"
 msgstr ""
 
 #: views/main.html.php:3
@@ -64,7 +64,7 @@ msgid "Adding opencnam account columns to the cidlookup table..."
 msgstr ""
 
 #: views/main.html.php:107
-msgid "Auth Token:"
+msgid "Auth Token"
 msgstr ""
 
 #: functions.inc.php:12
@@ -72,11 +72,11 @@ msgid "CID Lookup Source"
 msgstr "CID meghatározó forrás"
 
 #: views/main.html.php:76
-msgid "Cache results:"
-msgstr "Cache használata:"
+msgid "Cache results"
+msgstr "Cache használata"
 
 #: views/main.html.php:229
-msgid "Character Set:"
+msgid "Character Set"
 msgstr ""
 
 #: install.php:103
@@ -100,8 +100,8 @@ msgid "Database name"
 msgstr "Adatbázis neve"
 
 #: views/main.html.php:197
-msgid "Database:"
-msgstr "Adatbázis:"
+msgid "Database"
+msgstr "Adatbázis"
 
 #: views/main.html.php:76
 msgid ""
@@ -144,8 +144,8 @@ msgid "Host name or IP address"
 msgstr "Gépnév vagy IP-cím"
 
 #: views/main.html.php:128 views/main.html.php:189
-msgid "Host:"
-msgstr "Cím:"
+msgid "Host"
+msgstr "Cím"
 
 #: install.php:37 install.php:135
 msgid "Installing OpenCNAM CallerID Lookup Sources..."
@@ -214,24 +214,24 @@ msgid "Password to use in HTTP authentication"
 msgstr "Jelszó a HTTP azonosításhoz"
 
 #: views/main.html.php:152 views/main.html.php:221
-msgid "Password:"
-msgstr "Jelszó:"
+msgid "Password"
+msgstr "Jelszó"
 
 #: views/main.html.php:160
 msgid "Path of the file to GET<br/>e.g.: /cidlookup.php"
 msgstr "A fájlnév a GET-hez<br/> Pl.: /cidlookup.php"
 
 #: views/main.html.php:160
-msgid "Path:"
-msgstr "Útvonal:"
+msgid "Path"
+msgstr "Útvonal"
 
 #: views/main.html.php:136
 msgid "Port HTTP server is listening at (default 80)"
 msgstr "Az a port, amin a HTTP szerver figyel (általában 80)"
 
 #: views/main.html.php:136
-msgid "Port:"
-msgstr "Port:"
+msgid "Port"
+msgstr "Port"
 
 #: views/main.html.php:168
 msgid ""
@@ -250,8 +250,8 @@ msgstr ""
 "FROM phonebook WHERE number LIKE '%[NUMBER]%'"
 
 #: views/main.html.php:168 views/main.html.php:205
-msgid "Query:"
-msgstr "Lekérdezés:"
+msgid "Query"
+msgstr "Lekérdezés"
 
 #: install.php:86
 msgid "Removing deprecated channel field from incoming.."
@@ -278,12 +278,12 @@ msgid "Source"
 msgstr "Forrás"
 
 #: views/main.html.php:43
-msgid "Source Description:"
-msgstr "Forrás neve:"
+msgid "Source Description"
+msgstr "Forrás neve"
 
 #: views/main.html.php:51
-msgid "Source type:"
-msgstr "Forrás típusa:"
+msgid "Source type"
+msgstr "Forrás típusa"
 
 #: views/main.html.php:18
 #, php-format
@@ -322,8 +322,8 @@ msgid "Username to use in HTTP authentication"
 msgstr "Felhasználónév a HTTP azonosításhoz"
 
 #: views/main.html.php:144 views/main.html.php:213
-msgid "Username:"
-msgstr "Felhasználónév:"
+msgid "Username"
+msgstr "Felhasználónév"
 
 #: bin/opencnam-alert.php:25
 msgid ""

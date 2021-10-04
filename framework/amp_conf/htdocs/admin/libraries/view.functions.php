@@ -26,10 +26,12 @@ function frameworkPasswordCheck() {
 
     // send error if magic_quotes_gpc is enabled on this system as much of the code base assumes not
     //
-    if(get_magic_quotes_gpc()) {
-        $nt->add_error('core', 'MQGPC', _("Magic Quotes GPC"), _("You have magic_quotes_gpc enabled in your php.ini, http or .htaccess file which will cause errors in some modules. IssabelPBX expects this to be off and runs under that assumption"));
-    } else {
-        $nt->delete('core', 'MQGPC');
+    if (version_compare(PHP_VERSION, '7.0.0') <= 0) {
+        if(get_magic_quotes_gpc()) {
+            $nt->add_error('core', 'MQGPC', _("Magic Quotes GPC"), _("You have magic_quotes_gpc enabled in your php.ini, http or .htaccess file which will cause errors in some modules. IssabelPBX expects this to be off and runs under that assumption"));
+        } else {
+            $nt->delete('core', 'MQGPC');
+        }
     }
 
 }

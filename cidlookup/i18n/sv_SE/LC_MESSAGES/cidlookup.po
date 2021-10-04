@@ -47,7 +47,7 @@ msgstr ""
 "upp."
 
 #: views/main.html.php:99
-msgid "Account SID:"
+msgid "Account SID"
 msgstr ""
 
 #: views/main.html.php:3
@@ -63,7 +63,7 @@ msgid "Adding opencnam account columns to the cidlookup table..."
 msgstr ""
 
 #: views/main.html.php:107
-msgid "Auth Token:"
+msgid "Auth Token"
 msgstr ""
 
 #: functions.inc.php:12
@@ -71,11 +71,11 @@ msgid "CID Lookup Source"
 msgstr "Källa för nummerpresentation"
 
 #: views/main.html.php:76
-msgid "Cache results:"
+msgid "Cache results"
 msgstr "Lagra resultat"
 
 #: views/main.html.php:229
-msgid "Character Set:"
+msgid "Character Set"
 msgstr ""
 
 #: install.php:103
@@ -100,8 +100,8 @@ msgid "Database name"
 msgstr "Databasnamn"
 
 #: views/main.html.php:197
-msgid "Database:"
-msgstr "Databas:"
+msgid "Database"
+msgstr "Databas"
 
 #: views/main.html.php:76
 msgid ""
@@ -144,8 +144,8 @@ msgid "Host name or IP address"
 msgstr "Datornamn eller IP-adress"
 
 #: views/main.html.php:128 views/main.html.php:189
-msgid "Host:"
-msgstr "Dator:"
+msgid "Host"
+msgstr "Dator"
 
 #: install.php:37 install.php:135
 msgid "Installing OpenCNAM CallerID Lookup Sources..."
@@ -214,24 +214,24 @@ msgid "Password to use in HTTP authentication"
 msgstr "Lösenord att använda vid HTTP-autentisering"
 
 #: views/main.html.php:152 views/main.html.php:221
-msgid "Password:"
-msgstr "Lösenord:"
+msgid "Password"
+msgstr "Lösenord"
 
 #: views/main.html.php:160
 msgid "Path of the file to GET<br/>e.g.: /cidlookup.php"
 msgstr "Sökväg till filen via GET<br>t.ex. /cidlookup.php"
 
 #: views/main.html.php:160
-msgid "Path:"
-msgstr "Sökväg:"
+msgid "Path"
+msgstr "Sökväg"
 
 #: views/main.html.php:136
 msgid "Port HTTP server is listening at (default 80)"
 msgstr "Porten HTTP-servern lyssnar på (standard 80)"
 
 #: views/main.html.php:136
-msgid "Port:"
-msgstr "Port:"
+msgid "Port"
+msgstr "Port"
 
 #: views/main.html.php:168
 msgid ""
@@ -251,8 +251,8 @@ msgstr ""
 "[NUMBER]%'"
 
 #: views/main.html.php:168 views/main.html.php:205
-msgid "Query:"
-msgstr "Fråga:"
+msgid "Query"
+msgstr "Fråga"
 
 #: install.php:86
 msgid "Removing deprecated channel field from incoming.."
@@ -279,12 +279,12 @@ msgid "Source"
 msgstr "Källa"
 
 #: views/main.html.php:43
-msgid "Source Description:"
-msgstr "Källbeskrivning:"
+msgid "Source Description"
+msgstr "Källbeskrivning"
 
 #: views/main.html.php:51
-msgid "Source type:"
-msgstr "Källtyp:"
+msgid "Source type"
+msgstr "Källtyp"
 
 #: views/main.html.php:18
 #, php-format
@@ -325,8 +325,8 @@ msgid "Username to use in HTTP authentication"
 msgstr "Användarnamn att använda vid HTTP-autentisering"
 
 #: views/main.html.php:144 views/main.html.php:213
-msgid "Username:"
-msgstr "Användarnamn:"
+msgid "Username"
+msgstr "Användarnamn"
 
 #: bin/opencnam-alert.php:25
 msgid ""

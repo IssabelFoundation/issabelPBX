@@ -115,8 +115,8 @@ msgstr "Varning! Anknytning"
 msgid "is not allowed for your account"
 msgstr "är inte tillåtet för din anknytning"
 
-msgid "Choose a user/extension:"
-msgstr "Välj en användare/anknytning:"
+msgid "Choose a user/extension"
+msgstr "Välj en användare/anknytning"
 
 msgid "deleted"
 msgstr "borttagen"
@@ -168,7 +168,7 @@ msgstr ""
 "vill att samtalet ska ringa denna anknytning, och endast om uppringaren "
 "väljer att hitta dig kommer den hit."
 
-msgid "Initial Ring Time:"
+msgid "Initial Ring Time"
 msgstr "Ringtid"
 
 msgid ""
@@ -180,8 +180,8 @@ msgstr ""
 "ringer på Följ-mig listan, sätt 0 för att hoppa över denna tid. Denna "
 "anknytning kan vara inkluderad i Följ-mig listan."
 
-msgid "Ring Strategy:"
-msgstr "Ringstrategi:"
+msgid "Ring Strategy"
+msgstr "Ringstrategi"
 
 msgid "ringallv2"
 msgstr "ringallv2"
@@ -275,8 +275,8 @@ msgstr "Välj en anknytning att lägga till sist i listan."
 msgid "(pick extension)"
 msgstr "(välj anknytning)"
 
-msgid "Announcement:"
-msgstr "Meddelande:"
+msgid "Announcement"
+msgstr "Meddelande"
 
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
@@ -351,8 +351,8 @@ msgstr ""
 "att den uppringda trycker siffran 1 innan samtalet kopplas upp. Denna "
 "funktion fungerar bara med ringall/ringall-prim strategierna."
 
-msgid "Remote Announce:"
-msgstr "Fjärrmeddelande:"
+msgid "Remote Announce"
+msgstr "Fjärrmeddelande"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
@@ -366,7 +366,7 @@ msgstr ""
 msgid "Default"
 msgstr "Standard"
 
-msgid "Too-Late Announce:"
+msgid "Too-Late Announce"
 msgstr "För-sent meddelande"
 
 msgid ""

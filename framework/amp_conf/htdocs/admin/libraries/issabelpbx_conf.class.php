@@ -171,7 +171,7 @@ class issabelpbx_conf {
    * @return obj  returns an object to a new or the current instance of
    *              a issabelpbx_conf class.
    */
-  function &create() {
+  static function &create() {
     static $obj;
     global $db;
     if (!isset($obj) || !is_object($obj)) {

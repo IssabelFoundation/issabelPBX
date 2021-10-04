@@ -312,7 +312,7 @@ class Backup {
 				case 'email':
 					//dont run if the file is too big
 					if (filesize($this->b['_tmpfile']) > $s['maxsize']) {
-						continue;
+						break;
 					}
 
 					//TODO: set agent to something informative, including fpbx & backup versions

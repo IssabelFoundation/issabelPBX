@@ -95,25 +95,25 @@ msgstr "移行しました… 旧テーブルのparkinglotを無効にしてい�
 msgid "Parking Lot Options"
 msgstr "パーキングロットオプション"
 
-msgid "Parking Lot Extension:"
-msgstr "パーキングロット内線："
+msgid "Parking Lot Extension"
+msgstr "パーキングロット内線"
 
 msgid "This is the extension where you will transfer a call to park it"
 msgstr "呼をパーク保留するための内線番号"
 
-msgid "Parking Lot Name:"
+msgid "Parking Lot Name"
 msgstr "パーキングロット名"
 
 msgid "Provide a Descriptive Title for this Parking Lot"
 msgstr "このパーキングロットに詳細な名称を与える"
 
-msgid "Parking Lot Starting Position:"
-msgstr "パーキングロット開始位置："
+msgid "Parking Lot Starting Position"
+msgstr "パーキングロット開始位置"
 
 msgid "The starting postion of the parking lot"
 msgstr "パーキングロットの開始位置"
 
-msgid "Number of Slots:"
+msgid "Number of Slots"
 msgstr "スロット数"
 
 msgid ""
@@ -124,16 +124,16 @@ msgstr ""
 "定して、スロット数を8スロットとした場合、パーキングスロットは71-78になりま"
 "す。"
 
-msgid "Parking Timeout (seconds):"
-msgstr "パーキングタイムアウト（秒）："
+msgid "Parking Timeout (seconds)"
+msgstr "パーキングタイムアウト（秒）"
 
 msgid ""
 "The timeout period in seconds that a parked call will attempt to ring back "
 "the original parker if not answered"
 msgstr "応答が無い場合、パーク中の呼を、パークした者に戻すまでのタイムアウト（秒）"
 
-msgid "Parked Music Class:"
-msgstr "パーク音楽クラス："
+msgid "Parked Music Class"
+msgstr "パーク音楽クラス"
 
 msgid ""
 "This is the music class that will be played to a parked call while in the "
@@ -148,14 +148,14 @@ msgstr ""
 msgid "default"
 msgstr "デフォルト"
 
-msgid "BLF Capabilities:"
-msgstr "BLF機能："
+msgid "BLF Capabilities"
+msgstr "BLF機能"
 
 msgid "Enable this to have Asterisk 'hints' generated to use with BLF buttons."
 msgstr "BLFボタンで使用するために生成されたAsteriskの'ヒント'を有効にする。"
 
-msgid "Find Slot:"
-msgstr "スロット検索："
+msgid "Find Slot"
+msgstr "スロット検索"
 
 msgid ""
 "Next: If you want the parking lot to seek the next sequential parking slot "
@@ -172,7 +172,7 @@ msgstr "最初"
 msgid "Returned Call Behavior"
 msgstr "呼の戻り時の挙動"
 
-msgid "Pickup Courtesy Tone:"
+msgid "Pickup Courtesy Tone"
 msgstr "ピックアップ時\"ピー\"音再生"
 
 msgid "Whom to play the courtesy tone to when a parked call is retrieved."
@@ -188,8 +188,8 @@ msgstr "パーク中"
 msgid "Both"
 msgstr "両方"
 
-msgid "Transfer Capability:"
-msgstr "転送機能："
+msgid "Transfer Capability"
+msgstr "転送機能"
 
 msgid ""
 "Asterisk: parkedcalltransfers. Enables or disables DTMF based transfers when "
@@ -201,8 +201,8 @@ msgstr ""
 msgid "Neither"
 msgstr "両方なし"
 
-msgid "Re-Parking Capability:"
-msgstr "再パーキング機能："
+msgid "Re-Parking Capability"
+msgstr "再パーキング機能"
 
 msgid ""
 "Asterisk: parkedcallreparking. Enables or disables DTMF based parking when "
@@ -211,8 +211,8 @@ msgstr ""
 "Asteris： parkedcallreparking。パークされたコールをピックアップする際にDTMF"
 "ベースでパーキングする機能を有効にするか無効にするか。"
 
-msgid "Parking Alert-Info:"
-msgstr "パーキングアラート情報："
+msgid "Parking Alert-Info"
+msgstr "パーキングアラート情報"
 
 msgid ""
 "Alert-Info to add to the call prior to sending back to the Originator or to "
@@ -220,16 +220,16 @@ msgid ""
 msgstr ""
 "初めに応答した人や、代わりの宛先に送り戻す前にコールに追加するアラート情報。"
 
-msgid "CallerID Prepend:"
-msgstr "CallerID付与："
+msgid "CallerID Prepend"
+msgstr "CallerID付与"
 
 msgid ""
 "String to prepend to the current Caller ID associated with the parked call "
 "prior to sending back to the Originator or the Alternate Destination."
 msgstr "初めに応答した人や、代わりの宛先に送り戻す前に、パークされたコールに付与された現在のCaller ID文字列。"
 
-msgid "Auto CallerID Prepend:"
-msgstr "CallerID自動付与："
+msgid "Auto CallerID Prepend"
+msgstr "CallerID自動付与"
 
 msgid ""
 "These options will be appended after CallerID Prepend if set. Otherwise they "
@@ -256,8 +256,8 @@ msgstr "内線"
 msgid "Name"
 msgstr "名前"
 
-msgid "Announcement:"
-msgstr "アナウンス："
+msgid "Announcement"
+msgstr "アナウンス"
 
 msgid ""
 "Optional message to be played to the call prior to sending back to the "
@@ -276,7 +276,7 @@ msgstr ""
 msgid "Alternate Destination"
 msgstr "代わりの宛先："
 
-msgid "Come Back to Origin:"
+msgid "Come Back to Origin"
 msgstr "発信元に戻る"
 
 msgid ""
@@ -295,8 +295,8 @@ msgstr "はい"
 msgid "No"
 msgstr "いいえ"
 
-msgid "Destination:"
-msgstr "宛先："
+msgid "Destination"
+msgstr "宛先"
 
 msgid "Submit Changes"
 msgstr "変更を適用"

@@ -35,7 +35,10 @@ msgid "Log rotation"
 msgstr "Rotación de archivos"
 
 msgid "Append Hostname"
-msgstr "Adicionar Hostname"
+msgstr "Adicionar Nombre de Host"
+
+msgid "Appends the hostname to the name of the log files"
+msgstr "Anexa el nombre de host al nombre de archivos de bitácora"
 
 msgid "Log Queues"
 msgstr "Registrar actividad de colas"
@@ -47,17 +50,89 @@ msgid "Save"
 msgstr "Guardar"
 
 msgid "Customize the display of debug message time stamps. See strftime(3) Linux manual for format specifiers. Note that there is also a fractional second parameter which may be used in this field.  Use %1q for tenths, %2q for hundredths, etc."
-msgstr "Personalice las etiquetas de tiempo en el registro. Vea el manual de strftime(3) para más detalles. Tenga en cuenta que existe un parámetro de segundo fraccional que puede usar en este campo. Use %1q para décimos, %2q para centésimos, etc."
+msgstr "Personalice las etiquetas de tiempo en la bitácora. Vea el manual de strftime(3) para más detalles. Tenga en cuenta que existe un parámetro de segundo fraccional que puede usar en este campo. Use %1q para décimos, %2q para centésimos, etc."
 
 msgid "Leave blank for default: ISO 8601 date format yyyy-mm-dd HH:MM:SS (%F %T)"
 msgstr "Deje en blanco para el valor por omisiíon: ISO 8601 yyyy-mm-dd HH:MM:SS (%F %T)"
 
-#~ msgid "%s - last %s lines"
-#~ msgstr "%s - Últimas %s líneas"
+msgid "Log queue events to a file"
+msgstr "Registrar eventos de cola a un archivo"
+
+msgid "Log rotation strategy: "
+msgstr "Estrategia de rotación de archivos: "
+
+msgid "Sequential: Rename archived logs in order, such that the newest has the highest sequence number."
+msgstr "Secuencial: Renombrar los archivos en orden. El más nuevo tendrá el número más alto de secuencia."
+
+msgid "Rotate: Rotate all the old files, such that the oldest has the highest sequence number (expected behavior for Unix administrators)."
+msgstr "Rotación: Rotar los archivos anteriores, de modo que el más viejo tenga el número más alto (comportamiento esperado en sistemas Unix)."
+
+msgid "Timestamp: Rename the logfiles using a timestamp instead of a sequence number when \"logger rotate\" is executed."
+msgstr "Marca de Tiempo: Renombrar archivos rotados usando una marca de tiempo en lugar de un número secuencial al ejecutar la orden \"logger rotate\"."
+
+msgid "Yes"
+msgstr "Si"
+
+msgid "No"
+msgstr "No"
+
+msgid "File Name"
+msgstr "Nombre de Archivo"
+
+msgid "file path/name"
+msgstr "ruta/nombre"
+
+msgid "On"
+msgstr "Si"
+
+msgid "Off"
+msgstr "No"
+
+msgid "Messages used for debuging. Do not report these as error's unless you have a specific issue that you are attempting to debug. Also note that Debug messages are also very verbose and can and do fill up logfiles (and disk storage) quickly."
+msgstr "Mensajes usados para depuración. No reporte esto como errores a menos que tengo un problema específico que esté intentando depurar. Tenga en cuenta que la cantidad de mensajes de depuración es muy elevada y pueden llenar el espacio de almacenamiento muy rápido."
+
+msgid "Name of file. Use absolute path for a different location."
+msgstr "Nombre de archivo. Use una ruta absoluta para especificar un destino diferente."
+
+msgid "Keypresses as understood by asterisk. Usefull for debuging IVR and VM issues."
+msgstr "Digitos marcados e interpretados por Asterisk. Util para depurar problemas de IVR y Buzón de Voz"
+
+msgid "Critical errors and issues"
+msgstr "Errores y problemas críticos"
+
+msgid "Transmition and receiving of faxes"
+msgstr "Transmisión y recepción de faxes"
+
+msgid "Messages of specific actions, such as a phone registration or call completion"
+msgstr "Mensajes específicos a acciones, como ser registraciones de teléfonos o llamadas completadas"
+
+msgid "Step-by-step messages of every step of a call flow. Always enable and review if calls dont flow as expected"
+msgstr "Detalles completos de llamada paso por paso. Activar siempre si tiene problemas con el flujo de sus llamadas"
+
+msgid "Possible issues with dialplan syntaxt or call flow, but not critical."
+msgstr "Posibles problemas con sintaxis de plan de marcado y flujo de llamadas, pero no críticos."
+
+msgid "Notification of security related events such as authentication attempts."
+msgstr "Notificación de eventos de seguridad, como ser intentos de autenticación"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Sequential"
+msgstr "Secuencial"
+
+msgid "Rotate"
+msgstr "Rotación"
+
+msgid "Timestamp"
+msgstr "Marca de Tiempo"
 
 #~ msgid "Redisplay Asterisk Full debug log (last %s lines)"
 #~ msgstr ""
 #~ "Actualizar bitácora completa de depuración de Asterisk (últimas %s líneas)"
 
-#~ msgid "Asterisk Log Files"
-#~ msgstr "Archivos de bitácora de Asterisk"
+msgid "Asterisk Log Files"
+msgstr "Archivos de bitácora de Asterisk"
+
+msgid "Show"
+msgstr "Mostrar"

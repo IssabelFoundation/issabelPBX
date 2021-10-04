@@ -50,7 +50,7 @@ msgstr ""
 "АТС, если её ресурсы скромны."
 
 #: views/main.html.php:99
-msgid "Account SID:"
+msgid "Account SID"
 msgstr ""
 
 #: views/main.html.php:3
@@ -66,7 +66,7 @@ msgid "Adding opencnam account columns to the cidlookup table..."
 msgstr ""
 
 #: views/main.html.php:107
-msgid "Auth Token:"
+msgid "Auth Token"
 msgstr ""
 
 #: functions.inc.php:12
@@ -74,11 +74,11 @@ msgid "CID Lookup Source"
 msgstr "Источник поиска CID"
 
 #: views/main.html.php:76
-msgid "Cache results:"
-msgstr "Кэшированные результаты:"
+msgid "Cache results"
+msgstr "Кэшированные результаты"
 
 #: views/main.html.php:229
-msgid "Character Set:"
+msgid "Character Set"
 msgstr ""
 
 #: install.php:103
@@ -102,8 +102,8 @@ msgid "Database name"
 msgstr "Имя базы данных"
 
 #: views/main.html.php:197
-msgid "Database:"
-msgstr "База данных:"
+msgid "Database"
+msgstr "База данных"
 
 #: views/main.html.php:76
 msgid ""
@@ -147,8 +147,8 @@ msgid "Host name or IP address"
 msgstr "Имя хоста или его IP адрес"
 
 #: views/main.html.php:128 views/main.html.php:189
-msgid "Host:"
-msgstr "Хост:"
+msgid "Host"
+msgstr "Хост"
 
 #: install.php:37 install.php:135
 msgid "Installing OpenCNAM CallerID Lookup Sources..."
@@ -217,24 +217,24 @@ msgid "Password to use in HTTP authentication"
 msgstr "Пароль для аутентификации по HTTP"
 
 #: views/main.html.php:152 views/main.html.php:221
-msgid "Password:"
-msgstr "Пароль:"
+msgid "Password"
+msgstr "Пароль"
 
 #: views/main.html.php:160
 msgid "Path of the file to GET<br/>e.g.: /cidlookup.php"
 msgstr "Путь к файлу для GET запроса<br/>например: /cidlookup.php"
 
 #: views/main.html.php:160
-msgid "Path:"
-msgstr "Путь:"
+msgid "Path"
+msgstr "Путь"
 
 #: views/main.html.php:136
 msgid "Port HTTP server is listening at (default 80)"
 msgstr "HTTP порт сервера, слушающего запросы (по умолчанию 80)"
 
 #: views/main.html.php:136
-msgid "Port:"
-msgstr "Порт:"
+msgid "Port"
+msgstr "Порт"
 
 #: views/main.html.php:168
 msgid ""
@@ -253,8 +253,8 @@ msgstr ""
 "<br/>например: SELECT name FROM phonebook WHERE number LIKE '%[NUMBER]%'"
 
 #: views/main.html.php:168 views/main.html.php:205
-msgid "Query:"
-msgstr "Запрос:"
+msgid "Query"
+msgstr "Запрос"
 
 #: install.php:86
 msgid "Removing deprecated channel field from incoming.."
@@ -281,12 +281,12 @@ msgid "Source"
 msgstr "Источник"
 
 #: views/main.html.php:43
-msgid "Source Description:"
-msgstr "Описание источника:"
+msgid "Source Description"
+msgstr "Описание источника"
 
 #: views/main.html.php:51
-msgid "Source type:"
-msgstr "Тип источника:"
+msgid "Source type"
+msgstr "Тип источника"
 
 #: views/main.html.php:18
 #, php-format
@@ -327,8 +327,8 @@ msgid "Username to use in HTTP authentication"
 msgstr "Имя пользователя для аутентификации по HTTP"
 
 #: views/main.html.php:144 views/main.html.php:213
-msgid "Username:"
-msgstr "Имя пользователя:"
+msgid "Username"
+msgstr "Имя пользователя"
 
 #: bin/opencnam-alert.php:25
 msgid ""

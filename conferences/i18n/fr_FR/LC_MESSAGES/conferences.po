@@ -113,9 +113,6 @@ msgstr "Conférence"
 msgid "deleted"
 msgstr "supprimé"
 
-msgid "Conference:"
-msgstr "Conférence:"
-
 #, php-format
 msgid "Delete Conference %s"
 msgstr "Suppression conférence %s"
@@ -126,19 +123,19 @@ msgstr "Conflit d'extensions"
 msgid "Edit Conference"
 msgstr "Edition Conférence"
 
-msgid "Conference Number:"
+msgid "Conference Number"
 msgstr "Numéro de conférence"
 
 msgid "Use this number to dial into the conference."
 msgstr "Numéro pour appeler la conférence"
 
-msgid "Conference Name:"
+msgid "Conference Name"
 msgstr "Nom de la conférence"
 
 msgid "Give this conference a brief name to help you identify it."
 msgstr "Donnez un nom à cette conférence pour vous aider à l'identifier"
 
-msgid "User PIN:"
+msgid "User PIN"
 msgstr "PIN utilisateur"
 
 msgid ""
@@ -150,7 +147,7 @@ msgstr ""
 "la conférence.<br><br>Ce réglage est optionnel.<br><br>Si un code PIN est "
 "entré, il sera demandé à l'utilisateur."
 
-msgid "Admin PIN:"
+msgid "Admin PIN"
 msgstr "PIN organisateur"
 
 msgid ""
@@ -165,7 +162,7 @@ msgstr ""
 msgid "Conference Options"
 msgstr "Options conférence"
 
-msgid "Join Message:"
+msgid "Join Message"
 msgstr "Message joint"
 
 msgid ""
@@ -188,7 +185,7 @@ msgstr ""
 "<br><br>Vous devez installer le module \"Enregistrements système\" pour "
 "utiliser cette option."
 
-msgid "Leader Wait:"
+msgid "Leader Wait"
 msgstr "Attente de l'organisateur"
 
 msgid ""
@@ -202,7 +199,7 @@ msgstr "Non"
 msgid "Yes"
 msgstr "Oui"
 
-msgid "Talker Optimization:"
+msgid "Talker Optimization"
 msgstr ""
 
 msgid ""
@@ -215,7 +212,7 @@ msgid ""
 "buildup in background noise."
 msgstr ""
 
-msgid "Talker Detection:"
+msgid "Talker Detection"
 msgstr ""
 
 msgid ""
@@ -226,25 +223,25 @@ msgid ""
 "the meetme list CLI command."
 msgstr ""
 
-msgid "Quiet Mode:"
+msgid "Quiet Mode"
 msgstr "Mode silencieux"
 
 msgid "Quiet mode (do not play enter/leave sounds)"
 msgstr "Ne joue pas les messages entrée/sortie"
 
-msgid "User Count:"
+msgid "User Count"
 msgstr "Comptage utilisateurs"
 
 msgid "Announce user(s) count on joining conference"
 msgstr "Annonce le nombre de personnes ayant rejoint la conférence"
 
-msgid "User join/leave:"
+msgid "User join/leave"
 msgstr "Entrée/sortie utilisateur"
 
 msgid "Announce user join/leave"
 msgstr "Annonce qu'un utilisateur arrive ou quitte la conférence"
 
-msgid "Music on Hold:"
+msgid "Music on Hold"
 msgstr "Musique d'attente"
 
 msgid "Enable Music On Hold when the conference has a single caller"
@@ -252,7 +249,7 @@ msgstr ""
 "Active la musique d'attente quand il n'y a qu'une seule personne dans la "
 "conférence"
 
-msgid "Music on Hold Class:"
+msgid "Music on Hold Class"
 msgstr ""
 
 msgid ""
@@ -268,7 +265,7 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-msgid "Allow Menu:"
+msgid "Allow Menu"
 msgstr "Autorise menu"
 
 msgid "Present Menu (user or admin) when '*' is received ('send' to menu)"
@@ -276,13 +273,13 @@ msgstr ""
 "Présentation du menu (utilisateur ou organisateur) quand la touche \"*\" est "
 "reçue ('envoyé' au menu)"
 
-msgid "Record Conference:"
-msgstr "Enregistrement conférence:"
+msgid "Record Conference"
+msgstr "Enregistrement conférence"
 
 msgid "Record the conference call"
 msgstr "Enregistrement de la conférence"
 
-msgid "Maximum Participants:"
+msgid "Maximum Participants"
 msgstr ""
 
 msgid "Maximum Number of users allowed to join this conference."
@@ -291,7 +288,7 @@ msgstr ""
 msgid "No Limit"
 msgstr ""
 
-msgid "Mute on Join:"
+msgid "Mute on Join"
 msgstr ""
 
 msgid ""

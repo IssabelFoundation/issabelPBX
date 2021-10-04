@@ -115,8 +115,8 @@ msgstr "Attenzione! L'Interno"
 msgid "is not allowed for your account"
 msgstr "non possiede i permessi"
 
-msgid "Choose a user/extension:"
-msgstr "Scegliere un utente/interno:"
+msgid "Choose a user/extension"
+msgstr "Scegliere un utente/interno"
 
 msgid "deleted"
 msgstr "Eliminato"
@@ -167,8 +167,8 @@ msgstr ""
 "insieme al VmX Locater, dove si puo' scegliere se inviare il chiamante al "
 "seguimi."
 
-msgid "Initial Ring Time:"
-msgstr "Tempo inziale di squillo:"
+msgid "Initial Ring Time"
+msgstr "Tempo inziale di squillo"
 
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
@@ -179,8 +179,8 @@ msgstr ""
 "procedere la chiamata nella lista seguimi. L'interno può anche essere "
 "incluso nella lista. 0 per passarlo direttamente."
 
-msgid "Ring Strategy:"
-msgstr "Strategia di Squillo:"
+msgid "Ring Strategy"
+msgstr "Strategia di Squillo"
 
 msgid "ringallv2"
 msgstr "ringallv2"
@@ -278,8 +278,8 @@ msgstr "Scegliere un interno da aggiungere alla fine della lista qui sopra."
 msgid "(pick extension)"
 msgstr "(scegliere l'interno)"
 
-msgid "Announcement:"
-msgstr "Annuncio:"
+msgid "Announcement"
+msgstr "Annuncio"
 
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
@@ -355,8 +355,8 @@ msgstr ""
 "chiamata. Questa opzione funziona solo con le strategie di squillo ringall e "
 "ringall-prim."
 
-msgid "Remote Announce:"
-msgstr "Annuncio Remoto:"
+msgid "Remote Announce"
+msgstr "Annuncio Remoto"
 
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
@@ -370,7 +370,7 @@ msgstr ""
 msgid "Default"
 msgstr "Predefinito"
 
-msgid "Too-Late Announce:"
+msgid "Too-Late Announce"
 msgstr "Annuncio Troppo-Tardi"
 
 msgid ""

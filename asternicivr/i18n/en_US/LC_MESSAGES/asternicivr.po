@@ -1,0 +1,17 @@
+# This file is part of IssabelPBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# IssabelPBX language template for asternic ivr module
+# Copyright (C) 2021 Asternic Corp
+#
+
+msgid "Register IVR Selections"
+msgstr ""
+
+msgid "When enabled, IVR selections will be reported by Asternic Call Center Stats PRO in the URL field"
+msgstr ""
+
+msgid "Asternic IVR Module"
+msgstr ""
+

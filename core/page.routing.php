@@ -399,7 +399,7 @@ if ($extdisplay) { // editing
 
 		<tr>
 			<td>
-				<a href=# class="info"><?php echo _("Route Name")?><span><br><?php echo _("Name of this route. Should be used to describe what type of calls this route matches (for example, 'local' or 'longdistance').")?><br></span></a>: 
+				<a href=# class="info"><?php echo _("Route Name")?><span><br><?php echo _("Name of this route. Should be used to describe what type of calls this route matches (for example, 'local' or 'longdistance').")?><br></span></a>
 			</td>
 			<td>
 				<input type="text" size="20" name="routename" value="<?php echo htmlspecialchars($routename);?>" tabindex="<?php echo ++$tabindex;?>"/>
@@ -407,7 +407,7 @@ if ($extdisplay) { // editing
 		</tr>
 
 		<tr>
-      <td><a href=# class="info"><?php echo _("Route CID")?>:<span><?php echo _("Optional Route CID to be used for this route. If set, this will override all CIDS specified except:<ul><li>extension/device EMERGENCY CIDs if this route is checked as an EMERGENCY Route</li><li>trunk CID if trunk is set to force it's CID</li><li>Forwarded call CIDs (CF, Follow Me, Ring Groups, etc)</li><li>Extension/User CIDs if checked</li></ul>")?></span></a></td>
+      <td><a href=# class="info"><?php echo _("Route CID")?><span><?php echo _("Optional Route CID to be used for this route. If set, this will override all CIDS specified except:<ul><li>extension/device EMERGENCY CIDs if this route is checked as an EMERGENCY Route</li><li>trunk CID if trunk is set to force it's CID</li><li>Forwarded call CIDs (CF, Follow Me, Ring Groups, etc)</li><li>Extension/User CIDs if checked</li></ul>")?></span></a></td>
 			<td>
         <input type="text" size="20" name="outcid" value="<?php echo htmlspecialchars($outcid)?>" tabindex="<?php echo ++$tabindex;?>"/>
         <input type='checkbox' tabindex="<?php echo ++$tabindex;?>" name='outcid_mode' id="outcid_mode" value='override_extension' <?php if ($outcid_mode == 'override_extension') { echo 'CHECKED'; }?>><a href=# class="info"><small><?php echo _("Override Extension")?></small><span><?php echo _("If checked the extension's Outbound CID will be ignored in favor of this CID. The extension's Emergency CID will still be used if the route is an Emergency Route and the Extension has a defined Emergency CID.")?></span></a>
@@ -415,12 +415,12 @@ if ($extdisplay) { // editing
 		</tr>
 
 		<tr>
-			<td><a href=# class="info"><?php echo _("Route Password")?>:<span><?php echo _("Optional: A route can prompt users for a password before allowing calls to progress.  This is useful for restricting calls to international destinations or 1-900 numbers.<br><br>A numerical password, or the path to an Authenticate password file can be used.<br><br>Leave this field blank to not prompt for password.")?></span></a></td>
+			<td><a href=# class="info"><?php echo _("Route Password")?><span><?php echo _("Optional: A route can prompt users for a password before allowing calls to progress.  This is useful for restricting calls to international destinations or 1-900 numbers.<br><br>A numerical password, or the path to an Authenticate password file can be used.<br><br>Leave this field blank to not prompt for password.")?></span></a></td>
 			<td><input type="text" size="20" name="routepass" value="<?php echo $routepass;?>" tabindex="<?php echo ++$tabindex;?>"/></td>
 		</tr>
 
 		<tr>
-      <td><a href=# class="info"><?php echo _("Route Type")?>:<span><?php echo _("Optional: Selecting Emergency will enforce the use of a device's Emergency CID setting (if set).  Select this option if this route is used for emergency dialing (ie: 911).").'<br />'._("Optional: Selecting Intra-Company will treat this route as an intra-company connection, preserving the internal CallerID information instead of the outbound CID of either the extension or trunk.")?></span></a></td>
+      <td><a href=# class="info"><?php echo _("Route Type")?><span><?php echo _("Optional: Selecting Emergency will enforce the use of a device's Emergency CID setting (if set).  Select this option if this route is used for emergency dialing (ie: 911).").'<br />'._("Optional: Selecting Intra-Company will treat this route as an intra-company connection, preserving the internal CallerID information instead of the outbound CID of either the extension or trunk.")?></span></a></td>
       <td>
         <input type="checkbox" name="emergency" value="YES" <?php echo ($emergency ? "CHECKED" : "") ?>  tabindex="<?php echo ++$tabindex;?>"/><small><?php echo _("Emergency") ?></small>
         <input type="checkbox" name="intracompany" value="YES" <?php echo ($intracompany ? "CHECKED" : "") ?>  tabindex="<?php echo ++$tabindex;?>"/><small><?php echo _("Intra-Company") ?></small>
@@ -451,7 +451,7 @@ if ($extdisplay) { // editing
 
 <?php if (function_exists('timeconditions_timegroups_drawgroupselect')) { ?>
     <tr>
-      <td><a href="#" class="info"><?php echo _("Time Group:")?><span><?php echo _("If this route should only be available during certain times then Select a Time Group created under Time Groups. The route will be ignored outside of times specified in that Time Group. If left as default of Permanent Route then it will always be available.")?></span></a></td>
+      <td><a href="#" class="info"><?php echo _("Time Group")?><span><?php echo _("If this route should only be available during certain times then Select a Time Group created under Time Groups. The route will be ignored outside of times specified in that Time Group. If left as default of Permanent Route then it will always be available.")?></span></a></td>
       <td><?php echo timeconditions_timegroups_drawgroupselect('time_group_id', $time_group_id, true, '', _('---Permanent Route---')); ?></td>
     </tr>
 		<tr>
@@ -494,7 +494,7 @@ if ($extdisplay) { // editing
     <tr>
       <td colspan="2"><h5>
       <a href=# class="info"><?php echo _("Dial Patterns that will use this Route")?><span>
-      <?php echo _("A Dial Pattern is a unique set of digits that will select this route and send the call to the designated trunks. If a dialed pattern matches this route, no subsequent routes will be tried. If Time Groups are enabled, subsequent routes will be checked for matches outside of the designated time(s).")?><br /><br /><b><?php echo _("Rules:")?></b><br />
+      <?php echo _("A Dial Pattern is a unique set of digits that will select this route and send the call to the designated trunks. If a dialed pattern matches this route, no subsequent routes will be tried. If Time Groups are enabled, subsequent routes will be checked for matches outside of the designated time(s).")?><br /><br /><b><?php echo _("Rules")?></b><br />
       <b>X</b>&nbsp;&nbsp;&nbsp; <?php echo _("matches any digit from 0-9")?><br />
       <b>Z</b>&nbsp;&nbsp;&nbsp; <?php echo _("matches any digit from 1-9")?><br />
       <b>N</b>&nbsp;&nbsp;&nbsp; <?php echo _("matches any digit from 2-9")?><br />
@@ -574,7 +574,7 @@ END;
 					<?php echo _("These options provide a quick way to add outbound dialing rules. Follow the prompts for each.")?><br>
 					<strong><?php echo _("Lookup local prefixes")?></strong> <?php echo _("This looks up your local number on www.localcallingguide.com (NA-only), and sets up so you can dial either 7, 10 or 11 digits (5551234, 6135551234, 16135551234) to access this route.")?><br>
 					<strong><?php echo _("Upload from CSV")?></strong> <?php echo sprintf(_("Upload patterns from a CSV file replacing existing entries. If there are no headers then the file must have 4 columns of patterns in the same order as in the GUI. You can also supply headers: %s, %s, %s and %s in the first row. If there are less then 4 recognized headers then the remaining columns will be blank"),'<strong>prepend</strong>','<strong>prefix</strong>','<strong>match pattern</strong>','<strong>callerid</strong>')?><br>
-					</span></a>:
+					</span></a>
 			<input id="npanxx" name="npanxx" type="hidden" />
 			<script language="javascript">
 			
@@ -668,7 +668,7 @@ END;
 		</tr>
 		<?php if (isset($extdisplay) && !empty($extdisplay) && !empty($dialpattern_array)) {?>
 		<tr>
-		    <td><a href=# class="info"><?php echo _("Export Dialplans as CSV")?><span><?php echo sprintf(_("Export patterns as a CSV file with headers listed as: %s, %s, %s and %s in the first row."),'<strong>prepend</strong>','<strong>prefix</strong>','<strong>match pattern</strong>','<strong>callerid</strong>')?></span><a>:</td>
+		    <td><a href=# class="info"><?php echo _("Export Dialplans as CSV")?><span><?php echo sprintf(_("Export patterns as a CSV file with headers listed as: %s, %s, %s and %s in the first row."),'<strong>prepend</strong>','<strong>prefix</strong>','<strong>match pattern</strong>','<strong>callerid</strong>')?></span><a></td>
 		    <td><input type="button" onclick="parent.location='config.php?quietmode=1&amp;handler=file&amp;file=export.html.php&amp;module=core&amp;display=routing&amp;extdisplay=<?php echo $extdisplay;?>'" value="Export"></td>
 		</tr>
 		<?php } ?>

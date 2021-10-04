@@ -412,16 +412,15 @@ function bind_dests_double_selects() {
             popover_box_class = $(this).data('class');
             popover_box_mod = $(this).data('mod');
             popover_box = $('<div id="popover-box-id" data-id="' + id + '"></div>').html('<iframe data-popover-class="' + popover_box_class + '" id="popover-frame" frameBorder="0" src="' + urlStr + '" width="100%" height="95%"></iframe>').dialog({
-                title: 'Add',
+                title: ipbx.msg.framework.add,
                 resizable: false,
                 modal: true,
                 position: ['center', 50],
                 width: window.innerWidth - (window.innerWidth * .10),
                 height: window.innerHeight - (window.innerHeight * .10),
                 create: function() {
-                    $("body").scrollTop(0).css({
-                        overflow: 'hidden'
-                    });
+                    mitop = $(window).scrollTop();
+                    $(this).parent().css('top',mitop+'px');
                 },
                 close: function(e) {
                     var id = $(this).data('id');

@@ -151,9 +151,10 @@ function queues_add(
 	$descr			= isset($name) ? $db->escapeSimple($name):'';
 	$grppre			= isset($prefix) ? $db->escapeSimple($prefix):'';
 	$alertinfo		= isset($alertinfo) ? $db->escapeSimple($alertinfo):'';
-	//$joinannounce_id  = $joinannounce_id;
+	$joinannounce_id        = intval($joinannounce_id);
 	$ringing		= isset($_REQUEST['rtone']) ? $_REQUEST['rtone']:'';
-	//$agentannounce_id = $agentannounce_id;
+	$agentannounce_id       = intval($agentannounce_id);
+	$callconfirm_id         = intval($callconfirm_id);
 	$maxwait		= isset($maxwait) ? $maxwait:'';
 	$password		= isset($password) ? $password:'';
 	$ivr_id			= isset($_REQUEST['announcemenu']) ? $_REQUEST['announcemenu']:'none';
@@ -206,9 +207,9 @@ function queues_add(
 				'$descr',
 				'$grppre',
 				'$alertinfo',
-				'$joinannounce_id',
+				$joinannounce_id,
 				'$ringing',
-				'$agentannounce_id',
+				$agentannounce_id,
 				'$maxwait',
 				'$password',
 				'$ivr_id',
@@ -222,7 +223,7 @@ function queues_add(
 				'$togglehint',
 				'$qnoanswer',
 				'$callconfirm',
-				'$callconfirm_id',
+				$callconfirm_id,
 				'$monitor_type',
 				'$monitor_heard',
 				'$monitor_spoken')	";

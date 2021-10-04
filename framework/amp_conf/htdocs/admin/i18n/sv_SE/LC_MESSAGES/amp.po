@@ -3662,8 +3662,8 @@ msgstr ""
 "Lösenordet för vägen måste vara numeriskt eller blankt för att stänga av det"
 
 #: ../core/page.routing.php:497 ../core/page.trunks.php:611
-msgid "Rules:"
-msgstr "Regler:"
+msgid "Rules"
+msgstr "Regler"
 
 #: amp_conf/htdocs/admin/views/menu.php:152
 msgid "Russian"
@@ -4246,8 +4246,8 @@ msgid "This user/extension %s is already in use"
 msgstr "Denna anknytning %s används redan"
 
 #: ../core/page.routing.php:454
-msgid "Time Group:"
-msgstr "Tidgrupp:"
+msgid "Time Group"
+msgstr "Tidgrupp"
 
 #: amp_conf/htdocs/admin/views/login.php:12
 msgid "To get started, please enter your credentials:"

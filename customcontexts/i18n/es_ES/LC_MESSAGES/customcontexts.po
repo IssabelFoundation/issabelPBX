@@ -38,13 +38,13 @@ msgstr " v"
 
 #: functions.inc.php:448 functions.inc.php:604
 msgid "Add Class"
-msgstr "Agregar Clase"
+msgstr "Añadir Clase"
 
 msgid "Delete Class"
 msgstr "Eliminar Clase"
 
 msgid "Add"
-msgstr "Agregar"
+msgstr "Añadir"
 
 #: functions.inc.php:439 functions.inc.php:463 functions.inc.php:593
 #: page.customcontexts.php:21 page.customcontextsadmin.php:24
@@ -58,6 +58,9 @@ msgstr "Descripción"
 #, php-format
 msgid "Class of Service: %s"
 msgstr "Clase de Servicio: %s"
+
+msgid "Full Internal Access"
+msgstr "Acceso Interno Total"
 
 #: functions.inc.php:867
 #, php-format
@@ -122,14 +125,14 @@ msgstr "Ingrese una descripción para esta clase de servicio."
 msgid "Set All"
 msgstr "Configurar Todos"
 
-msgid "Set All To:"
-msgstr "Configurar Todos para:"
+msgid "Set All To"
+msgstr "Configurar Todos para"
 
 msgid "Default Internal Context"
 msgstr "Contexto Interno por Defecto"
 
 msgid "Call Parking"
-msgstr "Aparacamiento de Llamadas"
+msgstr "Parqueo de Llamadas"
 
 msgid "Custom Internal Dialplan"
 msgstr "Plan de Marcado Interno Personalizado"
@@ -270,7 +273,7 @@ msgid "app speakingclock"
 msgstr "App Reloj Parlante"
 
 msgid "park hints"
-msgstr "Hints de Aparcamiento"
+msgstr "Hints de Parqueo"
 
 msgid "Dial VM"
 msgstr "Acceder a Buzón de Voz"
@@ -288,10 +291,10 @@ msgid "app blacklist"
 msgstr "Lista Negra"
 
 msgid "Ring Groups"
-msgstr "Grupos de Timbrado"
+msgstr "Grupo de Extensiones"
 
 msgid "grps"
-msgstr "Grupos de Timbrado auxiliar"
+msgstr "Grupo de Extensiones auxiliar"
 
 msgid "app user logonoff"
 msgstr "Logon/Logoff de Usuario"
@@ -364,3 +367,12 @@ msgstr "El contexto que contenga las inclusiones que desee hacer disponibles en 
 
 msgid "You have the %s  Module installed! You can select a class of service from this list to limit this user to portions of the dialplan you defined in the %s module."
 msgstr "Tiene el módulo %s instalado! Puede seleccionar una clase de servicio de esta lista para limitar el acceso a los contextos del plan de marcado que desee, que puede definir en el módulo %s."
+
+msgid "ALLOW ALL (Default)"
+msgstr "PERMITIR TODO (por defecto)"
+
+msgid "app-queue-toggle"
+msgstr "Colas - Alternar Membresía"
+
+msgid "app-queue-caller-count"
+msgstr "Colas - Cantidad de Llamantes"

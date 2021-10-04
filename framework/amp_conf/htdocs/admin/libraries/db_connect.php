@@ -1,7 +1,12 @@
 <?php
 
 require_once('DB.php'); //PEAR must be installed
-require_once(dirname(__FILE__).'/issabelpbx_DB.php');
+$MethodChecker = new ReflectionMethod('DB','connect');
+if($MethodChecker->isStatic()==true) {
+    require_once(dirname(__FILE__).'/issabelpbx_DB_static.php');
+} else {
+    require_once(dirname(__FILE__).'/issabelpbx_DB.php');
+}
 
 switch ($amp_conf['AMPDBENGINE']) {
     case "pgsql":
@@ -27,7 +32,7 @@ switch ($amp_conf['AMPDBENGINE']) {
         /* datasource in in this style:
         dbengine://username:password@host/database */
 
-        $dbengine = 'mysql';
+        $dbengine = 'mysqli';
 
         $datasource = $dbengine . '://'
                     . $amp_conf['AMPDBUSER']

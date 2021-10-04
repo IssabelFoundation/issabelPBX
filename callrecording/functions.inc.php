@@ -30,7 +30,7 @@ function callrecording_destinations() {
 function callrecording_destination_popovers() {
 	global $module_page;
 	if ($module_page != 'callrecording') {
-		$ret['callrecording'] = 'Call Recording';
+		$ret['callrecording'] = dgettext('callrecording','Call Recording');
 	} else {
 		$ret = array();
 	}
@@ -261,7 +261,7 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 		if ($target_menuid == 'did') {
 			$html.='<tr><td colspan="2"><h5>'._("Call Recording").'</h5></td></tr>';
 		}
-		$html.='<tr><td><a href="#" class="info">'._('Call Recording').'<span>'._("Controls or overrides the call recording behavior for calls coming into this DID. Allow will honor the normal downstream call recording settings. Record on Answer starts recording when the call would otherwise be recorded ignoring any settings that say otherwise. Record Immediately will start recording right away capturing ringing, announcements, MoH, etc. Never will disallow recording regardless of downstream settings.").'</span></a>:</td>';
+		$html.='<tr><td><a href="#" class="info">'._('Call Recording').'<span>'._("Controls or overrides the call recording behavior for calls coming into this DID. Allow will honor the normal downstream call recording settings. Record on Answer starts recording when the call would otherwise be recorded ignoring any settings that say otherwise. Record Immediately will start recording right away capturing ringing, announcements, MoH, etc. Never will disallow recording regardless of downstream settings.").'</span></a></td>';
 		$html.='<td><select name="callrecording" tabindex="' . ++$tabindex . '" class="componentSelect">'."\n";
     $html.= '<option value=""' . ($callrecording == ''  ? ' SELECTED' : '').'>'._("Allow")."\n";
     $html.= '<option value="delayed"'. ($callrecording == 'delayed' ? ' SELECTED' : '').'>'._("Record on Answer")."\n";

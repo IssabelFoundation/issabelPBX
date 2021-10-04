@@ -476,6 +476,6 @@ function conferences_add($account,$name,$userpin,$adminpin,$options,$joinmsg_id=
 	$joinmsg_id = $db->escapeSimple($joinmsg_id);
 	$music      = $db->escapeSimple($music);
 	$users      = $db->escapeSimple($users);
-	$results = sql("INSERT INTO meetme (exten,description,userpin,adminpin,options,joinmsg_id,music,users) values (\"$account\",\"$name\",\"$userpin\",\"$adminpin\",\"$options\",\"$joinmsg_id\",\"$music\",\"$users\")");
+	$results = sql("INSERT INTO meetme (exten,description,userpin,adminpin,options,joinmsg_id,music,users) values (\"$account\",\"$name\",\"$userpin\",\"$adminpin\",\"$options\",".intval($joinmsg_id).",\"$music\",\"$users\")");
 }
 ?>

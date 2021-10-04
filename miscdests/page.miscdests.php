@@ -1,6 +1,6 @@
 <?php /* $Id: $ */
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
-
+$tabindex = 0;
 isset($_REQUEST['action'])?$action = $_REQUEST['action']:$action='';
 isset($_REQUEST['id'])?$extdisplay = $_REQUEST['id']:$extdisplay='';
 

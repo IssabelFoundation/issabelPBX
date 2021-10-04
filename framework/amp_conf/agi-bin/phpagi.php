@@ -1,12 +1,34 @@
 <?php
-//	License for all code of this IssabelPBX module can be found in the license file inside the module directory
-//	Copyright 2013 Schmooze Com Inc.
-//  Copyright (c) 2003, 2004, 2005 Matthew Asham <matthewa@bcwireless.net>, David Eder <david@eder.us>
-//
+ /**
+  * phpagi.php : PHP AGI Functions for Asterisk
+  * Website: http://phpagi.sourceforge.net/
+  *
+  * $Id: phpagi.php 12726 2011-10-03 13:40:00Z mbrevda $
+  *
+  * Copyright (c) 2003, 2004, 2005 Matthew Asham <matthewa@bcwireless.net>, David Eder <david@eder.us>
+  * All Rights Reserved.
+  *
+  * This software is released under the terms of the GNU Lesser General Public License v2.1
+  * A copy of which is available from http://www.gnu.org/copyleft/lesser.html
+  *
+  * We would be happy to list your phpagi based application on the phpagi
+  * website.  Drop me an Email if you'd like us to list your program.
+  * 
+  *
+  * Written for PHP 4.3.4, should work with older PHP 4.x versions.
+  *
+  * Please submit bug reports, patches, etc to http://sourceforge.net/projects/phpagi/
+  * Gracias. :)
+  *
+  *
+  * @package phpAGI
+  * @version 2.0
+  */
 
  /**
   */
 
+ 
   if(!class_exists('AGI_AsteriskManager')) {
     require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'phpagi-asmanager.php');
   }
@@ -121,7 +143,7 @@
     * @param string $config is the name of the config file to parse
     * @param array $optconfig is an array of configuration vars and vals, stuffed into $this->config['phpagi']
     */
-    function AGI($config=NULL, $optconfig=array(), $socket=NULL) {
+    function __construct($config=NULL, $optconfig=array(), $socket=NULL) {
       // load config
       if(!is_null($config) && file_exists($config))
         $this->config = parse_ini_file($config, true);
@@ -369,6 +391,11 @@
     function get_variable($variable)
     {
       return $this->evaluate("GET VARIABLE $variable");
+    }
+
+    function get_full_variable($variable)
+    {
+      return $this->evaluate("GET FULL VARIABLE $variable");
     }
 
    /**
@@ -867,7 +894,7 @@
      $proceed = false;
      if($escape_digits != '' && $buffer != '')
      {
-       if(!strpos(chr(255) . $escape_digits, $buffer{strlen($buffer)-1}))
+       if(!strpos(chr(255) . $escape_digits, $buffer[strlen($buffer)-1]))
          $proceed = true;
      }
      if($buffer == '' || $proceed)
@@ -877,7 +904,7 @@
          $buffer .= chr($res['result']);
        return $res;
      }
-     return array('code'=>AGIRES_OK, 'result'=>ord($buffer{strlen($buffer)-1}));
+     return array('code'=>AGIRES_OK, 'result'=>ord($buffer[strlen($buffer)-1]));
    }
 
    /**
@@ -896,7 +923,7 @@
      $proceed = false;
      if($escape_digits != '' && $buffer != '')
      {
-       if(!strpos(chr(255) . $escape_digits, $buffer{strlen($buffer)-1}))
+       if(!strpos(chr(255) . $escape_digits, $buffer[strlen($buffer)-1]))
          $proceed = true;
      }
      if($buffer == '' || $proceed)
@@ -906,7 +933,7 @@
          $buffer .= chr($res['result']);
        return $res;
      }
-     return array('code'=>AGIRES_OK, 'result'=>ord($buffer{strlen($buffer)-1}));
+     return array('code'=>AGIRES_OK, 'result'=>ord($buffer[strlen($buffer)-1]));
    }
 
    /**
@@ -925,7 +952,7 @@
      $proceed = false;
      if($escape_digits != '' && $buffer != '')
      {
-       if(!strpos(chr(255) . $escape_digits, $buffer{strlen($buffer)-1}))
+       if(!strpos(chr(255) . $escape_digits, $buffer[strlen($buffer)-1]))
          $proceed = true;
      }
      if($buffer == '' || $proceed)
@@ -935,7 +962,7 @@
          $buffer .= chr($res['result']);
        return $res;
      }
-     return array('code'=>AGIRES_OK, 'result'=>ord($buffer{strlen($buffer)-1}));
+     return array('code'=>AGIRES_OK, 'result'=>ord($buffer[strlen($buffer)-1]));
    }
 
    /**
@@ -954,7 +981,7 @@
      $proceed = false;
      if($escape_digits != '' && $buffer != '')
      {
-       if(!strpos(chr(255) . $escape_digits, $buffer{strlen($buffer)-1}))
+       if(!strpos(chr(255) . $escape_digits, $buffer[strlen($buffer)-1]))
          $proceed = true;
      }
      if($buffer == '' || $proceed)
@@ -964,7 +991,7 @@
          $buffer .= chr($res['result']);
        return $res;
      }
-     return array('code'=>AGIRES_OK, 'result'=>ord($buffer{strlen($buffer)-1}));
+     return array('code'=>AGIRES_OK, 'result'=>ord($buffer[strlen($buffer)-1]));
    }
 
    /**
@@ -986,7 +1013,7 @@
      $proceed = false;
      if($escape_digits != '' && $buffer != '')
      {
-       if(!strpos(chr(255) . $escape_digits, $buffer{strlen($buffer)-1}))
+       if(!strpos(chr(255) . $escape_digits, $buffer[strlen($buffer)-1]))
          $proceed = true;
      }
      if($buffer == '' || $proceed)
@@ -996,7 +1023,7 @@
          $buffer .= chr($res['result']);
        return $res;
      }
-     return array('code'=>AGIRES_OK, 'result'=>ord($buffer{strlen($buffer)-1}), 'endpos'=>0);
+     return array('code'=>AGIRES_OK, 'result'=>ord($buffer[strlen($buffer)-1]), 'endpos'=>0);
    }
 
    /**
@@ -1015,7 +1042,7 @@
      $proceed = false;
      if($escape_digits != '' && $buffer != '')
      {
-       if(!strpos(chr(255) . $escape_digits, $buffer{strlen($buffer)-1}))
+       if(!strpos(chr(255) . $escape_digits, $buffer[strlen($buffer)-1]))
          $proceed = true;
      }
      if($buffer == '' || $proceed)
@@ -1025,7 +1052,7 @@
          $buffer .= chr($res['result']);
        return $res;
      }
-     return array('code'=>AGIRES_OK, 'result'=>ord($buffer{strlen($buffer)-1}), 'endpos'=>0);
+     return array('code'=>AGIRES_OK, 'result'=>ord($buffer[strlen($buffer)-1]), 'endpos'=>0);
    }
 
    /**
@@ -1044,7 +1071,7 @@
      $proceed = false;
      if($escape_digits != '' && $buffer != '')
      {
-       if(!strpos(chr(255) . $escape_digits, $buffer{strlen($buffer)-1}))
+       if(!strpos(chr(255) . $escape_digits, $buffer[strlen($buffer)-1]))
          $proceed = true;
      }
      if($buffer == '' || $proceed)
@@ -1054,7 +1081,7 @@
          $buffer .= chr($res['result']);
        return $res;
      }
-     return array('code'=>AGIRES_OK, 'result'=>ord($buffer{strlen($buffer)-1}), 'endpos'=>0);
+     return array('code'=>AGIRES_OK, 'result'=>ord($buffer[strlen($buffer)-1]), 'endpos'=>0);
    }
 
    /**
@@ -1072,7 +1099,7 @@
      $proceed = false;
      if($escape_digits != '' && $buffer != '')
      {
-       if(!strpos(chr(255) . $escape_digits, $buffer{strlen($buffer)-1}))
+       if(!strpos(chr(255) . $escape_digits, $buffer[strlen($buffer)-1]))
          $proceed = true;
      }
      if($buffer == '' || $proceed)
@@ -1082,7 +1109,7 @@
          $buffer .= chr($res['result']);
        return $res;
      }
-     return array('code'=>AGIRES_OK, 'result'=>ord($buffer{strlen($buffer)-1}));
+     return array('code'=>AGIRES_OK, 'result'=>ord($buffer[strlen($buffer)-1]));
    }
 
    /**
@@ -1170,7 +1197,7 @@
       {
         foreach($choices as $prompt)
         {
-          if($prompt{0} == '*')
+          if($prompt[0] == '*')
             $ret = $this->text2wav(substr($prompt, 1), $keys);
           else
             $ret = $this->stream_file($prompt, $keys);
@@ -1233,9 +1260,9 @@
       $ret = array('name'=>'', 'protocol'=>'', 'username'=>'', 'host'=>'', 'port'=>'');
       $callerid = trim($callerid);
 
-      if($callerid{0} == '"' || $callerid{0} == "'")
+      if($callerid[0] == '"' || $callerid[0] == "'")
       {
-        $d = $callerid{0};
+        $d = $callerid[0];
         $callerid = explode($d, substr($callerid, 1));
         $ret['name'] = array_shift($callerid);
         $callerid = join($d, $callerid);
@@ -1417,7 +1444,7 @@
         {
           if($command)
           {
-            switch($code{0})
+            switch($code[0])
             {
               case '2': $text = substr($text, 0, strlen($text) - 1); break; // backspace
               case '5': $mode = 'LOWERCASE'; break;
@@ -1457,7 +1484,7 @@
     {
       for($i = 0; $i < strlen($text); $i++)
       {
-        switch($text{$i})
+        switch($text[$i])
         {
           case ' ': $ret .= 'SPACE ';
           case ',': $ret .= 'COMMA '; break;
@@ -1492,7 +1519,7 @@
           case '|': $ret .= 'BAR '; break;
           case '_': $ret .= 'UNDERSCORE '; break;
           case '~': $ret .= 'TILDE '; break;
-          default: $ret .= $text{$i} . ' '; break;
+          default: $ret .= $text[$i] . ' '; break;
         }
       }
       return $this->text2wav($ret, $escape_digits, $frequency);
@@ -1554,7 +1581,7 @@
       $ret['code'] = substr($str, 0, 3);
       $str = trim(substr($str, 3));
 
-      if($str{0} == '-') // we have a multiline response!
+      if($str[0] == '-') // we have a multiline response!
       {
         $count = 0;
         $str = substr($str, 1) . "\n";
@@ -1589,14 +1616,14 @@
           if($in_token) // we previously hit a token starting with '(' but not ending in ')'
           {
 	    $tmp = trim($token);
-	    $tmp = $tmp{0} == '(' ? substr($tmp,1):$tmp;
+	    $tmp = $tmp[0] == '(' ? substr($tmp,1):$tmp;
 	    $tmp = substr($tmp,-1) == ')' ? substr($tmp,0,strlen($tmp)-1):$tmp;
 	    $ret['data'] .= ' ' . trim($tmp);
-            if($token{strlen($token)-1} == ')') $in_token = false;
+            if($token[strlen($token)-1] == ')') $in_token = false;
           }
-          elseif($token{0} == '(')
+          elseif($token[0] == '(')
           {
-            if($token{strlen($token)-1} != ')') $in_token = true;
+            if($token[strlen($token)-1] != ')') $in_token = true;
 	    $tmp = trim(substr($token,1));
 	    $tmp = $in_token ? $tmp : substr($tmp,0,strlen($tmp)-1);
 	    $ret['data'] .= ' ' . trim($tmp);
@@ -1758,15 +1785,15 @@
       $ret = '';
       for($i = 0; $i < strlen($message); $i++)
       {
-        $c = ord($message{$i});
+        $c = ord($message[$i]);
         if($c == 10 || $c == 13 || $c == 9)
-          $ret .= $message{$i};
+          $ret .= $message[$i];
         elseif($c < 16)
           $ret .= '\x0' . dechex($c);
         elseif($c < 32 || $c > 127)
           $ret .= '\x' . dechex($c);
         else
-          $ret .= $message{$i};
+          $ret .= $message[$i];
       }
       $message = $ret;
 

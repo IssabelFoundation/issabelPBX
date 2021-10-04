@@ -48,7 +48,7 @@ msgstr "Acción"
 
 #: install.php:363
 msgid "Add type column"
-msgstr "Agregar columna type"
+msgstr "Añadir tipo de columna"
 
 #: install.php:337
 msgid "Adding Additional_groups column"
@@ -968,7 +968,7 @@ msgstr "Morocco"
 
 #: install.php:327
 msgid "Moving/Adding dchannel column"
-msgstr "Mover/Agregar columna dchannel"
+msgstr "Mover/Añadir columna dchannel"
 
 #: views/dahdi_advanced_settings.php:217 views/dahdi_modprobe_settings.php:237
 msgid "Mute"
@@ -1955,7 +1955,7 @@ msgstr ""
 
 #: install.php:370
 msgid "add additional column"
-msgstr "agregar columna adicional"
+msgstr "añadir columna adicional"
 
 #: views/dahdi_modprobe_settings.php:127
 msgid "alaw"

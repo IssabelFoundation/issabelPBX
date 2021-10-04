@@ -77,26 +77,26 @@ msgstr ""
 msgid "Parking Lot Options"
 msgstr "Opciones del Lote de Parqueo"
 
-msgid "Parking Lot Extension:"
-msgstr "Extensión del Lote de Parqueo:"
+msgid "Parking Lot Extension"
+msgstr "Extensión del Lote de Parqueo"
 
 msgid "This is the extension where you will transfer a call to park it"
 msgstr "Esta es la extensión que usará para transferir llamadas a este lote y aparcarla"
 
-msgid "Parking Lot Name:"
-msgstr "Nombre del Lote de Parqueo:"
+msgid "Parking Lot Name"
+msgstr "Nombre del Lote de Parqueo"
 
 msgid "Provide a Descriptive Title for this Parking Lot"
 msgstr "Provea un nombre descriptivo para este Lote de Parqueo"
 
-msgid "Parking Lot Starting Position:"
+msgid "Parking Lot Starting Position"
 msgstr "Posición Inicial del Lote"
 
 msgid "The starting postion of the parking lot"
 msgstr "La posición inicial disponible para este Lote de Parqueo"
 
-msgid "Number of Slots:"
-msgstr "Número de Posiciones:"
+msgid "Number of Slots"
+msgstr "Número de Posiciones"
 
 msgid ""
 "The total number of parking lot spaces to configure. Example, if 70 is the "
@@ -106,8 +106,8 @@ msgstr ""
 "de parqueo es 70 e indica 8 lotes, las posiciones disponibles serán de la 71 a 78"
 
 
-msgid "Parking Timeout (seconds):"
-msgstr "Tiempo Máximo de Parqueo (segundos):"
+msgid "Parking Timeout (seconds)"
+msgstr "Tiempo Máximo de Parqueo (segundos)"
 
 msgid ""
 "The timeout period in seconds that a parked call will attempt to ring back "
@@ -117,7 +117,7 @@ msgstr ""
 "a quien la hubiera aparcado originalmente"
 
 
-msgid "Parked Music Class:"
+msgid "Parked Music Class"
 msgstr "Clase de Música en Espera"
 
 msgid ""
@@ -135,8 +135,8 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-msgid "BLF Capabilities:"
-msgstr "Capacidad BLF:"
+msgid "BLF Capabilities"
+msgstr "Capacidad BLF"
 
 msgid "Enable this to have Asterisk 'hints' generated to use with BLF buttons."
 msgstr "Active esta opción para generar 'hints' que pueden ser monitoreados por BLF en dispositivos que lo soporten."
@@ -147,8 +147,8 @@ msgstr "Activar"
 msgid "Disable"
 msgstr "Desactivar"
 
-msgid "Find Slot:"
-msgstr "Encontrar Posición:"
+msgid "Find Slot"
+msgstr "Encontrar Posición"
 
 msgid ""
 "Next: If you want the parking lot to seek the next sequential parking slot "
@@ -167,8 +167,8 @@ msgstr "Primera"
 msgid "Returned Call Behavior"
 msgstr "Comportamiento de Devolución de Llamada"
 
-msgid "Pickup Courtesy Tone:"
-msgstr "Tono de Cortesía al Capturar"
+msgid "Pickup Courtesy Tone"
+msgstr "Tono de Cortesía al Captura"
 
 msgid "Whom to play the courtesy tone to when a parked call is retrieved."
 msgstr "A quién reproducir el tono de cortesía cuando una llamada es recuperada."
@@ -182,8 +182,8 @@ msgstr "Quien aparcó"
 msgid "Both"
 msgstr "Ambos"
 
-msgid "Transfer Capability:"
-msgstr "Capacidad de Transferencia:"
+msgid "Transfer Capability"
+msgstr "Capacidad de Transferencia"
 
 msgid ""
 "Asterisk: parkedcalltransfers. Enables or disables DTMF based transfers when "
@@ -195,8 +195,8 @@ msgstr ""
 msgid "Neither"
 msgstr "Ninguno"
 
-msgid "Re-Parking Capability:"
-msgstr "Capacidad para Re-Aparcar"
+msgid "Re-Parking Capability"
+msgstr "Capacidad para Re-Aparca"
 
 msgid ""
 "Asterisk: parkedcallreparking. Enables or disables DTMF based parking when "
@@ -204,8 +204,8 @@ msgid ""
 msgstr "Asterisk: parkedcallreparking. Habilita o no el parqueo usando DTMF cuando "
 "se recupera una llamada aparcada."
 
-msgid "Parking Alert-Info:"
-msgstr "Alert-Info en Parqueo"
+msgid "Parking Alert-Info"
+msgstr "Alert-Info en Parque"
 
 msgid ""
 "Alert-Info to add to the call prior to sending back to the Originator or to "
@@ -214,8 +214,8 @@ msgstr ""
 "Encablezado Alert-Info a agregar antes de enviar la llamada al parqueador original o "
 "a su destino alternativo."
 
-msgid "CallerID Prepend:"
-msgstr "Anteponer CallerID:"
+msgid "CallerID Prepend"
+msgstr "Anteponer CallerID"
 
 msgid ""
 "String to prepend to the current Caller ID associated with the parked call "
@@ -224,8 +224,8 @@ msgstr ""
 "Cadena a anteponer al Caller ID asociado a la llamada aparcada antes de enviarla "
 "de reotrno al parqueador original o a su destino alternativo."
 
-msgid "Auto CallerID Prepend:"
-msgstr "Anteponer CallerID Automático:"
+msgid "Auto CallerID Prepend"
+msgstr "Anteponer CallerID Automático"
 
 msgid ""
 "These options will be appended after CallerID Prepend if set. Otherwise they "
@@ -254,8 +254,8 @@ msgstr "Extensión"
 msgid "Name"
 msgstr "Nombre"
 
-msgid "Announcement:"
-msgstr "Anuncio:"
+msgid "Announcement"
+msgstr "Anuncio"
 
 msgid ""
 "Optional message to be played to the call prior to sending back to the "
@@ -272,8 +272,8 @@ msgstr ""
 msgid "Alternate Destination"
 msgstr "Destino Alternativo"
 
-msgid "Come Back to Origin:"
-msgstr "Retornar al Origen:"
+msgid "Come Back to Origin"
+msgstr "Retornar al Origen"
 
 msgid ""
 "Where to send a parked call that has timed out. If set to yes then the "
@@ -293,8 +293,8 @@ msgstr "Si"
 msgid "No"
 msgstr "No"
 
-msgid "Destination:"
-msgstr "Destino:"
+msgid "Destination"
+msgstr "Destino"
 
 msgid "Submit Changes"
 msgstr "Enviar Cambios"

@@ -992,7 +992,7 @@ msgid "Provide IMAP Voicemail Fields"
 msgstr ""
 
 msgid "Voicemail Module"
-msgstr ""
+msgstr "Módulo de Buzón de Voz"
 
 msgid ""
 "Installations that have configured Voicemail with IMAP should set this to "
