@@ -151,7 +151,7 @@ class core_conf {
         }
     }
 
-    // If sipsettingi isn't there this will try to set the rtp.conf value
+    // If sipsetting isn't there this will try to set the rtp.conf value
     //
     function setDefaultRtp() {
         // if we have sipsettings then we don't need to do anything
