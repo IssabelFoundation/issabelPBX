@@ -151,7 +151,7 @@ class core_conf {
         }
     }
 
-    // If sipsettings isn't there this will try to set the rtp.conf value
+    // If sipsettingi isn't there this will try to set the rtp.conf value
     //
     function setDefaultRtp() {
         // if we have sipsettings then we don't need to do anything
@@ -8739,22 +8739,45 @@ function core_devices_configpageinit($dispnum) {
 
         // Devices list
         if ($_SESSION["AMP_user"]->checkSection('999')) {
-            $currentcomponent->addoptlistitem('devicelist', 'sip_generic', _("Generic SIP Device"));
-
             if($pjsip_enabled) {
-                $currentcomponent->addoptlistitem('devicelist', 'pjsip_generic', _("Generic PJSIP Device"));
+                $pjsip_second = false;
+                $sql = "SELECT data FROM pjsipsettings WHERE keyword = 'bindport'";
+                $pjsip_port = sql($sql,'getOne');
+                if ($pjsip_port == '5060') {
+                    $currentcomponent->addoptlistitem('devicelist', 'pjsip_generic', _("Generic PJSIP Device")._(" - Port:").$pjsip_port);
+                } else { 
+                    $pjsip_second = true;
+                }
+            }
+
+            $sql = "SELECT data FROM sipsettings WHERE keyword = 'bindport'";
+            $sip_port = sql($sql,'getOne');
+            if ($sip_port == '') {
+                $sip_port = "5060";
+            }
+            $currentcomponent->addoptlistitem('devicelist', 'sip_generic', _("Generic SIP Device")._(" - Port:").$sip_port);
+
+            if($pjsip_enabled and $pjsip_second) {
+                 $currentcomponent->addoptlistitem('devicelist', 'pjsip_generic', _("Generic PJSIP Device")._(" - Port:").$pjsip_port);
             }
 
             if(isset($amp_conf['HTTPSCERTFILE'])) {
                 if($amp_conf['HTTPSCERTFILE']<>'') {
-                    $currentcomponent->addoptlistitem('devicelist', 'webrtc_generic', _("SIP WebRTC Device"));
-                    if($pjsip_enabled) {
+                    if ($pjsip_port != '5060') {
+                        $currentcomponent->addoptlistitem('devicelist', 'webrtc_generic', _("SIP WebRTC Device"));
+                    }
+                    if($pjsip_enabled and $sip_port != '5060') {
                         $currentcomponent->addoptlistitem('devicelist', 'webrtcpjsip_generic', _("PJSIP WebRTC Device"));
                     }
                 }
             }
 
-            $currentcomponent->addoptlistitem('devicelist', 'iax2_generic', _("Generic IAX2 Device"));
+            $sql = "SELECT data FROM iaxsettings WHERE keyword = 'bindport'";
+            $iax_port = sql($sql,'getOne');
+            if ($iax_port == '') {
+                $iax_port = "4569";
+            }
+            $currentcomponent->addoptlistitem('devicelist', 'iax2_generic', _("Generic IAX2 Device")._(" - Port:").$iax_port);
             $currentcomponent->addoptlistitem('devicelist', 'dahdi_generic', _("Generic DAHDi Device"));
             $currentcomponent->addoptlistitem('devicelist', 'custom_custom', _("Other (Custom) Device"));
         }
