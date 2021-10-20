@@ -1412,9 +1412,13 @@ function breakoutDisable() {
         /* Disable everything */
         document.getElementById(breakouttype.options[i].value).disabled = true;
     }
+    $('#announcemenu').prop('disabled',true).trigger('chosen:updated');
+    $('#callback').prop('disabled',true).trigger('chosen:updated');
 
     /* Re-enable the active one */
     document.getElementById(breakouttype.value).disabled = false;
+    el = document.getElementById(breakouttype.value);
+    $(el).prop('disabled',false).trigger('chosen:updated');
 }
 
 //-->
