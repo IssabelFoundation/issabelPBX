@@ -4064,7 +4064,7 @@ msgid ""
 "The CallerID name for calls from this user will be set to this name. Only "
 "enter the name, NOT the number."
 msgstr ""
-"El Identificador de Nombre a mostrar para llamdas originadas por este usuario."
+"El Identificador de Nombre a mostrar para llamadas originadas por este usuario."
 "Sólo ingrese un nombre, NO un número."
 
 #: ../core/functions.inc.php:7785
