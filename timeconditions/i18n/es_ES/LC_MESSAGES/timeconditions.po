@@ -117,7 +117,7 @@ msgstr "Editar grupo horario"
 
 #: timeconditions.i18n.php:16
 msgid "Enable Maintenance Polling"
-msgstr ""
+msgstr "Habilitar Sondeo de Mantenimiento"
 
 #: functions.inc.php:1233 functions.inc.php:1332
 msgid "February"
@@ -138,14 +138,8 @@ msgid "Goto Current Time Group"
 msgstr "Ir al grupo horario actual"
 
 #: timeconditions.i18n.php:20
-msgid ""
-"If set to false, this will override the execution of the Time Conditions "
-"maintenance task launched by call files. If all the feature codes for time "
-"conditions are disabled, the maintenance task will not be launched anyhow. "
-"Setting this to false would be fairly un-common. You may want to set this "
-"temporarily if debugging a system to avoid the periodic dialplan running "
-"through the CLI that the maintenance task launches and can be distracting."
-msgstr ""
+msgid "If set to false, this will override the execution of the Time Conditons maintenace task launched by call files. If all the feature codes for time conditions are disabled, the maintenance task will not be launched anyhow. Setting this to false would be fairly un-common. You may want to set this temporarily if debugging a system to avoid the periodic dialplan running through the CLI that the maintenance task launches and can be distracting."
+msgstr "Si se establece en falso, esto anulará la ejecución de la tarea de mantenimiento de condiciones horarias iniciada por los archivos de llamada. Si todos los códigos de función para las condiciones horarias están desactivados, la tarea de mantenimiento no se iniciará de todos modos. Establecer esto en falso sería bastante poco común. Es posible que desee configurar esto temporalmente si está depurando un sistema para evitar el plan de marcado periódico que se ejecuta a través de la CLI que la tarea de mantenimiento inicia y puede distraer."
 
 #: page.timeconditions.php:117
 msgid ""
@@ -155,7 +149,7 @@ msgid ""
 "will stay in that state until changed here or through other means such as "
 "external XML applications on your phone. If No Override then it functions "
 "normally based on the time schedule."
-msgstr ""
+msgstr "Indica el estado actual de esta condición horaria. Si se encuentra en un estado de Anulación temporal, resumirá automáticamente la próxima transición de tiempo según el grupo horario asociado. Si está en un estado de Anulación permanente, permanecerá en ese estado hasta que se cambie aquí o por otros medios, como aplicaciones XML externas en su teléfono. Si no se anula, entonces funciona normalmente según el cronograma."
 
 #: functions.inc.php:1226 functions.inc.php:1325
 msgid "January"
@@ -171,7 +165,7 @@ msgstr "Junio"
 
 #: timeconditions.i18n.php:22
 msgid "Maintenance Polling Interval"
-msgstr ""
+msgstr "Intervalo Sondeo de Mantenimiento"
 
 #: functions.inc.php:1240 functions.inc.php:1339
 msgid "March"
@@ -296,15 +290,8 @@ msgid "Temporary unmatched"
 msgstr ""
 
 #: timeconditions.i18n.php:24
-msgid ""
-"The polling interval in seconds used by the Time Conditions maintenance "
-"task, launched by an Asterisk call file used to update Time Conditions "
-"override states as well as keep custom device state hint values up-to-date "
-"when being used with BLF. A shorter interval will assure that BLF keys "
-"states are accurate. The interval should be less than the shortest "
-"configured span between two time condition states, so that a manual override "
-"during such a period is properly reset when the new period starts."
-msgstr ""
+msgid "The polling interval in seconds used by the Time Conditions manintenace task, launched by an Asterisk call file used to update Time Conditions override states as well as keep custom device state hint values up-to-date when being used with BLF. A shorter interval will assure that BLF keys states are accurate. The interval should be less than the shortest configured span between two time condition states, so that a manual overide during such a period is properly reset when the new period starts."
+msgstr "El intervalo de sondeo en segundos utilizado por la tarea de mantenimiento de las condiciones de tiempo, iniciada por un archivo de llamada de Asterisk utilizado para actualizar los estados de anulación de las condiciones de tiempo, así como para mantener actualizados los valores de sugerencia de estado del dispositivo personalizados cuando se utiliza con BLF. Un intervalo más corto asegurará que los estados de las teclas BLF sean precisos. El intervalo debe ser menor que el intervalo configurado más corto entre dos estados de condición de tiempo, de modo que una anulación manual durante dicho período se restablezca correctamente cuando comience el nuevo período."
 
 #: page.timeconditions.php:121
 #, php-format
