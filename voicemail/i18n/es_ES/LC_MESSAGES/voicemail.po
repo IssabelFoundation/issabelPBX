@@ -989,7 +989,13 @@ msgid "This module allows you to configure Voicemail for a user or extension"
 msgstr ""
 
 msgid "Provide IMAP Voicemail Fields"
-msgstr ""
+msgstr "Proveer campos de Buzón de Voz en IMAP"
+
+msgid "Create Voicemail Hints"
+msgstr "Crear Hints para Buzón de Voz"
+
+msgid "Setting this flag with generate the required dialplan to integrate with res_mwi_blf which is included with the Official IssabelPBX Distro. It allows users to subscribe to other voicemail box and be notified via BLF of changes."
+msgstr "Se se activa se generará el plan de marcado requerido para integrarse con res_mwi_blf que se incluye con la distribución oficial de IsabelPBX. Permite a los usuarios suscribirse a otro buzón de correo de voz y recibir notificaciones a través de BLF de los cambios."
 
 msgid "Voicemail Module"
 msgstr "Módulo de Buzón de Voz"
@@ -999,7 +1005,7 @@ msgid ""
 "true so that the IMAP username and password fields are provided in the "
 "Voicemail setup screen for extensions. If an extension alread has these "
 "fields populated, they will be displayed even if this is set to false."
-msgstr ""
+msgstr "Las instalaciones que han configurado el correo de voz con IMAP deben establecer esto en verdadero para que los campos de nombre de usuario y contraseña de IMAP se proporcionen en la pantalla de configuración del correo de voz para las extensiones. Si una extensión ya tiene estos campos rellenados, se mostrarán incluso si se establece en falso."
 
 msgid "Direct Dial Prefix"
 msgstr "Prefijo de Marcado Directo"
@@ -1106,3 +1112,4 @@ msgstr "Prefijo de Marcado Directo"
 #~ "prueba para comprobar el correcto funcionamiento de la configuración "
 #~ "realizada y que los números especificados son alcanzables (es decir, que "
 #~ "tiene permisos para llamar a esos números)."
+
