@@ -48,7 +48,12 @@ if(isset($_REQUEST['action'])) {
 
     <?php if($ast_ge_16) {
             echo "<input type=\"hidden\" name=\"editdescripton\" value=\"\">";
-        }?>
+    }?>
+
+<?php
+echo "<h2>"._('Blacklist')."</h2>";
+?>
+
     <table>
     <tr><td colspan="2"><h5><?php echo _("Add or replace entry") ?></h5></td></tr>
 
