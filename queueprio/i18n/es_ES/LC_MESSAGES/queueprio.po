@@ -36,7 +36,7 @@ msgstr ""
 "se eligirá ua cola, aunque no es estrictamente necesario."
 
 msgid "Edit Queue Priority Instance"
-msgstr "Editar Instnacia de Prioridad de Cola"
+msgstr "Editar Instancia de Prioridad de Cola"
 
 msgid "Add Queue Priority Instance"
 msgstr "Añadir Instancia de Prioridad de Cola"
