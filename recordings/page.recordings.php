@@ -78,7 +78,7 @@ switch ($action) {
         $suffix = escapeshellcmd(strtr($suffix, '/ ', '__'));
         if (!file_exists($astsnd."custom")) {
             if (!mkdir($astsnd."custom", 0775)) {
-                echo '<div class="content"><h5>'._("Failed to create").' '.$astsnd.'custom'.'</h5>';
+                echo '<div class="content" style="display:table;"><h5>'._("Failed to create").' '.$astsnd.'custom'.'</h5>';
             }
         } else {
             // can't rename a file from one partition to another, must use mv or cp
@@ -113,7 +113,7 @@ switch ($action) {
             recording_sidebar(null, $usersnum);
             recording_addpage($usersnum);
             if ($isok)
-                echo '<div class="content"><h5>'._("System Recording").' "'.$rname.'" '._("Saved").'!</h5>';
+                echo '<div class="content" style="display:table;"><h5>'._("System Recording").' "'.$rname.'" '._("Saved").'!</h5>';
         }
         break;
 
@@ -133,7 +133,7 @@ switch ($action) {
                 }
             }
             if ($fileexists === false) {
-                echo '<div class="content"><h5>'._("Unable to locate").' '.$recordings_astsnd_path.$filename.' '._("with a a valid suffix").'</h5>';
+                echo '<div class="content" style="display:table;"><h5>'._("Unable to locate").' '.$recordings_astsnd_path.$filename.' '._("with a a valid suffix").'</h5>';
             }
         }
 
@@ -145,7 +145,7 @@ switch ($action) {
         recordings_update($id, $rname, $notes, $_REQUEST, $fcode, $fcode_pass);
         recording_sidebar($id, $usersnum);
         recording_editpage($id, $usersnum);
-        echo '<div class="content"><h5>'._("System Recording").' "'.$rname.'" '._("Updated").'!</h5></div>';
+        echo '<div class="content" style="display:table;"><h5>'._("System Recording").' "'.$rname.'" '._("Updated").'!</h5></div>';
         needreload();
         break;
 
@@ -167,7 +167,7 @@ function recording_addpage($usersnum) {
     $tabindex = 0;
 
     ?>
-    <div class="content">
+    <div class="content" style="display:table;">
 
     <h2><?php echo _("System Recordings")?></h2>
     <h3><?php echo _("Add Recording") ?></h3>
@@ -319,7 +319,7 @@ function recording_editpage($id, $num) {
     global $fcode_pass;
     global $recordings_astsnd_path;
 ?>
-    <div class="content">
+    <div class="content" style="display:table;">
     <h2><?php echo _("System Recordings")?></h2>
     <h3><?php echo _("Edit Recording") ?></h3>
     <?php
@@ -569,7 +569,7 @@ function recording_sysfiles() {
     $astsnd .= "/sounds/";
     $sysrecs = recordings_readdir($astsnd, strlen($astsnd)+1);
 ?>
-    <div class="content">
+    <div class="content" style="display:table;">
     <h2><?php echo _("System Recordings")?></h2>
     <h3><?php echo _("Built-in Recordings") ?></h3>
     <h5><?php echo _("Select System Recording:")?></h5>
