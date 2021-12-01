@@ -18,7 +18,7 @@ drawListMenu($groups, $skip, $type, $display, $extdisplay, _("Time Group"));
 ?>
 </div>
 
-<div class="rnav" style="margin:15px 10px; padding: 5px; background: #e0e0ff; border: #2E78A7 solid 1px;">
+<div class="rnav" style="margin:15px 10px; padding: 5px; background: #e0e0ff; border: #2E78A7 solid 1px; min-height: 1.2em !important;">
 	<?php echo _("Server time")?>: <span id="idTime">00:00:00</span>
 </div>
 
