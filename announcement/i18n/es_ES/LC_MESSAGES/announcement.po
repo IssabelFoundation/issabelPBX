@@ -71,7 +71,7 @@ msgid "Add Announcement"
 msgstr "Añadir anuncio"
 
 msgid "Edit Announcement"
-msgstr "Editar anuncio"
+msgstr "Modificar anuncio"
 
 msgid "Description"
 msgstr "Descripción"

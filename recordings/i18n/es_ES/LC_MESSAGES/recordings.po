@@ -177,7 +177,7 @@ msgid "Save"
 msgstr "Guardar"
 
 msgid "Edit Recording"
-msgstr "Editar grabación"
+msgstr "Modificar grabación"
 
 msgid "Usage List"
 msgstr "Lista de usos"

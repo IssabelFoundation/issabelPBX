@@ -96,7 +96,7 @@ msgid "Conflicting Extensions"
 msgstr "Conflicto de Extensión"
 
 msgid "Edit VMBlast Group"
-msgstr "Editar Grupo de correo de voz"
+msgstr "Modificar Grupo de correo de voz"
 
 msgid "VMBlast Number"
 msgstr "Número"

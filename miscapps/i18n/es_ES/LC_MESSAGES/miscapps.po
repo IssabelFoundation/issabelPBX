@@ -32,7 +32,7 @@ msgid "Add Misc Application"
 msgstr "Añadir aplicación"
 
 msgid "Edit Misc Application"
-msgstr "Editar aplicación"
+msgstr "Modificar aplicación"
 
 msgid ""
 "Misc Applications are for adding feature codes that you can dial from "

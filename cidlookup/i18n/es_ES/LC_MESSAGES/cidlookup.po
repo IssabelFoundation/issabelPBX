@@ -124,7 +124,7 @@ msgstr "ERROR"
 
 #: views/main.html.php:38
 msgid "Edit Source"
-msgstr "Editar fuente"
+msgstr "Modificar fuente"
 
 #: views/main.html.php:43
 msgid "Enter a description for this source."

@@ -66,7 +66,7 @@ msgid "Delete Misc Destination %s"
 msgstr "Eliminar destino %s"
 
 msgid "Edit Misc Destination"
-msgstr "Editar destino"
+msgstr "Modificar destino"
 
 msgid "Description:"
 msgstr "Descripción:"

@@ -19,7 +19,7 @@ msgid "Add Call Recording Instance"
 msgstr "Añadir Instancia de Grabación"
 
 msgid "Edit Call Recording Instance"
-msgstr "Editar Instancia de Grabación"
+msgstr "Modificar Instancia de Grabación"
 
 msgid "Destination"
 msgstr "Destino"
@@ -46,7 +46,7 @@ msgid "Record Immediately"
 msgstr "Grabar inmediatamente"
 
 msgid "Edit: "
-msgstr "Editar: "
+msgstr "Modificar: "
 
 msgid "Delete"
 msgstr "Elimiar"

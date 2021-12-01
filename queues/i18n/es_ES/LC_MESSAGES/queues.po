@@ -278,7 +278,7 @@ msgid "Queue"
 msgstr "Cola"
 
 msgid "Edit Queue"
-msgstr "Editar cola"
+msgstr "Modificar cola"
 
 msgid "Queue Number"
 msgstr "Número de cola"

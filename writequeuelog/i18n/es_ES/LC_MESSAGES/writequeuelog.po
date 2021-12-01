@@ -32,7 +32,7 @@ msgstr "Agregar Escribir en Queue Log"
 
 #: ../page.writequeuelog.php:69
 msgid "Edit: "
-msgstr "Editar:"
+msgstr "Modificar:"
 
 #: ../page.writequeuelog.php:84
 msgid ""
@@ -44,7 +44,7 @@ msgstr "Escribir en Queue Log le permite agregar una lína en el archivo de "
 
 #: ../page.writequeuelog.php:96
 msgid "Edit Queue Log Instance"
-msgstr "Editar Instancia de Escribir en Queue Log"
+msgstr "Modificar Instancia de Escribir en Queue Log"
 
 #: ../page.writequeuelog.php:96
 msgid "Add Queue Log Instance"

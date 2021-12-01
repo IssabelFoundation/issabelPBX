@@ -1761,25 +1761,25 @@ msgstr ""
 #: ../core/page.did.php:172
 #, php-format
 msgid "Edit %s"
-msgstr "Editar %s"
+msgstr "Modificar %s"
 
 #: ../core/page.did.php:172
 #, php-format
 msgid "Edit %s %s (%s)"
-msgstr "Editar %s %s (%s)"
+msgstr "Modificar %s %s (%s)"
 
 #: ../core/page.trunks.php:412
 #, php-format
 msgid "Edit %s Trunk"
-msgstr "Editar línea troncal %s"
+msgstr "Modificar línea troncal %s"
 
 #: ../core/page.ampusers.php:117
 msgid "Edit Administrator"
-msgstr "Editar administrador"
+msgstr "Modificar administrador"
 
 #: ../core/page.dahdichandids.php:74
 msgid "Edit Channel"
-msgstr "Editar canal"
+msgstr "Modificar canal"
 
 #: ../core/page.dahdichandids.php:61
 msgid "Edit DAHDI Channel: "
@@ -1788,32 +1788,32 @@ msgstr ""
 #: ../core/functions.inc.php:7738
 #, php-format
 msgid "Edit Default User: %s"
-msgstr "Editar usuario por defecto: %s"
+msgstr "Modificar usuario por defecto: %s"
 
 #: ../core/functions.inc.php:7085
 msgid "Edit Extension"
-msgstr "Editar extensión"
+msgstr "Modificar extensión"
 
 #: ../core/functions.inc.php:7738
 #, php-format
 msgid "Edit Fixed User: %s"
-msgstr "Editar usuario fijo: %s"
+msgstr "Modificar usuario fijo: %s"
 
 #: ../core/page.did.php:190
 msgid "Edit Incoming Route"
-msgstr "Editar ruta entrante"
+msgstr "Modificar ruta entrante"
 
 #: ../core/page.routing.php:345 ../core/page.routing.php:363
 msgid "Edit Route"
-msgstr "Editar ruta"
+msgstr "Modificar ruta"
 
 #: ../core/functions.inc.php:7087
 msgid "Edit User"
-msgstr "Editar usuario"
+msgstr "Modificar usuario"
 
 #: ../core/functions.inc.php:7147
 msgid "Edit:"
-msgstr "Editar:"
+msgstr "Modificar:"
 
 #: amp_conf/htdocs/admin/page.modules.php:84
 msgid "Email"
@@ -6429,7 +6429,7 @@ msgstr "(sin mensaje)"
 #~ msgstr "\")"
 
 #~ msgid "Edit Zap Channel: "
-#~ msgstr "Editar canal Zap:"
+#~ msgstr "Modificar canal Zap:"
 
 #~ msgid "Add Zap Channel"
 #~ msgstr "Añadir canal Zap:"

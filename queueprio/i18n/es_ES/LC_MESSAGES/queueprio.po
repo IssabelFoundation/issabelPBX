@@ -17,7 +17,7 @@ msgid "Add Queue Priority"
 msgstr "Añadir Prioridad de Cola"
 
 msgid "Edit: "
-msgstr "Editar:"
+msgstr "Modificar:"
 
 msgid ""
 "Queue Priority allows you to set a caller's priority in a queue. By default, "
@@ -36,7 +36,7 @@ msgstr ""
 "se eligirá ua cola, aunque no es estrictamente necesario."
 
 msgid "Edit Queue Priority Instance"
-msgstr "Editar Instancia de Prioridad de Cola"
+msgstr "Modificar Instancia de Prioridad de Cola"
 
 msgid "Add Queue Priority Instance"
 msgstr "Añadir Instancia de Prioridad de Cola"

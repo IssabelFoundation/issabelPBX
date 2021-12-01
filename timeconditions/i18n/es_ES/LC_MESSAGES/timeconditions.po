@@ -109,11 +109,11 @@ msgstr "Error: fallo al convertir el campo"
 
 #: page.timeconditions.php:82
 msgid "Edit Time Condition"
-msgstr "Editar condición horaria:"
+msgstr "Modificar condición horaria:"
 
 #: functions.inc.php:697
 msgid "Edit Time Group"
-msgstr "Editar grupo horario"
+msgstr "Modificar grupo horario"
 
 #: timeconditions.i18n.php:16
 msgid "Enable Maintenance Polling"

@@ -60,7 +60,7 @@ msgid "Delete Manager"
 msgstr "Eliminar gestor"
 
 msgid "Edit Manager"
-msgstr "Editar gestor"
+msgstr "Modificar gestor"
 
 msgid "Manager name:"
 msgstr "Nombre del gestor:"

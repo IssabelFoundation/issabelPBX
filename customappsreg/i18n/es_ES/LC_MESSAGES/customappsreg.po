@@ -67,7 +67,7 @@ msgid "Add Custom Destination"
 msgstr "Añadir destino personalizado"
 
 msgid "Edit: "
-msgstr "Editar:"
+msgstr "Modificar:"
 
 msgid ""
 "Custom Destinations allows you to register your custom destinations that "
@@ -90,7 +90,7 @@ msgstr ""
 "Destino personalizado."
 
 msgid "Edit Custom Destination"
-msgstr "Editar destino personalizado"
+msgstr "Modificar destino personalizado"
 
 msgid "Custom Destination"
 msgstr "Destino personalizado"
@@ -179,7 +179,7 @@ msgid "Conflicting Extensions"
 msgstr "Extensiones en conflicto"
 
 msgid "Edit Custom Extension"
-msgstr "Editar extensión personalizada"
+msgstr "Modificar extensión personalizada"
 
 msgid "Custom Extension"
 msgstr "Extensión personalizada"

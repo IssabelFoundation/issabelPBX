@@ -322,7 +322,7 @@ msgstr ""
 #~ msgstr "Tras tres intentos no válidos, la llamada se cuelga."
 
 #~ msgid "Edit Menu"
-#~ msgstr "Editar menú"
+#~ msgstr "Modificar menú"
 
 #~ msgid "Save"
 #~ msgstr "Guardar"

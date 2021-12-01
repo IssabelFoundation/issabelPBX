@@ -45,7 +45,7 @@ msgstr "ya existe"
 
 #: ../page.managersettings.php:48
 msgid "Edit Settings"
-msgstr "Editar Configuraciones"
+msgstr "Modificar Configuraciones"
 
 #: ../page.managersettings.php:67
 msgid "ERRORS"

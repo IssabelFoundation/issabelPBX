@@ -449,7 +449,7 @@ msgstr "Ecuador"
 
 #: views/dahdi_analog_hardware.php:31 views/dahdi_analog_hardware.php:36
 msgid "Edit"
-msgstr "Editar"
+msgstr "Modificar"
 
 #: views/dahdi_advanced_settings.php:77 views/dahdi_modprobe_settings.php:60
 msgid "Egypt"

@@ -128,7 +128,7 @@ msgid "Conflicting Extensions"
 msgstr "Extensiones en conflicto"
 
 msgid "Edit Conference"
-msgstr "Editar conferencia"
+msgstr "Modificar conferencia"
 
 msgid "Conference Number"
 msgstr "Número de conferencia"

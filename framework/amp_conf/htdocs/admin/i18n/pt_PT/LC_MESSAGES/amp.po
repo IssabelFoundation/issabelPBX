@@ -1587,7 +1587,7 @@ msgstr ""
 #: ../core/page.trunks.php:412
 #, php-format
 msgid "Edit %s Trunk"
-msgstr "Editar canal %s"
+msgstr "Modificar canal %s"
 
 #: ../core/page.ampusers.php:117
 msgid "Edit Administrator"

@@ -49,7 +49,7 @@ msgid "Add Route"
 msgstr "Agregar Ruta"
 
 msgid "Edit Menu"
-msgstr "Editar"
+msgstr "Modificar"
 
 msgid "Delete"
 msgstr "Eliminar"

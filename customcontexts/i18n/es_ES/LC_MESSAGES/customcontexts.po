@@ -73,7 +73,7 @@ msgstr "Duplicar Clase"
 
 #: functions.inc.php:457 functions.inc.php:617
 msgid "Edit Class"
-msgstr "Editar Clase"
+msgstr "Modificar Clase"
 
 #: functions.inc.php:459
 msgid "Remove Class"

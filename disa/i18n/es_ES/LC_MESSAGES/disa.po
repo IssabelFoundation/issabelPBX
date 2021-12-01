@@ -67,7 +67,7 @@ msgstr ""
 "PBX para realizar llamadas salientes."
 
 msgid "Edit DISA"
-msgstr "Editar DISA"
+msgstr "Modificar DISA"
 
 msgid "DISA name:"
 msgstr "Nombre de DISA:"

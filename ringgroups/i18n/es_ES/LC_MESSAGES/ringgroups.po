@@ -123,7 +123,7 @@ msgid "Conflicting Extensions"
 msgstr "Extensiones en conflicto"
 
 msgid "Edit Ring Group"
-msgstr "Editar grupo de extensiones"
+msgstr "Modificar grupo de extensiones"
 
 msgid "Ring-Group Number"
 msgstr "Número del grupo de extensiones"

@@ -50,7 +50,7 @@ msgid "Delete"
 msgstr "Eliminar"
 
 msgid "Edit"
-msgstr "Editar"
+msgstr "Modificar"
 
 msgid "Add or replace entry"
 msgstr "Añadir o modificar elemento"

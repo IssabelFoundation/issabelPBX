@@ -5,7 +5,7 @@ msgid "Add Injection"
 msgstr "Añadir Inyección"
 
 msgid "Edit Injection"
-msgstr "Editar Inyección"
+msgstr "Modificar Inyección"
 
 msgid "Delete Injection"
 msgstr "Eliminar Inyección"

@@ -58,7 +58,7 @@ msgid "Delete"
 msgstr "Eliminar"
 
 msgid "Edit"
-msgstr "Editar"
+msgstr "Modificar"
 
 msgid "Export in CSV"
 msgstr "Exportar a CSV"

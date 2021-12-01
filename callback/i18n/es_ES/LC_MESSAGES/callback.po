@@ -50,7 +50,7 @@ msgstr ""
 "serán procesadas de acuerdo a los patrones de marcado de las rutas de salida."
 
 msgid "Edit Callback"
-msgstr "Editar devolución de llamada"
+msgstr "Modificar devolución de llamada"
 
 msgid "Callback Description:"
 msgstr "Descripción de la devolución de llamada:"

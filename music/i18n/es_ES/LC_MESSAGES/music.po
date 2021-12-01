@@ -131,7 +131,7 @@ msgid "Delete Streaming Category"
 msgstr "Eliminar categoría de música en directo"
 
 msgid "Edit Streaming Category"
-msgstr "Editar categoría de música en directo"
+msgstr "Modificar categoría de música en directo"
 
 msgid "Upload a .wav or .mp3 file:"
 msgstr "Enviar archivo WAV o MP3:"
