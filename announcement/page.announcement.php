@@ -65,6 +65,9 @@ foreach (announcement_list() as $row) {
 
 
 <?php
+
+echo "<h2>"._('Announcements')."</h2>";
+
 if ($extdisplay) {
     // load
     $row = announcement_get($extdisplay);
