@@ -1,0 +1,189 @@
+#!/usr/bin/php -q
+<?php
+//  Based on work from Xavier Ourciere xourciere[at]propolys[dot]com
+//  and https://github.com/stevenmirabito/asterisk-picotts/blob/master/picotts.agi#L251
+//  Copyright 2021 Issabel Foundation
+
+$config = parse_amportal_conf( "/etc/amportal.conf" );
+
+require_once "phpagi.php";
+require_once "phpagi-asmanager.php";
+
+if (!function_exists('json_last_error_msg')) {
+    function json_last_error_msg() {
+        static $ERRORS = array(
+            JSON_ERROR_NONE => 'No error',
+            JSON_ERROR_DEPTH => 'Maximum stack depth exceeded',
+            JSON_ERROR_STATE_MISMATCH => 'State mismatch (invalid or malformed JSON)',
+            JSON_ERROR_CTRL_CHAR => 'Control character error, possibly incorrectly encoded',
+            JSON_ERROR_SYNTAX => 'Syntax error',
+            JSON_ERROR_UTF8 => 'Malformed UTF-8 characters, possibly incorrectly encoded'
+        );
+
+        $error = json_last_error();
+        return isset($ERRORS[$error]) ? $ERRORS[$error] : 'Unknown error';
+    }
+}
+
+$AGI = new AGI();
+debug("TTS AGI Started", 1);
+
+$text       = $argv[1];
+$hash       = md5($text);
+$engine     = $argv[2];
+$cmd        = base64_decode($argv[3]);
+$parameters = base64_decode($argv[4]);
+
+$json_parameters = json_decode($parameters,1);
+
+$f = $AGI->get_full_variable('${CHANNEL(audionativeformat)}');
+
+$nformat = $f['data'];
+$format = array(
+    "ext" => "sln",
+    "rate" => "8000"
+);
+
+switch(true) {
+    case preg_match('/(silk|sln)12/',$nformat):
+        $format = array(
+            "ext" => "sln12",
+            "rate" => "12000"
+        );
+    break;
+    case preg_match('/(speex|slin|silk)16|g722|siren7/',$nformat):
+        $format = array(
+            "ext" => "sln16",
+            "rate" => "16000"
+        );
+    break;
+    case preg_match('/(speex|slin|celt)32|siren14/',$nformat):
+        $format = array(
+            "ext" => "sln32",
+            "rate" => "32000"
+        );
+    break;
+    case preg_match('/(celt|slin)44/',$nformat):
+        $format = array(
+            "ext" => "sln44",
+            "rate" => "44000"
+        );
+    break;
+    case preg_match('/(celt|slin)48/',$nformat):
+        $format = array(
+            "ext" => "sln48",
+            "rate" => "48000"
+        );
+    break;
+    default;
+        $format = array(
+            "ext" => "sln",
+            "rate" => "8000"
+        );
+    break;
+}
+
+if (!isset($text))
+{
+    return 0;
+}
+
+if ( $retval != 0 ) {
+    debug("ERROR: TTS engine binary not found.", 1);
+    return $retval;
+}
+
+if($engine == "azure") {
+     $format['ext']='alaw';
+}
+
+$soundsdir = $config["ASTVARLIBDIR"]."/sounds/tts";
+if( !is_dir($soundsdir) ) mkdir($soundsdir, 0775);
+
+$wavefile = $soundsdir."/$engine-tts-$hash.".$format['ext'];
+$tmpwavefile = $soundsdir."/$engine-tts-temp-$hash.wav";
+debug("Generated WAV file: $wavefile", 3);
+$textfile = $soundsdir."/$engine-tts-$hash.txt";
+debug("TXT file: $textfile", 3);
+
+
+if ( !file_exists($wavefile) ) {
+    debug("Text to speech wave file doesnt exist, lets create it.", 1);
+    if ( false === ($fh = fopen($textfile, "w")) ) {
+        debug("ERROR: Cannot open the file: $textfile", 1);
+        return 1;
+    }
+    if ( false === fwrite($fh, $text) ) {
+        debug("ERROR: Cannot write to file: $textfile", 1);
+        return 1;
+    }
+    fclose($fh);
+    debug("Executing $engine", 1);
+    switch ($engine) {
+        case 'flite':
+            exec($cmd." -f $textfile -o $tmpwavefile");
+            break;
+        case 'pico':
+                        $finalcmd = $cmd." ";
+                        foreach($json_parameters as $key=>$val) {
+                            if($key=='language') { $key='l'; 
+                                $finalcmd .= "-$key $val ";
+                            }
+                        }
+            $finalcmd.=" -w $tmpwavefile ".escapeshellarg(file_get_contents($textfile));
+            exec($finalcmd);
+            break;
+        case 'azure':
+            $finalcmd = $cmd." --text '$text' --file /var/lib/asterisk/sounds/tts/$engine-tts-$hash ";
+                        foreach($json_parameters as $key=>$val) {
+                            $finalcmd .= "--$key $val ";
+                        }
+            exec($finalcmd);
+        case 'polly':
+            $finalcmd = $cmd." --mp3=/var/lib/asterisk/sounds/tts/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/tts/$engine-tts-temp-$hash ";
+                        foreach($json_parameters as $key=>$val) {
+                            $finalcmd .= "--$key=".escapeshellarg($val)." ";
+                        }
+            exec($finalcmd);
+        case 'custom':
+            $finalcmd = $cmd;
+                        $finalcmd = preg_replace("/{TEXT}/",$text,$finalcmd);
+                        $finalcmd = preg_replace("/{OUTPUTFILE}/","/var/lib/asterisk/sounds/tts/$engine-tts-$hash",$finalcmd);
+            exec($finalcmd);
+            break;
+        default:
+            debug("$engine is not a valid engine!", 1);
+        break;
+    }
+}
+if(file_exists($tmpwavefile)) {
+    exec("sox $tmpwavefile -q -r ".$format['rate']." -t raw $wavefile");
+    unlink($tmpwavefile);
+}
+
+if(file_exists($wavefile)) {
+    // Adding a wait because the first time the wave file is generated, it was not played
+    $AGI->wait_for_digit(1000);
+    debug("Streaming the generated wave.", 1);
+    $AGI->stream_file("tts/".basename($wavefile,".".$format['ext']),'#');
+} else {
+    debug("File was not created! $wavefile", 1);
+}
+debug("TTS AGI end", 1);
+
+function parse_amportal_conf($filename) {
+    $file = file($filename);
+    $matches = array();
+    $matchpattern = '/^\s*([a-zA-Z0-9]+)\s*=\s*(.*)\s*([;#].*)?/';
+    foreach ($file as $line) {
+        if (preg_match($matchpattern, $line, $matches)) {
+            $conf[ $matches[1] ] = $matches[2];
+        }
+    }
+    return $conf;
+}
+
+function debug($string, $level=3) {
+    global $AGI;
+    $AGI->verbose($string, $level);
+}

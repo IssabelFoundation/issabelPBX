@@ -1,32 +1,28 @@
 <module>
-	<rawname>tts</rawname>
-	<name>Text To Speech</name>
-	<version>2.11.0.10</version>
-	<repo>extended</repo>
-	<publisher>Issabel Foundation</publisher>
-	<license>GPLv3+</license>
-	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<type>setup</type>
-	<description>Allows you to configure text to speech, and is derived from texttospeech provided in contributed modules.</description>
-	<category>Applications</category>
-	<menuitems>
-		<tts>Text To Speech</tts>
-	</menuitems>
-	<depends>
-		<engine>asterisk ge 1.6</engine>
-		<module>ttsengines</module>
-	</depends>
-	<location>release/2.11/tts-2.11.0.7.tgz</location>
-	<changelog>
-		2.11.0.10 Initial Issabel Foundation release
-	</changelog>
-	<popovers>
-		<tts>
-			<display>tts</display>
-		</tts>
-	</popovers>
-	<supported>
-		<version>2.11</version>
-	</supported>
-	<md5sum>95e334009eb9d41adc63878fd307044c</md5sum>
+        <rawname>tts</rawname>
+        <repo>standard</repo>
+        <name>Text to Speech</name>
+        <version>2.11.1.0</version>
+        <category>Applications</category>
+        <embedcategory>Internal Options &amp; Configuration</embedcategory>
+        <publisher>Issabel Foundation</publisher>
+        <license>GPLv3+</license>
+        <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+        <description>
+            Use a text to speech engine to convert text into computed generated spoken voice
+        </description>
+        <menuitems>
+                <tts>Text to Speech</tts>
+                <ttsadmin>Text to Speech Engines</ttsadmin>
+        </menuitems>
+        <changelog>
+                *2.11.1.0*  Initial Release
+        </changelog>
+        <depends>
+                <version>2.5.0</version>
+        </depends>
+        <supported>
+                <version>2.10</version>
+        </supported>
+        <location>release/2.11/tts-2.11.1.0.tgz</location>
 </module>

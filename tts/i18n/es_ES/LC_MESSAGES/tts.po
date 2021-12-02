@@ -18,70 +18,70 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Text to Speech %s: "
-msgstr ""
+msgstr "Texto al Habla %s: "
 
 msgid "Text to Speech"
-msgstr ""
+msgstr "Texto al Habla"
 
 msgid "Text to Speech Engines"
-msgstr ""
+msgstr "Motores de Texto al Habla"
 
 msgid "Add Text to Speech"
-msgstr ""
+msgstr "Añadir Texto al Habla"
 
 msgid "Add Text to Speech Instance"
-msgstr ""
+msgstr "Añadir Instancia de Texto al Habla"
 
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 msgid "Edit: "
-msgstr ""
+msgstr "Modificar: "
 
 msgid "Destination"
-msgstr ""
+msgstr "Destino"
 
 msgid "The Text To Speech Engine module allows you to add different engines to convert text to speech"
-msgstr ""
+msgstr "El módulo Motores de Texto al Habla le permite agregar diferentes motores para convertir texto a voz"
 
 msgid "Edit Text to Speech Engine"
-msgstr ""
+msgstr "Modificar Motor de Texto al Habla: "
 
 msgid "Edit Text to Speech Instance"
-msgstr ""
+msgstr "Modificar Instancia de Texto al Habla: "
 
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 msgid "Engine"
-msgstr ""
+msgstr "Motor"
 
 msgid "Template"
-msgstr ""
+msgstr "Plantilla"
 
 msgid "Command"
-msgstr ""
+msgstr "Comando"
 
 msgid "Submit Changes"
-msgstr ""
+msgstr "Enviar Cambios"
 
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "Add Text to Speech Engine"
-msgstr ""
+msgstr "Añadir Motor de Texto al Habla"
 
 msgid "The descriptive name of this text to speech engine. For example \"new name here\""
-msgstr ""
+msgstr "Nombre descriptivo para este motor de texto al habla, por ejemplo \"nuevo nombre\""
 
 msgid  "The TTS engine to use for the text to speech entry"
-msgstr ""
+msgstr "El motor de texto al habla a usar para este registro"
 
 msgid "Set of key=value pairs needed for the TTS engine. Usually API credentials, voice name, etc."
-msgstr ""
+msgstr "Lista de pares clave=valor necesarios para este motor de texto al habla. Usualmente usado para configurar credenciales API, nombre de la voz, etc."
 
 msgid "The actual command line to run the engine.<br/><br/>There are two variables you must use within the command if you select a <strong>custom</strong> engine: <dl><dt>{TEXT}</dt><dd>The actual text to convert to speech</dd><dt>{OUTPUTFILE}</dt><dd>The file name where the sound file will be saved.</dd></dl>"
-msgstr ""
+msgstr "Comando a utilizar para ejecutar la conversión para este motor.<br/><br/>Hay dos variables que se deben usar en este comando si elige el motor <strong>custom</strong>: <dl><dt>{TEXT}</dt><dd>El texto a convertir a habla</dd><dt>{OUTPUTFILE}</dt><dd>El archivo donde se guardará el archivo de sonido producido por el comando.</dd></dl>"
 
 msgid "The Text to Speech module allows you to add text to speech (TTS) instances on your PBX. You enter text to be read by a computer voice. When a TTS instance is entered as a destination in your call path, the system will play the text entered using the selected TTS engine. Then the call will then continue on to the target destination defined in the instance."
-msgstr ""
+msgstr "El módulo Texto al Habla le permite agregar instancias de texto a voz (TTS) en su PBX. Puede ingresar un texto para que lo lea una voz de computadora. Cuando se ingresa una instancia de TTS como destino en su ruta de llamada, el sistema reproducirá el texto ingresado usando el motor de TTS seleccionado. Luego, la llamada continuará hasta el destino de destino definido en la instancia."
