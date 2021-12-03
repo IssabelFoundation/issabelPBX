@@ -2840,6 +2840,34 @@ CREATE TABLE `pjsipsettings` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+DROP TABLE IF EXISTS `tts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tts` (
+  `tts_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tts_description` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tts_engine` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tts_parameters` text COLLATE utf8mb4_unicode_ci,
+  `tts_text` text COLLATE utf8mb4_unicode_ci,
+  `dest` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`tts_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+DROP TABLE IF EXISTS `tts_engines`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tts_engines` (
+  `ttsengine_id` int(11) NOT NULL AUTO_INCREMENT,
+  `ttsengine_description` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ttsengine_engine` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ttsengine_cmd` text COLLATE utf8mb4_unicode_ci,
+  `ttsengine_template` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`ttsengine_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 CREATE OR REPLACE VIEW `alldestinations` AS SELECT `users`.`extension` AS `extension`,`users`.`name` AS `name`,'from-did-direct' AS `context`,'extension' AS `type` from `users` UNION SELECT `queues_config`.`extension` AS `extension`,`queues_config`.`descr` AS `descr`,'ext-queues' AS `context`,'queue' AS `type` from `queues_config` UNION SELECT `ringgroups`.`grpnum` AS `grpnum`,`ringgroups`.`description` AS `description`,'ext-group' AS `context`,'ringgroup' AS `type` from `ringgroups`;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
