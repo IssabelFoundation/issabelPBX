@@ -97,6 +97,11 @@ if($engine == "azure") {
      $format['ext']='alaw';
 }
 
+if($engine == "google") {
+     $format['ext']='alaw';
+}
+
+
 $soundsdir = $config["ASTVARLIBDIR"]."/sounds/tts";
 if( !is_dir($soundsdir) ) mkdir($soundsdir, 0775);
 
@@ -108,7 +113,7 @@ debug("TXT file: $textfile", 3);
 
 
 if ( !file_exists($wavefile) ) {
-    debug("Text to speech wave file doesnt exist, lets create it.", 1);
+    debug("Text to speech wave file does not exist, lets create it.", 1);
     if ( false === ($fh = fopen($textfile, "w")) ) {
         debug("ERROR: Cannot open the file: $textfile", 1);
         return 1;
@@ -134,6 +139,12 @@ if ( !file_exists($wavefile) ) {
             exec($finalcmd);
             break;
         case 'azure':
+            $finalcmd = $cmd." --text '$text' --file /var/lib/asterisk/sounds/tts/$engine-tts-$hash ";
+                        foreach($json_parameters as $key=>$val) {
+                            $finalcmd .= "--$key $val ";
+                        }
+            exec($finalcmd);
+        case 'google':
             $finalcmd = $cmd." --text '$text' --file /var/lib/asterisk/sounds/tts/$engine-tts-$hash ";
                         foreach($json_parameters as $key=>$val) {
                             $finalcmd .= "--$key $val ";

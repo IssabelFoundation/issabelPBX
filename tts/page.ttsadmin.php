@@ -50,6 +50,12 @@ $templates = array(
     "azurekey":"",
     "region":"eastus",
 }',
+'google'=>'{
+    "languageCode":"es-US",
+    "name":"es-US-Wavenet-A",
+    "ssmlGender":"FEMALE",
+    "credentials":"/path/to/google/credentials.json"
+}',
 'flite'=>'',
 'custom'=>''
 );
@@ -59,6 +65,7 @@ $commands = array(
 'pico'=>'/usr/bin/pico2wave',
 'flite'=>'/usr/bin/flite',
 'azure'=>'/var/lib/asterisk/agi-bin/azuretts.php',
+'google'=>'/var/lib/asterisk/agi-bin/googlewave.php',
 'custom'=>'path/to/custom/script "{TEXT}" {OUTPUTFILE}'
 );
 
@@ -142,7 +149,7 @@ echo $helptext;
         <td>
             <select name="ttsengine_engine" id="ttsengine_engine" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
-                $engines = array('pico'=>'Pico TTS','polly'=>'Amazon Polly','azure'=>'Microsoft Azure TTS','flite'=>'FLite','custom'=>'Custom');
+                $engines = array('pico'=>'Pico TTS','polly'=>'Amazon Polly','azure'=>'Microsoft Azure TTS','flite'=>'FLite','google'=>'Google Cloud TTS', 'custom'=>'Custom');
                 foreach ($engines as $key=>$name) {
                     echo '<option value="'.$key.'"'.($key == $ttsengine_engine ? ' SELECTED' : '').'>'.$name."</option>\n";
                 }
