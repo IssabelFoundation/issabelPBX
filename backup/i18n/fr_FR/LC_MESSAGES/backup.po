@@ -13,84 +13,89 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
+# Copyright (C) 2022 Cédric MARTIN, martin.cedric3@gmail.com
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2010-01-23 00:00+0100\n"
-"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
+"PO-Revision-Date: 2022-02-09 00:00+0100\n"
+"Last-Translator: Cédric MARTIN <martin.cedric3@gmail.com>\n"
 "Language-Team: Français <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Backup & Restore"
-msgstr "Sauvegarder & Restaurer"
+msgstr "Sauvegarde & Restauration"
 
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 msgid "Backup & Restore for your IssabelPBX environment"
-msgstr ""
+msgstr "Sauvegarde & Restauration pour votre environnement IssabelPBX"
 
 msgid "Can not create backup tables"
-msgstr ""
+msgstr "Ne peut pas créer de sauvegarde des tables"
 
 msgid "Can't check for Backup table"
-msgstr ""
+msgstr "Ne peut pas effectuer les vérification pour la sauvegarde des tables"
 
 msgid ""
 "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
 msgstr ""
+"ERREUR : échec de migration de l'ancienne table \"Backup\" vers la nouvelle table \"backup\""
 
 msgid "This error can result from a previous incomplete/failed install of"
-msgstr ""
+msgstr "Cette erreur résulte d'une précédente installation incomplète ou échouée"
 
 msgid "this module. You should probably uninstall and reinstall this module"
-msgstr ""
+msgstr "ce module. Vous devez probablement désinstaller et réinstaller ce module"
 
 msgid ""
 "doing so will result in a loss of all your backup settings though previous"
 msgstr ""
+"effectuer cette action implique une perte de toutes vos sauvegardes de "
+"paramètres jusqu'à présent"
 
 msgid "backup data will be preserved."
-msgstr ""
+msgstr "les données sauvegardées seront préservées"
 
 msgid "Failure Message:"
-msgstr ""
+msgstr "Méssage d'échec : "
 
 msgid "Can not migrate Backup table"
-msgstr ""
+msgstr "Ne peut pas migrer la sauvegarde"
 
 msgid "Backup migration completed"
-msgstr ""
+msgstr "Migration de la sauvegarde complète"
 
 msgid "Nothing to migrate"
-msgstr ""
+msgstr "Rien à migrer"
 
 msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
 msgstr ""
+"ERREUR: Impossible de supprimer l'ancienne sauvegarde. Vous devez "
+"effectuer un desinstallation"
 
 msgid "and then re-install this module. Settings will be lost but old"
-msgstr ""
+msgstr "puis réinstaller ce module. Les paramètres seront perdus"
 
 msgid "backup data will be retained."
-msgstr ""
+msgstr "les données sauvegardées seront conservées."
 
 msgid "Old Backup table removed"
-msgstr ""
+msgstr "Ancienne sauvegarde supprimée"
 
 msgid "Replacing ampbackup.pl in db.."
-msgstr ""
+msgstr "Remplacement de ampbackup.pl dans la base de données..."
 
 msgid "an error has occurred, update not done"
-msgstr ""
+msgstr "une erreur est survenue, la mise à jour ne s'est par terminée correctement"
 
 msgid "ok"
-msgstr ""
+msgstr "ok"
 
 msgid "removing retrieve_backup_cron_from_mysql.pl.."
 msgstr "suppression de retrieve_backup_cron_from_mysql.pl..."
@@ -99,95 +104,97 @@ msgid "removed"
 msgstr "supprimé"
 
 msgid "failed"
-msgstr "echec"
+msgstr "échec"
 
 msgid "Migrating backup table..."
-msgstr ""
+msgstr "Migartion de la sauvegarde..."
 
 msgid "WARNING: backup table not migrated"
-msgstr ""
+msgstr "ATTENTION : La sauvegarde n'a pas été migrée"
 
 msgid "Successfully migrated backup table!"
-msgstr ""
+msgstr "Migration de la sauvegarde réalisée avec succès !"
 
 msgid "Creating backups directory.."
-msgstr ""
+msgstr "Création des dossiers des sauvegardes..."
 
 #, php-format
 msgid "WARNING: failed to create backup directory: %s"
-msgstr ""
+msgstr "ATTENTION : échec de création du dossier : %s"
 
 msgid "Location of backups pre 2.10"
-msgstr ""
+msgstr "Localisation des sauvegarde avant 2.10"
 
 msgid "Storage location for backups"
-msgstr ""
+msgstr "Emplacement de stockage pour les sauvegardes"
 
 msgid "PBX config server, generally a local database server"
 msgstr ""
+"Configuration du serveur, généralement sur une base de données "
+"locale au serveur"
 
 msgid "CDR server, generally a local database server"
-msgstr ""
+msgstr "Serveur CDR, généralement sur une base de données locale au serveur"
 
 msgid "added default backup servers"
-msgstr ""
+msgstr "sauvegarde par défaut des serveurs ajouté"
 
 msgid "Configurations only"
-msgstr ""
+msgstr "Configurations seulement"
 
 msgid "A full backup of core settings and web files"
-msgstr ""
+msgstr "Un sauvegarde complète des paramétrages du core et des fichiers web"
 
 msgid "Call Detail Records"
-msgstr ""
+msgstr "Détails des appels enregistrés"
 
 msgid "Voice Mail Storage"
-msgstr ""
+msgstr "Stockage des messages vocaux"
 
 msgid "All system audio - including IVR prompts and Music On Hold."
-msgstr ""
+msgstr "Tout le système audio - inclus les instructions SVI et Musique d'Attente."
 
 msgid " DOES NOT BACKUP VOICEMAIL"
-msgstr ""
+msgstr " NE PAS SAUVEGARDER LA BOITE VOCAL"
 
 msgid "Doesn't backup Backup's settings so that they dont get restored"
-msgstr ""
+msgstr "Ne sauvegarde pas les sauvegardes de paramètres qui ne seront pas restaurées"
 
 msgid "added default backup templates"
-msgstr ""
+msgstr "modèles de sauvegarde par défaut ajoutés"
 
 msgid "MIGRATED"
-msgstr ""
+msgstr "MIGRÉ"
 
 msgid "migrated backup"
-msgstr ""
+msgstr "sauvegarde migré"
 
 msgid "Migrated FTP server for backup "
-msgstr ""
+msgstr "Serveur FTP migré pour la sauvegarde "
 
 msgid "Migrated SSH server for backup "
-msgstr ""
+msgstr "Serveur SSH migré pour la sauvegarde "
 
 msgid "Migrated EMAIL server for backup "
-msgstr ""
+msgstr "Serveur EMAIL migré pour la sauvegarde "
 
 msgid "Migrated remote SSH server for backup "
-msgstr ""
+msgstr "Serveur SSH distant migré pour la sauvegade "
 
 msgid "Default backup; automatically installed"
-msgstr ""
+msgstr "Sauvegarde par défaut; installée automatiquement"
 
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 msgid "Run now"
-msgstr ""
+msgstr "Exécuter maintenant"
 
 msgid "Download"
-msgstr ""
+msgstr "Télécharger"
 
 #~ msgid "Are you sure you want to delete this File Set?"
-#~ msgstr "Etes-vous sûr de vouloir supprimer ce jeu de fichiers ?"
+#~ msgstr "Êtes-vous sûr de vouloir supprimer ce jeu de fichiers ?"
 
 #~ msgid "DELETE ALL THE DATA IN THIS SET"
 #~ msgstr "SUPPRIMER TOUTES LES DONNEES DE CE JEU"
@@ -253,7 +260,7 @@ msgstr ""
 #~ "actuellement dans le jeu de sauvegardes."
 
 #~ msgid "Restore System Recordings Files"
-#~ msgstr "Restaurer les Fichiers d'Enregistrement Système"
+#~ msgstr "Restaurer Système des Fichiers d'Enregistrement"
 
 #~ msgid ""
 #~ "Restore your system Voice Recordings including AutoAttendant files from "
@@ -337,7 +344,7 @@ msgstr ""
 #~ msgstr "Panneau Restauré"
 
 #~ msgid "Restored CDR logs"
-#~ msgstr "Logs CDR Restaurés"
+#~ msgstr "Journaux CDR Restaurés"
 
 #~ msgid "Schedule Name:"
 #~ msgstr "Nom du Calendrier :"
@@ -356,7 +363,7 @@ msgstr ""
 #~ "Données)"
 
 #~ msgid "Operator Panel"
-#~ msgstr "Panneau"
+#~ msgstr "Panneau Opérateur"
 
 #~ msgid "Backup the Operator Panel (HTML and Database)"
 #~ msgstr "Sauvegarder le Panneau (HTML et Base de Données)"

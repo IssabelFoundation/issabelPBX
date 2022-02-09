@@ -20,45 +20,45 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-04-20 11:18+0100\n"
-"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
+"PO-Revision-Date: 2022-02-09 00:00+0100\n"
+"Last-Translator: Cédric MARTIN <martin.cedric3@gmail.com>\n"
 "Language-Team: Français <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Call Forward"
-msgstr "Transfert d'Appel"
+msgstr "Transfert d'appel"
 
 msgid "Applications"
-msgstr ""
+msgstr "Applications"
 
 msgid "Provides callforward featurecodes"
-msgstr ""
+msgstr "Fournit des codes fonctions de renvoi d'appel"
 
 msgid "Call Forward All Activate"
-msgstr "Transferts d'Appels Tous Actifs"
+msgstr "Tous les transferts d'appel sont actifs"
 
 msgid "Call Forward All Deactivate"
-msgstr "Transferts d'Appels Tous Désactivés"
+msgstr "Tous les transferts d'appel sont désactivés"
 
 msgid "Call Forward All Prompting Deactivate"
-msgstr "Messages de Transferts d'Appels Tous Désactivés"
+msgstr "Tous les messages de transferts d'appels sont désactivés"
 
 msgid "Call Forward Busy Activate"
-msgstr "Transfert d'Appels quand Occupé Activé"
+msgstr "Transfert d'appels sur occupation activé"
 
 msgid "Call Forward Busy Deactivate"
-msgstr "Transfert d'Appels quand Occupé Désactivé"
+msgstr "Transfert d'appels sur occupation désactivé"
 
 msgid "Call Forward Busy Prompting Deactivate"
-msgstr "Messages de Transfert d'Appels quand Occupé Désactivé"
+msgstr "Messages de transfert d'appels sur occupation désactivé"
 
 msgid "Call Forward No Answer/Unavailable Activate"
-msgstr "Transfert d'Appels quand Pas de Réponse/Indisponible Activé"
+msgstr "Transfert d'appels sur  Non Réponse/Indisponibilité activé"
 
 msgid "Call Forward No Answer/Unavailable Deactivate"
-msgstr "Transfert d'Appels quand Pas de Réponse/Indisponible Désactivé"
+msgstr "Transfert d'appels sur  Non Réponse/Indisponibilité désactivé"
 
 msgid "Call Forward Toggle"
-msgstr ""
+msgstr "Activer/Désactiver le transfert d'appel"

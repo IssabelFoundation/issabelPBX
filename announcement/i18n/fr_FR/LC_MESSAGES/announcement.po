@@ -13,37 +13,39 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
+# Copyright (C) 2022 Cédric MARTIN, martin.cedric3@gmail.com
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2010-01-23 00:00+0100\n"
-"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
+"PO-Revision-Date: 2022-02-09 19:41+0001\n"
+"Last-Translator: Cédric MARTIN <martin.cedric3@gmail.com>\n"
 "Language-Team: Français <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Announcements"
 msgstr "Annonces"
 
 msgid "Applications"
-msgstr ""
+msgstr "Applications"
 
 msgid ""
 "Plays back one of the system recordings (optionally allowing the user to "
 "skip it) and then goes to another destination."
 msgstr ""
+"Lit l'un des enregistrements du système (permettant éventuellement à "
+"l'utilisateur de l'ignorer) puis passe à un autre destination."
 
 #, php-format
 msgid "Announcement: %s"
 msgstr "Annonce: %s"
 
 msgid "Checking if recordings need migration.."
-msgstr "Teste si les enregistrements ont besoin d'être migrés..."
+msgstr "Vérifie si les enregistrements ont besoin d'être migrés..."
 
 msgid "migrating"
 msgstr "migration"
@@ -96,7 +98,7 @@ msgstr ""
 "le MENU \"Enregistrements Système\" à gauche"
 
 msgid "None"
-msgstr ""
+msgstr "Sans"
 
 msgid "Repeat"
 msgstr "Répéter"
@@ -106,22 +108,22 @@ msgid ""
 "this option there will be a short delay inserted after the message. If a "
 "longer delay is needed it should be incorporated into the recording."
 msgstr ""
-"Touche qui permet de rejouer le message. Si vous choisissez cette option, un "
+"Touche permettant la relecture du message. Si vous choisissez cette option, un "
 "court délai sera ajouté à la fin du message. Si un délai plus long est "
 "nécessaire, il doit être incorporé dans le message."
 
 msgid "Disable"
-msgstr "Désactiver"
+msgstr "Désactivé"
 
 msgid "Allow Skip"
-msgstr "Autoriser à Passer"
+msgstr "Autoriser à ignorer"
 
 msgid "If the caller is allowed to press a key to skip the message."
 msgstr ""
-"Si l'appelant est autorisé à presser une touche pour passer le message."
+"Si l'appelant est autorisé à appuyer sur une touche pour ignorer le message."
 
 msgid "Return to IVR"
-msgstr "Retourner à IVR"
+msgstr "Retourner au SVI"
 
 msgid ""
 "If this announcement came from an IVR and this box is checked, the "
@@ -133,18 +135,18 @@ msgid ""
 "calls this announcement and this box is checked, it will return to that IVR "
 "which may not be the expected behavior."
 msgstr ""
-"Si cette annonce vient d'un IVR et que cette case est cochée, la destination "
-"ci-dessous sera ignorée et on retournera à l'IVR appelant. Sinon, la "
+"Si cette annonce vient d'un SVI et que cette case est cochée, la destination "
+"ci-dessous sera ignorée et on retournera au SVI appelant. Sinon, la "
 "destination ci-dessous sera prise en compte. Ne pas cocher si non utilisé "
-"dans ce mode. <br>L'emplacement de retour de l'IVR sera le dernier IVR dans "
+"dans ce mode. <br>L'emplacement de retour du SVI sera le dernier SVI dans "
 "la chaîne d'appel qui a été appelé, donc ne cochez que lorsque c'est "
-"nécessaire. Par exemple, si un IVR dirige un appel vers une autre "
+"nécessaire. Par exemple, si un SVI dirige un appel vers une autre "
 "destination qui finalement appelle cette annonce et que cette case est "
-"cochée, cela retournera à cet IVR ce qui n'est pas forcément le comportement "
+"cochée, cela retournera à ce SVI ce qui n'est pas forcément le comportement "
 "attendu."
 
 msgid "Don't Answer Channel"
-msgstr "Ne pas répondre au Canal"
+msgstr "Ne pas répondre au canal"
 
 msgid ""
 "Check this to keep the channel from explicitly being answered. When checked, "
@@ -155,18 +157,18 @@ msgid ""
 "channel, that 1 second delay may not be desired."
 msgstr ""
 "Cochez cette case pour prévenir le canal d'une réponse explicite. Lorsque "
-"cette case est cochée, le message sera joué et si on n'a pas déjà répondu au "
-"canal le message sera délivré en tant que premier media si le canal le "
+"cette case est cochée, le message sera lu et si l'on n'a pas déjà répondu au "
+"canal, le message sera délivré en tant que premier media si le canal le "
 "supporte. Si la case n'est pas cochée, on répond au canal puis s'en suit une "
-"seconde de délai. Lorsqu'on utilise une annonce d'un IVR ou d'autres sources "
+"seconde de délai. Lorsqu'on utilise une annonce d'un SVI ou d'autres sources "
 "qui ont déjà répondu au canal, cette seconde de délai peut ne pas être "
 "désirée."
 
 msgid "Destination after playback"
-msgstr "Destination après playback"
+msgstr "Destination après lecture"
 
 msgid "Submit Changes"
-msgstr "Soumettre les Changements"
+msgstr "Appliquer les changements"
 
 msgid "Delete"
 msgstr "Supprimer"
