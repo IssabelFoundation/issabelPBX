@@ -20,42 +20,42 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-04-15 21:41+0100\n"
-"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
+"PO-Revision-Date: 2022-02-09 00:00+0100\n"
+"Last-Translator: Cédric MARTIN <martin.cedric3@gmail.com>\n"
 "Language-Team: Français <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Blacklist"
-msgstr "Blacklist"
+msgstr "Liste noire"
 
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 msgid "Blacklist a number"
-msgstr "Blacklister un numéro"
+msgstr "Ajouter un numéro sur la liste noire"
 
 msgid "Remove a number from the blacklist"
-msgstr "Retirer un numéro de la blacklist"
+msgstr "Retirer un numéro de la liste noire"
 
 msgid "Blacklist the last caller"
-msgstr "Blacklister le dernier appelant"
+msgstr "Ajouter le dernier appelant à la liste noire"
 
 msgid "Blacklist entry"
-msgstr "Entrée de la Blacklist"
+msgstr "Entrée de la liste noire"
 
 msgid "deleted"
 msgstr "supprimé"
 
 msgid "Blacklist entries"
-msgstr "Entrées de la Blacklist"
+msgstr "Entrées de la liste noire"
 
 msgid "Number/CallerID"
-msgstr ""
+msgstr "Numéro/ID appelant"
 
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 msgid "Number"
 msgstr "Numéro"
@@ -70,16 +70,16 @@ msgid "Add or replace entry"
 msgstr "Ajouter ou remplacer une entrée"
 
 msgid "Enter the number/CallerID you want to block"
-msgstr ""
+msgstr "Entrez le numéro/ID Appelant (CallerID) que vous souhaitez bloquer"
 
 msgid "Enter a description for the number you want to block"
-msgstr ""
+msgstr "Entrez une description pour le numéro que vous souhaitez bloquer"
 
 msgid "Block Unknown/Blocked Caller ID"
-msgstr ""
+msgstr "Blocage d'inconnu/d'ID appelant"
 
 msgid "Check here to catch Unknown/Blocked Caller ID"
-msgstr ""
+msgstr "Vérifier que le blocage d'inconnu/d'ID appelant est prise en compte"
 
 msgid "Submit Changes"
 msgstr "Appliquer les modifications"

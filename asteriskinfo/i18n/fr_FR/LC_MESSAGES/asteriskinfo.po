@@ -1,0 +1,156 @@
+# IssabelPBX language template for asterisk info
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Cédric MARTIN <martin.cedric3@gmail.com>\n"
+"Language-Team: Français <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Asterisk Info"
+msgstr "Asterisk Infos"
+
+msgid "Reports"
+msgstr "Rapports"
+
+msgid "Provides a snapshot of the current Asterisk configuration"
+msgstr "Fourni un snapshot de la configuration actuelle d'Asterisk"
+
+msgid "Summary"
+msgstr "Sommaire"
+
+msgid "Registries"
+msgstr "Registres"
+
+msgid "Channels"
+msgstr "Canaux"
+
+msgid "Peers"
+msgstr "Pairs (Peers)"
+
+msgid "Sip Info"
+msgstr "Infos SIP"
+
+msgid "IAX Info"
+msgstr "Infos IAX"
+
+msgid "Conferences"
+msgstr "Conférences"
+
+msgid "Queues"
+msgstr "Files d'attente"
+
+msgid "Subscriptions"
+msgstr "Abonnements"
+
+msgid "Full Report"
+msgstr "Rapport complet"
+
+msgid "Uptime"
+msgstr "Temps depuis le démarrage"
+
+msgid "Active Channel(s)"
+msgstr "Canal/Canaux Actif(s)"
+
+msgid "Sip Channel(s)"
+msgstr "Cannal/Canaux SIP"
+
+msgid "IAX2 Channel(s)"
+msgstr "Cannal/Canaux IAX2"
+
+msgid "IAX2 Peers"
+msgstr "Pairs IAX2 (Peers)"
+
+msgid "Sip Registry"
+msgstr "Registre SIP"
+
+msgid "Sip Peers"
+msgstr "Pairs SIP (Peers)"
+
+msgid "IAX2 Registry"
+msgstr "Registre IAX2"
+
+msgid "Subscribe/Notify"
+msgstr "Abonnement/Notification"
+
+msgid "DAHDi driver info"
+msgstr "Infos driver DAHDi"
+
+msgid "Zaptel driver info"
+msgstr "Infos driver Zaptel"
+
+msgid "MeetMe Conference Info"
+msgstr "Infos Conférence avec MeetMe"
+
+msgid "Conference Bridge Info"
+msgstr "Info Pont de conférence"
+
+msgid "Queues Info"
+msgstr "Info Files d'attente"
+
+msgid "Voicemail Users"
+msgstr "Boîtes Vocales Utilisateurs"
+
+msgid "Google Talk Channels"
+msgstr "Cannaux Google Talk"
+
+msgid "Jabber Connections"
+msgstr "Connexions Jabber"
+
+msgid "Asterisk (Ver. "
+msgstr "Asterisk (Ver. "
+
+msgid "ASTERISK MANAGER ERROR"
+msgstr "ERREUR MANAGER ASTERISK"
+
+msgid ""
+"The module was unable to connect to the Asterisk manager.<br>Make sure "
+"Asterisk is running and your manager.conf settings are proper.<br><br>"
+msgstr ""
+"Le module ne parvient pas à se connecter au manager Asterisk.<br>Assurez-vous "
+"qu'Asterisk est démarré et que votre fichier de paramètres manager.conf est correct.<br><br>"
+
+msgid "Refresh"
+msgstr "Rafraîchir"
+
+msgid "Uptime: "
+msgstr "Démarré depuis : "
+
+msgid "Active SIP Channel(s): "
+msgstr "Canal/Canaux SIP Actif(s) : "
+
+msgid "Active IAX2 Channel(s): "
+msgstr "Canal/Canaux IAX2 Actif(s) : "
+
+msgid "Sip Registry: "
+msgstr "Registre SIP : "
+
+msgid "IAX2 Registry: "
+msgstr "Registre IAX2 : "
+
+msgid "Sip Peers: "
+msgstr "Pairs SIP (Peers) : "
+
+msgid "IAX2 Peers: "
+msgstr "Pairs IAX2 (Peers) : "
+
+msgid "Online: "
+msgstr "En-Ligne : "
+
+msgid "Online-Unmonitored: "
+msgstr "En-Ligne / Non surveillé : "
+
+msgid "Offline: "
+msgstr "Hors-Ligne : "
+
+msgid "Offline-Unmonitored: "
+msgstr "Hors-Ligne / Non surveillé : "
+
+msgid "Unmonitored: "
+msgstr "Non surveillé : "

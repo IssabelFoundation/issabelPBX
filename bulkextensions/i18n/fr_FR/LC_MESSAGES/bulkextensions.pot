@@ -1,0 +1,198 @@
+# IssabelPBX language template for bulkextensions
+# Copyright 2013 Schmooze Com Inc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"PO-Revision-Date: 2022-02-09 00:00+0100\n"
+"Last-Translator: Cédric MARTIN <martin.cedric3@gmail.com>\n"
+"Language-Team: Français <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Bulk Extensions"
+msgstr "Extensions en masse"
+
+msgid "Applications"
+msgstr "Applications"
+
+msgid "Bulk Extensions uses CSV files to import and export extensions."
+msgstr ""
+"Extensons en masse en utilisant des fichiers CSV pour importer et "
+"exporter des extensions"
+
+msgid "Voicemail Account Activated"
+msgstr "Compte boîte vocale activé"
+
+msgid "Login information for your Voicemail account is as follows:"
+msgstr ""
+"Les informations de connexion pour votre compte de boîte "
+"volcale sont les suivantes : "
+
+msgid "Account Name: "
+msgstr "Nom de compte : "
+
+msgid "Extension: "
+msgstr "Extension : "
+
+msgid "Voicemail Password: "
+msgstr "Mot de passe de boîte vocale : "
+
+msgid "You are running IssabelPBX in <b>deviceanduser</b> mode"
+msgstr "Vous utilisez IssabelPBX en mode <b>périphérique et utilisateur</b>"
+
+msgid "This module is only supported when IssabelPBX is in <b>extensions</b> mode"
+msgstr "Ce module est supporté seulement lorsqu'IssabelPBX est en mode <b>extensions</b>"
+
+msgid "Manage Extensions in bulk using CSV files."
+msgstr "Gérer les extensions en masse en utilisant des fichiers CSV."
+
+#, php-format
+msgid ""
+"Start by downloading the %s Template CSV file %s (right-click > save as) or "
+"clicking the Export Extensions button."
+msgstr ""
+"Commencez en téléchargeant le %s Modèle de fichier CSV %s (Clique-droit > Enregistrer sous... "
+"ou en cliquant sur le bouton Exporter les extensions."
+
+msgid ""
+"Modify the CSV file to add, edit, or delete Extensions as desired. Then load "
+"the CSV file. After the CSV file is processed, the action taken for each row "
+"will be displayed."
+msgstr ""
+"Modifier le fichier CSV pour ajouter, éditer ou supprimer comme souhaité. Puis "
+"charger le fichier CSV. Après le traitement du fichier CSV, l'action effectuée "
+"pour chaque ligne sera affichée."
+
+msgid ""
+"Bulk extension changes can take a long time to complete. It can take 30-60 "
+"seconds to add 100 extensions on a small system. However, on a system with "
+"2000 extensions it can take about 5 minutes to add 100 new extensions."
+msgstr ""
+"Les modifications d'extension en masse peuvent prendre du temps. Cela peut "
+"prendre entre 30 et 60 secondes pour ajouter 100 extensions sur un petit "
+"système. Cependant, sur un système avec 2000 extensions, cela peut prendre "
+environs 5 minutes pour ajouter 100 nouvelles extensions."
+
+msgid "Export Extensions"
+msgstr "Exporter les extensions"
+
+msgid "CSV File to Load"
+msgstr "Fichier CSV à charger"
+
+msgid "Load File"
+msgstr "Charger le fichier"
+
+msgid "Email Notification for New Accounts"
+msgstr "Notification par e-mail pour les nouveaux comptes"
+
+msgid ""
+"By default, a notification email will be sent to the Voicemail email address "
+"set for each account added."
+msgstr ""
+"Par défaut, une notification par e-mail sera envoyée l'adresse email configurée "
+pour chaque compte ajouté."
+
+msgid ""
+" The settings below can be used to control the content and destination of "
+"the notification emails."
+msgstr ""
+" Les paramètres ci-desous peuvent être utilisés pour controler le contenu "
+"et la description des nofications par e-mail."
+
+msgid "Default Address:"
+msgstr "Adresse par défaut : "
+
+msgid ""
+"If a Default Address is specified, notification emails for new accounts "
+"without a Voicemail email address will be sent to the Default Address."
+msgstr ""
+"Si une adresse par défaut est spécifiée, les notifications par e-mail des "
+"nouveaux compte sans adresse e-mail Boîte Vocale seront envoyée à "
+"l'adresse par défaut."
+
+msgid "Override Address:"
+msgstr "Adresse de remplacement : "
+
+msgid ""
+"If an Override Address is specified, all notification emails will be sent to "
+"the Override Address only. Type \"noemail\" (without the quotes) as the "
+"Override Address to stop notification emails from being sent."
+msgstr ""
+"Si une adresse de remplacement est spécifiée, toutes les notifications e-mail "
+"seront envoyée à cette adresse seulement. Tapez \"noemail\" (sans les guillemets"
+") adresse de remplacement pour arrêter l'envoi des e-mail de notification."
+
+msgid "Email From:"
+msgstr "Adresse e-mail de provenance : "
+
+msgid ""
+"The Email From header may be specified. If left blank, the system default "
+"will be used."
+msgstr ""
+"L'adresse e-mail de provenance de peut être spécifiée. Si non renseigné, l'adresse par défaut "
+"du système sera utilisée."
+
+msgid "Email Reply-To:"
+msgstr "Adresse e-mail de réponse : "
+
+msgid ""
+"The Email Reply-To header may be specified. If left blank, the system "
+"default will be used."
+msgstr ""
+"L'adresse e-mail de réponse peut être spécifiée. Si non renseigné, l'adresse par défaut "
+"du système sera utilisée.
+
+msgid "Email Subject:"
+msgstr "Objet de l'email"
+
+msgid ""
+"The Email Subject may be specified. If left blank, the default subject, "
+"\"Voicemail Account Activated\", will be used."
+msgstr ""
+"L'objet de l'e-mail peut être spécifié. Si non renseigné, l'objet par défaut, "
+"\"Compte boîte vocale activé\", sera utilisé."
+
+msgid "Email Opening:"
+msgstr "E-mail, début du message : "
+
+msgid ""
+"The Email Opening may be specified. If left blank, the default opening, "
+"\"Login information for your Voicemail account is as follows:\", will be "
+"used."
+msgstr ""
+"\"E-mail, début du message\" peut être spécifiée. Si non renseigné, le message "
+"par défaut \"Informations de connexion pour votre compte de boîte vocale "
+"sont les suivantes : \", sera utilisé au début de l'e-mail.
+
+msgid ""
+" The account name, extension, and Voicemail password will automatically be "
+"inserted after the opening."
+msgstr ""
+" Le nom du compte, extension et mot de passe seront automatiquement insérés "
+"après l'ouverture."
+
+msgid "Email Closing:"
+msgstr "E-mail, fin du message : "
+
+msgid ""
+"The Email Closing may be specified. If any text is entered, it will be "
+"inserted at the end of the email."
+msgstr ""
+"\"E-mail : fin du message\" peut être spécifiée, Si du texte est saisi, il "
+"sera inséré à la fin de l'e-mail."
+
+msgid "Bulk Extensions CSV File Columns"
+msgstr "Colonnes du fichier CSV pour l'ajout d'extensions en masse"
+
+msgid ""
+"The table below explains each column in the CSV file. You can change the "
+"column order of the CSV file as you like, however, the column names must be "
+"preserved."
+msgstr ""
+"Le tableau suivant explique chaque colonne du fichier CSV. Vous pouvez "
+"l'ordre des colonne du fichier CSV comme vous le souhaitez, cependant, "
+"la colonne noms ne doit pas être modifiée."
