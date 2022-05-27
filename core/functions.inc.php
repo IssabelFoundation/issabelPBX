@@ -2133,8 +2133,33 @@ function core_do_get_config($engine) {
                 $ext->add('app-chanspy', $fc_chanspy, '', new ext_macro('user-callerid'));
                 $ext->add('app-chanspy', $fc_chanspy, '', new ext_answer(''));
                 $ext->add('app-chanspy', $fc_chanspy, '', new ext_wait(1));
-                $ext->add('app-chanspy', $fc_chanspy, '', new ext_chanspy(''));
-                $ext->add('app-chanspy', $fc_chanspy, '', new ext_hangup(''));
+                $ext->add('app-chanspy', $fc_chanspy, '', new ext_read('spyee','please-enter-the&extension&number&followed_pound'));
+                $ext->add('app-chanspy', $fc_chanspy, '', new ext_goto('1','${spyee}','targeted-chanspy'));
+                $ext->add('app-chanspy', '_'.$fc_chanspy.'.', '', new ext_macro('user-callerid'));
+                $ext->add('app-chanspy', '_'.$fc_chanspy.'.', '', new ext_answer(''));
+                $ext->add('app-chanspy', '_'.$fc_chanspy.'.', '', new ext_goto('1','${EXTEN:3}','targeted-chanspy'));
+
+
+
+                $ext->add('targeted-chanspy', '_.', '', new ext_set('TIMEOUT(absolute)','3600'));
+                $ext->add('targeted-chanspy', '_.', '', new ext_answer(''));
+                $ext->add('targeted-chanspy', '_.', 'once-upon-a-time', new ext_wait(1));
+                $ext->add('targeted-chanspy', '_.', '', new ext_set('spy_target',''));
+                $ext->add('targeted-chanspy', '_.', '', new ext_set('DEVS','${DB(AMPUSER/${EXTEN}/device)}'));
+                $ext->add('targeted-chanspy', '_.', '', new ext_set('DEVS','${STRREPLACE(DEVS,&,\,)}'));
+                $ext->add('targeted-chanspy', '_.', '', new ext_while('$["${SET(DEV=${POP(DEVS)})}" != ""]'));
+                $ext->add('targeted-chanspy', '_.', '', new ext_noop('dev: ${DEV}'));
+                $ext->add('targeted-chanspy', '_.', '', new ext_set('CHAN','${DB(DEVICE/${DEV}/dial)}'));
+                $ext->add('targeted-chanspy', '_.', '', new ext_set('spy_target','${CHANNELS(${CHAN}-)}'));
+                $ext->add('targeted-chanspy', '_.', '', new ext_execif('$["${spy_target}"!=""]','ExitWhile'));
+                $ext->add('targeted-chanspy', '_.', '', new ext_endwhile(''));
+                $ext->add('targeted-chanspy', '_.', '', new ext_execif('$["${spy_target}"!=""]','ChanSpy(${spy_target},dnqE))'));
+                $ext->add('targeted-chanspy', '_.', '', new ext_hangup(''));
+                //$ext->add('targeted-chanspy', '_.', '', new ext_goto('once-upon-a-time');
+                $ext->add('targeted-chanspy', 'h', '', new ext_hangup(''));
+                $ext->add('targeted-chanspy', 's', '', new ext_hangup(''));
+                $ext->add('targeted-chanspy', 'T', '', new ext_hangup(''));
+
             }
 
             // Simulate External call. (ext-test)
