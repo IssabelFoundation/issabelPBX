@@ -109,7 +109,7 @@ msgstr ""
 "paramètres d'enregistrements des appels en aval. Enregistrement sur "
 "réponse commence l'enregistrement lorsque l'appel serait enregistré en "
 "ignorant les paramètres indiquant le contraire. Enregistrer immédiatement "
-commencera l'enregistrement immédiatement après les sonneries, annonces, "
+"commencera l'enregistrement immédiatement après les sonneries, annonces, "
 "Ministère de la santé, etc. N'interdira jamais l'enregistrement "
 "selon les paramètres en aval."
 
