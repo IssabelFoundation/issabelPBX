@@ -69,7 +69,7 @@ function parking_get_config($engine) {
                     $core_conf->addParkingGeneralSection($lotname,'parkext', $lot['parkext']);
                     $core_conf->addParkingGeneralSection($lotname,'parkpos', $parkpos1."-".$parkpos2);
                     $core_conf->addParkingGeneralSection($lotname,'context', $hint_context);
-                    $core_conf->addParkingGeneralSection($lotname,'parkext_exclusive', 'no');
+                    $core_conf->addParkingGeneralSection($lotname,'parkext_exclusive', 'yes');
                     $core_conf->addParkingGeneralSection($lotname,'parkingtime', $lot['parkingtime']);
                     $core_conf->addParkingGeneralSection($lotname,'comebacktoorigin', 'no'); //Set this to no as we can manage our own internal comebacktoorigin
                     $core_conf->addParkingGeneralSection($lotname,'parkedplay', $lot['parkedplay']);
@@ -84,7 +84,7 @@ function parking_get_config($engine) {
                     $core_conf->addParkingGeneral('parkext', $lot['parkext']);
                     $core_conf->addParkingGeneral('parkpos', $parkpos1."-".$parkpos2);
                     $core_conf->addParkingGeneral('context', $hint_context);
-                    $core_conf->addParkingGeneral('parkext_exclusive', 'no');
+                    $core_conf->addParkingGeneral('parkext_exclusive', 'yes');
                     $core_conf->addParkingGeneral('parkingtime', $lot['parkingtime']);
                     $core_conf->addParkingGeneral('comebacktoorigin', 'no'); //Set this to no as we can manage our own internal comebacktoorigin
                     $core_conf->addParkingGeneral('parkedplay', $lot['parkedplay']);
@@ -101,7 +101,7 @@ function parking_get_config($engine) {
                     $core_conf->addFeatureGeneralSection($lotname,'parkext', $lot['parkext']);
                     $core_conf->addFeatureGeneralSection($lotname,'parkpos', $parkpos1."-".$parkpos2);
                     $core_conf->addFeatureGeneralSection($lotname,'context', $hint_context);
-                    $core_conf->addFeatureGeneralSection($lotname,'parkext_exclusive', 'no');
+                    $core_conf->addFeatureGeneralSection($lotname,'parkext_exclusive', 'yes');
                     $core_conf->addFeatureGeneralSection($lotname,'parkingtime', $lot['parkingtime']);
                     $core_conf->addFeatureGeneralSection($lotname,'comebacktoorigin', 'no'); //Set this to no as we can manage our own internal comebacktoorigin
                     $core_conf->addFeatureGeneralSection($lotname,'parkedplay', $lot['parkedplay']);
@@ -116,7 +116,7 @@ function parking_get_config($engine) {
                     $core_conf->addFeatureGeneral('parkext', $lot['parkext']);
                     $core_conf->addFeatureGeneral('parkpos', $parkpos1."-".$parkpos2);
                     $core_conf->addFeatureGeneral('context', $hint_context);
-                    $core_conf->addFeatureGeneral('parkext_exclusive', 'no');
+                    $core_conf->addFeatureGeneral('parkext_exclusive', 'yes');
                     $core_conf->addFeatureGeneral('parkingtime', $lot['parkingtime']);
                     $core_conf->addFeatureGeneral('comebacktoorigin', 'no'); //Set this to no as we can manage our own internal comebacktoorigin
                     $core_conf->addFeatureGeneral('parkedplay', $lot['parkedplay']);
