@@ -29,6 +29,10 @@ function edit_onsubmit() {
 	return true;
 }
 
+$('#sourcetype').on('chosen:showing_dropdown', function(evt,params) {
+    prev_source = $(this).val();
+});
+
 $('#sourcetype').focus(function () {
     prev_source = $(this).val();
 }).change(function() {
