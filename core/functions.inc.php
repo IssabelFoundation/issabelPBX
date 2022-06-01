@@ -8703,11 +8703,17 @@ function core_devices_configpageinit($dispnum) {
         unset($select);
         $select[] = array('value' => 'yes', 'text' => _('Yes'));
         $select[] = array('value' => 'no', 'text' => _('No'));
-        $tt = _("Allow subscribe.");
+        $tt = _("Allow subscribe");
         $tmparr['allow_subscribe'] = array('value' => 'yes', 'tt' => $tt, 'select' => $select, 'level' => 1);
 
         unset($select);
-        $select[] = array('value' => 'transport-udp', 'text' => _('UDP'));
+        $select[] = array('value' => 'yes', 'text' => _('Yes'));
+        $select[] = array('value' => 'no', 'text' => _('No'));
+        $tt = _("Enable Stir Shaken for this endpoint");
+        $tmparr['stir_shaken'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
+
+        unset($select);
+		$select[] = array('value' => 'transport-udp', 'text' => _('UDP'));
         $select[] = array('value' => 'transport-tcp', 'text' => _('TCP'));
         $select[] = array('value' => 'transport-tls', 'text' => _('TLS'));
         $select[] = array('value' => 'transport-ws', 'text' => _('WS'));
