@@ -396,7 +396,15 @@ class core_conf {
     }
 
     function generate_pjsip_transport_additional($ast_version) {
-        global $db;
+        global $db, $amp_conf;
+
+	file_put_contents("/tmp/borrame.log",print_r($amp_conf,1),FILE_APPEND);
+	$certlistfile = "/etc/pki/tls/certs/ca-bundle.crt";
+	if(isset($amp_conf['CERTLISTFILE'])) {
+	    $certlistfile = $amp_conf['CERTLISTFILE'];
+	}
+	file_put_contents("/tmp/borrame.log","cert $certlistfile\n",FILE_APPEND);
+	file_put_contents("/tmp/borrame.log","cert $certlistfile\n",FILE_APPEND);
 
         $output1 = array();
         $output2 = array();
@@ -413,11 +421,13 @@ class core_conf {
         $output2[] = "protocol=tcp";
         $output2[] = "allow_reload=true";
 
-        $output3[] = "[transport-tls]";
-        $output3[] = "type=transport";
-        $output3[] = "protocol=tls";
-        $output3[] = "allow_reload=true";
-        $output3[] = "ca_list_file=/etc/pki/tls/certs/ca-bundle.crt";
+        if(file_exists($certlistfile)) {
+            $output3[] = "[transport-tls]";
+            $output3[] = "type=transport";
+            $output3[] = "protocol=tls";
+            $output3[] = "allow_reload=true";
+            $output3[] = "ca_list_file=$certlistfile";
+	}
 
         $output4[] = "[transport-ws]";
         $output4[] = "type=transport";
@@ -681,6 +691,7 @@ class core_conf {
                         case 'dtlsenable':
                         case 'dial':
                         case 'encryption':
+                        case 'parkinglot':
                         case 'host':
                             break;
                         case 'sendrpid':
@@ -734,6 +745,12 @@ class core_conf {
                         case 'dtls_setup':
                         case 'dtlssetup':
                             $output1[]='dtls_setup='.$result2['data'];
+                            break;
+                        case 'dtlscertfile':
+                            $output1[]='dtls_cert_file='.$result2['data'];
+                            break;
+                        case 'dtlsprivatekey':
+                            $output1[]='dtls_private_key='.$result2['data'];
                             break;
                         case 'qualify_frequency':
                         case 'qualifyfreq':

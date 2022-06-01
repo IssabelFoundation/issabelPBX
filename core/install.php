@@ -1393,6 +1393,23 @@ if(!$issabelpbx_conf->conf_setting_exists('HTTPSPRIVATEKEY')) {
     $issabelpbx_conf->set_conf_values(array('HTTPSPRIVATEKEY' => ''),true,true);
 }
 
+if(!$issabelpbx_conf->conf_setting_exists('CERTLISTFILE')) {
+    // CERTLISTFILE
+    $set['value'] = '/etc/pki/tls/certs/ca-bundle.crt';
+    $set['defaultval'] =& $set['value'];
+    $set['options'] = '';
+    $set['name'] = 'Certificate List file';
+    $set['description'] = 'Full path to certificate list bundle file.';
+    $set['emptyok'] = 0;
+    $set['type'] = CONF_TYPE_TEXT;
+    $set['level'] = 2;
+    $set['readonly'] = 0;
+    $issabelpbx_conf->define_conf_setting('CERTLISTFILE',$set);
+} else {
+    $issabelpbx_conf->set_conf_values(array('CERTLISTFILE' => '/etc/pki/tls/certs/ca-bundle.crt'),true,true);
+}
+
+
 $issabelpbx_conf->commit_conf_settings();
 
 $sql='SELECT default_character_set_name FROM information_schema.SCHEMATA S WHERE schema_name = "asterisk"';
