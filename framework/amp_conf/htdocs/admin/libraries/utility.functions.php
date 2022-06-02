@@ -355,7 +355,7 @@ function dbug(){
 }
 
 //http://php.net/manual/en/function.set-error-handler.php
-function issabelpbx_error_handler($errno, $errstr, $errfile, $errline,  $errcontext) {
+function issabelpbx_error_handler($errno, $errstr, $errfile, $errline,  $errcontext=array()) {
         global $amp_conf;
 
         //for pre 5.2
