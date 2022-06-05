@@ -5489,7 +5489,7 @@ function core_devices_add($id,$tech,$dial,$devicetype,$user,$description,$emerge
     }
 
     $emergency_cid = trim($emergency_cid);
-	if(is_callable(get_magic_quotes_gpc)) {
+	if(is_callable('get_magic_quotes_gpc')) {
         if(!get_magic_quotes_gpc()) {
             if(!empty($emergency_cid))
                 $emergency_cid = $db->escapeSimple($emergency_cid);
@@ -6377,7 +6377,7 @@ function core_users_add($vars, $editmode=false) {
   }
 
     //escape quotes and any other bad chars:
-	if(is_callable(get_magic_quotes_gpc)) {
+	if(is_callable('get_magic_quotes_gpc')) {
         if(!get_magic_quotes_gpc()) {
             $outboundcid = isset($outboundcid) ? $db->escapeSimple($outboundcid) : '';
             $outboundcid_db = str_replace('\"','"',$outboundcid);
