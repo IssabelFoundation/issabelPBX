@@ -424,7 +424,7 @@ class core_conf {
             $output3[] = "protocol=tls";
             $output3[] = "allow_reload=true";
             $output3[] = "ca_list_file=$certlistfile";
-	}
+        }
 
         $output4[] = "[transport-ws]";
         $output4[] = "type=transport";
@@ -8727,7 +8727,7 @@ function core_devices_configpageinit($dispnum) {
         $tmparr['stir_shaken'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
 
         unset($select);
-		$select[] = array('value' => 'transport-udp', 'text' => _('UDP'));
+        $select[] = array('value' => 'transport-udp', 'text' => _('UDP'));
         $select[] = array('value' => 'transport-tcp', 'text' => _('TCP'));
         $select[] = array('value' => 'transport-tls', 'text' => _('TLS'));
         $select[] = array('value' => 'transport-ws', 'text' => _('WS'));
