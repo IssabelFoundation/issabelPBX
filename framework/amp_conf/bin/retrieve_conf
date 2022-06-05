@@ -835,7 +835,7 @@ function write_file($filename,$contents,$use_warning_banner=true) {
             if ($use_warning_banner) {
                 fwrite($fd, WARNING_BANNER );
             }
-            if(defined($contents)) {
+            if(isset($contents)) {
                 fwrite($fd, $contents);
             }
             fclose($fd);
