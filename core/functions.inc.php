@@ -398,13 +398,10 @@ class core_conf {
     function generate_pjsip_transport_additional($ast_version) {
         global $db, $amp_conf;
 
-	file_put_contents("/tmp/borrame.log",print_r($amp_conf,1),FILE_APPEND);
-	$certlistfile = "/etc/pki/tls/certs/ca-bundle.crt";
-	if(isset($amp_conf['CERTLISTFILE'])) {
-	    $certlistfile = $amp_conf['CERTLISTFILE'];
-	}
-	file_put_contents("/tmp/borrame.log","cert $certlistfile\n",FILE_APPEND);
-	file_put_contents("/tmp/borrame.log","cert $certlistfile\n",FILE_APPEND);
+        $certlistfile = "/etc/pki/tls/certs/ca-bundle.crt";
+        if(isset($amp_conf['CERTLISTFILE'])) {
+            $certlistfile = $amp_conf['CERTLISTFILE'];
+        }
 
         $output1 = array();
         $output2 = array();
