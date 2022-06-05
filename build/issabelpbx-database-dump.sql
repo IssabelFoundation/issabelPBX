@@ -1607,10 +1607,11 @@ DROP TABLE IF EXISTS `ivr_entries`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ivr_entries` (
   `ivr_id` int(11) NOT NULL,
-  `selection` varchar(10) DEFAULT NULL,
-  `dest` varchar(50) DEFAULT NULL,
-  `ivr_ret` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `selection` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dest` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ivr_ret` tinyint(1) NOT NULL DEFAULT 0,
+  `spoken` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
