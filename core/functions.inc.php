@@ -7741,7 +7741,7 @@ function core_routing_add($name, $patterns, $trunks, $method, $pass, $emergency 
   $function = $trace[0]['function'];
   die_issabelpbx("function: $function has been deprecated and removed");
 }
-function core_routing_edit($name, $patterns, $trunks, $pass, $emergency="", $intracompany = "", $mohsilence="", $routecid = "", $routecid_mode) {
+function core_routing_edit($name, $patterns, $trunks, $pass, $emergency="", $intracompany = "", $mohsilence="", $routecid = "", $routecid_mode="") {
   $trace = debug_backtrace();
   $function = $trace[0]['function'];
   die_issabelpbx("function: $function has been deprecated and removed");
