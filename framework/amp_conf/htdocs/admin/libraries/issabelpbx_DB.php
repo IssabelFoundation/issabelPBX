@@ -6,6 +6,10 @@ class issabelpbx_db extends DB {
         $dsninfo = DB::parseDSN($dsn);
         $type = $dsninfo['phptype'];
 
+        if($type=="mysqli") {
+            mysqli_report(MYSQLI_REPORT_OFF);
+        }
+
         if (!is_array($options)) {
             /*
              * For backwards compatibility.  $options used to be boolean,
