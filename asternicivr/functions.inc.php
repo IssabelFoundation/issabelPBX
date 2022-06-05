@@ -5,6 +5,9 @@ function asternicivr_hookGet_config($engine) {
     global $ext;
     global $amp_conf;
 
+    if (!isset($amp_conf['IVR_REGISTER_OPTIONS_ASTERNIC'])) {
+        return;
+    }
     switch($engine) {
       case "asterisk":
         if ($amp_conf['IVR_REGISTER_OPTIONS_ASTERNIC'] == 1) {
