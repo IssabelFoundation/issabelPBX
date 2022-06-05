@@ -301,7 +301,11 @@ function dialplaninjection_get($injection) {
 //add a new dialplaninjection for dialplaninjection page
 function dialplaninjection_add($description, $destination, $exten) {
     global $db;
-    if (!get_magic_quotes_gpc()) {
+    if(is_callable('get_magic_quotes_gpc')) {
+        if (!get_magic_quotes_gpc()) {
+            $description = addslashes($description);
+        }
+    } else {
         $description = addslashes($description);
     }
     $sql = "insert dialplaninjection_dialplaninjections (description, destination, exten) values ('$description', '$destination', '$exten')";
@@ -322,7 +326,12 @@ function dialplaninjection_del($injection) {
 //update a single dialplaninjection from the dialplaninjection page
 function dialplaninjection_edit($injection,$description,$destination,$exten) {
     global $db;
-    if (!get_magic_quotes_gpc()) {
+    if(is_callable('get_magic_quotes_gpc')) {
+        if (!get_magic_quotes_gpc()) {
+            $description = addslashes($description);
+            $exten = ((!isset($exten)) || ($exten == ''))?null:$exten;
+        }
+    } else {
         $description = addslashes($description);
         $exten = ((!isset($exten)) || ($exten == ''))?null:$exten;
     }
@@ -334,7 +343,11 @@ function dialplaninjection_edit($injection,$description,$destination,$exten) {
 //add a new command for dialplaninjection page
 function dialplaninjection_addcommand($injection,$command) {
     global $db;
-    if (!get_magic_quotes_gpc()) {
+    if(is_callable('get_magic_quotes_gpc')) {
+        if (!get_magic_quotes_gpc()) {
+            $command= addslashes($command);
+        }
+    } else {
         $command= addslashes($command);
     }
     $sql = "insert dialplaninjection_commands (injectionid, command) values ($injection, '$command')";
@@ -351,7 +364,11 @@ function dialplaninjection_editcommands($injection,$commands) {
     foreach ($commands as $val) {
         $val = trim($val);
         if (isset($val) && $val <> '') {
-            if (!get_magic_quotes_gpc()) {
+            if(is_callable('get_magic_quotes_gpc')) {
+                if (!get_magic_quotes_gpc()) {
+                    $val= addslashes($val);
+                }
+            } else {
                 $val= addslashes($val);
             }
             $sql = "insert dialplaninjection_commands (injectionid, command, sort) VALUES ($injection, '$val', $sort);";
