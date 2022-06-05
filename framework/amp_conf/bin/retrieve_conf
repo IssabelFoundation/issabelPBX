@@ -835,7 +835,9 @@ function write_file($filename,$contents,$use_warning_banner=true) {
             if ($use_warning_banner) {
                 fwrite($fd, WARNING_BANNER );
             }
-            fwrite($fd, $contents);
+            if(defined($contents)) {
+                fwrite($fd, $contents);
+            }
             fclose($fd);
             chown(addslash($asterisk_conf['astetcdir']).$filename,'asterisk');
             chgrp(addslash($asterisk_conf['astetcdir']).$filename,'asterisk');
