@@ -13,7 +13,7 @@ class average_rate_calculator {
 	 *			across page loads.
 	 * @param  int	The maximum age of values to store, in seconds
 	 */
-	function average_rate_calculator(&$storage_array, $max_age) {
+	function __construct(&$storage_array, $max_age) {
 		$this->_max_age = $max_age;
 		if (!is_array($storage_array)) {
 			$storage_array = array();

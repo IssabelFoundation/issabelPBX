@@ -5,7 +5,7 @@ class astinfo {
     var $astman;
        var $version;
     
-    function astinfo(&$astman) {
+    function __construct(&$astman) {
         $this->astman =& $astman;
         $arr = engine_getinfo();
         $this->version = $arr['version'];

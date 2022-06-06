@@ -4,7 +4,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 class procinfo {
 	var $distro;
 	
-	function procinfo($distro = false) {
+	function __construct($distro = false) {
 		$this->distro = $distro;
 	}
 	
