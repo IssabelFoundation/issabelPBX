@@ -796,6 +796,11 @@ class core_conf {
                         case 'remove_existing':
                             $output3[]=$kw."=".$option;
                             break;
+                        case 'stir_shaken':
+                            if(file_exists("/etc/asterisk/stir_shaken.conf")) {
+                                $output1[] = $result2['keyword']."=".$result2['data'];
+                            }
+                            break;
                         default:
                             $output1[] = $result2['keyword']."=".$result2['data'];
                     }
@@ -5489,7 +5494,7 @@ function core_devices_add($id,$tech,$dial,$devicetype,$user,$description,$emerge
     }
 
     $emergency_cid = trim($emergency_cid);
-	if(is_callable('get_magic_quotes_gpc')) {
+    if(is_callable('get_magic_quotes_gpc')) {
         if(!get_magic_quotes_gpc()) {
             if(!empty($emergency_cid))
                 $emergency_cid = $db->escapeSimple($emergency_cid);
@@ -5501,7 +5506,7 @@ function core_devices_add($id,$tech,$dial,$devicetype,$user,$description,$emerge
             $emergency_cid = $db->escapeSimple($emergency_cid);
         if(!empty($description))
             $description = $db->escapeSimple($description);
-	}
+    }
 
     //insert into devices table
     $sql="INSERT INTO devices (id,tech,dial,devicetype,user,description,emergency_cid) values (\"$id\",\"$tech\",\"$dial\",\"$devicetype\",\"$user\",\"$description\",\"$emergency_cid\")";
@@ -6377,7 +6382,7 @@ function core_users_add($vars, $editmode=false) {
   }
 
     //escape quotes and any other bad chars:
-	if(is_callable('get_magic_quotes_gpc')) {
+    if(is_callable('get_magic_quotes_gpc')) {
         if(!get_magic_quotes_gpc()) {
             $outboundcid = isset($outboundcid) ? $db->escapeSimple($outboundcid) : '';
             $outboundcid_db = str_replace('\"','"',$outboundcid);
