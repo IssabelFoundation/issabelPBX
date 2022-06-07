@@ -48,6 +48,10 @@ switch ($amp_conf['AMPDBENGINE']) {
     case "sqlite":
         die_issabelpbx("SQLite2 support is deprecated. Please use sqlite3 only.");
         break;
+    case "rqlite":
+	    $datasource = "rqlite:///localhost:4001";
+	    $db = issabelpbx_DB::connect($datasource,array());
+		    break;
     case "sqlite3":
 
         /* on centos this extension is not loaded by default */
