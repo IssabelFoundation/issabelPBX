@@ -151,8 +151,11 @@ if (!$bootstrap_settings['issabelpbx_auth'] || (php_sapi_name() == 'cli')) {
     frameworkPasswordCheck();
 }
 if (!isset($no_auth) && !defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }//we should never need this, just another line of defence
-bootstrap_include_hooks('pre_module_load', 'all_mods');
-$bootstrap_settings['function_modules_included'] = false;
+
+if($restrict_mods != false) {
+    bootstrap_include_hooks('pre_module_load', 'all_mods');
+    $bootstrap_settings['function_modules_included'] = false;
+}
 
 $restrict_mods_local = $restrict_mods;
 //I'm pretty sure if this is == true then there is no need to even pull all 
