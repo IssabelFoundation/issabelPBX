@@ -12,7 +12,7 @@ $sql = "CREATE TABLE IF NOT EXISTS daynight
 				dmode varchar(40) NOT NULL default '',
 			  dest varchar(255) NOT NULL default '',
 				PRIMARY KEY (ext, dmode, dest)
-			  ) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+			  );
 			 ";
 $check = $db->query($sql);
 if(DB::IsError($check)) {

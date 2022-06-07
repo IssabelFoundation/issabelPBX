@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `bosssecretary_chief` (
   `id_group` int(10) unsigned NOT NULL,
   `chief_extension` varchar(20) NOT NULL,
   PRIMARY KEY (`id_group`,`chief_extension`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+); 
 ";
 $check = $db->query($sql);
 if(DB::IsError($check)) {
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `bosssecretary_boss` (
   `id_group` int(10) unsigned NOT NULL,
   `boss_extension` varchar(20) NOT NULL,
   PRIMARY KEY (`id_group`,`boss_extension`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+);
 ";
 $check = $db->query($sql);
 if(DB::IsError($check)) {
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `bosssecretary_group` (
   `id_group` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `label` varchar(20) NOT NULL,
   PRIMARY KEY (`id_group`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+);
 ";
 $check = $db->query($sql);
 if(DB::IsError($check)) {
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `bosssecretary_secretary` (
   `id_group` int(11) NOT NULL,
   `secretary_extension` varchar(20) NOT NULL,
   PRIMARY KEY (`id_group`,`secretary_extension`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+); 
 ";
 $check = $db->query($sql);
 if(DB::IsError($check)) {
@@ -121,7 +121,7 @@ $sql = "
 CREATE TABLE IF NOT EXISTS `bosssecretary_group_numbers_free` (
   `group_number` int(10) unsigned NOT NULL,
   PRIMARY KEY (`group_number`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+);
 ";
 
 $check = $db->query($sql);
