@@ -19,7 +19,7 @@ define("MODULE_DIR", dirname(__FILE__)."/amp_conf/htdocs/admin/modules/");
 $webroot    = "/var/www/html";
 $ampsbin_dir = "/usr/local/sbin";    // default if not set
 $ampbin_dir = "/var/lib/asterisk/bin";
-$asterisk_user    = "asteriskuser";
+$asterisk_user    = "admin";
 $asterisk_pass    = "amp109";
 
 /********************************************************************************************************************/
@@ -29,6 +29,7 @@ function showHelp() {
     out("  --help, -h, -?           Show this help",false);
     out("  --dbhost <ip address>    Use a remote database server",false);
     out("  --dbname databasename    Use database name specified, instead of 'asterisk'",false);
+    out("  --dbengine engine        Use database engine specified, instead of 'mysqli'",false);
     out("  --username <user>        Use <user> to connect to db and write config",false);
     out("  --password <pass>        Use <pass> to connect to db and write config",false);
     out("  --issabelpbxip <ip>         IssabelPBX web interface is accessed from <ip>",false);
@@ -233,7 +234,7 @@ function generate_configs() {
 
 /** Collect AMP settings
  */
-function collect_settings($filename, $dbhost = '', $dbuser = '', $dbpass = '', $dbname = 'asterisk') {
+function collect_settings($filename, $dbhost = '', $dbuser = '', $dbpass = '', $dbname = 'asterisk', $dbengine = 'mysqli') {
     global $webroot;
     global $ampsbin_dir;
     global $ampbin_dir;
@@ -623,6 +624,7 @@ $longopts = array(
     "cleaninstall",
     "dbhost=",
     "dbname=",
+    "dbengine=",
     "debug",
     "dev-links",
     "dry-run",
@@ -679,6 +681,7 @@ $createinstalldb = false;
 //initialize variables to avoid php notices
 $dbhost = null;
 $dbname = 'asterisk';
+$dbengine = 'mysqli';
 $new_username = null;
 $new_password = null;
 
@@ -720,6 +723,10 @@ foreach ($args[0] as $arg) {
         case "--dbname":
             $dbname = $arg[1];
             out("Using database ".$dbname);
+        break;
+        case "--dbengine":
+            $dbengine = $arg[1];
+            out("Using database engine ".$dbengine);
         break;
         case "--no-files":
             $install_files = false;
@@ -1047,7 +1054,7 @@ if (!file_exists(AMP_CONF)) {
     chgrp(AMP_CONF, $runas_gid);
     chmod(AMP_CONF, 0640);
 
-    collect_settings(AMP_CONF, $dbhost, $new_username, $new_password, $dbname);
+    collect_settings(AMP_CONF, $dbhost, $new_username, $new_password, $dbname, $dbengine);
 
     out("Assuming new install, --install-moh added to command line");
     $install_moh = true;
@@ -1105,6 +1112,10 @@ if (isset($dbhost)) {
 if (isset($dbname)) {
     $amp_conf["AMPDBNAME"] = $dbname;
 }
+if (isset($dbengine)) {
+    $amp_conf["AMPDBENGINE"] = $dbengine;
+}
+
 // If they pre-set this in their amportal.conf or this is an upgrade, we should honor it as well
 //
 // TODO: if we boostrap, then this value could be normalized (1/0 I think?)
@@ -1238,8 +1249,9 @@ out("OK");
 //
 outn("Connecting to database..");
 
-$db_engine = $amp_conf["AMPDBENGINE"];
-if ($db_engine != "sqlite3") {
+$dbengine = $amp_conf["AMPDBENGINE"];
+echo "engine $dbengine\n";
+if ($dbengine != "sqlite3" && $dbengine != "rqlite") {
     $db_user = $amp_conf["AMPDBUSER"];
     $db_pass = $amp_conf["AMPDBPASS"];
     $db_host = $amp_conf["AMPDBHOST"];
@@ -1248,32 +1260,35 @@ $db_name = $amp_conf["AMPDBNAME"];
 
 // we still support older configurations,  and fall back
 // into mysql when no other engine is defined
-if ($db_engine == "")
+if ($dbengine == "")
 {
-    $db_engine = "mysql";
+    $dbengine = "mysql";
 }
 
-if($db_engine=="mysql") $db_engine="mysqli";
+if($dbengine=="mysql") $dbengine="mysqli";
 
-switch ($db_engine)
+switch ($dbengine)
 {
     case "pgsql":
     case "mysqli":
     case "mysql":
         // datasource in in this style: dbengine://username:password@host/database
-        if (!function_exists($db_engine.'_connect')) {
+        if (!function_exists($dbengine.'_connect')) {
             out("FAILED");
-            fatal($db_engine." PHP libraries not installed");
+            fatal($dbengine." PHP libraries not installed");
         }
 
-        $datasource = $db_engine.'://'.$db_user.':'.$db_pass.'@'.$db_host.'/'.$db_name;
+        $datasource = $dbengine.'://'.$db_user.':'.$db_pass.'@'.$db_host.'/'.$db_name;
         $db = DB::connect($datasource); // attempt connection
         break;
 
     case "sqlite":
         die_issabelpbx("SQLite2 support is deprecated. Please use sqlite3 only.");
         break;
-
+    case "rqlite":
+        $datasource = "rqlite:///localhost:4001";
+        $db = DB::connect($datasource);
+        break;
     case "sqlite3":
         if (!isset($amp_conf["AMPDBFILE"]))
             die("You must setup properly AMPDBFILE in /etc/amportal.conf");
@@ -1296,7 +1311,7 @@ switch ($db_engine)
         break;
 
     default:
-        die( "Unknown SQL engine: [$db_engine]");
+        die( "Unknown SQL engine: [$dbengine]");
 }
 
 if(DB::IsError($db)) {
