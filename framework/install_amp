@@ -1319,14 +1319,20 @@ if($createinstalldb) {
 
         $datarow = $db->tableInfo($table);
         $fields=array();
+        $count_primary_fields=array();
+        foreach($datarow as $idx=>$data) {
+            if(preg_match("/primary/",$data['flags'])) {
+                $count_primary_fields[]=$data['name'];
+            }
+        }
         foreach($datarow as $idx=>$data) {
             array_shift($data);
 
             $field_name = array_shift($data);
             $field_type = array_shift($data);
             $field_length = array_shift($data);
+            $field_length = $field_length/4;  //  utf8mbr4
             $field_flags = array_shift($data);
-
 
             if($field_type=='int') { $field_type='INTEGER'; $field_length=''; }
             if($field_type=='blob') { $field_type='TEXT'; $field_length=''; }
@@ -1336,7 +1342,9 @@ if($createinstalldb) {
                 $field_create.="($field_length) ";
             }
             if(preg_match("/primary/",$field_flags)) {
-                $field_create.=" PRIMARY KEY ";
+                if(count($count_primary_fields)<=1) {
+                    $field_create.=" PRIMARY KEY ";
+                }
             }
             if(preg_match("/increment/",$field_flags)) {
                 $field_create.=" AUTO_INCREMENT ";
@@ -1348,7 +1356,11 @@ if($createinstalldb) {
             $fields[]=$field_create;
 
         }
-        $final_output.="CREATE TABLE `$table` (\n".implode($fields,",\n")."\n);\n\n";
+        $final_output.="CREATE TABLE `$table` (\n".implode($fields,",\n");
+        if(count($count_primary_fields)>1) {
+            $final_output.=",\nPRIMARY KEY (`".implode($count_primary_fields,"`,`")."`)";
+        }
+        $final_output.="\n);\n\n";
 
         if($table!='issabelpbx_settings' && !preg_match("/module/",$table)) {
         $data = $db->getAll("SELECT * FROM $table");
@@ -1366,8 +1378,7 @@ if($createinstalldb) {
 
 if($installdb) {
     outn("Checking state of IssabelPBX DB...");
-    $sql = "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = '".$amp_conf["AMPDBNAME"]."'";
-    if(!$db->getOne($sql)) {
+    if(!is_array($db->tableInfo('notifications'))) {
         outn("IssabelPBX DB is empty, inserting standard rows...");
         installampimport_mysql_dump('newinstall.sql');
         out("Done!");
@@ -1384,7 +1395,16 @@ if (!isset($version)) {
     $version = install_getversion();
     if (!$version) {
         out("no version information");
-        out("Assuming new installation");
+        outn("Checking version for new installation..");
+        $curdir = dirname(__FILE__);
+        $contents = file("$curdir/../core/module.xml");
+        foreach($contents as $linea) {
+            if(preg_match("/<version>(.*)<\/version>/",$linea,$matches)) {
+                $version=$matches[1];
+                break;
+            }
+        }
+        out($version);
     } else {
         out($version);
     }
@@ -1538,14 +1558,15 @@ if (!$dryrun) {
             continue;
         }
         $parse1 = explode(':',$file);
+        if(!isset($parse1[1])) { continue; }
         $parse2 = explode(';',$parse1[1]);
         $rawfile = trim($parse2[0]);
         if(substr($rawfile,0,1)=='"' && substr($rawfile,-1)=='"') { $rawfile=substr($rawfile,1,-1); }
         if ($rawfile == '') {
             continue;
         }
-
         $target = ($rawfile[0] == '/') ? $rawfile : $amp_conf['ASTETCDIR']."/$rawfile";
+        if(preg_match("/\*/",$target)) { continue; }
 
         if (!file_exists($target)) {
             exec("sudo -u $asteriskuser touch $target", $output, $retcode);
