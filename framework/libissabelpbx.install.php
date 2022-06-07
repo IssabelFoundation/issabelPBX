@@ -448,9 +448,8 @@ function install_sqlupdate( $version, $file )
 //
 // The following mysql query exports the csv file:
 //
-// select category,keyword,value,options,name,description,emptyok,readonly,type from issabelpbx_settings where module ='' order by category,keyword INTO OUTFILE '/tmp/settings.csv' FIELDS ENCLOSED BY '"' TERMINATED BY ',' ESCAPED BY '"' LINES TERMINATED BY '\n';
+// select category,keyword,value,options,name,description,emptyok,level,readonly,type from issabelpbx_settings where module ='' order by category,keyword INTO OUTFILE '/tmp/settings.csv' FIELDS ENCLOSED BY '"' TERMINATED BY ',' ESCAPED BY '"' LINES TERMINATED BY '\n';
 //
-
 function issabelpbx_settings_init($commit_to_db = false) {
     global $amp_conf;
 
@@ -460,7 +459,6 @@ function issabelpbx_settings_init($commit_to_db = false) {
 
     $issabelpbx_conf =& issabelpbx_conf::create();
 
-    
     $csv =  array_map('str_getcsv', file('initial_settings.csv'));
 
     foreach($csv as $val) {
@@ -476,6 +474,11 @@ function issabelpbx_settings_init($commit_to_db = false) {
         $set['level']       = array_shift($val);
         $set['readonly']    = array_shift($val);
         $set['type']        = array_shift($val);
+
+        if($set['type']=='fselect') {
+            $optarray = unserialize($set['options']);
+            $set['options']=$optarray;
+        }
         $issabelpbx_conf->define_conf_setting($keyword,$set);
     }
 
@@ -535,8 +538,10 @@ case 'off':
             include($amp_conf["AMPWEBROOT"].'/admin/libraries/cronmanager.class.php');
         }
         global $db;
-        $cm =& cronmanager::create($db);
-        $cm->enable_updates();
+        if(is_array($db->tableInfo('cronmanager'))) {
+           $cm =& cronmanager::create($db);
+           $cm->enable_updates();
+        }
     }
 
 }
