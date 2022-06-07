@@ -5,12 +5,12 @@ global $db, $amp_conf;
 
 $autoincrement = ($amp_conf["AMPDBENGINE"] == "sqlite3") ? "AUTOINCREMENT" : "AUTO_INCREMENT";
 $sql[] = $bu_table = 'CREATE TABLE IF NOT EXISTS `backup` (
-			`id` int(11) NOT NULL ' . $autoincrement . ',
+	
+			`id` INTEGER PRIMARY KEY ' . $autoincrement . ' NOT NULL,
 			`name` varchar(50) default NULL,
 			`description` varchar(255) default NULL,
 			`immortal` varchar(25) default NULL,
-			`data` longtext default NULL,
-			PRIMARY KEY  (`id`)
+			`data` longtext default NULL
 			)';
 
 $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_details` (
@@ -34,14 +34,13 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_cache` (
 			)';
 
 $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_servers` (
-			`id` int(11) NOT NULL ' . $autoincrement . ',
+			`id` INTEGER PRIMARY KEY ' . $autoincrement . ' NOT NULL,
 			`name` varchar(50) default NULL,
 			`desc` varchar(255) default NULL,
 			`type` varchar(50) default NULL,
 			`readonly` varchar(250) default NULL,
 			`immortal` varchar(25) default NULL,
-			`data` longtext default NULL,
-			PRIMARY KEY  (`id`)
+			`data` longtext default NULL
 			)';
 
 $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_server_details` (
@@ -51,12 +50,11 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_server_details` (
 			)';
 
 $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_templates` (
-			`id` int(11) NOT NULL ' . $autoincrement . ',
+			`id` INTEGER PRIMARY KEY ' . $autoincrement . ' NOT NULL,
 			`name` varchar(50) default NULL,
 			`desc` varchar(255) default NULL,
 			`immortal` varchar(25) default NULL,
-			`data` longtext default NULL,
-			PRIMARY KEY  (`id`)
+			`data` longtext default NULL
 			)';
 
 $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_template_details` (
@@ -75,6 +73,9 @@ unset($sql);
 if (!$db->getAll('SHOW COLUMNS FROM backup WHERE FIELD = "email"')) {
 	sql('ALTER TABLE backup ADD COLUMN `email` longtext default NULL');
 }
+
+if($amp_conf["AMPDBENGINE"] == "mysqli") {
+
 //migration to 2.7
 $migrate=$db->getAll('show tables like "Backup"');
 if($db->IsError($migrate)) {
@@ -145,6 +146,7 @@ if(count($migrate) > 0){//migrate to new backup structure
 			out(_('Old Backup table removed'));
 		}
 	}
+}
 }
 
 //migration to 2.9
