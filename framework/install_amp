@@ -1252,6 +1252,7 @@ if($db_engine=="mysql") $db_engine="mysqli";
 switch ($db_engine)
 {
     case "pgsql":
+    case "mysqli":
     case "mysql":
         // datasource in in this style: dbengine://username:password@host/database
         if (!function_exists($db_engine.'_connect')) {
