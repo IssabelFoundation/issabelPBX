@@ -7,7 +7,7 @@ global $amp_conf;
 
 if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
 	sql("CREATE TABLE IF NOT EXISTS `ivr_details` (
-		`id` int(11) NOT NULL PRIMARY KEY AUTOINCREMENT,
+		`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
 		`name` varchar(50) default NULL,
 		`description` varchar(150) default NULL,
 		`announcement` int(11) default NULL,
@@ -30,7 +30,7 @@ if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
 	);
 } else {
 	sql("CREATE TABLE IF NOT EXISTS `ivr_details` (
-		`id` int(11) NOT NULL auto_increment,
+		`id` INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
 		`name` varchar(50) default NULL,
 		`description` varchar(150) default NULL,
 		`announcement` int(11) default NULL,
@@ -53,7 +53,6 @@ if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
 		PRIMARY KEY  (`id`))"
 	);
 }
-
 
 $ivr_modcurrentvers = modules_getversion('ivr');
 
