@@ -16,7 +16,7 @@
 			<display>disa</display>
 		</disa>
  	</popovers>
-	<description>DISA Allows you 'Direct Inward System Access'. This gives you the ability to have an option on an IVR that gives you a dial tone, and you're able to dial out from the IssabelPBX machine as if you were connected to a standard extension. It appears as a Destination.</description>
+	<description>DISA Allows you "Direct Inward System Access". This gives you the ability to have an option on an IVR that gives you a dial tone, and you are able to dial out from the IssabelPBX machine as if you were connected to a standard extension. It appears as a Destination.</description>
 	<changelog>
 		*2.11.0.6* Initial Issabel Foundation release
 	</changelog>

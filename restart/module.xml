@@ -14,7 +14,7 @@
   <depends>
     <version>2.5.0</version>
   </depends>
-  <description>This module allows users to restart one or multiple phones that support being restarted via a SIP NOTIFY command through Asterisk's sip_notify.conf 
+  <description>This module allows users to restart one or multiple phones that support being restarted via a SIP NOTIFY command through Asterisk&apos;s sip_notify.conf 
 	</description>
   <menuitems>
     <restart>Phone Restart</restart>

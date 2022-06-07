@@ -11,9 +11,7 @@
 	<category>Applications</category>
     <embedcategory>Internal Options &amp; Configuration</embedcategory>
 	<description>
-		The boss-secretary module creates a special ring group which includes
-one or more "bosses" and one or more secretaries". When someone calls
-the boss' extension, the secretary (or secretaries) extension will ring only, allowing the secretary to answer his or her boss' call. Only secretary ( or secretaries ) or 'chief extensions' are authorized to call directly to boss extension. With feature code you can turn on or off secretary group. 
+		The boss-secretary module creates a special ring group which includes one or more "bosses" and one or more secretaries". When someone calls the boss extension, the secretary (or secretaries) extension will ring only, allowing the secretary to answer his or her boss call. Only secretary ( or secretaries ) or "chief extensions" are authorized to call directly to boss extension. With feature code you can turn on or off secretary group. 
 	</description>
 	<menuitems>
 		<bosssecretary>Boss Secretary</bosssecretary>
