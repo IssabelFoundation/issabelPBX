@@ -1247,6 +1247,8 @@ if ($db_engine == "")
     $db_engine = "mysql";
 }
 
+if($db_engine=="mysql") $db_engine="mysqli";
+
 switch ($db_engine)
 {
     case "pgsql":
