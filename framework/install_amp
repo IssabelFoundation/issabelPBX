@@ -1309,59 +1309,59 @@ if(DB::IsError($db)) {
 out("OK");
 
 function escapeDouble($val) {
-	return preg_replace('/"/','\"',$val);
+    return preg_replace('/"/','\"',$val);
 }
 if($createinstalldb) {
-	$final_output= "";
-	$tables = array('admin', 'ampusers', 'cronmanager', 'dahdi', 'devices', 'extensions', 'featurecodes', 'issabelpbx_log', 'issabelpbx_settings', 'globals', 'iax', 'incoming', 'module_xml', 'modules', 'notifications', 'outbound_route_patterns', 'outbound_route_sequence', 'outbound_route_trunks', 'outbound_routes', 'sip', 'trunk_dialpatterns', 'trunks', 'users', 'dahdichandids');
-	out("Creating newinstall.sql file");
-	foreach($tables as $table) {
+    $final_output= "";
+    $tables = array('admin', 'ampusers', 'cronmanager', 'dahdi', 'devices', 'extensions', 'featurecodes', 'issabelpbx_log', 'issabelpbx_settings', 'globals', 'iax', 'incoming', 'module_xml', 'modules', 'notifications', 'outbound_route_patterns', 'outbound_route_sequence', 'outbound_route_trunks', 'outbound_routes', 'sip', 'trunk_dialpatterns', 'trunks', 'users', 'dahdichandids');
+    out("Creating newinstall.sql file");
+    foreach($tables as $table) {
 
-		$datarow = $db->tableInfo($table);
-		$fields=array();
-		foreach($datarow as $idx=>$data) {
-			array_shift($data);
+        $datarow = $db->tableInfo($table);
+        $fields=array();
+        foreach($datarow as $idx=>$data) {
+            array_shift($data);
 
-			$field_name = array_shift($data);
-			$field_type = array_shift($data);
-			$field_length = array_shift($data);
-			$field_flags = array_shift($data);
+            $field_name = array_shift($data);
+            $field_type = array_shift($data);
+            $field_length = array_shift($data);
+            $field_flags = array_shift($data);
 
 
-			if($field_type=='int') { $field_type='INTEGER'; $field_length=''; }
-			if($field_type=='blob') { $field_type='TEXT'; $field_length=''; }
-			if($field_type=='datetime') { $field_type='datetime'; $field_length=''; }
-			$field_create = "`$field_name` $field_type";
-			if($field_length<>'') {
-				$field_create.="($field_length) ";
-			}
-			if(preg_match("/primary/",$field_flags)) {
-				$field_create.=" PRIMARY KEY ";
-			}
-			if(preg_match("/increment/",$field_flags)) {
-				$field_create.=" AUTO_INCREMENT ";
-			}
-			if(preg_match("/not_null/",$field_flags)) {
-				$field_create.=" NOT NULL";
-			}
-			$field_create = preg_replace("/  /"," ",$field_create);
-			$fields[]=$field_create;
+            if($field_type=='int') { $field_type='INTEGER'; $field_length=''; }
+            if($field_type=='blob') { $field_type='TEXT'; $field_length=''; }
+            if($field_type=='datetime') { $field_type='datetime'; $field_length=''; }
+            $field_create = "`$field_name` $field_type";
+            if($field_length<>'') {
+                $field_create.="($field_length) ";
+            }
+            if(preg_match("/primary/",$field_flags)) {
+                $field_create.=" PRIMARY KEY ";
+            }
+            if(preg_match("/increment/",$field_flags)) {
+                $field_create.=" AUTO_INCREMENT ";
+            }
+            if(preg_match("/not_null/",$field_flags)) {
+                $field_create.=" NOT NULL";
+            }
+            $field_create = preg_replace("/  /"," ",$field_create);
+            $fields[]=$field_create;
 
-		}
-		$final_output.="CREATE TABLE `$table` (\n".implode($fields,",\n")."\n);\n\n";
+        }
+        $final_output.="CREATE TABLE `$table` (\n".implode($fields,",\n")."\n);\n\n";
 
-		if($table!='issabelpbx_settings' && !preg_match("/module/",$table)) {
-		$data = $db->getAll("SELECT * FROM $table");
-		foreach($data as $idx=>$row) {
-			$fields = count($row);
-			$escaped = array_map('escapeDouble',$row);
-			$final_output.="INSERT INTO `$table` VALUES(\"".implode($escaped,"\",\"")."\");\n";
-		}
-		if(count($data)>0) { $final_output.="\n";}
-		}
-	}
-	file_put_contents("SQL/newinstall.sql",$final_output);
-	die();
+        if($table!='issabelpbx_settings' && !preg_match("/module/",$table)) {
+        $data = $db->getAll("SELECT * FROM $table");
+        foreach($data as $idx=>$row) {
+            $fields = count($row);
+            $escaped = array_map('escapeDouble',$row);
+            $final_output.="INSERT INTO `$table` VALUES(\"".implode($escaped,"\",\"")."\");\n";
+        }
+        if(count($data)>0) { $final_output.="\n";}
+        }
+    }
+    file_put_contents("SQL/newinstall.sql",$final_output);
+    die();
 }
 
 if($installdb) {
