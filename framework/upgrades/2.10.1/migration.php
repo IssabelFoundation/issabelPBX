@@ -32,6 +32,7 @@ if (is_array($orig_manager) && !empty($orig_manager)) {
 	$manager = array();
 	foreach ($orig_manager as $l) {
 		$tl = trim($l);
+		if(!isset($tl[0])) { continue; }
 		if ($tl[0] != '#') {
 			$manager[] = $l;
 		}
