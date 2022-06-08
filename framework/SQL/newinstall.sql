@@ -3,7 +3,7 @@ CREATE TABLE `admin` (
 `value` varchar(80) NOT NULL
 );
 
-INSERT INTO `admin` VALUES("need_reload","true");
+INSERT INTO `admin` VALUES("need_reload","false");
 INSERT INTO `admin` VALUES("version","2.11.0.49");
 INSERT INTO `admin` VALUES("ALLOW_SIP_ANON","no");
 
@@ -330,4 +330,14 @@ CREATE TABLE `dahdichandids` (
 `description` varchar(40) NOT NULL,
 `did` varchar(60) NOT NULL
 );
+
+CREATE TABLE `pjsipsettings` (
+`keyword` varchar(50) NOT NULL,
+`data` varchar(255) NOT NULL,
+`seq` tinyint(0.25) NOT NULL,
+`type` tinyint(0.25) NOT NULL,
+PRIMARY KEY (`keyword`,`seq`,`type`)
+);
+
+INSERT INTO `pjsipsettings` VALUES("allowguest","no","10","0");
 
