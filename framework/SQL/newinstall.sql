@@ -151,16 +151,16 @@ CREATE TABLE `issabelpbx_settings` (
 `keyword` varchar(50) PRIMARY KEY NOT NULL,
 `value` varchar(255) ,
 `name` varchar(80) ,
-`level` tinyint(0.25) ,
+`level` tinyint(1) ,
 `description` TEXT,
 `type` varchar(25) ,
 `options` TEXT,
 `defaultval` varchar(255) ,
-`readonly` tinyint(0.25) ,
-`hidden` tinyint(0.25) ,
+`readonly` tinyint(1) ,
+`hidden` tinyint(1) ,
 `category` varchar(50) ,
 `module` varchar(25) ,
-`emptyok` tinyint(0.25) ,
+`emptyok` tinyint(1) ,
 `sortorder` INTEGER
 );
 
@@ -187,9 +187,9 @@ CREATE TABLE `incoming` (
 `destination` varchar(50) ,
 `faxexten` varchar(20) ,
 `faxemail` varchar(50) ,
-`answer` tinyint(0.25) ,
+`answer` tinyint(1) ,
 `wait` INTEGER,
-`privacyman` tinyint(0.25) ,
+`privacyman` tinyint(1) ,
 `alertinfo` varchar(255) ,
 `ringing` varchar(20) ,
 `mohclass` varchar(80) NOT NULL,
@@ -334,8 +334,8 @@ CREATE TABLE `dahdichandids` (
 CREATE TABLE `pjsipsettings` (
 `keyword` varchar(50) NOT NULL,
 `data` varchar(255) NOT NULL,
-`seq` tinyint(0.25) NOT NULL,
-`type` tinyint(0.25) NOT NULL,
+`seq` tinyint(1) NOT NULL,
+`type` tinyint(1) DEFAULT '0' NOT NULL,
 PRIMARY KEY (`keyword`,`seq`,`type`)
 );
 
