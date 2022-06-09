@@ -9,12 +9,11 @@
 --
 
 CREATE TABLE IF NOT EXISTS `dialplaninjection_commands` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   `injectionid` int(11) NOT NULL default '0',
   `command` text NOT NULL,
-  `sort` int(11) NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+  `sort` int(11) NOT NULL default '0'
+);
 
 
 -- --------------------------------------------------------
@@ -24,11 +23,10 @@ CREATE TABLE IF NOT EXISTS `dialplaninjection_commands` (
 --
 
 CREATE TABLE IF NOT EXISTS `dialplaninjection_commands_list` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   `description` varchar(100) NOT NULL default '',
-  `command` text NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `command` text NOT NULL
+);
 
 --
 -- Dumping data for table `dialplaninjection_commands_list`
@@ -42,14 +40,11 @@ CREATE TABLE IF NOT EXISTS `dialplaninjection_commands_list` (
 --
 
 CREATE TABLE IF NOT EXISTS `dialplaninjection_dialplaninjections` (
-  `id` int(11) NOT NULL auto_increment,
-  `description` varchar(100) NOT NULL default '',
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  `description` varchar(100) NOT NULL UNIQUE default '',
   `destination` varchar(250) NOT NULL default '',
-  `exten` varchar(15) default NULL,
-  PRIMARY KEY  (`id`),
-  UNIQUE KEY `description` (`description`),
-  UNIQUE KEY `exten` (`exten`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `exten` varchar(15) UNIQUE default NULL
+);
 
 
 --
@@ -60,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `dialplaninjection_module` (
   `id` varchar(50) NOT NULL default '',
   `value` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `dialplaninjection_module`

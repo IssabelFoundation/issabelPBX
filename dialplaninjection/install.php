@@ -22,11 +22,11 @@ function dialplaninjection_updatedb() {
 	$db->query($sql);
 //
 	global $db;
-	$sql = "ALTER IGNORE TABLE `dialplaninjection_dialplaninjections` DROP INDEX `exten`;";
+	$sql = "ALTER TABLE `dialplaninjection_dialplaninjections` DROP INDEX `exten`;";
 	$db->query($sql);
-	$sql = "ALTER IGNORE TABLE `dialplaninjection_commands_list` ADD `info` VARCHAR(255) NULL , ADD `url` VARCHAR(255) NULL;";
+	$sql = "ALTER TABLE `dialplaninjection_commands_list` ADD `info` VARCHAR(255) NULL , ADD `url` VARCHAR(255) NULL;";
 	$db->query($sql);
-	$sql = "ALTER IGNORE TABLE `dialplaninjection_commands_list` ADD UNIQUE (`description`)";
+	$sql = "ALTER TABLE `dialplaninjection_commands_list` ADD UNIQUE (`description`)";
 	$db->query($sql);
 //remove this one after one version
 	$sql = "TRUNCATE TABLE `dialplaninjection_commands_list`;";
