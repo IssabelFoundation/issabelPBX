@@ -22,11 +22,10 @@ foreach ($sql as $q){
 	$db->query($q);
 }
 
-if( php_sapi_name() != 'cli' )
+if( php_sapi_name() != 'cli' ) {
     echo '<font color="red"><strong>You have uninstalled the Class of Service Module!<BR>Remember to place all of your devices into local contexts or they will not have dialplan access!</strong></font><BR>';
 } else {
     echo "You have uninstalled the Class of Service Module!\nRemember to place all of your devices into local contexts or they will not have dialplan access!\n";
-
 }
 ?>
 
