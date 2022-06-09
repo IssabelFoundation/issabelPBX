@@ -10,17 +10,18 @@ require_once(dirname(__FILE__) . '/amp_conf/htdocs/admin/libraries/sql.functions
 require_once(dirname(__FILE__) . '/amp_conf/htdocs/admin/libraries/utility.functions.php');
 
 # constants
-define("AMP_CONF", "/etc/amportal.conf");
+define("AMP_CONF",      "/etc/amportal.conf");
 define("ASTERISK_CONF", "/etc/asterisk/asterisk.conf");
-define("UPGRADE_DIR", dirname(__FILE__)."/upgrades");
-define("MODULE_DIR", dirname(__FILE__)."/amp_conf/htdocs/admin/modules/");
+define("UPGRADE_DIR",   dirname(__FILE__)."/upgrades");
+define("MODULE_DIR",    dirname(__FILE__)."/amp_conf/htdocs/admin/modules/");
 
 # semi constants
-$webroot    = "/var/www/html";
-$ampsbin_dir = "/usr/local/sbin";    // default if not set
-$ampbin_dir = "/var/lib/asterisk/bin";
-$asterisk_user    = "admin";
-$asterisk_pass    = "amp109";
+$webroot       = "/var/www/html";
+$ampsbin_dir   = "/usr/local/sbin";
+$ampbin_dir    = "/var/lib/asterisk/bin";
+$asterisk_user = "asteriskuser";
+$manager_pass  = randomPass(10);
+$database_pass = randomPass(10);
 
 /********************************************************************************************************************/
 
@@ -63,6 +64,11 @@ function showHelp() {
     out("  --createinstalldb        Exports a newinstall.sql file from current system",false);
     out("  --cleaninstall           Like 'make clean' will clean up any previous settings or previous setup while installing a-new",false);
     out("  --uninstall              Completely Uninstall IssabelPBX",false);
+}
+
+function randomPass($length) {
+    $bytes = openssl_random_pseudo_bytes(10);
+    return bin2hex($bytes);
 }
 
 function install_parse_amportal_conf($filename) {
@@ -239,26 +245,26 @@ function collect_settings($filename, $dbhost = '', $dbuser = '', $dbpass = '', $
     global $ampsbin_dir;
     global $ampbin_dir;
     global $asterisk_user;
-    global $asterisk_pass;
+    global $manager_pass;
+    global $database_pass;
     global $scripted;
     global $issabelpbxip;
     global $asteriskip;
     global $runas_uid;
     global $runas_gid;
     global $asterisk_user;
-    global $asterisk_pass;
 
     out("Creating new $filename");
 
     if ($scripted == true) {
         # Scripted install. Everything should have been set for us, don't ask questions.
         out("Scripted install. Accepting command line params.");
-        $amp_conf["AMPDBUSER"] = $dbuser;
-        $amp_conf["AMPDBPASS"] = $dbpass;
+        $amp_conf["AMPDBUSER"] = $asterisk_user;
+        $amp_conf["AMPDBPASS"] = $database_pass;
         $amp_conf["AMPDBHOST"] = $dbhost;
         $amp_conf["AMPDBNAME"] = $dbname;
-        $amp_conf["AMPMGRUSER"] = $asterisk_user;
-        $amp_conf["AMPMGRPASS"] = $asterisk_pass;
+        $amp_conf["AMPMGRUSER"] ='admin';
+        $amp_conf["AMPMGRPASS"] = $manager_pass;
         $amp_conf["AMPWEBROOT"] = $webroot;
         $amp_conf["AMPWEBADDRESS"] = $issabelpbxip;
         $amp_conf["ASTMANAGERHOST"] = $asteriskip;
@@ -283,7 +289,7 @@ function collect_settings($filename, $dbhost = '', $dbuser = '', $dbpass = '', $
     else
         $amp_conf["AMPDBUSER"] = $key;
 
-    outn("Enter your PASSWORD to connect to the '$dbname' database:\n [".($dbpass ? $dbpass : $asterisk_pass)."] ");
+    outn("Enter your PASSWORD to connect to the '$dbname' database:\n [".($dbpass ? $dbpass : $database_pass)."] ");
     $key = trim(fgets(STDIN,1024));
     if (preg_match('/^$/',$key))
         $amp_conf["AMPDBPASS"] = ($dbpass ? $dbpass : $asterisk_pass);
@@ -328,10 +334,12 @@ function collect_settings($filename, $dbhost = '', $dbuser = '', $dbpass = '', $
         }
     } while(1);
 
+    /*
     outn("Enter the IP ADDRESS or hostname used to access the AMP web-admin:\n [$issabelpbxip] ");
     $key = trim(fgets(STDIN,1024));
     if (preg_match('/^$/',$key)) $amp_conf["AMPWEBADDRESS"] = $issabelpbxip;
     else $amp_conf["AMPWEBADDRESS"] = $key;
+    */
 
     outn("Use simple Extensions [extensions] admin or separate Devices and Users [deviceanduser]?\n [extensions] ");
     $key = trim(fgets(STDIN,1024));
@@ -414,6 +422,30 @@ function set_base_version() {
 function install_modules() {
     global $dryrun;
     global $amp_conf;
+    global $runas_uid;
+    global $runas_gid;
+
+    $base_modules = array('framework','core','recordings','timeconditions','announcement','asterisk-cli','asteriskinfo','blacklist','callback','callforward','callrecording','callwaiting','cdr','cidlookup','conferences','customappsreg','customcontexts','dashboard','daynight','disa','donotdisturb','dynamicfeatures','dynroute','extensionsettings','featurecodeadmin','findmefollow','iaxsettings','ivr','languages','logfiles','manager','managersettings','miscapps','miscdests','music','outroutemsg','paging','parking','pinsets','queueprio','queues','ringgroups','setcid','sipsettings','tts','voicemail','weakpasswords','writequeuelog');
+
+    $SOURCEDIR = dirname(__FILE__)."/../";
+
+    foreach($base_modules as $module) {
+        if(is_dir($SOURCEDIR.$module)) {
+            if(!is_dir($amp_conf['AMPWEBROOT'].'/admin/modules/'.$module)) {
+                mkdir($amp_conf['AMPWEBROOT'].'/admin/modules/'.$module);
+            }
+            $md5sum = array();
+            recursive_copy($SOURCEDIR.$module, $amp_conf['AMPWEBROOT'].'/admin/modules/'.$module, $md5sum); 
+            chown($amp_conf['AMPWEBROOT'].'/admin/modules/'.$module, $runas_uid);
+            chgrp($amp_conf['AMPWEBROOT'].'/admin/modules/'.$module, $runas_gid);
+            $output=array();
+            exec($amp_conf['AMPBIN']."/module_admin install $module",$output,$retval);
+            if($retval) {
+                out("problem installing $module module");
+                print_r($output);
+            }
+        }
+    }
 
     // read modules list from MODULE_DIR
     //
@@ -568,6 +600,37 @@ function installampimport_mysql_dump($file,$db=NULL) {
     }
 }
 
+function change_ami_password($sNewPassword) {
+
+    $content = file("/etc/asterisk/manager.conf");
+    $bAdmin = FALSE;
+    for ($i = 0; $i < count($content); $i++) {
+        $regs = NULL;
+        if (preg_match('/^\[(\w+)\]/', $content[$i], $regs)) {
+            $bAdmin = ($regs[1] == 'admin');
+        } elseif ($bAdmin && preg_match('/^secret\s*=\s*/', $content[$i])) {
+            $content[$i] = "secret = $sNewPassword\n";
+        }
+    }
+    file_put_contents("/etc/asterisk/manager.conf",implode("",$content));
+    outn("manager.conf admin password set");
+}
+
+function grant_mysql() {
+    global $db;
+    global $asterisk_user;
+    global $database_pass;
+    global $dbengine;
+    if($dbengine!="mysql" && $dbengine!="mysqli") { return; }
+    out("Granting MySQL permissions to asteriskuser");
+    $query = "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON `asteriskcdrdb`.* TO 'asteriskuser'@'localhost' IDENTIFIED BY '$database_pass'";
+    $res = $db->query($query);
+    print_r($res);
+
+    $query = "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON `asterisk`.* TO 'asteriskuser'@'localhost' IDENTIFIED BY '$database_pass'";
+    $db->query($query);
+}
+
 /********************************************************************************************************************/
 
 //
@@ -687,7 +750,7 @@ $new_password = null;
 
 $runas_uid = "asterisk";
 $runas_gid = "asterisk";
-$issabelpbxip = "192.168.1.1";
+$issabelpbxip = "";
 $asteriskip = "localhost";
 
 foreach ($args[0] as $arg) {
@@ -1040,16 +1103,15 @@ out("running with PID: ".$pid_val[0]."..OK");
 
 // **** Check for amportal.conf, create if necessary
 
-// TODO: Check if issabelpbx_settings has been setup, if so then we don't even want to mess with ampportal.conf, that
+// TODO: Check if issabelpbx_settings has been setup, if so then we don't even want to mess with amportal.conf, that
 //       should only be first time install.
 //
 outn("Checking for ".AMP_CONF."..");
+
 if (!file_exists(AMP_CONF)) {
     out(AMP_CONF." does not exist, copying default");
     copy("amportal.conf", AMP_CONF);
 
-    // this file contains password and should not be a+r
-    // this addresses http://issabel.org/trac/ticket/1878
     chown(AMP_CONF, $runas_uid);
     chgrp(AMP_CONF, $runas_gid);
     chmod(AMP_CONF, 0640);
@@ -1058,6 +1120,11 @@ if (!file_exists(AMP_CONF)) {
 
     out("Assuming new install, --install-moh added to command line");
     $install_moh = true;
+
+    if($dbengine=="mysql" || $dbengine=="mysqli") {
+        out("Grant MySQL");
+    }
+
 }
 out("OK");
 
@@ -1277,6 +1344,12 @@ switch ($dbengine)
             out("FAILED");
             fatal($dbengine." PHP libraries not installed");
         }
+        $datasource = $dbengine.'://'.$db_user.':'.$db_pass.'@'.$db_host;
+        $db = DB::connect($datasource); // attempt connection
+        $res = $db->query("CREATE DATABASE asterisk");
+        $res = $db->query("CREATE DATABASE asteriskcdrdb");
+        grant_mysql();
+        $db->disconnect();
 
         $datasource = $dbengine.'://'.$db_user.':'.$db_pass.'@'.$db_host.'/'.$db_name;
         $db = DB::connect($datasource); // attempt connection
@@ -1328,7 +1401,7 @@ function escapeDouble($val) {
 }
 if($createinstalldb) {
     $final_output= "";
-    $tables = array('admin', 'ampusers', 'cronmanager', 'dahdi', 'devices', 'extensions', 'featurecodes', 'issabelpbx_log', 'issabelpbx_settings', 'globals', 'iax', 'incoming', 'module_xml', 'modules', 'notifications', 'outbound_route_patterns', 'outbound_route_sequence', 'outbound_route_trunks', 'outbound_routes', 'sip', 'trunk_dialpatterns', 'trunks', 'users', 'dahdichandids');
+    $tables = array('admin', 'ampusers', 'cronmanager', 'dahdi', 'devices', 'extensions', 'featurecodes', 'issabelpbx_log', 'issabelpbx_settings', 'globals', 'iax', 'incoming', 'module_xml', 'modules', 'notifications', 'outbound_route_patterns', 'outbound_route_sequence', 'outbound_route_trunks', 'outbound_routes', 'sip', 'trunk_dialpatterns', 'trunks', 'users', 'dahdichandids', 'pjsipsettings');
     out("Creating newinstall.sql file");
     foreach($tables as $table) {
 
@@ -1377,7 +1450,7 @@ if($createinstalldb) {
         }
         $final_output.="\n);\n\n";
 
-        if($table!='issabelpbx_settings' && !preg_match("/module/",$table)) {
+        if($table!='issabelpbx_settings' && !preg_match("/module/",$table) && $table!='notifications') {
         $data = $db->getAll("SELECT * FROM $table");
         foreach($data as $idx=>$row) {
             $fields = count($row);
@@ -1471,20 +1544,6 @@ if ($install_files)
     if (!is_dir("/var/spool/asterisk/voicemail/device")) amp_mkdir("/var/spool/asterisk/voicemail/device", "0755", true);
     out("OK (".$num_copied." files copied, ".($num_files-$num_copied)." skipped)");
 
-  // link the packed js library for ARI, if there the error will indicate that
-  $libissabelpbx = $amp_conf['AMPWEBROOT'].'/admin/common/libissabelpbx.javascripts.js';
-  $dest_libissabelpbx = $amp_conf['AMPWEBROOT'].'/recordings/theme/js/libissabelpbx.javascripts.js';
-  if (!file_exists($amp_conf['AMPWEBROOT'].'/recordings/theme/js')) {
-    mkdir($amp_conf['AMPWEBROOT'].'/recordings/theme/js',0755, true);
-  }
-  if (file_exists($libissabelpbx) && !file_exists($dest_libissabelpbx)) {
-    outn(_("linking libissabelpbx.javascripts.js to theme/js.."));
-    if (link($libissabelpbx, $dest_libissabelpbx)) {
-      out(_("ok"));
-    } else {
-      out(_("possible error - check warning message"));
-    }
-  }
 }
 
 if (!$dryrun) {
@@ -1520,6 +1579,19 @@ if (!$dryrun) {
     } else {
         outn("no gen_amp_conf..");
     }
+    if (file_exists($amp_conf["AMPBIN"]."/retrieve_conf")) {
+        exec("chmod 755 ".$amp_conf["AMPBIN"]."/retrieve_conf");
+        outn("retrieve_conf.php..");
+    } else {
+        outn("no retrieve_conf..");
+    }
+    if (file_exists($amp_conf["AMPBIN"]."/module_admin")) {
+        exec("chmod 755 ".$amp_conf["AMPBIN"]."/module_admin");
+        outn("module_admin.php..");
+    } else {
+        outn("no module_admin..");
+    }
+ 
     out("done");
 
     // Ensure UIDs are set correctly before any chowns happen
@@ -1594,13 +1666,16 @@ if (!$dryrun) {
     if (! $include_err) {
         out("OK");
     }
+
+    change_ami_password($manager_pass);
+
     // reload manager in asterisk if it was running:
     //
-  if (version_compare($asterisk_version,'1.4','ge')) {
-      system("asterisk -rx 'module reload manager'");
-  } else {
-      system("asterisk -rx 'reload manager'"); //1.2 syntax
-  }
+    if (version_compare($asterisk_version,'1.4','ge')) {
+        system("asterisk -rx 'module reload manager'");
+    } else {
+        system("asterisk -rx 'reload manager'"); //1.2 syntax
+    }
 }
 out("OK");
 
