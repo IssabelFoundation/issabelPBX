@@ -72,10 +72,10 @@ if(DB::IsError($check)) {
 	// table does not exist, create it
 	sql($sql);
 
-	sql("INSERT INTO pjsipsettings (keyword,data) values ('bindport','5066')");
-	sql("INSERT INTO pjsipsettings (keyword,data) values ('tlsbindport','5067')");
-	sql("INSERT INTO pjsipsettings (keyword,data) values ('certtfile','/etc/asterisk/keys/asterisk.pem')");
-	sql("INSERT INTO pjsipsettings (keyword,data) values ('ALLOW_SIP_ANON','no')");
+	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('bindport','5066',1)");
+	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('tlsbindport','5067',1)");
+	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('certtfile','/etc/asterisk/keys/asterisk.pem',1)");
+	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('ALLOW_SIP_ANON','no',1)");
 
 } 
 
@@ -83,25 +83,25 @@ out(_("Check for pjsipsettings values.."));
 $sql = "SELECT data FROM pjsipsettings WHERE keyword = 'bindport'";
 $PJbindport = sql($sql,'getOne');
 if (!$PJbindport) {
-	sql("INSERT INTO pjsipsettings (keyword,data) values ('bindport','5066')");
+	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('bindport','5066',1)");
 	out(_("Add bindport.."));
 }
 $sql = "SELECT data FROM pjsipsettings WHERE keyword = 'tlsbindport'";
 $PJtlsbindport = sql($sql,'getOne');
 if (!$PJtlsbindport) {
-	sql("INSERT INTO pjsipsettings (keyword,data) values ('tlsbindport','5067')");
+	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('tlsbindport','5067',1)");
 	out(_("Add tlsbindport.."));
 }
 $sql = "SELECT data FROM pjsipsettings WHERE keyword = 'certtfile'";
 $PJcerttfile = sql($sql,'getOne');
 if (!$PJcerttfile) {
-	sql("INSERT INTO pjsipsettings (keyword,data) values ('certtfile','/etc/asterisk/keys/asterisk.pem')");
+	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('certtfile','/etc/asterisk/keys/asterisk.pem',1)");
 	out(_("Add certfile.."));
 }
 $sql = "SELECT data FROM pjsipsettings WHERE keyword = 'ALLOW_SIP_ANON'";
 $PJALLOW_SIP_ANON = sql($sql,'getOne');
 if (!$PJALLOW_SIP_ANON) {
-	sql("INSERT INTO pjsipsettings (keyword,data) values ('ALLOW_SIP_ANON','no')");
+	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('ALLOW_SIP_ANON','no',1)");
 	out(_("Add ALLOW_SIP_ANON.."));
 }
 
