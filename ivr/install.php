@@ -49,8 +49,7 @@ if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
         `timeout_append_announce` tinyint(1) NOT NULL default '1',
         `invalid_append_announce` tinyint(1) NOT NULL default '1',
         `timeout_ivr_ret` tinyint(1) NOT NULL default '0',
-        `invalid_ivr_ret` tinyint(1) NOT NULL default '0',
-        PRIMARY KEY  (`id`))"
+        `invalid_ivr_ret` tinyint(1) NOT NULL default '0')"
     );
 }
 
