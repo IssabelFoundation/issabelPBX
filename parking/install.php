@@ -19,7 +19,7 @@ $autoincrement = (($amp_conf["AMPDBENGINE"] == "sqlite") || ($amp_conf["AMPDBENG
 
 $sql['parkplus'] = "
 	CREATE TABLE IF NOT EXISTS parkplus (
-		id INTEGER NOT NULL $autoincrement,
+		id INTEGER NOT NULL PRIMARY KEY $autoincrement,
 		defaultlot VARCHAR(10) NOT NULL DEFAULT 'no',
 		type VARCHAR(10) NOT NULL DEFAULT 'public',
 		name VARCHAR(40) NOT NULL DEFAULT '',
@@ -39,8 +39,7 @@ $sql['parkplus'] = "
 		autocidpp VARCHAR(10) NOT NULL DEFAULT 'none',
 		announcement_id INT DEFAULT NULL,
 		comebacktoorigin VARCHAR(10) NOT NULL DEFAULT 'yes',
-		dest VARCHAR(100) NOT NULL DEFAULT 'app-blackhole,hangup,1',
-		PRIMARY KEY (id)
+		dest VARCHAR(100) NOT NULL DEFAULT 'app-blackhole,hangup,1'
 	)";
 
 foreach ($sql as $t => $s) {
