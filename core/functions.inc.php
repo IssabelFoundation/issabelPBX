@@ -570,6 +570,7 @@ class core_conf {
 
         global $db;
         global $astman;
+        global $amp_conf;
 
         $additional = "";
         $output1 = array();
@@ -832,8 +833,13 @@ class core_conf {
         $registration = array();
         $server = array();
 
-        $sql = "SELECT channelid,keyword,data FROM trunks LEFT JOIN sip ON CONCAT('pjsip-',trunkid)=sip.id WHERE tech='pjsip' UNION ";
-        $sql .= "SELECT channelid,keyword,data FROM trunks LEFT JOIN sip ON CONCAT('tr-reg-',trunkid)=sip.id WHERE tech='pjsip' ";
+        if(preg_match("/qlite/",$amp_conf['AMPDBENGINE'])){
+            $sql = "SELECT channelid,keyword,data FROM trunks LEFT JOIN sip ON 'pjsip-' || trunkid = sip.id WHERE tech='pjsip' UNION ";
+            $sql .= "SELECT channelid,keyword,data FROM trunks LEFT JOIN sip ON 'tr-reg-' || trunkid = sip.id WHERE tech='pjsip' ";
+        } else {
+            $sql = "SELECT channelid,keyword,data FROM trunks LEFT JOIN sip ON CONCAT('pjsip-',trunkid)=sip.id WHERE tech='pjsip' UNION ";
+            $sql .= "SELECT channelid,keyword,data FROM trunks LEFT JOIN sip ON CONCAT('tr-reg-',trunkid)=sip.id WHERE tech='pjsip' ";
+        }
         $res = $db->getAll($sql, DB_FETCHMODE_ASSOC);
         if(DB::IsError($res)) {
             die($res->getMessage());
