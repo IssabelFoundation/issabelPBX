@@ -29,7 +29,7 @@ if (isset($_REQUEST['showall'])) {
 
 //require_once('functions.inc.php');
 
-define('BAR_WIDTH_LEFT', 400);
+define('BAR_WIDTH_LEFT', 600);
 define('BAR_WIDTH_RIGHT', 200);
 
 // AJAX update intervals (in seconds)
