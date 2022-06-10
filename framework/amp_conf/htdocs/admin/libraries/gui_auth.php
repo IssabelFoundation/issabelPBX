@@ -47,6 +47,7 @@ if (!isset($_SESSION['AMP_user'])) {
 			if (!$_SESSION['AMP_user']->checkPassword(sha1($password))) {
                                // password failed and admin user fall-back failed
                                unset($_SESSION['AMP_user']);
+                               $no_auth = true;
 			}
 			break;
 	}
