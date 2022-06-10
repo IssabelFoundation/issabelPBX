@@ -43,7 +43,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 		}
 	}
 
-if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
+if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 	$sql = "
 	CREATE TABLE IF NOT EXISTS timeconditions (
 		`timeconditions_id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -75,7 +75,7 @@ $check = $db->query($sql);
 if(DB::IsError($check)) {
 		die_issabelpbx("Can not create `timeconditions` table: " .  $check->getMessage() .  "\n");
 }
-if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
+if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 
 	$sql = "
 	CREATE TABLE IF NOT EXISTS `timegroups_groups` (
@@ -99,7 +99,7 @@ if(DB::IsError($check)) {
 	die_issabelpbx("Can not create `timeconditions` table: " .  $check->getMessage() .  "\n");
 }
 
-if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
+if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 
 	$sql = "
 	CREATE TABLE IF NOT EXISTS `timegroups_details` (
@@ -154,7 +154,7 @@ timeconditions_updatedb();
 /* Alter the time field to int now that it refernces the id field in groups
  */
 // sqlite3 support as of 2.5 has correct table structure built into the CREATE
-if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
+if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 	outn(_("converting timeconditions time field to int.."));
 	$sql = "ALTER TABLE `timeconditions` CHANGE `time` `time` INT (11)";
 	$results = $db->query($sql);
