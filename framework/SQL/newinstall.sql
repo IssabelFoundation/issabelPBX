@@ -285,25 +285,6 @@ CREATE TABLE `trunk_dialpatterns` (
 PRIMARY KEY (`trunkid`,`match_pattern_prefix`,`match_pattern_pass`,`prepend_digits`,`seq`)
 );
 
-CREATE TABLE `trunks` (
-`trunkid` INTEGER NOT NULL,
-`name` varchar(50) NOT NULL,
-`tech` varchar(20) NOT NULL,
-`outcid` varchar(40) NOT NULL,
-`keepcid` varchar(4) ,
-`maxchans` varchar(6) ,
-`failscript` varchar(255) NOT NULL,
-`dialoutprefix` varchar(255) NOT NULL,
-`channelid` varchar(255) NOT NULL,
-`usercontext` varchar(255) ,
-`provider` varchar(40) ,
-`disabled` varchar(4) ,
-`continue` varchar(4) ,
-PRIMARY KEY (`trunkid`,`tech`,`channelid`)
-);
-
-INSERT INTO `trunks` VALUES("1","","dahdi","","","","","","g0","","","off","off");
-
 CREATE TABLE `users` (
 `extension` varchar(20) PRIMARY KEY NOT NULL,
 `password` varchar(20) ,

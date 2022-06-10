@@ -1404,7 +1404,7 @@ function escapeDouble($val) {
 }
 if($createinstalldb) {
     $final_output= "";
-    $tables = array('admin', 'ampusers', 'cronmanager', 'dahdi', 'devices', 'extensions', 'featurecodes', 'issabelpbx_log', 'issabelpbx_settings', 'globals', 'iax', 'incoming', 'module_xml', 'modules', 'notifications', 'outbound_route_patterns', 'outbound_route_sequence', 'outbound_route_trunks', 'outbound_routes', 'sip', 'trunk_dialpatterns', 'trunks', 'users', 'dahdichandids', 'pjsipsettings');
+    $tables = array('admin', 'ampusers', 'cronmanager', 'dahdi', 'devices', 'extensions', 'featurecodes', 'issabelpbx_log', 'issabelpbx_settings', 'globals', 'iax', 'incoming', 'module_xml', 'modules', 'notifications', 'outbound_route_patterns', 'outbound_route_sequence', 'outbound_route_trunks', 'outbound_routes', 'sip', 'trunk_dialpatterns', 'users', 'dahdichandids', 'pjsipsettings');
     out("Creating newinstall.sql file");
     foreach($tables as $table) {
 
