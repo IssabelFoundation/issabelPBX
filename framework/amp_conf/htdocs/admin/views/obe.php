@@ -11,10 +11,10 @@ $html .= _('Please provide the core credentials that will be used to '
 $html .= br(2);
 $table = new CI_Table;
 if ($errors) {
-	$html .= '<span class="obe_error">';
+	$html .= '<div class="obe_error">';
 	$html .= _('Please correct the following errors:');
 	$html .= ul($errors);
-	$html .= '</span>';
+	$html .= '</div>';
 }
 //username
 $label = ipbx_label(_('Username'), _('Admin user name'));

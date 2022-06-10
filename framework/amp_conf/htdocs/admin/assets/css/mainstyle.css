@@ -184,8 +184,13 @@ a.info:link, a.info:hover {
 	display: none;
 }
 .obe_error {
-	color: red;
+	color: #721c24;
 	font-weight: bold;
+	padding: 15px;
+	background-color: #f8d7da;
+	border-color: #f5c6cb;
+	border-radius: 5px;
+	margin-top: 5px;
 }
 /***** right nav's ********/
 .rnav {
