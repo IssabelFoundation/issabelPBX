@@ -13,8 +13,6 @@
 <?php
 dialplaninjection_updatedb();
 
-out(_('You have installed the dialplan injection module!'));
-
 //bring db up to date on install/upgrade
 function dialplaninjection_updatedb() {
 	global $db;
