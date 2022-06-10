@@ -2,7 +2,10 @@
 <?php
 //    License for all code of this IssabelPBX module can be found in the license file inside the module directory
 //    Copyright 2006-2014 Schmooze Com Inc.
+//    Copyright 2022 Issabel Foundation
 //
+// ./install_amp --dbengine=$engine --username=root --password=mysqlrootpassword --asteriskuser=admin --asteriskpass=asteriskpass --installdb --scripted
+
 date_default_timezone_set('America/Los_Angeles');
 require_once ("libissabelpbx.install.php");
 require_once(dirname(__FILE__) . '/amp_conf/htdocs/admin/libraries/php-upgrade.functions.php');
