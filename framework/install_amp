@@ -1453,7 +1453,7 @@ if($createinstalldb) {
         }
         $final_output.="\n);\n\n";
 
-        if($table!='issabelpbx_settings' && !preg_match("/module/",$table) && $table!='notifications') {
+        if($table!='issabelpbx_settings' && !preg_match("/module/",$table) && $table!='notifications' && $table!="ampusers") {
         $data = $db->getAll("SELECT * FROM $table");
         foreach($data as $idx=>$row) {
             $fields = count($row);

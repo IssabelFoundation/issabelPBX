@@ -16,8 +16,6 @@ CREATE TABLE `ampusers` (
 `sections` TEXT NOT NULL
 );
 
-INSERT INTO `ampusers` VALUES("admin","d033e22ae348aeb5660fc2140aec35850c4da997","","","","*");
-
 CREATE TABLE `cronmanager` (
 `module` varchar(24) NOT NULL,
 `id` varchar(24) NOT NULL,
