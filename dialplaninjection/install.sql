@@ -9,7 +9,7 @@
 --
 
 CREATE TABLE IF NOT EXISTS `dialplaninjection_commands` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `injectionid` int(11) NOT NULL default '0',
   `command` text NOT NULL,
   `sort` int(11) NOT NULL default '0'
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `dialplaninjection_commands` (
 --
 
 CREATE TABLE IF NOT EXISTS `dialplaninjection_commands_list` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `description` varchar(100) NOT NULL default '',
   `command` text NOT NULL
 );
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `dialplaninjection_commands_list` (
 --
 
 CREATE TABLE IF NOT EXISTS `dialplaninjection_dialplaninjections` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  `id` INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `description` varchar(100) NOT NULL UNIQUE default '',
   `destination` varchar(250) NOT NULL default '',
   `exten` varchar(15) UNIQUE default NULL
