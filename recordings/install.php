@@ -30,7 +30,7 @@ $fcc->update();
 unset($fcc);
 
 // Make sure table exists
-if ($amp_conf["AMPDBENGINE"] == 'sqlite3') {
+if (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
 	$sql = "CREATE TABLE IF NOT EXISTS recordings ( 
 		`id` integer NOT NULL PRIMARY KEY AUTOINCREMENT, 
 		displayname VARCHAR(50) , filename BLOB, description 
@@ -83,8 +83,7 @@ global $db;
 // Change filename from VARCHAR(80) to BLOB
 // no need to add this if we are on sqlite, since the initial tables will
 // include the correct columns already.
-if  (($amp_conf["AMPDBENGINE"] != "sqlite") && ($amp_conf["AMPDBENGINE"] != "sqlite3")) 
-{
+if (!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
 	$sql = 'ALTER TABLE recordings CHANGE filename filename BLOB';
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
