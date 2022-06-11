@@ -79,7 +79,7 @@ if(DB::IsError($check)) {
     if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }
 }
 // increase size for older installs, ignore sqlite3, doesn't support ALTER...CHANGE syntax, table created properly above
-if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
+if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 	$db->query("ALTER TABLE findmefollow CHANGE dring dring VARCHAR( 255 ) NULL");
 }
 $results = array();
@@ -132,7 +132,7 @@ if ($astman) {
 
 // Version 2.4.13 change (#1961)
 // Ignore sqlite3, doesn't support ALTER...CHANGE syntax, table created properly above
-if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
+if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 	$sql = "ALTER TABLE `findmefollow` CHANGE `grpnum` `grpnum` VARCHAR( 20 ) NOT NULL";
 	$results = $db->query($sql);
 	if(DB::IsError($results)) {
@@ -144,7 +144,7 @@ if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
 // Version 2.5 migrate to recording ids
 //
 // Do not do upgrades for sqlite3.  Assume full support begins in 2.5 and our CREATE syntax is correct
-if($amp_conf["AMPDBENGINE"] != "sqlite3") {
+if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 	outn(_("Checking if recordings need migration.."));
 	$sql = "SELECT annmsg_id FROM findmefollow";
 	$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
