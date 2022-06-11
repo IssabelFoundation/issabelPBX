@@ -1133,9 +1133,24 @@ class DB_rqlite extends DB_common
             $is_schema=2;
             $comando = "query";
         }
+
         $data = array();
-        $data[] = $query;
+        if(count($params)>0){
+            $dat = array();
+            $dat[] = $query;
+            foreach($params as $val) {
+                $dat[] = $val;
+            }
+            $data[]=$dat;
+        } else {
+            if(!is_array($query)) {
+                $data[] = $query;
+            } else {
+                $data = $query;
+            }
+        }
         $data_string = json_encode($data);
+
         $headers=array('Content-Type: application/json','Content-Length: ' . strlen($data_string));
         $ch = curl_init($this->dsn['database']."/db/$comando");
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
