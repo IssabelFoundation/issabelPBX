@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `ringgroups`
 	`remotealert_id` INTEGER,
 	`needsconf` VARCHAR ( 10 ), 
 	`toolate_id` INTEGER,
-  `ringing` VARCHAR( 80 ) NULL,
+    `ringing` VARCHAR( 80 ) NULL,
 	`cwignore` VARCHAR ( 10 ), 
 	`cfignore` VARCHAR ( 10 ), 
 	`cpickup` VARCHAR ( 10 ), 
@@ -34,7 +34,7 @@ if(DB::IsError($check)) {
 
 // The following updates were all pre-2.5 when sqlite3 was not supported)
 //
-if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
+if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
 	// Version 1.1 upgrade
 	$sql = "SELECT description FROM ringgroups";
 	$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
