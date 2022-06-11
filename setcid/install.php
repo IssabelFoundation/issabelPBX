@@ -12,8 +12,10 @@ $sql[] = "CREATE TABLE IF NOT EXISTS setcid (
     dest VARCHAR( 255 ),
     variables text
 )";
+if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
 $sql[] = 'alter table setcid change column cid_name cid_name varchar(150);';
 $sql[] = 'alter table setcid change column cid_num cid_num varchar(150);';
+}
 
 foreach ($sql as $q) {
     $check = $db->query($q);
