@@ -4,7 +4,7 @@
 //    Copyright 2006-2014 Schmooze Com Inc.
 //    Copyright 2022 Issabel Foundation
 //
-// ./install_amp --dbengine=$engine --username=root --password=mysqlrootpassword --asteriskuser=admin --asteriskpass=asteriskpass --installdb --scripted
+// ./install_amp --dbengine=$engine --username=root --password=mysqlrootpassword --adminuser=admin --adminpass=asteriskpass --installdb --scripted
 
 date_default_timezone_set('America/Los_Angeles');
 require_once ("libissabelpbx.install.php");
@@ -248,6 +248,7 @@ function collect_settings($filename, $dbhost = '', $dbuser = '', $dbpass = '', $
     global $ampsbin_dir;
     global $ampbin_dir;
     global $asterisk_user;
+    global $admin_user;
     global $manager_pass;
     global $database_pass;
     global $scripted;
@@ -255,7 +256,6 @@ function collect_settings($filename, $dbhost = '', $dbuser = '', $dbpass = '', $
     global $asteriskip;
     global $runas_uid;
     global $runas_gid;
-    global $asterisk_user;
 
     out("Creating new $filename");
 
@@ -619,6 +619,13 @@ function change_ami_password($sNewPassword) {
     outn("manager.conf admin password set");
 }
 
+function insert_admin_user($user,$pass) {
+	global $db;
+	$query = "INSERT INTO ampusers (username,password_sha1,extension_low,extension_high,deptname,sections) VALUES (?,?,'','','','*')";
+	$params = array($user,sha1($pass));
+	$db->query($query,$params);
+}
+
 function grant_mysql() {
     global $db;
     global $asterisk_user;
@@ -683,8 +690,8 @@ out("OK");
 $shortopts = "h?u:p:";
 $longopts = array(
     "asteriskip=",
-    "asteriskpass=",
-    "asteriskuser=",
+    "adminpass=",
+    "adminuser=",
     "bin=",
     "cgibin=",
     "cleaninstall",
@@ -755,6 +762,8 @@ $runas_uid = "asterisk";
 $runas_gid = "asterisk";
 $issabelpbxip = "";
 $asteriskip = "localhost";
+$admin_user = 'admin';
+$admin_pass = 'admin';
 
 foreach ($args[0] as $arg) {
     switch ($arg[0]) {
@@ -846,13 +855,13 @@ foreach ($args[0] as $arg) {
             $ampsbin_dir = $arg[1];
             out("Using sbin at ".$ampsbin_dir);
         break;
-        case "--asteriskuser":
-            $asterisk_user = $arg[1];
-            out("Using Asterisk user ".$asterisk_user);
+        case "--adminuser":
+            $admin_user = $arg[1];
+            out("Using Admin user ".$asterisk_user);
         break;
-        case "--asteriskpass":
-            $asterisk_pass = $arg[1];
-            out("Using asteriskpass ".str_repeat("*",strlen($arg[1])));
+        case "--adminpass":
+            $admin_pass = $arg[1];
+            out("Using Admin pass ".str_repeat("*",strlen($arg[1])));
         break;
         case "--uid":
             $runas_uid = $arg[1];
@@ -1671,6 +1680,7 @@ if (!$dryrun) {
     }
 
     change_ami_password($manager_pass);
+    insert_admin_user($admin_user,$admin_pass);
 
     // reload manager in asterisk if it was running:
     //
