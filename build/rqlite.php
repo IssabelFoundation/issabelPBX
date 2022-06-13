@@ -139,6 +139,7 @@ class DB_rqlite extends DB_common
     var $_lasterror = '';
     var $_apcuAvailable;
     var $_uniqueid;
+    var $debug = 0;
 
     // }}}
     // {{{ constructor
@@ -155,8 +156,8 @@ class DB_rqlite extends DB_common
         $this->_uniqueid = sprintf("%08x", abs(crc32($_SERVER['REMOTE_ADDR'] . $_SERVER['REQUEST_TIME'] . $_SERVER['REMOTE_PORT'])));
     }
 
-
     function &getAssoc($query, $force_array = false, $params = array(), $fetchmode = DB_FETCHMODE_DEFAULT, $group = false) {
+
         $params = (array)$params;
 
         if (sizeof($params) > 0) {
@@ -227,13 +228,27 @@ class DB_rqlite extends DB_common
     }
 
     function &getCol($query, $col = 0, $params = array()) {
-        $params = (array)$params;
+
+        if (!is_array($params)) {
+            if (is_array($fetchmode)) {
+                if ($params === null) {
+                    $tmp = DB_FETCHMODE_DEFAULT;
+                } else {
+                    $tmp = $params;
+                }
+                $params = $fetchmode;
+                $fetchmode = $tmp;
+            } elseif ($params !== null) {
+                $fetchmode = $params;
+                $params = array();
+            }
+        }
+
         if (count($params)) {
             $res = $this->_select($query,$params,$fetchmode);
         } else {
-            $res = $this->_select($query);
+            $res = $this->_select($query,array(),$fetchmode);
         }
-
         if (DB::isError($res)) {
             return $res;
         }
@@ -255,16 +270,32 @@ class DB_rqlite extends DB_common
             } else {
                 $newarray=array();
             }
+
             return $newarray;
         }
     }
 
-    function &getRow($query,$params=array(),$fetchmode = DB_FETCHMODE_DEFAULT) {
-        $params = (array)$params;
+    function &getRow($query, $params=array(), $fetchmode = DB_FETCHMODE_DEFAULT) {
+
+        if (!is_array($params)) {
+            if (is_array($fetchmode)) {
+                if ($params === null) {
+                    $tmp = DB_FETCHMODE_DEFAULT;
+                } else {
+                    $tmp = $params;
+                }
+                $params = $fetchmode;
+                $fetchmode = $tmp;
+            } elseif ($params !== null) {
+                $fetchmode = $params;
+                $params = array();
+            }
+        }
+
         if (count($params)) {
             $res = $this->_select($query,$params,$fetchmode);
         } else {
-            $res = $this->_select($query);
+            $res = $this->_select($query,array(),$fetchmode);
         }
         if (DB::isError($res)) {
             return $res;
@@ -328,6 +359,7 @@ class DB_rqlite extends DB_common
             return $return;
         }
 
+
         if (!is_array($params)) {
             if (is_array($fetchmode)) {
                 if ($params === null) {
@@ -347,36 +379,13 @@ class DB_rqlite extends DB_common
         if (count($params)) {
             $res = $this->_select($query,$params,$fetchmode);
         } else {
-            $res = $this->_select($query);
+            $res = $this->_select($query,array(),$fetchmode);
         }
         if (DB::isError($res)) {
             return $res;
         }
 
-        if($fetchmode == DB_FETCHMODE_ASSOC || $fetchmode == DB_FETCHMODE_OBJECT) {
-            // return associative array
-            $colnames = $res['results'][0]['columns'];
-            $newarray=array();
-            if(isset($res['results'][0]['values'])) {
-                foreach($res['results'][0]['values'] as  $key=>$row) {
-                    $newrow=array();
-                    foreach($row as $idx=>$val) {
-                        $newrow[$colnames[$idx]]=$val;
-                    }
-                    $newarray[]=$newrow;
-                }
-            } else {
-                $newarray=array();
-            }
-            if($fetchmode == DB_FETCHMODE_OBJECT) {
-                return (object)$newarray;
-            } else {
-                return $newarray;
-            }
-        } else {
-            // return array
-            return $res['results'][0]['values'];
-        }
+        return $res['results'][0]['values'];
     }
 
 
@@ -425,7 +434,6 @@ class DB_rqlite extends DB_common
         if (!$dsn['database']) {
             return $this->sqliteRaiseError(DB_ERROR_ACCESS_VIOLATION);
         }
-
         $this->_select("SELECT TIME()");
         return DB_OK;
     }
@@ -440,7 +448,7 @@ class DB_rqlite extends DB_common
      */
     function disconnect()
     {
-        return 0;
+        return true;
     }
 
     // }}}
@@ -464,6 +472,7 @@ class DB_rqlite extends DB_common
         $ismanip = $this->_checkManip($query);
         $this->last_query = $query;
         $query = $this->modifyQuery($query);
+
         $this->query($query);
         return DB_OK;
     }
@@ -567,7 +576,6 @@ class DB_rqlite extends DB_common
      */
     function freeResult(&$result)
     {
-        // We do not have results/resource
         return true;
     }
 
@@ -792,6 +800,9 @@ class DB_rqlite extends DB_common
     function escapeSimple($str)
     {
         $str2 = preg_replace("/'/","''",$str);
+        if($this->debug==1) {
+            file_put_contents("/tmp/escape.log","original $str\nreturn $str2\n",FILE_APPEND);
+        }
         return $str2;
     }
 
@@ -864,7 +875,6 @@ class DB_rqlite extends DB_common
      */
     function sqliteRaiseError($errno = null)
     {
-        // TODO
         $native = $this->errorNative();
         if ($errno === null) {
             $errno = $this->errorCode($native);
@@ -954,16 +964,16 @@ class DB_rqlite extends DB_common
     function tableInfo($result, $mode = null)
     {
         if (is_string($result)) {
-        $id = $this->getAll("PRAGMA table_info('$result')",DB_FETCHMODE_ASSOC);
-        if (DB::isError($id)) {
-            return $id;
-        }
+            $id = $this->getAll("PRAGMA table_info('$result')",DB_FETCHMODE_ASSOC);
+            if (DB::isError($id)) {
+                return $id;
+            }
             $got_string = true;
         } else {
             $this->last_query = '';
             return $this->raiseError(DB_ERROR_NOT_CAPABLE, null, null, null,
-                                     'This DBMS can not obtain tableInfo' .
-                                     ' from result sets');
+                'This DBMS can not obtain tableInfo' .
+                ' from result sets');
         }
 
         if ($this->options['portability'] & DB_PORTABILITY_LOWERCASE) {
@@ -1023,7 +1033,7 @@ class DB_rqlite extends DB_common
         if(count($res)==0) { 
             return ""; 
         } else {
-           return $res;
+            return $res;
         }
     }
 
@@ -1151,6 +1161,11 @@ class DB_rqlite extends DB_common
         }
         $data_string = json_encode($data);
 
+        if($this->debug==1) {
+            file_put_contents("/tmp/rqlite_query.log","$query\n",FILE_APPEND);
+            file_put_contents("/tmp/rqlite_query.log",print_r($data,1),FILE_APPEND);
+        }
+
         $headers=array('Content-Type: application/json','Content-Length: ' . strlen($data_string));
         $ch = curl_init($this->dsn['database']."/db/$comando");
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -1162,8 +1177,15 @@ class DB_rqlite extends DB_common
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $return = curl_exec($ch);
         curl_close($ch);
-    
+
         if($is_schema==0) {
+            if($this->debug==1) {
+                file_put_contents("/tmp/rqlite_execute.log",print_r($data_string,1),FILE_APPEND);
+                file_put_contents("/tmp/rqlite_execute.log","\n",FILE_APPEND);
+                file_put_contents("/tmp/rqlite_execute.log",print_r($return,1),FILE_APPEND);
+                file_put_contents("/tmp/rqlite_execute.log","\n",FILE_APPEND);
+                  file_put_contents("/tmp/rqlite_execute.log","-----\n",FILE_APPEND);
+            }
             $dat = json_decode($return,1);
             if(isset($dat['results'][0]['error'])) {
                 $e = new DB_Error($dat['results'][0]['error']);
@@ -1189,8 +1211,8 @@ class DB_rqlite extends DB_common
         }
     }
 
-    private function _select($query,$params=array()) {
-
+    private function _select($query, $params=array(), $fetchmode=DB_FETCHMODE_DEFAULT) {
+ 
         $query = preg_replace("/^desc /","describe ",$query);
         if(preg_match("/^describe (.*)/i",$query,$matches)==1) {
             $query = "SELECT * FROM ".$matches[1]." LIMIT 1";
@@ -1213,8 +1235,11 @@ class DB_rqlite extends DB_common
                 $data = $query;
             }
         }
-
         $data_string = json_encode($data);
+
+        if($this->debug==1) {
+            file_put_contents("/tmp/rqlite_select.log",print_r($data,1),FILE_APPEND);
+        }
         $headers=array('Content-Type: application/json','Content-Length: ' . strlen($data_string));
         $ch = curl_init($this->dsn['database']."/db/query");
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -1227,16 +1252,33 @@ class DB_rqlite extends DB_common
         $return = curl_exec($ch);
         curl_close($ch);
         $dat = json_decode($return,1);
+
         if(isset($dat['results'][0]['error'])) {
             $e = new DB_Error($dat['results'][0]['error']);
             return $e;
         }
+
+        if($fetchmode == DB_FETCHMODE_ASSOC || $fetchmode == DB_FETCHMODE_OBJECT) {
+            $colnames = $dat['results'][0]['columns'];
+            $newarray=array();
+            if(isset($dat['results'][0]['values'])) {
+                foreach($dat['results'][0]['values'] as  $key=>$row) {
+                    $newrow=array();
+                    foreach($row as $idx=>$val) {
+                        $newrow[$colnames[$idx]]=$val;
+                    }
+                    $newarray[]=$newrow;
+                }
+            } else {
+                $newarray=array();
+            }
+            $return = $newarray;
+            $dat['results'][0]['values']=$return;
+        }
         return $dat;
     }
 
-    // }}}
 }
-
 /*
  * Local variables:
  * tab-width: 4
