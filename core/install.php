@@ -296,9 +296,8 @@ function __migrate_trunks_to_table() {
 		`provider` VARCHAR( 40 ) NULL,
 		`disabled` VARCHAR( 4 ) DEFAULT 'off',
 		`continue` VARCHAR( 4 ) DEFAULT 'off',
-
 		PRIMARY KEY  (`trunkid`, `tech`, `channelid`)
-	) CHARACTER SET utf8 COLLATE utf8_unicode_ci
+	) 
 	";
 	$check = $db->query($sql);
 	if(DB::IsError($check)) {
@@ -311,7 +310,7 @@ function __migrate_trunks_to_table() {
 	}
 
 	// sqlite doesn't support the syntax required for the SQL so we have to do it the hard way
-	if ($amp_conf["AMPDBENGINE"] == "sqlite3") {
+	if (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
 		$sqlstr = "SELECT variable, value FROM globals WHERE variable LIKE 'OUT\_%' ESCAPE '\'";
 		$my_unique_trunks = sql($sqlstr,"getAll",DB_FETCHMODE_ASSOC);
 
@@ -1001,7 +1000,7 @@ if (!empty($allow_sip_anon)) {
 // zapchandids to dahdichandids table rename
 $dahditbl_res = $db->getAll("SELECT * FROM dahdichandids");
 if (DB::IsError($dahditbl_res)) {
-	$sql = $amp_conf["AMPDBENGINE"] == "sqlite3" ?
+	$sql = (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ?
 		'ALTER TABLE zapchandids RENAME TO dahdichandids' :
 		'RENAME TABLE zapchandids to dahdichandids';
 	outn(_("renaming table zapchandids to dahdichandids.."));
@@ -1412,6 +1411,8 @@ if(!$issabelpbx_conf->conf_setting_exists('CERTLISTFILE')) {
 
 $issabelpbx_conf->commit_conf_settings();
 
+
+if (preg_match("/mysql/",$amp_conf["AMPDBENGINE"])) {
 $sql='SELECT default_character_set_name FROM information_schema.SCHEMATA S WHERE schema_name = "asterisk"';
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if($check['default_character_set_name']=='latin1') {
@@ -1543,4 +1544,5 @@ $tables = array(
     }
 
 
+}
 }
