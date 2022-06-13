@@ -3,7 +3,7 @@
 global $db;
 global $amp_conf;
 
-$autoincrement = ($amp_conf["AMPDBENGINE"] == "sqlite3") ? "AUTOINCREMENT":"AUTO_INCREMENT";
+$autoincrement=(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? "AUTOINCREMENT":"AUTO_INCREMENT";
 
 $sql = "CREATE TABLE IF NOT EXISTS inventorydb (
         id INTEGER NOT NULL PRIMARY KEY $autoincrement,

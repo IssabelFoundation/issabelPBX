@@ -21,7 +21,7 @@ global $db;
 global $amp_conf;
 
 // set auto increment depending on engine
-$autoincrement = (($amp_conf["AMPDBENGINE"] == "sqlite") || ($amp_conf["AMPDBENGINE"] == "sqlite3")) ? "AUTOINCREMENT":"AUTO_INCREMENT";
+$autoincrement=(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? "AUTOINCREMENT":"AUTO_INCREMENT";
 
 // list of column definitions for this module. Add/remove from list as necessary and table(s) will be built
 // automatically by the code that follows

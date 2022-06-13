@@ -14,7 +14,7 @@ if (! function_exists("outn")) {
 global $db;
 global $amp_conf;
 
-if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
+if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
 	$sql = "
 	CREATE TABLE IF NOT EXISTS customerdb 
 	(

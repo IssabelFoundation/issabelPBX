@@ -3,7 +3,8 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 global $db;
 
-$autoincrement = (($amp_conf["AMPDBENGINE"] == "sqlite") || ($amp_conf["AMPDBENGINE"] == "sqlite3")) ? "AUTOINCREMENT":"AUTO_INCREMENT";
+$autoincrement=(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? "AUTOINCREMENT":"AUTO_INCREMENT";
+
 $sql['tts'] = "CREATE TABLE IF NOT EXISTS tts (
     tts_id INTEGER NOT NULL PRIMARY KEY $autoincrement,
     tts_description VARCHAR(250),

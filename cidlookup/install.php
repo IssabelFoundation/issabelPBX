@@ -4,9 +4,11 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 global $db;
 global $amp_conf;
 
+$autoincrement=(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? "AUTOINCREMENT":"AUTO_INCREMENT";
+
 // create the tables
 $sql = "CREATE TABLE IF NOT EXISTS cidlookup (
-	cidlookup_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	cidlookup_id INTEGER NOT NULL PRIMARY KEY $autoincrement,
 	description varchar(50) NOT NULL,
 	sourcetype varchar(100) NOT NULL,
 	cache tinyint(1) NOT NULL default '0',
