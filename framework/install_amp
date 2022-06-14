@@ -428,7 +428,7 @@ function install_modules() {
     global $runas_uid;
     global $runas_gid;
 
-    $base_modules = array('framework','core','recordings','timeconditions','announcement','asterisk-cli','asteriskinfo','blacklist','callback','callforward','callrecording','callwaiting','cdr','cidlookup','conferences','customappsreg','customcontexts','dashboard','daynight','disa','donotdisturb','dynamicfeatures','dynroute','extensionsettings','featurecodeadmin','findmefollow','iaxsettings','ivr','languages','logfiles','manager','managersettings','miscapps','miscdests','music','outroutemsg','paging','parking','pinsets','queueprio','queues','ringgroups','setcid','sipsettings','tts','voicemail','weakpasswords','writequeuelog');
+    $base_modules = array('framework','core','recordings','timeconditions','announcement','asterisk-cli','asteriskinfo','blacklist','callback','callforward','callrecording','callwaiting','cdr','cidlookup','conferences','customappsreg','customcontexts','dashboard','daynight','dialplaninjection','disa','donotdisturb','dynamicfeatures','dynroute','extensionsettings','featurecodeadmin','findmefollow','iaxsettings','ivr','languages','logfiles','manager','managersettings','miscapps','miscdests','music','outroutemsg','paging','parking','pinsets','queueprio','queues','ringgroups','setcid','sipsettings','tts','voicemail','weakpasswords','writequeuelog');
 
     $SOURCEDIR = dirname(__FILE__)."/../";
 
