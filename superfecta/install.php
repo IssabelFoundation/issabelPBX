@@ -15,6 +15,8 @@ if (! function_exists("outn")) {
 // Set execute permissions for AGI script
 chmod(dirname(__FILE__) . '/superfecta.agi', 0755);
 
+$autoincrement=(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? "AUTOINCREMENT":"AUTO_INCREMENT";
+
 //a list of the columns that need to be included in the table. Functions below will add and delete columns as necessary.
 $cols['source'] = "varchar(170) NOT NULL";
 $cols['field'] = "varchar(170) NOT NULL";
@@ -45,12 +47,12 @@ if (DB::IsError($check)) {
 
 //create incoming lookup table
 $sql = "CREATE TABLE IF NOT EXISTS superfecta_to_incoming (
-		superfecta_to_incoming_id BIGINT(20) NOT NULL AUTO_INCREMENT,
+		superfecta_to_incoming_id INTEGER NOT NULL $autoincrement,
 		extension VARCHAR(50) DEFAULT NULL,
 		cidnum VARCHAR(50) DEFAULT NULL,
 		PRIMARY KEY  (`superfecta_to_incoming_id`),
 		UNIQUE KEY `extn` (`extension`,`cidnum`)
-	) ENGINE=MYISAM";
+	)";
 $check = $db->query($sql);
 if (DB::IsError($check)) {
 	die_issabelpbx("Can not create superfecta_to_incoming table: " . $check->getMessage() . "<br>");
@@ -58,7 +60,7 @@ if (DB::IsError($check)) {
 
 // Create Multifecta tables
 $sql = "CREATE TABLE IF NOT EXISTS superfecta_mf (
-	superfecta_mf_id BIGINT(20) NOT NULL AUTO_INCREMENT,
+	superfecta_mf_id INTEGER NOT NULL $autoincrement,
 	timestamp_start DOUBLE DEFAULT NULL,
 	timestamp_end DOUBLE DEFAULT NULL,
 	scheme VARCHAR(64) DEFAULT NULL,
@@ -66,19 +68,19 @@ $sql = "CREATE TABLE IF NOT EXISTS superfecta_mf (
 	extension VARCHAR(50) DEFAULT NULL,
 	prefix VARCHAR(50) DEFAULT NULL,
 	debug TINYINT(4) DEFAULT NULL,
-	winning_child_id BIGINT(20) DEFAULT NULL,
-	spam_child_id BIGINT(20) DEFAULT NULL,
+	winning_child_id INTEGER DEFAULT NULL,
+	spam_child_id INTEGER DEFAULT NULL,
 	PRIMARY KEY (superfecta_mf_id),
 	KEY start_time (timestamp_start)
-) ENGINE=MYISAM";
+)";
 $check = $db->query($sql);
 if (DB::IsError($check)) {
 	die_issabelpbx("Can not create superfecta_mf table: " . $check->getMessage() . "<br>");
 }
 
 $sql = "CREATE TABLE IF NOT EXISTS superfecta_mf_child (
-	superfecta_mf_child_id BIGINT(20) NOT NULL AUTO_INCREMENT,
-	superfecta_mf_id BIGINT(20) DEFAULT NULL,
+	superfecta_mf_child_id INTEGER NOT NULL $autoincrement,
+	superfecta_mf_id INTEGER DEFAULT NULL,
 	priority INT(11) DEFAULT NULL,
 	source VARCHAR(128) DEFAULT NULL,
 	timestamp_start DOUBLE DEFAULT NULL,
@@ -93,7 +95,7 @@ $sql = "CREATE TABLE IF NOT EXISTS superfecta_mf_child (
 	PRIMARY KEY  (superfecta_mf_child_id),
 	KEY start_time (timestamp_start),
 	KEY superfecta_mf_id (superfecta_mf_id)
-) ENGINE=MYISAM";
+)";
 $check = $db->query($sql);
 if (DB::IsError($check)) {
 	die_issabelpbx("Can not create superfecta_mf_child table: " . $check->getMessage() . "<br>");
