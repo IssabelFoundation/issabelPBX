@@ -623,12 +623,12 @@ class DB_rqlite extends DB_common
      */
     function numRows($result)
     {
-        // TODO
-        $rows = @sqlite_num_rows($result);
-        if ($rows === null) {
-            return $this->sqliteRaiseError();
+        if($this->_apcuAvailable) {
+            $numrows = apcu_fetch('num_rows_'.$this->_uniqueid,$ok);
+            if($ok) { return $numrows; } else { return 0; }
+        } else {
+            return 0;
         }
-        return $rows;
     }
 
     // }}}
@@ -644,8 +644,8 @@ class DB_rqlite extends DB_common
     function affectedRows()
     {
         if($this->_apcuAvailable) {
-        $affected = apcu_fetch('rows_affected_'.$this->_uniqueid,$ok);
-        if($ok) { return $affected; } else { return 0; }
+            $affected = apcu_fetch('rows_affected_'.$this->_uniqueid,$ok);
+            if($ok) { return $affected; } else { return 0; }
         } else {
             return -1;
         }
@@ -1274,6 +1274,10 @@ class DB_rqlite extends DB_common
             }
             $return = $newarray;
             $dat['results'][0]['values']=$return;
+	}
+
+        if($this->_apcuAvailable) {
+            apcu_store('num_rows_'.$this->_uniqueid,count($dat['results'][0]['values']),2);
         }
         return $dat;
     }
