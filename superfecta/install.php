@@ -39,7 +39,7 @@ $sql = "CREATE TABLE IF NOT EXISTS superfectacache (
 	callerid VARCHAR(45) NOT NULL,
 	dateentered DATETIME NOT NULL,
 	PRIMARY KEY (number)
-) ENGINE = MyISAM";
+)";
 $check = $db->query($sql);
 if (DB::IsError($check)) {
 	die_issabelpbx("Can not create superfectacache table: " . $check->getMessage() . "<br>");
