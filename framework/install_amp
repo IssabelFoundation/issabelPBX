@@ -281,7 +281,7 @@ function collect_settings($filename, $dbhost = '', $dbuser = '', $dbpass = '', $
         $amp_conf["AMPDEVUSER"] = $runas_uid;
         $amp_conf["AMPDEVGROUP"] = $runas_gid;
         write_amportal_conf($filename, $amp_conf);
-        outn(AMP_CONF." written");
+        out(AMP_CONF." written");
         return;
     }
 
@@ -620,10 +620,10 @@ function change_ami_password($sNewPassword) {
 }
 
 function insert_admin_user($user,$pass) {
-	global $db;
-	$query = "INSERT INTO ampusers (username,password_sha1,extension_low,extension_high,deptname,sections) VALUES (?,?,'','','','*')";
-	$params = array($user,sha1($pass));
-	$db->query($query,$params);
+    global $db;
+    $query = "INSERT INTO ampusers (username,password_sha1,extension_low,extension_high,deptname,sections) VALUES (?,?,'','','','*')";
+    $params = array($user,sha1($pass));
+    $db->query($query,$params);
 }
 
 function grant_mysql() {
@@ -857,7 +857,7 @@ foreach ($args[0] as $arg) {
         break;
         case "--adminuser":
             $admin_user = $arg[1];
-            out("Using Admin user ".$asterisk_user);
+            out("Using Admin user ".$admin_user);
         break;
         case "--adminpass":
             $admin_pass = $arg[1];
@@ -1151,6 +1151,7 @@ if (count($amp_conf) == 0) {
 }
 out("OK");
 
+
 // TODO: if we boostrapped I think we can count on ALL of these being set but maybe it's
 //       fine to do a sanity check?
 //
@@ -1179,12 +1180,7 @@ if (!array_key_exists("AMPDBNAME",$amp_conf)) {
 
 // TODO: if we boostrapped do we ignore these? (Can they even be set?)
 //
-if (isset($new_username)) {
-    $amp_conf["AMPDBUSER"] = $new_username;
-}
-if (isset($new_password)) {
-    $amp_conf["AMPDBPASS"] = $new_password;
-}
+
 if (isset($dbhost)) {
     $amp_conf["AMPDBHOST"] = $dbhost;
 }
@@ -1356,7 +1352,7 @@ switch ($dbengine)
             out("FAILED");
             fatal($dbengine." PHP libraries not installed");
         }
-        $datasource = $dbengine.'://'.$db_user.':'.$db_pass.'@'.$db_host;
+        $datasource = $dbengine.'://'.$new_username.':'.$new_password.'@'.$db_host;
         $db = DB::connect($datasource); // attempt connection
         $res = $db->query("CREATE DATABASE asterisk");
         $res = $db->query("CREATE DATABASE asteriskcdrdb");
@@ -1739,7 +1735,7 @@ out("..OK");
 //       question is, should we do this further up???
 //
 if (($set_issabelpbx_settings && $force_amportal_conf) || (!file_exists('/etc/redhat-release'))) {
-    out("Setting issabelpbx settings form " . AMP_CONF);
+    out("Setting issabelpbx settings from " . AMP_CONF);
     $issabelpbx_conf =& issabelpbx_conf::create();
     foreach ($amp_conf_file as $keyword => $value) {
         if ($issabelpbx_conf->conf_setting_exists($keyword)) {
