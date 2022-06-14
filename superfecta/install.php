@@ -47,21 +47,30 @@ if (DB::IsError($check)) {
 
 //create incoming lookup table
 $sql = "CREATE TABLE IF NOT EXISTS superfecta_to_incoming (
-		superfecta_to_incoming_id INTEGER NOT NULL $autoincrement,
+		superfecta_to_incoming_id INTEGER NOT NULL PRIMARY KEY $autoincrement,
 		extension VARCHAR(50) DEFAULT NULL,
-		cidnum VARCHAR(50) DEFAULT NULL,
-		PRIMARY KEY  (`superfecta_to_incoming_id`),
-		UNIQUE KEY `extn` (`extension`,`cidnum`)
+		cidnum VARCHAR(50) DEFAULT NULL
 	)";
+
+
+
 $check = $db->query($sql);
 if (DB::IsError($check)) {
 	die_issabelpbx("Can not create superfecta_to_incoming table: " . $check->getMessage() . "<br>");
 }
 
+if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
+	$sql = "CREATE UNIQUE INDEX exten ON superfecta_to_incoming(`extension`,`cidnum`)";
+} else {
+	$sql = "ALTER TABLE superfecta_to_incoming ADD UNIQUE KEY `exten` (`extension`,`cidnum`)";
+}
+$check = $db->query($sql);
+
+
 // Create Multifecta tables
 $sql = "CREATE TABLE IF NOT EXISTS superfecta_mf (
-	superfecta_mf_id INTEGER NOT NULL $autoincrement,
-	timestamp_start DOUBLE DEFAULT NULL,
+	superfecta_mf_id INTEGER NOT NULL PRIMARY KEY $autoincrement,
+	timestamp_start DOUBLE DEFAULT NULL ,
 	timestamp_end DOUBLE DEFAULT NULL,
 	scheme VARCHAR(64) DEFAULT NULL,
 	cidnum VARCHAR(50) DEFAULT NULL,
@@ -69,17 +78,21 @@ $sql = "CREATE TABLE IF NOT EXISTS superfecta_mf (
 	prefix VARCHAR(50) DEFAULT NULL,
 	debug TINYINT(4) DEFAULT NULL,
 	winning_child_id INTEGER DEFAULT NULL,
-	spam_child_id INTEGER DEFAULT NULL,
-	PRIMARY KEY (superfecta_mf_id),
-	KEY start_time (timestamp_start)
+	spam_child_id INTEGER DEFAULT NULL
 )";
 $check = $db->query($sql);
 if (DB::IsError($check)) {
 	die_issabelpbx("Can not create superfecta_mf table: " . $check->getMessage() . "<br>");
 }
+if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
+	$sql = "CREATE INDEX start_time ON superfecta_mf(`timestamp_start`)";
+} else {
+	$sql = "ALTER TABLE superfecta_mf ADD INDEX `start_time` (`timestamp_start`)";
+}
+$check = $db->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS superfecta_mf_child (
-	superfecta_mf_child_id INTEGER NOT NULL $autoincrement,
+	superfecta_mf_child_id INTEGER NOT NULL PRIMARY KEY $autoincrement,
 	superfecta_mf_id INTEGER DEFAULT NULL,
 	priority INT(11) DEFAULT NULL,
 	source VARCHAR(128) DEFAULT NULL,
@@ -91,40 +104,54 @@ $sql = "CREATE TABLE IF NOT EXISTS superfecta_mf_child (
 	cnam VARCHAR(128) DEFAULT NULL,
 	cached TINYINT(4) DEFAULT NULL,
 	debug_result TEXT,
-	error_result TEXT,
-	PRIMARY KEY  (superfecta_mf_child_id),
-	KEY start_time (timestamp_start),
-	KEY superfecta_mf_id (superfecta_mf_id)
+	error_result TEXT
 )";
 $check = $db->query($sql);
 if (DB::IsError($check)) {
 	die_issabelpbx("Can not create superfecta_mf_child table: " . $check->getMessage() . "<br>");
 }
 
+if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
+	$sql = "CREATE INDEX start_time_2 ON superfecta_mf_child(`timestamp_start`)";
+} else {
+	$sql = "ALTER TABLE superfecta_mf_child ADD INDEX `start_time_2` (`timestamp_start`)";
+}
+$check = $db->query($sql);
+
+if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
+	$sql = "CREATE INDEX superfecta_mf_id ON superfecta_mf_child(`superfecta_mf_id`)";
+} else {
+	$sql = "ALTER TABLE superfecta_mf_child ADD INDEX `superfecta_mf_id` (`superfecta_mf_id`)";
+}
+$check = $db->query($sql);
+
+
+if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"])) {
+
 //check to see that the proper columns are in the table.
 $curret_cols = array();
-$sql = "DESC superfectaconfig";
-$res = $db->query($sql);
-while ($row = $res->fetchRow()) {
-	if (array_key_exists($row[0], $cols)) {
-		$curret_cols[] = $row[0];
+$res = $db->tableInfo('superfectaconfig');
+foreach($res as $idx=>$row) {
+	if (array_key_exists($row['name'], $cols)) {
+		$curret_cols[] = $row['name'];
 		//make sure it has the latest definition
-		$sql = "ALTER TABLE superfectaconfig MODIFY " . $row[0] . " " . $cols[$row[0]];
+		$sql = "ALTER TABLE superfectaconfig MODIFY " . $row['name'] . " " . $cols[$row['name']];
 		$check = $db->query($sql);
 		if (DB::IsError($check)) {
-			die_issabelpbx("Can not update column " . $row[0] . ": " . $check->getMessage() . "<br>");
+			die_issabelpbx("Can not update column " . $row['name'] . ": " . $check->getMessage() . "<br>");
 		}
 	} else {
 		//remove the column
-		$sql = "ALTER TABLE superfectaconfig DROP COLUMN " . $row[0];
+		$sql = "ALTER TABLE superfectaconfig DROP COLUMN " . $row['name'];
 		$check = $db->query($sql);
 		if (DB::IsError($check)) {
-			die_issabelpbx("Can not remove column " . $row[0] . ": " . $check->getMessage() . "<br>");
+			die_issabelpbx("Can not remove column " . $row['name'] . ": " . $check->getMessage() . "<br>");
 		} else {
-			print 'Removed no longer needed column ' . $row[0] . ' from superfectaconfig table.<br>';
+			print 'Removed no longer needed column ' . $row['name'] . ' from superfectaconfig table.<br>';
 		}
 	}
 }
+
 
 //add columns that are not already in the table
 foreach ($cols as $key => $val) {
@@ -137,6 +164,7 @@ foreach ($cols as $key => $val) {
 			print 'Added column ' . $key . ' to superfectaconfig table.<br>';
 		}
 	}
+}
 }
 
 //move values from the old table into the new table is necessary
@@ -209,8 +237,8 @@ if (!DB::IsError($res)) {
 
 //if the superfectaconfig table is empty, fill in some default values.
 $sql = "SELECT * FROM superfectaconfig LIMIT 1;";
-$res = $db->query($sql);
-if ($res->numRows() != 1) {
+$settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+if (count($settings)==0) {
 	print 'Installing Default Values.<br>';
 	$sql = "REPLACE INTO superfectaconfig (source,field,value) VALUES('base_Default','order','0')";
 	$db->query($sql);
@@ -230,8 +258,8 @@ if ($res->numRows() != 1) {
 
 //determine if this is a pre-scheme database and upgrade if necessary
 $sql = "SELECT * FROM superfectaconfig WHERE source = 'base' LIMIT 1";
-$res = $db->query($sql);
-if ($res->numRows() > 0) {
+$settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+if (count($settings)>0) {
 	//delete supported source files not being used.
 	$sql = "SELECT value FROM superfectaconfig WHERE source = 'base' AND field = 'sources' LIMIT 1";
 	$res = $db->query($sql);
@@ -264,8 +292,8 @@ if ($res->numRows() > 0) {
 
 //adjust from a zero based to a one based order for schemes if neccessary
 $sql = "SELECT * FROM superfectaconfig WHERE field = 'order' AND value = 0";
-$res = $db->query($sql);
-if ($res->numRows() > 0) {
+$settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+if (count($settings)>0) {
 	//order value of zero found
 	$sql = "UPDATE superfectaconfig SET value = (value + 1) WHERE field = 'order'";
 	$res = $db->query($sql);
@@ -277,9 +305,8 @@ if ((function_exists('cidlookup_add')) && (function_exists('cidlookup_edit'))) {
 	$check = $db->query($sql);
 
 	$sql = "SELECT * FROM `cidlookup` WHERE `description` = 'Caller ID Superfecta' LIMIT 1;";
-	$res = $db->query($sql);
-
-	if ($res->numRows() > 0) {
+	$settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+	if (count($settings)>0) {
 		print 'Upgrading database to remove CallerID Lookup dependency.<br>';
 		// Move any inbound routes using superfecta for cid Lookups to superfecta's table
 		$sql = "INSERT IGNORE INTO superfecta_to_incoming (extension,cidnum) (SELECT c2.extension, c2.cidnum FROM cidlookup c1, cidlookup_incoming c2 WHERE c1.description = 'Caller ID Superfecta' AND c2.cidlookup_id = c1.cidlookup_id)";
@@ -292,9 +319,12 @@ if ((function_exists('cidlookup_add')) && (function_exists('cidlookup_edit'))) {
 	}
 }
 
-$sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'superfecta_to_incoming' AND COLUMN_NAME = 'scheme'";
-$schemes = $db->getAll($sql, array(), DB_FETCHMODE_ASSOC);
-if (!in_array('scheme', $schemes[0])) {
+$campos=array();
+$res = $db->tableInfo('superfecta_to_incoming');
+foreach($res as $idx=>$data) {
+	$campos[]=$data['name'];
+}
+if (!in_array('scheme', $campos)) {
 	$sql = 'ALTER TABLE `superfecta_to_incoming` ADD `scheme` VARCHAR(50) NOT NULL;';
 	$db->query($sql);
 }
@@ -320,8 +350,8 @@ if($done) {
 
 // Remove entries from Caller ID Lookup sources left by legacy Superfecta Installs
 $sql = "SELECT * FROM `cidlookup` WHERE `description` = 'Caller ID Superfecta'";
-$res = $db->query($sql);
-if ( !DB::IsError($res) && $res->numRows() != 0 ) {
+$res = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+if ( !DB::IsError($res) && count($res) != 0 ) {
 	echo "Cleaning up remnants of legacy Superfecta installation.</p>";
 	$sql = "DELETE FROM cidlookup WHERE description = 'Caller ID Superfecta'";
 	$res = $db->query($sql);
