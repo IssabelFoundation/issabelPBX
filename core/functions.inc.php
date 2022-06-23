@@ -2164,8 +2164,6 @@ function core_do_get_config($engine) {
                 $ext->add('app-chanspy', '_'.$fc_chanspy.'.', '', new ext_answer(''));
                 $ext->add('app-chanspy', '_'.$fc_chanspy.'.', '', new ext_goto('1','${EXTEN:3}','targeted-chanspy'));
 
-
-
                 $ext->add('targeted-chanspy', '_.', '', new ext_set('TIMEOUT(absolute)','3600'));
                 $ext->add('targeted-chanspy', '_.', '', new ext_answer(''));
                 $ext->add('targeted-chanspy', '_.', 'once-upon-a-time', new ext_wait(1));
