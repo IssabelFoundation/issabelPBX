@@ -3474,6 +3474,7 @@ function core_do_get_config($engine) {
             $exten = "pjsipdial";
             $ext->add($context,$exten,'', new ext_set('PJ', '${CUT(DIALSTR,/,2)}'));
             $ext->add($context,$exten,'', new ext_set('DIALSTR', 'PJSIP/${OUTNUM}@${PJ}'));
+            $ext->add($context,$exten,'', new ext_execif('$["${THISDIAL}" = ""]','Set','THISDIAL=PJSIP/${PJ}'));
             $ext->add($context,$exten,'', new ext_return(''));
 
 
@@ -5122,6 +5123,7 @@ function core_do_get_config($engine) {
         $exten = "pjsipdial";
         $ext->add($mcontext,$exten,'', new ext_set('PJ', '${CUT(THISDIAL,/,2)}'));
         $ext->add($mcontext,$exten,'', new ext_set('THISDIAL', '${PJSIP_DIAL_CONTACTS(${PJ})}'));
+        $ext->add($mcontext,$exten,'', new ext_execif('$["${THISDIAL}" = ""]','Set','THISDIAL=PJSIP/${PJ}'));
         $ext->add($mcontext,$exten,'', new ext_return(''));
 
             /*
