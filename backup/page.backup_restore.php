@@ -13,7 +13,7 @@ $get_vars = array(
 				);
 
 foreach ($get_vars as $k => $v) {
-	$var[$k] = isset($_REQUEST[$k]) ? $_REQUEST[$k] : $v;
+	$var[$k] = isset($_REQUEST[$k]) ? htmlspecialchars($_REQUEST[$k]) : $v;
 }
 
 //set action to delete if delete was pressed instead of submit
