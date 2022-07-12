@@ -215,12 +215,14 @@ class DB_rqlite extends DB_common
                 } 
             } 
         } else {
-            foreach($res['results'][0]['values'] as $idx=>$row) {
-                $key = array_shift($row);
-                if ($group) {
-                    $final[$key][]=$row[0];
-                } else {
-                    $final[$key]=$row[0];
+            if(isset($res['results'][0]['values'])) {
+                foreach($res['results'][0]['values'] as $idx=>$row) {
+                    $key = array_shift($row);
+                    if ($group) {
+                        $final[$key][]=$row[0];
+                    } else {
+                        $final[$key]=$row[0];
+                    }
                 }
             }
         }
