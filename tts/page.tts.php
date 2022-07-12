@@ -31,6 +31,8 @@ $tts_engine     = isset($_REQUEST['tts_engine']) ? $_REQUEST['tts_engine'] :  ''
 $tts_text       = isset($_REQUEST['tts_text']) ? $_REQUEST['tts_text'] :  '';
 $dest           = isset($_REQUEST['dest']) ? $_REQUEST['dest'] :  '';
 
+if(!isset($tabindex)) $tabindex=1;
+
 if (isset($_REQUEST['goto0']) && $_REQUEST['goto0']) {
     $dest = $_REQUEST[ $_REQUEST['goto0'].'0' ];
 }

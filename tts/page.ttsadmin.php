@@ -31,6 +31,7 @@ $ttsengine_engine      = isset($_REQUEST['ttsengine_engine']) ? $_REQUEST['ttsen
 $ttsengine_cmd         = isset($_REQUEST['ttsengine_cmd']) ? $_REQUEST['ttsengine_cmd'] :  '';
 $ttsengine_template    = isset($_REQUEST['ttsengine_template']) ? $_REQUEST['ttsengine_template'] :  '';
 
+if(!isset($tabindex)) $tabindex=1;
 
 $templates = array(
 'polly'=>'{
