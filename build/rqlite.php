@@ -227,7 +227,7 @@ class DB_rqlite extends DB_common
         return $final; 
     }
 
-    function &getCol($query, $col = 0, $params = array()) {
+    function &getCol($query, $col = 0, $params = array(), $fetchmode = DB_FETCHMODE_DEFAULT) {
 
         if (!is_array($params)) {
             if (is_array($fetchmode)) {
