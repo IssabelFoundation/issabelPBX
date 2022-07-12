@@ -291,7 +291,7 @@ class DB_rqlite extends DB_common
                 $params = array();
             }
         }
-
+        if(!isset($params)) { $params=array(); }
         if (count($params)) {
             $res = $this->_select($query,$params,$fetchmode);
         } else {
