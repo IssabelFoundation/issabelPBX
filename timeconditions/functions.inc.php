@@ -821,7 +821,7 @@ function timeconditions_timegroups_get_times($timegroup, $convert=false) {
     $sql = "SELECT id, time, name FROM timegroups_details WHERE timegroupid = $timegroup";
     $results = $db->getAll($sql);
     if(DB::IsError($results)) {
-        $results = null;
+        $results = array();
     }
     foreach ($results as $val) {
         $times = ($convert && $ast_ge_16) ? strtr($val[1],'|',',') : $val[1];
