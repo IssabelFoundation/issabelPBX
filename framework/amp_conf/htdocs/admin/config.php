@@ -342,7 +342,10 @@ switch($display) {
             if ($config_vars['username'] && $action !== 'setup_admin') {
                 $login['errors'][] = _('Invalid Username or Password');
             }
-            
+           
+            $ip = whatsMyIP();
+            issabelpbx_log(IPBX_LOG_SECURITY, "Invalid Login ($username) from $ip");
+ 
             //show fop option if enabled, probobly doesnt belong on the
             //login page
             $login['panel'] = false;
