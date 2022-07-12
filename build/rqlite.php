@@ -1149,6 +1149,7 @@ class DB_rqlite extends DB_common
         }
 
         $data = array();
+        if(!isset($params)) { $params = array(); }
         if(count($params)>0){
             $dat = array();
             $dat[] = $query;
