@@ -387,7 +387,8 @@ class DB_rqlite extends DB_common
         if(isset($res['results'][0]['values'])) {
             return $res['results'][0]['values'];
         } else {
-            return array();
+            $ret = array();
+            return $ret;
        }
     }
 
