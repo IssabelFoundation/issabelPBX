@@ -171,6 +171,7 @@ if (isset($_FILES['pattern_file']) && $_FILES['pattern_file']['tmp_name'] != '')
 
 //
 // Use a hash of the value inserted to get rid of duplicates
+$dialpattern_array = array();
 $dialpattern_insert = array();
 $p_idx = 0;
 $n_idx = 0;
