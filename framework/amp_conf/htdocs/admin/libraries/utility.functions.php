@@ -24,18 +24,28 @@ function issabelpbx_log($level, $message) {
 	$php_error_handler = false;
 	$bt = debug_backtrace();
 
-	if (isset($bt[1]) && $bt[1]['function'] == 'issabelpbx_error_handler') {
-		$php_error_handler = true;
-	} elseif (isset($bt[1]) && $bt[1]['function'] == 'out' || $bt[1]['function'] == 'die_issabelpbx') {
-		$file_full = $bt[1]['file'];
-		$line = $bt[1]['line'];
-	} elseif (basename($bt[0]['file']) == 'notifications.class.php') {
-		$file_full = $bt[2]['file'];
-		$line = $bt[2]['line'];
-	} else {
-		$file_full = $bt[0]['file'];
-		$line = $bt[0]['line'];
-	}
+        if (isset($bt[1])) {
+                if($bt[1]['function'] == 'issabelpbx_error_handler') {
+                        $php_error_handler = true;
+                } elseif ($bt[1]['function'] == 'out' || $bt[1]['function'] == 'die_issabelpbx') {
+                        $file_full = $bt[1]['file'];
+                        $line = $bt[1]['line'];
+                } elseif (basename($bt[0]['file']) == 'notifications.class.php') {
+                        $file_full = $bt[2]['file'];
+                        $line = $bt[2]['line'];
+                } else {
+                        $file_full = $bt[0]['file'];
+                        $line = $bt[0]['line'];
+                }
+        } else {
+                if (basename($bt[0]['file']) == 'notifications.class.php') {
+                        $file_full = $bt[2]['file'];
+                        $line = $bt[2]['line'];
+                } else {
+                        $file_full = $bt[0]['file'];
+                        $line = $bt[0]['line'];
+                }
+        }
 
 	if (!$php_error_handler) {
 		$file_base = basename($file_full);
