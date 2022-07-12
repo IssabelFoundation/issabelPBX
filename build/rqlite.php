@@ -384,8 +384,11 @@ class DB_rqlite extends DB_common
         if (DB::isError($res)) {
             return $res;
         }
-
-        return $res['results'][0]['values'];
+        if(isset($res['results'][0]['values'])) {
+            return $res['results'][0]['values'];
+        } else {
+            return array();
+       }
     }
 
 
