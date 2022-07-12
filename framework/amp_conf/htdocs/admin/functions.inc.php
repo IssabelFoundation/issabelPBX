@@ -64,7 +64,7 @@ require_once($dirname . '/helpers/html_helper.php');
 //form generation
 if (!defined('BASEPATH')){define('BASEPATH', '');}
 if (!function_exists('get_instance')) {
-    function get_instance(){return new ci_def();}
+    function &get_instance(){$def = new ci_def(); return $def;}
 }
 if (!class_exists('ci_def')) {
     class ci_def {function __construct(){$this->lang = new ci_lan_def(); $this->config = new ci_config(); $this->uri = new ci_uri_string();}}
