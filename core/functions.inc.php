@@ -5501,18 +5501,19 @@ function core_devices_add($id,$tech,$dial,$devicetype,$user,$description,$emerge
     }
 
     $emergency_cid = trim($emergency_cid);
-    if(is_callable('get_magic_quotes_gpc')) {
-        if(!get_magic_quotes_gpc()) {
-            if(!empty($emergency_cid))
-                $emergency_cid = $db->escapeSimple($emergency_cid);
-            if(!empty($description))
-                $description = $db->escapeSimple($description);
-        }
+    if (version_compare(phpversion(),'7.0.0','>')) {
+        if(!empty($emergency_cid)) $emergency_cid = $db->escapeSimple($emergency_cid);
+        if(!empty($description)) $description = $db->escapeSimple($description);
     } else {
-        if(!empty($emergency_cid))
-            $emergency_cid = $db->escapeSimple($emergency_cid);
-        if(!empty($description))
-            $description = $db->escapeSimple($description);
+        if(is_callable('get_magic_quotes_gpc')) {
+            if(!get_magic_quotes_gpc()) {
+                if(!empty($emergency_cid)) $emergency_cid = $db->escapeSimple($emergency_cid);
+                if(!empty($description)) $description = $db->escapeSimple($description);
+            }
+        } else {
+            if(!empty($emergency_cid)) $emergency_cid = $db->escapeSimple($emergency_cid);
+            if(!empty($description)) $description = $db->escapeSimple($description);
+        }
     }
 
     //insert into devices table
@@ -6388,20 +6389,27 @@ function core_users_add($vars, $editmode=false) {
     $recording_ondemand = 'disabled';
   }
 
-    //escape quotes and any other bad chars:
-    if(is_callable('get_magic_quotes_gpc')) {
-        if(!get_magic_quotes_gpc()) {
-            $outboundcid = isset($outboundcid) ? $db->escapeSimple($outboundcid) : '';
-            $outboundcid_db = str_replace('\"','"',$outboundcid);
-            $name = isset($name) ? $db->escapeSimple($name) : '';
-            $name_db = str_replace('\"','"',$name);
-        }
-    } else {
-        $outboundcid = isset($outboundcid) ? $db->escapeSimple($outboundcid) : '';
-        $outboundcid_db = str_replace('\"','"',$outboundcid);
-        $name = isset($name) ? $db->escapeSimple($name) : '';
-        $name_db = str_replace('\"','"',$name);
-    }
+  //escape quotes and any other bad chars:
+  if (version_compare(phpversion(),'7.0.0','>')) {
+      $outboundcid = isset($outboundcid) ? $db->escapeSimple($outboundcid) : '';
+      $outboundcid_db = str_replace('\"','"',$outboundcid);
+      $name = isset($name) ? $db->escapeSimple($name) : '';
+      $name_db = str_replace('\"','"',$name);
+  } else {
+      if(is_callable('get_magic_quotes_gpc')) {
+          if(!get_magic_quotes_gpc()) {
+              $outboundcid = isset($outboundcid) ? $db->escapeSimple($outboundcid) : '';
+              $outboundcid_db = str_replace('\"','"',$outboundcid);
+              $name = isset($name) ? $db->escapeSimple($name) : '';
+              $name_db = str_replace('\"','"',$name);
+          }
+      } else {
+          $outboundcid = isset($outboundcid) ? $db->escapeSimple($outboundcid) : '';
+          $outboundcid_db = str_replace('\"','"',$outboundcid);
+          $name = isset($name) ? $db->escapeSimple($name) : '';
+          $name_db = str_replace('\"','"',$name);
+      }
+  }
 
     //if voicemail is enabled, set the box@context to use
     //havn't checked but why is voicemail needed on users anyway?  Doesn't exactly make it modular !
