@@ -255,7 +255,8 @@ class DB_rqlite extends DB_common
 
         if(is_numeric($col)) {
             $value = $res['results'][0]['values'][0][$col];
-            return array($value);
+            $ret = array($value);
+            return $ret;
         } else {
             $colnames = $res['results'][0]['columns'];
             $newarray=array();
