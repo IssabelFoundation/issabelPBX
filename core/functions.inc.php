@@ -7357,7 +7357,8 @@ function core_trunks_get_dialrules($trunknum = false) {
   if ($trunknum === false) {
     $sql = "SELECT * FROM `trunk_dialpatterns` ORDER BY `trunkid`, `seq`";
   } else {
-    $trunknum = q($db->escapeSimple($trunknum));
+    $trunknum = $db->escapeSimple($trunknum);
+    $trunknum = q($trunknum);
     $sql = "SELECT * FROM `trunk_dialpatterns` WHERE `trunkid` = $trunknum  ORDER BY `seq`";
   }
   $patterns = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
