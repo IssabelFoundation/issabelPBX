@@ -596,7 +596,7 @@ if ($helptext != '') {
             <input type="hidden" name="action" value=""/>
             <input type="hidden" name="tech" value="<?php echo $tech?>"/>
             <input type="hidden" name="provider" value="<?php echo $provider?>"/>
-            <input type="hidden" name="sv_trunk_name" value="<?php echo $trunkname?>"/>
+            <input type="hidden" name="sv_trunk_name" value="<?php echo $trunk_name?>"/>
             <input type="hidden" name="sv_usercontext" value="<?php echo $usercontext?>"/>
             <input type="hidden" name="sv_channelid" value="<?php echo $channelid?>"/>
             <input id="npanxx" name="npanxx" type="hidden" />
