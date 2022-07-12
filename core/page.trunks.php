@@ -762,6 +762,7 @@ END;
     </tr>
 <?php
   }
+  if(!isset($idx)) $idx=0;
   $next_idx = count($dialpattern_array);
 ?>
     <tr>
