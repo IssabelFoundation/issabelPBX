@@ -9,6 +9,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 $display='trunks'; 
 $extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
 $trunknum = ltrim($extdisplay,'OUT_');
+if(!isset($tabindex)) $tabindex=1;
 
 $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
 // Now check if the Copy Trunks submit button was pressed, in which case we duplicate the trunk
