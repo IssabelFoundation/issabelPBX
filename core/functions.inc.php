@@ -3106,7 +3106,8 @@ function core_do_get_config($engine) {
 
           $password = $route['password'];
           foreach ($trunks as $trunk_id) {
-            if (isset($trunk_table[$trunk_id])) switch(strtolower($trunk_table[$trunk_id]['tech'])) {
+            if (isset($trunk_table[$trunk_id])) {
+				switch(strtolower($trunk_table[$trunk_id]['tech'])) {
             case 'dundi':
               $trunk_macro = 'dialout-dundi';
               break;
@@ -3121,6 +3122,7 @@ function core_do_get_config($engine) {
                             $trunk_macro, $trunk_id . ',' . $pattern['prepend_digits'] . '${EXTEN' . $offset . '},' . $password . ',' . $trunk_table[$trunk_id]['continue']));
             $password = '';
                         $trunk_type_needed['macro-' . $trunk_macro] = true;
+          }
           }
                     if ($route['dest']) {
                         // Put back the saved CID since each trunk attempt screws with it and set KEEPCID since this is
