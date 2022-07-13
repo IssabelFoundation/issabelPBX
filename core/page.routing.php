@@ -123,7 +123,7 @@ if (isset($_REQUEST["trunkpriority"])) {
 	if (!$trunkpriority) {
 		$trunkpriority = array();
 	}
-	
+        if($repotrunkkey=="") $repotrunkkey=0;	
 	// delete blank entries and reorder
 	foreach (array_keys($trunkpriority) as $key) {
 		if ($trunkpriority[$key] == '') {
