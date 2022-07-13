@@ -7448,7 +7448,9 @@ function core_trunks_readDialRulesFile() {
 // function core_routing_getroutecid($route)
 function core_routing_get($route_id) {
   global $db;
-  $sql = 'SELECT a.*, b.seq FROM `outbound_routes` a JOIN `outbound_route_sequence` b ON a.route_id = b.route_id WHERE a.route_id='.q($db->escapeSimple($route_id));
+  $rid = $db->escapeSimple($route_id);
+  $rid = q($rid);
+  $sql = 'SELECT a.*, b.seq FROM `outbound_routes` a JOIN `outbound_route_sequence` b ON a.route_id = b.route_id WHERE a.route_id='.$rid;
   $route = sql($sql,"getRow",DB_FETCHMODE_ASSOC);
   return $route;
 }
