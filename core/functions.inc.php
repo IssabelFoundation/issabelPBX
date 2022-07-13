@@ -5345,6 +5345,9 @@ function core_did_add($incoming,$target=false){
     //
     $existing=core_did_get($extension,$cidnum);
 
+    if(!isset($ringing)) $ringing='';
+    if(!isset($pricid)) $pricid='';
+
     if (empty($existing)) {
         //Strip <> just to be on the safe side otherwise this is not deleteable from the GUI
              $invalidDIDChars = array('<','>');
