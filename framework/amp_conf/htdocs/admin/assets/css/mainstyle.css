@@ -559,3 +559,10 @@ table.box>tr>td {
   padding:5px;
 }
 
+.ui-menu, .ui-menu-item {
+  display:flex;
+}
+
+.ui-state-highlight, .ui-state-focus {
+  width:100%;
+}
