@@ -1207,6 +1207,9 @@ class DB_rqlite extends DB_common
                 if(isset($dat['results'][0]['rows_affected'])) {
                     apcu_store('rows_affected_'.$this->_uniqueid,$dat['results'][0]['rows_affected'],2);
                 }
+                if(isset($dat['results'][0]['last_insert_id'])) {
+                    apcu_store('last_insert_id_'.$this->_uniqueid,$dat['results'][0]['last_insert_id'],2);
+                }
             }
             return $dat;
         } else {
@@ -1220,6 +1223,15 @@ class DB_rqlite extends DB_common
                 }
             }
             return $result;
+        }
+    }
+
+    public function insert_id() {
+        if($this->_apcuAvailable) {
+            $lastid = apcu_fetch('last_insert_id_'.$this->_uniqueid,$ok);
+            if($ok) { return $lastid; } else { return 0; }
+        } else {
+            return 0;
         }
     }
 
