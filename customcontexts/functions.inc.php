@@ -525,7 +525,7 @@ function customcontexts_customcontextsadmin_get($context) {
 //add a single context for admin
 function customcontexts_customcontextsadmin_add($context,$description) {
     global $db;
-    $sql = "insert customcontexts_contexts_list (context, description) VALUES ('$context','$description')";
+    $sql = "insert into customcontexts_contexts_list (context, description) VALUES ('$context','$description')";
     $db->query($sql);
     needreload();
 }
@@ -554,7 +554,7 @@ function customcontexts_customcontextsadmin_editincludes($context,$includes) {
     $sql = "delete from customcontexts_includes_list  where context = '$context'";
     $db->query($sql);
     foreach ($includes as $key=>$val) {
-        $sql = "insert customcontexts_includes_list (context, include, description) values ('$context','$key','$val')";
+        $sql = "insert into customcontexts_includes_list (context, include, description) values ('$context','$key','$val')";
         $db->query($sql);
     }
     needreload();
@@ -739,7 +739,7 @@ function customcontexts_customcontexts_get($context) {
 //add a new custom context for custom contexts page
 function customcontexts_customcontexts_add($context,$description,$dialrules,$faildest,$featurefaildest,$failpin,$featurefailpin) {
     global $db;
-    $sql = "insert customcontexts_contexts (context, description, dialrules, faildestination, featurefaildestination, failpin, featurefailpin) VALUES ('$context','$description','$dialrules','$faildest','$featurefaildest','$failpin','$featurefailpin')";
+    $sql = "insert into customcontexts_contexts (context, description, dialrules, faildestination, featurefaildestination, failpin, featurefailpin) VALUES ('$context','$description','$dialrules','$faildest','$featurefaildest','$failpin','$featurefailpin')";
     $db->query($sql);
     needreload();
 }
@@ -788,7 +788,7 @@ function customcontexts_customcontexts_editincludes($context,$includes,$newconte
             if (is_numeric($val[sort])) {
                 $sort = $val[sort];
             }
-            $sql = "insert customcontexts_includes (context, include, timegroupid, sort, userules) values ('$newcontext','$key', $timegroup, $sort, '$userules')";
+            $sql = "insert into customcontexts_includes (context, include, timegroupid, sort, userules) values ('$newcontext','$key', $timegroup, $sort, '$userules')";
             $db->query($sql);
         }
     }
