@@ -103,6 +103,7 @@ function customcontexts_hook_core($viewing_itemid, $target_menuid) {
 
 function customcontexts_getincludeslist($context) {
     global $db;
+    $tmparray=array();
 //    $sql = "select include, description from customcontexts_includes_list where context = '".$context."' order by description";
     $sql = "SELECT include, customcontexts_includes_list.description, 
                     COUNT(customcontexts_contexts_list.context) AS preemptcount  
