@@ -172,6 +172,11 @@ function customcontexts_getincludes($context) {
           outbound_route_sequence.seq,
                     customcontexts_contexts_list.description, 
                     customcontexts_includes_list.description";
+
+    if(preg_match("/qlite/i",$amp_conf['AMPDBENGINE'])) {
+        $sql = str_replace("IF(","IIF(",$sql);
+    }
+
     $results = sql($sql,'getAll');
     foreach ($results as $val){
         $tmparray[] = array($val[0], $val[1], $val[2], $val[3], $val[4], $val[5], $val[6]);
