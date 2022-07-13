@@ -232,11 +232,11 @@ function customcontexts_get_config($engine) {
             // remove blanks
             if ($dialpattern[$key] == "") {
                 unset($dialpattern[$key]);
-            }
-            
-            // remove leading underscores (we do that on backend)
-            if ($dialpattern[$key][0] == "_") {
-                $dialpattern[$key] = substr($dialpattern[$key],1);
+            } else {
+                // remove leading underscores (we do that on backend)
+                if ($dialpattern[$key][0] == "_") {
+                    $dialpattern[$key] = substr($dialpattern[$key],1);
+                }
             }
         }
         // check for duplicates, and re-sequence
@@ -694,8 +694,8 @@ function customcontexts_customcontexts_configprocess() {
     $newcontext= isset($_REQUEST['newcontext'])?$_REQUEST['newcontext']:null;
     $description= isset($_REQUEST['description'])?$_REQUEST['description']:null;
     $dialrules= isset($_REQUEST['dialpattern'])?$_REQUEST['dialpattern']:null;
-    $faildest= isset($_REQUEST["goto0"])?$_REQUEST[$_REQUEST['goto0'].'0']:null;
-    $featurefaildest= isset($_REQUEST["goto1"])?$_REQUEST[$_REQUEST['goto1'].'1']:null;
+    $faildest= isset($_REQUEST["goto0"])?isset($_REQUEST[$_REQUEST['goto0'].'0'])?$_REQUEST[$_REQUEST['goto0'].'0']:null:null;
+    $featurefaildest= isset($_REQUEST["goto1"])?isset($_REQUEST[$_REQUEST['goto1'].'1'])?$_REQUEST[$_REQUEST['goto1'].'1']:null:null;
     $failpin= isset($_REQUEST['failpin'])?$_REQUEST['failpin']:null;
     $featurefailpin= isset($_REQUEST['featurefailpin'])?$_REQUEST['featurefailpin']:null;
 
@@ -775,19 +775,19 @@ function customcontexts_customcontexts_editincludes($context,$includes,$newconte
         $newcontext = $context;
     }
     foreach ($includes as $key=>$val) {
-        if ($val[allow] <> 'no') {
+        if ($val['allow'] <> 'no') {
             $timegroup = 'null';
             $sort = 0;
             $userules = null;
-            if (is_numeric($val[allow])) {
-                $timegroup = $val[allow];
+            if (is_numeric($val['allow'])) {
+                $timegroup = $val['allow'];
             } else {
-                if ($val[allow] <> 'yes') {
-                    $userules = $val[allow];
+                if ($val['allow'] <> 'yes') {
+                    $userules = $val['allow'];
                 }
             }
-            if (is_numeric($val[sort])) {
-                $sort = $val[sort];
+            if (is_numeric($val['sort'])) {
+                $sort = $val['sort'];
             }
             $sql = "insert into customcontexts_includes (context, include, timegroupid, sort, userules) values ('$newcontext','$key', $timegroup, $sort, '$userules')";
             $db->query($sql);
