@@ -1264,6 +1264,14 @@ class DB_rqlite extends DB_common
         if($this->debug==1) {
             file_put_contents("/tmp/rqlite_select.log",print_r($data,1),FILE_APPEND);
         }
+
+        // last_insert_rowid hack, used in ivr module
+        if(preg_match("/SELECT last_insert_rowid/i",$data_string)) {
+                $res = array();
+                $res['results'][0]['values'][0][0]=$this->insert_id();
+                return $res;
+        }
+
         $headers=array('Content-Type: application/json','Content-Length: ' . strlen($data_string));
         $ch = curl_init($this->dsn['database']."/db/query");
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);

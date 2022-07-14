@@ -427,7 +427,7 @@ function directory_save_dir_details($vals){
 		if(DB::IsError($foo)) {
 			die_issabelpbx(print_r($vals,true).' '.$foo->getDebugInfo());
 		}
-		$sql = ( ($amp_conf["AMPDBENGINE"]=="sqlite3") ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
+		$sql = ( (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
 		$vals['id'] = $db->getOne($sql);
 		if (DB::IsError($foo)){
 			die_issabelpbx($foo->getDebugInfo());

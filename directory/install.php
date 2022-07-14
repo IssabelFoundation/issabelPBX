@@ -138,7 +138,7 @@ if (!$migrated) {
 			die_issabelpbx(_('Error migrating to new directory! ERROR: Could not create new Directory.' . $new->getDebugInfo()));
 		}
 		//get the id of the new directory
-		$sql = ( ($amp_conf["AMPDBENGINE"] == "sqlite3") ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
+		$sql = ((preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
 		$newdir = $db->getOne($sql);
 		$dirdest = 'directory,' . $newdir  . ',1';
 	

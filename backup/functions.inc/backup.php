@@ -187,7 +187,8 @@ function backup_put_backup($var) {
 		die_issabelpbx($ret->getDebugInfo());
 	}
 
-	$sql = ($amp_conf["AMPDBENGINE"] == "sqlite3") ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()';
+	$sql = (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()';
+
 	$var['id'] = $var['id'] ? $var['id'] : $db->getOne($sql);
 
 	//save server details
