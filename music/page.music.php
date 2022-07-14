@@ -115,8 +115,8 @@ function build_list() {
 		}
 	}
 	closedir($handle);
-
-	return (isset($file_array))?$file_array:null;  //return the size of the array
+	$emtpy = array();
+	return (isset($file_array))?$file_array:$empty;
 }
 
 function draw_list($file_array, $path_to_dir, $category) {
