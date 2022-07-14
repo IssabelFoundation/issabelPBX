@@ -193,6 +193,9 @@ msgstr ""
 msgid "Paging and Intercom"
 msgstr "Intercom y Voceo"
 
+msgid "Paging And Intercom"
+msgstr "Intercom y Voceo"
+
 msgid "Applications"
 msgstr ""
 

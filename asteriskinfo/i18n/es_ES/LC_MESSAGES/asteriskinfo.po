@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Asterisk Info"
-msgstr ""
+msgstr "Información sobre Asterisk"
 
 msgid "Reports"
 msgstr ""

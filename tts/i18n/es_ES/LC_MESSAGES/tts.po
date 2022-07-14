@@ -26,6 +26,12 @@ msgstr "Texto al Habla"
 msgid "Text to Speech Engines"
 msgstr "Motores de Texto al Habla"
 
+msgid "Text To Speech"
+msgstr "Texto al Habla"
+
+msgid "Text To Speech Engines"
+msgstr "Motores de Texto al Habla"
+
 msgid "Add Text to Speech"
 msgstr "Añadir Texto al Habla"
 

@@ -107,6 +107,12 @@ msgstr "Clase de Servicio"
 msgid "Class of Service Admin"
 msgstr "Administrar Clases de Servicio"
 
+msgid "Class Of Service"
+msgstr "Clase de Servicio"
+
+msgid "Class Of Service Admin"
+msgstr "Administrar Clases de Servicio"
+
 msgid "Dial Rules"
 msgstr "Reglas de Marcado"
 
