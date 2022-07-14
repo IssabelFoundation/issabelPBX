@@ -136,3 +136,6 @@ msgstr "Archivos de bitácora de Asterisk"
 
 msgid "Show"
 msgstr "Mostrar"
+
+msgid "Asterisk Logfile Settings"
+msgstr "Configuraciones de archivos de bitácora"
