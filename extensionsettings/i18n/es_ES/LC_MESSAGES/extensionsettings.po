@@ -1,0 +1,46 @@
+msgid "Extension Settings"
+msgstr "Configuración de Extensiones"
+
+msgid "Settings"
+msgstr "Configuraciones"
+
+msgid ""
+"Creates a list of all extensions and their current settings for CW, CF, CFB, "
+"CFU, VMXB and VMXU"
+msgstr "Crea una lista de todas las extensiones y sus configuraciones para CW, CF, CFB, CFU, VMXB y VMXU"
+
+msgid "Extension"
+msgstr "Extensión"
+
+msgid "VmX Locator"
+msgstr "Localizador VmX"
+
+msgid "Follow-Me"
+msgstr "Sígueme"
+
+msgid "Call status"
+msgstr "Estado de Llamada"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Busy"
+msgstr "Ocupado"
+
+msgid "Unavail"
+msgstr "No Disponible"
+
+msgid "Operator"
+msgstr "Operadora"
+
+msgid "Press 0"
+msgstr "Pulsa 0"
+
+msgid "Press 1"
+msgstr "Pulsa 1"
+
+msgid "Press 2"
+msgstr "Pulsa 2"
+
+msgid "IssabelPBX Extension Settings"
+msgstr "Configuración de Extensiones de IssabelPBX"

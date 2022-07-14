@@ -69,12 +69,12 @@ foreach ($full_list as $key => $value) {
   $html_txt_arr[$sub_heading] .=  "<td colspan=\"5\" align=\"center\"><strong>".$callstatus."</strong></td>";
   $html_txt_arr[$sub_heading] .=  "</tr><td>&nbsp;</td>";
   $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>".$status."</strong></td>";
-  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>Busy</strong></td>";
-  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>Unavail</strong></td>";
-  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>Operator</strong></td>";
-  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>Press 0</strong></td>";
-  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>Press 1</strong></td>";
-  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>Press 2</strong></td>";
+  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>"._('Busy')."</strong></td>";
+  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>"._('Unavail')."</strong></td>";
+  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>"._('Operator')."</strong></td>";
+  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>"._('Press 0')."</strong></td>";
+  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>"._('Press 1')."</strong></td>";
+  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>"._('Press 2')."</strong></td>";
   $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>FM</strong></td>";
   $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>FM-list</strong></td>";
   $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>CW</strong></td>";
