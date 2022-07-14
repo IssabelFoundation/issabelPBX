@@ -569,6 +569,8 @@ ul > li.ui-menu-item > a.ui-state-focus {
 
 ul > li.ui-menu-item > a.ui-state-highlight {
  width:100%;
+ border: 1px solid #d1c5d8;
+ margin:-1px;
 }
 
 .ui-widget-content {
