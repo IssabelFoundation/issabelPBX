@@ -563,6 +563,14 @@ table.box>tr>td {
   display:flex;
 }
 
-.ui-state-highlight, .ui-state-focus {
-  width:100%;
+ul > li.ui-menu-item > a.ui-state-focus {
+ width:100%;
+}
+
+ul > li.ui-menu-item > a.ui-state-highlight {
+ width:100%;
+}
+
+.ui-widget-content {
+  background: #f6f6f9;
 }
