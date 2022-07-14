@@ -319,7 +319,7 @@ msgid "Dial Voicemail"
 msgstr "Llamar al buzón de voz"
 
 msgid "Voicemail Admin"
-msgstr ""
+msgstr "Administración de Buzones de Voz"
 
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "No se pudo conectar con el gestor de Asterisk con"

@@ -1249,7 +1249,7 @@ msgstr ""
 
 #: amp.i18n.php:42
 msgid "DAHDI Channel DIDs"
-msgstr ""
+msgstr "DIDs de canales DAHDI"
 
 #: ../core/page.dahdichandids.php:66
 msgid ""
