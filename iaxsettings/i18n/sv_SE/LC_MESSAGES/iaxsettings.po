@@ -76,7 +76,7 @@ msgid "already exists"
 msgstr "finns redan"
 
 msgid "Edit Settings"
-msgstr "Redigera inställningar"
+msgstr "Redigera inställningar IAX"
 
 msgid "ERRORS"
 msgstr "FEL"

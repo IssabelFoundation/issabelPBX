@@ -71,7 +71,7 @@ msgstr ""
 msgid "already exists"
 msgstr ""
 
-msgid "Edit Settings"
+msgid "Edit IAX Settings"
 msgstr ""
 
 msgid "ERRORS"

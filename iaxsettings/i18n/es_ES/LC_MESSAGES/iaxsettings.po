@@ -57,8 +57,8 @@ msgstr ""
 msgid "already exists"
 msgstr "ya existe"
 
-msgid "Edit Settings"
-msgstr "Modificar Configuraciones"
+msgid "Edit IAX Settings"
+msgstr "Modificar Configuraciones IAX"
 
 msgid "ERRORS"
 msgstr ""
