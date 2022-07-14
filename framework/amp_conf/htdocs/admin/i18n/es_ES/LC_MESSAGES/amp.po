@@ -6119,8 +6119,8 @@ msgstr "(sin mensaje)"
 #~ msgid "Inbound Call Control"
 #~ msgstr "Control de llamadas entrantes"
 
-#~ msgid "Module Admin"
-#~ msgstr "Administración de módulos"
+msgid "Module Admin"
+msgstr "Administración de módulos"
 
 #~ msgid "System Administration"
 #~ msgstr "Administración del sistema"
