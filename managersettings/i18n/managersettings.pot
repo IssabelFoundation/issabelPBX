@@ -53,7 +53,7 @@ msgid "already exists"
 msgstr ""
 
 #: ../page.managersettings.php:48
-msgid "Edit Settings"
+msgid "Edit Asterisk Manager Settings"
 msgstr ""
 
 #: ../page.managersettings.php:67

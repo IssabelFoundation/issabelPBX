@@ -48,7 +48,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   }
 
 ?>
-  <h2><?php echo _("Edit Settings"); ?></h2>
+  <h2><?php echo _("Edit Asterisk Manager Settings"); ?></h2>
 
 <?php
 
