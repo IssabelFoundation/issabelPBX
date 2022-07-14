@@ -130,6 +130,9 @@ msgstr "El campo 'Lectura' no tiene el formato correcto."
 msgid "The manager write field is not well formatted."
 msgstr "El campo 'Escritura' no tiene el formato correcto."
 
+msgid "Asterisk Manager Users"
+msgstr "Usuarios de Asterisk Manager"
+
 #~ msgid "The manager read and write properties cannot be empty."
 #~ msgstr ""
 #~ "Los permisos del gestor de lectura y escritura no pueden estar vacíos."
