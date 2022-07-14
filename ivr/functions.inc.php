@@ -634,7 +634,7 @@ function ivr_save_details($vals){
 		if($db->IsError($foo)) {
 			die_issabelpbx(print_r($vals,true).' '.$foo->getDebugInfo());
 		}
-		$sql = ( ($amp_conf["AMPDBENGINE"]=="sqlite3") ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
+		$sql = ( (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
 		$vals['id'] = $db->getOne($sql);
 		if ($db->IsError($foo)){
 			die_issabelpbx($foo->getDebugInfo());
