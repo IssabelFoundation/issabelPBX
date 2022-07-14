@@ -576,3 +576,7 @@ ul > li.ui-menu-item > a.ui-state-highlight {
 .ui-widget-content {
   background: #f6f6f9;
 }
+
+.ui-dialog {
+  background: #fff !important;
+}
