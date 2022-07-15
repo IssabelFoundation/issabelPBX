@@ -1115,7 +1115,7 @@ msgstr "Conectividad"
 
 #: amp_conf/htdocs/admin/views/footer.php:78
 msgid "Continue"
-msgstr ""
+msgstr "Continuar"
 
 #: ../core/page.trunks.php:578
 msgid "Continue if Busy"
@@ -4425,7 +4425,7 @@ msgstr "Grupo Horario"
 
 #: amp_conf/htdocs/admin/views/login.php:12
 msgid "To get started, please enter your credentials:"
-msgstr ""
+msgstr "Para comenzar, ingrese sus credenciales:"
 
 #: ../core/page.routing.php:658
 msgid "Toll-free"
@@ -5662,7 +5662,10 @@ msgstr ""
 #: amp_conf/htdocs/admin/views/obe.php:36
 #: amp_conf/htdocs/admin/views/obe.php:48
 msgid "password"
-msgstr ""
+msgstr "contraseña"
+
+msgid "Login"
+msgstr "Acceso"
 
 #: ../core/page.routing.php:514 ../core/page.trunks.php:628
 msgid "prefix"
@@ -5801,7 +5804,7 @@ msgstr ""
 #: amp_conf/htdocs/admin/views/login.php:16
 #: amp_conf/htdocs/admin/views/obe.php:25
 msgid "username"
-msgstr ""
+msgstr "usuario"
 
 #: ../core/page.trunks.php:915
 msgid "wherever the number to dial should go.<br><br><b>examples:</b><br>"

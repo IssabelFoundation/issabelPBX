@@ -787,7 +787,7 @@ $(document).ready(function() {
     $('#login_admin').click(function() {
         var form = $('#login_form').html();
         $('<div></div>').html(form).dialog({
-            title: 'Login',
+            title: ipbx.msg.framework.login,
             resizable: false,
             modal: true,
             position: ['center', 'center'],

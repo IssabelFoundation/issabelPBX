@@ -96,6 +96,7 @@ $ipbx['msg']['framework']['weakSecret']['types'] = _("The secret must contain at
 $ipbx['msg']['framework']['add'] = _("Add");
 $ipbx['msg']['framework']['reloading'] = _("Reloading...");
 $ipbx['msg']['framework']['pleasewait'] = _("Please Wait");
+$ipbx['msg']['framework']['login'] = _("Login");
 
 
 if ($covert) {
