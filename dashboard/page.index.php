@@ -190,7 +190,7 @@ function show_sysstats() {
 	global $sysinfo;
 	$out = '';
 	
-	$out .= "<h3 class=\"ui-widget-header  ui-state-default ui-corner-all\">"._("System Statistics")."</h3>";
+	$out .= "<h3 class=\"ui-widget-header ui-corner-all\">"._("System Statistics")."</h3>";
 	$out .= "<h4>"._("Processor")."</h4>";
 	$loadavg = $sysinfo->loadavg(true);
 	$out .= draw_box(_("Load Average"), $loadavg['avg'][0]);
@@ -256,7 +256,7 @@ function show_aststats() {
 	$classes = array(0=>'graphok');
 	$max_chans = $max_calls * 2;
 	
-	$out .= "<h3 class=\"ui-widget-header  ui-state-default ui-corner-all\">".sprintf(_("%s Statistics"), DASHBOARD_ISSABELPBX_BRAND)."</h3>";
+	$out .= "<h3 class=\"ui-widget-header ui-corner-all\">".sprintf(_("%s Statistics"), DASHBOARD_ISSABELPBX_BRAND)."</h3>";
 	$out .= draw_graph(_('Total active calls'), '', $channels['total_calls'], $max_calls, $classes , false, BAR_WIDTH_LEFT);
 	$out .= draw_graph(_('Internal calls'), '', $channels['internal_calls'], $max_calls, $classes , false, BAR_WIDTH_LEFT);
 	$out .= draw_graph(_('External calls'), '', $channels['external_calls'], $max_calls, $classes , false, BAR_WIDTH_LEFT);
@@ -294,7 +294,7 @@ function show_aststats() {
 function show_sysinfo() {
 	global $sysinfo;
 	global $astinfo;
-	$out = "<h3 class=\"ui-widget-header  ui-state-default ui-corner-all\">"._("Uptime")."</h3>";
+	$out = "<h3 class=\"ui-widget-header ui-corner-all\">"._("Uptime")."</h3>";
 	$out .= '<table summary="'._('System Information Table').'">';
 	/*
 	$out .= '<tr><th>Distro:</th><td>'.$sysinfo->distro().'</td></tr>';
@@ -324,7 +324,7 @@ function show_procinfo() {
 	global $amp_conf;
 	$out = '';
 	
-	$out .= "<h3 class=\"ui-widget-header  ui-state-default ui-corner-all\">"._("Server Status")."</h3>";
+	$out .= "<h3 class=\"ui-widget-header ui-corner-all\">"._("Server Status")."</h3>";
 	// asterisk
 	if ($astver = $astinfo->check_asterisk()) {
 		$out .= draw_status_box(_("Asterisk"), "ok", sprintf(_('Asterisk is running: %s'),$astver));
@@ -411,7 +411,7 @@ function show_syslog(&$md5_checksum) {
 	
 	$items = $notify->list_all($showall);
 
-	$out .= "<h3 class=\"ui-widget-header  ui-state-default ui-state-default ui-corner-all\">".sprintf(_("%s Notices"), DASHBOARD_ISSABELPBX_BRAND)."</h3>";
+	$out .= "<h3 class=\"ui-widget-header ui-corner-all\">".sprintf(_("%s Notices"), DASHBOARD_ISSABELPBX_BRAND)."</h3>";
 	
 	if (count($items)) {
 		$out .= '<ul>';
