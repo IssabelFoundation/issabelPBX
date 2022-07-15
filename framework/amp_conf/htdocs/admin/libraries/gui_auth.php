@@ -38,6 +38,7 @@ if (!isset($_SESSION['AMP_user'])) {
             break;
         case 'database':
         default:
+            if(is_array($password)) $password=$password[0];
             // not logged in, and have provided a user/pass
             $_SESSION['AMP_user'] = new ampuser($username);
             if (!$_SESSION['AMP_user']->checkPassword(sha1($password))) {
