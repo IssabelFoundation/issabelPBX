@@ -2374,7 +2374,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/views/login.php:41
 msgid "Get Support"
-msgstr ""
+msgstr "Obtener Soporte"
 
 #: amp_conf/htdocs/admin/page.modules.php:932
 #, php-format
