@@ -396,9 +396,9 @@ class component {
 			$tabindex = guielement::gettabindex();
 			$htmlout .= "\t<tr>\n";
 			$htmlout .= "\t\t<td colspan=\"2\">";
-			$htmlout .= "<h6>";
+                        $htmlout .= "<div style='margin:1.5em 0 1.5em 0;'>";
 			$htmlout .= "<input name=\"Submit\" type=\"submit\" tabindex=\"$tabindex\" value=\""._("Submit")."\">";
-			$htmlout .= "</h6>";
+			$htmlout .= "</div>";
 			$htmlout .= "</td>\n";
 			$htmlout .= "\t</tr>\n";
 		}
