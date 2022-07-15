@@ -394,7 +394,7 @@ function framework_include_js($module_name, $module_page) {
     $html = '';
 
     if (is_file('modules/' . $module_name . '/' . $module_name . '.js')) {
-        $html .= '<script type="text/javascript" src="'
+        $html .= '<script src="'
             . $_SERVER['PHP_SELF'] . '?handler=file&amp;module='
             . $module_name . '&amp;file=' . $module_name . '.js'
             . $mod_version_tag . '"></script>';
@@ -403,7 +403,7 @@ function framework_include_js($module_name, $module_page) {
         && ($module_page != $module_name)
         && is_file('modules/' . $module_name . '/' . $module_page . '.js')
     ) {
-        $html .= '<script type="text/javascript" src="'
+        $html .= '<script src="'
             . $_SERVER['PHP_SELF'] . '?handler=file&amp;module='
             . $module_name . '&amp;file=' . $module_page . '.js'
             . $mod_version_tag . '"></script>';
@@ -417,7 +417,7 @@ function framework_include_js($module_name, $module_page) {
         $file_list = scandir($js_dir);
         foreach ($file_list as $file) {
             if (substr($file,-3) == '.js' && is_file("$js_dir/$file")) {
-                $html .= '<script type="text/javascript"'
+                $html .= '<script '
                     . ' src="assets/' . $module_name . '/js/' . $file . '"></script>';
             }
         }
@@ -427,7 +427,7 @@ function framework_include_js($module_name, $module_page) {
             $file_list = scandir($js_subdir);
             foreach ($file_list as $p_file) {
                 if (substr($p_file,-3) == '.js' && is_file("$js_subdir/$p_file")) {
-                    $html .= '<script type="text/javascript" '
+                    $html .= '<script '
                         . ' src="assets/' . $module_name . '/js/'
                         . $module_page . '/' . $p_file
                         . '"></script>';
@@ -444,7 +444,7 @@ function framework_include_js($module_name, $module_page) {
         $file_list = scandir($js_dir);
         foreach ($file_list as $file) {
             if (substr($file,-3) == '.js' && is_file("$js_dir/$file")) {
-                $html .= '<script type="text/javascript"'
+                $html .= '<script '
                     . ' src="' . $_SERVER['PHP_SELF'] . '?handler=file&module='
                     . $module_name . '&file='
                     . $js_dir . '/' . $file . $mod_version_tag
@@ -463,7 +463,7 @@ function framework_include_js($module_name, $module_page) {
             sort($file_list);
             foreach ($file_list as $p_file) {
                 if (substr($p_file,-3) == '.js' && is_file("$js_subdir/$p_file")) {
-                    $html .= '<script type="text/javascript" src="'
+                    $html .= '<script src="'
                         . $_SERVER['PHP_SELF'] . '?handler=file&module='
                         . $module_name . '&file='
                         . $js_subdir . '/' . $p_file . $mod_version_tag

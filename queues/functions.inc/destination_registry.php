@@ -8,7 +8,7 @@ function queues_destinations() {
 	//return an associative array with destination and description
 	if (isset($results)) {
 		foreach($results as $result){
-				$extens[] = array('destination' => 'ext-queues,'.$result['0'].',1', 'description' => $result['1'].' <'.$result['0'].'>');
+				$extens[] = array('destination' => 'ext-queues,'.$result['0'].',1', 'description' => $result['1'].' &lt;'.$result['0'].'&gt;');
 		}
 	}
 	
