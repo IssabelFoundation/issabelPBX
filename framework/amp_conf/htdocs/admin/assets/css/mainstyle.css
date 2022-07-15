@@ -587,6 +587,7 @@ ul > li.ui-menu-item > a.ui-state-highlight {
 
 .ui-widget-content {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: #fff !important;
 }
 
 .colored-toast.swal2-icon-success {
