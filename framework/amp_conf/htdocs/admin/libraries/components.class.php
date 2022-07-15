@@ -393,10 +393,11 @@ class component {
 		// Don't put a submit button if there were not form fields generated
 		//
 		if (guielement::getformfields()) {
+			$tabindex = guielement::gettabindex();
 			$htmlout .= "\t<tr>\n";
 			$htmlout .= "\t\t<td colspan=\"2\">";
 			$htmlout .= "<h6>";
-			$htmlout .= "<input name=\"Submit\" type=\"submit\" tabindex=\"{$tabindex}\" value=\""._("Submit")."\">";
+			$htmlout .= "<input name=\"Submit\" type=\"submit\" tabindex=\"$tabindex\" value=\""._("Submit")."\">";
 			$htmlout .= "</h6>";
 			$htmlout .= "</td>\n";
 			$htmlout .= "\t</tr>\n";
