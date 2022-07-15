@@ -3652,12 +3652,12 @@ msgstr "Proporcione una descripción para esta ruta entrante"
 
 #: amp_conf/htdocs/admin/page.modules.php:690
 msgid "Publisher"
-msgstr ""
+msgstr "Editor"
 
 #: amp_conf/htdocs/admin/page.modules.php:917
 #, php-format
 msgid "Publisher: %s"
-msgstr ""
+msgstr "Editor: %s"
 
 #: ../core/functions.inc.php:801
 msgid "Put caller on hold forever"
