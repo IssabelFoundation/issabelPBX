@@ -130,6 +130,9 @@ if ($amp_conf['USE_GOOGLE_CDN_JS']) {
 	$html .= '<script type="text/javascript" src="assets/js/jquery-ui-' . $amp_conf['JQUERYUI_VER'] . '.min.js"></script>';
 }
 
+$html .= '<script src="assets/js/sweetalert2.min.js"></script>';
+$html .- '<link rel="stylesheet" href="assets/css/sweetalert2.css" type="text/css"/>';
+
 // Production versions should include the packed consolidated javascript library but if it
 // is not present (useful for development, then include each individual library below
 if ($amp_conf['USE_PACKAGED_JS'] && file_exists("assets/js/pbxlib.js")) {

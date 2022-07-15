@@ -2,10 +2,15 @@
 $html = '';
 //$html .= heading(_('Welcome!'), 3) . '<hr class="backup-hr"/>';
 if ($errors) {
-	$html .= '<div class="obe_error">';
-	$html .= _('Please correct the following errors:');
-	$html .= ul($errors);
-	$html .= '</div>';
+    $html.="
+       <script>
+         document.addEventListener('DOMContentLoaded', function(){
+           Toast.fire({
+             icon: 'error',
+             title: '${errors[0]}'
+           });
+         });
+       </script>";
 }
 $html .= '<div id="login_form">';
 $html .= form_open('config.php', 'id="loginform"');
