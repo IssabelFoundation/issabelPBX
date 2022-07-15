@@ -620,3 +620,7 @@ ul > li.ui-menu-item > a.ui-state-highlight {
 .colored-toast .swal2-html-container {
   color: white;
 }
+
+.ui-menu-item {
+  padding: 3px 0.4em 3px 0.4em !important;
+}
