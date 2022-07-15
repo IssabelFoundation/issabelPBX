@@ -407,7 +407,7 @@ class component {
 			$this->sortjsfuncts();
 
 		// Javascript
-		$htmlout .= "<script type=\"text/javascript\">\n<!--\n";
+		$htmlout .= "<script>\n<!--\n";
 		$htmlout .= "var theForm = document.$formname;\n\n";
 		
 		// TODO:	* Create standard JS to go thru each text box looking for first one not hidden and set focus
