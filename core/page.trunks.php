@@ -388,8 +388,9 @@ case "populatenpanxx10":
 //get existing trunk info
 $tresults = core_trunks_getDetails();
 
+$background="transparent";
 foreach ($tresults as $tresult) {
-    $background = ($tresult['disabled'] == 'on')?'#DDD':'';
+    $background = ($tresult['disabled'] == 'on')?'#DDD':'transparent';
     switch ($tresult['tech']) {
     case 'enum':
         $label = substr($tresult['name'],0,15)." ENUM";
@@ -445,7 +446,7 @@ if (!$tech && !$extdisplay) {
     $trunks[] = array('url'=> $baseURL.'tech=DUNDI', 'tlabel' =>  _("Add DUNDi Trunk"));
     $trunks[] = array('url'=> $baseURL.'tech=CUSTOM', 'tlabel' =>  _("Add Custom Trunk"));
     foreach ($trunks as $trunk) {
-        $label = '<span><img width="16" height="16" border="0" title="'.$trunk['tlabel'].'" alt="" src="images/core_add.png"/>&nbsp;'.$trunk['tlabel'].'</span>';
+        $label = '<span><img title="'.$trunk['tlabel'].'" alt="" src="images/core_add.png"/>&nbsp;'.$trunk['tlabel'].'</span>';
         echo "<a href=".$trunk['url'].">".$label."</a><br /><br />";
     }
 } else {
