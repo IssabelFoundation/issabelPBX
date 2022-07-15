@@ -6031,6 +6031,9 @@ msgstr "(no disponible)"
 msgid "(no-msg)"
 msgstr "(sin mensaje)"
 
+msgid "Advanced"
+msgstr "Avanzado"
+
 #~ msgid "Tools"
 #~ msgstr "Herramientas"
 
