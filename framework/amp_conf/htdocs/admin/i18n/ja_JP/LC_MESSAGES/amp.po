@@ -527,8 +527,8 @@ msgstr "mISDNトランク追加"
 
 #: amp_conf/htdocs/admin/helpers/issabelpbx_helpers.php:114
 #, php-format
-msgid "Add new %s &#133"
-msgstr "%s &#133を新規追加"
+msgid "Add new %s &#133;"
+msgstr "%s &#133;を新規追加"
 
 #: amp_conf/htdocs/admin/page.modules.php:76
 msgid ""

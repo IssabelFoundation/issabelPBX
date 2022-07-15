@@ -501,8 +501,8 @@ msgstr "Añadir Troncal mISDN"
 
 #: amp_conf/htdocs/admin/helpers/issabelpbx_helpers.php:114
 #, php-format
-msgid "Add new %s &#133"
-msgstr "Añadir nuevo %s &#133"
+msgid "Add new %s &#133;"
+msgstr "Añadir nuevo %s &#133;"
 
 #: amp_conf/htdocs/admin/page.modules.php:76
 msgid ""
