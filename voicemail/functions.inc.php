@@ -593,7 +593,7 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 
 	$vmxobj = new vmxObject($extdisplay);
 
-	$dval = $vmxobj->isEnabled() ? '' : 'disabled="true"';
+	$dval = $vmxobj->isEnabled() ? '' : 'disabled="disabled"';
 
 	$vmx_unavail_enabled_value = $vmxobj->getState("unavail") == "enabled" ? "checked" : "";
 	$vmx_unavail_enabled_text_box_options = $dval;
@@ -608,7 +608,7 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 	if (!$follow_me_disabled) {
 		$vmx_option_1_system_default_text_box_options = $dval;
 		if ($vmxobj->isFollowMe()) {
-			$vmx_option_1_number_text_box_options = 'disabled="true"';
+			$vmx_option_1_number_text_box_options = 'disabled="disabled"';
 			$vmx_option_1_number = '';
 			$vmx_option_1_system_default = 'checked';
 		} else {
@@ -621,13 +621,13 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 		$vmx_option_1_number = $vmxobj->getMenuOpt(1);
 	}
  
-	$vmx_option_0_system_default_text_box_options = ($disable) ? 'disabled="true"' : '';
+	$vmx_option_0_system_default_text_box_options = ($disable) ? 'disabled="disabled"' : '';
 	$vmx_option_0_number = $vmxobj->getMenuOpt(0);
 	if ($vmx_option_0_number == "") {
-		$vmx_option_0_number_text_box_options = 'disabled="true"';
+		$vmx_option_0_number_text_box_options = 'disabled="disabled"';
 		$vmx_option_0_system_default = 'checked';
 	} else {
-		$vmx_option_0_number_text_box_options = ($disable) ? 'disabled="true"' : '';
+		$vmx_option_0_number_text_box_options = ($disable) ? 'disabled="disabled"' : '';
 		$vmx_option_0_system_default = '';
 	}
 	$vmx_option_2_number_text_box_options = $dval;
