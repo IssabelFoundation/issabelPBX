@@ -535,6 +535,9 @@ msgstr ""
 msgid "Advanced Settings"
 msgstr ""
 
+msgid "Advanced"
+msgstr ""
+
 #: ../core/page.did.php:211
 msgid "Alert Info"
 msgstr ""
