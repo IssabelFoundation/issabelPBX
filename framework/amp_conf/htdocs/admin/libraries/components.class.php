@@ -387,7 +387,7 @@ class component {
 			}
 		}
 		
-		$tabindex = guielement::gettabindex();
+		//$tabindex = guielement::gettabindex();
 		// End of table
 
 		// Don't put a submit button if there were not form fields generated
@@ -396,7 +396,7 @@ class component {
 			$htmlout .= "\t<tr>\n";
 			$htmlout .= "\t\t<td colspan=\"2\">";
 			$htmlout .= "<h6>";
-			$htmlout .= "<input name=\"Submit\" type=\"submit\" tabindex=\"$tabindex\" value=\""._("Submit")."\">";
+			$htmlout .= "<input name=\"Submit\" type=\"submit\" tabindex=\"{$tabindex}\" value=\""._("Submit")."\">";
 			$htmlout .= "</h6>";
 			$htmlout .= "</td>\n";
 			$htmlout .= "\t</tr>\n";
@@ -489,6 +489,8 @@ class guielement {
 		// normally the $html will be the actual page output, obviously here in the base class it's meaningless
 		// this does mean, of course, this constructor MUST be called before any child class constructor code
 		// otherwise $html will be blanked out
+		$tabindex = $this->gettabindex();
+		$html = preg_replace("/{tabindex}/",$tabindex,$html);
 		$this->_html = $html;
 		$this->_javascript = $javascript;
 		
@@ -497,6 +499,8 @@ class guielement {
 	}
 	
 	function generatehtml() {
+		$tabindex = $this->gettabindex();
+		$this->_html = preg_replace("/{tabindex}/",$tabindex,$this->_html);
 		return $this->_html;
 	}
 	
@@ -505,7 +509,7 @@ class guielement {
 	}
 	static function gettabindex() {
 		global $_guielement_tabindex;
-		return $_guielement_tabindex;
+		return ++$_guielement_tabindex;
 	}
 	function settabindex($new_tab) {
 		global $_guielement_tabindex;
@@ -536,7 +540,7 @@ class gui_hidden extends guielement {
 		
 		// make it a new row
 		if($table) {
-			$this->_html = "\t<tr>\n\t\t<td>" . $this->_html . "</td>\n\t</tr>\n";
+			$this->_html = "\t<tr>\n\t\t<td colspan=2>" . $this->_html . "</td>\n\t</tr>\n";
 		}
 	}
 }
@@ -635,7 +639,10 @@ class guiinput extends guielement {
 			$output .= $this->prompttext;
 		}
 		$output .= "</td>\n";
-		
+
+		$tabindex = $this->gettabindex();
+		$this->html_input = preg_replace("/{tabindex}/",$tabindex,$this->html_input);
+
 		// actual input in second row
 		$output .= "\t\t<td>";
 		$output .= $this->html_input;
@@ -660,9 +667,9 @@ class gui_textbox extends guiinput {
                 } 
 
 		$maxlength = ($maxchars > 0) ? " maxlength=\"$maxchars\"" : '';
-		$tabindex = guielement::gettabindex();
-		$disable_state = $disable ? 'disabled="true"':'';
-		$this->html_input = "<input class='$extraclass' type=\"text\" name=\"$this->_elemname\" id=\"$this->_elemname\" size=\"35\" $disable_state $maxlength tabindex=\"$tabindex\" value=\"" . htmlspecialchars($this->currentvalue) . "\">".$html_input_extra;
+//		$tabindex = guielement::gettabindex();
+		$disable_state = $disable ? 'disabled="disabled"':'';
+		$this->html_input = "<input class='$extraclass' type=\"text\" name=\"$this->_elemname\" id=\"$this->_elemname\" size=\"35\" $disable_state $maxlength tabindex=\"{tabindex}\" value=\"" . htmlspecialchars($this->currentvalue) . "\">".$html_input_extra;
 	}
 }
 
@@ -693,9 +700,9 @@ class gui_password extends guiinput {
 		parent::__construct($elemname, $currentvalue, $prompttext, $helptext, $jsvalidation, $failvalidationmsg, $canbeempty);
 		
 		$maxlength = ($maxchars > 0) ? " maxlength=\"$maxchars\"" : '';
-		$tabindex = guielement::gettabindex();
-		$disable_state = $disable ? 'disabled="true"':'';
-		$this->html_input = "<input type=\"password\" name=\"$this->_elemname\" id=\"$this->_elemname\" $disable_state $maxlength tabindex=\"$tabindex\" value=\"" . htmlentities($this->currentvalue) . "\">";
+		//$tabindex = guielement::gettabindex();
+		$disable_state = $disable ? 'disabled="disabled"':'';
+		$this->html_input = "<input type=\"password\" name=\"$this->_elemname\" id=\"$this->_elemname\" $disable_state $maxlength tabindex=\"{tabindex}\" value=\"" . htmlentities($this->currentvalue) . "\">";
 	}
 }
 
@@ -720,9 +727,9 @@ class gui_selectbox extends guiinput {
 		$output = '';
 		$onchange = ($onchange != '') ? " onchange=\"$onchange\"" : '';
 		
-		$tabindex = guielement::gettabindex();
-		$disable_state = $disable ? 'disabled="true"':'';
-		$output .= "\n\t\t\t<select name=\"$this->_elemname\" id=\"$this->_elemname\" class=\"componentSelect\" tabindex=\"$tabindex\" $disable_state $onchange >\n";
+		//$tabindex = guielement::gettabindex();
+		$disable_state = $disable ? 'disabled="disabled"':'';
+		$output .= "\n\t\t\t<select name=\"$this->_elemname\" id=\"$this->_elemname\" class=\"componentSelect\" tabindex=\"{tabindex}\" $disable_state $onchange >\n";
 		// include blank option if required
 		if ($canbeempty)
 			$output .= "<option value=\"\">&nbsp;</option>";			
@@ -747,11 +754,11 @@ class gui_checkbox extends guiinput {
 		parent::__construct($elemname, '', $prompttext, $helptext);
 
 		$itemchecked = $checked ? 'checked' : '';
-		$disable_state = $disable ? 'disabled="true"' : '';
+		$disable_state = $disable ? 'disabled="disabled"' : '';
 		$js_onclick_include = ($jsonclick != '') ? 'onclick="' . $jsonclick. '"' : '';
-		$tabindex = guielement::gettabindex();
+		//$tabindex = guielement::gettabindex();
 
-		$this->html_input = "<input type=\"checkbox\" name=\"$this->_elemname\" id=\"$this->_elemname\" $disable_state tabindex=\"$tabindex\" value=\"$value\" $js_onclick_include $itemchecked/>$post_text\n";
+		$this->html_input = "<input type=\"checkbox\" name=\"$this->_elemname\" id=\"$this->_elemname\" $disable_state tabindex=\"{tabindex}\" value=\"$value\" $js_onclick_include $itemchecked/>$post_text\n";
 	}
 }
 
@@ -776,11 +783,11 @@ class gui_radio extends guiinput {
 		foreach ($valarray as $item) {
 			$itemvalue = (isset($item['value']) ? $item['value'] : '');
 			$itemtext = (isset($item['text']) ? $item['text'] : '');
-			$itemchecked = ((string) $currentvalue == (string) $itemvalue) ? ' checked=checked' : '';
+			$itemchecked = ((string) $currentvalue == (string) $itemvalue) ? ' checked="checked"' : '';
 			
-			$tabindex = guielement::gettabindex();
-			$disable_state = $disable ? 'disabled="true"':'';
-			$output .= "<input type=\"radio\" name=\"$this->_elemname\" id=\"$this->_elemname$count\" $disable_state tabindex=\"$tabindex\" value=\"$this->_elemname=$itemvalue\"$itemchecked/><label for=\"$this->_elemname$count\">$itemtext</label>\n";
+			//$tabindex = guielement::gettabindex();
+			$disable_state = $disable ? 'disabled="disabled"':'';
+			$output .= "<input type=\"radio\" name=\"$this->_elemname\" id=\"$this->_elemname$count\" $disable_state tabindex=\"{tabindex}\" value=\"$this->_elemname=$itemvalue\"$itemchecked/><label for=\"$this->_elemname$count\">$itemtext</label>\n";
 			$count++;
 		}
 		$output .= '</span>';
