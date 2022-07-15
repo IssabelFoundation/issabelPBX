@@ -8007,7 +8007,7 @@ function core_users_configpageload() {
                 $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Extension").": $extdisplay", false), 0);
                 if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
                     $tlabel = sprintf(_("Delete Extension %s"),$extdisplay);
-                    $label = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="images/user_delete.png"/>&nbsp;'.$tlabel.'</span>';
+                    $label = '<span><img title="'.$tlabel.'" alt="" src="images/user_delete.png"/>&nbsp;'.$tlabel.'</span>';
                     $currentcomponent->addguielem('_top', new gui_link('del', $label, $delURL, true, false), 0);
 
                     $usage_list = framework_display_destination_usage(core_getdest($extdisplay));
@@ -8019,7 +8019,7 @@ function core_users_configpageload() {
                 $currentcomponent->addguielem('_top', new gui_pageheading('title', _("User").": $extdisplay", false), 0);
                 if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
                     $tlabel = sprintf(_("Delete User %s"),$extdisplay);
-                    $label = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="images/user_delete.png"/>&nbsp;'.$tlabel.'</span>';
+                    $label = '<span><img title="'.$tlabel.'" alt="" src="images/user_delete.png"/>&nbsp;'.$tlabel.'</span>';
                     $currentcomponent->addguielem('_top', new gui_link('del', $label, $delURL, true, false), 0);
 
                     $usage_list = framework_display_destination_usage(core_getdest($extdisplay));
