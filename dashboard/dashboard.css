@@ -42,7 +42,7 @@
 /* main container for each item */
 .databox {
 	position:relative;
-	border:1px solid #ccc;
+	border-bottom:1px solid #ccc;
 	font-size:9pt;
 	margin-top:4px;
 }

@@ -262,7 +262,7 @@ function show_aststats() {
 	$out .= draw_graph(_('External calls'), '', $channels['external_calls'], $max_calls, $classes , false, BAR_WIDTH_LEFT);
 	$out .= draw_graph(_('Total active channels'), '', $channels['total_channels'], $max_chans, $classes , false, BAR_WIDTH_LEFT);
 	
-	$out .= "<h4>".sprintf(_("%s Connections"), DASHBOARD_ISSABELPBX_BRAND)."</h4>";
+	$out .= "<br/><h4>".sprintf(_("%s Connections"), DASHBOARD_ISSABELPBX_BRAND)."</h4>";
 	
 	/* This is generally very bad style, and we should look at adding this to core_devices_list or another core
 	 * function. However, since this is in Ajax lite weight code, it is currently the cleanest way to get the sip and iax2
@@ -294,7 +294,7 @@ function show_aststats() {
 function show_sysinfo() {
 	global $sysinfo;
 	global $astinfo;
-	$out = "<h3 class=\"ui-widget-header  ui-state-default ui-corner-all\">"._("Uptime")."</h3><br />";
+	$out = "<h3 class=\"ui-widget-header  ui-state-default ui-corner-all\">"._("Uptime")."</h3>";
 	$out .= '<table summary="'._('System Information Table').'">';
 	/*
 	$out .= '<tr><th>Distro:</th><td>'.$sysinfo->distro().'</td></tr>';
