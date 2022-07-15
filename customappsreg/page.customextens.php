@@ -98,12 +98,12 @@ if (!empty($conflict_url)) {
     <tr><td colspan="2"><h5><?php  echo ($custom_exten ? _("Edit Custom Extension") : _("Add Custom Extension")) ?></h5></td></tr>
     <tr>
         <td><a href="#" class="info"><?php echo _("Custom Extension")?>:<span><?php echo _("This is the Extension or Feature Code you are using in your dialplan that you want the IssabelPBX Extension Registry to be aware of.")?></span></a></td>
-        <td><input size="10" type="text" name="extdisplay" id="extdisplay" value="<?php  echo $custom_exten; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+        <td><input class="w100" type="text" name="extdisplay" id="extdisplay" value="<?php  echo $custom_exten; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("Brief description that will be published in the Extension Registry about this extension")?></span></a></td>
-        <td><input size="30" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+        <td><input class="w100" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
     <tr>
         <td valign="top"><a href="#" class="info"><?php echo _("Notes")?>:<span><?php echo _("More detailed notes about this extension to help document it. This field is not used elsewhere.")?></span></a></td>
