@@ -6034,6 +6034,9 @@ msgstr "(sin mensaje)"
 msgid "Advanced"
 msgstr "Avanzado"
 
+msgid "to"
+msgstr "a"
+
 #~ msgid "Tools"
 #~ msgstr "Herramientas"
 

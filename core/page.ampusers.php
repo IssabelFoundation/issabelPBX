@@ -200,7 +200,7 @@ foreach ($tresults as $tresult) {
 					<a href=# class="info"><?php echo _("Extension Range<span>Restrict this user's view to only Extensions, Ring Groups, and Queues within this range.</span>")?></a>: 
 				</td><td>
 					<input type="text" size="5" name="extension_low" value="<?php echo htmlspecialchars($extension_low);?>" tabindex="<?php echo ++$tabindex;?>"/>
-					&nbsp;to
+					&nbsp;<?php echo _('to');?>
 					<input type="text" size="5" name="extension_high" value="<?php echo htmlspecialchars($extension_high);?>" tabindex="<?php echo ++$tabindex;?>"/>
 				</td>
 			</tr>
