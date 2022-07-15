@@ -447,7 +447,7 @@ if (!$tech && !$extdisplay) {
     $trunks[] = array('url'=> $baseURL.'tech=CUSTOM', 'tlabel' =>  _("Add Custom Trunk"));
     foreach ($trunks as $trunk) {
         $label = '<span><img title="'.$trunk['tlabel'].'" alt="" src="images/core_add.png"/>&nbsp;'.$trunk['tlabel'].'</span>';
-        echo "<a href=".$trunk['url'].">".$label."</a><br /><br />";
+        echo "<a href='".$trunk['url']."'>".$label."</a><br /><br />";
     }
 } else {
     if ($extdisplay) {
