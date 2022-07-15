@@ -694,9 +694,9 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 			</tr>
 			<tr>
 				<td><a href='#' class='info'>" . _("Press 2:") . "<span>" . _("Use any extensions, ringgroups, queues or external numbers. <br/><br/>Remember to re-record your personal Voicemail greeting and include instructions. Run a test to make sure that the number is functional.") . "<br></span></a></td>
-				<td>
+				 <td>
 					<input $tabindex_text $vmx_option_2_number_text_box_options name='vmx_option_2_number' id='vmx_option_2_number' type='text' size=24 value='$vmx_option_2_number'>
-				</td>
+				</td><td></td>
 			</tr>
 		";
 	return $set_vmx_text;
