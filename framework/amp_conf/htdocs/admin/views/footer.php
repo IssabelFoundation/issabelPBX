@@ -98,7 +98,7 @@ $ipbx['msg']['framework']['reloading'] = _("Reloading...");
 $ipbx['msg']['framework']['pleasewait'] = _("Please Wait");
 $ipbx['msg']['framework']['login'] = _("Login");
 
-
+if(!isset($covert)) $covert=false;
 if ($covert) {
 	$ipbx['conf'] = array (
 			'ASTVERSION' => '',
@@ -110,7 +110,7 @@ if ($covert) {
 			);
 }
 
-$html .= "\n" . '<script type="text/javascript">'
+$html .= "\n" . '<script>'
 		. 'var ipbx='
 		. json_encode($ipbx)
 		. ";\n"
@@ -122,12 +122,12 @@ $html .= "\n" . '<script type="text/javascript">'
  		. '</script>';
 
 if ($amp_conf['USE_GOOGLE_CDN_JS']) {
-	$html .= '<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/' 
+	$html .= '<script src="//ajax.googleapis.com/ajax/libs/jqueryui/' 
 			. $amp_conf['JQUERYUI_VER'] . '/jquery-ui.min.js"></script>';
-	$html .= '<script type="text/javascript" >window.jQuery.ui || document.write(\'<script src="assets/js/jquery-ui-' 
+	$html .= '<script>window.jQuery.ui || document.write(\'<script src="assets/js/jquery-ui-' 
 			. $amp_conf['JQUERYUI_VER'] . '.min.js"><\/script>\')</script>';
 } else {
-	$html .= '<script type="text/javascript" src="assets/js/jquery-ui-' . $amp_conf['JQUERYUI_VER'] . '.min.js"></script>';
+	$html .= '<script src="assets/js/jquery-ui-' . $amp_conf['JQUERYUI_VER'] . '.min.js"></script>';
 }
 
 $html .= '<script src="assets/js/sweetalert2.min.js"></script>';
@@ -137,7 +137,7 @@ $html .- '<link rel="stylesheet" href="assets/css/sweetalert2.css" type="text/cs
 // is not present (useful for development, then include each individual library below
 if ($amp_conf['USE_PACKAGED_JS'] && file_exists("assets/js/pbxlib.js")) {
 	$pbxlibver = '.' . filectime("assets/js/pbxlib.js");
-	$html .= '<script type="text/javascript" src="assets/js/pbxlib.js' 
+	$html .= '<script src="assets/js/pbxlib.js' 
 			. $version_tag . $pbxlibver . '"></script>';
 } else {
 	/*
@@ -147,15 +147,15 @@ if ($amp_conf['USE_PACKAGED_JS'] && file_exists("assets/js/pbxlib.js")) {
 	 * jquery.toggleval.3.0.js - similar to html5 form's placeholder. depreciated
 	 * tabber-minimized.js - sed for module admin (hiding content) 
 	 */
-	$html .= ' <script type="text/javascript" src="assets/js/menu.js' . $version_tag . '"></script>'
-		. '<script type="text/javascript" src="assets/js/jquery.hotkeys.js' . $version_tag . '"></script>'
-	 	. '<script type="text/javascript" src="assets/js/jquery.cookie.js' . $version_tag . '"></script>'
-	 	. '<script type="text/javascript" src="assets/js/script.legacy.js' . $version_tag . '"></script>'
-	 	. '<script type="text/javascript" src="assets/js/jquery.toggleval.3.0.js' . $version_tag . '"></script>'
-	 	. '<script type="text/javascript" src="assets/js/tabber-minimized.js' . $version_tag . '"></script>';
+	$html .= ' <script src="assets/js/menu.js' . $version_tag . '"></script>'
+		. '<script src="assets/js/jquery.hotkeys.js' . $version_tag . '"></script>'
+	 	. '<script src="assets/js/jquery.cookie.js' . $version_tag . '"></script>'
+	 	. '<script src="assets/js/script.legacy.js' . $version_tag . '"></script>'
+	 	. '<script src="assets/js/jquery.toggleval.3.0.js' . $version_tag . '"></script>'
+	 	. '<script src="assets/js/tabber-minimized.js' . $version_tag . '"></script>';
 }
 if ($amp_conf['BRAND_ALT_JS']) {
-	$html .= '<script type="text/javascript" src="' . $amp_conf['BRAND_ALT_JS'] . $version_tag . '"></script>';
+	$html .= '<script src="' . $amp_conf['BRAND_ALT_JS'] . $version_tag . '"></script>';
 }
 
 if (isset($module_name) && $module_name != '') {
@@ -189,14 +189,14 @@ if (!empty($js_content)) {
 //offer google chrome frame for the richest experience
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
 	$html .= '<!--[if lte IE 10]>';
-	$html .= '<link rel="stylesheet" href="assets/css/progress-polyfill.css" type="text/css">';
-	$html .= '<script type="text/javascript" src="assets/js/progress-polyfill.min.js"></script>';
+	$html .= '<link rel="stylesheet" href="assets/css/progress-polyfill.css" type="text/css"/>';
+	$html .= '<script src="assets/js/progress-polyfill.min.js"></script>';
 	$html .= '<![endif]-->';
 
 	//offer google chrome frame for the richest experience
 	$html .= <<<END
 	<!--[if IE]>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
 		<script>
 			!$.cookie('skip_cf_check') //skip check if skip_cf_check cookie is active
 				&& CFInstall	//make sure CFInstall is loaded 

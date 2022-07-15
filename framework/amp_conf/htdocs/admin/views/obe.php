@@ -78,15 +78,6 @@ $html .= form_hidden('action', 'setup_admin');
 $html .= form_submit('submit', _('Set up my Account'));
 $html .= form_close();
 
-/*$html .= '<script type="text/javascript">';
-$html .= '$(document).ready(function(){
-		$("#key").click(function(){
-			dest = "ssh://" + window.location.hostname + " \"/usr/sbin/amportal a u ' . session_id() . '\"";
-			console.log(dest)
-			window.open(dest).close(); setTimeout(\'window.location.reload()\', 3000);
-		});
-})';
-$html .= '</script>';*/
 echo $html;
 
 ?>

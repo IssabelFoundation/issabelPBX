@@ -2,7 +2,7 @@
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 ?>
 
-<script type="text/javascript" src='/admin/modules/core/assets/js/extensions/copy2clipboard.js'></script>
+<script src='/admin/modules/core/assets/js/extensions/copy2clipboard.js'></script>
 <div class="rnav">
 <?php 
 $extens = core_users_list();

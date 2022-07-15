@@ -404,7 +404,7 @@ function customcontexts_devices_configpageload() {
 
     $currentcomponent->addguielem(_('Extension Options'), new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, _('Class of Service'), sprintf($hlp,customcontexts_getmodulevalue('moduledisplayname'),customcontexts_getmodulevalue('moduledisplayname')),true, "javascript:if (document.frm_devices.customcontext.value) {document.frm_devices.devinfo_context.value = document.frm_devices.customcontext.value} else {document.frm_devices.devinfo_context.value = 'from-internal'}"),2);
 
-  $js = '<script type="text/javascript">$(document).ready(function(){$("#devinfo_context").parent().parent().hide();});</script>';
+  $js = '<script>$(document).ready(function(){$("#devinfo_context").parent().parent().hide();});</script>';
   $currentcomponent->addguielem(_('Extension Options'), new guielement('test-html', $js, ''));
 }
 
@@ -420,7 +420,7 @@ function customcontexts_extensions_configpageload() {
 
     $currentcomponent->addguielem(_('Extension Options'), new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, _('Class of Service'), sprintf($hlp,customcontexts_getmodulevalue('moduledisplayname'),customcontexts_getmodulevalue('moduledisplayname')) ,true, "javascript:if (document.frm_extensions.customcontext.value) {document.frm_extensions.devinfo_context.value = document.frm_extensions.customcontext.value} else {document.frm_extensions.devinfo_context.value = 'from-internal'}"),2);
 
-  $js = '<script type="text/javascript">$(document).ready(function(){$("#devinfo_context").parent().parent().hide();});</script>';
+  $js = '<script>$(document).ready(function(){$("#devinfo_context").parent().parent().hide();});</script>';
   $currentcomponent->addguielem(_('Extension Options'), new guielement('test-html', $js, ''));
 }
 

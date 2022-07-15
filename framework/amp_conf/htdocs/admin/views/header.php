@@ -29,15 +29,15 @@ $framework_css = ($amp_conf['DISABLE_CSS_AUTOGEN'] || !file_exists($amp_conf['ma
 $css_ver = '.' . filectime($framework_css);
 $html .= '<link href="' . $framework_css.$version_tag.$css_ver . '" rel="stylesheet" type="text/css">';
 
-$html .= '<link href="assets/css/chosen.css" rel="stylesheet" type="text/css">';
+$html .= '<link href="assets/css/chosen.css" rel="stylesheet" type="text/css"/>';
 //include jquery-ui css
 if ($amp_conf['DISABLE_CSS_AUTOGEN'] == true) {
-	$html .= '<link href="' . $amp_conf['JQUERY_CSS'] . $version_tag . '" rel="stylesheet" type="text/css">';
+	$html .= '<link href="' . $amp_conf['JQUERY_CSS'] . $version_tag . '" rel="stylesheet" type="text/css"/>';
 }
 //add the popover.css stylesheet if we are displaying a popover to override mainstyle.css styling
 if ($use_popover_css) {
 	$popover_css = $amp_conf['BRAND_CSS_ALT_POPOVER'] ? $amp_conf['BRAND_CSS_ALT_POPOVER'] : 'assets/css/popover.css';
-	$html .= '<link href="' . $popover_css.$version_tag . '" rel="stylesheet" type="text/css">';
+	$html .= '<link href="' . $popover_css.$version_tag . '" rel="stylesheet" type="text/css"/>';
 }
 
 //include rtl stylesheet if using a rtl langauge
@@ -47,7 +47,7 @@ if (isset($_COOKIE['lang']) && in_array($_COOKIE['lang'], array('he_IL'))) {
 // Insert a custom CSS sheet if specified (this can change what is in the main CSS)
 if ($amp_conf['BRAND_CSS_CUSTOM']) {
 	$html .= '<link href="' . $amp_conf['BRAND_CSS_CUSTOM'] 
-			. $version_tag . '" rel="stylesheet" type="text/css">';
+			. $version_tag . '" rel="stylesheet" type="text/css"/>';
 }
 
 //it seems extremely difficult to put jquery in the footer with the other scripts
@@ -55,10 +55,10 @@ if ($amp_conf['USE_GOOGLE_CDN_JS']) {
 	$html .= '<script src="//ajax.googleapis.com/ajax/libs/jquery/' . $amp_conf['JQUERY_VER'] . '/jquery.min.js"></script>';
 	$html .= '<script>window.jQuery || document.write(\'<script src="assets/js/jquery-' . $amp_conf['JQUERY_VER'] . '.min.js"><\/script>\')</script>';
 } else {
-	$html .= '<script type="text/javascript" src="assets/js/jquery-' . $amp_conf['JQUERY_VER'] . '.min.js"></script>';
+	$html .= '<script src="assets/js/jquery-' . $amp_conf['JQUERY_VER'] . '.min.js"></script>';
 }
 		
-	$html .= '<script type="text/javascript" src="assets/js/chosen.jquery.js"></script>';
+	$html .= '<script src="assets/js/chosen.jquery.js"></script>';
 $html .= '</head>';
 
 //open body
