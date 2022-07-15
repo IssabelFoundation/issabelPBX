@@ -391,7 +391,7 @@ div.modulebuttons {
 #modulelist div.moduleinfopane {
   display:none; /* hide the information pane by default */
   background: #eee;
-  height:7em; /* div.tabbertab height should be .5 less than this */
+  height:10em; /* div.tabbertab height should be .5 less than this */
 }
 #modulelist ul.tabbernav {
   width:8em;
@@ -414,13 +414,16 @@ div.modulebuttons {
 }
 #modulelist div.tabbertab {
   margin-left:1.5em; 
-  height:6.5em; /* This should be .5 less than div.moduleinfopain height */
+  height:9.5em; /* This should be .5 less than div.moduleinfopain height */
   overflow:auto;
+  padding-left:0.8em;
 }
 #modulelist h5 {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  font-size: 0.83em;
+  margin:0;
+  font-size: 1em;
+  color: #000;
+  border:0;
+  padding:4px 0 0 0;
 }
 #modulelist .alert {
   color:#a00;
@@ -431,7 +434,7 @@ div.modulebuttons {
 #modulelist div.moduleinfopane .actiontab {
   padding-left:10px;
 }
-
+.moddesc { margin-top:0.4em; }
 /************************* For tabber *************************/
 /*--------------------------------------------------
   REQUIRED to hide the non-active tab content.

@@ -922,7 +922,7 @@ switch ($extdisplay) {  // process, confirm, or nothing
 			}
 			if (isset($modules[$name]['description']) && !empty($modules[$name]['description'])) {
 				echo "<h5>".sprintf(_("Description for version %s"),$modules[$name]['version'])."</h5>";
-				echo nl2br(modgettext::_($modules[$name]['description'], $loc_domain));
+				echo "<div class='moddesc'>".nl2br(modgettext::_($modules[$name]['description'], $loc_domain))."</div>";
 			} else {
 				echo _("No description is available.");
 			}
