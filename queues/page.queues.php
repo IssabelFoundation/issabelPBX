@@ -1332,7 +1332,7 @@ if ($ast_ge_16) {
     </tr>
     </table>
 
-<script language="javascript">
+<script>
 <!--
 
 
