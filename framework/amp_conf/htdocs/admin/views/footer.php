@@ -131,7 +131,7 @@ if ($amp_conf['USE_GOOGLE_CDN_JS']) {
 }
 
 $html .= '<script src="assets/js/sweetalert2.min.js"></script>';
-$html .- '<link rel="stylesheet" href="assets/css/sweetalert2.css" type="text/css"/>';
+$html .= '<link rel="stylesheet" href="assets/css/sweetalert2.css" type="text/css"/>';
 
 // Production versions should include the packed consolidated javascript library but if it
 // is not present (useful for development, then include each individual library below
