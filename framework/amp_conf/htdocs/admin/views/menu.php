@@ -138,7 +138,7 @@ if (isset($ipbx_menu) && is_array($ipbx_menu)) {    // && issabelpbx_menu.conf n
 }
 if($amp_conf['SHOWLANGUAGE']) {
     $out .= '<a id="language-menu-button" '
-        . 'class="button-right ui-state-default">' . _('Language') . '</a>';
+        . 'class="button-right ui-state-default ui-widget">' . _('Language') . '</a>';
     $out .= '<ul id="ipbx_lang" style="display:none;">';
     $out .= '<li data-lang="en_US"><a href="#">'. _('English') . '</a></li>';
     $out .= '<li data-lang="bg_BG"><a href="#">' . _('Bulgarian') . '</a></li>';
@@ -159,7 +159,7 @@ if($amp_conf['SHOWLANGUAGE']) {
 
 if ( isset($_SESSION['AMP_user']) && ($authtype != 'none')) {
     $out .= '<a id="user_logout" href="#"'
-        . ' class="button-right ui-state-default" title="logout">'
+        . ' class="button-right ui-state-default ui-widget" title="logout">'
         . _('Logout') . ': ' . (isset($_SESSION['AMP_user']->username) ? $_SESSION['AMP_user']->username : 'ERROR')
         . '</a>';
 }
