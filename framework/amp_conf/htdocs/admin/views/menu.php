@@ -84,8 +84,8 @@ if (isset($ipbx_menu) && is_array($ipbx_menu)) {    // && issabelpbx_menu.conf n
             }
             $href = isset($cat[0]['href']) ? $cat[0]['href'] : 'config.php?display=' . $cat[0]['display'];
             $target = isset($cat[0]['target']) ? ' target="' . $cat[0]['target'] . '"'  : '';
-            $class = $cat[0]['display'] == $display ? 'class="ui-state-highlight"' : '';
-            $mods[$t] = '<a href="' . $href . '" ' . $target . $class . '>' . modgettext::_(ucwords($cat[0]['name']),$cat[0]['module']['rawname']) . '</a>';
+            $hclass = $cat[0]['display'] == $display ? 'ui-state-highlight' : '';
+            $mods[$t] = '<a href="' . $href . '" ' . $target . $class . ' class="ui-button-text-only ui-button ui-widget ui-state-default ui-corner-all '.$hclass.'">' . modgettext::_(ucwords($cat[0]['name']),$cat[0]['module']['rawname']) . '</a>';
             continue;
         }
         // $t is a heading so can't be isolated to a module, translation must come from amp
