@@ -1328,7 +1328,7 @@ if ($ast_ge_16) {
 
     <table>
     <tr>
-        <td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
+        <td colspan="2"><div style="margin:1.5em 0 1.5em 0;"><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></div></td>
     </tr>
     </table>
 
