@@ -8,10 +8,17 @@ if ($amp_conf['FORCE_JS_CSS_IMG_DOWNLOAD']) {
 	$this_time_append = '';
 }
 
+if (isset($_COOKIE['lang'])) {
+    $partes = preg_split("/_/",$_COOKIE['lang']);
+    $printlang = $partes[0];
+} else {
+    $printlang="en";
+}
+
 //html head
 $html = '';
 $html .= '<!DOCTYPE html>';
-$html .= '<html>';
+$html .= '<html lang="'.$printlang.'">';
 $html .= '<head>';
 $html .= '<title>'
 		. (isset($title) ? _($title) : $amp_conf['BRAND_TITLE'])
