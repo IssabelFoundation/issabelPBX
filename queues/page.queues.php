@@ -190,7 +190,7 @@ if(isset($_REQUEST['action'])){
 $queues = queues_list();
 
 ?>
-<link type="text/css" src="config.php?display=queues&handler=file&module=queues&file=assets/css/queues.css"></link>
+<!--link type="text/css" src="config.php?display=queues&handler=file&module=queues&file=assets/css/queues.css"></link-->
 <div class="rnav"><ul>
     <li><a id="<?php echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Queue")?></a></li>
 <?php
@@ -937,7 +937,7 @@ if ($ast_ge_16) {
             <?php
                 $default = (isset($maxlen) ? $maxlen : 0);
                 echo '<option value="0" '.(!$default ? 'SELECTED' : '').'>'._("No Max").'</option>';
-                for ($i=0; $i <= 50; $i++) {
+                for ($i=1; $i <= 50; $i++) {
                     echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.'</option>';
                 }
             ?>
