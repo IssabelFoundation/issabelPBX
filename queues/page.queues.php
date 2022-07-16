@@ -290,7 +290,7 @@ if ($action == 'delete') {
     <tr><td colspan="2"><h5><?php echo ($extdisplay ? _("Edit Queue") : _("Add Queue")) ?></h5></td></tr>
     <tr>
 <?php        if ($extdisplay != ''){ ?>
-        <input type="hidden" name="account" value="<?php echo $extdisplay; ?>">
+        <td colspan=2><input type="hidden" name="account" value="<?php echo $extdisplay; ?>"></td>
 <?php        } else { ?>
         <td><a href="#" class="info"><?php echo _("Queue Number")?><span><?php echo _("Use this number to dial into the queue, or transfer callers to this number to put them into the queue.<br><br>Agents will dial this queue number plus * to log onto the queue, and this queue number plus ** to log out of the queue.<br><br>For example, if the queue number is 123:<br><br><b>123* = log in<br>123** = log out</b>")?></span></a></td>
         <td><input type="text" name="account" value="" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
