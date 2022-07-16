@@ -283,7 +283,7 @@ if ($action == 'delete') {
                     }
                 }
 ?>
-    <form class="popover-form" autocomplete="off" name="editQ" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkQ(editQ);">
+    <form class="popover-form" autocomplete="off" name="editQ" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkQ(editQ);">
     <input type="hidden" name="display" value="<?php echo $dispnum?>">
     <input type="hidden" name="action" value="<?php echo (($extdisplay != '') ? 'edit' : 'add') ?>">
     <table>
