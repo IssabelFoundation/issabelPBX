@@ -65,7 +65,7 @@ function warnInvalid(theField, s) {
         theField.focus();
         theField.select();
     }
-    Swal.fire({icon:'warning',text:s,timer:3000});
+    Swal.fire({icon:'warning',text:s,timer:5000});
     return false;
 }
 
@@ -346,14 +346,14 @@ function isFilenameChar(c) {
 function validateSingleDestination(theForm, formNum, bRequired) {
     var gotoType = theForm.elements['goto' + formNum].value;
     if (bRequired && gotoType == '') {
-        Swal.fire({icon:'warning',text:ipbx.msg.framework.validateSingleDestination.required, timer:3000});
+        Swal.fire({icon:'warning',text:ipbx.msg.framework.validateSingleDestination.required, timer:5000});
         return false;
     } else {
         if (gotoType == 'custom') {
             var gotoFld = theForm.elements['custom' + formNum];
             var gotoVal = gotoFld.value;
             if (gotoVal.indexOf('custom-') == -1) {
-                Swal.fire({icon:'warning',text:ipbx.msg.framework.validateSingleDestination.error, timer:3000});
+                Swal.fire({icon:'warning',text:ipbx.msg.framework.validateSingleDestination.error, timer:5000});
                 gotoFld.focus();
                 return false;
             }
@@ -369,11 +369,11 @@ function weakSecret() {
         return false;
     }
     if (password.length <= 5) {
-        Swal.fire({icon:'warning',text:ipbx.msg.framework.weakSecret.length, timer:3000});
+        Swal.fire({icon:'warning',text:ipbx.msg.framework.weakSecret.length, timer:5000});
         return true;
     }
     if (password.match(/[a-z].*[a-z]/i) == null || password.match(/\d\D*\d/) == null) {
-        Swal.fire({icon:'warning',text:ipbx.msg.framework.weakSecret.types, timer:3000});
+        Swal.fire({icon:'warning',text:ipbx.msg.framework.weakSecret.types, timer:5000});
         return true;
     }
     return false;
@@ -746,7 +746,7 @@ $(document).ready(function() {
             exten = $('.duplicate-exten', this);
             if (exten.length > 0) {
                 extnum = exten.val();
-                Swal.fire({icon:'warning',text:extnum + ipbx.msg.framework.validation.duplicate + extmap[extnum], timer:3000});
+                Swal.fire({icon:'warning',text:extnum + ipbx.msg.framework.validation.duplicate + extmap[extnum], timer:5000});
                 return false;
             }
             return true;
