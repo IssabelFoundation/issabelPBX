@@ -798,7 +798,6 @@ class gui_radio extends guiinput {
 
 class gui_drawselects extends guiinput {
 	function __construct($elemname, $index, $dest, $prompttext = '', $helptext = '', $required = false, $failvalidationmsg='', $nodest_msg='') {
-		global $currentcomponent;
 		$parent_class = get_parent_class($this);
 		$jsvalidation = isset($jsvalidation) ? $jsvalidation : '';
 		$jsvalidationtest = isset($jsvalidationtest) ? $jsvalidationtest : '';
@@ -807,7 +806,7 @@ class gui_drawselects extends guiinput {
 		$this->html_input=drawselects($dest, $index, false, false, $nodest_msg, $required);
 
 		//attach a value to this element, so that we can find its value
-		$currentcomponent->addguielem('', new gui_hidden($elemname,'goto'.$index,false));
+                $this->html_input.="<input type=hidden name='$elemname' id='$elemname' value='goto".$index."'/>\n";
 	}	
 }
 
