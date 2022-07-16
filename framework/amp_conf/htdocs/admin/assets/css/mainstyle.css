@@ -625,3 +625,10 @@ ul > li.ui-menu-item > a.ui-state-highlight {
 .ui-menu-item {
   padding: 3px 0.4em 3px 0.4em !important;
 }
+
+.current {
+  background: #ccb3ff url(images/ui-bg_glass_60_ccb3ff_1x400.png) 50% 50% repeat-x;
+  width: 100%;
+  border: 1px solid #d1c5d8;
+  margin: -1px;
+}
