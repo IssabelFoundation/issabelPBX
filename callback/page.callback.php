@@ -37,11 +37,11 @@ $callbacks = callback_list();
 
 <!-- right side menu -->
 <div class="rnav"><ul>
-    <li><a id="<?php echo ($itemid=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Callback")?></a></li>
+    <li><a class="<?php echo ($itemid=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Callback")?></a></li>
 <?php
 if (isset($callbacks)) {
 	foreach ($callbacks as $callback) {
-		echo "<li><a id=\"".($itemid==$callback['callback_id'] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&itemid=".urlencode($callback['callback_id'])."\">{$callback['description']}</a></li>";
+		echo "<li><a class=\"".($itemid==$callback['callback_id'] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&itemid=".urlencode($callback['callback_id'])."\">{$callback['description']}</a></li>";
 	}
 }
 ?>

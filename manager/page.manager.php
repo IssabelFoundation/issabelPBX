@@ -47,11 +47,11 @@ switch ($action) {
 $managers = manager_list();
 ?>
 <div class="rnav"><ul>
-    <li><a id="<?php echo ($managerdisplay=='' ? 'current':'') ?>" href="config.php?type=tool&amp;display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Manager")?></a></li>
+    <li><a class="<?php echo ($managerdisplay=='' ? 'current':'') ?>" href="config.php?type=tool&amp;display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Manager")?></a></li>
 <?php
 if (isset($managers)) {
 	foreach ($managers as $manager) {
-		echo "<li><a id=\"".($managerdisplay==$manager['name'] ? 'current':'')."\" href=\"config.php?type=tool&amp;display=".urlencode($dispnum)."&managerdisplay=".$manager['name']."\">{$manager['name']}</a></li>";
+		echo "<li><a class=\"".($managerdisplay==$manager['name'] ? 'current':'')."\" href=\"config.php?type=tool&amp;display=".urlencode($dispnum)."&managerdisplay=".$manager['name']."\">{$manager['name']}</a></li>";
 	}
 }
 ?>

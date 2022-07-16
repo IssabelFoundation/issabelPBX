@@ -5,13 +5,13 @@ if(!isset($thisItem_description)) $thisItem_description='';
 if(!isset($thisItem['opencnam_account_sid'])) $thisItem['opencnam_account_sid']='';
 ?>
 <div class="rnav"><ul>
-    <li><a id="<?php echo ($itemid=='' ? 'current':'') ?>" href="config.php?display=cidlookup"><?php echo _("Add CID Lookup Source")?></a></li>
+    <li><a class="<?php echo ($itemid=='' ? 'current':'') ?>" href="config.php?display=cidlookup"><?php echo _("Add CID Lookup Source")?></a></li>
     <?php
     if (isset($cidsources)) {
     	foreach ($cidsources as $cidsource) {
     		if ($cidsource['cidlookup_id'] != 0) {
                 ?>
-                <li><a id="<?php echo ($itemid==$cidsource['cidlookup_id'] ? 'current':'')?>" href="config.php?display=cidlookup&amp;itemid=<?php echo urlencode($cidsource['cidlookup_id'])?>"><?php echo $cidsource['description']?></a></li>
+                <li><a class="<?php echo ($itemid==$cidsource['cidlookup_id'] ? 'current':'')?>" href="config.php?display=cidlookup&amp;itemid=<?php echo urlencode($cidsource['cidlookup_id'])?>"><?php echo $cidsource['description']?></a></li>
                 <?php
 			}
     	}

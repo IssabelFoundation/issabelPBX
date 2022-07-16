@@ -7,7 +7,7 @@ $template['content'] = '';
 
 $template['content'] .= "<div id=\"reportnav\" ><ul>";
 foreach ($menu  as $key=>$value) {
-	$template['content'] .= "<li><nobr><a id=\"".(($display==$key) ? 'current':'')."\" href=\"reports.php?display=".$key."\">".$value."</a><nobr></li>";
+	$template['content'] .= "<li><nobr><a class=\"".(($display==$key) ? 'current':'')."\" href=\"reports.php?display=".$key."\">".$value."</a><nobr></li>";
 }
 $template['content'] .= "</ul></div>";
 

@@ -495,15 +495,15 @@ function recording_editpage($id, $num) {
 function recording_sidebar($id, $num) {
 ?>
         <div class="rnav"><ul>
-        <li><a id="<?php echo empty($id)?'current':'nul' ?>" href="config.php?display=recordings&amp;usersnum=<?php echo urlencode($num) ?>"><?php echo _("Add Recording")?></a></li>
-        <li><a id="<?php echo ($id===-1)?'current':'nul' ?>" href="config.php?display=recordings&amp;action=system"><?php echo _("Built-in Recordings")?></a></li>
+        <li><a class="<?php echo empty($id)?'current':'nul' ?>" href="config.php?display=recordings&amp;usersnum=<?php echo urlencode($num) ?>"><?php echo _("Add Recording")?></a></li>
+        <li><a class="<?php echo ($id===-1)?'current':'nul' ?>" href="config.php?display=recordings&amp;action=system"><?php echo _("Built-in Recordings")?></a></li>
 <?php
         $wrapat = 18;
         $tresults = recordings_list();
         if (isset($tresults)){
                 foreach ($tresults as $tresult) {
                         echo "<li>";
-                        echo "<a id=\"".($id==$tresult[0] ? 'current':'nul')."\" href=\"config.php?display=recordings&amp;";
+                        echo "<a class=\"".($id==$tresult[0] ? 'current':'nul')."\" href=\"config.php?display=recordings&amp;";
                         echo "action=edit&amp;";
                         echo "usersnum=".urlencode($num)."&amp;";
 //                        echo "filename=".urlencode($tresult[2])."&amp;";

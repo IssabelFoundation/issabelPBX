@@ -80,11 +80,11 @@ $meetmes = conferences_list();
 
 <!-- right side menu -->
 <div class="rnav"><ul>
-        <li><a id="<?php echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Conference")?></a></li>
+        <li><a class="<?php echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Conference")?></a></li>
 <?php
 if (isset($meetmes)) {
     foreach ($meetmes as $meetme) {
-        echo "<li><a id=\"".($extdisplay==$meetme[0] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&extdisplay=".urlencode($meetme[0])."\">{$meetme[0]}:{$meetme[1]}</a></li>";
+        echo "<li><a class=\"".($extdisplay==$meetme[0] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&extdisplay=".urlencode($meetme[0])."\">{$meetme[0]}:{$meetme[1]}</a></li>";
     }
 }
 ?>

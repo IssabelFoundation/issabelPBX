@@ -131,14 +131,14 @@ function gabcast_show($xtn, $type, $iam) {
 
 function gabcast_sidebar($sel, $type, $iam) {
         echo "</div><div class='rnav'>\n";
-        echo "<ul><li><a id='".($sel==''?'current':'std')."' ";
+        echo "<ul><li><a class='".($sel==''?'current':'std')."' ";
         echo "href='config.php?type={$type}&amp;display={$iam}&amp;action=add'>"._("Add Gabcast Channel")."</a></li>";
         //get the list of paging groups
         $resarr = gabcast_list();
         if ($resarr) {
                 foreach ($resarr as $resar) {
                         $cursel = $resar[0];
-                        echo "<li><a id=\"".($sel==$cursel ? 'current':'std');
+                        echo "<li><a class=\"".($sel==$cursel ? 'current':'std');
                         echo "\" href=\"config.php?type=${type}&amp;display=";
                         echo "${iam}&amp;ext=${cursel}&amp;action=edit\">";
                         echo _("Ext")." ${cursel} -> "._("Chan")." ${resar[1]} </a></li>";

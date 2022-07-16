@@ -31,11 +31,11 @@ $miscdests = miscdests_list();
 
 <!-- right side menu -->
 <div class="rnav"><ul>
-    <li><a id="<?php echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Misc Destination")?></a></li>
+    <li><a class="<?php echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Misc Destination")?></a></li>
 <?php
 if (isset($miscdests)) {
 	foreach ($miscdests as $miscdest) {
-		echo "<li><a id=\"".($extdisplay==$miscdest[0] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&id=".urlencode($miscdest[0])."\">{$miscdest[1]}</a></li>";
+		echo "<li><a class=\"".($extdisplay==$miscdest[0] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&id=".urlencode($miscdest[0])."\">{$miscdest[1]}</a></li>";
 	}
 }
 ?>

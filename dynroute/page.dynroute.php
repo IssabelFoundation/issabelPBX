@@ -84,13 +84,13 @@ echo _("For configuration instructions see").' <a href="http://www.voipsupport.i
 function dynroute_sidebar($id)  {
 ?>
         <div class="rnav"><ul>
-        <li><a id="<?php echo empty($id)?'current':'nul' ?>" href="config.php?display=dynroute&amp;action=add"><?php echo _("Add Route")?></a></li>
+        <li><a class="<?php echo empty($id)?'current':'nul' ?>" href="config.php?display=dynroute&amp;action=add"><?php echo _("Add Route")?></a></li>
 <?php
 
         $dynroute_results = dynroute_list();
         if (isset($dynroute_results)){
                 foreach ($dynroute_results as $tresult) {
-                        echo "<li><a id=\"".($id==$tresult['dynroute_id'] ? 'current':'nul')."\" href=\"config.php?display=dynroute";
+                        echo "<li><a class=\"".($id==$tresult['dynroute_id'] ? 'current':'nul')."\" href=\"config.php?display=dynroute";
                         echo "&amp;action=edit&amp;id={$tresult['dynroute_id']}\">{$tresult['displayname']}</a></li>\n";
                 }
         }

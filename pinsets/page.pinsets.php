@@ -35,11 +35,11 @@ $pinsetss = pinsets_list();
 
 <!-- right side menu -->
 <div class="rnav"><ul>
-    <li><a id="<?php echo ($itemid=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add PIN Set")?></a></li>
+    <li><a class="<?php echo ($itemid=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add PIN Set")?></a></li>
 <?php
 if (isset($pinsetss)) {
 	foreach ($pinsetss as $pinsets) {
-		echo "<li><a id=\"".($itemid==$pinsets['pinsets_id'] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&itemid=".urlencode($pinsets['pinsets_id'])."\">{$pinsets['description']}</a></li>";
+		echo "<li><a class=\"".($itemid==$pinsets['pinsets_id'] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&itemid=".urlencode($pinsets['pinsets_id'])."\">{$pinsets['description']}</a></li>";
 	}
 }
 ?>

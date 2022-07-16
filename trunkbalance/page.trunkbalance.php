@@ -41,12 +41,12 @@ $trunkbalances = trunkbalance_list();
 
 <!-- right side menu -->
 <div class="rnav"><ul>
-    <li><a id="<?php echo ($itemid=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Load balanced Trunk")?></a></li>
+    <li><a class="<?php echo ($itemid=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Load balanced Trunk")?></a></li>
 <?php
 if (isset($trunkbalances)) {
 	foreach ($trunkbalances as $trunkbalance) {
 		if ($trunkbalance['trunkbalance_id'] != 0)
-			echo "<li><a id=\"".($itemid==$trunkbalance['trunkbalance_id'] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&itemid=".urlencode($trunkbalance['trunkbalance_id'])."\">{$trunkbalance['description']}</a></li>";
+			echo "<li><a class=\"".($itemid==$trunkbalance['trunkbalance_id'] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&itemid=".urlencode($trunkbalance['trunkbalance_id'])."\">{$trunkbalance['description']}</a></li>";
 	}
 }
 ?>

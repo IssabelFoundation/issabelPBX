@@ -14,7 +14,7 @@ isset($_REQUEST['itemid'])?$itemid=$db->escapeSimple($_REQUEST['itemid']):$itemi
 
 $daynightcodes = daynight_list();
 ?><div class="rnav"><ul>
-    <li><a id="<?php echo ($itemid=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>&action=add"><?php echo _("Add Call Flow Toggle Code")?></a></li>
+    <li><a class="<?php echo ($itemid=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>&action=add"><?php echo _("Add Call Flow Toggle Code")?></a></li>
 <?php
 if (isset($daynightcodes)) {
 	foreach ($daynightcodes as $code) {

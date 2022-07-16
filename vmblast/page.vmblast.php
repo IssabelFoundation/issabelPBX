@@ -52,7 +52,7 @@ if(isset($_REQUEST['action'])){
 ?>
 
 <div class="rnav"><ul>
-    <li><a id="<?php  echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add VMBlast Group")?></a></li> <?php
+    <li><a class="<?php  echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add VMBlast Group")?></a></li> <?php
 //get unique ring groups
 $gresults = vmblast_list();
 $default_grp = vmblast_get_default_grp();

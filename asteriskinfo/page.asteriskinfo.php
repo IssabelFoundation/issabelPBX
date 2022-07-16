@@ -238,7 +238,7 @@ if ($chan_dahdi){
 <div class="rnav"><ul>
 <?php
 foreach ($modes as $mode => $value) {
-    echo "<li><a id=\"".($extdisplay==$mode)."\" href=\"config.php?&type=".urlencode("tool")."&display=".urlencode($dispnum)."&extdisplay=".urlencode($mode)."\">"._($value)."</a></li>";
+    echo "<li><a class=\"".($extdisplay==$mode?'current':'')."\" href=\"config.php?&type=".urlencode("tool")."&display=".urlencode($dispnum)."&extdisplay=".urlencode($mode)."\">"._($value)."</a></li>";
 }
 ?>
 </ul></div>

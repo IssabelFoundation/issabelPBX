@@ -33,11 +33,11 @@ $disas = disa_list();
 ?>
 
 <div class="rnav"><ul>
-        <li><a id="<?php echo ($itemid=='' ? 'current':'std') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add DISA") ?></a></li>
+        <li><a class="<?php echo ($itemid=='' ? 'current':'std') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add DISA") ?></a></li>
 <?php
 if (isset($disas)) {
     foreach ($disas as $d) {
-        echo "<li><a id=\"".($itemid==$d['disa_id'] ? 'current':'std')."\" href=\"config.php?display=".urlencode($dispnum)."&itemid=".urlencode($d['disa_id'])."\">{$d['displayname']} ({$d['disa_id']})</a></li>";
+        echo "<li><a class=\"".($itemid==$d['disa_id'] ? 'current':'std')."\" href=\"config.php?display=".urlencode($dispnum)."&itemid=".urlencode($d['disa_id'])."\">{$d['displayname']} ({$d['disa_id']})</a></li>";
     }
 }
 ?>
