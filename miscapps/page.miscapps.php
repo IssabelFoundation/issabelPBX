@@ -63,10 +63,10 @@ switch ($action) {
 <div class="rnav"><ul>
 <?php 
 
-echo '<li><a href="config.php?display=miscapps&amp;type=setup">'._('Add Misc Application').'</a></li>';
+echo '<li><a class="'.($extdisplay=='' ? 'current':'').'" href="config.php?display=miscapps&amp;type=setup">'._('Add Misc Application').'</a></li>';
 
 foreach (miscapps_list() as $row) {
-	echo '<li><a href="config.php?display=miscapps&amp;type=setup&amp;extdisplay='.$row['miscapps_id'].'" class="">'.$row['description'].'</a></li>';
+	echo '<li><a class="'.($extdisplay==$row['miscapps_id'] ? 'current':'').'" href="config.php?display=miscapps&amp;type=setup&amp;extdisplay='.$row['miscapps_id'].'" class="" up-target=".content .rnav">'.$row['description'].'</a></li>';
 }
 
 ?>
