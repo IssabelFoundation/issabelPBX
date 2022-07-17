@@ -54,10 +54,10 @@ switch ($action) {
 // Eventually I recon the drawListMenu could be built into the new component class thus making
 // the relevent page.php file unnessassary
 
-echo '<li><a href="config.php?display=announcement&amp;type=setup">'._('Add Announcement').'</a></li>';
+echo '<li><a class="'.($extdisplay=='' ? 'current':'').'" href="config.php?display=announcement&amp;type=setup">'._('Add Announcement').'</a></li>';
 
 foreach (announcement_list() as $row) {
-    echo '<li><a href="config.php?display=announcement&amp;type=setup&amp;extdisplay='.$row[0].'" class="">'.$row[1].'</a></li>';
+    echo '<li><a class="'.($extdisplay==$row[0] ? 'current':'').'" href="config.php?display=announcement&amp;type=setup&amp;extdisplay='.$row[0].'" class="">'.$row[1].'</a></li>';
 }
 
 ?>
