@@ -76,7 +76,7 @@ function miscapps_get($miscapps_id) {
 }
 
 function miscapps_add($description, $ext, $dest) {
-	global $db;
+	global $db, $amp_conf;
 	$sql = "INSERT INTO miscapps (description, ext, dest) VALUES (".
 		"'".$db->escapeSimple($description)."', ".
 		"'".$db->escapeSimple($ext)."', ".
