@@ -57,7 +57,7 @@ switch ($action) {
 echo '<li><a class="'.($extdisplay=='' ? 'current':'').'" href="config.php?display=announcement&amp;type=setup">'._('Add Announcement').'</a></li>';
 
 foreach (announcement_list() as $row) {
-    echo '<li><a class="'.($extdisplay==$row[0] ? 'current':'').'" href="config.php?display=announcement&amp;type=setup&amp;extdisplay='.$row[0].'" class="">'.$row[1].'</a></li>';
+    echo '<li><a class="'.($extdisplay==$row[0] ? 'current':'').'" href="config.php?display=announcement&amp;type=setup&amp;extdisplay='.$row[0].'">'.$row[1].'</a></li>';
 }
 
 ?>
