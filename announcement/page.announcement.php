@@ -85,7 +85,7 @@ if ($extdisplay) {
 }
 
 ?>
-<form name="editAnnouncement" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkAnnouncement(editAnnouncement);">
+<form name="editAnnouncement" method="post" onsubmit="return checkAnnouncement(editAnnouncement);">
             <input type="hidden" name="extdisplay" value="<?php echo $extdisplay; ?>">
             <input type="hidden" name="announcement_id" value="<?php echo $extdisplay; ?>">
             <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">

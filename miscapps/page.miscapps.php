@@ -98,7 +98,7 @@ echo $helptext;
       }
 ?>
 
-<form name="editMiscapp" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkMiscapp(editMiscapp);">
+<form name="editMiscapp" method="post" onsubmit="return checkMiscapp(editMiscapp);">
 	<input type="hidden" name="extdisplay" value="<?php echo $extdisplay; ?>">
 	<input type="hidden" name="miscapp_id" value="<?php echo $extdisplay; ?>">
 	<input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
