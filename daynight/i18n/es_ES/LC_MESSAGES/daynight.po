@@ -247,7 +247,7 @@ msgstr ""
 #: page.daynight.php:112 page.daynight.php:225
 #, php-format
 msgid "Use feature code: %s to toggle the call flow mode"
-msgstr ""
+msgstr "Use el código de funcionalidad %s para alternar el modo del flujo de llamada"
 
 #: page.daynight.php:202
 msgid ""
