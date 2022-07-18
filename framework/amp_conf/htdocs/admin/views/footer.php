@@ -97,6 +97,9 @@ $ipbx['msg']['framework']['add'] = _("Add");
 $ipbx['msg']['framework']['reloading'] = _("Reloading...");
 $ipbx['msg']['framework']['pleasewait'] = _("Please Wait");
 $ipbx['msg']['framework']['login'] = _("Login");
+$ipbx['msg']['framework']['areyousure'] = _("Are you sure?");
+$ipbx['msg']['framework']['wontreverse'] = _("You won't be able to revert this!");
+$ipbx['msg']['framework']['yes'] = _("Yes");
 
 if(!isset($covert)) $covert=false;
 if ($covert) {

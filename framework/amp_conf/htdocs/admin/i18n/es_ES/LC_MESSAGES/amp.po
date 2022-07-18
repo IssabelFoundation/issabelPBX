@@ -6443,3 +6443,15 @@ msgstr "Administración de módulos"
 #~ msgid "Add Zap Channel"
 #~ msgstr "Añadir canal Zap:"
 
+msgid "Advanced"
+msgstr "Avanzado"
+
+msgid "to"
+msgstr "a"
+
+msgid "Are you sure?"
+msgstr "¿Está seguro?"
+
+msgid "You won't be able to revert this!"
+msgstr "¡No podrá revertir esto!"
+
