@@ -24,7 +24,7 @@ if (isset($daynightcodes)) {
 
 		$dnobj = daynight_get_obj($code['ext']);
 		$color = $dnobj['state'] == 'DAY' ? "style='color:green'" : "style='color:red'";
-		echo "<li><a $color id=\"".($itemid==$code['ext'] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&itemid=".urlencode($code['ext'])."&action=edit\">($fc) {$code['dest']}</a></li>";
+		echo "<li><a $color class=\"".($itemid==$code['ext'] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&itemid=".urlencode($code['ext'])."&action=edit\">($fc) {$code['dest']}</a></li>";
 	}
 }
 ?>
