@@ -852,7 +852,7 @@ function timeconditions_timegroups_add_group($description,$times=null) {
     global $db;
     global $amp_conf;
 
-    $sql = "INSERT timegroups_groups(description) VALUES ('$description')";
+    $sql = "INSERT INTO timegroups_groups(description) VALUES ('$description')";
     $db->query($sql);
     if(method_exists($db,'insert_id')) {
         $timegroup = $db->insert_id();
@@ -911,7 +911,7 @@ function timeconditions_timegroups_edit_times($timegroup,$times) {
         extract($val);
         $time = timeconditions_timegroups_buildtime( $hour_start, $minute_start, $hour_finish, $minute_finish, $wday_start, $wday_finish, $mday_start, $mday_finish, $month_start, $month_finish);
         if (isset($time) && $time != '' && $time <> '*|*|*|*') {
-            $sql = "INSERT timegroups_details (timegroupid, time, name ) VALUES ($timegroup, '$time', '$display_name')";
+            $sql = "INSERT INTO timegroups_details (timegroupid, time, name ) VALUES ($timegroup, '$time', '$display_name')";
             $db->query($sql);
         }
     }
@@ -927,7 +927,7 @@ function timeconditions_timegroups_edit_timestrings($timegroup,$timestrings) {
     foreach ($timestrings as $key=>$val) {
         $time = $val;
         if (isset($time) && $time != '' && $time <> '*|*|*|*') {
-            $sql = "INSERT timegroups_details (timegroupid, time) VALUES ($timegroup, '$time')";
+            $sql = "INSERT INTO timegroups_details (timegroupid, time) VALUES ($timegroup, '$time')";
             $db->query($sql);
         }
     }
