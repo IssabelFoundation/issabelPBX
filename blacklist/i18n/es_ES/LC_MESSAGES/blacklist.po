@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo blacklist module spanish translation\n"
+"Project-Id-Version: IssabelPBX - módulo blocklist module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-23 09:52+0000\n"
 "PO-Revision-Date: 2009-01-22 01:08+0100\n"
@@ -14,28 +14,34 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Blacklist"
-msgstr "Lista negra"
+msgstr "Lista de bloqueo"
+
+msgid "Add Blacklist"
+msgstr "Añadir a Lista de bloqueo"
+
+msgid "Edit Blacklist"
+msgstr "Modificar Lista de bloqueo"
 
 msgid "Admin"
 msgstr ""
 
 msgid "Blacklist a number"
-msgstr "Añadir un número a la lista negra"
+msgstr "Bloquear un número"
 
 msgid "Remove a number from the blacklist"
-msgstr "Eliminar un número de la lista negra"
+msgstr "Eliminar un número de la lista de bloqueo"
 
 msgid "Blacklist the last caller"
-msgstr "Añadir a la lista negra el último número llamado"
+msgstr "Añadir a la lista de bloqueo el último número llamado"
 
 msgid "Blacklist entry"
-msgstr "Elemento de la lista negra"
+msgstr "Elemento de la lista de bloqueo"
 
 msgid "deleted"
 msgstr "eliminada"
 
 msgid "Blacklist entries"
-msgstr "Elementos de la lista negra"
+msgstr "Elementos de la lista de bloqueo"
 
 msgid "Number/CallerID"
 msgstr "Número/CallerID"
