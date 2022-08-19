@@ -19,8 +19,9 @@ switch ($action) {
 
 $featurecodes = featurecodes_getAllFeaturesDetailed();
 ?>
+<div class='content'>
 
-	<form autocomplete="off" name="frmAdmin" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return frmAdmin_onsubmit();">
+	<form autocomplete="off" id="mainform" name="frmAdmin" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return frmAdmin_onsubmit(this);">
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
 	<input type="hidden" name="action" value="save">
 
@@ -66,8 +67,8 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 				}
       }
 	?>
-	<table>
-	<tr><td colspan="4"><h3><?php echo _("Feature Code Admin"); ?><hr></h3></td></tr>
+	<table class='table is-borderless is-narrow'>
+	<tr><td colspan="4"><h3><?php echo _("Feature Code Admin"); ?></h3></td></tr>
 	<tr>
 		<td colspan="2">&nbsp;</td>
 		<td align="center"><b><?php echo _("Use"); ?><br><?php echo _("Default"); ?>?</b></td>
@@ -131,30 +132,30 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 				<?php echo $strong.$featuredesc.$endstrong; ?>
 			</td>
 			<td>
-				<input type="text" name="custom#<?php echo $featureid; ?>" value="<?php echo $featurecodecustom; ?>" <?php echo $background; ?> size="4" tabindex="<?php echo ++$tabindex;?>">
+				<input type="text" name="custom#<?php echo $featureid; ?>" value="<?php echo $featurecodecustom; ?>" <?php echo $background; ?> class="input" tabindex="<?php echo ++$tabindex;?>">
 			</td>
 			<td align="center">
-				<input type="checkbox" onclick="usedefault_onclick(this);" name="usedefault_<?php echo $featureid; ?>"<?php if ($featurecodecustom == '') echo "checked"; ?>>
+                <div class="field"><input id="id<?php echo $featureid?>" type="checkbox" class="switch" onclick="usedefault_onclick(this);" name="usedefault_<?php echo $featureid; ?>"<?php if ($featurecodecustom == '') echo "checked"; ?>><label for="id<?php echo $featureid?>"></label></div>
 				<input type="hidden" name="default_<?php echo $featureid; ?>" value="<?php echo $featurecodedefault; ?>">
 				<input type="hidden" name="origcustom_<?php echo $featureid; ?>" value="<?php echo $featurecodecustom; ?>">
 			</td>
-			<td>
-				<select name="ena#<?php echo $featureid; ?>" class='componentSelect'>
-				<option <?php if ($featureena == true) echo ("selected "); ?>value="1"><?php echo _("Enabled"); ?></option>
-				<option <?php if ($featureena == false) echo ("selected "); ?>value="0"><?php echo _("Disabled"); ?></option>
-				</select>
+            <td>
+            <?php 
+            $curvalue = ($featureena == true)?1:0;       
+            echo ipbx_radio('ena#'.$featureid,array(array('value'=>'1','text'=>_('Enabled')),array('value'=>'0','text'=>_('Disabled'))),$curvalue,false);
+            ?>
 			</td>
 		</tr>	
 		<?php
 	}
+    echo form_action_bar($extdisplay,'',true,true); 
  ?>
-	<tr>
+	 <!--tr>
 		<td colspan="4"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>"></h6></td>		
-	</tr>
+	</tr-->
 	</table>
 
-	<script language="javascript">
-	<!--
+	<script>
 	
 	var theForm = document.frmAdmin;
 	
@@ -183,8 +184,8 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 	}
 	
 	// form validation
-	function frmAdmin_onsubmit() {
-                var msgErrorMissingFC = "<?php echo addslashes(_("Please enter a Feature Code or check Use Default for all Enabled Feature Codes")); ?>";
+	function frmAdmin_onsubmit(theForm) {
+        var msgErrorMissingFC = "<?php echo addslashes(_("Please enter a Feature Code or check Use Default for all Enabled Feature Codes")); ?>";
 		var msgErrorDuplicateFC = "<?php echo _("Feature Codes have been duplicated"); ?>";
 		var msgErrorProceedOK = "<?php echo _("Are you sure you wish to proceed?"); ?>";
 		
@@ -218,7 +219,6 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 		}
 	}
 	
-	//-->
 	</script>
 	
 	</form>
