@@ -45,7 +45,7 @@ msgid "Conferences"
 msgstr "Conferencias"
 
 msgid "Queues"
-msgstr ""
+msgstr "Colas"
 
 msgid "Subscriptions"
 msgstr "Suscripciones"
@@ -90,19 +90,19 @@ msgid "MeetMe Conference Info"
 msgstr ""
 
 msgid "Conference Bridge Info"
-msgstr ""
+msgstr "Información de Conferencias"
 
 msgid "Queues Info"
-msgstr ""
+msgstr "Información de Colas"
 
 msgid "Voicemail Users"
 msgstr "Usuarios del buzón de voz"
 
 msgid "Google Talk Channels"
-msgstr ""
+msgstr "Canales Google Talk"
 
 msgid "Jabber Connections"
-msgstr ""
+msgstr "Conexiones Jabber"
 
 msgid "Asterisk (Ver. "
 msgstr "Asterisk (Versión"
@@ -155,13 +155,13 @@ msgid "Offline-Unmonitored: "
 msgstr ""
 
 msgid "Unmonitored: "
-msgstr "Sin monitorizar:"
+msgstr "Sin monitorear:"
 
 msgid "PJSip Info"
 msgstr "Información PJSip"
 
-msgid "PJSip Endpoints:"
-msgstr "Endpoints PJSip:"
+msgid "PJSip Endpoints"
+msgstr "Endpoints PJSip"
 
 msgid "Available"
 msgstr "Disponibles"
@@ -178,20 +178,14 @@ msgstr "En línea"
 msgid "Offline-Unmonitored"
 msgstr "Fuera de línea"
 
-msgid "PJSip Registrations: "
-msgstr "Registraciones PJSip: "
-
-msgid "Active PJSIP Channel(s): "
-msgstr "Canales PJSIP activos: "
+msgid "Active PJSIP Channel(s)"
+msgstr "Canales PJSIP activos"
 
 msgid "PJSip Transports"
 msgstr "Transportes PJSip"
 
 msgid "PJSip Registrations"
 msgstr "Registraciones PJSip"
-
-msgid "PJSip Endpoints"
-msgstr "Endpoints PJSip"
 
 msgid "PJSip Contacts"
 msgstr "Contactos PJSip"
@@ -204,3 +198,19 @@ msgstr "PJSip AORs"
 
 #~ msgid "Conference Info"
 #~ msgstr "Información de conferencias"
+
+msgid "Last reload"
+msgstr "Ultima recarga"
+
+msgid "minute"
+msgstr "minuto"
+
+msgid "hour"
+msgstr "hora"
+
+msgid "second"
+msgstr "segundo"
+
+msgid "day"
+msgstr "día"
+

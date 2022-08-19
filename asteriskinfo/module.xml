@@ -2,7 +2,7 @@
 	<rawname>asteriskinfo</rawname>
 	<repo>standard</repo>
 	<name>Asterisk Info</name>
-	<version>2.11.0.89</version>
+	<version>2.12.0.0</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,13 +18,13 @@
 		<engine>asterisk</engine>
 		<version>2.5.0rc3</version>
 	</depends>
-	<changelog>
+    <changelog>
+        *2.12.0.0* Newer GUI, standarize module components
 		*2.11.0.9* Initial Issabel Foundation release
 		*0.1.0* Initial release
 	</changelog>
 	<supported>
 		<version>2.10</version>
 	</supported>
-	<location>release/2.11/asteriskinfo-2.11.0.2.tgz</location>
-	<md5sum>7793bdb58d59c1c8f5e4926bac66ac63</md5sum>
+	<location>release/2.12/asteriskinfo-2.12.0.0.tgz</location>
 </module>
