@@ -118,7 +118,7 @@ class modgettext {
 				self::$tdhash[$module] = 'amp';
 			}
                         if (isset($_COOKIE['lang']) && is_dir("$dirname/modules/" . $module . '/i18n/' . $_COOKIE['lang'])) {
-                                bindtextdomain($module, "$dirname/modules/". $module . '/i18n');
+                                $fullpath = bindtextdomain($module, "$dirname/modules/". $module . '/i18n');
 				bind_textdomain_codeset($module, 'utf8');
 				self::$tdhash[$module] = $module;
 			} else {
