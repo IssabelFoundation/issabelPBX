@@ -2,11 +2,12 @@
     <rawname>announcement</rawname>
     <repo>standard</repo>
     <name>Announcements</name>
-    <version>2.11.0.5</version>
+    <version>2.12.0.0</version>
     <publisher>Issabel Foundation</publisher>
     <license>GPLv3+</license>
     <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <changelog>
+        *2.12.0.0* Newer GUI, standarize module components
         *2.11.0.5* Adds Text to Speech support via PicoTTS
         *2.11.0.4* Initial Issabel Foundation release
     </changelog>
@@ -28,8 +29,7 @@
         </announcement>
      </popovers>
     <supported>
-        <version>2.10</version>
+        <version>2.12</version>
     </supported>
-    <location>release/2.11/announcement-2.11.0.5.tgz</location>
-    <md5sum>704dee25bbe8e854fa4e126018b83864</md5sum>
+    <location>release/2.12/announcement-2.12.0.0.tgz</location>
 </module>
