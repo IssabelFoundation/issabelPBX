@@ -4,7 +4,7 @@ CREATE TABLE `admin` (
 );
 
 INSERT INTO `admin` VALUES("need_reload","false");
-INSERT INTO `admin` VALUES("version","2.11.0.49");
+INSERT INTO `admin` VALUES("version","2.12.0.0");
 INSERT INTO `admin` VALUES("ALLOW_SIP_ANON","no");
 
 CREATE TABLE `ampusers` (
