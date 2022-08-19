@@ -38,7 +38,7 @@ msgstr ""
 "huvudmenyn för mer detaljer."
 
 #: amp_conf/htdocs/admin/views/footer.php:86
-msgid " extension number already in use by: "
+msgid "Extension %s already in use by: %s"
 msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:536
@@ -451,7 +451,7 @@ msgid "Add Incoming Route"
 msgstr "Lägg till Inkommande väg"
 
 #: ../core/page.routing.php:323 ../core/page.routing.php:369
-msgid "Add Route"
+msgid "Add Outbound Route"
 msgstr "Lägg till väg"
 
 #: ../core/page.trunks.php:349
@@ -1703,7 +1703,7 @@ msgid "Edit Incoming Route"
 msgstr "Redigera Inkommande väg"
 
 #: ../core/page.routing.php:345 ../core/page.routing.php:363
-msgid "Edit Route"
+msgid "Edit Outbound Route"
 msgstr "Redigera väg"
 
 #: ../core/functions.inc.php:7087

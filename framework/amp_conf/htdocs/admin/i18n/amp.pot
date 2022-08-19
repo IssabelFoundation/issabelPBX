@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 
 #: amp_conf/htdocs/admin/views/footer.php:86
-msgid " extension number already in use by: "
+msgid "Extension %s already in use by: %s"
 msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:536
@@ -437,7 +437,7 @@ msgstr ""
 
 #: ../core/page.routing.php:323
 #: ../core/page.routing.php:369
-msgid "Add Route"
+msgid "Add Outbound Route"
 msgstr ""
 
 #: ../core/page.trunks.php:349
@@ -533,9 +533,6 @@ msgstr ""
 
 #: amp.i18n.php:48
 msgid "Advanced Settings"
-msgstr ""
-
-msgid "Advanced"
 msgstr ""
 
 #: ../core/page.did.php:211
@@ -1665,7 +1662,7 @@ msgstr ""
 
 #: ../core/page.routing.php:345
 #: ../core/page.routing.php:363
-msgid "Edit Route"
+msgid "Edit Outbound Route"
 msgstr ""
 
 #: ../core/functions.inc.php:7087
@@ -5483,4 +5480,148 @@ msgstr ""
 
 #: ../core/install.php:1024
 msgid "zap devices migrated"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "to"
+msgstr ""
+
+msgid "There are %s bad destinations"
+msgstr ""
+
+msgid "Are you sure?"
+msgstr ""
+
+msgid "You won't be able to revert this!"
+msgstr ""
+
+msgid "Rules:"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Error connecting to localcallinguide.com"
+msgstr ""
+
+msgid "Please fill all the fields"
+msgstr ""
+
+msgid "Item has been deleted"
+msgstr ""
+
+msgid "Item has been added"
+msgstr ""
+
+msgid "This extension is not available: %s"
+msgstr ""
+
+msgid "Copy to Clipboard"
+msgstr ""
+
+msgid "There are %s additonal conflicts not listed"
+msgstr ""
+
+msgid "January"
+msgstr ""
+
+msgid "February"
+msgstr ""
+
+msgid "March"
+msgstr ""
+
+msgid "April"
+msgstr ""
+
+msgid "May"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
+msgid "September"
+msgstr ""
+
+msgid "October"
+msgstr ""
+
+msgid "November"
+msgstr ""
+
+msgid "December"
+msgstr ""
+
+msgid "Sunday"
+msgstr ""
+
+msgid "Monday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Wednesday"
+msgstr ""
+
+msgid "Thursday"
+msgstr ""
+
+msgid "Friday"
+msgstr ""
+
+msgid "Saturday"
+msgstr ""
+
+msgid "jQuery Status"
+msgstr ""
+
+msgid "XHR Response Code"
+msgstr ""
+
+msgid "XHR Response Text"
+msgstr ""
+
+msgid "Click here for more info"
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "There is no email configured yet for update notifications. It is recommended to setup one."
+msgstr ""
+
+msgid "Enter your email"
+msgstr ""
+
+msgid "Change notification email address"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "low"
+msgstr ""
+
+msgid "medium"
+msgstr ""
+
+msgid "high"
+msgstr ""
+
+msgid "Select an option"
+msgstr ""
+
+msgid "PHP mbstring module is not installed. Please install it to avoid issues with language/localization."
 msgstr ""

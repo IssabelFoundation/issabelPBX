@@ -43,7 +43,7 @@ msgstr ""
 "состояния системы или на главной странице для уточнения деталей."
 
 #: amp_conf/htdocs/admin/views/footer.php:86
-msgid " extension number already in use by: "
+msgid "Extension %s already in use by: %s"
 msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:536
@@ -458,7 +458,7 @@ msgid "Add Incoming Route"
 msgstr "Добавить входящий маршрут"
 
 #: ../core/page.routing.php:323 ../core/page.routing.php:369
-msgid "Add Route"
+msgid "Add Outbound Route"
 msgstr "Добавить маршрут"
 
 #: ../core/page.trunks.php:349
@@ -1777,7 +1777,7 @@ msgid "Edit Incoming Route"
 msgstr "Редактировать входящий маршрут"
 
 #: ../core/page.routing.php:345 ../core/page.routing.php:363
-msgid "Edit Route"
+msgid "Edit Outbound Route"
 msgstr "Редактировать маршрут"
 
 #: ../core/functions.inc.php:7087

@@ -26,17 +26,17 @@ msgid ""
 "lower levels of support. The Unsupported repository has modules that are not "
 "supported by the IssabelPBX team but may receive some level of support by the "
 "authors."
-msgstr ""
+msgstr " Los módulos del repositorio extendido son menos comunes y pueden recibir niveles más bajos de soporte. El repositorio no compatible tiene módulos que no son compatibles con el equipo de IssabelPBX pero que pueden recibir cierto nivel de asistencia por parte de los autores."
 
 #: amp_conf/htdocs/admin/views/footer.php:76
 msgid ""
 " error(s) occurred, you should view the notification log on the dashboard or "
 "main screen to check for more details."
-msgstr ""
+msgstr " error(es) has ocurrido, revise el registro de notificaciones en el tablero principal para más detalles."
 
 #: amp_conf/htdocs/admin/views/footer.php:86
-msgid " extension number already in use by: "
-msgstr ""
+msgid "Extension %s already in use by: %s"
+msgstr "La extensión %s ya está siendo utilizada por: %s"
 
 #: amp_conf/htdocs/admin/page.modules.php:536
 #, php-format
@@ -101,7 +101,7 @@ msgstr ""
 #: amp_conf/htdocs/admin/libraries/module.functions.php:232
 #, php-format
 msgid "%s New modules are available"
-msgstr "Hay disponibles %s nuevos módulos"
+msgstr "Hay disponibles %s módulos nuevos"
 
 #: upgrades/2.9.0alpha1/migrate_ampconf.php:119
 #, php-format
@@ -205,7 +205,7 @@ msgstr ""
 
 #: ../core/page.trunks.php:773
 msgid "(ie. NXXNXXXXXX for US/CAN 10-digit dialing, NXXXXXX for 7-digit)"
-msgstr ""
+msgstr "(ejemplo, NXXNXXXXXX para marcación de 10 dígitos en EE.UU./Canadá, NXXXXXX para marcación de 7 dígitos)"
 
 #: ../core/page.routing.php:655 ../core/page.trunks.php:690
 msgid "(pick one)"
@@ -221,7 +221,7 @@ msgstr "+ Agregar Más Patrones de Marcado"
 
 #: ../core/page.routing.php:472
 msgid "---No Change---"
-msgstr ""
+msgstr "---Sin Cambios---"
 
 #: ../core/page.routing.php:455
 msgid "---Permanent Route---"
@@ -278,16 +278,16 @@ msgid "<b>IMPORTANT:</b> Use extreme caution when making changes!"
 msgstr "<b>IMPORTANTE:</b> Tenga mucho cuidado cuando realice cambios!"
 
 msgid "Advanced Settings Details"
-msgstr "Detalle de Configuraciones Avanzadas"
+msgstr "Detalle de configuraciones avanzadas"
 
 msgid "Display Friendly Name"
-msgstr "Mostrar Nombre Amistoso"
+msgstr "Mostrar nombre amistoso"
 
 msgid "Display Readonly Settings"
-msgstr "Mostrar Configuraciones de Sólo Lectura"
+msgstr "Mostrar configuraciones de sólo lectura"
 
 msgid "Override Readonly Settings"
-msgstr "Anular Configuraciones de Sólo Lectura"
+msgstr "Anular configuraciones de sólo lectura"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:695
 #, php-format
@@ -306,11 +306,11 @@ msgid ""
 "route, no subsequent routes will be tried. If Time Groups are enabled, "
 "subsequent routes will be checked for matches outside of the designated time"
 "(s)."
-msgstr ""
+msgstr "Un patrón de marcación es un conjunto único de dígitos que seleccionará esta ruta y enviará la llamada a las troncales designadas. Si un patrón marcado coincide con esta ruta, no se intentará ninguna ruta posterior. Si los Grupos de tiempo están habilitados, las rutas subsiguientes se verificarán en busca de coincidencias fuera de los tiempos designados."
 
 #: ../core/page.did.php:318
 msgid "A Slash ('/') is never a valid DID. Please remove it and try again"
-msgstr ""
+msgstr "Una barra ('/') no es nunca un DID válido. Por favor quítelo e intente nuevamente"
 
 #: ../core/functions.inc.php:7197
 msgid "A description for this DID, such as \"Fax\""
@@ -453,8 +453,8 @@ msgid "Add Incoming Route"
 msgstr "Añadir ruta entrante"
 
 #: ../core/page.routing.php:323 ../core/page.routing.php:369
-msgid "Add Route"
-msgstr "Añadir ruta"
+msgid "Add Outbound Route"
+msgstr "Añadir ruta saliente"
 
 #: ../core/page.trunks.php:349
 msgid "Add SIP Trunk"
@@ -513,7 +513,7 @@ msgid ""
 "is STRONGLY advised that you keep this enabled and keep updated of these "
 "important notifications to avoid costly security vulnerabilities."
 msgstr ""
-"Complete su dirección de correo para recibir notificaciones sobre actualizacios "
+"Complete su dirección de correo para recibir notificaciones sobre actualizaciones "
 "y problemas de seguridad. Esta dirección no es transmitida ni compartida con "
 "nadie y se usa solamente para enviar correos con notificaciones. Se recomienda "
 "que complete este campo para no quedar expuesto a potenciales problemas de "
@@ -557,11 +557,11 @@ msgstr ""
 
 #: amp.i18n.php:52
 msgid "Administrators"
-msgstr "Administradores"
+msgstr "Usuarios administradores"
 
 #: amp.i18n.php:48
 msgid "Advanced Settings"
-msgstr "Configuración Avanzada"
+msgstr "Configuración avanzada"
 
 #: ../core/page.did.php:211
 msgid "Alert Info"
@@ -986,7 +986,7 @@ msgstr ""
 
 #: ../core/page.trunks.php:581
 msgid "Check to always try next trunk"
-msgstr "Marque para siempre probar con el siguiente troncal"
+msgstr "Marque para probar siempre con el siguiente troncal"
 
 #: upgrades/2.9.0alpha1/tables.php:40 upgrades/2.9.0alpha1/tables.php:56
 #: ../core/install.php:495 ../core/install.php:511
@@ -1079,7 +1079,7 @@ msgstr "Pinche aquí para remover este patrón"
 
 #: amp_conf/htdocs/admin/page.modules.php:279
 msgid "Click to configure Update Notifications"
-msgstr ""
+msgstr "Haga clic para configurar Notificaciones de actualización"
 
 #: amp_conf/htdocs/admin/views/footer.php:77
 msgid "Close"
@@ -1245,7 +1245,7 @@ msgstr "Cadena de marcación personalizada"
 #: amp_conf/htdocs/admin/views/footer.php:92
 msgid ""
 "Custom Goto contexts must contain the string \"custom-\".  ie: custom-app,s,1"
-msgstr ""
+msgstr "Los contextos personalizados Goto deben contener la cadena \"custom-\". Ej: custom-app,s,1"
 
 #: amp.i18n.php:42
 msgid "DAHDI Channel DIDs"
@@ -1274,14 +1274,14 @@ msgstr ""
 
 #: ../core/page.trunks.php:873
 msgid "DAHDi Identifier"
-msgstr ""
+msgstr "Identificador DAHDi"
 
 #: ../core/page.trunks.php:873
 msgid ""
 "DAHDi channels are referenced either by a group number or channel number "
 "(which is defined in chan_dahdi.conf).  <br><br>The default setting is "
 "<b>g0</b> (group zero)."
-msgstr ""
+msgstr "Los canales DAHDi se pueden referenciar ya sea por un número de grupo o número de canal (que se define en chan_dahdi.conf). <br><br>El valor por defecto es <b>g0</b> (grupo cero)"
 
 #: ../core/page.trunks.php:412
 msgid "DAHDi compatibility Mode"
@@ -1327,7 +1327,7 @@ msgid ""
 "DID information is normally just an incoming telephone number or for "
 "advanced users, a valid Asterisk Dial Pattern\\n\\nYou have entered a non "
 "standard DID pattern.\\n\\nAre you sure this is correct?"
-msgstr ""
+msgstr "La información DID normalmente es solo un número de teléfono entrante o, para usuarios avanzados, un patrón de marcación de Asterisk válido.\\n\\nHa ingresado un patrón DID no estándar.\\n\\n¿Está seguro de que es correcto?"
 
 #: ../core/page.dahdichandids.php:112
 msgid ""
@@ -1341,11 +1341,11 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:1018
 msgid "Date Fixed"
-msgstr ""
+msgstr "Fecha de Reparación"
 
 #: amp_conf/htdocs/admin/page.modules.php:1017
 msgid "Date Reported"
-msgstr ""
+msgstr "Fecha de Reporte"
 
 #: amp_conf/htdocs/admin/page.modules.php:958
 msgid "Debug"
@@ -1380,19 +1380,19 @@ msgid "Dialplan and Operational"
 msgstr "Plan de Marcado y Operacional"
 
 msgid "Device Settings"
-msgstr "Configuraciones de Dispositivo"
+msgstr "Configuraciones de dispositivo"
 
 msgid "Developer and Customization"
-msgstr "Desarrollador y Personalizaciones"
+msgstr "Desarrollador y personalización"
 
 msgid "Debug File"
-msgstr "Archivo de Depuración"
+msgstr "Archivo de depuración"
 
 msgid "Developer Mode"
-msgstr "Modo Desarrollador"
+msgstr "Modo desarrollador"
 
 msgid "Always Download Web Assets"
-msgstr "Descargar Siempre Componentes Web"
+msgstr "Descargar siempre componentes web"
 
 msgid "GUI Behavior"
 msgstr "Comportamiento GUI"
@@ -1400,7 +1400,7 @@ msgstr "Comportamiento GUI"
 #: ../core/page.advancedsettings.php:88
 #, php-format
 msgid "Default Value: %s"
-msgstr "Valor por Defecto: %s"
+msgstr "Valor por defecto: %s"
 
 #: ../core/page.did.php:200
 msgid ""
@@ -1589,18 +1589,15 @@ msgid "Dialed Number Manipulation Rules"
 msgstr "Reglas de Manipulación Número Marcado"
 
 #: ../core/page.routing.php:503
-msgid ""
-"Digits to prepend to a successful match. If the dialed number matches the "
-"patterns specified by the subsequent columns, then this will be prepended "
-"before sending to the trunks."
-msgstr ""
+msgid "Digits to prepend to a successful match. If the dialed number matches the patterns specified by the subsequent columns, then this will be prepended before sending to the trunks."
+msgstr "Dígitos para anteponer a una coincidencia exitosa. Si el número marcado coincide con los patrones especificados por las columnas subsiguientes, se antepondrá antes de enviarlo a las troncales."
 
 #: ../core/page.trunks.php:617
 msgid ""
 "Digits to prepend upon a successful match. If the dialed number matches the "
 "patterns in the <b>prefix</b> and <b>match pattern</b> boxes, this will be "
 "prepended before sending to the trunk."
-msgstr ""
+msgstr "Dígitos para anteponer a una coincidencia exitosa. Si el número marcado coincide con los patrones en los cuadros <b>prefijo</b> y <b>patrón de coincidencia</b>, se antepondrá antes de enviarlo a la troncal."
 
 #: ../core/install.php:12
 msgid "Directed Call Pickup"
@@ -1783,7 +1780,7 @@ msgstr "Modificar canal"
 
 #: ../core/page.dahdichandids.php:61
 msgid "Edit DAHDI Channel: "
-msgstr ""
+msgstr "Modificar Canal DAHDI: "
 
 #: ../core/functions.inc.php:7738
 #, php-format
@@ -1804,8 +1801,8 @@ msgid "Edit Incoming Route"
 msgstr "Modificar ruta entrante"
 
 #: ../core/page.routing.php:345 ../core/page.routing.php:363
-msgid "Edit Route"
-msgstr "Modificar ruta"
+msgid "Edit Outbound Route"
+msgstr "Modificar ruta saliente"
 
 #: ../core/functions.inc.php:7087
 msgid "Edit User"
@@ -2046,19 +2043,22 @@ msgstr ""
 msgid "Export Dialplans as CSV"
 msgstr "Exportar Plan de Marcado como CSV"
 
+msgid "Export"
+msgstr "Exportar"
+
 #: ../core/page.trunks.php:843
 #, php-format
 msgid ""
 "Export patterns as a CSV file with headers listed as: %s, %s and %s in the "
 "first row."
-msgstr ""
+msgstr "Exporte patrones como un archivo CSV con encabezados enumerados como: %s, %s y %s en la primera fila."
 
 #: ../core/page.routing.php:671
 #, php-format
 msgid ""
 "Export patterns as a CSV file with headers listed as: %s, %s, %s and %s in "
 "the first row."
-msgstr ""
+msgstr "Exporte patrones como un archivo CSV con encabezados enumerados como: %s, %s, %s y %s en la primera fila."
 
 #: amp_conf/htdocs/admin/page.modules.php:1200
 msgid "Extended"
@@ -2264,12 +2264,12 @@ msgstr ""
 #: amp_conf/htdocs/admin/page.modules.php:897
 #, php-format
 msgid "Force Download and Downgrade to %s"
-msgstr ""
+msgstr "Forzar descarga y degradar versión a %s"
 
 #: amp_conf/htdocs/admin/page.modules.php:897
 #, php-format
 msgid "Force Download and Install %s"
-msgstr ""
+msgstr "Forzar descarga e instalar %s"
 
 #: ../core/page.trunks.php:531
 msgid "Force Trunk CID"
@@ -2282,7 +2282,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:586
 msgid "Forced downgrades and re-installs:"
-msgstr ""
+msgstr "Degradaciones forzadas y reinstalaciones:"
 
 #: amp_conf/htdocs/admin/views/footer_content.php:28
 msgid "IssabelPBX"
@@ -2337,7 +2337,7 @@ msgstr "Nombre Amistoso: %s"
 
 #: ../core/page.did.php:77
 msgid "General DIDs"
-msgstr "DISs generales"
+msgstr "DIDs generales"
 
 #: ../core/page.ampusers.php:160 ../core/page.trunks.php:501
 msgid "General Settings"
@@ -2462,7 +2462,7 @@ msgid ""
 "extensions make outbound calls, the CallerID will be their extension number "
 "and NOT their Outbound CID. The above special matching sequences can be used "
 "for CallerID matching similar to other number matches."
-msgstr ""
+msgstr "Si se proporciona CallerID, el número marcado solo coincidirá con el prefijo + patrón de coincidencia si el CallerID que se transmite coincide con este. Cuando las extensiones hacen llamadas salientes, el CallerID será su número de extensión y NO su CID saliente. Las secuencias de coincidencia especiales anteriores se pueden usar para la coincidencia de CallerID similar a otras coincidencias de números."
 
 #: ../core/page.routing.php:755
 msgid ""
@@ -2636,16 +2636,16 @@ msgid "Internal Auto Answer"
 msgstr "Auto Contestar Internas"
 
 msgid "Asterisk Builtin mini-HTTP server"
-msgstr "Mini Servidor HTTP de Asterisk"
+msgstr "Mini servidor HTTP de Asterisk"
 
 msgid "Certificate file"
-msgstr "Archivo de Certificado"
+msgstr "Archivo de certificado"
 
-msgid "Enable HTTPS support for the mini-HTTP Server"
+msgid "Enable HTTPS support for the mini-HTTP server"
 msgstr "Habilitar soporte HTTPS al mini servidor HTTP"
 
 msgid "Enable Static Content"
-msgstr "Habilitar Contenido Estático"
+msgstr "Habilitar contenido estático"
 
 msgid "Enable the mini-HTTP Server"
 msgstr "Habilitar el mini servidor HTTP"
@@ -2970,6 +2970,9 @@ msgstr "Se requiere el módulo %s."
 msgid "Module Administration"
 msgstr "Administración de módulos"
 
+msgid "Module Admin"
+msgstr "Administración de módulos"
+
 #: amp_conf/htdocs/admin/libraries/module.functions.php:1219
 msgid "Module not enabled: cannot disable"
 msgstr "No se pudo habilitar el módulo; no se pudo deshabilitar"
@@ -3213,7 +3216,7 @@ msgstr ""
 
 #: ../core/page.trunks.php:787
 msgid "Number to dial when calling directory assistance on this trunk"
-msgstr ""
+msgstr "Número para marcar al llamar a la asistencia de directorio en este troncal"
 
 #: amp_conf/htdocs/admin/libraries/usage_registry.functions.php:253
 msgid "Object"
@@ -3256,7 +3259,7 @@ msgstr "Sólo la versión %s %s es compatible; la actual es %s"
 
 #: amp_conf/htdocs/admin/views/login.php:38
 msgid "Operator Panel"
-msgstr ""
+msgstr "Panel de Operadora"
 
 #: ../core/functions.inc.php:7267
 msgid "Optional CID Prefix to add before sending to this busy destination."
@@ -3344,7 +3347,7 @@ msgid ""
 "destinations or 1-900 numbers.<br><br>A numerical password, or the path to "
 "an Authenticate password file can be used.<br><br>Leave this field blank to "
 "not prompt for password."
-msgstr ""
+msgstr "Opcional: una ruta puede solicitar a los usuarios una contraseña antes de permitir el progreso de las llamadas. Esto es útil para restringir llamadas a destinos internacionales o números 1-900.<br><br>Se puede usar una contraseña numérica o la ruta a un archivo de contraseña de autenticación.<br><br>Deje este campo en blanco para no solicitar para contraseña."
 
 #: ../core/page.routing.php:423
 msgid ""
@@ -3499,6 +3502,9 @@ msgstr "Por favor, confirme las siguientes acciones:"
 msgid "Please correct the following errors:"
 msgstr "Por favor corrija los siguientes errores:"
 
+msgid "Login"
+msgstr "Acceso"
+
 #: ../core/functions.inc.php:7347
 msgid "Please enter a Secret for this device"
 msgstr "Por favor, introduzca una contraseña para este dispositivo"
@@ -3587,7 +3593,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/views/footer.php:91
 msgid "Please select a \"Destination\""
-msgstr "Por favor, selecciones un \"Destino\""
+msgstr "Por favor, seleccione un \"Destino\""
 
 #: amp_conf/htdocs/admin/page.modules.php:596
 msgid ""
@@ -3600,7 +3606,7 @@ msgstr ""
 #: ../core/functions.inc.php:7718
 msgid "Please select your Device below then click Submit"
 msgstr ""
-"Por favor, seleccione a continuación su dispositivo y haga clic después en "
+"Por favor, seleccione el tipo de dispositivo y luego haga clic en "
 "Enviar"
 
 #: amp_conf/htdocs/admin/page.modules.php:346
@@ -3617,21 +3623,21 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/views/bad_refferer.php:16
 msgid "Potential Security Breach"
-msgstr ""
+msgstr "Posible Brecha de Seguridad"
 
 #: ../core/page.routing.php:504
 msgid ""
 "Prefix to remove on a successful match. The dialed number is compared to "
 "this and the subsequent columns for a match. Upon a match, this prefix is "
 "removed from the dialed number before sending it to the trunks."
-msgstr ""
+msgstr "Prefijo para eliminar en una coincidencia exitosa. El número marcado se compara con esta columna y las subsiguientes para una coincidencia. Tras una coincidencia, este prefijo se elimina del número marcado antes de enviarlo a las troncales."
 
 #: ../core/page.trunks.php:618
 msgid ""
 "Prefix to remove upon a successful match. If the dialed number matches this "
 "plus the <b>match pattern</b> box, this prefix is removed before adding the "
 "optional <b>prepend</b> box and sending the results to the trunk."
-msgstr ""
+msgstr "Prefijo para eliminar en una coincidencia exitosa. Si el número marcado coincide con este más el cuadro <b>patrón de coincidencia</b>, este prefijo se elimina antes de agregar el cuadro opcional <b>anteponer</b> y enviar los resultados a la troncal."
 
 #: ../core/page.did.php:248
 msgid "Privacy"
@@ -3710,15 +3716,15 @@ msgstr "Registro"
 
 #: amp_conf/htdocs/admin/page.modules.php:1028
 msgid "Related Tickets"
-msgstr ""
+msgstr "Tickets Relacionados"
 
 #: amp_conf/htdocs/admin/page.modules.php:1020
 msgid "Related URL"
-msgstr ""
+msgstr "URL Relacionada"
 
 #: amp_conf/htdocs/admin/page.modules.php:1020
 msgid "Related URLs"
-msgstr ""
+msgstr "URLs Relacionadas"
 
 #: amp_conf/htdocs/admin/functions.inc.php:385
 msgid ""
@@ -3858,7 +3864,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/views/bad_refferer.php:19
 msgid "SUSPECT LINK:"
-msgstr ""
+msgstr "ENLACE SOSPECHOSO:"
 
 #: amp_conf/htdocs/admin/views/footer.php:82
 #: ../core/page.advancedsettings.php:145
@@ -3944,11 +3950,11 @@ msgstr "Configuraciones"
 
 #: ../core/page.trunks.php:685 ../core/page.trunks.php:693
 msgid "Setup directory assistance"
-msgstr ""
+msgstr "Configurar la asistencia del directorio"
 
 #: amp_conf/htdocs/admin/page.modules.php:1015
 msgid "Severity"
-msgstr ""
+msgstr "Severidad"
 
 #: amp_conf/htdocs/admin/page.modules.php:660
 msgid "Show only upgradeable"
@@ -4077,7 +4083,7 @@ msgstr ""
 msgid ""
 "The Commercial repository is reserved for modules that are available for "
 "purchase and commercially supported."
-msgstr ""
+msgstr "El repositorio comercial está reservado para los módulos que están disponibles para la compra y tienen soporte comercial."
 
 #: ../core/page.dahdichandids.php:79
 msgid "The DAHDI Channel number to map to a DID"
@@ -4134,14 +4140,14 @@ msgid ""
 "The dialed number will be compared against the  prefix + this match pattern. "
 "Upon a match, the match pattern portion of the dialed number will be sent to "
 "the trunks"
-msgstr ""
+msgstr "El número marcado se comparará con el prefijo + este patrón de coincidencia. Tras una coincidencia, la parte del patrón de coincidencia del número marcado se enviará a las troncales"
 
 #: ../core/page.trunks.php:619
 msgid ""
 "The dialed number will be compared against the <b>prefix</b> plus this "
 "pattern. Upon a match, this portion of the number will be sent to the trunks "
 "after removing the <b>prefix</b> and appending the <b>prepend</b> digits"
-msgstr ""
+msgstr "El número marcado se comparará con el <b>prefijo</b> más este patrón. Tras una coincidencia, esta parte del número se enviará a las troncales después de eliminar el <b>prefijo</b> y agregar los dígitos <b>antepuestos</b>"
 
 #: ../core/functions.inc.php:7092
 msgid "The extension number to dial to reach this user."
@@ -4212,7 +4218,7 @@ msgid ""
 "this link and your action will be processed. Do not proceed with this if you "
 "did not intended to execute this command as it may result in changes to your "
 "configuration."
-msgstr ""
+msgstr "La URL sospechosa se muestra a continuación. Si esta acción está prevista, puede hacer clic en este enlace y se procesará su acción. No continúe con esto si no tenía la intención de ejecutar este comando, ya que puede provocar cambios en su configuración."
 
 #: amp_conf/htdocs/admin/libraries/utility.functions.php:498
 #, php-format
@@ -4230,7 +4236,7 @@ msgstr "Hay %s módulos disponibles para su actualización online"
 #: amp_conf/htdocs/admin/libraries/module.functions.php:296
 #, php-format
 msgid "There are %s modules vulnerable to security threats"
-msgstr ""
+msgstr "Hay %s módulos vulnerables a amenazas de seguridad"
 
 #: amp_conf/htdocs/admin/views/welcome.php:41
 #, php-format
@@ -4259,7 +4265,7 @@ msgstr "Hay un nuevo módulo disponible para su actualización online"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:294
 msgid "There is 1 module vulnerable to security threats"
-msgstr ""
+msgstr "Hay 1 módulo vulnerable a amenazas de seguridad"
 
 #: amp_conf/htdocs/admin/views/welcome.php:67
 #, php-format
@@ -4302,7 +4308,7 @@ msgid ""
 "stripped. Next the <b>prepend</b> will be inserted in front of the <b>match "
 "pattern</b> and the resulting number will be sent to the trunk. All fields "
 "are optional."
-msgstr ""
+msgstr "Estas reglas pueden manipular el número marcado antes de enviarlo por esta troncal. Si no se aplica ninguna regla, el número no se cambia. El número marcado original se transmite desde la ruta donde ya puede haber ocurrido alguna manipulación. Esta troncal tiene la opción de manipular aún más el número. Si el número coincide con los valores combinados en los cuadros <b>prefijo</b> más los cuadros <b>patrón de coincidencia</b>, se aplicará la regla y se ignorarán todas las reglas posteriores.<br/> Tras una coincidencia , el <b>prefijo</b>, si está definido, se eliminará. A continuación, se insertará el <b>prefijo</b> delante del <b>patrón de coincidencia</b> y el número resultante se enviará al troncal. Todos los campos son opcionales."
 
 #: ../core/functions.inc.php:7786 ../core/functions.inc.php:7791
 msgid ""
@@ -4361,7 +4367,7 @@ msgid ""
 "but only 5551234 (7-digit dialing) or 6135551234 (10-digit dialing) for "
 "local calls"
 msgstr ""
-"Esto busca su número local en la web www.localcallingguide.com (NA-only), y "
+"Esto busca su número local en la web www.localcallingguide.com (sólo Norteamérica), y "
 "configura su centralita para que pueda marcar 7 o 10 dígitos "
 "(independientemente de la línea RTC) en una línea troncal local (donde tenga "
 "que marcar 1 + el código de área para llamadas de larga distancia, pero sólo "
@@ -4374,7 +4380,7 @@ msgid ""
 "sets up so you can dial either 7, 10 or 11 digits (5551234, 6135551234, "
 "16135551234) to access this route."
 msgstr ""
-"Esto busca su número en la web www.localcallingguide.com (NA-only), y "
+"Esto busca su número en la web www.localcallingguide.com (sólo Norteamérica), y "
 "configura su centralita para que pueda marcar 7, 10 u 11 dígitos (5551234, "
 "6135551234, 16135551234) para acceder a esta ruta."
 
@@ -4460,7 +4466,7 @@ msgstr ""
 
 #: amp.i18n.php:46
 msgid "Trunks"
-msgstr "Líneas Troncales"
+msgstr "Líneas troncales"
 
 #: amp_conf/htdocs/admin/page.modules.php:1014
 msgid "Type"
@@ -4518,7 +4524,7 @@ msgstr "Descomprimiendo..."
 
 #: ../core/page.did.php:78
 msgid "Unused DIDs"
-msgstr "DISs sin usar"
+msgstr "DIDs sin usar"
 
 #: amp_conf/htdocs/admin/views/footer.php:81
 #: amp_conf/htdocs/admin/views/welcome.php:11
@@ -4527,7 +4533,7 @@ msgstr "Actualización"
 
 #: amp_conf/htdocs/admin/views/footer.php:84
 msgid "Update Notifications"
-msgstr ""
+msgstr "Notificar Actualizaciones"
 
 #: upgrades/2.9.0alpha1/migrate_ampconf.php:143
 msgid "Updating prepared settings.."
@@ -4571,7 +4577,7 @@ msgid ""
 "in the GUI. You can also supply headers: %s, %s and %s in the first row. If "
 "there are less then 3 recognized headers then the remaining columns will be "
 "blank"
-msgstr ""
+msgstr "Cargue patrones desde un archivo CSV reemplazando las entradas existentes. Si no hay encabezados, el archivo debe tener 3 columnas de patrones en el mismo orden que en la GUI. También puede proporcionar encabezados: %s, %s y %s en la primera fila. Si hay menos de 3 encabezados reconocidos, las columnas restantes estarán en blanco"
 
 #: ../core/page.routing.php:576
 #, php-format
@@ -4581,7 +4587,7 @@ msgid ""
 "in the GUI. You can also supply headers: %s, %s, %s and %s in the first row. "
 "If there are less then 4 recognized headers then the remaining columns will "
 "be blank"
-msgstr ""
+msgstr "Cargue patrones desde un archivo CSV reemplazando las entradas existentes. Si no hay encabezados, el archivo debe tener 4 columnas de patrones en el mismo orden que en la GUI. También puede proporcionar encabezados: %s, %s, %s y %s en la primera fila. Si hay menos de 4 encabezados reconocidos, las columnas restantes estarán en blanco"
 
 #: amp_conf/htdocs/admin/libraries/usage_registry.functions.php:254
 #, php-format
@@ -4622,7 +4628,7 @@ msgstr "Extensión del usuario %s: %s"
 
 #: ../core/functions.inc.php:5312
 msgid "User Extension: "
-msgstr "Extensión del usuario:"
+msgstr "Extensión del usuario: "
 
 #: ../core/install.php:8
 msgid "User Logoff"
@@ -4682,12 +4688,12 @@ msgstr ""
 #: amp_conf/htdocs/admin/page.modules.php:812
 #, php-format
 msgid "Vulnerable to security issues %s"
-msgstr ""
+msgstr "Vulnerable a problemas de seguridad %s"
 
 #: amp_conf/htdocs/admin/page.modules.php:813
 #, php-format
 msgid "Vulnerable, Requires: %s"
-msgstr ""
+msgstr "Vulnerable, Requiere: %s"
 
 #: ../core/page.trunks.php:429
 msgid "WARNING:"
@@ -4747,31 +4753,31 @@ msgstr "Bienvenido a IssabelPBX."
 
 #: ../core/page.trunks.php:773
 msgid "What is the dialing pattern for local numbers after"
-msgstr ""
+msgstr "¿Cuál es el patrón de marcación de los números locales después de"
 
 #: ../core/page.trunks.php:782
 msgid ""
 "What is the directory assistance number you will dial locally in the format "
 "that is passed to this trunk?"
-msgstr ""
+msgstr "¿Cuál es el número de asistencia de directorio que marcará localmente en el formato que se pasa a esta troncal?"
 
 #: ../core/page.trunks.php:754
 msgid ""
-"What is the local dialing pattern?\\n\\n(ie. NXXNXXXXXX for US/CAN 10-digit "
+"What is the local dialing pattern?<br><br>(ie. NXXNXXXXXX for US/CAN 10-digit "
 "dialing, NXXXXXX for 7-digit)"
-msgstr ""
+msgstr "¿Cuál es el patrón de marcación local?<br><br>(ejemplo NXXNXXXXXX para marcación de 10 dígitos en EE.UU./Canadá, NXXXXXX para marcación de 7 dígitos)"
 
 #: ../core/page.routing.php:587
 msgid ""
-"What is your areacode + prefix (NPA-NXX)?\\n\\n(Note: this database contains "
+"What is your areacode + prefix (NPA-NXX)?<br><br>(Note: this database contains "
 "North American numbers only, and is not guaranteed to be 100% accurate. You "
-"will still have the option of modifying results.)\\n\\nThis may take a few "
+"will still have the option of modifying results.)<br><br>This may take a few "
 "seconds."
 msgstr ""
-"¿Cuál es su código de área + prefijo (NPA-NXX)?\\n\\n(Tenga en cuenta que "
-"esta base de datos contiene sólo número de Norteamérica, y no es 100% "
-"segura. De todas formas tendrá la opción de modificar el resultado.\\n"
-"\\nEsto puede llevar unos segundos..."
+"¿Cuál es su código de área + prefijo (NPA-NXX)?<br><br>(Tenga en cuenta que "
+"esta base de datos contiene sólo números de Norteamérica, y no es 100% "
+"segura. De todas formas tendrá la opción de modificar el resultado.<br>"
+"<br>Esto puede demorar unos segundos."
 
 #: ../core/page.trunks.php:731
 msgid ""
@@ -4783,15 +4789,15 @@ msgstr ""
 
 #: ../core/page.trunks.php:759
 msgid ""
-"What prefix should be added to the dialing pattern?\\n\\n(ie. for US/CAN, 1"
+"What prefix should be added to the dialing pattern?<br><br>(ie. for US/CAN, 1"
 "+areacode, ie, \\'1613\\')?"
-msgstr ""
+msgstr "¿Qué prefijo se debe agregar al patrón de marcación?<br><br>(ejemplo: para EE.UU./Canadá, 1+código de área, es decir, \\'1613\\')"
 
 #: ../core/page.trunks.php:768
 msgid ""
-"What prefix should be removed from the number?\\n\\n(ie. for US/CAN, 1"
+"What prefix should be removed from the number?<br><br>(ie. for US/CAN, 1"
 "+areacode, ie, \\'1613\\')"
-msgstr ""
+msgstr "¿Qué prefijo se debe eliminar del número?<br><br>(ejemplo, para EE.UU./Canadá, 1+código de área, es decir, \\'1613\\'"
 
 #: ../core/functions.inc.php:7191
 msgid ""
@@ -4915,7 +4921,7 @@ msgid ""
 "HTTP_REFERER does not match your current SERVER. If you require this access, "
 "you can set Check Server Referrer=false in Advanced Settings to disable this "
 "security check"
-msgstr ""
+msgstr "Está intentando modificar la configuración desde una URL que no parece provenir de un enlace o botón de una página de IssabelPBX. Esto puede ocurrir si ingresó manualmente la URL a continuación. Esta acción ha sido bloqueada porque HTTP_REFERER no coincide con su SERVIDOR actual. Si necesita este acceso, puede configurar Verificar referencia del servidor = falso en Configuración avanzada para deshabilitar esta verificación de seguridad."
 
 #: amp_conf/bin/issabelpbx-cron-scheduler.php:63
 msgid ""
@@ -4945,7 +4951,7 @@ msgid ""
 "You can completely replace a number by matching on the <b>prefix</b> only, "
 "replacing it with a <b>prepend</b> and leaving the <b>match pattern</b> "
 "blank."
-msgstr ""
+msgstr "Puede reemplazar completamente un número haciendo coincidir solo el <b>prefijo</b>, reemplazándolo con un <b>antepuesto</b> y dejando el <b>patrón de coincidencia</b> en blanco."
 
 #: ../core/page.did.php:215
 msgid ""
@@ -5512,11 +5518,11 @@ msgstr ""
 msgid ""
 "is useful for ZAP and DAHDi trunks, where if a local number is dialed as "
 "\"6135551234\", it can be converted to \"555-1234\"."
-msgstr ""
+msgstr "es útil para troncales ZAP y DAHDi, donde si se marca un número local como \"6135551234\", se puede convertir a \"555-1234\"."
 
 #: ../core/page.trunks.php:685
 msgid "is useful to translate a call to directory assistance"
-msgstr ""
+msgstr "es útil para traducir una llamada a la asistencia de directorio"
 
 #: upgrades/2.6.0beta1/tables.php:359 upgrades/2.8.0alpha2/tables.php:191
 msgid "loaded"
@@ -5574,7 +5580,7 @@ msgstr "Acepta cualquier dígito entre 2 y 9"
 
 #: ../core/page.routing.php:501 ../core/page.trunks.php:615
 msgid "matches any digit in the brackets (example: 1,2,3,7,8,9)"
-msgstr ""
+msgstr "Acepta cualquier dígito entre corchetes (ejemplo: 1,2,3,7,8,9)"
 
 #: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:827
 #, php-format
@@ -5663,9 +5669,6 @@ msgstr ""
 #: amp_conf/htdocs/admin/views/obe.php:48
 msgid "password"
 msgstr "contraseña"
-
-msgid "Login"
-msgstr "Acceso"
 
 #: ../core/page.routing.php:514 ../core/page.trunks.php:628
 msgid "prefix"
@@ -5812,7 +5815,7 @@ msgstr ""
 
 #: ../core/page.routing.php:502 ../core/page.trunks.php:616
 msgid "wildcard, matches one or more dialed digits"
-msgstr ""
+msgstr "comodín, acepta uno o más dígitos"
 
 #: upgrades/2.10.1/migration.php:56
 msgid "writetimeout added to manager.conf"
@@ -6034,12 +6037,6 @@ msgstr "(no disponible)"
 msgid "(no-msg)"
 msgstr "(sin mensaje)"
 
-msgid "Advanced"
-msgstr "Avanzado"
-
-msgid "to"
-msgstr "a"
-
 #~ msgid "Tools"
 #~ msgstr "Herramientas"
 
@@ -6128,9 +6125,6 @@ msgstr "a"
 #~ msgid "Inbound Call Control"
 #~ msgstr "Control de llamadas entrantes"
 
-msgid "Module Admin"
-msgstr "Administración de módulos"
-
 #~ msgid "System Administration"
 #~ msgstr "Administración del sistema"
 
@@ -6179,12 +6173,6 @@ msgstr "Administración de módulos"
 #~ "Cuando haya terminado de realizar todos los cambios, haga clic en \"%s\" "
 #~ "para aplicarlos."
 
-#~ msgid ""
-#~ "Reloading will apply all configuration changes made in IssabelPBX to your "
-#~ "PBX engine and make them active."
-#~ msgstr ""
-#~ "La recarga aplicará los cambios hechos en IssabelPBX a su centralita y los "
-#~ "activará."
 
 #~ msgid "Accept"
 #~ msgstr "Aceptar"
@@ -6449,9 +6437,221 @@ msgstr "Avanzado"
 msgid "to"
 msgstr "a"
 
+msgid "There are %s bad destinations"
+msgstr "Hay %s destinos inválidos/sin usar"
+
 msgid "Are you sure?"
 msgstr "¿Está seguro?"
 
 msgid "You won't be able to revert this!"
 msgstr "¡No podrá revertir esto!"
 
+msgid "Rules:"
+msgstr "Reglas:"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Error connecting to localcallinguide.com"
+msgstr "Error conectando a localcallinguide.com"
+
+msgid "Please fill all the fields"
+msgstr "Por favor complete todos los campos"
+
+msgid "Item has been deleted"
+msgstr "El elemento ha sido eliminado"
+
+msgid "Item has been added"
+msgstr "El elemento ha sido agregado"
+
+msgid "Item has been saved"
+msgstr "El elemento ha sido guardado"
+
+msgid "This extension is not available: %s"
+msgstr "Esa extensión no está disponible: %s"
+
+msgid "Copy to Clipboard"
+msgstr "Copiar al Portapapeles"
+
+msgid "There are %s additonal conflicts not listed"
+msgstr "Hay %s conflictos adicionales no listados"
+
+msgid "January"
+msgstr "Enero"
+
+msgid "February"
+msgstr "Febrero"
+
+msgid "March"
+msgstr "Marzo"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "May"
+msgstr "Mayo"
+
+msgid "June"
+msgstr "Junio"
+
+msgid "July"
+msgstr "Julio"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "September"
+msgstr "Septiembre"
+
+msgid "October"
+msgstr "Octubre"
+
+msgid "November"
+msgstr "Noviembre"
+
+msgid "December"
+msgstr "Diciembre"
+
+msgid "Sunday"
+msgstr "Domingo"
+
+msgid "Monday"
+msgstr "Lunes"
+
+msgid "Tuesday"
+msgstr "Martes"
+
+msgid "Wednesday"
+msgstr "Miércoles"
+
+msgid "Thursday"
+msgstr "Jueves"
+
+msgid "Friday"
+msgstr "Viernes"
+
+msgid "Saturday"
+msgstr "Sábado"
+
+msgid "jQuery Status"
+msgstr "Estado jQuery"
+
+msgid "XHR Response Code"
+msgstr "Código de respuesta XHR"
+
+msgid "XHR Response Text"
+msgstr "Texto de respuesta XHR"
+
+msgid "Click here for more info"
+msgstr "Haga clic aquí para más información"
+
+msgid "Upload"
+msgstr "Enviar"
+
+msgid "There is no email configured yet for update notifications. It is recommended to setup one."
+msgstr "Todavía no hay un correo electrónico configurado para las notificaciones de actualización. Se recomienda configurar uno."
+
+msgid "Enter your email"
+msgstr "Introduzca su correo electrónico"
+
+msgid "IssabelPBX allows you to automatically check for updates online. The updates will NOT be automatically installed. It is STRONGYLY advised that you keep this enabled and keep updated of these important notificaions to avoid costly security issues."
+msgstr "IssabelPBX le permite verificar automáticamente si hay actualizaciones en línea. Las actualizaciones NO se instalarán automáticamente. Se recomienda ENCARECIDAMENTE que mantenga esta opción habilitada y se mantenga actualizado sobre estas notificaciones importantes para evitar costosos problemas de seguridad."
+
+msgid "Change notification email address"
+msgstr "Cambiar la dirección de email de notificación"
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "low"
+msgstr "baja"
+
+msgid "medium"
+msgstr "media"
+
+msgid "high"
+msgstr "alta"
+
+msgid "Select an option"
+msgstr "Elija una opción"
+
+msgid "PHP mbstring module is not installed. Please install it to avoid issues with language/localization."
+msgstr "El módulo PHP mbstring no está instalado. Instálelo para evitar problemas con el idioma o la localización."
+
+msgid "extension/trunk has weak secret"
+msgstr "extensión/troncal tiene una contraseña débil"
+
+msgid "System Apps"
+msgstr "Aplicaciones de Sistema"
+
+msgid "VmX Locater"
+msgstr "Localizador VmX"
+
+msgid "Styling and Logos"
+msgstr "Estilos y Logos"
+
+msgid "Directory Layout"
+msgstr "Diseño de Directorios"
+
+msgid "FOP Web Root Dir"
+msgstr "Ruta raíz de FOP"
+
+msgid "Path to the Flash Operator Panel webroot or other modules providing such functionality (leave off trailing slash)."
+msgstr "Ruta a la raíz web del Flash Operator Panel u otros módulos que brindan dicha funcionalidad (omita la barra inclinada final)."
+
+msgid "Remote CDR Database"
+msgstr "Base de datos CDR remota"
+
+msgid "Remote CDR DB Host"
+msgstr "Host de base de datos CDR remota"
+
+msgid "Remote CDR DB Port"
+msgstr "Puerto de base de datos CDR remota"
+
+msgid "Remote CDR DB Name"
+msgstr "Nombre de base de datos CDR remota"
+
+msgid "Remote CDR DB User"
+msgstr "Usuario de base de datos CDR remota"
+
+msgid "Remote CDR DB Password"
+msgstr "Contraseña de base de datos CDR remota"
+
+msgid "Remote CDR DB Table"
+msgstr "Tabla de base de datos CDR remota"
+
+msgid "Remote CDR DB Type"
+msgstr "Tipo de base de datos CDR remota"
+
+msgid "Display Hidden Settings"
+msgstr "Mostrar configuraciones ocultas"
+
+msgid "Member Status Event Default"
+msgstr "Eventos de estado de miembro por omisión"
+
+msgid "Call Recording Policy"
+msgstr "Política de grabación de llamadas"
+
+msgid "Dynamically Generate Hints"
+msgstr "Generar Hints dinámicamente"
+
+msgid "Disable -custom Context Includes"
+msgstr "Desactivar inclusión de contextos -custom"
+
+msgid "Report Unknown Dest as Error"
+msgstr "Reportar destino desconocido como erróneo"
+
+msgid "Show Language setting"
+msgstr "Mostrar selección de idioma en el menú"
+
+msgid "Use wget For Module Admin"
+msgstr "Usar wget para el administrador de módulos"
+
+msgid "Use issabelpbx_menu.conf Configuration"
+msgstr "Usar configuración de issabelpbx_menu.conf"
+
+msgid "Reloading will apply all configuration changes made in IssabelPBX to your PBX engine and make them active."
+msgstr "La recarga aplicará los cambios hechos en IssabelPBX a su centralita y los activará."

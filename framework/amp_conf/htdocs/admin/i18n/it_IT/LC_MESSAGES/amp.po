@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 
 #: amp_conf/htdocs/admin/views/footer.php:86
-msgid " extension number already in use by: "
+msgid "Extension %s already in use by: %s"
 msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:536
@@ -443,7 +443,7 @@ msgid "Add Incoming Route"
 msgstr "Aggiungi Rotta in Entrata"
 
 #: ../core/page.routing.php:323 ../core/page.routing.php:369
-msgid "Add Route"
+msgid "Add Outbound Route"
 msgstr "Aggiungi Rotta"
 
 #: ../core/page.trunks.php:349
@@ -1678,7 +1678,7 @@ msgid "Edit Incoming Route"
 msgstr "Modifica Rotta in Entrata"
 
 #: ../core/page.routing.php:345 ../core/page.routing.php:363
-msgid "Edit Route"
+msgid "Edit Outbound Route"
 msgstr "Modifica Rotta"
 
 #: ../core/functions.inc.php:7087
