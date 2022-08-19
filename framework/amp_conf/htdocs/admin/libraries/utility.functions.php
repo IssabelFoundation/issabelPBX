@@ -652,7 +652,7 @@ function generate_module_repo_url($path, $add_options=false) {
  * @returns bool
  */
 
-function edit_crontab($remove = '', $add = '') {
+function edit_crontab($remove = '', $add = array()) {
 	global $amp_conf;
 	$cron_out = array();
 	$cron_add = false;
