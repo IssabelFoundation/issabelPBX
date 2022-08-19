@@ -24,14 +24,16 @@ isset($_REQUEST['pre_ring'])?$pre_ring = $_REQUEST['pre_ring']:$pre_ring=$amp_co
 isset($_REQUEST['changecid'])?$changecid = $_REQUEST['changecid']:$changecid='default';
 isset($_REQUEST['fixedcid'])?$fixedcid = $_REQUEST['fixedcid']:$fixedcid='';
 
+if($action=='delete') $action='delGRP';
+
 if (isset($_REQUEST['ddial'])) {
     $ddial =    $_REQUEST['ddial'];
 }    else {
     $ddial = isset($_REQUEST['ddial_value']) ? $_REQUEST['ddial_value'] : ($amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '');
 }
 
-if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
-    $goto = $_REQUEST[$_REQUEST['goto0']."0"];
+if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']])) {
+    $goto = $_REQUEST[$_REQUEST['goto0']];
 } else {
     $goto = "ext-local,$extdisplay,dest";
 }
@@ -92,10 +94,23 @@ if(isset($_POST['action'])){
         }
     }
 }
+
+
+$gresults    = findmefollow_allusers();
+$set_users   = findmefollow_list();
+$rnaventries = array();
+if (isset($gresults)) {
+    foreach($gresults as $gresult) {
+        $defined = is_array($set_users) ? (in_array($gresult[0], $set_users) ? _("(edit)") : _("(add)")) : _("(add)");
+        $rnaventries[] = array('GRP-'.$gresult[0],$gresult[1].' '.$defined,$gresult[0],'');
+    }
+}
+$disable_add_button=true;
+drawListMenu($rnaventries, $type, $display, $extdisplay, '', $disable_add_button);
 ?>
 
 
-<div class="rnav"><ul>
+<!--div class="rnav"><ul>
 <?php 
 //get unique ring groups
 $gresults = findmefollow_allusers();
@@ -104,19 +119,17 @@ $set_users = findmefollow_list();
 if (isset($gresults)) {
     foreach ($gresults as $gresult) {
         $defined = is_array($set_users) ? (in_array($gresult[0], $set_users) ? _("(edit)") : _("(add)")) : _("(add)");
-                echo "<li><a class=\"".($extdisplay=='GRP-'.$gresult[0] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&extdisplay=".urlencode("GRP-".$gresult[0])."\">"._("$gresult[1]")." <{$gresult[0]}> $defined  </a></li>";
+        echo "<li><a class=\"".($extdisplay=='GRP-'.$gresult[0] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&extdisplay=".urlencode("GRP-".$gresult[0])."\">"._("$gresult[1]")." <{$gresult[0]}> $defined  </a></li>";
 
     }
 }
 ?>
-</ul></div>
-
+</ul></div-->
+<div class='content'>
 <?php 
 
 if ($extdisplay == "") {
-    echo '<br><h2>'._("Follow Me").'</h2><br><h3>'._('Choose a user/extension').'</h3><br><br><br><br><br><br><br>';
-} elseif ($action == 'delGRP') {
-    echo '<br><h3>'._("Follow Me").' '.$account.' '._("deleted").'!</h3><br><br><br><br><br><br><br><br>';
+    echo '<h2>'._("Follow Me").'</h2><h3 class="mx-2">'._('Choose a user/extension').'</h3>';
 } else {
     if ($extdisplay != "") {
         // We need to populate grplist with the existing extension list.
@@ -151,8 +164,10 @@ if ($extdisplay == "") {
                 <input type=\"hidden\" name=\"action\" value=\"delGRP\">
                 <input type=submit value=\""._("Delete Entries")."\">
             </form>";
-            
-        echo "<h2>"._("Follow Me").": ".$extdisplay."</h2>";
+
+        $title = is_array($set_users) ? (in_array($extdisplay, $set_users) ? _("Edit Follow Me").': '.$extdisplay : _("Add Follow Me"). ': '.$extdisplay ): _("Add Follow Me"). ': '.$extdisplay;
+
+        echo "<h2>$title</h2>";
 
 
         // Copied straight out of old code,let's see if it works?
@@ -167,31 +182,23 @@ if ($extdisplay == "") {
         }
 
         $label = '<span><img width="16" height="16" border="0" title="'.sprintf(_("Edit %s"),$EXTorUSER).'" alt="" src="images/user_edit.png"/>&nbsp;'.sprintf(_("Edit %s %s"),$EXTorUSER, $extdisplay).'</span>';
-        echo "<p><a href=".$editURL.">".$label."</a></p>";
-        echo "<p>".$delButton."</p>";
+        $label = sprintf(_("Edit %s %s"),$EXTorUSER, $extdisplay);
+        echo "<p><a href=".$editURL." class='button is-small is-rounded'>".$label."</a></p>";
     } 
     ?>
-            <form name="editGRP" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkGRP(editGRP);">
+            <form name="editGRP" id="mainform" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkGRP(editGRP);">
             <input type="hidden" name="display" value="<?php echo $dispnum?>">
             <input type="hidden" name="action" value="<?php echo (($extdisplay != "") ? 'edtGRP' : 'addGRP'); ?>">
-            <table>
-            <tr><td colspan="2"><h5><?php  echo (($extdisplay != "") ? _("Edit Follow Me") : _("Add Follow Me")) ?></h5></td></tr>
-            <tr>
-<?php
-    if ($extdisplay != "") { 
-
-?>
-                <input size="5" type="hidden" name="account" value="<?php  echo $extdisplay; ?>">
-<?php         } else { ?>
-                <td><a href="#" class="info"><?php echo _("group number")?><span><?php echo _("The number users will dial to ring extensions in this ring group")?></span></a></td>
-                <td><input size="5" type="text" name="account" value="<?php  echo $gresult[0] + 1; ?>" class='w100'></td>
-<?php         } ?>
-            </tr>
-
+            <input type="hidden" name="account" value="<?php  echo $extdisplay; ?>">
+            <table class='table is-borderless is-narrow'>
+            <tr><td colspan="2"><h5><?php  echo dgettext('amp','General Settings') ?></h5></td></tr>
             <tr>
                 <td><a href="#" class="info"><?php echo _("Disable")?><span><?php echo _('By default (not checked) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.')?></span></a></td>
-                <td><input type="checkbox" name="ddial" value="CHECKED" <?php echo $ddial ?>   tabindex="<?php echo ++$tabindex;?>"/>
-                <input type="hidden" name="ddial_value" value="<?php  echo $ddial; ?>"></td>
+                <td>
+                <!--input type="checkbox" name="ddial" value="CHECKED" <?php echo $ddial ?>   tabindex="<?php echo ++$tabindex;?>"/-->
+                <?php echo ipbx_radio('ddial',array(array('value'=>'CHECKED','text'=>dgettext('amp','Yes')),array('value'=>'','text'=>dgettext('amp','No'))),$ddial,false);?>
+                <input type="hidden" name="ddial_value" value="<?php  echo $ddial; ?>">
+                </td>
             </tr>
 
             <tr>
@@ -246,11 +253,11 @@ if ($extdisplay == "") {
                         </span>
                     </a>
                 </td>
-                <td><input type="text" name="grptime" value="<?php  echo $grptime?$grptime:20 ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
+                <td><input type="text" name="grptime" value="<?php  echo $grptime?$grptime:20 ?>" tabindex="<?php echo ++$tabindex;?>" class='input'></td>
             </tr>
 
             <tr>
-                <td valign="top"><a href="#" class="info"><?php echo _("Follow-Me List")?><span><br><?php echo _("List extensions to ring, one per line, or use the Extension Quick Pick below.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing).")?><br><br></span></a></td>
+                <td valign="top"><a href="#" class="info"><?php echo _("Follow-Me List")?><span><?php echo _("List extensions to ring, one per line, or use the Extension Quick Pick below.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing).")?><br><br></span></a></td>
                 <td valign="top">
 <?php
         $rows = count($grplist)+1; 
@@ -258,7 +265,7 @@ if ($extdisplay == "") {
             $grplist[0] = $extdisplay;
         }
 ?>
-                    <textarea id="grplist" cols="15" onkeyup="textAreaAdjust(this)" name="grplist" tabindex="<?php echo ++$tabindex;?>" style='width:100%;height:3em;'><?php echo implode("\n",$grplist);?></textarea>
+                    <textarea id="grplist" class="textarea" onkeyup="textAreaAdjust(this)" name="grplist" tabindex="<?php echo ++$tabindex;?>" style='width:100%;height:3em;'><?php echo implode("\n",$grplist);?></textarea>
                 </td>
             </tr>
 
@@ -334,12 +341,12 @@ if ($extdisplay == "") {
 
             <tr>
                 <td><a href="#" class="info"><?php echo _("CID Name Prefix")?><span><?php echo _('You can optionally prefix the Caller ID name when ringing extensions in this group. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span></a></td>
-                <td><input type="text" name="grppre" value="<?php  echo $grppre ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
+                <td><input type="text" name="grppre" value="<?php  echo $grppre ?>" tabindex="<?php echo ++$tabindex;?>" class='input'></td>
             </tr>
 
             <tr>
                 <td><a href="#" class="info"><?php echo _("Alert Info")?><span><?php echo _('You can optionally include an Alert Info which can create distinctive rings on SIP phones.')?></span></a></td>
-                <td><input type="text" name="dring" value="<?php  echo $dring ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
+                <td><input type="text" name="dring" value="<?php  echo $dring ?>" tabindex="<?php echo ++$tabindex;?>" class='input'></td>
             </tr>
 
             <tr><td colspan="2"><h5><?php echo _("Call Confirmation Configuration") ?></h5></td></tr>
@@ -347,7 +354,8 @@ if ($extdisplay == "") {
             <tr>
                 <td><a href="#" class="info"><?php echo _("Confirm Calls")?><span><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall/ringall-prim  ring strategy')?></span></a></td>
                 <td> 
-                    <input type="checkbox" name="needsconf" value="CHECKED" <?php echo $needsconf ?>   tabindex="<?php echo ++$tabindex;?>"/>
+                    <!--input type="checkbox" name="needsconf" value="CHECKED" <?php echo $needsconf ?>   tabindex="<?php echo ++$tabindex;?>"/-->
+                    <?php echo ipbx_radio('needsconf',array(array('value'=>'CHECKED','text'=>dgettext('amp','Yes')),array('value'=>'','text'=>dgettext('amp','No'))),$needsconf,false);?>
                 </td>
             </tr>
 
@@ -418,7 +426,7 @@ if ($extdisplay == "") {
 
             <tr>
                 <td><a href="#" class="info"><?php echo _("Fixed CID Value")?><span><?php echo _('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".')?></span></a></td>
-        <td><input type="text" name="fixedcid" id="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>" class='w100' <?php echo $fixedcid_disabled ?>></td>
+        <td><input type="text" name="fixedcid" id="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>" class='input' <?php echo $fixedcid_disabled ?>></td>
             </tr>
             
             <tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?></h5></td></tr>
@@ -431,21 +439,16 @@ if (empty($goto)) {
 echo drawselects($goto,0);
 ?>
             
-            <tr>
-            <td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>        
-            
-            </tr>
             </table>
             </form>
 <?php         
         } //end if action == delGRP
         
 ?>
-<script language="javascript">
-<!--
+<script>
 
-$(document).ready(function(){
-    $("#changecid").change(function(){
+$(function(){
+    $("#changecid").on('change',function(){
         state = (this.value == "fixed" || this.value == "extern") ? "" : "disabled";
         if (state == "disabled") {
           $("#fixedcid").attr("disabled",state);
@@ -519,7 +522,10 @@ function checkGRP(theForm) {
         return false;
     }
 
+    $.LoadingOverlay('show');
     return true;
 }
-//-->
+<?php echo js_display_confirmation_toasts(); ?>
 </script>
+</div> <!-- end div content, be sure to include script tags before -->
+<?php echo form_action_bar($extdisplay); ?>
