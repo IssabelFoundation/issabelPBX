@@ -10,7 +10,7 @@
 $html = '';
 switch($popover_mode) {
 case 'display':
-	$html .= "<script>popOverDisplay();</script>";
+	$html .= "<script>ispopover=true;</script>";
 	break;
 case 'process':
 	// Before calling drawselects we need to:

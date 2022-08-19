@@ -48,10 +48,9 @@ $html .= '<div class="login_item_title"><a href="http://www.issabel.com" '
 		. 'class="login_item" id="login_support" style="background-image: url(assets/images/support.png);"/>&nbsp</a><span class="login_item_text" style="display: block;width: 160px;text-align: center;">' . _('Get Support') . '</span></div>';
 $html .= '<div></div>';
 $html .= '</div>';
-$html .= br(5) . '<div id="key" style="color: white;font-size:small">'
+$html .= br(1) . '<div id="key" style="color: white;font-size:small">'
 	  . session_id()
 	  . '</div>';
-
 $html .= '<script src="assets/js/views/login.js"></script>';
 
 echo $html;

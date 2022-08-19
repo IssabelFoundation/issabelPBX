@@ -1,3 +1,15 @@
+var whitespace = " \t\n\r";
+var decimalPointDelimiter = ".";
+var defaultEmptyOK = false;
+up.fragment.config.runScripts = true;
+up.fragment.config.mainTargets.push('.content')
+var ispopover=false;
+
+// sprintf
+!function(){"use strict";var g={not_string:/[^s]/,not_bool:/[^t]/,not_type:/[^T]/,not_primitive:/[^v]/,number:/[diefg]/,numeric_arg:/[bcdiefguxX]/,json:/[j]/,not_json:/[^j]/,text:/^[^\x25]+/,modulo:/^\x25{2}/,placeholder:/^\x25(?:([1-9]\d*)\$|\(([^)]+)\))?(\+)?(0|'[^$])?(-)?(\d+)?(?:\.(\d+))?([b-gijostTuvxX])/,key:/^([a-z_][a-z_\d]*)/i,key_access:/^\.([a-z_][a-z_\d]*)/i,index_access:/^\[(\d+)\]/,sign:/^[+-]/};function y(e){return function(e,t){var r,n,i,s,a,o,p,c,l,u=1,f=e.length,d="";for(n=0;n<f;n++)if("string"==typeof e[n])d+=e[n];else if("object"==typeof e[n]){if((s=e[n]).keys)for(r=t[u],i=0;i<s.keys.length;i++){if(null==r)throw new Error(y('[sprintf] Cannot access property "%s" of undefined value "%s"',s.keys[i],s.keys[i-1]));r=r[s.keys[i]]}else r=s.param_no?t[s.param_no]:t[u++];if(g.not_type.test(s.type)&&g.not_primitive.test(s.type)&&r instanceof Function&&(r=r()),g.numeric_arg.test(s.type)&&"number"!=typeof r&&isNaN(r))throw new TypeError(y("[sprintf] expecting number but found %T",r));switch(g.number.test(s.type)&&(c=0<=r),s.type){case"b":r=parseInt(r,10).toString(2);break;case"c":r=String.fromCharCode(parseInt(r,10));break;case"d":case"i":r=parseInt(r,10);break;case"j":r=JSON.stringify(r,null,s.width?parseInt(s.width):0);break;case"e":r=s.precision?parseFloat(r).toExponential(s.precision):parseFloat(r).toExponential();break;case"f":r=s.precision?parseFloat(r).toFixed(s.precision):parseFloat(r);break;case"g":r=s.precision?String(Number(r.toPrecision(s.precision))):parseFloat(r);break;case"o":r=(parseInt(r,10)>>>0).toString(8);break;case"s":r=String(r),r=s.precision?r.substring(0,s.precision):r;break;case"t":r=String(!!r),r=s.precision?r.substring(0,s.precision):r;break;case"T":r=Object.prototype.toString.call(r).slice(8,-1).toLowerCase(),r=s.precision?r.substring(0,s.precision):r;break;case"u":r=parseInt(r,10)>>>0;break;case"v":r=r.valueOf(),r=s.precision?r.substring(0,s.precision):r;break;case"x":r=(parseInt(r,10)>>>0).toString(16);break;case"X":r=(parseInt(r,10)>>>0).toString(16).toUpperCase()}g.json.test(s.type)?d+=r:(!g.number.test(s.type)||c&&!s.sign?l="":(l=c?"+":"-",r=r.toString().replace(g.sign,"")),o=s.pad_char?"0"===s.pad_char?"0":s.pad_char.charAt(1):" ",p=s.width-(l+r).length,a=s.width&&0<p?o.repeat(p):"",d+=s.align?l+r+a:"0"===o?l+a+r:a+l+r)}return d}(function(e){if(p[e])return p[e];var t,r=e,n=[],i=0;for(;r;){if(null!==(t=g.text.exec(r)))n.push(t[0]);else if(null!==(t=g.modulo.exec(r)))n.push("%");else{if(null===(t=g.placeholder.exec(r)))throw new SyntaxError("[sprintf] unexpected placeholder");if(t[2]){i|=1;var s=[],a=t[2],o=[];if(null===(o=g.key.exec(a)))throw new SyntaxError("[sprintf] failed to parse named argument key");for(s.push(o[1]);""!==(a=a.substring(o[0].length));)if(null!==(o=g.key_access.exec(a)))s.push(o[1]);else{if(null===(o=g.index_access.exec(a)))throw new SyntaxError("[sprintf] failed to parse named argument key");s.push(o[1])}t[2]=s}else i|=2;if(3===i)throw new Error("[sprintf] mixing positional and named placeholders is not (yet) supported");n.push({placeholder:t[0],param_no:t[1],keys:t[2],sign:t[3],pad_char:t[4],align:t[5],width:t[6],precision:t[7],type:t[8]})}r=r.substring(t[0].length)}return p[e]=n}(e),arguments)}function e(e,t){return y.apply(null,[e].concat(t||[]))}var p=Object.create(null);"undefined"!=typeof exports&&(exports.sprintf=y,exports.vsprintf=e),"undefined"!=typeof window&&(window.sprintf=y,window.vsprintf=e,"function"==typeof define&&define.amd&&define(function(){return{sprintf:y,vsprintf:e}}))}();
+
+var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(a){var f,b,c,i,j,g,d,h="",e=0;for(a=Base64._utf8_encode(a);e<a.length;)f=a.charCodeAt(e++),b=a.charCodeAt(e++),c=a.charCodeAt(e++),i=f>>2,j=(3&f)<<4|b>>4,g=(15&b)<<2|c>>6,d=63&c,isNaN(b)?g=d=64:isNaN(c)&&(d=64),h=h+this._keyStr.charAt(i)+this._keyStr.charAt(j)+this._keyStr.charAt(g)+this._keyStr.charAt(d);return h},decode:function(a){var g,h,i,j,e,c,f,d="",b=0;for(a=a.replace(/[^A-Za-z0-9\+\/\=]/g,"");b<a.length;)j=this._keyStr.indexOf(a.charAt(b++)),e=this._keyStr.indexOf(a.charAt(b++)),c=this._keyStr.indexOf(a.charAt(b++)),f=this._keyStr.indexOf(a.charAt(b++)),g=j<<2|e>>4,h=(15&e)<<4|c>>2,i=(3&c)<<6|f,d+=String.fromCharCode(g),64!=c&&(d+=String.fromCharCode(h)),64!=f&&(d+=String.fromCharCode(i));return Base64._utf8_decode(d)},_utf8_encode:function(c){c=c.replace(/\r\n/g,"\n");for(var b="",d=0;d<c.length;d++){var a=c.charCodeAt(d);a<128?b+=String.fromCharCode(a):a>127&&a<2048?(b+=String.fromCharCode(a>>6|192),b+=String.fromCharCode(63&a|128)):(b+=String.fromCharCode(a>>12|224),b+=String.fromCharCode(a>>6&63|128),b+=String.fromCharCode(63&a|128))}return b},_utf8_decode:function(c){for(var d="",a=0,b=c1=c2=0;a<c.length;)(b=c.charCodeAt(a))<128?(d+=String.fromCharCode(b),a++):b>191&&b<224?(c2=c.charCodeAt(a+1),d+=String.fromCharCode((31&b)<<6|63&c2),a+=2):(c2=c.charCodeAt(a+1),c3=c.charCodeAt(a+2),d+=String.fromCharCode((15&b)<<12|(63&c2)<<6|63&c3),a+=3);return d}}
+
 jQuery.cookie = function(key, value, options) {
     if (arguments.length > 1 && String(value) !== "[object Object]") {
         options = jQuery.extend({}, options);
@@ -43,14 +55,12 @@ function setDestinations(theForm, numForms) {
         while (whichitem < theForm['goto' + formNum].length) {
             if (theForm['goto' + formNum][whichitem].checked) {
                 theForm['goto' + formNum].value = theForm['goto' + formNum][whichitem].value;
+
             }
             whichitem++;
         }
     }
 }
-var whitespace = " \t\n\r";
-var decimalPointDelimiter = ".";
-var defaultEmptyOK = false;
 
 function validateDestinations(theForm, numForms, bRequired) {
     var valid = true;
@@ -71,7 +81,7 @@ function warnInvalid(theField, s) {
 
 function isAlphanumeric(s) {
     var i;
-    if (isEmpty(s)) if (isAlphanumeric.arguments.length == 1) return defaultEmptyOK;
+    if (isEmpty(s)) if (isAlphanumeric.arguments.length >= 1) return defaultEmptyOK;
     else return (isAlphanumeric.arguments[1] == true);
     for (i = 0; i < s.length; i++) {
         var c = s.charAt(i);
@@ -180,7 +190,7 @@ function isURL(s) {
 
 function isPINList(s) {
     var i;
-    if (isEmpty(s)) if (isPINList.arguments.length == 1) return defaultEmptyOK;
+    if (isEmpty(s)) if (isPINList.arguments.length >= 1) return defaultEmptyOK;
     else return (isPINList.arguments[1] == true);
     for (i = 0; i < s.length; i++) {
         var c = s.charAt(i);
@@ -191,8 +201,8 @@ function isPINList(s) {
 
 function isCallerID(s) {
     var i;
-    if (isEmpty(s)) if (isCallerID.arguments.length == 1) return defaultEmptyOK;
-    else return (isCallerID.arguments[1] == true);
+    if (isEmpty(s)) if (isCallerID.arguments.length >= 1) return defaultEmptyOK;
+    //else return (isCallerID.arguments[1] == true);
     for (i = 0; i < s.length; i++) {
         var c = s.charAt(i);
         if (!(isCallerIDChar(c))) return false;
@@ -202,8 +212,8 @@ function isCallerID(s) {
 
 function isDialpattern(s) {
     var i;
-    if (isEmpty(s)) if (isDialpattern.arguments.length == 1) return defaultEmptyOK;
-    else return (isDialpattern.arguments[1] == true);
+    if (isEmpty(s)) if (isDialpattern.arguments.length >= 1) return defaultEmptyOK;
+    //else return (isDialpattern.arguments[1] == true);
     for (i = 0; i < s.length; i++) {
         var c = s.charAt(i);
         if (!isDialpatternChar(c)) {
@@ -217,7 +227,7 @@ function isDialpattern(s) {
 
 function isDialrule(s) {
     var i;
-    if (isEmpty(s)) if (isDialrule.arguments.length == 1) return defaultEmptyOK;
+    if (isEmpty(s)) if (isDialrule.arguments.length >= 1) return defaultEmptyOK;
     else return (isDialrule.arguments[1] == true);
     for (i = 0; i < s.length; i++) {
         var c = s.charAt(i);
@@ -232,7 +242,7 @@ function isDialrule(s) {
 
 function isDialIdentifier(s) {
     var i;
-    if (isEmpty(s)) if (isDialIdentifier.arguments.length == 1) return defaultEmptyOK;
+    if (isEmpty(s)) if (isDialIdentifier.arguments.length >= 1) return defaultEmptyOK;
     else return (isDialIdentifier.arguments[1] == true);
     for (i = 0; i < s.length; i++) {
         var c = s.charAt(i);
@@ -243,7 +253,7 @@ function isDialIdentifier(s) {
 
 function isDialDigits(s) {
     var i;
-    if (isEmpty(s)) if (isDialDigits.arguments.length == 1) return defaultEmptyOK;
+    if (isEmpty(s)) if (isDialDigits.arguments.length >= 1) return defaultEmptyOK;
     else return (isDialDigits.arguments[1] == true);
     for (i = 0; i < s.length; i++) {
         var c = s.charAt(i);
@@ -254,7 +264,7 @@ function isDialDigits(s) {
 
 function isIVROption(s) {
     var i;
-    if (isEmpty(s)) if (isIVROption.arguments.length == 1) return defaultEmptyOK;
+    if (isEmpty(s)) if (isIVROption.arguments.length >= 1) return defaultEmptyOK;
     else return (isIVROption.arguments[1] == true);
     if (s.length == 1) {
         var c = s.charAt(0);
@@ -270,7 +280,7 @@ function isIVROption(s) {
 
 function isFilename(s) {
     var i;
-    if (isEmpty(s)) if (isFilename.arguments.length == 1) return defaultEmptyOK;
+    if (isEmpty(s)) if (isFilename.arguments.length >= 1) return defaultEmptyOK;
     else return (isFilename.arguments[1] == true);
     for (i = 0; i < s.length; i++) {
         var c = s.charAt(i);
@@ -293,10 +303,10 @@ function isInside(s, c) {
 
 function isEmail(s) {
     if (isEmpty(s)) {
-        if (isEmail.arguments.length == 1) {
+        if (isEmail.arguments.length >= 1) {
             return defaultEmptyOK;
-        } else {
-            return (isEmail.arguments[1] == true)
+//        } else {
+//            return (isEmail.arguments[1] == true)
         }
     }
     var emailAddresses = s.split(",");
@@ -387,23 +397,42 @@ var popover_box_class;
 var popover_box_mod;
 var popover_select_id;
 
+function bind_close_alerts() {
+  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+    const $notification = $delete.parentNode;
+
+    $delete.addEventListener('click', () => {
+      $notification.parentNode.removeChild($notification);
+    });
+  });
+}
+
 function bind_dests_double_selects() {
-    $('.destdropdown').unbind().bind('change', function(e) {
+
+    //$('.destdropdown:not(".haschosen")').unbind().bind('change', function(e) {
+    $('.destdropdown:not(".haschosen")').off('change').on('change', function(e) {
+        $(this).next('div').removeClass('error');
         var id = $(this).data('id');
         var id = typeof id == 'undefined' ? '' : id;
         var dest = $(this).val();
-        $('[data-id=' + id + '].destdropdown2').hide();
-        dd2 = $('#' + dest + id + '.destdropdown2');
-        cur_val = dd2.show().val();
-        if (dd2.children().length > 1 && cur_val == 'popover') {
-            dd2.val('');
-            cur_val = '';
-        }
-        if (cur_val == 'popover') {
-            dd2.trigger('change');
+        $('.destdropdown2.goto'+id).addClass('is-hidden');
+        if(dest!='') { 
+            dd1 = $('#' + dest + '.destdropdown2');
+            dd2 = $('#' + dest + '_chosen.destdropdown2.goto'+id);
+            dd2.removeClass('is-hidden');
+            cur_val = dd1.val();
+            if (dd1.children().length > 1 && cur_val == 'popover') {
+                dd1.val('');
+                cur_val = '';
+            }
+            if (cur_val == 'popover') {
+                $('#' + dest + '.destdropdown2').trigger('change');
+            }
         }
     });
-    $('.destdropdown2').unbind().bind('change', function() {
+
+    //$('.destdropdown2:not(".haschosen")').unbind().bind('change', function() {
+    $('.destdropdown2:not(".haschosen")').off('change').on('change', function() {
         var dest = $(this).val();
         if (dest == "popover") {
             var urlStr = $(this).data('url') + '&fw_popover=1';
@@ -411,64 +440,36 @@ function bind_dests_double_selects() {
             popover_select_id = this.id;
             popover_box_class = $(this).data('class');
             popover_box_mod = $(this).data('mod');
-            popover_box = $('<div id="popover-box-id" data-id="' + id + '"></div>').html('<iframe data-popover-class="' + popover_box_class + '" id="popover-frame" frameBorder="0" src="' + urlStr + '" width="100%" height="95%"></iframe>').dialog({
-                title: ipbx.msg.framework.add,
-                resizable: false,
-                modal: true,
-                position: ['center', 50],
-                width: window.innerWidth - (window.innerWidth * .10),
-                height: window.innerHeight - (window.innerHeight * .10),
-                create: function() {
-                    mitop = $(window).scrollTop();
-                    $(this).parent().css('top',mitop+'px');
+
+            Swal.fire({
+                html: '<iframe data-popover-class="' + popover_box_class + '" id="popover-frame" frameBorder="0" src="' + urlStr + '" width="100%" height="95%" onload="popOverDisplay(this)"></iframe>',
+                focusConfirm: false,
+                confirmButtonText: ipbx.msg.framework.save,
+                cancelButtonText: ipbx.msg.framework.cancel,
+                showConfirmButton: true,
+                showCancelButton: true,
+                heightAuto: false,
+                preConfirm: (value) => {
+                    pform = $('#popover-frame').contents().find('.popover-form').first();
+                    if (pform.length == 0) {
+                        pform = $('#popover-frame').contents().find('form').first();
+                    }
+                    pform.trigger('submit');
+                    return false;
                 },
-                close: function(e) {
-                    var id = $(this).data('id');
-                    var par = $('#goto' + id).data('last');
-                    $('#goto' + id).val(par).change();
-                    if (par != '') {
-                        var par_id = par.concat(id);
-                        $('#' + par_id).val($('#' + par_id).data('last')).change();
-                    }
-                    $('#popover-frame').contents().find('body').remove();
-                    $('#popover-box-id').html('');
-                    $("body").css({
-                        overflow: 'inherit'
-                    });
-                    $(e.target).dialog("destroy").remove();
-                },
-                buttons: [{
-                    text: ipbx.msg.framework.save,
-                    click: function() {
-                        pform = $('#popover-frame').contents().find('.popover-form').first();
-                        if (pform.length == 0) {
-                            pform = $('#popover-frame').contents().find('form').first();
-                        }
-                        pform.submit();
-                    }
-                }, {
-                    text: ipbx.msg.framework.cancel,
-                    click: function() {
-                        $(this).dialog("close");
-                    }
-                }]
+                customClass: {'popup':'swal-popover','actions':'popover_actions'},
             });
+
         } else {
             var last = $.data(this, 'last', dest);
         }
     });
-    $('.destdropdown').bind('change', function() {
-        if ($(this).find('option:selected').val() == 'Error') {
-            $(this).css('background-color', 'red');
-        } else {
-            $(this).css('background-color', 'white');
-        }
-    });
+
 }
 
 function closePopOver(drawselects) {
-    var options = $('.' + popover_box_class + ' option', $('<div>' + drawselects + '</div>'));
-    $('.' + popover_box_class).each(function() {
+    var options = $('select.' + popover_box_class + ' option', $('<div>' + drawselects + '</div>'));
+    $('select.' + popover_box_class).each(function() {
         if (this.id == popover_select_id) {
             $(this).empty().append(options.clone());
         } else {
@@ -478,11 +479,11 @@ function closePopOver(drawselects) {
     });
     if (popover_box_class != popover_box_mod) {
         var options = {};
-        $('.' + popover_box_mod).each(function() {
+        $('select.' + popover_box_mod).each(function() {
             var data_class = $(this).data('class');
             if (data_class != popover_box_class) {
                 if (typeof options[data_class] == 'undefined') {
-                    options[data_class] = $('.' + data_class + ' option', $('<div>' + drawselects + '</div>'));
+                    options[data_class] = $('select.' + data_class + ' option', $('<div>' + drawselects + '</div>'));
                 }
                 dv = $(this).val();
                 $(this).empty().append(options[data_class].clone()).val(dv);
@@ -493,74 +494,46 @@ function closePopOver(drawselects) {
         overflow: 'inherit'
     });
     $('#popover-box-id').html('');
-    popover_box.dialog("destroy");
+    Swal.close();
+    $('select.destdropdown2').trigger('chosen:updated');
 }
 
-function popOverDisplay() {
-    $('.rnav').hide();
-    pform = $('.popover-form').first();
-    if (pform.length == 0) {
-        pform = $('form').first();
-    }
-    $('[type="submit"]', pform).hide();
-    $('<input>').attr({
-        type: 'hidden',
-        name: 'fw_popover_process'
-    }).val(parent.$('#popover-frame').data('popover-class')).appendTo(pform);
+function popOverDisplay(iframe) {
+    iframe.height = iframe.contentWindow.document.body.scrollHeight + "px";
+    $("#popover-frame").contents().find('form:first').find('input').filter(':visible:first').trigger('focus');
+    return;
 }
 
 function ipbx_reload_confirm() {
     if (!ipbx.conf.RELOADCONFIRM) {
         ipbx_reload();
     }
-    $('<div></div>').html('Reloading will apply all configuration changes made ' + 'in IssabelPBX to your PBX engine and make them active.').dialog({
-        title: 'Confirm reload',
-        resizable: false,
-        modal: true,
-        position: ['center', 50],
-        close: function(e) {
-            $(e.target).dialog("destroy").remove();
-        },
-        buttons: [{
-            text: ipbx.msg.framework.continuemsg,
-            click: function() {
-                $(this).dialog("destroy").remove();
-                ipbx_reload();
-            }
-        }, {
-            text: ipbx.msg.framework.cancel,
-            click: function() {
-                $(this).dialog("destroy").remove();
-            }
-        }]
-    });
+    sweet_confirm(ipbx.msg.framework.confirmreload).then( response => { 
+        if(response==1) {  
+            ipbx_reload();
+        } 
+    })
 }
 
 function ipbx_reload() {
-    $('<div></div>').progressbar({
-        value: 100
-    })
-    var box = $('<div></div>').html('<progress style="width: 100%">' + ipbx.msg.framework.pleasewait + '</progress>').dialog({
-        title: ipbx.msg.framework.reloading,
-        resizable: false,
-        modal: true,
-        height: 75,
-        position: ['center', 50],
-        close: function(e) {
-            $(e.target).dialog("destroy").remove();
-        }
-    });
+
+    $('body').css('pointerEvents','none');
+    $('#button_reload').addClass('is-loading');
+
     $.ajax({
         type: 'POST',
         url: document.location.pathname,
         data: "handler=reload",
         dataType: 'json',
         success: function(data) {
-            box.dialog('destroy').remove();
+
+            $('body').css('pointerEvents','');
+            $('#button_reload').removeClass('is-loading');
+
             if (!data.status) {
-                var r = '<h3>' + data.message + '<\/h3>' + '<a href="#" id="error_more_info">click here for more info</a>' + '<pre style="display:none">' + data.retrieve_conf + "<\/pre>";
+                var r = '<h3>' + data.message + '</h3>' + '<a href="#" id="error_more_info">'+ipbx.msg.framework.click_here_for_more_info+'</a>' + '<div class="box" style="display:none; width:99%; overflow: scroll; max-height:200px;">' + data.retrieve_conf + "<\/pre>";
                 if (data.num_errors) {
-                    r += '<p>' + data.num_errors + ipbx.msg.framework.reload_unidentified_error + "<\/p>";
+                    r += '<div>' + data.num_errors + ipbx.msg.framework.reload_unidentified_error + "</div>";
                 }
                 issabelpbx_reload_error(r);
             } else {
@@ -570,41 +543,21 @@ function ipbx_reload() {
             }
         },
         error: function(reqObj, status) {
-            box.dialog("destroy").remove();
-            var r = '<p>' + ipbx.msg.framework.invalid_responce + '<\/p>' + "<p>XHR response code: " + reqObj.status + " XHR responseText: " + reqObj.resonseText + " jQuery status: " + status + "<\/p>";
+            $('body').css('pointerEvents','');
+            $('#button_reload').removeClass('is-loading');
+            var moreinfo = '<a href="#" id="error_more_info">'+ipbx.msg.framework.xhr_response_text+'</a><div class="box" style="display:none; width:99%; overflow: scroll; max-height:200px;">' + reqObj.responseText + '</div>';
+            var r = '<div class="my-2">' + ipbx.msg.framework.invalid_response + '</div><div class="my-2">' + ipbx.msg.framework.xhr_response_code + ": " + reqObj.status + '</div>'+moreinfo+'<div class="my-2">' + ipbx.msg.framework.jquery_status + ': ' + status + '</div>';
             issabelpbx_reload_error(r);
         }
     });
 }
 
 function issabelpbx_reload_error(txt) {
-    var box = $('<div></div>').html(txt).dialog({
-        title: 'Error!',
-        resizable: false,
-        modal: true,
-        minWidth: 600,
-        position: ['center', 50],
-        close: function(e) {
-            $(e.target).dialog("destroy").remove();
-        },
-        buttons: [{
-            text: ipbx.msg.framework.retry,
-            click: function() {
-                $(this).dialog("destroy").remove();
-                ipbx_reload();
-            }
-        }, {
-            text: ipbx.msg.framework.cancel,
-            click: function() {
-                $(this).dialog("destroy").remove();
-            }
-        }]
-    });
-    $('#error_more_info').click(function() {
-        $(this).next('pre').show();
-        $(this).hide();
-        return false;
-    })
+    Swal.fire({
+        title: ipbx.msg.framework.error,
+        html: txt,
+        customClass: 'swal-wide',
+      })
 }
 
 function toggle_reload_button(action) {
@@ -617,14 +570,173 @@ function toggle_reload_button(action) {
             break;
     }
 }
+
 $(document).ready(function() {
+
+    console.log('document ready: main');
+
+    // Language menu
+    $('body').on('click','.onelang',function(evt) {
+        $.cookie('lang', $(this).data('lang'));
+        window.location.reload();
+    });
+
+    $('body').on('click','#mainformsubmit',function(evt) {
+        
+        if(typeof $(evt.target).data('target') != 'undefined') {
+            frm = $(evt.target).data('target');
+            $('#'+frm).trigger('submit');
+        } else {
+            $('#mainform').trigger('submit');
+        }
+    });
+
+    $('body').on('click','#error_more_info',function() {
+        $(this).next('div').toggle();
+        return false;
+    })
+
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+
+            // Get the target from the "data-target" attribute
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+
+        });
+    });
+
+    $('body').on('click','#login_admin',function() {
+        Swal.fire({
+          imageUrl: './images/issabelpbx_small.png',
+          imageWidth: 244,
+          imageHeight: 81,
+          imageAlt: 'Issabel Logo',
+          html: `<div>${ipbx.msg.framework.enter_crendentials}</div><input type="text" id="login" class="swal2-input" placeholder="${ipbx.msg.framework.username}">
+          <input type="password" id="password" class="swal2-input" placeholder="${ipbx.msg.framework.password}">`,
+          confirmButtonText: ipbx.msg.framework.continuemsg,
+          focusConfirm: false,
+          preConfirm: () => {
+            const login = Swal.getPopup().querySelector('#login').value
+            const password = Swal.getPopup().querySelector('#password').value
+            if (!login || !password) {
+              Swal.showValidationMessage('Please fill all the fields')
+            }
+            return { login: login, password: password }
+          },
+          didOpen: () => {
+                $('.swal2-container').find('#password').on('keypress',function(event) { 
+                    if(event.keyCode==13) {
+                        $('.swal2-actions button:first').trigger('click');
+                    } else if(event.keyCode==27) {
+                        $('.swal2-container').find('#password').val('');
+                    }
+                });
+            }
+        }).then((result) => {
+          var form = $('#loginform');
+          $("input[name=username]").val(result.value.login);
+          $("input[name=password]").val(result.value.password);
+          $(form).trigger('submit');
+        });
+    });
+
+});
+
+function sweet_toast(icon,msg) {
+    Toast.fire({
+        icon: icon,
+        title: msg,
+        didDestroy: function() {
+            fetch(window.location.href+'&quietmode=1&action=resetnotifications').then(response=>{ console.log('reset noti');});
+        }
+    });
+}
+
+function sweet_alert(msg) {
+    Swal.fire({icon:'error',text:msg});
+    return false;
+}
+
+function sweet_prompt(title,html,field,regexvalidation='',validationmsg='Invalid Data') {
+    return new Promise(function(resolve) {
+        Swal.fire({
+            title: title,
+            html: html,
+            focusConfirm: false,
+            preConfirm: () => {
+                const value = Swal.getPopup().querySelector('#'+field).value
+                if (!value) {
+                    Swal.showValidationMessage(`Please fill`)
+                }
+                if(regexvalidation!='') {
+                    if(!value.match(regexvalidation)) {
+                        Swal.showValidationMessage(validationmsg)
+                    }
+                }
+                return { value: value }
+            }
+        }).then((result) => {
+            resolve(`${result.value.value}`)
+        });
+    });
+}
+
+function sweet_confirm(msg) {
+    return new Promise(function(resolve) {
+            Swal.fire({
+                title: ipbx.msg.framework.areyousure,
+                text: msg,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: ipbx.msg.framework.yes,
+                cancelButtonText: ipbx.msg.framework.cancel
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    console.log('sweet confirm resolve 1');
+                    resolve(1);
+                } else {
+                    console.log('sweet confirm resolve 0');
+                    //return false;
+                    resolve(0);
+                }
+            });
+    });
+}
+
+async function mymyconfirm(msg) {
+    await myconfirm(msg);
+}
+
+async function myconfirm(msg) {
+    res = await sweet_confirm(msg);
+    console.log('listo',res);
+    return res;
+}
+
+function doready() {
+
     bind_dests_double_selects();
+
+    bind_close_alerts();
+
+    // Help info tooltips
     $("a.info").each(function() {
-        $(this).after('<span class="help">?<span>' + $(this).find('span').html() + '</span></span>');
+        $(this).after('<span class="infohelp">?<span>' + $(this).find('span').html() + '</span></span>');
         $(this).find('span').remove();
         $(this).replaceWith($(this).html())
-    })
-    $(".help").on('mouseenter', function() {
+    });
+    $(".infohelp").on('mouseenter', function() {
         side = ipbx.conf.text_dir == 'lrt' ? 'left' : 'right';
         var pos = $(this).offset();
         var offset = (200 - pos.side) + "px";
@@ -636,20 +748,18 @@ $(document).ready(function() {
             opacity: "hide"
         }, "fast");
     });
-    $('.guielToggle').click(function() {
+
+    
+    $('.guielToggle').on('click',function() {
+        console.log('click',this);
         var txt = $(this).find('.guielToggleBut');
         var el = $(this).data('toggle_class');
         var section = $.urlParam('display') + '#' + el;
-        switch (txt.text().replace(/ /g, '')) {
-            case '-':
-                txt.text('+ ');
-                $('.' + el).hide();
-                guielToggle = $.parseJSON($.cookie('guielToggle')) || {};
-                guielToggle[section] = false;
-                $.cookie('guielToggle', JSON.stringify(guielToggle));
-                break;
-            case '+':
-                txt.text('-  ');
+        var btcon = txt.html().replace(/ $/g, '');
+        console.log(btcon.indexOf('minus'));
+        switch (btcon.indexOf('minus')) {
+            case -1:
+                txt.html('<i class="fa fa-minus-square-o"></i>  ');
                 $('.' + el).show();
                 guielToggle = $.parseJSON($.cookie('guielToggle')) || {};
                 if (guielToggle.hasOwnProperty(section)) {
@@ -657,17 +767,25 @@ $(document).ready(function() {
                     $.cookie('guielToggle', JSON.stringify(guielToggle));
                 }
                 break;
+           default:
+                txt.html('<i class="fa fa-plus-square-o"></i> ');
+                $('.' + el).hide();
+                guielToggle = $.parseJSON($.cookie('guielToggle')) || {};
+                guielToggle[section] = false;
+                $.cookie('guielToggle', JSON.stringify(guielToggle));
+                break;
+
         }
-    })
-    $('#ipbx_lang > li').click(function() {
-        $.cookie('lang', $(this).data('lang'));
-        window.location.reload();
-    })
-    $('.rnav > ul').menu();
-    $('.radioset').buttonset();
-    $('.menubar').menubar().hide().show();
-    $('.module_menu_button').hover(function() {
-        $(this).click();
+    });
+
+    // set initial right nav menu scroll position
+    initial_rnav();
+
+    //$('.radioset').buttonset();
+    //$('.menubar').menubar().hide().show();
+
+    $('.module_menu_button').on('hover',function() {
+        $(this).trigger('click');
         var sh = $(window).height();
         $('.menubar.ui-menu').each(function() {
             if ($(this).css('display') == 'block') {
@@ -681,8 +799,10 @@ $(document).ready(function() {
     if (ipbx.conf.reload_needed) {
         toggle_reload_button('show');
     }
-    $('.sortable').menu();
-    $('.sortable li').click(function(event) {
+
+    
+    //$('.sortable').menu();
+    $('.sortable li').on('click',function(event) {
         if ($(event.target).is(':checkbox')) {
             return true;
         }
@@ -690,25 +810,26 @@ $(document).ready(function() {
         checkbox.prop('checked', !checkbox[0].checked);
         return false;
     });
-    $('.audio-codecs').click(function(event) {
+    $('.audio-codecs').on('click',function(event) {
         event.stopPropagation();
     });
-    $('.ui-menu-item').click(function() {
+    $('.ui-menu-item').on('click',function() {
         go = $(this).find('a').attr('href');
         if (go && !$(this).find('a').hasClass('ui-state-disabled')) {
             document.location.href = go;
         }
     })
-    $('#button_reload').click(function() {
-        if (ipbx.conf.RELOADCONFIRM == 'true') {
+    $('#button_reload').on('click',function() {
+        if (ipbx.conf.RELOADCONFIRM === true) {
             ipbx_reload_confirm();
         } else {
             ipbx_reload();
         }
     });
-    $('#MENU_BRAND_IMAGE_TANGO_LEFT').click(function() {
+    $('#MENU_BRAND_IMAGE_TANGO_LEFT').on('click',function() {
         window.open($(this).data('brand_image_issabelpbx_link_left'), '_newtab');
     });
+    /*
     $('input[type=submit],input[type=button], button, input[type=reset]').each(function() {
         var prim = (typeof $(this).data('button-icon-primary') == 'undefined') ? '' : ($(this).data('button-icon-primary'));
         var sec = (typeof $(this).data('button-icon-secondary') == 'undefined') ? '' : ($(this).data('button-icon-secondary'));
@@ -722,13 +843,19 @@ $(document).ready(function() {
             text: txt
         });
     });
+    */
     var extselector = $('input.extdisplay,input[type=text][name=extension],input[type=text][name=extdisplay],input[type=text][name=account]').not('input.noextmap');
     if (extselector.length > 0) {
-        extselector.after(" <span style='display:none'><a href='#'><img src='images/notify_critical.png'/></a></span>").keyup(function() {
+        //extselector.after(" <span style='display:none'><a href='#'><img src='images/notify_critical.png'/></a></span>").on('keyup',function() {
+        extselector.after(" <p class='help is-hidden is-danger'></p>").on('keyup',function() {
             if (typeof extmap[this.value] == "undefined" || $(this).data('extdisplay') == this.value) {
-                $(this).removeClass('duplicate-exten').next('span').hide();
+                $(this).removeClass('is-danger').next('p').addClass('is-hidden');
             } else {
-                $(this).addClass('duplicate-exten').next('span').show().children('a').attr('title', extmap[this.value]);
+                parent_width = $(this).width() - 50;
+                console.log(parent_width);
+                var valtext = sprintf(ipbx.msg.framework.validation.duplicate, this.value, extmap[this.value]);
+                $(this).addClass('is-danger').next('p').html(valtext).removeClass('is-hidden').width(parent_width);
+                positionActionBar(); // page will get higher, possible scroll, position action bar then
             }
         }).each(function() {
             if (typeof $(this).data('extdisplay') == "undefined") {
@@ -739,36 +866,38 @@ $(document).ready(function() {
                     this.value++;
                 }
             }
-        }).parents('form').submit(function(e) {
+        }).parents('form').on('submit',function(e) {
             if (e.isDefaultPrevented()) {
                 return false;
             }
             exten = $('.duplicate-exten', this);
             if (exten.length > 0) {
                 extnum = exten.val();
-                Swal.fire({icon:'warning',text:extnum + ipbx.msg.framework.validation.duplicate + extmap[extnum], timer:5000});
+                var valtext = sprintf(ipbx.msg.framework.validation.duplicate, extnum, extmap[extnum]);
+                Swal.fire({icon:'warning',text:valtext, timer:5000});
                 return false;
             }
             return true;
         });
     }
-    $(document).bind('keydown', 'meta+shift+a', function() {
+    $(document).on('keydown', 'meta+shift+a', function() {
         $('#modules_button').trigger('click');
     });
-    $(document).bind('keydown', 'ctrl+shift+s', function() {
-        $('input[type=submit][name=Submit]').click();
+    $(document).on('keydown', 'ctrl+shift+s', function() {
+        $('input[type=submit][name=Submit]').trigger('click');
     });
-    $(document).bind('keydown', 'ctrl+shift+a', function() {
+    $(document).on('keydown', 'ctrl+shift+a', function() {
         ipbx_reload();
     });
-    $('#user_logout').click(function() {
+    $('#user_logout').on('click',function() {
         url = window.location.pathname;
         $.get(url + '?logout=true', function() {
             $.cookie('PHPSESSID', null);
             window.location = url;
         });
     });
-    $(".input_checkbox_toggle_true, .input_checkbox_toggle_false").click(function() {
+
+    $(".input_checkbox_toggle_true, .input_checkbox_toggle_false").on('click',function() {
         checked = $(this).hasClass('input_checkbox_toggle_true') ? this.checked : !this.checked;
         $(this).prev().prop('disabled', checked);
         if (checked) {
@@ -778,54 +907,45 @@ $(document).ready(function() {
             $(this).prev().val($(this).data('saved'))
         }
     });
-    $(document).ajaxStart(function() {
-        $('#ajax_spinner').show()
+
+    $('.componentSelect').chosen({width:'100%', disable_search: true,placeholder_text_single: ipbx.msg.framework.selectoption});
+    $('.componentSelectSearch').chosen({width:'100%', disable_search: false, placeholder_text_single: ipbx.msg.framework.selectoption});
+    $('.componentSelectAutoWidth').chosen({disable_search: false, width: 'auto', placeholder_text_single: ipbx.msg.framework.selectoption});
+    $('.componentSelectAutoWidthNoSearch').chosen({disable_search: true, width: 'auto', placeholder_text_single: ipbx.msg.framework.selectoption});
+
+    $('input[type=search]').on('search', function (uno,dos) {
+        filter_rnav();
     });
-    $(document).ajaxStop(function() {
-        $('#ajax_spinner').hide()
-    });
-    $('#login_admin').click(function() {
-        var form = $('#login_form').html();
-        $('<div></div>').html(form).dialog({
-            title: ipbx.msg.framework.login,
-            resizable: false,
-            modal: true,
-            position: ['center', 'center'],
-            close: function(e) {
-                $(e.target).dialog("destroy").remove();
-            },
-            buttons: [{
-                text: ipbx.msg.framework.continuemsg,
-                click: function() {
-                    $(this).find('form').trigger('submit');
-                }
-            }, {
-                text: ipbx.msg.framework.cancel,
-                click: function() {
-                    $(this).dialog("destroy").remove();
-                }
-            }],
-            focus: function() {
-                $(':input', this).keyup(function(event) {
-                    if (event.keyCode == 13) {
-                        $('.ui-dialog-buttonpane button:first').click();
-                    }
-                })
-            }
-        });
-    });
-    $('form').submit(function(e) {
-        if (!e.isDefaultPrevented()) {
-            $('.destdropdown2').filter(':hidden').remove();
+
+    /* horizontal text scroll too wide submenu options */
+    $('.scroll-container').on('mouseenter',function () {
+        $(this).stop();
+        var boxWidth = $(this).width();
+        var textWidth = $('.scroll', $(this)).width() + 22;
+        if (textWidth > boxWidth) {
+            console.log('animate!');
+            var animSpeed = textWidth * 5;
+            $(this).animate({
+                scrollLeft: (textWidth - boxWidth)
+            }, animSpeed, function () {
+                $(this).animate({
+                    scrollLeft: 0
+                }, animSpeed, function () {
+                    $(this).trigger('mouseenter');
+                });
+            });
         }
+    }).on('mouseleave',function () {
+        var animSpeed = $(this).scrollLeft() * 5;
+        $(this).stop().animate({
+            scrollLeft: 0
+        }, animSpeed);
     });
 
-    // Fix for fluctuating widht for hover items in right menu, make it fixed
-    $('.rnav > .ui-menu > .ui-menu-item').width('200px');
+    $('.destdropdown:not(".haschosen")').addClass('haschosen').chosen({disable_search: false, inherit_select_classes: true, width: '100%'});
+    $('.destdropdown2:not(".haschosen")').addClass('haschosen').chosen({disable_search: false, inherit_select_classes: true, width: '100%'});
+}
 
-    $('.componentSelect').chosen({width:'100%', disable_search: true});
-
-});
 (function(jQuery) {
     jQuery.hotkeys = {
         version: "0.8",
@@ -962,7 +1082,8 @@ $(document).ready(function() {
         }
         return this.each(function() {
             if (destroy) {
-                $(this).unbind('focus.toggleval').unbind('blur.toggleval').removeData('defText');
+                //$(this).bind('focus.toggleval').unbind('blur.toggleval').removeData('defText');
+                $(this).on('focus.toggleval').off('blur.toggleval').removeData('defText');
                 return false;
             }
             var defText = '';
@@ -990,12 +1111,14 @@ $(document).ready(function() {
             if (theOptions.removeLabels == true && $(this).attr('id')) {
                 $('label[for="' + $(this).attr('id') + '"]').remove();
             }
-            $(this).bind('focus.toggleval', function() {
+            //$(this).bind('focus.toggleval', function() {
+            $(this).on('focus.toggleval', function() {
                 if ($(this).val() == $(this).data('defText')) {
                     $(this).val('');
                 }
                 $(this).addClass(theOptions.focusClass);
-            }).bind('blur.toggleval', function() {
+            //}).bind('blur.toggleval', function() {
+            }).on('blur.toggleval', function() {
                 if ($(this).val() == '' && !theOptions.sticky) {
                     $(this).val($(this).data('defText'));
                 }
@@ -1016,7 +1139,7 @@ $(document).ready(function() {
         removeLabels: false,
         sticky: false
     };
-    $.extend($.expr[':'], {
+    $.extend($.expr.pseudos[':'], {
         toggleval: function(elem) {
             return $(elem).data('defText') || false;
         },
@@ -1028,6 +1151,8 @@ $(document).ready(function() {
         }
     });
 })(jQuery);
+
+/*
 (function($) {
     $.widget("ui.menubar", {
         _create: function() {
@@ -1064,6 +1189,8 @@ $(document).ready(function() {
         }
     });
 }(jQuery));
+*/
+/*
 (function($) {
     $.widget("ui.flyoutmenu", {
         _create: function() {
@@ -1229,7 +1356,7 @@ $(document).ready(function() {
         }
     });
 }(jQuery));
-
+*/
 function tabberObj(argsObj) {
     var arg;
     this.div = null;
@@ -1440,6 +1567,7 @@ function tabberAutomaticOnLoad(tabberArgs) {
         };
     }
 }
+
 if (typeof tabberOptions == 'undefined') {
     tabberAutomaticOnLoad();
 } else {
@@ -1449,13 +1577,290 @@ if (typeof tabberOptions == 'undefined') {
 }
 
 Toast = Swal.mixin({
-   toast: true,
-   position: 'top-right',
-   iconColor: 'white',
-   customClass: {
-     popup: 'colored-toast'
-   },
-   showConfirmButton: false,
-   timer: 4000,
-   timerProgressBar: true
+    toast: true,
+    position: 'top-right',
+    iconColor: 'white',
+    customClass: {
+        popup: 'colored-toast'
+    },
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true
 });
+
+function toggle_rnav() {
+  if(localStorage.getItem('rnav')=='open') {
+    $('.menu_icon').css('right',0);
+    $('.rnav').css('right','-275px');
+    localStorage.setItem('rnav','closed');
+    $('#collapsemenuicon').html("<i class='fa fa-angle-double-left'></i>");
+  } else {
+    $('.menu_icon').css('right','275px');
+    $('.rnav').css('right','0');
+    localStorage.setItem('rnav','open');
+    $('#collapsemenuicon').html("<i class='fa fa-angle-double-right'></i>");
+  }
+}
+
+function toggle_action_bar() {
+  current_x = $('#action-bar').css('right');
+  if(current_x == '0px' ) {
+    $('#action-bar').css('right',($('#action-bar').width()*-1)+19);
+    localStorage.setItem('actionbar','closed');
+    $('#collapseactionmenuicon').html('<i class="fa fa-angle-double-left"></i>');
+  } else {
+    $('#action-bar').css('right',0);
+    localStorage.setItem('actionbar','open');
+    $('#collapseactionmenuicon').html('<i class="fa fa-angle-double-right"></i>');
+  }
+}
+
+
+async function initial_rnav() {
+
+    console.log('initial rnav');
+
+    if(ispopover==true) { 
+        console.log('is popover, hide rnav and remove actionbar')
+        // handle popover form modifications
+        $('#action-bar').remove(); 
+        $('.rnav').hide(); 
+        pform = $('.popover-form').first();
+        if (pform.length == 0) {
+            pform = $('form').first();
+        }
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'fw_popover_process'
+        }).val(parent.$('#popover-frame').data('popover-class')).appendTo(pform);
+        return;
+    }
+
+
+    if($('#collapsemenuicon').length==0) {
+        $("<a id='collapsemenuicon' class='menu_icon'><i class='fa fa-angle-double-right'></i></a>").insertBefore(".rnav");
+    }
+    paint_rnav();
+
+    $('.rnav').show();
+
+    add_rnav_tooltips();
+
+    if(localStorage.getItem('rnav')==null) {
+        localStorage.setItem('rnav','open');
+    }
+
+    //await new Promise(r => setTimeout(r, 100));
+
+    filter = localStorage.getItem('rnavfilter');
+    if(filter!="") {
+        $('#rnavsearch').val(filter);
+        filter_rnav();
+    }
+
+    if(localStorage.getItem('rnav')=='open') {
+        $('.menu_icon').css('right','275px');
+        $('.rnav').css('right','0');
+    } else {
+        $('.menu_icon').css('right',0);
+        original_transition = $('.rnav').css('transition');
+        $('.rnav').css('transition','none 0s ease 0s');
+        $('#collapsemenuicon').css('transition','none 0s ease 0s');
+        $('.rnav').css('right','-275px');
+        $('#collapsemenuicon').html("<i class='fa fa-angle-double-left'></i>");
+        setTimeout(function() {
+           $('.rnav').css('transition',original_transition);
+           $('#collapsemenuicon').css('transition',original_transition);
+        },500)
+    }
+    rnavSelected();
+    $('#collapsemenuicon:not(.bound)').addClass('bound').on('click', toggle_rnav);
+    positionActionBar();
+}
+
+
+
+up.compiler('.rnav', function(element,data) {
+//    console.log('compiler rnav');
+    if($('.rnav').length>0) {
+        mitop = localStorage.getItem('rnav_scroll');
+        $('.rnav ul:first').scrollTop(mitop);
+        up.on($('.rnav')[0], 'click', 'a', function(event, element) {
+            mitop = $('.rnav ul:first').scrollTop();
+            localStorage.setItem('rnav_scroll',mitop);
+            if(typeof $(element).data('href')=='string') {
+                if($(element).attr('disabled')!='disabled') {
+                    window.location.href = $(element).data('href');
+                }
+            }
+        });
+    }
+});
+
+function rnavSelected() {
+
+    if($('.rnav').length>0) {
+    let params = new URLSearchParams(window.location.search);
+    selected_rnav_option = params.get('extdisplay');
+    let original_href = $('#rnavadd').attr('href');
+    $('#rnavadd').attr('disabled',true);
+    $('#rnavadd').attr('href','javascript:void(0)');
+
+    $('.rnav').find('li > a').each(function(idx,ele) { 
+        $(ele).removeClass('current');
+        let params = new URLSearchParams($(ele).attr('href'));
+        current_rnav_option = params.get('extdisplay');
+        if(selected_rnav_option == current_rnav_option) {
+            $(ele).addClass('current');
+            $('#rnavadd').attr('disabled',false);
+            $('#rnavadd').attr('href',original_href);
+        }
+    });
+    }
+}
+
+function confirm_delete(form,mytext,deletevalue) {
+
+    Swal.fire({
+        title: ipbx.msg.framework.areyousure,
+        text: mytext,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: ipbx.msg.framework.yes,
+        cancelButtonText: ipbx.msg.framework.cancel
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.LoadingOverlay('show');
+            $("input[name=action]").val(deletevalue);
+            console.log($("input[name=action]").val());
+            form.trigger('submit');
+        }
+    });
+
+}
+
+up.compiler('#action-bar', function(element,data) {
+    // console.log('start compiler action bar');
+
+    // Confirm on Delete
+    $(":submit").on('click',function(evt) {
+        var form = $('#mainform');
+        if(typeof $(evt.target).data('target') != 'undefined') {
+            form = $('#'+$(evt.target).data('target'));
+        }
+        if($(evt.target).attr('name')=='delete') {
+            evt.preventDefault();
+            if(typeof $(evt.target).data('text') != 'undefined') {
+                mytext = Base64.decode($(evt.target).data('text'));
+            } else {
+                mytext = ipbx.msg.framework.wontrevert;
+            }
+            confirm_delete(form,mytext,'delete');
+
+        } else if($(evt.target).attr('name')=='reset'){
+            form[0].reset();
+        }
+    });
+
+    $('#collapseactionmenuicon:not(.bound)').addClass('bound').on('click', toggle_action_bar);
+    positionActionBar();
+
+});
+
+up.compiler('.content', function(element,data) {
+
+    console.log('start compiler content');
+    doready();
+
+    // agrega clases bulma a inputs que no lo tengan
+    //$('input[type=text]:not(".input")').addClass('input').addClass('w100');
+    $('table:not(".table")').addClass('table').addClass('is-borderless').addClass('is-narrow');
+
+});
+
+function add_rnav_tooltips() {
+    // if rnav entries are hidden/overflow, add tooltip
+    $('#rnavul > li > a').each(function() {
+        if(isOverflown(this)) {
+            console.log($(this).data('title'));
+            $(this).attr('data-tooltip',$(this).data('title'));
+        }
+    });
+}
+
+function paint_rnav() {
+    flag=0;
+    $( "#rnavul > li" ).each(function(){
+        if($(this).css('display') != 'none'){ 
+            if(flag%2 == 0) {
+                $(this).addClass('secondRnav'); 
+            }else {
+                $(this).removeClass('secondRnav'); 
+            }
+            flag++;
+        } else {
+            $(this).removeClass('secondRnav'); 
+        }
+    });
+}
+
+function filter_rnav() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('rnavsearch');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("rnavul");
+    li = ul.getElementsByTagName('li');
+
+    localStorage.setItem('rnavfilter',input.value);
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+
+    paint_rnav();
+}
+
+$(window).on('scroll',function(event){
+    positionActionBar();
+});
+$(window).on('resize',function(event){
+    positionActionBar();
+});
+
+function positionActionBar(){
+     if($("#action-bar").length>0){ 
+         if(window.location.search.indexOf('fw_popover')<=0) {
+
+         $("#action-bar").removeClass("locked");
+         var css={},
+             pageHeight=parseInt($("#page").innerHeight()),
+             actionBarOffset=parseInt($("#action-bar").offset().top)+parseInt($("#action-bar").innerHeight())+parseInt($("#footer").innerHeight())+parseInt($("#action-bar").css("padding-top"));
+             actionBarOffset-=60;
+             if(pageHeight-actionBarOffset<=0){
+                 $("#action-bar").addClass("locked");
+             }
+         }
+     }
+}
+
+/* to check if element contents are hidden/overflown, used to activate tooltips if they are on rnav */
+function isOverflown(element) {
+    return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
+}
+
+/* generic error for fetch operqations */
+function handleErrors(response) {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+}

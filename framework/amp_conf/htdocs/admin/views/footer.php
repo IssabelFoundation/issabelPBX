@@ -16,7 +16,7 @@ $html .= '</div>';//page_body
 $html .= '<div id="footer">';
 // If displaying footer content, force the <hr /> tag to enforce clear separation of page vs. footer
 if ($footer_content) {
-	$html .= '<hr />';
+	$html .= '<hr class="my-0"/>';
 }
 $html .= '<div id="footer_content">';
 $html .= $footer_content;
@@ -76,15 +76,20 @@ $ipbx['conf']['ver']			= get_framework_version();
 $ipbx['conf']['reload_needed']  = $reload_needed; 
 $ipbx['msg']['framework']['reload_unidentified_error'] = _(" error(s) occurred, you should view the notification log on the dashboard or main screen to check for more details.");
 $ipbx['msg']['framework']['close'] = _("Close");
+$ipbx['msg']['framework']['next'] = _("Next");
+$ipbx['msg']['framework']['selectoption'] = _("Select an option");
+$ipbx['msg']['framework']['confirmreload'] = _("Reloading will apply all configuration changes made in IssabelPBX to your PBX engine and make them active.");
+$ipbx['msg']['framework']['previous'] = _("Previous");
 $ipbx['msg']['framework']['continuemsg'] = _("Continue");//continue is a resorved word!
 $ipbx['msg']['framework']['cancel'] = _("Cancel");
 $ipbx['msg']['framework']['retry'] = _("Retry");
 $ipbx['msg']['framework']['update'] = _("Update");
 $ipbx['msg']['framework']['save'] = _("Save");
 $ipbx['msg']['framework']['bademail'] = _("Invalid email address");
+$ipbx['msg']['framework']['enteremail'] = _("Enter your email");
 $ipbx['msg']['framework']['updatenotifications'] = _("Update Notifications");
 $ipbx['msg']['framework']['securityissue'] = _("Security Issue");
-$ipbx['msg']['framework']['validation']['duplicate'] = _(" extension number already in use by: ");
+$ipbx['msg']['framework']['validation']['duplicate'] = _("Extension %s already in use by: %s");
 $ipbx['msg']['framework']['noupdates'] = _("Are you sure you want to disable automatic update notifications? This could leave your system at risk to serious security vulnerabilities. Enabling update notifications will NOT automatically install them but will make sure you are informed as soon as they are available.");
 $ipbx['msg']['framework']['noupemail'] = _("Are you sure you don't want to provide an email address where update notifications will be sent. This email will never be transmitted off the PBX. It is used to send update and security notifications when they are detected.");
 $ipbx['msg']['framework']['invalid_responce'] = _("Error: Did not receive valid response from server");
@@ -98,8 +103,18 @@ $ipbx['msg']['framework']['reloading'] = _("Reloading...");
 $ipbx['msg']['framework']['pleasewait'] = _("Please Wait");
 $ipbx['msg']['framework']['login'] = _("Login");
 $ipbx['msg']['framework']['areyousure'] = _("Are you sure?");
-$ipbx['msg']['framework']['wontreverse'] = _("You won't be able to revert this!");
+$ipbx['msg']['framework']['wontrevert'] = _("You won't be able to revert this!");
 $ipbx['msg']['framework']['yes'] = _("Yes");
+$ipbx['msg']['framework']['enter_crendentials'] = _('To get started, please enter your credentials:');
+$ipbx['msg']['framework']['username'] = _('username');
+$ipbx['msg']['framework']['password'] = _('password');
+$ipbx['msg']['framework']['error'] = _('Error');
+$ipbx['msg']['framework']['jquery_status'] = _('jQuery Status');
+$ipbx['msg']['framework']['xhr_response_code'] = _('XHR Response Code');
+$ipbx['msg']['framework']['xhr_response_text'] = _('XHR Response Text');
+$ipbx['msg']['framework']['click_here_for_more_info'] = _('Click here for more info');
+$ipbx['msg']['framework']['item_modified'] = _('Item has been saved');
+$ipbx['msg']['framework']['upload'] = _('Upload');
 
 if(!isset($covert)) $covert=false;
 if ($covert) {
@@ -121,20 +136,7 @@ $html .= "\n" . '<script>'
 		. 'var extmap='
 		. $extmap
 
-		. ';$(document).click();' //TODO: this should be cleaned up eventually as right now it prevents the nav bar from not being fully displayed
  		. '</script>';
-
-if ($amp_conf['USE_GOOGLE_CDN_JS']) {
-	$html .= '<script src="//ajax.googleapis.com/ajax/libs/jqueryui/' 
-			. $amp_conf['JQUERYUI_VER'] . '/jquery-ui.min.js"></script>';
-	$html .= '<script>window.jQuery.ui || document.write(\'<script src="assets/js/jquery-ui-' 
-			. $amp_conf['JQUERYUI_VER'] . '.min.js"><\/script>\')</script>';
-} else {
-	$html .= '<script src="assets/js/jquery-ui-' . $amp_conf['JQUERYUI_VER'] . '.min.js"></script>';
-}
-
-$html .= '<script src="assets/js/sweetalert2.min.js"></script>';
-$html .= '<link rel="stylesheet" href="assets/css/sweetalert2.min.css" type="text/css"/>';
 
 // Production versions should include the packed consolidated javascript library but if it
 // is not present (useful for development, then include each individual library below
@@ -190,6 +192,14 @@ if (!empty($js_content)) {
 }
 //add IE specifc styling polyfills
 //offer google chrome frame for the richest experience
+if(count($php_missing_module)>0) {
+    $html.="<script>\n";
+    foreach($php_missing_module as $msgerror) {
+        $html.="sweet_alert(\"$msgerror\");\n";
+    }
+    $html.="</script>\n";
+}
+
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
 	$html .= '<!--[if lte IE 10]>';
 	$html .= '<link rel="stylesheet" href="assets/css/progress-polyfill.css" type="text/css"/>';
