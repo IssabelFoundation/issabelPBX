@@ -57,27 +57,27 @@ msgstr "Descripción"
 #: functions.inc.php:838
 #, php-format
 msgid "Class of Service: %s"
-msgstr "Clase de Servicio: %s"
+msgstr "Clase de servicio: %s"
 
 msgid "Full Internal Access"
-msgstr "Acceso Interno Total"
+msgstr "Acceso interno total"
 
 #: functions.inc.php:867
 #, php-format
 msgid "Class of Service: %s (%s)"
-msgstr "Clase de Servicio: %s (%s)"
+msgstr "Clase de servicio: %s (%s)"
 
 #: functions.inc.php:620
 msgid "Duplicate Class"
-msgstr "Duplicar Clase"
+msgstr "Duplicar clase"
 
 #: functions.inc.php:457 functions.inc.php:617
 msgid "Edit Class"
-msgstr "Modificar Clase"
+msgstr "Modificar clase"
 
 #: functions.inc.php:459
 msgid "Remove Class"
-msgstr "Remover Clase"
+msgstr "Remover clase"
 
 #: install.php:33
 msgid "Time Conditions Module required and not present .. aborting install"
@@ -102,19 +102,20 @@ msgstr ""
 "customcontexts_tiemgroups_detail .."
 
 msgid "Class of Service"
-msgstr "Clase de Servicio"
+msgstr "Clase de servicio"
 
 msgid "Class of Service Admin"
-msgstr "Administrar Clases de Servicio"
+msgstr "Administrar clases de servicio"
 
 msgid "Class Of Service"
-msgstr "Clase de Servicio"
+msgstr "Clase de rvicio"
 
 msgid "Class Of Service Admin"
-msgstr "Administrar Clases de Servicio"
+msgstr "Administrar clases de servicio"
+
 
 msgid "Dial Rules"
-msgstr "Reglas de Marcado"
+msgstr "Reglas de marcado"
 
 msgid "Submit"
 msgstr "Enviar cambios"
@@ -129,16 +130,16 @@ msgid "This will display as the name of this class of service."
 msgstr "Ingrese una descripción para esta clase de servicio."
 
 msgid "Set All"
-msgstr "Configurar Todos"
+msgstr "Configurar todos"
 
 msgid "Set All To"
-msgstr "Configurar Todos para"
+msgstr "Configurar todos para"
 
 msgid "Default Internal Context"
-msgstr "Contexto Interno por Defecto"
+msgstr "Contexto interno por defecto"
 
 msgid "Call Parking"
-msgstr "Parqueo de Llamadas"
+msgstr "Parqueo de llamadas"
 
 msgid "Custom Internal Dialplan"
 msgstr "Plan de Marcado Interno Personalizado"
