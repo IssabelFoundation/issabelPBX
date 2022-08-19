@@ -139,7 +139,7 @@ class DB_rqlite extends DB_common
     var $_lasterror = '';
     var $_apcuAvailable;
     var $_uniqueid;
-    var $debug = 0;
+    var $debug = 1;
 
     // }}}
     // {{{ constructor
@@ -152,7 +152,9 @@ class DB_rqlite extends DB_common
     function __construct()
     {
         parent::__construct();
-        $this->_apcuAvailable = function_exists('apcu_enabled') && apcu_enabled();
+	$this->_apcuAvailable = function_exists('apcu_enabled') && apcu_enabled();
+	file_put_contents("/tmp/last_insert_id.log",print_r($this->_apcuAvailabe,1),FILE_APPEND);
+
         $this->_uniqueid = sprintf("%08x", abs(crc32($_SERVER['REMOTE_ADDR'] . $_SERVER['REQUEST_TIME'] . $_SERVER['REMOTE_PORT'])));
     }
 
@@ -214,16 +216,16 @@ class DB_rqlite extends DB_common
                     $final[$key]=(object)$row;
                 } 
             } 
-        } else {
-            if(isset($res['results'][0]['values'])) {
-                foreach($res['results'][0]['values'] as $idx=>$row) {
-                    $key = array_shift($row);
-                    if ($group) {
-                        $final[$key][]=$row[0];
-                    } else {
-                        $final[$key]=$row[0];
-                    }
+	} else {
+		if(isset($res['results'][0]['values'])) {
+            foreach($res['results'][0]['values'] as $idx=>$row) {
+                $key = array_shift($row);
+                if ($group) {
+                    $final[$key][]=$row[0];
+                } else {
+                    $final[$key]=$row[0];
                 }
+            }
             }
         }
         return $final; 
@@ -244,7 +246,7 @@ class DB_rqlite extends DB_common
                 $fetchmode = $params;
                 $params = array();
             }
-        }
+	    }
 
         if (count($params)) {
             $res = $this->_select($query,$params,$fetchmode);
@@ -255,14 +257,19 @@ class DB_rqlite extends DB_common
             return $res;
         }
 
-        if(is_numeric($col)) {
+	    if(is_numeric($col)) {
             if(isset($res['results'][0]['values'][0][$col])) {
-                $value = $res['results'][0]['values'][0][$col];
-                $ret = array($value);
-            } else {
-                $ret = array();
-            }
-            return $ret;
+                foreach($res['results'][0]['values'] as  $key=>$row) {
+                    $newrow=array();
+                    foreach($row as $idx=>$val) {
+                        $newrow[$idx]=$val;
+                    }
+                    $ret[]=$newrow[$col];
+                }
+	    	} else {
+		        $ret = array();
+	    	}
+		    return $ret;
         } else {
             $colnames = $res['results'][0]['columns'];
             $newarray=array();
@@ -391,12 +398,14 @@ class DB_rqlite extends DB_common
         if (DB::isError($res)) {
             return $res;
         }
-        if(isset($res['results'][0]['values'])) {
-            return $res['results'][0]['values'];
-        } else {
-            $ret = array();
-            return $ret;
-       }
+	if(isset($res['results'][0]['values'])) {
+		file_put_contents("/tmp/borrame.log","$query tiene valores\n",FILE_APPEND);
+		return $res['results'][0]['values'];
+	} else {
+		$ret = array();
+		file_put_contents("/tmp/borrame.log","$query no tiene valores\n",FILE_APPEND);
+		return $ret;
+	}
     }
 
 
@@ -1139,6 +1148,7 @@ class DB_rqlite extends DB_common
     }
 
     function &query($query, $params = array()) {
+//  file_put_contents("/tmp/last_insert_id.log","$query\n",FILE_APPEND);
         $comando = "execute";
         $query = preg_replace("/INSERT IGNORE/i","INSERT OR IGNORE",$query);
         $query = preg_replace("/AUTO_INCREMENT/","AUTOINCREMENT",$query);
@@ -1154,9 +1164,9 @@ class DB_rqlite extends DB_common
             $is_schema=2;
             $comando = "query";
         }
-
-        $data = array();
-        if(!isset($params)) { $params = array(); }
+	if(!isset($params)) { $params = array(); }
+	$data = array();
+	//file_put_contents("/tmp/borrame.log",gettype($params)."\n",FILE_APPEND);
         if(count($params)>0){
             $dat = array();
             $dat[] = $query;
@@ -1203,14 +1213,14 @@ class DB_rqlite extends DB_common
                 $e = new DB_Error($dat['results'][0]['error']);
                 return $e;
             }
-            if($this->_apcuAvailable) {
+            if($this->_apcuAvailable==1) {
                 if(isset($dat['results'][0]['rows_affected'])) {
                     apcu_store('rows_affected_'.$this->_uniqueid,$dat['results'][0]['rows_affected'],2);
                 }
-                if(isset($dat['results'][0]['last_insert_id'])) {
+		        if(isset($dat['results'][0]['last_insert_id'])) {
                     apcu_store('last_insert_id_'.$this->_uniqueid,$dat['results'][0]['last_insert_id'],2);
-                }
-            }
+		        }
+	        }
             return $dat;
         } else {
             $dat = json_decode($return,1);
@@ -1229,6 +1239,7 @@ class DB_rqlite extends DB_common
     public function insert_id() {
         if($this->_apcuAvailable) {
             $lastid = apcu_fetch('last_insert_id_'.$this->_uniqueid,$ok);
+  file_put_contents("/tmp/ivr.log","fetch last insert id ".$lastid."\n",FILE_APPEND);
             if($ok) { return $lastid; } else { return 0; }
         } else {
             return 0;
@@ -1263,14 +1274,15 @@ class DB_rqlite extends DB_common
 
         if($this->debug==1) {
             file_put_contents("/tmp/rqlite_select.log",print_r($data,1),FILE_APPEND);
-        }
+	}
 
-        // last_insert_rowid hack, used in ivr module
-        if(preg_match("/SELECT last_insert_rowid/i",$data_string)) {
-                $res = array();
-                $res['results'][0]['values'][0][0]=$this->insert_id();
-                return $res;
-        }
+	// last_insert_rowid hack
+	if(preg_match("/SELECT last_insert_rowid/i",$data_string)) {
+		$res = array();
+		$res['results'][0]['values'][0][0]=$this->insert_id();
+		file_put_contents("/tmp/ivr.log",print_r($res,1),FILE_APPEND);
+		return $res;
+	}
 
         $headers=array('Content-Type: application/json','Content-Length: ' . strlen($data_string));
         $ch = curl_init($this->dsn['database']."/db/query");
@@ -1308,8 +1320,10 @@ class DB_rqlite extends DB_common
             $dat['results'][0]['values']=$return;
 	}
 
-        if($this->_apcuAvailable) {
-            apcu_store('num_rows_'.$this->_uniqueid,count($dat['results'][0]['values']),2);
+	if($this->_apcuAvailable) {
+	    if(isset($dat['results'][0]['values'])) {
+		    apcu_store('num_rows_'.$this->_uniqueid,count($dat['results'][0]['values']),2);
+	    }
         }
         return $dat;
     }
