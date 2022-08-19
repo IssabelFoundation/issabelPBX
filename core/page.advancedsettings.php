@@ -31,16 +31,20 @@ if($var['action'] === 'setkey') {
 	exit;
 }
 $amportal_canwrite = $issabelpbx_conf->amportal_canwrite() ? 'true' : 'false';
-echo '<script type="text/javascript">';
+echo '<script>';
 echo 'can_write_amportalconf = ' . $amportal_canwrite . '; ';
 echo 'amportalconf_error = "' . _("You must run 'amportal restart' from the Linux command line before you can save setting here.") . '";';
 echo 'msgUnsavedChanges = "' . _("You have un-saved changes, press OK to disregard changes and reload page or Cancel to abort.") . '";';
 echo 'msgChangesRefresh = "' . _("Your Display settings have been changed, click on 'Refresh Page' to view the affects of your changes once you have saved other outstanding changes that are still un-confirmed.") . '";';
+echo '$(document).ready(function(){';
+echo "$('select').chosen({width:'50%', disable_search: true});";
+echo '});';
 echo '</script>';
 
+echo '<div class="content">';
 echo '<div id="main_page">';
 echo "<h2>"._("IssabelPBX Advanced Settings")."</h2>";
-echo '<p>'._("<b>IMPORTANT:</b> Use extreme caution when making changes!").'</p>'._("Some of these settings can render your system inoperable. You are urged to backup before making any changes. Readonly settings are usually more volatile, they can be changed by changing 'Override Readonly Settings' to true. Once changed you must save the setting by checking the green check box that appears. You can restore the default setting by clicking on the icon to the right of the values if not set at default.");
+echo '<p class="notification is-warning">'._("<b>IMPORTANT:</b> Use extreme caution when making changes!").'</p>'._("Some of these settings can render your system inoperable. You are urged to backup before making any changes. Readonly settings are usually more volatile, they can be changed by changing 'Override Readonly Settings' to true. Once changed you must save the setting by checking the green check box that appears. You can restore the default setting by clicking on the icon to the right of the values if not set at default.");
 
 $conf					= $issabelpbx_conf->get_conf_settings();
 
@@ -52,8 +56,8 @@ $display_friendly_name	= $conf['AS_DISPLAY_FRIENDLY_NAME']['value'];
 $current_category		= '';
 $row					= 0;
 
-echo '<input type="image" src="/admin/images/spinner.gif" style="display:none">';
-echo '<table class="alt_table">';
+echo '<input type="image" src="/admin/images/spinner.gif" alt="spinner" style="display:none">';
+echo '<table class="table is-borderless is-striped">';
 foreach ($conf as $c){
 	if ($c['level'] > $display_level || $c['hidden'] && !$display_hidden || $c['readonly'] && !$display_readonly) {
 		continue;
@@ -66,11 +70,11 @@ foreach ($conf as $c){
 		//       starts consistent for each section.
 		//
 		if ($row % 2) {
-			echo '<tr></tr>';
+			echo '<tr style="display:none;"><td colspan=4></td></tr>';
 			$row++;
 		}
 		$current_category_loc = modgettext::_($current_category, $c['module']);
-		echo '<tr><td colspan="3"><br><h4 class="category">'._("$current_category_loc").'</h4></td></tr>';
+		echo '<tr><td colspan="4"><br><h4 class="category">'._("$current_category_loc").'</h4></td></tr>';
 		$row++;
 	}
 
@@ -98,7 +102,7 @@ foreach ($conf as $c){
 	} else {
 		$default_val .= '<br />'.sprintf(_("Friendly Name: %s"),$tr_friendly_name);
 	}
-	echo '<tr><td><a href="javascript:void(null)" class="info">'.$name_label.'<span>'.$tt_description.'<br /><br >'.$default_val.'</span></a></td>';
+	echo '<tr><td><a href="javascript:void(null)" class="info">'.$name_label.'<span>'.htmlspecialchars($tt_description).'<br /><br >'.$default_val.'</span></a></td>';
 	echo '<td>';
 	switch ($c['type']) {
 		case CONF_TYPE_TEXT:
@@ -128,20 +132,24 @@ foreach ($conf as $c){
 			break;
 		case CONF_TYPE_BOOL:
 ?>
-			<span class="radioset"><input class="valueinput" data-valueinput-orig="<?php echo $amp_conf[$c['keyword']] ? 1 : 0 ?>" id="<?php echo $c['keyword'] ?>-true" type="radio" name="<?php echo $c['keyword'] ?>" value="1" <?php echo $amp_conf[$c['keyword']]?"checked=\"yes\"":""?>/>
-			<label for="<?php echo $c['keyword'] ?>-true"><?php echo _("True") ?></label>
-			<input class="valueinput" data-valueinput-orig="<?php echo $amp_conf[$c['keyword']] ? 1 : 0 ?>" id="<?php echo $c['keyword'] ?>-false" type="radio" name="<?php echo $c['keyword'] ?>" value="0" <?php echo !$amp_conf[$c['keyword']]?"checked=\"yes\"":""?>/>
-			<label for="<?php echo $c['keyword'] ?>-false"><?php echo _("False") ?></label></span>
+<fieldset class='radio'>
+<div class="radiotoggle">
+<input type="radio" class="valueinput" data-valueinput-orig="<?php echo $amp_conf[$c['keyword']] ? 1 : 0 ?>" name="<?php echo $c['keyword'] ?>" id="<?php echo $c['keyword'] ?>-true" value=1 <?php echo $amp_conf[$c['keyword']]?"checked=\"checked\"":""?> />
+<label for="<?php echo $c['keyword'] ?>-true"><?php echo _("True") ?></label>
+<input type="radio" class="valueinput" data-valueinput-orig="<?php echo $amp_conf[$c['keyword']] ? 1 : 0 ?>" name="<?php echo $c['keyword'] ?>" id="<?php echo $c['keyword'] ?>-false" value=0 <?php echo !$amp_conf[$c['keyword']]?"checked=\"checked\"":""?> />
+<label for="<?php echo $c['keyword'] ?>-false"><?php echo _("False") ?></label>
+</div>
+</fieldset>
 <?php
 			break;
 	}
 	echo '</td>';
 	if(!$c['readonly'] || $amp_conf['AS_OVERRIDE_READONLY'] && !$c['hidden']){
-		echo '<td><input type="image" class="adv_set_default" src="/admin/images/default-option.png" data-key="'.$c['keyword'].'" data-default="'.$c['defaultval'].'" title="'._('Revert to Default').'"'
+		echo '<td><input type="image" class="adv_set_default" alt="set default" src="/admin/images/default-option.png" data-key="'.$c['keyword'].'" data-default="'.$c['defaultval'].'" title="'._('Revert to Default').'"'
 			. ' data-type="' . (($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '') . '" '
 			. (($amp_conf[$c['keyword']] == $c['defaultval']) ? ' style="display:none" ' : '')
 			.'></td>';
-		echo '<td class="savetd"><input type="image" class="save" src="/admin/images/accept.png" data-key="'
+		echo '<td class="savetd"><input type="image" class="save" alt="save" src="/admin/images/accept.png" data-key="'
 			. $c['keyword']
 			. '" title="' . _('Save') . '"'
 			. ' data-type="' . (($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '') . '" '
@@ -154,5 +162,13 @@ echo '</table>';
 // Provide enough padding at the bottom (<br />) so that the tooltip from the last setting does not get cut off.
 ?>
 <br /><br /> <br />
-<input type="button" id="page_reload" value="<?php echo _("Refresh Page");?>"/>
+<div id='action-bar' class=''>
+    <div id='action-buttons'>
+      <a id='collapseactionmenuicon' class='action_menu_icon'><i class='fa fa-angle-double-right'></i></a>
+<button type="submit" class="button is-link is-light is-small is-rounded" id="page_reload">
+<?php echo _("Refresh Page"); ?>
+</button>
+    </div>
+</div>
+    
 <br /><br /><br /><br /></div>

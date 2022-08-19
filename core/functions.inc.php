@@ -5354,7 +5354,7 @@ function core_did_add($incoming,$target=false){
              $extension = trim(str_replace($invalidDIDChars,"",$extension));
              $cidnum = trim(str_replace($invalidDIDChars,"",$cidnum));
 
-        $destination= ($target) ? $target : ${$goto0.'0'};
+        $destination= ($target) ? $target : ${$goto0};
         $sql="INSERT INTO incoming (cidnum,extension,destination,privacyman,pmmaxretries,pmminlength,alertinfo, ringing, mohclass, description, grppre, delay_answer, pricid) values ('$cidnum','$extension','$destination','$privacyman','$pmmaxretries','$pmminlength','$alertinfo', '$ringing', '$mohclass', '$description', '$grppre', ".intval($delay_answer).", '$pricid')";
         sql($sql);
         return true;
@@ -6193,7 +6193,7 @@ function core_check_extensions($exten=true) {
     $display = ($amp_conf['AMPEXTENSIONS'] == "deviceanduser")?'users':'extensions';
     foreach ($results as $result) {
         $thisexten = $result['extension'];
-        $extenlist[$thisexten]['description'] = _("User Extension: ").$result['name'];
+        $extenlist[$thisexten]['description'] = dgettext("amp","User Extension: ").$result['name'];
         $extenlist[$thisexten]['status'] = 'INUSE';
         $extenlist[$thisexten]['edit_url'] = "config.php?display=$display&extdisplay=".urlencode($thisexten)."&skip=0";
     }
@@ -7464,83 +7464,82 @@ function core_routing_list() {
 
 // function core_routing_setroutepriority($routepriority, $reporoutedirection, $reporoutekey)
 function core_routing_setrouteorder($route_id, $seq) {
-  global $db;
-
-  $sql = "SELECT `route_id` FROM `outbound_route_sequence` ORDER BY `seq`";
+    global $db;
+    $sql = "SELECT `route_id` FROM `outbound_route_sequence` ORDER BY `seq`";
     $sequence = $db->getCol($sql);
     if(DB::IsError($sequence)) {
         die_issabelpbx($sequence->getDebugInfo());
     }
 
-  if ($seq != 'new') {
-    $key = array_search($route_id,$sequence);
-    if ($key === false) {
-      return(false);
+    if ($seq != 'new') {
+        $key = array_search($route_id,$sequence);
+        if ($key === false) {
+            return(false);
+        }
     }
-  }
-  switch ("$seq") {
-  case 'up':
-    if (!isset($sequence[$key-1])) break;
-    $previous = $sequence[$key-1];
-    $sequence[$key-1] = $route_id;
-    $sequence[$key] = $previous;
-    break;
-  case 'down':
-    if (!isset($sequence[$key+1])) break;
-    $previous = $sequence[$key+1];
-    $sequence[$key+1] = $route_id;
-    $sequence[$key] = $previous;
-    break;
-  case 'top':
-    unset($sequence[$key]);
-    array_unshift($sequence,$route_id);
-    break;
-  case 'bottom':
-    unset($sequence[$key]);
-  case 'new':
-    // fallthrough, no break
-    $sequence[]=$route_id;
-    break;
-  case '0':
-    unset($sequence[$key]);
-    array_unshift($sequence,$route_id);
-    break;
-  default:
-    if (!ctype_digit($seq)) {
-      return false;
+    switch ("$seq") {
+    case 'up':
+        if (!isset($sequence[$key-1])) break;
+        $previous = $sequence[$key-1];
+        $sequence[$key-1] = $route_id;
+        $sequence[$key] = $previous;
+        break;
+    case 'down':
+        if (!isset($sequence[$key+1])) break;
+        $previous = $sequence[$key+1];
+        $sequence[$key+1] = $route_id;
+        $sequence[$key] = $previous;
+        break;
+    case 'top':
+        unset($sequence[$key]);
+        array_unshift($sequence,$route_id);
+        break;
+    case 'bottom':
+        unset($sequence[$key]);
+    case 'new':
+        // fallthrough, no break
+        $sequence[]=$route_id;
+        break;
+    case '0':
+        unset($sequence[$key]);
+        array_unshift($sequence,$route_id);
+        break;
+    default:
+        if (!ctype_digit($seq)) {
+            return false;
+        }
+        if ($seq >= count($sequence)-1) {
+            unset($sequence[$key]);
+            $sequence[] = $route_id;
+            break;
+        }
+        if ($sequence[$seq] == $route_id) {
+            break;
+        }
+        $sequence[$key] = "bookmark";
+        $remainder = array_slice($sequence,$seq);
+        array_unshift($remainder,$route_id);
+        $sequence = array_merge(array_slice($sequence,0,$seq), $remainder);
+        unset($sequence[array_search("bookmark",$sequence)]);
+        break;
     }
-    if ($seq >= count($sequence)-1) {
-      unset($sequence[$key]);
-      $sequence[] = $route_id;
-      break;
+    $insert_array = array();
+    $seq = 0;
+    $final_seq = false;
+    foreach($sequence as $rid) {
+        $insert_array[] = array($rid, $seq);
+        if ($rid === $route_id) {
+            $final_seq = $seq;
+        }
+        $seq++;
     }
-    if ($sequence[$seq] == $route_id) {
-      break;
-    }
-    $sequence[$key] = "bookmark";
-    $remainder = array_slice($sequence,$seq);
-    array_unshift($remainder,$route_id);
-    $sequence = array_merge(array_slice($sequence,0,$seq), $remainder);
-    unset($sequence[array_search("bookmark",$sequence)]);
-    break;
-  }
-  $insert_array = array();
-  $seq = 0;
-  $final_seq = false;
-  foreach($sequence as $rid) {
-    $insert_array[] = array($rid, $seq);
-    if ($rid === $route_id) {
-      $final_seq = $seq;
-    }
-    $seq++;
-  }
-  sql('DELETE FROM `outbound_route_sequence` WHERE 1');
+    sql('DELETE FROM `outbound_route_sequence` WHERE 1');
     $compiled = $db->prepare('INSERT INTO `outbound_route_sequence` (`route_id`, `seq`) VALUES (?,?)');
     $result = $db->executeMultiple($compiled,$insert_array);
     if(DB::IsError($result)) {
         die_issabelpbx($result->getDebugInfo()."<br><br>".'error reordering outbound_route_sequence');
     }
-  return $final_seq;
+    return $final_seq;
 }
 
 // function core_routing_del($name)
@@ -7635,7 +7634,6 @@ function core_routing_editbyid($route_id, $name, $outcid, $outcid_mode, $passwor
     `emergency_route`='$emergency_route', `intracompany_route`='$intracompany_route', `mohclass`='$mohclass',
     `time_group_id`=$time_group_id, `dest`='$dest' WHERE `route_id` = ".q($route_id);
   sql($sql);
-
   core_routing_updatepatterns($route_id, $patterns, true);
   core_routing_updatetrunks($route_id, $trunks, true);
   if ($seq != '') {
@@ -7992,8 +7990,6 @@ function core_users_configpageload() {
 
     } else {
 
-        $delURL = $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'].'&action=del';
-
         if ( is_string($extdisplay) ) {
 
             if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
@@ -8004,11 +8000,8 @@ function core_users_configpageload() {
                 extract($deviceInfo);
 
             if ( $display == 'extensions' ) {
-                $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Extension").": $extdisplay", false), 0);
+                $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Edit Extension").": $extdisplay", false), 0);
                 if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
-                    $tlabel = sprintf(_("Delete Extension %s"),$extdisplay);
-                    $label = '<span><img title="'.$tlabel.'" alt="" src="images/user_delete.png"/>&nbsp;'.$tlabel.'</span>';
-                    $currentcomponent->addguielem('_top', new gui_link('del', $label, $delURL, true, false), 0);
 
                     $usage_list = framework_display_destination_usage(core_getdest($extdisplay));
                     if (!empty($usage_list)) {
@@ -8018,9 +8011,9 @@ function core_users_configpageload() {
             } else {
                 $currentcomponent->addguielem('_top', new gui_pageheading('title', _("User").": $extdisplay", false), 0);
                 if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
-                    $tlabel = sprintf(_("Delete User %s"),$extdisplay);
-                    $label = '<span><img title="'.$tlabel.'" alt="" src="images/user_delete.png"/>&nbsp;'.$tlabel.'</span>';
-                    $currentcomponent->addguielem('_top', new gui_link('del', $label, $delURL, true, false), 0);
+                    //$tlabel = sprintf(_("Delete User %s"),$extdisplay);
+                    //$label = '<span><img title="'.$tlabel.'" alt="" src="images/user_delete.png"/>&nbsp;'.$tlabel.'</span>';
+                    //$currentcomponent->addguielem('_top', new gui_link('del', $label, $delURL, true, false), 0);
 
                     $usage_list = framework_display_destination_usage(core_getdest($extdisplay));
                     if (!empty($usage_list)) {
@@ -8202,11 +8195,10 @@ function core_users_configpageload() {
                     $did_label .= ' ('.$did['description'].')';
                 }
 
-                $did_label = '&nbsp;<span>
-                    <img width="16" height="16" border="0" title="'.$did_title.'" alt="" src="'.$did_icon.'"/>'.$did_label.
-                    '</span> ';
+                $did_icon = 'fa-envelope-o';
+                $final_did_label = '<span class="icon mr-1"><i class="fa '.$did_icon.'" title="'.$did_title.'"></i></span>'.$did_label;
 
-                $currentcomponent->addguielem($section, new gui_link('did_'.$did_count++, $did_label, $addURL, true, false), 4);
+                $currentcomponent->addguielem($section, new gui_link('did_'.$did_count++, $final_did_label, $addURL, true, false), 4);
             }
         }
 
@@ -8256,6 +8248,7 @@ function core_users_configpageload() {
         $nodest_msg = _('Unavail Voicemail if Enabled');
         $currentcomponent->addguielem($section, new gui_drawselects('chanunavail_dest', '2', $chanunavail_dest, _('Not Reachable'), $helptext, false, '', $nodest_msg),5,9);
         $currentcomponent->addguielem($section, new gui_textbox('chanunavail_cid', $chanunavail_cid, '&nbsp;&nbsp;'._("CID Prefix"), _("Optional CID Prefix to add before sending to this not reachable destination.")),5,9);
+
     }
 }
 
@@ -8285,6 +8278,8 @@ function core_users_configprocess() {
                     $this_dest = core_getdest($_REQUEST['extension']);
                     fwmsg::set_dest($this_dest[0]);
                     needreload();
+                    $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+                    $_SESSION['msgtype']='success';
                     redirect_standard_continue();
                 } else {
                     // really bad hack - but if core_users_add fails, want to stop core_devices_add
@@ -8294,18 +8289,23 @@ function core_users_configprocess() {
                     $GLOBALS['abort'] = true;
                 }
             break;
+            case "delete":
             case "del":
                 core_users_del($extdisplay);
                 core_users_cleanastdb($extdisplay);
                 if (function_exists('findmefollow_del')) {
                     findmefollow_del($extdisplay);
                 }
+                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+                $_SESSION['msgtype']='warning';
                 needreload();
                 redirect_standard_continue();
             break;
             case "edit":
                 if (core_users_edit($extdisplay,$_REQUEST)) {
                     needreload();
+                    $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+                    $_SESSION['msgtype']='success';
                     redirect_standard_continue('extdisplay');
                 } else {
                     // really bad hack - but if core_users_edit fails, want to stop core_devices_edit
@@ -9002,7 +9002,7 @@ function core_devices_configpageload() {
             $section = _("Device Options");
 
             $device_uses = sprintf(_("This device uses %s technology."),$devinfo_tech).(strtoupper($devinfo_tech) == 'ZAP' && ast_with_dahdi()?" ("._("Via DAHDi compatibility mode").")":"");
-            $currentcomponent->addguielem($section, new gui_label('techlabel', $device_uses),4);
+            $currentcomponent->addguielem($section, new gui_label('techlabel', $device_uses, true, 'px-2 mb-3 has-background-info has-text-white' ),4);
 
             if($devinfo_tech=='webrtc') {
                 $devopts = $currentcomponent->getgeneralarrayitem('devtechs', 'sip');
@@ -9098,6 +9098,7 @@ function core_devices_configpageload() {
 }
 
 function core_devices_configprocess() {
+
     if ( !class_exists('agi_asteriskmanager') )
         include 'common/php-asmanager.php';
 
@@ -9144,6 +9145,7 @@ function core_devices_configprocess() {
             $GLOBALS['abort'] = true;
         }
         break;
+        case "delete":
         case "del":
             core_devices_del($extdisplay);
             needreload();
@@ -9154,6 +9156,8 @@ function core_devices_configprocess() {
             if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
                 core_devices_del($extdisplay,true);
                 core_devices_add($deviceid,$tech,$devinfo_dial,$devicetype,$deviceuser,$description,$emergency_cid,true);
+                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+                $_SESSION['msgtype']='success';
                 needreload();
                 redirect_standard_continue('extdisplay');
             }
