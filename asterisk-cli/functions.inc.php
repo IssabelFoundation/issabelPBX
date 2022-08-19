@@ -8,7 +8,7 @@ function cli_runcommand($txtCommand) {
 
 	if ($astman) {
 
-		$html_out = "<pre>";
+		$html_out = "<pre class='mb-3'>";
 		$response = $astman->send_request('Command',array('Command'=>"$txtCommand"));
 		$response = explode("\n",$response['data']);
 		unset($response[0]); //remove the Priviledge Command line
