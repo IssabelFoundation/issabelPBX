@@ -217,6 +217,7 @@ function callrecording_edit($callrecording_id, $description, $callrecording_mode
 }
 
 function callrecording_hook_core($viewing_itemid, $target_menuid){
+    global $tabindex;
 
 	switch ($target_menuid) {
 	case 'did':
@@ -255,19 +256,22 @@ function callrecording_hook_core($viewing_itemid, $target_menuid){
 	break;
 	}
 	$html = '';
-	//if ($target_menuid == 'did'){
 	if ($target_menuid == 'did' || $target_menuid == 'routing') {
-    global $tabindex;
+        global $tabindex;
 		if ($target_menuid == 'did') {
 			$html.='<tr><td colspan="2"><h5>'._("Call Recording").'</h5></td></tr>';
 		}
-		$html.='<tr><td><a href="#" class="info">'._('Call Recording').'<span>'._("Controls or overrides the call recording behavior for calls coming into this DID. Allow will honor the normal downstream call recording settings. Record on Answer starts recording when the call would otherwise be recorded ignoring any settings that say otherwise. Record Immediately will start recording right away capturing ringing, announcements, MoH, etc. Never will disallow recording regardless of downstream settings.").'</span></a></td>';
-		$html.='<td><select name="callrecording" tabindex="' . ++$tabindex . '" class="componentSelect">'."\n";
-    $html.= '<option value=""' . ($callrecording == ''  ? ' SELECTED' : '').'>'._("Allow")."\n";
-    $html.= '<option value="delayed"'. ($callrecording == 'delayed' ? ' SELECTED' : '').'>'._("Record on Answer")."\n";
-    $html.= '<option value="force"'  . ($callrecording == 'force'   ? ' SELECTED' : '').'>'._("Record Immediately")."\n";
-    $html.= '<option value="never"' . ($callrecording == 'never'  ? ' SELECTED' : '').'>'._("Never")."\n";
-    $html.= "</select></td></tr>\n";
+        $html.='<tr><td><a href="#" class="info">'._('Call Recording').'<span>'._("Controls or overrides the call recording behavior for calls coming into this DID. Allow will honor the normal downstream call recording settings. Record on Answer starts recording when the call would otherwise be recorded ignoring any settings that say otherwise. Record Immediately will start recording right away capturing ringing, announcements, MoH, etc. Never will disallow recording regardless of downstream settings.").'</span></a></td>';
+        if($tabindex=='') {
+		    $html.='<td><select name="callrecording" tabindex="{tabindex}" class="componentSelect">'."\n";
+        } else {
+		    $html.='<td><select name="callrecording" tabindex="' . ++$tabindex . '" class="componentSelect">'."\n";
+        }
+        $html.= '<option value=""' . ($callrecording == ''  ? ' SELECTED' : '').'>'._("Allow")."\n";
+        $html.= '<option value="delayed"'. ($callrecording == 'delayed' ? ' SELECTED' : '').'>'._("Record on Answer")."\n";
+        $html.= '<option value="force"'  . ($callrecording == 'force'   ? ' SELECTED' : '').'>'._("Record Immediately")."\n";
+        $html.= '<option value="never"' . ($callrecording == 'never'  ? ' SELECTED' : '').'>'._("Never")."\n";
+        $html.= "</select></td></tr>\n";
 	}
 	return $html;
 }
