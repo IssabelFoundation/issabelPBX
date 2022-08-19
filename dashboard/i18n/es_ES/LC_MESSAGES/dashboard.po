@@ -82,6 +82,18 @@ msgstr ""
 msgid "IssabelPBX System Status"
 msgstr "Estado del sistema de IssabelPBX"
 
+msgid "%s System Status"
+msgstr "Estado del sistema de %s"
+
+msgid "%s Statistics"
+msgstr "Estadísticas de %s"
+
+msgid "%s Connections"
+msgstr "Conexiones de %s"
+
+msgid "%s Notices"
+msgstr "Notificaciones de %s"
+
 msgid "Dashboard Info Update Frequency"
 msgstr ""
 
@@ -324,15 +336,7 @@ msgstr "Mostrar todas las notificaciones"
 msgid "loading..."
 msgstr "Cargando..."
 
-msgid "%s System Status"
-msgstr "Estado del sistema de %s"
-
-msgid "%s Statistics"
-msgstr "Estadísticas de %s"
-
-msgid "%s Connections"
-msgstr "Conexiones de %s"
-
-msgid "%s Notices"
-msgstr "Notificaciones de %s"
-
+#~ msgid "FOP Operator Panel is disabled in amportal.conf"
+#~ msgstr ""
+#~ "El panel de operador FOP está deshabilitado en el archivo de "
+#~ "configuración amportal.conf"

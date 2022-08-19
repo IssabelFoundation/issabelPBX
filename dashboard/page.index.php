@@ -29,8 +29,8 @@ if (isset($_REQUEST['showall'])) {
 
 //require_once('functions.inc.php');
 
-define('BAR_WIDTH_LEFT', 600);
-define('BAR_WIDTH_RIGHT', 200);
+define('BAR_WIDTH_LEFT', 590);
+define('BAR_WIDTH_RIGHT', 240);
 
 // AJAX update intervals (in seconds)
 if (isset($amp_conf['DASHBOARD_STATS_UPDATE_TIME']) && $amp_conf['DASHBOARD_STATS_UPDATE_TIME'] && ctype_digit($amp_conf['DASHBOARD_STATS_UPDATE_TIME'])) {
@@ -43,7 +43,6 @@ if (isset($amp_conf['DASHBOARD_INFO_UPDATE_TIME']) && $amp_conf['DASHBOARD_INFO_
 } else {
 	define('INFO_UPDATE_TIME', 30); // update interval for system uptime information
 }
-
 /** draw_graph
  *  draw a bar graph
  *
@@ -56,7 +55,7 @@ if (isset($amp_conf['DASHBOARD_INFO_UPDATE_TIME']) && $amp_conf['DASHBOARD_INFO_
  *  $total_width  Width of graph
  */
 
-function draw_graph($text, $real_units, $val, $total = 100, $classes = null, $show_percent = true, $total_width = 200) {
+function draw_graph($text, $real_units, $val, $total = 100, $classes = null, $show_percent = true, $total_width = 190) {
 	if ($classes == null) {
 		$classes = array(
 			0=>'graphok',
@@ -91,7 +90,7 @@ function draw_graph($text, $real_units, $val, $total = 100, $classes = null, $sh
 			break;
 		}
 	}
-	$width = $total_width * ($percent/100);
+	$width = round($total_width * ($percent/100));
 	if ($width > $total_width) { 
 		$width = $total_width;
 	}
@@ -108,7 +107,7 @@ function draw_graph($text, $real_units, $val, $total = 100, $classes = null, $sh
 	return $out;
 }
 
-function draw_status_box($text, $status, $tooltip = false, $total_width = 200) {
+function draw_status_box($text, $status, $tooltip = false, $total_width = 190) {
 	switch ($status) {
 		case "ok":
 			$status_text = _("OK");
@@ -139,7 +138,7 @@ function draw_status_box($text, $status, $tooltip = false, $total_width = 200) {
 	return $out;
 }
 
-function draw_box($text, $value, $total_width = 200) {
+function draw_box($text, $value, $total_width = 190) {
 	$tooltip = $text.": ".$value;
 	
 	$out = "<div class=\"databox\" style=\"width:".$total_width."px;\">\n";
@@ -190,11 +189,11 @@ function show_sysstats() {
 	global $sysinfo;
 	$out = '';
 	
-	$out .= "<h3 class=\"ui-widget-header ui-corner-all\">"._("System Statistics")."</h3>";
+	$out .= "<h3 class=\"ui-widget-header ui-corner-all has-text-light\">"._("System Statistics")."</h3>";
 	$out .= "<h4>"._("Processor")."</h4>";
 	$loadavg = $sysinfo->loadavg(true);
-	$out .= draw_box(_("Load Average"), $loadavg['avg'][0]);
-	$out .= draw_graph(_("CPU"), "", number_format($loadavg['cpupercent'],2), 100);
+	$out .= draw_box(_("Load Average"), $loadavg['avg'][0], BAR_WIDTH_RIGHT);
+	$out .= draw_graph(_("CPU"), "", number_format($loadavg['cpupercent'],2), 100, null, true, BAR_WIDTH_RIGHT);
 	
 	$out .= "<h4>"._("Memory")."</h4>";
 	$memory = $sysinfo->memory();
@@ -202,12 +201,12 @@ function show_sysstats() {
 		$memory["ram"]["app"] : 
 		$memory["ram"]["total"] - $memory["ram"]["t_free"] - $memory['ram']['cached'] - $memory['ram']['buffers'];
 
-	$out .= draw_graph(_("App Memory"), "MB", number_format($app_memory/1024,2), $memory["ram"]["total"]/1024);
-	$out .= draw_graph(_("Swap"), "MB", number_format(($memory["swap"]["total"]-$memory["swap"]["free"])/1024,2), $memory["swap"]["total"]/1024);
+	$out .= draw_graph(_("App Memory"), "MB", number_format($app_memory/1024,2), $memory["ram"]["total"]/1024, null, true, BAR_WIDTH_RIGHT);
+	$out .= draw_graph(_("Swap"), "MB", number_format(($memory["swap"]["total"]-$memory["swap"]["free"])/1024,2), $memory["swap"]["total"]/1024, null, true, BAR_WIDTH_RIGHT);
 	
 	$out .= "<h4>"._("Disks")."</h4>";
 	foreach ($sysinfo->filesystems() as $fs) {
-		$out .= draw_graph($fs["mount"], "GB", number_format($fs["used"]/1024/1024, 2,".",""), number_format($fs["size"]/1024/1024,2,".",""), strpos( $fs["options"],"ro" )!==false ? array(0=>"graphok"):null);
+		$out .= draw_graph($fs["mount"], "GB", number_format($fs["used"]/1024/1024, 2,".",""), number_format($fs["size"]/1024/1024,2,".",""), strpos( $fs["options"],"ro" )!==false ? array(0=>"graphok"):null, true, BAR_WIDTH_RIGHT);
 	}
 	
 	$out .= "<h4>"._("Networks")."</h4>";
@@ -221,8 +220,8 @@ function show_sysstats() {
 		$rx->add( $net["rx_bytes"] );
 		$tx->add( $net["tx_bytes"] );
 		
-		$out .= draw_box($net_name." "._("receive"), number_format(intval($rx->average())/1000,2)." KB/s");
-		$out .= draw_box($net_name." "._("transmit"), number_format(intval($tx->average())/1000,2)." KB/s");
+		$out .= draw_box($net_name." "._("receive"), number_format(intval($rx->average())/1000,2)." KB/s", BAR_WIDTH_RIGHT);
+		$out .= draw_box($net_name." "._("transmit"), number_format(intval($tx->average())/1000,2)." KB/s", BAR_WIDTH_RIGHT);
 	}
 	return $out;
 }
@@ -256,7 +255,7 @@ function show_aststats() {
 	$classes = array(0=>'graphok');
 	$max_chans = $max_calls * 2;
 	
-	$out .= "<h3 class=\"ui-widget-header ui-corner-all\">".sprintf(_("%s Statistics"), DASHBOARD_ISSABELPBX_BRAND)."</h3>";
+	$out .= "<h3 class=\"ui-widget-header ui-corner-all has-text-light\">".sprintf(_("%s Statistics"), DASHBOARD_ISSABELPBX_BRAND)."</h3>";
 	$out .= draw_graph(_('Total active calls'), '', $channels['total_calls'], $max_calls, $classes , false, BAR_WIDTH_LEFT);
 	$out .= draw_graph(_('Internal calls'), '', $channels['internal_calls'], $max_calls, $classes , false, BAR_WIDTH_LEFT);
 	$out .= draw_graph(_('External calls'), '', $channels['external_calls'], $max_calls, $classes , false, BAR_WIDTH_LEFT);
@@ -294,8 +293,8 @@ function show_aststats() {
 function show_sysinfo() {
 	global $sysinfo;
 	global $astinfo;
-	$out = "<h3 class=\"ui-widget-header ui-corner-all\">"._("Uptime")."</h3>";
-	$out .= '<table summary="'._('System Information Table').'">';
+	$out = "<h3 class=\"ui-widget-header ui-corner-all has-text-light\">"._("Uptime")."</h3>";
+	$out .= '<table class="table is-borderless" summary="'._('System Information Table').'">';
 	/*
 	$out .= '<tr><th>Distro:</th><td>'.$sysinfo->distro().'</td></tr>';
 	$out .= '<tr><th>Kernel:</th><td>'.$sysinfo->kernel().'</td></tr>';
@@ -324,12 +323,12 @@ function show_procinfo() {
 	global $amp_conf;
 	$out = '';
 	
-	$out .= "<h3 class=\"ui-widget-header ui-corner-all\">"._("Server Status")."</h3>";
+	$out .= "<h3 class=\"ui-widget-header ui-corner-all has-text-light\">"._("Server Status")."</h3>";
 	// asterisk
 	if ($astver = $astinfo->check_asterisk()) {
-		$out .= draw_status_box(_("Asterisk"), "ok", sprintf(_('Asterisk is running: %s'),$astver));
+		$out .= draw_status_box(_("Asterisk"), "ok", sprintf(_('Asterisk is running: %s'),$astver), BAR_WIDTH_RIGHT);
 	} else {
-		$out .= draw_status_box(_("Asterisk"), "error", _('Asterisk is not running, this is a critical service!'));
+		$out .= draw_status_box(_("Asterisk"), "error", _('Asterisk is not running, this is a critical service!'), BAR_WIDTH_RIGHT);
 	}
 	
 	// asterisk proxy (optionally)
@@ -366,18 +365,18 @@ function show_procinfo() {
 			$out .= draw_status_box(_("MySQL"), "error", _('MySQL Server is not running, this is a critical service for the web interface and call logs!'));
 		}
 		*/
-		$out .= draw_status_box(_("MySQL"), "ok", _('MySQL Server is running'));
+		$out .= draw_status_box(_("MySQL"), "ok", _('MySQL Server is running'), BAR_WIDTH_RIGHT);
 	}
 	
 	// web always runs .. HOWEVER, we can turn it off with dhtml
-	$out .= draw_status_box(_("Web Server"), "ok", _('Web Server is running'));
+	$out .= draw_status_box(_("Web Server"), "ok", _('Web Server is running'), BAR_WIDTH_RIGHT);
 	
 	// ssh	
 	$ssh_port = (isset($amp_conf['SSHPORT']) && (ctype_digit($amp_conf['SSHPORT']) || is_int($amp_conf['SSHPORT'])) && ($amp_conf['SSHPORT'] > 0) && ($amp_conf['SSHPORT'] < 65536))?$amp_conf['SSHPORT']:22;
 	if ($procinfo->check_port($ssh_port)) {
-		$out .= draw_status_box(_("SSH Server"), "ok", _('SSH Server is running'));
+		$out .= draw_status_box(_("SSH Server"), "ok", _('SSH Server is running'), BAR_WIDTH_RIGHT);
 	} else {
-		$out .= draw_status_box(_("SSH Server"), "warn", _('SSH Server is not running, you will not be able to connect to the system console remotely'));
+		$out .= draw_status_box(_("SSH Server"), "warn", _('SSH Server is not running, you will not be able to connect to the system console remotely'), BAR_WIDTH_RIGHT);
 	}
 	return $out;
 }
@@ -411,7 +410,7 @@ function show_syslog(&$md5_checksum) {
 	
 	$items = $notify->list_all($showall);
 
-	$out .= "<h3 class=\"ui-widget-header ui-corner-all\">".sprintf(_("%s Notices"), DASHBOARD_ISSABELPBX_BRAND)."</h3>";
+	$out .= "<h3 class=\"ui-widget-header ui-corner-all has-text-light\">".sprintf(_("%s Notices"), DASHBOARD_ISSABELPBX_BRAND)."</h3>";
 	
 	if (count($items)) {
 		$out .= '<ul>';
@@ -530,8 +529,8 @@ if (!$quietmode) {
 	});
 	
 	function makeSyslogClickable() {
-		$('#syslog h4 span').click(function() {
-			$(this).parent().parent().next('div').slideToggle('fast');
+		$('#syslog h4 span').on('click',function() {
+            $(this).parent().parent().next('div').slideToggle('fast',function() { console.log($(this).css('overflow')); $(this).css('overflow','scroll'); console.log($(this).css('overflow'));});
 		});
 	}
 	
@@ -630,7 +629,7 @@ if (!$quietmode) {
 		$.post('config.php', {display:'<?php echo $module_page; ?>', quietmode:1, info:'syslog_delete', module:module, id:id, restrictmods:'core/dashboard'});
 	}
 	</script>
-
+    <div class='content'>
 	<h2><?php echo sprintf(_("%s System Status"), DASHBOARD_ISSABELPBX_BRAND);?></h2>
 	<div id="dashboard">
 	<?php
