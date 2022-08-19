@@ -1,21 +1,21 @@
 <module>
-  <rawname>extensionsettings</rawname>
-  <repo>unsupported</repo>
-  <name>Extension Settings</name>
-  <version>2.11.0.2</version>
-  <publisher>Mikael Carlsson</publisher>
-  <license>GPLv2</license>
-  <category>Settings</category>
-  <description>Creates a list of all extensions and their current settings for CW, CF, CFB, CFU, VMXB and VMXU</description>
-  <menuitems>
-    <extensionsettings>Extension Settings</extensionsettings>
-  </menuitems>
-  <changelog>
-		*2.11.0.2* Initial Issabel Foundation release
-	</changelog>
-  <md5sum>c62830a311338fa38b1aa0e9f9284fc3</md5sum>
-  <location>release/2.11/extensionsettings-2.11.0.2.tgz</location>
-  <supported>
-    <version>2.10</version>
-  </supported>
+    <rawname>extensionsettings</rawname>
+    <repo>unsupported</repo>
+    <name>Extension Settings</name>
+    <version>2.12.0.0</version>
+    <publisher>Mikael Carlsson</publisher>
+    <license>GPLv2</license>
+    <category>Settings</category>
+    <description>Creates a list of all extensions and their current settings for CW, CF, CFB, CFU, VMXB and VMXU</description>
+    <menuitems>
+        <extensionsettings>Extension Settings</extensionsettings>
+    </menuitems>
+    <changelog>
+        *2.12.0.0* Newer GUI, standarize module components
+        *2.11.0.2* Initial Issabel Foundation release
+    </changelog>
+    <location>release/2.12/extensionsettings-2.12.0.0.tgz</location>
+    <supported>
+        <version>2.12</version>
+      </supported>
 </module>

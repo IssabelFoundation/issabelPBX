@@ -32,7 +32,7 @@ global $active_modules;
 $html_txt = '<div class="content">';
 
 if (!$extdisplay) {
-        $html_txt .= '<br><h2>'._("IssabelPBX Extension Settings").'</h2>';
+        $html_txt .= '<h2>'._("IssabelPBX Extension Settings").'</h2>';
 }
 $full_list = framework_check_extension_usage(true);
 // Dont waste astman calls, get all family keys in one call
@@ -62,7 +62,7 @@ foreach ($full_list as $key => $value) {
     $sub_heading =  modgettext::_($active_modules[$key]['name'], $txtdom);
   }
   $module_select[$sub_heading_id] = $sub_heading;
-  $html_txt_arr[$sub_heading] =   "<div class=\"$sub_heading_id\"><table id=\"set_table\" border=\"0\" width=\"85%\"><tr>";
+  $html_txt_arr[$sub_heading] =   "<div class=\"$sub_heading_id\"><table id=\"set_table\" class='table is-borderless is-narrow is-striped'><tr>";
   $html_txt_arr[$sub_heading] .=  "<tr><td><strong>".$extension."</strong></td>";
   $html_txt_arr[$sub_heading] .=  "<td colspan=\"7\" align=\"center\"><strong>".$vmxlocator."</strong></td>";
   $html_txt_arr[$sub_heading] .=  "<td colspan=\"2\" align=\"center\"><strong>".$followme."</strong></td>";
@@ -85,42 +85,42 @@ foreach ($full_list as $key => $value) {
 
   foreach ($value as $exten => $item) {
     $vmxzero = "";
-    $vmxbusy = "<img src=\"images/bullet.png\" alt=\"Off\" title=\"Off\"/>";
-    $vmxunavail = "images/bullet.png\" alt=\"Off\" title=\"Off";
+    $vmxbusy = "<i class='fa fa-square-o'></i>";
+    $vmxunavail = "<i class='fa fa-square-o'></i>";
     $description = explode(":",$item['description'],2);
 	//Hack for PHP 5.3 negative number key issue
 	//https://bugs.php.net/bug.php?id=51008
 	preg_match('/display=(\d+)&/i',$item['edit_url'],$matches);
 	$exten = !empty($matches[1]) ? $matches[1] : $exten;
 	//end hack
-    $html_txt_arr[$sub_heading] .= "<tr><td><a href=\"".$item['edit_url']."\" class=\"info\">".$exten."<span>".(trim($description[1])==''?$exten:$description[1])."</span></a></td>";
+    $html_txt_arr[$sub_heading] .= "<tr><td><a data-tooltip='".(trim($description[1])==''?$exten:$description[1])."' href=\"".$item['edit_url']."\" class=\"has-tooltip-right\">".$exten."</a></td>";
     // Is VmX enabled, check only busy, if VmX is enabled, we have either "disabled", "enabled" or "blocked" in one of the states.
     if ( isset($ampuser['/AMPUSER/'.$exten.'/vmx/busy/state'])) {
       // We have one of the states, if it is "blocked", set proper icon
       if ($ampuser['/AMPUSER/'.$exten.'/vmx/busy/state'] == "blocked" ) {
-        $vmxstate = "<img src=\"images/bullet.png\" alt=\"Off\" title=\"Off\"/>";
+        $vmxstate = "<i class='fa fa-square-o'></i>";
         //$vmxcolor = "\"RED\"";
         $vmxcolor = "GREY;\"";
       } else {
-        $vmxstate = "<img src=\"images/bullet_checked.png\" alt=\"On\" title=\"On\"/>";
+        $vmxstate = "<i class='fa fa-check-square-o'></i>";
       }
       // Get the states of the VmX, we have either Busy or Unavailable enabled
       if ($ampuser['/AMPUSER/'.$exten.'/vmx/busy/state'] == "enabled") {
-        $vmxbusy = "<img src=\"images/bullet_checked.png\" alt=\"On\" title=\"On\"/>";
+        $vmxbusy = "<i class='fa fa-check-square-o'></i>";
       } else {
-        $vmxbusy = "<img src=\"images/bullet.png\" alt=\"Off\" title=\"Off\"/>";
+        $vmxbusy = "<i class='fa fa-square-o'></i>";
       }
       if ($ampuser['/AMPUSER/'.$exten.'/vmx/unavail/state'] == "enabled") {
-        $vmxunavail = "images/bullet_checked.png\" alt=\"On\" title=\"On";
+        $vmxunavail = "<i class='fa fa-check-square-o'></i>";
       } else {
       }
       // Do we have a VmX Busy/Unavail number for 0? If we have, then show it, otherwise display "Operator"
       if( isset($ampuser['/AMPUSER/'.$exten.'/vmx/busy/0/ext'])) {
         $vmxzero = $ampuser['/AMPUSER/'.$exten.'/vmx/busy/0/ext'];
-        $vmxoperator = "images/bullet.png\" alt=\"Off\" title=\"Off";
+        $vmxoperator = "<i class='fa fa-square-o'></i>";
       } else {
         $vmxzero = "Operator";
-        $vmxoperator = "images/bullet_checked.png\" alt=\"On\" title=\"On";
+        $vmxoperator = "<i class='fa fa-check-square-o'></i>";
       }
       // Do we have a VmX Busy/Unavail for 1? We only need to check Busy, as the number is the same for busy and unavail
       if( isset($ampuser['/AMPUSER/'.$exten.'/vmx/busy/1/ext'])) {
@@ -135,27 +135,28 @@ foreach ($full_list as $key => $value) {
         $vmxtwo = "";
       }
     } else {
-      $vmxstate = "<img src=\"images/bullet.png\" alt=\"Off\" title=\"Off\">";
-      $vmxoperator = "images/bullet.png\" alt=\"Off\" title=\"Off";
+      $vmxstate = "<i class='fa fa-square-o'></i>";
+      $vmxoperator = "<i class='fa fa-square-o'></i>";
+
       $vmxone = $vmxtwo = "";
     };
 
     $html_txt_arr[$sub_heading] .= "<td align=\"center\">".$vmxstate."</td>";
     $html_txt_arr[$sub_heading] .= "<td align=\"center\">".$vmxbusy."</td>";
-		$html_txt_arr[$sub_heading] .= "<td align=\"center\"><img src=\"".$vmxunavail."\"></td>";
-		$html_txt_arr[$sub_heading] .= "<td align=\"center\"><img src=\"".$vmxoperator."\"></td>";
+		$html_txt_arr[$sub_heading] .= "<td align=\"center\">$vmxunavail</td>";
+		$html_txt_arr[$sub_heading] .= "<td align=\"center\">$vmxoperator</td>";
     $html_txt_arr[$sub_heading] .= "<td>".$vmxzero."</td>";
     $html_txt_arr[$sub_heading] .= "<td>".$vmxone."</td>";
 		$html_txt_arr[$sub_heading] .= "<td>".$vmxtwo."</td>";
     // Has the extension followme enabled?
-    $fm = "<img src=\"images/bullet.png\" alt=\"Off\" title=\"Off\"/>";
+    $fm = "<i class='fa fa-square-o'></i>";
     $fmstate = false;
     if( isset($ampuser['/AMPUSER/'.$exten.'/followme/ddial'])) {
       if( $ampuser['/AMPUSER/'.$exten.'/followme/ddial'] == "DIRECT" || $ampuser['/AMPUSER/'.$exten.'/followme/ddial'] == "EXTENSION") {
-				$fm = "<img src=\"images/bullet_checked.png\" alt=\"On\" title=\"On\"/>";
+        $fm = "<i class='fa fa-check-square-o'></i>";
         $fmstate = true;
       } else {
-        $fm = "<img src=\"images/bullet.png\" alt=\"Off\" title=\"Off\"/>";
+        $fm = "<i class='fa fa-square-o'></i>";
         $fmstate = false;
       }
     }
@@ -170,14 +171,14 @@ foreach ($full_list as $key => $value) {
     $fmlist = ""; // Empty the list
     // Now get CW, CF, CFB and CFU if set
     if( isset($cwsetting['/CW/'.$exten]) && $cwsetting['/CW/'.$exten] == "ENABLED" ) {
-      $cw = "<img src=\"images/bullet_checked.png\" alt=\"On\" title=\"On\"/>";
+        $cw = "<i class='fa fa-check-square-o'></i>";
     } else {
-      $cw = "<img src=\"images/bullet.png\" alt=\"Off\" title=\"Off\"/>";
+        $cw = "<i class='fa fa-square-o'></i>";
     }
     if( isset($dndsetting['/DND/'.$exten]) && $dndsetting['/DND/'.$exten] == "YES" ) {
-      $dnd = "<img src=\"images/bullet_checked.png\" alt=\"On\" title=\"On\"/>";
+        $dnd = "<i class='fa fa-check-square-o'></i>";
     } else {
-      $dnd = "<img src=\"images/bullet.png\" alt=\"Off\" title=\"Off\"/>";
+        $dnd = "<i class='fa fa-square-o'></i>";
     }
     if( isset($cfsetting['/CF/'.$exten])) {
       $cf = $cfsetting['/CF/'.$exten];
