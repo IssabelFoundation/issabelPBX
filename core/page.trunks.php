@@ -1702,8 +1702,8 @@ function enable_disable_auth(value) {
        $('#pjsip_username').prop('disabled',true).attr('placeholder','<?php echo _('Authetication disabled'); ?>').val('');
        $('#pjsip_registration').prop('disabled',true);
    } else if(value=='outbound') {
-       $('#pjsip_username').val($('#pjsip_username').data('originalvalue'));
-       $('#pjsip_username').prop('disabled',false).attr('placeholder','');
+      $('#pjsip_username').val($('#pjsip_username').data('originalvalue'));
+      $('#pjsip_username').prop('disabled',false).attr('placeholder','');
        $('#pjsip_registration').prop('disabled',false);
    } else {
        $('#pjsip_username').prop('disabled',true).attr('placeholder','<?php echo _('Username is trunk name'); ?>').val('');
