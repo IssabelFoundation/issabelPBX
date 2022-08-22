@@ -72,7 +72,10 @@ msgid ""
 msgstr ""
 
 msgid "Parking"
-msgstr ""
+msgstr "Parqueo"
+
+msgid "Field can not be blank!"
+msgstr "El campo no puede quedar vacío!"
 
 msgid "Parking Lot Options"
 msgstr "Opciones del Lote de Parqueo"
@@ -357,3 +360,12 @@ msgstr ""
 
 msgid "Overview"
 msgstr ""
+
+msgid "Edit Parking Lot"
+msgstr "Modificar Lote de Parqueo"
+
+msgid "Add Parking Lot"
+msgstr "Añadir Lote de Parqueo"
+
+msgid "Default"
+msgstr "Por defecto"

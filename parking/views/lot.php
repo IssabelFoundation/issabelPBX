@@ -1,13 +1,12 @@
 <?php if ($id && $id>1){ ?>
-    <a href='config.php?display=parking&amp;action=delete&amp;id=<?php echo $id?>'><img src='images/user_delete.png'> <?php echo _("Delete Parking Lot")?></a>
-    <?php if($dids_using) {?>
-        <small><?php sprintf(_("There are %s DIDs using this source that will no longer have lookups if deleted."),$dids_using)?></small>
-    <?php } ?>
+    <!--a href='config.php?display=parking&amp;action=delete&amp;id=<?php echo $id?>'><img src='images/user_delete.png'> <?php echo _("Delete Parking Lot")?></a-->
 <?php } ?>
 
 
 
-<form id="parkform" action="config.php?display=parking&amp;id=<?php echo $id?>&amp;action=update" method="post">
+<form id="mainform" action="config.php?display=parking&amp;extdisplay=<?php echo $id?>&amp;action=update" method="post">
+<input type=hidden name=action value='<?php echo (isset($id)?'update':'add');?>'>
+
     <table>
         <tr>
             <td colspan="2"><h5><?php echo _("Parking Lot Options")?></h5></td>
@@ -15,31 +14,31 @@
         <tr>
             <td><a href=# class="info"><?php echo _("Parking Lot Extension")?><span><?php echo _("This is the extension where you will transfer a call to park it")?></span></a></td>
             <td>
-                <input type="text" id="parkext" name="parkext" value="<?php echo $parkext?>" class='w100'>
+                <input class="input" type="text" id="parkext" name="parkext" value="<?php echo $parkext?>" class='w100'>
             </td>
         </tr>
         <tr>
             <td><a href=# class="info"><?php echo _("Parking Lot Name")?><span><?php echo _("Provide a Descriptive Title for this Parking Lot")?></span></a></td>
             <td>
-                <input id="name" type="text" name="name" value="<?php echo $name?>" class='w100'>
+                <input class="input" id="name" type="text" name="name" value="<?php echo $name?>" class='w100'>
             </td>
         </tr>
         <tr>
             <td><a href=# class="info"><?php echo _("Parking Lot Starting Position")?><span><?php echo _("The starting postion of the parking lot")?></span></a></td>
             <td>
-                <input type="text" id="parkpos" name="parkpos" value="<?php echo $parkpos?>" class='w100'>
+                <input class="input" type="text" id="parkpos" name="parkpos" value="<?php echo $parkpos?>" class='w100'>
             </td>
         </tr>
     	<tr>
     		<td><a href="#" class="info"><?php echo _("Number of Slots")?><span><?php echo _("The total number of parking lot spaces to configure. Example, if 70 is the extension and 8 slots are configured, the parking slots will be 71-78")?></span></a></td>
     		<td>
-				<input type="number" min="1" id="numslots" name="numslots" size="5" value="<?php echo $numslots?>"><span id="slotslist" style="font-size:90%"></span>
+				<input class="input" type="number" min="1" id="numslots" name="numslots" size="5" value="<?php echo $numslots?>"><span id="slotslist" style="font-size:90%"></span>
     		</td>
     	</tr>
     	<tr>
     	    <td><a href="#" class="info"><?php echo _("Parking Timeout (seconds)")?><span><?php echo _("The timeout period in seconds that a parked call will attempt to ring back the original parker if not answered")?></span></a></td>
     		<td>
-                <input type="number" min="0" id="parkingtime" name="parkingtime" value="<?php echo $parkingtime?>" class='w100'>
+                <input class="input" type="number" min="0" id="parkingtime" name="parkingtime" value="<?php echo $parkingtime?>" class='w100'>
     		</td>
     	</tr>
     	<tr>
@@ -67,19 +66,15 @@
         <tr>
             <td><a href=# class="info"><?php echo _("BLF Capabilities")?><span><?php echo _("Enable this to have Asterisk 'hints' generated to use with BLF buttons.")?></span></a></td>
             <td>
-                <span class="radioset">
-									<input type="radio" name="generatehints" value="yes" id="parkinghints_enable" <?php echo ($generatehints == 'yes' ? 'checked' : '')?>><label for="parkinghints_enable"><?php echo _("Enable") ?></label>
-									<input type="radio" name="generatehints" value="no" id="parkinghints_disable" <?php echo ($generatehints == 'no' ? 'checked' : '')?>><label for="parkinghints_disable"><?php echo _("Disable") ?></label>
-                </span>
+
+<?php echo ipbx_radio('generatehints',array(array('value'=>'yes','text'=>_('Enable')),array('value'=>'no','text'=>_('Disable'))),$generatehints,false);?>
+
             </td>
         </tr>
     	<tr>
     	    <td><a href=# class="info"><?php echo _("Find Slot")?><span><?php echo _("Next: If you want the parking lot to seek the next sequential parking slot relative to the the last parked call instead of seeking the first available slot. First: Use the first parking lot slot available")?></span></a></td>
     	    <td>
-                <span class="radioset">
-									<input type="radio" name="findslot" value="next" id="findslot_next" <?php echo ($findslot == 'next' ? 'checked' : '')?>><label for="findslot_next"><?php echo _("Next") ?></label>
-									<input type="radio" name="findslot" value="first" id="findslot_first" <?php echo ($findslot == 'first' ? 'checked' : '')?>><label for="findslot_first"><?php echo _("First") ?></label>
-                </span>
+<?php echo ipbx_radio('findslot',array(array('value'=>'next','text'=>_('Next')),array('value'=>'first','text'=>_('First'))),$findslot,false);?>
             </td>
     	</tr>
         <tr>
@@ -88,47 +83,31 @@
         <tr>
             <td><a href="#" class="info"><?php echo _("Pickup Courtesy Tone")?><span><?php echo _("Whom to play the courtesy tone to when a parked call is retrieved.")?></span></a></td>
             <td>
-                <span class="radioset">
-                    <input type="radio" name="parkedplay" id="parkedplay-caller" value="caller" <?php echo ($parkedplay == 'caller' ? 'checked' : '')?>/><label for="parkedplay-caller"><?php echo _("Caller") ?></label>
-                    <input type="radio" name="parkedplay" id="parkedplay-callee" value="callee" <?php echo ($parkedplay == 'callee' ? 'checked' : '')?>/><label for="parkedplay-callee"><?php echo _("Parked") ?></label>
-                    <input type="radio" name="parkedplay" id="parkedplay-both" value="both" <?php echo ($parkedplay == 'both' ? 'checked' : '')?>/><label for="parkedplay-both"><?php echo _("Both") ?></label>
-                </span>
+<?php echo ipbx_radio('parkedplay',array(array('value'=>'caller','text'=>_('Caller')),array('value'=>'callee','text'=>_('Parked')),array('value'=>'both','text'=>_('Both'))),$parkedplay,false);?>
             </td>
       	</tr>
         <tr>
             <td><a href="#" class="info"><?php echo _("Transfer Capability")?><span><?php echo _("Asterisk: parkedcalltransfers. Enables or disables DTMF based transfers when picking up a parked call.")?></span></a></td>
-            <span class="radioset">
                 <td>
-                    <span class="radioset">
-                        <input type="radio" name="parkedcalltransfers" id="parkedcalltransfers-caller" value="caller" <?php echo ($parkedcalltransfers == 'caller' ? 'checked' : '')?>/><label for="parkedcalltransfers-caller"><?php echo _("Caller") ?></label>
-                        <input type="radio" name="parkedcalltransfers" id="parkedcalltransfers-callee" value="callee" <?php echo ($parkedcalltransfers == 'callee' ? 'checked' : '')?>/><label for="parkedcalltransfers-callee"><?php echo _("Parked") ?></label>
-                        <input type="radio" name="parkedcalltransfers" id="parkedcalltransfers-both" value="both" <?php echo ($parkedcalltransfers == 'both' ? 'checked' : '')?>/><label for="parkedcalltransfers-both"><?php echo _("Both") ?></label>
-                        <input type="radio" name="parkedcalltransfers" id="parkedcalltransfers-no" value="no" <?php echo ($parkedcalltransfers == 'no' ? 'checked' : '')?>/><label for="parkedcalltransfers-no"><?php echo _("Neither") ?></label>
-                    </span>
+<?php echo ipbx_radio('parkedcalltransfers',array(array('value'=>'caller','text'=>_('Caller')),array('value'=>'callee','text'=>_('Parked')),array('value'=>'both','text'=>_('Both')),array('value'=>'no','text'=>_('Neither'))),$parkedcalltransfers,false);?>
                 </td>
-            </span>
       	</tr>
         <tr>
             <td><a href="#" class="info"><?php echo _("Re-Parking Capability")?><span><?php echo _("Asterisk: parkedcallreparking. Enables or disables DTMF based parking when picking up a parked call.")?></span></a></td>
             <td>
-                <span class="radioset">
-                    <input type="radio" name="parkedcallreparking" id="parkedcallreparking-caller" value="caller" <?php echo ($parkedcallreparking == 'caller' ? 'checked' : '')?>/><label for="parkedcallreparking-caller"><?php echo _("Caller") ?></label>
-                    <input type="radio" name="parkedcallreparking" id="parkedcallreparking-callee" value="callee" <?php echo ($parkedcallreparking == 'callee' ? 'checked' : '')?>/><label for="parkedcallreparking-callee"><?php echo _("Parked") ?></label>
-                    <input type="radio" name="parkedcallreparking" id="parkedcallreparking-both" value="both" <?php echo ($parkedcallreparking == 'both' ? 'checked' : '')?>/><label for="parkedcallreparking-both"><?php echo _("Both") ?></label>
-                    <input type="radio" name="parkedcallreparking" id="parkedcallreparking-no" value="no" <?php echo ($parkedcallreparking == 'no' ? 'checked' : '')?>/><label for="parkedcallreparking-no"><?php echo _("Neither") ?></label>
-                </span>
+<?php echo ipbx_radio('parkedcallreparking',array(array('value'=>'caller','text'=>_('Caller')),array('value'=>'callee','text'=>_('Parked')),array('value'=>'both','text'=>_('Both')),array('value'=>'no','text'=>_('Neither'))),$parkedcallreparking,false);?>
             </td>
       	</tr>
     	<tr>
     	    <td><a href=# class="info"><?php echo _("Parking Alert-Info")?><span><?php echo _("Alert-Info to add to the call prior to sending back to the Originator or to the Alternate Destination.")?><br></span></a></td>
     	    <td>
-                <input type="text" size="30" name="alertinfo" value="<?php echo htmlspecialchars($alertinfo)?>" class='w100'/>
+                <input type="text" class="input" name="alertinfo" value="<?php echo htmlspecialchars($alertinfo)?>" class='w100'/>
             </td>
     	</tr>
     	<tr>
     	    <td><a href=# class="info"><?php echo _("CallerID Prepend")?><span><?php echo _("String to prepend to the current Caller ID associated with the parked call prior to sending back to the Originator or the Alternate Destination.") ?><br></span></a></td>
     	    <td>
-                <input type="text" size="30" name="cidpp" value="<?php echo htmlspecialchars($cidpp)?>" class='w100'/>
+                <input type="text" class="input" name="cidpp" value="<?php echo htmlspecialchars($cidpp)?>" class='w100'/>
             </td>
     	</tr>
     	<tr>
@@ -174,10 +153,11 @@
         <tr>
             <td><a href="#" class="info"><?php echo _("Come Back to Origin")?><span><?php echo _("Where to send a parked call that has timed out. If set to yes then the parked call will be sent back to the originating device that sent the call to this parking lot. If the origin is busy then we will send the call to the Destination selected below. If set to no then we will send the call directly to the destination selected below")?></span></a></td>
             <td>
-                <span class="radioset">
+<?php echo ipbx_radio('comebacktoorigin',array(array('value'=>'yes','text'=>_('Enable')),array('value'=>'no','text'=>_('Disable'))),$comebacktoorigin,false);?>
+                <!--span class="radioset">
                     <input type="radio" name="comebacktoorigin" id="parking_dest-device" value="yes" <?php echo ($comebacktoorigin == 'yes' ? 'checked' : '')?>/><label for="parking_dest-device"><?php echo _("Yes") ?></label>
                     <input type="radio" name="comebacktoorigin" id="parking_dest-dest" value="no" <?php echo ($comebacktoorigin == 'no' ? 'checked' : '')?>/><label for="parking_dest-dest"><?php echo _("No") ?></label>
-                </span>
+                </span-->
             </td>
       	</tr>
         <tr>
@@ -189,8 +169,21 @@
             </td>
         </tr>
 
-      	<tr>
-      		<td colspan="2"><br><h6><input id="parksubmit" name="Submit" type="submit" value="<?php echo _("Submit Changes")?>"></h6></td>
-      	</tr>
     </table>
 </form>
+<script>
+    <?php echo js_display_confirmation_toasts(); ?>
+    $(function() {
+        ipbx.msg.framework.notblank = '<?php echo _("Field can not be blank!")?>';
+    })
+</script>
+</div>
+<?php 
+if ($id && $id>1){ 
+    echo form_action_bar($id); 
+} else {
+    // id 1 cannot be deleted
+    echo form_action_bar(''); 
+}
+?>
+
