@@ -29,7 +29,7 @@ msgid ""
 msgstr ""
 
 msgid "No Routes Available"
-msgstr "No hay rutas creadas"
+msgstr "No hay rutas disponibles"
 
 msgid "Standard Routes"
 msgstr "Rutas Estándar"

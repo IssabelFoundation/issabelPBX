@@ -22,7 +22,10 @@ if($action){
 
 	if ($action == 'submit') {
 		outroutemsg_add($default_msg_id, $intracompany_msg_id, $emergency_msg_id, $no_answer_msg_id, $invalidnmbr_msg_id, $unallocated_msg_id);
-		needreload();
+        needreload();
+        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
+        redirect_standard();
 	}
 }
 
@@ -40,12 +43,13 @@ if ($action != 'submit') {
 }
 
 ?>
+<div class='content'>
 <h2><?php echo _("Route Congestion Messages")?></h2>
-<h4><?php echo _("No Routes Available")?></h4>
-<form name="outroutemsg" action="config.php" method="post">
+<form id="mainform" name="outroutemsg" action="config.php" method="post" onsubmit="return edit_onsubmit(this)">
 <input type="hidden" name="display" value="<?php echo $dispnum ?>"/>
 <input type="hidden" name="action" value="submit"/>
 <table>
+<tr><td colspan="2"><br><h4><?php echo _("No Routes Available")?></h4></td></tr>
 <tr><td colspan="2"><h5><?php echo _("Standard Routes")?></h5></td></tr>
 <tr>
 	<td><a href="#" class="info"><?php echo _("Message or Tone")?><span><?php echo _("Message or tone to be played if no trunks are available.")?></span></a></td>
@@ -64,8 +68,6 @@ if ($action != 'submit') {
 		</select>
 	</td>
 </tr>
-
-<tr><td colspan=2><hr/></td></tr>
 
 <tr><td colspan="2"><h5><?php echo _("Intra-Company Routes")?></h5></td></tr>
 <tr>
@@ -86,7 +88,6 @@ if ($action != 'submit') {
 	</td>
 </tr>
 
-<tr><td colspan=2><hr/></td></tr>
 
 <tr><td colspan="2"><h5><?php echo _("Emergency Routes")?></h5></td></tr>
 <tr>
@@ -107,7 +108,6 @@ if ($action != 'submit') {
 	</td>
 </tr>
 
-<tr><td colspan=2><hr/></td></tr>
 
 <tr><td colspan="2"><br><h4><?php echo _("Trunk Failures")?></h4></td></tr>
 
@@ -130,7 +130,6 @@ if ($action != 'submit') {
 	</td>
 </tr>
 
-<tr><td colspan=2><hr/></td></tr>
 
 <tr><td colspan="2"><h5><?php echo _("No Answer")?></h5></td></tr>
 <tr>
@@ -150,7 +149,6 @@ if ($action != 'submit') {
 	</td>
 </tr>
 
-<tr><td colspan=2><hr/></td></tr>
 
 <tr><td colspan="2"><h5><?php echo _("Number or Address Incomplete")?></h5></td></tr>
 <tr>
@@ -170,12 +168,16 @@ if ($action != 'submit') {
 	</td>
 </tr>
 
-<tr><td colspan=2><hr/></td></tr>
-
-<tr>
-	<td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
-</tr>
 
 </table>
 
 </form>
+<script>
+function edit_onsubmit(theForm) {
+    $.LoadingOverlay('show','mainform',true,true);
+}
+<?php echo js_display_confirmation_toasts(); ?>
+</script>
+</div>
+<?php echo form_action_bar(''); ?>
+
