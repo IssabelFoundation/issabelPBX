@@ -2,7 +2,7 @@
 	<rawname>callrecording</rawname>
 	<repo>standard</repo>
 	<name>Call Recording</name>
-	<version>2.12.0.0</version>
+	<version>2.11.0.10</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -21,13 +21,13 @@
 			<display>callrecording</display>
 		</callrecording>
  	</popovers>
-    <changelog>
-        *2.12.0.0* Newer GUI, standarize module components
+	<changelog>
 		*2.11.0.10* Embed in Issabel Menu
 		*2.11.0.9* Initial Issabel Foundation release
 	</changelog>
 	<supported>
-		<version>2.12</version>
+		<version>2.11</version>
 	</supported>
-	<location>release/2.12/callrecording-2.12.0.0.tgz</location>
+	<location>release/2.11/callrecording-2.11.0.4.tgz</location>
+	<md5sum>7a01f5f79297c4162c5b3bf711ef1ec3</md5sum>
 </module>

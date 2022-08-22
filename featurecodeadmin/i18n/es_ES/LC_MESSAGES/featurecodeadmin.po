@@ -14,16 +14,16 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Feature Code Admin"
-msgstr "Administrador de códigos de característica"
+msgstr "Códigos de características"
 
 msgid "Admin"
 msgstr ""
 
 msgid "Feature Codes"
-msgstr "Códigos de característica"
+msgstr "Códigos de características"
 
 msgid "Featurecode: "
-msgstr "Código de característica: "
+msgstr "Código de la característica:"
 
 msgid "featuredescription"
 msgstr "Descripción de la característica"
@@ -56,10 +56,10 @@ msgid "moduledescription"
 msgstr "Descripción del módulo"
 
 msgid "Disabled"
-msgstr "Inactivo"
+msgstr "Deshabilitado"
 
 msgid "Enabled"
-msgstr "Activo"
+msgstr "Habilitado"
 
 msgid "Submit Changes"
 msgstr "Enviar cambios"

@@ -48,7 +48,7 @@ msgstr ""
 
 #: views/main.html.php:99
 msgid "Account SID"
-msgstr "Cuenta SID"
+msgstr ""
 
 #: views/main.html.php:3
 msgid "Add CID Lookup Source"
@@ -64,7 +64,7 @@ msgstr ""
 
 #: views/main.html.php:107
 msgid "Auth Token"
-msgstr "Token de Autenticación"
+msgstr ""
 
 #: functions.inc.php:12
 msgid "CID Lookup Source"
@@ -72,11 +72,11 @@ msgstr "Búsqueda de CID"
 
 #: views/main.html.php:76
 msgid "Cache results"
-msgstr "Cachear resultados"
+msgstr "Resultados de la caché"
 
 #: views/main.html.php:229
 msgid "Character Set"
-msgstr "Conjunto de caracteres"
+msgstr ""
 
 #: install.php:103
 msgid "Checking for cidlookup field in core's incoming table.."
@@ -84,15 +84,15 @@ msgstr "Comprobando el campo cidlookup en la table entrante del núcleo"
 
 #: install.php:144
 msgid "Cleaning up duplicate OpenCNAM CallerID Lookup Sources..."
-msgstr "Eliminando fuentes duplicadas de búsqueda de identificador de llamadas de OpenCNAM..."
+msgstr ""
 
 #: install.php:125
 msgid "Could not add opencnam_account_sid column to cidlookup table."
-msgstr "No se pudo agregar la columna opencnam_account_sid a la tabla cidlookup."
+msgstr ""
 
 #: install.php:131
 msgid "Could not add opencnam_auth_token column to cidlookup table."
-msgstr "No se pudo agregar la columna opencnam_auth_token a la tabla cidlookup."
+msgstr ""
 
 #: views/main.html.php:197
 msgid "Database name"
@@ -116,7 +116,7 @@ msgstr "Eliminar fuente de búsqueda de CID"
 
 #: install.php:44 install.php:133 install.php:141 install.php:161
 msgid "Done!"
-msgstr "Listo!"
+msgstr ""
 
 #: install.php:90
 msgid "ERROR: failed: "
@@ -164,7 +164,7 @@ msgstr "MySQL"
 
 #: views/main.html.php:229
 msgid "MySQL Character Set. Leave blank for MySQL default latin1"
-msgstr "Conjunto de caracteres MySQL. Dejar en blanco para usar el valor por omisión de MySQL"
+msgstr ""
 
 #: views/main.html.php:189
 msgid "MySQL Host"
@@ -363,7 +363,7 @@ msgid ""
 "Your OpenCNAM Account SID. This can be found on your OpenCNAM dashboard "
 "page: https://www.opencnam.com/dashboard"
 msgstr ""
-"El SID de su cuenta OpenCNAM. Puede encontrarlo en el dashboard en "
+"El CID de su cuenta OpenCNAM. Puede encontrarlo en el dashboard en "
 "https://www.opencnam.com/dashboard"
 
 #: views/main.html.php:107
@@ -426,27 +426,3 @@ msgstr "Si desea crear un cuenta en la capa profesional puede hacerlo desde el s
 
 #~ msgid "HTTP"
 #~ msgstr "HTTP:"
-
-msgid "Please enter a valid HTTP(S) Host name"
-msgstr "Por favor ingrese un servidor válido"
-
-msgid "Please enter a valid MySQL Host name"
-msgstr "Por favor ingrese un servidor válido"
-
-msgid "Please enter a valid MySQL Database name"
-msgstr "Por favor ingrese una base de datos válida"
-
-msgid "Please enter a valid MySQL Query string"
-msgstr "Por favor ingrese una consulta válida"
-
-msgid "Please enter a valid MySQL Username"
-msgstr "Por favor ingrese un usuario válido"
-
-msgid "Please enter a valid Account SID"
-msgstr "Por favor ingrese una cuenta SID válida"
-
-msgid "Please enter a valid Auth Token"
-msgstr "Por favor ingrese una token de autenticación válido"
-
-msgid "Description cannot be blank!"
-msgstr "La descripción no puede estar en blanco!"

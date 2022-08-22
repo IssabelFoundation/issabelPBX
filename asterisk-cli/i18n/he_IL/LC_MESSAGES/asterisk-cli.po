@@ -28,5 +28,5 @@ msgstr ""
 msgid "Command:"
 msgstr "פקודה:"
 
-msgid "Execute"
+msgid "Execute:"
 msgstr ""

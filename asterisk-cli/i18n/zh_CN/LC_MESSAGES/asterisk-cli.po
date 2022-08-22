@@ -32,5 +32,5 @@ msgstr ""
 msgid "Command:"
 msgstr "命令："
 
-msgid "Execute"
-msgstr "执行"
+msgid "Execute:"
+msgstr "执行："

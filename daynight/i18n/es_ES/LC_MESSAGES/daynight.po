@@ -82,12 +82,6 @@ msgstr ""
 msgid "Call Flow Toggle Control"
 msgstr "Control de Flujo de Llamadas"
 
-msgid "Edit Call Flow Toggle Control"
-msgstr "Modificar control de flujo"
-
-msgid "Add Call Flow Toggle Control"
-msgstr "Añadir control de flujo"
-
 #: page.daynight.php:121
 msgid "Call Flow Toggle Feature Code Index:"
 msgstr "Indice de Control de Flujo de Llamada:"
@@ -195,7 +189,7 @@ msgstr "Sin asociación"
 
 #: page.daynight.php:158
 msgid "Normal (Green/BLF off)"
-msgstr "Normal (Verde/BLF apagado)"
+msgstr ""
 
 #: page.daynight.php:216
 msgid "Normal Flow (Green/BLF off)"
@@ -211,7 +205,7 @@ msgstr "Contraseña opcional"
 
 #: page.daynight.php:159
 msgid "Override (Red/BLF on)"
-msgstr "Anulado (Rojo/BLF encencido)"
+msgstr ""
 
 #: page.daynight.php:217
 msgid "Override Flow (Red/BLF on)"
@@ -260,7 +254,7 @@ msgid ""
 "You can optionally include a password to authenticate before toggling the "
 "call flow. If left blank anyone can use the feature code and it will be un-"
 "protected"
-msgstr "Opcionalmente, puede incluir una contraseña para autenticarse antes de alternar el flujo de llamadas. Si se deja en blanco, cualquiera puede usar el código de función y no estará protegido"
+msgstr ""
 
 #: install.php:77
 msgid "changing primary keys to all fields.."
@@ -359,5 +353,3 @@ msgstr "Todos: Alternar Flujo de Llamada"
 
 #~ msgid "Day/Night Control"
 #~ msgstr "Control día/noche"
-
-

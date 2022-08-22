@@ -102,8 +102,8 @@ function customcontexts_hook_core($viewing_itemid, $target_menuid) {
 //from any contexts the user entered in admin - information was saved to database on the last reload
 
 function customcontexts_getincludeslist($context) {
-	global $db;
-	$tmparray=array();
+    global $db;
+    $tmparray=array();
 //    $sql = "select include, description from customcontexts_includes_list where context = '".$context."' order by description";
     $sql = "SELECT include, customcontexts_includes_list.description, 
                     COUNT(customcontexts_contexts_list.context) AS preemptcount  
@@ -140,7 +140,7 @@ function customcontexts_getcontextslist() {
 
 //these are the users selections of includes for the selected custom context
 function customcontexts_getincludes($context) {
-	global $db, $amp_conf;
+    global $db;
 //    $sql = "select customcontexts_contexts_list.context, customcontexts_contexts_list.description as contextdescription, customcontexts_includes_list.include, customcontexts_includes_list.description, if(saved.include is null, 'no', if(saved.timegroupid is null, 'yes', saved.timegroupid)) as allow, saved.sort from customcontexts_contexts_list inner join customcontexts_includes_list on customcontexts_contexts_list.context = customcontexts_includes_list.context left outer join (select * from customcontexts_includes where context = '$context') saved on customcontexts_includes_list.include = saved.include order by customcontexts_contexts_list.description, customcontexts_includes_list.description";
     $sql = "SELECT customcontexts_contexts_list.context, 
                     customcontexts_contexts_list.description AS contextdescription, 
@@ -172,11 +172,12 @@ function customcontexts_getincludes($context) {
                     customcontexts_includes_list.sort,
           outbound_route_sequence.seq,
                     customcontexts_contexts_list.description, 
-		    customcontexts_includes_list.description";
+                    customcontexts_includes_list.description";
 
-	if(preg_match("/qlite/i",$amp_conf['AMPDBENGINE'])) {
-	    $sql = str_replace("IF(","IIF(",$sql);
-        }
+    if(preg_match("/qlite/i",$amp_conf['AMPDBENGINE'])) {
+        $sql = str_replace("IF(","IIF(",$sql);
+    }
+
     $results = sql($sql,'getAll');
     foreach ($results as $val){
         $tmparray[] = array($val[0], $val[1], $val[2], $val[3], $val[4], $val[5], $val[6]);
@@ -232,11 +233,10 @@ function customcontexts_get_config($engine) {
             if ($dialpattern[$key] == "") {
                 unset($dialpattern[$key]);
             } else {
-            
-	    // remove leading underscores (we do that on backend)
-            if ($dialpattern[$key][0] == "_") {
-                $dialpattern[$key] = substr($dialpattern[$key],1);
-            }
+                // remove leading underscores (we do that on backend)
+                if ($dialpattern[$key][0] == "_") {
+                    $dialpattern[$key] = substr($dialpattern[$key],1);
+                }
             }
         }
         // check for duplicates, and re-sequence
@@ -442,7 +442,7 @@ global $currentcomponent;
 
 //this is the dirty work displaying the admin page
 function customcontexts_customcontextsadmin_configpageload() {
-    global $currentcomponent;
+global $currentcomponent;
     $contexterr = 'Class may not be left blank and must contain only letters, numbers and a few select characters!';
     $descerr = 'Description must be alpha-numeric, and may not be left blank';
     $extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
@@ -468,12 +468,11 @@ function customcontexts_customcontextsadmin_configpageload() {
             $currentcomponent->addguielem('_top', new gui_hidden('extdisplay', $extdisplay));
             $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Edit Class").": $description", false), 0);
             if ($locked == false) {            
-                //$currentcomponent->addguielem('_top', new gui_link('del', _("Remove Class").": $context", $delURL, true, false), 0);
+                $currentcomponent->addguielem('_top', new gui_link('del', _("Remove Class").": $context", $delURL, true, false), 0);
             }
             else
             {
-                $currentcomponent->disableDelete();
-                $currentcomponent->addguielem('_top', new gui_label('del', sprintf(_("Class %s cannot be removed"),$context), true, 'has-background-warning'), 0);
+                $currentcomponent->addguielem('_top', new gui_label('del', sprintf(_("Class %s cannot be removed"),$context), $delURL, true, false), 0);
             }
             $currentcomponent->addguielem('Class', new gui_textbox('description', $description, _('Description'), sprintf(_('This will display as a heading for the available includes on the %s page'),_(customcontexts_getmodulevalue('moduledisplayname'))), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
             $inclist = customcontexts_getincludeslist($extdisplay);
@@ -492,31 +491,21 @@ function customcontexts_customcontextsadmin_configpageload() {
 
 //handle the admin submit button
 function customcontexts_customcontextsadmin_configprocess() {
-    $action      = isset($_REQUEST['action'])      ? $_REQUEST['action']      : null;
-    $context     = isset($_REQUEST['extdisplay'])  ? $_REQUEST['extdisplay']  : null;
-    $description = isset($_REQUEST['description']) ? $_REQUEST['description'] : null;
-
+    $action= isset($_REQUEST['action'])?$_REQUEST['action']:null;
+    $context= isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+    $description= isset($_REQUEST['description'])?$_REQUEST['description']:null;
+//addslashes    
     switch ($action) {
     case 'add':
         customcontexts_customcontextsadmin_add($context,$description);
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
-        $_SESSION['msgtype']='success';
-        redirect_standard();
     break;
     case 'edit':
         customcontexts_customcontextsadmin_edit($context,$description);
         $includes = isset($_REQUEST['includes'])?$_REQUEST['includes']:null;
         customcontexts_customcontextsadmin_editincludes($context,$includes);
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
-        $_SESSION['msgtype']='success';
-        redirect_standard('extdisplay');
     break;
     case 'del':
-    case 'delete':
         customcontexts_customcontextsadmin_del($context);
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
-        $_SESSION['msgtype']='warning';
-        redirect_standard();
     break;
     }
 }
@@ -582,7 +571,7 @@ function customcontexts_customcontextsadmin_editincludes($context,$includes) {
 function customcontexts_customcontexts_configpageinit($dispnum) {
     global $currentcomponent;
     switch ($dispnum) {
-    case 'customcontexts':
+        case 'customcontexts':
             $currentcomponent->addoptlistitem('includeyn', 'yes', dgettext('customcontexts','Allow'));
             $currentcomponent->addoptlistitem('includeyn', 'no', dgettext('customcontexts','Deny'));
             $currentcomponent->addoptlistitem('includeyn', 'allowmatch', dgettext('customcontexts','Allow Rules'));
@@ -640,19 +629,9 @@ global $currentcomponent;
             $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Edit Class").": $description", false), 0);
             //$currentcomponent->addguielem('_top', new gui_link('del', _("Delete Class")." $context", $delURL, true, false), 0);
 
-//            $confirm_msg = sprintf(_('Are you sure you want to delete %s ?'),$context);
-            //            $currentcomponent->addguielem('_top', new guielement('del', '<tr><td colspan ="2"><a href="'.$delURL.'" onclick="return confirm(\''.$confirm_msg.'\')"> <span><img width="16" height="16" border="0" title="'._('Delete Class').' '.$context.'" alt="" src="images/core_delete.png"></span> '._('Delete Class').' '.$context.'</a></td></tr>', ''),3);
-            //
-            //
-            //
-            //
-            $label="<span class='icon is-small is-left'><i class='fa fa-plus'></i></span>";
-            $label .='<span>'._('Duplicate Class').'</span>';
-            //echo "<a href='".$trunk['url']."'><button class='button is-link is-light'>".$label."</button></a><br /><br />";
-
-
-            //$currentcomponent->addguielem('_top', new gui_link('dup', '<span><img width="16" height="16" border="0" title="'._('Duplicate Class').' '.$description.'" alt="" src="images/core_add.png"></span> '._("Duplicate Class")." $context", $dupURL, true, false), 3);
-            $currentcomponent->addguielem('_top', new gui_link('dup', $label, true, false), 3);
+            $confirm_msg = sprintf(_('Are you sure you want to delete %s ?'),$context);
+            $currentcomponent->addguielem('_top', new guielement('del', '<tr><td colspan ="2"><a href="'.$delURL.'" onclick="return confirm(\''.$confirm_msg.'\')"> <span><img width="16" height="16" border="0" title="'._('Delete Class').' '.$context.'" alt="" src="images/core_delete.png"></span> '._('Delete Class').' '.$context.'</a></td></tr>', ''),3);
+            $currentcomponent->addguielem('_top', new gui_link('dup', '<span><img width="16" height="16" border="0" title="'._('Duplicate Class').' '.$context.'" alt="" src="images/core_add.png"></span> '._("Duplicate Class")." $context", $dupURL, true, false), 3);
             $showsort = customcontexts_getmodulevalue('displaysortforincludes');
             if ($showsort == 1) {
             //$sortURL = $_SERVER['PHP_SELF'].'?'.$query.'&showsort=0';
@@ -710,22 +689,20 @@ global $currentcomponent;
 
 //handle custom contexts page submit button
 function customcontexts_customcontexts_configprocess() {
-    $action          = isset($_REQUEST['action'])         ? $_REQUEST['action']         : null;
-    $context         = isset($_REQUEST['extdisplay'])     ? $_REQUEST['extdisplay']     : null;
-    $newcontext      = isset($_REQUEST['newcontext'])     ? $_REQUEST['newcontext']     : null;
-    $description     = isset($_REQUEST['description'])    ? $_REQUEST['description']    : null;
-    $dialrules       = isset($_REQUEST['dialpattern'])    ? $_REQUEST['dialpattern']    : null;
-    $failpin         = isset($_REQUEST['failpin'])        ? $_REQUEST['failpin']        : null;
-    $featurefailpin  = isset($_REQUEST['featurefailpin']) ? $_REQUEST['featurefailpin'] : null;
-    $faildest        = isset($_REQUEST["goto0"])          ? isset($_REQUEST[$_REQUEST['goto0']])?$_REQUEST[$_REQUEST['goto0']]:null:null;
-    $featurefaildest = isset($_REQUEST["goto1"])          ? isset($_REQUEST[$_REQUEST['goto1']])?$_REQUEST[$_REQUEST['goto1']]:null:null;
+    $action= isset($_REQUEST['action'])?$_REQUEST['action']:null;
+    $context= isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+    $newcontext= isset($_REQUEST['newcontext'])?$_REQUEST['newcontext']:null;
+    $description= isset($_REQUEST['description'])?$_REQUEST['description']:null;
+    $dialrules= isset($_REQUEST['dialpattern'])?$_REQUEST['dialpattern']:null;
+    $faildest= isset($_REQUEST["goto0"])?isset($_REQUEST[$_REQUEST['goto0'].'0'])?$_REQUEST[$_REQUEST['goto0'].'0']:null:null;
+    $featurefaildest= isset($_REQUEST["goto1"])?isset($_REQUEST[$_REQUEST['goto1'].'1'])?$_REQUEST[$_REQUEST['goto1'].'1']:null:null;
+    $failpin= isset($_REQUEST['failpin'])?$_REQUEST['failpin']:null;
+    $featurefailpin= isset($_REQUEST['featurefailpin'])?$_REQUEST['featurefailpin']:null;
 
+//addslashes    
     switch ($action) {
     case 'add':
         customcontexts_customcontexts_add($context,$description,$dialrules,$faildest,$featurefaildest,$failpin,$featurefailpin);
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
-        $_SESSION['msgtype']='success';
-        redirect_standard();
     break;
     case 'edit':
         if ($context <> $newcontext) {
@@ -734,17 +711,10 @@ function customcontexts_customcontexts_configprocess() {
         customcontexts_customcontexts_edit($context,$newcontext,$description,$dialrules,$faildest,$featurefaildest,$failpin,$featurefailpin);
         $includes = isset($_REQUEST['includes'])?$_REQUEST['includes']:null;
         customcontexts_customcontexts_editincludes($context,$includes,$newcontext);
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
-        $_SESSION['msgtype']='success';
-        redirect_standard('extdisplay');
     break;
     case 'del':
-    case 'delete':
         customcontexts_customcontexts_del($context);
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
-        $_SESSION['msgtype']='warning';
         $_REQUEST['extdisplay'] = null;
-        redirect_standard();
     break;
     case 'dup':
         $newcontext = customcontexts_customcontexts_duplicatecontext($context);

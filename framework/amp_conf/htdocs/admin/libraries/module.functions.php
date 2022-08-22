@@ -16,7 +16,7 @@
  * future if we decide we need to return more error codes, but as long as it's
  * a php zero-value (false, null, 0, etc) then no error happened.
  */
-function module_getonlinexml($module = false, $override_xml = false, &$sec_array=false) {
+function module_getonlinexml($module = false, $override_xml = false, &$sec_array=false) { // was getModuleXml()
     global $amp_conf, $db, $module_getonlinexml_error;  // okay, yeah, this sucks, but there's no other good way to do it without breaking BC
     $module_getonlinexml_error = null;
     $got_new = false;
@@ -42,6 +42,7 @@ function module_getonlinexml($module = false, $override_xml = false, &$sec_array
     // Changed to 5 minutes while not in release. Change back for released version.
     //
     // used for debug, time set to 0 to always fall through
+    // if((time() - $result['time']) > 0 || strlen($result['data']) < 100 ) {
     $skip_cache |= $amp_conf['MODULEADMIN_SKIP_CACHE'];
     $version = getversion();
     // we need to know the issabelpbx major version we have running (ie: 2.1.2 is 2.1)
@@ -150,6 +151,7 @@ function module_get_security($xmlarray, $base_version=null) {
             $vul = $sinfo['id'];
             if (!empty($sinfo['versions']['v' . $base_version])) {
                 // If this version has vulnerabilities, check each vulnerable module to see if we have any
+                //
                 if (strtolower($sinfo['versions']['v' . $base_version]['vulnerable']) == 'yes' &&
                     !empty($sinfo['versions']['v' . $base_version]['fixes']))
                     foreach ($sinfo['versions']['v' . $base_version]['fixes'] as $rmod => $mver) {

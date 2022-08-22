@@ -1,16 +1,15 @@
+
 div.dialpatterns {
-  max-height: 15em;
-  max-width: 100%;
-  overflow: auto;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+	max-height: 15em; 
+	max-width: 100%; 
+	width: 500px;
+	overflow: auto; 
+	border: 1px solid #CCCCCC;
 }
-
 #pattern_file {
-  display: none;
+	display: none;
 }
-
 .save, .adv_set_default{border-style: none;}
-
 .savetd, .save{display:none;}
 
 .js-copybtn {
@@ -22,3 +21,4 @@ div.dialpatterns {
   margin: 0px;
   cursor:pointer;
 }
+

@@ -74,7 +74,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/views/footer.php:86
 msgid " extension number already in use by: "
-msgstr "拡張機能%sは、次のユーザーによってすでに使用されています：%s"
+msgstr " 内線番号はこのユーザーが既に使用しています： "
 
 #: amp_conf/htdocs/admin/page.modules.php:536
 #, php-format
@@ -481,7 +481,7 @@ msgid "Add Incoming Route"
 msgstr "着信経路を追加"
 
 #: ../core/page.routing.php:323 ../core/page.routing.php:369
-msgid "Add Outbound Route"
+msgid "Add Route"
 msgstr "経路の追加"
 
 #: ../core/page.trunks.php:349
@@ -1811,7 +1811,7 @@ msgid "Edit Incoming Route"
 msgstr "着信経路を編集"
 
 #: ../core/page.routing.php:345 ../core/page.routing.php:363
-msgid "Edit Outbound Route"
+msgid "Edit Route"
 msgstr "経路の編集"
 
 #: ../core/functions.inc.php:7087

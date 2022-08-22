@@ -64,7 +64,7 @@ msgstr "Número al que devolver la llamada"
 msgid ""
 "Optional: Enter the number to dial for the callback.  Leave this blank to "
 "just dial the incoming CallerID Number"
-msgstr "Opcional: Ingrese el número a marcar para la devolución de llamada. Deje el campo en blanco para simplemente marcar al número de identificación de llamadas entrante"
+msgstr ""
 
 msgid "Delay Before Callback:"
 msgstr "Retardo antes de devolver la llamada:"

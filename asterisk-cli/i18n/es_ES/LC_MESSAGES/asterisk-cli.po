@@ -28,5 +28,5 @@ msgstr ""
 msgid "Command:"
 msgstr "Comando:"
 
-msgid "Execute"
-msgstr "Ejecutar"
+msgid "Execute:"
+msgstr "Ejecutar:"

@@ -1,17 +1,16 @@
-<?php
+<?php /* $Id */
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
-//  License for all code of this IssabelPBX module can be found in the license file inside the module directory
+//    License for all code of this IssabelPBX module can be found in the license file inside the module directory
 //  Copyright (C) 2006 Magnus Ullberg (magnus@ullberg.us)
 //  Portions Copyright (C) 2010 Mikael Carlsson (mickecamino@gmail.com)
-//  Copyright 2013 Schmooze Com Inc.
-//  Copyright 2022 Issabel Foundation
-
+//    Copyright 2013 Schmooze Com Inc.
+//
 $ast_ge_16 = version_compare($amp_conf['ASTVERSION'], "1.6", "ge");
 
 isset($_REQUEST['action'])?$action = $_REQUEST['action']:$action='';
 isset($_REQUEST['number'])?$number = $_REQUEST['number']:$number='';
 
-$filter_blocked = blacklist_getblocked();
+$filter_blocked = false;
 
 if($ast_ge_16) {
     isset($_REQUEST['description'])?$description = $_REQUEST['description']:$description='';
@@ -27,131 +26,136 @@ if(isset($_REQUEST['action'])) {
     switch ($action) {
         case "add":
             blacklist_add($_POST);
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
-            $_SESSION['msgtype']='success';
             redirect_standard();
         break;
         case "delete":
-            blacklist_del($extdisplay);
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
-            $_SESSION['msgtype']='warning';
+            blacklist_del($number);
             redirect_standard();
         break;
     case "edit":
-            blacklist_del($extdisplay);
+      blacklist_del($editnumber);
             blacklist_add($_POST);
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
-            $_SESSION['msgtype']='success';
-            redirect_standard('extdisplay');
-            break;
-    case "editgeneral":
-        $blockblocked = isset($_REQUEST['blockblocked'])?$_REQUEST['blockblocked']:0;
-        if(blacklist_blockblocked($blockblocked)) {
-            die("OK");
-        } else {
-            die("ERROR");
-        }
+            redirect_standard('editnumber');
+                break;
     }
 }
 
-$rnaventries = array();
-$numbers     = blacklist_list();
-$numberedit  = array();
-foreach($numbers as $num) {
-    if($num['number']=='blocked') continue;
-    $rnaventries[] = array($num['number'],$num['description'],$num['number'],'');
-    $numberedit[$num['number']]=$num['description'];
-}
-drawListMenu($rnaventries, $type, $display, $extdisplay);
-
 ?>
-<div class='content'>
-<?php
-
-$myaction='add';
-
-if ($extdisplay) {
-    // load
-    if(isset($numberedit[$extdisplay])) {
-        $description = $numberedit[$extdisplay];
-        $number = $extdisplay;
-        $myaction='edit';
-    } else {
-        $description ='';
-        unset($extdisplay);
-        $myaction='add';
-    }
-}
-
-
-echo "<h2>";
-echo ($extdisplay ? _("Edit Blacklist").": $description" : _("Add Blacklist"));
-echo "</h2>";
-?>
-<form id="mainform" autocomplete="off" name="edit" method="post" onsubmit="return edit_onsubmit(this);">
+<form autocomplete="off" name="edit" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return edit_onsubmit();">
     <input type="hidden" name="display" value="<?php echo $dispnum?>">
-    <input type="hidden" name="action" value="<?php echo $myaction?>">
+    <input type="hidden" name="action" value="add">
     <input type="hidden" name="editnumber" value="">
 
     <?php if($ast_ge_16) {
-        echo "<input type=\"hidden\" name=\"editdescription\" value=\"\">";
+            echo "<input type=\"hidden\" name=\"editdescripton\" value=\"\">";
     }?>
 
-    <table class='table is-narrow is-borderless'>
-        <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
+<?php
+echo "<h2>"._('Blacklist')."</h2>";
+?>
+
+    <table>
+    <tr><td colspan="2"><h5><?php echo _("Add or replace entry") ?></h5></td></tr>
+
         <tr>
-            <td><a href="#" class="info"><?php echo _("Block Unknown/Blocked Caller ID")?>
-                <span><?php echo _("Check here to catch Unknown/Blocked Caller ID")?></span></a>
-            </td>
-            <td>
-                <?php echo ipbx_yesno_checkbox("blocked",$filter_blocked,false); ?>
-                <!--input type="checkbox" name="blocked" value="1" <?php echo ($filter_blocked === true?" checked=1":"");?> -->
-            </td>
-        </tr>
- 
-        <tr>
-        <td colspan="2"><h5>
-            <?php echo ($extdisplay ? _("Edit Blacklist").": $description" : _("Add Blacklist")); ?>
-        </h5></td>
-        </tr>
-        <tr>
-            <td><a href="#" class="info"><?php echo _("Number/CallerID")?>
-                <span><?php echo _("Enter the number/CallerID you want to block")?></span></a>
-            </td>
-            <td><input autofocus class="input w100" type="text" name="number" value="<?php echo $number;?>" tabindex="<?php echo ++$tabindex;?>"></td>
+                <td><a href="#" class="info"><?php echo _("Number/CallerID")?>
+            <span><?php echo _("Enter the number/CallerID you want to block")?></span></a></td>
+                <td><input type="text" name="number"></td>
         </tr>
         <?php if($ast_ge_16) {
             echo "<tr>";
                 echo "<td><a href=\"#\" class=\"info\">"._("Description");
                 echo "<span>"._("Enter a description for the number you want to block")."</span></a></td>";
-                echo "<td><input class=\"input w100\" type=\"text\" name=\"description\" value=\"$description\" tabindex=\"".++$tabindex."\"></td>";
+                echo "<td><input type=\"text\" name=\"description\"></td>";
         echo "</tr>";        
         }?>
 
-   </table>
-    <?php echo process_tabindex($module_hook->hookHtml,$tabindex); ?>
+        <tr>
+                <td><a href="#" class="info"><?php echo _("Block Unknown/Blocked Caller ID")?>
+                <span><?php echo _("Check here to catch Unknown/Blocked Caller ID")?></span></a></td>
+                <td><input type="checkbox" name="blocked" value="1" <?php echo ($filter_blocked === true?" checked=1":"");?></td>
+        </tr>
+    </table>
+    <?php echo $module_hook->hookHtml;?>
+    <table>
+        <tr>
+            <td colspan="2"><br><h6><input name="submit" type="submit" value="<?php echo _("Submit Changes")?>"></h6></td>
+        </tr>
+    </table>
 </form>
+<?php
+$numbers = blacklist_list();
 
-<script>
+if ($action == 'delete') 
+    echo '<h3>'._("Blacklist entry").' '.$itemid.' '._("deleted").'!</h3>';
 
-    $('input[name=blocked]').on('change', function() {
-        console.log('set general setting'); 
+if (is_array($numbers)) {
 
-        url = window.location.href.split('?')[0] + '?type=&display=<?php echo $dispnum;?>&action=editgeneral&quietmode=1&blockblocked=' + $(this).val();
-        fetch(url).then(response => { 
-            if(response.ok) {
-                response.text().then(text=> {
-                    if(text=='OK') {
-                        sweet_toast('success',ipbx.msg.framework.item_modified);
-                    } else {
-                        sweet_alert(ipbx.msg.framework.invalid_response);
-                    }
-                });
+?>
+<table class='table'>
+        <caption>
+        <h5><?php echo _("Blacklist entries") ?></h5>
+    </caption>
+
+    <tr>
+        
+    <?php
+    if($ast_ge_16) {
+        echo "<td><b>"._("Number/CallerID")."</b></td>";
+        echo "<td><b>"._("Description")."</b></td>";
+    } else {
+            echo "<td><b>"._("Number")."</b></td>";
+            echo "<td>&nbsp;</td>";
+        }
+?>        
+        <td>&nbsp;</td>        
+        <td>&nbsp;</td>        
+    </tr>
+
+<?php
+// Why should I specify type=setup ???
+    foreach ($numbers as $num)    {
+        if($num == "blocked")  { // Don't display the blocked/unknown CID as an item, but keep track of it for displaying the checkbox later
+            $filter_blocked = true;
+        }
+        else  {
+        
+    if($ast_ge_16) {
+            print('<tr>');
+            printf('<td>%s</td>', $num['number']);
+             printf('<td>%s</td>', $num['description']);
+            printf('<td><a href="%s?type=setup&display=%s&number=%s&action=delete">%s</a></td>', 
+                $_SERVER['PHP_SELF'], urlencode($dispnum), urlencode($num['number']), _("Delete"));
+
+            if($num['number']<>'blocked') {
+            printf('<td><a href="#" onClick="theForm.number.value = \'%s\'; 
+                theForm.editnumber.value = \'%s\' ;
+                theForm.description.value = \'%s\'; 
+                theForm.editdescription.value = \'%s\' ; 
+                theForm.action.value = \'edit\' ; ">%s</a></td>',$num['number'], $num['number'], $num['description'], $num['description'], _("Edit"));
+                        }
+            print('</tr>');
+            
             } else {
-                sweet_alert(ipbx.msg.framework.invalid_response);
+            print('<tr>');
+            printf('<td>%s</td>', $num);
+            printf('<td><a href="%s?type=setup&display=%s&number=%s&action=delete">%s</a></td>', 
+             $_SERVER['PHP_SELF'], urlencode($dispnum), urlencode($num), _("Delete"));
+            if($num['number']<>'blocked') {
+                printf('<td><a href="#" onClick="theForm.number.value = \'%s\'; theForm.editnumber.value = \'%s\' ; theForm.action.value = \'edit\' ; ">%s</a></td>',$num, $num, _("Edit"));
             }
-        });
-    });
+            print('</tr>');
+            }
+        }
+    }
+    print('</table>');
+}
+?>
+
+<!--TODO: This should be jquery!-->
+<script language="javascript">
+    var theForm = document.edit;
+    theForm.number.focus();
 
     function isDialDigitsPlus(s)
     {
@@ -170,16 +174,10 @@ echo "</h2>";
     }
 
 
-    function edit_onsubmit(theForm) {
+    function edit_onsubmit() {
         defaultEmptyOK = false;
-        if (theForm.number.value && !isDialDigitsPlus(theForm.number.value)) {
-            return warnInvalid(theForm.number, "Please enter a valid Number");
-        }
-        $.LoadingOverlay('show');
+            if (theForm.number.value && !isDialDigitsPlus(theForm.number.value))
+                    return warnInvalid(theForm.number, "Please enter a valid Number");
         return true;
     }
-
-<?php echo js_display_confirmation_toasts(); ?>
 </script>
-</div> <!-- end div content, be sure to include script tags before -->
-<?php echo form_action_bar($extdisplay); ?>

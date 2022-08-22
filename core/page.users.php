@@ -5,10 +5,15 @@
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 ?>
 
+<div class="rnav">
 <?php 
+// Eventually I recon the drawListMenu could be built into the new component class thus making
+// the relevent page.php file unnessassary
+
 $extens = core_users_list();
-drawListMenu($extens, $type, $display, $extdisplay);
+drawListMenu($extens, $skip, $type, $display, $extdisplay, _("User"));
 ?>
+</div>
 
 <?php
 // Javascript functions could be put into the configpageinit function but I personally prefer

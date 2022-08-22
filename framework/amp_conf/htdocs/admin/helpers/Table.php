@@ -495,7 +495,7 @@ class CI_Table {
 	function _default_template()
 	{
 		return  array (
-						'table_open'			=> '<table class="table is-borderless is-narrow">',
+						'table_open'			=> '<table border="0" cellpadding="4" cellspacing="0">',
 
 						'thead_open'			=> '<thead>',
 						'thead_close'			=> '</thead>',

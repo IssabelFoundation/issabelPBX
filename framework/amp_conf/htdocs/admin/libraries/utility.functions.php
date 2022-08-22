@@ -24,28 +24,28 @@ function issabelpbx_log($level, $message) {
 	$php_error_handler = false;
 	$bt = debug_backtrace();
 
-	if (isset($bt[1])) {
-		if($bt[1]['function'] == 'issabelpbx_error_handler') {
-			$php_error_handler = true;
-		} elseif ($bt[1]['function'] == 'out' || $bt[1]['function'] == 'die_issabelpbx') {
-			$file_full = $bt[1]['file'];
-			$line = $bt[1]['line'];
-		} elseif (basename($bt[0]['file']) == 'notifications.class.php') {
-			$file_full = $bt[2]['file'];
-			$line = $bt[2]['line'];
-		} else {
-			$file_full = $bt[0]['file'];
-			$line = $bt[0]['line'];
-		}
-	} else {
-		if (basename($bt[0]['file']) == 'notifications.class.php') {
-			$file_full = $bt[2]['file'];
-			$line = $bt[2]['line'];
-		} else {
-			$file_full = $bt[0]['file'];
-			$line = $bt[0]['line'];
-		}
-	}
+        if (isset($bt[1])) {
+                if($bt[1]['function'] == 'issabelpbx_error_handler') {
+                        $php_error_handler = true;
+                } elseif ($bt[1]['function'] == 'out' || $bt[1]['function'] == 'die_issabelpbx') {
+                        $file_full = $bt[1]['file'];
+                        $line = $bt[1]['line'];
+                } elseif (basename($bt[0]['file']) == 'notifications.class.php') {
+                        $file_full = $bt[2]['file'];
+                        $line = $bt[2]['line'];
+                } else {
+                        $file_full = $bt[0]['file'];
+                        $line = $bt[0]['line'];
+                }
+        } else {
+                if (basename($bt[0]['file']) == 'notifications.class.php') {
+                        $file_full = $bt[2]['file'];
+                        $line = $bt[2]['line'];
+                } else {
+                        $file_full = $bt[0]['file'];
+                        $line = $bt[0]['line'];
+                }
+        }
 
 	if (!$php_error_handler) {
 		$file_base = basename($file_full);
@@ -176,19 +176,9 @@ function die_issabelpbx($text, $extended_text="", $type="FATAL") {
 	$bt = debug_backtrace();
 	issabelpbx_log(IPBX_LOG_FATAL, "die_issabelpbx(): ".$text);
 
-    if (isset($_SERVER['REQUEST_METHOD'])) {
-
-    $head='<!DOCTYPE html><html lang="en">
-    <head>
-    <link rel="stylesheet" href="assets/css/bulma.min.css">
-    </head>
-    <body>
-    <div class="container content mt-3"><div class="box">';
-    $foot='</div></div></body></html';
-
-
+	if (isset($_SERVER['REQUEST_METHOD'])) {
 		// running in webserver
-		$trace =  $head."<h1>".$type." ERROR</h1>\n";
+		$trace =  "<h1>".$type." ERROR</h1>\n";
 		$trace .= "<h3>".$text."</h3>\n";
 		if (!empty($extended_text)) {
 			$trace .= "<p>".$extended_text."</p>\n";
@@ -233,9 +223,6 @@ function die_issabelpbx($text, $extended_text="", $type="FATAL") {
 		}
 	}
 
-    if (isset($_SERVER['REQUEST_METHOD'])) {
-        echo $foot;
-    }
 	// Now die!
 	exit(1);
 }
@@ -665,7 +652,7 @@ function generate_module_repo_url($path, $add_options=false) {
  * @returns bool
  */
 
-function edit_crontab($remove = '', $add = array()) {
+function edit_crontab($remove = '', $add = '') {
 	global $amp_conf;
 	$cron_out = array();
 	$cron_add = false;
@@ -753,7 +740,7 @@ function edit_crontab($remove = '', $add = array()) {
 	}
 
 	//write out crontab
-    $exec = '/bin/echo "' . implode("\n", $cron_out) . '" | /usr/bin/crontab ' . $cron_user . '-';
+	$exec = '/bin/echo "' . implode("\n", $cron_out) . '" | /usr/bin/crontab ' . $cron_user . '-';
 	//dbug('writing crontab', $exec);
 	exec($exec, $out_arr, $ret);
 

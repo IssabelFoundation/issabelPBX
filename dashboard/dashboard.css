@@ -10,11 +10,11 @@
 
 #sysinfo-right {
 	float: left;
-	width:250px;
+	width:200px;
 	padding-left: 30px;
 }
 #sysinfo-right .infobox {
-	width:250px;
+	width:200px;
 }
 #sysinfo-bot{
 	clear:both;
@@ -36,7 +36,6 @@
 	margin-top:1px;
 	width: 100%;
 	text-align: center;
-    padding: 5px 0 5px 0;
 }
 
 
@@ -49,7 +48,7 @@
 }
 /* height of main container and actual bar graph */
 .databox , .graphbox .bargraph {
-	height:1.6em;
+	height:12pt;
 }
 /* positioning of data title  */
 .databox .dataname {

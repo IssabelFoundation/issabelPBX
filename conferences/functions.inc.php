@@ -361,7 +361,7 @@ function conferences_get_config($engine) {
 function conferences_get_config_confbridge_helper($contextname, $roomnum, $roomoptions, $user_type) {
 	global $ext, $conferences_conf, $version, $amp_conf;
 
-	$user_type = strtolower($user_type);
+	$user_type - strtolower($user_type);
 	if ($user_type == 'admin') {
 		$ext->add($contextname, $roomnum, 'ADMIN', new ext_set('CONFBRIDGE(user,admin)','yes'));
 		$ext->add($contextname, $roomnum, '', new ext_set('CONFBRIDGE(user,marked)','yes'));
@@ -429,7 +429,7 @@ function conferences_check_extensions($exten=true) {
 
 	foreach ($results as $result) {
 		$thisexten = $result['exten'];
-		$extenlist[$thisexten]['description'] = dgettext("conferences","Conference: ").$result['description'];
+		$extenlist[$thisexten]['description'] = _("Conference: ").$result['description'];
 		$extenlist[$thisexten]['status'] = 'INUSE';
 		$extenlist[$thisexten]['edit_url'] = 'config.php?display=conferences&extdisplay='.urlencode($thisexten);
 	}

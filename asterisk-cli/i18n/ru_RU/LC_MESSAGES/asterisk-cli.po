@@ -44,5 +44,5 @@ msgstr ""
 msgid "Command:"
 msgstr "Команда:"
 
-msgid "Execute"
-msgstr "Выполнить"
+msgid "Execute:"
+msgstr "Выполнить:"

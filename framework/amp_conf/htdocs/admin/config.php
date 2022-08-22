@@ -1,7 +1,7 @@
 <?php 
-//  License for all code of this module can be found in the license file inside the module directory
-//  Copyright 2013 Schmooze Com Inc.
-//  Copyright 2022 Issabel Foundation
+//    License for all code of this module can be found in the license file inside the module directory
+//    Copyright 2013 Schmooze Com Inc.
+//
 
 if(is_file("issabel_issabelpbx_auth.php")) {
     require_once("issabel_issabelpbx_auth.php");
@@ -64,8 +64,6 @@ header('Content-Type: text/html; charset=utf-8');
 // __FILE__ path here.
 require_once(dirname(__FILE__) . '/libraries/ampuser.class.php');
 
-$php_missing_module = array();
-
 session_set_cookie_params(60 * 60 * 24 * 30);//(re)set session cookie to 30 days
 ini_set('session.gc_maxlifetime', 60 * 60 * 24 * 30);//(re)set session to 30 days
 if (!isset($_SESSION)) {
@@ -107,8 +105,7 @@ if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc
 
 /* If there is an action request then some sort of update is usually being done.
    This may protect from cross site request forgeries unless disabled.
- */
-
+*/
 if (!isset($no_auth) && $action != '' && $amp_conf['CHECKREFERER']) {
     if (isset($_SERVER['HTTP_REFERER'])) {
         $referer = parse_url($_SERVER['HTTP_REFERER']);
@@ -128,8 +125,8 @@ if (isset($no_auth) && empty($display)) {
 if (!in_array($display, array('noauth', 'badrefer')) 
     && isset($_REQUEST['handler'])
 ) {
-    $module = isset($_REQUEST['module']) ? $_REQUEST['module'] : '';
-    $file   = isset($_REQUEST['file'])   ? $_REQUEST['file']   : '';
+    $module = isset($_REQUEST['module'])    ? $_REQUEST['module']    : '';
+    $file     = isset($_REQUEST['file'])        ? $_REQUEST['file']        : '';
     fileRequestHandler($_REQUEST['handler'], $module, $file);
     exit();
 }
@@ -146,7 +143,7 @@ $ipbx_menu = array();
 $cur_menuitem = null;
 
 // add module sections to $ipbx_menu
-if(is_array($active_modules)) {
+if(is_array($active_modules)){
     foreach($active_modules as $key => $module) {
 
         //create an array of module sections to display
@@ -224,12 +221,8 @@ if(is_array($active_modules)) {
     }
 }
 
-if(!$admin_auth && $display=='modules') {
-    $display='noauth';
-} else {
-    if ($cur_menuitem === null && !in_array($display, array('noauth', 'badrefer','noaccess',''))) {
-        $display = 'noaccess';
-    }
+if ($cur_menuitem === null && !in_array($display, array('noauth', 'badrefer','noaccess',''))) {
+    $display = 'noaccess';
 }
 
 // new gui hooks
@@ -346,24 +339,24 @@ switch($display) {
         if (count(getAmpAdminUsers())) {
             //error message
             $login['errors'] = array();
+
             if ($config_vars['username'] && $action !== 'setup_admin') {
                 $login['errors'][] = _('Invalid Username or Password');
             }
-
-	    if($username != '' || $password != '') {
-	        $ip = whatsMyIP();
-	        issabelpbx_log(IPBX_LOG_SECURITY, "Invalid Login ($username) from $ip");
-	    }
+           
+            if($username != '' || $password != '') {
+                $ip = whatsMyIP();
+                issabelpbx_log(IPBX_LOG_SECURITY, "Invalid Login ($username) from $ip");
+            }
 
             //show fop option if enabled, probobly doesnt belong on the
             //login page
-	    $login['panel'] = false;
+            $login['panel'] = false;
             if (!empty($amp_conf['FOPWEBROOT']) 
                 && is_dir($amp_conf['FOPWEBROOT'])
             ){
                 $login['panel'] = str_replace($amp_conf['AMPWEBROOT'] ,
-			'', $amp_conf['FOPWEBROOT']);
-
+                        '', $amp_conf['FOPWEBROOT']);
             }
         
         
@@ -388,13 +381,7 @@ switch($display) {
         $module_name = $cur_menuitem['module']['rawname'];
         $module_page = $cur_menuitem['display'];
         $module_file = 'modules/'.$module_name.'/page.'.$module_page.'.php';
-
-        if($action=='resetnotifications') {
-            // Reset user add/edit/delete notifications, called via fetch when toast is destroyed
-            unset($_SESSION['msg']);
-            unset($_SESSION['msgtype']);
-            die();
-        } 
+        
         //TODO Determine which item is this module displaying.
         //Currently this is over the place, we should standardize on a 
         //"itemid" request var for now, we'll just cover all possibilities :-(
@@ -441,7 +428,7 @@ switch($display) {
         // global component
         if ( isset($currentcomponent) ) {
             modgettext::textdomain($module_name);
-            echo  $currentcomponent->generateconfigpage($itemid);
+            echo  $currentcomponent->generateconfigpage();
         }
 
         break;
@@ -501,7 +488,6 @@ if ($quietmode) {
     $footer['reload_needed'] = false; //we don't display the menu in this view so irrelivant
     $footer['footer_content'] = '';
     $footer['remove_rnav'] = true;
-    $footer['php_missing_module'] = $php_missing_module;
     $fw_gui_html .= load_view($amp_conf['VIEW_FOOTER'], $footer);
     echo $fw_gui_html;
 
@@ -532,11 +518,6 @@ if ($quietmode) {
 
     // set the language so local module languages take
     set_language();
-
-    // Check for required PHP modules
-    if (!extension_loaded('mbstring')) {
-        $php_missing_module[] = _('PHP mbstring module is not installed. Please install it to avoid issues with language/localization.');
-    }
 
     // send menu
     $menu['ipbx_menu']        = $ipbx_menu; //array of modules & settings
@@ -571,7 +552,6 @@ if ($quietmode) {
     $footer['footer_content']        = load_view($amp_conf['VIEW_FOOTER_CONTENT'], 
                                         $footer);
     $footer['covert'] ? $footer['no_auth']     = true : '';
-    $footer['php_missing_module'] = $php_missing_module;
     echo load_view($amp_conf['VIEW_FOOTER'], $footer);
 }
 ?>

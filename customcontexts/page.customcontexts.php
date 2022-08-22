@@ -15,8 +15,9 @@ $dispnum = 'customcontexts'; //used for switch on config.php
 ?>
 
 
+<div class="rnav">
 <?php 
 $contexts = customcontexts_getcontexts();
-drawListMenu($contexts, $type, $display, $extdisplay);
-echo "<div class='content'>";
+drawListMenu($contexts, $skip, $type, $display, $extdisplay, _("Class"));
 ?>
+</div>

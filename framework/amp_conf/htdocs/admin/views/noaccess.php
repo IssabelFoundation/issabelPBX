@@ -1,14 +1,8 @@
 <?php
 $html = '';
-
-$html.= "<article class='message is-warning'>
-  <div class='message-header'>
-    <p>"._('Not found')."</p>
-  </div>
-  <div class='message-body'>"._('The section you requested does not exist or you do not have access to it.')."
-  </div>
-  </article>
-  ";
-
+$html .= '<h2>' . _('Not found') .'</h2>';
+$html .= _('The section you requested does not exist or you do not have access '
+	. 'to it.');
+//show_view($amp_conf['VIEW_ISSABELPBX'], $template);
 echo $html;
 ?>

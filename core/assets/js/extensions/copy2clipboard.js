@@ -10,9 +10,9 @@ if (copyBtn != null) {
     try {
       var successful = document.execCommand('copy');
       if (successful) {
-            copyBtn.innerHTML='<i class="fa fa-check-circle has-text-success fa-fw"></i>';
+            copyBtn.innerHTML='&#10003;';
       } else {
-            copyBtn.innerHTML='<i class="fa fa-exclamation-circle has-text-danger fa-fw"></i>';
+            copyBtn.innerHTML='&#10007;';
       }
     } catch(err) {
       console.log('Oops, unable to copy');
@@ -24,7 +24,7 @@ if (copyBtn != null) {
   });
 }
 function myReturn() {
-    copyBtn.innerHTML='<i class="fa fa-clipboard fa-fw"></i>';
+    copyBtn.innerHTML='&#10064;';
     clearInterval(myTimer);
 }
 });

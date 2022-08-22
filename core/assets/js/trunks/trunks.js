@@ -1,11 +1,10 @@
-$(function() {
-    $('.sortable').each(function() {
-        Sortable.create(this, {
-            animation: 150,
-            onEnd: function(ui) {
-                $(ui.item).find('input').val($(ui.item).index());
-            }
+$(document).ready(function() {
+        $('.sortable').sortable(        {
+           update: function(event, ui) {
+                        //console.log(ui.item.find('input').val(), ui.item.index())
+                        ui.item.find('input').val(ui.item.index())
+                }
         });
-    });
+        
 });
 

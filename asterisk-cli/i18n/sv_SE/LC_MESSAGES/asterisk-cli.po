@@ -46,7 +46,7 @@ msgstr ""
 msgid "Command:"
 msgstr "Kommando"
 
-msgid "Execute"
+msgid "Execute:"
 msgstr "Utför"
 
 #~ msgid "System Administration"

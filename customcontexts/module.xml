@@ -2,7 +2,7 @@
 	<rawname>customcontexts</rawname>
 	<repo>unsupported</repo>
 	<name>Class of Service</name>
-	<version>2.12.0.0</version>
+	<version>2.11.0.2</version>
     <category>Connectivity</category>
     <embedcategory>Basic</embedcategory>
 	<license>GPLv2+</license>
@@ -12,22 +12,22 @@
 	</description>
 	<menuitems>
 		<customcontexts>Class of Service</customcontexts>
-		<customcontextsadmin category="Admin">Class of Service Admin</customcontextsadmin>
+		<customcontextsadmin>Class of Service Admin</customcontextsadmin>
 	</menuitems>
 	<depends>
 		<version>2.8.0alpha1</version>
 		<module>core</module>
 		<module>timeconditions</module>
 	</depends>
-    <changelog>
-        *2.12.0.0* Newer GUI, standarize module components
+	<changelog>
 		*2.11.0.2* Initial Issabel Foundation release
 	</changelog>
 	<attention>
 		This is an advanced module, and you should not use it without understanding asterisk dialplans! This is meant as a convenience tool for someone who would have had to resort to config editing. If you experience problems with it, just disable it and no harm done. REMEMBER! Any device placed in a restricted context will have no access to the dialplan if this module is disabled until it is placed in a normal context!
 	</attention>
 	<supported>
-		<version>2.12</version>
+		<version>2.10</version>
 	</supported>
-	<location>release/2.12/customcontexts-2.12.0.0.tgz</location>
+	<location>release/2.11/customcontexts-2.11.0.0.tgz</location>
+	<md5sum>8f10376a718611cf1cdbc01bf429abb9</md5sum>
 </module>

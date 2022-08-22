@@ -1,39 +1,58 @@
-prev_source ='';
-
 function edit_onsubmit() {
     defaultEmptyOK = false;
-    if (!$('#form_description').val().trim().length)
-        return warnInvalid($('#form_description'), errInvalidDescription);
+    if (!$.trim($('#form_description').val()).length)
+        return warnInvalid($('#form_description'), "Description Can Not Be Blank!");
     if ($('#sourcetype').val() == 'http' || $('#sourcetype').val() == 'https')    {
         if (!$.trim($('#http_host').val()).length)
-            return warnInvalid($('#http_host'), errInvalidHTTPHost);
+            return warnInvalid($('#http_host'), "Please enter a valid HTTP(S) Host name");
     }
     if ($('#sourcetype').val() == 'mysql')    {
         if (!$.trim($('#mysql_host').val()).length)
-            return warnInvalid($('#mysql_host'), errInvalidMysqlHost);
+            return warnInvalid($('#mysql_host'), "Please enter a valid MySQL Host name");
 
         if (!$.trim($('#mysql_dbname').val()).length)
-            return warnInvalid($('#mysql_dbname'), errInvalidMysqlDatabase);
+            return warnInvalid($('#mysql_dbname'), "Please enter a valid MySQL Database name");
 
         if (!$.trim($('#mysql_query').val()).length)
-            return warnInvalid($('#mysql_query'), errInvalidMysqlQuery);
+            return warnInvalid($('#mysql_query'), "Please enter a valid MySQL Query string");
 
         if (!$.trim($('#mysql_username').val()).length)
-            return warnInvalid($('#mysql_username'), errInvalidMysqlUsername);
+            return warnInvalid($('#mysql_username'), "Please enter a valid MySQL Username");
     }
     if ($('#sourcetype').val() == 'opencnam' && $('#opencnam_professional_tier').is(':checked'))    {
         if (!$.trim($('#opencnam_account_sid').val()).length)
-            return warnInvalid($('#opencnam_account_sid'), errInvalidAccountSID);
+            return warnInvalid($('#opencnam_account_sid'), "Please enter a valid Account SID");
 
         if (!$.trim($('#opencnam_auth_token').val()).length)
-            return warnInvalid($('#opencnam_auth_token'), errInvalidAuthToken);
+            return warnInvalid($('#opencnam_auth_token'), "Please enter a valid Auth Token");
     }
-    $.LoadingOverlay('show');
     return true;
 }
 
+$('#sourcetype').on('chosen:showing_dropdown', function(evt,params) {
+    prev_source = $(this).val();
+    prev_source = (prev_source == 'https') ? 'http' : prev_source;
+});
+
+$('#sourcetype').focus(function () {
+    prev_source = $(this).val();
+}).change(function() {
+    $('#'+prev_source).hide();
+    source = $(this).val();
+    source = (source == 'https') ? 'http' : source;
+    $('#'+source).show();
+    prev_source = source;
+});
+
+$('#opencnam_professional_tier').change(function() {
+    if($(this).is(':checked')) {
+        $('.opencnam_pro').show();
+    } else {
+        $('.opencnam_pro').hide();
+    }
+});
+
 function displayInitalSourceParameters() {
-    console.log('display initial');
     $.each(cid_modules, function(index, value) {
         $('#'+value).hide();
     });
@@ -42,40 +61,12 @@ function displayInitalSourceParameters() {
     $('#'+source).show();
 }
 
-//$(function() {
-up.compiler('.content', function() {
-    console.log('ready');
-    $('#form_description').trigger('focus');
-    $('#form_description').alphanum();
+$(function() {
+    $('#form_description').focus();
+    $('#form_description').alphanumeric();
     displayInitalSourceParameters();
-
     // By default, don't display OpenCNAM professional stuff unless needed.
     if(!$('#opencnam_professional_tier').is(':checked')) {
         $('.opencnam_pro').hide()
     }
-
-    $('#sourcetype').on('chosen:showing_dropdown', function(evt,params) {
-    prev_source = $(this).val();
-    prev_source = (prev_source == 'https') ? 'http' : prev_source;
-    });
-
-    $('#opencnam_professional_tier').on('change',function() {
-        if($(this).is(':checked')) {
-            $('.opencnam_pro').show();
-        } else {
-            $('.opencnam_pro').hide();
-        }
-    });
-
-    $('#sourcetype').on('focus',function () {
-        prev_source = $(this).val();
-    }).on('change',function() {
-        console.log('change');
-        $('#'+prev_source).hide();
-        source = $(this).val();
-        source = (source == 'https') ? 'http' : source;
-        $('#'+source).show();
-        prev_source = source;
-    });
-
 })

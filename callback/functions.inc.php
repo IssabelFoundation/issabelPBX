@@ -147,8 +147,8 @@ function callback_add($post){
 	if(!callback_chk($post))
 		return false;
 	extract($post);
-	if(empty($description)) $description = ${$goto0};
-	$results = sql("INSERT INTO callback (description,callbacknum,destination,deptname,sleep) values (\"$description\",\"$callbacknum\",\"${$goto0}\",\"$deptname\",\"$sleep\")");
+	if(empty($description)) $description = ${$goto0.'0'};
+	$results = sql("INSERT INTO callback (description,callbacknum,destination,deptname,sleep) values (\"$description\",\"$callbacknum\",\"${$goto0.'0'}\",\"$deptname\",\"$sleep\")");
 	if(method_exists($db,'insert_id')) {
 		$id = $db->insert_id();
 	} else {
@@ -161,8 +161,8 @@ function callback_edit($id,$post){
 	if(!callback_chk($post))
 		return false;
 	extract($post);
-	if(empty($description)) $description = ${$goto0};
-	$results = sql("UPDATE callback SET description = \"$description\", callbacknum = \"$callbacknum\", destination = \"${$goto0}\", deptname = \"$deptname\", sleep = \"$sleep\" WHERE callback_id = \"$id\"");
+	if(empty($description)) $description = ${$goto0.'0'};
+	$results = sql("UPDATE callback SET description = \"$description\", callbacknum = \"$callbacknum\", destination = \"${$goto0.'0'}\", deptname = \"$deptname\", sleep = \"$sleep\" WHERE callback_id = \"$id\"");
 }
 
 // ensures post vars is valid

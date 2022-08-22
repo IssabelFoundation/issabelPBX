@@ -243,18 +243,18 @@ foreach ($modes as $mode => $value) {
 ?>
 </ul></div>
 
-<div class='content'>
 <h2><span class="headerHostInfo"><?php echo _("Asterisk (Ver. ").$astver."): "._($modes[$extdisplay])?></span></h2>
 
-<form id="mainform" name="asteriskinfo" action="" method="post" onsubmit='return do_submit(this)'>
+<form name="asteriskinfo" action="" method="post">
 <input type="hidden" name="display" value="asteriskinfo"/>
 <input type="hidden" name="action" value="asteriskinfo"/>
+<table>
 
-<table >
+<table class="box">
 <?php
 if (!$astman) {
 ?>
-    <tr >
+    <tr class="boxheader">
         <td colspan="2" align="center"><h5><?php echo _("ASTERISK MANAGER ERROR")?></h5></td>
     </tr>
         <tr class="boxbody">
@@ -277,11 +277,14 @@ if (!$astman) {
         foreach ($$arr as $key => $value) {
                   if ($value) {
 ?>
-            <tr>
+            <tr class="boxheader">
                 <td colspan="2" align="center"><h5><?php echo _("$key")?></h5></td>
             </tr>
             <tr class="boxbody">
                 <td>
+                <table border="0" >
+                    <tr>
+                        <td>
                             <pre>
                                 <?php
                                 $response = $astman->send_request('Command',array('Command'=>$value));
@@ -289,6 +292,9 @@ if (!$astman) {
                                 echo ltrim($new_value,'Privilege: Command');
                                 ?>
                             </pre>
+                        </td>
+                    </tr>
+                </table>
                 </td>
             </tr>
         <?php
@@ -296,12 +302,18 @@ if (!$astman) {
             }
         } else {
     ?>
-            <tr >
+            <tr class="boxheader">
                 <td colspan="2" align="center"><h5><?php echo _("Summary")?></h5></td>
             </tr>
             <tr class="boxbody">
                 <td>
+                <table border="0">
+                    <tr>
+                        <td>
                             <?php echo buildAsteriskInfo($astver); ?>
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
 <?php
@@ -309,32 +321,17 @@ if (!$astman) {
 }
 ?>
     </table>
+<tr>
+    <td colspan="2"><h6><input name="Submit" type="submit" value="<?php echo _("Refresh")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
+</tr>
 </table>
-<script>
-function do_submit(theForm) {
-    $.LoadingOverlay('show');
-    return true;
-}
+
+<script language="javascript">
+<!--
+var theForm = document.asteriskinfo;
+//-->
 </script>
 </form>
-
-</div>
-
-
-<div id='action-bar' class=''>
-    <div id='action-buttons'>
-      <a id='collapseactionmenuicon' class='action_menu_icon'><i class='fa fa-angle-double-right'></i></a>
-     <input name="Submit" type="button" class="button is-rounded is-small is-light is-link" id="mainformsubmit" value="<?php echo _("Refresh")?>" tabindex="<?php echo ++$tabindex;?>">
-
-<!--button type="submit" class="button is-link is-light is-small is-rounded" id="page_reload">
-<?php echo _("Refresh Page"); ?>
-</button-->
-</div></div>
-
-
-<!--div id='action-bar'>
-<input name="Submit" type="button" class="button is-rounded is-small is-light is-link" id="mainformsubmit" value="<?php echo _("Refresh")?>" tabindex="<?php echo ++$tabindex;?>">
-</div-->
 
 <?php
 
@@ -512,9 +509,9 @@ function buildAsteriskInfo($astver){
     $sipregistry = _("Sip Registry: ");
     $sippeers = _("Sip Peers: ");
 
-    $activepjsipchannels = _("Active PJSIP Channel(s)").": ";
-    $pjsipregistrations = _("PJSip Registrations").": ";
-    $pjsipendpoints = _("PJSip Endpoints").": ";
+    $activepjsipchannels = _("Active PJSIP Channel(s): ");
+    $pjsipregistrations = _("PJSip Registrations: ");
+    $pjsipendpoints = _("PJSip Endpoints: ");
 
     $activeiax2channels = _("Active IAX2 Channel(s): ");
     $iax2registry = _("IAX2 Registry: ");
@@ -549,21 +546,13 @@ function buildAsteriskInfo($astver){
         $arr[$uptime] = 'core show uptime';
     }
 
-    $htmlOutput  = '<div>';
-    $htmlOutput  .= '<table class="table is-borderless" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;">';
+    $htmlOutput  = '<div style="color:#000000;font-size:12px;margin:10px;">';
+    $htmlOutput  .= '<table border="1" cellpadding="10">';
 
     foreach ($arr as $key => $value) {
 
         $response = $astman->send_request('Command',array('Command'=>$value));
-
-        $response_translated = $response['data'];
-        $response_translated = preg_replace("/Last reload/",_('Last reload'),$response_translated);
-        $response_translated = preg_replace("/minute/",_('minute'),$response_translated);
-        $response_translated = preg_replace("/hour/",_('hour'),$response_translated);
-        $response_translated = preg_replace("/second/",_('second'),$response_translated);
-        $response_translated = preg_replace("/day/",_('day'),$response_translated);
-
-        $astout = explode("\n",$response_translated);
+        $astout = explode("\n",$response['data']);
 
         switch ($key) {
             case $uptime:
@@ -620,8 +609,8 @@ function buildAsteriskInfo($astver){
                 }
                 $htmlOutput .= '<tr>';
               if (version_compare($astver, '1.4', 'ge')) {
-                  $htmlOutput .= "<td>".$key."<br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Online: ").$sipPeer_arr['online']."<br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Online-Unmonitored").": ".$sipPeer_arr['online-unmonitored'];
-          $htmlOutput .= "<br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Offline: ")."<span style=\"color:".$sipPeerColor.";font-weight:bold;\">".$sipPeer_arr['offline']."</span><br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Offline-Unmonitored").": "."<span style=\"color:".$sipPeerColor.";font-weight:bold;\">".$sipPeer_arr['offline-unmonitored']."</span></td>";
+                  $htmlOutput .= "<td>".$key."<br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Online: ").$sipPeer_arr['online']."<br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Online-Unmonitored: ").$sipPeer_arr['online-unmonitored'];
+          $htmlOutput .= "<br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Offline: ")."<span style=\"color:".$sipPeerColor.";font-weight:bold;\">".$sipPeer_arr['offline']."</span><br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Offline-Unmonitored: ")."<span style=\"color:".$sipPeerColor.";font-weight:bold;\">".$sipPeer_arr['offline-unmonitored']."</span></td>";
         } else {
                   $htmlOutput .= "<td>".$key."<br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Online: ").$sipPeer_arr['online']."<br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Offline: ")."<span style=\"color:".$sipPeerColor.";font-weight:bold;\">".$sipPeer_arr['offline']."</span></td>";
         }
@@ -634,8 +623,8 @@ function buildAsteriskInfo($astver){
                 }else{
                     $pjsipPeerColor = '#000000';
                 }
-                $htmlOutput .= "<td>".$key."<br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Available").": ".$pjsipPeer_arr['available']."<br />";
-                $htmlOutput .= "&nbsp;&nbsp;&nbsp;&nbsp;"._("Unavailable").": "."<span style=\"color:".$pjsipPeerColor.";font-weight:bold;\">".$pjsipPeer_arr['unavailable']."</span><br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Unknown").": "."<span style=\"color:".$pjsipPeerColor.";font-weight:bold;\">".$pjsipPeer_arr['unknown']."</span></td>";
+                $htmlOutput .= "<td>".$key."<br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Available: ").$pjsipPeer_arr['available']."<br />";
+                $htmlOutput .= "&nbsp;&nbsp;&nbsp;&nbsp;"._("Unavailable: ")."<span style=\"color:".$pjsipPeerColor.";font-weight:bold;\">".$pjsipPeer_arr['unavailable']."</span><br />&nbsp;&nbsp;&nbsp;&nbsp;"._("Unknown: ")."<span style=\"color:".$pjsipPeerColor.";font-weight:bold;\">".$pjsipPeer_arr['unknown']."</span></td>";
 
             break;
             case $iax2peers:
