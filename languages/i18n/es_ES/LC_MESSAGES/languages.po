@@ -72,8 +72,8 @@ msgstr ""
 "francés. El idioma del canal de la llamada será ahora el francés. Esto hará "
 "que se usen los sonidos y las locuciones en francés si están disponibles."
 
-msgid "Edit Language Instance"
-msgstr "Modificar instancia de idioma"
+msgid "Edit Language"
+msgstr "Modificar idioma"
 
 msgid "Add Language Instance"
 msgstr "Añadir instancia de idioma"
