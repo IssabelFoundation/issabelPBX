@@ -7,9 +7,9 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   $tabindex       = 0;
   $dispnum        = "iaxsettings";
   $error_displays = array();
-  $action                            = isset($_POST['action'])?$_POST['action']:'';
-	$post_codec = isset($_POST['codec']) ? $_POST['codec'] : array(); 
-	$post_vcodec = isset($_POST['vcodec']) ? $_POST['vcodec'] : array(); 
+  $action         = isset($_POST['action'])?$_POST['action']:'';
+  $post_codec     = isset($_POST['codec']) ? $_POST['codec'] : array(); 
+  $post_vcodec    = isset($_POST['vcodec']) ? $_POST['vcodec'] : array(); 
 	
   $codecs = array(
     'ulaw'     => '',
@@ -97,8 +97,10 @@ switch ($action) {
     if (($errors = iaxsettings_edit($iax_settings)) !== true) {
       $error_displays = process_errors($errors);
     } else {
-      needreload();
-      //redirect_standard();
+        needreload();
+        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
+        redirect_standard();
     }
   break;
   default:
@@ -108,6 +110,8 @@ switch ($action) {
 $error_displays = array_merge($error_displays,iaxsettings_check_custom_files());
 
 ?>
+<div class='content'>
+
   <h2><?php echo _("Edit IAX Settings"); ?></h2>
 
 <?php
@@ -128,9 +132,9 @@ $error_displays = array_merge($error_displays,iaxsettings_check_custom_files());
   extract($iax_settings);
 
 ?>
-  <form autocomplete="off" name="editIax" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+  <form autocomplete="off" id="mainform" name="editIax" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
   <input type="hidden" name="action" value="edit">
-  <table width="690px">
+  <table class='table is-borderless is-narrow'>
 
 <?php
   /* if there were erros on the submit then create error box */
@@ -193,16 +197,7 @@ echo '</ul>';
       <table width="100%">
         <tr>
           <td>
-				<span class="radioset">
-            <input id="codecpriority-host" type="radio" name="codecpriority" value="host" tabindex="<?php echo ++$tabindex;?>"<?php echo $codecpriority=="host"?"checked=\"host\"":""?>/>
-            <label for="codecpriority-host">host</label>
-            <input id="codecpriority-caller" type="radio" name="codecpriority" value="caller" tabindex="<?php echo ++$tabindex;?>"<?php echo $codecpriority=="caller"?"checked=\"caller\"":""?>/>
-            <label for="codecpriority-caller">caller</label>
-            <input id="codecpriority-disabled" type="radio" name="codecpriority" value="disabled" tabindex="<?php echo ++$tabindex;?>"<?php echo $codecpriority=="disabled"?"checked=\"disabled\"":""?>/>
-            <label for="codecpriority-disabled">disabled</label>
-            <input id="codecpriority-regonly" type="radio" name="codecpriority" value="regonly" tabindex="<?php echo ++$tabindex;?>"<?php echo $codecpriority=="regonly"?"checked=\"regonly\"":""?>/>
-            <label for="codecpriority-regonly">regonly</label>
-				</span>
+<?php echo ipbx_radio('codecpriority',array(array('value'=>'host','text'=>'host'),array('value'=>'caller','text'=>'caller'),array('value'=>'disabled','text'=>'disabled'),array('value'=>'regonly','text'=>'regonly')),$codecpriority,false); ?>
           </td>
         </tr>
       </table>
@@ -217,16 +212,7 @@ echo '</ul>';
       <table width="100%">
         <tr>
           <td>
-			<span class="radioset">
-            <input id="bandwidth-low" type="radio" name="bandwidth" value="low" tabindex="<?php echo ++$tabindex;?>"<?php echo $bandwidth=="low"?"checked=\"low\"":""?>/>
-            <label for="bandwidth-low"><?php echo _("low") ?></label>
-            <input id="bandwidth-medium" type="radio" name="bandwidth" value="medium" tabindex="<?php echo ++$tabindex;?>"<?php echo $bandwidth=="medium"?"checked=\"medium\"":""?>/>
-            <label for="bandwidth-medium"><?php echo _("medium") ?></label>
-            <input id="bandwidth-high" type="radio" name="bandwidth" value="high" tabindex="<?php echo ++$tabindex;?>"<?php echo $bandwidth=="high"?"checked=\"high\"":""?>/>
-            <label for="bandwidth-high"><?php echo _("high") ?></label>
-            <input id="bandwidth-unset" type="radio" name="bandwidth" value="unset" tabindex="<?php echo ++$tabindex;?>"<?php echo $bandwidth=="unset"?"checked=\"unset\"":""?>/>
-            <label for="bandwidth-unset"><?php echo _("unset") ?></label>
-			</span>
+<?php echo ipbx_radio('bandwidth',array(array('value'=>'low','text'=>_('low')),array('value'=>'medium','text'=>_('medium')),array('value'=>'high','text'=>_('high')),array('value'=>'unset','text'=>_('unset'))),$bandwidth,false); ?>
           </td>
         </tr>
       </table>
@@ -245,12 +231,7 @@ echo '</ul>';
       <table width="100%">
         <tr>
           <td>
-			<span class="radioset">
-            <input id="videosupport-yes" type="radio" name="videosupport" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $videosupport=="yes"?"checked=\"yes\"":""?>/>
-            <label for="videosupport-yes"><?php echo _("Enabled") ?></label>
-            <input id="videosupport-no" type="radio" name="videosupport" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $videosupport=="no"?"checked=\"no\"":""?>/>
-            <label for="videosupport-no"><?php echo _("Disabled") ?></label>
-			</span>
+<?php echo ipbx_radio('videosupport',array(array('value'=>'yes','text'=>_('Enabled')),array('value'=>'no','text'=>_('Disabled'))),$videosupport,false); ?>
           </td>
         </tr>
       </table>
@@ -297,8 +278,8 @@ echo '</ul>';
       <a href="#" class="info"><?php echo _("Registration Times")?><span><?php echo _("Asterisk: minregexpire, maxregexpire. Minimum and maximum length of time that IAX peers can request as a registration expiration interval (in seconds).")?></span></a>
     </td>
     <td>
-      <input type="text" size="2" id="minregexpire" name="minregexpire" class="validate-int" value="<?php echo $minregexpire ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(minregexpire)</small>&nbsp;
-      <input type="text" size="3" id="maxregexpire" name="maxregexpire" class="validate-int" value="<?php echo $maxregexpire ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(maxregexpire)</small>&nbsp;
+      <input type="text" class='input' style='width:4em;' id="minregexpire" name="minregexpire" class="validate-int" value="<?php echo $minregexpire ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(minregexpire)</small>&nbsp;
+      <input type="text" class='input' style='width:4em;' id="maxregexpire" name="maxregexpire" class="validate-int" value="<?php echo $maxregexpire ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(maxregexpire)</small>&nbsp;
     </td>
   </tr>
 
@@ -314,12 +295,7 @@ echo '</ul>';
       <table width="100%">
         <tr>
           <td>
-			<span class="radioset">
-            <input id="jitterbuffer-yes" type="radio" name="jitterbuffer" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $jitterbuffer=="yes"?"checked=\"yes\"":""?>/>
-            <label for="jitterbuffer-yes"><?php echo _("Enabled") ?></label>
-            <input id="jitterbuffer-no" type="radio" name="jitterbuffer" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $jitterbuffer=="no"?"checked=\"no\"":""?>/>
-            <label for="jitterbuffer-no"><?php echo _("Disabled") ?></label>
-			</span>
+<?php echo ipbx_radio('jitterbuffer',array(array('value'=>'yes','text'=>_('Enabled')),array('value'=>'no','text'=>_('Disabled'))),$jitterbuffer,false); ?>
           </td>
         </tr>
       </table>
@@ -334,12 +310,7 @@ echo '</ul>';
       <table width="100%">
         <tr>
           <td>
-			<span class="radioset">
-            <input id="forcejitterbuffer-yes" type="radio" name="forcejitterbuffer" class="jitter-buffer" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $forcejitterbuffer=="yes"?"checked=\"yes\"":""?>/>
-            <label for="forcejitterbuffer-yes"><?php echo _("Yes") ?></label>
-            <input id="forcejitterbuffer-no" type="radio" name="forcejitterbuffer" class="jitter-buffer" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $forcejitterbuffer=="no"?"checked=\"no\"":""?>/>
-            <label for="forcejitterbuffer-no"><?php echo _("No") ?></label>
-			<span>
+<?php echo ipbx_radio('forcejitterbuffer',array(array('value'=>'yes','text'=>_('Yes')),array('value'=>'no','text'=>_('No'))),$forcejitterbuffer,false); ?>
           </td>
         </tr>
       </table>
@@ -351,8 +322,8 @@ echo '</ul>';
       <a href="#" class="info"><?php echo _("Jitter Buffer Size")?><span><?php echo _("Asterisk: maxjitterbuffer. Max length of the jitterbuffer in milliseconds.<br /> Asterisk: resyncthreshold. When the jitterbuffer notices a significant change in delay that continues over a few frames, it will resync, assuming that the change in delay was caused by a timestamping mix-up. The threshold for noticing a change in delay is measured as twice the measured jitter plus this resync threshold. Resyncing can be disabled by setting this parameter to -1.")?></span></a>
     </td>
     <td>
-      <input type="text" size="4" id="maxjitterbuffer" name="maxjitterbuffer" class="jitter-buffer validate-int" value="<?php echo $maxjitterbuffer ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(maxjitterbuffer)</small>&nbsp;
-      <input type="text" size="4" id="resyncthreshold" name="resyncthreshold" class="jitter-buffer validate-int" value="<?php echo $resyncthreshold ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(resyncthreshold)</small>&nbsp;
+      <input type="text" class="input" style="width:4em;" id="maxjitterbuffer" name="maxjitterbuffer" class="jitter-buffer validate-int" value="<?php echo $maxjitterbuffer ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(maxjitterbuffer)</small>&nbsp;
+      <input type="text" class="input" style="width:4em;" id="resyncthreshold" name="resyncthreshold" class="jitter-buffer validate-int" value="<?php echo $resyncthreshold ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(resyncthreshold)</small>&nbsp;
     </td>
   </tr>
 
@@ -361,7 +332,7 @@ echo '</ul>';
       <a href="#" class="info"><?php echo _("Max Interpolations")?><span><?php echo _("Asterisk: maxjitterinterps. The maximum number of interpolation frames the jitterbuffer should return in a row. Since some clients do not send CNG/DTX frames to indicate silence, the jitterbuffer will assume silence has begun after returning this many interpolations. This prevents interpolating throughout a long silence.")?></span></a>
     </td>
     <td>
-      <input type="text" size="4" id="maxjitterinterps" name="maxjitterinterps" class="jitter-buffer validate-int" value="<?php echo $maxjitterinterps ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input type="text" class="input" id="maxjitterinterps" name="maxjitterinterps" class="jitter-buffer validate-int" value="<?php echo $maxjitterinterps ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
@@ -374,7 +345,7 @@ echo '</ul>';
       <a href="#" class="info"><?php echo _("Language")?><span><?php echo _("Default Language for a channel, Asterisk: language")?></span></a>
     </td>
     <td>
-      <input type="text" id="iax_language" name="iax_language" class="validate-alphanumeric" value="<?php echo $iax_language ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input type="text" class="input" id="iax_language" name="iax_language" class="validate-alphanumeric" value="<?php echo $iax_language ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
@@ -383,7 +354,7 @@ echo '</ul>';
       <a href="#" class="info"><?php echo _("Bind Address")?><span><?php echo _("Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. To bind to multiple IP addresses or ports, use the Other 'IAX Settings' fields where you can put settings such as:<br /> bindaddr=192.168.10.100:4555.<br />  It is recommended to leave this blank.")?></span></a>
     </td>
     <td>
-      <input type="text" id="bindaddr" name="bindaddr" class="validate-ip" value="<?php echo $bindaddr ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input type="text" class="input" id="bindaddr" name="bindaddr" class="validate-ip" value="<?php echo $bindaddr ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
@@ -392,7 +363,7 @@ echo '</ul>';
       <a href="#" class="info"><?php echo _("Bind Port")?><span><?php echo _("Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and listen for IAX messages. The IAX standard is 4569 and in most cases this is what you want. It is recommended to leave this blank.")?></span></a>
     </td>
     <td>
-      <input type="text" id="bindport" name="bindport" class="validate-ip-port" value="<?php echo $bindport ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input type="text" class="input" id="bindport" name="bindport" class="validate-ip-port" value="<?php echo $bindport ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
@@ -404,12 +375,7 @@ echo '</ul>';
       <table width="100%">
         <tr>
           <td>
-			<span class="radioset">
-            <input id="delayreject-yes" type="radio" name="delayreject" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $delayreject=="yes"?"checked=\"yes\"":""?>/>
-            <label for="delayreject-yes"><?php echo _("Enable") ?></label>
-            <input id="delayreject-no" type="radio" name="delayreject" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $delayreject=="no"?"checked=\"no\"":""?>/>
-            <label for="delayreject-no"><?php echo _("Disable") ?></label>
-			</span>
+<?php echo ipbx_radio('delayreject',array(array('value'=>'yes','text'=>_('Enable')),array('value'=>'no','text'=>_('Disable'))),$delayreject,false); ?>
           </td>
         </tr>
       </table>
@@ -423,8 +389,8 @@ echo '</ul>';
       <a href="#" class="info"><?php echo _("Other IAX Settings")?><span><?php echo _("You may set any other IAX settings not present here that are allowed to be configured in the General section of iax.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields. Blank boxes will be deleted when submitted.")?></span></a>
     </td>
     <td>
-      <input type="text" id="iax_custom_key_0" name="iax_custom_key_0" class="iax-custom" value="<?php echo $iax_custom_key_0 ?>" tabindex="<?php echo ++$tabindex;?>"> =
-      <input type="text" id="iax_custom_val_0" name="iax_custom_val_0" value="<?php echo $iax_custom_val_0 ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input type="text" class="input iax-custom" style="width:10em;" id="iax_custom_key_0" name="iax_custom_key_0" value="<?php echo $iax_custom_key_0 ?>" tabindex="<?php echo ++$tabindex;?>"> =
+      <input type="text" class="input" style="width:10em;" id="iax_custom_val_0" name="iax_custom_val_0" value="<?php echo $iax_custom_val_0 ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
@@ -440,11 +406,11 @@ echo '</ul>';
     <td>
     </td>
     <td>
-      <input type="text" id="iax_custom_key_$idx" name="iax_custom_key_$idx" class="iax-custom" value="{$$var_iax_custom_key}" tabindex="$tabindex"> =
+      <input type="text" class="input iax-custom" id="iax_custom_key_$idx" name="iax_custom_key_$idx" value="{$$var_iax_custom_key}" tabindex="$tabindex"> =
 END;
       $tabindex++;
       echo <<< END
-      <input type="text" id="iax_custom_val_$idx" name="iax_custom_val_$idx" value="{$$var_iax_custom_val}" tabindex="$tabindex">
+      <input type="text" class="input" id="iax_custom_val_$idx" name="iax_custom_val_$idx" value="{$$var_iax_custom_val}" tabindex="$tabindex">
     </td>
   </tr>
 END;
@@ -458,42 +424,39 @@ END;
   <tr id="iax-custom-buttons">
     <td></td>
     <td><br \>
-      <input type="button" id="iax-custom-add"  value="<?php echo _("Add Field")?>" />
+      <input type="button" id="iax-custom-add" class="button is-small is-rounded" value="<?php echo _("Add Field")?>" />
     </td>
   </tr>
 
-  <tr>
-    <td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
-  </tr>
 </table>
-<script language="javascript">
-<!--
-$(document).ready(function(){
+</form>
+<script>
+$(function(){
 
   /* Add a Custom Var / Val textbox */
-  $("#iax-custom-add").click(function(){
+  $("#iax-custom-add").on('click',function(){
     addCustomField("","");
   });
 
   /* Initialize Video Support settings and show/hide */
-  if (document.getElementById("videosupport-no").checked) {
+  if (document.getElementById("videosupport1").checked) {
     $(".video-codecs").hide();
   }
-  $("#videosupport-yes").click(function(){
+  $("#videosupport0").on('click',function(){
     $(".video-codecs").show();
   });
-  $("#videosupport-no").click(function(){
+  $("#videosupport1").on('click',function(){
     $(".video-codecs").hide();
   });
 
   /* Initialize Jitter Buffer settings and show/hide */
-  if (document.getElementById("jitterbuffer-no").checked) {
+  if (document.getElementById("jitterbuffer1").checked) {
     $(".jitter-buffer").hide();
   }
-  $("#jitterbuffer-yes").click(function(){
+  $("#jitterbuffer0").on('click',function(){
     $(".jitter-buffer").show();
   });
-  $("#jitterbuffer-no").click(function(){
+  $("#jitterbuffer1").on('click',function(){
     $(".jitter-buffer").hide();
   });
 <?php
@@ -510,7 +473,7 @@ var theForm = document.editIax;
 
 /* Insert a iax_setting/iax_value pair of text boxes */
 function addCustomField(key, val) {
-  var idx = $(".iax-custom").size();
+  var idx = $(".iax-custom").length;
   var idxp = idx - 1;
   var tabindex = parseInt($("#iax_custom_val_"+idxp).attr('tabindex')) + 1;
   var tabindexp = tabindex + 1;
@@ -520,15 +483,17 @@ function addCustomField(key, val) {
     <td>\
     </td>\
     <td>\
-      <input type="text" id="iax_custom_key_'+idx+'" name="iax_custom_key_'+idx+'" class="iax-custom" value="'+key+'" tabindex="'+tabindex+'"> =\
-      <input type="text" id="iax_custom_val_'+idx+'" name="iax_custom_val_'+idx+'" value="'+val+'" tabindex="'+tabindexp+'">\
+      <input class="input iax-custom" style="width:10em;" type="text" id="iax_custom_key_'+idx+'" name="iax_custom_key_'+idx+'" value="'+key+'" tabindex="'+tabindex+'"> =\
+      <input class="input" style="width:10em;" type="text" id="iax_custom_val_'+idx+'" name="iax_custom_val_'+idx+'" value="'+val+'" tabindex="'+tabindexp+'">\
     </td>\
   </tr>\
   ');
 }
-//-->
+<?php echo js_display_confirmation_toasts(); ?>
 </script>
-</form>
+
+</div>
+<?php echo form_action_bar(''); ?>
 <?php		
 
 /********** UTILITY FUNCTIONS **********/

@@ -85,8 +85,8 @@ msgstr "добавлены ulaw, alaw, gsm"
 msgid "already exists"
 msgstr "уже существует"
 
-msgid "Edit IAX Settings"
-msgstr "Редактирование настроек IAX"
+msgid "Edit Settings"
+msgstr "Редактирование настроек"
 
 msgid "ERRORS"
 msgstr "ОШИБКИ"
