@@ -132,6 +132,15 @@ function ttsengine_add($description, $ttsengine_engine, $ttsengine_cmd, $ttsengi
     }
 }
 
+function ttsengine_delete($tts_id) {
+    global $db;
+    $sql = "DELETE FROM tts_engines WHERE ttsengine_id = ".$db->escapeSimple($tts_id);
+    $result = $db->query($sql);
+    if($db->IsError($result)) {
+        die_issabelpbx($result->getMessage().$sql);
+    }
+}
+
 function tts_delete($tts_id) {
     global $db;
     $sql = "DELETE FROM tts WHERE tts_id = ".$db->escapeSimple($tts_id);

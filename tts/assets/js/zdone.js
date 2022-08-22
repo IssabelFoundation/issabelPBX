@@ -25,7 +25,7 @@ $(document).ready(function() {
     }
 });
 
-$('#ttsengine_engine').change(function(){
+$('#ttsengine_engine').on('change',function(){
     updateTemplate(0);
 });
 
