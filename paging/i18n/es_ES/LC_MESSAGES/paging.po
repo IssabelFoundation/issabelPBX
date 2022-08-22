@@ -34,13 +34,13 @@ msgid ""
 msgstr ""
 
 msgid "Intercom prefix"
-msgstr "Prefijo Intercom"
+msgstr "Prefijo Intercomunicador"
 
 msgid "User Intercom Allow"
-msgstr "Permitir Intercom a Usuario"
+msgstr "Permitir Intercomunicador a Usuario"
 
 msgid "User Intercom Disallow"
-msgstr "iDenegar Intercom a Usuario"
+msgstr "Denegar Intercomunicador a Usuario"
 
 msgid "Disabled"
 msgstr ""
@@ -58,20 +58,20 @@ msgid ""
 "configured)."
 msgstr ""
 "Este módulo permite configurar grupos de voceo e intercomunicador para dispositivos "
-"que soporten dicha funcionalidad. Intercom se configura mediante <b>Códigos de Características</b/. "
-"Intercom debe ser habilitado en los dispositivos para que acepte llamadas entrantes. Es "
+"que soporten dicha funcionalidad. Intercomunicador se configura mediante <b>Códigos de Características</b/. "
+"Intercomunicador debe ser habilitado en los dispositivos para que acepte llamadas entrantes. Es "
 "posible restringir llamadas de intercomunicación a extensiones específicas, o permitirlo para "
 "todas pero restringirlo en algunas en particular.<br /><br /> Este módulo "
 "funciona con teléfonos Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, SNOM y otros. "
 "Cualquier teléfono que pueda configurarse para atender automáticamente puede ser usado también, "
-"como ser la extensión de consola si se configura aprpiadamente."
+"como ser la extensión de consola si se configura apropiadamente."
 
 #, php-format
 msgid "Example  usage:"
 msgstr "Ejemplo de uso:"
 
 msgid "Intercom extension nnn"
-msgstr "Extensión de Intercom nnn"
+msgstr "Extensión de Intercomunicador nnn"
 
 msgid "Enable all extensions to intercom you (except those explicitly denied)"
 msgstr "Permitir a todas las extensiones a intercomunicarse con usted (excepto las denegadas  explícitamente)"
@@ -89,8 +89,8 @@ msgid ""
 "Intercom mode is currently disabled, it can be enabled in the Feature Codes "
 "Panel."
 msgstr ""
-"El modo Intercom está actualmente desactivado. Puedo habilitarlo desde el menú "
-"Códigos de Características."
+"El modo Intercomunicador está actualmente desactivado. Puedo habilitarlo desde el menú "
+"Códigos de característica."
 
 #, php-format
 msgid "Delete Group %s"
@@ -220,7 +220,7 @@ msgid "Paging"
 msgstr "Voceo e Intercomunicador"
 
 msgid "Paging and Intercom settings"
-msgstr "Configuración de Voceo e Intercom"
+msgstr "Configuración de Voceo e Intercomunicador"
 
 msgid "Auto-answer defaults"
 msgstr "Auto-atender por omisión"
@@ -290,3 +290,12 @@ msgstr "Forzar"
 
 msgid "Delete"
 msgstr "Eliminar"
+
+msgid "Example usage"
+msgstr "Ejemplo de uso"
+
+msgid "Invalid description specified"
+msgstr "La descripción especificada no es válida"
+
+msgid "Invalid extension specified"
+msgstr "La extensión especificada no es válida"

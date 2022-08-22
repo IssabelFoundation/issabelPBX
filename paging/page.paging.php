@@ -33,8 +33,11 @@ if ($vars['Submit'] == _('Delete')) {
 //action actions
 switch ($vars['action']) {
 	case 'delete':
-		paging_del($vars['extdisplay']);
-		break;
+        paging_del($vars['extdisplay']);
+        needreload();
+        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msgtype']='warning';
+        redirect_standard();
 	case 'submit':
 		//TODO: issue, we are deleting and adding at the same time so remeber later to check
 		//      if we are deleting a destination
@@ -69,7 +72,10 @@ switch ($vars['action']) {
 			if ($vars['extdisplay'] === '') {
 				$_REQUEST['extdisplay'] =
 				$vars['extdisplay'] = $vars['pagenbr'];
-			}
+            }
+            needreload(); 
+            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msgtype']='success';
 			redirect_standard('extdisplay', 'action');
 		}
 		break;
@@ -121,16 +127,30 @@ echo load_view(dirname(__FILE__) . '/views/rnav.php', $vars);
 
 //view actions
 switch ($vars['action']) {
+	case '':
 	case 'add':
 	case 'modify':
-	case 'submit':
-		if ($vars['extdisplay']) {
+    case 'submit':
+
+        /*
+        if($action=='') {
+            if($vars['extdisplay']=='' || $vars['extdisplay']==-1) {
+                overview();
+                break;
+            } else if(!$vars['extdisplay']) {
+                overview();
+                break;
+
+            }
+        }*/
+
+        if ($vars['extdisplay']) {
 			$vars = array_merge($vars, paging_get_pagingconfig($vars['extdisplay']));
 			$vars['devices'] = paging_get_devs($vars['extdisplay']);
-		} else {
+        } else {
 			$vars['devices'] = array();
 		}
-		$vars['hooks'] = $module_hook->hookHtml;
+        $vars['hooks'] = process_tabindex($module_hook->hookHtml,$tabindex);
 		foreach (core_devices_list() as $d) {
 			$vars['device_list'][$d[0]] = $d[0] . ' - ' . $d[1];
 		}
@@ -170,11 +190,18 @@ switch ($vars['action']) {
 					}
 				}
 			}
-		}
+        }
+        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
 		echo load_view(dirname(__FILE__) . '/views/settings.php', $vars);
 		break;
 	case 'delete':
-	default:
+    default:
+        //overview();
+		break;
+}
+
+function overview() {
 		$disabled = '(' . _('Disabled') . ')';
 
 		$fcc = new featurecode('paging', 'intercom-prefix');
@@ -196,6 +223,6 @@ switch ($vars['action']) {
 		}
 
 		echo load_view(dirname(__FILE__) . '/views/overview.php', $vars);
-		break;
+
 }
 ?>

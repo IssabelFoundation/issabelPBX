@@ -27,5 +27,21 @@ foreach ($groups as $group) {
 			. '</a>';
 }
 
-echo '<div class="rnav">' . ul($li) . '</div>';
+//echo '<div class="rnav">' . ul($li) . '</div>';
+
+
+
+$rnaventries = array();
+//$rnaventries[] = array('-1',_('Overview'),'','','');
+$rnaventries[] = array('',_('General Settings'),'','','&action=settings',false);
+
+foreach ($groups as $group) {
+    $rnaventries[] = array($group['page_group'],$group['description'],'');
+}
+
+if($extdisplay=="") { $extdisplay='-1'; }
+drawListMenu($rnaventries, $type, $display, $extdisplay, '&action=add');
+
+
 ?>
+<div class='content'>

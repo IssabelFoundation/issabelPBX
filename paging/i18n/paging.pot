@@ -181,3 +181,12 @@ msgid ""
 "feature codes to block/allow intercom calls to all users as well as blocking "
 "specific users or only allowing specific users."
 msgstr ""
+
+msgid "Example usage"
+msgstr ""
+
+msgid "Invalid description specified"
+msgstr ""
+
+msgid "Invalid extension specified"
+msgstr ""
