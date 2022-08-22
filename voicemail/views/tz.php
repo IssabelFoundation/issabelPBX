@@ -1,12 +1,4 @@
-<table border='0' cellpadding='0.3px' cellspacing='2px' width="75%">
-	<tr>
-		<td colspan='2'>
-			<hr />
-		</td>
-		<td>
-			
-		</td>
-	</tr>
+<table class='table is-borderless mt-2'>
 	<tr>
 		<td style='max-width: 60px' colspan='2'>
 			<?php echo _("A timezone definition specifies how the Voicemail system announces the time.") ?>
@@ -18,14 +10,6 @@
 	<tr>
 		<td style='max-width: 60px' colspan='2'>
 			<?php echo  _("For example, the time a message was left will be announced according to the user's timezone on message playback.") ?>
-		</td>
-		<td>
-			
-		</td>
-	</tr>
-	<tr>
-		<td>
-			
 		</td>
 		<td>
 			
@@ -45,14 +29,6 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan='2'>
-			<hr />
-		</td>
-		<td>
-			
-		</td>
-	</tr>
-	<tr>
 		<td>
 			<a href='#' class='info'><?php echo _("Name") ?><span><?php echo $tooltips["tz"]["name"] ?></span></a>
 		</td>
@@ -64,7 +40,7 @@
 		<tr>
 			<td><?php echo $key ?></td>
 			<td>
-				<input size='50' type='text' name='tz__<?php echo $key ?>' id='tz__<?php echo $key ?>' tabindex='1' value="<?php echo htmlentities($val) ?>" />
+				<input class="input" type='text' name='tz__<?php echo $key ?>' id='tz__<?php echo $key ?>' tabindex='1' value="<?php echo htmlentities($val) ?>" />
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				<input type='checkbox' name='tzdel__<?php echo $key ?>' id='tzdel__<?php echo $key ?>' value='true' />
 				&nbsp;&nbsp;
@@ -72,11 +48,6 @@
 			</td>
 		</tr>
 	<?php } ?>
-	<tr>
-		<td coslpan='2'>
-			
-		</td>
-	</tr>
 	<tr>
 		<td>
 			<a href='#' class='info'>
@@ -87,18 +58,10 @@
 			</td>
 	<tr>
 		<td>
-			<input size='10' type='text' name='tznew_name' id='tznew_name' tabindex='1' value='' />
+			<input class='input' style='width:10em;' type='text' name='tznew_name' id='tznew_name' tabindex='1' value='' />
 		</td>
 		<td>
-			<input size='50' type='text' name='tznew_def' id='tznew_def' tabindex='1' value='' />
-		</td>
-	</tr>
-	<tr>
-		<td>
-			
-		</td>
-		<td colspan='2'>
-            <input type='submit' name='action' id='action' value='<?php echo _('Submit');?>' />
+			<input class='input' type='text' name='tznew_def' id='tznew_def' tabindex='1' value='' />
 		</td>
 	</tr>
 
@@ -249,6 +212,17 @@
 			<td style='max-width: 60px' colspan='2'>
 				<?php echo _("24 hour time, including minute")?>
 			</td>
-		</tr>
+        </tr>
+    <tr class='is-hidden'>
+        <td colspan='2'>
+            <input type='hidden' name='action' id='action' value='<?php echo _('Submit');?>' />
+        </td>
+    </tr>
 	</tr>
 </table>
+<script>
+<?php echo js_display_confirmation_toasts(); ?>
+</script>
+</div>
+<?php echo form_action_bar(''); ?>
+

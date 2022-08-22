@@ -314,13 +314,16 @@ function voicemail_configpageinit($pagename) {
 	if ($tech_hardware != null || $extdisplay != '' || $pagename == 'users') {
 		// JS function needed for checking voicemail = Enabled
 		$js = 'return (theForm.vm.value == "enabled");';
-		$currentcomponent->addjsfunc('isVoiceMailEnabled(notused)',$js);
-		// JS for verifying an empty password is OK
-		$msg = _('Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?');
-		$js = 'if (theForm.vmpwd.value == "") { if(confirm("'.$msg.'")) { return true; } else { return false; }  };';
-		$currentcomponent->addjsfunc('verifyEmptyVoiceMailPassword(notused)', $js);
+        $currentcomponent->addjsfunc('isVoiceMailEnabled(value,theForm)',$js);
+
+        // JS for verifying an empty password is OK
+        $msg = dgettext('voicemail','Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?');
+        $js = 'if(theForm.vmpwd.value.match(/^[0-9A-D\*#]*$/i)) {return true;}else{return false;}';
+        $js = 'if (theForm.vmpwd.value == "") { if(confirm("'.$msg.'")) { return true } else { return false; }} else { '.$js.' };';
+        $currentcomponent->addjsfunc('isValidVoicemailPass(notused,theForm)', $js);
+
 		$js = 'if(theForm.vmpwd.value.match(/^[0-9A-D\*#]*$/i)) {return true;}else{return false;}';
-		$currentcomponent->addjsfunc('isValidVoicemailPass(notused)', $js);
+		$currentcomponent->addjsfunc('isValidVoicemailPass(notused,theForm)', $js);
 		$js = "
 		if (document.getElementById('vm').value == 'disabled') {
 			var dval=true;
@@ -356,7 +359,7 @@ function voicemail_configpageinit($pagename) {
 		$('.radioset').buttonset('refresh');
 		return true;
 		";
-		$currentcomponent->addjsfunc('voicemailEnabled(notused)', $js);
+		$currentcomponent->addjsfunc('voicemailEnabled(notused,theForm)', $js);
 	
 		$js = "
 			if (document.getElementById('vmx_state').value == 'checked') {
@@ -480,7 +483,7 @@ function voicemail_configpageload() {
 	}
 
 	if ($action != 'del') {
-		$vmbox = voicemail_mailbox_get($extdisplay);
+        $vmbox = voicemail_mailbox_get($extdisplay);
 		if ( $vmbox == null ) {
 			$vm = false;
 			$incontext = 'default';
@@ -539,7 +542,7 @@ function voicemail_configpageload() {
 		} else {
 			$vmselect = "disabled";
 		}
-		
+
 		$fc_vm = featurecodes_getFeatureCode('voicemail', 'dialvoicemail');
 
 		$msgInvalidVmPwd = _("Please enter a valid Voicemail Password, using digits only");
@@ -552,7 +555,7 @@ function voicemail_configpageload() {
 		$section = _("Voicemail");
 		$currentcomponent->addguielem($section, new gui_selectbox('vm', $currentcomponent->getoptlist('vmena'), $vmselect, _('Status'), '', false,"frm_${display}_voicemailEnabled() && frm_${display}_vmx_disable_fields()"));
 		$disable = ($vmselect == 'disabled');
-		$currentcomponent->addguielem($section, new gui_textbox('vmpwd', $vmpwd, _('Voicemail Password'), sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "frm_${display}_isVoiceMailEnabled() && !frm_${display}_verifyEmptyVoiceMailPassword() && !frm_${display}_isValidVoicemailPass()", $msgInvalidVmPwd, false,0,$disable));
+        $currentcomponent->addguielem($section, new gui_textbox('vmpwd', $vmpwd, _('Voicemail Password'), sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "frm_${display}_isVoiceMailEnabled() && !frm_${display}_isValidVoicemailPass()", $msgInvalidVmPwd, false,0,$disable));
 		$currentcomponent->addguielem($section, new gui_textbox('email', $email, _('Email Address'), _("The email address that Voicemails are sent to."), "frm_${display}_isVoiceMailEnabled() && !isEmail()", $msgInvalidEmail, true, 0, $disable));
 		$currentcomponent->addguielem($section, new gui_textbox('pager', $pager, _('Pager Email Address'), _("Pager/mobile email address that short Voicemail notifications are sent to."), "frm_${display}_isVoiceMailEnabled() && !isEmail()", $msgInvalidEmail, true, 0, $disable));
 		$currentcomponent->addguielem($section, new gui_radio('attach', $currentcomponent->getoptlist('vmyn'), $vmops_attach, _('Email Attachment'), _("Option to attach Voicemails to email."),$disable));
@@ -590,7 +593,6 @@ function voicemail_configpageload() {
 
 function voicemail_draw_vmxgui($extdisplay, $disable) {
 	global $display;
-
 	$vmxobj = new vmxObject($extdisplay);
 
 	$dval = $vmxobj->isEnabled() ? '' : 'disabled="disabled"';
@@ -633,14 +635,13 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 	$vmx_option_2_number_text_box_options = $dval;
 	$vmx_option_2_number = $vmxobj->getMenuOpt(2);
 
-	$tabindex = guielement::gettabindex();
-	$tabindex_text = "tabindex='$tabindex'";
+	$tabindex_text = "tabindex='{tabindex}'";
 	$set_vmx_text = 
 		"
 			<tr>
 				<td><a href='#' class='info'>" . _("Use When:") . "<span>" . _("Menu options below are available during your personal Voicemail greeting playback. <br/><br/>Check both to use at all times.") . "<br></span></a></td> <td>
 					<input $tabindex_text $vmx_unavail_enabled_text_box_options $vmx_unavail_enabled_value type=checkbox name='vmx_unavail_enabled' id='vmx_unavail_enabled' value='checked'>
-					<small>" . _("unavailable") . "</small>&nbsp;&nbsp;
+					<small>" . _("unavailable") . "</small>
 					<input $tabindex_text $vmx_busy_enabled_text_box_options $vmx_busy_enabled_value type=checkbox name='vmx_busy_enabled' id='vmx_busy_enabled' value='checked'>
 					<small>" . _("busy") . "</small>
 				</td>
@@ -694,9 +695,10 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 			</tr>
 			<tr>
 				<td><a href='#' class='info'>" . _("Press 2:") . "<span>" . _("Use any extensions, ringgroups, queues or external numbers. <br/><br/>Remember to re-record your personal Voicemail greeting and include instructions. Run a test to make sure that the number is functional.") . "<br></span></a></td>
-				 <td>
+				<td>
 					<input $tabindex_text $vmx_option_2_number_text_box_options name='vmx_option_2_number' id='vmx_option_2_number' type='text' size=24 value='$vmx_option_2_number'>
-				</td><td></td>
+				</td>
+<td></td>
 			</tr>
 		";
 	return $set_vmx_text;
@@ -946,7 +948,7 @@ function voicemail_getVoicemail() {
 
 	// yes, this is hardcoded.. is this a bad thing?
 	parse_voicemailconf(rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf", $vmconf, $section);
-	
+
 	return $vmconf;
 }
 
@@ -955,21 +957,24 @@ function voicemail_getVoicemail() {
 //
 
 function voicemail_get_title($action, $context="", $account="") {
-	$title = "<h3>" . _("Voicemail Administration") . "<br />&nbsp;&nbsp;";
+    $title = "<h2>" . _("Voicemail Administration") . "</h2>";
+    return $title;
+
+	$title = "<h3>" . _("Voicemail Administration") . "<br />";
 	switch ($action) {
 		case "tz":
 			$title .= _("Timezone Definitions");
 			break;
 		case "bsettings":
 			if (!empty($account)) {
-				$title .= _("Basic Settings For: ") . "&nbsp;&nbsp;&nbsp;$account&nbsp;&nbsp;&nbsp;($context)";
+				$title .= _("Basic Settings For: ") . "$account($context)";
 			} else {
 				$title .= _("Basic settings view is for individual accounts.");
 			}
 			break;
 		case "settings":
 			if (!empty($account)) {
-				$title .= _("Advanced Settings For: ") . "&nbsp;&nbsp;&nbsp;$account&nbsp;&nbsp;&nbsp;($context)";
+				$title .= _("Advanced Settings For: ") . "$account($context)";
 			} else {
 				$title .= _("System Settings");
 			}
@@ -979,13 +984,13 @@ function voicemail_get_title($action, $context="", $account="") {
 			break;
 		case "usage":
 			if (!empty($account)) {
-				$title .= _("Usage Statistics For: ") . "&nbsp;&nbsp;&nbsp;$account&nbsp;&nbsp;&nbsp;($context)";
+				$title .= _("Usage Statistics For: ") . "$account($context)";
 			} else {
 				$title .= _("System Usage Statistics");
 			}
 			break;
 		default:
-			$title .= "&nbsp;&nbsp;" . _("Invalid Action");
+			$title .= "" . _("Invalid Action");
 			break;
 	}
 	$title .= "</h3>";
@@ -1042,13 +1047,13 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 					/* First update all general opts that are already in vmconf */
 					foreach ($vmconf["general"] as $key => $val) {
 						$id = "gen__$key";
-                                                if(isset($args[$id])) {
-                                                    if($key=='emailbody') {
-                                                        $final = preg_replace("/\r\n|\r|\n/","\\n",$args[$id]);
-                                                        $final = preg_replace("/\t/","\\t",$final);
-                                                        $args[$id]=$final;
-                                                    }
-                                                }
+                        if(isset($args[$id])) {
+                            if($key=='emailbody') {
+                                $final = preg_replace("/\r\n|\r|\n/","\\n",$args[$id]);
+                                $final = preg_replace("/\t/","\\t",$final);
+                                $args[$id]=$final;
+                            }
+                        }
 						$vmconf["general"][$key] = isset($args[$id])?$args[$id]:$vmconf["general"][$key];
 						/* Bad to have empty fields in vmconf. */
 						/* also make sure no boolean undefined fields left in there */
@@ -1266,7 +1271,7 @@ function voicemail_get_settings($vmconf, $action, $extension="") {
 				$settings[$k] = $vmsettings[$k];
 			}
 			break;
-		case "tz":
+        case "tz":
 			if (is_array($vmconf) && is_array($vmconf["zonemessages"])) {
 				foreach ($vmconf["zonemessages"] as $key => $val) {
 					$settings[$key] = $val;

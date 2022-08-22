@@ -1173,13 +1173,13 @@ msgid "Call-Me Number"
 msgstr ""
 "名前が定義されていません; これは内線またはユーザーページから設定されます。"
 
-msgid "Number of Accounts:"
+msgid "Number of Accounts"
 msgstr "アカウント数："
 
 msgid "Total ( Activated / Unactivated / Disabled )"
 msgstr "合計 ( アクティベート済 / 未アクティベート / 無効 )"
 
-msgid "Number of Messages:"
+msgid "Number of Messages"
 msgstr "メッセージ数："
 
 msgid "Total ( Messages in inboxes / Messages in other folders )"
@@ -1188,7 +1188,7 @@ msgstr "合計 ( 受信箱内のメッセージ / その他のフォルダのメ
 msgid "Remove all messages"
 msgstr "全てのメッセージを削除"
 
-msgid "Recorded Names:"
+msgid "Recorded Names"
 msgstr "録音された名前の数："
 
 msgid "Number of recorded name greetings"
@@ -1197,7 +1197,7 @@ msgstr "録音された名前アナウンスの数"
 msgid "Remove all recorded names"
 msgstr "録音された名前を全て削除"
 
-msgid "Unavailable Greetings:"
+msgid "Unavailable Greetings"
 msgstr "利用不可時のアナウンス："
 
 msgid "Number of recorded unavailable greetings"
@@ -1206,7 +1206,7 @@ msgstr "利用不可時のアナウンス録音の数"
 msgid "Remove all unavailable greetings"
 msgstr "利用不可時のアナウンスを全て削除"
 
-msgid "Busy Greetings:"
+msgid "Busy Greetings"
 msgstr "ビジー時のアナウンス："
 
 msgid "Number of recorded busy greetings"
@@ -1215,7 +1215,7 @@ msgstr "録音されたビジー時のアナウンス数"
 msgid "Remove all busy greetings"
 msgstr "ビジー時のアナウンスを全て削除"
 
-msgid "Temporary Greetings:"
+msgid "Temporary Greetings"
 msgstr "一時不在時のグリーティング："
 
 msgid "Number of recorded temporary greetings"
@@ -1224,7 +1224,7 @@ msgstr "録音された一時不在時のアナウンス数"
 msgid "Remove all temporary greetings"
 msgstr "一時不在時のアナウンスを全て削除"
 
-msgid "Abandoned Greetings:"
+msgid "Abandoned Greetings"
 msgstr "破棄されたアナウンス："
 
 msgid ""
@@ -1248,7 +1248,7 @@ msgstr "現在ボイスメールデータで使用中のディスクスペース
 msgid "File timestamp: "
 msgstr "ファイルのタイムスタンプ："
 
-msgid "Recorded Name:"
+msgid "Recorded Name"
 msgstr "録音名"
 
 msgid "Has a recorded name greeting?"
@@ -1257,7 +1257,7 @@ msgstr "録音された名前挨拶がある?"
 msgid "Remove recorded name"
 msgstr "録音名を削除"
 
-msgid "Unavailable Greeting:"
+msgid "Unavailable Greeting"
 msgstr "利用不可能なアナウンス："
 
 msgid "Has a recorded unavailable greeting?"
@@ -1272,7 +1272,7 @@ msgstr "録音されたビジー挨拶がある?"
 msgid "Remove busy greeting"
 msgstr "ビジー時のアナウンスを削除"
 
-msgid "Temporary Greeting:"
+msgid "Temporary Greeting"
 msgstr "一時不在時のアナウンス："
 
 msgid "Has a recorded temporary greeting?"

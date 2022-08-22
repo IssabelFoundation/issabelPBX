@@ -934,13 +934,13 @@ msgstr "Не залано имя; это конфигурируется из в�
 msgid "Call-Me Number"
 msgstr "Номер Позвони-мне"
 
-msgid "Number of Accounts:"
+msgid "Number of Accounts"
 msgstr "Количество аккаунтов:"
 
 msgid "Total ( Activated / Unactivated / Disabled )"
 msgstr "Всего ( Активировано / Неактивировано / Отключено )"
 
-msgid "Number of Messages:"
+msgid "Number of Messages"
 msgstr "Количество сообщений:"
 
 msgid "Total ( Messages in inboxes / Messages in other folders )"
@@ -949,7 +949,7 @@ msgstr "Всего ( Сообщений во входящих / сообщени
 msgid "Remove all messages"
 msgstr "Удалить все сообщения"
 
-msgid "Recorded Names:"
+msgid "Recorded Names"
 msgstr "Записанные имена:"
 
 msgid "Number of recorded name greetings"
@@ -958,7 +958,7 @@ msgstr "Количество записанных персональных со�
 msgid "Remove all recorded names"
 msgstr "Удалить все записанные имена"
 
-msgid "Unavailable Greetings:"
+msgid "Unavailable Greetings"
 msgstr "Персональные сообщения 'нет на месте':"
 
 msgid "Number of recorded unavailable greetings"
@@ -967,7 +967,7 @@ msgstr "Количество записанных персональных со�
 msgid "Remove all unavailable greetings"
 msgstr "Удалить все персональные сообщения 'нет на месте'"
 
-msgid "Busy Greetings:"
+msgid "Busy Greetings"
 msgstr "Персональные сообщения 'занят'"
 
 msgid "Number of recorded busy greetings"
@@ -976,7 +976,7 @@ msgstr "Количество записанных персональных со�
 msgid "Remove all busy greetings"
 msgstr "Удалить все персональные сообщения 'занят'"
 
-msgid "Temporary Greetings:"
+msgid "Temporary Greetings"
 msgstr "Временные сообщения о недоступности:"
 
 msgid "Number of recorded temporary greetings"
@@ -985,7 +985,7 @@ msgstr "Количество записанных временных сообщ�
 msgid "Remove all temporary greetings"
 msgstr "Удалить все временные сообщения о недоступности"
 
-msgid "Abandoned Greetings:"
+msgid "Abandoned Greetings"
 msgstr "Забытые сообщения о недоступности"
 
 msgid ""
@@ -1009,7 +1009,7 @@ msgstr "Дисковое пространство, используемое по
 msgid "File timestamp: "
 msgstr "Временная отметка файла: "
 
-msgid "Recorded Name:"
+msgid "Recorded Name"
 msgstr "Записанное название:"
 
 msgid "Has a recorded name greeting?"
@@ -1018,7 +1018,7 @@ msgstr "Присвоено ли записанное название сообщ
 msgid "Remove recorded name"
 msgstr "Удалить записанное название"
 
-msgid "Unavailable Greeting:"
+msgid "Unavailable Greeting"
 msgstr "Сообщение 'нет на месте':"
 
 msgid "Has a recorded unavailable greeting?"
@@ -1033,7 +1033,7 @@ msgstr "Записанно ли сообщению 'занят'?"
 msgid "Remove busy greeting"
 msgstr "Удалить сообщение 'занят'"
 
-msgid "Temporary Greeting:"
+msgid "Temporary Greeting"
 msgstr "Временное сообщение о недоступности:"
 
 msgid "Has a recorded temporary greeting?"
