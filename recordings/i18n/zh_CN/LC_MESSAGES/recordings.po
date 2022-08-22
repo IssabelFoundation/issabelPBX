@@ -246,7 +246,7 @@ msgstr "内置的录音"
 msgid "Please enter a valid Name for this System Recording"
 msgstr "请为此系统录音输入有效的名称"
 
-msgid "Select System Recording:"
+msgid "Select System Recording"
 msgstr "选择系统录音："
 
 msgid "Click here to play this recording"

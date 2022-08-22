@@ -254,7 +254,7 @@ msgstr "Встроенные записи"
 msgid "Please enter a valid Name for this System Recording"
 msgstr "Введите разрешённое название для этой системной записи"
 
-msgid "Select System Recording:"
+msgid "Select System Recording"
 msgstr "Выбрать системную запись:"
 
 msgid "Click here to play this recording"

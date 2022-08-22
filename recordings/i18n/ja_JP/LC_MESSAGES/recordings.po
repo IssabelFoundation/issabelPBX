@@ -287,7 +287,7 @@ msgstr "ビルトイン録音"
 msgid "Please enter a valid Name for this System Recording"
 msgstr "このシステム録音に適した名前を入力してください"
 
-msgid "Select System Recording:"
+msgid "Select System Recording"
 msgstr "システム録音を選択："
 
 msgid "Click here to play this recording"

@@ -97,11 +97,32 @@ msgstr "Actualizado"
 msgid "System Recordings"
 msgstr "Grabaciones del sistema"
 
-msgid "Add Recording"
-msgstr "Añadir grabación"
+msgid "Add System Recording"
+msgstr "Añadir grabación de sistema"
 
-msgid "Step 1: Record or upload"
-msgstr "Paso 1: Grabar o enviar"
+msgid "Step 1"
+msgstr "Paso 1"
+
+msgid "Record or upload"
+msgstr "Grabar o subir"
+
+msgid "Step 2"
+msgstr "Paso 2"
+
+msgid "Step 3"
+msgstr "Paso 3"
+
+msgid "Step 4"
+msgstr "Paso 4"
+
+msgid "Name"
+msgstr "Nombrar"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Verify"
+msgstr "Verificar"
 
 msgid "Using your phone,"
 msgstr "Usando su teléfono,"
@@ -110,7 +131,7 @@ msgid " dial"
 msgstr " llame al"
 
 msgid "Start speaking at the tone. Press # when finished."
-msgstr "Compience a hablar al escuchar el tono. Marque # para finalizar."
+msgstr "Comience a hablar al escuchar el tono. Marque # para finalizar."
 
 msgid "and speak the message you wish to record. Press # when finished."
 msgstr "y diga el mensaje que desea grabar. Marque # al finalizar."
@@ -144,9 +165,6 @@ msgstr "Por favor, espere mientras la página se recarga."
 msgid "Successfully uploaded"
 msgstr "Enviado correctamente"
 
-msgid "Step 2: Verify"
-msgstr "Paso 2: Verificar"
-
 msgid "After recording or uploading,"
 msgstr "Tras grabar o enviar,"
 
@@ -159,25 +177,16 @@ msgstr "para escuchar su grabación."
 msgid "If you wish to re-record your message, dial"
 msgstr "Si quiere volver a grabar su mensaje, llame al"
 
-msgid "Step 3: Name"
-msgstr "Paso 3: Nombre"
-
-msgid "Step 2: Name"
-msgstr "Paso 2: Nombre"
-
 msgid "Name this Recording"
 msgstr "Asigne un nombre a esta grabación"
 
 msgid "Click \"SAVE\" when you are satisfied with your recording"
 msgstr ""
 "Pulse \"Guardar\" cuando haya terminado de realizar la grabación desde su "
-"teléfono haya seleccionado un archivo a enviar"
+"teléfono o haya seleccionado un archivo a enviar"
 
-msgid "Save"
-msgstr "Guardar"
-
-msgid "Edit Recording"
-msgstr "Modificar grabación"
+msgid "Edit System Recording"
+msgstr "Modificar grabación de sistema"
 
 msgid "Usage List"
 msgstr "Lista de usos"
@@ -259,8 +268,8 @@ msgstr "Grabaciones del sistema"
 msgid "Please enter a valid Name for this System Recording"
 msgstr "Por favor, introduzca un nombre válido para esta grabación del sistema"
 
-msgid "Select System Recording:"
-msgstr "Seleccione una grabación del sistema:"
+msgid "Select System Recording"
+msgstr "Seleccione una grabación del sistema"
 
 msgid "Click here to play this recording"
 msgstr "Haga clic aquí para reproducir esta grabación"
@@ -318,3 +327,21 @@ msgstr "Pausar"
 
 msgid "Stop"
 msgstr "Detener"
+
+msgid "Format: start recording to see sample rate"
+msgstr "Formato: inicie la grabación para ver la muestra de sampleo"
+
+msgid "Format: 1 channel pcm @"
+msgstr "Formato: PCM de 1 canal a @"
+
+msgid "Choose a file..."
+msgstr "Escoja un archivo..."
+
+msgid "File %s successfully uploaded"
+msgstr "El archivo %s fue subido correctamente"
+
+msgid "Resume"
+msgstr "Reanudar"
+
+msgid "File %s does not have a valid sound extension"
+msgstr "El archivo %s no tiene una extensión de archivo de sonido válida"

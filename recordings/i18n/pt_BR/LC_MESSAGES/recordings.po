@@ -270,7 +270,7 @@ msgstr "Gravações do sistema"
 msgid "Please enter a valid Name for this System Recording"
 msgstr "Por favor entre com um nome válido para esta gravação do sistema"
 
-msgid "Select System Recording:"
+msgid "Select System Recording"
 msgstr "Selecione a gravação do sistema:"
 
 msgid "Click here to play this recording"

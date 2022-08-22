@@ -268,7 +268,7 @@ msgstr "Inbyggda inspelningar"
 msgid "Please enter a valid Name for this System Recording"
 msgstr "Skriv in ett giltigt namn för denna systeminspelning"
 
-msgid "Select System Recording:"
+msgid "Select System Recording"
 msgstr "Välj systeminspelning:"
 
 msgid "Click here to play this recording"

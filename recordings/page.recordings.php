@@ -4,11 +4,15 @@
 //Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
 
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
-/* $Id$ */
 
-$action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
+$action = isset($_REQUEST['action'])&&!isset($_REQUEST['Cancel'])?$_REQUEST['action']:'';
 
 global $fc_check;
+
+$isSecure = false;
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+    $isSecure = true;
+}
 
 // Lite weight popup code here, don't need everything else below
 //
@@ -22,15 +26,20 @@ switch ($action) {
     default:
         break;
 }
-$id          =  isset($_REQUEST['id'])?$_REQUEST['id']:'';
-$notes       =  isset($_REQUEST['notes'])?$_REQUEST['notes']:'';
-$rname       =  isset($_REQUEST['rname'])?$_REQUEST['rname']:'';
-$usersnum    =  isset($_REQUEST['usersnum'])?$_REQUEST['usersnum']:'';
-$sysrec      =  isset($_REQUEST['sysrec'])?$_REQUEST['sysrec']:'';
+
+$id          =  isset($_REQUEST['id'])&&!isset($_REQUEST['Cancel'])?$_REQUEST['id']:'';
+$extdisplay  =  isset($_REQUEST['extdisplay'])&&!isset($_REQUEST['Cancel'])?$_REQUEST['extdisplay']:'';
+if($id=='' & $extdisplay !='') $id=$extdisplay;
+if($extdisplay=='' & $id !='') $extdisplay=$id;
+
+$notes       =  isset($_REQUEST['notes'])&&!isset($_REQUEST['Cancel'])?$_REQUEST['notes']:'';
+$rname       =  isset($_REQUEST['rname'])&&!isset($_REQUEST['Cancel'])?$_REQUEST['rname']:'';
+$usersnum    =  isset($_REQUEST['usersnum'])&&!isset($_REQUEST['Cancel'])?$_REQUEST['usersnum']:'';
+$sysrec      =  isset($_REQUEST['sysrec'])&&!isset($_REQUEST['Cancel'])?$_REQUEST['sysrec']:'';
 $suffix      =  isset($_REQUEST['suffix'])                                  &&  trim($_REQUEST['suffix']  !=  "")  ?  $_REQUEST['suffix']  :  'wav';
 $fcode       =  isset($_REQUEST['fcode'])                                   &&  $_REQUEST['fcode']        !=  ''   ?  1                    :  0;
 $fcode_pass  =  isset($_REQUEST['fcode_pass'])?$_REQUEST['fcode_pass']:'';
-$fcbase = '*29';
+$fcbase      = '*29';
 $default_pos = 0;
 
 $astsnd = isset($asterisk_conf['astvarlibdir'])?$asterisk_conf['astvarlibdir']:'/var/lib/asterisk';
@@ -64,7 +73,12 @@ switch ($action) {
         break;
     case "newsysrec":
         $sysrecs = recordings_readdir($astsnd, strlen($astsnd)+1);
-        if (recordings_add($sysrecs[$sysrec], $sysrecs[$sysrec])) {
+        if(strpos($sysrecs[$sysrec],'/') != null) {
+            $recname = preg_split("/\//",$sysrecs[$sysrec])[1];
+        } else {
+            $recname = $sysrecs[$sysrec];
+        }
+        if (recordings_add($recname, $sysrecs[$sysrec])) {
             $id = recordings_get_id($sysrecs[$sysrec]);
         } else {
             $id = 0;
@@ -78,42 +92,56 @@ switch ($action) {
         $suffix = escapeshellcmd(strtr($suffix, '/ ', '__'));
         if (!file_exists($astsnd."custom")) {
             if (!mkdir($astsnd."custom", 0775)) {
-                echo '<div class="content" style="display:table;"><h5>'._("Failed to create").' '.$astsnd.'custom'.'</h5>';
+                $error = _("Failed to create").' '.$astsnd.'custom';
+                $_SESSION['msg']=base64_encode($error);
+                $_SESSION['msgtype']='error';
+                redirect_standard();
             }
         } else {
             // can't rename a file from one partition to another, must use mv or cp
             // rename($recordings_save_path."{$dest}ivrrecording.wav",$recordings_astsnd_path."custom/{$filename}.wav");
             if (!file_exists($recordings_save_path."{$dest}ivrrecording.$suffix")) {
-                echo "<hr><h5>"._("[ERROR] The Recorded File Does Not exists:")."</h5>";
-                echo $recordings_save_path."{$dest}ivrrecording.$suffix<br><br>";
-                echo "make sure you uploaded or recorded a file with the entered extension<hr>";
+                $error = _("[ERROR] The Recorded File Does Not exists:")."<br/><br/>";
+                $error.= $recordings_save_path."{$dest}ivrrecording.$suffix<br><br>";
+                $error.= _("make sure you uploaded or recorded a file with the entered extension");
+                $_SESSION['msg']=base64_encode($error);
+                $_SESSION['msgtype']='error';
+                redirect_standard();
             } else {
                 exec("cp " . $recordings_save_path . "{$dest}ivrrecording.$suffix " . $astsnd."custom/{$filename}.$suffix 2>&1", $outarray, $ret);
                 if (!$ret) {
                     $isok = recordings_add($rname, "custom/{$filename}.$suffix");
                 } else {
-                    echo "<hr><h5>"._("[ERROR] SAVING RECORDING:")."</h5>";
+
+                    $error = _("[ERROR] SAVING RECORDING:")."<br/><br/>";
                     foreach ($outarray as $line) {
-                        echo "$line<br>";
+                        $error.= "$line<br>";
                     }
-                    echo _("Make sure you have entered a proper name");
-                    echo "<hr>";
+                    $error .= _("Make sure you have entered a proper name");
+                    $_SESSION['msg']=base64_encode($error);
+                    $_SESSION['msgtype']='error';
+                    redirect_standard();
                 }
                 exec("rm " . $recordings_save_path . "{$dest}ivrrecording.$suffix ", $outarray, $ret);
                 if ($ret) {
-                    echo "<hr><h5>"._("[ERROR] REMOVING TEMPORARY RECORDING:")."</h5>";
+                    $error = _("[ERROR] REMOVING TEMPORARY RECORDING:")."<br/><br/>";
                     foreach ($outarray as $line) {
-                        echo "$line<br>";
+                        $error.="$line<br/>";
                     }
-                    echo _("Make sure Asterisk is not running as root ");
-                    echo "<hr>";
+                    $error .= _("Make sure Asterisk is not running as root ");
+                    $_SESSION['msg']=base64_encode($error);
+                    $_SESSION['msgtype']='error';
+                    redirect_standard();
                 }
             }
 
             recording_sidebar(null, $usersnum);
             recording_addpage($usersnum);
-            if ($isok)
-                echo '<div class="content" style="display:table;"><h5>'._("System Recording").' "'.$rname.'" '._("Saved").'!</h5>';
+            if ($isok) {
+                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+                $_SESSION['msgtype']='success';
+                redirect_standard();
+            }
         }
         break;
 
@@ -133,25 +161,35 @@ switch ($action) {
                 }
             }
             if ($fileexists === false) {
-                echo '<div class="content" style="display:table;"><h5>'._("Unable to locate").' '.$recordings_astsnd_path.$filename.' '._("with a a valid suffix").'</h5>';
+                //echo '<div class="content" style="display:table;"><h5>'._("Unable to locate").' '.$recordings_astsnd_path.$filename.' '._("with a a valid suffix").'</h5>';
+                $msg = sprintf(_("File %s does not have a valid sound extension"),$recordings_astsnd_path.$filename); 
+                $warn_msg = "<article class='message is-warning'><div class='message-body'>$msg</div></article>";
             }
         }
 
         recording_sidebar($id, $usersnum);
-        recording_editpage($id, $usersnum);
+        recording_editpage($id, $usersnum, $warn_msg);
         break;
 
     case "edited":
         recordings_update($id, $rname, $notes, $_REQUEST, $fcode, $fcode_pass);
         recording_sidebar($id, $usersnum);
         recording_editpage($id, $usersnum);
-        echo '<div class="content" style="display:table;"><h5>'._("System Recording").' "'.$rname.'" '._("Updated").'!</h5></div>';
+        //echo '<div class="content" style="display:table;"><h5>'._("System Recording").' "'.$rname.'" '._("Updated").'!</h5></div>';
         needreload();
+        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
+        $_REQUEST['action']='edit';
+        $action = 'edit';
+        //redirect_standard('id','action');
         break;
 
     case "delete";
         recordings_del($id);
         needreload();
+        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msgtype']='warning';
+        redirect_standard();
 
     default:
         recording_sidebar($id, $usersnum);
@@ -164,55 +202,87 @@ function recording_addpage($usersnum) {
     global $fc_save;
     global $fc_check;
     global $recordings_save_path;
+    global $isSecure;
+
     $tabindex = 0;
-
+    $step = 0;
     ?>
-    <div class="content" style="display:table;">
+    <div class="content">
 
-    <h2><?php echo _("System Recordings")?></h2>
-    <h3><?php echo _("Add Recording") ?></h3>
+    <h2><?php echo _("Add System Recording") ?></h2>
 
 
-    <h5><?php echo _("Step 1: Record or upload")?></h5>
+    <h5><?php echo _("Step ".++$step).": "._("Record or upload")?></h5>
 
-<div id="tabs" style='width:600px; overflow:hidden;'>
+<?php
+    $showtabs = 1;
+    if (isset($_FILES['ivrfile']['tmp_name']) && is_uploaded_file($_FILES['ivrfile']['tmp_name'])) { $showtabs=0; }
+    if (!empty($usersnum)) {  $showtabs=0; }
+    if (isset($_REQUEST['fname'])) {  $showtabs=0; }
+
+    if($showtabs==1) {
+    
+?>
+    
+
+<div id="tabs" class="tabs is-boxed">
   <ul>
-    <li><a href="#tabs-1"><?php echo _('Record using phone');?></a></li>
-    <li><a href="#tabs-2"><?php echo _('Record using browser');?></a></li>
-    <li><a href="#tabs-3"><?php echo _('Upload recording');?></a></li>
+<?php 
+    $tab_content_active_1 = ' class="is-active" ';
+    $tab_content_active_2 = ' class="is-hidden" ';
+    if($isSecure) { 
+        $tab_content_active_2 = ' class="is-active" ';
+        $tab_content_active_1 = ' class="is-hidden" ';
+?>
+    <li data-tab="2" class="is-active"><a><?php echo _('Record using browser');?></a></li>
+    <li data-tab="1"><a><?php echo _('Record using phone');?></a></li>
+<?php } else { ?>
+    <li class="is-active" data-tab="1"><a><?php echo _('Record using phone');?></a></li>
+<?php }?>
+    <li data-tab="3"><a><?php echo _('Upload recording');?></a></li>
   </ul>
-  <div id="tabs-1">
+</div>
+<div id="tab-content">
+<div <?php echo $tab_content_active_1?> data-content="1">
 
     <?php if (!empty($usersnum)) {
-    echo '<p>';
+        echo '<div>';
         echo _("Using your phone,")."<a href=\"#\" class=\"info\">"._(" dial")."&nbsp;".$fc_save." <span>";
         echo _("Start speaking at the tone. Press # when finished.")."</span></a>";
         echo _("and speak the message you wish to record. Press # when finished.")."\n";
-    echo '</p>';
+        echo '</div>';
     } else { ?>
-        <form name="xtnprompt" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+        <form name="xtnprompt" method="post">
         <input type="hidden" name="display" value="recordings">
         <?php
-        echo _("If you wish to make and verify recordings from your phone, please enter your extension number here:"); ?>
-        <input type="text" size="6" name="usersnum" tabindex="<?php echo ++$tabindex;?>"> <input name="Submit" type="submit" value="<?php echo _("Go"); ?>" tabindex="<?php echo ++$tabindex;?>">
+        echo '<p>'._("If you wish to make and verify recordings from your phone, please enter your extension number here:").'</p>'; 
+?>
+
+<div class="field has-addons">
+  <div class="control">
+    <input class="input" type="text" name="usersnum" tabindex="<?php echo ++$tabindex;?>" autofocus>
+  </div>
+  <div class="control">
+    <input class="button is-info" type="submit" value="<?php echo _("Go")?>" tabindex="<?php echo ++$tabindex;?>" />
+  </div>
+</div>
         </form>
     <?php } ?>
 
   </div>
-  <div id="tabs-2">
+
+  <div <?php echo $tab_content_active_2;?> data-content="2">
  
     <div id="controls">
          <button id="recordButton" class='audio'><?php echo _('Record');?></button>
          <button id="pauseButton"  class='audio' ><?php echo _('Pause');?></button>
          <button id="stopButton"  class='audio' ><?php echo _('Stop');?></button>
     </div>
-    <div id="formats">Format: start recording to see sample rate</div>
-        <h3><?php echo _('Recordings');?></h3>
-        <ol id="recordingsList"></ol>
-
- 
+    <div id="formats"><?php echo _('Format: start recording to see sample rate')?></div>
+    <ol id="recordingsList"></ol>
   </div>
-  <div id="tabs-3">
+
+  <div data-content="3" class="is-hidden">
 
     <form enctype="multipart/form-data" name="upload" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
         <?php echo _("Alternatively, upload a recording in any supported asterisk format. Note that if you're using .wav, (eg, recorded with Microsoft Recorder) the file <b>must</b> be PCM Encoded, 16 Bits, at 8000Hz")?>:
@@ -221,12 +291,33 @@ function recording_addpage($usersnum) {
         <input type="hidden" name="display" value="recordings">
         <input type="hidden" name="action" value="recordings_start">
         <input type="hidden" name="usersnum" value="<?php echo $usersnum ?>">
-        <input type="file" name="ivrfile" tabindex="<?php echo ++$tabindex;?>"/>
-        <input type="button" value="<?php echo _("Upload")?>" onclick="document.upload.submit(upload);alert('<?php echo addslashes(_("Please wait until the page reloads."))?>');" tabindex="<?php echo ++$tabindex;?>"/>
+        <!--input type="file" name="ivrfile" tabindex="<?php echo ++$tabindex;?>"/-->
+
+<div class="file has-name is-fullwidth has-addons">
+  <label class="file-label">
+    <input class="file-input" type="file" name="ivrfile" id="ivrfile">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fa fa-upload"></i>
+      </span>
+      <span class="file-label">
+<?php echo _('Choose a file...')?>
+      </span>
+    </span>
+    <span class="file-name" id="selected_file_name">
+    </span>
+  </label>
+  <div class='control'><input type='button' style='font-size:0.85em;' class='button is-small is-info' value="<?php echo _("Upload")?>" onclick="document.upload.submit(upload);$.LoadingOverlay('show');" tabindex="<?php echo ++$tabindex;?>"/></div>
+</div>
+
     </form>
  
   </div>
 </div>
+
+<?php } ?>
+
+<!--/div-->
 
 <?php
     if (isset($_FILES['ivrfile']['tmp_name']) && is_uploaded_file($_FILES['ivrfile']['tmp_name'])) {
@@ -252,7 +343,10 @@ function recording_addpage($usersnum) {
 
         system("chgrp " . $amp_conf['AMPASTERISKGROUP'] . " " . $destfilename);
         system("chmod g+rw ".$destfilename);
-        echo "<h6>"._("Successfully uploaded")." ".$_FILES['ivrfile']['name']."</h6>";
+//        echo "<h6>"._("Successfully uploaded")." ".$_FILES['ivrfile']['name']."</h6>";
+        $msg = sprintf(_("File %s successfully uploaded"),$_FILES['ivrfile']['name']); 
+        echo "<article class='message is-success'><div class='message-body'>$msg</div></article>";
+
         $rname = rtrim(basename($_FILES['ivrfile']['name'], $suffix), '.');
     } 
 
@@ -266,63 +360,91 @@ function recording_addpage($usersnum) {
 
 ?>
         
-    <form name="prompt" action="<?php echo $self."?".$final_query;?>" method="post" onsubmit="return rec_onsubmit();">
+    <form id="formprompt2" data-target="formprompt2" name="formprompt2" action="<?php echo $self."?".$final_query;?>" method="post" onsubmit="return rec_onsubmit(this);">
     <input type="hidden" name="action" value="recorded">
     <input type="hidden" name="display" value="recordings">
-    <input type="hidden" name="usersnum" value="<?php echo $usersnum ?>">
+    <!--input type="hidden" name="usersnum" value="<?php echo $usersnum ?>"-->
     <?php
 
-    if (!empty($usersnum)) { ?>
+    if (!empty($usersnum)) { 
 
-        <h5><?php echo _("Step 2: Verify")?></h5>
+        echo '<div>';
+        echo _("Using your phone,")."<a href=\"#\" class=\"info\">"._(" dial")."&nbsp;".$fc_save." <span>";
+        echo _("Start speaking at the tone. Press # when finished.")."</span></a>";
+        echo _("and speak the message you wish to record. Press # when finished.")."\n";
+        echo '</div>';
+    ?>
+        <h5><?php echo _("Step ".++$step).": "._("Verify")?></h5>
         <p> <?php echo _("After recording or uploading,")."&nbsp;<em>"._("dial")."&nbsp;".$fc_check."</em> "._("to listen to your recording.")?> </p>
         <p> <?php echo _("If you wish to re-record your message, dial")."&nbsp;".$fc_save; ?></p>
-        <h5><?php echo _("Step 3: Name")?> </h5> 
 
     <?php
     } else {
         if($rname<>'') {
-            echo "<h5>"._("Step 2: Name")."</h5>";
+            $msg = sprintf(_("File %s successfully uploaded"),$_FILES['ivrfile']['name']); 
+            echo "<article class='message is-success'><div class='message-body'>$msg</div></article>";
+    //        echo "<h5>"._("Step ".++$step).": "._("Name")."</h5>";
         }
     } 
     ?>
 
     <?php if(isset($_GET['fname']) || !empty($usersnum) || isset($_FILES['ivrfile'])) {
-
+            echo "<h5>"._("Step ".++$step).": "._("Name")."</h5>";
 ?>
 
 
-    <table style="text-align:right;">
-        <tr valign="top">
-            <td valign="top"><?php echo _("Name this Recording")?>: </td>
-            <td style="text-align:left"><input type="text" name="rname" value="<?php echo $rname; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
-        </tr>
-    </table>
+<div class="field">
+  <label class="label"><?php echo _("Name this Recording")?></label>
+  <div class="control">
+    <input autofocus class="input" type="text" name="rname" value="<?php echo $rname; ?>" tabindex="<?php echo ++$tabindex;?>">
+  </div>
+</div>
 
-    <h6><?php
+    <h5><?php echo _("Step ".++$step).": "._("Save")?> </h5> 
+    <div><?php
     echo _("Click \"SAVE\" when you are satisfied with your recording");
     echo "<input type=\"hidden\" name=\"suffix\" value=\"$suffix\">\n"; ?>
-    <input name="Submit" type="submit" value="<?php echo _("Save")?>" tabindex="<?php echo ++$tabindex;?>"></h6>
+    </div>
+<div class='my-2'>
+<input name="Cancel" type="submit" class="button is-info" value="<?php echo dgettext('amp','Cancel')?>" tabindex="<?php echo ++$tabindex;?>">
+<input name="Submit" type="submit" class="button is-primary" value="<?php echo _('Save')?>" tabindex="<?php echo ++$tabindex;?>">
+</div>
     <?php recordings_form_jscript(); ?>
     </form>
 
 <?php } ?>
 
     </div>
+    <script>
+
+    $(function() {
+        ipbx.msg.framework.format_one_channel = '<?php echo _("Format: 1 channel pcm @");?>'
+        ipbx.msg.framework.pause = '<?php echo _("Pause");?>'
+        ipbx.msg.framework.resume = '<?php echo _("Resume");?>'
+        <?php echo js_display_confirmation_toasts(); ?>
+    });
+    </script>
 <?php
 }
 
-function recording_editpage($id, $num) {
+function recording_editpage($id, $num, $warn_message='') {
     global $fcbase;
     global $default_pos;
     global $fcode;
     global $fcode_pass;
     global $recordings_astsnd_path;
+    global $tabindex;
+    $extdisplay=$id;
+    $tabindex=1;
 ?>
+
     <div class="content" style="display:table;">
-    <h2><?php echo _("System Recordings")?></h2>
-    <h3><?php echo _("Edit Recording") ?></h3>
-    <?php
+    <h2><?php echo _("Edit System Recording") ?></h2>
+
+<?php
+
+    if($warn_message!='') { echo $warn_message;  }
+
     $this_recording = recordings_get($id);
     if (!$this_recording) {
         echo "<tr><td colspan=2><h2>Error reading Recording ID $id - Aborting</h2></td></tr></table>";
@@ -340,29 +462,33 @@ function recording_editpage($id, $num) {
             echo "<br /><a href=".$link['url_query'].">".$label."</a>";
         }
     } else {
+        /*
         $delURL = "config.php?display=recordings&amp;action=delete&amp;usersnum=".urlencode($num)."&amp;id=$id";
         $tlabel = _("Remove Recording");
         $label = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="assets/recordings/images/sound_delete.png"/>&nbsp;'.$tlabel.'</span>';
-        echo "<a href=".$delURL.">".$label."</a>";
+        echo "<a href='".$delURL."'>".$label."</a>";
         echo "<i style='font-size: x-small'>&nbsp;(";
         echo _("Note, does not delete file from computer");
         echo ")</i>";
+         */
     }
     ?>
-    <form name="prompt"  action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return rec_onsubmit();">
+    <form data-target="formprompt" id="formprompt" name="formprompt" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" onsubmit="return rec_onsubmit(this);">
     <input type="hidden" name="action" value="edited">
     <input type="hidden" name="display" value="recordings">
-    <input type="hidden" name="usersnum" value="<?php echo $num ?>">
+    <input type="hidden" name="usersnum" value="<?php echo $num ?>"> 
     <input type="hidden" name="id" value="<?php echo $id ?>">
-    <table>
-    <tr><td colspan=2><hr></td></tr>
+    <input type="hidden" name="extdisplay" value="<?php echo $extdisplay ?>">
+
+    <table class='table is-borderless is-narrow'>
+    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
     <tr>
         <td><a href="#" class="info"><?php echo _("Change Name");?><span><?php echo _("This changes the short name, visible on the right, of this recording");?></span></a></td>
         <td><input type="text" name="rname" value="<?php echo $this_recording['displayname'] ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
     <tr>
             <td><a href="#" class="info"><?php echo _("Descriptive Name");?><span><?php echo _("This is displayed, as a hint, when selecting this recording in Queues, Digital Receptionist, etc");?></span></a></td>
-            <td>&nbsp;<textarea name="notes" rows="3" cols="40" tabindex="<?php echo ++$tabindex;?>"><?php echo $this_recording['description'] ?></textarea></td>
+            <td><textarea name="notes" class="textarea" tabindex="<?php echo ++$tabindex;?>"><?php echo $this_recording['description'] ?></textarea></td>
     </tr>
 
 <?php
@@ -387,12 +513,27 @@ function recording_editpage($id, $num) {
         $("#sysrec'.$counter.'").parent().one("mouseover", function(){
             $selectload = $("#selectload'.$counter.'").show(80,function(){
                 $("#sysrec'.$counter.'").empty().append($optlist.clone()).val($("#sysrecval'.$counter.'").val());
-                $("#sysrec'.$counter.'").chosen({search_contains: true, no_results_text: "No Recordings Found", allow_single_deselect: true});
+                //$("#sysrec'.$counter.'").chosen({search_contains: true, no_results_text: "No Recordings Found", allow_single_deselect: true});
+                $("#sysrec'.$counter.'").trigger("chosen:updated");
                 $(this).hide();
             });
         });
         ';
     }
+    $jq_autofill.='
+    $(function() {
+        $optlist = $("#sysrec0 option");
+        $(".autofill").each(function() {
+            pos = $(this).attr("id").substr(6);
+            val = $("#sysrecval"+pos).val();
+            if(val!="" && typeof val != "undefined") {
+                $("#sysrec"+pos).empty().append($optlist.clone()).val($("#sysrecval"+pos).val());
+                $("#sysrec"+pos).trigger("chosen:updated");
+            }
+        });
+    });
+    ';
+ 
     $sndfile_html .=  recordings_display_sndfile('', $counter, $arraymax, $recordings_astsnd_path, $rec['fcode']);
     if ($arraymax == 0 && isset($files[0]) && substr($files[0],0,7) == 'custom/') {
         if ($rec['fcode']) {
@@ -407,10 +548,10 @@ function recording_editpage($id, $num) {
         }
 ?>
     <tr>
-        <td><a class="info" href="#"><?php echo _("Link to Feature Code")?><span><?php echo _("Check this box to create an options feature code that will allow this recording to be changed directly.")?></span></a>:
+        <td><a class="info" href="#"><?php echo _("Link to Feature Code")?><span><?php echo _("Check this box to create an options feature code that will allow this recording to be changed directly.")?></span></a>
         </td>
         <td>
-    <input type='checkbox' tabindex="<?php echo ++$tabindex;?>"name='fcode' id="fcode" <?php if ($rec['fcode']=="1") { echo 'CHECKED'; }?> OnClick="resetDefaultSound();"; return true;'><?php echo sprintf(_("Optional Feature Code %s"),$rec_code)?>
+    <input type='checkbox' tabindex="<?php echo ++$tabindex;?>" name='fcode' id="fcode" <?php if ($rec['fcode']=="1") { echo 'CHECKED'; }?> onclick="resetDefaultSound();"><?php echo sprintf(_("Optional Feature Code %s"),$rec_code)?>
         </td>
     </tr>
     <tr>
@@ -421,7 +562,7 @@ function recording_editpage($id, $num) {
     } else {
 ?>
     <tr>
-    <td colspan="2"><a class="info" href="#"><?php echo _("Direct Access Feature Code Not Available")?><span><?php echo _("Direct Access Feature Codes for recordings are not available for built in system recordings or compound recordings made of multiple individual ones.")?></span></a>:
+    <td colspan="2"><a class="info" href="#"><?php echo _("Direct Access Feature Code Not Available")?><span><?php echo _("Direct Access Feature Codes for recordings are not available for built in system recordings or compound recordings made of multiple individual ones.")?></span></a>
     </td>
     </tr>
 <?php
@@ -442,11 +583,10 @@ function recording_editpage($id, $num) {
     echo $sndfile_html;
     ?>
     </table>
-    <input name="Submit" type="submit" value="<?php echo _("Save")?>" tabindex="<?php echo ++$tabindex;?>"></h6>
+
     <?php recordings_popup_jscript(); ?>
     <?php recordings_form_jscript(); ?>
-    <script language="javascript">
-    <!-- Begin
+    <script>
     var sysrec0_idx;
     function initPage() {
         sysrec0_idx = document.getElementById("sysrec0").selectedIndex;
@@ -475,27 +615,47 @@ function recording_editpage($id, $num) {
         }
     }
 
-    $(document).ready(function(){
+    $(function() {
+        $('#sysrec0').css('width','250px');
         var $reclist = $("#sysrec0");
         var $optlist = $("#sysrec0 option");
         //$(".slclass").css({ visibility: "visible" }).hide();
         $(".slclass").css("visibility", "visible").hide();
-        $(".autofill").width($reclist.width());
+        $(".autofill").width($reclist.width()).chosen({search_contains: true, no_results_text: "No Recordings Found", allow_single_deselect: true});
         <?php echo $jq_autofill; ?>
     });
 
+     <?php echo js_display_confirmation_toasts(); ?>
 
-    // End -->
     </script>
     </form>
     </div>
 <?php
+
+    $warn_msg = _("Note, does not delete file from computer");
+    echo form_action_bar($extdisplay,'formprompt',false,true,$warn_msg); 
 }
 
 function recording_sidebar($id, $num) {
+    $display='recordings';
+    $extdisplay=$id;
+
+    $rnaventries = array();
+    $rnaventries[] = array($tresult[0],_("Built-in Recordings"),'','',"usersnum=".urlencode($num)."&action=system");
+    $tresults   = recordings_list();
+    foreach($tresults as $tresult) {
+        // result[0] = record id
+        // result[1] = record name
+        // result[2] = id to print
+        // result[3] = extra css class
+        // result[4] = custom param
+        $rnaventries[] = array($tresult[0],$tresult[1],'','',"&usersnum=".urlencode($num)."&action=edit");
+    }
+    drawListMenu($rnaventries, $type, $display, $extdisplay);
+
 ?>
-        <div class="rnav"><ul>
-        <li><a class="<?php echo empty($id)?'current':'nul' ?>" href="config.php?display=recordings&amp;usersnum=<?php echo urlencode($num) ?>"><?php echo _("Add Recording")?></a></li>
+        <!--div class="rnav"><ul>
+        <li><a class="<?php echo empty($id)?'current':'nul' ?>" href="config.php?display=recordings&amp;usersnum=<?php echo urlencode($num) ?>"><?php echo _("Add System Recording")?></a></li>
         <li><a class="<?php echo ($id===-1)?'current':'nul' ?>" href="config.php?display=recordings&amp;action=system"><?php echo _("Built-in Recordings")?></a></li>
 <?php
         $wrapat = 18;
@@ -521,13 +681,12 @@ function recording_sidebar($id, $num) {
                         echo "</li>\n";
                 }
         }
-        echo "</ul></div>\n";
+        echo "</ul></div-->\n";
 }
 
 function recordings_popup_jscript() {
 ?>
-        <script language="javascript">
-    <!-- Begin
+    <script>
     function popUp(URL,optionId) {
         var selIndex=optionId.selectedIndex
         var file=encodeURIComponent(optionId.options[selIndex].value)
@@ -536,29 +695,30 @@ function recordings_popup_jscript() {
         if (file != "")
             popup = window.open(URL+file, 'play', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=320,height=110');
     }
-    // End -->
     </script>
 <?php
 }
 
 function recordings_form_jscript() {
 ?>
-    <script language="javascript">
-    <!--
+    <script>
 
-    var theForm = document.prompt;
+    function rec_onsubmit(theForm) {
 
-    function rec_onsubmit() {
+        if(theForm.action.value=='delete') { return true; }
+
         var msgInvalidFilename = "<?php echo _("Please enter a valid Name for this System Recording"); ?>";
 
         defaultEmptyOK = false;
-        if (!isFilename(theForm.rname.value))
-            return warnInvalid(theForm.rname, msgInvalidFilename);
-
+        if(typeof theForm.rname != 'undefined') {
+            if (!isFilename(theForm.rname.value)) {
+                return warnInvalid(theForm.rname, msgInvalidFilename);
+            }
+        }
+        $.LoadingOverlay('show');
         return true;
     }
 
-    //-->
     </script>
 
 <?php
@@ -570,10 +730,9 @@ function recording_sysfiles() {
     $sysrecs = recordings_readdir($astsnd, strlen($astsnd)+1);
 ?>
     <div class="content" style="display:table;">
-    <h2><?php echo _("System Recordings")?></h2>
-    <h3><?php echo _("Built-in Recordings") ?></h3>
-    <h5><?php echo _("Select System Recording:")?></h5>
-    <form name="xtnprompt" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+    <h2><?php echo _("Built-in Recordings") ?></h2>
+    <h5><?php echo _("Select System Recording")?></h5>
+    <form name="xtnprompt" method="post">
     <input type="hidden" name="action" value="newsysrec">
     <input type="hidden" name="display" value="recordings">
     <select name="sysrec" class="autocomplete-combobox">
@@ -584,7 +743,7 @@ function recording_sysfiles() {
         }
     ?>
     </select>
-    <input name="Submit" type="submit" value="<?php echo _("Go"); ?>">
+    <input class="button is-small is-info" name="Submit" type="submit" value="<?php echo _("Go"); ?>">
     <p />
     </div>
 <?php
@@ -619,9 +778,9 @@ function recordings_display_sndfile($item, $count, $max, $astpath, $fcode) {
         $html_txt .=  "</select></td>\n";
     } else {
         $html_txt .=  "<tr><td>";
-        $html_txt .=  "<input type='hidden' id='sysrecval$count' value='$item' />";
+        $html_txt .=  "<input type='hidden' id='sysrecval$count' value='$item' />\n";
         $html_txt .=  "<select $disabled_state id='sysrec$count' name='sysrec$count' class='autofill'>\n";
-        $html_txt .=  "<option  SELECTED>$item</option>\n";
+        //$html_txt .=  "<option SELECTED>$item</option>\n";
         $html_txt .=  "</select></td>\n";
     }
 
@@ -629,30 +788,30 @@ function recordings_display_sndfile($item, $count, $max, $astpath, $fcode) {
     $audio=$astpath;
 
     include_once("crypt.php");
-  $crypt = new Crypt();
+    $crypt = new Crypt();
     $REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'moufdsuu3nma0';
-  $audio = urlencode($crypt->encrypt($audio,$REC_CRYPT_PASSWORD));
+    $audio = urlencode($crypt->encrypt($audio,$REC_CRYPT_PASSWORD));
     $recurl=$_SERVER['PHP_SELF']."?display=recordings&action=popup&recordingpath=$audio&recording=";
 
-    $html_txt .=  "<a href='#' ".(($count)?$hidden_state:'')." type='submit' id='play$count' onClick=\"javascript:popUp('$recurl',document.prompt.sysrec$count); return false;\" input='foo'>";
-    $html_txt .=  "<img border='0' width='20'  height='20' src='assets/recordings/images/play.png' title='"._("Click here to play this recording")."' />";
-    $html_txt .=  "</img></td>";
+    $html_txt .=  "<button type='submit' class='button is-small is-info' ".(($count)?$hidden_state:'')." id='play$count' onClick=\"javascript:popUp('$recurl',document.formprompt.sysrec$count); return false;\" ><span class='icon is-small'><i class='fa fa-play'></i></span></button>";
+
+    $html_txt .=  "</td>\n";
 
     if ($count==0) {
-         $html_txt .=  "<td></td>\n";
-    } else {
-        $html_txt .=  "<td class='action'>";
-        $html_txt .=  "<button $hidden_state name='up$count' id='up$count' value='Move Up' style='border:0'> <img src='images/scrollup.gif' alt='"._('Move Up')."' title='"._('Move Up')."'/> </button>\n";
-        $html_txt .=  "</td>\n";
-    } if ($count > $max) {
         $html_txt .=  "<td></td>\n";
     } else {
         $html_txt .=  "<td class='action'>";
-        $html_txt .=  "<button $hidden_state name='down$count' id='down$count' value='Move Down' style='border:0'> <img src='images/scrolldown.gif' alt='"._('Move Down')."' title='"._('Move Down')."'/> </button>\n";
+        $html_txt .=  "<button $hidden_state name='up$count' id='up$count' value='Move Up' class='button is-small is-link' data-tooltip='"._('Move Up')."'><span class='icon is-small'><i class='fa fa-arrow-up'></i></span></button>\n";
         $html_txt .=  "</td>\n";
-    }
-    $html_txt .=  "<td class='action'><button $hidden_state name='del$count' id='del$count' value='Delete' style='border:0'> <img src='images/trash.png' alt='"._('Delete')."' title='"._('Delete')."'/> </button>\n";
-    $html_txt .=  "</td><td id='selectload$count' class='slclass' style='visibility:hidden' width='16'><img border='0' style='float: none; margin-left: 0px; margin-bottom: 0px;' src='assets/recordings/images/rec_hourglass.png'></td>\n";
+    } if ($count > $max) {
+    $html_txt .=  "<td></td>\n";
+        } else {
+            $html_txt .=  "<td class='action'>";
+            $html_txt .=  "<button $hidden_state name='down$count' id='down$count' value='Move Down' class='button is-small is-link' data-tooltip='"._('Move Down')."'><span class='icon is-small'><i class='fa fa-arrow-down'></i></span></button>\n";
+            $html_txt .=  "</td>\n";
+        }
+    $html_txt .=  "<td class='action'><button $hidden_state name='del$count' id='del$count' value='Delete' class='button is-small is-danger' data-tooltip='"._('Delete')."'><span class='icon is-small'><i class='fa fa-trash'></i></span></button>\n";
+    $html_txt .=  "</td><td class='action'><i id='selectload$count' class='fa fa-spinner fa-spin' style='display:none;'></i></td>\n";
 
     $html_txt .=  "</tr>\n";
     return $html_txt;
