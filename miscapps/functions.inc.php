@@ -86,8 +86,8 @@ function miscapps_add($description, $ext, $dest) {
 		die_issabelpbx($result->getMessage().$sql);
 	}
 	//get id..
-        $sql = ( (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
-        $miscapps_id = $db->getOne($sql);
+	$sql = ( preg_match("/qlite/",$amp_conf["AMPDBENGINE"]) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
+	$miscapps_id = $db->getOne($sql);
 
 	if (DB::IsError($miscapps_id)) {
 		//TODO -- handle this

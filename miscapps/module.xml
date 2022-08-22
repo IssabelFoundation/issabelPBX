@@ -2,7 +2,7 @@
     <rawname>miscapps</rawname>
     <repo>extended</repo>
     <name>Misc Applications</name>
-    <version>2.11.0.2</version>
+    <version>2.12.0.0</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -15,14 +15,14 @@
         <miscapps>Misc Applications</miscapps>
     </menuitems>
     <changelog>
+        *2.12.0.0* Newer GUI, standarize module components
   		*2.11.0.2* Initial Issabel Foundation release
 	</changelog>
     <depends>
         <version>2.4.0</version>
     </depends>
-    <location>release/2.11/miscapps-2.11.0.0.tgz</location>
-    <md5sum>b288e7c7bc4c9f2213cd470f4d9c3791</md5sum>
+    <location>release/2.12/miscapps-2.12.0.0.tgz</location>
     <supported>
-        <version>2.10</version>
+        <version>2.12</version>
     </supported>
 </module>
