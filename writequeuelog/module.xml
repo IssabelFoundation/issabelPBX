@@ -2,7 +2,7 @@
         <rawname>writequeuelog</rawname>
         <repo>standard</repo>
         <name>Write a line into queue log</name>
-        <version>2.11.0.0</version>
+        <version>2.12.0.0</version>
         <category>Applications</category>
         <embedcategory>Advanced</embedcategory>
         <publisher>Issabel Foundation</publisher>
@@ -15,14 +15,14 @@
                 <writequeuelog>Write in Queue Log</writequeuelog>
         </menuitems>
         <changelog>
+                *2.12.0.0* Newer GUI, standarize module components
                 *2.11.1.0*  Initial Release
         </changelog>
         <depends>
-                <version>2.5.0</version>
+                <version>2.12.0</version>
         </depends>
         <supported>
-                <version>2.10</version>
+                <version>2.12</version>
         </supported>
-        <location>release/2.11/writequeuelog-2.11.0.0.tgz</location>
-        <md5sum>97c4ecdafb9b1d4deaf792f05420545f</md5sum>
+        <location>release/2.12/writequeuelog-2.12.0.0.tgz</location>
 </module>

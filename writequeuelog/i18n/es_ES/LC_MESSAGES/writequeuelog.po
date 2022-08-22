@@ -28,7 +28,10 @@ msgstr "Agregar Campo"
 
 #: ../page.writequeuelog.php:46 ../page.writequeuelog.php:81
 msgid "Add Write Queue Log"
-msgstr "Agregar Escribir en Queue Log"
+msgstr "Añadir Escribir en Queue Log"
+
+msgid "Edit Write Queue Log"
+msgstr "Modificar Escribir en Queue Log"
 
 #: ../page.writequeuelog.php:69
 msgid "Edit: "
@@ -121,3 +124,6 @@ msgstr "Escribir en Queue Log"
 
 msgid "Write In Queue Log"
 msgstr "Escribir en Queue Log"
+
+msgid "Write a line into queue log"
+msgstr "Escribir una línea en queue log"
