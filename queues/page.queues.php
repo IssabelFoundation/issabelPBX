@@ -1,6 +1,7 @@
-<?php /* $Id: page.queues.php 1124 2006-03-13 21:39:16Z rcourtna $ */
-//Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
-//
+<?php 
+/* $Id: page.queues.php 1124 2006-03-13 21:39:16Z rcourtna $ */
+// Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
+// Copyright 2022 Issabel Foundation
 
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 $tabindex = 0;
@@ -17,6 +18,7 @@ isset($_REQUEST['agentannounce_id'])?$agentannounce_id = $_REQUEST['agentannounc
 isset($_REQUEST['prefix'])?$prefix = $_REQUEST['prefix']:$prefix='';
 isset($_REQUEST['alertinfo'])?$alertinfo = $_REQUEST['alertinfo']:$alertinfo='';
 isset($_REQUEST['joinannounce_id'])?$joinannounce_id = $_REQUEST['joinannounce_id']:$joinannounce_id='';
+
 $maxwait = isset($_REQUEST['maxwait'])?$_REQUEST['maxwait']:'';
 $cwignore = isset($_REQUEST['cwignore'])?$_REQUEST['cwignore']:'0';
 $queuewait = isset($_REQUEST['queuewait'])?$_REQUEST['queuewait']:'0';
@@ -39,29 +41,32 @@ $skip_joinannounce = isset($_REQUEST['skip_joinannounce'])?$_REQUEST['skip_joina
 
 //cron code
 $cron_schedule = isset($_REQUEST['cron_schedule'])?$_REQUEST['cron_schedule']:'never';
-$cron_minute = isset($_REQUEST['cron_minute'])?$_REQUEST['cron_minute']:array();
-$cron_hour = isset($_REQUEST['cron_hour'])?$_REQUEST['cron_hour']:array();
-$cron_dow = isset($_REQUEST['cron_dow'])?$_REQUEST['cron_dow']:array();
-$cron_month = isset($_REQUEST['cron_month'])?$_REQUEST['cron_month']:array();
-$cron_dom = isset($_REQUEST['cron_dom'])?$_REQUEST['cron_dom']:array();
-$cron_random = isset($_REQUEST['cron_random'])?$_REQUEST['cron_random']:false;
+$cron_minute   = isset($_REQUEST['cron_minute'])?$_REQUEST['cron_minute']:'';
+$cron_hour     = isset($_REQUEST['cron_hour'])?$_REQUEST['cron_hour']:'';
+$cron_dow      = isset($_REQUEST['cron_dow'])?$_REQUEST['cron_dow']:'';
+$cron_month    = isset($_REQUEST['cron_month'])?$_REQUEST['cron_month']:'';
+$cron_dom      = isset($_REQUEST['cron_dom'])?$_REQUEST['cron_dom']:'';
+$cron_random   = isset($_REQUEST['cron_random'])?$_REQUEST['cron_random']:false;
 
 $engineinfo = engine_getinfo();
-$astver =  $engineinfo['version'];
-$ast_ge_16 = version_compare($astver, '1.6', 'ge');
+$astver     = $engineinfo['version'];
+$ast_ge_16  = version_compare($astver, '1.6', 'ge');
 $ast_ge_162 = version_compare($astver, '1.6.2', 'ge');
-$ast_ge_18 = version_compare($astver, '1.8', 'ge');
-$ast_ge_11 = version_compare($astver, '11', 'ge');
+$ast_ge_18  = version_compare($astver, '1.8', 'ge');
+$ast_ge_11  = version_compare($astver, '11', 'ge');
 
-if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
-    $goto = $_REQUEST[$_REQUEST['goto0']."0"];
+$conflict_url = array();
+$usage_arr    = array();
+
+if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']])) {
+    $goto = $_REQUEST[$_REQUEST['goto0']];
 } else {
     $goto = '';
 }
-if (isset($_REQUEST['goto1']) && isset($_REQUEST[$_REQUEST['goto1']."1"])) {
-        $gotocontinue = $_REQUEST[$_REQUEST['goto1']."1"];
+if (isset($_REQUEST['goto1']) && isset($_REQUEST[$_REQUEST['goto1']])) {
+    $gotocontinue = $_REQUEST[$_REQUEST['goto1']];
 } else {
-        $gotocontinue = '';
+    $gotocontinue = '';
 }
 
 if (isset($_REQUEST["members"])) {
@@ -149,37 +154,44 @@ if (isset($_REQUEST["dynmembers"])) {
 }
 
 // do if we are submitting a form
-if(isset($_REQUEST['action'])){
+if(isset($_REQUEST['action'])) {
     //check if the extension is within range for this user
     if (isset($account) && !checkRange($account)){
-        echo "<script>javascript:alert('"._("Warning! Extension")." $account "._("is not allowed for your account.")."');</script>";
+        echo "<script>\$( function() {  sweet_alert('"._("Warning! Extension")." $account "._("is not allowed for your account.")."');});</script>";
     } else {
 
         //if submitting form, update database
         switch ($action) {
             case "add":
-                $conflict_url = array();
                 $usage_arr = framework_check_extension_usage($account);
                 if (!empty($usage_arr)) {
                     $conflict_url = framework_display_extension_usage_alert($usage_arr);
                 } else {
                     queues_add($account,$name,$password,$prefix,$goto,$gotocontinue,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
                     needreload();
-          $_REQUEST['extdisplay'] = $account;
+                    $_REQUEST['extdisplay'] = $account;
                     $this_dest = queues_getdest($account);
                     fwmsg::set_dest($this_dest[0]);
-                    redirect_standard('extdisplay');
+
+                    $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+                    $_SESSION['msgtype']='success';
+                    redirect_standard();
                 }
             break;
             case "delete":
                 queues_del($account);
                 needreload();
+                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+                $_SESSION['msgtype']='warning';
                 redirect_standard();
             break;
             case "edit":  //just delete and re-add
                 queues_del($account);
                 queues_add($account,$name,$password,$prefix,$goto,$gotocontinue,$agentannounce_id,$members,$joinannounce_id,$maxwait,$alertinfo,$cwignore,$qregex,$queuewait,$use_queue_context,$dynmembers,$dynmemberonly,$togglehint,$qnoanswer, $callconfirm, $callconfirm_id, $monitor_type, $monitor_heard, $monitor_spoken, $answered_elsewhere);
                 needreload();
+                $_REQUEST['extdisplay'] = $account;
+                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+                $_SESSION['msgtype']='success';
                 redirect_standard('extdisplay');
             break;
         }
@@ -187,119 +199,115 @@ if(isset($_REQUEST['action'])){
 }
 
 //get unique queues
-$queues = queues_list();
-
+$rnaventries = array();
+$queues      = queues_list();
+foreach ($queues as $queue) {
+    $rnaventries[] = array($queue[0],$queue[1],$queue[0],'');
+}
+drawListMenu($rnaventries, $type, $display, $extdisplay);
 ?>
-<!--link type="text/css" src="config.php?display=queues&handler=file&module=queues&file=assets/css/queues.css"></link-->
-<div class="rnav"><ul>
-    <li><a class="<?php echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Queue")?></a></li>
+<div class='content'>
 <?php
-if (isset($queues)) {
-    foreach ($queues as $queue) {
-        echo "<li><a class=\"".($extdisplay==$queue[0] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&extdisplay=".urlencode($queue[0])."\">{$queue[0]}:{$queue[1]}</a></li>";
+
+$member = array();
+//get members in this queue
+$thisQ = queues_get($extdisplay);
+//create variables
+extract($thisQ);
+
+//cron
+//We check for an array in views/cron.php so make it one
+$cron_vars = array('cron_schedule', 'cron_minute', 'cron_hour', 'cron_dow', 'cron_month', 'cron_dom', 'cron_random');
+foreach ($cron_vars as $value) {
+        $cronVars[$value] = array($$value);
+}
+
+$mem_array = array();
+foreach ($member as $mem) {
+    if (preg_match("/^(Local|Agent|SIP|PJSIP|DAHDI|ZAP|IAX2)\/([\d]+).*,([\d]+)(.*)$/",$mem,$matches)) {
+        switch ($matches[1]) {
+            case 'Agent':
+                $exten_prefix = 'A';
+                break;
+            case 'SIP':
+                $exten_prefix = 'S';
+                break;
+            case 'PJSIP':
+                $exten_prefix = 'P';
+                break;
+            case 'IAX2':
+                $exten_prefix = 'X';
+                break;
+            case 'ZAP':
+                $exten_prefix = 'Z';
+                break;
+            case 'DAHDI':
+                $exten_prefix = 'D';
+                break;
+            case 'Local':
+                if(preg_match("/@agents/",$mem)) {
+                    // Asterisk 13 pseudo agents
+                    $exten_prefix = 'A';
+                } else {
+                    $exten_prefix = '';
+                }
+                break;
+        }
+        $mem_array[] = $exten_prefix.$matches[2].','.$matches[3];
     }
 }
-?>
-</ul></div>
-<?php
-if ($action == 'delete') {
-    echo '<br><h3>'._("Queue").' '.$account.' '._("deleted").'!</h3><br><br><br><br><br><br><br><br>';
-} else {
-    $member = array();
-    //get members in this queue
-    $thisQ = queues_get($extdisplay);
-    //create variables
-    extract($thisQ);
 
-    //cron
-    //We check for an array in views/cron.php so make it one
-    $cron_vars = array('cron_schedule', 'cron_minute', 'cron_hour', 'cron_dow', 'cron_month', 'cron_dom', 'cron_random');
-    foreach ($cron_vars as $value) {
-            $cronVars[$value] = array($$value);
-    }
-
-  $mem_array = array();
-  foreach ($member as $mem) {
-    if (preg_match("/^(Local|Agent|SIP|PJSIP|DAHDI|ZAP|IAX2)\/([\d]+).*,([\d]+)(.*)$/",$mem,$matches)) {
-      switch ($matches[1]) {
-        case 'Agent':
-          $exten_prefix = 'A';
-          break;
-        case 'SIP':
-          $exten_prefix = 'S';
-          break;
-        case 'PJSIP':
-          $exten_prefix = 'P';
-          break;
-        case 'IAX2':
-          $exten_prefix = 'X';
-          break;
-        case 'ZAP':
-          $exten_prefix = 'Z';
-          break;
-        case 'DAHDI':
-          $exten_prefix = 'D';
-          break;
-        case 'Local':
-          if(preg_match("/@agents/",$mem)) {
-              // Asterisk 13 pseudo agents
-              $exten_prefix = 'A';
-          } else {
-              $exten_prefix = '';
-          }
-          break;
-      }
-      $mem_array[] = $exten_prefix.$matches[2].','.$matches[3];
-    }
-  }
-
-    $delButton = "
-                <form name=delete action=\"{$_SERVER['PHP_SELF']}\" method=POST>
-                    <input type=\"hidden\" name=\"display\" value=\"{$dispnum}\">
-                    <input type=\"hidden\" name=\"account\" value=\"{$extdisplay}\">
-                    <input type=\"hidden\" name=\"action\" value=\"delete\">
-                    <input type=submit value=\""._("Delete Queue")."\">
-                </form>";
 ?>
 
-<?php if (!empty($conflict_url)) {
-          echo "<h5>"._("Conflicting Extensions")."</h5>";
-          echo implode('<br .>',$conflict_url);
-      }
-?>
 <?php if ($extdisplay != '') { ?>
-    <h2><?php echo _("Queue:")." ". $extdisplay; ?></h2>
+    <h2><?php echo _("Edit Queue").": ". $extdisplay; ?></h2>
 <?php } else { ?>
     <h2><?php echo _("Add Queue"); ?></h2>
 <?php } ?>
 
-<?php        if ($extdisplay != '') {
-                    echo $delButton;
-                    $usage_list = framework_display_destination_usage(queues_getdest($extdisplay));
-                    if (!empty($usage_list)) {
-?>
-                        <a href="#" class="info"><?php echo $usage_list['text']?>:<span><?php echo $usage_list['tooltip']?></span></a>
 <?php
-                    }
-                }
+if (!empty($conflict_url)) {
+    echo ipbx_extension_conflict($conflict_url);
+}
+
+if ($extdisplay != '') {
+    $usage_list = framework_display_destination_usage(queues_getdest($extdisplay));
+
+    if (!empty($usage_list)) {
+        echo ipbx_usage_info($usage_list['text'],$usage_list['tooltip']);
+    }
+}
+
+
 ?>
-    <form class="popover-form" autocomplete="off" name="editQ" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkQ(editQ);">
+    <form class="popover-form" id="mainform" autocomplete="off" name="editQ" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkQ(editQ);">
     <input type="hidden" name="display" value="<?php echo $dispnum?>">
     <input type="hidden" name="action" value="<?php echo (($extdisplay != '') ? 'edit' : 'add') ?>">
-    <table>
-    <tr><td colspan="2"><h5><?php echo ($extdisplay ? _("Edit Queue") : _("Add Queue")) ?></h5></td></tr>
+<?php if ($extdisplay != ''){ ?>
+    <input type="hidden" name="account" value="<?php echo $extdisplay; ?>">
+<?php } ?>
+    <table class="table is-borderless is-narrow">
+    <?php 
+    //if ($extdisplay) { echo '<tr><td colspan=2><input name="delete" class="button is-danger is-light is-small is-rounded" type="submit" value="'.dgettext("amp","Delete").'"></td></tr>'; } 
+    ?>
+
+    <tr><td colspan="2"><h5><?php echo _("General Queue Options")?></h5></td></tr>
     <tr>
-<?php        if ($extdisplay != ''){ ?>
-        <td colspan=2><input type="hidden" name="account" value="<?php echo $extdisplay; ?>"></td>
-<?php        } else { ?>
+<?php        
+  $second_autofocus='autofocus';
+  if ($extdisplay == ''){ 
+      $second_autofocus='';
+?>
         <td><a href="#" class="info"><?php echo _("Queue Number")?><span><?php echo _("Use this number to dial into the queue, or transfer callers to this number to put them into the queue.<br><br>Agents will dial this queue number plus * to log onto the queue, and this queue number plus ** to log out of the queue.<br><br>For example, if the queue number is 123:<br><br><b>123* = log in<br>123** = log out</b>")?></span></a></td>
-        <td><input type="text" name="account" value="" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
-<?php        } ?>
+        <td><input type="text" autofocus name="account" value="" tabindex="<?php echo ++$tabindex;?>" class='input w100'></td>
+<?php
+    } 
+?>
     </tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Queue Name")?><span><?php echo _("Give this queue a brief name to help you identify it.")?></span></a></td>
-        <td><input type="text" name="name" value="<?php echo (isset($name) ? $name : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
+        <td><input type="text" <?php echo $second_autofocus;?> name="name" value="<?php echo (isset($name) ? $name : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'></td>
     </tr>
 
 <?php
@@ -307,7 +315,7 @@ if ($action == 'delete') {
 ?>
     <tr>
         <td><a href="#" class="info"><?php echo _("Queue Password")?><span><?php echo _("You can require agents to enter a password before they can log in to this queue.<br><br>This setting is optional.") . '<br /><br />' . _("The password is only used when logging in with the legacy queueno* code. When using the toggle codes, you must use the Restrict Dynamic Agents option in conjunction with the Dynamic Members list to control access.")?></span></a></td>
-        <td><input type="text" name="password" value="<?php echo (isset($password) ? $password : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
+        <td><input type="text" name="password" value="<?php echo (isset($password) ? $password : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'></td>
     </tr>
 <?php
     }
@@ -330,21 +338,23 @@ if ($action == 'delete') {
     <tr>
   <td><a href="#" class="info"><?php echo _("Generate Device Hints")?><span><?php echo _("If checked, individual hints and dialplan will be generated for each SIP and IAX2 device that could be part of this queue. These are used in conjunction with programmable BLF phone buttons to log into and out of a queue and generate BLF status as to the current state. The format of the hints is<br /><br />*45ddd*qqq<br /><br />where *45 is the currently defined toggle feature code, ddd is the device number (typically the same as the extension number) and qqq is this queue's number.")?></span></a></td>
         <td>
-            <input name="togglehint" type="checkbox" value="1" <?php echo (isset($togglehint) && $togglehint == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
+            <!--input name="togglehint" type="checkbox" value="1" <?php echo (isset($togglehint) && $togglehint == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/-->
+            <?php echo ipbx_yesno_checkbox("togglehint",$togglehint,false); ?>
         </td>
     </tr>
 <?php } ?>
 
     <tr>
-            <td><a href="#" class="info"><?php echo _("Call Confirm")?><span><?php echo _("If checked, any queue member that is actually an outside telephone number, or any extensions Follow-Me or call forwarding that are pursued and leave the PBX will be forced into Call Confirmation mode where the member must acknowledge the call before it is answered and delivered..")?></span></a></td>
-            <td>
-                  <input name="callconfirm" type="checkbox" value="1" <?php echo (isset($callconfirm) && $callconfirm == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
-            </td>
-      </tr>
+        <td><a href="#" class="info"><?php echo _("Call Confirm")?><span><?php echo _("If checked, any queue member that is actually an outside telephone number, or any extensions Follow-Me or call forwarding that are pursued and leave the PBX will be forced into Call Confirmation mode where the member must acknowledge the call before it is answered and delivered..")?></span></a></td>
+        <td>
+            <!--input name="callconfirm" type="checkbox" value="1" <?php echo (isset($callconfirm) && $callconfirm == '1' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/-->
+            <?php echo ipbx_yesno_checkbox("callconfirm",$callconfirm,false); ?>
+        </td>
+    </tr>
 <?php
     if(function_exists('recordings_list')) { //only include if recordings is enabled ?>
         <tr>
-                <td><a href="#" class="info"><?php echo _("Call Confirm Announce")?><span><?php echo _("Announcement played to the Queue Memeber announcing the Queue call and requesting confirmation prior to answering. If set to default, the standard call confirmation default message will be played unless the member is reached through a Follow-Me and there is an alternate message provided in the Follow-Me. This message will override any other message specified..<br><br>To add additional recordings please use the \"System Recordings\" MENU.")?></span></a></td>
+                <td><a href="#" class="info"><?php echo _("Call Confirm Announce")?><span><?php echo _("Announcement played to the Queue Member announcing the Queue call and requesting confirmation prior to answering. If set to default, the standard call confirmation default message will be played unless the member is reached through a Follow-Me and there is an alternate message provided in the Follow-Me. This message will override any other message specified..<br><br>To add additional recordings please use the \"System Recordings\" MENU.")?></span></a></td>
                 <td>
                         <select name="callconfirm_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                         <?php
@@ -376,88 +386,28 @@ if ($action == 'delete') {
 
     <tr>
         <td><a href="#" class="info"><?php echo _("CID Name Prefix")?><span><?php echo _("You can optionally prefix the CallerID name of callers to the queue. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring.")?></span></a></td>
-        <td><input type="text" name="prefix" value="<?php echo (isset($prefix) ? $prefix : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
+        <td><input type="text" name="prefix" value="<?php echo (isset($prefix) ? $prefix : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'></td>
     </tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Wait Time Prefix")?><span><?php echo _("When set to Yes, the CID Name will be prefixed with the total wait time in the queue so the answering agent is aware how long they have waited. It will be rounded to the nearest minute, in the form of Mnn: where nn is the number of minutes.").'<br />'._("If the call is subsequently transferred, the wait time will reflect the time since it first entered the queue or reset if the call is transferred to another queue with this feature set.")?></span></a></td>
         <td>
-            <select name="queuewait" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
-            <?php
-                $default = (isset($queuewait) ? $queuewait : '0');
-                $items = array('1'=>_("Yes"),'0'=>_("No"));
-                foreach ($items as $item=>$val) {
-                    echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
-                }
-            ?>
-            </select>
+            <?php echo ipbx_yesno_checkbox("queuewait",$queuewait,false); ?>
         </td>
     </tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Alert Info")?><span><?php echo _('ALERT_INFO can be used for distinctive ring with SIP devices.')?></span></a></td>
-        <td><input type="text" name="alertinfo" value="<?php echo (isset($alertinfo)?$alertinfo:'') ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
-    </tr>
-
-    <tr>
-    <td valign="top"><a href="#" class="info"><?php echo _("Static Agents") ?><span><br><?php echo _("Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers). You can put a \",\" after the agent followed by a penalty value, see Asterisk documentation concerning penalties.<br /><br /> An advanced mode has been added which allows you to prefix an agent number with S, P, X, Z, D or A. This will force the agent number to be dialed as an Asterisk device of type SIP, PJSIP, IAX2, ZAP, DAHDi or Agent respectively. This mode is for advanced users and can cause known issues in IssabelPBX as you are by-passing the normal dialplan. If your 'Agent Restrictions' are not set to 'Extension Only' you will have problems with subsequent transfers to voicemail and other issues may also exist. (Channel Agent is deprecated starting with Asterisk 1.4 and gone in 1.6+.)") ?><br><br></span></a></td>
-        <td valign="top">
-            <textarea style='width:100%;' id="members" cols="15" name="members" onkeyup="textAreaAdjust(this)" tabindex="<?php echo ++$tabindex;?>"><?php echo implode("\n",$mem_array) ?></textarea>
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-        <a href=# class="info"><?php echo _("Extension Quick Pick")?>
-            <span>
-                <?php echo _("Choose an extension to append to the end of the static agents list above.")?>
-            </span>
-        </a>
-        </td>
-        <td>
-            <select onChange="insertExten('');" id="insexten" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
-                <option value=""><?php echo _("(pick extension)")?></option>
-    <?php
-                $results = core_users_list();
-                foreach ($results as $result) {
-                    echo "<option value='".$result[0]."'>".$result[0]." (".$result[1].")</option>\n";
-                }
-    ?>
-            </select>
-        </td>
-    </tr>
-
-    <tr>
-        <td valign="top"><a href="#" class="info"><?php echo _('Dynamic Members') ?><span><br><?php echo _("Dynamic Members are extensions or callback numbers that can log in and out of the queue. When a member logs in to a queue, their penalty in the queue will be as specified here. Extensions included here will NOT automatically be logged in to the queue.") ?><br><br></span></a></td>
-        <td valign="top">
-	    <textarea style='width:100%;' id="dynmembers" cols="15" name="dynmembers"  onkeyup="textAreaAdjust(this)" tabindex="<?php echo ++$tabindex;?>"><?php echo $dynmembers; ?></textarea>
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-        <a href=# class="info"><?php echo _("Extension Quick Pick")?>
-            <span>
-                <?php echo _("Choose an extension to append to the end of the dynamic member list above.")?>
-            </span>
-        </a>
-        </td>
-        <td>
-            <select onChange="insertExten('dyn');" id="dyninsexten" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
-                <option value=""><?php echo _("(pick extension)")?></option>
-    <?php
-                $results = core_users_list();
-                foreach ($results as $result) {
-                    echo "<option value='".$result[0]."'>".$result[0]." (".$result[1].")</option>\n";
-                }
-    ?>
-            </select>
-        </td>
+        <td><input type="text" name="alertinfo" value="<?php echo (isset($alertinfo)?$alertinfo:'') ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'></td>
     </tr>
 
     <tr>
       <td><a href="#" class="info"><?php echo _("Restrict Dynamic Agents")?><span><?php echo _('Restrict dynamic queue member logins to only those listed in the Dynamic Members list above. When set to Yes, members not listed will be DENIED ACCESS to the queue.')?></span></a></td>
-    <td><span class="radioset"><input type="radio" id="dynmemberonly_yes" name="dynmemberonly" value="yes" <?php echo ($dynmemberonly=='yes'?'checked':'');?>><label for="dynmemberonly_yes"><?php echo _('Yes')?></label><input type="radio" name="dynmemberonly" id="dynmemberonly_no" value="no" <?php echo ($dynmemberonly!='yes'?'checked':'');?>><label for="dynmemberonly_no"><?php echo _('No'); ?></label></span>
+      <td>
+      <?php
+        echo ipbx_radio('dynmemberonly',array(array('value'=>'yes','text'=>dgettext('amp','Yes')),array('value'=>'no','text'=>dgettext('amp','No'))),$dynmemberonly,false);
+      ?>
+
         </td>
     </tr>
 
@@ -474,8 +424,6 @@ if ($action == 'delete') {
             </select>
         </td>
     </tr>
-
-    <tr><td colspan="2"><br><h5><?php echo _("General Queue Options")?></h5></td></tr>
 
     <tr>
         <td>
@@ -527,7 +475,7 @@ if ($action == 'delete') {
     <tr>
         <td><a href="#" class="info"><?php echo _("Autofill")?><span><?php echo _("Starting with Asterisk 1.4, if this is checked, and multiple agents are available, Asterisk will send one call to each waiting agent (depending on the ring strategy). Otherwise, it will hold all calls while it tries to find an agent for the top call in the queue making other calls wait. This was the behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk documentation for more details of this feature.")?></span></a></td>
         <td>
-            <input name="autofill" type="checkbox" value="1" <?php echo (isset($autofill) && $autofill == 'yes' ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
+            <?php echo ipbx_yesno_checkbox("autofill",$autofill,false); ?>
         </td>
     </tr>
 
@@ -568,7 +516,7 @@ if ($action == 'delete') {
 if(function_exists('music_list')) { //only include if music module is enabled?>
     <tr>
         <td><a href="#" class="info"><?php echo _("Music on Hold Class")?><span><?php echo _("Music (MoH) played to the caller while they wait in line for an available agent. Choose \"inherit\" if you want the MoH class to be what is currently selected, such as by the inbound route. MoH Only will play music until the agent answers. Agent Ringing will play MoH until an agent's phone is presented with the call and is ringing. If they don't answer, MoH will return.  Ring Only makes callers hear a ringing tone instead of MoH ignoring any MoH Class selected as well as any configured periodic announcements. This music is defined in the \"Music on Hold\" Menu.")?></span></a></td>
-        <td>
+        <td class='is-flex'>
             <select name="music" tabindex="<?php echo ++$tabindex;?>">
             <?php
                 $tresults = music_list();
@@ -586,11 +534,15 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
                 }
             ?>
             </select>&nbsp;
-        <span class="radioset">
+
+        <?php
+                echo ipbx_radio('rtone',array(array('value'=>0,'text'=>_('MoH Only')),array('value'=>2,'text'=>_('Agent Ringing')),array('value'=>1,'text'=>_('Ring Only'))),$rtone,false);
+        ?>
+        <!--span class="radioset">
             <input type="radio" id="rtone-no" name="rtone" value="0" <?php echo ($rtone=='0'?'checked':'');?>><label for="rtone-no"><?php echo _('MoH Only')?></label>
             <input type="radio" id="rtone-agent" name="rtone" value="2" <?php echo ($rtone=='2'?'checked':'');?>><label for="rtone-agent"><?php echo _('Agent Ringing')?></label>
             <input type="radio" id="rtone-yes" name="rtone" value="1" <?php echo ($rtone=='1'?'checked':'');?>><label for="rtone-yes"><?php echo _('Ring Only')?></label>
-        </span>
+        </span-->
         </td>
     </tr>
 <?php } ?>
@@ -598,7 +550,7 @@ if(function_exists('music_list')) { //only include if music module is enabled?>
 if(function_exists('recordings_list')) { //only include if recordings is enabled ?>
     <tr>
         <td><a href="#" class="info"><?php echo _("Join Announcement")?><span><?php echo _("Announcement played to callers prior to joining the queue. This can be skipped if there are agents ready to answer a call (meaning they still may be wrapping up from a previous call) or when they are free to answer the call right now. To add additional recordings please use the \"System Recordings\" MENU.")?></span></a></td>
-        <td>
+        <td class='is-flex'>
             <select name="joinannounce_id" tabindex="<?php echo ++$tabindex;?>">
             <?php
                 $tresults = recordings_list();
@@ -611,11 +563,14 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
                 }
             ?>
             </select>&nbsp;
-            <span class="radioset">
+            <?php
+                echo ipbx_radio('skip_joinannounce',array(array('value'=>'','text'=>_('Always')),array('value'=>'free','text'=>_('When No Free Agents')),array('value'=>'ready','text'=>_('When No Ready Agents'))),$skip_joinannounce,false);
+            ?>
+            <!--span class="radioset">
                 <input type="radio" id="skip_joinannounce-no" name="skip_joinannounce" value="" <?php echo ($skip_joinannounce==''?'checked':'');?>><label for="skip_joinannounce-no"><?php echo _('Always')?></label>
-                <input type="radio" id="skip_joinannounce-free" name="skip_joinannounce" value="free" <?php echo ($skip_joinannounce=='free'?'checked':'');?>><label for="skip_joinannounce-free"><?php echo _('When No Free Agents')?></label>
+t type="radio" id="skip_joinannounce-free" name="skip_joinannounce" value="free" <?php echo ($skip_joinannounce=='free'?'checked':'');?>><label for="skip_joinannounce-free"><?php echo _('When No Free Agents')?></label>
                 <input type="radio" id="skip_joinannounce-ready" name="skip_joinannounce" value="ready" <?php echo ($skip_joinannounce=='ready'?'checked':'');?>><label for="skip_joinannounce-ready"><?php echo _('When No Ready Agents')?></label>
-            </span>
+            </span-->
         </td>
     </tr>
 <?php } else { ?>
@@ -697,14 +652,75 @@ if(function_exists('recordings_list')) { //only include if recordings is enabled
     <tr>
         <td><a href="#" class="info"><?php echo _("Mark calls answered elsewhere")?><span><?php echo _("Enabling this option, all calls are marked as 'answered elsewhere' when cancelled. The effect is that missed queue calls are *not* shown on the phone (if the phone supports it)")?></span></a></td>
         <td>
-            <input name="answered_elsewhere" type="checkbox" value="1" <?php echo (isset($answered_elsewhere) && $answered_elsewhere == 1 ? 'checked' : ''); ?>  tabindex="<?php echo ++$tabindex;?>"/>
+            <?php echo ipbx_yesno_checkbox("answered_elsewhere",$answered_elsewhere,false); ?>
         </td>
     </tr>
 <?php
     }
 ?>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Timing & Agent Options")?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _("Queue Members")?></h5></td></tr>
+
+    <tr>
+    <td valign="top"><a href="#" class="info"><?php echo _("Static Agents") ?><span><br><?php echo _("Static agents are extensions that are assumed to always be on the queue.  Static agents do not need to 'log in' to the queue, and cannot 'log out' of the queue.<br><br>List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number (Outbound Routing must contain a valid route for external numbers). You can put a \",\" after the agent followed by a penalty value, see Asterisk documentation concerning penalties.<br /><br /> An advanced mode has been added which allows you to prefix an agent number with S, P, X, Z, D or A. This will force the agent number to be dialed as an Asterisk device of type SIP, PJSIP, IAX2, ZAP, DAHDi or Agent respectively. This mode is for advanced users and can cause known issues in IssabelPBX as you are by-passing the normal dialplan. If your 'Agent Restrictions' are not set to 'Extension Only' you will have problems with subsequent transfers to voicemail and other issues may also exist. (Channel Agent is deprecated starting with Asterisk 1.4 and gone in 1.6+.)") ?><br><br></span></a></td>
+        <td valign="top">
+            <textarea style='width:100%;' id="members" cols="15" name="members" onkeyup="textAreaAdjust(this)" tabindex="<?php echo ++$tabindex;?>"><?php echo implode("\n",$mem_array) ?></textarea>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+        <a href=# class="info"><?php echo _("Extension Quick Pick")?>
+            <span>
+                <?php echo _("Choose an extension to append to the end of the static agents list above.")?>
+            </span>
+        </a>
+        </td>
+        <td>
+            <select onChange="insertExten('');" id="insexten" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
+                <option value=""><?php echo _("(pick extension)")?></option>
+    <?php
+                $results = core_users_list();
+                foreach ($results as $result) {
+                    echo "<option value='".$result[0]."'>".$result[0]." (".$result[1].")</option>\n";
+                }
+    ?>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top"><a href="#" class="info"><?php echo _('Dynamic Members') ?><span><br><?php echo _("Dynamic Members are extensions or callback numbers that can log in and out of the queue. When a member logs in to a queue, their penalty in the queue will be as specified here. Extensions included here will NOT automatically be logged in to the queue.") ?><br><br></span></a></td>
+        <td valign="top">
+	    <textarea style='width:100%;' id="dynmembers" cols="15" name="dynmembers"  onkeyup="textAreaAdjust(this)" tabindex="<?php echo ++$tabindex;?>"><?php echo $dynmembers; ?></textarea>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+        <a href=# class="info"><?php echo _("Extension Quick Pick")?>
+            <span>
+                <?php echo _("Choose an extension to append to the end of the dynamic member list above.")?>
+            </span>
+        </a>
+        </td>
+        <td>
+            <select onChange="insertExten('dyn');" id="dyninsexten" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
+                <option value=""><?php echo _("(pick extension)")?></option>
+    <?php
+                $results = core_users_list();
+                foreach ($results as $result) {
+                    echo "<option value='".$result[0]."'>".$result[0]." (".$result[1].")</option>\n";
+                }
+    ?>
+            </select>
+        </td>
+    </tr>
+
+
+
+
+    <tr><td colspan="2"><h5><?php echo _("Timing & Agent Options")?></h5></td></tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Max Wait Time")?><span><?php echo _("The maximum number of seconds a caller can wait in a queue before being pulled out.  (0 for unlimited).")?></span></a></td>
@@ -770,13 +786,15 @@ if ($ast_ge_16) {
     <tr>
     <td><a href="#" class="info"><?php echo _("Agent Timeout Restart")?><span><?php echo _("If timeoutrestart is set to yes, then the time out for an agent to answer is reset if a BUSY or CONGESTION is received. This can be useful if agents are able to cancel a call with reject or similar.")?></span></a></td>
     <td>
-      <select name="timeoutrestart" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
-<?php
-      $default = (isset($timeoutrestart) ? $timeoutrestart : "no");
-      echo '<option value=yes '.($default == "yes" ? 'SELECTED' : '').'>'._("Yes").'</option>';
-      echo '<option value=no '.($default == "no" ? 'SELECTED' : '').'>'._("No").'</option>';
-?>
-      </select>
+
+      <?php 
+          $timeoutrestart = (isset($timeoutrestart) ? $timeoutrestart : "no");
+          echo ipbx_radio('timeoutrestart',array(array('value'=>'yes','text'=>dgettext('amp','Yes')),array('value'=>'no','text'=>dgettext('amp','No'))),$timeoutrestart,false);
+      ?>
+
+
+
+
     </td>
   </tr>
 
@@ -860,15 +878,10 @@ if ($ast_ge_16) {
     <tr>
         <td><a href="#" class="info"><?php echo _("Report Hold Time")?><span><?php echo _("If you wish to report the caller's hold time to the member before they are connected to the caller, set this to yes.")?></span></a></td>
         <td>
-            <select name="reportholdtime" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
-            <?php
-                $default = (isset($reportholdtime) ? $reportholdtime : 'no');
-                $items = array('yes'=>_("Yes"),'no'=>_("No"));
-                foreach ($items as $item=>$val) {
-                    echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
-                }
-            ?>
-            </select>
+        <?php 
+            $default = (isset($reportholdtime) ? $reportholdtime : 'no');
+            echo ipbx_radio('reportholdtime',array(array('value'=>'yes','text'=>dgettext('amp','Yes')),array('value'=>'no','text'=>dgettext('amp','No'))),$default,false); 
+        ?>
         </td>
     </tr>
 
@@ -892,30 +905,20 @@ if ($ast_ge_16) {
     <tr>
         <td><a href="#" class="info"><?php echo _("Auto Pause on Busy")?><span><?php echo _("When set to Yes agents devices that report busy upon a call attempt will be considered as a missed call and auto paused immediately or after the auto pause delay if configured")?></span></a></td>
         <td>
-            <select name="autopausebusy" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
-            <?php
-                $default = (isset($autopausebusy) ? $autopausebusy : 'no');
-                $items = array('yes'=>_("Yes"),'no'=>_("No"));
-                foreach ($items as $item=>$val) {
-                    echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
-                }
-            ?>
-            </select>
+        <?php 
+            $default = (isset($autopausebusy) ? $autopausebusy : 'no');
+            echo ipbx_radio('autopausebusy',array(array('value'=>'yes','text'=>dgettext('amp','Yes')),array('value'=>'no','text'=>dgettext('amp','No'))),$default,false); 
+        ?>
         </td>
     </tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Auto Pause on Unavailable")?><span><?php echo _("When set to Yes agents devices that report congestion upon a call attempt will be considered as a missed call and auto paused immediately or after the auto pause delay if configured")?></span></a></td>
         <td>
-            <select name="autopauseunavail" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
-            <?php
-                $default = (isset($autopauseunavail) ? $autopauseunavail : 'no');
-                $items = array('yes'=>_("Yes"),'no'=>_("No"));
-                foreach ($items as $item=>$val) {
-                    echo '<option value="'.$item.'" '. ($default == $item ? 'SELECTED' : '').'>'.$val;
-                }
-            ?>
-            </select>
+        <?php 
+            $default = (isset($autopauseunavail) ? $autopauseunavail : 'no');
+            echo ipbx_radio('autopauseunavail',array(array('value'=>'yes','text'=>dgettext('amp','Yes')),array('value'=>'no','text'=>dgettext('amp','No'))),$default,false); 
+        ?>
         </td>
     </tr>
 <?php
@@ -924,11 +927,11 @@ if ($ast_ge_16) {
     <tr>
         <td><a href="#" class="info"><?php echo _("Auto Pause Delay")?><span><?php echo _("This setting will delay the auto pause of an agent by auto pause delay seconds from when it last took a call. For example, if this were set to 120 seconds, and a new call is presented to the agent 90 seconds after they last took a call, they will not be auto paused if they don't answer the call. If presented with a call 120 seconds or later after answering the last call, they will then be auto paused. If they have taken no calls, this will have no affect.")?></span></a></td>
         <td>
-            <input type="number" name="autopausedelay" min="0" max="3600" value="<?php echo (isset($autopausedelay)?$autopausedelay:'0') ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'>
+            <input type="number" name="autopausedelay" min="0" max="3600" value="<?php echo (isset($autopausedelay)?$autopausedelay:'0') ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'>
         </td>
     </tr>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Capacity Options")?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _("Capacity Options")?></h5></td></tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Max Callers")?><span><?php echo _("Maximum number of people waiting in the queue (0 for unlimited)")?></span></a></td>
@@ -1043,7 +1046,7 @@ if ($ast_ge_16) {
 }
 ?>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Caller Position Announcements")?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _("Caller Position Announcements")?></h5></td></tr>
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Frequency")?><span><?php echo _("How often to announce queue position and estimated holdtime (0 to Disable Announcements).")?></span></a></td>
@@ -1062,13 +1065,10 @@ if ($ast_ge_16) {
     <tr>
         <td><a href="#" class="info"><?php echo _("Announce Position")?><span><?php echo _("Announce position of caller in the queue?")?></span></a></td>
         <td>
-            <select name="announceposition" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
-            <?php //setting to "no" will override sounds queue-youarenext, queue-thereare, queue-callswaitingÊ
+        <?php 
                 $default = (isset($thisQ['announce-position']) ? $thisQ['announce-position'] : "no");
-                    echo '<option value=yes '.($default == "yes" ? 'SELECTED' : '').'>'._("Yes").'</option>';
-                    echo '<option value=no '.($default == "no" ? 'SELECTED' : '').'>'._("No").'</option>';
-            ?>
-            </select>
+                echo ipbx_radio('announceposition',array(array('value'=>'yes','text'=>dgettext('amp','Yes')),array('value'=>'no','text'=>dgettext('amp','No'))),$default,false); 
+        ?>
         </td>
     </tr>
 
@@ -1086,7 +1086,7 @@ if ($ast_ge_16) {
         </td>
     </tr>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Periodic Announcements")?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _("Periodic Announcements")?></h5></td></tr>
 
 <?php if(function_exists('vqplus_callback_get') && function_exists('ivr_get_details')) {
     if (isset($callback) && $callback != 'none') {
@@ -1209,41 +1209,23 @@ if ($ast_ge_16) {
     </tr>
 <?php } ?>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Events, Stats and Advanced")?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _("Events, Stats and Advanced")?></h5></td></tr>
 
     <tr>
         <td><?php echo ipbx_label(_("Event When Called"), _("When this option is set to YES, the following manager events will be generated: AgentCalled, AgentDump, AgentConnect and AgentComplete."));?></td>
         <td>
             <?php
-                $agentevents_true_label = form_label(_('Enabled'), 'agentevents_true');
-                $agentevents_true = array(
-                            'name'        => 'eventwhencalled',
-                            'tabindex'    => ++$tabindex,
-                            'id'        => 'agentevents_true',
-                            'value'        => 'yes'
-
-                );
-
-                $agentevents_false_label = form_label(_('Disabled'), 'agentevents_false');
-                $agentevents_false = array(
-                            'name'        => 'eventwhencalled',
-                            'tabindex'    => ++$tabindex,
-                            'id'        => 'agentevents_false',
-                            'value'        => 'no'
-
-                );
                 $eventwhencalled = isset($eventwhencalled) && $eventwhencalled
                                     ? $eventwhencalled
                                     : $amp_conf['QUEUES_EVENTS_WHEN_CALLED_DEFAULT'];
                 if (in_array($eventwhencalled, array('yes', 1, true), true)) {
-                    $agentevents_true['checked'] = true;
+                    $eventwhencalled='yes';
                 } elseif (in_array($eventwhencalled, array('no', 0, false), true)) {
-                    $agentevents_false['checked'] = true;
+                    $eventwhencalled='no';
                 }
-                echo '<span class="radioset">'
-                    . form_radio($agentevents_true) . $agentevents_true_label
-                    . form_radio($agentevents_false) . $agentevents_false_label
-                    . '</span>'
+
+                echo ipbx_radio('eventwhencalled',array(array('value'=>'yes','text'=>dgettext('amp','Yes')),array('value'=>'no','text'=>dgettext('amp','No'))),$eventwhencalled,false);
+                
             ?>
         </td>
     </tr>
@@ -1252,35 +1234,15 @@ if ($ast_ge_16) {
         <td><?php echo ipbx_label(_("Member Status Event"), _("When set to YES, the following manager event will be generated: QueueMemberStatus"));?></td>
         <td>
             <?php
-                $memberevents_true_label = form_label(_('Enabled'), 'memberevents_true');
-                $memberevents_true = array(
-                            'name'        => 'eventmemberstatus',
-                            'tabindex'    => ++$tabindex,
-                            'id'        => 'memberevents_true',
-                            'value'        => 'yes'
-
-                );
-
-                $memberevents_false_label = form_label(_('Disabled'), 'memberevents_false');
-                $memberevents_false = array(
-                            'name'        => 'eventmemberstatus',
-                            'tabindex'    => ++$tabindex,
-                            'id'        => 'memberevents_false',
-                            'value'        => 'no'
-
-                );
                 $eventmemberstatus = isset($eventmemberstatus)
                                     ? $eventmemberstatus
                                     : $amp_conf['QUEUES_EVENTS_MEMBER_STATUS_DEFAULT'];
                 if (in_array($eventmemberstatus, array('yes', 1, true), true)) {
-                    $memberevents_true['checked'] = true;
+                    $eventmemberstatus='yes';
                 } elseif (in_array($eventmemberstatus, array('no', 0, false), true)) {
-                    $memberevents_false['checked'] = true;
+                    $eventmemberstatus='no';
                 }
-                echo '<span class="radioset">'
-                    . form_radio($memberevents_true) . $memberevents_true_label
-                    . form_radio($memberevents_false) . $memberevents_false_label
-                    . '</span>'
+                echo ipbx_radio('eventmemberstatus',array(array('value'=>'yes','text'=>dgettext('amp','Yes')),array('value'=>'no','text'=>dgettext('amp','No'))),$eventmemberstatus,false);
             ?>
         </td>
     </tr>
@@ -1294,6 +1256,7 @@ if ($ast_ge_16) {
                 for ($i=15; $i <= 300; $i+=15) {
                     echo '<option value="'.$i.'" '.($i == $default ? ' SELECTED' : '').'>'.queues_timeString($i,true).'</option>';
                 }
+                unset($default);
             ?>
             </select>
         </td>
@@ -1301,42 +1264,36 @@ if ($ast_ge_16) {
 
     <tr>
         <td><a href="#" class="info"><?php echo _("Agent Regex Filter")?><span><?php echo _("Provides an optional regex expression that will be applied against the agent callback number. If the callback number does not pass the regex filter then it will be treated as invalid. This can be used to restrict agents to extensions within a range, not allow callbacks to include keys like *, or any other use that may be appropriate. An example input might be:<br />^([2-4][0-9]{3})$<br />This would restrict agents to extensions 2000-4999. Or <br />^([0-9]+)$ would allow any number of any length, but restrict the * key.<br />WARNING: make sure you understand what you are doing or otherwise leave this blank!")?></span></a></td>
-        <td><input type="text" name="qregex" value="<?php echo (isset($qregex) ? $qregex : ''); ?>" class='w100'></td>
+        <td><input type="text" name="qregex" value="<?php echo (isset($qregex) ? $qregex : ''); ?>" class='input w100'></td>
     </tr>
 <?php
     // implementation of module hook
     // object was initialized in config.php
-    echo $module_hook->hookHtml;
+    echo process_tabindex($module_hook->hookHtml,$tabindex);
 ?>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Fail Over Destination")?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _("Fail Over Destination")?></h5></td></tr>
     <?php
     echo drawselects($goto,0);
     ?>
     
-    <tr><td colspan="2"><br><h5><?php echo _("Queue Continue Destination")?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _("Queue Continue Destination")?></h5></td></tr>
         <?php
         echo drawselects($gotocontinue,1);
         ?>
     
 
-        <tr><td colspan="2"><br><h5><?php echo _("Reset Queue Stats")?></h5></td></tr>
+        <tr><td colspan="2"><h5><?php echo _("Reset Queue Stats")?></h5></td></tr>
         <tr><td colspan="2">
             <?php echo load_view(dirname(__FILE__) . '/views/cron.php', $cronVars); ?>
         </td></tr>
     </table>
 
-    <table>
-    <tr>
-        <td colspan="2"><div style="margin:1.5em 0 1.5em 0;"><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></div></td>
-    </tr>
-    </table>
+    </form>
 
 <script>
-<!--
 
-
-$(document).ready(function() {
+up.compiler('.content', function(element,data) {
     textAreaAdjust(document.getElementById('members'));
     textAreaAdjust(document.getElementById('dynmembers'));
 });
@@ -1362,6 +1319,7 @@ function insertExten(type) {
 }
 
 function checkQ(theForm) {
+
     var bad = false;
     var msgWarnRegex = "<?php echo _("Using a Regex filter is fairly advanced, please confirm you know what you are doing or leave this blank"); ?>";
 
@@ -1373,15 +1331,14 @@ function checkQ(theForm) {
         whichitem++;
     }
     var whichitem = 0;
-        while (whichitem < theForm.goto1.length) {
-                if (theForm.goto1[whichitem].checked) {
-                        theForm.goto1.value=theForm.goto1[whichitem].value;
-                }
-                whichitem++;
+    while (whichitem < theForm.goto1.length) {
+        if (theForm.goto1[whichitem].checked) {
+            theForm.goto1.value=theForm.goto1[whichitem].value;
         }
+        whichitem++;
+    }
     if (!isInteger(theForm.account.value)) {
-        <?php echo "alert('"._("Queue Number must not be blank")."')"?>;
-        bad=true;
+        return warnInvalid(theForm.account,"<?php echo _("Queue Number must not be blank"); ?>")
     }
 
     defaultEmptyOK = false;
@@ -1393,15 +1350,16 @@ function checkQ(theForm) {
     <?php } ?>
     
     if (!isAlphanumeric(theForm.name.value)) {
-        <?php echo "alert('"._("Queue name must not be blank and must contain only alpha-numeric characters")."')"?>;
-        bad=true;
+        return warnInvalid(theForm.name,"<?php echo _("Queue name must not be blank and must contain only alpha-numeric characters"); ?>")
     }
+
     if (!isEmpty(theForm.qregex.value)) {
         if (!confirm(msgWarnRegex)) {
             bad=true;
         }
     }
 
+    $.LoadingOverlay('show');
     return !bad;
 }
 
@@ -1421,10 +1379,12 @@ function breakoutDisable() {
     $(el).prop('disabled',false).trigger('chosen:updated');
 }
 
-//-->
+<?php
+echo js_display_confirmation_toasts();
+?>
+
 </script>
 
-    </form>
-<?php
-} //end if action == delGRP
-?>
+</div> <!-- end div content, be sure to include script tags before -->
+
+<?php echo form_action_bar($extdisplay); ?>

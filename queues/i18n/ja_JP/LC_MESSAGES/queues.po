@@ -481,7 +481,7 @@ msgid "Call Confirm Announce"
 msgstr "コール確認アナウンス"
 
 msgid ""
-"Announcement played to the Queue Memeber announcing the Queue call and "
+"Announcement played to the Queue Member announcing the Queue call and "
 "requesting confirmation prior to answering. If set to default, the standard "
 "call confirmation default message will be played unless the member is "
 "reached through a Follow-Me and there is an alternate message provided in "
@@ -1604,7 +1604,7 @@ msgstr ""
 "のコードは、第三者ユーザー（非発信者の内線）のログイン／ログアウトに必要です。falseに設定すると、これらのコードをシステムから削除することができます"
 "。"
 
-msgid "Memeber Status Event Default"
+msgid "Member Status Event Default"
 msgstr "メンバーステータスイベントデフォルト"
 
 msgid ""

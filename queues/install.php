@@ -792,7 +792,7 @@ $set['module'] = 'queues';
 $set['category'] = 'Queues Module';
 $set['emptyok'] = 0;
 $set['sortorder'] = 120;
-$set['name'] = 'Memeber Status Event Default';
+$set['name'] = 'Member Status Event Default';
 $set['description'] = 'Default state for AMI to emit the QueueMemberStatus event. This setting will only affect the default for NEW queues, it won\'t change existing queues or enfore the option on in new ones.';
 $set['type'] = CONF_TYPE_BOOL;
 $issabelpbx_conf->define_conf_setting('QUEUES_EVENTS_MEMBER_STATUS_DEFAULT', $set, true);

@@ -41,6 +41,10 @@ msgstr "Cola %s: %s"
 msgid "Queue: %s"
 msgstr "Cola: %s"
 
+
+msgid "Edit Queue"
+msgstr "Modificar cola"
+
 msgid "seconds"
 msgstr "segundos"
 
@@ -277,9 +281,6 @@ msgstr "Extensiones en conflicto"
 msgid "Queue"
 msgstr "Cola"
 
-msgid "Edit Queue"
-msgstr "Modificar cola"
-
 msgid "Queue Number"
 msgstr "Número de cola"
 
@@ -375,7 +376,7 @@ msgid "Call Confirm Announce"
 msgstr "Anuncio de Confirmación de Llamada"
 
 msgid ""
-"Announcement played to the Queue Memeber announcing the Queue call and "
+"Announcement played to the Queue Member announcing the Queue call and "
 "requesting confirmation prior to answering. If set to default, the standard "
 "call confirmation default message will be played unless the member is "
 "reached through a Follow-Me and there is an alternate message provided in "
@@ -436,6 +437,9 @@ msgid ""
 "since it first entered the queue or reset if the call is transferred to "
 "another queue with this feature set."
 msgstr ""
+"Si la llamada se transfiere posteriormente, el tiempo de espera reflejará "
+"el tiempo transcurrido desde que ingresó por primera vez a la cola o se "
+"restablecerá si la llamada se transfiere a otra cola con esta opción activa"
 
 msgid "Yes"
 msgstr "Sí"
@@ -1478,3 +1482,25 @@ msgstr "Alternar Cola"
 
 #~ msgid "Member Status"
 #~ msgstr "Estado"
+
+msgid "Randomize"
+msgstr "Aleatorizar"
+
+msgid "Minutes"
+msgstr "Minutos"
+
+msgid "Hour"
+msgstr "Hora"
+
+msgid "Day of Week"
+msgstr "Día de la Semana"
+
+msgid "Month"
+msgstr "Mes"
+
+msgid "Day of Month"
+msgstr "Día del Mes"
+
+msgid "Queue Members"
+msgstr "Miembros de Cola"
+

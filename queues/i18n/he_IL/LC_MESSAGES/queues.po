@@ -356,7 +356,7 @@ msgid "Call Confirm Announce"
 msgstr "הרכז מיקום בתור למתקש"
 
 msgid ""
-"Announcement played to the Queue Memeber announcing the Queue call and "
+"Announcement played to the Queue Member announcing the Queue call and "
 "requesting confirmation prior to answering. If set to default, the standard "
 "call confirmation default message will be played unless the member is "
 "reached through a Follow-Me and there is an alternate message provided in "

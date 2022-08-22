@@ -49,10 +49,11 @@ function queues_configpageload() {
 
 	// Init vars from $_REQUEST[]
 	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
-	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+    $extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+    $display = isset($_REQUEST['display'])?$_REQUEST['display']:null;
 	
 	// Don't display this stuff it it's on a 'This xtn has been deleted' page.
-	if ($action != 'del') {
+	if ($action != 'del' && $display=='extensions') {
 
 		$qnostate = queues_get_qnostate($extdisplay);
 
