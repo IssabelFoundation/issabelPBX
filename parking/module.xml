@@ -25,7 +25,7 @@
         <module>core ge 2.12.0.0</module>
     </depends>
     <supported>
-        <version>2.11</version>
+        <version>2.12</version>
     </supported>
     <location>release/2.12/parking-2.12.0.0.tgz</location>
 </module>
