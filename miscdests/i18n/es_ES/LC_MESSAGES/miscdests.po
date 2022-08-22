@@ -56,7 +56,7 @@ msgid ""
 "Admin destinations. For upgrade compatibility, if you previously had "
 "configured such a destination, it will still work but the Feature Code short "
 "cuts select list is not longer provided."
-msgstr ""
+msgstr "Si necesita acceder a un código de función, como *98 para marcar el correo de voz o un cambio de condición de tiempo, estos destinos ahora se proporcionan como destinos de administrador de código de función. Para la compatibilidad de actualización, si anteriormente había configurado dicho destino, seguirá funcionando, pero ya no se proporciona la lista de selección de accesos directos del código de función."
 
 msgid "Misc Destination:"
 msgstr "Destino:"
