@@ -64,7 +64,7 @@ msgstr ""
 "Detta är startkt rekommenderat då MP3-filer belastar systemet och kan orsaka "
 "stabilitetsproblem."
 
-msgid "Add Music Category"
+msgid "Add Music on Hold Category"
 msgstr "Lägg till musikkategori"
 
 msgid "Add Streaming Category"
@@ -85,7 +85,7 @@ msgstr ""
 msgid "On Hold Music"
 msgstr "Pausmusik"
 
-msgid "Category Name:"
+msgid "Category Name"
 msgstr "Kategorinamn:"
 
 msgid ""
@@ -155,7 +155,7 @@ msgstr "Ta bort strömmande kategori"
 msgid "Edit Streaming Category"
 msgstr "Redigera strömmande kategori"
 
-msgid "Upload a .wav or .mp3 file:"
+msgid "Upload a .wav or .mp3 file"
 msgstr "Ladda upp en .wav eller .mp3 fil:"
 
 msgid "Upload"

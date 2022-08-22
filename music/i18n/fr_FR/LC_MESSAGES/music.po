@@ -56,7 +56,7 @@ msgid ""
 "a busy phone system"
 msgstr ""
 
-msgid "Add Music Category"
+msgid "Add Music on Hold Category"
 msgstr "Ajouer une Catégorie de Musique"
 
 msgid "Add Streaming Category"
@@ -75,7 +75,7 @@ msgstr ""
 msgid "On Hold Music"
 msgstr "Musique d'Attente"
 
-msgid "Category Name:"
+msgid "Category Name"
 msgstr "Nom de la Catégorie :"
 
 msgid ""
@@ -146,7 +146,7 @@ msgstr "Supprimer la Catégorie de Streaming"
 msgid "Edit Streaming Category"
 msgstr "Editer la Catégorie Streaming"
 
-msgid "Upload a .wav or .mp3 file:"
+msgid "Upload a .wav or .mp3 file"
 msgstr "Uploader un fichier .wav ou .mp3 :"
 
 msgid "Upload"

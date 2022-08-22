@@ -41,8 +41,8 @@ msgid ""
 "a busy phone system"
 msgstr ""
 
-msgid "Add Music Category"
-msgstr "Añadir categoría de música"
+msgid "Add Music on Hold Category"
+msgstr "Añadir categoría de música en espera"
 
 msgid "Add Streaming Category"
 msgstr "Añadir categoría de música en directo"
@@ -55,13 +55,13 @@ msgstr "Eliminar"
 
 msgid ""
 "sox failed to convert file and original could not be copied as a fall back"
-msgstr ""
+msgstr "sox falló al intentar convertir el archivo y no se ha podido copiar el original como último recurso"
 
 msgid "On Hold Music"
 msgstr "Música en espera"
 
-msgid "Category Name:"
-msgstr "Nombre de la categoría:"
+msgid "Category Name"
+msgstr "Nombre de la categoría"
 
 msgid ""
 "Allows you to Set up Different Categories for music on hold.  This is useful "
@@ -133,8 +133,8 @@ msgstr "Eliminar categoría de música en directo"
 msgid "Edit Streaming Category"
 msgstr "Modificar categoría de música en directo"
 
-msgid "Upload a .wav or .mp3 file:"
-msgstr "Enviar archivo WAV o MP3:"
+msgid "Upload a .wav or .mp3 file"
+msgstr "Enviar archivo WAV o MP3"
 
 msgid "Upload"
 msgstr "Enviar"
@@ -165,7 +165,7 @@ msgid "Volume 10%"
 msgstr "Volumen 10%"
 
 msgid "Volume Adjustment"
-msgstr "Ajuste de Volumen"
+msgstr "Ajustar Volumen"
 
 msgid ""
 "The volume adjustment is a linear value. Since loudness is logarithmic, the "
@@ -241,3 +241,11 @@ msgstr "Error al eliminar %s"
 #~ "no tiene el programa \"mpg123\" instalado, puede establecer el parámetro "
 #~ "<strong>AMPMPG123=false</strong> en el archivo de configuración de "
 #~ "amportal.conf."
+msgid "Edit Music on Hold Category"
+msgstr "Modificar categoría de música en espera"
+
+msgid "Choose a file..."
+msgstr "Escoja un archivo..."
+
+msgid "Music Files"
+msgstr "Archivos de Música"

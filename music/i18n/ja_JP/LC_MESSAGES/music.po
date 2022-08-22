@@ -48,7 +48,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.8\n"
 
-msgid "Add Music Category"
+msgid "Add Music on Hold Category"
 msgstr "音楽カテゴリを追加"
 
 msgid "Add Streaming Category"
@@ -69,7 +69,7 @@ msgstr ""
 msgid "On Hold Music"
 msgstr "保留音"
 
-msgid "Category Name:"
+msgid "Category Name"
 msgstr "カテゴリ名："
 
 msgid ""
@@ -135,7 +135,7 @@ msgstr "ストリーミングカテゴリを削除"
 msgid "Edit Streaming Category"
 msgstr "ストリーミングカテゴリを編集"
 
-msgid "Upload a .wav or .mp3 file:"
+msgid "Upload a .wav or .mp3 file"
 msgstr ".wav又は .mp3ファイルをアップロード："
 
 msgid "Upload"
