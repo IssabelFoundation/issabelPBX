@@ -24,7 +24,8 @@ foreach ($entries as $e) {
 					'value'			=> $e['selection'],
 					'placeholder'	=> _('digits pressed'),
 					'required'		=> ''
-				)
+                ),
+                '','class="input"'
 			);
 	
 	//add destination. The last one gets a different count so that we can manipualte it on the page
@@ -78,8 +79,8 @@ foreach ($entries as $e) {
 
 $ret = '';
 $ret .= $table->generate();
-$ret .= '<img class="IVREntries" src="modules/ivr/assets/images/add.png" style="cursor:pointer" title="' . _('Add Entry') 
-		. '" id="add_entrie">';
+//$ret .= '<img class="IVREntries" src="modules/ivr/assets/images/add.png" style="cursor:pointer" title="' . _('Add Entry') . '" id="add_entrie">';
+$ret .= '<button class="button is-small is-rounded" id="add_entrie"><span class="icon is-small is-left"><i class="fa fa-plus"></i></span><span>'._('Add Entry').'</span></button>';
 
 
 echo $ret;

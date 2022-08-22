@@ -356,9 +356,9 @@ function ivr_get_entries($id) {
 function ivr_configpageload() {
 	global $currentcomponent, $display;
 	$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
-	$id 	= isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
+    $id 	= isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay'] : null;
 
-	if ($action  == 'add') {
+	if ($action  == 'add' || ($action == '' && $id == null)) {
 		$currentcomponent->addguielem('_top', new gui_pageheading('title', _('Add IVR')), 0);
 
 		$deet = array('id', 'name', 'description', 'announcement', 'directdial',
@@ -392,7 +392,7 @@ function ivr_configpageload() {
 					break;
 			}
 		}
-	} else {
+    } else {
 		$ivr = ivr_get_details($id);
 
 		$label = sprintf(_("Edit IVR: %s"), $ivr['name'] ? $ivr['name'] : 'ID '.$ivr['id']);
@@ -407,13 +407,6 @@ function ivr_configpageload() {
 				new gui_link_label('usage', $usage_list_text, $usage_list_tooltip), 0);
 		}
 
-		//display delete link
-		$label = sprintf(_("Delete IVR: %s"), $ivr['name'] ? $ivr['name'] : 'ID '.$ivr['id']);
-		$del 				= '<span><img width="16" height="16" border="0" title="'
-							. $label . '" alt="" src="images/core_delete.png"/>&nbsp;' . $label . '</span>';
-		$currentcomponent->addguielem('_top',
-			new gui_link('del', $del, $_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING'] . '&action=delete',
-				true, false), 0);
 	}
 
 	//general options
@@ -468,7 +461,7 @@ function ivr_configpageload() {
 	$currentcomponent->addguielem($section, new guielement('timeout_time',
 		'<tr class="IVROptionsDTMF"><td>' . ipbx_label(_('Timeout'), _('Amount of time to be considered a timeout')).'</td><td><input type="number" name="timeout_time" value="'
 					. $ivr['timeout_time']
-					.'" required class="w100"></td></tr>'));
+					.'" required class="w100 input"></td></tr>'));
 	//invalid
 	$currentcomponent->addguielem($section,
 		new gui_selectbox('invalid_loops', $currentcomponent->getoptlist('ivr_repeat_loops'),
@@ -478,6 +471,7 @@ function ivr_configpageload() {
 		$ivr['invalid_retry_recording'], _('Invalid Retry Recording'), _('Prompt to be played when an invalid/unmatched response is received, before prompting the caller to try again'), false));
 
 	if(!isset($ivr['invalid_append_announce'])) $ivr['invalid_append_announce']=0;
+
 	$currentcomponent->addguielem($section,
 		new gui_checkbox('invalid_append_announce', $ivr['invalid_append_announce'], _('Append Announcement on Invalid'), _('After playing the Invalid Retry Recording the system will replay the main IVR Announcement')));
 
@@ -528,10 +522,8 @@ function ivr_configpageload() {
 	/*$currentcomponent->addguielem($section,
 		new gui_checkbox('say_extension', $dir['say_extension'], _('Announce Extension'),
 		_('When checked, the extension number being transferred to will be announced prior to the transfer'),true));*/
-	$currentcomponent->addguielem($section, new gui_hidden('id', $ivr['id']));
+	$currentcomponent->addguielem($section, new gui_hidden('extdisplay', $ivr['id']));
 	$currentcomponent->addguielem($section, new gui_hidden('action', 'save'));
-
-
 
 	$section = _('IVR Entries');
 	//draw the entries part of the table. A bit hacky perhaps, but hey - it works!
@@ -541,16 +533,16 @@ function ivr_configpageload() {
 function ivr_configpageinit($pagename) {
 	global $currentcomponent;
 	$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
-	$id = isset($_REQUEST['id']) ? $_REQUEST['id'] : '';
+	$extdisplay = isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay'] : '';
 
 	if($pagename == 'ivr'){
 		$currentcomponent->addprocessfunc('ivr_configprocess');
 
 		//dont show page if there is no action set
-		if ($action && $action != 'delete' || $id) {
+//		if ($action && $action != 'delete' || $extdisplay) {
 			$currentcomponent->addguifunc('ivr_configpageload');
-		}
-
+//		}
+// nico
     return true;
 	}
 }
@@ -561,7 +553,7 @@ function ivr_configprocess(){
 		global $db;
 		//get variables
 
-		$get_var = array('id', 'name', 'description', 'announcement',
+		$get_var = array('extdisplay', 'name', 'description', 'announcement',
 						'directdial', 'invalid_loops', 'invalid_retry_recording',
 						'invalid_destination', 'invalid_recording',
 						'retvm', 'timeout_time', 'timeout_recording',
@@ -581,19 +573,22 @@ function ivr_configprocess(){
 
 		switch ($action) {
 			case 'save':
-
-				//get real dest
-				$_REQUEST['id'] = $vars['id'] = ivr_save_details($vars);
-				ivr_save_entries($vars['id'], $entries);
+                //get real dest
+                $_REQUEST['extdisplay'] = $vars['id'] = ivr_save_details($vars);
+				ivr_save_entries($vars['extdisplay'], $entries);
 				needreload();
 				//$_REQUEST['action'] = 'edit';
-				$this_dest = ivr_getdest($vars['id']);
-				fwmsg::set_dest($this_dest[0]);
-				redirect_standard_continue('id');
+				$this_dest = ivr_getdest($vars['extdisplay']);
+                fwmsg::set_dest($this_dest[0]);
+                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+                $_SESSION['msgtype']='success';
+				redirect_standard_continue('extdisplay');
 			break;
-			case 'delete':
-				ivr_delete($vars['id']);
+            case 'delete':
+				ivr_delete($vars['extdisplay']);
 				needreload();
+                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+                $_SESSION['msgtype']='warning';
 				redirect_standard_continue();
 			break;
 		}
@@ -608,7 +603,7 @@ function ivr_save_details($vals){
 		$vals[$key] = $db->escapeSimple($value);
 	}
 
-	if ($vals['id']) {
+	if ($vals['extdisplay']) {
 		$sql = 'REPLACE INTO ivr_details (id, name, description, announcement,
 				directdial, invalid_loops, invalid_retry_recording,
 				invalid_destination, invalid_recording,
@@ -621,7 +616,7 @@ function ivr_save_details($vals){
 			die_issabelpbx(print_r($vals,true).' '.$foo->getDebugInfo());
 		}
 	} else {
-		unset($vals['id']);
+		unset($vals['extdisplay']);
 		$sql = 'INSERT INTO ivr_details (name, description, announcement,
 				directdial, invalid_loops, invalid_retry_recording,
 				invalid_destination,  invalid_recording,
@@ -641,7 +636,7 @@ function ivr_save_details($vals){
 		}
 	}
 
-	return $vals['id'];
+	return $vals['extdisplay'];
 }
 
 //save ivr entires

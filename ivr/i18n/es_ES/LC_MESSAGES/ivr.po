@@ -422,3 +422,6 @@ msgstr "Retornar por tiempo excedido"
 
 msgid "digits pressed"
 msgstr "dígitos presionados"
+
+msgid "Add Entry"
+msgstr "Añadir Opción"
