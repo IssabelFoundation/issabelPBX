@@ -55,7 +55,7 @@ msgstr "Agosto"
 
 #: page.timeconditions.php:121
 msgid "Change Override"
-msgstr ""
+msgstr "Modificar Anulación"
 
 #: install.php:214
 msgid "Checking for old timeconditions to upgrade.."
@@ -71,7 +71,7 @@ msgstr ""
 
 #: page.timeconditions.php:117
 msgid "Current Override"
-msgstr ""
+msgstr "Anulación Actual"
 
 #: functions.inc.php:1303 functions.inc.php:1402
 msgid "December"
@@ -97,11 +97,11 @@ msgstr "La descripción debe ser alfanumérica y no puede estar en blanco."
 
 #: page.timeconditions.php:164
 msgid "Destination if time does not match"
-msgstr "Destino si la hora no coincide:"
+msgstr "Destino si la hora no coincide"
 
 #: page.timeconditions.php:154
 msgid "Destination if time matches"
-msgstr "Destino si la hora coincide:"
+msgstr "Destino si la hora coincide"
 
 #: install.php:162
 msgid "ERROR: failed to convert field "
@@ -109,7 +109,7 @@ msgstr "Error: fallo al convertir el campo"
 
 #: page.timeconditions.php:82
 msgid "Edit Time Condition"
-msgstr "Modificar condición horaria:"
+msgstr "Modificar condición horaria"
 
 #: functions.inc.php:697
 msgid "Edit Time Group"
@@ -201,7 +201,7 @@ msgstr "Nueva hora"
 
 #: page.timeconditions.php:97
 msgid "No Override"
-msgstr ""
+msgstr "Sin Anulación"
 
 #: functions.inc.php:1296 functions.inc.php:1395
 msgid "November"
@@ -225,15 +225,15 @@ msgstr ""
 
 #: page.timeconditions.php:127
 msgid "Permanently matched"
-msgstr ""
+msgstr "Coincidente de forma permanente"
 
 #: page.timeconditions.php:129
 msgid "Permanently unmatched"
-msgstr ""
+msgstr "No coincidente de forma permanente"
 
 #: page.timeconditions.php:186
 msgid "Please enter a valid Time Conditions Name"
-msgstr "Por favor, introduzca un nombre para la condición horaria válido."
+msgstr "Por favor, introduzca un nombre válido para la condición horaria"
 
 #: functions.inc.php:716
 msgid "Remove Section and Submit Current Settings"
@@ -241,7 +241,7 @@ msgstr "Quitar sección y guardar datos"
 
 #: page.timeconditions.php:125
 msgid "Reset Override"
-msgstr ""
+msgstr "Restablecer Anulación"
 
 #: functions.inc.php:1065 functions.inc.php:1128
 msgid "Saturday"
@@ -283,11 +283,11 @@ msgstr ""
 
 #: page.timeconditions.php:126
 msgid "Temporary matched"
-msgstr ""
+msgstr "Coincidente temporalmente"
 
 #: page.timeconditions.php:128
 msgid "Temporary unmatched"
-msgstr ""
+msgstr "No coincidente temporalmente"
 
 #: timeconditions.i18n.php:24
 msgid "The polling interval in seconds used by the Time Conditions manintenace task, launched by an Asterisk call file used to update Time Conditions override states as well as keep custom device state hint values up-to-date when being used with BLF. A shorter interval will assure that BLF keys states are accurate. The interval should be less than the shortest configured span between two time condition states, so that a manual overide during such a period is properly reset when the new period starts."
@@ -304,13 +304,13 @@ msgid ""
 "code, which will also remove a Permanent Override if set but can not set a "
 "Permanent Override which must be done here or with other applications such "
 "as an XML based phone options."
-msgstr ""
+msgstr "Esta condición de tiempo se puede configurar para ir temporalmente al destino 'coincidente' o 'no coincidente', en cuyo caso la anulación se restablecerá automáticamente una vez que haya transcurrido el período de tiempo actual. Si se establece en Permanente, permanecerá anulado hasta que se restablezca manualmente. Todas las anulaciones se pueden eliminar con la opción Restablecer anulación. Las anulaciones temporales también se pueden alternar con el código de función *271, que también eliminará una anulación permanente si está configurada, pero no puede configurar una anulación permanente que debe hacerse aquí o con otras aplicaciones, como opciones de teléfono basadas en XML."
 
 #: page.timegroups.php:68
 msgid ""
 "This section will be removed from this time group and all current settings "
 "including changes will be updated. OK to proceed?"
-msgstr ""
+msgstr "Esta sección se eliminará de este grupo horario y se actualizarán todas las configuraciones actuales, incluidos los cambios. ¿Desea continuar?"
 
 #: functions.inc.php:691 functions.inc.php:711
 msgid "This will display as the name of this Time Group."
@@ -372,11 +372,11 @@ msgstr "Martes"
 
 #: page.timeconditions.php:124
 msgid "Unchanged"
-msgstr ""
+msgstr "Sin Cambios"
 
 #: page.timeconditions.php:112
 msgid "Unknown State"
-msgstr ""
+msgstr "Estado Desconocido"
 
 #: install.php:225
 #, php-format

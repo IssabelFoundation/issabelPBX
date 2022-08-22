@@ -358,7 +358,7 @@ function timeconditions_get($id){
 }
 
 function timeconditions_del($id){
-    global $astman;
+    global $astman,$amp_conf;
 
     // remove all feature codes from the one deleted and anything above
     $results = sql("SELECT timeconditions_id FROM timeconditions WHERE timeconditions_id>=\"$id\"","getAll",DB_FETCHMODE_ASSOC);
@@ -398,7 +398,12 @@ function timeconditions_del($id){
         }
     }
     // set autoincrement
-    $results = sql("ALTER TABLE timeconditions AUTO_INCREMENT=$autoincrement");
+    if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
+        $autoincrement--;
+        $results = sql("UPDATE sqlite_sequence SET seq=$autoincrement WHERE name='timeconditions'");
+    } else {
+        $results = sql("ALTER TABLE timeconditions AUTO_INCREMENT=$autoincrement");
+    }
 }
 
 //obsolete handled in timegroups module
@@ -565,8 +570,8 @@ function timeconditions_add($post){
 
     $displayname = $db->escapeSimple($post['displayname']);
     $time = $db->escapeSimple($post['time']);
-    $falsegoto = $db->escapeSimple($post[$post['goto1'].'1']);
-    $truegoto = $db->escapeSimple($post[$post['goto0'].'0']);
+    $falsegoto = $db->escapeSimple($post[$post['goto1']]);
+    $truegoto = $db->escapeSimple($post[$post['goto0']]);
     $deptname = $db->escapeSimple($post['deptname']);
     $generate_hint = '1';
 
@@ -589,8 +594,8 @@ function timeconditions_edit($id,$post){
     $id = $db->escapeSimple($id);
     $displayname = $db->escapeSimple($post['displayname']);
     $time = $db->escapeSimple($post['time']);
-    $falsegoto = $db->escapeSimple($post[$post['goto1'].'1']);
-    $truegoto = $db->escapeSimple($post[$post['goto0'].'0']);
+    $falsegoto = $db->escapeSimple($post[$post['goto1']]);
+    $truegoto = $db->escapeSimple($post[$post['goto0']]);
     $deptname = $db->escapeSimple($post['deptname']);
     $generate_hint = '1';
 
@@ -621,7 +626,7 @@ function timeconditions_timegroups_usage($group_id) {
     } else {
         foreach ($results as $result) {
             $usage_arr[] = array(
-                "url_query" => "display=timeconditions&itemid=".$result['timeconditions_id'],
+                "url_query" => "display=timeconditions&extdisplay=".$result['timeconditions_id'],
                 "description" => $result['displayname'],
             );
         }
@@ -743,21 +748,22 @@ function timeconditions_timegroups_configpageload() {
         $description = $savedtimegroup[1];
         $currentcomponent->addguielem('_top', new gui_hidden('extdisplay', $extdisplay));
         $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Edit Time Group").": $description", false), 0);
-        $tlabel = sprintf(_("Delete Time Group %s"),$extdisplay);
-        $label = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="images/core_delete.png"/>&nbsp;'.$tlabel.'</span>';
-        $currentcomponent->addguielem('_top', new gui_link('del', $label, $delURL, true, false), 0);
+        //$tlabel = sprintf(_("Delete Time Group %s"),$extdisplay);
+        //$label = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="images/core_delete.png"/>&nbsp;'.$tlabel.'</span>';
+        //$currentcomponent->addguielem('_top', new gui_link('del', $label, $delURL, true, false), 0);
 
         $usage_list = timeconditions_timegroups_list_usage($extdisplay);
         $count = 0;
+        $alllinks = '';
         foreach ($usage_list as $link) {
-            $label = '<span><img width="16" height="16" border="0" title="'.$link['description'].'" alt="" src="images/time_link.png"/>&nbsp;'.$link['description'].'</span>';
+            $label = '<span><i class="fa fa-clock-o mr-1"></i>'.$link['description'].'</span>';
             $timegroup_link = $_SERVER['PHP_SELF'].'?'.$link['url_query'];
             $currentcomponent->addguielem(_("Used By"), new gui_link('link'.$count++, $label, $timegroup_link, true, false), 4);
         }
 
-        $fill = new gui_selectbox('countries', $countries, '', _('Country'), _('Select country to retrieve holiday information.'), false);
+        $fill = new gui_selectbox('countries', $countries, '', _('Country'), _('Select country to retrieve holiday information.'), false, '', false, 'componentSelectSearch');
         $filltext = "<tr><td>"._('Country')."</td><td>".$fill->html_input."</td></tr>";
-        $filltext .= '<tr><td colspan="2"><input type="button" id="autofill" class="autofill" value="'._("Autofill Holiday").'"/></td></tr>';
+        $filltext .= '<tr><td colspan="2"><input type="button" id="autofill" class="autofill button is-rounded is-small" value="'._("Autofill Holiday").'"/></td></tr>';
         $currentcomponent->addguielem(_('Autofill Holiday'), new guielement('test0', $filltext, ''),3);
 
         $currentcomponent->addguielem(_("Time Group"), new gui_textbox('description', $description, _("Description"), _("This will display as the name of this Time Group."), '', '', false), 4);
@@ -765,8 +771,8 @@ function timeconditions_timegroups_configpageload() {
         foreach ($timelist as $val) {
             $timehtml = timeconditions_timegroups_drawtimeselects('times['.$val[0].']',$val[1],$val[2]);
             $timehtml = '<tr><td colspan="2"><table>'.$timehtml.'</table></td></tr>';
-            $timehtml .= '<tr><td colspan="2"><input type="button" class="remove_section" value="'._("Remove Section and Submit Current Settings").'"/></td></tr>';
-            $currentcomponent->addguielem($val[0].' - '.$val[1], new guielement('dest0', $timehtml, ''),5);
+            $timehtml .= '<tr><td colspan="2"><input type="button" class="remove_section button is-rounded is-small is-danger" value="'._("Remove Section and Submit Current Settings").'"/></td></tr>';
+            $currentcomponent->addguielem($val[2].' - '.$val[1], new guielement('dest0', $timehtml, ''),5);
         }
     }
     $timehtml = timeconditions_timegroups_drawtimeselects('times[new]',null,'');
@@ -785,13 +791,23 @@ function timeconditions_timegroups_configprocess() {
     switch ($action) {
     case 'add':
         timeconditions_timegroups_add_group($description,$times);
+        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msgtype']='success';
+        redirect_standard();
         break;
     case 'edit':
         timeconditions_timegroups_edit_group($timegroup,$description);
         timeconditions_timegroups_edit_times($timegroup,$times);
+        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
+        redirect_standard('extdisplay');
         break;
+    case 'delete':
     case 'del':
         timeconditions_timegroups_del_group($timegroup);
+        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msgtype']='warning';
+        redirect_standard();
         break;
     }
 }
@@ -812,11 +828,9 @@ function timeconditions_timegroups_get_times($timegroup, $convert=false) {
     $sql = "SELECT `name` FROM timegroups_details";
     $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
     if(DB::IsError($check)) {
-        $sql = "ALTER TABLE timegroups_details ADD `name` VARCHAR( 100 ) NOT NULL DEFAULT '' AFTER id";
+        $sql = "ALTER TABLE timegroups_details ADD `name` VARCHAR( 100 ) NOT NULL DEFAULT ''";
         $result = $db->query($sql);
     }
-
-
 
     $sql = "SELECT id, time, name FROM timegroups_details WHERE timegroupid = $timegroup";
     $results = $db->getAll($sql);
@@ -971,7 +985,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     }
     $html = $html.'<tr>';
     $html = $html.'<td>'._('Name').'</td>';
-    $html = $html.'<td><input type="text" name="'.$name.'[display_name]" id="displayname_'.$name.'" size="35" tabindex="" value="'.$displayname.'"></td>';
+    $html = $html.'<td><input type="text" class="input" name="'.$name.'[display_name]" id="displayname_'.$name.'" size="35" tabindex="" value="'.$displayname.'"></td>';
     $html = $html.'</tr>';
     $html = $html.'<tr>';
     $html = $html.'<td>'._("Time to start").'</td>';
@@ -997,7 +1011,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
             $minute_finish = $minute_start;
         }
     }
-    $html = $html.'<select name="'.$name.'[hour_start]">';
+    $html = $html.'<select class="componentSelectAutoWidthNoSearch" name="'.$name.'[hour_start]">';
     $default = '';
     if ( $hour_start === '-' ) {
         $default = ' selected';
@@ -1012,7 +1026,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     }
     $html = $html.'</select>';
     $html = $html.'<nbsp>:<nbsp>';
-    $html = $html.'<select name="'.$name.'[minute_start]">';
+    $html = $html.'<select class="componentSelectAutoWidthNoSearch" name="'.$name.'[minute_start]">';
     $default = '';
     if ( $minute_start === '-' ) {
         $default = ' selected';
@@ -1031,7 +1045,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'<tr>';
     $html = $html.'<td>'._("Time to finish").'</td>';
     $html = $html.'<td>';
-    $html = $html.'<select name="'.$name.'[hour_finish]">';
+    $html = $html.'<select class="componentSelectAutoWidthNoSearch" name="'.$name.'[hour_finish]">';
     $default = '';
     if ( $hour_finish === '-' ) {
         $default = ' selected';
@@ -1046,7 +1060,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     }
     $html = $html.'</select>';
     $html = $html.'<nbsp>:<nbsp>';
-    $html = $html.'<select name="'.$name.'[minute_finish]">';
+    $html = $html.'<select class="componentSelectAutoWidthNoSearch" name="'.$name.'[minute_finish]">';
     $default = '';
     if ( $minute_finish === '-' ) {
         $default = ' selected';
@@ -1081,7 +1095,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     }
     $html = $html.'<td>'._("Week Day start").'</td>';
     $html = $html.'<td>';
-    $html = $html.'<select name="'.$name.'[wday_start]">';
+    $html = $html.'<select class="componentSelect" name="'.$name.'[wday_start]">';
     if ( $wday_start == '-' ) {
         $default = ' selected';
     } else {
@@ -1143,7 +1157,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'<tr>';
     $html = $html.'<td>'._("Week Day finish").'</td>';
     $html = $html.'<td>';
-    $html = $html.'<select name="'.$name.'[wday_finish]">';
+    $html = $html.'<select class="componentSelect" name="'.$name.'[wday_finish]">';
 
     if ( $wday_finish == '-' ) {
         $default = ' selected';
@@ -1223,7 +1237,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     }
 
     $html = $html.'<td>';
-    $html = $html.'<select name="'.$name.'[mday_start]">';
+    $html = $html.'<select class="componentSelectAutoWidthNoSearch" name="'.$name.'[mday_start]">';
     $default = '';
     if ( $mday_start == '-' ) {
         $default = ' selected';
@@ -1241,7 +1255,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'<tr>';
     $html = $html.'<td>'._("Month Day finish").'</td>';
     $html = $html.'<td>';
-    $html = $html.'<select name="'.$name.'[mday_finish]">';
+    $html = $html.'<select class="componentSelectAutoWidthNoSearch" name="'.$name.'[mday_finish]">';
     $default = '';
     if ( $mday_finish == '-' ) {
         $default = ' selected';
@@ -1276,7 +1290,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
         $month_start = $month_finish = '-';
     }
     $html = $html.'<td>';
-    $html = $html.'<select name="'.$name.'[month_start]">';
+    $html = $html.'<select class="componentSelect" name="'.$name.'[month_start]">';
 
     if ( $month_start == '-' ) {
         $default = ' selected';
@@ -1375,7 +1389,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'<tr>';
     $html = $html.'<td>'._("Month finish").'</td>';
     $html = $html.'<td>';
-    $html = $html.'<select name="'.$name.'[month_finish]">';
+    $html = $html.'<select class="componentSelect" name="'.$name.'[month_finish]">';
 
     if ( $month_finish == '-' ) {
         $default = ' selected';
@@ -1647,7 +1661,6 @@ function fill_holidays($timegroup,$country) {
         if($resp == '200' || $resp == '301') {
 
             $lines = explode("\n",curl_get_contents($url));
-
             if(count($lines)>8) {
                 break;
             }
