@@ -1709,7 +1709,7 @@ function enable_disable_auth(value) {
        $('#pjsip_username').prop('disabled',true).attr('placeholder','<?php echo _('Username is trunk name'); ?>').val('');
        $('#pjsip_registration').prop('disabled',false);
    }
-
+   $('select').trigger('chosen:updated');
 }
 
 $('#pjsip_registration').on('change', function() {

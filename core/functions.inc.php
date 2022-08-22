@@ -868,6 +868,8 @@ class core_conf {
                } else if($data=='both') {
                    $endp[$channelid]['outbound_auth']=$channelid;
                    $endp[$channelid]['auth']=$channelid;
+               } else if($data=='none') {
+                   $aor[$channelid]['contact']="sip:#SERVER#";
                }
            } else if ($keyword == "username") {
                if($data<>'') {
