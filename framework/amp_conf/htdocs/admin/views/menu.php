@@ -4,13 +4,25 @@ global $_item_sort;
 
 $out = '';
 $out .= '<div id="header">';
-$out .= '<div class="menubar ui-widget-header ui-corner-all">';
+$out .= '<nav class="navbar has-shadow is-dark is-fixed-top" aria-label="main navigation">';
 //left hand logo
+$out .= '<div class="navbar-brand">'
+	. "<a class='navbar-item' href='".$amp_conf['BRAND_IMAGE_ISSABELPBX_LINK_LEFT']."'>";
+
 $out .= '<img src="' . $amp_conf['BRAND_IMAGE_TANGO_LEFT']
     . '" alt="' . $amp_conf['BRAND_ISSABELPBX_ALT_LEFT']
     . '" title="' . $amp_conf['BRAND_ISSABELPBX_ALT_LEFT']
-    . '" id="MENU_BRAND_IMAGE_TANGO_LEFT" '
-    . 'data-BRAND_IMAGE_ISSABELPBX_LINK_LEFT="' . $amp_conf['BRAND_IMAGE_ISSABELPBX_LINK_LEFT'] . '"/>';
+    . '" id="MENU_BRAND_IMAGE_TANGO_LEFT" /></a>';
+
+$out .= '<a id="button_reload" href="#" data-button-icon-primary="ui-icon-gear" class="mt-2 button is-danger animate__animated animate__tada">' . _("Apply Config") .'</a>';
+$out .= '<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainnavbar">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>';
+$out .= '  <div id="mainnavbar" class="navbar-menu">
+    <div class="navbar-start">';
 
 // If issabelpbx_menu.conf exists then use it to define/redefine categories
 //
@@ -85,13 +97,28 @@ if (isset($ipbx_menu) && is_array($ipbx_menu)) {    // && issabelpbx_menu.conf n
             $href = isset($cat[0]['href']) ? $cat[0]['href'] : 'config.php?display=' . $cat[0]['display'];
             $target = isset($cat[0]['target']) ? ' target="' . $cat[0]['target'] . '"'  : '';
             $hclass = $cat[0]['display'] == $display ? 'ui-state-highlight' : '';
-            $mods[$t] = '<a href="' . $href . '" ' . $target . $class . ' class="ui-button-text-only ui-button ui-widget ui-state-default ui-corner-all '.$hclass.'">' . modgettext::_(ucwords($cat[0]['name']),$cat[0]['module']['rawname']) . '</a>';
+	        $mods[$t] = '<a class="navbar-item" href="' . $href . '" ' . $target .'>'.modgettext::_(ucwords($cat[0]['name']),$cat[0]['module']['rawname']) . '</a>';
             continue;
         }
         // $t is a heading so can't be isolated to a module, translation must come from amp
-        $mods[$t] = '<a href="#" class="module_menu_button ui-button ui-widget ui-state-default ui-corner-all">'
-            . _(ucwords($t))
-            . '</a><ul>';
+	    //$mods[$t] = '<div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">'. _(ucwords($t)) .'</a>';
+	    $mods[$t] = '<button class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">'. _(ucwords($t)) .'</a>';
+
+        if(count($cat)>7) {
+            $multico=' multicolumn ';
+            $scroll_div_open  = '<div class="scroll-container">';
+            $scroll_div_close = '</div>';
+            $scroll_p_open    = '<p class="scroll">';
+            $scroll_p_close   = '</p>';
+        } else {
+            $multico='';
+            $scroll_div_open  = '';
+            $scroll_div_close = '';
+            $scroll_p_open    = '';
+            $scroll_p_close   = '';
+        }
+        $mods[$t] .= '<div class="navbar-dropdown '.$multico.'">'."\n";
+
         foreach ($cat as $c => $mod) { //modules
             if (isset($mod['hidden']) && $mod['hidden'] == 'true') {
                 continue;
@@ -108,67 +135,102 @@ if (isset($ipbx_menu) && is_array($ipbx_menu)) {    // && issabelpbx_menu.conf n
 
             //highlight currently in-use module
             if ($display == $mod['display']) {
-                $classes[] = 'ui-state-highlight';
-                $classes[] = 'ui-corner-all';
+                $classes[] = 'is-active';
             }
 
             //highlight disabled modules
             if (isset($mod['disabled']) && $mod['disabled']) {
-                $classes[] = 'ui-state-disabled';
-                $classes[] = 'ui-corner-all';
+                $classes[] = 'is-disabled';
             }
 
-	    // try the module's translation domain first
-	    $trans_name = modgettext::_(ucwords($mod['name']), $mod['module']['rawname']);
-            $items[$trans_name] = '<li><a href="' . $href . '"'
+	        // try the module's translation domain first
+	        $trans_name = modgettext::_(ucwords($mod['name']), $mod['module']['rawname']);
+            $items[$trans_name] = $scroll_div_open.'<a href="' . $href . '"'
                 . $target
-                . (!empty($classes) ? ' class="' . implode(' ', $classes) . '">' : '>')
-		. $trans_name
-                . '</a></li>';
+                . ' class="navbar-item ' . implode(' ', $classes) .'">' 
+                . $scroll_p_open
+		        . $trans_name
+                . $scroll_p_close
+                . '</a>'.$scroll_div_close. "\n";
 
-	    $_item_sort[$mod['name']] = $mod['sort'];
+	        $_item_sort[$mod['name']] = $mod['sort'];
         }
         uksort($items,'_item_sort');
-        $mods[$t] .= implode($items) . '</ul>';
+	    $mods[$t] .= implode($items);
+
+	    $mods[$t].="</div></button>";
+//	    $mods[$t].="</div></div>";
         unset($items);
         unset($_item_sort);
     }
     uksort($mods,'_menu_sort');
     $out .= implode($mods);
 }
+
+$out.='</div><div class="navbar-end">';
+
+$current_lang = $_COOKIE['lang'];
+
+$aval_lang = array();
+$aval_lang["en_US"]=_('English');
+$aval_lang["es_ES"]= _('Spanish');
+$aval_lang["pt_BR"]= _('Portuguese (Brasil)');
+$aval_lang["bg_BG"]= _('Bulgarian');
+$aval_lang["zh_CN"]= _('Chinese');
+$aval_lang["de_DE"]= _('German');
+$aval_lang["fr_FR"]= _('French');
+$aval_lang["he_IL"]= _('Hebrew');
+$aval_lang["hu_HU"]= _('Hungarian');
+$aval_lang["it_IT"]= _('Italian');
+$aval_lang["pt_PT"]= _('Portuguese');
+$aval_lang["ru_RU"]= _('Russian');
+$aval_lang["sv_SE"]= _('Swedish');
+$aval_lang["ja_JP"]= _('Japanese');
+
 if($amp_conf['SHOWLANGUAGE']) {
-    $out .= '<a id="language-menu-button" '
-        . 'class="button-right ui-state-default ui-widget">' . _('Language') . '</a>';
-    $out .= '<ul id="ipbx_lang" style="display:none;">';
-    $out .= '<li data-lang="en_US"><a href="#">'. _('English') . '</a></li>';
-    $out .= '<li data-lang="bg_BG"><a href="#">' . _('Bulgarian') . '</a></li>';
-    $out .= '<li data-lang="zh_CN"><a href="#">' . _('Chinese') . '</a></li>';
-    $out .= '<li data-lang="de_DE"><a href="#">' . _('German') . '</a></li>';
-    $out .= '<li data-lang="fr_FR"><a href="#">' . _('French') . '</a></li>';
-    $out .= '<li data-lang="he_IL"><a href="#">' . _('Hebrew') . '</a></li>';
-    $out .= '<li data-lang="hu_HU"><a href="#">' . _('Hungarian') . '</a></li>';
-    $out .= '<li data-lang="it_IT"><a href="#">' . _('Italian') . '</a></li>';
-    $out .= '<li data-lang="pt_PT"><a href="#">' . _('Portuguese') . '</a></li>';
-    $out .= '<li data-lang="pt_BR"><a href="#">' . _('Portuguese (Brasil)') . '</a></li>';
-    $out .= '<li data-lang="ru_RU"><a href="#">' . _('Russian') . '</a></li>';
-    $out .= '<li data-lang="sv_SE"><a href="#">' . _('Swedish') . '</a></li>';
-    $out .= '<li data-lang="es_ES"><a href="#">' . _('Spanish') . '</a></li>';
-    $out .= '<li data-lang="ja_JP"><a href="#">' . _('Japanese') . '</a></li>';
-    $out .= '</ul>';
+	$out .= '<div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link" id="language-menu-button">' . _('Language') . '</a>';
+    $out .= '<div class="navbar-dropdown is-right">';
+    foreach($aval_lang as $iso=>$desc) {
+        $current = ($current_lang == $iso)?" current":"";
+        $out .= '<a class="navbar-item onelang'.$current.'" data-lang="'.$iso.'">'. $desc . '</a>';
+    }
+/*
+    $out .= '<a class="navbar-item onelang" data-lang="en_US">'. _('English') . '</a>';
+    $out .= '<a class="navbar-item onelang" data-lang="bg_BG">' . _('Bulgarian') . '</a>';
+    $out .= '<a class="navbar-item onelang" data-lang="zh_CN">' . _('Chinese') . '</a>';
+    $out .= '<a class="navbar-item onelang" data-lang="de_DE">' . _('German') . '</a>';
+    $out .= '<a class="navbar-item onelang" data-lang="fr_FR">' . _('French') . '</a>';
+    $out .= '<a class="navbar-item onelang" data-lang="he_IL">' . _('Hebrew') . '</a>';
+    $out .= '<a class="navbar-item onelang" data-lang="hu_HU">' . _('Hungarian') . '</a>';
+    $out .= '<a class="navbar-item onelang" data-lang="it_IT">' . _('Italian') . '</a>';
+    $out .= '<a class="navbar-item onelang" data-lang="pt_PT">' . _('Portuguese') . '</a>';
+    $out .= '<a class="navbar-item onelang" data-lang="pt_BR">' . _('Portuguese (Brasil)') . '</a>';
+    $out .= '<a class="navbar-item onelang" data-lang="ru_RU">' . _('Russian') . '</a>';
+    $out .= '<a class="navbar-item onelang" data-lang="sv_SE">' . _('Swedish') . '</a>';
+    $out .= '<a class="navbar-item onelang" data-lang="es_ES">' . _('Spanish') . '</a>';
+    $out .= '<a class="navbar-item onelang" data-lang="ja_JP">' . _('Japanese') . '</a>';
+ */
+    $out .= '</div>';
+    $out .= '</div>';
+
 }
 
+$out .= '<div class="navbar-item"><div class="buttons">';
 if ( isset($_SESSION['AMP_user']) && ($authtype != 'none')) {
     $out .= '<a id="user_logout" href="#"'
-        . ' class="button-right ui-state-default ui-widget" title="logout">'
+        . ' class="button is-primary" title="logout">'
         . _('Logout') . ': ' . (isset($_SESSION['AMP_user']->username) ? $_SESSION['AMP_user']->username : 'ERROR')
-        . '</a>';
+	. '</a>';
 }
-$out .= '<progress class="button-right" id="ajax_spinner"></progress>';
+ 
+//$out .= '<a id="button_reload" href="#" data-button-icon-primary="ui-icon-gear" class="button is-danger">' . _("Apply Config") .'</a>';
 
-$out .= '<a id="button_reload" href="#" data-button-icon-primary="ui-icon-gear" class="ui-state-error ">'
-    . _("Apply Config") .'</a>';
+//$out .= '<progress class="button-right" id="ajax_spinner"></progress>';
 
-$out .= '</div>';
+$out .= '</div></div></div></div>';
+
+$out .= '</nav>';
+
 $out .= '</div>';//header
 
 $out .= '<div id="page_body">';
@@ -200,4 +262,5 @@ function _item_sort($a, $b) {
     else
         return $a > $b;
 }
+
 ?>

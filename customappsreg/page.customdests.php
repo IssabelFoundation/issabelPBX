@@ -8,82 +8,88 @@ $type   = isset($_REQUEST['type']) ? $_REQUEST['type'] : 'tool';
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 if (isset($_REQUEST['delete'])) $action = 'delete'; 
 
-$old_custom_dest = isset($_REQUEST['old_custom_dest']) ? $_REQUEST['old_custom_dest'] :  '';
-$custom_dest     = isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay'] :  '';
+$old_extdisplay = isset($_REQUEST['old_extdisplay']) ? $_REQUEST['old_extdisplay'] :  '';
+$extdisplay     = isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay'] :  '';
 $description     = isset($_REQUEST['description']) ? htmlentities($_REQUEST['description']) :  '';
 $notes           = isset($_REQUEST['notes']) ? htmlentities($_REQUEST['notes']) :  '';
 
 switch ($action) {
 	case 'add':
-		if (customappsreg_customdests_add($custom_dest, $description, $notes)) {
+		if (customappsreg_customdests_add($extdisplay, $description, $notes)) {
 			needreload();
+            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+            $_SESSION['msgtype']='success';
 			redirect_standard('extdisplay');
 		} else {
-			$custom_dest='';
+			$extdisplay='';
 		}
 	break;
 	case 'edit':
-		if (customappsreg_customdests_edit($old_custom_dest, $custom_dest, $description, $notes)) {
+		if (customappsreg_customdests_edit($old_extdisplay, $extdisplay, $description, $notes)) {
 			needreload();
+            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msgtype']='success';
 			redirect_standard('extdisplay');
 		}
 	break;
 	case 'delete':
-		customappsreg_customdests_delete($custom_dest);
+		customappsreg_customdests_delete($extdisplay);
 		needreload();
+        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msgtype']='warning';
 		redirect_standard();
 	break;
 }
 
-?> 
-<div class="rnav"><ul>
-<?php 
-
-echo '<li><a href="config.php?display='.$display.'&amp;type='.$type.'">'._('Add Custom Destination').'</a></li>';
-
-foreach (customappsreg_customdests_list() as $row) {
+$rnaventries = array();
+$list   = customappsreg_customdests_list();
+foreach($list as $row) {
 	$descr = $row['description'] != '' ? $row['description'] : '('.$row['custom_dest'].')';
-	echo '<li><a href="config.php?display='.$display.'&amp;type='.$type.'&amp;extdisplay='.$row['custom_dest'].'" class="">'.$descr.'</a></li>';
+    $rnaventries[] = array($row['custom_dest'],$descr,'','');
 }
-
-?>
-</ul></div>
-
+drawListMenu($rnaventries, $type, $display, $extdisplay);
+?> 
+<div class='content'>
 <?php
 
-if ($custom_dest != '') {
+if ($extdisplay != '') {
 	// load
-	$usage_list = framework_display_destination_usage(customappsreg_customdests_getdest($custom_dest));
-
-	$row = customappsreg_customdests_get($custom_dest);
-	
+	$row = customappsreg_customdests_get($extdisplay);
 	$description = $row['description'];
 	$notes       = $row['notes'];
-
 	$disp_description = $row['description'] != '' ? $row['description'] : '('.$row['custom_dest'].')';
-	echo "<h2>"._("Edit: ")."$disp_description"."</h2>";
-} else {
-	echo "<h2>"._("Add Custom Destination")."</h2>";
-}
+} 
 
 $helptext = _("Custom Destinations allows you to register your custom destinations that point to custom dialplans and will also 'publish' these destinations as available destinations to other modules. This is an advanced feature and should only be used by knowledgeable users. If you are getting warnings or errors in the notification panel about CUSTOM destinations that are correct, you should include them here. The 'Unknown Destinations' chooser will allow you to choose and insert any such destinations that the registry is not aware of into the Custom Destination field.");
-echo $helptext;
+
+$help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
+
+echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Custom Destination').': '.$disp_description : _("Add Custom Destination"))."</h2>$help</div>\n";
+
+if ($extdisplay) {
+	$usage_list = framework_display_destination_usage(customappsreg_customdests_getdest($extdisplay));
+    if (!empty($usage_list)) {
+        echo ipbx_usage_info($usage_list['text'],$usage_list['tooltip']);
+    }
+}
+
+
 ?>
 
-<form name="editCustomDest" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkCustomDest(editCustomDest);">
+<form id="mainform" name="editCustomDest" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkCustomDest(this);">
 <?php
 if (!empty($usage_list)) {
 ?>
-	<input type="hidden" name="extdisplay" value="<?php echo $custom_dest; ?>">
+	<input type="hidden" name="extdisplay" value="<?php echo $extdisplay; ?>">
 <?php
 }
 ?>
-	<input type="hidden" name="old_custom_dest" value="<?php echo $custom_dest; ?>">
-	<input type="hidden" name="action" value="<?php echo ($custom_dest != '' ? 'edit' : 'add'); ?>">
+	<input type="hidden" name="old_extdisplay" value="<?php echo $extdisplay; ?>">
+	<input type="hidden" name="action" value="<?php echo ($extdisplay != '' ? 'edit' : 'add'); ?>">
 	<table>
-	<tr><td colspan="2"><h5><?php  echo ($custom_dest ? _("Edit Custom Destination") : _("Add Custom Destination")) ?></h5></td></tr>
+	<tr><td colspan="2"><h5><?php  echo dgettext("amp","General Settings")?></h5></td></tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Custom Destination")?>:
+		<td><a href="#" class="info"><?php echo _("Custom Destination")?>
 			<span>
 				<?php 
 				echo _("This is the Custom Destination to be published. It should be formatted exactly as you would put it in a goto statement, with context, exten, priority all included. An example might look like:<br />mycustom-app,s,1");
@@ -95,11 +101,11 @@ if (!empty($usage_list)) {
 	<?php
 	if (!empty($usage_list)) {
 	?>
-		<td><b><?php echo htmlentities($custom_dest); ?></b></td>
+		<td><b><?php echo htmlentities($extdisplay); ?></b></td>
 	<?php
 	} else {
 	?>
-		<td><input size="30" type="text" name="extdisplay" id="extdisplay" value="<?php  echo $custom_dest; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+		<td><input class="input w100" type="text" name="extdisplay" id="extdisplay" value="<?php  echo $extdisplay; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	<?php
 	}
 	?>
@@ -117,7 +123,7 @@ if (!empty($usage_list)) {
 		</a>
 		</td>
 		<td>
-			<select onChange="insertDest();" id="insdest" tabindex="<?php echo ++$tabindex;?>">
+			<select class='componentSelect' onChange="insertDest();" id="insdest" tabindex="<?php echo ++$tabindex;?>">
 				<option value=""><?php echo _("(pick destination)")?></option>
 	<?php
 				$results = customappsreg_customdests_getunknown();
@@ -133,36 +139,18 @@ if (!empty($usage_list)) {
 	?>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("Brief Description that will be published to modules when showing destinations. Example: My Weather App")?></span></a></td>
-		<td><input size="30" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+		<td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _("Brief Description that will be published to modules when showing destinations. Example: My Weather App")?></span></a></td>
+		<td><input class="input w100" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr>
-		<td valign="top"><a href="#" class="info"><?php echo _("Notes")?>:<span><?php echo _("More detailed notes about this destination to help document it. This field is not used elsewhere.")?></span></a></td>
-		<td><textarea name="notes" cols="23" rows="6" tabindex="<?php echo ++$tabindex;?>"><?php echo $notes; ?></textarea></td> 
+		<td valign="top"><a href="#" class="info"><?php echo _("Notes")?><span><?php echo _("More detailed notes about this destination to help document it. This field is not used elsewhere.")?></span></a></td>
+		<td><textarea class="textarea" name="notes" cols="23" rows="6" tabindex="<?php echo ++$tabindex;?>"><?php echo $notes; ?></textarea></td> 
 	</tr>
 
-	<tr>
-		<td colspan="2"><br><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>">
-		<?php if ($custom_dest != '') { echo '&nbsp;<input name="delete" type="submit" value="'._("Delete").'">'; } ?>
-		</td>		
-
-		<?php
-		if ($custom_dest != '') {
-			if (!empty($usage_list)) {
-			?>
-				<tr><td colspan="2">
-				<a href="#" class="info"><?php echo $usage_list['text']?>:<span><?php echo $usage_list['tooltip']?></span></a>
-				</td></tr>
-			<?php
-			}
-		}
-		?>
-	</tr>
 	</table>
 	</form>
 			
-<script language="javascript">
-<!--
+<script>
 
 function insertDest() {
 
@@ -194,8 +182,10 @@ function checkCustomDest(theForm) {
 	if (isEmpty(theForm.description.value)) {
 		return warnInvalid(theForm.description, msgInvalidDescription);
 	}
-
+    $.LoadingOverlay('show');
 	return true;
 }
-//-->
+<?php echo js_display_confirmation_toasts(); ?>
 </script>
+</div> <!-- end div content, be sure to include script tags before -->
+<?php echo form_action_bar($extdisplay); ?>

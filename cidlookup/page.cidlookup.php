@@ -9,7 +9,7 @@ foreach (glob($root."/modules/*",GLOB_ONLYDIR) as $filename) {
 }
 
 isset($_REQUEST['action']) ? ($action = $_REQUEST['action']) : $action='';
-isset($_REQUEST['itemid']) ? ($itemid = $_REQUEST['itemid']) : $itemid='';
+isset($_REQUEST['extdisplay']) ? ($itemid = $_REQUEST['extdisplay']) : $itemid='';
 
 $tabindex = 0;
 
@@ -19,17 +19,23 @@ if(isset($_REQUEST['action'])) {
 		case "add":
 			cidlookup_add($_REQUEST);
 			needreload();
+            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+            $_SESSION['msgtype']='success';
 			redirect_standard();
 		break;
 		case "delete":
 			cidlookup_del($itemid);
 			needreload();
+            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+            $_SESSION['msgtype']='warning';
 			redirect_standard();
 		break;
 		case "edit":
 			cidlookup_edit($itemid,$_REQUEST);
 			needreload();
-			redirect_standard('itemid');
+            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msgtype']='success';
+			redirect_standard('extdisplay');
 		break;
 	}
 }
@@ -52,4 +58,16 @@ require_once('views/main.html.php');
 ?>
 <script>
 var cid_modules = <?php echo json_encode($cid_modules)?>
+
+
+errInvalidHTTPHost      = '<?php echo _('Please enter a valid HTTP(S) Host name');?>'; 
+errInvalidMysqlHost     = '<?php echo _('Please enter a valid MySQL Host name');?>';
+errInvalidMysqlDatabase = '<?php echo _('Please enter a valid MySQL Database name');?>';
+errInvalidMysqlQuery    = '<?php echo _('Please enter a valid MySQL Query string');?>';
+errInvalidMysqlUsername = '<?php echo _('Please enter a valid MySQL Username');?>';
+errInvalidAccountSID    = '<?php echo _('Please enter a valid Account SID');?>';
+errInvalidAuthToken     = '<?php echo _('Please enter a valid Auth Token');?>';
+errInvalidDescription   = '<?php echo _('Description cannot be blank!');?>';
+
+
 </script>

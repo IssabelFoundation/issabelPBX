@@ -174,9 +174,11 @@ if ( ! function_exists('form_input'))
 {
 	function form_input($data = '', $value = '', $extra = '')
 	{
+        global $tabindex;
+        $tabindexhtml=' tabindex="'.++$tabindex.'" ';
 		$defaults = array('type' => 'text', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value);
 
-		return "<input "._parse_form_attributes($data, $defaults).$extra." />";
+		return "<input".$tabindexhtml._parse_form_attributes($data, $defaults).$extra." />";
 	}
 }
 
@@ -306,7 +308,10 @@ if ( ! function_exists('form_multiselect'))
 if ( ! function_exists('form_dropdown'))
 {
 	function form_dropdown($name = '', $options = array(), $selected = array(), $extra = '')
-	{
+    {
+        global $tabindex;
+        $tabindexhtml=' tabindex="'.++$tabindex.'" ';
+
 		if ( ! is_array($selected))
 		{
 			$selected = array($selected);
@@ -326,7 +331,7 @@ if ( ! function_exists('form_dropdown'))
 
 		$multiple = (count($selected) > 1 && strpos($extra, 'multiple') === FALSE) ? ' multiple="multiple"' : '';
 
-		$form = '<select name="'.$name.'"'.$extra.$multiple.">\n";
+		$form = '<select'.$tabindexhtml.'name="'.$name.'"'.$extra.$multiple.">\n";
 
 		foreach ($options as $key => $val)
 		{
@@ -487,6 +492,9 @@ if ( ! function_exists('form_button'))
 {
 	function form_button($data = '', $content = '', $extra = '')
 	{
+        global $tabindex;
+        $tabindexhtml=' tabindex="'.++$tabindex.'" ';
+
 		$defaults = array('name' => (( ! is_array($data)) ? $data : ''), 'type' => 'button');
 
 		if ( is_array($data) AND isset($data['content']))
@@ -495,7 +503,7 @@ if ( ! function_exists('form_button'))
 			unset($data['content']); // content is not an attribute
 		}
 
-		return "<button "._parse_form_attributes($data, $defaults).$extra.">".$content."</button>";
+		return "<button ".$tabindexhtml._parse_form_attributes($data, $defaults).$extra.">".$content."</button>";
 	}
 }
 
@@ -980,7 +988,7 @@ if ( ! function_exists('_attributes_to_string'))
 
 			if ($formtag == TRUE AND strpos($attributes, 'accept-charset=') === FALSE)
 			{
-				$attributes .= ' accept-charset="'.strtolower(config_item('charset')).'"';
+				$attributes .= ' accept-charset="utf-8"';
 			}
 
 		return ' '.$attributes;
@@ -1002,7 +1010,7 @@ if ( ! function_exists('_attributes_to_string'))
 
 			if ( ! isset($attributes['accept-charset']) AND $formtag === TRUE)
 			{
-				$atts .= ' accept-charset="'.strtolower(config_item('charset')).'"';
+				$atts .= ' accept-charset="utf-8"';
 			}
 
 			foreach ($attributes as $key => $val)

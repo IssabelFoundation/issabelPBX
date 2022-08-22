@@ -38,6 +38,7 @@ function frameworkPasswordCheck() {
 
 // setup locale
 function set_language() {
+    global $issabelpbx_conf;
     if (extension_loaded('gettext')) {
         if (empty($_COOKIE['lang']) || !preg_match('/^[\w\._@-]+$/', $_COOKIE['lang'])) {
             $_COOKIE['lang'] = 'en_US';
@@ -48,6 +49,25 @@ function set_language() {
         bindtextdomain('amp','./i18n');
         bind_textdomain_codeset('amp', 'utf8');
         textdomain('amp');
+
+        if (!$issabelpbx_conf->conf_setting_exists('LANGUAGE')) {
+            $value = $_COOKIE['lang'];
+            $set['value'] = $value;
+            $set['defaultval'] = 'en_US';
+            $set['readonly'] = 0;
+            $set['hidden'] = 0;
+            $set['level'] = 3;
+            $set['module'] = '';
+            $set['category'] = 'GUI Behavior';
+            $set['emptyok'] = 0;
+            $set['sortorder'] = 10;
+            $set['name'] = 'Language';
+            $set['description'] = 'General Language Setting for Web Admin';
+            $set['type'] = CONF_TYPE_TEXT;
+            $issabelpbx_conf->define_conf_setting('LANGUAGE',$set,true);
+        } else {
+            $issabelpbx_conf->set_conf_values(array('LANGUAGE' => $_COOKIE['lang']),true,true);
+        }
     }
 }
 

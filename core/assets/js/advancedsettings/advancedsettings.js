@@ -99,7 +99,7 @@ $(document).ready(function() {
 		})
 	}
 	//set defualt values
-	$('.adv_set_default').click(function(){
+	$('.adv_set_default').on('click',function(){
 		switch ($(this).attr('data-type')) {
 		case 'BOOL':
 			$('input[name="' + $(this).attr('data-key')).removeAttr("checked");
@@ -113,7 +113,7 @@ $(document).ready(function() {
 	});
 
 	//show save button
-	$('.valueinput').bind('keyup keypress keydown paste change', function(){
+	$('.valueinput').on('keyup keypress keydown paste change', function(){
 		var save = $(this).closest('tr').find('input.save');
 		var savetd = $(this).closest('tr').find('.savetd');
 		var adv_set_default = $(this).closest('tr').find('input.adv_set_default');
@@ -127,7 +127,7 @@ $(document).ready(function() {
 			//only bind if not already bound
 			if (typeof(save.data("isbound")) == 'undefined' || !save.data('isbound')) {
 				save.data("isbound", true);
-				save.bind('click', savebinder);
+				save.on('click', savebinder);
 			}
 		} else {
 			save.data("isbound", false);
@@ -148,7 +148,7 @@ $(document).ready(function() {
 		}
 	})
 
-	$("#page_reload").click(function(){
+	$("#page_reload").on('click',function(){
 		if (!page_reload_check()) {
 			if (!confirm(msgUnsavedChanges)) {
 				return false;

@@ -23,7 +23,7 @@ function cidlookup_hook_core($viewing_itemid, $target_menuid) {
 		$html .= ' }';
 		$html .= '}';
 		$html .= '</script>';
-		$html .= '<td><select name="cidlookup_id" onChange="javascript:openCNAMNoteDisplay(this, this.selectedIndex)" class="componentSelect">';
+		$html .= '<td><select name="cidlookup_id" onChange="javascript:openCNAMNoteDisplay(this, this.selectedIndex)" class="componentSelect" tabindex="{tabindex}">';
 		$sources = cidlookup_list();
 		$current = cidlookup_did_get($viewing_itemid);
 		foreach ($sources as $source)
@@ -347,7 +347,8 @@ function cidlookup_add($post){
 	$opencnam_account_sid = $db->escapeSimple($post['opencnam_account_sid']);
 	$opencnam_auth_token = $db->escapeSimple($post['opencnam_auth_token']);
 
-	$cache = isset($post['cache']) ? $db->escapeSimple($post['cache']) : 0;
+	//$cache = isset($post['cache']) ? $db->escapeSimple($post['cache']) : 0;
+	$cache = $db->escapeSimple($post['cache']);
 
 	$results = sql("
 		INSERT INTO cidlookup
@@ -377,7 +378,9 @@ function cidlookup_edit($id,$post){
 	$mysql_charset = $db->escapeSimple($post['mysql_charset']);
 	$opencnam_account_sid = $db->escapeSimple($post['opencnam_professional_tier']) ? $db->escapeSimple($post['opencnam_account_sid']) : '';
 	$opencnam_auth_token = $db->escapeSimple($post['opencnam_professional_tier']) ? $db->escapeSimple($post['opencnam_auth_token']) : '';
+	$cache = $db->escapeSimple($post['cache']);
 
+    /*
   if (!isset($post['cache'])) {
    $cache = 0;
   }
@@ -385,7 +388,9 @@ function cidlookup_edit($id,$post){
    if($sourcetype != "internal" || $sourcetype != "opencnam") {
 		 $cache = 1;
 	 }
-  }
+  }*/
+
+
 	$results = sql("
 		UPDATE cidlookup
 		SET

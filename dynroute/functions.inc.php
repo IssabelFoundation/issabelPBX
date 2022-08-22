@@ -242,11 +242,8 @@ function dynroute_get_dynroute_id($name) {
 		// It's not there. Create it and return the ID
 		sql("INSERT INTO dynroute (displayname )  values('$name')");
 		$res = $db->getRow("SELECT dynroute_id from dynroute where displayname='$name'");
-
-                sql("INSERT INTO dynroute_dests (dynroute_id,selection,default_dest,dest) VALUES ($res[0],'','y','app-blackhole,hangup,1')");
-
+        sql("INSERT INTO dynroute_dests (dynroute_id,selection,default_dest,dest) VALUES ($res[0],'','y','app-blackhole,hangup,1')");
 	}
-
 	return ($res[0]);
 	
 }
@@ -255,7 +252,7 @@ function dynroute_add_command($id, $cmd, $dest, $default_dest) {
 	global $db;
 	// Does it already exist?
 	$res = $db->getRow("SELECT * from dynroute_dests where dynroute_id='$id' and selection='$cmd' and default_dest='$default_dest'");
-	if (count($res) == 0) {
+	if (is_null($res)) {
 		// Just add it.
 		sql("INSERT INTO dynroute_dests (dynroute_id, selection, default_dest, dest) VALUES('$id', '$cmd', '$default_dest', '$dest')");
 	} else {
@@ -287,7 +284,14 @@ function dynroute_do_edit($id, $post) {
         $timeout = isset($post['timeout'])?$post['timeout']:'';
         $chan_var_name = isset($post['chan_var_name'])?$post['chan_var_name']:'';
         $chan_var_name_res = isset($post['chan_var_name_res'])?$post['chan_var_name_res']:'';
- 
+
+        // INSERT IF id is not supplied
+        if($id=='') {
+            sql("INSERT INTO dynroute (displayname )  values('$name')");
+            $res = $db->getRow("SELECT dynroute_id from dynroute where displayname='$name'");
+            sql("INSERT INTO dynroute_dests (dynroute_id,selection,default_dest,dest) VALUES ($res[0],'','y','app-blackhole,hangup,1')");
+            $id = $res[0];
+        }
 	
 	$sql = "
 	UPDATE dynroute 
@@ -324,16 +328,19 @@ function dynroute_do_edit($id, $post) {
 		if (preg_match('/goto(\d+)/', $var, $match)) {
 			// This is a really horrible line of code. take N, and get value of fooN. See above. Note we
 			// get match[1] from the preg_match above
-			$dest = $post[$post[$var].$match[1]];
-			$cmd = $post['option'.$match[1]];
+             $dest = $post[$post[$var]];
+             $option_field = 'option'.$match[1];
+			 $cmd = isset($post[$option_field])?$post[$option_field]:'';
 			// Debugging if it all goes pear shaped.
-			// print "I think pushing $cmd does $dest<br>\n";
+            // print "I think pushing $cmd does $dest<br>\n";
+
 			if ($first_option)  {
 				dynroute_add_command($id, $cmd, $dest, 'y');
 				$first_option=false;
 			}
-			if (strlen($cmd))
+			if (strlen($cmd)) {
 				dynroute_add_command($id, $cmd, $dest, 'n');
+		    }
 		}
 	}
 }

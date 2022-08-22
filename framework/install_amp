@@ -4,7 +4,7 @@
 //    Copyright 2006-2014 Schmooze Com Inc.
 //    Copyright 2022 Issabel Foundation
 //
-// ./install_amp --dbengine=$engine --username=root --password=mysqlrootpassword --adminuser=admin --adminpass=asteriskpass --installdb --scripted
+// ./install_amp --dbengine=$engine --username=root --password=mysqlrootpassword --adminuser=admin --adminpass=asteriskpass --installdb --dbfile /etc/asterisk/sqldata.db --scripted
 
 date_default_timezone_set('America/Los_Angeles');
 require_once ("libissabelpbx.install.php");
@@ -34,6 +34,7 @@ function showHelp() {
     out("  --dbhost <ip address>    Use a remote database server",false);
     out("  --dbname databasename    Use database name specified, instead of 'asterisk'",false);
     out("  --dbengine engine        Use database engine specified, instead of 'mysqli'",false);
+    out("  --dbfile <path>          Use file for sqlite engine","/etc/asterisk/sqldata.db");
     out("  --username <user>        Use <user> to connect to db and write config",false);
     out("  --password <pass>        Use <pass> to connect to db and write config",false);
     out("  --issabelpbxip <ip>         IssabelPBX web interface is accessed from <ip>",false);
@@ -256,6 +257,7 @@ function collect_settings($filename, $dbhost = '', $dbuser = '', $dbpass = '', $
     global $asteriskip;
     global $runas_uid;
     global $runas_gid;
+    global $dbfile;
 
     out("Creating new $filename");
 
@@ -428,7 +430,7 @@ function install_modules() {
     global $runas_uid;
     global $runas_gid;
 
-    $base_modules = array('framework','core','recordings','timeconditions','announcement','asterisk-cli','asteriskinfo','blacklist','callback','callforward','callrecording','callwaiting','cdr','cidlookup','conferences','customappsreg','customcontexts','dashboard','daynight','dialplaninjection','disa','donotdisturb','dynamicfeatures','dynroute','extensionsettings','featurecodeadmin','findmefollow','iaxsettings','ivr','languages','logfiles','manager','managersettings','miscapps','miscdests','music','outroutemsg','paging','parking','pinsets','queueprio','queues','ringgroups','setcid','sipsettings','tts','voicemail','weakpasswords','writequeuelog');
+    $base_modules = array('framework','core','recordings','timeconditions','announcement','asterisk-cli','asteriskinfo','blacklist','callback','callforward','callrecording','callwaiting','cdr','cidlookup','conferences','customappsreg','customcontexts','dashboard','daynight','disa','donotdisturb','dynamicfeatures','dynroute','extensionsettings','featurecodeadmin','findmefollow','iaxsettings','ivr','languages','logfiles','manager','managersettings','miscapps','miscdests','music','outroutemsg','paging','parking','pinsets','queueprio','queues','ringgroups','setcid','sipsettings','tts','voicemail','weakpasswords','writequeuelog');
 
     $SOURCEDIR = dirname(__FILE__)."/../";
 
@@ -698,6 +700,7 @@ $longopts = array(
     "dbhost=",
     "dbname=",
     "dbengine=",
+    "dbfile=",
     "debug",
     "dev-links",
     "dry-run",
@@ -755,6 +758,7 @@ $createinstalldb = false;
 $dbhost = null;
 $dbname = 'asterisk';
 $dbengine = 'mysqli';
+$dbfile = '/etc/asterisk/sqldata.db';
 $new_username = null;
 $new_password = null;
 
@@ -802,6 +806,10 @@ foreach ($args[0] as $arg) {
         case "--dbengine":
             $dbengine = $arg[1];
             out("Using database engine ".$dbengine);
+        break;
+        case "--dbfile":
+            $dbfile = $arg[1];
+            out("Using sqlite database file ".$dbengine);
         break;
         case "--no-files":
             $install_files = false;
@@ -1191,6 +1199,10 @@ if (isset($dbengine)) {
     $amp_conf["AMPDBENGINE"] = $dbengine;
 }
 
+if(isset($dbfile)) {
+    $amp_conf["AMPDBFILE"] = $dbfile;
+}
+
 // If they pre-set this in their amportal.conf or this is an upgrade, we should honor it as well
 //
 // TODO: if we boostrap, then this value could be normalized (1/0 I think?)
@@ -1363,13 +1375,11 @@ switch ($dbengine)
         $db = DB::connect($datasource); // attempt connection
         break;
 
-    case "sqlite":
-        die_issabelpbx("SQLite2 support is deprecated. Please use sqlite3 only.");
-        break;
     case "rqlite":
         $datasource = "rqlite:///localhost:4001";
         $db = DB::connect($datasource);
         break;
+    case "sqlite":
     case "sqlite3":
         if (!isset($amp_conf["AMPDBFILE"]))
             die("You must setup properly AMPDBFILE in /etc/amportal.conf");
@@ -1381,14 +1391,20 @@ switch ($dbengine)
         if (! extension_loaded('sqlite3.so')  && ! extension_loaded('SQLITE3'))
             dl('sqlite3.so');
 
+
+	/*
         if (! @require_once('DB/sqlite3.php') )
-        {
+	{
+		echo "chau\n";
             out("FAILED");
             fatal( "Your PHP installation has no PEAR/SQLite3 support. Please install php-sqlite3 and php-pear.");
-        }
+	} else {
+		echo "sigue\n";
+	}
+	 */
 
         $datasource = "sqlite3:///" . $amp_conf["AMPDBFILE"] . "?mode=0666";
-        $db = DB::connect($datasource);
+	    $db = DB::connect($datasource);
         break;
 
     default:

@@ -194,35 +194,35 @@ function framework_display_extension_usage_alert($usage_arr=array(),$split=false
 				if ($conflicts == 1) {
 					switch ($details['status']) {
 						case 'INUSE':
-							$str = "Extension $exten not available, it is currently used by ".htmlspecialchars($details['description']).".";
+                            $str = sprintf(dgettext('amp','Extension %s already in use by: %s'),$exten,htmlspecialchars($details['description']));
 							if ($split) {
-								$url[] =  array('label' => "Edit: ".htmlspecialchars($details['description']),
+								$url[] =  array('label' => sprintf(dgettext('amp','Edit %s'),htmlspecialchars($details['description'])),
 								                 'url'  =>  $details['edit_url'],
 								               );
 							} else {
-								$url[] =  "<a href='".$details['edit_url']."'>Edit: ".htmlspecialchars($details['description'])."</a>";
+								$url[] =  "<a href='".$details['edit_url']."'>".sprintf(dgettext('amp','Edit %s'),htmlspecialchars($details['description']))."</a>";
 							}
 							break;
 						default:
-						$str = "This extension is not available: ".htmlspecialchars($details['description']).".";
+						$str = sprintf(dgettext('amp',"This extension is not available: %s"),htmlspecialchars($details['description']));
 					}
 				} else {
 					if ($split) {
-						$url[] =  array('label' => "Edit: ".htmlspecialchars($details['description']),
+						$url[] =  array('label' => sprintf(dgettext('amp','Edit %s'),htmlspecialchars($details['description'])),
 						                 'url'  =>  $details['edit_url'],
 													 );
 					} else {
-						$url[] =  "<a href='".$details['edit_url']."'>Edit: ".htmlspecialchars($details['description'])."</a>";
+						$url[] =  "<a href='".$details['edit_url']."'>".sprintf(dgettext('amp','Edit %s'),htmlspecialchars($details['description']))."</a>";
 					}
 				}
 			}
 		}
 		if ($conflicts > 1) {
-			$str .= sprintf(" There are %s additonal conflicts not listed",$conflicts-1);
+			$str .= ' '.sprintf(dgettext('amp',"There are %s additonal conflicts not listed"),$conflicts-1);
 		}
 	}
 	if ($alert) {
-		echo "<script>javascript:alert('$str')</script>";
+        echo "<script>Swal.fire({icon:'warning',text:'".$str."', timer:5000});</script>";
 	}
 	return($url);
 }

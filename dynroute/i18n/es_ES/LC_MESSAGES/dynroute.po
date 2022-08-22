@@ -57,8 +57,8 @@ msgstr "Eliminar"
 msgid "Route"
 msgstr "Ruta"
 
-msgid "Change Name"
-msgstr "Cambiar Nombres"
+msgid "Name"
+msgstr "Nombre"
 
 msgid "This changes the short name, visible on the right, of this Route"
 msgstr "Modifica el nombre visible de la ruta para el menú de la derecha"
@@ -73,7 +73,7 @@ msgstr ""
 "Si se selecciona se capturará entrada de datos via DTMF. El valor estará disponible en la consulta sql con el nombre [INPUT]"
 
 msgid "Timeout"
-msgstr "Timeout"
+msgstr "Tiempo a esperar"
 
 msgid "The amount of time (in seconds) to wait for input"
 msgstr "El tiempo máximo a esperar por entrada (en segundos)"
@@ -195,3 +195,12 @@ msgstr "Destino inválido"
 
 msgid "Leave blank to remove"
 msgstr "Deje en blanco para eliminar"
+
+msgid "Enter a name for this dynamic route"
+msgstr "Ingrese un nombre para esta ruta dinámica"
+
+msgid "Add Dynamic Route"
+msgstr "Añadir ruta dinámica"
+
+msgid "Edit Dynamic Route"
+msgstr "Modificar ruta dinámica"

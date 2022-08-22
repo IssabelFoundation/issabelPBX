@@ -548,15 +548,19 @@ function findmefollow_configpageload() {
 			if (in_array($viewing_itemid,$set_findmefollow)) {
 				$grpTEXT = _("Edit Follow Me Settings");
 				$icon = "images/user_go.png";
+                $icon = "fa-user";
 			} else {
 				$grpTEXT = _("Add Follow Me Settings");
 				$icon = "images/user_add.png";
+                $icon = "fa-user-plus";
 			}
 		} else {
 			$grpTEXT = _("Add Follow Me Settings");
-			$icon = "images/user_add.png";
+            $icon = "images/user_add.png";
+            $icon = "fa-user-plus";
 		}
-		$label = '<span><img title="'.$grpTEXT.'" alt="" src="'.$icon.'"/>&nbsp;'.$grpTEXT.'</span>';
+        $label = '<span><img title="'.$grpTEXT.'" alt="" src="'.$icon.'"/>&nbsp;'.$grpTEXT.'</span>';
+        $label = '<span class="icon mr-1"><i class="fa '.$icon.'"></i></span>'.$grpTEXT;
 		$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $label, $grpURL));
 	}	
 }
