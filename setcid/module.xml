@@ -2,7 +2,7 @@
         <rawname>setcid</rawname>
         <repo>standard</repo>
         <name>Set CallerID</name>
-        <version>2.11.1.0</version>
+        <version>2.12.0.0</version>
         <category>Applications</category>
         <embedcategory>Inbound Call Control</embedcategory>
         <publisher>Issabel Foundation</publisher>
@@ -15,15 +15,15 @@
                 <setcid>Set CallerID</setcid>
         </menuitems>
         <changelog>
-                *2.11.1.0* Add custom Variables support
-                *2.11.0.4* Initial Issabel Foundation release
+            *2.12.0.0* Newer GUI, standarize module components
+            *2.11.1.0* Add custom Variables support
+            *2.11.0.4* Initial Issabel Foundation release
         </changelog>
         <depends>
-                <version>2.5.0</version>
+                <version>2.12.0</version>
         </depends>
         <supported>
-                <version>2.10</version>
+                <version>2.12</version>
         </supported>
-        <location>release/2.11/setcid-2.11.1.0.tgz</location>
-        <md5sum>97c4ecdafb9b1d4deaf792f05420545f</md5sum>
+        <location>release/2.12/setcid-2.12.0.0.tgz</location>
 </module>

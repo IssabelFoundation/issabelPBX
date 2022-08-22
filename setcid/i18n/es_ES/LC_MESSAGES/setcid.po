@@ -56,11 +56,8 @@ msgstr ""
 "para el nombre de identificación actual, o \"${CALLERID(num)}\" para el número."
 "También puede establecer variables de canal desde este módulo."
 
-msgid "Edit CallerID Instance"
-msgstr "Modificar Instancia de CallerID"
-
-msgid "Add CallerID Instance"
-msgstr "Añadir Instancia de CallerID"
+msgid "Edit CallerID"
+msgstr "Modificar CallerID"
 
 msgid "Description"
 msgstr "Descripción"
