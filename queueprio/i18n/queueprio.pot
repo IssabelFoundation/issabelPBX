@@ -34,7 +34,7 @@ msgid ""
 "with this priority"
 msgstr ""
 
-msgid "Edit Queue Priority Instance"
+msgid "Edit Queue Priority"
 msgstr ""
 
 msgid "Add Queue Priority Instance"

@@ -35,8 +35,8 @@ msgstr ""
 "aplicada a cualquier cola a la que el llamado sea derivado. Típicamente como destino "
 "se eligirá ua cola, aunque no es estrictamente necesario."
 
-msgid "Edit Queue Priority Instance"
-msgstr "Modificar Instancia de Prioridad de Cola"
+msgid "Edit Queue Priority"
+msgstr "Modificar Prioridad de Cola"
 
 msgid "Add Queue Priority Instance"
 msgstr "Añadir Instancia de Prioridad de Cola"
