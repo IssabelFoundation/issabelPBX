@@ -17,13 +17,13 @@
 #
 
 msgid "Asterisk Logfiles"
-msgstr "Archivos de Bitácora de Asterisk"
+msgstr "Archivos de bitácora de Asterisk"
 
 msgid "Reports"
 msgstr ""
 
 msgid "Log File Settings"
-msgstr "Configuración de Archivos de Bitácora de Asterisk"
+msgstr "Configuración de bitácora de Asterisk"
 
 msgid "General Settings"
 msgstr "Configuraciones Generales"
@@ -44,7 +44,7 @@ msgid "Log Queues"
 msgstr "Registrar actividad de colas"
 
 msgid "Log Files"
-msgstr "Archivos de Bitácora"
+msgstr "Archivos de bitácora"
 
 msgid "Save"
 msgstr "Guardar"
@@ -132,10 +132,13 @@ msgstr "Marca de Tiempo"
 #~ "Actualizar bitácora completa de depuración de Asterisk (últimas %s líneas)"
 
 msgid "Asterisk Log Files"
-msgstr "Archivos de Bitácora de Asterisk"
+msgstr "Archivos de bitácora de Asterisk"
 
 msgid "Show"
 msgstr "Mostrar"
 
 msgid "Asterisk Logfile Settings"
-msgstr "Configuraciones de Archivos de Bitácora"
+msgstr "Configuraciones de archivos de bitácora"
+
+msgid "New Log File"
+msgstr "Nuevo archivo de bitácora"

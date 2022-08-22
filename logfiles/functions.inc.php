@@ -325,7 +325,11 @@ function logfiles_put_opts($opts) {
         $logData[] = array_values($data);
     }
 
-    sql('TRUNCATE logfile_logfiles');
+    if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
+        sql('DELETE FROM logfile_logfiles');
+    } else {
+        sql('TRUNCATE TABLE logfile_logfiles');
+    }
 
     $sql = $db->prepare('INSERT INTO logfile_logfiles
             (name, debug, dtmf, error, fax, notice, verbose, warning, security)
