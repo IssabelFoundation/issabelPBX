@@ -244,7 +244,7 @@ function sipsettings_hookGet_config($engine) {
 
 function pjsipsettings_get($raw=false) {
 
-    $sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `pjsipsettings` ORDER BY `type`, `seq`";
+    $sql = "SELECT `keyword`, `data`, `type`, `seq` FROM `pjsipsettings` WHERE keyword<>'codecs' ORDER BY `type`, `seq`";
     $raw_settings = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
 
     // Pull this out of admin table where it is special cased because of migration from General Settings
@@ -809,6 +809,8 @@ function pjsipsettings_edit($pjsip_settings) {
 
     /* if there were any validation errors, we will return them and not proceed with saving */
     if (count($vd->errors)) {
+        file_put_contents("/tmp/pjsip.log","hay errores\n",FILE_APPEND);
+        file_put_contents("/tmp/pjsip.log",print_r($vd->errors,1)."\n",FILE_APPEND);
         return $vd->errors;
     } else {
         $seq = 0;
@@ -820,6 +822,7 @@ function pjsipsettings_edit($pjsip_settings) {
             $save_settings[] = array($db->escapeSimple($key),$db->escapeSimple($val),$seq++,SIP_VIDEO_CODEC);
         }
 
+        file_put_contents("/tmp/pjsip.log","no hay errores\n",FILE_APPEND);
         // TODO: normally don't like doing delete/insert but otherwise we would have do update for each
         //       individual setting and then an insert if there was nothing to update. So this is cleaner
         //       this time around.

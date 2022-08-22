@@ -416,19 +416,19 @@ msgid ""
 "a SIP channel. Two implementations are currently available:<br /> fixed: "
 "size always equals to jbmaxsize;<br /> adaptive: with variable size (the new "
 "jb of IAX2)."
-msgstr ""
+msgstr "Asterisk: jbimpl. Implementación de Jitterbuffer, utilizada en el lado receptor de un canal SIP. Actualmente hay dos implementaciones disponibles:<br /> fijo: el tamaño siempre es igual a jbmaxsize;<br /> adaptativo: con tamaño variable (el nuevo jb de IAX2)."
 
 msgid "Fixed"
-msgstr ""
+msgstr "Fijo"
 
 msgid "Adaptive"
-msgstr ""
+msgstr "Adaptativo"
 
 msgid "Jitter Buffer Logging"
-msgstr ""
+msgstr "Registro de Jitterbuffer"
 
 msgid "Asterisk: jblog. Enables jitter buffer frame logging."
-msgstr ""
+msgstr "Asterisk: jblog. Habilita el registro de tramas de búfer de Jitterbuffer"
 
 msgid "Enable"
 msgstr "Habilitado"
@@ -445,7 +445,7 @@ msgid ""
 "jitterbuffer is resynchronized. Useful to improve the quality of the voice, "
 "with big jumps in/broken timestamps, usually sent from exotic devices and "
 "programs. Can be set to -1 to disable."
-msgstr ""
+msgstr "Asterisk: jbmaxsize. Longitud máxima del jitterbuffer en milisegundos.<br /> Asterisk: jbresyncthreshold. Salta en las marcas de tiempo del cuadro sobre las que se resincroniza el jitterbuffer. Útil para mejorar la calidad de la voz, con grandes saltos/marcas de tiempo rotas, generalmente enviadas desde dispositivos y programas exóticos. Se puede establecer en -1 para deshabilitar."
 
 msgid "Advanced General Settings"
 msgstr "Configuraciones Avanzadas"
