@@ -207,3 +207,6 @@ msgstr "Por favor ingrese una descripción válida"
 
 msgid "Please select a valid trunk"
 msgstr "Elija un troncal válido por favor"
+
+msgid "Trunk Balance"
+msgstr "Balanceo de troncal"
