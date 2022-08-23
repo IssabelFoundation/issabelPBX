@@ -114,7 +114,7 @@ function edit_onsubmit(theForm) {
     <?php } ?>
 
     if (!isAlphanumeric(theForm.description.value))
-        return warnInvalid(theForm.description, "<?php _("Please enter a valid Description") ?>");
+        return warnInvalid(theForm.description, "<?php echo _("Please enter a valid Description") ?>");
 
     $.LoadingOverlay('show');
     return true;
