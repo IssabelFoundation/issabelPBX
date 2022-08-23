@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Feature Code Admin"
-msgstr "Administrador de códigos de característica"
+msgstr "Códigos de característica"
 
 msgid "Admin"
 msgstr ""
