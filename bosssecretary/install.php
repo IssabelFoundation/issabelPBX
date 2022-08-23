@@ -33,7 +33,7 @@ if(DB::IsError($check)) {
 
 $sql = "
 CREATE TABLE IF NOT EXISTS `bosssecretary_chief` (
-  `id_group` int(10) unsigned NOT NULL,
+  `id_group` INTEGER NOT NULL,
   `chief_extension` varchar(20) NOT NULL,
   PRIMARY KEY (`id_group`,`chief_extension`)
 ); 
@@ -45,7 +45,7 @@ if(DB::IsError($check)) {
 
 $sql = "
 CREATE TABLE IF NOT EXISTS `bosssecretary_boss` (
-  `id_group` int(10) unsigned NOT NULL,
+  `id_group` INTEGER NOT NULL,
   `boss_extension` varchar(20) NOT NULL,
   PRIMARY KEY (`id_group`,`boss_extension`)
 );
@@ -56,26 +56,23 @@ if(DB::IsError($check)) {
 }
 
 
+$autoincrement=(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? "AUTOINCREMENT":"AUTO_INCREMENT";
 
-$sql = "
-CREATE TABLE IF NOT EXISTS `bosssecretary_group` (
-  `id_group` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `label` varchar(20) NOT NULL,
-  PRIMARY KEY (`id_group`)
-);
-";
+$sql = "CREATE TABLE IF NOT EXISTS `bosssecretary_group` (  `id_group` INTEGER PRIMARY KEY $autoincrement ,  `label` varchar(20) NOT NULL);";
 $check = $db->query($sql);
 if(DB::IsError($check)) {
 	die_issabelpbx("Can not create bosssecretary_group table");
 }
 
 
+if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 
 $sql = "SHOW COLUMNS FROM `bosssecretary_group`";
 $results = $db->getAll($sql);
 if(DB::IsError($results)) {
 	die_issabelpbx("Can not check bosssecretary_group table");
 }
+
 
 foreach ($results as $column)
 {
@@ -104,9 +101,11 @@ if(DB::IsError($results)) {
 	die_issabelpbx("Can not modify bosssecretary_group.id_group column");
 }
 
+}
+
 $sql = "
 CREATE TABLE IF NOT EXISTS `bosssecretary_secretary` (
-  `id_group` int(11) NOT NULL,
+  `id_group` INTEGER NOT NULL,
   `secretary_extension` varchar(20) NOT NULL,
   PRIMARY KEY (`id_group`,`secretary_extension`)
 ); 
@@ -119,7 +118,7 @@ if(DB::IsError($check)) {
 
 $sql = "
 CREATE TABLE IF NOT EXISTS `bosssecretary_group_numbers_free` (
-  `group_number` int(10) unsigned NOT NULL,
+  `group_number` INTEGER NOT NULL,
   PRIMARY KEY (`group_number`)
 );
 ";
