@@ -73,7 +73,7 @@ function validateDestinations(theForm, numForms, bRequired) {
 function warnInvalid(theField, s) {
     if (theField) {
         theField.focus();
-        theField.select();
+        try { theField.select();  } catch(e) {}
     }
     Swal.fire({icon:'warning',text:s,timer:5000});
     return false;
