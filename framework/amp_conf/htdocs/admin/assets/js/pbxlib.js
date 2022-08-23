@@ -826,24 +826,11 @@ function doready() {
             ipbx_reload();
         }
     });
+
     $('#MENU_BRAND_IMAGE_TANGO_LEFT').on('click',function() {
         window.open($(this).data('brand_image_issabelpbx_link_left'), '_newtab');
     });
-    /*
-    $('input[type=submit],input[type=button], button, input[type=reset]').each(function() {
-        var prim = (typeof $(this).data('button-icon-primary') == 'undefined') ? '' : ($(this).data('button-icon-primary'));
-        var sec = (typeof $(this).data('button-icon-secondary') == 'undefined') ? '' : ($(this).data('button-icon-secondary'));
-        var txt = (typeof $(this).data('button-text') == 'undefined') ? 'true' : ($(this).data('button-text'));
-        var txt = (txt == 'true') ? true : false;
-        $(this).button({
-            icons: {
-                primary: prim,
-                secondary: sec
-            },
-            text: txt
-        });
-    });
-    */
+
     var extselector = $('input.extdisplay,input[type=text][name=extension],input[type=text][name=extdisplay],input[type=text][name=account]').not('input.noextmap');
     if (extselector.length > 0) {
         //extselector.after(" <span style='display:none'><a href='#'><img src='images/notify_critical.png'/></a></span>").on('keyup',function() {
