@@ -99,7 +99,7 @@ function featurecodeadmin_getdestinfo($dest) {
 		$dest = explode(',',$dest);
 		foreach ($fcs as $fc) {
 			if ($fc['defaultcode'] == $dest[1]) {
-				$desc = $fc['featuredescription'];
+                $desc = dgettext($fc['modulename'],$fc['featuredescription']);
 				$found = true;
 				break;
 			}
