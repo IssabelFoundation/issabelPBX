@@ -152,9 +152,7 @@ class DB_rqlite extends DB_common
     function __construct()
     {
         parent::__construct();
-	$this->_apcuAvailable = function_exists('apcu_enabled') && apcu_enabled();
-	file_put_contents("/tmp/last_insert_id.log",print_r($this->_apcuAvailabe,1),FILE_APPEND);
-
+        $this->_apcuAvailable = function_exists('apcu_enabled') && apcu_enabled();
         $this->_uniqueid = sprintf("%08x", abs(crc32($_SERVER['REMOTE_ADDR'] . $_SERVER['REQUEST_TIME'] . $_SERVER['REMOTE_PORT'])));
     }
 
