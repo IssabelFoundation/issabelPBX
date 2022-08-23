@@ -195,3 +195,15 @@ msgstr "Eliminar Balanceo de Troncal"
 
 msgid "Edit Trunk"
 msgstr "Modificar Troncal"
+
+msgid "none selected"
+msgstr "ninguno elegido"
+
+msgid "Select..."
+msgstr "Seleccione..."
+
+msgid "Please enter a valid Description"
+msgstr "Por favor ingrese una descripción válida"
+
+msgid "Please select a valid trunk"
+msgstr "Elija un troncal válido por favor"

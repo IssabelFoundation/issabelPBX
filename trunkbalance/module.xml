@@ -1,14 +1,15 @@
 <module>
 	<rawname>trunkbalance</rawname>
 	<name>Trunk Balance</name>
-	<version>1.1.5</version>
+	<version>1.1.6</version>
 	<publisher>POSSA</publisher>
 	<license>GPLv2+</license>
 	<candisable>yes</candisable>
 	<canuninstall>yes</canuninstall>
     <repo>extended</repo>
 	<category>Advanced</category>
-	<changelog>
+    <changelog>
+        *1.1.6* Revised to work with IssabelPBX 2.12.0.0
 		*1.1.5* Accept Self Signed Certs in URL
 		*1.1.4* Remove auto check for updates
 		*1.1.2* Added trunk disable toggle
@@ -30,7 +31,7 @@
 	<embedcategory>Advanced</embedcategory>
 	<depends>
 		<module>core</module>
-		<version>ge 2.6</version>
+		<version>ge 2.12</version>
 		<module>timeconditions ge2.6</module>
 	</depends>
 	<description>Restrict outbound calls or balance calls over multiple trunks based on user specified parameters</description>
