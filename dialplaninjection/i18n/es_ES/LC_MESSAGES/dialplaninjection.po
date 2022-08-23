@@ -42,3 +42,6 @@ msgstr "Nuevo Comando"
 
 msgid "Choose a command type from the list and submit to add a new command."
 msgstr "Elija un tipo de comando de la lista para ser agregado."
+
+msgid "Dialplan Injection"
+msgstr "Inyección de dialplan"
