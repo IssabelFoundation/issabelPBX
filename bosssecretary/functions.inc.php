@@ -972,7 +972,7 @@ function bosssecretary_get_form_add( array $params)
     $vars["message_details"] = $params["message_details"];
     $vars["message_title"] = $params["message_title"];
     $vars["clean_and_remove_duplicates"] = _('Clean and remove duplicates');
-    $vars["group_label_title"]=_("Group Label:");
+    $vars["group_label_title"]=_("Group Label");
     $vars["bosses_label"] = _('Bosses');
     $vars["secretaries_label"] = _('Secretaries');
     $vars["chiefs_label"] = _('Chiefs');
@@ -1004,7 +1004,7 @@ function bosssecretary_get_form_edit( array $params)
     $vars["message_title"]          = $params["message_title"];
     $vars["delete_question"]        = sprintf(_("Do you really to want delete %s (%s) group?"), $vars["group_number"], $vars["group_label"]);
 
-    $vars["group_label_title"]=_("Group Label:");
+    $vars["group_label_title"]=_("Group Label");
     $vars["clean_and_remove_duplicates"] = _('Clean and remove duplicates');
     $vars["bosses_label"] = _('Bosses');
     $vars["secretaries_label"] = _('Secretaries');
