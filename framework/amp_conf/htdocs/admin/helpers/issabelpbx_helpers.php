@@ -53,6 +53,7 @@ function ipbx_form_input_check($data = '', $value = '', $extra = '', $label = 'E
 		$data['value'] = $disabled_value;
     }
     $data['class']='input mr-2';
+    $data['style']='width:auto;';
 
   $cbdata['name'] = $data['name'] . '_cb';
   $cbdata['id'] = $data['id'] . '_cb';
