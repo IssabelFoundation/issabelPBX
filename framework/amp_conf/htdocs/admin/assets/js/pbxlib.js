@@ -854,7 +854,7 @@ function doready() {
                 parent_width = $(this).width() - 50;
                 console.log(parent_width);
                 var valtext = sprintf(ipbx.msg.framework.validation.duplicate, this.value, extmap[this.value]);
-                $(this).addClass('is-danger').next('p').html(valtext).removeClass('is-hidden').width(parent_width);
+                $(this).addClass('is-danger').next('p').html(valtext).removeClass('is-hidden').css('max-width',parent_width);
                 positionActionBar(); // page will get higher, possible scroll, position action bar then
             }
         }).each(function() {
