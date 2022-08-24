@@ -22,7 +22,7 @@ msgstr ""
 
 #: page.printextensions.php:139
 msgid "Destination"
-msgstr ""
+msgstr "Destino"
 
 #: page.printextensions.php:139
 msgid "Extension"
@@ -62,7 +62,7 @@ msgid "Search Unbounded Regex"
 msgstr "Buscar Expresión Regular Ilimitada"
 
 #: page.printextensions.php:27
-msgid "Search:"
+msgid "Search"
 msgstr "Buscar"
 
 #: page.printextensions.php:28

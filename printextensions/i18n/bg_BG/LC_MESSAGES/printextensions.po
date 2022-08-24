@@ -72,7 +72,7 @@ msgid "Search Unbounded Regex"
 msgstr "Търси без Ограничения"
 
 #: page.printextensions.php:27
-msgid "Search:"
+msgid "Search"
 msgstr "Търси:"
 
 #: page.printextensions.php:28

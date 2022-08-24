@@ -97,7 +97,7 @@ msgid "Search Unbounded Regex"
 msgstr "無制限の正規表現検索"
 
 #: page.printextensions.php:27
-msgid "Search:"
+msgid "Search"
 msgstr "検索"
 
 #: page.printextensions.php:28
