@@ -188,31 +188,14 @@ $aval_lang["sv_SE"]= _('Swedish');
 $aval_lang["ja_JP"]= _('Japanese');
 
 if($amp_conf['SHOWLANGUAGE']) {
-	$out .= '<div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link" id="language-menu-button">' . _('Language') . '</a>';
+	$out .= '<button class="navbar-item has-dropdown is-hoverable"><a class="navbar-link" id="language-menu-button">' . _('Language') . '</a>';
     $out .= '<div class="navbar-dropdown is-right">';
     foreach($aval_lang as $iso=>$desc) {
         $current = ($current_lang == $iso)?" current":"";
-        $out .= '<a class="navbar-item onelang'.$current.'" data-lang="'.$iso.'">'. $desc . '</a>';
+        $out .= '<a href="javascript:void()" class="navbar-item onelang'.$current.'" data-lang="'.$iso.'">'. $desc . '</a>';
     }
-/*
-    $out .= '<a class="navbar-item onelang" data-lang="en_US">'. _('English') . '</a>';
-    $out .= '<a class="navbar-item onelang" data-lang="bg_BG">' . _('Bulgarian') . '</a>';
-    $out .= '<a class="navbar-item onelang" data-lang="zh_CN">' . _('Chinese') . '</a>';
-    $out .= '<a class="navbar-item onelang" data-lang="de_DE">' . _('German') . '</a>';
-    $out .= '<a class="navbar-item onelang" data-lang="fr_FR">' . _('French') . '</a>';
-    $out .= '<a class="navbar-item onelang" data-lang="he_IL">' . _('Hebrew') . '</a>';
-    $out .= '<a class="navbar-item onelang" data-lang="hu_HU">' . _('Hungarian') . '</a>';
-    $out .= '<a class="navbar-item onelang" data-lang="it_IT">' . _('Italian') . '</a>';
-    $out .= '<a class="navbar-item onelang" data-lang="pt_PT">' . _('Portuguese') . '</a>';
-    $out .= '<a class="navbar-item onelang" data-lang="pt_BR">' . _('Portuguese (Brasil)') . '</a>';
-    $out .= '<a class="navbar-item onelang" data-lang="ru_RU">' . _('Russian') . '</a>';
-    $out .= '<a class="navbar-item onelang" data-lang="sv_SE">' . _('Swedish') . '</a>';
-    $out .= '<a class="navbar-item onelang" data-lang="es_ES">' . _('Spanish') . '</a>';
-    $out .= '<a class="navbar-item onelang" data-lang="ja_JP">' . _('Japanese') . '</a>';
- */
     $out .= '</div>';
-    $out .= '</div>';
-
+    $out .= '</button>';
 }
 
 $out .= '<div class="navbar-item"><div class="buttons">';
@@ -223,10 +206,6 @@ if ( isset($_SESSION['AMP_user']) && ($authtype != 'none')) {
 	. '</a>';
 }
  
-//$out .= '<a id="button_reload" href="#" data-button-icon-primary="ui-icon-gear" class="button is-danger">' . _("Apply Config") .'</a>';
-
-//$out .= '<progress class="button-right" id="ajax_spinner"></progress>';
-
 $out .= '</div></div></div></div>';
 
 $out .= '</nav>';
