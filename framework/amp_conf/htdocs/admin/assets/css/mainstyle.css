@@ -458,7 +458,6 @@ div.modulebuttons {
  display:none;
 }
 
-
 /**** tables with alternating colors ***/
 .alt_table tr:nth-child(even){background-color: #eee6ff;}
 
@@ -466,42 +465,9 @@ div.modulebuttons {
 .guielToggleBut {
   cursor: pointer;
 }
-/************** jQuery UI *************************/
-.ui-widget{font-size:11px !important;}/*text size AND layout size of ui eleements*/
-.ui-sortable li{cursor:move}/* sortables and others*/
-
-/*top menu bar*/
-.menubar{height: 29px;}
-
-#MENU_BRAND_IMAGE_TANGO_LEFT{min-width: 40px;}
-.menubar > a + ul{display: none;}/*dropdown menus should be intially hidden*/
-.menubar > a {margin: 2px 1px; height: 23px;}/*spacing around menubar buttons*/
-.menubar { padding-left: 3px;}/*spacing beteen firsl/last button and toolbar edge*/
-.menubar .ui-menu {position: absolute; outline: none; z-index: 9999; overflow-y: auto;}/*actual toolbar layout*/
-.menubar .ui-menu .ui-icon { float: right; }/*button icons*/
-.menubar .button-right{float: right; right: 4px;}/*right side buttons*/
-.menubar .ui-menu li.ui-state-disabled {/*disabled menue items*/
-  font-weight: bold;
-  padding: .0em .4em;
-  margin: .4em 0 .2em;
-  line-height: 1.5;
-}
-/*not sure what this does -MB*/
-.menubar .ui-menu  a {
-  color: #39004d;
-  font-weight: normal;
-}
-
-/*submit button size*/
-/*input[type="submit"]{ height: 25px;}*/
-
-/*rnav*/
-.rnav .ui-widget-content {background: none;}
-.rnav .ui-widget-content a {color: #4d0066;}
 
 /* menubar logo */
 #MENU_BRAND_IMAGE_TANGO_LEFT {
-  height:23px;
   margin:4px;
   cursor:pointer;
   float:left;
@@ -940,12 +906,12 @@ input[type="radio"]:disabled + label {
   background-color:#4b0884 !important;
 }
 
-.navbar-dropdown a.navbar-item:hover, .navbar-dropdown a.navbar-item:active, .navbar-dropdown a.navbar-item:focus { 
-  color: #fff; 
-}
-
 .navbar-item:focus, .navbar-item:active, .navbar-item:hover {
   background-color:#4b0884 !important;
+}
+
+.navbar-dropdown a.navbar-item:hover, .navbar-dropdown a.navbar-item:active, .navbar-dropdown a.navbar-item:focus { 
+  color: #fff;
 }
 
 .logo-login {
