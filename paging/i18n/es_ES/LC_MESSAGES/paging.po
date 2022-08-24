@@ -90,7 +90,7 @@ msgid ""
 "Panel."
 msgstr ""
 "El modo Intercomunicador está actualmente desactivado. Puedo habilitarlo desde el menú "
-"Códigos de característica."
+"Códigos de función."
 
 #, php-format
 msgid "Delete Group %s"

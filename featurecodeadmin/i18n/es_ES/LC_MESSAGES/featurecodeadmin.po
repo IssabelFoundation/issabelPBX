@@ -14,31 +14,31 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Feature Code Admin"
-msgstr "Códigos de característica"
+msgstr "Códigos de función"
 
 msgid "Admin"
 msgstr ""
 
 msgid "Feature Codes"
-msgstr "Códigos de característica"
+msgstr "Códigos de función"
 
 msgid "Featurecode: "
-msgstr "Código de característica: "
+msgstr "Código de función: "
 
 msgid "featuredescription"
-msgstr "Descripción de la característica"
+msgstr "Descripción de la función"
 
 msgid ""
 "You have feature code conflicts with extension numbers in other modules. "
 "This will result in unexpected and broken behavior."
 msgstr ""
-"Tiene conflictos en los códigos de características con los números de "
+"Tiene conflictos en los códigos de función con los números de "
 "extensiones en otros módulos. Esto hará que se produzcan resultados "
 "inesperados y un comportamiento erróneo."
 
 msgid "Feature Code Conflicts with other Extensions"
 msgstr ""
-"Los códigos de características están en conflicto con otras extensiones"
+"Los códigos de función están en conflicto con otras extensiones"
 
 msgid "Use"
 msgstr "Usar"
@@ -68,11 +68,11 @@ msgid ""
 "Please enter a Feature Code or check Use Default for all Enabled Feature "
 "Codes"
 msgstr ""
-"Por favor, introduzca un código de característica, o seleccione \"Por defecto"
-"\" para todos los códigos de características habilitados"
+"Por favor, introduzca un código de función, o seleccione \"Por defecto"
+"\" para todos los códigos de función habilitados"
 
 msgid "Feature Codes have been duplicated"
-msgstr "Hay códigos de características duplicados"
+msgstr "Hay códigos de función duplicados"
 
 msgid "Are you sure you wish to proceed?"
 msgstr "¿Está seguro de que desea continuar?"
