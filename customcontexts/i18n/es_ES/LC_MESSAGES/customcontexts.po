@@ -108,7 +108,7 @@ msgid "Class of Service Admin"
 msgstr "Administrar clases de servicio"
 
 msgid "Class Of Service"
-msgstr "Clase de rvicio"
+msgstr "Clase de servicio"
 
 msgid "Class Of Service Admin"
 msgstr "Administrar clases de servicio"
