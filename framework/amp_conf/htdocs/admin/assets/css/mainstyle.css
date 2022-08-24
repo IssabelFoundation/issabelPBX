@@ -792,7 +792,7 @@ tr.repo_boxes > td { padding: 0;}
 .servertime {
     position: fixed;
     left: 45%;
-    z-index: 1000;
+    z-index: 1;
     font-size: 1.2em !important;
 }
 
