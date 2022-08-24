@@ -157,7 +157,7 @@ class DB_rqlite extends DB_common
         if(isset($_SERVER['REMOTE_ADDR'])) {
             $this->_uniqueid = sprintf("%08x", abs(crc32($_SERVER['REMOTE_ADDR'] . $_SERVER['REQUEST_TIME'] . $_SERVER['REMOTE_PORT'])));
         } else {
-            $this->_uniqueid = sprintf("%08x", $_SERVER['REQUEST_TIME'] )));
+            $this->_uniqueid = sprintf("%08x", $_SERVER['REQUEST_TIME'] );
         }
     }
 
