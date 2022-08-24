@@ -937,7 +937,11 @@ input[type="radio"]:disabled + label {
 }
 
 .navbar-link:focus, .navbar-link:active, .navbar-link:hover, .navbar.is-dark .navbar-dropdown a.navbar-item.is-active, .navbar.is-dark .navbar-item.has-dropdown:hover .navbar-link {
-    background-color:#4b0884 !important;
+  background-color:#4b0884 !important;
+}
+
+.navbar-item:focus, .navbar-item:active, .navbar-item:hover {
+  background-color:#4b0884 !important;
 }
 
 .logo-login {
