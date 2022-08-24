@@ -152,7 +152,8 @@ class DB_rqlite extends DB_common
     function __construct()
     {
         parent::__construct();
-        $this->_apcuAvailable = function_exists('apcu_enabled') && apcu_enabled();
+	$this->_apcuAvailable = function_exists('apcu_enabled') && apcu_enabled();
+
         $this->_uniqueid = sprintf("%08x", abs(crc32($_SERVER['REMOTE_ADDR'] . $_SERVER['REQUEST_TIME'] . $_SERVER['REMOTE_PORT'])));
     }
 
@@ -203,16 +204,18 @@ class DB_rqlite extends DB_common
             }
 
             $final = array();
-            if($fetchmode == DB_FETCHMODE_ARRAY) {
+            if($fetchmode == DB_FETCHMODE_ASSOC) {
                 foreach($res['results'][0]['values'] as $idx=>$row) {
                     $key = array_shift($row);
                     $final[$key]=$row;
                 } 
             } else {
-                foreach($res['results'][0]['values'] as $idx=>$row) {
-                    $key = array_shift($row);
-                    $final[$key]=(object)$row;
-                } 
+                if(isset($res['results'][0]['values'])) {
+                    foreach($res['results'][0]['values'] as $idx=>$row) {
+                        $key = array_shift($row);
+                        $final[$key]=(object)$row;
+                    } 
+                }
             } 
 	} else {
 		if(isset($res['results'][0]['values'])) {
@@ -397,11 +400,9 @@ class DB_rqlite extends DB_common
             return $res;
         }
 	if(isset($res['results'][0]['values'])) {
-		file_put_contents("/tmp/borrame.log","$query tiene valores\n",FILE_APPEND);
 		return $res['results'][0]['values'];
 	} else {
 		$ret = array();
-		file_put_contents("/tmp/borrame.log","$query no tiene valores\n",FILE_APPEND);
 		return $ret;
 	}
     }
@@ -1146,7 +1147,8 @@ class DB_rqlite extends DB_common
     }
 
     function &query($query, $params = array()) {
-//  file_put_contents("/tmp/last_insert_id.log","$query\n",FILE_APPEND);
+        //  file_put_contents("/tmp/last_insert_id.log","$query\n",FILE_APPEND);
+        if(!is_array($params)) { $valor = $params; $params=array(); $params[]=$valor; }
         $comando = "execute";
         $query = preg_replace("/INSERT IGNORE/i","INSERT OR IGNORE",$query);
         $query = preg_replace("/AUTO_INCREMENT/","AUTOINCREMENT",$query);
@@ -1237,7 +1239,6 @@ class DB_rqlite extends DB_common
     public function insert_id() {
         if($this->_apcuAvailable) {
             $lastid = apcu_fetch('last_insert_id_'.$this->_uniqueid,$ok);
-  file_put_contents("/tmp/ivr.log","fetch last insert id ".$lastid."\n",FILE_APPEND);
             if($ok) { return $lastid; } else { return 0; }
         } else {
             return 0;
