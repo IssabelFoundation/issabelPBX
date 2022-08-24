@@ -151,7 +151,7 @@ msgid "Choose allow to allow access to all includes, choose deny to deny access.
 msgstr "Elija Permitir para permitir acceso a todos los contextos incluídos, elija Denegar para no permitirlo."
 
 msgid "If defined, you will have the option for each portion of the dialplan to Allow Rule, and that include will only be available if the number dialed matches these rules, or Deny Rule, and that include will only be available if the dialed number does NOT match these rules. You may use a pipe | to strip the preceeding digits."
-msgstr "Si configura una regla, entonces cada contexto que esté configurado como 'Permitir Reglas' será permitido si el patrón coincide con el utilizado, mientras que si el contexto está configurado como 'Denegar Reglas' entonces se permitirá si el número marcado NO concuerda con estas reglas. Puede usar un pipe | para remover los digitos precedentes."
+msgstr "Si configura una regla, entonces cada contexto que esté configurado como 'Permitir reglas' será permitido si el patrón coincide con el utilizado, mientras que si el contexto está configurado como 'Denegar reglas' entonces se permitirá si el número marcado NO concuerda con estas reglas. Puede usar un pipe | para remover los digitos precedentes."
 
 msgid "Choose a priority with which to sort this option. Lower numbers have a higher priority."
 msgstr "Elija una prioridad. Números más bajos tendrás prioridad más alta."
@@ -163,10 +163,10 @@ msgid "Outbound Routes"
 msgstr "Rutas Salientes"
 
 msgid "Feature Code Failover Destination"
-msgstr "Código de Característica de Destino en caso de fallo"
+msgstr "Código de función de destino en caso de fallo"
 
 msgid "Internal Dialplan"
-msgstr "Plan de Marcado Interno"
+msgstr "Plan de marcado interno"
 
 msgid "Allow"
 msgstr "Permitir"
@@ -175,10 +175,10 @@ msgid "Deny"
 msgstr "Denegar"
 
 msgid "Allow Rules"
-msgstr "Permitir Reglas"
+msgstr "Permitir reglas"
 
 msgid "Deny Rules"
-msgstr "Denegar Reglas"
+msgstr "Denegar reglas"
 
 msgid ": Choose allow to allow access to this include, choose deny to deny access."
 msgstr ": Elija Permitir para permitir este contexto, elija Denegar para no permitirlo."

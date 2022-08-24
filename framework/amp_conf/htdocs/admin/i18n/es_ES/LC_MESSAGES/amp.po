@@ -213,7 +213,7 @@ msgstr "(seleccione uno)"
 
 #: amp_conf/htdocs/admin/libraries/featurecodes.functions.php:70
 msgid "** MISSING FEATURE CODE **"
-msgstr "***NO EXISTE CÓDIGO DE CARACTERÍSTICA***"
+msgstr "***NO EXISTE CÓDIGO DE FUNCIÓN***"
 
 #: ../core/page.routing.php:566 ../core/page.trunks.php:677
 msgid "+ Add More Dial Pattern Fields"

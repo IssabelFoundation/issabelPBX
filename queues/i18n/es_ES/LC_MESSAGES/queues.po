@@ -352,7 +352,7 @@ msgstr ""
 "SIP o IAX que pueda ser miembro de esta cola. Esto es útil para usar en teléfonos "
 "que soporten suscripciones de estado (BLF) y permitan programar botones para "
 "agregarse o quitarse de una cola. El formato del hint es <br /"
-"><br />*45ddd*qqq<br /><br />donde *45 es el código de característica definido para alternar "
+"><br />*45ddd*qqq<br /><br />donde *45 es el código de función definido para alternar "
 "membresía de cola, ddd es el número de dispositivo, y qqq el número de cola."
 
 msgid "Call Confirm"

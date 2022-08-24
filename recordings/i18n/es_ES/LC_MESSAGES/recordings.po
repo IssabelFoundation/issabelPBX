@@ -59,7 +59,7 @@ msgid "checking for fcode_pass field.."
 msgstr "comprobando campo fcode_pass..."
 
 msgid "** MISSING FEATURE CODE **"
-msgstr "** NO EXISTE CÓDIGO DE CARACTERÍSTICA **"
+msgstr "** NO EXISTE CÓDIGO DE FUNCIÓN **"
 
 msgid "Failed to create"
 msgstr "No se pudo crear"
@@ -198,7 +198,7 @@ msgid ""
 msgstr ""
 "Esta grabación está siendo usada por las siguientes instancias. No puede "
 "eliminar esta grabación mientras esté siendo usada. Para volver a grabarla, "
-"puede usar el código de característica siguiente si está autorizado."
+"puede usar el código de función siguiente si está autorizado."
 
 msgid "Remove Recording"
 msgstr "Eliminar grabación"
@@ -225,37 +225,37 @@ msgstr ""
 "colas, recepcionista digital, etc."
 
 msgid "Link to Feature Code"
-msgstr "Enlace a código de característica"
+msgstr "Enlace a código de función"
 
 msgid ""
 "Check this box to create an options feature code that will allow this "
 "recording to be changed directly."
 msgstr ""
-"Marque esta casilla para crear las opciones de un código de característica "
+"Marque esta casilla para crear las opciones de un código de función "
 "que permitirá cambiar esta grabación directamente."
 
 #, php-format
 msgid "Optional Feature Code %s"
-msgstr "Código de característica opcional %s"
+msgstr "Código de función opcional %s"
 
 msgid "Feature Code Password"
-msgstr "Contraseña del código de característica"
+msgstr "Contraseña del código de función"
 
 msgid ""
 "Optional password to protect access to this feature code which allows a user "
 "to re-record it."
 msgstr ""
-"Contraseña opcional para proteger el acceso a este cósigo de característica "
+"Contraseña opcional para proteger el acceso a este código de función "
 "que permitirá a los usuarios volver a grabar la grabación."
 
 msgid "Direct Access Feature Code Not Available"
-msgstr "Código de característica para acceso directo no disponible"
+msgstr "Código de función para acceso directo no disponible"
 
 msgid ""
 "Direct Access Feature Codes for recordings are not available for built in "
 "system recordings or compound recordings made of multiple individual ones."
 msgstr ""
-"Los códigos de características para acceso directo para grabaciones no están "
+"Los códigos de función para acceso directo para grabaciones no están "
 "disponibles para grabaciones de sistema o grabaciones compuestas de varios "
 "archivos."
 

@@ -47,7 +47,7 @@ msgid "Default"
 msgstr "Por defecto"
 
 msgid "Feature"
-msgstr "Característica"
+msgstr "Función"
 
 msgid "Status"
 msgstr "Estado"
