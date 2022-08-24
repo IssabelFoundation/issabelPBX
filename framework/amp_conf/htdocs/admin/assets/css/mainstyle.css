@@ -940,6 +940,10 @@ input[type="radio"]:disabled + label {
   background-color:#4b0884 !important;
 }
 
+.navbar-dropdown a.navbar-item:hover, .navbar-dropdown a.navbar-item:active, .navbar-dropdown a.navbar-item:focus { 
+  color: #fff; 
+}
+
 .navbar-item:focus, .navbar-item:active, .navbar-item:hover {
   background-color:#4b0884 !important;
 }
