@@ -149,12 +149,16 @@ class DB_rqlite extends DB_common
      *
      * @return void
      */
-    function __construct()
-    {
-        parent::__construct();
-	$this->_apcuAvailable = function_exists('apcu_enabled') && apcu_enabled();
+    function __construct() {
 
-        $this->_uniqueid = sprintf("%08x", abs(crc32($_SERVER['REMOTE_ADDR'] . $_SERVER['REQUEST_TIME'] . $_SERVER['REMOTE_PORT'])));
+        parent::__construct();
+        $this->_apcuAvailable = function_exists('apcu_enabled') && apcu_enabled();
+
+        if(isset($_SERVER['REMOTE_ADDR'])) {
+            $this->_uniqueid = sprintf("%08x", abs(crc32($_SERVER['REMOTE_ADDR'] . $_SERVER['REQUEST_TIME'] . $_SERVER['REMOTE_PORT'])));
+        } else {
+            $this->_uniqueid = sprintf("%08x", $_SERVER['REQUEST_TIME'] )));
+        }
     }
 
     function &getAssoc($query, $force_array = false, $params = array(), $fetchmode = DB_FETCHMODE_DEFAULT, $group = false) {
@@ -399,12 +403,12 @@ class DB_rqlite extends DB_common
         if (DB::isError($res)) {
             return $res;
         }
-	if(isset($res['results'][0]['values'])) {
-		return $res['results'][0]['values'];
-	} else {
-		$ret = array();
-		return $ret;
-	}
+        if(isset($res['results'][0]['values'])) {
+            return $res['results'][0]['values'];
+        } else {
+            $ret = array();
+            return $ret;
+        }
     }
 
 
