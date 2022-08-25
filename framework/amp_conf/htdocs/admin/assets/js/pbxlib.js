@@ -1697,7 +1697,7 @@ function rnavSelected() {
         $(ele).removeClass('current');
         let params = new URLSearchParams($(ele).attr('href'));
         current_rnav_option = params.get('extdisplay');
-        if(selected_rnav_option == current_rnav_option) {
+        if(selected_rnav_option == current_rnav_option && current_rnav_option !== null) {
             $(ele).addClass('current');
             $('#rnavadd').attr('disabled',false);
             $('#rnavadd').attr('href',original_href);
