@@ -38,27 +38,26 @@ $data = array(
 
 $html .= br() . form_label(_('Randomize'), 'cron_random') . form_checkbox($data);
 
-$html .= '<div id="crondiv" class="columns mt-2 ml-1">';
+$html .= '<div id="crondiv" class="columns">';
 //minutes
-$html .= form_fieldset(_('Minutes'), ' class="column column cronset sortable cronsetheight ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
+$html .= "<div class='column'>";
+$html .= form_fieldset(_('Minutes'), ' class="cronset ui-widget-content" ');
 $html .= '<div class="cronsetdiv">';
 
 $selected_minutes = explode(",",$cron_minute[0]);
 
 for($i = 0; $i < 60; $i++) {
-   // if(!is_array($cron_minute[0])) {
-   //     $checked = '';
-   // } else {
-   // }
     $checked = in_array($i, $selected_minutes) ? "checked='checked' " : "";
     $label = sprintf("%02d",$i);
     $html .= nice_checkbox($i, $label,$checked,'cron_minute[]');
 }
 $html .= '</div>';
+$html .= '</div>';
 $html .= form_fieldset_close();
 
 //hours
-$html .= form_fieldset(_('Hour'), ' class="column cronset sortable cronsetheight ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
+$html .= "<div class='column'>";
+$html .= form_fieldset(_('Hour'), ' class="cronset ui-widget-content" ');
 $html .= '<div class="cronsetdiv">';
 for($i = 0; $i < 24; $i++) {
 	in_array($i, explode(",",$cron_hour[0])) ? $data['checked'] = 'checked' : '';
@@ -67,10 +66,12 @@ for($i = 0; $i < 24; $i++) {
 	$html .= nice_checkbox($i,$label,$checked,'cron_hour[]');
 }
 $html .= '</div>';
+$html .= '</div>';
 $html .= form_fieldset_close();
 
 //day of week
-$html .= form_fieldset(_('Day of Week'), ' class="column cronset narrow sortable cronsetheight ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
+$html .= "<div class='column'>";
+$html .= form_fieldset(_('Day of Week'), ' class="cronset ui-widget-content" ');
 $html .= '<div class="cronsetdiv">';
 $doy = array(
 		'0' => dgettext('amp','Sunday'),
@@ -87,10 +88,25 @@ foreach ($doy as $k => $v) {
 	$html .= nice_checkbox($k, $label,$checked,'cron_dow[]');
 }
 $html .= '</div>';
+$html .= '</div>';
 $html .= form_fieldset_close();
 
+$html .= "
+<script>
+maxW=0;
+\$('.cron_dow').each(function () {
+    var x = $(this).width();
+    if (x > maxW) {
+        maxW = x;
+    }
+});
+\$('.cron_dow').css('width', maxW + 'px');
+</script>
+";
+
 //month
-$html .= form_fieldset(_('Month'), ' class="column cronset narrow sortable cronsetheight ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
+$html .= "<div class='column'>";
+$html .= form_fieldset(_('Month'), ' class="cronset ui-widget-content" ');
 $html .= '<div class="cronsetdiv">';
 $doy = array(
 		'1' => dgettext('amp','January'),
@@ -112,10 +128,26 @@ foreach ($doy as $k => $v) {
 	$html .= nice_checkbox($k, $label,$checked,'cron_month[]');
 }
 $html .= '</div>';
+$html .= '</div>';
 $html .= form_fieldset_close();
 
+$html .= "
+<script>
+maxW=0;
+\$('.cron_month').each(function () {
+    var x = $(this).width();
+    if (x > maxW) {
+        maxW = x;
+    }
+});
+\$('.cron_month').css('width', maxW + 'px');
+</script>
+";
+
+
 //day of month
-$html .= form_fieldset(_('Day of Month'), ' class="column cronset sortable cronsetheight ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
+$html .= "<div class='column'>";
+$html .= form_fieldset(_('Day of Month'), ' class="cronset ui-widget-content" ');
 $html .= '<div class="cronsetdiv">';
 for($i = 1; $i < 32; $i++) {
 	in_array($i, $cron_dom) ? $data['checked'] = 'checked' : '';
@@ -124,11 +156,13 @@ for($i = 1; $i < 32; $i++) {
 	$html .= nice_checkbox($i, $label,$checked,'cron_dom[]');
 }
 $html .= '</div>';
+$html .= '</div>';
 $html .= form_fieldset_close();
 $html .= '</div>';
 echo $html;
 
 function nice_checkbox($value, $label, $checked, $name) {
+    $class = preg_replace('/[\W]/',"",$name);
     $out="
 <span class='control'>
     <label class='is-checkbox is-small is-info is-rounded'>
@@ -136,7 +170,7 @@ function nice_checkbox($value, $label, $checked, $name) {
         <span  class='icon is-small checkmark'>
             <i class='fa fa-check'></i>
         </span>
-        <span>$label</span>
+        <span class='$class'>$label</span>
     </label>
 </span>";
 
