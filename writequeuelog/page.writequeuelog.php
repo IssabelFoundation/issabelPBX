@@ -95,27 +95,27 @@ if ($extdisplay) {
     <table class='table is-borderless is-narrow'>
     <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("The descriptive name of this queue log instance. For example \"new name here\"");?></span></a></td>
+        <td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _("The descriptive name of this queue log instance. For example \"new name here\"");?></span></a></td>
         <td><input autofocus class="input w100" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Uniqueid")?>:<span><?php echo _("The uniqueid field for the queue log entry");?></span></a></td>
+        <td><a href="#" class="info"><?php echo _("Uniqueid")?><span><?php echo _("The uniqueid field for the queue log entry");?></span></a></td>
         <td><input class="input w100" type="text" name="qlog_uniqueid" value="<?php echo $qlog_uniqueid; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Queue")?>:<span><?php echo _("The queue field for the queue log entry");?></span></a></td>
+        <td><a href="#" class="info"><?php echo _("Queue")?><span><?php echo _("The queue field for the queue log entry");?></span></a></td>
         <td><input class="input w100" type="text" name="qlog_queue" value="<?php echo $qlog_queue; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Agent")?>:<span><?php echo _("The agent field for the queue log entry");?></span></a></td>
+        <td><a href="#" class="info"><?php echo _("Agent")?><span><?php echo _("The agent field for the queue log entry");?></span></a></td>
         <td><input class="input w100" type="text" name="qlog_agent" value="<?php echo $qlog_agent; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Event")?>:<span><?php echo _("The event field for the queue log entry");?></span></a></td>
+        <td><a href="#" class="info"><?php echo _("Event")?><span><?php echo _("The event field for the queue log entry");?></span></a></td>
         <td><input class="input w100" type="text" name="qlog_event" value="<?php echo $qlog_event; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Extra")?>:<span><?php echo _("The rest of extra data info1|info2|info3 for the queue log entry");?></span></a></td>
+        <td><a href="#" class="info"><?php echo _("Extra")?><span><?php echo _("The rest of extra data info1|info2|info3 for the queue log entry");?></span></a></td>
         <td><input class="input w100" type="text" name="qlog_extra" value="<?php echo $qlog_extra; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td>
     </tr>
 
