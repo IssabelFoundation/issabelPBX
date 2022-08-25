@@ -120,7 +120,7 @@ $html .= '<div class="cronsetdiv">';
 for($i = 1; $i < 32; $i++) {
 	in_array($i, $cron_dom) ? $data['checked'] = 'checked' : '';
     $checked = in_array($i, explode(",",$cron_dom[0])) ? "checked='checked' " : "";
-    $label = $i;
+    $label = sprintf("%02d",$i);
 	$html .= nice_checkbox($i, $label,$checked,'cron_dom[]');
 }
 $html .= '</div>';
