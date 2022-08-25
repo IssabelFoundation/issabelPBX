@@ -1685,24 +1685,25 @@ up.compiler('.rnav', function(element,data) {
 });
 
 function rnavSelected() {
-
     if($('.rnav').length>0) {
-    let params = new URLSearchParams(window.location.search);
-    selected_rnav_option = params.get('extdisplay');
-    let original_href = $('#rnavadd').attr('href');
-    $('#rnavadd').attr('disabled',true);
-    $('#rnavadd').attr('href','javascript:void(0)');
+        let params = new URLSearchParams(window.location.search);
+        selected_rnav_option = params.get('extdisplay');
+        let original_href = $('#rnavadd').attr('href');
+        $('#rnavadd').attr('disabled',true);
+        $('#rnavadd').attr('href','javascript:void(0)');
 
-    $('.rnav').find('li > a').each(function(idx,ele) { 
-        $(ele).removeClass('current');
-        let params = new URLSearchParams($(ele).attr('href'));
-        current_rnav_option = params.get('extdisplay');
-        if(selected_rnav_option == current_rnav_option && current_rnav_option !== null) {
-            $(ele).addClass('current');
-            $('#rnavadd').attr('disabled',false);
-            $('#rnavadd').attr('href',original_href);
+        if(selected_rnav_option !== null) {
+            $('.rnav').find('li > a').each(function(idx,ele) {
+                $(ele).removeClass('current');
+                let params = new URLSearchParams($(ele).attr('href'));
+                current_rnav_option = params.get('extdisplay');
+                if(selected_rnav_option == current_rnav_option) {
+                    $(ele).addClass('current');
+                    $('#rnavadd').attr('disabled',false);
+                    $('#rnavadd').attr('href',original_href);
+                }
+            });
         }
-    });
     }
 }
 
