@@ -1009,6 +1009,9 @@ div.swal-wide > div.swal2-html-container {
    vertical-align:bottom;
 }
 
+table.table {
+  table-layout: fixed;
+}
 
 @keyframes fade {
   0% {
