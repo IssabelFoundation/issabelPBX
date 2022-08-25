@@ -5625,3 +5625,6 @@ msgstr ""
 
 msgid "PHP mbstring module is not installed. Please install it to avoid issues with language/localization."
 msgstr ""
+
+msgid "Please select a file"
+msgstr ""

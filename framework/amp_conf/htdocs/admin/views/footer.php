@@ -78,6 +78,7 @@ $ipbx['msg']['framework']['reload_unidentified_error'] = _(" error(s) occurred, 
 $ipbx['msg']['framework']['close'] = _("Close");
 $ipbx['msg']['framework']['next'] = _("Next");
 $ipbx['msg']['framework']['selectoption'] = _("Select an option");
+$ipbx['msg']['framework']['selectfile'] = _("Please select a file");
 $ipbx['msg']['framework']['confirmreload'] = _("Reloading will apply all configuration changes made in IssabelPBX to your PBX engine and make them active.");
 $ipbx['msg']['framework']['previous'] = _("Previous");
 $ipbx['msg']['framework']['continuemsg'] = _("Continue");//continue is a resorved word!
