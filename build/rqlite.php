@@ -1151,8 +1151,7 @@ class DB_rqlite extends DB_common
     }
 
     function &query($query, $params = array()) {
-        //  file_put_contents("/tmp/last_insert_id.log","$query\n",FILE_APPEND);
-        if(!is_array($params)) { $valor = $params; $params=array(); $params[]=$valor; }
+        $params = (array)$params;
         $comando = "execute";
         $query = preg_replace("/INSERT IGNORE/i","INSERT OR IGNORE",$query);
         $query = preg_replace("/AUTO_INCREMENT/","AUTOINCREMENT",$query);
