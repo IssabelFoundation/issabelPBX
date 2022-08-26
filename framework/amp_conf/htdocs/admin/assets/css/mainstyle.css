@@ -1013,6 +1013,9 @@ table.table {
   table-layout: fixed;
 }
 
+.ui-corner-all { border-radius:5px;  }
+.ui-widget-header { background-color: #7d48ad;  }
+
 @keyframes fade {
   0% {
     opacity: 0;
