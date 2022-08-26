@@ -6578,6 +6578,9 @@ msgstr "alta"
 msgid "Select an option"
 msgstr "Elija una opción"
 
+msgid "Select some options"
+msgstr "Elija algunas opciones"
+
 msgid "PHP mbstring module is not installed. Please install it to avoid issues with language/localization."
 msgstr "El módulo PHP mbstring no está instalado. Instálelo para evitar problemas con el idioma o la localización."
 

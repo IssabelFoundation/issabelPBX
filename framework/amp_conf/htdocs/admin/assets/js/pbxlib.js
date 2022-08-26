@@ -895,10 +895,10 @@ function doready() {
         }
     });
 
-    $('.componentSelect').chosen({width:'100%', disable_search: true,placeholder_text_single: ipbx.msg.framework.selectoption});
-    $('.componentSelectSearch').chosen({width:'100%', disable_search: false, placeholder_text_single: ipbx.msg.framework.selectoption});
-    $('.componentSelectAutoWidth').chosen({disable_search: false, width: 'auto', placeholder_text_single: ipbx.msg.framework.selectoption});
-    $('.componentSelectAutoWidthNoSearch').chosen({disable_search: true, width: 'auto', placeholder_text_single: ipbx.msg.framework.selectoption});
+    $('.componentSelect').chosen({width:'100%', disable_search: true, placeholder_text_single: ipbx.msg.framework.selectoption, placeholder_text_multiple: ipbx.msg.framework.selectoptions});
+    $('.componentSelectSearch').chosen({width:'100%', disable_search: false, placeholder_text_single: ipbx.msg.framework.selectoption, placeholder_text_multiple: ipbx.msg.framework.selectoptions});
+    $('.componentSelectAutoWidth').chosen({disable_search: false, width: 'auto', placeholder_text_single: ipbx.msg.framework.selectoption, placeholder_text_multiple: ipbx.msg.framework.selectoptions});
+    $('.componentSelectAutoWidthNoSearch').chosen({disable_search: true, width: 'auto', placeholder_text_single: ipbx.msg.framework.selectoption, placeholder_text_multiple: ipbx.msg.framework.selectoptions});
 
     $('input[type=search]').on('search', function (uno,dos) {
         filter_rnav();

@@ -104,14 +104,14 @@ msgstr "Número"
 msgid "The number users will dial to voicemail boxes in this VMBlast group"
 msgstr "El número que los usuarios marcarán para enviar correo de voz masivo a este grupo"
 
-msgid "Group Description:"
+msgid "Group Description"
 msgstr "Descripción"
 
 msgid "Provide a descriptive title for this VMBlast Group."
 msgstr "Porvea un título descriptivo para este grupo de correo de voz"
 
-msgid "Audio Label:"
-msgstr "Etiqueta de Audio:"
+msgid "Audio Label"
+msgstr "Etiqueta de Audio"
 
 msgid ""
 "Play this message to the caller so they can confirm they have dialed the "
@@ -140,13 +140,11 @@ msgid ""
 "access to this group voicemail list."
 msgstr "Opcionalmente puede utilizar una clave de autenticación antes de dar acceso a este grupo."
 
-msgid "Voicemail Box List:"
-msgstr "Lista de buzones de voz:"
+msgid "Voicemail Box List"
+msgstr "Lista de buzones de voz"
 
-msgid ""
-"Select voice mail boxes to add to this group. Use Ctrl key to select "
-"multiple.."
-msgstr "Elija buzones de voz a agregar a este grupo. Use Ctrl para elegir varios"
+msgid "Select voice mail boxes to add to this group."
+msgstr "Elija buzones de voz a agregar a este grupo."
 
 msgid "Default VMBlast Group"
 msgstr "Grupo por omisión"
