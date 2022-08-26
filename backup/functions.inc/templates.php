@@ -172,9 +172,9 @@ function backup_put_template($var) {
 	if ($db->IsError($ret)){
 		die_issabelpbx($ret->getDebugInfo());
 	}
-	
-	$sql = (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()';
-	$var['id'] = $var['id'] ? $var['id'] : $db->getOne($sql);
+
+    // If we already have id (edit), use it, otherwise use PDO to retrieve last insert id
+    $var['id'] = $var['id'] ? $var['id'] : $db->insert_id();
 
 	//save server details
 	//first delete stale
@@ -235,7 +235,8 @@ function backup_template_generate_tr($c, $i, $immortal = 'false', $build_tr = fa
 							'name'			=> 'path[' . $c . ']', 
 							'value'			=> $i['path'],
 							'required'		=> '',
-							'placeholder'	=> _('/path/to/file')
+                            'placeholder'	=> _('/path/to/file'),
+                            'class'         => 'input'
 						);
 			$immortal ? $path['disabled'] = '' : '';
 			$path		= form_input($path);
@@ -248,7 +249,8 @@ function backup_template_generate_tr($c, $i, $immortal = 'false', $build_tr = fa
 							'name'			=> 'path[' . $c . ']', 
 							'value'			=> $i['path'],
 							'required'		=> '',
-							'placeholder'	=> _('/path/to/dir')
+                            'placeholder'	=> _('/path/to/dir'),
+                            'class'         => 'input'
 						);
 			$immortal ? $path['disabled'] = '' : '';
 			$path		= form_input($path);
@@ -257,7 +259,8 @@ function backup_template_generate_tr($c, $i, $immortal = 'false', $build_tr = fa
 							'value'			=> implode("\n", $i['exclude']),
 							'rows'			=> count($i['exclude']),
 							'cols'			=> 20,
-							'placeholder'	=> _('PATTERNs, one per line')
+                            'placeholder'	=> _('PATTERNs, one per line'),
+                            'class' => 'textarea'
 						);
 			$immortal ? $exclude['disabled'] = '' : '';
 			$exclude	= form_textarea($exclude);
@@ -308,9 +311,13 @@ function backup_template_generate_tr($c, $i, $immortal = 'false', $build_tr = fa
 	}
 	
 	$del_txt	= _('Delete this entry. Don\'t forget to click Submit to save changes!');
-	$delete		= $immortal == 'true' ? ''
-				: '<img src="images/trash.png" style="cursor:pointer" title="' 
-				. $del_txt . '" class="delete_entrie">';
+    $delete		= $immortal == 'true' ? ''
+        : "<button type='button' class='button is-small is-danger delete_entrie' data-tooltip='"._('Delete')."'><span class='icon is-small'><i class='fa fa-trash'></i></span></button>";
+
+
+
+				//: '<img src="images/trash.png" style="cursor:pointer" title="' 
+				//. $del_txt . '" class="delete_entrie">';
 				
 	if($build_tr) {
 		return '<tr><td>'	

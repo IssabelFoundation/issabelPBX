@@ -25,6 +25,15 @@ if (!isset($mod_info['backup'])) {
 $getopt = (function_exists('_getopt') ? '_' : '') . 'getopt';
 $vars = $getopt($short = '', $long = array('opts::', 'id::', 'astdb::', 'data::'));
 
+$issabelpbx_conf =& issabelpbx_conf::create();
+$lang = $issabelpbx_conf->get_conf_setting('LANGUAGE');
+$module = 'backup';
+if($lang!='') {
+    setlocale(LC_ALL,  $lang);
+    putenv("LANGUAGE=".$lang);
+    $result_textdomain = modgettext::textdomain($module);
+}
+
 //if the id option was passed
 if (isset($vars['id']) && $vars['id']) {
 	//bu = backup settings
@@ -38,7 +47,7 @@ if (isset($vars['id']) && $vars['id']) {
 		}
 		$s = backup_get_server('all_detailed');
 		$b = new Backup($bu, $s);
-		backup_log(_('Intializing Backup') . ' ' .$vars['id']);
+		backup_log(_('Initializing Backup') . ' ' .$vars['id']);
 		backup_clear_log();
 		$b->init();
 		if ($b->b['bu_server'] == "0") {
@@ -55,7 +64,7 @@ if (isset($vars['id']) && $vars['id']) {
 			backup_log(_('Adding items...'));
 			$b->add_items();
 
-			backup_log(_('Bulding manifest...'));
+			backup_log(_('Building manifest...'));
 			$b->build_manifest();
 			$b->save_manifest('local');
 			$b->save_manifest('db');
@@ -142,7 +151,7 @@ if (isset($vars['id']) && $vars['id']) {
 		backup_log(_('Running post-backup hooks...'));
 		$b->run_hooks('post-backup');
 
-		if ($b->b['bu_server'] == "0") { //local backup? Were done!
+		if ($b->b['bu_server'] == "0") { //local backup? We are done
 			if ($b->b['error'] !== false) {
 				backup_log(_('Backup completed with errors!'));
 			} else {

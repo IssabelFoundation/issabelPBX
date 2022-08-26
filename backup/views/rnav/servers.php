@@ -7,7 +7,7 @@ if (isset($servers)){
 				. ( $id == $s['id'] ? ' class="current" ' : '') 
 				. '" href="config.php?display=backup_servers&action=edit&id=' 
 				. $s['id'] . '">' 
-				. $s['name'] 
+				. _($s['name']) 
 				. ' (' . $s['type'] . ')'
 				.'</a>';
 	}

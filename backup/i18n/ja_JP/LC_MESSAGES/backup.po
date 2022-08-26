@@ -384,7 +384,7 @@ msgstr "バックアップモジュールはインストールされていない
 msgid "No storage servers found! Aborting."
 msgstr "ストレージサーバーが見つからないため中断します。"
 
-msgid "Intializing Backup"
+msgid "Initializing Backup"
 msgstr "バックアップを初期化中…"
 
 msgid "waiting for lock..."
@@ -399,7 +399,7 @@ msgstr "バックアップ前フックを実行中..."
 msgid "Adding items..."
 msgstr "アイテムを追加中…"
 
-msgid "Bulding manifest..."
+msgid "Building manifest..."
 msgstr "manifestを構築中…"
 
 msgid "Creating backup..."
@@ -441,7 +441,7 @@ msgstr "バックアップを復元中…"
 msgid "Nothing to restore!"
 msgstr "復元するものはありません。"
 
-msgid "Intializing Restore..."
+msgid "Initializing Restore..."
 msgstr "復元を初期化しています..."
 
 msgid "Backup file not found! Aborting."

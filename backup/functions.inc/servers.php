@@ -71,7 +71,7 @@ $backup_server_blanks['ssh'] =
 		
 		
 function backup_del_server($id) {
-	global $db;
+	global $db, $amp_conf;
 
 	//dont delete if deleting has been blocked
 	$immortal = $db->getOne('SELECT immortal FROM backup_servers WHERE id = ?', $id);
@@ -92,17 +92,28 @@ function backup_del_server($id) {
 	$sql = 'DELETE FROM backup_details WHERE `key` = "storage_servers" and value = ?';
 	$ret = $db->query($sql, $id);
 	db_e($ret);
-	
-	//delete from backups_items
-	$sql = 'DELETE FROM backup_items WHERE type = "mysql" AND path = CONCAT("server-", ?)';
-	$ret = $db->query($sql, $id);
-	db_e($ret);
-	
-	//delete from templates
-	$sql = 'DELETE FROM backup_template_details WHERE type = "mysql" AND path = CONCAT("server-", ?)';
-	$ret = $db->query($sql, $id);
-	//dbug('temp', $db->last_query);
-	db_e($ret);
+
+    if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {    
+
+    	$sql = 'DELETE FROM backup_items WHERE type = "mysql" AND path = "server-" || ?';
+    	$ret = $db->query($sql, $id);
+        db_e($ret);
+
+    	$sql = 'DELETE FROM backup_template_details WHERE type = "mysql" AND path = "server-" || ?';
+    	$ret = $db->query($sql, $id);
+        db_e($ret);
+
+    } else {
+	    //delete from backups_items
+    	$sql = 'DELETE FROM backup_items WHERE type = "mysql" AND path = CONCAT("server-", ?)';
+    	$ret = $db->query($sql, $id);
+    	db_e($ret);
+
+    	//delete from templates
+    	$sql = 'DELETE FROM backup_template_details WHERE type = "mysql" AND path = CONCAT("server-", ?)';
+    	$ret = $db->query($sql, $id);
+    	db_e($ret);
+    }
 	
 	return '';
 }
@@ -142,8 +153,8 @@ function backup_put_server($var) {
 		die_issabelpbx($ret->getDebugInfo());
 	}
 
-	$sql = (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()';
-	$var['id'] = $var['id'] ? $var['id'] : $db->getOne($sql);
+    // If we already have id (edit), use it, otherwise use PDO to retrieve last insert id
+    $var['id'] = $var['id'] ? $var['id'] : $db->insert_id();
 
 	//save server details
 	//first delete stale

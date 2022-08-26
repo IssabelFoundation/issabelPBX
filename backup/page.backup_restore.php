@@ -13,7 +13,7 @@ $get_vars = array(
 				);
 
 foreach ($get_vars as $k => $v) {
-	$var[$k] = isset($_REQUEST[$k]) ? htmlspecialchars($_REQUEST[$k]) : $v;
+	$var[$k] = isset($_REQUEST[$k]) ? $_REQUEST[$k] : $v;
 }
 
 //set action to delete if delete was pressed instead of submit
@@ -37,17 +37,20 @@ switch ($var['action']) {
 
 		//make sure our file was uploaded
 		if (!is_uploaded_file($_FILES['upload']['tmp_name'])) {
-			echo _('Error uploading file!');
 			$var['action'] = '';
+            $_SESSION['msg']=base64_encode(_('Error uploading file!'));
+            $_SESSION['msgtype']='error';
+            redirect_standard('');
 			break;
-
 		}
 		
 		//ensure uploaded file is a valid tar file
 		exec(ipbx_which('tar') . ' -tf ' . $_FILES['upload']['tmp_name'], $array, $ret_code);
 		if ($ret_code !== 0) {
-			echo _('Error verifying uploaded file!');
-			$var['action'] = '';
+            $var['action'] = '';
+            $_SESSION['msg']=base64_encode(_('Error verifying uploaded file!'));
+            $_SESSION['msgtype']='error';
+            redirect_standard('');
 			break;
 		}
 		
@@ -55,7 +58,8 @@ switch ($var['action']) {
 				. '/tmp/' 
 				. 'backuptmp-suser-'
 				. time() . '-'
-				. basename($_FILES['upload']['name']);
+                . basename($_FILES['upload']['name']);
+
 		move_uploaded_file($_FILES['upload']['tmp_name'], $dest);
 		
 		//$var['restore_path'] = $dest;
@@ -145,18 +149,21 @@ switch ($var['action']) {
 	case 'restore_post':
 		while (ob_get_level()) {
 			ob_end_clean();
-		}
-		$_SESSION['backup_restore_data'] = $var['restore'];
+        }
+        session_write_close(); // if session is locked, we cannot updated it
+        session_start();
+        $_SESSION['backup_restore_data'] = $var['restore'];
+        session_write_close();
 		exit();
 		break;
 	case 'restore':
 	case 'restore_get':
 		
 		//if action is restore_get, get restore data from session
-		$restore = $var['action'] == 'restore_get' 
+		$restore = $var['action'] == 'restore_get' && isset($_SESSION['backup_restore_data']) 
 					? $_SESSION['backup_restore_data']
 					: $var['restore'];
-		
+
 		//dont stop until were all done 
         //restore will compelte EVEN IS USER NAVIGATES AWAY FROM PAGE!! 
         ignore_user_abort(true); 

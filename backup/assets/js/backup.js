@@ -21,5 +21,6 @@ function backup_log(div, msg) {
 			}
 			)
 		});
-
 }
+
+

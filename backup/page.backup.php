@@ -47,6 +47,8 @@ if ($var['submit'] == _('Delete') && $var['action'] == 'save') {
 	$var['action'] = 'run';
 }
 
+if($var['action']=='') { $var['action']='edit'; }
+
 //action actions
 switch ($var['action']) {
 	case 'ajax_save':
@@ -57,7 +59,12 @@ switch ($var['action']) {
 		$var['id'] = backup_put_backup($var);
 		exit();//no need to do anything else, get out
 	case 'save':
-		$var['id'] = backup_put_backup($var);
+        $var['id'] = backup_put_backup($var);
+        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
+        $_REQUEST['action']='edit';
+        unset($_REQUEST['type']);
+        redirect_standard('id','action');
 		break;
 	case 'delete':
 		$var['id'] = backup_del_backup($var['id']);

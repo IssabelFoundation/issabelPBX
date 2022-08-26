@@ -19,16 +19,26 @@ if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc
 $getopt = (function_exists('_getopt') ? '_' : '') . 'getopt';
 $vars = $getopt($short = '', $long = array('restore::', 'items::', 'manifest::'));
 
+$issabelpbx_conf =& issabelpbx_conf::create();
+$lang = $issabelpbx_conf->get_conf_setting('LANGUAGE');
+$module = 'backup';
+if($lang!='') {
+    setlocale(LC_ALL,  $lang);
+    putenv("LANGUAGE=".$lang);
+    $result_textdomain = modgettext::textdomain($module);
+}
+
 //do restore
 if (isset($vars['restore'], $vars['items'])) {
 	$items = unserialize(base64_decode($vars['items']));
-	
-	if (!$items) {
-		backup_log(_('Nothing to restore!'));
+
+    if (!$items) {
+        backup_log(_('Nothing to restore!'));
+        print_r($vars);
 		exit();
 	}
 	
-	backup_log(_('Intializing Restore...'));
+	backup_log(_('Initializing Restore...'));
 
 	if (!file_exists($vars['restore'])) {
 		backup_log(_('Backup file not found! Aborting.'));
@@ -63,7 +73,7 @@ if (isset($vars['restore'], $vars['items'])) {
 		foreach ($items['files'] as $f) {
 			$cmd[] = './' . trim($f, '/');
 		}
-		exec(implode(' ', $cmd));
+        exec(implode(' ', $cmd));
 		backup_log(_('File restore complete!'));
 		unset($cmd);
 	}
@@ -194,7 +204,7 @@ if (isset($vars['restore'], $vars['items'])) {
 
 		fclose($file);
 		unlink($path);
-		backup_log(_('Restoring CDR\'s complete'));
+		backup_log(_('CDR\'s restore complete'));
 	}
 	
 	//restore settings
@@ -294,7 +304,7 @@ if (isset($vars['restore'], $vars['items'])) {
 				}
 			}
 			if (!in_array(100, $notifed_for)) {
-				backup_log(_('Processed 100% of Settings\'!'));
+				backup_log(_('Processed 100% of Settings!'));
 			}
 
 			fclose($file);
@@ -313,7 +323,7 @@ if (isset($vars['restore'], $vars['items'])) {
 			unset($cmd);
 		}
 		
-		backup_log(_('Restoring Settings\' complete'));
+		backup_log(_('Settings restore complete'));
 	}
 	//dbug($file);
 	

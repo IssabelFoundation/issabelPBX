@@ -27,9 +27,8 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_items` (
             )';
 
 $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_cache` (
-            `id` varchar(50) NOT NULL,
-            `manifest` longtext,
-            UNIQUE KEY `id` (`id`)
+            `id` varchar(50) NOT NULL UNIQUE,
+            `manifest` longtext
             )';
 
 $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_servers` (
@@ -278,10 +277,10 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
     foreach ($server as $not_this => $t) {
         $server[$not_this] = backup_put_server($t);
     }
-    sql('UPDATE backup_servers SET readonly = "a:1:{i:0;s:1:\"*\";}"');
+    sql('UPDATE backup_servers SET readonly = \'a:1:{i:0;s:1:"*";}\'');
     sql('UPDATE backup_servers SET immortal = "true"');
     $createdby = serialize(array('created_by' => 'install.php'));
-    sql('UPDATE backup_servers SET data = "' . addslashes($createdby) . '"');
+    sql('UPDATE backup_servers SET data = \'' . $createdby . '\'');
 
     out(_('added default backup servers'));
 
@@ -426,7 +425,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
     //lock this all down so that their readonly
     sql('UPDATE backup_templates SET immortal = "true"');
     $createdby = serialize(array('created_by' => 'install.php'));
-    sql('UPDATE backup_templates SET data = "' . addslashes($createdby) . '"');
+    sql('UPDATE backup_templates SET data = \'' . $createdby . '\'');
     out(_('added default backup templates'));
 
 
@@ -642,12 +641,14 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
         //insert backup
         backup_put_backup($new);
         $createdby = serialize(array('created_by' => 'install.php'));
-        sql('UPDATE backup SET data = "' . addslashes($createdby) . '"');
+        sql('UPDATE backup SET data = \'' . $createdby . '\'');
         unset($new);
     }
 
 }
 
+
+if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 //add data fields if they dont exists
 //2.10 beta
 if (!array_key_exists('data', $db->getAssoc('describe backup'))) {
@@ -660,6 +661,7 @@ if (!array_key_exists('data', $db->getAssoc('describe backup_servers'))) {
 
 if (!array_key_exists('data', $db->getAssoc('describe backup_templates'))) {
     sql('ALTER TABLE backup_templates ADD COLUMN `data` longtext default NULL');
+}
 }
 
 //fix for schmooze#1388, __AMPBIN__ excludes were being set to null

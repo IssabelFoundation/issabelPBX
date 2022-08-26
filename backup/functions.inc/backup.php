@@ -187,9 +187,8 @@ function backup_put_backup($var) {
 		die_issabelpbx($ret->getDebugInfo());
 	}
 
-	$sql = (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()';
-
-	$var['id'] = $var['id'] ? $var['id'] : $db->getOne($sql);
+    // If we already have id (edit), use it, otherwise use PDO to retrieve last insert id
+    $var['id'] = $var['id'] ? $var['id'] : $db->insert_id();
 
 	//save server details
 	//first delete stale
@@ -323,14 +322,14 @@ function backup_set_backup_cron() {
 
 	$backups = backup_get_backup('all_detailed');
 	foreach ($backups as $b) {
-		$cron = '';
+		$cron = array();
 		// The ID porition of the command was added to better support other cron daemons (#7374)
 		// We should be using the format of ID=[vendor]_[module raw name]_[id]
 		$cron['command'] = 'ID=issabelpbx_backup_' . $b['id'] . ' ' . $amp_conf['AMPBIN'] . '/backup.php --id=' . $b['id'];
 		if (!isset($b['cron_random']) || $b['cron_random'] != 'true') {
 			switch ($b['cron_schedule']) {
 				case 'never':
-					$cron = '';
+					$cron = array();
 					break;
 				case 'hourly':
 				case 'daily':

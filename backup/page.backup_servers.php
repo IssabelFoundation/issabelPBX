@@ -46,9 +46,15 @@ switch ($var['action']) {
 		$var['maxsize'] = string2bytes($var['maxsize'], $var['maxtype']);
 		unset($var['maxtype']);
 		$var['id'] = backup_put_server($var);
+        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
+        //$_REQUEST['action']='edit';
+        //redirect_standard('id','action');
 		break;
 	case 'delete':
-		$var['id'] = backup_del_server($var['id']);
+        $var['id'] = backup_del_server($var['id']);
+        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msgtype']='warning';
 		break;
 }
 

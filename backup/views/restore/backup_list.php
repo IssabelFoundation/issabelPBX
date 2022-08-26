@@ -1,8 +1,8 @@
 <?php
 
-$html = '';
-$html .= heading(_('Restore'), 3) . '<hr class="backup-hr"/>';
-$html .= form_open($_SERVER['REQUEST_URI'], array('id' => 'files_browes_frm'));
+$html = '<div class="content">';
+$html .= heading(_('Restore'), 2);
+$html .= form_open($_SERVER['REQUEST_URI'], array('id' => 'files_browes_frm', 'class'=>'mx-2'));
 $html .= form_hidden('action', 'restore');
 $table = new CI_Table;
 //files
@@ -13,9 +13,9 @@ foreach ($templates as $t) {
 	$template_list .= '<li data-template="' . rawurlencode(json_encode($t['items'])) . '"'
 					. ' title="' . $t['desc'] . '"'
 					.'>' 
-					. '<a href="#">'
+					. '<a class="button is-small" href="javascript:void(0);">'
 					. '<span class="dragable"></span>'
-					. $t['name'] 
+					. _($t['name'])
 					. '</a>'
 					. '</li>';
 }
@@ -43,25 +43,41 @@ if ($manifest['fpbx_cdrdb']) {
 	$files .= ' ' . form_checkbox('restore[cdr]', 'true');
 }
 $files .= '</div>';
-$files .= '<div id="items_over">' . _('drop here') . '</div>';
+$files .= '<div id="items_over">' . _('drop zone') . '</div>';
 
-//$table->set_template(array('table_open' => '<table id="restore_table">'));
+$html .= "<div class='columns is-8'>";
+$html .= "<div class='column is-three-quarters'>";
+$html .= ipbx_label(_('Select files and databases to restore')). br(2);
+$html .= $files;
+$html .= "</div>";
+$html .= "<div class='column'>";
+$html .= ipbx_label(_('Templates'));
+$html .= $template_list;
+$html .= "</div>";
+$html .= "</div>";
+
+
+/*
 $table->set_heading(
-			_('Select files and databases to restore:'), _('Templates'));
+			_('Select files and databases to restore'), _('Templates'));
 $table->add_row($files, array('data' => $template_list, 'style' => 'padding-left: 100px;padding-right: 100px'));
 $html .= $table->generate();
 $html .= $table->clear();
-
+ */
 
 $html .= br(2);
 $html .= form_submit(array(
 	'name'  => 'submit',
 	'value' => _('Restore'),
-	'id'    => 'run_restore'
+    'id'    => 'run_restore',
+    'class' => 'button is-rounded'
 )); 
 
 $html .= form_close();
 $html .= br(15);
 $html .= '<script type="text/javascript" src="modules/backup/assets/js/views/restore.js"></script>';
 $html .= '<script type="text/javascript" src="modules/backup/assets/js/views/jquery.jstree.min.js"></script>';
+
+include("frameworkmsg.php");
+$html .= "</div>";
 echo $html;

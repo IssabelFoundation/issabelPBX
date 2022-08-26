@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>2.11.0.23</version>
+	<version>2.12.0.0</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,12 +17,13 @@
 	<depends>
 		<module>core</module>
 	</depends>
-	<changelog>
+    <changelog>
+        *2.12.0.0* Newer GUI, standarize module components
         *2.11.0.23* Rebranding
 		*2.11.0.22* Initial Issabel Foundation release
 	</changelog>
 	<supported>
-		<version>2.11</version>
+		<version>2.12</version>
 	</supported>
-	<location>release/2.11/backup-2.11.0.23.tgz</location>
+	<location>release/2.12/backup-2.12.0.0.tgz</location>
 </module>
