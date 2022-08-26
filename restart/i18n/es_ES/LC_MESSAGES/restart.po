@@ -1,0 +1,20 @@
+msgid "Restart Phones"
+msgstr "Reiniciar Teléfonos"
+
+msgid "Device List"
+msgstr "Lista de dispositivos"
+
+msgid "Select All"
+msgstr "Selecciones todos"
+
+msgid "Warning: The restart mechanism behavior is vendor specific.  Some vendors only restart the phone if there is a change to the phone configuration or if an updated firmware is available via tftp/ftp/http"
+msgstr "Advertencia: el comportamiento del mecanismo de reinicio es específico del proveedor. Algunos proveedores solo reinician el teléfono si hay un cambio en la configuración del teléfono o si hay un firmware actualizado disponible a través de tftp/ftp/http"
+
+msgid "Restart requests sent!"
+msgstr "Peticiones de reinicio enviadas!"
+
+msgid "Phone Restart"
+msgstr "Reinicio de Teléfonos"
+
+msgid "Bulk Phone Restart"
+msgstr "Reinicio de Teléfonos Masivo"
