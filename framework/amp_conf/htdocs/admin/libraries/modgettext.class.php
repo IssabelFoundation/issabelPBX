@@ -104,29 +104,42 @@ class modgettext {
 	 * module and if so we do the binding. If not, we set it to 'amp' which is core's domain.
 	 * We also special case core's domain since currenlty IssabelPBX does that. (something that
 	 * should be changed one of these days...).
-	 */
-	static private function _bindtextdomain($module) {
-                global $dirname;
-		if (isset(self::$tdhash[$module])) {
-			return self::$tdhash[$module];
-		} else {
-			// We special case core and assume it is there since that is assumed throughout
-			//
-			if ($module == 'core') {
-                                bindtextdomain('amp',"$dirname/i18n");
-				bind_textdomain_codeset('amp', 'utf8');
-				self::$tdhash[$module] = 'amp';
-			}
-                        if (isset($_COOKIE['lang']) && is_dir("$dirname/modules/" . $module . '/i18n/' . $_COOKIE['lang'])) {
-                                $fullpath = bindtextdomain($module, "$dirname/modules/". $module . '/i18n');
-				bind_textdomain_codeset($module, 'utf8');
-				self::$tdhash[$module] = $module;
-			} else {
-				self::$tdhash[$module] = 'amp';
-			}
-			return self::$tdhash[$module];
-		}
-	}
+     */
+    static private function _bindtextdomain($module) {
+        global $dirname;
+        if (isset(self::$tdhash[$module])) {
+            return self::$tdhash[$module];
+        } else {
+            // We special case core and assume it is there since that is assumed throughout
+            //
+            if ($module == 'core') {
+                bindtextdomain('amp',"$dirname/i18n");
+                bind_textdomain_codeset('amp', 'utf8');
+                self::$tdhash[$module] = 'amp';
+            }
+            if (php_sapi_name() == 'cli') {
+                $currentLocale = setlocale(LC_ALL, 0);
+                if (is_dir("$dirname/modules/" . $module . '/i18n/' . $currentLocale)) {
+                    $fullpath = bindtextdomain($module, "$dirname/modules/". $module . '/i18n');
+                    bind_textdomain_codeset($module, 'utf8');
+                    self::$tdhash[$module] = $module;
+                } else {
+                    self::$tdhash[$module] = 'amp';
+                }
+
+            } else {
+
+                if (isset($_COOKIE['lang']) && is_dir("$dirname/modules/" . $module . '/i18n/' . $_COOKIE['lang'])) {
+                    $fullpath = bindtextdomain($module, "$dirname/modules/". $module . '/i18n');
+                    bind_textdomain_codeset($module, 'utf8');
+                    self::$tdhash[$module] = $module;
+                } else {
+                    self::$tdhash[$module] = 'amp';
+                }
+            }
+            return self::$tdhash[$module];
+        }
+    }
 }
 
 /*
