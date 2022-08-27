@@ -30,8 +30,6 @@ switch ($action) {
         needreload();
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
-        print_r($_SESSION);
-        die();
         redirect_standard();
     break;
     case 'edit':
