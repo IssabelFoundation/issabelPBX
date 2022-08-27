@@ -91,7 +91,7 @@ msgstr ""
 "הכנס את המספר (כדי שבדיקת זיהוי שיחות תעבוד, המספר צריך להיות תואם למספר "
 "המתקבל בשירות השיחה המזוהה של חברת הטלפונים)"
 
-msgid "Speed dial code:"
+msgid "Speed dial code"
 msgstr "קוד חיוג מהיר"
 
 msgid ""
@@ -113,7 +113,7 @@ msgstr ""
 msgid "Import from CSV"
 msgstr "ייבא מ CSV"
 
-msgid "File:"
+msgid "File"
 msgstr "קובץ:"
 
 msgid ""

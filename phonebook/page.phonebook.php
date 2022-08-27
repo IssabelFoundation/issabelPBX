@@ -1,6 +1,7 @@
 <?php /* $Id */
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //	License for all code of this IssabelPBX module can be found in the license file inside the module directory
+//	Copyright 2022 Issabel Foundation
 //	Copyright 2013 Schmooze Com Inc.
 //  Copyright (C) 2006 WeBRainstorm S.r.l. (ask@webrainstorm.it)
 //
@@ -21,32 +22,39 @@ if(isset($_REQUEST['action'])) {
 	switch ($action) {
 		case "add":
 			phonebook_add($number, $name, $speeddial, $gensd);
+            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+            $_SESSION['msgtype']='success';
 			redirect_standard();
 		exit;
 		break;
 		case "delete":
 			$numbers = phonebook_list();
 			phonebook_del($number, $numbers[$number]['speeddial']);
+            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+            $_SESSION['msgtype']='warning';
 			redirect_standard();
 		break;
 		case "edit":
 			$numbers = phonebook_list();
 			phonebook_del($editnumber, $numbers[$editnumber]['speeddial']);
 			phonebook_add($number, $name, $speeddial, $gensd);
-			redirect_standard();
+            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msgtype']='success';
+			redirect_standard('extdisplay');
 		break;
 		case "empty":
 			phonebook_empty();
 		break;
 		case "import":
 			$i = 0; // imported lines
-			if(is_uploaded_file($_FILES['csv']['tmp_name'])) {
-				$lines = file($_FILES['csv']['tmp_name']);
+            if(is_uploaded_file($_FILES['csv']['tmp_name'])) {
+                $lines = file($_FILES['csv']['tmp_name']);
 				if (is_array($lines))	{
-					$n = count($lines); // total lines
-					foreach($lines as $line) {
+                    $n = count($lines); // total lines
+                    foreach($lines as $line) {
 						$fields = phonebook_fgetcsvfromline($line, 3);
-						$fields = array_map('trim', $fields);
+                        $fields = array_map('trim', $fields);
+
 						if (is_array($fields) && count($fields) == 3 
 							&& is_numeric($fields[2]) 
 							&&  ($fields[3] == '' || is_numeric($fields[3]))
@@ -54,10 +62,10 @@ if(isset($_REQUEST['action'])) {
 							phonebook_del($fields[2], $numbers[$fields[2]]['speeddial']);
 							phonebook_add(htmlentities($fields[2],ENT_QUOTES, 'UTF-8'),
 							 				addslashes(htmlentities($fields[1],ENT_QUOTES, 'UTF-8')),
-							 				htmlentities($fields[3],ENT_QUOTES, 'UTF-8'));
+							 				htmlentities($fields[3],ENT_QUOTES, 'UTF-8'), true);
 							$i++;
 						}
-					}
+                    }
 					redirect_standard();
 				}
 			} else
@@ -71,134 +79,115 @@ if(isset($_REQUEST['action'])) {
 				printf("\"%s\";%s;%s\n", $values['name'], trim($number), $values['speeddial']);
             exit;
 		break;
-	}
+    }
 }
-
+$rnavitems = array();
 $numbers = phonebook_list();
-
-if ($action == 'delete') 
-	echo '<h3>'._("Phonebook entry").' '.$itemid.' '._("deleted").' !</h3>';
-elseif ($action == 'import')
-	echo '<h3>'._("Imported").' '.$i.' '._("lines of").' '.$n.' '.'!</h3>';
-elseif ($action == 'empty')
-	echo '<h3>'._("Phonebook emptied").' !</h3>';
-	
-if (is_array($numbers)) {
-
-?>
-
-<form autocomplete="off" name="delete" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return confirm('<?php echo _("Are you sure you want to empty your phonebook ?")?>');">
-<input type="hidden" name="action" value="empty">
-<table cellpadding="5" width="100%">
-
-<?php//onsubmit="return edit_onsubmit();"?>
-<tr><td colspan="4"<h2><?php echo _('Phone Book') ?></h2></td></tr>
-<tr><td colspan="4"><?php echo _('Use this module to create system wide speed dial numbers that can be dialed from any phone.')?><br><br></td></tr>
-
-	<tr>
-		<td colspan="5"><h5><?php echo _("Phonebook entries") ?></h5><hr></td>
-	</tr>
-
-	<tr>
-		<td><b><?php _("Number")?></b></td>
-		<td><b><?php _("Name")?></b></td>
-		<td><b><?php _("Speed dial")?></b></td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	</tr>
-
-<?php
-// Why should I specify type=tool ???
-
-	foreach ($numbers as $num => $values)	{
-		print('<tr>');
-		printf('<td>%s</td><td>%s</td><td>%s</td>', $num, $values['name'], $values['speeddial']);
-		printf('<td><a href="%s?type=tool&display=%s&number=%s&action=delete" onclick="return confirm(\'%s\')">%s</a></td>', 
-			$_SERVER['PHP_SELF'], urlencode($dispnum), urlencode($num), _("Are you sure you want to delete this entry ?"), _("Delete"));
-		printf('<td><a href="#"  
-    onClick="theForm.number.value = \'%s\'; theForm.name.value = \'%s\' ; theForm.speeddial.value = \'%s\' ; 
-    if (theForm.name.value && theForm.number.value && !theForm.speeddial.value) { theForm.gensd.checked = false } else { theForm.gensd.checked = true };
-    theForm.editnumber.value = \'%s\' ; theForm.action.value = \'edit\' ; ">%s</a></td>',
-			trim($num),  addslashes($values['name']), $values['speeddial'], $num, _("Edit"));
-		print('</tr>');
-	}
-
-?>
-
-	<tr>
-		<td colspan="3"><br><h6><a href="<?php echo $_SERVER['PHP_SELF'] ?>?type=tool&display=phonebook&action=export&quietmode=1"><?php echo _("Export in CSV") ?></a></h6></td><td colspan="2" align="center"><input name="submit" type="submit" value="<?php echo _("Empty Phonebook")?>"></td>		
-	</tr>
-</table>
-</form>
-
-<?php
+foreach ($numbers as $num=>$values) {
+    $rnavitems[]=array(trim($num),$values['name'].' '.$num,$values['speeddial'],'');
 }
+drawListMenu($rnavitems, $type, $display, $extdisplay);
+?>
+<div class='content'>
+<?php
+
+    
+$helptext = _('Use this module to create system wide speed dial numbers that can be dialed from any phone.');
+$help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
+
+
+if ($extdisplay) {
+    // load
+    $name  = $numbers[$extdisplay]['name'];
+    $sdial = $numbers[$extdisplay]['speeddial'];
+} else {
+    $name = '';
+    $sdial = '';
+}
+
+echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Phonebook Entry').': '.$name : _("Add Phonebook Entry"))."</h2>$help</div>\n";
 ?>
 
-<form autocomplete="off" name="edit" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return edit_onsubmit();">
+<form id="mainform" autocomplete="off" name="edit" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return edit_onsubmit(this);">
 <input type="hidden" name="display" value="<?php echo $dispnum?>">
 <input type="hidden" name="action" value="add">
-<input type="hidden" name="editnumber" value="">
-<table cellpadding="5" width="100%">
-  <tr><td colspan="4"<h2><?php echo _('Phone Book')?></h2></td></tr>
-  <tr><td colspan="4"><?php echo _('Use this module to create system wide speed dial numbers that can be dialed from any phone.')?><br><br></td></tr>
+<input type="hidden" name="editnumber" value="<?php echo ($extdisplay)?$extdisplay:'';?>">
 
-	<tr><td colspan="4"><h5><?php echo _("Add or replace entry") ?></h5></td></tr>
-
+<table class='table is-borderless is-narrow'>
+    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Name:")?><span><?php echo _("Enter the name")?></span></a></td>
-		<td><input type="text" name="name" tabindex="<?php echo ++$tabindex;?>"></td>
+		<td><a href="#" class="info"><?php echo _("Name")?><span><?php echo _("Enter the name")?></span></a></td>
+        <td><input class='input' type="text" name="name" tabindex="<?php echo ++$tabindex;?>" value='<?php echo $name;?>'></td>
 	</tr>
 	
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Number:")?>
+		<td><a href="#" class="info"><?php echo _("Number")?>
 		<span><?php echo _("Enter the number (For CallerID lookup to work it should match the CallerID received from network)")?></span></a></td>
-		<td><input type="text" name="number" tabindex="<?php echo ++$tabindex;?>"></td>
+        <td><input class='input' type="text" name="number" tabindex="<?php echo ++$tabindex;?>" value='<?php echo $extdisplay;?>'></td>
 	</tr>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Speed dial code:")?><span><?php echo _("Enter a speed dial code<br/>Speeddial module is required to use speeddial codes")?></span></a></td>
-		<td><input type="text" name="speeddial" tabindex="<?php echo ++$tabindex;?>"></td>
+		<td><a href="#" class="info"><?php echo _("Speed dial code")?><span><?php echo _("Enter a speed dial code<br/>Speeddial module is required to use speeddial codes")?></span></a></td>
+        <td><input class='input' type="text" name="speeddial" tabindex="<?php echo ++$tabindex;?>" value='<?php echo $sdial;?>'></td>
 	</tr>
 
-  <tr>
+    <tr>
 		<td><a href="#" class="info"><?php echo _("Set Speed Dial?"); ?><span><?php echo _("Check to have a speed dial created automatically for this number"); ?></span></a></td>
-		<td><input type="checkbox" name="gensd" value="yes" CHECKED tabindex="<?php echo ++$tabindex;?>"></td>
-
-	<tr>
-		<td colspan="2"><br><h6><input name="submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>		
-
-	</tr>
-</table>
+        <td>
+           <div class='field'><input type='checkbox' class='switch' id='gensd' name='gensd' value='yes' checked='checked' tabindex='<?php echo ++$tabindex;?>'/><label style='height:auto; line-height:1em; padding-left:3em;' for='gensd'>&nbsp;</label></div>
+        </td>
+    </tr>
 </form>
 
-<form autocomplete="off" enctype="multipart/form-data" name="import" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+<form autocomplete="off" enctype="multipart/form-data" name="import" id="importform" method="post" onsubmit='return import_onsubmit();'>
 <input type="hidden" name="MAX_FILE_SIZE" value="30000">
 <input type="hidden" name="display" value="<?php echo $dispnum?>">
 <input type="hidden" name="action" value="import">
 
-<table cellpadding="5" width="100%">
-
-	<tr><td colspan="4"><h5><?php echo _("Import from CSV") ?></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo _("Import from CSV") ?></h5></td></tr>
 
         <tr>
-                <td><a href="#" class="info"><?php echo _("File:")?>
+                <td><a href="#" class="info"><?php echo _("File")?>
                 <span><?php echo _("Import a CSV File formatted as follows:<br/>\"Name\";Number;Speeddial<br /> Names should be enclosed by '\"' and fields separated by ';' <br /><br /> Example:<br/>\"John Doe\";12345678;123")?></span></a></td>
-                <td><input type="file" name="csv" tabindex="<?php echo ++$tabindex;?>"></td>
+                <td>
+<!--input type="file" name="csv" tabindex="<?php echo ++$tabindex;?>"-->
+
+
+<div class="file has-name is-fullwidth has-addons">
+  <label class="file-label">
+    <input class="file-input" type="file" name="csv" id="csv" tabindex="<?php echo ++$tabindex;?>">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fa fa-upload"></i>
+      </span>
+      <span class="file-label"><?php echo _('Choose a file...');?></span>
+    </span>
+    <span class="file-name" id="selected_file_name">
+    </span>
+  </label>
+  <div class="control"><input type="submit" style="font-size:0.85em;" class="button is-small is-info" value="<?php echo _('Upload');?>"/></div>
+</div>
+
+
+
+                </td>
         </tr>
 
-	<tr>
-		<td colspan="2"><br><h6><input name="submit" type="submit" value="<?php echo _("Upload")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>		
-	</tr>
 </table>
 </form>
-<script language="javascript">
-<!--
+<script>
 
-var theForm = document.edit;
-theForm.name.focus();
+function import_onsubmit(theForm) {
+    var msgInvalidFile = "<?php echo _("Please select a file"); ?>";
 
-function edit_onsubmit() {
+    if($('#csv').val()=='')
+        return warnInvalid($('#csv')[0],msgInvalidFile);
+
+    $.LoadingOverlay('show');
+    return true;
+}
+
+function edit_onsubmit(theForm) {
 	var msgInvalidNumber = "<?php echo _("Please enter a valid Number"); ?>";
 	var msgInvalidName = "<?php echo _("Please enter a valid Name"); ?>";
 	var msgInvalidCode = "<?php echo _("Please enter a valid Speeddial code or leave it empty"); ?>";
@@ -209,10 +198,23 @@ function edit_onsubmit() {
 	defaultEmptyOK = true;
 	if (!isInteger(theForm.speeddial.value))
 		return warnInvalid(theForm.speeddial, msgInvalidCode);
-		
+
+    $.LoadingOverlay('show');    
 	return true;
 }
 
+$(function(){
+const fileInput = document.querySelector("input[type=file]");
+  fileInput.onchange = () => {
+    if (fileInput.files.length > 0) {
+      const fileName = document.querySelector(".file-name");
+      fileName.textContent = fileInput.files[0].name;
+    }
+}
+})
 
--->
+
+<?php echo js_display_confirmation_toasts(); ?>
 </script>
+</div> <!-- end div content, be sure to include script tags before -->
+<?php echo form_action_bar($extdisplay); ?>
