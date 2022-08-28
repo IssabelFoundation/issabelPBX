@@ -10,7 +10,7 @@ $table = new CI_Table;
 
 $template_list = '<ul id="templates" class="sortable">';
 foreach ($templates as $t) {
-	$template_list .= '<li data-template="' . rawurlencode(json_encode($t['items'])) . '"'
+	$template_list .= '<li class="draggable" data-template="' . rawurlencode(json_encode($t['items'])) . '"'
 					. ' title="' . $t['desc'] . '"'
 					.'>' 
 					. '<a class="button is-small" href="javascript:void(0);">'
