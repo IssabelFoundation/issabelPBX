@@ -31,4 +31,4 @@ msgstr "Directorio discado-por-nombre"
 
 #: pbdirectory.i18n.php:8
 msgid "Provides a dial-by-name directory for phonebook entries"
-msgstr "Provee un directorio discado-por-nombre para el listín"
+msgstr "Provee un directorio discado-por-nombre para la agenda"
