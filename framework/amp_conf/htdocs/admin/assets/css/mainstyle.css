@@ -1017,6 +1017,15 @@ table.table.notfixed {
   table-layout: auto !important;
 }
 
+.draggable, li.draggable > a {
+  cursor: move;
+  cursor: grab;
+}
+
+.draggable:active, li.draggable:active > a {
+  cursor: grabbing;
+}
+
 .ui-corner-all { border-radius:5px;  }
 .ui-widget-header { background-color: #7d48ad;  }
 
