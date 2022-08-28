@@ -13,13 +13,13 @@ msgstr ""
 "todo sonido, música o anuncio previo a ser atendido."
 
 msgid "Add Call Recording"
-msgstr "Añadir Grabación"
+msgstr "Añadir grabación"
 
 msgid "Add Call Recording Instance"
-msgstr "Añadir Instancia de Grabación"
+msgstr "Añadir instancia de grabación"
 
 msgid "Edit Call Recording Instance"
-msgstr "Modificar Instancia de Grabación"
+msgstr "Modificar instancia de grabación"
 
 msgid "Destination"
 msgstr "Destino"
@@ -40,7 +40,7 @@ msgid "Never"
 msgstr "Nunca"
 
 msgid "Record on Answer"
-msgstr "Grabar al Atender"
+msgstr "Grabar al atender"
 
 msgid "Record Immediately"
 msgstr "Grabar inmediatamente"

@@ -39,7 +39,7 @@ msgstr ""
 
 #: page.daynight.php:18
 msgid "Add Call Flow Toggle Code"
-msgstr "Añadir Código de Control de Flujo"
+msgstr "Añadir Código de control de flujo"
 
 #: daynight.i18n.php:6 daynight.i18n.php:12
 msgid "Applications"
@@ -67,7 +67,7 @@ msgstr ""
 
 #: daynight.i18n.php:4 daynight.i18n.php:10
 msgid "Call Flow Control"
-msgstr "Control de Flujo de Llamadas"
+msgstr "Control de flujo de llamadas"
 
 #: daynight.i18n.php:16
 msgid "Call Flow Control Module"

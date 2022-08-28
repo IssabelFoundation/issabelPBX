@@ -425,10 +425,10 @@ msgid ""
 msgstr "Valor fijo para reemplazar el CID con el que se usa con algunos de los modos anteriores. Debe tener un formato de dígitos solo con una opción de formato E164 con un \"+\" inicial"
 
 msgid "Call Recording"
-msgstr "Grabación de Llamadas"
+msgstr "Grabación de llamadas"
 
 msgid "Record Calls"
-msgstr "Grabar Llamadas"
+msgstr "Grabar llamadas"
 
 msgid ""
 "You can always record calls that come into this ring group, never record "

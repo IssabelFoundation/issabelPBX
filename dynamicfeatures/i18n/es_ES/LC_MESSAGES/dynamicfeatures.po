@@ -16,13 +16,13 @@ msgstr ""
 #, php-format
 
 msgid "Dynamic Features"
-msgstr "Funcionalidades Dinámicas"
+msgstr "Funcionalidades dinámicas"
 
 msgid "Add Dynamic Feature"
-msgstr "Añadir Funcionalidad Dinámica"
+msgstr "Añadir funcionalidad dinámica"
 
 msgid "Edit Dynamic Feature"
-msgstr "Modificar Funcionalidad Dinámica"
+msgstr "Modificar funcionalidad dinámica"
 
 msgid "Edit: "
 msgstr "Modificar: "
