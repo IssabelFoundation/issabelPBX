@@ -99,15 +99,19 @@ $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span>
     		<td colspan="2">
     			<div id="opencnam" style="display: none">
     				<h5><?php echo _("OpenCNAM") ?></h5>
-    				<p style="display:block;max-width:345px;margin-left:auto;margin-right:auto;margin-bottom:40px;font-style:italic;font-size:12px;"><b><?php echo _('NOTE:');?></b> <?php echo _("OpenCNAM's Hobbyist Tier (default) only allows you to do 60 cached CallerID lookups per hour. If you get more than 60 incoming calls per hour, or want real-time CallerID information (more accurate), you should use the Professional Tier.");?></p>
-    				<p style="display:block;max-width:345px;margin-left:auto;margin-right:auto;margin-bottom:20px;font-style:italic;font-size:12px;"><?php echo _("If you'd like to create an OpenCNAM Professional Tier account, you can do so on their website: <a href='https://www.opencnam.com/register' target='_blank'>https://www.opencnam.com/register</a>");?></p>
+                    <p class='notification is-info is-light'><b><?php echo _('NOTE:');?></b> <?php echo _("OpenCNAM's Hobbyist Tier (default) only allows you to do 60 cached CallerID lookups per hour. If you get more than 60 incoming calls per hour, or want real-time CallerID information (more accurate), you should use the Professional Tier.");?></p>
+                    <p class='notification is-info is-light'><?php echo _("If you'd like to create an OpenCNAM Professional Tier account, you can do so on their website: <a href='https://www.opencnam.com/register' target='_blank'>https://www.opencnam.com/register</a>");?></p>
     				<table cellpadding="2" cellspacing="0" width="100%">
     					<tr>
     						<td width="50%">
                                 <a href="#" class="info"><?php echo _("Use Professional Tier?")?><span><?php echo _("OpenCNAM's Professional Tier lets you do as many real-time CNAM queries as you want, for a small fee. This is recommended for business users.")?></span></a>
                             </td>
-    						<td>
-                                <input type="checkbox" id="opencnam_professional_tier" name="opencnam_professional_tier" value="1" <?php echo ($thisItem['opencnam_account_sid'] && $thisItem['opencnam_auth_token'] ? 'checked' : ''); ?> tabindex="<?php echo ++$tabindex;?>">
+                            <td>
+<?php
+    $checked = ($thisItem['opencnam_account_sid'] && $thisItem['opencnam_auth_token'])?' checked="checked" ':'';
+?>
+<div class='field'><input type='checkbox' class='switch' id='opencnam_professional_tier' name='opencnam_professional_tier' value='1' <?php echo $checked;?> tabindex='<?php echo ++$tabindex;?>'/><label style='height:auto; line-height:2em; padding-left:3em;' for='opencnam_professional_tier'>&nbsp;</label></div>
+
                             </td>
     					</tr>
     					<tr class='opencnam_pro'>
