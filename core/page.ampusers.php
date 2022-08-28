@@ -192,8 +192,7 @@ foreach ($tresults as $tresult) {
 			</tr>
 			<tr>
 				<td colspan="2">
-					<br>
-					<h4><?php echo _("Access Restrictions")?></h4>
+					<h5><?php echo _("Access Restrictions")?></h5>
 				</td>
 			</tr>
 			<tr>
