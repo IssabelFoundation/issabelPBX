@@ -1,0 +1,2 @@
+msgid "Preserve Accountcode"
+msgstr "Preservar Accountcode"
