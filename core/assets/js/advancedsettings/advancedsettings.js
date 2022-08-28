@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
 	//save settings
 	function savebinder(e) {
 		if (!can_write_amportalconf) {
