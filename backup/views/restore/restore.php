@@ -25,7 +25,7 @@ $html .='<div class="file has-name is-fullwidth has-addons">
     <span class="file-name" id="selected_file_name">
     </span>
   </label>
-  <div class="control"><input type="button" style="font-size:0.85em;" class="button is-small is-info" value="'._("Go!").'" onclick="document.upload.submit();$.LoadingOverlay(\'show\');"/></div>
+  <div class="control"><input type="button" class="button is-info" value="'._("Go!").'" onclick="document.upload.submit();$.LoadingOverlay(\'show\');"/></div>
 </div>';
 
 

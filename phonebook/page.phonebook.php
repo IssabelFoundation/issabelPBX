@@ -165,7 +165,7 @@ echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Phonebook Entry').': '.$
     <span class="file-name" id="selected_file_name">
     </span>
   </label>
-  <div class="control"><input type="submit" style="font-size:0.85em;" class="button is-small is-info" value="<?php echo _('Upload');?>"/></div>
+  <div class="control"><input type="submit" class="button is-info" value="<?php echo _('Upload');?>"/></div>
 </div>
 
 

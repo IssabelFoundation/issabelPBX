@@ -507,7 +507,7 @@ function editstream_onsubmit(theForm) {
     <span class="file-name" id="selected_file_name">
     </span>
   </label>
-  <div class='control'><input type='button' style='font-size:0.85em;' class='button is-small is-info' value="<?php echo _("Upload")?>" onclick="document.upload.submit(upload);$.LoadingOverlay('show');" tabindex="<?php echo ++$tabindex;?>"/></div>
+  <div class='control'><input type='button' class='button is-info' value="<?php echo _("Upload")?>" onclick="document.upload.submit(upload);$.LoadingOverlay('show');" tabindex="<?php echo ++$tabindex;?>"/></div>
 </div>
 </td></tr>
 
