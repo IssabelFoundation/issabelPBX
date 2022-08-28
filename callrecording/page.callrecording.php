@@ -80,13 +80,13 @@ if ($extdisplay) {
     <table class='table is-borderless is-narrow'>
     <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("The descriptive name of this call recording instance. For example \"French Main IVR\"")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _("The descriptive name of this call recording instance. For example \"French Main IVR\"")?></span></a></td>
 		<td><input autofocus class="input w100" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 
 
 	<tr>
-    <td><a href="#" class="info"><?php echo _("Call Recording Mode")?>:<span><?php echo _("Controls or overrides the call recording behavior for calls continuing through this call flow. Allow will honor the normal downstream call recording settings. Record on Answer starts recording when the call would otherwise be recorded ignoring any settings that say otherwise. Record Immediately will start recording right away capturing ringing, announcements, MoH, etc. Never will disallow recording regardless of downstream settings.")?></span></a></td>
+    <td><a href="#" class="info"><?php echo _("Call Recording Mode")?><span><?php echo _("Controls or overrides the call recording behavior for calls continuing through this call flow. Allow will honor the normal downstream call recording settings. Record on Answer starts recording when the call would otherwise be recorded ignoring any settings that say otherwise. Record Immediately will start recording right away capturing ringing, announcements, MoH, etc. Never will disallow recording regardless of downstream settings.")?></span></a></td>
 <?php
 	$callrecording_html = '<td><select class="componentSelect" name="callrecording_mode" tabindex="' . ++$tabindex . '">'."\n";
     $callrecording_html.= '<option value=""' . ($callrecording_mode == ''  ? ' SELECTED' : '').'>'._("Allow")."\n";
