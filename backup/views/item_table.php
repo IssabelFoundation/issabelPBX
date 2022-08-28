@@ -3,7 +3,7 @@ $html = '';
 $table = new CI_Table;
 
 //item table
-$table->set_template(array('table_open' => '<table class="alt_table" id="template_table">'));
+$table->set_template(array('table_open' => '<table class="is-striped table is-narrow" id="template_table">'));
 //$table->set_heading(_('Type'), _('Path/DB'), _('Exclude'), _('Delete'));
 $table->set_heading(_('Type'), _('Path/DB'), _('Exclude'), array('style'=>'width:3.5em;', 'data'=> ''));
 

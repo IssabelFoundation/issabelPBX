@@ -57,7 +57,7 @@ $current_category		= '';
 $row					= 0;
 
 echo '<input type="image" src="/admin/images/spinner.gif" alt="spinner" style="display:none">';
-echo '<table class="table is-borderless is-striped">';
+echo '<table class="table is-borderless is-striped notfixed">';
 foreach ($conf as $c){
 	if ($c['level'] > $display_level || $c['hidden'] && !$display_hidden || $c['readonly'] && !$display_readonly) {
 		continue;

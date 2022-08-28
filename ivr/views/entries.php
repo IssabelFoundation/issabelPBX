@@ -1,6 +1,6 @@
 <?php
 $table = new CI_Table;
-$table->set_template(array('table_open' => '<table class="alt_table IVREntries" id="ivr_entries">'));
+$table->set_template(array('table_open' => '<table class="table is-striped is-narrow notfixed IVREntries" id="ivr_entries">'));
 //build header
 $h = array();
 foreach($headers as $mod => $header) {
