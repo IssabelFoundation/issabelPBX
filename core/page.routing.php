@@ -302,7 +302,6 @@ $(function(){
     Sortable.create(rnavul, { 
     animation: 150,
         onEnd: function(ui) {
-            console.log($(ui.item).find('a').attr('href'));
             const urlParams = new URLSearchParams($(ui.item).find('a').attr('href').split('?')[1]);
             var repotrunkkey = urlParams.get('extdisplay');
             var repotrunkdirection=$(ui.item).index();
