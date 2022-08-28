@@ -566,12 +566,16 @@ function toggle_reload_button(action) {
             $('#button_reload').show().css('display', 'inline-block');
             break;
         case 'hide':
-            $('#button_reload').hide();
+            $('#button_reload').addClass('animate__zoomOut');
+            setTimeout(function(){
+                  $('#button_reload').removeClass('animate__zoomOut');
+                  $('#button_reload').hide();
+            },600)
             break;
     }
 }
 
-$(document).ready(function() {
+$(function() {
 
     console.log('document ready: main');
 
