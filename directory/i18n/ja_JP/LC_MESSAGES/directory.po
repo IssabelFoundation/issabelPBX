@@ -159,13 +159,13 @@ msgstr "ディレクトリを削除 %s"
 msgid "Directory General Options"
 msgstr "ディレクトリ一般オプション"
 
-msgid "Directory Name"
+msgid "Name"
 msgstr "ディレクトリ名"
 
 msgid "Name of this directory."
 msgstr "このディレクトリの名前。"
 
-msgid "Directory Description"
+msgid "Description"
 msgstr "ディレクトリ説明"
 
 msgid "Description of this directory."
@@ -278,7 +278,7 @@ msgstr "全てのユーザー"
 msgid "Custom"
 msgstr "カスタム"
 
-msgid "Add new entry."
+msgid "Add new entry"
 msgstr "新規エントリーを追加。"
 
 msgid "Voicemail Greeting"
@@ -290,7 +290,7 @@ msgstr "テキスト to スピーチ(テキスト合成音声)"
 msgid "Spell Name"
 msgstr "名前のスペル"
 
-msgid "System Recordings:"
+msgid "System Recordings"
 msgstr "システム録音:"
 
 #, php-format

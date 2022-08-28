@@ -7,7 +7,7 @@ $autoincrement=(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? "AUTOINCREMENT
 out(_('Adding directory tables if needed'));
 
 $sql[] = "CREATE TABLE IF NOT EXISTS directory_details (
-    id INT NOT NULL PRIMARY KEY $autoincrement,
+    id INTEGER PRIMARY KEY $autoincrement NOT NULL,
     dirname varchar(50),
     description varchar(150),    
     announcement INT,
@@ -24,6 +24,7 @@ $sql[] = "CREATE TABLE IF NOT EXISTS directory_details (
 
 $sql[] = "CREATE TABLE IF NOT EXISTS directory_entries (
     id INT NOT NULL,
+    e_id INTEGER,
     name varchar(50),
     type varchar(25),
     foreign_id varchar(25),
@@ -34,7 +35,7 @@ $sql[] = "CREATE TABLE IF NOT EXISTS directory_entries (
 foreach ($sql as $s) {
 	$do = $db->query($s);
 	if (DB::IsError($do)) {
-		out(_('Can not create table: ') . $check->getMessage());
+		out(_('Can not create table: ') . $do->getMessage());
 		return false;
 	}
 }
@@ -138,7 +139,7 @@ if (!$migrated) {
 			die_issabelpbx(_('Error migrating to new directory! ERROR: Could not create new Directory.' . $new->getDebugInfo()));
 		}
 		//get the id of the new directory
-		$sql = ((preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
+		$sql = ( ($amp_conf["AMPDBENGINE"] == "sqlite3") ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
 		$newdir = $db->getOne($sql);
 		$dirdest = 'directory,' . $newdir  . ',1';
 	

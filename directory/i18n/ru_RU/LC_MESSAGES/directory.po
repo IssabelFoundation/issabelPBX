@@ -42,13 +42,13 @@ msgstr "Удалить директорию %s"
 msgid "Directory General Options"
 msgstr "Основные свойства директории"
 
-msgid "Directory Name"
+msgid "Name"
 msgstr "Название директории"
 
 msgid "Name of this directory."
 msgstr "Имя текущей директории."
 
-msgid "Directory Description"
+msgid "Description"
 msgstr "Описание директории"
 
 msgid "Description of this directory."
@@ -166,7 +166,7 @@ msgstr "Все пользователи"
 msgid "Custom"
 msgstr "Особое"
 
-msgid "Add new entry."
+msgid "Add new entry"
 msgstr "Добавить новую запись."
 
 msgid "Voicemail Greeting"
@@ -178,7 +178,7 @@ msgstr "Проговорить текст"
 msgid "Spell Name"
 msgstr "Имя Spell"
 
-msgid "System Recordings:"
+msgid "System Recordings"
 msgstr "Записи в системе:"
 
 #, php-format

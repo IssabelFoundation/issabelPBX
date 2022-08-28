@@ -56,13 +56,13 @@ msgstr ""
 msgid "Directory General Options"
 msgstr ""
 
-msgid "Directory Name"
+msgid "Name"
 msgstr ""
 
 msgid "Name of this directory."
 msgstr ""
 
-msgid "Directory Description"
+msgid "Description"
 msgstr ""
 
 msgid "Description of this directory."
@@ -162,7 +162,7 @@ msgstr ""
 msgid "Custom"
 msgstr ""
 
-msgid "Add new entry."
+msgid "Add new entry"
 msgstr ""
 
 msgid "Voicemail Greeting"
@@ -174,7 +174,7 @@ msgstr ""
 msgid "Spell Name"
 msgstr ""
 
-msgid "System Recordings:"
+msgid "System Recordings"
 msgstr ""
 
 #, php-format
