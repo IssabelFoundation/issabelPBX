@@ -1013,6 +1013,10 @@ table.table {
   table-layout: fixed;
 }
 
+table.table.notfixed {
+  table-layout: auto !important;
+}
+
 .ui-corner-all { border-radius:5px;  }
 .ui-widget-header { background-color: #7d48ad;  }
 

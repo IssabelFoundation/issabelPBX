@@ -46,7 +46,7 @@ $html .= $table->generate();
 
 $table = new CI_Table;
 $table->add_row(array('colspan' => 10, 'data' => heading(_('Log Files'), 5) ));
-$table->set_template(array('table_open' => '<table class="table is-narrow" id="logfile_entries">'));
+$table->set_template(array('table_open' => '<table class="table is-narrow notfixed" id="logfile_entries">'));
 
 //draw table header with help on every option
 $has_security_option = version_compare($amp_conf['ASTVERSION'],'11.0','ge');
