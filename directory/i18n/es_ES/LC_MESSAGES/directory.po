@@ -1,3 +1,6 @@
+msgid "Directory"
+msgstr "Directorio"
+
 msgid "Add Directory"
 msgstr "Añadir Directorio"
 
