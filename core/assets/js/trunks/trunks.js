@@ -1,4 +1,4 @@
-$(function() {
+up.compiler('.content', function(element,data) {})
     $('.sortable').each(function() {
         Sortable.create(this, {
             animation: 150,
