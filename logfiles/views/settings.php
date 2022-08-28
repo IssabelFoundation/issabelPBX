@@ -84,7 +84,8 @@ foreach ($logfiles as $l) {
 				array(
 					'name'			=> 'logfiles[name][]',
 					'value'			=> $l['name'],
-					'placeholder'	=> _('file path/name'),
+                    'placeholder'	=> _('file path/name'),
+                    'class'         => 'input',
 					'required'		=> ''
 				)
 			);
