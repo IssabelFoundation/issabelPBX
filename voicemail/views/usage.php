@@ -1,4 +1,4 @@
-<table class='table is-striped mt-0'>
+<table class='table is-striped mt-0 notfixed'>
 	<tr>
 		<td>
 			<a href='#' class='info'><?php echo _("Number of Messages") ?><span><?php echo _("Total ( Messages in inboxes / Messages in other folders )") ?></span></a>

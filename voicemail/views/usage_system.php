@@ -1,4 +1,4 @@
-<table class='table is-striped mt-2'>
+<table class='table is-striped mt-2 notfixed'>
 	<tr>
 		<td>
 			<a href='#' class='info'><?php echo _("Number of Accounts") ?><span><?php echo _("Total ( Activated / Unactivated / Disabled )") ?></span></a>
