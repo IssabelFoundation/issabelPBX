@@ -910,7 +910,7 @@ function doready() {
         var boxWidth = $(this).width();
         var textWidth = $('.scroll', $(this)).width() + 22;
         if (textWidth > boxWidth) {
-            console.log('animate!');
+            $(this).css('background','#4b0884');
             var animSpeed = textWidth * 5;
             $(this).animate({
                 scrollLeft: (textWidth - boxWidth)
@@ -923,6 +923,7 @@ function doready() {
             });
         }
     }).on('mouseleave',function () {
+        $(this).css('background','transparent');
         var animSpeed = $(this).scrollLeft() * 5;
         $(this).stop().animate({
             scrollLeft: 0
