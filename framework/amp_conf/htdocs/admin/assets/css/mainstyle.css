@@ -363,7 +363,7 @@ div.attention {
   font-weight:bold;
 }
 #modulelist .moduleheader {
-  background:#ccc;
+  background:#ededed;
   padding:2px;
   margin:0;
 }
@@ -871,7 +871,7 @@ input[type="radio"]:disabled + label {
 
 .input { _width: inherit; }
 
-.disabled { opacity: 0.5; color: #aaa; }
+.disabled { opacity: 0.8; color: #aaa; }
 
 .button { _box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; }
 
@@ -978,6 +978,10 @@ button.navbar-item {
     _height: 100vh !important;
 }
 
+.backup-popover {
+    width: 70% !important;
+}
+
 .swal-wide {
   width:850px !important;
 }
@@ -1017,6 +1021,9 @@ table.table.notfixed {
   table-layout: auto !important;
 }
 
+.ui-corner-all { border-radius:5px; }
+.ui-widget-header { background-color: #7d48ad; }
+
 .draggable, li.draggable > a {
   cursor: move;
   cursor: grab;
@@ -1025,9 +1032,6 @@ table.table.notfixed {
 .draggable:active, li.draggable:active > a {
   cursor: grabbing;
 }
-
-.ui-corner-all { border-radius:5px;  }
-.ui-widget-header { background-color: #7d48ad;  }
 
 @keyframes fade {
   0% {
