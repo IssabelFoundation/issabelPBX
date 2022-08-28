@@ -79,20 +79,20 @@ msgstr "Ta bort hanterare"
 msgid "Edit Manager"
 msgstr "Redigera hanterare"
 
-msgid "Manager name:"
-msgstr "Namn på hanterare:"
+msgid "Manager name"
+msgstr "Namn på hanterare"
 
 msgid "Name of the manager without space."
 msgstr "Skriv in ett namn på en hanterare, använd inga mellanslag"
 
-msgid "Manager secret:"
-msgstr "Lösenord för hanteraren:"
+msgid "Manager secret"
+msgstr "Lösenord för hanteraren"
 
 msgid "Password for the manager."
 msgstr "Skriv in ett lösenord hanteraren ska använda."
 
-msgid "Deny:"
-msgstr "Förbjud (deny):"
+msgid "Deny"
+msgstr "Förbjud (deny)"
 
 msgid ""
 "If you want to deny many hosts or networks, use & char as separator.<br/><br/"
@@ -102,14 +102,14 @@ msgstr ""
 "separationstecken.<br><br>Exempel: "
 "192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
 
-msgid "Permit:"
-msgstr "Tillåt (permit):"
+msgid "Permit"
+msgstr "Tillåt (permit)"
 
 msgid ""
 "If you want to permit many hosts or networks, use & char as separator. Look "
 "at deny example."
 msgstr ""
-"Om du vill tillåta många datorer eller nätverk, använd & som "
+"Om du vill tillta många datorer eller nätverk, använd & som "
 "separationstecken. Exempel: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
 
 msgid "Rights"

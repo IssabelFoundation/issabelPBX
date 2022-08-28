@@ -61,19 +61,19 @@ msgstr ""
 msgid "Edit Manager"
 msgstr ""
 
-msgid "Manager name:"
+msgid "Manager name"
 msgstr ""
 
 msgid "Name of the manager without space."
 msgstr ""
 
-msgid "Manager secret:"
+msgid "Manager secret"
 msgstr ""
 
 msgid "Password for the manager."
 msgstr ""
 
-msgid "Deny:"
+msgid "Deny"
 msgstr ""
 
 msgid ""
@@ -81,7 +81,7 @@ msgid ""
 ">Example: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
 msgstr ""
 
-msgid "Permit:"
+msgid "Permit"
 msgstr ""
 
 msgid ""

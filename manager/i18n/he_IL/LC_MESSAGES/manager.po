@@ -63,20 +63,20 @@ msgstr "מחק מנהל"
 msgid "Edit Manager"
 msgstr "ערוך מנהל"
 
-msgid "Manager name:"
-msgstr "שם המנהל:"
+msgid "Manager name"
+msgstr "שם המנהל"
 
 msgid "Name of the manager without space."
 msgstr "שם המנהל ללא רווחים."
 
-msgid "Manager secret:"
-msgstr "סיסמת מנהל:"
+msgid "Manager secret"
+msgstr "סיסמת מנהל"
 
 msgid "Password for the manager."
 msgstr "סיסמא עבור המנהל"
 
-msgid "Deny:"
-msgstr "חסום:"
+msgid "Deny"
+msgstr "חסום"
 
 msgid ""
 "If you want to deny many hosts or networks, use & char as separator.<br/><br/"
@@ -85,8 +85,8 @@ msgstr ""
 "אם אתה רוצה לחסום הרבה מחשבים או רשתות, השתמש בתו & בתור מפריד.<br /><br /"
 ">לדוגמא: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
 
-msgid "Permit:"
-msgstr "הרשה:"
+msgid "Permit"
+msgstr "הרשה"
 
 msgid ""
 "If you want to permit many hosts or networks, use & char as separator. Look "

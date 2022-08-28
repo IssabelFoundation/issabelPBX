@@ -62,20 +62,20 @@ msgstr "Eliminar gestor"
 msgid "Edit Manager"
 msgstr "Modificar gestor"
 
-msgid "Manager name:"
-msgstr "Nombre del gestor:"
+msgid "Manager name"
+msgstr "Nombre del gestor"
 
 msgid "Name of the manager without space."
 msgstr "Nombre del gestor, sin espacios."
 
-msgid "Manager secret:"
-msgstr "Contraseña del gestor:"
+msgid "Manager secret"
+msgstr "Contraseña del gestor"
 
 msgid "Password for the manager."
 msgstr "Contraseña para el gestor."
 
-msgid "Deny:"
-msgstr "Denegar:"
+msgid "Deny"
+msgstr "Denegar"
 
 msgid ""
 "If you want to deny many hosts or networks, use & char as separator.<br/><br/"
@@ -84,8 +84,8 @@ msgstr ""
 "Si desea denegar varios equipos o redes, use el símbol '&' como separador."
 "<br/><br/>Por ejemplo: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0."
 
-msgid "Permit:"
-msgstr "Permitir:"
+msgid "Permit"
+msgstr "Permitir"
 
 msgid ""
 "If you want to permit many hosts or networks, use & char as separator. Look "

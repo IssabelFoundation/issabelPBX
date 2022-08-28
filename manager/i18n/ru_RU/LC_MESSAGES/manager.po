@@ -48,7 +48,7 @@ msgstr ""
 "Выбрать имя пользователя, которым PHPAGI будет образаться к Asterisk API."
 
 msgid "Increasing read field size if needed.."
-msgstr "Увеличить размер поля чтения если необходимо.."
+msgstr "Увеличить разм поля чтения если необходимо.."
 
 msgid "error encountered, not altered"
 msgstr "обнаружена ошибка, не изменено"
@@ -83,20 +83,20 @@ msgstr "Удалить менеджера"
 msgid "Edit Manager"
 msgstr "Редактировать менеджера"
 
-msgid "Manager name:"
-msgstr "Имя менеджера:"
+msgid "Manager name"
+msgstr "Имя менеджера"
 
 msgid "Name of the manager without space."
 msgstr "Имя менеджера без пробелов."
 
-msgid "Manager secret:"
-msgstr "Пароль менеджера:"
+msgid "Manager secret"
+msgstr "Пароль менеджера"
 
 msgid "Password for the manager."
-msgstr "Пароль для этого менеджера."
+msgstr "Паоь ля этого менеджера."
 
-msgid "Deny:"
-msgstr "Запрещены:"
+msgid "Deny"
+msgstr "Запрещены"
 
 msgid ""
 "If you want to deny many hosts or networks, use & char as separator.<br/><br/"
@@ -106,8 +106,8 @@ msgstr ""
 "эту опцию. Используйте & в качестве разделителя.<br/><br/>Например: "
 "192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
 
-msgid "Permit:"
-msgstr "Разрешены:"
+msgid "Permit"
+msgstr "Разрешены"
 
 msgid ""
 "If you want to permit many hosts or networks, use & char as separator. Look "
@@ -115,7 +115,7 @@ msgid ""
 msgstr ""
 "Если необходимо разрешить доступ с определённых хостов или сетей используйте "
 "эту опцию. Используйте & в качестве разделителя. Посмотрите на правило "
-"Запретить в качестве примера."
+"Запретить  каесте примера."
 
 msgid "Rights"
 msgstr "Права"

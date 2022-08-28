@@ -65,20 +65,20 @@ msgstr "Supprimer Administrateur"
 msgid "Edit Manager"
 msgstr "Editer Administrateur"
 
-msgid "Manager name:"
-msgstr "Nom de l'Administrateur:"
+msgid "Manager name"
+msgstr "Nom de l'Administrateur"
 
 msgid "Name of the manager without space."
 msgstr "Nom de l'administrateur sans espace."
 
-msgid "Manager secret:"
-msgstr "Mot de passe Administrateur:"
+msgid "Manager secret"
+msgstr "Mot de passe Administrateur"
 
 msgid "Password for the manager."
 msgstr "Mot de passe de l'Administrateur."
 
-msgid "Deny:"
-msgstr "Interdire:"
+msgid "Deny"
+msgstr "Interdire"
 
 msgid ""
 "If you want to deny many hosts or networks, use & char as separator.<br/><br/"
@@ -88,8 +88,8 @@ msgstr ""
 "caractère & comme séparateur.<br/><br>Exemple: "
 "192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
 
-msgid "Permit:"
-msgstr "autoriser:"
+msgid "Permit"
+msgstr "Autoriser"
 
 msgid ""
 "If you want to permit many hosts or networks, use & char as separator. Look "
