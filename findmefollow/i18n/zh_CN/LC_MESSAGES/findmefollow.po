@@ -116,7 +116,7 @@ msgstr "警告！你的帐户无法使用分机"
 msgid "is not allowed for your account"
 msgstr " "
 
-msgid "Choose a user/extension"
+msgid "Choose a user/extension from the navigation menu"
 msgstr "选择一个用户/分机"
 
 msgid "deleted"
@@ -346,7 +346,7 @@ msgid ""
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
 "MENU to the left"
 msgstr ""
-"如果“呼叫确认”被启用，这是对接听呼叫的人播放的消息。<br /><br />要添加额外的"
+"如果“呼叫确”被启用，这是对接听呼叫的人播放的消息。<br /><br />要添加额外的"
 "录音，请使用左边的“系统录音”菜单"
 
 msgid "Default"
@@ -414,7 +414,7 @@ msgid ""
 msgstr ""
 
 msgid "Destination if no answer"
-msgstr "无人接听时的目的地"
+msgstr "无人接听时的目的"
 
 msgid "Submit Changes"
 msgstr "提交更改"

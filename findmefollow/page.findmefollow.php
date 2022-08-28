@@ -129,7 +129,12 @@ if (isset($gresults)) {
 <?php 
 
 if ($extdisplay == "") {
-    echo '<h2>'._("Follow Me").'</h2><h3 class="mx-2">'._('Choose a user/extension').'</h3>';
+    echo '<h2>'._("Follow Me").'</h2><div class="mx-1">'._('Choose a user/extension from the navigation menu from the navigation menu').'</div>';
+    echo "
+    <script>
+        setTimeout(function() { $('.rnav').addClass('animate__animated').addClass('animate__headShake');  },3000);
+    </script>
+    ";
 } else {
     if ($extdisplay != "") {
         // We need to populate grplist with the existing extension list.

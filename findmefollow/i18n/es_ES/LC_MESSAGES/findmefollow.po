@@ -112,8 +112,8 @@ msgstr "Atención! La extensión"
 msgid "is not allowed for your account"
 msgstr "no está permitido en su cuenta"
 
-msgid "Choose a user/extension"
-msgstr "Elija una extensión"
+msgid "Choose a user/extension from the navigation menu"
+msgstr "Elija una extensión del menú de navegación"
 
 msgid "deleted"
 msgstr "eliminadas"
@@ -429,7 +429,7 @@ msgid "Please enter an extension list."
 msgstr "Por favor ingrese una lista de extensiones."
 
 msgid "Invalid time specified"
-msgstr "Duración inválida especificada"
+msgstr "Duracin inválida especificada"
 
 msgid "Time must be between 1 and 60 seconds"
 msgstr "La duración debe ser desde 1 a 60 segundos"
