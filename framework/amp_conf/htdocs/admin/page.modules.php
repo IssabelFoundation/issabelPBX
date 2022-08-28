@@ -687,18 +687,9 @@ default:
     echo "<input type=\"hidden\" name=\"online\" value=\"".$online."\" />";
     echo "<input type=\"hidden\" name=\"extdisplay\" value=\"confirm\" />";
 
-    echo "<div class=\"modulebuttons\">";
-    if ($online) {
-        echo "\t<a class='button is-small is-rounded' href=\"javascript:void(null);\" onclick=\"check_download_all();\">"._("Download all")."</a>";
-        echo "\t<a class='button is-small is-rounded' href=\"javascript:void(null);\" onclick=\"check_upgrade_all();\">"._("Upgrade all")."</a>";
-    }
-    echo "\t<input class='button is-small is-rounded' type=\"reset\" value=\""._("Reset")."\" />";
-    echo "\t<input class='button is-small is-rounded' type=\"submit\" value=\""._("Process")."\" name=\"process\" />";
-    echo "</div>";
+    echo "<div id=\"modulelist\" class=\"mt-2\">\n";
 
-    echo "<div id=\"modulelist\">\n";
-
-    echo "\t<div id=\"modulelist-header\" class='columns'>";
+    echo "\t<div id=\"modulelist-header\" class='columns mb-0'>";
     echo "\t\t<div class=\"column modulename\">"._("Module")."</div>\n";
     echo "\t\t<div class=\"column moduleversion\">"._("Version")."</div>\n";
     echo "\t\t<div class=\"column modulepublisher\">"._("Publisher")."</div>\n";
@@ -812,7 +803,7 @@ default:
                     echo _('Disabled; up to date');
                 }
             } else {
-                echo _('Disabled');
+                echo '<span class="disabled">'._('Disabled').'</span>';
             }
             break;
         case MODULE_STATUS_NEEDUPGRADE:
@@ -1025,13 +1016,16 @@ default:
     echo "\t</ul></div>\n";
     echo "</div>";
 
-    echo "<div class=\"modulebuttons\">";
+    echo "<div class='xmodulebuttons' id='action-bar'>";
+    echo "<div id='action-buttons'>";
+    echo '<a id="collapseactionmenuicon" class="action_menu_icon"><i class="fa fa-angle-double-right"></i></a>';
     if ($online) {
         echo "\t<a class='button is-small is-rounded' href=\"javascript:void(null);\" onclick=\"check_download_all();\">"._("Download all")."</a>";
         echo "\t<a class='button is-small is-rounded' href=\"javascript:void(null);\" onclick=\"check_upgrade_all();\">"._("Upgrade all")."</a>";
     }
     echo "\t<input class='button is-small is-rounded' type=\"reset\" value=\""._("Reset")."\" />";
     echo "\t<input class='button is-small is-rounded' type=\"submit\" value=\""._("Process")."\" name=\"process\" />";
+    echo "</div>";
     echo "</div>";
 
     echo "</form>";
