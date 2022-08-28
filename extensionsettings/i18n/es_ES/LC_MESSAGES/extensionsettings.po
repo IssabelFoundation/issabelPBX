@@ -1,5 +1,5 @@
 msgid "Extension Settings"
-msgstr "Configuración de Extensiones"
+msgstr "Configuración de extensiones"
 
 msgid "Settings"
 msgstr "Configuraciones"
