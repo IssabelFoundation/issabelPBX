@@ -689,7 +689,7 @@ global $currentcomponent;
                     }
                     //$currentcomponent->addguielem($val[1], new gui_selectbox('includes['.$val[2].'][sort]', $currentcomponent->getoptlist('includesort'), $val[5], '<div align="right">Priority</div>', 'Choose a priority with which to sort this option. Lower numbers have a higher priority.',false));
                     $guisort = new gui_selectbox('includes['.$val[2].'][sort]', $currentcomponent->getoptlist('includesort'), $val[5], '<div style="float:left; margin-left:10px;">'._('Priority').'</div>', _('Choose a priority with which to sort this option. Lower numbers have a higher priority.'),false);
-                    $inchtml = '<tr><td><table style="width:100%; padding: 5px;"><tr><td></td><td width="50"></td></tr>'.$gui1->generatehtml().'</table></td><td><table style="width:100%; padding: 5px;">'.$guisort->generatehtml().'</table></td></tr>';
+                    $inchtml = '<tr><td><table class="table notfixed"><tr><td></td><td width="50"></td></tr>'.$gui1->generatehtml().'</table></td><td><table style="width:100%; padding: 5px;">'.$guisort->generatehtml().'</table></td></tr>';
                     $currentcomponent->addguielem($val[1], new guielement('$val[0]',$inchtml,''),3);
                 } else {
                     if ($val[6] > 0) {

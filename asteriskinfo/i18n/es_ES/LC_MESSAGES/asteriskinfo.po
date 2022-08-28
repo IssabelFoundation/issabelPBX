@@ -214,3 +214,14 @@ msgstr "segundo"
 msgid "day"
 msgstr "día"
 
+msgid "Asterisk System uptime"
+msgstr "Tiempo de actividad de Asterisk"
+
+msgid "week"
+msgstr "semana"
+
+msgid "month"
+msgstr "mes"
+
+msgid "year"
+msgstr "año"

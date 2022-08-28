@@ -286,7 +286,7 @@ if ($extdisplay != '') {
 <?php if ($extdisplay != ''){ ?>
     <input type="hidden" name="account" value="<?php echo $extdisplay; ?>">
 <?php } ?>
-    <table class="table is-borderless is-narrow">
+    <table class="table is-borderless is-narrow notfixed">
     <?php 
     //if ($extdisplay) { echo '<tr><td colspan=2><input name="delete" class="button is-danger is-light is-small is-rounded" type="submit" value="'.dgettext("amp","Delete").'"></td></tr>'; } 
     ?>

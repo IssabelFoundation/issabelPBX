@@ -140,7 +140,7 @@ foreach ($full_list as $key => $value) {
 
 	$module_select[$sub_heading_id] = $sub_heading;
 	$textext = $key != 'did' ? _("Extension") : _("Destination");
-	$html_txt_arr[$sub_heading] = "<div class=\"$sub_heading_id\"><table border=\"0\" width=\"75%\"><tr width='90%'><td><br><strong><a href=\"config.php?display=printextensions&sort_table=$sub_heading_id&sort_col=1\">".sprintf("%s",$sub_heading)."</a></strong></td><td width=\"10%\" align=\"right\"><br><strong><a href=\"config.php?display=printextensions&sort_table=$sub_heading_id&sort_col=2\">".$textext."</a></strong></td></tr>\n";
+	$html_txt_arr[$sub_heading] = "<div class=\"$sub_heading_id\"><table border=\"0\" class='table notfixed' width=\"75%\"><tr width='90%'><td><br><strong><a href=\"config.php?display=printextensions&sort_table=$sub_heading_id&sort_col=1\">".sprintf("%s",$sub_heading)."</a></strong></td><td width=\"10%\" align=\"right\"><br><strong><a href=\"config.php?display=printextensions&sort_table=$sub_heading_id&sort_col=2\">".$textext."</a></strong></td></tr>\n";
         if(isset($_REQUEST['sort_table'])) {
 		if ($_REQUEST["sort_table"] == $sub_heading_id) {
 			if ($_REQUEST["sort_col"] == 1) {
@@ -207,7 +207,7 @@ if ((!$quietmode || isset($_REQUEST[$sub_heading_id])) && isset($full_list['feat
     $txtdom = $sub_heading_id;
 	$sub_heading =  modgettext::_($active_modules['featurecodeadmin']['name'], $txtdom);
 	$module_select[$sub_heading_id] = $sub_heading;
-	$html_txt_arr[$sub_heading] =  "<div class=\"$sub_heading_id\"><table border=\"0\" width=\"75%\"><tr colspan=\"2\" width='100%'><td><br /><strong>".sprintf("%s",$sub_heading)."</strong></td></tr>\n";
+	$html_txt_arr[$sub_heading] =  "<div class=\"$sub_heading_id\"><table border=\"0\" width=\"75%\" class='table notfixed'><tr colspan=\"2\" width='100%'><td><br /><strong>".sprintf("%s",$sub_heading)."</strong></td></tr>\n";
 	foreach ($featurecodes as $item) {
 		$moduleena = ($item['moduleenabled'] == 1 ? true : false);
 		$featureena = ($item['featureenabled'] == 1 ? true : false);
