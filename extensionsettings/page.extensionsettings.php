@@ -62,7 +62,7 @@ foreach ($full_list as $key => $value) {
     $sub_heading =  modgettext::_($active_modules[$key]['name'], $txtdom);
   }
   $module_select[$sub_heading_id] = $sub_heading;
-  $html_txt_arr[$sub_heading] =   "<div class=\"$sub_heading_id\"><table id=\"set_table\" class='table is-borderless is-narrow is-striped'><tr>";
+  $html_txt_arr[$sub_heading] =   "<div class=\"$sub_heading_id\"><table id=\"set_table\" class='table is-borderless is-narrow is-striped notfixed'><tr>";
   $html_txt_arr[$sub_heading] .=  "<tr><td><strong>".$extension."</strong></td>";
   $html_txt_arr[$sub_heading] .=  "<td colspan=\"7\" align=\"center\"><strong>".$vmxlocator."</strong></td>";
   $html_txt_arr[$sub_heading] .=  "<td colspan=\"2\" align=\"center\"><strong>".$followme."</strong></td>";
