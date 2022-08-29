@@ -70,11 +70,14 @@ up.compiler('.content', function() {
     $('#sourcetype').on('focus',function () {
         prev_source = $(this).val();
     }).on('change',function() {
-        console.log('change');
-        $('#'+prev_source).hide();
         source = $(this).val();
         source = (source == 'https') ? 'http' : source;
-        $('#'+source).show();
+        if($('#'+prev_source).length>0) {
+            $('#'+prev_source).fadeOut("slow",function() { $('#'+source).fadeIn("slow"); });
+        } else {
+            $('#'+source).fadeIn("slow");
+        }
+
         prev_source = source;
     });
 
