@@ -190,8 +190,10 @@ if($shield_class=='updates_partial') {
 			style.display = 'block';
 		} else {
 			style.display = 'none';
-		}
-	}
+        }
+        positionActionBar();
+    }
+
 	function check_upgrade_all() {
 		var re = /^moduleaction\[([a-z0-9_\-]+)\]$/;
 		for(i=0; i<document.modulesGUI.elements.length; i++) {
