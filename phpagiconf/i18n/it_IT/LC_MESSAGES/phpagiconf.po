@@ -13,24 +13,24 @@ msgstr ""
 "X-Poedit-Country: ITALY\n"
 
 #: page.phpagiconf.php:90
-msgid "Asterisk API settings:"
+msgid "Asterisk API settings"
 msgstr "Impostazioni API Asterisk:"
 
 #: page.phpagiconf.php:109
-msgid "Basedir:"
+msgid "Basedir"
 msgstr "Directory base:"
 
 #: page.phpagiconf.php:112
-msgid "Cepstral config:"
+msgid "Cepstral config"
 msgstr "Configurazione Cepstral:"
 
 #: page.phpagiconf.php:118
-msgid "Cepstral voice:"
+msgid "Cepstral voice"
 msgstr "Voce Cepstral:"
 
 #: page.phpagiconf.php:60
-msgid "Debug:"
-msgstr "Debug:"
+msgid "Debug"
+msgstr "Debug"
 
 #: page.phpagiconf.php:102
 msgid "Drop privileges to owner of script."
@@ -45,7 +45,7 @@ msgid "Enable PHPAGI debugging."
 msgstr "Attiva debugging PHPAGI"
 
 #: page.phpagiconf.php:67
-msgid "Error handler:"
+msgid "Error handler"
 msgstr "Handler errori:"
 
 #: functions.inc.php:38
@@ -53,15 +53,15 @@ msgid "Error writing the phpagi.conf file."
 msgstr "Errore durante la scrittura del file phpagi.conf"
 
 #: page.phpagiconf.php:100
-msgid "Fast AGI config:"
+msgid "Fast AGI config"
 msgstr "Configurazione FastAGI:"
 
 #: page.phpagiconf.php:85
-msgid "Festival config:"
+msgid "Festival config"
 msgstr "Configurazione Festival:"
 
 #: page.phpagiconf.php:78
-msgid "Hostname of the server:"
+msgid "Hostname of the server"
 msgstr "Hostname del server:"
 
 #: page.phpagiconf.php:78
@@ -69,15 +69,15 @@ msgid "Hostname of this server."
 msgstr "Hostname di questo server."
 
 #: page.phpagiconf.php:74
-msgid "Mail errors to:"
+msgid "Mail errors to"
 msgstr "Invia errori all'Email:"
 
 #: page.phpagiconf.php:57
-msgid "Main config:"
+msgid "Main config"
 msgstr "Configurazione principale:"
 
 #: page.phpagiconf.php:52
-msgid "PHPAGI Config:"
+msgid "PHPAGI Config"
 msgstr "Configurazione PHPAGI:"
 
 #: page.phpagiconf.php:109
@@ -93,7 +93,7 @@ msgid "Path to text2wave binary."
 msgstr "Il percorso dell'eseguibile text2wave."
 
 #: page.phpagiconf.php:87
-msgid "Path to text2wave:"
+msgid "Path to text2wave"
 msgstr "Percorso text2wave:"
 
 #: page.phpagiconf.php:96
@@ -101,7 +101,7 @@ msgid "Port to connect to manager."
 msgstr "Porta del manager dove connettersi."
 
 #: page.phpagiconf.php:96
-msgid "Port:"
+msgid "Port"
 msgstr "Porta:"
 
 #: page.phpagiconf.php:92
@@ -109,15 +109,15 @@ msgid "Server to connect to."
 msgstr "Il Server dove connettersi."
 
 #: page.phpagiconf.php:92
-msgid "Server:"
-msgstr "Server:"
+msgid "Server"
+msgstr "Server"
 
 #: page.phpagiconf.php:122
 msgid "Submit Changes"
 msgstr "Conferma Cambiamenti"
 
 #: page.phpagiconf.php:114
-msgid "Swift path:"
+msgid "Swift path"
 msgstr "Percorso Swift:"
 
 #: page.phpagiconf.php:118
@@ -129,7 +129,7 @@ msgid "Temporary directory for storing temporary output."
 msgstr "Directory temporanea dove salvare gli output temporanei."
 
 #: page.phpagiconf.php:82
-msgid "Temporary directory:"
+msgid "Temporary directory"
 msgstr "Directory temporanea:"
 
 #: page.phpagiconf.php:67
@@ -141,7 +141,7 @@ msgid "false"
 msgstr "falso"
 
 #: page.phpagiconf.php:102
-msgid "setuid:"
+msgid "setuid"
 msgstr "Setuid:"
 
 #: page.phpagiconf.php:63 page.phpagiconf.php:70 page.phpagiconf.php:105

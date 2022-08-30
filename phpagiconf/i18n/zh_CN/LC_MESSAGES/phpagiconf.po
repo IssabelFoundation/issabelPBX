@@ -19,23 +19,23 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: page.phpagiconf.php:90
-msgid "Asterisk API settings:"
+msgid "Asterisk API settings"
 msgstr "Asterisk API 相关设置："
 
 #: page.phpagiconf.php:109
-msgid "Basedir:"
+msgid "Basedir"
 msgstr "主目录："
 
 #: page.phpagiconf.php:112
-msgid "Cepstral config:"
+msgid "Cepstral config"
 msgstr "Cepstral相关配置："
 
 #: page.phpagiconf.php:118
-msgid "Cepstral voice:"
+msgid "Cepstral voice"
 msgstr "Cepstral语音："
 
 #: page.phpagiconf.php:60
-msgid "Debug:"
+msgid "Debug"
 msgstr "调试："
 
 #: page.phpagiconf.php:102
@@ -51,7 +51,7 @@ msgid "Enable PHPAGI debugging."
 msgstr "启用PHPAGI调试。"
 
 #: page.phpagiconf.php:67
-msgid "Error handler:"
+msgid "Error handler"
 msgstr "错误处理："
 
 #: functions.inc.php:38
@@ -59,15 +59,15 @@ msgid "Error writing the phpagi.conf file."
 msgstr "写入phpagi.conf文件时发生错误。"
 
 #: page.phpagiconf.php:100
-msgid "Fast AGI config:"
+msgid "Fast AGI config"
 msgstr "AGI快速配置："
 
 #: page.phpagiconf.php:85
-msgid "Festival config:"
+msgid "Festival config"
 msgstr "彩蛋配置："
 
 #: page.phpagiconf.php:78
-msgid "Hostname of the server:"
+msgid "Hostname of the server"
 msgstr "服务器的主机名："
 
 #: page.phpagiconf.php:78
@@ -75,15 +75,15 @@ msgid "Hostname of this server."
 msgstr "此服务器的主机名："
 
 #: page.phpagiconf.php:74
-msgid "Mail errors to:"
+msgid "Mail errors to"
 msgstr "将错误用电子邮件发送到："
 
 #: page.phpagiconf.php:57
-msgid "Main config:"
+msgid "Main config"
 msgstr "主要的配置："
 
 #: page.phpagiconf.php:52
-msgid "PHPAGI Config:"
+msgid "PHPAGI Config"
 msgstr "PHPAGI配置:"
 
 #: page.phpagiconf.php:109
@@ -99,7 +99,7 @@ msgid "Path to text2wave binary."
 msgstr "text2wave可执行文件的路径。"
 
 #: page.phpagiconf.php:87
-msgid "Path to text2wave:"
+msgid "Path to text2wave"
 msgstr "text2wave程序的路径："
 
 #: page.phpagiconf.php:96
@@ -107,7 +107,7 @@ msgid "Port to connect to manager."
 msgstr "要连接到的管理器所在的端口。"
 
 #: page.phpagiconf.php:96
-msgid "Port:"
+msgid "Port"
 msgstr "端口："
 
 #: page.phpagiconf.php:92
@@ -115,7 +115,7 @@ msgid "Server to connect to."
 msgstr "要连接的服务器。"
 
 #: page.phpagiconf.php:92
-msgid "Server:"
+msgid "Server"
 msgstr "服务器："
 
 #: page.phpagiconf.php:122
@@ -123,7 +123,7 @@ msgid "Submit Changes"
 msgstr "提交更改"
 
 #: page.phpagiconf.php:114
-msgid "Swift path:"
+msgid "Swift path"
 msgstr "Swift程序的路径："
 
 #: page.phpagiconf.php:118
@@ -135,7 +135,7 @@ msgid "Temporary directory for storing temporary output."
 msgstr "用于存放临时输出的临时目录。"
 
 #: page.phpagiconf.php:82
-msgid "Temporary directory:"
+msgid "Temporary directory"
 msgstr "临时目录："
 
 #: page.phpagiconf.php:67
@@ -147,7 +147,7 @@ msgid "false"
 msgstr "否"
 
 #: page.phpagiconf.php:102
-msgid "setuid:"
+msgid "setuid"
 msgstr "设置uid（setuid）："
 
 #: page.phpagiconf.php:63 page.phpagiconf.php:70 page.phpagiconf.php:105

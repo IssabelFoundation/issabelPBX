@@ -18,24 +18,24 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: page.phpagiconf.php:90
-msgid "Asterisk API settings:"
-msgstr "Configuración API Asterisk:"
+msgid "Asterisk API settings"
+msgstr "Configuración API Asterisk"
 
 #: page.phpagiconf.php:109
-msgid "Basedir:"
-msgstr "BaseDir:"
+msgid "Basedir"
+msgstr "Ruta base"
 
 #: page.phpagiconf.php:112
-msgid "Cepstral config:"
-msgstr "config Cepstral:"
+msgid "Cepstral config"
+msgstr "Configuración Cepstral"
 
 #: page.phpagiconf.php:118
-msgid "Cepstral voice:"
-msgstr "Voz Cepstral:"
+msgid "Cepstral voice"
+msgstr "Voz Cepstral"
 
 #: page.phpagiconf.php:60
-msgid "Debug:"
-msgstr "Depurar:"
+msgid "Debug"
+msgstr "Depurar"
 
 #: page.phpagiconf.php:102
 msgid "Drop privileges to owner of script."
@@ -50,80 +50,80 @@ msgid "Enable PHPAGI debugging."
 msgstr "Habilitar depuración PHPAGI."
 
 #: page.phpagiconf.php:67
-msgid "Error handler:"
-msgstr "Manejador de errores:"
+msgid "Error handler"
+msgstr "Manejador de errores"
 
 #: functions.inc.php:38
 msgid "Error writing the phpagi.conf file."
 msgstr "Error al escribir el archivo phpagi,conf."
 
 #: page.phpagiconf.php:100
-msgid "Fast AGI config:"
-msgstr "Configuración rápida AGI:"
+msgid "Fast AGI config"
+msgstr "Configuración rápida AGI"
 
 #: page.phpagiconf.php:85
-msgid "Festival config:"
-msgstr "Configuración de Festival:"
+msgid "Festival config"
+msgstr "Configuración de Festival"
 
 #: page.phpagiconf.php:78
-msgid "Hostname of the server:"
-msgstr "Nombre del server:"
+msgid "Hostname of the server"
+msgstr "Nombre del server"
 
 #: page.phpagiconf.php:78
 msgid "Hostname of this server."
 msgstr "Nombre de este server."
 
 #: page.phpagiconf.php:74
-msgid "Mail errors to:"
-msgstr "Correo de errores a:"
+msgid "Mail errors to"
+msgstr "Correo de errores a"
 
 #: page.phpagiconf.php:57
-msgid "Main config:"
-msgstr "Configuración Principal:"
+msgid "Main config"
+msgstr "Configuración Principal"
 
 #: page.phpagiconf.php:52
-msgid "PHPAGI Config:"
-msgstr "Configuración  PHPAGI:"
+msgid "PHPAGI Config"
+msgstr "Configuración  PHPAGI"
 
 #: page.phpagiconf.php:109
 msgid "Path to AGI scripts folder."
-msgstr "Camino a carpeta de scripts de AGI."
+msgstr "Ruta a carpeta de scripts de AGI."
 
 #: page.phpagiconf.php:114
 msgid "Path to cepstral TTS binary."
-msgstr "Camino al binario cepstral TTS."
+msgstr "Ruta al binario cepstral TTS."
 
 #: page.phpagiconf.php:87
 msgid "Path to text2wave binary."
-msgstr "Camino al binario text2wave."
+msgstr "Ruta al binario text2wave."
 
 #: page.phpagiconf.php:87
-msgid "Path to text2wave:"
-msgstr "Camino a text2wave:"
+msgid "Path to text2wave"
+msgstr "Ruta a text2wave"
 
 #: page.phpagiconf.php:96
 msgid "Port to connect to manager."
 msgstr "Puerto para conectar al gestor."
 
 #: page.phpagiconf.php:96
-msgid "Port:"
-msgstr "Puerto:"
+msgid "Port"
+msgstr "Puerto"
 
 #: page.phpagiconf.php:92
 msgid "Server to connect to."
 msgstr "Servidor a conectarse."
 
 #: page.phpagiconf.php:92
-msgid "Server:"
-msgstr "Servidor:"
+msgid "Server"
+msgstr "Servidor"
 
 #: page.phpagiconf.php:122
 msgid "Submit Changes"
 msgstr "Guardar Cambios"
 
 #: page.phpagiconf.php:114
-msgid "Swift path:"
-msgstr "Camino Swift:"
+msgid "Swift path"
+msgstr "Ruta Swift"
 
 #: page.phpagiconf.php:118
 msgid "TTS Voice used."
@@ -134,8 +134,8 @@ msgid "Temporary directory for storing temporary output."
 msgstr "Directorio temporal para almacenar salidas temporales."
 
 #: page.phpagiconf.php:82
-msgid "Temporary directory:"
-msgstr "Directorio temporal:"
+msgid "Temporary directory"
+msgstr "Directorio temporal"
 
 #: page.phpagiconf.php:67
 msgid "Use internal error handler."
@@ -143,18 +143,13 @@ msgstr "Usar manejador interno de errores."
 
 #: page.phpagiconf.php:62 page.phpagiconf.php:69 page.phpagiconf.php:104
 msgid "false"
-msgstr "falso"
+msgstr "Falso"
 
 #: page.phpagiconf.php:102
-msgid "setuid:"
-msgstr "SetUID:"
+msgid "setuid"
+msgstr "SetUID"
 
 #: page.phpagiconf.php:63 page.phpagiconf.php:70 page.phpagiconf.php:105
 msgid "true"
 msgstr "Verdadero"
 
-#~ msgid "PHPAGI Config"
-#~ msgstr "Configuración PHPAGI"
-
-#~ msgid "Settings"
-#~ msgstr "Configuraciones"
