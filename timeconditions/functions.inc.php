@@ -142,6 +142,7 @@ function timeconditions_get_config($engine) {
                 $ext->add($fc_context, $c, '', new ext_goto($fc_context.',${EXTEN}*${AMPUSER},1'));
 
                 $userFCs = array();
+                /*
                 if ($bmo && $bmo->Cos && $bmo->Cos->isLicensed()) {
                     $cos = $bmo->Cos;
                 } else if (function_exists('cos_islicenced') && cos_islicenced()) {
@@ -158,6 +159,7 @@ function timeconditions_get_config($engine) {
                         }
                     }
                 }
+                 */
 
                 $users = core_users_list();
                 foreach ($users as $user) {
