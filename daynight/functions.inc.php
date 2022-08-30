@@ -238,6 +238,8 @@ function daynight_toggle() {
             $ext->add($id, $c, '', new ext_goto($id.',${EXTEN}*${AMPUSER},1'));
 
             $userFCs = array();
+            // Some commercial stuff, comment it out
+            /*
             if ($bmo && $bmo->Cos && $bmo->Cos->isLicensed()) {
                 $cos = $bmo->Cos;
             } else if (function_exists('cos_islicenced') && cos_islicenced()) {
@@ -254,6 +256,7 @@ function daynight_toggle() {
                     }
                 }
             }
+            */
 
             $users = core_users_list();
             foreach ($users as $user) {
