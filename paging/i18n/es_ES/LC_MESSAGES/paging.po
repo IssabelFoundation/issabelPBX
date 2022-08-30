@@ -223,7 +223,7 @@ msgid "Paging and Intercom settings"
 msgstr "Configuración de Voceo e Intercomunicador"
 
 msgid "Auto-answer defaults"
-msgstr "Auto-atender por omisión"
+msgstr "Auto-atender de forma predeterminada"
 
 msgid "Announcement"
 msgstr "Anuncio"

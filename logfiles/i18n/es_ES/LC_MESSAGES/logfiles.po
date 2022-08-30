@@ -53,7 +53,7 @@ msgid "Customize the display of debug message time stamps. See strftime(3) Linux
 msgstr "Personalice las etiquetas de tiempo en la bitácora. Vea el manual de strftime(3) para más detalles. Tenga en cuenta que existe un parámetro de segundo fraccional que puede usar en este campo. Use %1q para décimos, %2q para centésimos, etc."
 
 msgid "Leave blank for default: ISO 8601 date format yyyy-mm-dd HH:MM:SS (%F %T)"
-msgstr "Deje en blanco para el valor por omisiíon: ISO 8601 yyyy-mm-dd HH:MM:SS (%F %T)"
+msgstr "Deje en blanco para el valor predeterminado: ISO 8601 yyyy-mm-dd HH:MM:SS (%F %T)"
 
 msgid "Log queue events to a file"
 msgstr "Registrar eventos de cola a un archivo"

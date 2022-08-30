@@ -188,7 +188,7 @@ msgid "Destination"
 msgstr "Destino"
 
 msgid "Default destination"
-msgstr "Destino por omisión"
+msgstr "Destino predeterminado"
 
 msgid "Invalid destination"
 msgstr "Destino inválido"

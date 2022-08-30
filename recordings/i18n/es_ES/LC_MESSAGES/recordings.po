@@ -305,7 +305,7 @@ msgstr "Configuración del Sistema"
 msgid ""
 "Crypt key used by this recordings module when accessing the recording files. "
 "Change from the default of "
-msgstr "Llave de encriptación a usar cuando se accede a los archivos de grabación. Cambiar desde el valor por omisión "
+msgstr "Llave de encriptación a usar cuando se accede a los archivos de grabación. Cambiar desde el valor predeterminado "
 
 msgid " if desired."
 msgstr " si lo desea."

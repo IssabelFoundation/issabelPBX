@@ -164,7 +164,7 @@ msgstr "MySQL"
 
 #: views/main.html.php:229
 msgid "MySQL Character Set. Leave blank for MySQL default latin1"
-msgstr "Conjunto de caracteres MySQL. Dejar en blanco para usar el valor por omisión de MySQL"
+msgstr "Conjunto de caracteres MySQL. Dejar en blanco para usar el valor predeterminado de MySQL"
 
 #: views/main.html.php:189
 msgid "MySQL Host"

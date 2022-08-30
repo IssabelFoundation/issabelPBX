@@ -6633,7 +6633,7 @@ msgid "Display Hidden Settings"
 msgstr "Mostrar configuraciones ocultas"
 
 msgid "Member Status Event Default"
-msgstr "Eventos de estado de miembro por omisión"
+msgstr "Eventos de estado de miembro predeterminados"
 
 msgid "Call Recording Policy"
 msgstr "Política de grabación de llamadas"
