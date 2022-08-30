@@ -36,8 +36,8 @@ msgstr "Fel vid skrivning till manager_additional.conf"
 msgid "This manager already exists"
 msgstr "Denna hanterare finns redan"
 
-msgid "Choose Manager:"
-msgstr "Välj hanterare:"
+msgid "Choose Manager"
+msgstr "Välj hanterare"
 
 msgid "Choose the user that PHPAGI will use to connect the Asterisk API."
 msgstr ""

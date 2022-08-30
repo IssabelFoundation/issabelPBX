@@ -227,7 +227,7 @@ function manager_hook_phpagiconf($viewing_itemid, $target_menuid) {
 			$selectedmanager = $res['asman_user'];
 		break;
 	}
-	$output = "<tr><td><a href=\"#\" class=\"info\">"._("Choose Manager:")."<span>"._("Choose the user that PHPAGI will use to connect the Asterisk API.")."</span></a></td><td><select name=\"asmanager\">";
+	$output = "<tr><td><a href=\"#\" class=\"info\">"._("Choose Manager")."<span>"._("Choose the user that PHPAGI will use to connect the Asterisk API.")."</span></a></td><td><select name=\"asmanager\">";
 	$selected = "";
 	$managers = manager_list();
 	foreach ($managers as $manager) {

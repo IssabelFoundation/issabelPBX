@@ -23,8 +23,8 @@ msgstr "Errore durante la scrittura del file addizionale di manager."
 msgid "This manager already exists"
 msgstr "Questo manager già esiste"
 
-msgid "Choose Manager:"
-msgstr "Scegliere il Manager:"
+msgid "Choose Manager"
+msgstr "Scegliere il Manager"
 
 msgid "Choose the user that PHPAGI will use to connect the Asterisk API."
 msgstr ""

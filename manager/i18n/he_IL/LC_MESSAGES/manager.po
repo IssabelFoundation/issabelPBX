@@ -21,8 +21,8 @@ msgstr "שגיאה בכתיבת הקובץ הנוסף של המנהלים"
 msgid "This manager already exists"
 msgstr "המנהל כבר קיים"
 
-msgid "Choose Manager:"
-msgstr "בחר מנהל:"
+msgid "Choose Manager"
+msgstr "בחר מנהל"
 
 msgid "Choose the user that PHPAGI will use to connect the Asterisk API."
 msgstr "בחר את המשתמש ש PHPAGI ישתמש בו כדי להתחבר ל API של אסטריסק"

@@ -19,7 +19,7 @@ msgstr ""
 msgid "This manager already exists"
 msgstr ""
 
-msgid "Choose Manager:"
+msgid "Choose Manager"
 msgstr ""
 
 msgid "Choose the user that PHPAGI will use to connect the Asterisk API."

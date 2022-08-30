@@ -23,7 +23,7 @@ msgstr "Erreur d'écriture du fichier de configuration."
 msgid "This manager already exists"
 msgstr "Cet administrateur existe déjà"
 
-msgid "Choose Manager:"
+msgid "Choose Manager"
 msgstr ""
 
 msgid "Choose the user that PHPAGI will use to connect the Asterisk API."
@@ -85,7 +85,7 @@ msgid ""
 ">Example: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
 msgstr ""
 "Si vous souhaitez interdire plusieurs serveurs ou réseaux, utilisez le "
-"caractère & comme séparateur.<br/><br>Exemple: "
+"caractre & comme séparateur.<br/><br>Exemple: "
 "192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
 
 msgid "Permit"
