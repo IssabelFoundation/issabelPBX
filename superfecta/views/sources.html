@@ -68,7 +68,7 @@
         {loop="sources"}
         <div id="{$value.source_name}" class="x{$value.status} columns source">
             <div class='column'>
-            <i class='draggable fa fa-arrows'></i>
+            <i class='draggable fa fa-arrows-v'></i>
                 {if condition="$value.show_link === TRUE"}<a id="{$value.source_name}_options" onclick="options(this.id)" style="cursor:pointer;">{/if}{$value.pretty_source_name}{if condition="$value.show_link === TRUE"}</a>{/if}<a class="info"><span>{$value.description}</span></a><img id="{$value.source_name}_update" onclick="movedown_update(this.id);" src="assets/superfecta/images/update.png" {if condition="$value.showupdate === FALSE"}hidden{/if}/></div>
             <div class="column ">
               <fieldset class="radio">
