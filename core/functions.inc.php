@@ -5445,8 +5445,8 @@ function core_devices_get_user_mappings() {
     }
     foreach ($devices as $id => $device) {
         if ($device['devicetype'] == 'fixed') {
-            $devices[$id]['vmcontext'] = $users[$device['user']]['vmcontext'];
-            $devices[$id]['description'] = $users[$device['user']]['description'];
+            $devices[$id]['vmcontext'] = isset($users[$device['user']])?$users[$device['user']]['vmcontext']:'';
+            $devices[$id]['description'] = isset($users[$device['user']])?$users[$device['user']]['description']:'';
         }
     }
     return $devices;
