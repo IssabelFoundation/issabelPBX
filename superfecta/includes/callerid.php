@@ -116,11 +116,9 @@ foreach ($scheme_name_array as $list) {
     //Get Scheme Params
     $param = array();
     $query = "SELECT * FROM superfectaconfig";
-    $res = $db->query($query);
-    if (DB::IsError($res)) {
-        die("Unable to load scheme parameters: " . $res->getMessage() . "<br>");
-    }
-    while ($row = $res->fetchRow(DB_FETCHMODE_ASSOC)) {
+
+    $res = $db->getAll($query,DB_FETCHMODE_ASSOC);
+    foreach($res as $idx=>$row) {
         $param[$row['source']][$row['field']] = $row['value'];
     }
 
@@ -259,7 +257,7 @@ foreach ($scheme_name_array as $list) {
             //Set Spam Destination
             $spam_dest = (!empty($scheme_param['spam_interceptor']) && ($scheme_param['spam_interceptor'] == 'Y')) ? $scheme_param['spam_destination'] : '';
             $spam_dest = ($superfecta->get_SpamCount() >= $scheme_param['SPAM_threshold']) ? $spam_dest : '';
-            
+
             //Send out final data
             if (!$superfecta->isDebug()) {
                 if ($cli) {

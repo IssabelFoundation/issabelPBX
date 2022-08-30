@@ -53,3 +53,139 @@ msgstr "Búsqueda CID Superfecta"
 #~ msgstr ""
 #~ "Provee uso simultaneo de, y control completo sobe muchas fuentes de datos "
 #~ "de Identificador de Llamada."
+
+msgid "Edit Superfecta Scheme"
+msgstr "Modificar esquema Superfecta"
+
+msgid "Add Superfecta Scheme"
+msgstr "Agregar esquema Superfecta"
+
+msgid "Scheme Name"
+msgstr "Nombre del esquema"
+
+msgid "Lookup Timeout"
+msgstr "Tiempo máximo de búsqueda"
+
+msgid "Superfecta Processor"
+msgstr "Procesador Superfecta"
+
+msgid "Multifecta Timeout"
+msgstr "Tiempo máximo para Multifecta"
+
+msgid "CID Prefix URL"
+msgstr "URL para prefijo CID"
+
+msgid "Sources"
+msgstr "Fuentes"
+
+msgid "Enabled"
+msgstr "Habilitado"
+
+msgid "Disabled"
+msgstr "Deshabilitado"
+
+msgid "Matching rules"
+msgstr "Reglas de coincidencia"
+
+msgid "DID Rules"
+msgstr "Reglas DID"
+
+msgid "CID Rules"
+msgstr "Reglas CID"
+
+msgid "SPAM Text"
+msgstr "Texto SPAM"
+
+msgid "SPAM Text Substituted"
+msgstr "Sustituir con texto SPAM"
+
+msgid "Enable SPAM Interception"
+msgstr "Activar intercepción SPAM"
+
+msgid "Phone number lookup test"
+msgstr "Test de búsqueda de número telefónico"
+
+msgid "Phone Number"
+msgstr "Número telefónico"
+
+msgid "Test all CID schemes"
+msgstr "Testear todos los esquemas CID"
+
+msgid "Debug Level"
+msgstr "Nivel de depuración"
+
+msgid "Debug"
+msgstr "Depurar"
+
+msgid "Number to test"
+msgstr "Número a comprobar"
+
+msgid "Scheme name already used"
+msgstr "Ese nombre ya está siendo utilizado"
+
+msgid "Name cannot be blank"
+msgstr "El nombre no puede quedar en blanco"
+
+msgid "Choose a name for this scheme. Duplicate names are not allowed."
+msgstr "Elija un nombre para este esquema. No se permiten nombres duplicados."
+
+msgid "Specify a timeout in seconds for each source. If the source fails to return a result within the alloted time, the script will move on."
+msgstr "Especifique un tiempo de espera en segundos para cada fuente. Si la fuente no devuelve un resultado dentro del tiempo asignado, el script seguirá adelante."
+
+msgid "These are the types of Superfecta Processors:<br><strong>MULTI:</strong> Multifecta, runs all sources at the same time<br><strong>SINGLE:</strong> Runs all sources in specified order, like old superfecta"
+msgstr "Estos son los tipos de procesadores Superfecta:<br><strong>MULTI:</strong> Multifecta, ejecuta todas las fuentes al mismo tiempo<br><strong>SINGLE:</strong> ejecuta todas las fuentes una a uno y en el orden especificado"
+
+msgid "Specify a timeout in seconds defining how long multifecta will obey the source priority. After this timeout, the first source to respond with a CNAM will be taken, until 'Lookup Timeout' is reached."
+msgstr "Especifique un tiempo de espera en segundos que defina cuánto tiempo multifecta obedecerá la prioridad de la fuente. Después de este tiempo de espera, se tomará la primera fuente que responda con un CNAM, hasta que se alcance 'Lookup Timeout'."
+
+msgid "If you wish to prefix information on the caller id you can specify a url here where that prefix can be retrieved.<br>The data will not be parsed in any way, and will be truncated to the first 10 characters.<br>Example URL: http://www.example.com/GetCID.php?phone_number=[thenumber]<br>[thenumber] will be replaced with the full 10 digit phone number when the URL is called."
+msgstr "Si desea agregar un prefijo a la información del identificador de llamadas, puede especificar una URL aquí donde se pueda recuperar ese prefijo.<br>Los datos no se analizarán de ninguna manera y se truncarán a los primeros 10 caracteres.<br>Ejemplo URL: http://www.example.com/GetCID.php?phone_number=[thenumber]<br>[thenumber] se reemplazará con el número de teléfono completo de 10 dígitos cuando se llame a la URL."
+
+msgid "Define the expected DID Number if your trunk passes DID on incoming calls. <br><br>Leave this blank to match calls with any or no DID info.<br><br>This rule trys both absolute and pattern matching, eg '_2[345]X', to match a range of numbers. The underscore is optional."
+msgstr "Defina el Número DID esperado si su troncal pasa DID en las llamadas entrantes. <br><br>Deje esto en blanco para hacer coincidir las llamadas con cualquier información DID o sin ella.<br><br>Esta regla intenta la coincidencia absoluta y de patrón, por ejemplo, '_2[345]X', para hacer coincidir un rango de números. El guión bajo es opcional."
+
+msgid "Incoming calls with CID matching the patterns specified here will use this CID Scheme. If this is left blank, this scheme will be used for any CID. It can be used to add or remove prefixes.<br><strong>Many sources require a specific number of digits in the phone number. It is recommended that you use the patterns to remove excess country code data from incoming CID to increase the effectiveness of this module.</strong><br>Note that a pattern without a + or &#124; &#40;to add or remove a prefix&#41; will not make any changes but will create a match. Only the first matched pattern will be executed and the remaining rules will not be acted on.<br /><br /><b>Rules:</b><br /><strong>X</strong>&nbsp;&nbsp;&nbsp; matches any digit from 0-9<br /><strong>Z</strong>&nbsp;&nbsp;&nbsp; matches any digit from 1-9<br /><strong>N</strong>&nbsp;&nbsp;&nbsp; matches any digit from 2-9<br /><strong>[1237-9]</strong>&nbsp;   matches any digit or letter in the brackets &#40;in this example, 1,2,3,7,8,9&#41;<br /><strong>.</strong>&nbsp;&nbsp;&nbsp; wildcard, matches one or more characters &#40;not allowed before a &#124; or +&#41;<br /><strong>&#124;</strong>&nbsp;&nbsp;&nbsp; removes a dialing prefix from the number &#40;for example, 613&#124;NXXXXXX would match when some one dialed '6135551234' but would only pass '5551234' to the Superfecta look up.&#41;<br><strong>+</strong>&nbsp;&nbsp;&nbsp; adds a dialing prefix to the number &#40;for example, 1613+NXXXXXX would match when someone dialed '5551234' and would pass '16135551234' to the Superfecta look up.&#41;<br /><br />You can also use both + and &#124;, for example: 01+0&#124;1ZXXXXXXXXX would match '016065551234' and dial it as '0116065551234' Note that the order does not matter, eg. 0&#124;01+1ZXXXXXXXXX does the same thing."
+msgstr "Las llamadas entrantes con CID que coincidan con los patrones especificados aquí utilizarán este esquema CID. Si se deja en blanco, este esquema se utilizará para cualquier CID. Se puede usar para agregar o eliminar prefijos.<br><strong>Muchas fuentes requieren una cantidad específica de dígitos en el número de teléfono. Se recomienda que utilice los patrones para eliminar el exceso de datos de código de país del CID entrante para aumentar la eficacia de este módulo.</strong><br>Tenga en cuenta que un patrón sin + o &#124; &#40;para agregar o eliminar un prefijo&#41; no hará ningún cambio pero creará una coincidencia. Solo se ejecutará el primer patrón coincidente y no se aplicarán las reglas restantes.<br /><br /><b>Reglas:</b><br /><strong>X</strong>&nbsp;&nbsp;&nbsp; coincide con cualquier dígito del 0 al 9<br /><strong>Z</strong>&nbsp;&nbsp;&nbsp; coincide con cualquier dígito del 1 al 9<br /><strong>N</strong>&nbsp;&nbsp;&nbsp; coincide con cualquier dígito del 2 al 9<br /><strong>[1237-9]</strong>&nbsp; coincide con cualquier dígito o letra entre corchetes &#40;en este ejemplo, 1,2,3,7,8,9&#41;<br /><strong>.</strong>&nbsp;&nbsp;&nbsp; comodín, coincide con uno o más caracteres &#40;no permitidos antes de &#124; o +&#41;<br /><strong>&#124;</strong>&nbsp;&nbsp;&nbsp; elimina un prefijo de marcación del número &#40;por ejemplo, 613&#124;NXXXXXX coincidiría cuando alguien marcara '6135551234' pero solo pasaría '5551234' a la búsqueda de Superfecta.&#41;<br><strong >+</strong>&nbsp;&nbsp;&nbsp; agrega un prefijo de marcación al número &#40;por ejemplo, 1613+NXXXXXX coincidiría cuando alguien marcara '5551234' y pasaría '16135551234' a la búsqueda de Superfecta.&#41;<br /><br />Usted también puede usar + y &#124;, por ejemplo: 01+0&#124;1ZXXXXXXXXX coincidiría con '016065551234' y lo marcaría como '0116065551234' Tenga en cuenta que el orden no importa, p. 0&#124;01+1ZXXXXXXXXX hace lo mismo."
+
+msgid "This text will be prepended to Caller ID information to help you identify calls as SPAM calls."
+msgstr "Este texto se agregará a la información del identificador de llamadas para ayudarlo a identificar las llamadas como SPAM."
+
+msgid "When enabled, the text entered in 'SPAM Text' &#40;above&#41; will replace the CID completely rather than pre-pending the CID value."
+msgstr "Cuando está habilitado, el texto ingresado en 'Texto de SPAM' &#40;arriba&#41; reemplazará el CID por completo en lugar de anteponer el valor de CID."
+
+
+msgid "When enabled, Spam calls can be diverted or terminated."
+msgstr "Cuando está habilitado, las llamadas de spam se pueden desviar o terminar."
+
+msgid "This is the threshold to send the call to the specified destination below"
+msgstr "Este es el umbral para enviar la llamada al destino especificado a continuación"
+
+msgid "The DID to test this scheme against."
+msgstr "Número DID a probar contra este esquema."
+
+msgid "DID Number"
+msgstr "Número DID"
+
+msgid "Phone number to test this scheme against."
+msgstr "Número de teléfono a probar contra este esquema."
+
+msgid "When enabled, the debug function will test the number entered against all of the configured CID schemes.<br>When disabled, debug only checks up to the first scheme that provides positive results."
+msgstr "Cuando está habilitada, la función de depuración comparará el número ingresado con todos los esquemas de CID configurados.<br>Cuando está deshabilitada, la depuración solo verifica hasta el primer esquema que proporcione resultados positivos."
+
+msgid "CallerID Superfecta for IssabelPBX is a utility program which adds incoming CallerID name lookups to your Asterisk system using multiple data sources."
+msgstr "CallerID Superfecta para IssabelPBX es un programa de utilidad que agrega búsquedas de nombres de CallerID entrantes a su sistema Asterisk usando múltiples fuentes de datos."
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Enable or disable this schema."
+msgstr "Habilite o deshabilite este esquema."
+
+msgid "Look up First Name, Last Name, Company Name in the FOP2 visual address book MySQL table"
+msgstr "Busque el nombre, el apellido y el nombre de la empresa en la tabla MySQL de la libreta de direcciones visual de FOP2"
+
+msgid "Send Spam Call To"
+msgstr "Enviar llamada SPAM hacia"
+
+msgid "SPAM Send Threshold"
+msgstr "Umbral de reenvío por SPAM"

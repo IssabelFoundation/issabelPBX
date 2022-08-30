@@ -1,8 +1,9 @@
-Caller ID Superfecta is being uninstalled.<br>
 <?php
 global $db;
 global $amp_conf;
 global $astman;
+
+echo "Caller ID Superfecta is being uninstalled.<br>"
 
 if(!function_exists("out"))
 {
