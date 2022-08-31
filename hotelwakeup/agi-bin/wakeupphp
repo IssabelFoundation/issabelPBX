@@ -489,16 +489,16 @@
 
 
 	$foo = array(
-		time  => $time_wakeup,
-		date => 'unused',
-		ext => $cidn,
-		maxretries => $parm_maxretries,
-		retrytime => $parm_retrytime,
-		waittime => $parm_waittime,
-		callerid => $parm_wakeupcallerid,
-	        application => $parm_application,
-	        data => $parm_data,
-		);
+		'time'  => $time_wakeup,
+		'date' => 'unused',
+		'ext' => $cidn,
+		'maxretries' => $parm_maxretries,
+		'retrytime' => $parm_retrytime,
+		'waittime' => $parm_waittime,
+		'callerid' => $parm_wakeupcallerid,
+	    'application' => $parm_application,
+	    'data' => $parm_data,
+	);
 
 	hotelwakeup_gencallfile($foo);
 

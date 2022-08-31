@@ -1,4 +1,20 @@
 <?php
+function checkWakeUpProp($file) {
+
+    $myresult = array();
+
+    $bfile = basename($file);
+    $tmp = explode(".", $bfile);
+
+    $myresult['month']   = date('m',filemtime($file));
+    $myresult['day']     = date('d',filemtime($file));
+    $myresult['year']    = date('Y',filemtime($file));
+    $myresult['hour']    = date('H',filemtime($file));
+    $myresult['minute']  = date('i',filemtime($file));
+    $myresult['tstamp']  = $tmp[1];
+    $myresult['ext']     = $tmp[3];
+    return $myresult;
+}
 
 // this function required to make the feature code work
 function hotelwakeup_get_config($engine) {
@@ -45,7 +61,7 @@ function hotelwakeup_hotelwakeup($c) {
 	}
 
 
-function hotelwakeup_saveconfig($c) {
+function hotelwakeup_saveconfig() {
 	global $db;
 
 	# clean up
@@ -68,7 +84,7 @@ function hotelwakeup_saveconfig($c) {
 	$sql .= ", `cid`='{$calleridnumber}'";
 	$sql .= ", `operator_mode`='{$operator_mode}'";
 	$sql .= ", `operator_extensions`='{$operator_extensions}'";
-	$sql .= " LIMIT 1;";
+//	$sql .= " LIMIT 1;";
 
 	sql($sql);
 }
@@ -106,13 +122,13 @@ array(
 )
 **** array format ******/
 
-	if ($foo['tempdir'] == "") {
+    if (!isset($foo['tempdir'])) {
 		$foo['tempdir'] = "/var/spool/asterisk/tmp/";
 	}
-	if ($foo['outdir'] == "") {
+    if (!isset($foo['outdir'])) {
 		$foo['outdir'] = "/var/spool/asterisk/outgoing/";
 	}
-	if ($foo['filename'] == "") {
+    if (!isset($foo['filename'])) {
 		$foo['filename'] = "wuc.".$foo['time'].".ext.".$foo['ext'].".call";
 	}
 
@@ -120,10 +136,15 @@ array(
 	$outfile = $foo['outdir'].$foo['filename'];
 
 	// Delete any old .call file with the same name as the one we are creating.
-	if( file_exists( "$callfile" ) )
-	{
-		unlink( "$callfile" );
-	}
+	if( file_exists( "$outfile" ) ) {
+		unlink($outfile);
+    }
+
+    if($foo['originalfile']!='') {
+        if(file_exists($foo['originalfile'])) {
+            unlink($foo['originalfile']);
+        }
+    }
 
 	// Create up a .call file, write and close
 	$wuc = fopen( $tempfile, 'w');
@@ -138,8 +159,9 @@ array(
 
 	// set time of temp file and move to outgoing
 	touch( $tempfile, $foo['time'], $foo['time'] );
-	rename( $tempfile, $outfile );
+    rename( $tempfile, $outfile );
 
+    return $foo['time']."-".$foo['ext'];
 }
 
 // compare version numbers of local module.xml and remote module.xml 
