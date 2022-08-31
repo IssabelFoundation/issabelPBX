@@ -284,7 +284,7 @@ if ($_REQUEST["csv_type"] == "output") {
     if ($table_rows === NULL) {
         $table_output = "Table unavailable";
     } else {
-        $table_output .=    "<table class='table is-borderless is-narrow notfixed' rules='rows'>";
+        $table_output .=    "<table class='rules table is-borderless is-narrow notfixed' rules='rows'>";
         $table_output .=    "<tr valign='top'>
                         <th align='left' valign='top'>#</th>
                         <th align='left' valign='top'>"._('Field')."</th>
