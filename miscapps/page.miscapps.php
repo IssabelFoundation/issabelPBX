@@ -103,7 +103,7 @@ if (!empty($conflict_url)) {
 
 	<tr>
         <td>
-            <a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("The name of this application")?></span></a>
+            <a href="#" class="info"><?php echo _("Description")?><span><?php echo _("The name of this application")?></span></a>
         </td>
         <td>
             <input class='input w100' autofocus type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -112,7 +112,7 @@ if (!empty($conflict_url)) {
 
 	<tr>
         <td>
-            <a href="#" class="info"><?php echo _("Feature Code")?>:<span><?php echo _("The feature code/extension users can dial to access this application. This can also be modified on the Feature Codes page.")?></span></a>
+            <a href="#" class="info"><?php echo _("Feature Code")?><span><?php echo _("The feature code/extension users can dial to access this application. This can also be modified on the Feature Codes page.")?></span></a>
         </td>
         <td>
             <input type="text" class="extdisplay input w100" name="ext" value="<?php echo $ext; ?>"  tabindex="<?php echo ++$tabindex;?>"/>
@@ -121,7 +121,7 @@ if (!empty($conflict_url)) {
 
 	<tr>
         <td>
-            <a href="#" class="info"><?php echo _("Feature Status")?>:<span><?php echo _("If this code is enabled or not.")?></span></a>
+            <a href="#" class="info"><?php echo _("Feature Status")?><span><?php echo _("If this code is enabled or not.")?></span></a>
         </td>
         <td>
             <select name="enabled" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
