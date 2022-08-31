@@ -86,7 +86,7 @@ msgid ""
 "the notification emails."
 msgstr ""
 
-msgid "Default Address:"
+msgid "Default Address"
 msgstr ""
 
 msgid ""
@@ -94,7 +94,7 @@ msgid ""
 "without a Voicemail email address will be sent to the Default Address."
 msgstr ""
 
-msgid "Override Address:"
+msgid "Override Address"
 msgstr ""
 
 msgid ""
@@ -103,7 +103,7 @@ msgid ""
 "Override Address to stop notification emails from being sent."
 msgstr ""
 
-msgid "Email From:"
+msgid "Email From"
 msgstr ""
 
 msgid ""
@@ -111,7 +111,7 @@ msgid ""
 "will be used."
 msgstr ""
 
-msgid "Email Reply-To:"
+msgid "Email Reply-To"
 msgstr ""
 
 msgid ""
@@ -119,7 +119,7 @@ msgid ""
 "default will be used."
 msgstr ""
 
-msgid "Email Subject:"
+msgid "Email Subject"
 msgstr ""
 
 msgid ""
@@ -127,7 +127,7 @@ msgid ""
 "\"Voicemail Account Activated\", will be used."
 msgstr ""
 
-msgid "Email Opening:"
+msgid "Email Opening"
 msgstr ""
 
 msgid ""
@@ -141,7 +141,7 @@ msgid ""
 "inserted after the opening."
 msgstr ""
 
-msgid "Email Closing:"
+msgid "Email Closing"
 msgstr ""
 
 msgid ""
