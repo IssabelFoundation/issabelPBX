@@ -1,0 +1,5 @@
+msgid "Log IVR Selections"
+msgstr "Registrar selecciones de IVR"
+
+msgid "When checked, IVR selections will be reported by QueueMetrics"
+msgstr "Cuando se marca, las selecciones de IVR serán informadas por QueueMetrics"

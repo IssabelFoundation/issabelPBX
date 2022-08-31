@@ -11,15 +11,15 @@ if(!DB::IsError($check)) {
 
 	unset($sql);
 	$sql[] = "CREATE TABLE IF NOT EXISTS `queuemetrics_options` (
-	                `keyword` VARCHAR(25),
-	                `value` TEXT,
-	                UNIQUE KEY `keyword` (`keyword`)
+	                `keyword` VARCHAR(25) UNIQUE,
+	                `value` TEXT
 	                )";
 	
 	foreach ($sql as $q) {
 	        $result = $db->query($q);
-	        if($db->IsError($result)){
-	                die_issabelpbx($result->getDebugInfo());
+            if($db->IsError($result)){
+	                //die_issabelpbx($result->getDebugInfo());
+	                die_issabelpbx('could not create table');
 	        }
 	}
 
