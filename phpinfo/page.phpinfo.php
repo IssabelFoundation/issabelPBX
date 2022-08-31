@@ -12,9 +12,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
  *
  */
 ?>
-<table>
-<tr>
-<td>
+<div class='content'>
 <div id="phpinfo">
 <?php 
     ob_start () ;
@@ -24,6 +22,4 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
     echo ( preg_replace ( '%^.*<body>(.*)</body>.*$%ms', '$1', $pinfo ) ) ;
 ?>
 </div>
-</td>
-</tr>
-</table>
+</div>

@@ -1,0 +1,6 @@
+
+msgid "PHP Info"
+msgstr "Informe PHP"
+
+msgid "Reports"
+msgstr "Reportes"
