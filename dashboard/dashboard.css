@@ -134,6 +134,7 @@
 	font-weight:normal;
 }
 #syslog h4 span {
+    font-size:1em;
 	cursor:pointer;
 }
 /* hide details by default */
