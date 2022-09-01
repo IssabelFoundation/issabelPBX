@@ -1326,7 +1326,7 @@ function download_file($file, $name = '', $type = '', $force_download = false) {
 function ipbx_ami_update($user=false, $pass=false, $writetimeout = false) {
     global $amp_conf, $astman;
     $conf_file = $amp_conf['ASTETCDIR'] . '/manager.conf';
-    $ret = $ret2 = 0;
+    $ret = $ret2 = $ret3 = 0;
     $output = array();
 
     if ($user !== false && $user != '') {
