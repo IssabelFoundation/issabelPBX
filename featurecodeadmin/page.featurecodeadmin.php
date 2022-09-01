@@ -67,7 +67,7 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 				}
       }
 	?>
-	<table class='table is-borderless is-narrow'>
+	<table class='table is-borderless is-narrow notfixed'>
 	<tr><td colspan="4"><h3><?php echo _("Feature Code Admin"); ?></h3></td></tr>
 	<tr>
 		<td colspan="2">&nbsp;</td>
