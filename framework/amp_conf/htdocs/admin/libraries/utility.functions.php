@@ -93,8 +93,8 @@ function issabelpbx_log($level, $message) {
         // Don't append if the file is greater than ~2G since some systems fail
         //
         $size = file_exists($log_file) ? sprintf("%u", filesize($log_file)) + strlen($txt) : 0;
-        if ($size < 2000000000) {
-          file_put_contents($log_file, "[$tstamp] $txt", FILE_APPEND);
+        if ($size < 2000000000 && is_writable($log_file)) {
+            file_put_contents($log_file, "[$tstamp] $txt", FILE_APPEND);
         }
 				break;
 		}
