@@ -938,9 +938,6 @@ msgstr ""
 msgid "Remove temporary greeting"
 msgstr ""
 
-msgid "Storage Used"
-msgstr ""
-
 msgid "This module allows you to configure Voicemail for a user or extension"
 msgstr ""
 

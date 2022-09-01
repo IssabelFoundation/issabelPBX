@@ -148,5 +148,3 @@ msgstr "Setuid:"
 msgid "true"
 msgstr "vero"
 
-#~ msgid "PHPAGI Config"
-#~ msgstr "Configurazione PHPAGI"

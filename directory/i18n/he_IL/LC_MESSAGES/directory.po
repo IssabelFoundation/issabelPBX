@@ -144,9 +144,6 @@ msgstr ""
 msgid "Directory&nbsp;Entries"
 msgstr ""
 
-msgid "Name"
-msgstr ""
-
 msgid "Name Announcement"
 msgstr ""
 

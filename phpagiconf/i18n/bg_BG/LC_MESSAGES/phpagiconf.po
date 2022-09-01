@@ -158,8 +158,5 @@ msgstr "set uid:"
 msgid "true"
 msgstr "вярно"
 
-#~ msgid "PHPAGI Config"
-#~ msgstr "PHPAGI Настройки"
-
 #~ msgid "Settings"
 #~ msgstr "Настройки"

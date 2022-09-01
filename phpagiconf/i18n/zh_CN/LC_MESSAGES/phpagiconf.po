@@ -154,5 +154,3 @@ msgstr "设置uid（setuid）："
 msgid "true"
 msgstr "是"
 
-#~ msgid "PHPAGI Config"
-#~ msgstr "PHPAGI配置"

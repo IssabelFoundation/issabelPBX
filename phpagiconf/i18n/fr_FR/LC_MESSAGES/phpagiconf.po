@@ -165,5 +165,3 @@ msgstr ""
 msgid "true"
 msgstr "vrai"
 
-#~ msgid "PHPAGI Config"
-#~ msgstr "Config PHPAGI"

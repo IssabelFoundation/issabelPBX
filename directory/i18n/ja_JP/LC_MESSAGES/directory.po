@@ -260,9 +260,6 @@ msgid ""
 msgstr ""
 "全てのエントリに直接ダイヤルする許可の権限を持つディレクトリが表示されます"
 
-msgid "Name"
-msgstr "名前"
-
 msgid "Name Announcement"
 msgstr "名前のアナウンス"
 

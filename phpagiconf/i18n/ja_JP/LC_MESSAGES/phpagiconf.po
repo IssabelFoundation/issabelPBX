@@ -185,8 +185,5 @@ msgstr "setuid"
 msgid "true"
 msgstr "オン"
 
-#~ msgid "PHPAGI Config"
-#~ msgstr "PHPAGI設定"
-
 #~ msgid "Settings"
 #~ msgstr "設定"

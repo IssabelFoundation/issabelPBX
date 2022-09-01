@@ -166,8 +166,5 @@ msgstr "setuid"
 msgid "true"
 msgstr "Nej"
 
-#~ msgid "PHPAGI Config"
-#~ msgstr "Konfiguration för PHPAGI"
-
 #~ msgid "System Administration"
 #~ msgstr "Systemadministration"

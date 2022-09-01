@@ -152,9 +152,6 @@ msgid "true"
 msgstr "כן"
 
 #, fuzzy
-#~ msgid "PHPAGI Config"
-#~ msgstr "תצורת PHPAGI:"
-
 #~ msgid "To use this module you need the Asterisk API module version >= 1.0.4"
 #~ msgstr ""
 #~ "כדי להשתמש במודול זה, אתה צריך מודול API של אסטריסק מגירסא 1.0.4 או חדשה "

@@ -169,8 +169,5 @@ msgstr "Установить uid:"
 msgid "true"
 msgstr "да"
 
-#~ msgid "PHPAGI Config"
-#~ msgstr "Конфигурация PHPAGI"
-
 #~ msgid "Settings"
 #~ msgstr "Настройки"

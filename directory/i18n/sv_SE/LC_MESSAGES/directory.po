@@ -157,9 +157,6 @@ msgstr ""
 msgid "Directory&nbsp;Entries"
 msgstr "Katalogval"
 
-msgid "Name"
-msgstr ""
-
 msgid "Name Announcement"
 msgstr ""
 
