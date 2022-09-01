@@ -98,15 +98,16 @@ function framework_get_extmap($json=false) {
  *                  used by retrieve_conf
  */
 function framework_set_extmap() {
-	global $db;
-	$full_list = framework_check_extension_usage(true);
-	foreach ($full_list as $module => $entries) {
-		foreach ($entries as $exten => $stuff) {
-			$extmap[$exten] = $stuff['description'];
-		}
-	}
-  $extmap_serialized = $db->escapeSimple(serialize($extmap));
-  sql("REPLACE INTO `module_xml` (`id`, `time`, `data`) VALUES ('extmap_serialized', '".time()."','".$extmap_serialized."')");
+    global $db;
+    $extmap =  array();
+    $full_list = framework_check_extension_usage(true);
+    foreach ($full_list as $module => $entries) {
+        foreach ($entries as $exten => $stuff) {
+            $extmap[$exten] = $stuff['description'];
+        }
+    }
+    $extmap_serialized = $db->escapeSimple(serialize($extmap));
+    sql("REPLACE INTO `module_xml` (`id`, `time`, `data`) VALUES ('extmap_serialized', '".time()."','".$extmap_serialized."')");
 }
 
 /** check if a specific destination is being used, or get a list of all destinations that are being used
