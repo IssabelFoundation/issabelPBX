@@ -336,7 +336,17 @@ msgstr "Mostrar todas las notificaciones"
 msgid "loading..."
 msgstr "Cargando..."
 
-#~ msgid "FOP Operator Panel is disabled in amportal.conf"
-#~ msgstr ""
-#~ "El panel de operador FOP está deshabilitado en el archivo de "
-#~ "configuración amportal.conf"
+msgid "CRITICAL"
+msgstr "CRITICOL"
+
+msgid "SECURITY"
+msgstr "SEGURIDAD"
+
+msgid "UPDATE"
+msgstr "ACTUALIZACION"
+
+msgid "WARNING"
+msgstr "ADVERTENCIA"
+
+msgid "NOTICE"
+msgstr "NOTIFICACION"

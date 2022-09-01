@@ -428,7 +428,7 @@ function show_syslog(&$md5_checksum) {
 			
 			$out .= '<div class="syslog_text">';
 			$out .= '<h4>';
-			$out .= '<span><img src="images/'.$notify_classes[$item['level']].'.png" alt="'.$notify_descriptions[$item['level']].'" title="'.$notify_descriptions[$item['level']].'" width="16" height="16" border="0" />&nbsp;';
+			$out .= '<span><img src="images/'.$notify_classes[$item['level']].'.png" alt="'.$notify_descriptions[$item['level']].'" data-tooltip="'._($notify_descriptions[$item['level']]).'" title="'.$notify_descriptions[$item['level']].'" width="16" height="16" border="0" />&nbsp;';
 			$out .= $item['display_text'].'</span>';
 			$out .= '</h4>';
 			$out .= "\n";
