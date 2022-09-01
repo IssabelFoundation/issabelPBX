@@ -4,7 +4,7 @@
 //    Copyright 2006-2014 Schmooze Com Inc.
 //    Copyright 2022 Issabel Foundation
 //
-// ./install_amp --dbengine=$engine --username=root --password=mysqlrootpassword --adminuser=admin --adminpass=asteriskpass --installdb --dbfile /etc/asterisk/sqldata.db --scripted
+// ./install_amp --dbengine=$engine --dbuser=root --dbpass=mysqlrootpassword --adminuser=admin --adminpass=asteriskpass --installdb --dbfile /etc/asterisk/sqldata.db --scripted
 chdir(__DIR__);
 date_default_timezone_set('America/Los_Angeles');
 require_once ("libissabelpbx.install.php");
@@ -35,9 +35,9 @@ function showHelp() {
     out("  --dbname databasename    Use database name specified, instead of 'asterisk'",false);
     out("  --dbengine engine        Use database engine specified, instead of 'mysqli'",false);
     out("  --dbfile <path>          Use file for sqlite engine","/etc/asterisk/sqldata.db");
-    out("  --username <user>        Use <user> to connect to db and write config",false);
-    out("  --password <pass>        Use <pass> to connect to db and write config",false);
-    out("  --issabelpbxip <ip>         IssabelPBX web interface is accessed from <ip>",false);
+    out("  --dbuser <user>          Use <user> to connect to db and write config",false);
+    out("  --dbpass <pass>          Use <pass> to connect to db and write config",false);
+    out("  --issabelpbxip <ip>      IssabelPBX web interface is accessed from <ip>",false);
     out("  --webroot <path>         Web root where IssabelPBX will be installed",false);
     out("  --cgibin <path>          Path where cgi-bin's lives",false);
     out("  --bin <path>             Path of asterisk binaries",false);
@@ -287,17 +287,17 @@ function collect_settings($filename, $dbhost = '', $dbuser = '', $dbpass = '', $
         return;
     }
 
-    outn("Enter your USERNAME to connect to the '$dbname' database:\n [".($dbuser ? $dbuser : $asterisk_user) . "] ");
+    outn("Enter your USERNAME to connect to the '$dbname' database:\n [".$asterisk_user. "] ");
     $key = trim(fgets(STDIN,1024));
     if (preg_match('/^$/',$key))
-        $amp_conf["AMPDBUSER"] = ($dbuser ? $dbuser : $asterisk_user);
+        $amp_conf["AMPDBUSER"] = $asterisk_user;
     else
         $amp_conf["AMPDBUSER"] = $key;
 
-    outn("Enter your PASSWORD to connect to the '$dbname' database:\n [".($dbpass ? $dbpass : $database_pass)."] ");
+    outn("Enter your PASSWORD to connect to the '$dbname' database:\n [".$database_pass."] ");
     $key = trim(fgets(STDIN,1024));
     if (preg_match('/^$/',$key))
-        $amp_conf["AMPDBPASS"] = ($dbpass ? $dbpass : $asterisk_pass);
+        $amp_conf["AMPDBPASS"] = $database_pass;
     else
         $amp_conf["AMPDBPASS"] = $key;
 
@@ -633,14 +633,34 @@ function grant_mysql() {
     global $asterisk_user;
     global $database_pass;
     global $dbengine;
+
     if($dbengine!="mysql" && $dbengine!="mysqli") { return; }
     out("Granting MySQL permissions to asteriskuser");
     $query = "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON `asteriskcdrdb`.* TO 'asteriskuser'@'localhost' IDENTIFIED BY '$database_pass'";
     $res = $db->query($query);
-    print_r($res);
+
+    if(DB::IsError($res)) {
+        out("FAILED");
+        echo 'Standard Message: ' . $db->getMessage() . "\n";
+        echo 'Standard Code: ' . $db->getCode() . "\n";
+        echo 'DBMS/User Message: ' . $db->getUserInfo() . "\n";
+        echo 'DBMS/Debug Message: ' . $db->getDebugInfo() . "\n";
+        fatal("Cannot connect to database");
+    }
 
     $query = "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON `asterisk`.* TO 'asteriskuser'@'localhost' IDENTIFIED BY '$database_pass'";
-    $db->query($query);
+    $res = $db->query($query);
+    if(DB::IsError($res)) {
+        out("FAILED");
+        echo 'Standard Message: ' . $db->getMessage() . "\n";
+        echo 'Standard Code: ' . $db->getCode() . "\n";
+        echo 'DBMS/User Message: ' . $db->getUserInfo() . "\n";
+        echo 'DBMS/Debug Message: ' . $db->getDebugInfo() . "\n";
+        fatal("Cannot connect to database");
+    }
+
+    out("Permissions granted!");
+
 }
 
 /********************************************************************************************************************/
@@ -718,7 +738,7 @@ $longopts = array(
     "make-links-devel",
     "my-svn-is-correct",
     "no-files",
-    "password=",
+    "dbpass=",
     "sbin=",
     "scripted",
     "set-issabelpbx-settings",
@@ -726,7 +746,7 @@ $longopts = array(
     "uid=",
     "uninstall",
     "update-links",
-    "username=",
+    "dbuser=",
     "webroot=",
 );
 
@@ -783,11 +803,11 @@ foreach ($args[0] as $arg) {
             $debug = true;
             debug("Debug mode enabled");
         break;
-        case "--username": case "u":
+        case "--dbuser": case "u":
             out("Using username: ".$arg[1]);
             $new_username = $arg[1];
         break;
-        case "--password": case "p":
+        case "--dbpass": case "p":
             out("Using password: ".str_repeat("*",strlen($arg[1])));
             $new_password = $arg[1];
         break;
@@ -909,7 +929,6 @@ foreach ($args[0] as $arg) {
 if($installamp_clean || $uninstallamp) {
     global $webroot;
     global $asterisk_user;
-    global $asterisk_pass;
 
     $oldampconf = array();
     if(file_exists('/etc/amportal.conf')) {
@@ -1010,8 +1029,8 @@ if($installamp_clean || $uninstallamp) {
             break;
         }
     }
-    if(!empty($oldampconf) && isset($oldampconf['AMPWEBROOT']) && file_exists($oldampconf['AMPWEBROOT'])) {
-        outn("Remove ".$oldampconf['AMPWEBROOT']."?:\n [y] ");
+    if(!empty($oldampconf) && isset($oldampconf['AMPWEBROOT']) && file_exists($oldampconf['AMPWEBROOT'].'/admin')) {
+        outn("Remove ".$oldampconf['AMPWEBROOT']."/admin ?:\n [y] ");
         $key = trim(fgets(STDIN,1024));
         switch($key) {
             case "n":
@@ -1021,7 +1040,7 @@ if($installamp_clean || $uninstallamp) {
             case "yes":
             default:
                 outn("Removing ".$oldampconf['AMPWEBROOT']."......");
-                exec('rm -Rf '.$oldampconf['AMPWEBROOT']);
+                exec('rm -Rf '.$oldampconf['AMPWEBROOT'].'/admin');
                 out("Done!");
             break;
         }
@@ -1036,8 +1055,8 @@ if($installamp_clean || $uninstallamp) {
             case "y":
             case "yes":
             default:
-                outn("Erasing Database...");
-                $datasource = 'mysql://'.$oldampconf["AMPDBUSER"].':'.$oldampconf["AMPDBPASS"].'@'.$oldampconf["AMPDBHOST"].'/'.$oldampconf["AMPDBNAME"];
+	        outn("Erasing Database...");
+                $datasource = 'mysqli://'.$oldampconf["AMPDBUSER"].':'.$oldampconf["AMPDBPASS"].'@'.$oldampconf["AMPDBHOST"].'/'.$oldampconf["AMPDBNAME"];
                 $cleandb = DB::connect($datasource); // attempt connection
 
                 if(DB::IsError($cleandb)) {
@@ -1061,7 +1080,9 @@ if($installamp_clean || $uninstallamp) {
     if($uninstallamp && (!empty($oldampconf) || !empty($new_username))) {
         outn("Uninstall IssabelPBX's Asterisk Database?:\n [y] ");
         $u_username = !empty($oldampconf["AMPDBUSER"]) ? $oldampconf["AMPDBUSER"] : $new_username;
-        $u_password = !empty($oldampconf["AMPDBPASS"]) ? $oldampconf["AMPDBPASS"] : (!empty($new_password) ? $new_password : '');
+	$u_password = !empty($oldampconf["AMPDBPASS"]) ? $oldampconf["AMPDBPASS"] : (!empty($new_password) ? $new_password : '');
+	$u_username = $new_username;
+	$u_password = $new_password;
         $u_host = !empty($oldampconf["AMPDBHOST"]) ? $oldampconf["AMPDBHOST"] : (!empty($dbhost) ? $dbhost : 'localhost');
         $u_database = !empty($oldampconf["AMPDBNAME"]) ? $oldampconf["AMPDBNAME"] : (!empty($dbname) ? $dbname : 'asterisk');
         $key = trim(fgets(STDIN,1024));
@@ -1073,7 +1094,7 @@ if($installamp_clean || $uninstallamp) {
             case "yes":
             default:
                 outn("Erasing Database...");
-                $datasource = 'mysql://'.$u_username.':'.$u_password.'@'.$u_host.'/'.$u_database;
+		$datasource = 'mysqli://'.$u_username.':'.$u_password.'@'.$u_host;
                 $cleandb = DB::connect($datasource); // attempt connection
 
                 if(DB::IsError($cleandb)) {
@@ -1364,14 +1385,25 @@ switch ($dbengine)
             out("FAILED");
             fatal($dbengine." PHP libraries not installed");
         }
-        $datasource = $dbengine.'://'.$new_username.':'.$new_password.'@'.$db_host;
+    $datasource = $dbengine.'://'.$new_username.':'.$new_password.'@'.$db_host;
+
+    out("Connecting as: $datasource");
+
         $db = DB::connect($datasource); // attempt connection
         $res = $db->query("CREATE DATABASE asterisk");
-        $res = $db->query("CREATE DATABASE asteriskcdrdb");
-        grant_mysql();
+    $res = $db->query("CREATE DATABASE asteriskcdrdb");
+
+    out("Databases created!");
+
+    grant_mysql();
+
+
         $db->disconnect();
 
-        $datasource = $dbengine.'://'.$db_user.':'.$db_pass.'@'.$db_host.'/'.$db_name;
+    $datasource = $dbengine.'://'.$db_user.':'.$db_pass.'@'.$db_host.'/'.$db_name;
+
+    out("Reconnecting as $datasource");
+
         $db = DB::connect($datasource); // attempt connection
         break;
 
@@ -1392,19 +1424,16 @@ switch ($dbengine)
             dl('sqlite3.so');
 
 
-	/*
+    /*
         if (! @require_once('DB/sqlite3.php') )
-	{
-		echo "chau\n";
+    {
             out("FAILED");
             fatal( "Your PHP installation has no PEAR/SQLite3 support. Please install php-sqlite3 and php-pear.");
-	} else {
-		echo "sigue\n";
-	}
-	 */
+    }
+     */
 
         $datasource = "sqlite3:///" . $amp_conf["AMPDBFILE"] . "?mode=0666";
-	    $db = DB::connect($datasource);
+        $db = DB::connect($datasource);
         break;
 
     default:
@@ -1413,11 +1442,14 @@ switch ($dbengine)
 
 if(DB::IsError($db)) {
     out("FAILED");
-    debug($db->userinfo);
+    echo 'Standard Message: ' . $db->getMessage() . "\n";
+    echo 'Standard Code: ' . $db->getCode() . "\n";
+    echo 'DBMS/User Message: ' . $db->getUserInfo() . "\n";
+    echo 'DBMS/Debug Message: ' . $db->getDebugInfo() . "\n";
     out("Try running ".$argv[0]." --username=user --password=pass  (using your own user and pass)");
     fatal("Cannot connect to database");
-
 }
+
 out("OK");
 
 function escapeDouble($val) {
