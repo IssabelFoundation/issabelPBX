@@ -5,7 +5,7 @@
 //    Copyright 2022 Issabel Foundation
 //
 // ./install_amp --dbengine=$engine --username=root --password=mysqlrootpassword --adminuser=admin --adminpass=asteriskpass --installdb --dbfile /etc/asterisk/sqldata.db --scripted
-
+chdir(__DIR__);
 date_default_timezone_set('America/Los_Angeles');
 require_once ("libissabelpbx.install.php");
 require_once(dirname(__FILE__) . '/amp_conf/htdocs/admin/libraries/php-upgrade.functions.php');
