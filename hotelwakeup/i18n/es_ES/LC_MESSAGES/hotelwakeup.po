@@ -1,5 +1,5 @@
 msgid "Wake Up Calls"
-msgstr "Desepertador de hotel"
+msgstr "Despertador de hotel"
 
 #: page.hotelwakeup.php:53
 msgid "Cannot schedule the call, either due to insufficient data or the scheduled time was in the past"
