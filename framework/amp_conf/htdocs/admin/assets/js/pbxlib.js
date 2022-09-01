@@ -1800,6 +1800,8 @@ function paint_rnav() {
 }
 
 function filter_rnav() {
+    if($('#rnavsearch').length==0) return;
+
     // Declare variables
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById('rnavsearch');
