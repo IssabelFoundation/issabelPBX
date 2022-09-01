@@ -1355,7 +1355,7 @@ function ipbx_ami_update($user=false, $pass=false, $writetimeout = false) {
 
         // We've changed the password, let's update the notification
         //
-+               require_once $amp_conf['AMPWEBROOT'] . '/admin/libraries/notifications.class.php';
+        require_once $amp_conf['AMPWEBROOT'] . '/admin/libraries/notifications.class.php';
         $nt = notifications::create($db);
         $issabelpbx_conf =& issabelpbx_conf::create();
         if ($amp_conf['AMPMGRPASS'] == $issabelpbx_conf->get_conf_default_setting('AMPMGRPASS')) {
