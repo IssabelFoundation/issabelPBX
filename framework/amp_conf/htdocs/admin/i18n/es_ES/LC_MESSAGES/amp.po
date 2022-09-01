@@ -6661,3 +6661,10 @@ msgstr "La recarga aplicará los cambios hechos en IssabelPBX a su centralita y 
 
 msgid "Please select a file"
 msgstr "Por favor elija un archivo"
+
+msgid "Symlink Conflict Resolved"
+msgstr "Se ha resuelto un conflicto con enláces simbólicos"
+
+msgid "retrieve_conf resolved a symlink with %s<br>This is a notice to let you know that the original file was moved to %s, there is nothing more you need to do"
+msgstr "retrieve_conf resolvió un symlink con %s<br>Esta notificación es para informarle que El archivo original fue movido a %s, no hay nada que usted deba hacer"
+

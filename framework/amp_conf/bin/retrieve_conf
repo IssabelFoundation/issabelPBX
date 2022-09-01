@@ -183,7 +183,7 @@ class connectdirs {
             $this->nt->delete('retrieve_conf', 'SYMLINK');
         }
         if($this->symlink_notice_modules) {
-            $this->nt->add_notice('retrieve_conf', 'SYMLINKNOTICE', _("Symlink Conflict Resolved"),sprintf(_("retrieve_conf resolved a symlink with %s<br \>This is a notice to let you know that the original file was moved to %s, there is nothing more you need to do"),$this->symlink_notice_modules,$amp_conf['ASTETCDIR'].'/backup'));
+            $this->nt->add_notice('retrieve_conf', 'SYMLINKNOTICE', _("Symlink Conflict Resolved"),sprintf(_("retrieve_conf resolved a symlink with %s<br>This is a notice to let you know that the original file was moved to %s, there is nothing more you need to do"),$this->symlink_notice_modules,$amp_conf['ASTETCDIR'].'/backup'));
         }
     }
 
