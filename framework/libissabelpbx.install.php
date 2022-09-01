@@ -309,6 +309,11 @@ function recursive_copy($dirsourceparent, $dirdest, &$md5sums, $dirsource = "") 
             $destination=str_replace("/astvarlib",trim($asterisk_conf["astvarlibdir"]),$destination);
             if(strpos($dirsource, 'modules') === false) $destination=str_replace("/agi-bin",trim($asterisk_conf["astagidir"]),$destination);
             if(strpos($dirsource, 'modules') === false) $destination=str_replace("/sounds",trim($asterisk_conf["astvarlibdir"])."/sounds",$destination);
+            if(strpos($dirsource, 'modules') === false) {
+                if(preg_match("/\/agi-bin\//",$destination) || preg_match("/\/sounds\//",$destination) ) {
+                    $destination=str_replace($dirdest,'',$destination);
+                }
+            }
 
             // if this is a directory, ensure destination exists
             if (is_dir($source)) {
