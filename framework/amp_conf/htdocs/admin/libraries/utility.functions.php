@@ -24,6 +24,12 @@ function issabelpbx_log($level, $message) {
     $php_error_handler = false;
     $bt = debug_backtrace();
 
+    /*
+    if($bt[0]['args'][0]!='INFO') {
+        file_put_contents("/tmp/backtrace.log",print_r($bt,1),FILE_APPEND); // nico
+    }
+    */
+
     if (isset($bt[1])) {
         if($bt[1]['function'] == 'issabelpbx_error_handler') {
             $php_error_handler = true;
@@ -1324,7 +1330,7 @@ function download_file($file, $name = '', $type = '', $force_download = false) {
  * allows IssabelPBX to update the manager credentials primarily used by Advanced Settings and Backup and Restore.
  */
 function ipbx_ami_update($user=false, $pass=false, $writetimeout = false) {
-    global $amp_conf, $astman;
+    global $amp_conf, $astman, $db;
     $conf_file = $amp_conf['ASTETCDIR'] . '/manager.conf';
     $ret = $ret2 = $ret3 = 0;
     $output = array();
@@ -1353,17 +1359,19 @@ function ipbx_ami_update($user=false, $pass=false, $writetimeout = false) {
             }
         }
 
-        // We've changed the password, let's update the notification
-        //
-        require_once $amp_conf['AMPWEBROOT'] . '/admin/libraries/notifications.class.php';
-        $nt = notifications::create($db);
-        $issabelpbx_conf =& issabelpbx_conf::create();
-        if ($amp_conf['AMPMGRPASS'] == $issabelpbx_conf->get_conf_default_setting('AMPMGRPASS')) {
-          if (!$nt->exists('core', 'AMPMGRPASS')) {
-              $nt->add_warning('core', 'AMPMGRPASS', _("Default Asterisk Manager Password Used"), _("You are using the default Asterisk Manager password that is widely known, you should set a secure password"));
-          }
-        } else {
-            $nt->delete('core', 'AMPMGRPASS');
+	if(!is_array($db->tableInfo('issabelpbx_settings'))) {
+            // We've changed the password, let's update the notification
+            //
+            require_once $amp_conf['AMPWEBROOT'] . '/admin/libraries/notifications.class.php';
+            $nt = notifications::create($db);
+            $issabelpbx_conf =& issabelpbx_conf::create();
+            if ($amp_conf['AMPMGRPASS'] == $issabelpbx_conf->get_conf_default_setting('AMPMGRPASS')) {
+                if (!$nt->exists('core', 'AMPMGRPASS')) {
+                    $nt->add_warning('core', 'AMPMGRPASS', _("Default Asterisk Manager Password Used"), _("You are using the default Asterisk Manager password that is widely known, you should set a secure password"));
+                }
+            } else {
+                $nt->delete('core', 'AMPMGRPASS');
+            }
         }
     }
 

@@ -6,6 +6,8 @@
 //
 // ./install_amp --dbengine=$engine --dbuser=root --dbpass=mysqlrootpassword --adminuser=admin --adminpass=asteriskpass --installdb --dbfile /etc/asterisk/sqldata.db --scripted
 chdir(__DIR__);
+
+
 date_default_timezone_set('America/Los_Angeles');
 require_once ("libissabelpbx.install.php");
 require_once(dirname(__FILE__) . '/amp_conf/htdocs/admin/libraries/php-upgrade.functions.php');
@@ -1039,7 +1041,7 @@ if($installamp_clean || $uninstallamp) {
             case "y":
             case "yes":
             default:
-                outn("Removing ".$oldampconf['AMPWEBROOT']."......");
+                outn("Removing ".$oldampconf['AMPWEBROOT']."/admin......");
                 exec('rm -Rf '.$oldampconf['AMPWEBROOT'].'/admin');
                 out("Done!");
             break;
@@ -1055,7 +1057,7 @@ if($installamp_clean || $uninstallamp) {
             case "y":
             case "yes":
             default:
-	        outn("Erasing Database...");
+            outn("Erasing Database...");
                 $datasource = 'mysqli://'.$oldampconf["AMPDBUSER"].':'.$oldampconf["AMPDBPASS"].'@'.$oldampconf["AMPDBHOST"].'/'.$oldampconf["AMPDBNAME"];
                 $cleandb = DB::connect($datasource); // attempt connection
 
@@ -1080,9 +1082,9 @@ if($installamp_clean || $uninstallamp) {
     if($uninstallamp && (!empty($oldampconf) || !empty($new_username))) {
         outn("Uninstall IssabelPBX's Asterisk Database?:\n [y] ");
         $u_username = !empty($oldampconf["AMPDBUSER"]) ? $oldampconf["AMPDBUSER"] : $new_username;
-	$u_password = !empty($oldampconf["AMPDBPASS"]) ? $oldampconf["AMPDBPASS"] : (!empty($new_password) ? $new_password : '');
-	$u_username = $new_username;
-	$u_password = $new_password;
+    $u_password = !empty($oldampconf["AMPDBPASS"]) ? $oldampconf["AMPDBPASS"] : (!empty($new_password) ? $new_password : '');
+    $u_username = $new_username;
+    $u_password = $new_password;
         $u_host = !empty($oldampconf["AMPDBHOST"]) ? $oldampconf["AMPDBHOST"] : (!empty($dbhost) ? $dbhost : 'localhost');
         $u_database = !empty($oldampconf["AMPDBNAME"]) ? $oldampconf["AMPDBNAME"] : (!empty($dbname) ? $dbname : 'asterisk');
         $key = trim(fgets(STDIN,1024));
@@ -1094,19 +1096,23 @@ if($installamp_clean || $uninstallamp) {
             case "yes":
             default:
                 outn("Erasing Database...");
-		$datasource = 'mysqli://'.$u_username.':'.$u_password.'@'.$u_host;
+        $datasource = 'mysqli://'.$u_username.':'.$u_password.'@'.$u_host;
                 $cleandb = DB::connect($datasource); // attempt connection
 
                 if(DB::IsError($cleandb)) {
                     out("FAILED");
                     fatal("Could Not Connect to Database (Probably already deleted)");
-                } else {
-                    $sql = "SHOW TABLES FROM ".$u_database;
-                    $tables = $cleandb->getAll($sql);
-                    foreach($tables as $list) {
-                        $sql = "DROP TABLE ".$u_database.".".$list[0];
-                        $cleandb->query($sql);
-                    }
+        } else {
+            $sql = "DROP DATABASE asterisk";
+            $cleandb->query($sql);
+            $sql = "DROP DATABASE asteriskcdrdb";
+            $cleandb->query($sql);
+                    //$sql = "SHOW TABLES FROM ".$u_database;
+                    //$tables = $cleandb->getAll($sql);
+                    //foreach($tables as $list) {
+    //            $sql = "DROP TABLE ".$u_database.".".$list[0];
+          //              $cleandb->query($sql);
+           //         }
                     out("Done");
                 }
             break;
@@ -1759,7 +1765,7 @@ if ($install_files)
     if ($force_amportal_conf) {
       putenv('FORCE_AMPORTAL_CONF=1');
     }
-        exec($amp_conf["AMPSBIN"]."/amportal chown");
+    exec($amp_conf["AMPSBIN"]."/amportal chown");
     if ($force_amportal_conf) {
       putenv('FORCE_AMPORTAL_CONF=');
     }
@@ -1834,6 +1840,14 @@ if($update_links) {
     copy(__DIR__.'/module.xml',$amp_conf['AMPWEBROOT'].'/admin/modules/framework/module.xml');
 }
 
+if($install_moh) {
+    $md5=array();
+    out("installing music on hold files");
+    $dirfrom = dirname(__DIR__)."/tgzassets/moh";
+    $dirto="/moh";
+    recursive_copy($dirfrom,$dirto,$md5);
+    exec($amp_conf["AMPSBIN"]."/amportal chown");
+}
 
 // **** Set reload flag for AMP admin
 needreload();
