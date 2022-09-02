@@ -1014,3 +1014,6 @@ msgstr "Ejecutando gancho post restauración..."
 msgid "No storage servers found! Aborting"
 msgstr "No se encontraron servidores de almacenamiento! Abortando"
 
+msgid "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted backup from server [%s]."
+msgstr "La copia de seguridad falló al descargar la base de datos SQL [%s] al archivo [%s], tiene una copia de seguridad dañada del servidor [%s]."
+
