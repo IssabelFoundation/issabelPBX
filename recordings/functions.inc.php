@@ -7,7 +7,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 global $recordings_astsnd_path; // PHP5 needs extra convincing of a global
 global $amp_conf;
 $recordings_save_path = $amp_conf['ASTSPOOLDIR']."/tmp/";
-$recordings_astsnd_path = isset($asterisk_conf['astvarlibdir'])?$asterisk_conf['astvarlibdir']:'/var/lib/asterisk';
+$recordings_astsnd_path = isset($asterisk_conf['astdatadir'])?$asterisk_conf['astdatadir']:'/var/lib/asterisk';
 $recordings_astsnd_path .= "/sounds/";
 
 function recordings_get_config($engine) {
@@ -97,7 +97,7 @@ function recordings_get_config($engine) {
 			//
 			// If we get here from *77 then we don't have ARG2, so just skip the remove, otherwise we have two paths
 			$ext->add($context, $exten, '', new ext_gotoif('$["${ARG2}" = ""]','skipremove'));
-			$ext->add($context, $exten, '', new ext_system('rm ${ASTVARLIBDIR}/sounds/${RECFILE}.*'));
+			$ext->add($context, $exten, '', new ext_system('rm ${ASTDATADIR}/sounds/${RECFILE}.*'));
 			if ($ast_ge_16) {
 				// Added in Asterisk 1.6: "If the user hangs up during a recording, all data is lost".
 				// Third option - k: Keep recorded file upon hangup.
