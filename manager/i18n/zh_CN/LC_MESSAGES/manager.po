@@ -57,9 +57,6 @@ msgstr "管理员"
 msgid "deleted"
 msgstr "以删除"
 
-msgid "Manager:"
-msgstr "管理员："
-
 msgid "Delete Manager"
 msgstr "删除管理员"
 

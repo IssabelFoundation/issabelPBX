@@ -53,9 +53,6 @@ msgstr "Gestor"
 msgid "deleted"
 msgstr "eliminado"
 
-msgid "Manager:"
-msgstr "Gestor:"
-
 msgid "Delete Manager"
 msgstr "Eliminar gestor"
 
@@ -95,7 +92,7 @@ msgstr ""
 "Revise el ejemplo del campo 'Denegar'."
 
 msgid "Rights"
-msgstr "Permisos:"
+msgstr "Permisos"
 
 msgid "Read"
 msgstr "Lectura"
