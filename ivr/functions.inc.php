@@ -566,7 +566,8 @@ function ivr_configprocess(){
 		$vars['timeout_append_announce'] = empty($vars['timeout_append_announce']) ? '0' : '1';
 		$vars['invalid_append_announce'] = empty($vars['invalid_append_announce']) ? '0' : '1';
 		$vars['timeout_ivr_ret'] = empty($vars['timeout_ivr_ret']) ? '0' : '1';
-		$vars['invalid_ivr_ret'] = empty($vars['invalid_ivr_ret']) ? '0' : '1';
+        $vars['invalid_ivr_ret'] = empty($vars['invalid_ivr_ret']) ? '0' : '1';
+        $vars['announcement']=intval($vars['announcement'])
 
 		$action		= isset($_REQUEST['action'])	? $_REQUEST['action']	: '';
 		$entries	= isset($_REQUEST['entries'])	? $_REQUEST['entries']	: '';
