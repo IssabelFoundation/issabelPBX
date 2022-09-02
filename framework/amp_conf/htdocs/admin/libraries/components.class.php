@@ -807,7 +807,7 @@ class gui_switch extends guiinput {
         $disable_state = $disable ? ' disabled="disabled" ' : '';
         $js_onclick_include = ($jsonclick != '') ? 'onclick="' . $jsonclick. '"' : '';
 
-        $this->html_input = "<div class='field'><input type='checkbox' class='switch' id='$this->_elemname' name='$this->_elemname' value='$value' $itemchecked tabindex='{tabindesx}' $js_onclick_include /><label style='height:auto; line-height:1em; padding-left:3em;' for='$this->_elemname'>&nbsp;</label></div>";
+        $this->html_input = "<div class='field'><input type='checkbox' class='switch' id='$this->_elemname' name='$this->_elemname' value='$value' $itemchecked tabindex='{tabindex}' $js_onclick_include /><label style='height:auto; line-height:1em; padding-left:3em;' for='$this->_elemname'>&nbsp;</label></div>";
 
     }
 }
