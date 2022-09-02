@@ -37,7 +37,7 @@ foreach ($entries as $e) {
 	
 	
 	//return to ivr
-	$row[] = ipbx_label(form_checkbox('entries[ivr_ret][]', '1', ($e['ivr_ret'] == 1)), 
+	$row[] = ipbx_label(form_switch('entries[ivr_ret][]', '1', ($e['ivr_ret'] == 1)), 
 			_('Check this box to have this option return to a parent IVR if it was called '
 			. 'from a parent IVR. If not, it will go to the chosen destination.<br><br>'
 			. 'The return path will be to any IVR that was in the call path prior to this '
