@@ -15,21 +15,19 @@ $('body').on('click','.delete_entrie',function() {
 $('body').on('submit','form[name=frm_ivr]',function(){
     //set timeout/invalid destination, removing hidden field if there is no valus being set
     if ($('#invalid_loops').val() != 'disabled') {
-        //invalid = $('[name=' + $('[name=gotoinvalid]').val() + 'invalid]').val();
-	if($('[name=gotoinvalid]').val()!='') {
+        if($('[name=gotoinvalid]').val()!='') {
             invalid = $('#'+$('[name=gotoinvalid]').val()).val()
             $('#invalid_destination').val(invalid)
-	}
+        }
     } else {
         $('#invalid_destination').remove()
     }
 
     if ($('#timeout_loops').val() != 'disabled') {
-        //timeout = $('[name=' + $('[name=gototimeout]').val() + 'timeout]').val();
-	if($('[name=gototimeout]').val()!='') {
+        if($('[name=gototimeout]').val()!='') {
             timeout = $('#'+$('[name=gototimeout]').val()).val()
             $('#timeout_destination').val(timeout)
-	}
+        }
     } else {
         $('#timeout_destination').remove()
     }
@@ -58,7 +56,6 @@ $('body').on('submit','form[name=frm_ivr]',function(){
 
 // Add IVR Entries - Special Clone to work with Chosen
 jQuery(function($){ 
-    var clone = $("#ivr_entries tr:last").clone(true);  // clone select before chosen is applied
     $('body').on('click', '#add_entrie', function(event) {
         event.preventDefault();
         var ParentRow = $("#ivr_entries tr").last();

@@ -82,6 +82,7 @@ $ret .= $table->generate();
 //$ret .= '<img class="IVREntries" src="modules/ivr/assets/images/add.png" style="cursor:pointer" title="' . _('Add Entry') . '" id="add_entrie">';
 $ret .= '<button class="button is-small is-rounded" id="add_entrie"><span class="icon is-small is-left"><i class="fa fa-plus"></i></span><span>'._('Add Entry').'</span></button>';
 
+$ret .= "<script>var clone = \$(\"#ivr_entries tr:last\").clone(true);</script>";
 
 echo $ret;
 ?>
