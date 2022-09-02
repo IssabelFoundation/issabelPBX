@@ -1059,6 +1059,50 @@ if ( ! function_exists('_get_validation_object'))
 	}
 }
 
+/**
+ * Decorated Checkbox Field
+ *
+ * @access  public
+ * @param   mixed
+ * @param   string
+ * @param   bool
+ * @param   string
+ * @return  string
+ */
+if ( ! function_exists('form_switch'))
+{
+    function form_switch($data = '', $value = '', $checked = FALSE, $extra = '')
+    {
+        $randid = substr("abcdefghijklmnopqrstuvwxyz", mt_rand(0, 25), 1).substr(md5(time()), 1);
+
+        $defaults = array('type' => 'checkbox', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value, 'class' => 'switch', 'id' => $randid  );
+
+        if (is_array($data) AND array_key_exists('checked', $data))
+        {
+            $checked = $data['checked'];
+
+            if ($checked == FALSE)
+            {
+                unset($data['checked']);
+            }
+            else
+            {
+                $data['checked'] = 'checked';
+            }
+        }
+
+        if ($checked == TRUE)
+        {
+            $defaults['checked'] = 'checked';
+        }
+        else
+        {
+            unset($defaults['checked']);
+        }
+
+        return "<div class='field'><input "._parse_form_attributes($data, $defaults).$extra." /><label style='padding-left:3em;' for='".$defaults['id']."'>&nbsp;</label></div>";
+    }
+}
 
 /* End of file form_helper.php */
 /* Location: ./system/helpers/form_helper.php */
