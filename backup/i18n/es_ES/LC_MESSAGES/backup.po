@@ -1011,3 +1011,6 @@ msgstr "Se completó la restauración de configuraciones"
 msgid "Running post restore script..."
 msgstr "Ejecutando gancho post restauración..."
 
+msgid "No storage servers found! Aborting"
+msgstr "No se encontraron servidores de almacenamiento! Abortando"
+
