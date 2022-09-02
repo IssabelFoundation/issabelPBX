@@ -1073,7 +1073,7 @@ if ( ! function_exists('form_switch'))
 {
     function form_switch($data = '', $value = '', $checked = FALSE, $extra = '')
     {
-        $randid = substr("abcdefghijklmnopqrstuvwxyz", mt_rand(0, 25), 1).substr(md5(time()), 1);
+        $randid = substr(md5(rand()), 0, 7);
 
         $defaults = array('type' => 'checkbox', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value, 'class' => 'switch', 'id' => $randid  );
 
