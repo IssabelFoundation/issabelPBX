@@ -1,4 +1,4 @@
-up.compiler('.content', function(element,data) {})
+up.compiler('.content', function(element,data) {
   var myTimer;
   var copyBtn = document.querySelector('.js-copybtn');
   if (copyBtn != null) {
