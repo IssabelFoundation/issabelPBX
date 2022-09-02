@@ -473,10 +473,10 @@ function ivr_configpageload() {
 	if(!isset($ivr['invalid_append_announce'])) $ivr['invalid_append_announce']=0;
 
 	$currentcomponent->addguielem($section,
-		new gui_checkbox('invalid_append_announce', $ivr['invalid_append_announce'], _('Append Announcement on Invalid'), _('After playing the Invalid Retry Recording the system will replay the main IVR Announcement')));
+		new gui_switch('invalid_append_announce', $ivr['invalid_append_announce'], _('Append Announcement on Invalid'), _('After playing the Invalid Retry Recording the system will replay the main IVR Announcement')));
 
 	$currentcomponent->addguielem($section,
-		new gui_checkbox('invalid_ivr_ret', $ivr['invalid_ivr_ret'], _('Return on Invalid'), _('Check this box to have this option return to a parent IVR if it was called '
+		new gui_switch('invalid_ivr_ret', $ivr['invalid_ivr_ret'], _('Return on Invalid'), _('Check this box to have this option return to a parent IVR if it was called '
 			. 'from a parent IVR. If not, it will go to the chosen destination.<br><br>'
 			. 'The return path will be to any IVR that was in the call path prior to this '
 			. 'IVR which could lead to strange results if there was an IVR called in the '
@@ -499,10 +499,10 @@ function ivr_configpageload() {
 
 	if(!isset($ivr['timeout_append_announce'])) $ivr['timeout_append_announce']=0;
 	$currentcomponent->addguielem($section,
-		new gui_checkbox('timeout_append_announce', $ivr['timeout_append_announce'], _('Append Announcement on Timeout'), _('After playing the Timeout Retry Recording the system will replay the main IVR Announcement')));
+		new gui_switch('timeout_append_announce', $ivr['timeout_append_announce'], _('Append Announcement on Timeout'), _('After playing the Timeout Retry Recording the system will replay the main IVR Announcement')));
 
 	$currentcomponent->addguielem($section,
-		new gui_checkbox('timeout_ivr_ret', $ivr['timeout_ivr_ret'], _('Return on Timeout'), _('Check this box to have this option return to a parent IVR if it was called '
+		new gui_switch('timeout_ivr_ret', $ivr['timeout_ivr_ret'], _('Return on Timeout'), _('Check this box to have this option return to a parent IVR if it was called '
 			. 'from a parent IVR. If not, it will go to the chosen destination.<br><br>'
 			. 'The return path will be to any IVR that was in the call path prior to this '
 			. 'IVR which could lead to strange results if there was an IVR called in the '
@@ -517,10 +517,10 @@ function ivr_configpageload() {
 
 	//return to ivr
 	$currentcomponent->addguielem($section,
-		new gui_checkbox('retvm', $ivr['retvm'], _('Return to IVR after VM'), _('If checked, upon exiting voicemail a caller will be returned to this IVR if they got a users voicemail')));
+		new gui_switch('retvm', $ivr['retvm'], _('Return to IVR after VM'), _('If checked, upon exiting voicemail a caller will be returned to this IVR if they got a users voicemail')));
 
 	/*$currentcomponent->addguielem($section,
-		new gui_checkbox('say_extension', $dir['say_extension'], _('Announce Extension'),
+		new gui_switch('say_extension', $dir['say_extension'], _('Announce Extension'),
 		_('When checked, the extension number being transferred to will be announced prior to the transfer'),true));*/
 	$currentcomponent->addguielem($section, new gui_hidden('extdisplay', $ivr['id']));
 	$currentcomponent->addguielem($section, new gui_hidden('action', 'save'));
