@@ -98,3 +98,7 @@ input[type=text] {
 	padding-bottom: 5px;
 	overflow-y: scroll;
 }
+
+.backup_status {
+    text-align:left;
+}
