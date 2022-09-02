@@ -575,7 +575,7 @@ function ivr_configprocess(){
 		switch ($action) {
 			case 'save':
                 //get real dest
-                $_REQUEST['extdisplay'] = $vars['id'] = ivr_save_details($vars);
+				$vars['extdisplay'] = $vars['id'] = ivr_save_details($vars);
 				ivr_save_entries($vars['extdisplay'], $entries);
 				needreload();
 				//$_REQUEST['action'] = 'edit';
@@ -631,7 +631,7 @@ function ivr_save_details($vals){
 			die_issabelpbx(print_r($vals,true).' '.$foo->getDebugInfo());
 		}
 		$sql = ( (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
-		$vals['id'] = $db->getOne($sql);
+		$vals['extdisplay'] = $db->getOne($sql);
 		if ($db->IsError($foo)){
 			die_issabelpbx($foo->getDebugInfo());
 		}
