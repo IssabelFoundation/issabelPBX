@@ -89,6 +89,7 @@
 "Directory Layout","ASTRUNDIR","/var/run/asterisk","","Asterisk Run Dir","This is the default directory for Asterisks run files.","0","4","1","dir"
 "Directory Layout","ASTSPOOLDIR","/var/spool/asterisk","","Asterisk Spool Dir","This is the default directory for Asterisks spool directory.","0","4","1","dir"
 "Directory Layout","ASTVARLIBDIR","/var/lib/asterisk","","Asterisk bin Dir","This is the default directory for Asterisks lib files.","0","4","1","dir"
+"Directory Layout","ASTDATADIR","/var/lib/asterisk","","Asterisk data Dir","This is the default directory for Asterisks data files.","0","4","1","dir"
 "Directory Layout","MIXMON_DIR","","","Override Call Recording Location","Override the default location where asterisk will store call recordings. Be sure to set proper permissions on the directory for the asterisk user.","1","9","1","dir"
 "Directory Layout","MOHDIR","moh","moh,mohmp3","MoH Subdirectory","This is the subdirectory for the MoH files/directories which is located in ASTVARLIBDIR. Older installation may be using mohmp3 which was the old Asterisk default and should be set to that value if the music files are located there relative to the ASTVARLIBDIR.","0","4","1","select"
 "Flash Operator Panel","FOPWEBROOT","/var/www/html/admin/modules/fw_fop/","","FOP Web Root Dir","Path to the Flash Operator Panel webroot or other modules providing such functionality (leave off trailing slash).","1","4","1","dir"
