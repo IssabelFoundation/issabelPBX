@@ -83,8 +83,8 @@ if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc
 	// Operator Extensions
 	// Enter any extension that is allowed to enter in operator mode - Caller ID is used to validate
 	//	$parm_operator_extensions= array(  00, 00, 00);  // old method
-		if(eregi(',', $date[operator_extensions])) {
-			$poe = explode(',', eregi_replace(' ', '', $date[operator_extensions]));
+		if(preg_match('/,/', $date[operator_extensions])) {
+			$poe = explode(',', preg_replace('/ /', '', $date[operator_extensions]));
 		} else {
 			$poe = array($date[operator_extensions]);
 		}
