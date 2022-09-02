@@ -1073,6 +1073,10 @@ if ( ! function_exists('form_switch'))
 {
     function form_switch($data = '', $value = '', $checked = FALSE, $extra = '')
     {
+
+        global $tabindex;
+        $tabindexhtml=' tabindex="'.++$tabindex.'" ';
+
         $randid = substr(md5(rand()), 0, 7);
 
         $defaults = array('type' => 'checkbox', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value, 'class' => 'switch', 'id' => $randid  );
@@ -1100,7 +1104,7 @@ if ( ! function_exists('form_switch'))
             unset($defaults['checked']);
         }
 
-        return "<input "._parse_form_attributes($data, $defaults).$extra." /><label style='padding-left:3em;' for='".$defaults['id']."'>&nbsp;</label>";
+        return "<input $tabindexhtml "._parse_form_attributes($data, $defaults).$extra." /><label style='padding-left:3em;' for='".$defaults['id']."'>&nbsp;</label>";
     }
 }
 
