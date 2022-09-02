@@ -42,7 +42,7 @@ $('body').on('submit','form[name=frm_ivr]',function(){
 
     //set ret_ivr checkboxes to SOMETHING so that they get sent back
     $('[name="entries[ivr_ret][]"]').not(':checked').each(function(){
-        $(this).attr('checked', 'checked').val('uncheked')
+        $(this).prop('checked', true).val('uncheked')
     })
 
     //disable dests so that they dont get posted
@@ -79,21 +79,21 @@ jQuery(function($){
 
 up.compiler('.content', function(element,data) {
 
-    //on load, hide elememnts that may need to be hidden
+    //on load, hide elements that may need to be hidden
     invalid_elements();
     timeout_elements();
 
     //show/hide invalid elements on change
-    $('#invalid_loops').change(invalid_elements)
+    $('#invalid_loops').on('change', invalid_elements)
 
     //show/hide timeout elements on change
-    $('#timeout_loops').change(timeout_elements)
+    $('#timeout_loops').on('change', timeout_elements)
 });
 
 function restore_form_elemens() {
-    $('.destdropdown, .destdropdown2').removeAttr('disabled')
+    $('.destdropdown, .destdropdown2').prop('disabled',false)
     $('[name="entries[ivr_ret][]"][value=uncheked]').each(function(){
-        $(this).removeAttr('checked')
+        $(this).prop('checked',false)
     })
     invalid_elements();
     timeout_elements();
@@ -105,17 +105,17 @@ function invalid_elements() {
     var invalid_element_tr = invalid_elements.parent().parent();
     switch ($('#invalid_loops').val()) {
         case 'disabled':
-            invalid_elements.attr('disabled', 'disabled')
+            invalid_elements.prop('disabled', true)
             invalid_element_tr.hide()
             break;
         case '0':
-            invalid_elements.removeAttr('disabled')
+            invalid_elements.prop('disabled',false)
             invalid_element_tr.show();
             $('#invalid_retry_recording').parent().parent().hide();
             $('#invalid_append_announce').parent().parent().hide();
             break;
         default:
-            invalid_elements.removeAttr('disabled')
+            invalid_elements.prop('disabled',false)
             invalid_element_tr.show()
             break;
     }
@@ -127,16 +127,16 @@ function timeout_elements() {
     var timeout_element_tr = timeout_elements.parent().parent();
     switch ($('#timeout_loops').val()) {
         case 'disabled':
-            timeout_elements.attr('disabled', 'disabled')
+            timeout_elements.prop('disabled', true)
             timeout_element_tr.hide()
             break;
         case '0':
-            timeout_elements.removeAttr('disabled')
+            timeout_elements.prop('disabled', false)
             timeout_element_tr.show();
             $('#timeout_retry_recording').parent().parent().hide();
             $('#timeout_append_announce').parent().parent().hide();
         default:
-            timeout_elements.removeAttr('disabled')
+            timeout_elements.prop('disabled',false)
             timeout_element_tr.show()
             break;
     }

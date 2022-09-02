@@ -439,8 +439,9 @@ function editGRP_onsubmit(theForm) {
 	}
 	defaultEmptyOK = true;
 	if (!isCallerID(theForm.grppre.value))
-		return warnInvalid(theForm.grppre, msgInvalidGrpPrefix);
-	
+        return warnInvalid(theForm.grppre, msgInvalidGrpPrefix);
+
+    $.LoadingOverlay('show');	
 	return true;
 }
 
