@@ -137,6 +137,7 @@ function install_parse_asterisk_conf($filename) {
     if (!isset($asterisk_conf['astetcdir']))    { $asterisk_conf['astetcdir']    = "/etc/asterisk"; }
     if (!isset($asterisk_conf['astmoddir']))    { $asterisk_conf['astmoddir']    = "/usr/lib/asterisk/modules"; }
     if (!isset($asterisk_conf['astvarlibdir'])) { $asterisk_conf['astvarlibdir'] = "/var/lib/asterisk"; }
+    if (!isset($asterisk_conf['astdatadir']))   { $asterisk_conf['astdatadir']   = "/var/lib/asterisk"; }
     if (!isset($asterisk_conf['astagidir']))    { $asterisk_conf['astagidir']    = "/var/lib/asterisk/agi-bin"; }
     if (!isset($asterisk_conf['astspooldir']))  { $asterisk_conf['astspooldir']  = "/var/spool/asterisk"; }
     if (!isset($asterisk_conf['astrundir']))    { $asterisk_conf['astrundir']    = "/var/run/asterisk"; }
@@ -146,7 +147,7 @@ function install_parse_asterisk_conf($filename) {
 }
 
 function write_amportal_conf($filename, $conf) {
-    $file = file($filename);
+	$file = file($filename);
     // parse through the file
     foreach (array_keys($file) as $key) {
         if (preg_match("/^\s*([a-zA-Z0-9]+)\s*=\s*(.*)\s*([;#].*)?/",$file[$key],$matches)) {
@@ -437,7 +438,8 @@ function install_modules() {
     $SOURCEDIR = dirname(__FILE__)."/../";
 
     foreach($base_modules as $module) {
-        if(is_dir($SOURCEDIR.$module)) {
+	    if(is_dir($SOURCEDIR.$module)) {
+		    out("installing $module module...");
             if(!is_dir($amp_conf['AMPWEBROOT'].'/admin/modules/'.$module)) {
                 mkdir($amp_conf['AMPWEBROOT'].'/admin/modules/'.$module);
             }
@@ -1263,13 +1265,14 @@ out("OK");
 
 /* TODO: if we boostrapped this should have been done but doesn't hurt?
  */
-if (isset($asterisk_conf['astetcdir'])) { $amp_conf['ASTETCDIR'] = $asterisk_conf['astetcdir']; }
-if (isset($asterisk_conf['astmoddir'])) { $amp_conf['ASTMODDIR'] = $asterisk_conf['astmoddir']; }
+if (isset($asterisk_conf['astetcdir']))    { $amp_conf['ASTETCDIR']    = $asterisk_conf['astetcdir']; }
+if (isset($asterisk_conf['astmoddir']))    { $amp_conf['ASTMODDIR']    = $asterisk_conf['astmoddir']; }
 if (isset($asterisk_conf['astvarlibdir'])) { $amp_conf['ASTVARLIBDIR'] = $asterisk_conf['astvarlibdir']; }
-if (isset($asterisk_conf['astagidir'])) { $amp_conf['ASTAGIDIR'] = $asterisk_conf['astagidir']; }
-if (isset($asterisk_conf['astspooldir'])) { $amp_conf['ASTSPOOLDIR'] = $asterisk_conf['astspooldir']; }
-if (isset($asterisk_conf['astrundir'])) { $amp_conf['ASTRUNDIR'] = $asterisk_conf['astrundir']; }
-if (isset($asterisk_conf['astlogdir'])) { $amp_conf['ASTLOGDIR'] = $asterisk_conf['astlogdir']; }
+if (isset($asterisk_conf['astdatadir']))   { $amp_conf['ASTDATADIR']   = $asterisk_conf['astdatadir']; }
+if (isset($asterisk_conf['astagidir']))    { $amp_conf['ASTAGIDIR']    = $asterisk_conf['astagidir']; }
+if (isset($asterisk_conf['astspooldir']))  { $amp_conf['ASTSPOOLDIR']  = $asterisk_conf['astspooldir']; }
+if (isset($asterisk_conf['astrundir']))    { $amp_conf['ASTRUNDIR']    = $asterisk_conf['astrundir']; }
+if (isset($asterisk_conf['astlogdir']))    { $amp_conf['ASTLOGDIR']    = $asterisk_conf['astlogdir']; }
 
 if (!isset($pbx_engine)) { $pbx_engine='asterisk'; }
 out("Using $pbx_engine as PBX Engine");
