@@ -52,14 +52,10 @@ foreach ($entries as $e) {
 					'value'			=> $e['spoken'],
 					'placeholder'	=> _('spoken word'),
 				)
-            );
+        );
 
     }
-	
-	//delete buttom
-	$row[] = '<img src="images/trash.png" style="cursor:pointer" title="' 
-	. _('Delete this entry. Dont forget to click Submit to save changes!') 
-	. '" class="delete_entrie">';
+    $row[] = '<button type="button" class="delete_entrie button is-small is-danger has-tooltip-right" data-tooltip="'._('Delete').'"><span class="icon is-small""><i class="fa fa-trash"></i></span></button>';
 		
 	//add module hooks	
 	if (isset($e['hooks']) && $e['hooks']) {
