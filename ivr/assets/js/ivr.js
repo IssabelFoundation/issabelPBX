@@ -16,16 +16,20 @@ $('body').on('submit','form[name=frm_ivr]',function(){
     //set timeout/invalid destination, removing hidden field if there is no valus being set
     if ($('#invalid_loops').val() != 'disabled') {
         //invalid = $('[name=' + $('[name=gotoinvalid]').val() + 'invalid]').val();
-        invalid = $('#'+$('[name=gotoinvalid]').val()).val()
-        $('#invalid_destination').val(invalid)
+	if($('[name=gotoinvalid]').val()!='') {
+            invalid = $('#'+$('[name=gotoinvalid]').val()).val()
+            $('#invalid_destination').val(invalid)
+	}
     } else {
         $('#invalid_destination').remove()
     }
 
     if ($('#timeout_loops').val() != 'disabled') {
         //timeout = $('[name=' + $('[name=gototimeout]').val() + 'timeout]').val();
-        timeout = $('#'+$('[name=gototimeout]').val()).val()
-        $('#timeout_destination').val(timeout)
+	if($('[name=gototimeout]').val()!='') {
+            timeout = $('#'+$('[name=gototimeout]').val()).val()
+            $('#timeout_destination').val(timeout)
+	}
     } else {
         $('#timeout_destination').remove()
     }
