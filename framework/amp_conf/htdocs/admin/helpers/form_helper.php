@@ -1100,7 +1100,7 @@ if ( ! function_exists('form_switch'))
             unset($defaults['checked']);
         }
 
-        return "<div class='field'><input "._parse_form_attributes($data, $defaults).$extra." /><label style='padding-left:3em;' for='".$defaults['id']."'>&nbsp;</label></div>";
+        return "<input "._parse_form_attributes($data, $defaults).$extra." /><label style='padding-left:3em;' for='".$defaults['id']."'>&nbsp;</label>";
     }
 }
 
