@@ -3136,7 +3136,7 @@ msgstr ""
 
 #: amp_conf/bin/issabelpbx-cron-scheduler.php:63
 msgid "No email address for online update checks"
-msgstr ""
+msgstr "Sin dirección de correo electrónico para notificar actualizaciones en línea"
 
 #: amp_conf/htdocs/admin/page.modules.php:985
 msgid "No modules to display."
@@ -4063,7 +4063,7 @@ msgid ""
 "The Call Recording module is not enabled. Since this feature is required for "
 "call recording you may not be able to record calls until the module is "
 "installed and enabled."
-msgstr ""
+msgstr "El módulo de grabación de llamadas no está habilitado. Dado que esta característica es necesaria para la grabación de llamadas, es posible que no pueda grabar llamadas hasta que el módulo esté instalado y habilitado."
 
 #: ../core/functions.inc.php:7128
 msgid ""
@@ -4928,7 +4928,7 @@ msgid ""
 "You are automatically checking for online updates nightly but you have no "
 "email address setup to send the results. This can be set in Module Admin. "
 "They will continue to show up here."
-msgstr ""
+msgstr "Está buscando automáticamente actualizaciones en línea todas las noches, pero no tiene configurada una dirección de correo electrónico para enviar los resultados. Esto se puede configurar en el administrador del módulo. Seguirán apareciendo aquí."
 
 #: amp_conf/htdocs/admin/libraries/utility.functions.php:1376
 msgid ""
