@@ -7,7 +7,6 @@
 // ./install_amp --dbengine=$engine --dbuser=root --dbpass=mysqlrootpassword --adminuser=admin --adminpass=asteriskpass --installdb --dbfile /etc/asterisk/sqldata.db --scripted
 chdir(__DIR__);
 
-
 date_default_timezone_set('America/Los_Angeles');
 require_once ("libissabelpbx.install.php");
 require_once(dirname(__FILE__) . '/amp_conf/htdocs/admin/libraries/php-upgrade.functions.php');
@@ -82,25 +81,25 @@ function install_parse_amportal_conf($filename) {
     foreach ($file as $line) {
         if (preg_match("/^\s*([a-zA-Z0-9]+)\s*=\s*(.*)\s*([;#].*)?/",$line,$matches)) {
 
-            // TODO: force booleans into 0/1 this should be ok given the limited number of configuration values
-            //
-            switch (trim(strtolower($matches[2]))) {
-                case 'false':
-                case 'no':
-                case 'off':
-                case '0':
-                    $conf[$matches[1]] = '0';
-                    break;
-                case 'true':
-                case 'yes':
-                case 'on':
-                case '1':
-                    $conf[$matches[1]] = '1';
-                    break;
-                default:
-                    $conf[$matches[1]] = $matches[2];
-                    break;
-            }
+        // TODO: force booleans into 0/1 this should be ok given the limited number of configuration values
+        //
+        switch (trim(strtolower($matches[2]))) {
+        case 'false':
+        case 'no':
+        case 'off':
+        case '0':
+            $conf[$matches[1]] = '0';
+            break;
+        case 'true':
+        case 'yes':
+        case 'on':
+        case '1':
+            $conf[$matches[1]] = '1';
+            break;
+        default:
+            $conf[$matches[1]] = $matches[2];
+            break;
+        }
         }
     }
 
@@ -128,7 +127,7 @@ function install_parse_asterisk_conf($filename) {
     $file = file($filename);
     foreach ($file as $line) {
         if (preg_match("/^\s*([a-zA-Z0-9]+)\s* => \s*(.*)\s*([;#].*)?/",$line,$matches)) {
-            $conf[ $matches[1] ] = $matches[2];
+        $conf[ $matches[1] ] = $matches[2];
         }
     }
     // Now set defaults if not set (although asterisk should fail if not set but at least
@@ -147,17 +146,17 @@ function install_parse_asterisk_conf($filename) {
 }
 
 function write_amportal_conf($filename, $conf) {
-	$file = file($filename);
+    $file = file($filename);
     // parse through the file
     foreach (array_keys($file) as $key) {
         if (preg_match("/^\s*([a-zA-Z0-9]+)\s*=\s*(.*)\s*([;#].*)?/",$file[$key],$matches)) {
-            // this is an option=value line
-            if (isset($conf[ $matches[1] ])) {
-                // rewrite the line, if we have this in $conf
-                $file[$key] = $matches[1]."=".$conf[ $matches[1] ]."\n";
-                // unset it so we know what's new
-                unset($conf[ $matches[1] ]);
-            }
+        // this is an option=value line
+        if (isset($conf[ $matches[1] ])) {
+            // rewrite the line, if we have this in $conf
+            $file[$key] = $matches[1]."=".$conf[ $matches[1] ]."\n";
+            // unset it so we know what's new
+            unset($conf[ $matches[1] ]);
+        }
         }
     }
 
@@ -181,44 +180,44 @@ function ask_overwrite($file1, $file2) {
         outn("Overwrite (y=yes/a=all/n=no/d=diff/s=shell/x=exit)? ");
         $key = fgets(STDIN,1024);
         switch (strtolower($key[0])) {
-            case "y": return true;
-            case "a": $check_md5s=false; return true;
-            case "n": return false;
-            case "d":
+        case "y": return true;
+        case "a": $check_md5s=false; return true;
+        case "n": return false;
+        case "d":
+            out("");
+            // w = ignore whitespace, u = unified
+            passthru("diff -wu ".escapeshellarg($file2)." ".escapeshellarg($file1));
+            break;
+        case "s":
+            if (function_exists("pcntl_fork")) {
                 out("");
-                // w = ignore whitespace, u = unified
-                passthru("diff -wu ".escapeshellarg($file2)." ".escapeshellarg($file1));
-            break;
-            case "s":
-                if (function_exists("pcntl_fork")) {
-                    out("");
-                    $shell = (isset($_ENV["SHELL"]) ? $_ENV["SHELL"] : "/bin/bash");
-                    out("Dropping to shell. Type 'exit' to return");
-                    out("-> Original file:  ".$file2);
-                    out("-> New file:       ".$file1);
-
-                    $pid = pcntl_fork();
-                    if ($pid == -1) {
-                        out("[ERROR] cannot fork");
-                    } else if ($pid) {
-                        // parent
-                        pcntl_waitpid($pid, $status);
-                        // we wait till the child exits/dies/whatever
-                    } else {
-                        pcntl_exec($shell, array(), $_ENV);
-                    }
-
-                    out("Returned from shell");
-                } else {
-                    out("[ERROR] PHP not built with process control (--enable-pcntl) support: cannot spawn shell");
-                }
-
-            break;
-            case "x":
+                $shell = (isset($_ENV["SHELL"]) ? $_ENV["SHELL"] : "/bin/bash");
+                out("Dropping to shell. Type 'exit' to return");
                 out("-> Original file:  ".$file2);
                 out("-> New file:       ".$file1);
-                out("Exiting install program.");
-                exit(1);
+
+                $pid = pcntl_fork();
+                if ($pid == -1) {
+                    out("[ERROR] cannot fork");
+                } else if ($pid) {
+                    // parent
+                    pcntl_waitpid($pid, $status);
+                    // we wait till the child exits/dies/whatever
+                } else {
+                    pcntl_exec($shell, array(), $_ENV);
+                }
+
+                out("Returned from shell");
+            } else {
+                out("[ERROR] PHP not built with process control (--enable-pcntl) support: cannot spawn shell");
+            }
+
+            break;
+        case "x":
+            out("-> Original file:  ".$file2);
+            out("-> New file:       ".$file1);
+            out("Exiting install program.");
+            exit(1);
             break;
         }
         out("");
@@ -347,7 +346,7 @@ function collect_settings($filename, $dbhost = '', $dbuser = '', $dbpass = '', $
     $key = trim(fgets(STDIN,1024));
     if (preg_match('/^$/',$key)) $amp_conf["AMPWEBADDRESS"] = $issabelpbxip;
     else $amp_conf["AMPWEBADDRESS"] = $key;
-    */
+     */
 
     outn("Use simple Extensions [extensions] admin or separate Devices and Users [deviceanduser]?\n [extensions] ");
     $key = trim(fgets(STDIN,1024));
@@ -438,8 +437,8 @@ function install_modules() {
     $SOURCEDIR = dirname(__FILE__)."/../";
 
     foreach($base_modules as $module) {
-	    if(is_dir($SOURCEDIR.$module)) {
-		    out("installing $module module...");
+        if(is_dir($SOURCEDIR.$module)) {
+            out("installing $module module...");
             if(!is_dir($amp_conf['AMPWEBROOT'].'/admin/modules/'.$module)) {
                 mkdir($amp_conf['AMPWEBROOT'].'/admin/modules/'.$module);
             }
@@ -509,7 +508,7 @@ function install_modules() {
                 out("Dry Run Not Installed");
             }
         }
-      }
+    }
 }
 
 /** Set the module version number to the packaged version and enable
@@ -682,7 +681,7 @@ if (@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc/
 } else {
   // all the initialization here instead
 }
-*/
+ */
 
 // **** Make sure we have STDIN etc
 
@@ -795,137 +794,137 @@ $admin_pass = 'admin';
 
 foreach ($args[0] as $arg) {
     switch ($arg[0]) {
-        case "--help": case "h": case "?":
-            showHelp();
-            exit(10);
+    case "--help": case "h": case "?":
+        showHelp();
+        exit(10);
         break;
-        case "--dry-run":
-            out("Dry-run only, nothing will be changed");
-            $dryrun = true;
+    case "--dry-run":
+        out("Dry-run only, nothing will be changed");
+        $dryrun = true;
         break;
-        case "--debug":
-            $debug = true;
-            debug("Debug mode enabled");
+    case "--debug":
+        $debug = true;
+        debug("Debug mode enabled");
         break;
-        case "--dbuser": case "u":
-            out("Using username: ".$arg[1]);
-            $new_username = $arg[1];
+    case "--dbuser": case "u":
+        out("Using username: ".$arg[1]);
+        $new_username = $arg[1];
         break;
-        case "--dbpass": case "p":
-            out("Using password: ".str_repeat("*",strlen($arg[1])));
-            $new_password = $arg[1];
+    case "--dbpass": case "p":
+        out("Using password: ".str_repeat("*",strlen($arg[1])));
+        $new_password = $arg[1];
         break;
-        case "--force-version":
-            $version = $arg[1];
-            out("Forcing upgrade from version ".$version);
+    case "--force-version":
+        $version = $arg[1];
+        out("Forcing upgrade from version ".$version);
         break;
-        case "--dbhost":
-            $dbhost = $arg[1];
-            out("Using remote database server at ".$dbhost);
+    case "--dbhost":
+        $dbhost = $arg[1];
+        out("Using remote database server at ".$dbhost);
         break;
-        case "--dbname":
-            $dbname = $arg[1];
-            out("Using database ".$dbname);
+    case "--dbname":
+        $dbname = $arg[1];
+        out("Using database ".$dbname);
         break;
-        case "--dbengine":
-            $dbengine = $arg[1];
-            out("Using database engine ".$dbengine);
+    case "--dbengine":
+        $dbengine = $arg[1];
+        out("Using database engine ".$dbengine);
         break;
-        case "--dbfile":
-            $dbfile = $arg[1];
-            out("Using sqlite database file ".$dbengine);
+    case "--dbfile":
+        $dbfile = $arg[1];
+        out("Using sqlite database file ".$dbengine);
         break;
-        case "--no-files":
-            $install_files = false;
-            out("Running upgrade only, without installing files.");
+    case "--no-files":
+        $install_files = false;
+        out("Running upgrade only, without installing files.");
         break;
-        case "--force-overwrite":
+    case "--force-overwrite":
         $check_md5s = false;
-            out("Overwriting all files including modified ones.");
+        out("Overwriting all files including modified ones.");
         break;
-        case "--my-svn-is-correct":
-            $override_astvers = true;
+    case "--my-svn-is-correct":
+        $override_astvers = true;
         break;
-        case "--engine":
-            if ($arg[1] != 'asterisk') {
-                fatal('Currently only "asterisk" is supported as a PBX engine');
-            }
-            $pbx_engine = $arg[1];
+    case "--engine":
+        if ($arg[1] != 'asterisk') {
+            fatal('Currently only "asterisk" is supported as a PBX engine');
+        }
+        $pbx_engine = $arg[1];
         break;
-        case "--install-moh":
-            $install_moh = true;
+    case "--install-moh":
+        $install_moh = true;
         break;
-        case "--set-issabelpbx-settings":
-            $set_issabelpbx_settings = true;
+    case "--set-issabelpbx-settings":
+        $set_issabelpbx_settings = true;
         break;
-        case "--fopwebroot":
-        case "--install-fop":
-            out("install-fop: depricated setting, does nothing.");
+    case "--fopwebroot":
+    case "--install-fop":
+        out("install-fop: depricated setting, does nothing.");
         break;
-        case "--update-links":
-            $update_links = true;
-        case "--make-links-devel":
-        case "--dev-links":
-            $make_links = true;
+    case "--update-links":
+        $update_links = true;
+    case "--make-links-devel":
+    case "--dev-links":
+        $make_links = true;
         break;
-        case "--skip-module-install":
-            $module_install = false;
+    case "--skip-module-install":
+        $module_install = false;
         break;
-        case "--webroot":
-            $webroot = $arg[1];
-            out("Using Webroot at ".$webroot);
+    case "--webroot":
+        $webroot = $arg[1];
+        out("Using Webroot at ".$webroot);
         break;
-        case "--cgibin":
-            $cgibin = $arg[1];
-            out("Using CGI-BIN at ".$cgibin);
+    case "--cgibin":
+        $cgibin = $arg[1];
+        out("Using CGI-BIN at ".$cgibin);
         break;
-        case "--bin":
-            $ampbin_dir = $arg[1];
-            out("Using bin at ".$ampbin_dir);
+    case "--bin":
+        $ampbin_dir = $arg[1];
+        out("Using bin at ".$ampbin_dir);
         break;
-        case "--sbin":
-            $ampsbin_dir = $arg[1];
-            out("Using sbin at ".$ampsbin_dir);
+    case "--sbin":
+        $ampsbin_dir = $arg[1];
+        out("Using sbin at ".$ampsbin_dir);
         break;
-        case "--adminuser":
-            $admin_user = $arg[1];
-            out("Using Admin user ".$admin_user);
+    case "--adminuser":
+        $admin_user = $arg[1];
+        out("Using Admin user ".$admin_user);
         break;
-        case "--adminpass":
-            $admin_pass = $arg[1];
-            out("Using Admin pass ".str_repeat("*",strlen($arg[1])));
+    case "--adminpass":
+        $admin_pass = $arg[1];
+        out("Using Admin pass ".str_repeat("*",strlen($arg[1])));
         break;
-        case "--uid":
-            $runas_uid = $arg[1];
-            out("Setting ownership (user) to ".$runas_uid);
+    case "--uid":
+        $runas_uid = $arg[1];
+        out("Setting ownership (user) to ".$runas_uid);
         break;
-        case "--gid":
-            $runas_gid = $arg[1];
-            out("Setting ownership (group) to ".$runas_gid);
+    case "--gid":
+        $runas_gid = $arg[1];
+        out("Setting ownership (group) to ".$runas_gid);
         break;
-        case "--scripted":
-            $scripted = true;
-            out("Unattended installation. No questions will be asked");
+    case "--scripted":
+        $scripted = true;
+        out("Unattended installation. No questions will be asked");
         break;
-        case "--issabelpbxip":
-            $issabelpbxip = $arg[1];
-            out("Setting IP address of web interface to $issabelpbxip");
+    case "--issabelpbxip":
+        $issabelpbxip = $arg[1];
+        out("Setting IP address of web interface to $issabelpbxip");
         break;
-        case "--asteriskip":
-            $asteriskip = $arg[1];
-            out("Setting IP address of asterisk to $asteriskip");
+    case "--asteriskip":
+        $asteriskip = $arg[1];
+        out("Setting IP address of asterisk to $asteriskip");
         break;
-        case "--cleaninstall":
-            $installamp_clean = true;
+    case "--cleaninstall":
+        $installamp_clean = true;
         break;
-        case "--uninstall":
-            $uninstallamp = true;
+    case "--uninstall":
+        $uninstallamp = true;
         break;
-        case "--installdb":
-            $installdb = true;
+    case "--installdb":
+        $installdb = true;
         break;
-        case "--createinstalldb":
-            $createinstalldb = true;
+    case "--createinstalldb":
+        $createinstalldb = true;
         break;
     }
 }
@@ -961,48 +960,48 @@ if($installamp_clean || $uninstallamp) {
         outn("Remove /etc/amportal.conf?:\n [y] ");
         $key = trim(fgets(STDIN,1024));
         switch($key) {
-            case "n":
-            case "no":
+        case "n":
+        case "no":
             break;
-            case "y":
-            case "yes":
-            default:
-                outn("Removing /etc/amportal.conf.....");
-                unlink('/etc/amportal.conf');
-                out("Done!");
-            break;
+        case "y":
+        case "yes":
+        default:
+        outn("Removing /etc/amportal.conf.....");
+        unlink('/etc/amportal.conf');
+        out("Done!");
+        break;
         }
     }
     if(file_exists('/etc/issabelpbx.conf')) {
         outn("Remove /etc/issabelpbx.conf?:\n [y] ");
         $key = trim(fgets(STDIN,1024));
         switch($key) {
-            case "n":
-            case "no":
+        case "n":
+        case "no":
             break;
-            case "y":
-            case "yes":
-            default:
-                outn("Removing /etc/issabelpbx.conf.....");
-                unlink('/etc/issabelpbx.conf');
-                out("Done!");
-            break;
+        case "y":
+        case "yes":
+        default:
+        outn("Removing /etc/issabelpbx.conf.....");
+        unlink('/etc/issabelpbx.conf');
+        out("Done!");
+        break;
         }
     }
     if(file_exists('/usr/local/sbin/amportal')) {
         outn("Remove /usr/local/sbin/amportal?:\n [y] ");
         $key = trim(fgets(STDIN,1024));
         switch($key) {
-            case "n":
-            case "no":
+        case "n":
+        case "no":
             break;
-            case "y":
-            case "yes":
-            default:
-                outn("Removing /usr/local/sbin/amportal.....");
-                unlink('/usr/local/sbin/amportal');
-                out("Done!");
-            break;
+        case "y":
+        case "yes":
+        default:
+        outn("Removing /usr/local/sbin/amportal.....");
+        unlink('/usr/local/sbin/amportal');
+        out("Done!");
+        break;
         }
     }
     if(!empty($oldampconf['AMPBIN']) && file_exists($oldampconf['AMPBIN'])) {
@@ -1017,107 +1016,107 @@ if($installamp_clean || $uninstallamp) {
             }
         }
         switch($key) {
-            case "n":
-            case "no":
+        case "n":
+        case "no":
             break;
-            case "y":
-            case "yes":
-            default:
-                foreach($files as $file) {
-                    if(file_exists($oldampconf['AMPBIN'].'/'.$file)) {
-                        outn("Removing ".$oldampconf['AMPBIN']."/".$file.".....");
-                        unlink($oldampconf['AMPBIN'].'/'.$file);
-                        out("Done!");
-                    }
-                }
-            break;
+        case "y":
+        case "yes":
+        default:
+        foreach($files as $file) {
+            if(file_exists($oldampconf['AMPBIN'].'/'.$file)) {
+                outn("Removing ".$oldampconf['AMPBIN']."/".$file.".....");
+                unlink($oldampconf['AMPBIN'].'/'.$file);
+                out("Done!");
+            }
+        }
+        break;
         }
     }
     if(!empty($oldampconf) && isset($oldampconf['AMPWEBROOT']) && file_exists($oldampconf['AMPWEBROOT'].'/admin')) {
         outn("Remove ".$oldampconf['AMPWEBROOT']."/admin ?:\n [y] ");
         $key = trim(fgets(STDIN,1024));
         switch($key) {
-            case "n":
-            case "no":
+        case "n":
+        case "no":
             break;
-            case "y":
-            case "yes":
-            default:
-                outn("Removing ".$oldampconf['AMPWEBROOT']."/admin......");
-                exec('rm -Rf '.$oldampconf['AMPWEBROOT'].'/admin');
-                out("Done!");
-            break;
+        case "y":
+        case "yes":
+        default:
+        outn("Removing ".$oldampconf['AMPWEBROOT']."/admin......");
+        exec('rm -Rf '.$oldampconf['AMPWEBROOT'].'/admin');
+        out("Done!");
+        break;
         }
     }
     if(!$uninstallamp && !empty($oldampconf) && $oldampconf['AMPDBENGINE'] == 'mysql') {
         outn("Reinitalize & Reinstall IssabelPBX's Asterisk Database?:\n [y] ");
         $key = trim(fgets(STDIN,1024));
         switch($key) {
-            case "n":
-            case "no":
+        case "n":
+        case "no":
             break;
-            case "y":
-            case "yes":
-            default:
-            outn("Erasing Database...");
-                $datasource = 'mysqli://'.$oldampconf["AMPDBUSER"].':'.$oldampconf["AMPDBPASS"].'@'.$oldampconf["AMPDBHOST"].'/'.$oldampconf["AMPDBNAME"];
-                $cleandb = DB::connect($datasource); // attempt connection
+        case "y":
+        case "yes":
+        default:
+        outn("Erasing Database...");
+        $datasource = 'mysqli://'.$oldampconf["AMPDBUSER"].':'.$oldampconf["AMPDBPASS"].'@'.$oldampconf["AMPDBHOST"].'/'.$oldampconf["AMPDBNAME"];
+        $cleandb = DB::connect($datasource); // attempt connection
 
-                if(DB::IsError($cleandb)) {
-                    out("FAILED");
-                    fatal("Try not selecting 'y' on Reinitalize & Reinstall IssabelPBX's Asterisk Database");
-                } else {
-                    $sql = "SHOW TABLES FROM ".$oldampconf['AMPDBNAME'];
-                    $tables = $cleandb->getAll($sql);
-                    foreach($tables as $list) {
-                        $sql = "DROP TABLE ".$oldampconf['AMPDBNAME'].".".$list[0];
-                        $cleandb->query($sql);
-                    }
-                    out("Done");
-                    outn("Reinstalling DB Structure...");
-                    installampimport_mysql_dump('newinstall.sql',$cleandb);
-                    out("Done");
-                }
-            break;
+        if(DB::IsError($cleandb)) {
+            out("FAILED");
+            fatal("Try not selecting 'y' on Reinitalize & Reinstall IssabelPBX's Asterisk Database");
+        } else {
+            $sql = "SHOW TABLES FROM ".$oldampconf['AMPDBNAME'];
+            $tables = $cleandb->getAll($sql);
+            foreach($tables as $list) {
+                $sql = "DROP TABLE ".$oldampconf['AMPDBNAME'].".".$list[0];
+                $cleandb->query($sql);
+            }
+            out("Done");
+            outn("Reinstalling DB Structure...");
+            installampimport_mysql_dump('newinstall.sql',$cleandb);
+            out("Done");
+        }
+        break;
         }
     }
     if($uninstallamp && (!empty($oldampconf) || !empty($new_username))) {
         outn("Uninstall IssabelPBX's Asterisk Database?:\n [y] ");
         $u_username = !empty($oldampconf["AMPDBUSER"]) ? $oldampconf["AMPDBUSER"] : $new_username;
-    $u_password = !empty($oldampconf["AMPDBPASS"]) ? $oldampconf["AMPDBPASS"] : (!empty($new_password) ? $new_password : '');
-    $u_username = $new_username;
-    $u_password = $new_password;
+        $u_password = !empty($oldampconf["AMPDBPASS"]) ? $oldampconf["AMPDBPASS"] : (!empty($new_password) ? $new_password : '');
+        $u_username = $new_username;
+        $u_password = $new_password;
         $u_host = !empty($oldampconf["AMPDBHOST"]) ? $oldampconf["AMPDBHOST"] : (!empty($dbhost) ? $dbhost : 'localhost');
         $u_database = !empty($oldampconf["AMPDBNAME"]) ? $oldampconf["AMPDBNAME"] : (!empty($dbname) ? $dbname : 'asterisk');
         $key = trim(fgets(STDIN,1024));
         switch($key) {
-            case "n":
-            case "no":
+        case "n":
+        case "no":
             break;
-            case "y":
-            case "yes":
-            default:
-                outn("Erasing Database...");
+        case "y":
+        case "yes":
+        default:
+        outn("Erasing Database...");
         $datasource = 'mysqli://'.$u_username.':'.$u_password.'@'.$u_host;
-                $cleandb = DB::connect($datasource); // attempt connection
+        $cleandb = DB::connect($datasource); // attempt connection
 
-                if(DB::IsError($cleandb)) {
-                    out("FAILED");
-                    fatal("Could Not Connect to Database (Probably already deleted)");
+        if(DB::IsError($cleandb)) {
+            out("FAILED");
+            fatal("Could Not Connect to Database (Probably already deleted)");
         } else {
             $sql = "DROP DATABASE asterisk";
             $cleandb->query($sql);
             $sql = "DROP DATABASE asteriskcdrdb";
             $cleandb->query($sql);
-                    //$sql = "SHOW TABLES FROM ".$u_database;
-                    //$tables = $cleandb->getAll($sql);
-                    //foreach($tables as $list) {
-    //            $sql = "DROP TABLE ".$u_database.".".$list[0];
-          //              $cleandb->query($sql);
-           //         }
-                    out("Done");
-                }
-            break;
+            //$sql = "SHOW TABLES FROM ".$u_database;
+            //$tables = $cleandb->getAll($sql);
+            //foreach($tables as $list) {
+            //            $sql = "DROP TABLE ".$u_database.".".$list[0];
+            //              $cleandb->query($sql);
+            //         }
+            out("Done");
+        }
+        break;
         }
     }
     if($uninstallamp) {
@@ -1318,14 +1317,14 @@ if ((preg_match('/^Asterisk (\d+(\.\d+)*)(-?(.*))$/', $verinfo, $matches)) ||
         fatal("Asterisk 1.6, 1.8, 10, 11, 12, 13 or 16 is required for this version of IssabelPBX. Detected version is: ".$matches[1]);
     }
     out("{$matches[1]}");
-  $asterisk_version = $matches[1];
+    $asterisk_version = $matches[1];
 
 } elseif (preg_match('/^Asterisk ([ABC]\.\d+(\.\d+)*)(-?(.*))$/', $verinfo, $matches)) {
     if (substr($matches[1], 0, 1) == "A") {
         fatal("Asterisk Business Edition B or C is required for this version of IssabelPBX. Detected version is: ".$matches[1]);
     }
     out("{$matches[1]}");
-  $asterisk_version = '1.4'; //Not really, but this makes sure that proper execution occurs later on reload commands, etc.
+    $asterisk_version = '1.4'; //Not really, but this makes sure that proper execution occurs later on reload commands, etc.
 
 } elseif ($asterisk_version = preg_match('/^Asterisk SVN.+/', $verinfo)) {
     out("FAIL");
@@ -1351,11 +1350,11 @@ outn("Checking for selinux..");
 $tmpoutput = array();
 $tmpout = exec("getenforce 2>/dev/null", $tmpoutput, $sereturn);
 if (isset($tmpoutput[0]) && strtolower($tmpoutput[0]) === "enabled") {
-        // this method seems better because disabled and permissive are the same
-        // if a user installs and realizes selinux is running the other method
-        // requires a reboot to get selinuxenabled to work after editing the  selinux config
-        // this will allow you to use setenforce 0 which turns selinux into permissive mode which
-        // doesnt enforce, it just warns.
+    // this method seems better because disabled and permissive are the same
+    // if a user installs and realizes selinux is running the other method
+    // requires a reboot to get selinuxenabled to work after editing the  selinux config
+    // this will allow you to use setenforce 0 which turns selinux into permissive mode which
+    // doesnt enforce, it just warns.
     fatal("selinux is ENABLED. This is not supported. Please disable selinux before using IssabelPBX");
 }
 out("OK");
@@ -1386,67 +1385,68 @@ if($dbengine=="mysql") $dbengine="mysqli";
 
 switch ($dbengine)
 {
-    case "pgsql":
-    case "mysqli":
-    case "mysql":
-        // datasource in in this style: dbengine://username:password@host/database
-        if (!function_exists($dbengine.'_connect')) {
-            out("FAILED");
-            fatal($dbengine." PHP libraries not installed");
-        }
+case "pgsql":
+case "mysqli":
+case "mysql":
+    // datasource in in this style: dbengine://username:password@host/database
+    if (!function_exists($dbengine.'_connect')) {
+        out("FAILED");
+        fatal($dbengine." PHP libraries not installed");
+    }
     $datasource = $dbengine.'://'.$new_username.':'.$new_password.'@'.$db_host;
 
     out("Connecting as: $datasource");
 
-        $db = DB::connect($datasource); // attempt connection
-        $res = $db->query("CREATE DATABASE asterisk");
+    $db = DB::connect($datasource); // attempt connection
+    $res = $db->query("CREATE DATABASE asterisk");
     $res = $db->query("CREATE DATABASE asteriskcdrdb");
 
     out("Databases created!");
 
     grant_mysql();
 
+    $db->disconnect();
 
-        $db->disconnect();
+    $dbcdr = DB::connect($datasource."/asteriskcdrdb"); 
 
     $datasource = $dbengine.'://'.$db_user.':'.$db_pass.'@'.$db_host.'/'.$db_name;
 
-    out("Reconnecting as $datasource");
+    out("Reconnecting as $datasource with asterisk user ");
 
-        $db = DB::connect($datasource); // attempt connection
-        break;
+    $db = DB::connect($datasource); // attempt connection
+    break;
 
-    case "rqlite":
-        $datasource = "rqlite:///localhost:4001";
-        $db = DB::connect($datasource);
-        break;
-    case "sqlite":
-    case "sqlite3":
-        if (!isset($amp_conf["AMPDBFILE"]))
-            die("You must setup properly AMPDBFILE in /etc/amportal.conf");
+case "rqlite":
+    $datasource = "rqlite:///localhost:4001";
+    $db = DB::connect($datasource);
+    break;
+case "sqlite":
+case "sqlite3":
+    if (!isset($amp_conf["AMPDBFILE"]))
+        die("You must setup properly AMPDBFILE in /etc/amportal.conf");
 
-        if (isset($amp_conf["AMPDBFILE"]) == "")
-            die("AMPDBFILE in /etc/amportal.conf cannot be blank");
+    if (isset($amp_conf["AMPDBFILE"]) == "")
+        die("AMPDBFILE in /etc/amportal.conf cannot be blank");
 
-        /* on centos this extension is not loaded by default */
-        if (! extension_loaded('sqlite3.so')  && ! extension_loaded('SQLITE3'))
-            dl('sqlite3.so');
+    /* on centos this extension is not loaded by default */
+    if (! extension_loaded('sqlite3.so')  && ! extension_loaded('SQLITE3'))
+        dl('sqlite3.so');
 
 
     /*
-        if (! @require_once('DB/sqlite3.php') )
+    if (! @require_once('DB/sqlite3.php') )
     {
-            out("FAILED");
-            fatal( "Your PHP installation has no PEAR/SQLite3 support. Please install php-sqlite3 and php-pear.");
+        out("FAILED");
+        fatal( "Your PHP installation has no PEAR/SQLite3 support. Please install php-sqlite3 and php-pear.");
     }
      */
 
-        $datasource = "sqlite3:///" . $amp_conf["AMPDBFILE"] . "?mode=0666";
-        $db = DB::connect($datasource);
-        break;
+    $datasource = "sqlite3:///" . $amp_conf["AMPDBFILE"] . "?mode=0666";
+    $db = DB::connect($datasource);
+    break;
 
-    default:
-        die( "Unknown SQL engine: [$dbengine]");
+default:
+    die( "Unknown SQL engine: [$dbengine]");
 }
 
 if(DB::IsError($db)) {
@@ -1516,13 +1516,13 @@ if($createinstalldb) {
         $final_output.="\n);\n\n";
 
         if($table!='issabelpbx_settings' && !preg_match("/module/",$table) && $table!='notifications' && $table!="ampusers") {
-        $data = $db->getAll("SELECT * FROM $table");
-        foreach($data as $idx=>$row) {
-            $fields = count($row);
-            $escaped = array_map('escapeDouble',$row);
-            $final_output.="INSERT INTO `$table` VALUES(\"".implode($escaped,"\",\"")."\");\n";
-        }
-        if(count($data)>0) { $final_output.="\n";}
+            $data = $db->getAll("SELECT * FROM $table");
+            foreach($data as $idx=>$row) {
+                $fields = count($row);
+                $escaped = array_map('escapeDouble',$row);
+                $final_output.="INSERT INTO `$table` VALUES(\"".implode($escaped,"\",\"")."\");\n";
+            }
+            if(count($data)>0) { $final_output.="\n";}
         }
     }
     file_put_contents("SQL/newinstall.sql",$final_output);
@@ -1534,12 +1534,13 @@ if($installdb) {
     if(!is_array($db->tableInfo('notifications'))) {
         outn("IssabelPBX DB is empty, inserting standard rows...");
         installampimport_mysql_dump('newinstall.sql');
-        out("Done!");
+        installampimport_mysql_dump('cdr_mysql_table.sql',$dbcdr);
+        installampimport_mysql_dump('cel_table.sql',$dbcdr);
+	out("Done!");
     } else {
         out("IssabelPBX DB is already populated skipping");
     }
 }
-
 
 // **** Read DB for version info
 
@@ -1612,7 +1613,7 @@ if ($install_files)
 }
 
 if (!$dryrun) {
-  $asteriskuser = isset($amp_conf['AMPASTERISKUSER']) && $amp_conf['AMPASTERISKUSER'] ? $amp_conf['AMPASTERISKUSER'] : 'asterisk';
+    $asteriskuser = isset($amp_conf['AMPASTERISKUSER']) && $amp_conf['AMPASTERISKUSER'] ? $amp_conf['AMPASTERISKUSER'] : 'asterisk';
 
     if (file_exists($amp_conf["AMPSBIN"]."/amportal")) {
         exec("chmod 755 ".$amp_conf["AMPSBIN"]."/amportal");
@@ -1656,7 +1657,7 @@ if (!$dryrun) {
     } else {
         outn("no module_admin..");
     }
- 
+
     out("done");
 
     // Ensure UIDs are set correctly before any chowns happen
@@ -1675,15 +1676,15 @@ if (!$dryrun) {
         out("apply username/password changes to conf files:");
         debug("Running ".dirname(__FILE__)."/apply_conf.sh");
         $apply_conf_out = array();
-    if ($force_amportal_conf) {
+        if ($force_amportal_conf) {
             out("running apply_conf.sh from " . AMP_CONF);
-      putenv('FORCE_AMPORTAL_CONF=1');
-          exec(dirname(__FILE__)."/apply_conf.sh ".AMP_CONF, $apply_conf_out);
-      putenv('FORCE_AMPORTAL_CONF=');
-    } else {
+            putenv('FORCE_AMPORTAL_CONF=1');
+            exec(dirname(__FILE__)."/apply_conf.sh ".AMP_CONF, $apply_conf_out);
+            putenv('FORCE_AMPORTAL_CONF=');
+        } else {
             out("running apply_conf.sh from issabelpbx_settings");
-          exec(dirname(__FILE__)."/apply_conf.sh", $apply_conf_out);
-    }
+            exec(dirname(__FILE__)."/apply_conf.sh", $apply_conf_out);
+        }
         foreach ($apply_conf_out as $line) {
             out($line);
         }
@@ -1693,9 +1694,9 @@ if (!$dryrun) {
 
     /* As of Asterisk 1.4.16 or there about, a missing #include file will make the reload fail. So
        we need to make sure that we have such for everything that is in our configs. We will simply
-         look for the #include statements and touch the files vs. trying to inventory everything we may
-         need and then forgetting something.
-    */
+     look for the #include statements and touch the files vs. trying to inventory everything we may
+     need and then forgetting something.
+     */
 
     outn("creating missing #include files..");
     $include_err = false;
@@ -1722,7 +1723,7 @@ if (!$dryrun) {
 
         if (!file_exists($target)) {
             exec("sudo -u $asteriskuser touch $target", $output, $retcode);
-                if ($retcode != 0) {
+            if ($retcode != 0) {
                 out("Error code $retcode: trying to create empty file $target");
                 $include_err = true;
             }
@@ -1765,13 +1766,13 @@ if ($install_files)
 {
     outn("Setting permissions on files..");
     if (!$dryrun) {
-    if ($force_amportal_conf) {
-      putenv('FORCE_AMPORTAL_CONF=1');
-    }
-    exec($amp_conf["AMPSBIN"]."/amportal chown");
-    if ($force_amportal_conf) {
-      putenv('FORCE_AMPORTAL_CONF=');
-    }
+        if ($force_amportal_conf) {
+            putenv('FORCE_AMPORTAL_CONF=1');
+        }
+        exec($amp_conf["AMPSBIN"]."/amportal chown");
+        if ($force_amportal_conf) {
+            putenv('FORCE_AMPORTAL_CONF=');
+        }
     }
     out("OK");
 }
