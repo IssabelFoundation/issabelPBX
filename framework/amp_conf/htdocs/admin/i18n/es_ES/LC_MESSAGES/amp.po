@@ -6763,3 +6763,27 @@ msgstr "Usar biblioteca Javascript empaquetada"
 
 msgid "IssabelPBX packages several javascript libraries and components into a compressed file called libissabelpbx.javascript.js. By default this will be loaded instead of the individual uncompressed libraries. Setting this to false will force IssabelPBX to load all the libraries as individual uncompressed files. This is useful during development and debugging."
 msgstr "IssabelPBX empaqueta varias bibliotecas y componentes de javascript en un archivo comprimido llamado libissabelpbx.javascript.js. De manera predeterminada, se cargará en lugar de las bibliotecas individuales sin comprimir. Establecer esto en falso forzará a IssabelPBX a cargar todas las bibliotecas como archivos individuales sin comprimir. Esto es útil durante el desarrollo y la depuración."
+
+msgid "Asterisk Outbound Trunk Dial Options"
+msgstr "Opciones de marcado de troncales salientes de Asterisk"
+
+msgid "Conference Room App"
+msgstr "Aplicación de Conferencias"
+
+msgid "Country Indications Tone"
+msgstr "Tonos de indicación de país"
+
+msgid "CW Enabled by Default"
+msgstr "Llamada en espera habilitada por defecto"
+
+msgid "Display CallerID on Calling Phone"
+msgstr "Mostrar CallerID en teléfono que llama"
+
+msgid "Display Dialed Number on Calling Phone"
+msgstr "Mostrar número marcado en teléfono que llama"
+
+msgid "Enable Custom Device States"
+msgstr "Habilitar estados de dispositivos personalizados"
+
+msgid "Extension Concurrency Limit"
+msgstr "Límite de llamadas simultaneas por extensión"
