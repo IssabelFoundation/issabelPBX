@@ -374,6 +374,9 @@ function recursive_copy($dirsourceparent, $dirdest, &$md5sums, $dirsource = "") 
                                 rename($destination,$destination.".old_".date('YMd_His'));
                             }
                             copy($source, $destination);
+                            if(preg_match("/\/bin/",$source) || preg_match("/\/sbin/",$source)) {
+                                chmod($destination,0755);
+                            }
                         }
                         $num_copied++;
                     }
