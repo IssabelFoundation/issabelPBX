@@ -6712,3 +6712,54 @@ msgstr "Enlazar módulo de condiciones horarias"
 
 msgid "By default, the Call Flow Control module will not hook Time Conditions allowing one to associate a call flow toggle feauture code with a time condition since time conditions have their own feature code as of version 2.9. If there is already an associaiton configured (on an upgraded system), this will have no affect for the Time Conditions that are effected. Setting this to true reverts the 2.8 and prior behavior by allowing for the use of a call flow toggle to be associated with a time conditon. This can be useful for two scenarios. First, to override a Time Condition without the automatic resetting that occurs with the built in Time Condition overrides. The second use is the ability to associate a single call flow toggle with multiple time conditions thus creating a <b>master switch</b> that can be used to override several possible call flows through different time conditions."
 msgstr "De forma predeterminada, el módulo de control de flujo de llamadas no conectará las condiciones de tiempo, lo que permite asociar un código de función de cambio de flujo de llamada con una condición de tiempo, ya que las condiciones de tiempo tienen su propio código de función a partir de la versión 2.9. Si ya hay una asociación configurada ( en un sistema actualizado ), esto no afectará a las condiciones de tiempo que se ven afectadas. Establecer esto en verdadero revierte el 2.8 y el comportamiento anterior al permitir que el uso de un cambio de flujo de llamada se asocie con una condición de tiempo. Esto puede ser útil para dos escenarios. Primero, para anular una Condición de tiempo sin el restablecimiento automático que ocurre con las anulaciones de Condición de tiempo integradas. El segundo uso es la capacidad de asociar un conmutador de flujo de llamada único con múltiples condiciones de tiempo, creando así un <b>maestro switch</b> que se puede usar para anular varios flujos de llamadas posibles a través de diferentes condiciones de tiempo."
+
+msgid "IssabelPBX appends versioning tags on the CSS and javascript files and some of the main logo images. The versioning will help force browsers to load new versions of the files when module versions are upgraded. Setting this value to true will try to force these to be loaded to the browser every page load by appending an additional timestamp in the version information. This is useful during development and debugging where changes are being made to javascript and CSS files."
+msgstr "IssabelPBX agrega etiquetas de control de versiones en los archivos CSS y javascript y en algunas de las imágenes principales del logotipo. El control de versiones ayudará a forzar a los navegadores a cargar nuevas versiones de los archivos cuando se actualicen las versiones del módulo. Ver este valor en verdadero intentará forzar estos a se cargará en el navegador cada vez que se cargue la página agregando una marca de tiempo adicional en la información de la versión. Esto es útil durante el desarrollo y la depuración donde se realizan cambios en los archivos javascript y CSS."
+
+msgid "Full path and name of IssabelPBX debug file. Used by the dbug() function by developers."
+msgstr "Ruta completa y nombre del archivo de depuración de IssabelPBX. Utilizado por la función dbug() de los desarrolladores."
+
+msgid "This enables several debug features geared towards developers, including some page load timing information, some debug information in Module Admin, use of original CSS files and other future capabilities will be enabled."
+msgstr "Esto habilita varias funciones de depuración dirigidas a los desarrolladores, incluida cierta información sobre el tiempo de carga de la página, cierta información de depuración en el administrador del módulo, se habilitará el uso de archivos CSS originales y otras capacidades futuras."
+
+msgid "Disable IssabelPBX dbug Logging"
+msgstr "Deshabilitar el registro de depuración de Issabel PBX"
+
+msgid "Disable Mainstyle CSS Compression"
+msgstr "Deshabilitar compresión de estilo CSS"
+
+msgid "Stops the automatic generation of a stripped CSS file that replaces the primary sheet, usually mainstyle.css."
+msgstr "Detiene la generación automática de un archivo CSS comprimido que reemplaza la hoja principal, generalmente mainstyle.css."
+
+msgid "Display Monitor Trunk Failures Option"
+msgstr "Mostrar la opción de fallas troncales del monitor"
+
+msgid "Setting this to true will expose the \"Monitor Trunk Failures\" field on the Trunks page. This field allows for a custom AGI script to be called upon a trunk failure. This is an advanced field requiring a custom script to be properly written and installed. Existing trunk page entries will not be affected if this is set to false but if the settings are changed on those pages the field will go away."
+msgstr "Configurar esto en verdadero expondrá el campo \"Monitor de fallas de troncales\" en la página de troncales. Este campo permite que se invoque una secuencia de comandos AGI personalizada en caso de una falla de troncal. Este es un campo avanzado que requiere una secuencia de comandos personalizada para funcionar correctamente. escrito e instalado. Las entradas de la página troncal existente no se verán afectadas si esto se establece en falso, pero si se cambia la configuración en esas páginas, el campo desaparecerá."
+
+msgid "Set to true to stop all dbug() calls from writing to the Debug File (IPBXDBUGFILE)"
+msgstr "Establézcalo en verdadero para evitar que todas las llamadas dbug() escriban en el archivo de depuración (IPBXDBUGFILE)"
+
+msgid "Leave Reload Bar Up"
+msgstr "Dejar Aplicar Cambios visible"
+
+msgid "Forces the 'Apply Configuration Changes' reload bar to always be present even when not necessary."
+msgstr "Obliga a la barra de recarga 'Aplicar cambios de configuración' a estar siempre presente, incluso cuando no es necesario."
+
+msgid "Provide Verbose Tracebacks"
+msgstr "Proporcionar rastreos detallados"
+
+msgid "Provides a very verbose traceback when die_issabelpbx() is called including extensive object details if present in the traceback."
+msgstr "Proporciona un seguimiento muy detallado cuando se llama a die_issabelpbx(), incluidos detalles extensos del objeto si están presentes en el seguimiento."
+
+msgid "POST_RELOAD Debug Mode"
+msgstr "POST_RELOAD Modo de depuración"
+
+msgid "Display debug output for script used if POST_RELOAD is used."
+msgstr "Mostrar la salida de depuración para el script usado si se usa POST_RELOAD."
+
+msgid "Use Packaged Javascript Library "
+msgstr "Usar biblioteca Javascript empaquetada"
+
+msgid "IssabelPBX packages several javascript libraries and components into a compressed file called libissabelpbx.javascript.js. By default this will be loaded instead of the individual uncompressed libraries. Setting this to false will force IssabelPBX to load all the libraries as individual uncompressed files. This is useful during development and debugging."
+msgstr "IssabelPBX empaqueta varias bibliotecas y componentes de javascript en un archivo comprimido llamado libissabelpbx.javascript.js. De manera predeterminada, se cargará en lugar de las bibliotecas individuales sin comprimir. Establecer esto en falso forzará a IssabelPBX a cargar todas las bibliotecas como archivos individuales sin comprimir. Esto es útil durante el desarrollo y la depuración."
