@@ -1017,3 +1017,11 @@ msgstr "No se encontraron servidores de almacenamiento! Abortando"
 msgid "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted backup from server [%s]."
 msgstr "La copia de seguridad falló al descargar la base de datos SQL [%s] al archivo [%s], tiene una copia de seguridad dañada del servidor [%s]."
 
+msgid "Restore all setting stored in the database"
+msgstr "Restaurar todas las configuraciones almacenadas en la base de datos"
+
+msgid "CDR's"
+msgstr "CDRs"
+
+msgid "Restore CDR records stored in this backup"
+msgstr "Restaurar registros CDR almacenados en esta copia de seguridad"
