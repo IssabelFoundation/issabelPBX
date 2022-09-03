@@ -11,7 +11,7 @@ if(!isset($_REQUEST['action']) && $extdisplay=='') {
 }
 
 // Determine default path to music directory, old default was mohmp3, now settable
-$path_to_moh_dir = $amp_conf['ASTVARLIBDIR'].'/'.$amp_conf['MOHDIR'];
+$path_to_moh_dir = $amp_conf['ASTDATADIR'].'/'.$amp_conf['MOHDIR'];
 
 global $display;
 

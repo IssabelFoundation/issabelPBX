@@ -7,7 +7,7 @@ require_once(dirname(__FILE__).'/functions.inc.php');
 // In case there is an old version as part of the upgrade process, we will derive the current path
 //
 $moh_subdir = isset($amp_conf['MOHDIR']) ? trim(trim($amp_conf['MOHDIR']),'/') : 'mohmp3';
-$path_to_moh_dir = $amp_conf['ASTVARLIBDIR']."/$moh_subdir";
+$path_to_moh_dir = $amp_conf['ASTDATADIR']."/$moh_subdir";
 
 $File_Write="";
 $tresults = music_list($path_to_moh_dir);

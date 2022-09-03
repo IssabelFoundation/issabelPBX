@@ -330,8 +330,8 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
     $temp['full']['type'][]        = 'dir';
     $temp['full']['path'][]        = '__AMPBIN__';
     $temp['full']['exclude'][]    = array(
-                                    '__ASTVARLIBDIR__/moh',
-                                    '__ASTVARLIBDIR__/sounds'
+                                    '__ASTDATADIR__/moh',
+                                    '__ASTDATADIR__/sounds'
                                     );
 
     $temp['full']['type'][]        = 'dir';
@@ -386,8 +386,8 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
                                     'dir'
                     ),
                     'path'        => array(
-                                    '__ASTVARLIBDIR__/moh',
-                                    '__ASTVARLIBDIR__/sounds/custom',
+                                    '__ASTDATADIR__/moh',
+                                    '__ASTDATADIR__/sounds/custom',
                     ),
                     'exclude'    => array(
                                     '',
@@ -481,11 +481,11 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
                             break;
                         case 'recordings':
                             $new['type'][]        = 'dir';
-                            $new['path'][]        = '__ASTVARLIBDIR__/moh';
+                            $new['path'][]        = '__ASTDATADIR__/moh';
                             $new['exclude'][]    = '';
 
                             $new['type'][]        = 'dir';
-                            $new['path'][]        = '__ASTVARLIBDIR__/sounds/custom';
+                            $new['path'][]        = '__ASTDATADIR__/sounds/custom';
                             $new['exclude'][]    = '';
                             break;
                         case 'configurations':
@@ -671,8 +671,8 @@ db_e($ex);
 
 if ($ex = 'N;') {
     $value = serialize(array(
-            '__ASTVARLIBDIR__/moh',
-            '__ASTVARLIBDIR__/sounds'
+            '__ASTDATADIR__/moh',
+            '__ASTDATADIR__/sounds'
     ));
     $sql = 'UPDATE backup_template_details SET exclude = ? '
         . 'WHERE template_id = 2 AND path = "__AMPBIN__"';
