@@ -288,7 +288,7 @@ function recursive_copy($dirsourceparent, $dirdest, &$md5sums, $dirsource = "") 
      */
 
     while (isset($dir_handle) && ($file = readdir($dir_handle))) {
-        if (($file!=".") && ($file!="..") && ($file != "CVS") && ($file != ".svn") && ($file != ".git")) {
+        if (($file!=".") && ($file!="..") && ($file != "CVS") && ($file != ".svn") && (!preg_match("/\.git/",$file))) {
             $source = $dirsourceparent.$dirsource."/".$file;
             $destination =  $dirdest.$dirsource."/".$file;
 
@@ -297,23 +297,27 @@ function recursive_copy($dirsourceparent, $dirdest, &$md5sums, $dirsource = "") 
                 continue;
             }
 
-
-            // configurable in amportal.conf
-            $destination=str_replace("/htdocs/",trim($amp_conf["AMPWEBROOT"])."/",$destination);
-            if(strpos($dirsource, 'modules') === false) $destination=str_replace("/bin",trim($amp_conf["AMPBIN"]),$destination);
-            $destination=str_replace("/sbin",trim($amp_conf["AMPSBIN"]),$destination);
-
-            // the following are configurable in asterisk.conf
-            $destination=str_replace("/astetc",trim($asterisk_conf["astetcdir"]),$destination);
-            $destination=str_replace("/moh",trim($asterisk_conf["astvarlibdir"])."/$moh_subdir",$destination);
-            $destination=str_replace("/astvarlib",trim($asterisk_conf["astvarlibdir"]),$destination);
-            if(strpos($dirsource, 'modules') === false) $destination=str_replace("/agi-bin",trim($asterisk_conf["astagidir"]),$destination);
-            if(strpos($dirsource, 'modules') === false) $destination=str_replace("/sounds",trim($asterisk_conf["astvarlibdir"])."/sounds",$destination);
-            if(strpos($dirsource, 'modules') === false) {
-                if(preg_match("/\/agi-bin\//",$destination) || preg_match("/\/sounds\//",$destination) ) {
-                    $destination=str_replace($dirdest,'',$destination);
+            if(basename($dirsourceparent)=='framework' || basename($dirsourceparent)=='amp_conf' || basename($dirsourceparent)=='core') {
+                $destination=str_replace("/htdocs/",trim($amp_conf["AMPWEBROOT"])."/",$destination);
+                $pos = strpos($destination,"/sbin");
+                $destination=substr(str_replace("/sbin",trim($amp_conf["AMPSBIN"]),$destination),$pos);
+                $pos = 0;
+                $pos = strpos($destination,"/bin");
+                $destination=substr(str_replace("/bin",trim($amp_conf["AMPBIN"]),$destination),$pos);
+                $pos = 0;
+                $pos = strpos($destination,"/agi-bin");
+                $destination=substr(str_replace("/agi-bin",trim($asterisk_conf["astagidir"]),$destination),$pos);
+                $pos = 0;
+                if(basename($dirsourceparent)=='framework') {
+                    $pos = strpos($destination,"/sounds");
+                    $destination=substr(str_replace("/sounds",trim($asterisk_conf["astdatadir"])."/sounds",$destination),$pos);
+                    $pos = 0;
                 }
             }
+            // the following are configurable in asterisk.conf
+            $destination=str_replace("/astetc",trim($asterisk_conf["astetcdir"]),$destination);
+            $destination=str_replace("/astvarlib",trim($asterisk_conf["astvarlibdir"]),$destination);
+            $destination=str_replace("/moh",trim($asterisk_conf["astdatadir"])."/$moh_subdir",$destination);
 
             // if this is a directory, ensure destination exists
             if (is_dir($source)) {
