@@ -1,33 +1,31 @@
-<table class='table is-borderless mt-2'>
+<div class='box'>
+<table class='table is-borderless mt-2 notfixed'>
 	<tr>
-		<td style='max-width: 60px' colspan='2'>
+		<td colspan=2>
 			<?php echo _("A timezone definition specifies how the Voicemail system announces the time.") ?>
-		</td>
-		<td>
-			
-		</td>
+        </td>
 	</tr>
 	<tr>
-		<td style='max-width: 60px' colspan='2'>
+		<td colspan=2>
 			<?php echo  _("For example, the time a message was left will be announced according to the user's timezone on message playback.") ?>
 		</td>
-		<td>
-			
-		</td>
 	</tr>
 	<tr>
-		<td style='max-width: 60px' colspan='2'>
+		<td colspan=2>
 			<b><?php echo _("Entries below will be written to Voicemail configuration as-is.") ?></b>
 		</td>
-		<td>
-			
-		</td>
 	</tr>
 	<tr>
-		<td style='max-width: 60px' colspan='2'>
+		<td colspan=2>
 			<b><?php echo _("Please be sure to follow the format for timezone definitions described below.") ?></b>
 		</td>
-	</tr>
+    </tr>
+
+</table>
+</div>
+<div class='box'>
+<table class='table is-borderless mt-2 notfixed'>
+
 	<tr>
 		<td>
 			<a href='#' class='info'><?php echo _("Name") ?><span><?php echo $tooltips["tz"]["name"] ?></span></a>
@@ -63,14 +61,12 @@
 		<td>
 			<input class='input' type='text' name='tznew_def' id='tznew_def' tabindex='1' value='' />
 		</td>
-	</tr>
+    </tr>
+</table>
+</div>
 
-	<tr>
-		<td colspan='2'>
-			<hr />
-		</td>
-	</tr>
-	
+<div class='box'>
+    <table class='table is-narrow is-borderless'>
 	<tr>
 		<td style='max-width: 60px' colspan='2'>
 			<?php echo _("Timezone definition format is: ") ?>&nbsp;&nbsp;<b style='font-family:courier;'><?php echo _("timezone|values")?></b>
@@ -220,6 +216,7 @@
     </tr>
 	</tr>
 </table>
+</div>
 <script>
 <?php echo js_display_confirmation_toasts(); ?>
 </script>
