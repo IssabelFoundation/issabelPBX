@@ -6606,28 +6606,28 @@ msgid "Path to the Flash Operator Panel webroot or other modules providing such 
 msgstr "Ruta a la raíz web del Flash Operator Panel u otros módulos que brindan dicha funcionalidad (omita la barra inclinada final)."
 
 msgid "Remote CDR Database"
-msgstr "Base de datos CDR remota"
+msgstr "Base de datos CDR remoto"
 
 msgid "Remote CDR DB Host"
-msgstr "Host de base de datos CDR remota"
+msgstr "Host de base de datos CDR remoto"
 
 msgid "Remote CDR DB Port"
-msgstr "Puerto de base de datos CDR remota"
+msgstr "Puerto de base de datos CDR remoto"
 
 msgid "Remote CDR DB Name"
-msgstr "Nombre de base de datos CDR remota"
+msgstr "Nombre de base de datos CDR remoto"
 
 msgid "Remote CDR DB User"
-msgstr "Usuario de base de datos CDR remota"
+msgstr "Usuario de base de datos CDR remoto"
 
 msgid "Remote CDR DB Password"
-msgstr "Contraseña de base de datos CDR remota"
+msgstr "Contraseña de base de datos CDR remoto"
 
 msgid "Remote CDR DB Table"
-msgstr "Tabla de base de datos CDR remota"
+msgstr "Tabla de base de datos CDR remoto"
 
 msgid "Remote CDR DB Type"
-msgstr "Tipo de base de datos CDR remota"
+msgstr "Tipo de base de datos CDR remoto"
 
 msgid "Display Hidden Settings"
 msgstr "Mostrar configuraciones ocultas"
@@ -6787,3 +6787,885 @@ msgstr "Habilitar estados de dispositivos personalizados"
 
 msgid "Extension Concurrency Limit"
 msgstr "Límite de llamadas simultaneas por extensión"
+
+
+
+
+
+
+
+msgid "Remove mailbox Setting when no Voicemail"
+msgstr "Eliminar la configuración del buzón cuando no hay correo de voz"
+
+msgid "If set to true, any fixed device associated with a user that has no voicemail configured will have the ""mailbox="" setting removed in the generated technology configuration file such as sip_additional.conf. This will not affect the value in the GUI."
+msgstr "Si se establece en verdadero, cualquier dispositivo fijo asociado con un usuario que no tenga configurado el correo de voz tendrá la configuración ""mailboxu003d"" eliminada en el archivo de configuración de tecnología generado, como sip_additional.conf. Esto no afectará el valor en el interfaz gráfica de usuario."
+
+msgid "Post Call Recording Script"
+msgstr "Guión de grabación posterior a la llamada"
+
+msgid "An optional script to be run after the call is hangup. You can include channel and MixMon variables like ${CALLFILENAME}, ${MIXMON_FORMAT} and ${MIXMON_DIR}. To ensure that you variables are properly escaped, use the following notation: ^{MY_VAR}"
+msgstr "Un script opcional que se ejecutará después de que se cuelgue la llamada. Puede incluir variables de canal y MixMon como ${CALLFILENAME}, ${MIXMON_FORMAT} y ${MIXMON_DIR}. Para asegurarse de que sus variables se escapen correctamente, use la siguiente notación : ^{MI_VAR}"
+
+msgid "Disable Module Admin Caching"
+msgstr "Deshabilitar el almacenamiento en caché del administrador del módulo"
+
+msgid "Module Admin caches a copy of the online XML document that describes what is available on the server. Subsequent online update checks will use the cached information if it is less than 5 minutes old. To bypass the cache and force it to go to the server each time, set this to True. This should normally be false but can be helpful during testing."
+msgstr "Module Admin almacena en caché una copia del documento XML en línea que describe lo que está disponible en el servidor. Las comprobaciones posteriores de actualizaciones en línea utilizarán la información almacenada en caché si tiene menos de 5 minutos. Para omitir el caché y forzarlo a ir a la servidor cada vez, configúrelo en Verdadero. Esto normalmente debería ser falso, pero puede ser útil durante la prueba."
+
+msgid "POST_RELOAD Script"
+msgstr "Script post recarga"
+
+msgid "Automatically execute a script after applying changes in the AMP admin. Set POST_RELOAD to the script you wish to execute after applying changes. If POST_RELOAD_DEBUG=true, you will see the output of the script in the web page."
+msgstr "Ejecutar automáticamente una secuencia de comandos después de aplicar los cambios en el administrador de AMP. Establezca POST_RELOAD en la secuencia de comandos que desea ejecutar después de aplicar los cambios. Si POST_RELOAD_DEBUGu003dtrue, verá el resultado de la secuencia de comandos en la página web."
+
+msgid "PRE_RELOAD Script"
+msgstr "Script pre recarga"
+
+msgid "Optional script to run just prior to doing an extension reload to Asterisk through the manager after pressing Apply Configuration Changes in the GUI."
+msgstr "Script opcional para ejecutar justo antes de realizar una recarga de extensión en Asterisk a través del administrador después de presionar Aplicar cambios de configuración en la GUI."
+
+msgid "Show all Device Setting on Add"
+msgstr "Mostrar todas las configuraciones del dispositivo al agregar"
+
+msgid "When adding a new extension/device, setting this to true will show most available device settings that are displayed when you edit the same extension/device. Otherwise, just a few basic settings are displayed."
+msgstr "Al agregar una nueva extensión/dispositivo, establecer esto en verdadero mostrará la mayoría de las configuraciones de dispositivo disponibles que se muestran cuando edita la misma extensión/dispositivo. De lo contrario, solo se muestran algunas configuraciones básicas."
+
+msgid "SIP and IAX allow"
+msgstr "Permitir SIP e IAX"
+
+msgid "Default setting for SIP and IAX allow (for codecs). Codecs to allow in addition to those set in general settings unless explicitly 'disallowed' for the device. Values van be separated with '&' e.g. 'ulaw&g729&g729' where the preference order is preserved. See Asterisk documentation for details."
+msgstr "Configuración predeterminada para permitir SIP e IAX (para códecs). Códecs para permitir además de los establecidos en la configuración general a menos que se 'no permita' explícitamente para el dispositivo. Los valores se pueden separar con '&', por ejemplo, 'ulaw&g729&g729' donde el orden de preferencia se conserva. Consulte la documentación de Asterisk para obtener más detalles."
+
+msgid "SIP and DAHDi callgroup"
+msgstr "Grupo de llamadas SIP y DAHDi"
+
+msgid "Default setting for SIP, DAHDi (and Zap) callgroup. Callgroup(s) that the device is part of, can be one or more callgroups, e.g. '1,3-5' would be in groups 1,3,4,5. See Asterisk documentation for details."
+msgstr "Configuración predeterminada para el grupo de llamadas SIP, DAHDi (y Zap). Los grupos de llamadas de los que forma parte el dispositivo pueden ser uno o más grupos de llamadas, por ejemplo, '1,3-5' estaría en los grupos 1,3,4, 5. Consulte la documentación de Asterisk para obtener más detalles."
+
+msgid "SIP and IAX disallow"
+msgstr "SIP e IAX no permitidos"
+
+msgid "Default setting for SIP and IAX disallow (for codecs). Codecs to disallow, can help to reset from the general settings by setting a value of 'all' and then specifically including allowed codecs with the 'allow' directive. Values van be separated with '&' e.g. 'g729&g722'. See Asterisk documentation for details."
+msgstr "Configuración predeterminada para SIP e IAX no permitido (para códecs). Los códecs para no permitir, pueden ayudar a restablecer desde la configuración general al establecer un valor de 'todos' y luego incluir específicamente los códecs permitidos con la directiva 'permitir'. Los valores pueden ser separados con '&', por ejemplo, 'g729&g722'. Consulte la documentación de Asterisk para obtener más información."
+
+msgid "SIP and DAHDi pickupgroup"
+msgstr "Grupo de captación SIP y DAHDi"
+
+msgid "Default setting for SIP, DAHDi (and Zap) pickupgroup. Pickupgroups(s) that the device can pickup calls from, can be one or more groups, e.g. '1,3-5' would be in groups 1,3,4,5. Device does not have to be in a group to be able to pickup calls from that group. See Asterisk documentation for details."
+msgstr "Configuración predeterminada para el grupo de captura SIP, DAHDi (y Zap). Los grupos de captura desde los que el dispositivo puede capturar llamadas pueden ser uno o más grupos, por ejemplo, '1,3-5' estaría en los grupos 1,3,4 5. No es necesario que el dispositivo esté en un grupo para poder recibir llamadas de ese grupo. Consulte la documentación de Asterisk para obtener más detalles."
+
+msgid "SIP and IAX qualify"
+msgstr "Califican SIP e IAX"
+
+msgid "Default setting for SIP and IAX qualify. Whether to send periodic OPTIONS messages (for SIP) or otherwise monitor the channel, and at what point to consider the channel unavailable. A value of 'yes' is equivalent to 2000, time in msec. Can help to keep NAT holes open with SIP but not dependable for remote client firewalls. See Asterisk documentation for details."
+msgstr "Configuración predeterminada para SIP e IAX calificar. Si enviar mensajes de OPCIONES periódicos (para SIP) o monitorear el canal, y en qué punto considerar que el canal no está disponible. Un valor de 'sí' es equivalente a 2000, tiempo en mseg Puede ayudar a mantener abiertos los agujeros de NAT con SIP, pero no es confiable para los firewalls de clientes remotos. Consulte la documentación de Asterisk para obtener más detalles."
+
+msgid "SIP canrenivite (directmedia)"
+msgstr "SIP canrenivite (directmedia)"
+
+msgid "Default setting for SIP canreinvite (same as directmedia). See Asterisk documentation for details."
+msgstr "Configuración predeterminada para SIP canreinvite (igual que directmedia). Consulte la documentación de Asterisk para obtener más detalles."
+
+msgid "SIP encryption"
+msgstr "Cifrado SIP"
+
+msgid "Default setting for SIP encryption. Whether to offer SRTP encrypted media (and only SRTP encrypted media) on outgoing calls to a peer. Calls will fail with HANGUPCAUSE=58 if the peer does not support SRTP. See Asterisk documentation for details."
+msgstr "Configuración predeterminada para el cifrado SIP. Si ofrecer medios cifrados con SRTP (y solo medios cifrados con SRTP) en llamadas salientes a un par. Las llamadas fallarán con HANGUPCAUSEu003d58 si el par no es compatible con SRTP. Consulte la documentación de Asterisk para obtener más detalles."
+
+msgid "SIP nat"
+msgstr "SIP nacional"
+
+msgid "Default setting for SIP nat. A 'yes' will attempt to handle nat, also works for local (uses the network ports and address instead of the reported ports), 'no' follows the protocol, 'never' tries to block it, no RFC3581, 'route' ignores the rport information. See Asterisk documentation for details."
+msgstr "Configuración predeterminada para SIP nat. Un 'sí' intentará manejar nat, también funciona para local (usa los puertos de red y la dirección en lugar de los puertos informados), 'no' sigue el protocolo, 'nunca' intenta bloquearlo , no RFC3581, 'ruta' ignora la información del informe. Consulte la documentación de Asterisk para obtener más detalles."
+
+msgid "SIP qualifyfreq"
+msgstr "SIP califica frecuencia"
+
+msgid "Default setting for SIP qualifyfreq. Only valid for Asterisk 1.6 and above. Frequency that 'qualify' OPTIONS messages will be sent to the device. Can help to keep NAT holes open but not dependable for remote client firewalls. See Asterisk documentation for details."
+msgstr "Configuración predeterminada para la frecuencia de calificación de SIP. Solo es válida para Asterisk 1.6 y superior. La frecuencia con la que se enviarán los mensajes de OPCIONES 'calificados' al dispositivo. Puede ayudar a mantener abiertos los agujeros de NAT, pero no es confiable para los firewalls de clientes remotos. Consulte la documentación de Asterisk para obtener más detalles. ."
+
+msgid "SIP sendrpid"
+msgstr "SIP sendrpid"
+
+msgid "Default setting for SIP sendrpid. A value of 'yes' is equivalent to 'rpid' and will send the 'Remote-Party-ID' header. A value of 'pai' is only valid starting with Asterisk 1.8 and will send the 'P-Asserted-Identity' header. See Asterisk documentation for details."
+msgstr "Configuración predeterminada para SIP sendrpid. Un valor de 'yes' es equivalente a 'rpid' y enviará el encabezado 'Remote-Party-ID'. Un valor de 'pai' solo es válido a partir de Asterisk 1.8 y enviará el Encabezado 'P-Asserted-Identity'. Consulte la documentación de Asterisk para obtener más detalles."
+
+msgid "SIP trustrpid"
+msgstr "SIP de confianza rápida"
+
+msgid "Default setting for SIP trustrpid. See Asterisk documentation for details."
+msgstr "Configuración predeterminada para SIP trustrpid. Consulte la documentación de Asterisk para obtener más detalles."
+
+msgid "Require Strong Secrets"
+msgstr "Requerir secretos seguros"
+
+msgid "Requires a strong secret on SIP and IAX devices requiring at least two numeric and non-numeric characters and 6 or more characters. This can be disabled if using devices that can not meet these needs, or you prefer to put other constraints including more rigid constraints that this rule actually considers weak when it may not be."
+msgstr "Requiere un secreto seguro en los dispositivos SIP e IAX que requieren al menos dos caracteres numéricos y no numéricos y 6 o más caracteres. Esto se puede deshabilitar si usa dispositivos que no pueden satisfacer estas necesidades, o si prefiere poner otras restricciones que incluyen más restricciones rígidas que esta regla en realidad considera débiles cuando puede que no lo sean."
+
+msgid "Use bad-number Context"
+msgstr "Usar contexto de número incorrecto"
+
+msgid "Generate the bad-number context which traps any bogus number or feature code and plays a message to the effect. If you use the Early Dial feature on some Grandstream phones, you will want to set this to false."
+msgstr "Genera el contexto de número incorrecto que atrapa cualquier número falso o código de función y reproduce un mensaje en ese sentido. Si usa la función Early Dial en algunos teléfonos Grandstream, querrá establecer esto en falso."
+
+msgid "The asterisk application to use for conferencing. If only one is compiled into asterisk, IssabelPBX will auto detect and change this value if set wrong. The app_confbridge application is considered \"experimental"" with known issues and does not work on Asterisk 10 where it was completely rewritten and changed from the version on 1.6 and 1.8."
+msgstr "La aplicación Asterisk que se usará para conferencias. Si solo se compila una en Asterisk, IssabelPBX detectará automáticamente y cambiará este valor si se configura incorrectamente. La aplicación app_confbridge se considera \"experimental"" con problemas conocidos y no funciona en Asterisk 10 donde fue completamente reescrito y cambiado desde la versión 1.6 y 1.8."
+
+msgid "Polling Interval for Stopping Asterisk"
+msgstr "Intervalo de sondeo para detener Asterisk"
+
+msgid "When Asterisk is stopped or restarted with the 'amportal stop/restart' commands, it does a graceful stop waiting for active channels to hangup. This sets the polling interval to check if Asterisk is shutdown and update the countdown timer."
+msgstr "Cuando Asterisk se detiene o reinicia con los comandos 'amportal stop/restart', deja de esperar a que los canales activos cuelguen. Esto establece el intervalo de sondeo para verificar si Asterisk se apaga y actualiza el temporizador de cuenta regresiva."
+
+msgid "Waiting Period to Stop Asterisk"
+msgstr "Período de espera para detener Asterisk"
+
+msgid "When Asterisk is stopped or restarted with the 'amportal stop/restart' commands, it does a graceful stop waiting for active channels to hangup. This sets the maximum time in seconds to wait prior to force stopping Asterisk"
+msgstr "Cuando Asterisk se detiene o reinicia con los comandos 'amportal stop/restart', se detiene elegantemente esperando que los canales activos cuelguen. Esto establece el tiempo máximo en segundos para esperar antes de forzar la detención de Asterisk"
+
+msgid "Block CNAM on External Trunks"
+msgstr "Bloquear CNAM en troncales externas"
+
+msgid "Some carriers will reject a call if a CallerID Name (CNAM) is presented. This occurs in several areas when configuring CID on the PBX using the format of 'CNAM' <CNUM>. To remove the CNAM part of CID on all external trunks, set this value to true. This WILL NOT remove CNAM when a trunk is called from an Intra-Company route. This can be done on each individual trunk in addition to globally if there are trunks where it is desirable to keep CNAM information, though most carriers ignore CNAM."
+msgstr "Algunos operadores rechazarán una llamada si se presenta un nombre de ID de llamada (CNAM). Esto ocurre en varias áreas al configurar CID en la PBX usando el formato de 'CNAM' <CNUM>. Para eliminar la parte CNAM de CID en todos los troncales, establezca este valor en verdadero. Esto NO eliminará CNAM cuando se llama a un troncal desde una ruta dentro de la empresa. Esto se puede hacer en cada troncal individual además de globalmente si hay troncales donde es deseable mantener la información CNAM, aunque la mayoría de los operadores ignoran CNAM."
+
+msgid "Call Forward Ringtimer Default"
+msgstr "Predeterminado del temporizador de timbre de desvío de llamadas"
+
+msgid "This is the default time in seconds to try and connect a call that has been call forwarded by the server side CF, CFU and CFB options. (If your phones use client side CF such as SIP redirects, this will not have any affect) If set to the default of 0, it will use the standard ring timer. If set to -1 it will ring the forwarded number with no limit which is consistent with the behavior of some existing PBX systems. If set to any other value, it will ring for that duration before diverting the call to the users voicemail if they have one. This can be overridden for each extension."
+msgstr "Este es el tiempo predeterminado en segundos para intentar conectar una llamada que ha sido desviada por las opciones CF, CFU y CFB del lado del servidor. (Si sus teléfonos usan CF del lado del cliente, como redireccionamientos SIP, esto no tendrá ningún efecto ) Si se establece en 0 por defecto, utilizará el temporizador de timbre estándar. Si se establece en -1, sonará el número desviado sin límite, lo cual es consistente con el comportamiento de algunos sistemas PBX existentes. Si se establece en cualquier otro valor, sonará durante ese tiempo antes de desviar la llamada al correo de voz de los usuarios, si tienen uno. Esto se puede anular para cada extensión."
+
+msgid "Only Use Last CID Prepend"
+msgstr "Usar solo anteponer el último CID"
+
+msgid "Some modules allow the CNAM to be prepended. If a previous prepend was done, the default behavior is to remove the previous prepend and only use the most recent one. Setting this to false will turn that off allowing all prepends to be 'starcked' in front of one another."
+msgstr "Algunos módulos permiten anteponer el CNAM. Si se realizó un antecedente anterior, el comportamiento predeterminado es eliminar el antecedente anterior y usar solo el más reciente. Si se configura como falso, se desactivará y permitirá que todos los antepuestos se 'marquen con estrella'. ' uno frente al otro."
+
+msgid "Default maximum number of outbound simultaneous calls that an extension can make. This is also very useful as a Security Protection against a system that has been compromised. It will limit the number of simultaneous calls that can be made on the compromised extension. This default is used when an extension is created. A default of 0 means no limit."
+msgstr "Número máximo predeterminado de llamadas salientes simultáneas que puede realizar una extensión. Esto también es muy útil como protección de seguridad contra un sistema que se ha visto comprometido. Limitará el número de llamadas simultáneas que se pueden realizar en la extensión comprometida. Esto el valor predeterminado se usa cuando se crea una extensión. Un valor predeterminado de 0 significa que no hay límite."
+
+msgid "Display Presence State of Callee"
+msgstr "Mostrar estado de presencia del destinatario de la llamada"
+
+msgid "When set to true and when CONNECTEDLINE() capabilities are configured and supported by your handset, the name displayed will include the presence state of the callee."
+msgstr "Cuando se establece en verdadero y cuando las capacidades de CONNECTEDLINE() están configuradas y admitidas por su teléfono, el nombre que se muestra incluirá el estado de presencia de la persona que llama."
+
+msgid "Occupied Lines CW Busy"
+msgstr "Líneas ocupadas CW Ocupado"
+
+msgid "For extensions that have CW enabled, report unanswered CW calls as <b>busy</b> (resulting in busy voicemail greeting). If set to no, unanswered CW calls simply report as <b>no-answer</b>."
+msgstr "Para las extensiones que tienen CW habilitado, reporte las llamadas CW no respondidas como <b>ocupado</b> (lo que resulta en un saludo de correo de voz ocupado). Si se establece en no, las llamadas CW no respondidas simplemente se reportan como <b>sin respuesta</b >."
+
+msgid "Internal Auto Answer Default"
+msgstr "Predeterminado de respuesta automática interna"
+
+msgid "Default setting for new extensions. When set to Intercom, calls to new extensions/users from other internal users act as if they were intercom calls meaning they will be auto-answered if the endpoint supports this feature and the system is configured to operate in this mode. All the normal white list and black list settings will be honored if they are set. External calls will still ring as normal, as will certain other circumstances such as blind transfers and when a Follow Me is configured and enabled. If Disabled, the phone rings as a normal phone."
+msgstr "Configuración predeterminada para nuevas extensiones. Cuando se establece en Intercomunicador, las llamadas a nuevas extensiones/usuarios de otros usuarios internos actúan como si fueran llamadas de intercomunicador, lo que significa que se responderán automáticamente si el terminal es compatible con esta función y el sistema está configurado para funcionar. en este modo. Todas las configuraciones normales de la lista blanca y la lista negra se respetarán si están configuradas. Las llamadas externas seguirán sonando normalmente, al igual que otras circunstancias, como transferencias ciegas y cuando un Sígueme está configurado y habilitado. Si está deshabilitado , el teléfono suena como un teléfono normal."
+
+msgid "Options to be passed to the Asterisk Dial Command when making internal calls or for calls ringing internal phones. The options are documented in Asterisk documentation, a subset of which are described here. The default options T and t allow the calling and called users to transfer a call with ##. The r option allows Asterisk to generate ringing back to the calling phones which is needed by some phones and sometimes needed in complex dialplan features that may otherwise result in silence to the caller."
+msgstr "Opciones que se pasarán al Comando de marcación de Asterisk cuando se realicen llamadas internas o para llamadas que suenen en teléfonos internos. Las opciones están documentadas en la documentación de Asterisk, un subconjunto de las cuales se describe aquí. Las opciones predeterminadas T y t permiten a los usuarios llamantes y llamados para transferir una llamada con ##. La opción r permite que Asterisk genere una devolución de llamada a los teléfonos que llaman, lo cual es necesario para algunos teléfonos y, a veces, se necesita en funciones complejas del plan de marcación que, de lo contrario, pueden resultar en silencio para la persona que llama."
+
+msgid "Normally IssabelPBX auto-generates a custom context that may be usable for adding custom dialplan to modify the normal behavior of IssabelPBX. It takes a good understanding of how Asterisk processes these includes to use this and in many of the cases, there is no useful application. All includes will result in a WARNING in the Asterisk log if there is no context found to include though it results in no errors. If you know that you want the includes, you can set this to true. If you comment it out IssabelPBX will revert to legacy behavior and include the contexts."
+msgstr "Normalmente, IssabelPBX genera automáticamente un contexto personalizado que se puede usar para agregar un plan de marcación personalizado para modificar el comportamiento normal de IssabelPBX. Se necesita una buena comprensión de cómo Asterisk procesa estos incluidos para usar esto y, en muchos de los casos, no hay aplicación útil. Todas las inclusiones darán como resultado una ADVERTENCIA en el registro de Asterisk si no se encuentra un contexto para incluir, aunque no genera errores. Si sabe que desea las inclusiones, puede establecer esto en verdadero. Si lo comenta IssabelPBX volverá al comportamiento heredado e incluirá los contextos."
+
+msgid "Ditech VQA Inbound Setting"
+msgstr "Configuración de entrada de Ditech VQA"
+
+msgid "If Ditech's VQA, Voice Quality application is installed, this setting will be used for all inbound calls. For more information 'core show application VQA' at the Asterisk CLI will show the different settings."
+msgstr "Si está instalada la aplicación de calidad de voz VQA de Ditech, esta configuración se utilizará para todas las llamadas entrantes. Para obtener más información, 'core show application VQA' en Asterisk CLI mostrará las diferentes configuraciones."
+
+msgid "Ditech VQA Outbound Setting"
+msgstr "Configuración de salida de Ditech VQA"
+
+msgid "If Ditech's VQA, Voice Quality application is installed, this setting will be used for all outbound calls. For more information 'core show application VQA' at the Asterisk CLI will show the different settings."
+msgstr "Si está instalada la aplicación de calidad de voz VQA de Ditech, esta configuración se utilizará para todas las llamadas salientes. Para obtener más información, 'core show application VQA' en Asterisk CLI mostrará las diferentes configuraciones."
+
+msgid "Generate Diversion Headers"
+msgstr "Generar encabezados de desvío"
+
+msgid "If this value is set to true, then calls going out your outbound routes that originate from outside your PBX and were subsequently forwarded through a call forward, ring group, follow-me or other means, will have a SIP diversion header added to the call with the original incoming DID assuming there is a DID available. This is useful with some carriers that may require this under certain circumstances."
+msgstr "Si este valor se establece en verdadero, entonces las llamadas que salen de sus rutas de salida que se originan fuera de su PBX y que posteriormente se reenviaron a través de un desvío de llamadas, un grupo de timbre, sígueme u otros medios, tendrán un encabezado de desvío SIP agregado a la llamada con el DID entrante original, suponiendo que haya un DID disponible. Esto es útil con algunos operadores que pueden requerirlo en determinadas circunstancias."
+
+msgid "If true, Core will not statically generate hints, but instead make a call to the AMPBIN php script, and generate_hints.php through an Asterisk #exec call. This requires asterisk.conf to be configured with <b>execincludes=yes<b> set in the [options] section."
+msgstr "Si es verdadero, Core no generará sugerencias estáticamente, sino que realizará una llamada al script php de AMPBIN y generar_hints.php a través de una llamada Asterisk #exec. Esto requiere que asterisk.conf esté configurado con <b>execincludesu003dyes< b> establecido en la sección [opciones]."
+
+msgid "Enable call waiting by default when an extension is created (Default is yes). Set to <b>no</b> to if you do not want phones to be commissioned with call waiting already enabled. The user would then be required to dial the CW feature code (*70 default) to enable their phone. Most installations should leave this alone. It allows multi-line phones to receive multiple calls on their line appearances."
+msgstr "Habilite la llamada en espera de forma predeterminada cuando se crea una extensión (el valor predeterminado es sí). Establézcalo en <b>no</b> si no desea que los teléfonos se pongan en servicio con la llamada en espera ya habilitada. Entonces se solicitará al usuario para marcar el código de función CW (*70 predeterminado) para habilitar su teléfono. La mayoría de las instalaciones deberían dejar esto solo. Permite que los teléfonos multilínea reciban múltiples llamadas en sus apariciones de línea."
+
+msgid "Feature Codes Beep Only"
+msgstr "Códigos de función solo pitido"
+
+msgid "When set to true, a beep is played instead of confirmation message when activating/de-activating: CallForward, CallWaiting, DayNight, DoNotDisturb and FindMeFollow."
+msgstr "Cuando se establece en verdadero, se reproduce un pitido en lugar de un mensaje de confirmación al activar/desactivar: CallForward, CallWaiting, DayNight, DoNotDisturb y FindMeFollow."
+
+msgid "Force All Internal Auto Answer"
+msgstr "Forzar todas las respuestas automáticas internas"
+
+msgid "Force all extensions to operate in the Internal Auto Answer mode regardless of their individual settings. See 'Internal Auto Answer Default' for more information."
+msgstr "Obligar a todas las extensiones a operar en el modo Respuesta automática interna, independientemente de sus configuraciones individuales. Consulte 'Respuesta automática interna predeterminada' para obtener más información."
+
+msgid "NoOp Traces in Dialplan"
+msgstr "Trazas NoOp en Dialplan"
+
+msgid "Some modules will generate lots of NoOp() commands proceeded by a [TRACE](trace_level) that can be used during development or while trying to trace call flows. These NoOp() commands serve no other purpose so if you do not want to see excessive NoOp()s in your dialplan you can set this to 0. The higher the number the more detailed level of trace NoOp()s will be generated"
+msgstr "Algunos módulos generarán muchos comandos NoOp() seguidos por un [TRACE](trace_level) que se puede usar durante el desarrollo o al intentar rastrear flujos de llamadas. Estos comandos NoOp() no tienen otro propósito, así que si no desea para ver un número excesivo de NoOp() en su plan de marcación, puede establecerlo en 0. Cuanto mayor sea el número, se generará un nivel más detallado de seguimiento de NoOp()"
+
+msgid "When set to true and when CONNECTEDLINE() capabilities are configured and supported by your handset, the CID value being transmitted on this call will be updated on your handset in the CNAM field prepended with CID: so you know what is being presented to the caller if the outbound trunk supports and honors setting the transmitted CID."
+msgstr "Cuando se establece en verdadero y cuando las capacidades de CONNECTEDLINE() están configuradas y son compatibles con su teléfono, el valor de CID que se transmite en esta llamada se actualizará en su teléfono en el campo CNAM precedido por CID: para que sepa lo que se le presenta a la persona que llama si la troncal de salida admite y respeta la configuración del CID transmitido."
+
+msgid "When set to true and when CONNECTEDLINE() capabilities are configured and supported by your handset, the number actually dialled will be updated on your handset in the CNUM field. This allows you to see the final manipulation of your number after outbound route and trunk dial manipulation rules have been applied. For example, if you have configured 7 digit dialing on a North America dialplan, the ultimate 10 or 11 digit transmission will be displayed back. Any 'Outbound Dial Prefixes' configured at the trunk level will NOT be shown as these are foten analog line pauses (w) or other characters that distort the CNUM field on updates."
+msgstr "Cuando se establece en verdadero y cuando las capacidades de CONNECTEDLINE() están configuradas y admitidas por su teléfono, el número realmente marcado se actualizará en su teléfono en el campo CNUM. Esto le permite ver la manipulación final de su número después de la ruta de salida y Se han aplicado reglas de manipulación de marcación de troncales. Por ejemplo, si configuró la marcación de 7 dígitos en un plan de marcación de América del Norte, se mostrará la última transmisión de 10 u 11 dígitos. Cualquier 'Prefijo de marcación saliente' configurado en el nivel de troncal NO será se muestran como estas son pausas de línea analógica foten (w) u otros caracteres que distorsionan el campo CNUM en las actualizaciones."
+
+msgid "Call Recording Policy used to resove the winner in a conflict between two extensions when one wants a call recorded and the other does not, if both their priorities are also the same."
+msgstr "Política de grabación de llamadas utilizada para resolver el ganador en un conflicto entre dos extensiones cuando una quiere que se grabe una llamada y la otra no, si ambas prioridades también son las mismas."
+
+msgid "Ringtime Default"
+msgstr "Tiempo de timbre predeterminado"
+
+msgid "Default number of seconds to ring phones before sending callers to voicemail or other extension destinations. This can be set per extension/user. Phones with no voicemail or other destination options will ring indefinitely."
+msgstr "Número predeterminado de segundos para que suenen los teléfonos antes de enviar a las personas que llaman al correo de voz u otros destinos de extensión. Esto se puede configurar por extensión/usuario. Los teléfonos sin correo de voz u otras opciones de destino sonarán indefinidamente."
+
+msgid "Country Indication Tones"
+msgstr "Tonos de indicación de país"
+
+msgid "Asterisk TRANSFER_CONTEXT Variable"
+msgstr "Asterisk TRANSFER_CONTEXT Variable"
+
+msgid "This is the Asterisk Channel Variable TRANSFER_CONTEXT. In general it should NOT be changed unless you really know what you are doing. It is used to do create slightly different 'views' when a call is being transfered. An example is hiding the paging groups so a call isn't accidentally transfered into a page."
+msgstr "Esta es la variable de canal Asterisk TRANSFER_CONTEXT. En general, NO debe cambiarse a menos que realmente sepa lo que está haciendo. Se usa para crear 'vistas' ligeramente diferentes cuando se transfiere una llamada. Un ejemplo es ocultar la paginación grupos para que una llamada no se transfiera accidentalmente a una página."
+
+msgid "Options to be passed to the Asterisk Dial Command when making outbound calls on your trunks when not part of an Intra-Company Route. The options are documented in Asterisk documentation, a subset of which are described here. The default options T and t allow the calling and called users to transfer a call with ##. It is HIGHLY DISCOURAGED to use the r option here as this will prevent early media from being delivered from the PSTN and can result in the inability to interact with some external IVRs"
+msgstr "Opciones que se pasarán al comando de marcación de Asterisk al realizar llamadas salientes en sus troncales cuando no forman parte de una ruta dentro de la empresa. Las opciones están documentadas en la documentación de Asterisk, un subconjunto de las cuales se describe aquí. Las opciones predeterminadas T y t permitir que los usuarios que llaman y los llamados transfieran una llamada con ##. Se desaconseja encarecidamente utilizar la opción r aquí, ya que esto evitará que los primeros medios se entreguen desde la PSTN y puede resultar en la incapacidad de interactuar con algunos IVR externos."
+
+msgid "Trunk Dial Timeout"
+msgstr "Tiempo de espera de marcación de troncal"
+
+msgid "How many seconds to try a call on your trunks before giving up. This should normally be a very long time and is usually only changed if you have some sort of problematic trunks. This is the Asterisk Dial Command timeout parameter."
+msgstr "Cuántos segundos para intentar una llamada en sus troncales antes de darse por vencido. Esto normalmente debería ser un tiempo muy largo y generalmente solo se cambia si tiene algún tipo de troncales problemáticas. Este es el parámetro de tiempo de espera del comando de marcación de Asterisk."
+
+msgid "If this is set, it assumes that you are running Asterisk 1.4 or higher and want to take advantage of the func_devstate.c backport available from Asterisk 1.6. This allows custom hints to be created to support BLF for server side feature codes such as daynight, followme, etc"
+msgstr "Si está configurado, se supone que está ejecutando Asterisk 1.4 o superior y desea aprovechar el backport func_devstate.c disponible en Asterisk 1.6. Esto permite que se creen sugerencias personalizadas para admitir BLF para códigos de características del lado del servidor, como día noche, sígueme, etc."
+
+msgid "Use Google DNS for Enum"
+msgstr "Usar Google DNS para Enum"
+
+msgid "Setting this flag will generate the required global variable so that enumlookup.agi will use Google DNS 8.8.8.8 when performing an ENUM lookup. Not all DNS deals with NAPTR record, but Google does. There is a drawback to this as Google tracks every lookup. If you are not comfortable with this, do not enable this setting. Please read Google FAQ about this: <b>http://code.google.com/speed/public-dns/faq.html#privacy</b>."
+msgstr "Establecer este indicador generará la variable global requerida para que enumlookup.agi use Google DNS 8.8.8.8 al realizar una búsqueda ENUM. No todos los DNS se ocupan del registro NAPTR, pero Google sí. Hay un inconveniente en esto, ya que Google rastrea cada búsqueda. Si no se siente cómodo con esto, no habilite esta configuración. Lea las preguntas frecuentes de Google sobre esto: <b>http://code.google.com/speed/public-dns/faq.html#privacy</ b>."
+
+msgid "Convert ZAP Settings to DAHDi"
+msgstr "Convertir configuración ZAP a DAHDi"
+
+msgid "If set to true, IssabelPBX will check if you have chan_dahdi installed. If so, it will automatically use all your ZAP configuration settings (devices and trunks) and silently convert them, under the covers, to DAHDi so no changes are needed. The GUI will continue to refer to these as ZAP but it will use the proper DAHDi channels. This will also keep Zap Channel DIDs working."
+msgstr "Si se establece en verdadero, IssabelPBX verificará si tiene chan_dahdi instalado. Si es así, utilizará automáticamente todos los ajustes de configuración de ZAP (dispositivos y troncales) y los convertirá silenciosamente, bajo las sábanas, a DAHDi para que no se necesiten cambios. La GUI continuará refiriéndose a estos como ZAP, pero utilizará los canales DAHDi adecuados. Esto también mantendrá los DID de Zap Channel en funcionamiento."
+
+msgid "IssabelPBX bin Dir"
+msgstr "Carpeta de ejecución de IssabelPBX"
+
+msgid "Location of the IssabelPBX command line scripts."
+msgstr "Ubicación de los scripts de línea de comandos de IssabelPBX."
+
+msgid "CGI Dir"
+msgstr "Carpeta CGI"
+
+msgid "The path to Apache cgi-bin dir (leave off trailing slash)."
+msgstr "La ruta al directorio cgi-bin de Apache (omita la barra inclinada)."
+
+msgid "IssabelPBX sbin Dir"
+msgstr "Carpeta sbin de IssabelPBX"
+
+msgid "Where (root) command line scripts are located."
+msgstr "Dónde se encuentran los scripts de línea de comando (raíz)."
+
+msgid "IssabelPBX Web Root Dir"
+msgstr "Directorio raíz web de IssabelPBX"
+
+msgid "The path to Apache webroot (leave off trailing slash)."
+msgstr "La ruta a Apache webroot (omita la barra inclinada)."
+
+msgid "Asterisk AGI Dir"
+msgstr "Carpeta AGI de Asterisk"
+
+msgid "This is the default directory for Asterisks agi files."
+msgstr "Este es el directorio predeterminado para los archivos agi de Asterisk."
+
+msgid "Asterisk etc Dir"
+msgstr "Carpeta etc de Asterisk"
+
+msgid "This is the default directory for Asterisks configuration files."
+msgstr "Este es el directorio predeterminado para los archivos de configuración de Asterisk."
+
+msgid "Asterisk Log Dir"
+msgstr "Carpeta de registros de Asterisk"
+
+msgid "This is the default directory for Asterisks log files."
+msgstr "Este es el directorio predeterminado para los archivos de registro de Asterisk."
+
+msgid "Asterisk Modules Dir"
+msgstr "Carpeta de módulos de Asterisk"
+
+msgid "This is the default directory for Asterisks modules."
+msgstr "Este es el directorio predeterminado para los módulos de Asterisk."
+
+msgid "Asterisk Run Dir"
+msgstr "Carpeta de ejecución (run) de Asterisk"
+
+msgid "This is the default directory for Asterisks run files."
+msgstr "Este es el directorio predeterminado para los archivos de ejecución de Asterisk."
+
+msgid "Asterisk Spool Dir"
+msgstr "Carpeta Spool de Asterisk"
+
+msgid "This is the default directory for Asterisks spool directory."
+msgstr "Este es el directorio predeterminado para el directorio de spool de Asterisk."
+
+msgid "Asterisk bin Dir"
+msgstr "Carpeta bin de Asterisk"
+
+msgid "This is the default directory for Asterisks lib files."
+msgstr "Este es el directorio predeterminado para los archivos lib de Asterisk."
+
+msgid "Override Call Recording Location"
+msgstr "Anular ubicación de grabación de llamadas"
+
+msgid "Override the default location where asterisk will store call recordings. Be sure to set proper permissions on the directory for the asterisk user."
+msgstr "Reemplace la ubicación predeterminada donde Asterisk almacenará las grabaciones de llamadas. Asegúrese de establecer los permisos adecuados en el directorio para el usuario de Asterisk."
+
+msgid "MoH Subdirectory"
+msgstr "Subdirectorio de música en espera"
+
+msgid "This is the subdirectory for the MoH files/directories which is located in ASTVARLIBDIR. Older installation may be using mohmp3 which was the old Asterisk default and should be set to that value if the music files are located there relative to the ASTVARLIBDIR."
+msgstr "Este es el subdirectorio para los archivos/directorios de música en espera que se encuentra en ASTVARLIBDIR. La instalación anterior puede estar usando mohmp3, que era el antiguo valor predeterminado de Asterisk y debe establecerse en ese valor si los archivos de música están ubicados allí en relación con ASTVARLIBDIR."
+
+msgid "Abort Config Gen on Bad Dest"
+msgstr "Cancelar generación de configuración ante destino inválido"
+
+msgid "Setting either of these to true will result in retrieve_conf aborting during a reload if an extension conflict is detected or a destination is detected. It is usually better to allow the reload to go through and then correct the problem but these can be set if a more strict behavior is desired."
+msgstr "Establecer cualquiera de estos en verdadero resultará en la cancelación de retrieve_conf durante una recarga si se detecta un conflicto de extensión o un destino. Por lo general, es mejor permitir que la recarga se lleve a cabo y luego corregir el problema, pero esto se puede configurar si se desea un comportamiento más estricto."
+
+msgid "Check Server Referrer"
+msgstr "Comprobar referencia del servidor"
+
+msgid "When set to the default value of true, all requests into IssabelPBX that might possibly add/edit/delete settings will be validated to assure the request is coming from the server. This will protect the system from CSRF (cross site request forgery) attacks. It will have the effect of preventing legitimately entering URLs that could modify settings which can be allowed by changing this field to false."
+msgstr "Cuando se establece en el valor predeterminado de verdadero, todas las solicitudes en IssabelPBX que posiblemente puedan agregar/editar/eliminar configuraciones se validarán para garantizar que la solicitud provenga del servidor. Esto protegerá el sistema de CSRF (falsificación de solicitud entre sitios) Tendrá el efecto de evitar la entrada legítima de URL que podrían modificar la configuración que se puede permitir cambiando este campo a falso."
+
+msgid "If false, then the Destination Registry will not report unknown destinations as errors. This should be left to the default true and custom destinations should be moved into the new custom apps registry."
+msgstr "Si es falso, entonces el Registro de destino no informará los destinos desconocidos como errores. Esto debe dejarse en el valor predeterminado verdadero y los destinos personalizados deben moverse al nuevo registro de aplicaciones personalizadas."
+
+msgid "Module Admin normally tries to get its online information through direct file open type calls to URLs that go back to the issabel.org server. If it fails, typically because of content filters in firewalls that do not like the way PHP formats the requests, the code will fall back and try a wget to pull the information. This will often solve the problem. However, in such environment there can be a significant timeout before the failed file open calls to the URLs return and there are often 2-3 of these that occur. Setting this value will force IssabelPBX to avoid the attempt to open the URL and go straight to the wget calls."
+msgstr "El administrador del módulo normalmente intenta obtener su información en línea a través de llamadas directas de tipo abierto de archivo a URL que se remontan al servidor issabel.org. Si falla, generalmente debido a los filtros de contenido en los firewalls que no les gusta la forma en que PHP formatea las solicitudes , el código retrocederá e intentará un wget para extraer la información. Esto a menudo resolverá el problema. Sin embargo, en dicho entorno puede haber un tiempo de espera significativo antes de que el archivo fallido abra las llamadas a las URL y, a menudo, hay 2-3 de estos que ocurren. Establecer este valor obligará a IssabelPBX a evitar el intento de abrir la URL e ir directamente a las llamadas wget."
+
+msgid "When set to false, will bypass the confirm on Reload Box."
+msgstr "Cuando se establece en falso, omitirá la confirmación en Reload Box."
+
+msgid "Precede browser title with the server name."
+msgstr "Preceda al título del navegador el nombre del servidor."
+
+msgid "Show Language setting on menu . Defaults = false"
+msgstr "Mostrar configuración de idioma en el menú. Valores predeterminados u003d falso"
+
+msgid "When set to true, the system will check for a issabelpbx_menu.conf file amongst the normal configuraiton files and if found, it will be used to define and remap the menu tabs and contents. See the template supplied with IssabelPBX for details on how to do this."
+msgstr "Cuando se establece en verdadero, el sistema buscará un archivo issabelpbx_menu.conf entre los archivos de configuración normales y, si lo encuentra, se utilizará para definir y reasignar las pestañas y el contenido del menú. Consulte la plantilla suministrada con IssabelPBX para obtener detalles sobre cómo para hacer esto."
+
+msgid "Abort Config Gen on Exten Conflict"
+msgstr "Cancelar generación de configuración en conflicto de extensión"
+
+msgid "Asterisk Application VQA"
+msgstr "VQA de la aplicación Asterisk"
+
+msgid "Set to the application name if the application is present in this Asterisk install"
+msgstr "Establezca el nombre de la aplicación si la aplicación está presente en esta instalación de Asterisk"
+
+msgid "Asterisk Function CONNECTEDLINE"
+msgstr "Función Asterisk CONNECTEDLINE"
+
+msgid "Set to the function name if the function is present in this Asterisk install"
+msgstr "Establecer el nombre de la función si la función está presente en esta instalación de Asterisk"
+
+msgid "Asterisk Function DEVICE_STATE"
+msgstr "Función de Asterisk DEVICE_STATE"
+
+msgid "Asterisk Function EXTENSION_STATE"
+msgstr "Función de Asterisk EXTENSION_STATE"
+
+msgid "Asterisk Function MASTER_CHANNEL"
+msgstr "Función de Asterisk MASTER_CHANNEL"
+
+msgid "Asterisk Function PRESENCE_STATE"
+msgstr "Función de Asterisk PRESENCIA_ESTADO"
+
+msgid "Asterisk Function SHARED"
+msgstr "Función Asterisk COMPARTIDA"
+
+msgid "Asterisk Version"
+msgstr "Versión de Asterisk"
+
+msgid "Last Asterisk Version detected (or forced)"
+msgstr "Última versión de Asterisk detectada (o forzada)"
+
+msgid "Compressed Copy of Main CSS"
+msgstr "Copia comprimida del CSS principal"
+
+msgid "internal use"
+msgstr "uso interno"
+
+msgid "Repo Server"
+msgstr "Servidor de repositorio"
+
+msgid "repo server"
+msgstr "servidor de repositorio"
+
+msgid "Browser Stats Notice"
+msgstr "Aviso de estadísticas del navegador"
+
+msgid "Internal use to track if notice has been given that anonyous browser stats are being collected."
+msgstr "Uso interno para rastrear si se ha notificado que se están recopilando estadísticas anónimas del navegador."
+
+msgid "SIP User Agent"
+msgstr "Agente de usuario SIP"
+
+msgid "User Agent prefix"
+msgstr "Prefijo del agente de usuario"
+
+msgid "DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by IssabelPBX.<br>Hostname of db server if not the same as AMPDBHOST."
+msgstr "NO configure esto a menos que sepa lo que está haciendo. Solo se usa si no usa los valores predeterminados proporcionados por IssabelPBX.<br>Nombre de host del servidor de base de datos si no es el mismo que AMPDBHOST."
+
+msgid "DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by IssabelPBX.<br>Name of database used for cdr records."
+msgstr "NO configure esto a menos que sepa lo que está haciendo. Solo se usa si no usa los valores predeterminados proporcionados por IssabelPBX.<br>Nombre de la base de datos utilizada para registros cdr."
+
+msgid "DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by IssabelPBX.<br>Password for connecting to db if its not the same as AMPDBPASS."
+msgstr "NO configure esto a menos que sepa lo que está haciendo. Solo se usa si no usa los valores predeterminados proporcionados por IssabelPBX.<br>Contraseña para conectarse a la base de datos si no es la misma que AMPDBPASS."
+
+msgid "DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by IssabelPBX.<br>Port number for db host."
+msgstr "NO configure esto a menos que sepa lo que está haciendo. Solo se usa si no usa los valores predeterminados proporcionados por IssabelPBX.<br>Número de puerto para el host de la base de datos."
+
+msgid "DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by IssabelPBX. Name of the table in the db where the cdr is stored. cdr is default."
+msgstr "NO configure esto a menos que sepa lo que está haciendo. Solo se usa si no usa los valores predeterminados provistos por IssabelPBX. Nombre de la tabla en la base de datos donde se almacena el cdr. cdr es predeterminado."
+
+msgid "DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by IssabelPBX. Defaults to your configured AMDBENGINE."
+msgstr "NO configure esto a menos que sepa lo que está haciendo. Solo se usa si no usa los valores predeterminados proporcionados por IssabelPBX. Los valores predeterminados son su AMDBENGINE configurado."
+
+msgid "DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by IssabelPBX. Username to connect to db with if it is not the same as AMPDBUSER."
+msgstr "NO configure esto a menos que sepa lo que está haciendo. Solo se usa si no usa los valores predeterminados provistos por IssabelPBX. Nombre de usuario para conectarse a db si no es lo mismo que AMPDBUSER."
+
+msgid "Alternate JS"
+msgstr "JS alternativo"
+
+msgid "Alternate JS file, to supplement legacy.script.js"
+msgstr "Archivo JS alternativo, para complementar legacy.script.js"
+
+msgid "Primary CSS Stylesheet"
+msgstr "Hoja de estilo CSS principal"
+
+msgid "Set this to replace the default mainstyle.css style sheet with your own, relative to admin."
+msgstr "Establezca esto para reemplazar la hoja de estilo mainstyle.css predeterminada con la suya propia, en relación con el administrador."
+
+msgid "Primary CSS Popover Stylesheet Addtion"
+msgstr "Agregación de hoja de estilo a popover"
+
+msgid "Set this to replace the default popover.css style sheet with your own, relative to admin."
+msgstr "Establezca esto para reemplazar la hoja de estilo popover.css predeterminada con la suya propia, en relación con el administrador."
+
+msgid "Optional Additional CSS Stylesheet"
+msgstr "Hoja de estilo CSS adicional opcional"
+
+msgid "Optional custom CSS style sheet included after the primary one and any module specific ones are loaded, relative to admin."
+msgstr "Hoja de estilo CSS personalizada opcional incluida después de cargar la principal y las específicas de cualquier módulo, en relación con el administrador."
+
+msgid "Favicon"
+msgstr "Favicón"
+
+msgid "Image: Footer"
+msgstr "Imagen: Pie de página"
+
+msgid "Logo in footer.  Path is relative to admin."
+msgstr "Logotipo en el pie de página. La ruta es relativa al administrador."
+
+msgid "Link for Footer Logo"
+msgstr "Enlace para el logotipo de pie de página"
+
+msgid "link to follow when clicking on logo, defaults to http://www.issabel.org"
+msgstr "enlace a seguir al hacer clic en el logotipo, por defecto es http://www.issabel.org"
+
+msgid "Link for Left Logo"
+msgstr "Enlace para el logotipo izquierdo"
+
+msgid "Link for Sponsor Footer Logo"
+msgstr "Enlace para el logotipo del pie de página del patrocinador"
+
+msgid "link to follow when clicking on sponsor logo"
+msgstr "enlace a seguir al hacer clic en el logotipo del patrocinador"
+
+msgid "Image: Left Upper"
+msgstr "Imagen: Superior izquierda"
+
+msgid "Left upper logo.  Path is relative to admin."
+msgstr "Logotipo superior izquierdo. La ruta es relativa al administrador."
+
+msgid "Alt for Footer Logo"
+msgstr "Alt para logotipo de pie de página"
+
+msgid "alt attribute to use in place of image and title hover value. Defaults to IssabelPBX"
+msgstr "atributo alt para usar en lugar de la imagen y el valor de desplazamiento del título. El valor predeterminado es IssabelPBX"
+
+msgid "Alt for Left Logo"
+msgstr "Alt para Logo Izquierdo"
+
+msgid "Page Title"
+msgstr "Título de la página"
+
+msgid "HTML title of all pages"
+msgstr "Título HTML de todas las páginas"
+
+msgid "jQuery UI css"
+msgstr "jQuery interfaz de usuario css"
+
+msgid "css file for jquery ui"
+msgstr "archivo css para jquery ui"
+
+msgid "tiff2pdf Author"
+msgstr "Autor tiff2pdf"
+
+msgid "Author to pass to tiff2pdf's -a option"
+msgstr "Autor para pasar a tiff2pdf's -a option"
+
+msgid "View: bad_refferer.php"
+msgstr "Vista: bad_refferer.php"
+
+msgid "bad_refferer.php view. This should never be changed except for very advanced layout changes."
+msgstr "vista bad_refferer.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados."
+
+msgid "View: beta_notice.php"
+msgstr "Vista: beta_notice.php"
+
+msgid "beta_notice.php view. This should never be changed except for very advanced layout changes"
+msgstr "vista beta_notice.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados"
+
+msgid "View: issabelpbx.php"
+msgstr "Vista: issabelpbx.php"
+
+msgid "footer.php view. This should never be changed except for very advanced layout changes"
+msgstr "vista de footer.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados"
+
+msgid "View: footer_content.php"
+msgstr "Vista: footer_content.php"
+
+msgid "footer_content.php view. This should never be changed except for very advanced layout changes"
+msgstr "vista de footer_content.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados"
+
+msgid "View: header.php"
+msgstr "Vista: encabezado.php"
+
+msgid "header.php view. This should never be changed except for very advanced layout changes"
+msgstr "vista de encabezado.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados"
+
+msgid "issabelpbx.php view. This should never be changed except for very advanced layout changes."
+msgstr "vista isabelpbx.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados."
+
+msgid "View: issabelpbx_admin.php"
+msgstr "Vista: issabelpbx_admin.php"
+
+msgid "issabelpbx_admin.php view. This should never be changed except for very advanced layout changes."
+msgstr "vista issabelpbx_admin.php. Esto nunca debe cambiarse, excepto para cambios de diseño muy avanzados."
+
+msgid "View: issabelpbx_reload.php"
+msgstr "Vista: issabelpbx_reload.php"
+
+msgid "issabelpbx_reload.php view. This should never be changed except for very advanced layout changes."
+msgstr "vista issabelpbx_reload.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados."
+
+msgid "View: issabelpbx_reloadbar.php"
+msgstr "Vista: issabelpbx_reloadbar.php"
+
+msgid "issabelpbx_reloadbar.php view. This should never be changed except for very advanced layout changes."
+msgstr "vista issabelpbx_reloadbar.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados."
+
+msgid "View: loggedout.php"
+msgstr "Vista: cierre de sesión.php"
+
+msgid "loggedout.php view. This should never be changed except for very advanced layout changes."
+msgstr "vista de loggedout.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados."
+
+msgid "View: login.php"
+msgstr "Vista: inicio de sesión.php"
+
+msgid "login.php view. This should never be changed except for very advanced layout changes"
+msgstr "vista de login.php. Esto nunca debe cambiarse excepto por cambios de diseño muy avanzados"
+
+msgid "View: menu.php"
+msgstr "Vista: menú.php"
+
+msgid "menu.php view. This should never be changed except for very advanced layout changes"
+msgstr "vista de menú.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados"
+
+msgid "View: menuitem_disabled.php"
+msgstr "Vista: menuitem_disabled.php"
+
+msgid "menuitem_disabled.php view. This should never be changed except for very advanced layout changes."
+msgstr "menuitem_disabled.php view. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados."
+
+msgid "View: noaccess.php"
+msgstr "Vista: noaccess.php"
+
+msgid "noaccess.php view. This should never be changed except for very advanced layout changes."
+msgstr "vista noaccess.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados."
+
+msgid "View: obe.php"
+msgstr "Vista: obe.php"
+
+msgid "obe.php view. This should never be changed except for very advanced layout changes"
+msgstr "vista de obe.php. Esto nunca debe cambiarse excepto por cambios de diseño muy avanzados"
+
+msgid "View: panel.php"
+msgstr "Vista: panel.php"
+
+msgid "panel.php view. This should never be changed except for very advanced layout changes."
+msgstr "vista de panel.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados."
+
+msgid "View: popover_js.php"
+msgstr "Vista: popover_js.php"
+
+msgid "popover_js.php view. This should never be changed except for very advanced layout changes"
+msgstr "vista popover_js.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados"
+
+msgid "View: reports.php"
+msgstr "Vista: informes.php"
+
+msgid "reports.php view. This should never be changed except for very advanced layout changes."
+msgstr "vista de informes.php. Esto nunca debe cambiarse excepto por cambios de diseño muy avanzados."
+
+msgid "View: unauthorized.php"
+msgstr "Vista: no autorizado.php"
+
+msgid "unauthorized.php view. This should never be changed except for very advanced layout changes."
+msgstr "vista no autorizada.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados."
+
+msgid "View: welcome.php"
+msgstr "Vista: bienvenido.php"
+
+msgid "welcome.php view. This should never be changed except for very advanced layout changes."
+msgstr "vista de bienvenida.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados."
+
+msgid "View: welcome_nomanager.php"
+msgstr "Vista: bienvenido_nomanager.php"
+
+msgid "welcome_nomanager.php view. This should never be changed except for very advanced layout changes."
+msgstr "vista de bienvenida_nomanager.php. Esto nunca debe cambiarse excepto para cambios de diseño muy avanzados."
+
+msgid "Path for rm"
+msgstr "Ruta para rm"
+
+msgid "Path for asterisk"
+msgstr "Ruta para asterisk"
+
+msgid "Path for cp"
+msgstr "Ruta para cp"
+
+msgid "Path for grep"
+msgstr "Ruta para grep"
+
+msgid "Path for mysqldump"
+msgstr "Ruta para mysqldump"
+
+msgid "Path for tail"
+msgstr "Ruta para tail"
+
+msgid "Path for tar"
+msgstr "Ruta para tar"
+
+msgid "The path to rm as auto-determined by the system. Overwrite as necessary."
+msgstr "La ruta a rm determinada automáticamente por el sistema. Sobrescribir según sea necesario."
+
+msgid "Aggresively Check for Duplicate Extensions"
+msgstr "Comprobar agresivamente si hay extensiones duplicadas"
+
+msgid "When set to true IssabelPBX will update its extension map every page load. This is used to check for duplicate extension numbers in the client side javascript validation. Normally the extension map is only created when Apply Configuration Settings is pressed and retrieve_conf is run."
+msgstr "Cuando se establece en verdadero, IssabelPBX actualizará su mapa de extensión cada vez que se cargue la página. Esto se usa para verificar si hay números de extensión duplicados en la validación de javascript del lado del cliente. Normalmente, el mapa de extensión solo se crea cuando se presiona Aplicar ajustes de configuración y se ejecuta retrieve_conf. "
+
+msgid "Allow Login With DB Credentials"
+msgstr "Permitir inicio de sesión con credenciales de base de datos"
+
+msgid "When Set to True, admin access to the IssabelPBX GUI will be allowed using the IssabelPBX configured AMPDBUSER and AMPDBPASS credentials. This only applies when Authorization Type is 'database' mode."
+msgstr "Cuando se establece en Verdadero, se permitirá el acceso de administrador a la GUI de IssabelPBX utilizando las credenciales AMPDBUSER y AMPDBPASS configuradas de IssabelPBX. Esto solo se aplica cuando el Tipo de autorización es el modo 'base de datos'."
+
+msgid "System Asterisk Group"
+msgstr "Grupo Asterisk del sistema"
+
+msgid "The user group Asterisk should be running as, used by issabelpbx_engine. Most systems should not change this."
+msgstr "El grupo de usuarios Asterisk debe ejecutarse como lo usa issabelpbx_engine. La mayoría de los sistemas no deberían cambiar esto."
+
+msgid "System Asterisk User"
+msgstr "Usuario del sistema Asterisk"
+
+msgid "The user Asterisk should be running as, used by issabelpbx_engine. Most systems should not change this."
+msgstr "El usuario Asterisk debe ejecutarse como, utilizado por issabelpbx_engine. La mayoría de los sistemas no deberían cambiar esto."
+
+msgid "System Web Group"
+msgstr "Grupo web del sistema"
+
+msgid "The user group your httpd should be running as, used by issabelpbx_engine. Most systems should not change this."
+msgstr "El grupo de usuarios con el que debe ejecutarse su httpd, utilizado por issabelpbx_engine. La mayoría de los sistemas no deberían cambiar esto."
+
+msgid "System Web User"
+msgstr "Usuario web del sistema"
+
+msgid "The user your httpd should be running as, used by issabelpbx_engine. Most systems should not change this."
+msgstr "El usuario con el que debe ejecutarse su httpd, utilizado por issabelpbx_engine. La mayoría de los sistemas no deberían cambiar esto."
+
+msgid "System Device Group"
+msgstr "Grupo de dispositivos del sistema"
+
+msgid "The user group that various device directories should be set to, used by issabelpbx_engine. Examples include /dev/zap, /dev/dahdi, /dev/misdn, /dev/mISDN and /dev/dsp. Most systems should not change this."
+msgstr "El grupo de usuarios en el que se deben configurar varios directorios de dispositivos, utilizado por issabelpbx_engine. Los ejemplos incluyen /dev/zap, /dev/dahdi, /dev/misdn, /dev/mISDN y /dev/dsp. La mayoría de los sistemas no deberían cambiar este."
+
+msgid "System Device User"
+msgstr "Usuario del dispositivo del sistema"
+
+msgid "The user that various device directories should be set to, used by issabelpbx_engine. Examples include /dev/zap, /dev/dahdi, /dev/misdn, /dev/mISDN and /dev/dsp. Most systems should not change this."
+msgstr "El usuario en el que se deben configurar varios directorios de dispositivos, utilizado por issabelpbx_engine. Los ejemplos incluyen /dev/zap, /dev/dahdi, /dev/misdn, /dev/mISDN y /dev/dsp. La mayoría de los sistemas no deberían cambiar esto ."
+
+msgid "Disable IssabelPBX Log"
+msgstr "Desactivar registro de IssabelPBX"
+
+msgid "Whether or not to invoke the IssabelPBX log facility."
+msgstr "Si invocar o no la función de registro de IssabelPBX."
+
+msgid "Telephony Engine"
+msgstr "Motor de telefonía"
+
+msgid "The telephony backend engine being used, asterisk is the only option currently."
+msgstr "El motor back-end de telefonía que se está utilizando, Asterisk es la única opción actualmente."
+
+msgid "User & Devices Mode"
+msgstr "Modo de usuario y dispositivos"
+
+msgid "Sets the extension behavior in IssabelPBX.  If set to <b>extensions</b>, Devices and Users are administered together as a unified Extension, and appear on a single page. If set to <b>deviceanduser</b>, Devices and Users will be administered separately. Devices (e.g. each individual line on a SIP phone) and Users (e.g. <b>101</b>) will be configured independent of each other, allowing association of one User to many Devices, or allowing Users to login and logout of Devices."
+msgstr "Establece el comportamiento de la extensión en IssabelPBX. Si se establece en <b>extensiones</b>, los dispositivos y los usuarios se administran juntos como una extensión unificada y aparecen en una sola página. Si se establece en <b>dispositivo y usuario</b> , Dispositivos y Usuarios se administrarán por separado. Los Dispositivos (p. ej., cada línea individual en un teléfono SIP) y los Usuarios (p. ej., <b>101</b>) se configurarán de forma independiente, lo que permitirá la asociación de un Usuario a muchos Dispositivos. o permitir que los usuarios inicien sesión y cierren sesión en los dispositivos."
+
+msgid "IssabelPBX Log Routing"
+msgstr "Enrutamiento de registro de IssabelPBX"
+
+msgid "Determine where to send log information if the log is enabled ('Disable IssabelPBX Log' (AMPDISABLELOG) false. There are two places to route the log messages. 'FILE' will send all log messages to the defined 'IssabelPBX Log File' (IPBX_LOG_FILE). All the other settings will route the log messages to your System Logging subsystem (syslog) using the specified log level. Syslog can be configured to route different levels to different locations. See 'syslog' documentation (man syslog) on your system for more details."
+msgstr "Determine dónde enviar la información de registro si el registro está habilitado ('Desactivar registro de IssabelPBX' (AMPDISABLELOG) falso. Hay dos lugares para enrutar los mensajes de registro. 'ARCHIVO' enviará todos los mensajes de registro al 'Archivo de registro de IssabelPBX' definido (IPBX_LOG_FILE). Todas las demás configuraciones enrutarán los mensajes de registro a su subsistema de registro del sistema (syslog) utilizando el nivel de registro especificado. Syslog se puede configurar para enrutar diferentes niveles a diferentes ubicaciones. Consulte la documentación de 'syslog' (man syslog) en su sistema para obtener más detalles."
+
+msgid "Asterisk VMU Mask"
+msgstr "Máscara VMU Asterisk"
+
+msgid "Defaults to 077 allowing only the asterisk user to have any permission on VM files. If set to something like 007, it would allow the group to have permissions. This can be used if setting apache to a different user then asterisk, so that the apache user can have access to read/write/delete the voicemail files. If changed, some of the voicemail directory structures may have to be manually changed."
+msgstr "El valor predeterminado es 077, lo que permite que solo el usuario de asterisk tenga algún permiso en los archivos de VM. Si se establece en algo como 007, permitiría que el grupo tenga permisos. Esto se puede usar si configura apache para un usuario diferente que asterisk, de modo que el usuario de apache puede tener acceso para leer/escribir/eliminar los archivos del correo de voz. Si se modifican, es posible que algunas de las estructuras del directorio del correo de voz deban cambiarse manualmente."
+
+msgid "IssabelPBX Web Address"
+msgstr "Dirección web de IsabelPBX"
+
+msgid "This is the address of your Web Server. It is mostly obsolete and derived when not supplied and will be phased out, but there are still some areas expecting a variable to be set and if you are using it this will migrate your value."
+msgstr "Esta es la dirección de su servidor web. Es en su mayoría obsoleto y derivado cuando no se proporciona y se eliminará gradualmente, pero todavía hay algunas áreas que esperan que se establezca una variable y, si la está utilizando, esto migrará su valor. "
+
+msgid "Authorization Type"
+msgstr "Tipo de autorización"
+
+msgid "Authentication type to use for web admin. If type set to <b>database</b>, the primary AMP admin credentials will be the AMPDBUSER/AMPDBPASS above. When using database you can create users that are restricted to only certain module pages. When set to none, you should make sure you have provided security at the apache level. When set to webserver, IssabelPBX will expect authentication to happen at the apache level, but will take the user credentials and apply any restrictions as if it were in database mode."
+msgstr "Tipo de autenticación a usar para el administrador web. Si el tipo se establece en <b>base de datos</b>, las credenciales de administrador de AMP principales serán AMPDBUSER/AMPDBPASS anteriores. Al usar la base de datos, puede crear usuarios que estén restringidos solo a ciertos módulos páginas. Cuando se establece en ninguno, debe asegurarse de haber proporcionado seguridad en el nivel de apache. Cuando se establece en el servidor web, IssabelPBX esperará que la autenticación ocurra en el nivel de apache, pero tomará las credenciales del usuario y aplicará cualquier restricción como si fuera en modo base de datos."
+
+msgid "Browser Stats"
+msgstr "Estadísticas del navegador"
+
+msgid "Setting this to true will allow the development team to use google analytics to anonymously analyze browser information to help make better development decision."
+msgstr "Configurar esto en verdadero permitirá que el equipo de desarrollo use Google Analytics para analizar de forma anónima la información del navegador para ayudar a tomar una mejor decisión de desarrollo."
+
+msgid "Force Asterisk Version"
+msgstr "Forzar versión de Asterisk"
+
+msgid "Normally IssabelPBX gets the current Asterisk version directly from Asterisk. This is required to generate proper dialplan for a given version. When using some custom Asterisk builds, the version may not be properly parsed and improper dialplan generated. Setting this to an equivalent Asterisk version will override what is read from Asterisk. This SHOULD be left blank unless you know what you are doing."
+msgstr "Normalmente, IssabelPBX obtiene la versión actual de Asterisk directamente de Asterisk. Esto es necesario para generar un plan de marcación adecuado para una versión determinada. Cuando se usan algunas compilaciones personalizadas de Asterisk, es posible que la versión no se analice correctamente y se genere un plan de marcación incorrecto. Estableciendo esto en un Asterisk equivalente anulará lo que se lea de Asterisk. Esto DEBE dejarse en blanco a menos que sepa lo que está haciendo."
+
+msgid "IssabelPBX Log File"
+msgstr "Archivo de registro de IssabelPBX"
+
+msgid "Full path and name of the IssabelPBX Log File used in conjunction with the Syslog Level (AMPSYSLOGLEVEL) being set to FILE, not used otherwise. Initial installs may have some early logging sent to /tmp/issabelpbx_pre_install.log when it is first bootstrapping the installer."
+msgstr "Ruta completa y nombre del archivo de registro de IssabelPBX que se usa junto con el nivel de Syslog (AMPSYSLOGLEVEL) que se establece en ARCHIVO, no se usa de otra manera. Las instalaciones iniciales pueden tener un registro temprano enviado a /tmp/issabelpbx_pre_install.log cuando se inicia por primera vez el instalador."
+
+msgid "jQuery Version"
+msgstr "Versión de jQuery"
+
+msgid "The version of jQuery that we wish to use."
+msgstr "La versión de jQuery que deseamos usar."
+
+msgid "jQuery UI Version"
+msgstr "Versión de interfaz de usuario de jQuery"
+
+msgid "The version of jQuery UI that we wish to use."
+msgstr "La versión de jQuery UI que deseamos usar."
+
+msgid "Send Dashboard Notifications to Log"
+msgstr "Enviar notificaciones del tablero al registro"
+
+msgid "When enabled all notification updates to the Dashboard notification panel will also be logged into the specified log file when enabled."
+msgstr "Cuando está habilitada, todas las actualizaciones de notificaciones en el panel de notificaciones del Tablero también se registrarán en el archivo de registro especificado cuando esté habilitada."
+
+msgid "Log Verbose Messages"
+msgstr "Registrar mensajes detallados"
+
+msgid "IssabelPBX has many verbose and useful messages displayed to users during module installation, system installations, loading configurations and other places. In order to accumulate these messages in the log files as well as the on screen display, set this to true."
+msgstr "IssabelPBX tiene muchos mensajes detallados y útiles que se muestran a los usuarios durante la instalación del módulo, las instalaciones del sistema, la carga de configuraciones y otros lugares. Para acumular estos mensajes en los archivos de registro, así como en la visualización en pantalla, establezca esto en verdadero."
+
+msgid "Call Recording Format"
+msgstr "Formato de grabación de llamadas"
+
+msgid "Format to save recoreded calls for most call recording unless specified differently in specific applications."
+msgstr "Formato para guardar las llamadas grabadas para la mayoría de las grabaciones de llamadas, a menos que se especifique lo contrario en aplicaciones específicas."
+
+msgid "PHP Error Log Output"
+msgstr "Salida del registro de errores de PHP"
+
+msgid "Where to send PHP errors, warnings and notices by the IssabelPBX PHP error handler. Set to 'dbug', they will go to the Debug File regardless of whether dbug Loggin is disabled or not. Set to 'issabelpbxlog' will send them to the IssabelPBX Log. Set to 'off' and they will be ignored."
+msgstr "Dónde enviar errores de PHP, advertencias y avisos mediante el controlador de errores PHP de IssabelPBX. Establecidos en 'dbug', irán al archivo de depuración independientemente de si dbug Loggin está deshabilitado o no. Establecidos en 'issabelpbxlog' los enviará a el registro de IssabelPBX. Establézcalo en 'apagado' y serán ignorados."
+
+msgid "Use Google Distribution Network for js Downloads"
+msgstr "Usar la red de distribución de Google para descargas js"
+
+msgid "Setting this to true will fetch system javascript libraries such as jQuery and jQuery-ui from ajax.googleapis.com. This can be advantageous if accessing remote or multiple different IssabelPBX systems since the libraries are only cached once in your browser. If external internet connections are problematic, setting this true could result in slow systems. IssabelPBX will always fallback to the locally available libraries if the CDN is not available."
+msgstr "Configurar esto en verdadero obtendrá bibliotecas javascript del sistema como jQuery y jQuery-ui de ajax.googleapis.com. Esto puede ser ventajoso si accede a sistemas IssabelPBX remotos o diferentes, ya que las bibliotecas solo se almacenan en caché una vez en su navegador. Si es externo las conexiones a Internet son problemáticas, configurar esto como verdadero podría resultar en sistemas lentos. IssabelPBX siempre recurrirá a las bibliotecas disponibles localmente si el CDN no está disponible."
+
+msgid "VMX Default Context"
+msgstr "Contexto predeterminado de VMX"
+
+msgid "Used to do extremely advanced and customized changes to the macro-vm VmX locater. Check the dialplan for a thorough understanding of how to use this."
+msgstr "Se utiliza para realizar cambios extremadamente avanzados y personalizados en el localizador macro-vm VmX. Verifique el plan de marcación para obtener una comprensión completa de cómo usar esto."
+
+msgid "VMX Default Loop Exceed Context"
+msgstr "Contexto de exceso de bucle predeterminado de VMX"
+
+msgid "Used to do extremely advanced and customized changes to the macro-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they press an invalid options too many times, as defined by the Maximum Loops count."
+msgstr "Se utiliza para realizar cambios extremadamente avanzados y personalizados en el localizador macro-vm VmX. Verifique el plan de marcación para obtener una comprensión completa de cómo usar esto. La ubicación predeterminada a la que se enviará la persona que llama si presiona una opción no válida demasiadas veces, según lo definido por el número máximo de bucles."
+
+msgid "VMX Default Loop Exceed Extension"
+msgstr "Extensión de exceso de bucle predeterminado de VMX"
+
+msgid "VMX Default Loop Exceed Priority"
+msgstr "Prioridad excedida de bucle predeterminado de VMX"
+
+msgid "VMX Default Priority"
+msgstr "Prioridad predeterminada de VMX"
+
+msgid "VMX Default Timeout Context"
+msgstr "Contexto de tiempo de espera predeterminado de VMX"
+
+msgid "Used to do extremely advanced and customized changes to the macro-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they don't press any key (timeout) or press # which is interpreted as a timeout. Set this to 'dovm' to go to voicemail (default)."
+msgstr "Se utiliza para realizar cambios extremadamente avanzados y personalizados en el localizador macro-vm VmX. Verifique el plan de marcación para obtener una comprensión completa de cómo usar esto. La ubicación predeterminada a la que se enviará una persona que llama si no presiona ninguna tecla (tiempo de espera ) o presione #, lo que se interpreta como un tiempo de espera. Configure esto en 'dovm' para ir al correo de voz (predeterminado)."
+
+msgid "VMX Default Timeout Extension"
+msgstr "Extensión de tiempo de espera predeterminado de VMX"
+
+msgid "Speaking Clock Time Format"
+msgstr "Formato de hora para el reloj parlante"
+
+msgid "Time format to use with the Speaking Clock."
+msgstr "Formato de hora a utilizar por la aplicación de reloj parlante."
+
+msgid "Dashboard Stats Update Frequency"
+msgstr "Frecuencia de actualización de estadísticas del tablero"
+
+msgid "Update rate in seconds of all sections of the System Status panel except the Info box."
+msgstr "Tasa de actualización en segundos de todas las secciones del panel de estado del sistema excepto el cuadro de información."
+
+msgid "VMX Default Timeout Priority"
+msgstr "Prioridad de tiempo de espera predeterminado de VMX"
