@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `" . $db_cel_name . "`.`" . $db_cel_table_name . "` (
   `linkedid` varchar(32) NOT NULL,
   `peer` varchar(80) NOT NULL,
   `userdeftype` varchar(255) NOT NULL,
-  `eventextra` varchar(255) NOT NULL,
+  `eventextra` varchar(255) NOT NULL default '',
   `userfield` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uniqueid_index` (`uniqueid`),
