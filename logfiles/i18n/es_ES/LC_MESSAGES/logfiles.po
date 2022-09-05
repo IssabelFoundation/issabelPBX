@@ -17,13 +17,13 @@
 #
 
 msgid "Asterisk Logfiles"
-msgstr "Archivos de bitácora de Asterisk"
+msgstr "Archivos de registro de Asterisk"
 
 msgid "Reports"
 msgstr ""
 
 msgid "Log File Settings"
-msgstr "Configuración de bitácora de Asterisk"
+msgstr "Configuración de registro de Asterisk"
 
 msgid "General Settings"
 msgstr "Configuraciones Generales"
@@ -38,19 +38,19 @@ msgid "Append Hostname"
 msgstr "Adicionar Nombre de Host"
 
 msgid "Appends the hostname to the name of the log files"
-msgstr "Anexa el nombre de host al nombre de archivos de bitácora"
+msgstr "Anexa el nombre de host al nombre de archivos de registro"
 
 msgid "Log Queues"
 msgstr "Registrar actividad de colas"
 
 msgid "Log Files"
-msgstr "Archivos de bitácora"
+msgstr "Archivos de registro"
 
 msgid "Save"
 msgstr "Guardar"
 
 msgid "Customize the display of debug message time stamps. See strftime(3) Linux manual for format specifiers. Note that there is also a fractional second parameter which may be used in this field.  Use %1q for tenths, %2q for hundredths, etc."
-msgstr "Personalice las etiquetas de tiempo en la bitácora. Vea el manual de strftime(3) para más detalles. Tenga en cuenta que existe un parámetro de segundo fraccional que puede usar en este campo. Use %1q para décimos, %2q para centésimos, etc."
+msgstr "Personalice las etiquetas de tiempo en el registro. Vea el manual de strftime(3) para más detalles. Tenga en cuenta que existe un parámetro de segundo fraccional que puede usar en este campo. Use %1q para décimos, %2q para centésimos, etc."
 
 msgid "Leave blank for default: ISO 8601 date format yyyy-mm-dd HH:MM:SS (%F %T)"
 msgstr "Deje en blanco para el valor predeterminado: ISO 8601 yyyy-mm-dd HH:MM:SS (%F %T)"
@@ -127,18 +127,14 @@ msgstr "Rotación"
 msgid "Timestamp"
 msgstr "Marca de Tiempo"
 
-#~ msgid "Redisplay Asterisk Full debug log (last %s lines)"
-#~ msgstr ""
-#~ "Actualizar bitácora completa de depuración de Asterisk (últimas %s líneas)"
-
 msgid "Asterisk Log Files"
-msgstr "Archivos de bitácora de Asterisk"
+msgstr "Archivos de registro de Asterisk"
 
 msgid "Show"
 msgstr "Mostrar"
 
 msgid "Asterisk Logfile Settings"
-msgstr "Configuraciones de archivos de bitácora"
+msgstr "Configuración de archivos de registro"
 
 msgid "New Log File"
-msgstr "Nuevo archivo de bitácora"
+msgstr "Nuevo archivo de registro"

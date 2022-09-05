@@ -2500,7 +2500,7 @@ msgid ""
 "not caused by either NOANSWER or CANCEL."
 msgstr ""
 "Si está marcada la casilla, indique el nombre de un guión AGI personalizado "
-"que será ejecutado para informar, guardar en una bitácora, enviar por email "
+"que será ejecutado para informar, guardar en un archivo de registro, enviar por email "
 "o cualquier otra operación cuando se produzcan fallos en líneas troncales "
 "que no sean causados por NOANSWER o CANCEL."
 
