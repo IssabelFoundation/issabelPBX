@@ -27,6 +27,8 @@ $asterisk_user = "asteriskuser";
 $manager_pass  = randomPass(10);
 $database_pass = randomPass(10);
 
+$final_restart = false;
+
 /********************************************************************************************************************/
 
 function showHelp() {
@@ -1536,7 +1538,8 @@ if($installdb) {
         installampimport_mysql_dump('newinstall.sql');
         installampimport_mysql_dump('cdr_mysql_table.sql',$dbcdr);
         installampimport_mysql_dump('cel_table.sql',$dbcdr);
-	out("Done!");
+        out("Done!");
+        $final_restart = true;
     } else {
         out("IssabelPBX DB is already populated skipping");
     }
@@ -1866,13 +1869,19 @@ else
 }
 
 out("",false);
-out("*************************************************************************",false);
-out("* Note: It's possible that if you click the red 'Update Now' bar BEFORE *",false);
-out("* updating your modules, your machine will start dropping calls. Ensure *",false);
-out("* that all modules are up to date BEFORE YOU CLICK THE RED BAR. As long *",false);
-out("* as this is observed, your machine will be fully functional whilst the *",false);
-out("* upgrade is in progress.                                               *",false);
-out("*************************************************************************",false);
+if($final_restart) {
+    exec($amp_conf["AMPSBIN"]."/amportal a r");
+    out("Install complete!",false);
+} else {
+    out("*************************************************************************",false);
+    out("* Note: It's possible that if you click the red 'Update Now' bar BEFORE *",false);
+    out("* updating your modules, your machine will start dropping calls. Ensure *",false);
+    out("* that all modules are up to date BEFORE YOU CLICK THE BUTTON. As long  *",false);
+    out("* as this is observed, your machine will be fully functional whilst the *",false);
+    out("* upgrade is in progress.                                               *",false);
+    out("*************************************************************************",false);
+}
+
 // vim: set ts=4 sw=4 : //
 // Ensure you 'set modeline' in your ~/.vimrc to activate this //
 ?>
