@@ -43,10 +43,6 @@ msgstr "bindaddr, port, webenabled, displayconnects, timestampevents agregados"
 msgid "already exists"
 msgstr "ya existe"
 
-#: ../page.managersettings.php:48
-msgid "Edit Asterisk Manager Settings"
-msgstr "Modificar Configuración Asterisk Manager"
-
 #: ../page.managersettings.php:67
 msgid "ERRORS"
 msgstr "ERRORES"
@@ -149,7 +145,7 @@ msgid "no"
 msgstr "no"
 
 msgid "Asterisk Manager Settings"
-msgstr "Configuración de Asterisk Manager"
+msgstr "Configuración Asterisk Manager"
 
 msgid "Configuration"
 msgstr "Configuración"
