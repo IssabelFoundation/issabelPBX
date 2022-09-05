@@ -1,7 +1,7 @@
 CREATE TABLE `admin` (
 `variable` varchar(20) PRIMARY KEY NOT NULL,
 `value` varchar(80) NOT NULL
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `admin` VALUES("need_reload","false");
 INSERT INTO `admin` VALUES("version","2.12.0.0");
@@ -14,7 +14,7 @@ CREATE TABLE `ampusers` (
 `extension_high` varchar(20) NOT NULL,
 `deptname` varchar(20) NOT NULL,
 `sections` TEXT NOT NULL
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `cronmanager` (
 `module` varchar(24) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE `cronmanager` (
 `lasttime` INTEGER NOT NULL,
 `command` varchar(255) NOT NULL,
 PRIMARY KEY (`module`,`id`)
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `cronmanager` VALUES("module_admin","UPDATES","21","24","0","/var/lib/asterisk/bin/module_admin listonline");
 
@@ -34,7 +34,7 @@ CREATE TABLE `dahdi` (
 `data` varchar(255) NOT NULL,
 `flags` INTEGER NOT NULL,
 PRIMARY KEY (`id`,`keyword`)
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `devices` (
 `id` varchar(20) PRIMARY KEY NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `devices` (
 `user` varchar(50) ,
 `description` varchar(50) ,
 `emergency_cid` varchar(100) 
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `extensions` (
 `context` varchar(45) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE `extensions` (
 `descr` TEXT,
 `flags` INTEGER NOT NULL,
 PRIMARY KEY (`context`,`extension`,`priority`)
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `extensions` VALUES("outrt-001-9_outside","_9.","1","Macro","dialout-trunk,1,${EXTEN:1}","","0");
 INSERT INTO `extensions` VALUES("outrt-001-9_outside","_9.","2","Macro","outisbusy","No available circuits","0");
@@ -70,7 +70,7 @@ CREATE TABLE `featurecodes` (
 `enabled` tinyint(1) NOT NULL,
 `providedest` tinyint(1) NOT NULL,
 PRIMARY KEY (`modulename`,`featurename`)
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `featurecodes` VALUES("core","userlogon","User Logon","*11","","1","0");
 INSERT INTO `featurecodes` VALUES("core","userlogoff","User Logoff","*12","","1","0");
@@ -140,7 +140,7 @@ CREATE TABLE `issabelpbx_log` (
 `level` char(11) NOT NULL,
 `status` INTEGER NOT NULL,
 `message` TEXT NOT NULL
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `issabelpbx_log` VALUES("1","2006-11-06 01:55:36","retrieve_conf","devel-debug","0","Started retrieve_conf, DB Connection OK");
 INSERT INTO `issabelpbx_log` VALUES("2","2006-11-06 01:55:36","retrieve_conf","devel-debug","0","Writing extensions_additional.conf");
@@ -160,12 +160,12 @@ CREATE TABLE `issabelpbx_settings` (
 `module` varchar(25) ,
 `emptyok` tinyint(1) ,
 `sortorder` INTEGER
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `globals` (
 `variable` varchar(255) PRIMARY KEY NOT NULL,
 `value` varchar(255) NOT NULL
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `globals` VALUES("FAX_RX","system");
 INSERT INTO `globals` VALUES("FAX_RX_EMAIL","fax@mydomain.com");
@@ -177,7 +177,7 @@ CREATE TABLE `iax` (
 `data` varchar(255) NOT NULL,
 `flags` INTEGER NOT NULL,
 PRIMARY KEY (`id`,`keyword`)
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `incoming` (
 `cidnum` varchar(20) ,
@@ -197,20 +197,20 @@ CREATE TABLE `incoming` (
 `pricid` varchar(20) ,
 `pmmaxretries` varchar(2) ,
 `pmminlength` varchar(2) 
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `module_xml` (
 `id` varchar(20) PRIMARY KEY NOT NULL,
 `time` INTEGER NOT NULL,
 `data` TEXT NOT NULL
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `modules` (
 `id` INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
 `modulename` varchar(50) NOT NULL,
 `version` varchar(20) NOT NULL,
 `enabled` tinyint(1) NOT NULL
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `notifications` (
 `module` varchar(24) NOT NULL,
@@ -223,7 +223,7 @@ CREATE TABLE `notifications` (
 `candelete` tinyint(1) NOT NULL,
 `timestamp` INTEGER NOT NULL,
 PRIMARY KEY (`module`,`id`)
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `outbound_route_patterns` (
 `route_id` INTEGER NOT NULL,
@@ -232,7 +232,7 @@ CREATE TABLE `outbound_route_patterns` (
 `match_cid` varchar(60) NOT NULL,
 `prepend_digits` varchar(100) NOT NULL,
 PRIMARY KEY (`route_id`,`match_pattern_prefix`,`match_pattern_pass`,`match_cid`,`prepend_digits`)
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `outbound_route_patterns` VALUES("1","9",".","","");
 
@@ -240,7 +240,7 @@ CREATE TABLE `outbound_route_sequence` (
 `route_id` INTEGER NOT NULL,
 `seq` INTEGER NOT NULL,
 PRIMARY KEY (`route_id`,`seq`)
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `outbound_route_sequence` VALUES("1","0");
 
@@ -249,7 +249,7 @@ CREATE TABLE `outbound_route_trunks` (
 `trunk_id` INTEGER NOT NULL,
 `seq` INTEGER NOT NULL,
 PRIMARY KEY (`route_id`,`trunk_id`,`seq`)
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `outbound_route_trunks` VALUES("1","1","0");
 
@@ -264,7 +264,7 @@ CREATE TABLE `outbound_routes` (
 `mohclass` varchar(80) ,
 `time_group_id` INTEGER,
 `dest` varchar(255) 
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `outbound_routes` VALUES("1","9_outside","","","","","","","0","");
 
@@ -274,7 +274,7 @@ CREATE TABLE `sip` (
 `data` varchar(255) NOT NULL,
 `flags` INTEGER NOT NULL,
 PRIMARY KEY (`id`,`keyword`)
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `trunk_dialpatterns` (
 `trunkid` INTEGER NOT NULL,
@@ -283,7 +283,7 @@ CREATE TABLE `trunk_dialpatterns` (
 `prepend_digits` varchar(50) NOT NULL,
 `seq` INTEGER NOT NULL,
 PRIMARY KEY (`trunkid`,`match_pattern_prefix`,`match_pattern_pass`,`prepend_digits`,`seq`)
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `users` (
 `extension` varchar(20) PRIMARY KEY NOT NULL,
@@ -302,13 +302,13 @@ CREATE TABLE `users` (
 `noanswer_dest` varchar(255) ,
 `busy_dest` varchar(255) ,
 `chanunavail_dest` varchar(255) 
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `dahdichandids` (
 `channel` INTEGER PRIMARY KEY NOT NULL,
 `description` varchar(40) NOT NULL,
 `did` varchar(60) NOT NULL
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `pjsipsettings` (
 `keyword` varchar(50) NOT NULL,
@@ -316,7 +316,7 @@ CREATE TABLE `pjsipsettings` (
 `seq` tinyint(1) NOT NULL,
 `type` tinyint(1) DEFAULT '0' NOT NULL,
 PRIMARY KEY (`keyword`,`seq`,`type`)
-);
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `pjsipsettings` VALUES("allowguest","no","10","0");
 
