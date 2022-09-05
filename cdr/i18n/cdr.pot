@@ -660,3 +660,9 @@ msgstr ""
 #: install.php:69
 msgid "recordingfile field already present."
 msgstr ""
+
+msgid "Call Detail Record - Search returned %s calls"
+msgstr ""
+
+msgid "Call Event Log - Search returned %s events"
+msgstr ""

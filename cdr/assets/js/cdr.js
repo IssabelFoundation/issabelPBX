@@ -1,3 +1,13 @@
+$(document).ready(function() {
+    moment.locale($.cookie('lang').substr(0,$.cookie('lang').indexOf('_')));
+    $('input[name="dates"]').daterangepicker({
+	timePicker: true,
+	locale: { format: 'YYYY-MM-DD HH:mm', cancelLabel: ipbx.msg.framework.cancel, applyLabel: ipbx.msg.framework.apply },
+        alwaysShowCalendars: true,
+        showCustomRangeLabel: false,
+    });
+});
+
 function cdr_play(row_num, link) {
 	var i = 0;
 	var playbackId = "CURRENT_MSG";
