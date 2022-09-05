@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `findmefollow`
 	`toolate_id` INTEGER,
 	`pre_ring` SMALLINT NOT NULL DEFAULT 0, 
 	PRIMARY KEY  (`grpnum`) 
-)
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
 ";
 $check = $db->query($sql);
 if(DB::IsError($check)) {
