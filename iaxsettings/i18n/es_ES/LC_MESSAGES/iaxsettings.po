@@ -28,7 +28,7 @@ msgid "resyncthreshold must be a non-negative integer or -1 to disable"
 msgstr ""
 
 msgid "Asterisk IAX Settings"
-msgstr "Configuraciones IAX"
+msgstr "Configuración IAX"
 
 msgid "Settings"
 msgstr ""

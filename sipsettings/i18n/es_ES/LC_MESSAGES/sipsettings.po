@@ -79,16 +79,16 @@ msgid "Submit Changes"
 msgstr "Guardar Cambios"
 
 msgid "Edit SIP Settings"
-msgstr "Modificar Configuraciones SIP"
+msgstr "Modificar Configuración SIP"
 
 msgid "Edit PJSIP Settings"
-msgstr "Modificar Configuraciones PJSIP"
+msgstr "Modificar Configuración PJSIP"
 
 msgid "ERRORS"
 msgstr "ERRORES"
 
 msgid "NAT Settings"
-msgstr "Configuraciones NAT"
+msgstr "Configuración NAT"
 
 msgid "NAT"
 msgstr ""
@@ -330,7 +330,7 @@ msgid ""
 msgstr "Controla si suscripciones de estensiones en uso mostrarán hold. Util si utiliza BLF."
 
 msgid "Registration Settings"
-msgstr "Configuraciones de Registro"
+msgstr "Configuración de Registro"
 
 msgid "Registrations"
 msgstr "Registros"
@@ -448,7 +448,7 @@ msgid ""
 msgstr "Asterisk: jbmaxsize. Longitud máxima del jitterbuffer en milisegundos.<br /> Asterisk: jbresyncthreshold. Salta en las marcas de tiempo del cuadro sobre las que se resincroniza el jitterbuffer. Útil para mejorar la calidad de la voz, con grandes saltos/marcas de tiempo rotas, generalmente enviadas desde dispositivos y programas exóticos. Se puede establecer en -1 para deshabilitar."
 
 msgid "Advanced General Settings"
-msgstr "Configuraciones Avanzadas"
+msgstr "Configuración Avanzada"
 
 msgid "Language"
 msgstr "Idioma"

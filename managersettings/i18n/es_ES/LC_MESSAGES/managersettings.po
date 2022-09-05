@@ -45,7 +45,7 @@ msgstr "ya existe"
 
 #: ../page.managersettings.php:48
 msgid "Edit Asterisk Manager Settings"
-msgstr "Modificar Configuraciones Asterisk Manager"
+msgstr "Modificar Configuración Asterisk Manager"
 
 #: ../page.managersettings.php:67
 msgid "ERRORS"
@@ -149,7 +149,7 @@ msgid "no"
 msgstr "no"
 
 msgid "Asterisk Manager Settings"
-msgstr "Configuraciones de Asterisk Manager"
+msgstr "Configuración de Asterisk Manager"
 
 msgid "Configuration"
 msgstr "Configuración"

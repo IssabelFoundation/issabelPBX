@@ -703,7 +703,7 @@ msgid ""
 "required options for this trunk"
 msgstr ""
 "Opciones del comando Dial de Asterisk a usar cuando se llame mediante este troncal. "
-"Para anular las opciones generales definidas en Configuraciones Avanzadas marque "
+"Para anular las opciones generales definidas en Configuración Avanzada marque "
 "el casillero e ingrese las opciones que desee."
 
 #: ../core/install.php:13
@@ -1225,7 +1225,7 @@ msgid ""
 msgstr ""
 "Opciones de comando Dial de Asterisk. Marque para modificar las opciones "
 "para esta extensión, o deje desmarcado para usar las opciones por defecto "
-"colocadas en Configuraciones Avanzadas. Lo que figure aquí no se aplicará "
+"colocadas en Configuración Avanzada. Lo que figure aquí no se aplicará "
 "sobre las opciones del troncal que se configuran en el mismo troncal"
 
 #: amp_conf/htdocs/admin/views/footer_content.php:34
@@ -1380,7 +1380,7 @@ msgid "Dialplan and Operational"
 msgstr "Plan de Marcado y Operacional"
 
 msgid "Device Settings"
-msgstr "Configuraciones de dispositivo"
+msgstr "Configuración de dispositivo"
 
 msgid "Developer and Customization"
 msgstr "Desarrollador y personalización"
@@ -2294,7 +2294,7 @@ msgstr "Administración de IssabelPBX"
 
 #: ../core/page.advancedsettings.php:42
 msgid "IssabelPBX Advanced Settings"
-msgstr "Configuraciones Avanzadas de IssabelPBX"
+msgstr "Configuración Avanzada de IssabelPBX"
 
 #: amp.i18n.php:56
 msgid "IssabelPBX Support"
@@ -3946,7 +3946,7 @@ msgstr ""
 
 #: amp.i18n.php:50
 msgid "Settings"
-msgstr "Configuraciones"
+msgstr "Configuración"
 
 #: ../core/page.trunks.php:685 ../core/page.trunks.php:693
 msgid "Setup directory assistance"
@@ -5921,16 +5921,16 @@ msgid "DTMF Mode"
 msgstr "Modo DTMF"
 
 msgid "PJSIP Settings"
-msgstr "Configuraciones PJSIP"
+msgstr "Configuración PJSIP"
 
 msgid "Asterisk PJSIP Settings"
-msgstr "Configuraciones PJSIP"
+msgstr "Configuración PJSIP"
 
 msgid "Asterisk SIP Settings"
-msgstr "Configuraciones SIP"
+msgstr "Configuración SIP"
 
 msgid "PJSIP Advanced Settings"
-msgstr "Configuraciones PJSIP Avanzadas"
+msgstr "Configuración PJSIP Avanzada"
 
 msgid "From Domain"
 msgstr "Dominio From"
