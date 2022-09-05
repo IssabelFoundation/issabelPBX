@@ -41,6 +41,7 @@ if (!$first_install) { //zero count (aka false) is a new install
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
 	$s = $db->query($sql, array('full', 'on', 'off', 'on', 'off', 'on', 'on', 'on', 'off'));
 	$db->query($sql, array('console', 'on', 'off', 'on', 'off', 'on', 'on', 'on', 'off'));
+	$db->query($sql, array('security', 'off', 'off', 'off', 'off', 'off', 'off', 'off', 'on'));
 }
 
 // logger.conf used to be in core so let's make sure if there is a linked file it points to
