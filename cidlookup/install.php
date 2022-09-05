@@ -27,7 +27,10 @@ $sql = "CREATE TABLE IF NOT EXISTS cidlookup (
 	mysql_charset varchar(30) default NULL,
 	opencnam_account_sid varchar(34) default NULL,
 	opencnam_auth_token varchar(34) default NULL
-);";
+) ";
+
+if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"]))  { $sql.=" DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";  }
+
 $check = $db->query($sql);
 if (DB::IsError($check)) {
 	die_issabelpbx( "Can not create `cidlookup` table: " . $check->getMessage() .  "\n");
@@ -54,7 +57,10 @@ $sql = "CREATE TABLE IF NOT EXISTS cidlookup_incoming (
 	cidlookup_id INT NOT NULL,
 	extension VARCHAR(50),
 	cidnum VARCHAR(30)
-);";
+) ";
+if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"]))  { $sql.=" DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";  }
+
+
 $check = $db->query($sql);
 if (DB::IsError($check)) {
         die_issabelpbx( "Can not create `cidlookup_incomming` table: " . $check->getMessage() .  "\n");
