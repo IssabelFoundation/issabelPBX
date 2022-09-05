@@ -72,7 +72,7 @@ msgstr "Si se habilita, toda conexión a AMI mostrará un mensaje en la consola 
 
 #: ../page.managersettings.php:128
 msgid "Timestamp Events"
-msgstr "Datar Eventos"
+msgstr "Fechar Eventos"
 
 #: ../page.managersettings.php:128
 msgid "Add a Unix epoch timestamp to events (not action responses)"
