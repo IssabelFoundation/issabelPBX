@@ -96,7 +96,7 @@ function issabelpbx_log($level, $message) {
                     $tz = 'America/Los_Angeles';
                 }
                 date_default_timezone_set($tz);
-                $tstamp        = date("Y-M-d H:i:s");
+                $tstamp        = date("Y-m-d H:i:s");
 
                 // Create file if it does not exist
                 if(!file_exists($log_file)) {
