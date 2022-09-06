@@ -48,7 +48,10 @@ if(DB::IsError($check)) {
 		out(_("fatal error occurred populating defaults, check module"));
 	} else {
 		out(_("ulaw, alaw, gsm added"));
-	}
+    }
+
+	sql("INSERT IGNORE INTO sipsettings (keyword,data,seq) values ('callevents','yes',0)");
+
 } else {
 	out(_("already exists"));
 }
