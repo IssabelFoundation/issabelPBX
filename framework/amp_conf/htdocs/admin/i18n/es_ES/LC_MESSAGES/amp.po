@@ -4730,14 +4730,14 @@ msgstr "Atención:"
 msgid ""
 "Warning: Cannot connect to online repository(s) (%s). Online modules are not "
 "available."
-msgstr ""
+msgstr "Advertencia: No se puede conectar a los repositorios en línea (%s). Los módulos en línea no están disponibles."
 
 #: amp_conf/htdocs/admin/page.modules.php:306
 #, php-format
 msgid ""
 "Warning: Error retrieving updates from online repository(s) (%s). Online "
 "modules are not available."
-msgstr ""
+msgstr "Advertencia: error al recuperar actualizaciones de los repositorios en línea (%s). Los módulos en línea no están disponibles."
 
 #: amp_conf/htdocs/admin/views/welcome.php:72
 msgid "We hope you enjoy using IssabelPBX!"
