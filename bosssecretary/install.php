@@ -68,7 +68,7 @@ if(DB::IsError($check)) {
 if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 
 $sql = "SHOW COLUMNS FROM `bosssecretary_group`";
-$results = $db->getAll($sql);
+$results = $db->getAll($sql, array(), DB_FETCHMODE_ASSOC);
 if(DB::IsError($results)) {
 	die_issabelpbx("Can not check bosssecretary_group table");
 }
