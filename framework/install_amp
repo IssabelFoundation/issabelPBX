@@ -68,6 +68,7 @@ function showHelp() {
     out("                           (Intended for unattended installers only)",false);
     out("  --set-issabelpbx-settings   Force set the internal IssabelPBX DB Settings with install time parameters",false);
     out("  --installdb              Set up the IssabelPBX database",false);
+    out("  --language <lang>        Set up the default GUI language",false);
     out("  --createinstalldb        Exports a newinstall.sql file from current system",false);
     out("  --cleaninstall           Like 'make clean' will clean up any previous settings or previous setup while installing a-new",false);
     out("  --uninstall              Completely Uninstall IssabelPBX",false);
@@ -739,6 +740,7 @@ $longopts = array(
     "install-fop",
     "install-moh",
     "installdb",
+    'language=',
     "createinstalldb",
     "make-links-devel",
     "my-svn-is-correct",
@@ -778,6 +780,7 @@ $installamp_clean = false;
 $uninstallamp = false;
 $installdb = false;
 $createinstalldb = false;
+$language = "";
 
 //initialize variables to avoid php notices
 $dbhost = null;
@@ -924,6 +927,9 @@ foreach ($args[0] as $arg) {
         break;
     case "--installdb":
         $installdb = true;
+        break;
+    case "--language":
+        $language = $arg[1];
         break;
     case "--createinstalldb":
         $createinstalldb = true;
@@ -1791,6 +1797,17 @@ if (($set_issabelpbx_settings && $force_amportal_conf) || (!file_exists('/etc/re
 outn("Creating or updating issabelpbx_conf settings..");
 issabelpbx_settings_init(true);
 out("..OK");
+
+if($language!="") {
+    if(in_array($language,array("es_ES", "pt_BR", "bg_BG", "zh_CN", "de_DE", "fr_FR", "he_IL", "hu_HU", "it_IT", "pt_PT", "ru_RU", "sv_SE", "ja_JP"))) {
+        outn("Setting language to $language...");
+        $issabelpbx_conf =& issabelpbx_conf::create();
+        if ($issabelpbx_conf->conf_setting_exists('LANGUAGE')) {
+            $issabelpbx_conf->set_conf_values(array('LANGUAGE' => $language),true,true);
+            out("..OK");
+        }
+    }
+}
 
 // TODO: if file is $force_amportal_conf let's go set any settings in issabelpbx_settings,
 //       question is, should we do this further up???
