@@ -7672,3 +7672,6 @@ msgstr "Prioridad de tiempo de espera predeterminado de VMX"
 
 msgid "General Language Setting for IssabelPBX"
 msgstr "Configuración de idioma general para IssabelPBX"
+
+msgid "Choose a file..."
+msgstr "Escoja un archivo..."
