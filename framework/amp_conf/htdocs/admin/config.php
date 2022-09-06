@@ -351,8 +351,10 @@ switch($display) {
             }
 
 	    if($username != '' || $password != '') {
-	        $ip = whatsMyIP();
-	        issabelpbx_log(IPBX_LOG_SECURITY, "Invalid Login ($username) from $ip");
+            $ip = whatsMyIP();
+            if($ip!='') {
+	            issabelpbx_log(IPBX_LOG_SECURITY, "Invalid Login ($username) from $ip");
+            }
 	    }
 
             //show fop option if enabled, probobly doesnt belong on the
