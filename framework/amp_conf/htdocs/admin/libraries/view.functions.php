@@ -65,9 +65,7 @@ function set_language() {
             $set['description'] = 'General Language Setting for Web Admin';
             $set['type'] = CONF_TYPE_TEXT;
             $issabelpbx_conf->define_conf_setting('LANGUAGE',$set,true);
-        } else {
-            $issabelpbx_conf->set_conf_values(array('LANGUAGE' => $_COOKIE['lang']),true,true);
-        }
+        } 
     }
 }
 

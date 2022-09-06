@@ -7670,5 +7670,5 @@ msgstr "Tasa de actualización en segundos de todas las secciones del panel de e
 msgid "VMX Default Timeout Priority"
 msgstr "Prioridad de tiempo de espera predeterminado de VMX"
 
-msgid "General Language Setting for Web Admin"
-msgstr "Configuración de idioma general en el administrador web"
+msgid "General Language Setting for IssabelPBX"
+msgstr "Configuración de idioma general para IssabelPBX"
