@@ -352,7 +352,7 @@ msgstr "Идентификатор местонахождения станции
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "Идентификатор факс аппарата. Обычно это просто тел. номер факса."
 
-msgid "Outgoing Email address:"
+msgid "Outgoing Email address"
 msgstr "Адрес исходящей эл. почты:"
 
 msgid ""
@@ -365,7 +365,7 @@ msgstr ""
 msgid "Fax Feature Code Options"
 msgstr "Опции отсылки факса"
 
-msgid "Email address:"
+msgid "Email address"
 msgstr "Адрес эл. почты:"
 
 msgid ""
@@ -484,7 +484,7 @@ msgstr "Сохранить"
 #~ msgid "system default"
 #~ msgstr "системный (по умолчанию)"
 
-#~ msgid "Default Recipient Email address:"
+#~ msgid "Default Recipient Email address"
 #~ msgstr "Адрес эл. почты получателя по умолчанию:"
 
 #~ msgid ""

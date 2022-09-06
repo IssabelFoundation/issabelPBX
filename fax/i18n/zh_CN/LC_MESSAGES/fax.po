@@ -302,7 +302,7 @@ msgstr "默认终端"
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 
-msgid "Outgoing Email address:"
+msgid "Outgoing Email address"
 msgstr "出局邮件地址"
 
 msgid ""
@@ -313,7 +313,7 @@ msgstr ""
 msgid "Fax Feature Code Options"
 msgstr "传真快捷键选项"
 
-msgid "Email address:"
+msgid "Email address"
 msgstr "邮件地址"
 
 msgid ""
@@ -372,7 +372,7 @@ msgstr "关闭"
 msgid "system default"
 msgstr "系统默认"
 
-msgid "Default Recipient Email address:"
+msgid "Default Recipient Email address"
 msgstr "默认的接收邮件地址"
 
 msgid ""

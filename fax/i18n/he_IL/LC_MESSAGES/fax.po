@@ -301,7 +301,7 @@ msgstr ""
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 
-msgid "Outgoing Email address:"
+msgid "Outgoing Email address"
 msgstr ""
 
 msgid ""
@@ -312,7 +312,7 @@ msgstr ""
 msgid "Fax Feature Code Options"
 msgstr ""
 
-msgid "Email address:"
+msgid "Email address"
 msgstr ""
 
 msgid ""
@@ -371,7 +371,7 @@ msgstr ""
 msgid "system default"
 msgstr ""
 
-msgid "Default Recipient Email address:"
+msgid "Default Recipient Email address"
 msgstr ""
 
 msgid ""

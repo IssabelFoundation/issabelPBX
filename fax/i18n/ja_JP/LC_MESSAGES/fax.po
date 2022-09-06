@@ -71,7 +71,7 @@ msgstr "デフォルトの送信側FAX ID"
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "送信するFAXのID。通常あなたのfax番号。"
 
-msgid "Outgoing Email address:"
+msgid "Outgoing Email address"
 msgstr "送信Eメールアドレス："
 
 msgid ""
@@ -84,7 +84,7 @@ msgstr ""
 msgid "Fax Feature Code Options"
 msgstr "Faxキーコードオプション"
 
-msgid "Email address:"
+msgid "Email address"
 msgstr "Eメールアドレス："
 
 msgid ""
@@ -499,7 +499,7 @@ msgstr "faxを検出した際にコールを送信する宛先"
 #~ msgid "system default"
 #~ msgstr "システムデフォルト"
 
-#~ msgid "Default Recipient Email address:"
+#~ msgid "Default Recipient Email address"
 #~ msgstr "デフォルト受信 Eメールアドレス："
 
 #~ msgid ""

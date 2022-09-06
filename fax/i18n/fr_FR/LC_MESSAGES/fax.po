@@ -353,7 +353,7 @@ msgstr ""
 "L'identifiant de la machine envoyant le Fax. C'est généralement votre numéro "
 "de Fax."
 
-msgid "Outgoing Email address:"
+msgid "Outgoing Email address"
 msgstr "Adresse email sortante:"
 
 msgid ""
@@ -366,7 +366,7 @@ msgstr ""
 msgid "Fax Feature Code Options"
 msgstr "Code de caractérique pour le Fax"
 
-msgid "Email address:"
+msgid "Email address"
 msgstr "Adresse email:"
 
 msgid ""
@@ -436,7 +436,7 @@ msgstr "désactivé"
 msgid "system default"
 msgstr "système par défaut"
 
-msgid "Default Recipient Email address:"
+msgid "Default Recipient Email address"
 msgstr "Adresse email du destinataire par défaut:"
 
 msgid ""
