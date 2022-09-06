@@ -95,9 +95,13 @@ function issabelpbx_log($level, $message) {
                 }
                 date_default_timezone_set($tz);
                 $tstamp        = date("Y-M-d H:i:s");
-        
+
+                // Create file if it does not exist
+                if(!file_exists($log_file)) {
+                    file_put_contents($log_file,"");
+                }
+
                 // Don't append if the file is greater than ~2G since some systems fail
-                //
                 $size = file_exists($log_file) ? sprintf("%u", filesize($log_file)) + strlen($txt) : 0;
                 if ($size < 2000000000 && is_writable($log_file)) {
                     file_put_contents($log_file, "[$tstamp] $txt", FILE_APPEND);
