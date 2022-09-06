@@ -1417,7 +1417,7 @@ $sql='SELECT default_character_set_name FROM information_schema.SCHEMATA S WHERE
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if($check['default_character_set_name']=='latin1') {
     out(_("converting tables to utf8"));
-    $sql = "ALTER DATABASE asterisk CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci";
+    $sql = "ALTER DATABASE asterisk CHARACTER SET = utf8mb4";
     $res = $db->query($sql);
     if (DB::IsError($res)) {
 	out(_("error occured"));

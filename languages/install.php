@@ -10,11 +10,15 @@ $sql[]="CREATE TABLE IF NOT EXISTS languages (
 	description VARCHAR( 50 ) ,
 	dest VARCHAR( 255 )
 )";
-$sql[]='CREATE TABLE IF NOT EXISTS language_incoming (
+$rsql='CREATE TABLE IF NOT EXISTS language_incoming (
 			extension varchar(50),
 			cidnum varchar(50),
 			language varchar(10)
-			);';
+            ) ';
+
+if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"]))  { $rsql.=" DEFAULT CHARSET=utf8mb4";   }
+
+$sql[]=$rsql;
 
 foreach($sql as $s){
 	$check = $db->query($s);

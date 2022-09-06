@@ -34,4 +34,4 @@ CREATE TABLE `cdr` (
   KEY `link` (`linkedid`),
   KEY `ceq` (`sequence`),
   KEY `linkseq` (`linkedid`,`sequence`)
-) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) DEFAULT CHARSET=utf8mb4;

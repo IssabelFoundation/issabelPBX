@@ -23,4 +23,4 @@ CREATE TABLE `cel` (
   PRIMARY KEY (`id`),
   KEY `uniqueid_index` (`uniqueid`),
   KEY `linkedid_index` (`linkedid`)
-) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) DEFAULT CHARSET=utf8mb4;
