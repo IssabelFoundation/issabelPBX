@@ -20,6 +20,8 @@ define("IPBX_LOG_PHP",      "PHP");
  */
 function issabelpbx_log($level, $message) {
     global $amp_conf;
+    global $runas_uid;
+    global $runas_gid;
 
     $php_error_handler = false;
     $bt = debug_backtrace();
@@ -99,6 +101,10 @@ function issabelpbx_log($level, $message) {
                 // Create file if it does not exist
                 if(!file_exists($log_file)) {
                     file_put_contents($log_file,"");
+                    if($runas_uid!='') {
+                        chown($log_file,$runas_uid);
+                        chgrp($log_file,$runas_gid);
+                    }
                 }
 
                 // Don't append if the file is greater than ~2G since some systems fail
