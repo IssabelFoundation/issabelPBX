@@ -625,18 +625,19 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 
         //add a default backup
         $new['id']                    = '';
-        $new['name']                = 'Default backup';
-        $new['desc']                = _('Default backup; automatically installed');
-        $new['cron_schedule']        = 'monthly';
+        $new['name']                  = 'Default backup';
+        $new['desc']                  = _('Default backup; automatically installed');
+        $new['cron_schedule']         = 'monthly';
         $new['type'][]                = 'mysql';
         $new['path'][]                = 'server-' . $server['mysql'];
-        $new['exclude'][]            = '';
+        $new['exclude'][]             = '';
         $new['type'][]                = 'astdb';
         $new['path'][]                = '';
-        $new['exclude'][]            = '';
+        $new['email'][]               = '';
+        $new['exclude'][]             = '';
         $new['storage_servers'][]     = $server['local'];
         $new['bu_server']             = 0;
-        $new['delete_amount']        = 12;
+        $new['delete_amount']         = 12;
 
         //insert backup
         backup_put_backup($new);
