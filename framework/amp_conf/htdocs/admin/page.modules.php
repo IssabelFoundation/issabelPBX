@@ -147,6 +147,8 @@ if($shield_class=='updates_partial') {
             showSecurityMsg(this);
         });
 
+	$('#uploadmod').on('change',function() { $('#selected_file_name').text(this.value.replace(/.*[\/\\]/, '')); });
+
         window.showSecurityMsg = async (element) => {
             console.log(element);
             var steps = [];
@@ -615,7 +617,7 @@ case 'upload':
             // display upload button, only if they did upload something
             $disp_buttons[] = 'upload';
         }
-        displayRepoSelect($disp_buttons,$modify_notification);
+     //   displayRepoSelect($disp_buttons,$modify_notification);
     } else {
         echo "<a href='config.php?display=modules&amp;type=$type'>"._("Manage local modules")."</a>\n";
     }
@@ -632,21 +634,47 @@ case 'upload':
             echo "</p></div>\n";
         } else {
 
-            echo "<p>".sprintf(_("Module uploaded successfully. You need to enable the module using %s to make it available."),
+            echo "<div class='box mt-2'>".sprintf(_("Module uploaded successfully. You need to enable the module using %s to make it available."),
                 "<a href='config.php?display=modules&amp;type=$type'>"._("local module administration")."</a>")
-                ."</p>\n";
+                ."</div>\n";
         }
 
     } else {
+        echo "<div class='box mt-2'>";
         echo "<p>"._('You can upload a tar gzip file containing a IssabelPBX module from your local system. If a module with the same name already exists, it will be overwritten.')."</p>\n";
 
         echo "<form name=\"modulesGUI-upload\" action=\"config.php\" method=\"post\" enctype=\"multipart/form-data\">";
         echo "<input type=\"hidden\" name=\"display\" value=\"".$display."\" />";
         echo "<input type=\"hidden\" name=\"type\" value=\"".$type."\" />";
         echo "<input type=\"hidden\" name=\"extdisplay\" value=\"upload\" />";
-        echo "<input type=\"file\" name=\"uploadmod\" /> ";
-        echo "&nbsp;&nbsp; <input type=\"submit\" value=\"Upload\" />";
-        echo "</form>";
+        //echo "<input type=\"file\" name=\"uploadmod\" /> ";
+        //echo "&nbsp;&nbsp; <input type=\"submit\" value=\"Upload\" />";
+
+echo "<div class='file has-name is-fullwidth has-addons'>
+  <label class='file-label'>
+    <input class='file-input' type='file' name='uploadmod' id='uploadmod'>
+    <span class='file-cta'>
+      <span class='file-icon'>
+        <i class='fa fa-upload'></i>
+      </span>
+      <span class='file-label'>"._('Choose a file...')."
+      </span>
+    </span>
+    <span class='file-name' id='selected_file_name'>
+    </span>
+  </label>
+  <div class='control'><input type='submit' class='button is-info' value='"._('Upload')."' onclick='$.LoadingOverlay('show');'/></div>
+</div>";
+
+	echo "</form>";
+
+
+
+
+	echo "</div>";
+
+
+
     }
 
     break;
@@ -1217,6 +1245,7 @@ function displayRepoSelect($buttons,$modify_notification='') {
     <input type="hidden" name="display" value="<?php echo $display ?>"/>
     <input type="hidden" name="type" value="<?php echo $type ?>"/>
     <input type="hidden" name="online" value="<?php echo $online ?>"/>
+
           <div class='columns'>
               <div class='column'>
           <?php echo ipbx_label(_("Repositories"), $tooltip); ?>
