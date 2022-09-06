@@ -483,13 +483,13 @@ case 'confirm':
                 } else {
                     switch ( version_compare_issabel($modules[$module]['dbversion'], $modules_online[$module]['version'])) {
                     case '-1':
-                        $actionstext[] = sprintf(_("%s %s will be upgraded to online version %s"), $modules[$module]['name'], $modules[$module]['dbversion'], $modules_online[$module]['version']);
+                        $actionstext[] = sprintf(_("%s %s will be upgraded to online version %s"), dgettext($module,$modules[$module]['name']), $modules[$module]['dbversion'], $modules_online[$module]['version']);
                         break;
                     case '0':
-                        $force_actionstext[] = sprintf(_("%s %s will be re-installed to online version %s"), $modules[$module]['name'], $modules[$module]['dbversion'], $modules_online[$module]['version']);
+                        $force_actionstext[] = sprintf(_("%s %s will be re-installed to online version %s"), dgettext($module,$modules[$module]['name']), $modules[$module]['dbversion'], $modules_online[$module]['version']);
                         break;
                     default:
-                        $force_actionstext[] = sprintf(_("%s %s will be downgraded to online version %s"), $modules[$module]['name'], $modules[$module]['dbversion'], $modules_online[$module]['version']);
+                        $force_actionstext[] = sprintf(_("%s %s will be downgraded to online version %s"), dgettext($module,$modules[$module]['name']), $modules[$module]['dbversion'], $modules_online[$module]['version']);
                     }
                 }
             }
@@ -502,7 +502,7 @@ case 'confirm':
                         $modules[$module]['name'],
                         '<ul><li>'.implode('</li><li>',$errors).'</li></ul>');
                 } else {
-                    $actionstext[] =  sprintf(_("%s %s will be downloaded and installed"), $modules[$module]['name'], $modules_online[$module]['version']);
+                    $actionstext[] =  sprintf(_("%s %s will be downloaded and installed"), dgettext($module,$modules[$module]['name']), $modules_online[$module]['version']);
                 }
             }
             break;
@@ -515,9 +515,9 @@ case 'confirm':
                         '<ul><li>'.implode('</li><li>',$errors).'</li></ul>');
                 } else {
                     if ($modules[$module]['status'] == MODULE_STATUS_NEEDUPGRADE) {
-                        $actionstext[] =  sprintf(_("%s %s will be upgraded to %s"), $modules[$module]['name'], $modules[$module]['dbversion'], $modules[$module]['version']);
+                        $actionstext[] =  sprintf(_("%s %s will be upgraded to %s"), dgettext($module,$modules[$module]['name']), $modules[$module]['dbversion'], $modules[$module]['version']);
                     } else {
-                        $actionstext[] =  sprintf(_("%s %s will be installed and enabled"), $modules[$module]['name'], $modules[$module]['version']);
+                        $actionstext[] =  sprintf(_("%s %s will be installed and enabled"), dgettext($module,$modules[$module]['name']), $modules[$module]['version']);
                     }
                 }
             }
@@ -529,7 +529,7 @@ case 'confirm':
                     $modules[$module]['name'],
                     '<ul><li>'.implode('</li><li>',$errors).'</li></ul>');
             } else {
-                $actionstext[] =  sprintf(_("%s %s will be enabled"), $modules[$module]['name'], $modules[$module]['dbversion']);
+                $actionstext[] =  sprintf(_("%s %s will be enabled"), dgettext($module,$modules[$module]['name']), $modules[$module]['dbversion']);
             }
             break;
         case 'disable':
@@ -539,7 +539,7 @@ case 'confirm':
                     $modules[$module]['name'],
                     '<ul><li>'.implode('</li><li>',$errors).'</li></ul>');
             } else {
-                $actionstext[] =  sprintf(_("%s %s will be disabled"), $modules[$module]['name'], $modules[$module]['dbversion']);
+                $actionstext[] =  sprintf(_("%s %s will be disabled"), dgettext($module,$modules[$module]['name']), $modules[$module]['dbversion']);
             }
             break;
         case 'uninstall':
@@ -550,7 +550,7 @@ case 'confirm':
                         $modules[$module]['name'],
                         '<ul><li>'.implode('</li><li>',$errors).'</li></ul>');
                 } else {
-                    $actionstext[] =  sprintf(_("%s %s will be uninstalled"), $modules[$module]['name'], $modules[$module]['dbversion']);
+                    $actionstext[] =  sprintf(_("%s %s will be uninstalled"), dgettext($module,$modules[$module]['name']), $modules[$module]['dbversion']);
                 }
             }
             break;
