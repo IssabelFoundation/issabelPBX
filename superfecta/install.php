@@ -50,8 +50,8 @@ $sql = "CREATE TABLE IF NOT EXISTS superfecta_to_incoming (
 		superfecta_to_incoming_id INTEGER NOT NULL PRIMARY KEY $autoincrement,
 		extension VARCHAR(50) DEFAULT NULL,
 		cidnum VARCHAR(50) DEFAULT NULL
-	)";
-
+	) ";
+if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"]))  { $sql.=" DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";  }
 
 
 $check = $db->query($sql);
