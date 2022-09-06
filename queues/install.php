@@ -767,7 +767,7 @@ $issabelpbx_conf->define_conf_setting('GENERATE_LEGACY_QUEUE_CODES',$set,true);
 
 
 // QUEUES_EVENTS_WHEN_CALLED_DEFAULT
-$set['value'] = false;
+$set['value'] = true;
 $set['defaultval'] =& $set['value'];
 $set['readonly'] = 0;
 $set['hidden'] = 0;
