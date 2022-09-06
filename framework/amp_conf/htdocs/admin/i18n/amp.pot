@@ -5628,3 +5628,6 @@ msgstr ""
 
 msgid "Please select a file"
 msgstr ""
+
+msgid "Choose a file..."
+msgstr ""
