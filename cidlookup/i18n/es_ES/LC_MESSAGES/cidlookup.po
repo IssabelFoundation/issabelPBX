@@ -383,8 +383,8 @@ msgstr "no está presente"
 msgid "removed"
 msgstr "eliminado"
 
-#~ msgid "CallerID Lookup"
-#~ msgstr "Búsqueda de identificador de llamante"
+msgid "CallerID Lookup"
+msgstr "Búsqueda de identificador de llamadas"
 
 msgid "CallerID Lookup Sources"
 msgstr "Fuentes de CallerID"
