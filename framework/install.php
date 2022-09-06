@@ -47,7 +47,7 @@ if (!function_exists('version_compare_issabel')) {
 	$bin_source = $base_source . "/bin/*";
 	$agibin_source = $base_source . "/agi-bin/*";
 
-	if (!file_exists(dirname($htdocs_source))) {
+    if (!file_exists(dirname($htdocs_source)."/admin/config.php")) {
     out(sprintf(_("No directory %s, install script not needed"),dirname($htdocs_source)));
     return true;
   }
