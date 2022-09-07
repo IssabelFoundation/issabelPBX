@@ -175,7 +175,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 ?>
 <div class='content'>
 
-  <h2><?php echo _("Edit SIP Settings"); ?></h2>
+  <h2><?php echo _("SIP Settings"); ?></h2>
 
 <?php
 

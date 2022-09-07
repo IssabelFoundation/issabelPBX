@@ -112,7 +112,7 @@ $error_displays = array_merge($error_displays,iaxsettings_check_custom_files());
 ?>
 <div class='content'>
 
-  <h2><?php echo _("Edit IAX Settings"); ?></h2>
+  <h2><?php echo _("IAX Settings"); ?></h2>
 
 <?php
 

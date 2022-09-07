@@ -78,11 +78,11 @@ msgstr "Agregar Red Local"
 msgid "Submit Changes"
 msgstr "Guardar Cambios"
 
-msgid "Edit SIP Settings"
-msgstr "Modificar configuración SIP"
+msgid "SIP Settings"
+msgstr "Configuración SIP"
 
-msgid "Edit PJSIP Settings"
-msgstr "Modificar configuración PJSIP"
+msgid "PJSIP Settings"
+msgstr "Configuración PJSIP"
 
 msgid "ERRORS"
 msgstr "ERRORES"

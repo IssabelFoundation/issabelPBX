@@ -143,7 +143,7 @@ $error_displays = array_merge($error_displays,pjsipsettings_check_custom_files()
 ?>
 <div class='content'>
 
-  <h2><?php echo _("Edit PJSIP Settings"); ?></h2>
+  <h2><?php echo _("PJSIP Settings"); ?></h2>
 
 <?php
 
