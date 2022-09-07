@@ -639,7 +639,7 @@ function recording_editpage($id, $num, $warn_message='') {
 function recording_sidebar($id, $num) {
     $display='recordings';
     $extdisplay=$id;
-
+    $type='';
     $rnaventries = array();
     $rnaventries[] = array(-1,_("Built-in Recordings"),'','',"&usersnum=".urlencode($num)."&action=system");
     $tresults   = recordings_list();
