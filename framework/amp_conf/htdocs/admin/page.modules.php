@@ -862,15 +862,7 @@ default:
             break;
         }
         echo "</div>\n";
-        /*
-        if ($salert) {
-            echo "\t\t\t<div class=\"column modulevul\"><a class=\"modulevul_tag\" href=\"#\" data-sec='" . json_encode($modules[$name]['vulnerabilities']['vul']) . "'><img src=\"images/notify_security.png\" alt=\"\" width=\"16\" height=\"16\" border=\"0\" title=\"" .
-                sprintf(_("Vulnerable to security issues %s"), implode(', ',$modules[$name]['vulnerabilities']['vul'])) .
-                "\" /> " . sprintf(_("Vulnerable, Requires: %s"), $modules[$name]['vulnerabilities']['minver']) . "</a></div>\n";
-        }
-         */
 
-        //			echo "\t\t\t<span class=\"clear\">&nbsp;</span>\n";
         echo "\t\t</div>\n";
 
         // ---- end of module header
