@@ -3136,7 +3136,7 @@ msgstr ""
 
 #: amp_conf/bin/issabelpbx-cron-scheduler.php:63
 msgid "No email address for online update checks"
-msgstr "Sin dirección de correo electrónico para notificar actualizaciones en línea"
+msgstr "No se ha configurado una dirección de correo electrónico para recibir una notificación cuando haya actualizaciones disponibles"
 
 #: amp_conf/htdocs/admin/page.modules.php:985
 msgid "No modules to display."
