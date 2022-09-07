@@ -9,9 +9,11 @@ div.dialpatterns {
   display: none;
 }
 
+.btnwidth { width: 2em; }
+
 .save, .adv_set_default{border-style: none;}
 
-.savetd, .save{display:none;}
+.save{display:none;}
 
 .js-copybtn {
   font-size: 1.5em;

@@ -36,12 +36,15 @@ $(function() {
 					value: myval
 					},
 			beforeSend: function(XMLHttpRequest, set) {
-				mythis.attr({src: '/admin/images/spinner.gif'})
+                                saveclass = $(mythis).attr('class');
+                                $(mythis).attr('class','fa fa-spinner fa-spin');
+				//mythis.attr({src: '/admin/images/spinner.gif'})
 			},
 			dataType: 'json',
 			success: function(data, textStatus, XMLHttpRequest) {
 				//console.log(data);
 				mythis.attr({src: '/admin/images/accept.png'});
+                                $(mythis).attr('class',saveclass);
 				if (!data.validated) {
 					alert(data.msg);
 				}
@@ -53,7 +56,7 @@ $(function() {
 					mythis.off('click');
 					mythis.data('isbound', false);
 					mythis.fadeOut('normal', function(){
-						mythis.closest('tr').find('.savetd').hide();
+						mythis.closest('tr').find('.savetd').css('visibility','hidden');
 					});
 					
 					//hide retor to defualt if its we have reverted to defualt
@@ -102,8 +105,8 @@ $(function() {
 	$('.adv_set_default').on('click',function(){
 		switch ($(this).attr('data-type')) {
 		case 'BOOL':
-			$('input[name="' + $(this).attr('data-key')).removeAttr("checked");
-			$('input[name="' + $(this).attr('data-key') + '"]').filter('[value=' + $(this).attr('data-default') + ']').attr("checked","checked").trigger('change');
+			$('input[name="' + $(this).attr('data-key')).attr("checked",false);
+			$('input[name="' + $(this).attr('data-key') + '"]').filter('[value=' + $(this).attr('data-default') + ']').attr("checked",true).trigger('change');
 			break;
 		default:
 			$('#'+$(this).attr('data-key')).val($(this).attr('data-default')).trigger('change');
@@ -114,14 +117,14 @@ $(function() {
 
 	//show save button
 	$('.valueinput').on('keyup keypress keydown paste change', function(){
-		var save = $(this).closest('tr').find('input.save');
+		var save = $(this).closest('tr').find('i.save');
 		var savetd = $(this).closest('tr').find('.savetd');
-		var adv_set_default = $(this).closest('tr').find('input.adv_set_default');
+		var adv_set_default = $(this).closest('tr').find('i.adv_set_default');
 		
 		//if the value was changed since the last page refresh
 		if($(this).val() != $(this).attr('data-valueinput-orig')){
-			if (savetd.is(':hidden')) {
-				savetd.show();
+			if (savetd.css('visibility')=='hidden') {
+				savetd.css('visibility','visible');
 			}
 			save.stop(true, true).delay(100).fadeIn();
 			//only bind if not already bound
@@ -132,8 +135,8 @@ $(function() {
 		} else {
 			save.data("isbound", false);
 			save.stop(true, true).delay(100).fadeOut('normal', function(){
-				if (!savetd.is(':hidden')) {
-					savetd.hide();
+				if (!savetd.css('visibility')=='hidden') {
+					savetd.css('visibility','hidden');
 				}
 			}).off('click'); 
 		}
