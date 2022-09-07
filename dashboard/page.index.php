@@ -340,22 +340,6 @@ function show_procinfo() {
         }
     }
 
-    // fop
-    /* FOP has been removed (optional un-supported module currenlty)
-    $warn = draw_status_box(_("Op Panel"), "warn", _('FOP Operator Panel Server is not running, you will not be able to use the operator panel, but the system will run fine without it.'));
-    if($amp_conf['FOPDISABLE']) { // FOP is disabled, display that on the dashboard
-    $out .= draw_status_box(_("Op Panel"), "disabled", _('FOP Operator Panel is disabled in Advanced Settings'));
-  } else {
-    if (!$amp_conf['FOPRUN']) {
-      $out .= $warn; // if FOPRUN is false, display warning on the dashboard
-    } elseif ($procinfo->check_fop_server()) { // if FOPRUN is true, then check the fop tcp port, if OK display that on dashboard
-      $out .= draw_status_box(_("Op Panel"), "ok", _('FOP Operator Panel Server is running'));
-    } else { // check_fop_server returned an error, display warning
-            $out .= $warn;
-    }
-  }
-     */
-
     // mysql
     if ($amp_conf['AMPDBENGINE'] == "mysql") {
         /* this is silly- it's always running, if the web interface loads
@@ -395,6 +379,14 @@ function show_syslog(&$md5_checksum) {
         NOTIFICATION_TYPE_WARNING => 'notify_warning',
         NOTIFICATION_TYPE_NOTICE => 'notify_notice',
     );
+    $notify_icons = array(
+        NOTIFICATION_TYPE_CRITICAL => 'fa-exclamation-circle has-text-danger-dark',
+        NOTIFICATION_TYPE_SECURITY => 'fa-shield',
+        NOTIFICATION_TYPE_UPDATE   => 'fa-wrench',
+        NOTIFICATION_TYPE_ERROR    => 'fa-exlamation-triangle',
+        NOTIFICATION_TYPE_WARNING  => 'fa-bell',
+        NOTIFICATION_TYPE_NOTICE   => 'fa-info-circle has-text-link-dark',
+    );
     $notify_descriptions = array(
         NOTIFICATION_TYPE_CRITICAL => _('Critical Error'),
         NOTIFICATION_TYPE_SECURITY => _('Security Update'),
@@ -428,25 +420,28 @@ function show_syslog(&$md5_checksum) {
     
             $out .= '<div class="syslog_text">';
             $out .= '<h4>';
-            $out .= '<span><img src="images/'.$notify_classes[$item['level']].'.png" alt="'.$notify_descriptions[$item['level']].'" data-tooltip="'._($notify_descriptions[$item['level']]).'" title="'.$notify_descriptions[$item['level']].'" width="16" height="16" border="0" />&nbsp;';
-            $out .= $item['display_text'].'</span>';
+            $out .= '<span data-tooltip="'._($notify_descriptions[$item['level']]).'" title="'._($notify_descriptions[$item['level']]).'" class="has-tooltip-right">';
+            $out .= '<i class="mr-2 fa '.$notify_icons[$item['level']].'"></i></span>';
+            $out .= $item['display_text'].'';
             $out .= '</h4>';
             $out .= "\n";
             $out .= '<div class="notification_buttons">';
             if (isset($item['candelete']) && $item['candelete']) {
-                $out .= '<a class="notify_ignore_btn" title="'._('Delete this').'" '.
+                $out .= '<a class="notify_ignore_btn has-tooltip-left" data-tooltip="'._('Delete this').'" '.
                         'onclick="delete_notification(\''.$domid.'\', \''.$item['module'].'\', \''.$item['id'].'\');">'.
-                        '<img src="images/cancel.png" width="16" height="16" border="0" alt="'._('Delete this').'" /></a>';
+                        '<i class="fa fa-minus-circle has-text-danger-dark"></i>'.
+                        '</a>';
             }
             if (!$item['reset']) {
-                $out .= '<a class="notify_ignore_btn" title="'._('Ignore this').'" '.
+                $out .= '<a class="notify_ignore_btn has-tooltip-left" data-tooltip="'._('Ignore this').'" '.
                         'onclick="hide_notification(\''.$domid.'\', \''.$item['module'].'\', \''.$item['id'].'\');">'.
-                        '<img src="images/notify_delete.png" width="16" height="16" border="0" alt="'._('Ignore this').'" /></a>';
+                        '<i class="fa fa-ban has-text-danger-dark"></i>'.
+                        '</a>';
             }
             $out .= '</div>';
             $out .= '</div>';
             $out .= "\n";
-            $out .= '<div class="syslog_detail">';
+            $out .= '<div class="syslog_detail px-3">';
             $out .= nl2br($item['extended_text']);
             $out .= '<br/><span>'.sprintf(_('Added %s ago'), time_string(time() - $item['timestamp'])).'<br/>'.
                     '('.$item['module'].'.'.$item['id'].')</span>';
