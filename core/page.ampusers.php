@@ -164,7 +164,7 @@ foreach ($tresults as $tresult) {
     <input type="hidden" name="extdisplay" value="<?php echo $extdisplay ?>"/>
     <input type="hidden" name="action" value="<?php echo $myaction?>"/>
     <input type="hidden" name="tech" value="<?php echo $tech?>"/>
-    <input type="hidden" name="password_sha1" value="<?php echo $password_sha1 ?>"/>
+    <input type="hidden" name="password_sha1" value="<?php echo isset($password_sha1)?$password_sha1:'' ?>"/>
 
     <table class='table is-narrow is-borderless'>
     <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
