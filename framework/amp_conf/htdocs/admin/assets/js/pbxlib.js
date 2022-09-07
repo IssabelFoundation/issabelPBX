@@ -837,7 +837,6 @@ function doready() {
 
     var extselector = $('input.extdisplay,input[type=text][name=extension],input[type=text][name=extdisplay],input[type=text][name=account]').not('input.noextmap');
     if (extselector.length > 0) {
-        //extselector.after(" <span style='display:none'><a href='#'><img src='images/notify_critical.png'/></a></span>").on('keyup',function() {
         extselector.after(" <p class='help is-hidden is-danger'></p>").on('keyup',function() {
             if (typeof extmap[this.value] == "undefined" || $(this).data('extdisplay') == this.value) {
                 $(this).removeClass('is-danger').next('p').addClass('is-hidden');
