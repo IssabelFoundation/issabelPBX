@@ -316,9 +316,6 @@ function backup_template_generate_tr($c, $i, $immortal = 'false', $build_tr = fa
 
 
 
-				//: '<img src="images/trash.png" style="cursor:pointer" title="' 
-				//. $del_txt . '" class="delete_entrie">';
-				
 	if($build_tr) {
 		return '<tr><td>'	
 				. $type 	. '</td><td>' 

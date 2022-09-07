@@ -362,25 +362,25 @@ $tt = _("Asterisk: bindaddr. The IP address to bind to and listen for calls on t
     <td>
 <?php
   $seq = 1;
-echo '<ul class="sortable">';
+  echo '<ul class="sortable">';
   foreach ($codecs as $codec => $codec_state) {
-    $tabindex++;
-    $codec_trans = _($codec);
-    $codec_checked = $codec_state ? 'checked' : '';
-        echo '<li><a href="#">'
-                . '<img src="assets/'.$dispnum.'/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
-                . '<input type="checkbox" '
-                . ($codec_checked ? 'value="'. $seq++ . '" ' : '')
-                . 'name="codec[' . $codec . ']" '
-                . 'id="'. $codec . '" '
-                . 'class="audio-codecs" tabindex="' . $tabindex. '" '
-                . $codec_checked
-                . ' />'
-                . '<label for="'. $codec . '"> '
-                . '<small>' . $codec_trans . '</small>'
-                . ' </label></a></li>';
+      $tabindex++;
+      $codec_trans = _($codec);
+      $codec_checked = $codec_state ? 'checked' : '';
+      echo '<li><a href="javascript:void(0)">'
+      . '<i class="fa fa-arrows-v mx-2"></i>'
+      . '<input type="checkbox" '
+      . ($codec_checked ? 'value="'. $seq++ . '" ' : '')
+      . 'name="codec[' . $codec . ']" '
+      . 'id="'. $codec . '" '
+      . 'class="audio-codecs" tabindex="' . $tabindex. '" '
+      . $codec_checked
+      . ' />'
+      . '<label for="'. $codec . '"> '
+      . '<small>' . $codec_trans . '</small>'
+      . ' </label></a></li>';
   }
-echo '</ul>';
+  echo '</ul>';
 ?>
 
     </td>

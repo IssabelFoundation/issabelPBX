@@ -327,8 +327,8 @@ echo '<ul class="sortable">';
     $tabindex++;
     $codec_trans = _($codec);
     $codec_checked = $codec_state ? 'checked' : '';
-	echo '<li class="draggable"><a href="#">'
-		. '<img src="assets/'.$dispnum.'/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
+    echo '<li class="draggable"><a href="javascript:void(0)">'
+        . '<i class="fa fa-arrows-v mx-2"></i>'
 		. '<input type="checkbox" '
 		. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
 		. 'name="codec[' . $codec . ']" '
@@ -387,8 +387,8 @@ echo '<ul  class="sortable video-codecs">';
     $tabindex++;
     $codec_trans = _($codec);
     $codec_checked = $codec_state ? 'checked' : '';
-	echo '<li class="draggable"><a href="#">'
-		. '<img src="assets/'.$dispnum.'/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
+    echo '<li class="draggable"><a href="javascript:void(0)">'
+        . '<i class="fa fa-arrows-v mx-2"></i>'
 		. '<input type="checkbox" '
 		. ($codec_checked ? 'value="'. $seq++ . '" ' : '')
 		. 'name="vcodec[' . $codec . ']" '

@@ -353,7 +353,6 @@ function directory_draw_entries_tr($id, $realid, $name = '',$foreign_name, $audi
     } else {
         $user        = '';
     }
-    //$delete            = '<img src="images/trash.png" style="cursor:pointer;" alt="'._('remove').'" title="'._('Click here to remove this entry').'" class="trash-tr">';
     $delete = "<button type='button' class='trash-tr button is-small is-danger has-tooltip-right' data-tooltip='"._('Delete')."' ><span class='icon is-small'><i class='fa fa-trash'></i></span></button>";
 
     $t1_class         = $name == '' ? ' class = "dpt-title" ' : '';

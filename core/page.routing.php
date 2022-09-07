@@ -544,8 +544,6 @@ END;
         <input title="$ci_tit" type="text" size="10" id="match_cid_$idx" name="match_cid[$idx]" class="$dpt_class" value="{$pattern['match_cid']}" tabindex="$tabindex">]
 END;
 ?>
-        <!--img src="images/trash.png" style="float:none; margin-left:0px; margin-bottom:-3px; cursor:pointer;" alt="<?php echo _("remove")?>" title="<?php echo _('Click here to remove this pattern')?>" onclick="patternsRemove(<?php echo _("$idx") ?>)"-->
-
 
 
 <button type='button' class='button is-small is-danger has-tooltip-right' data-tooltip='<?php echo _('Delete')?>' onclick='patternsRemove(<?php echo _("$idx") ?>)'><span class='icon is-small'><i class='fa fa-trash'></i></span></button>
@@ -565,7 +563,6 @@ END;
         <input placeholder="<?php echo $pf_tit?>" type="text" size="6" id="pattern_prefix_<?php echo $next_idx?>" name="pattern_prefix[<?php echo $next_idx?>]" class="dpt-title" value="" tabindex="<?php echo ++$tabindex;?>"> |
         [<input placeholder="<?php echo $mp_tit?>" type="text" size="20" id="pattern_pass_<?php echo $next_idx?>" name="pattern_pass[<?php echo $next_idx?>]" class="dpt-title" value="" tabindex="<?php echo ++$tabindex;?>"> /
         <input placeholder="<?php echo $ci_tit?>" type="text" size="10" id="match_cid_<?php echo $next_idx?>" name="match_cid[<?php echo $next_idx?>]" class="dpt-title" value="" tabindex="<?php echo ++$tabindex;?>">]
-        <!--img src="images/trash.png" style="float:none; margin-left:0px; margin-bottom:-3px;cursor:pointer;" alt="<?php echo _("remove")?>" title="<?php echo _("Click here to remove this pattern")?>" onclick="patternsRemove(<?php echo _("$next_idx") ?>)"-->
 <button type='button' class='button is-small is-danger has-tooltip-right' data-tooltip='<?php echo _('Delete')?>' onclick='patternsRemove(<?php echo _("$next_idx") ?>)'><span class='icon is-small'><i class='fa fa-trash'></i></span></button>
 
       </td>

@@ -146,29 +146,12 @@ foreach ($conf as $c){
 	echo '</td>';
 	if(!$c['readonly'] || $amp_conf['AS_OVERRIDE_READONLY'] && !$c['hidden']){
 		echo '<td class="btnwidth">';
-/*
-echo '<input type="image" class="adv_set_default" alt="set default" src="/admin/images/default-option.png" data-key="'.$c['keyword'].'" data-default="'.$c['defaultval'].'" title="'._('Revert to Default').'"'
-			. ' data-type="' . (($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '') . '" '
-			. (($amp_conf[$c['keyword']] == $c['defaultval']) ? ' style="display:none" ' : '')
-			.'>';
-*/
-echo '<span data-tooltip="'._('Revert to Default').'"><i class="fa fa-rotate-left adv_set_default" data-key="'.$c['keyword'].'" data-default="'.$c['defaultval'].'" data-type="' . (($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '') . '" '. (($amp_conf[$c['keyword']] == $c['defaultval']) ? ' style="display:none" ' : '').'></i></span>';
+        echo '<span data-tooltip="'._('Revert to Default').'"><i class="fa fa-rotate-left adv_set_default" data-key="'.$c['keyword'].'" data-default="'.$c['defaultval'].'" data-type="' . (($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '') . '" '. (($amp_conf[$c['keyword']] == $c['defaultval']) ? ' style="display:none" ' : '').'></i></span>';
+        echo '</td>';
 
-                echo '</td>';
-		echo '<td class="btnwidth savetd">';
-/*
-echo '<input type="image" class="save" alt="save" src="/admin/images/accept.png" data-key="'
-			. $c['keyword']
-			. '" title="' . _('Save') . '"'
-			. ' data-type="' . (($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '') . '" '
-			. '>';
-*/
-echo '<span data-tooltip="'._('Save').'"><i class="fa fa-check-square-o save" data-key="'
-                        . $c['keyword']
-                        . '" title="' . _('Save') . '"'
-                        . ' data-type="' . (($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '') . '" '
-                        . '></i></span>';
-echo '</td>';
+        echo '<td class="btnwidth savetd">';
+        echo '<span data-tooltip="'._('Save').'"><i class="fa fa-check-square-o save" data-key="'.$c['keyword'].'" title="'._('Save').'"'.' data-type="'.(($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '').'"></i></span>';
+        echo '</td>';
 	}
 	echo '</tr>';
 }
