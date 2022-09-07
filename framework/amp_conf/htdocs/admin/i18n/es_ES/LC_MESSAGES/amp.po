@@ -4928,7 +4928,7 @@ msgid ""
 "You are automatically checking for online updates nightly but you have no "
 "email address setup to send the results. This can be set in Module Admin. "
 "They will continue to show up here."
-msgstr "Está buscando automáticamente actualizaciones en línea todas las noches, pero no tiene configurada una dirección de correo electrónico para enviar los resultados. Esto se puede configurar en Administración de módulos. Seguirán apareciendo aquí."
+msgstr "Está buscando automáticamente actualizaciones en línea todas las noches, pero no tiene configurada una dirección de correo electrónico para enviar los resultados. Esto se puede configurar en Administración de módulos. Sin embargo las notificaciones continuarán apareciendo aquí."
 
 #: amp_conf/htdocs/admin/libraries/utility.functions.php:1376
 msgid ""
