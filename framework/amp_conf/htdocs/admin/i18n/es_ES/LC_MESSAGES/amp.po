@@ -4928,7 +4928,7 @@ msgid ""
 "You are automatically checking for online updates nightly but you have no "
 "email address setup to send the results. This can be set in Module Admin. "
 "They will continue to show up here."
-msgstr "Está buscando automáticamente actualizaciones en línea todas las noches, pero no tiene configurada una dirección de correo electrónico para enviar los resultados. Esto se puede configurar en el administrador del módulo. Seguirán apareciendo aquí."
+msgstr "Está buscando automáticamente actualizaciones en línea todas las noches, pero no tiene configurada una dirección de correo electrónico para enviar los resultados. Esto se puede configurar en Administración de módulos. Seguirán apareciendo aquí."
 
 #: amp_conf/htdocs/admin/libraries/utility.functions.php:1376
 msgid ""
@@ -6720,7 +6720,7 @@ msgid "Full path and name of IssabelPBX debug file. Used by the dbug() function 
 msgstr "Ruta completa y nombre del archivo de depuración de IssabelPBX. Utilizado por la función dbug() de los desarrolladores."
 
 msgid "This enables several debug features geared towards developers, including some page load timing information, some debug information in Module Admin, use of original CSS files and other future capabilities will be enabled."
-msgstr "Esto habilita varias funciones de depuración dirigidas a los desarrolladores, incluida cierta información sobre el tiempo de carga de la página, cierta información de depuración en el administrador del módulo, se habilitará el uso de archivos CSS originales y otras capacidades futuras."
+msgstr "Esto habilita varias funciones de depuración dirigidas a los desarrolladores, incluida cierta información sobre el tiempo de carga de la página, cierta información de depuración en Administración de módulos, se habilitará el uso de archivos CSS originales y otras capacidades futuras."
 
 msgid "Disable IssabelPBX dbug Logging"
 msgstr "Deshabilitar el registro de depuración de Issabel PBX"
