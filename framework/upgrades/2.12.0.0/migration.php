@@ -19,3 +19,11 @@ if (!$issabelpbx_conf->conf_setting_exists('LANGUAGE')) {
     $set['type'] = CONF_TYPE_TEXT;
     $issabelpbx_conf->define_conf_setting('LANGUAGE',$set,true);
 }
+
+if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"]))  {
+    $sql = "ALTER TABLE module_xml CHANGE data data MEDIUMTEXT NOT NULL";
+    $results = $db->query($sql);
+    if(DB::IsError($results)) {
+        die_issabelpbx($results->getMessage());
+    }
+}
