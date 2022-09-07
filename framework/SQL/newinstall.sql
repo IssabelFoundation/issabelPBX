@@ -202,7 +202,7 @@ CREATE TABLE `incoming` (
 CREATE TABLE `module_xml` (
 `id` varchar(20) PRIMARY KEY NOT NULL,
 `time` INTEGER NOT NULL,
-`data` TEXT NOT NULL
+`data` MEDIUMTEXT NOT NULL
 ) DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `modules` (
