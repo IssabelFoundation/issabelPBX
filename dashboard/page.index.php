@@ -429,7 +429,7 @@ function show_syslog(&$md5_checksum) {
             if (isset($item['candelete']) && $item['candelete']) {
                 $out .= '<a class="notify_ignore_btn has-tooltip-left" data-tooltip="'._('Delete this').'" '.
                         'onclick="delete_notification(\''.$domid.'\', \''.$item['module'].'\', \''.$item['id'].'\');">'.
-                        '<i class="fa fa-minus-circle has-text-danger-dark"></i>'.
+                        '<i class="fa fa-minus-circle has-text-danger-dark mx-1"></i>'.
                         '</a>';
             }
             if (!$item['reset']) {
