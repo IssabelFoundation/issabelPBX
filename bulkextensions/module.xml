@@ -7,7 +7,7 @@
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<category>Applications</category>
+    <category>Settings</category>
 	<menuitems>
 		<bulkextensions>Bulk Extensions</bulkextensions>
 	</menuitems>
@@ -25,5 +25,5 @@
 	<supported>
 		<version>2.12</version>
     </supported>
-        <md5sum>0</md5sum>
+    <md5sum>0</md5sum>
 </module>
