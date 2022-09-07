@@ -367,7 +367,7 @@ $tt = _("Asterisk: bindaddr. The IP address to bind to and listen for calls on t
       $tabindex++;
       $codec_trans = _($codec);
       $codec_checked = $codec_state ? 'checked' : '';
-      echo '<li><a href="javascript:void(0)">'
+      echo '<li class="draggable"><a href="javascript:void(0)">'
       . '<i class="fa fa-arrows-v mx-2"></i>'
       . '<input type="checkbox" '
       . ($codec_checked ? 'value="'. $seq++ . '" ' : '')
