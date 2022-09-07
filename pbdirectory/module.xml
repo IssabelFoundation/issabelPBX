@@ -18,8 +18,8 @@
     <module>phonebook</module>
     <module>speeddial</module>
   </depends>
-  <md5sum>fdd65968e753840a60086c4a9cf4836f</md5sum>
   <supported>
     <version>2.10</version>
-  </supported>
+</supported>
+    <md5sum>0</md5sum>
 </module>

@@ -32,4 +32,5 @@
         <version>2.12</version>
     </supported>
     <location>release/2.12/announcement-2.12.0.0.tgz</location>
+        <md5sum>0</md5sum>
 </module>

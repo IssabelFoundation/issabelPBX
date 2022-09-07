@@ -25,5 +25,6 @@
 	<location>release/2.12/pinsets-2.12.0.0.tgz</location>
 	<methods>
 		<get_config pri="481">pinsets_get_config</get_config>
-	</methods>
+    </methods>
+        <md5sum>0</md5sum>
 </module>

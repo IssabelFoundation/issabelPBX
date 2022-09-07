@@ -24,5 +24,6 @@
 	</changelog>
 	<supported>
 		<version>2.12</version>
-	</supported>
+    </supported>
+        <md5sum>0</md5sum>
 </module>

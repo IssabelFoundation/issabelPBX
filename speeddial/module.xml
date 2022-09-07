@@ -17,5 +17,6 @@
   <md5sum>728588a96f50fe993055a834d67f0d27</md5sum>
   <supported>
     <version>2.10</version>
-  </supported>
+</supported>
+    <md5sum>0</md5sum>
 </module>

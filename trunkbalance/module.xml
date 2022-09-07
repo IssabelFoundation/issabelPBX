@@ -40,4 +40,5 @@
     </menuitems>
     <info>https://github.com/POSSA/freepbx-trunk-balancing</info>
     <location>http://pbxossa.org/files/trunkbalance/</location>
+        <md5sum>0</md5sum>
 </module>

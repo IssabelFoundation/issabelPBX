@@ -20,5 +20,6 @@
   <location>release/2.12/phpagiconf-2.12.0.0.tgz</location>
   <supported>
     <version>2.12</version>
-  </supported>
+</supported>
+    <md5sum>0</md5sum>
 </module>

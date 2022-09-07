@@ -28,5 +28,6 @@
 	<supported>
 		<version>2.12</version>
 	</supported>
-	<location>release/2.12/directory-2.12.0.0.tgz</location>
+    <location>release/2.12/directory-2.12.0.0.tgz</location>
+        <md5sum>0</md5sum>
 </module>
