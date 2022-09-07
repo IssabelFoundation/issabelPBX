@@ -1215,7 +1215,7 @@ msgstr "Crítico"
 #: amp_conf/htdocs/admin/libraries/cronmanager.class.php:156
 #, php-format
 msgid "Cronmanager encountered %s Errors"
-msgstr "El gestor de tareas programados ha encontrado %s errores"
+msgstr "El gestor de tareas programadas ha encontrado %s errores"
 
 #: ../core/functions.inc.php:7165
 msgid ""
