@@ -82,12 +82,12 @@ msgstr ""
 
 #: page.cdr.php:706
 msgid "Account"
-msgstr "Contabilidad"
+msgstr "Cuenta"
 
 #: page.cdr.php:281 /usr/src/freepbx/cdr/page.cdr.php:326
 #: page.cdr.php:801
 msgid "Account Code"
-msgstr "Código de contabilidad"
+msgstr "Código de cuenta"
 
 #: page.cdr.php:325
 msgid "Account Information"
@@ -513,7 +513,7 @@ msgstr "Buscar por un DID."
 
 #: page.cdr.php:280
 msgid "Search for accountcode."
-msgstr "Buscar por código de contabilidad"
+msgstr "Buscar por código de cuenta"
 
 #: page.cdr.php:172
 msgid ""
