@@ -460,7 +460,7 @@ function show_syslog(&$md5_checksum) {
 
     $md5_checksum = md5($checksum);
 
-    $out .= '<div id="syslog_button">';
+    $out .= '<div id="syslog_button" class="mx-3">';
 
     if ($showall) {
         $out .= '<a href="#" onclick="changeSyslog(0);">'._('show new').'</a>';
