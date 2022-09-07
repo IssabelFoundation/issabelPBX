@@ -173,26 +173,39 @@ $current_lang = $_COOKIE['lang'];
 
 $aval_lang = array();
 $aval_lang["en_US"]=_('English');
-$aval_lang["es_ES"]= _('Spanish');
-$aval_lang["pt_BR"]= _('Portuguese (Brasil)');
-$aval_lang["bg_BG"]= _('Bulgarian');
-$aval_lang["zh_CN"]= _('Chinese');
-$aval_lang["de_DE"]= _('German');
-$aval_lang["fr_FR"]= _('French');
-$aval_lang["he_IL"]= _('Hebrew');
-$aval_lang["hu_HU"]= _('Hungarian');
-$aval_lang["it_IT"]= _('Italian');
-$aval_lang["pt_PT"]= _('Portuguese');
-$aval_lang["ru_RU"]= _('Russian');
-$aval_lang["sv_SE"]= _('Swedish');
-$aval_lang["ja_JP"]= _('Japanese');
+$aval_lang["es_ES"]= _('Español');
+$aval_lang["pt_BR"]= _('Português');
+$aval_lang["bg_BG"]= _('Български');
+$aval_lang["zh_CN"]= _('中文');
+$aval_lang["de_DE"]= _('Deutsch');
+$aval_lang["fr_FR"]= _('Français');
+$aval_lang["he_IL"]= _('עִברִית');
+$aval_lang["hu_HU"]= _('Magyar');
+$aval_lang["it_IT"]= _('Italiano');
+$aval_lang["pt_PT"]= _('Português');
+$aval_lang["ru_RU"]= _('Русский');
+$aval_lang["sv_SE"]= _('Svenska');
+$aval_lang["ja_JP"]= _('日本');
 
 if($amp_conf['SHOWLANGUAGE']) {
-	$out .= '<button class="navbar-item has-dropdown is-hoverable"><a class="navbar-link" id="language-menu-button">' . _('Language') . '</a>';
+    $out .= '<button class="navbar-item has-dropdown is-hoverable"><a class="navbar-link" id="language-menu-button">';
+    $out .= '<i class="fa fa-language mr-2"></i>';
+    $out .= _('Language') . '</a>';
     $out .= '<div class="navbar-dropdown is-right">';
     foreach($aval_lang as $iso=>$desc) {
+        $parts = preg_split("/_/",strtolower($iso));
+        $flag='';
+        if(file_exists("images/".$parts[1].".svg")) {
+            $flag = "images/".$parts[1].".svg";
+        } else {
+            if(file_exists("images/".$parts[0].".svg")) {
+                $flag = "images/".$parts[0].".svg";
+            }
+        }
         $current = ($current_lang == $iso)?" current":"";
-        $out .= '<a href="javascript:void()" class="navbar-item onelang'.$current.'" data-lang="'.$iso.'">'. $desc . '</a>';
+        $out .= '<a href="javascript:void()" class="navbar-item onelang'.$current.'" data-lang="'.$iso.'">';
+        $out .= '<img style="width:1em;height:1em;" src="'.$flag.'" class="mr-2"/>';
+        $out.= $desc . '</a>';
     }
     $out .= '</div>';
     $out .= '</button>';
