@@ -641,7 +641,7 @@ function recording_sidebar($id, $num) {
     $extdisplay=$id;
 
     $rnaventries = array();
-    $rnaventries[] = array($tresult[0],_("Built-in Recordings"),'','',"usersnum=".urlencode($num)."&action=system");
+    $rnaventries[] = array($tresult[0],_("Built-in Recordings"),'','',"&usersnum=".urlencode($num)."&action=system");
     $tresults   = recordings_list();
     foreach($tresults as $tresult) {
         // result[0] = record id
