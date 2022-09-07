@@ -317,16 +317,15 @@ div.attention {
 .modulebuttons {
     max-width: 1200px;
 }
-
 #modulelist ul {
   padding-left:0;
   margin-left:0;
   position:relative;
+  margin-top:0;
 }
 #modulelist li {
   list-style-type: none;
   border-bottom:1px solid #FFF;
-  _margin: .5em .5em;
 }
 #modulelist #modulelist-header {
   position:relative;

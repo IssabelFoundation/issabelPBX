@@ -719,12 +719,12 @@ default:
 
     echo "<div id=\"modulelist\" class=\"mt-2\">\n";
 
-    echo "\t<div id=\"modulelist-header\" class='columns mb-0'>";
-    echo "\t\t<div class=\"column modulename\">"._("Module")."</div>\n";
-    echo "\t\t<div class=\"column moduleversion\">"._("Version")."</div>\n";
-    echo "\t\t<div class=\"column modulepublisher\">"._("Publisher")."</div>\n";
-    echo "\t\t<div class=\"column clear\">&nbsp;</div>\n";
-    echo "\t</div>";
+    $modheader = "\t<div id=\"modulelist-header\" class='columns mb-0'>";
+    $modheader.= "\t\t<div class=\"column modulename\">"._("Module")."</div>\n";
+    $modheader.="\t\t<div class=\"column moduleversion\">"._("Version")."</div>\n";
+    $modheader.="\t\t<div class=\"column modulepublisher\">"._("Publisher")."</div>\n";
+    $modheader.="\t\t<div class=\"column clear\">&nbsp;</div>\n";
+    $modheader.="\t</div>";
 
     $category = false;
     $numdisplayed = 0;
@@ -771,6 +771,7 @@ default:
             // start a new category header, and associated html blocks
             $category = $modules[$name]['category'];
             echo "\t<div class=\"category\" id=\"category_".prep_id($category)."\"><h3>"._($category)."</h3>\n";
+	    echo $modheader;
             echo "\t<ul>";
         }
 
