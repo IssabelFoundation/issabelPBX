@@ -537,32 +537,28 @@ function findmefollow_configpageinit($dispnum) {
 }
 
 function findmefollow_configpageload() {
-	global $currentcomponent;
+    global $currentcomponent;
 
-	$viewing_itemid =  isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
-	$action =  isset($_REQUEST['action'])?$_REQUEST['action']:null;
-	if ( $viewing_itemid != '' && $action != 'del') {
-		$set_findmefollow = findmefollow_list();
-		$grpURL = $_SERVER['PHP_SELF'].'?'.'display=findmefollow&extdisplay=GRP-'.$viewing_itemid;
-		if (is_array($set_findmefollow)) {
-			if (in_array($viewing_itemid,$set_findmefollow)) {
-				$grpTEXT = _("Edit Follow Me Settings");
-				$icon = "images/user_go.png";
+    $viewing_itemid =  isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+    $action =  isset($_REQUEST['action'])?$_REQUEST['action']:null;
+    if ( $viewing_itemid != '' && $action != 'del') {
+        $set_findmefollow = findmefollow_list();
+        $grpURL = $_SERVER['PHP_SELF'].'?'.'display=findmefollow&extdisplay=GRP-'.$viewing_itemid;
+        if (is_array($set_findmefollow)) {
+            if (in_array($viewing_itemid,$set_findmefollow)) {
+                $grpTEXT = _("Edit Follow Me Settings");
                 $icon = "fa-user";
-			} else {
-				$grpTEXT = _("Add Follow Me Settings");
-				$icon = "images/user_add.png";
+            } else {
+                $grpTEXT = _("Add Follow Me Settings");
                 $icon = "fa-user-plus";
-			}
-		} else {
-			$grpTEXT = _("Add Follow Me Settings");
-            $icon = "images/user_add.png";
+            }
+        } else {
+            $grpTEXT = _("Add Follow Me Settings");
             $icon = "fa-user-plus";
-		}
-        $label = '<span><img title="'.$grpTEXT.'" alt="" src="'.$icon.'"/>&nbsp;'.$grpTEXT.'</span>';
+        }
         $label = '<span class="icon mr-1"><i class="fa '.$icon.'"></i></span>'.$grpTEXT;
-		$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $label, $grpURL));
-	}	
+        $currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $label, $grpURL));
+    }
 }
 
 // If we are auto-creating a followme for each extension then add the hook funcitons for
