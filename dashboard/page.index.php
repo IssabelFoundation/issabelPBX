@@ -383,7 +383,7 @@ function show_syslog(&$md5_checksum) {
         NOTIFICATION_TYPE_CRITICAL => 'fa-exclamation-circle has-text-danger-dark',
         NOTIFICATION_TYPE_SECURITY => 'fa-shield',
         NOTIFICATION_TYPE_UPDATE   => 'fa-wrench',
-        NOTIFICATION_TYPE_ERROR    => 'fa-exlamation-triangle',
+        NOTIFICATION_TYPE_ERROR    => 'fa-exclamation-triangle has-text-warning-dark',
         NOTIFICATION_TYPE_WARNING  => 'fa-bell',
         NOTIFICATION_TYPE_NOTICE   => 'fa-info-circle has-text-link-dark',
     );
