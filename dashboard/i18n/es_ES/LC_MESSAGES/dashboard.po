@@ -101,7 +101,7 @@ msgid "GUI Behavior"
 msgstr ""
 
 msgid "Update rate in seconds of the Info section of the System Status panel."
-msgstr ""
+msgstr "Frecuencia de actualización del panel de estado de información de IssabelPBX, expresado en segundos."
 
 msgid "Dashboard Max Calls Initial Scale"
 msgstr ""
