@@ -1,23 +1,10 @@
 #dashboard {
   position:relative;
-}
-
-/* two columns, sizes of each category box */
-#sysinfo-left, #sysinfo-left .infobox {
-  width:600px;
-  float: left;
+  display:flex;
 }
 
 #sysinfo-right {
-  float: left;
-  width:250px;
   padding-left: 30px;
-}
-#sysinfo-right .infobox {
-  width:250px;
-}
-#sysinfo-bot{
-  clear:both;
 }
 
 /* main container for each category of items */
@@ -25,6 +12,8 @@
   border:1px solid #AED0EA;
   padding:2px 5px 5px 5px;
   margin-bottom:1em;
+  resize:both;
+  overflow:auto;
 }
 
 #procinfo.infobox {
@@ -37,7 +26,7 @@
   margin-top:1px;
   width: 100%;
   text-align: center;
-    padding: 5px 0 5px 0;
+  padding: .4em .8em;
 }
 
 /* main container for each item */
