@@ -79,10 +79,10 @@ msgid "Submit Changes"
 msgstr "Guardar Cambios"
 
 msgid "Edit SIP Settings"
-msgstr "Modificar Configuración SIP"
+msgstr "Modificar configuración SIP"
 
 msgid "Edit PJSIP Settings"
-msgstr "Modificar Configuración PJSIP"
+msgstr "Modificar configuración PJSIP"
 
 msgid "ERRORS"
 msgstr "ERRORES"
