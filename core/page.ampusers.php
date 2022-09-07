@@ -180,7 +180,7 @@ foreach ($tresults as $tresult) {
         <td>
             <a href=# class="info"><?php echo _("Username<span>Create a unique username for this new user</span>")?></a>
         </td><td>
-            <input type="text" class="input w100" name="username" value="<?php echo $username;?>" tabindex="<?php echo ++$tabindex;?>"/>
+            <input autofocus type="text" class="input w100" name="username" value="<?php echo $username;?>" tabindex="<?php echo ++$tabindex;?>"/>
         </td>
     </tr>
     <tr>
