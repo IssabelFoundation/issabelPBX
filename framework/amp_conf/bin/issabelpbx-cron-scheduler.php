@@ -5,6 +5,17 @@ $bootstrap_settings['issabelpbx_auth'] = false;
 if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc/issabelpbx.conf')) {
 	include_once('/etc/asterisk/issabelpbx.conf');
 }
+
+// Set language
+$lang = $issabelpbx_conf->get_conf_setting('LANGUAGE');
+if($lang!='') {
+    setlocale(LC_ALL,  $lang);
+    putenv("LANGUAGE=".$lang);
+    bindtextdomain('amp',$amp_conf['AMPWEBROOT'].'/admin/i18n');
+    bind_textdomain_codeset('amp', 'utf8');
+    textdomain('amp');
+}
+
 // Define the notification class for logging to the dashboard
 //
 $nt = notifications::create($db);
