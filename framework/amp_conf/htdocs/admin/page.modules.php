@@ -617,7 +617,7 @@ case 'upload':
             // display upload button, only if they did upload something
             $disp_buttons[] = 'upload';
         }
-     //   displayRepoSelect($disp_buttons,$modify_notification);
+        // displayRepoSelect($disp_buttons,$modify_notification);
     } else {
         echo "<a href='config.php?display=modules&amp;type=$type'>"._("Manage local modules")."</a>\n";
     }
@@ -1245,17 +1245,17 @@ function displayRepoSelect($buttons,$modify_notification='') {
 <?php
 
   $repos = array();
-  $repos[] = array('id'=>'standard','name'=>"active_repos['standard']'", 'value'=>'1','label'=>_("Basic"));
-  $repos[] = array('id'=>'extended','name'=>"active_repos['extended']'", 'value'=>'1','label'=>_("Extended"));
-  $repos[] = array('id'=>'unsupported','name'=>"active_repos['unsupported']'", 'value'=>'1','label'=>_("Unsupported"));
-  $repos[] = array('id'=>'commercial','name'=>"active_repos['commercial']'", 'value'=>'1','label'=>_("Commercial"));
+  $repos[] = array('id'=>'standard','name'=>"active_repos[standard]", 'value'=>'1','label'=>_("Basic"));
+  $repos[] = array('id'=>'extended','name'=>"active_repos[extended]", 'value'=>'1','label'=>_("Extended"));
+  $repos[] = array('id'=>'unsupported','name'=>"active_repos[unsupported]", 'value'=>'1','label'=>_("Unsupported"));
+  $repos[] = array('id'=>'commercial','name'=>"active_repos[commercial]", 'value'=>'1','label'=>_("Commercial"));
 
   foreach($repos as $idx=>$repo) {
       $checked = isset($active_repos[$repo['id']])?' checked="checked" ':'';
       echo "
 <span class='control'>
     <label class='is-checkbox is-small is-link is-rounded'>
-        <input id='${repo['id']}_repo' tabindex='".++$tabindex."' $checked value=1 type='checkbox'>
+        <input id='${repo['id']}_repo' name='${repo['name']}' tabindex='".++$tabindex."' $checked value='${repo['value']}' type='checkbox'>
         <span  class='icon is-small checkmark'>
             <i class='fa fa-check'></i>
         </span>
