@@ -31,6 +31,7 @@ $ttsengine_engine      = isset($_REQUEST['ttsengine_engine']) ? $_REQUEST['ttsen
 $ttsengine_cmd         = isset($_REQUEST['ttsengine_cmd']) ? $_REQUEST['ttsengine_cmd'] :  '';
 $ttsengine_template    = isset($_REQUEST['ttsengine_template']) ? $_REQUEST['ttsengine_template'] :  '';
 
+
 $templates = array(
 'polly'=>'{
     "accessKeyId" :"",
@@ -63,9 +64,9 @@ $commands = array(
 'polly'=>'/usr/bin/node /opt/aws-nodejs/polly.js',
 'pico'=>'/usr/bin/pico2wave',
 'flite'=>'/usr/bin/flite',
-'azure'=>'/var/lib/asterisk/agi-bin/azuretts.php',
-'google'=>'/var/lib/asterisk/agi-bin/googlewave.php',
-'custom'=>'/var/lib/asterisk/agi-bin/googletts.pl "{TEXT}" en 1.2 {OUTPUTFILE}'
+'azure'=>$amp_conf['ASTDATADIR'].'/agi-bin/azuretts.php',
+'google'=>$amp_conf['ASTDATADIR'].'/agi-bin/googlewave.php',
+'custom'=>$amp_conf['ASTDATADIR'].'/agi-bin/googletts.pl "{TEXT}" en 1.2 {OUTPUTFILE}'
 );
 
 echo "<script>";
