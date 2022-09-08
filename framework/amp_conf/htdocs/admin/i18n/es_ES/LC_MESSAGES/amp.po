@@ -7677,7 +7677,7 @@ msgid "Choose a file..."
 msgstr "Escoja un archivo..."
 
 msgid "Symlink from modules failed"
-msgstr "Fallo al general enlaces simbólicos de módulos"
+msgstr "Fallo al generar enlaces simbólicos de módulos"
 
 msgid "Cannot symlink %s to %s. Check Permissions."
 msgstr "No se pudo enlazar %s a %s. Verifique permisos."
