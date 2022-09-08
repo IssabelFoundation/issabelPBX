@@ -232,8 +232,8 @@ if(($from_outside != '') && isset($ext[0]) && ($rgmethod == "none" || $fmgrp == 
 			// Do a security check, allow only alphanumeric callerid numbers, otherwise code could be injected in a cidnum field
 			// that could result in an arbitrary command being executed in this remove operation.
       if (!preg_match('/[^ a-zA-Z\d]/',$cidnum)) {
-        $astvarlibdir     = get_var( $AGI, "ASTVARLIBDIR" );
-				exec("rm -f $astvarlibdir/sounds/priv-callerintros/$cidnum.*");
+        $astdatadir     = get_var( $AGI, "ASTDATADIR" );
+				exec("rm -f $astdatadir/sounds/priv-callerintros/$cidnum.*");
 			}
 		}
 		$screen = true;

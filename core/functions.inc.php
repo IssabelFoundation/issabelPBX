@@ -2601,6 +2601,7 @@ function core_do_get_config($engine) {
                 "ASTETCDIR",
                 "ASTMODDIR",
                 "ASTVARLIBDIR",
+                "ASTDATADIR",
                 "ASTAGIDIR",
                 "ASTSPOOLDIR",
                 "ASTRUNDIR",
@@ -5052,7 +5053,7 @@ function core_do_get_config($engine) {
 
         $exten = 'screen';
         $ext->add($mcontext,$exten,'', new ext_gotoif('$["${DB(AMPUSER/${DEXTEN}/screen)}"!="nomemory" | "${CALLERID(number)}"=""]','memory'));
-        $ext->add($mcontext,$exten,'', new ext_execif('$[${REGEX("^[0-9a-zA-Z ]+$" ${CALLERID(number)})} = 1]', 'System', 'rm -f ${ASTVARLIBDIR}/sounds/priv-callerintros/${CALLERID(number)}.*'));
+        $ext->add($mcontext,$exten,'', new ext_execif('$[${REGEX("^[0-9a-zA-Z ]+$" ${CALLERID(number)})} = 1]', 'System', 'rm -f ${ASTDATADIR}/sounds/priv-callerintros/${CALLERID(number)}.*'));
         $ext->add($mcontext,$exten,'memory', new ext_set('__SCREEN', '${DB(AMPUSER/${DEXTEN}/screen)}'));
         $ext->add($mcontext,$exten,'', new ext_set('__SCREEN_EXTEN', '${DEXTEN}'));
         $ext->add($mcontext,$exten,'', new ext_set('ARG2', '${ARG2}p'));

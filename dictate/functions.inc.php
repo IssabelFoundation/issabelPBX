@@ -45,7 +45,7 @@ function dictate_dodictate($c) {
 	$ext->add($id, $c, '', new ext_gotoif('$[$["x${DICTENABLED}"="x"]|$["x${DICTENABLED}"="xdisabled"]]','nodict', 'dictok'));
 	$ext->add($id, $c, 'nodict', new ext_playback('feature-not-avail-line'));
 	$ext->add($id, $c, '', new ext_hangup(''));
-	$ext->add($id, $c, 'dictok', new ext_dictate($asterisk_conf['astvarlibdir'].'/sounds/dictate/${AMPUSER}'));
+	$ext->add($id, $c, 'dictok', new ext_dictate($asterisk_conf['astdatadir'].'/sounds/dictate/${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 }
 
@@ -67,7 +67,7 @@ function dictate_senddictate($c) {
 	$ext->add($id, $c, '', new ext_setvar('DICTFMT','${DB(AMPUSER/${AMPUSER}/dictate/format)}'));
 	$ext->add($id, $c, '', new ext_setvar('NAME','${DB(AMPUSER/${AMPUSER}/cidname)}'));
 	$ext->add($id, $c, '', new ext_playback('dictation-being-processed'));
-	$ext->add($id, $c, '', new ext_system($asterisk_conf['astvarlibdir'].'/bin/audio-email.pl --file '.$asterisk_conf['astvarlibdir'].'/sounds/dictate/${AMPUSER}/${DICTFILE}.raw --attachment dict-${DICTFILE} --format ${DICTFMT} --to ${DICTEMAIL} --subject "Dictation from ${NAME} Attached"'));
+	$ext->add($id, $c, '', new ext_system($asterisk_conf['astvarlibdir'].'/bin/audio-email.pl --file '.$asterisk_conf['astdatadir'].'/sounds/dictate/${AMPUSER}/${DICTFILE}.raw --attachment dict-${DICTFILE} --format ${DICTFMT} --to ${DICTEMAIL} --subject "Dictation from ${NAME} Attached"'));
 	$ext->add($id, $c, '', new ext_playback('dictation-sent'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 }
