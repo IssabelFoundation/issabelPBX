@@ -202,7 +202,7 @@ function tts_check_destinations($dest=true) {
         $destlist[] = array(
             'dest' => $thisdest,
             'description' => 'Text to Speech: '.$result['description'],
-            'edit_url' => 'config.php?display=tts&type=tool&id='.urlencode($thisid),
+            'edit_url' => 'config.php?display=tts&type=tool&extdisplay='.urlencode($thisid),
         );
     }
     return $destlist;
@@ -221,7 +221,7 @@ function tts_getdestinfo($dest) {
             return array();
         } else {
             return array('description' => sprintf(_("Text to Speech %s: "),$thisqid['description']),
-                         'edit_url'    => 'config.php?display=tts&id='.urlencode($id),
+                         'edit_url'    => 'config.php?display=tts&extdisplay='.urlencode($id),
                         );
         }
     } else {
