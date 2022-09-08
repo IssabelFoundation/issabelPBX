@@ -504,9 +504,9 @@ function fax_hook_core($viewing_itemid, $target_menuid){
     $fax_settings=fax_get_settings();
     //ensure that we are using destination for both fax detect and the regular calls
         $html='<script type="text/javascript">$(document).ready(function(){
-        $("input[name=Submit]").click(function(){
+        $("input[name=Submit]").on("click",function(){
             if($("input[name=faxenabled]:checked").val()=="true" && !$("[name=gotoFAX]").val()){//ensure the user selected a fax destination
-            alert('._('"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to."').');return false; }    }) });</script>';
+            sweet_alert('._('"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to."').');return false; }    }) });</script>';
         $html .= '<tr><td colspan="2"><h5>';
         $html.=_('Fax Detect');
         $html.='</h5></td></tr>';
@@ -520,10 +520,15 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 
         //dont allow detection to be set if we have no valid detection types
         if(!$fax_dahdi_faxdetect && !$fax_sip_faxdetect && !$fax_detect['nvfax']){
-            $js="if ($(this).val() == 'true'){alert('"._('No fax detection methods found or no valid license. Faxing cannot be enabled.')."');return false;}";
-            $html.='<td><span class="radioset"><input type="radio" id="faxenabled_yes" name="faxenabled" value="false" CHECKED /><label for="faxenabled_no">No</label>';
-            $html.='<input type="radio" name="faxenabled" id="faxenabled_no" value="true"  onclick="'.$js.'"/><label for="faxenabled_yes">Yes</label></span></td></tr>';
-            //$html.='</table><table>';
+            $js="if ($(this).val() == 'true'){sweet_alert('"._('No fax detection methods found or no valid license. Faxing cannot be enabled.')."');return false;}";
+            $html.='<td>';
+            $html.='<fieldset class="radio">';
+            $html.='<div class="radiotoggle">';
+            $html.='<input type="radio" id="faxenabled_yes" name="faxenabled" value="false" CHECKED /><label for="faxenabled_no">No</label>';
+            $html.='<input type="radio" name="faxenabled" id="faxenabled_no" value="true"  onclick="'.$js.'"/><label for="faxenabled_yes">Yes</label>';
+            $html.="</div>";
+            $html.="</fieldset>";
+            $html.='</td></tr>';
         }else{
             /*
              * show detection options
@@ -551,13 +556,19 @@ function fax_hook_core($viewing_itemid, $target_menuid){
                     $legacy_checked=' CHECKED ';
                 }
             }
-            $html.='<td><span class="radioset"><input type="radio" name="faxenabled" id="faxenabled_no" value="false" '.($fax['detection']!=''?'':'CHECKED').' onclick="'.$jsno.'"/><label for="faxenabled_no">' . _('No') . '</label>';
+            $html.='<td>';
+            $html.='<fieldset class="radio">';
+            $html.='<div class="radiotoggle">';
+            $html.='<input type="radio" name="faxenabled" id="faxenabled_no" value="false" '.($fax['detection']!=''?'':'CHECKED').' onclick="'.$jsno.'"/><label for="faxenabled_no">' . _('No') . '</label>';
             $html.='<input type="radio" name="faxenabled" id="faxenabled_yes" value="true" '.($fax['detection']!=''?'CHECKED':'').' onclick="'.$jsyes.'"/><label for="faxenabled_yes">' . _('Yes') . '</label>';
             if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){
                 $html.='<input type="radio" name="faxenabled" id="faxenabled_legacy" value="legacy" '.$legacy_checked.' onclick="'.$jslegacy.'"/><label for="faxenabled_legacy">' . _('Legacy');
             }
-      $html.='</td></tr>';
-            //$html.='</table>';
+
+            $html.="</div>";
+            $html.="</fieldset>";
+
+            $html.='</td></tr>';
         }
         //fax detection+destinations, hidden if there is fax is disabled
         $info=engine_getinfo();
@@ -578,7 +589,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
         $html.='</select></td></tr>';
         if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){
             $html.='<tr class="legacyemail"'.($legacy_checked=='' ? ' style="display: none;"':'').'><td><a href="#" class="info">'._("Fax Email Destination").'<span>'._('Address to email faxes to on fax detection.<br />PLEASE NOTE: In this version of IssabelPBX, you can now set the fax destination from a list of destinations. Extensions/Users can be fax enabled in the user/extension screen and set an email address there. This will create a new destination type that can be selected. To upgrade this option to the full destination list, select YES to Detect Faxes and select a destination. After clicking submit, this route will be upgraded. This Legacy option will no longer be available after the change, it is provided to handle legacy migrations from previous versions of IssabelPBX only.').'.</span></a></td>';
-            $html.='<td><input name="legacy_email" value="'.$fax['legacy_email'].'" class="w100"></td></tr>';
+            $html.='<td><input name="legacy_email" value="'.$fax['legacy_email'].'" class="w100 input"></td></tr>';
     }
         $html.='<tr class="faxdest27 faxdetect faxdest" '.($fax['detection']!='' && $legacy_checked==''?'':'style="display: none;"').'><td><a href="#" class="info">'._("Fax Destination").'<span>'._('Where to send the call if we detect that its a fax').'.</span></a></td>';
         $html.='<td>';
