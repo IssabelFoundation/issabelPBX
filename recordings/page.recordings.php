@@ -458,8 +458,10 @@ function recording_editpage($id, $num, $warn_message='') {
         <a href="#" class="info"><?php echo _("Usage List");?><span><?php echo _("This recording is being used in the following instances. You can not remove this recording while being used. To re-record, you can enable and use the feature code below if allowed.");?></span></a>
 <?php
         $count = 0;
+
+
         foreach ($usage_list as $link) {
-            $label = '<span><img width="16" height="16" border="0" title="'.$link['description'].'" alt="" src="assets/recordings/images/application_link.png"/>&nbsp;'.$link['description'].'</span>';
+            $label = '<span><i class="fa fa-link mr-1"></i>'.$link['description'].'</span>';
             echo "<br /><a href=".$link['url_query'].">".$label."</a>";
         }
     } else {
@@ -514,7 +516,6 @@ function recording_editpage($id, $num, $warn_message='') {
         $("#sysrec'.$counter.'").parent().one("mouseover", function(){
             $selectload = $("#selectload'.$counter.'").show(80,function(){
                 $("#sysrec'.$counter.'").empty().append($optlist.clone()).val($("#sysrecval'.$counter.'").val());
-                //$("#sysrec'.$counter.'").chosen({search_contains: true, no_results_text: "No Recordings Found", allow_single_deselect: true});
                 $("#sysrec'.$counter.'").trigger("chosen:updated");
                 $(this).hide();
             });
@@ -622,7 +623,7 @@ function recording_editpage($id, $num, $warn_message='') {
         var $optlist = $("#sysrec0 option");
         //$(".slclass").css({ visibility: "visible" }).hide();
         $(".slclass").css("visibility", "visible").hide();
-        $(".autofill").width($reclist.width()).chosen({search_contains: true, no_results_text: "No Recordings Found", allow_single_deselect: true});
+        $(".autofill").width($reclist.width()).chosen({search_contains: true, no_results_text: '<?php echo _("No Recordings Found")?>', allow_single_deselect: true, placeholder_text_single: ipbx.msg.framework.selectoption});
         <?php echo $jq_autofill; ?>
     });
 
