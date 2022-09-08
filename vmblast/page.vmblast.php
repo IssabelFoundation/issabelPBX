@@ -19,7 +19,7 @@ $vmblast_list   = isset($_REQUEST['vmblast_list'])  ? $_REQUEST['vmblast_list'] 
 if(isset($_REQUEST['action'])){
 	//check if the extension is within range for this user
 	if (isset($account) && !checkRange($account)){
-		echo "<script>javascript:alert('". _("Warning! Extension")." ".$account." "._("is not allowed for your account").".');</script>";
+		echo "<script>javascript:sweet_alert('". _("Warning! Extension")." ".$account." "._("is not allowed for your account").".');</script>";
 	} else {
 		//add group
 		if ($action == 'addGRP') {
@@ -261,7 +261,7 @@ function checkGRP(theForm) {
 	}
 	if (selected < 1) {
     theForm.xtnlist.focus();
-		alert(msgInvalidExtList);
+		sweet_alert(msgInvalidExtList);
 		return false;
 	}
 
