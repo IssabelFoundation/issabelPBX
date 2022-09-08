@@ -232,16 +232,6 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
     </td>
     <td>
 <?php echo ipbx_radio('nat',array(array('value'=>'yes','text'=>mb_strtolower(dgettext('amp','Yes'))),array('value'=>'no','text'=>mb_strtolower(dgettext('amp','No'))),array('value'=>'never','text'=>mb_strtolower(dgettext('amp','Never'))),array('value'=>'route','text'=>mb_strtolower(dgettext('amp','route')))),$nat,false); ?>
-			<!--span class="radioset">
-            <input id="nat-yes" type="radio" name="nat" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat=="yes"?"checked=\"yes\"":""?>/>
-            <label for="nat-yes">yes</label>
-            <input id="nat-no" type="radio" name="nat" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat=="no"?"checked=\"no\"":""?>/>
-            <label for="nat-no">no</label>
-            <input id="nat-never" type="radio" name="nat" value="never" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat=="never"?"checked=\"never\"":""?>/>
-            <label for="nat-never">never</label>
-            <input id="nat-route" type="radio" name="nat" value="route" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat=="route"?"checked=\"route\"":""?>/>
-            <label for="nat-route">route</label>
-			</span-->
     </td>
   </tr>
 
@@ -426,17 +416,8 @@ echo '</ul>';
     <td>
       <table width="100%">
         <tr>
-          <td>
-			<span class="radioset">
-            <input id="canreinvite-yes" type="radio" name="canreinvite" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $canreinvite=="yes"?"checked=\"yes\"":""?>/>
-            <label for="canreinvite-yes"><?php echo _("yes") ?></label>
-            <input id="canreinvite-no" type="radio" name="canreinvite" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $canreinvite=="no"?"checked=\"no\"":""?>/>
-            <label for="canreinvite-no"><?php echo _("no") ?></label>
-            <input id="canreinvite-nonat" type="radio" name="canreinvite" value="nonat" tabindex="<?php echo ++$tabindex;?>"<?php echo $canreinvite=="nonat"?"checked=\"nonat\"":""?>/>
-            <label for="canreinvite-nonat">nonat</label>
-            <input id="canreinvite-update" type="radio" name="canreinvite" value="update" tabindex="<?php echo ++$tabindex;?>"<?php echo $canreinvite=="update"?"checked=\"update\"":""?>/>
-            <label for="canreinvite-update">update</label>
-			</span>
+	  <td>
+<?php echo ipbx_radio('canreinvite',array(array('value'=>'yes','text'=>_("yes")),array('value'=>'no','text'=>_("no")),array('value'=>'nonat','text'=>_('nonat')),array('value'=>'update','text'=>_('update'))),$canreinvite,false); ?>
           </td>
         </tr>
       </table>
@@ -448,9 +429,9 @@ echo '</ul>';
       <a href="#" class="info"><?php echo _("RTP Timers")?><span><?php echo _("Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP activity on the audio channel when we're not on hold. This is to be able to hangup a call in the case of a phone disappearing from the net, like a powerloss or someone tripping over a cable.<br /> Asterisk: rtpholdtimeout. Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the audio channel when we're on hold (must be > rtptimeout). <br /> Asterisk: rtpkeepalive. Send keepalives in the RTP stream to keep NAT open during periods where no RTP stream may be flowing (like on hold).")?></span></a>
     </td>
     <td>
-      <input type="text" size="3" id="rtptimeout" name="rtptimeout" class="validate-int" value="<?php echo $rtptimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtptimeout)</small>&nbsp;
-      <input type="text" size="3" id="rtpholdtimeout" name="rtpholdtimeout" class="validate-int" value="<?php echo $rtpholdtimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpholdtimeout)</small>&nbsp;
-      <input type="text" size="3" id="rtpkeepalive" name="rtpkeepalive" class="validate-int" value="<?php echo $rtpkeepalive ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpkeepalive)</small>
+      <input type="text" class="valueinput" style="width:3em;" id="rtptimeout" name="rtptimeout" class="validate-int" value="<?php echo $rtptimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtptimeout)</small>&nbsp;
+      <input type="text" class="valueinput" style="width:3em;" id="rtpholdtimeout" name="rtpholdtimeout" class="validate-int" value="<?php echo $rtpholdtimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpholdtimeout)</small>&nbsp;
+      <input type="text" class="valueinput" style="width:3em;" id="rtpkeepalive" name="rtpkeepalive" class="validate-int" value="<?php echo $rtpkeepalive ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpkeepalive)</small>
     </td>
   </tr>
   
@@ -459,8 +440,8 @@ echo '</ul>';
 		  <a href="#" class="info"><?php echo _("RTP Port Ranges")?><span><?php echo _("Asterisk: rtpstart. The starting RTP port range.<br /> Asterisk: rtpend. The ending RTP port range.")?></span></a>
 	  </td>
 	  <td>
-		  <input type="text" size="5" id="rtpstart" name="rtpstart" class="validate-int" value="<?php echo !empty($rtpstart) ? $rtpstart : '10000' ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpstart)</small>&nbsp;
-		  <input type="text" size="5" id="rtpend" name="rtpend" class="validate-int" value="<?php echo !empty($rtpend) ? $rtpend : '20000' ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpend)</small>&nbsp;
+		  <input type="text" class="valueinput" style="width:4em;" id="rtpstart" name="rtpstart" class="validate-int" value="<?php echo !empty($rtpstart) ? $rtpstart : '10000' ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpstart)</small>&nbsp;
+		  <input type="text" class="valueinput" style="width:4em;" id="rtpend" name="rtpend" class="validate-int" value="<?php echo !empty($rtpend) ? $rtpend : '20000' ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpend)</small>&nbsp;
 	  </td>
   </tr>
 
@@ -472,7 +453,7 @@ echo '</ul>';
     <td>
       <a href="#" class="info"><?php echo _("MWI Polling Freq")?><span><?php echo _("Frequency in seconds to check if MWI state has changed and inform peers.")?></span></a>
     </td>
-    <td><input type="text" size="4" id="checkmwi" name="checkmwi" class="validate-int" value="<?php echo $checkmwi ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+    <td><input type="text" class="valueinput" style="width:3em;" id="checkmwi" name="checkmwi" class="validate-int" value="<?php echo $checkmwi ?>" tabindex="<?php echo ++$tabindex;?>"></td>
   </tr>
 
   <tr>
@@ -482,13 +463,8 @@ echo '</ul>';
     <td>
       <table width="100%">
         <tr>
-          <td>
-			<span class="radioset">
-            <input id="notifyringing-yes" type="radio" name="notifyringing" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyringing=="yes"?"checked=\"yes\"":""?>/>
-            <label for="notifyringing-yes"><?php echo _("Yes") ?></label>
-            <input id="notifyringing-no" type="radio" name="notifyringing" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyringing=="no"?"checked=\"no\"":""?>/>
-            <label for="notifyringing-no"><?php echo _("No") ?></label>
-			</span>
+	  <td>
+            <?php echo ipbx_radio('notifyringing',array(array('value'=>'yes','text'=>_("yes")),array('value'=>'no','text'=>_("no"))),$notifyringing,false); ?>
           </td>
         </tr>
       </table>
@@ -503,12 +479,7 @@ echo '</ul>';
       <table width="100%">
         <tr>
           <td>
-			<span class="radioset">
-            <input id="notifyhold-yes" type="radio" name="notifyhold" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyhold=="yes"?"checked=\"yes\"":""?>/>
-            <label for="notifyhold-yes"><?php echo _("Yes") ?></label>
-            <input id="notifyhold-no" type="radio" name="notifyhold" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $notifyhold=="no"?"checked=\"no\"":""?>/>
-            <label for="notifyhold-no"><?php echo _("No") ?></label>
-			</span>
+            <?php echo ipbx_radio('notifyhold',array(array('value'=>'yes','text'=>_("yes")),array('value'=>'no','text'=>_("no"))),$notifyhold,false); ?>
           </td>
         </tr>
       </table>
