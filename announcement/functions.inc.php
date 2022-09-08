@@ -277,7 +277,8 @@ function announcement_change_destination($old_dest, $new_dest) {
 }
 
 function tts_enabled() {
-    if(file_exists('/var/lib/asterisk/agi-bin/picotts.agi')) {
+    global $amp_conf;
+    if(file_exists($amp_conf['ASTDATADIR'].'/agi-bin/picotts.agi')) {
         return true;
     } else {
         return false;
