@@ -1,6 +1,6 @@
 var myCodeMirror;
 
-$(document).ready(function() {
+up.compiler('.content', function(element,data) {})
     if($('#ttstext').length>0) {
         myCodeMirror = CodeMirror.fromTextArea($('#ttstext')[0],{
           lineNumbers: true,
