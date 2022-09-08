@@ -134,8 +134,8 @@ if(!isset($variables_custom_val_0)) { $variables_custom_val_0=''; }
             <a href="#" class="info"><?php echo _("Other Variables")?><span><?php echo _("You may set any other variables that will be set for the channel, with any name and value you want, as using Set() directly from the dialplan. They should be entered as:<br /> [variable] = [value]<br /> in the boxes below. Click the Add Variable box to add additional variables. Blank boxes will be deleted when submitted.")?></span></a>
         </td>
         <td>
-            <input type="text" id="variables_custom_key_0" name="variables_custom_key_0" class="input variables-custom" value="<?php echo $variables_custom_key_0 ?>" tabindex="<?php echo ++$tabindex;?>"> =
-            <input type="text" id="variables_custom_val_0" name="variables_custom_val_0" class="input" value="<?php echo $variables_custom_val_0 ?>" tabindex="<?php echo ++$tabindex;?>">
+            <input type="text" id="variables_custom_key_0" name="variables_custom_key_0" class="valueinput variables-custom" value="<?php echo $variables_custom_key_0 ?>" tabindex="<?php echo ++$tabindex;?>"> =
+            <input type="text" id="variables_custom_val_0" name="variables_custom_val_0" class="valueinput" value="<?php echo $variables_custom_val_0 ?>" tabindex="<?php echo ++$tabindex;?>">
         </td>
     </tr>
 
@@ -208,8 +208,8 @@ function addCustomField(key, val) {
     <td>\
     </td>\
     <td>\
-      <input type="text" id="variables_custom_key_'+idx+'" name="variables_custom_key_'+idx+'" class="input variables-custom" value="'+key+'" tabindex="'+tabindex+'"> =\
-      <input type="text" id="variables_custom_val_'+idx+'" name="variables_custom_val_'+idx+'" class="input" value="'+val+'" tabindex="'+tabindexp+'">\
+      <input type="text" id="variables_custom_key_'+idx+'" name="variables_custom_key_'+idx+'" class="valueinput variables-custom" value="'+key+'" tabindex="'+tabindex+'"> =\
+      <input type="text" id="variables_custom_val_'+idx+'" name="variables_custom_val_'+idx+'" class="valueinput" value="'+val+'" tabindex="'+tabindexp+'">\
     </td>\
   </tr>\
   ');
