@@ -53,8 +53,8 @@ msgstr "El módulo Motores de texto al habla le permite agregar diferentes motor
 msgid "Edit Text to Speech Engine"
 msgstr "Modificar motor de texto al habla: "
 
-msgid "Edit Text to Speech Instance"
-msgstr "Modificar instancia de texto al habla: "
+msgid "Edit Text to Speech"
+msgstr "Modificar texto al habla: "
 
 msgid "Description"
 msgstr "Descripción"

@@ -83,7 +83,7 @@ if ($extdisplay) {
 $helptext = _("The Text to Speech module allows you to add text to speech (TTS) instances on your PBX. You enter text to be read by a computer voice. When a TTS instance is entered as a destination in your call path, the system will play the text entered using the selected TTS engine. Then the call will then continue on to the target destination defined in the instance.");
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 echo "<div class='is-flex'><h2>";
-echo ($extdisplay ? _("Edit Text to Speech")." $description" : _("Add Text to Speech"));
+echo ($extdisplay ? _("Edit Text to Speech").": $description" : _("Add Text to Speech"));
 echo "</h2>$help</div>";
 
 $usage_list = framework_display_destination_usage(tts_getdest($extdisplay));
