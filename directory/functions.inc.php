@@ -587,7 +587,7 @@ function directory_check_destinations($dest=true) {
         $destlist[]    = array(
             'dest' => $thisdest,
             'description' => sprintf(_("Directory: %s "), ($result['dirname'] ? $result['dirname'] : $result['id'])),
-            'edit_url' => 'config.php?display=directory&id=' . urlencode($result['id']),
+            'edit_url' => 'config.php?display=directory&extdisplay=' . urlencode($result['id']),
         );
     }
     return $destlist;
@@ -612,7 +612,7 @@ function directory_getdestinfo($dest) {
             return array();
         } else {
             return array('description' => sprintf(_("Directory %s: "), ($thisdir['dirname'] ? $thisdir['dirname'] : $id)),
-                         'edit_url' => 'config.php?display=directory&id=' . urlencode($id),
+                         'edit_url' => 'config.php?display=directory&extdisplay=' . urlencode($id),
                     );
         }
     } else {
@@ -640,7 +640,7 @@ function directory_recordings_usage($recording_id) {
         //$type = isset($active_modules['ivr']['type'])?$active_modules['ivr']['type']:'setup';
         foreach ($results as $result) {
             $usage_arr[] = array(
-                'url_query' => 'config.php?display=directory&id=' . urlencode($result['id']),
+                'url_query' => 'config.php?display=directory&extdisplay=' . urlencode($result['id']),
                 'description' => sprintf(_("Directory: %s"), ($result['dirname'] ? $result['dirname'] : $result['id'])),
             );
         }

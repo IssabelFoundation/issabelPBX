@@ -80,7 +80,7 @@ function dynroute_getdestinfo($dest) {
 			return array();
 		} else {
 			return array('description' => sprintf(_("Route: %s"),$thisexten['displayname']),
-			             'edit_url' => 'config.php?display=dynroute&action=edit&id='.urlencode($exten),
+			             'edit_url' => 'config.php?display=dynroute&action=edit&extdisplay='.urlencode($exten),
 								  );
 		}
 	} else {
@@ -97,7 +97,7 @@ function dynroute_recordings_usage($recording_id) {
                 //$type = isset($active_modules['dynroute']['type'])?$active_modules['dynroute']['type']:'setup';
                 foreach ($results as $result) {
                         $usage_arr[] = array(
-                                'url_query' => 'config.php?display=dynroute&action=edit&id='.urlencode($result['dynroute_id']),
+                                'url_query' => 'config.php?display=dynroute&action=edit&extdisplay='.urlencode($result['dynroute_id']),
                                 'description' => sprintf(_("Dynamic route: %s"),$result['displayname']),
                         );
                 }
@@ -421,7 +421,7 @@ function dynroute_check_destinations($dest=true) {
 		$destlist[] = array(
 			'dest' => $thisdest,
 			'description' => sprintf(_("Route: %s / Destination: %s"),$result['displayname'],$sel),
-			'edit_url' => 'config.php?display=dynroute&action=edit&id='.urlencode($thisid),
+			'edit_url' => 'config.php?display=dynroute&action=edit&extdisplay='.urlencode($thisid),
 		);
 	}
 	return $destlist;
