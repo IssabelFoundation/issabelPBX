@@ -165,10 +165,10 @@ msgstr ""
 "'incoming' ou à 'both' dans "
 
 msgid ""
-"Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
+"SIP: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
 msgstr ""
-"Sip: utiliser la détection de fax via sip (t38). Requiert asterisk 1.6.2 ou "
+"SIP: utiliser la détection de fax via sip (t38). Requiert asterisk 1.6.2 ou "
 "supérieur et la variable 'faxdetect=yes' dans le fichier de configuration sip"
 
 msgid ""
@@ -181,8 +181,8 @@ msgstr ""
 msgid "NVFax"
 msgstr "NVFax"
 
-msgid "Sip"
-msgstr "Sip"
+msgid "SIP"
+msgstr "SIP"
 
 msgid "Fax Detection Time"
 msgstr "Durée de détection"

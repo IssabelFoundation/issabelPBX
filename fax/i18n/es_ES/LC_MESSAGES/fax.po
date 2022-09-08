@@ -112,8 +112,8 @@ msgstr "usar "
 msgid " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr " detección de fax; requiere que 'faxdetect=' se configure como 'incoming' o 'both' en "
 
-msgid "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files"
-msgstr "Sip: usar detección de fax SIP (t38). Requiere asterisk 1.6.2 o superior y faxdetect=yes en sip.conf"
+msgid "SIP: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files"
+msgstr "SIP: usar detección de fax SIP (t38). Requiere asterisk 1.6.2 o superior y faxdetect=yes en sip.conf"
 
 msgid "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk"
 msgstr "NV Fax Detect: Utilizar detección de Fax NV. Requiere que el módulo NV esté instalado y funcionando"
@@ -121,8 +121,8 @@ msgstr "NV Fax Detect: Utilizar detección de Fax NV. Requiere que el módulo NV
 msgid "NVFax"
 msgstr "NVFax"
 
-msgid "Sip"
-msgstr "Beber"
+msgid "SIP"
+msgstr "SIP"
 
 msgid "Fax Detection Time"
 msgstr "Duración de Detección de Fax"

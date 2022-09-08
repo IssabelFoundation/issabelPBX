@@ -572,12 +572,12 @@ function fax_hook_core($viewing_itemid, $target_menuid){
         }
         //fax detection+destinations, hidden if there is fax is disabled
         $info=engine_getinfo();
-        $html.='<tr class=faxdetect '.($fax['detection']==''?'style="display: none;"':'').'><td><a href="#" class="info">'._('Fax Detection type').'<span>'._("Type of fax detection to use.")."<ul><li>".$dahdi.": "._("use ").$dahdi._(" fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in ").$dahdi.".conf</li><li>"._("Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files")."</li><li>"._("NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk")."</li></ul>".'.</span></a></td>';
+        $html.='<tr class=faxdetect '.($fax['detection']==''?'style="display: none;"':'').'><td><a href="#" class="info">'._('Fax Detection type').'<span>'._("Type of fax detection to use.")."<ul><li>".$dahdi.": "._("use ").$dahdi._(" fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in ").$dahdi.".conf</li><li>"._("SIP: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files")."</li><li>"._("NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk")."</li></ul>".'.</span></a></td>';
         $html.='<td><select name="faxdetection" tabindex="'.++$tabindex.'" class="componentSelect">';
         //$html.='<option value="Auto"'.($faxdetection == 'auto' ? 'SELECTED' : '').'>'. _("Auto").'</option>';<li>Auto: allow the system to chose the best fax detection method</li>
         $html.='<option value="dahdi" '.($fax['detection'] == 'dahdi' ? 'SELECTED' : '').' '.($fax_dahdi_faxdetect?'':'disabled').'>'.$dahdi.'</option>';
         $html.='<option value="nvfax"'.($fax['detection'] == 'nvfax' ? 'SELECTED' : '').($fax_detect['nvfax']?'':'disabled').'>'. _("NVFax").'</option>';
-        $html.='<option value="sip" '.($fax['detection'] == 'sip' ? 'SELECTED' : '').' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>'. _("Sip").'</option>';
+        $html.='<option value="sip" '.($fax['detection'] == 'sip' ? 'SELECTED' : '').' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>'. _("SIP").'</option>';
         $html.='</select></td></tr>';
 
         $html.='<tr class="faxdetect" '.($fax['detection']==''?'style="display: none;"':'').'><td><a href="#" class="info">'._("Fax Detection Time").'<span>'.dgettext('fax','How long to wait and try to detect fax. Please note that callers to a ').$dahdi.dgettext('fax',' channel will hear ringing for this amount of time (i.e. the system wont "answer" the call, it will just play ringing)').'.</span></a></td>';

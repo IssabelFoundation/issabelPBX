@@ -146,7 +146,7 @@ msgid ""
 msgstr "传真检测，要求faxdetect 设置成 incoming 或者 both"
 
 msgid ""
-"Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
+"SIP: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
 msgstr ""
 
@@ -158,7 +158,7 @@ msgstr ""
 msgid "NVFax"
 msgstr ""
 
-msgid "Sip"
+msgid "SIP"
 msgstr "SIP协议"
 
 msgid "Fax Detection Time"
