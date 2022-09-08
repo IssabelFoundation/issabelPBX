@@ -121,7 +121,7 @@ function writequeuelog_check_destinations($dest=true) {
         $destlist[] = array(
             'dest' => $thisdest,
             'description' => 'Write Queue Log: '.$result['description'],
-            'edit_url' => 'config.php?display=writequeuelog&type=tool&id='.urlencode($thisid),
+            'edit_url' => 'config.php?display=writequeuelog&type=tool&extdisplay='.urlencode($thisid),
         );
     }
     return $destlist;
@@ -140,7 +140,7 @@ function writequeuelog_getdestinfo($dest) {
             return array();
         } else {
             return array('description' => sprintf(_("Write Queue Log %s: "),$thisqid['description']),
-                         'edit_url'    => 'config.php?display=writequeuelog&id='.urlencode($id),
+                         'edit_url'    => 'config.php?display=writequeuelog&extdisplay='.urlencode($id),
                         );
         }
     } else {
