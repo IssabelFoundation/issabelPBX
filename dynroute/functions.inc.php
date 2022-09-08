@@ -281,7 +281,8 @@ function dynroute_do_edit($id, $post) {
         if (!empty($enable_dtmf_input)) {
                 $enable_dtmf_input='CHECKED';
         }
-        $timeout = isset($post['timeout'])?$post['timeout']:'';
+        $timeout = isset($post['timeout'])?$post['timeout']:10;
+        if($timeout=='') $timeout=10;
         $chan_var_name = isset($post['chan_var_name'])?$post['chan_var_name']:'';
         $chan_var_name_res = isset($post['chan_var_name_res'])?$post['chan_var_name_res']:'';
 
