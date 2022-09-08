@@ -151,22 +151,24 @@ class connectdirs {
                     $f = $amp_conf['ASTETCDIR'].'/backup/'.basename($dest).".bk.".time();
                     rename($dest,$f);
                     if (!symlink($src, $dest)) {
-                        issabelpbx_log(IPBX_LOG_ERROR, 'Cannot symlink '.$src.' to '.$dest.'. Check Permissions?');
+                        issabelpbx_log(IPBX_LOG_ERROR, sprintf(_("Cannot symlink %s to %s. Check Permissions."),$src,$dest));
                     } else {
                         $this->symlink_notice_modules .= "<br />&nbsp;&nbsp;&nbsp;".$dest;
                     }
                 } else {
-                    issabelpbx_log(IPBX_LOG_ERROR, $dest.' already exists, and is not a symlink!');
-                    $this->symlink_error_modules .= "<br />&nbsp;&nbsp;&nbsp;".$dest." from ".basename($moduledir)."/".$subdir." (Already exists, not a link)";
+                    issabelpbx_log(IPBX_LOG_ERROR, sprintf(_("%s already exists, and it is not a symlink!"),$dest));
+                    $this->symlink_error_modules .= "<br />&nbsp;&nbsp;&nbsp;";
+                    $this->symlink_error_modules .= sprintf(_("%s from %s/%s (Already exists, not a link)"),$dest,basename($moduledir),$subdir);
                 }
             } else if (readlink($dest) != $src) {
                 //users need to be aware of symlink conflicts. We should attempt to resolve them properly though. So lets do that.
-                issabelpbx_log(IPBX_LOG_ERROR, $dest.' already exists, and is linked to something else!');
-                $this->symlink_error_modules .= "<br />&nbsp;&nbsp;&nbsp;".$dest." from ".basename($moduledir)."/".$subdir." (Already exists, linked to something else)";
+                issabelpbx_log(IPBX_LOG_ERROR, sprintf(_('%s already exists, and is linked to something else!'),$dest));
+                $this->symlink_error_modules .= "<br />&nbsp;&nbsp;&nbsp;";
+                $this->symlink_error_modules .= sprintf(_("%s from %s/%s (Already exists, linked to something else)"),$dest,basename($moduledir),$subdir);
             }
         } else {
             if (!symlink($src, $dest)) {
-                issabelpbx_log(IPBX_LOG_ERROR, 'Cannot symlink '.$src.' to '.$dest.'. Check Permissions?');
+                issabelpbx_log(IPBX_LOG_ERROR, sprintf(_("Cannot symlink %s to %s. Check Permissions."),$src,$dest));
             }
         }
     }

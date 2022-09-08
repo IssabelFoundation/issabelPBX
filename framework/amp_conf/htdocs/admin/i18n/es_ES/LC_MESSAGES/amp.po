@@ -7675,3 +7675,21 @@ msgstr "Configuración de idioma general para IssabelPBX"
 
 msgid "Choose a file..."
 msgstr "Escoja un archivo..."
+
+msgid "Symlink from modules failed"
+msgstr "Fallo al general enlaces simbólicos de módulos"
+
+msgid "Cannot symlink %s to %s. Check Permissions."
+msgstr "No se pudo enlazar %s a %s. Verifique permisos."
+
+msgid "%s already exists, and it is not a symlink!"
+msgstr "%s ya existe y no es un enlace simbólico!"
+
+msgid "%s from %s/%s (Already exists, not a link)"
+msgstr "%s a %s/%s (Ya existe, no es un enlace)"
+
+msgid "%s already exists, and is linked to something else!"
+msgstr "%s ya existe y está enlazado a otra cosa!"
+
+msgid "%s from %s/%s (Already exists, linked to something else)"
+msgstr "%s a %s/%s (Ya existe, enlazado a otra cosa)"
