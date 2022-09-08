@@ -5,7 +5,6 @@
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <type>setup</type>
-    <repo>standard</repo>
     <category>Connectivity</category>
 	<version>2.11.17</version>
     <description>
