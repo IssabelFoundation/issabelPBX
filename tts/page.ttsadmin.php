@@ -65,7 +65,7 @@ $commands = array(
 'flite'=>'/usr/bin/flite',
 'azure'=>'/var/lib/asterisk/agi-bin/azuretts.php',
 'google'=>'/var/lib/asterisk/agi-bin/googlewave.php',
-'custom'=>'path/to/custom/script "{TEXT}" {OUTPUTFILE}'
+'custom'=>'/var/lib/asterisk/agi-bin/googletts.pl "{TEXT}" en 1.2 {OUTPUTFILE}'
 );
 
 echo "<script>";

@@ -102,7 +102,7 @@ if($engine == "google") {
 }
 
 
-$soundsdir = $config["ASTVARLIBDIR"]."/sounds/tts";
+$soundsdir = $config["ASTDATADIR"]."/sounds/tts";
 if( !is_dir($soundsdir) ) mkdir($soundsdir, 0775);
 
 $wavefile = $soundsdir."/$engine-tts-$hash.".$format['ext'];
@@ -139,19 +139,19 @@ if ( !file_exists($wavefile) ) {
             exec($finalcmd);
             break;
         case 'azure':
-            $finalcmd = $cmd." --text '$text' --file /var/lib/asterisk/sounds/tts/$engine-tts-$hash ";
+            $finalcmd = $cmd." --text '$text' --file $soundsdir/$engine-tts-$hash ";
                         foreach($json_parameters as $key=>$val) {
                             $finalcmd .= "--$key $val ";
                         }
             exec($finalcmd);
         case 'google':
-            $finalcmd = $cmd." --text '$text' --file /var/lib/asterisk/sounds/tts/$engine-tts-$hash ";
+            $finalcmd = $cmd." --text '$text' --file $soundsdir/$engine-tts-$hash ";
                         foreach($json_parameters as $key=>$val) {
                             $finalcmd .= "--$key $val ";
                         }
             exec($finalcmd);
         case 'polly':
-            $finalcmd = $cmd." --mp3=/var/lib/asterisk/sounds/tts/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/tts/$engine-tts-temp-$hash ";
+            $finalcmd = $cmd." --mp3=$soundsdir/$engine-tts-$hash.mp3 --text='$text' --wav=$soundsdir/$engine-tts-temp-$hash ";
                         foreach($json_parameters as $key=>$val) {
                             $finalcmd .= "--$key=".escapeshellarg($val)." ";
                         }
@@ -159,7 +159,7 @@ if ( !file_exists($wavefile) ) {
         case 'custom':
             $finalcmd = $cmd;
                         $finalcmd = preg_replace("/{TEXT}/",$text,$finalcmd);
-                        $finalcmd = preg_replace("/{OUTPUTFILE}/","/var/lib/asterisk/sounds/tts/$engine-tts-$hash",$finalcmd);
+                        $finalcmd = preg_replace("/{OUTPUTFILE}/","$soundsdir/$engine-tts-$hash",$finalcmd);
             exec($finalcmd);
             break;
         default:
