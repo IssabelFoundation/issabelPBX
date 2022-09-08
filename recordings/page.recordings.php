@@ -434,6 +434,7 @@ function recording_editpage($id, $num, $warn_message='') {
     global $fcode_pass;
     global $recordings_astsnd_path;
     global $tabindex;
+    global $asterisk_conf;
     $extdisplay=$id;
     $tabindex=1;
 ?>
@@ -652,36 +653,6 @@ function recording_sidebar($id, $num) {
         $rnaventries[] = array($tresult[0],$tresult[1],'','',"&usersnum=".urlencode($num)."&action=edit");
     }
     drawListMenu($rnaventries, $type, $display, $extdisplay);
-
-?>
-        <!--div class="rnav"><ul>
-        <li><a class="<?php echo empty($id)?'current':'nul' ?>" href="config.php?display=recordings&amp;usersnum=<?php echo urlencode($num) ?>"><?php echo _("Add System Recording")?></a></li>
-        <li><a class="<?php echo ($id===-1)?'current':'nul' ?>" href="config.php?display=recordings&amp;action=system"><?php echo _("Built-in Recordings")?></a></li>
-<?php
-        $wrapat = 18;
-        $tresults = recordings_list();
-        if (isset($tresults)){
-                foreach ($tresults as $tresult) {
-                        echo "<li>";
-                        echo "<a class=\"".($id==$tresult[0] ? 'current':'nul')."\" href=\"config.php?display=recordings&amp;";
-                        echo "action=edit&amp;";
-                        echo "usersnum=".urlencode($num)."&amp;";
-//                        echo "filename=".urlencode($tresult[2])."&amp;";
-                        echo "id={$tresult[0]}\">";
-                        $dispname = $tresult[1];
-                        while (strlen($dispname) > (1+$wrapat)) {
-                            $part = substr($dispname, 0, $wrapat);
-                            echo htmlspecialchars($part);
-                            $dispname = substr($dispname, $wrapat);
-                            if ($dispname != '')
-                                echo "<br>";
-                        }
-                        echo htmlspecialchars($dispname);
-                        echo "</a>";
-                        echo "</li>\n";
-                }
-        }
-        echo "</ul></div-->\n";
 }
 
 function recordings_popup_jscript() {
@@ -725,6 +696,7 @@ function recordings_form_jscript() {
 }
 
 function recording_sysfiles() {
+    global $asterisk_conf;
     $astsnd = isset($asterisk_conf['astdatadir'])?$asterisk_conf['astdatadir']:'/var/lib/asterisk';
     $astsnd .= "/sounds/";
     $sysrecs = recordings_readdir($astsnd, strlen($astsnd)+1);
@@ -752,6 +724,7 @@ function recording_sysfiles() {
 function recordings_display_sndfile($item, $count, $max, $astpath, $fcode) {
     global $default_pos;
     global $amp_conf;
+    global $asterisk_conf;
 
     $disabled_state = $fcode == 0 ? "" : "disabled='true' ";
     $hidden_state = $fcode == 0 ? "" : "style='visibility:hidden' ";
