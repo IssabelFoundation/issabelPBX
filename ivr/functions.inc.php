@@ -749,7 +749,7 @@ function ivr_check_destinations($dest=true) {
         $destlist[] = array(
             'dest' => $thisdest,
             'description' => sprintf(_("IVR: %s / Option: %s"),$name,$result['selection']),
-            'edit_url' => 'config.php?display=ivr&action=edit&id='.urlencode($thisid),
+            'edit_url' => 'config.php?display=ivr&action=edit&extdisplay='.urlencode($thisid),
         );
     }
     return $destlist;
@@ -782,7 +782,7 @@ function ivr_getdestinfo($dest) {
         } else {
             //$type = isset($active_modules['ivr']['type'])?$active_modules['ivr']['type']:'setup';
             return array('description' => sprintf(_("IVR: %s"), ($thisexten['name'] ? $thisexten['name'] : $thisexten['id'])),
-                         'edit_url' => 'config.php?display=ivr&action=edit&id='.urlencode($exten),
+                         'edit_url' => 'config.php?display=ivr&action=edit&extdisplay='.urlencode($exten),
                                   );
         }
     } else {
@@ -800,7 +800,7 @@ function ivr_recordings_usage($recording_id) {
     } else {
         foreach ($results as $result) {
             $usage_arr[] = array(
-                'url_query' => 'config.php?display=ivr&action=edit&id='.urlencode($result['id']),
+                'url_query' => 'config.php?display=ivr&action=edit&extdisplay='.urlencode($result['id']),
                 'description' => sprintf(_("IVR: %s"), ($result['name'] ? $result['name'] : $result['id'])),
             );
         }
