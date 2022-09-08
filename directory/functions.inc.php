@@ -428,6 +428,8 @@ function directory_save_dir_details($vals){
     }
 
     if ($vals['id']) {
+        unset($vals['def_dir']);
+        unset($vals['extdisplay']);
         $sql = 'REPLACE INTO directory_details (id,dirname,description,announcement,
                 callid_prefix,alert_info,repeat_loops,repeat_recording,
                 invalid_recording,invalid_destination,retivr,say_extension)
@@ -438,6 +440,8 @@ function directory_save_dir_details($vals){
         }
     } else {
         unset($vals['id']);
+        unset($vals['def_dir']);
+        unset($vals['extdisplay']);
         $sql = 'INSERT INTO directory_details (dirname,description,announcement,
                 callid_prefix,alert_info,repeat_loops,repeat_recording,
                 invalid_recording,invalid_destination,retivr,say_extension)
