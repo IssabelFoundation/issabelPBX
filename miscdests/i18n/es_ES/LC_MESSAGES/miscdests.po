@@ -68,14 +68,14 @@ msgstr "Eliminar destino %s"
 msgid "Edit Misc Destination"
 msgstr "Modificar destino"
 
-msgid "Description:"
-msgstr "Descripción:"
+msgid "Description"
+msgstr "Descripción"
 
 msgid "Give this Misc Destination a brief name to help you identify it."
 msgstr "Asigne al destino un breve nombre que le ayude a identificarlo."
 
-msgid "Dial:"
-msgstr "Marcar:"
+msgid "Dial"
+msgstr "Marcar"
 
 msgid ""
 "Enter the number this destination will simulate dialing, exactly as you "
