@@ -204,3 +204,6 @@ msgstr "Añadir ruta dinámica"
 
 msgid "Edit Dynamic Route"
 msgstr "Modificar ruta dinámica"
+
+msgid "Invalid default destination"
+msgstr "Ruta predeterminada inválida "
