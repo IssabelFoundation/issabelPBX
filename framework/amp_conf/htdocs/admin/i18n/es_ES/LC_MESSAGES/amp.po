@@ -1858,7 +1858,7 @@ msgstr "Habilitado y actualizado"
 
 #: amp_conf/htdocs/admin/page.modules.php:803
 msgid "Enabled; Not available online"
-msgstr "Habilitado; no hay actualización online"
+msgstr "Habilitado; no hay actualización en línea"
 
 #: ../core/functions.inc.php:7194
 msgid ""
@@ -3075,7 +3075,7 @@ msgstr "Nuevo usuario"
 #: amp_conf/htdocs/admin/page.modules.php:797
 #, php-format
 msgid "Newer than online version (%s)"
-msgstr "Más reciente que la versión online (%s)"
+msgstr "Más reciente que la versión en línea (%s)"
 
 #: ../core/functions.inc.php:7362 ../core/functions.inc.php:7371
 #: ../core/functions.inc.php:7378 ../core/functions.inc.php:7385
@@ -3164,7 +3164,7 @@ msgstr ""
 #: amp_conf/htdocs/admin/page.modules.php:767
 #, php-format
 msgid "Not Installed (Available online: %s)"
-msgstr "No instalado; disponible online (%s)"
+msgstr "No instalado; disponible en línea (%s)"
 
 #: amp_conf/htdocs/admin/page.modules.php:765
 msgid "Not Installed (Locally available)"
@@ -3245,7 +3245,7 @@ msgid ""
 "for updates online. You are advised to enable the update checking. Updates "
 "are never downloaded automatically, they are only checked and reported in "
 "the notification panel and log if enabled."
-msgstr ""
+msgstr "Las actualizaciones en línea están deshabilitadas en Configuración avanzada. Cuando está deshabilitado, no se le notificarán las correcciones de errores ni los problemas de seguridad sin verificar manualmente si hay actualizaciones en línea. Se recomienda activar la comprobación de actualizaciones. Las actualizaciones nunca se descargan automáticamente, solo se verifican y notifican en el panel de notificaciones y se registran si están habilitadas."
 
 #: amp_conf/htdocs/admin/page.modules.php:795
 #, php-format
