@@ -5033,7 +5033,7 @@ msgstr ""
 msgid ""
 "You have un-saved changes, press OK to disregard changes and reload page or "
 "Cancel to abort."
-msgstr ""
+msgstr "Tiene cambios sin guardar, presione Aceptar para ignorar los cambios y volver a cargar la página o Cancelar para abortar."
 
 #: amp_conf/htdocs/admin/page.modules.php:573
 msgid ""
