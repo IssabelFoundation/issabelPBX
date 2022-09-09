@@ -7696,3 +7696,6 @@ msgstr "%s a %s/%s (Ya existe, enlazado a otra cosa)"
 
 msgid "retrieve_conf failed to sym link: %s<br>This can result in FATAL failures to your PBX. If the target file exists and not identical, the symlink will not occur and you should rename the target file to allow the automatic sym link to occur and remove this error, unless this is an intentional customization."
 msgstr "retrieve_conf falló al realizar enlaces simbólicos: %s<br>Esto puede resultar en fallas FATALES en su PBX. Si el archivo de destino existe y no es idéntico, el enlace simbólico no se producirá y debe cambiar el nombre del archivo de destino para permitir que se produzca el enlace simbólico automático y eliminar este error, a menos que se trate de una personalización intencionada."
+
+msgid "Unable to write to %s"
+msgstr "No fue posible escribir en %s"
