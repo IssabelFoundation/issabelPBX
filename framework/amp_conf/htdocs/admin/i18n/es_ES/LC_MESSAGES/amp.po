@@ -6855,10 +6855,10 @@ msgid "Default setting for SIP, DAHDi (and Zap) pickupgroup. Pickupgroups(s) tha
 msgstr "Configuración predeterminada para el grupo de captura SIP, DAHDi (y Zap). Los grupos de captura desde los que el dispositivo puede capturar llamadas pueden ser uno o más grupos, por ejemplo, '1,3-5' estaría en los grupos 1,3,4 5. No es necesario que el dispositivo esté en un grupo para poder recibir llamadas de ese grupo. Consulte la documentación de Asterisk para obtener más detalles."
 
 msgid "SIP and IAX qualify"
-msgstr "Califican SIP e IAX"
+msgstr "Qualify SIP e IAX"
 
 msgid "Default setting for SIP and IAX qualify. Whether to send periodic OPTIONS messages (for SIP) or otherwise monitor the channel, and at what point to consider the channel unavailable. A value of 'yes' is equivalent to 2000, time in msec. Can help to keep NAT holes open with SIP but not dependable for remote client firewalls. See Asterisk documentation for details."
-msgstr "Configuración predeterminada para SIP e IAX calificar. Si enviar mensajes de OPCIONES periódicos (para SIP) o monitorear el canal, y en qué punto considerar que el canal no está disponible. Un valor de 'sí' es equivalente a 2000, tiempo en mseg Puede ayudar a mantener abiertos los agujeros de NAT con SIP, pero no es confiable para los firewalls de clientes remotos. Consulte la documentación de Asterisk para obtener más detalles."
+msgstr "Configuración predeterminada para qualify SIP e IAX. Activa o no el envío de mensajes de OPCIONES periódicos (para SIP) util para monitorear el canal, y determina en qué punto considerar que el canal no está disponible. Un valor de 'sí' es equivalente a 2000, tiempo en milisegundos. Puede ayudar a mantener abiertos los agujeros de NAT con SIP, pero no es confiable para los firewalls de clientes remotos. Consulte la documentación de Asterisk para obtener más detalles."
 
 msgid "SIP canrenivite (directmedia)"
 msgstr "SIP canrenivite (directmedia)"
@@ -6873,25 +6873,25 @@ msgid "Default setting for SIP encryption. Whether to offer SRTP encrypted media
 msgstr "Configuración predeterminada para el cifrado SIP. Si ofrecer medios cifrados con SRTP (y solo medios cifrados con SRTP) en llamadas salientes a un par. Las llamadas fallarán con HANGUPCAUSEu003d58 si el par no es compatible con SRTP. Consulte la documentación de Asterisk para obtener más detalles."
 
 msgid "SIP nat"
-msgstr "SIP nacional"
+msgstr "SIP nat"
 
 msgid "Default setting for SIP nat. A 'yes' will attempt to handle nat, also works for local (uses the network ports and address instead of the reported ports), 'no' follows the protocol, 'never' tries to block it, no RFC3581, 'route' ignores the rport information. See Asterisk documentation for details."
 msgstr "Configuración predeterminada para SIP nat. Un 'sí' intentará manejar nat, también funciona para local (usa los puertos de red y la dirección en lugar de los puertos informados), 'no' sigue el protocolo, 'nunca' intenta bloquearlo , no RFC3581, 'ruta' ignora la información del informe. Consulte la documentación de Asterisk para obtener más detalles."
 
 msgid "SIP qualifyfreq"
-msgstr "SIP califica frecuencia"
+msgstr "SIP frecuencia qualify"
 
 msgid "Default setting for SIP qualifyfreq. Only valid for Asterisk 1.6 and above. Frequency that 'qualify' OPTIONS messages will be sent to the device. Can help to keep NAT holes open but not dependable for remote client firewalls. See Asterisk documentation for details."
 msgstr "Configuración predeterminada para la frecuencia de calificación de SIP. Solo es válida para Asterisk 1.6 y superior. La frecuencia con la que se enviarán los mensajes de OPCIONES 'calificados' al dispositivo. Puede ayudar a mantener abiertos los agujeros de NAT, pero no es confiable para los firewalls de clientes remotos. Consulte la documentación de Asterisk para obtener más detalles. ."
 
 msgid "SIP sendrpid"
-msgstr "SIP sendrpid"
+msgstr "SIP envío de rpid"
 
 msgid "Default setting for SIP sendrpid. A value of 'yes' is equivalent to 'rpid' and will send the 'Remote-Party-ID' header. A value of 'pai' is only valid starting with Asterisk 1.8 and will send the 'P-Asserted-Identity' header. See Asterisk documentation for details."
 msgstr "Configuración predeterminada para SIP sendrpid. Un valor de 'yes' es equivalente a 'rpid' y enviará el encabezado 'Remote-Party-ID'. Un valor de 'pai' solo es válido a partir de Asterisk 1.8 y enviará el Encabezado 'P-Asserted-Identity'. Consulte la documentación de Asterisk para obtener más detalles."
 
 msgid "SIP trustrpid"
-msgstr "SIP de confianza rápida"
+msgstr "SIP confiar rpid"
 
 msgid "Default setting for SIP trustrpid. See Asterisk documentation for details."
 msgstr "Configuración predeterminada para SIP trustrpid. Consulte la documentación de Asterisk para obtener más detalles."

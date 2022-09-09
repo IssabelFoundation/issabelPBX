@@ -116,7 +116,7 @@ msgstr ""
 
 msgid ""
 "SSH port number configured on your system if not using the default port 22, "
-"this allows the dashboard monitoring to watch the poper port."
+"this allows the dashboard monitoring to watch the proper port."
 msgstr ""
 
 #, php-format
@@ -208,7 +208,7 @@ msgid "Asterisk Uptime"
 msgstr "Asterisk已运行时间"
 
 msgid "Last Reload"
-msgstr "最后一次重载"
+msgstr "最后一次重"
 
 msgid "Server Status"
 msgstr "系统状态"
@@ -302,7 +302,7 @@ msgstr "忽略"
 
 #, php-format
 msgid "Added %s ago"
-msgstr "是在 %s 以前添加的"
+msgstr "是在 %s 以前添的"
 
 msgid "No notifications"
 msgstr "没有通知消息"

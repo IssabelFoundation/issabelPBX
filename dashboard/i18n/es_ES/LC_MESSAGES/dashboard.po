@@ -121,15 +121,15 @@ msgid ""
 msgstr ""
 
 msgid "Dashboard Non-Std SSH Port"
-msgstr ""
+msgstr "Puerto SSH no estándar"
 
 msgid "System Setup"
 msgstr ""
 
 msgid ""
 "SSH port number configured on your system if not using the default port 22, "
-"this allows the dashboard monitoring to watch the poper port."
-msgstr ""
+"this allows the dashboard monitoring to watch the proper port."
+msgstr "Especifique el puerto SSH configurado en su equipo si no fuera el 22, esto permite que el tablero pueda monitorear el estado del servicio en ese caso."
 
 #, php-format
 msgid "%s changed from %s to %s"

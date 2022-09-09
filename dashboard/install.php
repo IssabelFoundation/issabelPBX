@@ -91,7 +91,7 @@ $set['module'] = 'dashboard';
 $set['category'] = 'System Setup';
 $set['emptyok'] = 1;
 $set['name'] = 'Dashboard Non-Std SSH Port';
-$set['description'] = 'SSH port number configured on your system if not using the default port 22, this allows the dashboard monitoring to watch the poper port.';
+$set['description'] = 'SSH port number configured on your system if not using the default port 22, this allows the dashboard monitoring to watch the proper port.';
 $set['type'] = CONF_TYPE_INT;
 $issabelpbx_conf->define_conf_setting('SSHPORT',$set);
 
