@@ -223,5 +223,5 @@ foreach ($conf as $c){
 </button>
     </div>
 </div>
-    
+</div>
 </div>
