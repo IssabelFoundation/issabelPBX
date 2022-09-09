@@ -204,7 +204,7 @@ if($amp_conf['SHOWLANGUAGE']) {
         }
         $current = ($current_lang == $iso)?" current":"";
         $out .= '<a href="javascript:void()" class="navbar-item onelang'.$current.'" data-lang="'.$iso.'">';
-        $out .= '<img style="width:1em;height:1em;" src="'.$flag.'" class="mr-2"/>';
+        $out .= '<img alt="flag icon" style="width:1em;height:1em;" src="'.$flag.'" class="mr-2"/>';
         $out.= $desc . '</a>';
     }
     $out .= '</div>';
