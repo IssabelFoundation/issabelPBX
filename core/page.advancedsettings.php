@@ -40,16 +40,16 @@ echo '$(function(){';
 echo "$('select').chosen({width:'50%', disable_search: true});";
 
 echo '
-$("#pagesearch").on("keydown search",function(evt) {
-filter=$(this).val();
+$("#pagesearch").on("keyup search",function(evt) {
+filter=$(this).val().toLowerCase();
 
 if(filter.length > 2) {
 var showcat = [];
 $(".categorytitle").hide();
 
-$("td.tdsearch:first-child").each(function() {
+$("div.tdsearch").each(function() {
 
-    if($(this).text().indexOf(filter)>0) {
+    if($(this).text().toLowerCase().indexOf(filter)>=0) {
 
         container_tr   = $(this).parent();
         const box = $(this).parent()[0];
@@ -103,9 +103,9 @@ $row                    = 0;
 
 
 
-echo '<table class="table notfixed">';
+echo '<div class="columns">';
 
-echo '<tr><td colspan=4>';
+echo '<div  class="column">';
 echo '<div class="field mt-3">
   <div class="control has-icons-left">
     <input class="input is-rounded" type="search" id="pagesearch" placeholder="'._('Search').'">
@@ -116,7 +116,7 @@ echo '<div class="field mt-3">
 </div>';
 
 
-echo '</td></tr>';
+echo '</div></div>';
 $catcont=0;
 foreach ($conf as $c){
 
@@ -126,17 +126,8 @@ foreach ($conf as $c){
     if ($current_category != $c['category']) {
         $current_category = $c['category'];
         $catcont++;
-        // TODO: Temp fix until someone much better at styling then me can actually properly fix this :)
-        //       it's only purpose is to get the headings so they are not shaded and so the stripped shading
-        //       starts consistent for each section.
-	//
-	
-        if ($row % 2) {
-            echo '<tr style="display:none;"><td colspan=4></td></tr>';
-            $row++;
-	}
         $current_category_loc = modgettext::_($current_category, $c['module']);
-        echo '<tr style="background-color:transparent;" class="categorytitle" id="cat'.$catcont.'"><td colspan="4"><br><h4 class="category">'._("$current_category_loc").'</h4></td></tr>';
+        echo '<div class="columns categorytitle mt-5" id="cat'.$catcont.'"><div class="column is-12"><h4 class="category">'._("$current_category_loc").'</h4></div></div>';
         $row++;
     }
 
@@ -164,14 +155,15 @@ foreach ($conf as $c){
     } else {
         $default_val .= '<br />'.sprintf(_("Friendly Name: %s"),$tr_friendly_name);
     }
-    echo '<tr class="trsearch"><td class="tdsearch"><a href="javascript:void(null)" class="info">'.$name_label.'<span>'.htmlspecialchars($tt_description).'<br /><br >'.$default_val.'</span></a></td>';
-    echo '<td>';
+    echo '<div class="columns trsearch">';
+    echo '<div class="column tdsearch"><a href="javascript:void(null)" class="info">'.$name_label.'<span>'.htmlspecialchars($tt_description).'<br><br>'.$default_val.'</span></a></div>';
+    echo '<div class="column">';
     switch ($c['type']) {
         case CONF_TYPE_TEXT:
         case CONF_TYPE_DIR:
         case CONF_TYPE_INT:
             $readonly = !$c['readonly'] || $amp_conf['AS_OVERRIDE_READONLY'] && !$c['hidden'] ? '' : 'readonly="readonly"';
-                        $extracss = ($c['keyword']=='AMPMGRPASS')?" confidential ":"";
+            $extracss = ($c['keyword']=='AMPMGRPASS')?" confidential ":"";
             echo '<input class="valueinput '.$extracss.'" id="'.$c['keyword'].'" type="text" size="60" value="'.htmlspecialchars($amp_conf[$c['keyword']]).'" data-valueinput-orig="'.$amp_conf[$c['keyword']].'" '.$readonly.'/>';
             break;
         case CONF_TYPE_SELECT:
@@ -205,19 +197,20 @@ foreach ($conf as $c){
 <?php
             break;
     }
-    echo '</td>';
+    echo '</div>';
     if(!$c['readonly'] || $amp_conf['AS_OVERRIDE_READONLY'] && !$c['hidden']){
-        echo '<td class="btnwidth">';
+        echo '<div class="column is-1">';
         echo '<span data-tooltip="'._('Revert to Default').'"><i class="fa fa-rotate-left adv_set_default" data-key="'.$c['keyword'].'" data-default="'.$c['defaultval'].'" data-type="' . (($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '') . '" '. (($amp_conf[$c['keyword']] == $c['defaultval']) ? ' style="display:none" ' : '').'></i></span>';
-        echo '</td>';
+        echo '</div>';
 
-        echo '<td class="btnwidth savetd">';
-        echo '<span data-tooltip="'._('Save').'"><i class="fa fa-check-square-o save" data-key="'.$c['keyword'].'" title="'._('Save').'"'.' data-type="'.(($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '').'"></i></span>';
-        echo '</td>';
+        echo '<div class="column is-1">';
+        echo '<span data-tooltip="'._('Save').'"><i class="fa has-text-success-dark fa-check-square-o save" data-key="'.$c['keyword'].'" title="'._('Save').'"'.' data-type="'.(($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '').'"></i></span>';
+        echo '</div>';
+    } else {
+	    echo '<div class="column is-2"></div>';
     }
-    echo '</tr>';
+    echo '</div>';
 }
-echo '</table>';
 
 // Provide enough padding at the bottom (<br />) so that the tooltip from the last setting does not get cut off.
 ?>
@@ -231,4 +224,4 @@ echo '</table>';
     </div>
 </div>
     
-<br /><br /><br /><br /></div>
+</div>

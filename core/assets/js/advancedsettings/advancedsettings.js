@@ -56,19 +56,9 @@ $(function() {
 					mythis.off('click');
 					mythis.data('isbound', false);
 					mythis.fadeOut('normal', function(){
-						mythis.closest('tr').find('.savetd').css('visibility','hidden');
+						mythis.closest('.columns').find('.savetd').css('visibility','hidden');
 					});
 					
-					//hide retor to defualt if its we have reverted to defualt
-					//should not be nesesary -MB
-					/*
-					input = mythis.closest('tr').find('input.valueinput').val() ;
-					defval = mythis.closest('tr').find('input.adv_set_default').attr('data-default')
-					console.log(input, defval)
-					if(input == defval){
-						mythis.closest('tr').find('input.adv_set_default').fadeOut()
-					}
-					*/
 					// If they changed the page layout
 					switch (mykey) {
 						case 'AS_DISPLAY_HIDDEN_SETTINGS':
@@ -117,9 +107,9 @@ $(function() {
 
 	//show save button
 	$('.valueinput').on('keyup keypress keydown paste change', function(){
-		var save = $(this).closest('tr').find('i.save');
-		var savetd = $(this).closest('tr').find('.savetd');
-		var adv_set_default = $(this).closest('tr').find('i.adv_set_default');
+		var save = $(this).closest('.columns').find('i.save');
+		var savetd = $(this).closest('.columns').find('.savetd');
+		var adv_set_default = $(this).closest('.columns').find('i.adv_set_default');
 		
 		//if the value was changed since the last page refresh
 		if($(this).val() != $(this).attr('data-valueinput-orig')){
