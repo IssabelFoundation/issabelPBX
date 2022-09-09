@@ -6801,7 +6801,7 @@ msgid "If set to true, any fixed device associated with a user that has no voice
 msgstr "Si se establece en verdadero, cualquier dispositivo fijo asociado con un usuario que no tenga configurado el correo de voz tendrá la configuración ""mailboxu003d"" eliminada en el archivo de configuración de tecnología generado, como sip_additional.conf. Esto no afectará el valor en el interfaz gráfica de usuario."
 
 msgid "Post Call Recording Script"
-msgstr "Guión de grabación posterior a la llamada"
+msgstr "Script post grabación de llamada"
 
 msgid "An optional script to be run after the call is hangup. You can include channel and MixMon variables like ${CALLFILENAME}, ${MIXMON_FORMAT} and ${MIXMON_DIR}. To ensure that you variables are properly escaped, use the following notation: ^{MY_VAR}"
 msgstr "Un script opcional que se ejecutará después de que se cuelgue la llamada. Puede incluir variables de canal y MixMon como ${CALLFILENAME}, ${MIXMON_FORMAT} y ${MIXMON_DIR}. Para asegurarse de que sus variables se escapen correctamente, use la siguiente notación : ^{MI_VAR}"
