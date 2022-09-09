@@ -745,7 +745,7 @@ function doready() {
         side = ipbx.conf.text_dir == 'lrt' ? 'left' : 'right';
         var pos = $(this).offset();
         var offset = (200 - pos.side) + "px";
-        $(this).find("span").css(side, offset).stop(true, true).delay(500).animate({
+        $(this).find("span").css(side, offset).css('top',pos.top).stop(true, true).delay(500).animate({})
             opacity: "show"
         }, 750);
     }).on('mouseleave', '.infohelp', function() {
