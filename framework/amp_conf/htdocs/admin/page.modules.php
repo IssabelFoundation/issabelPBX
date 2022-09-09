@@ -1234,7 +1234,7 @@ function displayRepoSelect($buttons,$modify_notification='') {
   $tooltip .= _("The Commercial repository is reserved for modules that are available for purchase and commercially supported.").' ';
   $tooltip .= '<br /><br /><small><i>('._("Checking for updates will transmit your IssabelPBX, Distro, Asterisk and PHP version numbers along with a unique but random identifier. This is used to provide proper update information and track version usage to focus development and maintenance efforts. No private information is transmitted.").')</i></small>';
 ?>
-  <form name="onlineRepo" action="config.php" method="post">
+  <form name="onlineRepo" action="config.php" method="post" onsubmit="$.LoadingOverlay('show')">
     <input type="hidden" name="display" value="<?php echo $display ?>"/>
     <input type="hidden" name="type" value="<?php echo $type ?>"/>
     <input type="hidden" name="online" value="<?php echo $online ?>"/>
