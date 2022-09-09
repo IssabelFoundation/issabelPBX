@@ -6,6 +6,7 @@ $extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
 $type = isset($_REQUEST['type'])?$_REQUEST['type']:'tool';
 $dundiconflict = isset($_REQUEST['dundiconflict'])?$_REQUEST['dundiconflict']:'';
 
+echo "<div class='content'>\n";
 
 if ($extdisplay != "") {
 	echo "<h2>".sprintf(_("DUNDi Information: %s"),$extdisplay)."</h2>";
@@ -14,10 +15,10 @@ if ($extdisplay != "") {
 	}
 	$list = dundicheck_lookup_all($extdisplay);
 	if (empty($list)) {
-		echo "<h5>"._("No matches found")."</h5>";
+		echo "<div class='notifications box'>"._("No matches found")."</div>";
 	} else {
 		foreach ($list as $map => $line) {
-			echo "<h5>".sprintf(_("Results from DUNDi trunk: %s"),$map)."</h5>";
+			echo "<div class='notifications box'>".sprintf(_("Results from DUNDi trunk: %s"),$map)."</div>";
 			$output = explode("\n",$line);
 			unset($output[0]);
 			foreach ($output as $item) {
@@ -33,14 +34,16 @@ if ($extdisplay != "") {
 }
 
 ?>
-<form name="dundicheck" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post">
+<div class='box'>
+<form name="dundicheck" id='mainform' method="post">
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
 	<input type="hidden" name="type" value="<?php echo $type?>">
-	<table>
+	<table class='table is-borderless is-narrow notfixed'>
 		<tr>
-			<td align="right"><?php echo ($extdisplay == '')?_("Lookup Number:"):_("Lookup Another Number:")?></td>
-			<td class="type"><input name="extdisplay" type="text" size="12" value="<?php htmlspecialchars($extdisplay);?>"></td>
-			<td valign="top">
+			<td><label><?php echo ($extdisplay == '')?_("Lookup Number"):_("Lookup Another Number")?></label>
+			<input name="extdisplay" type="text" class="input" value="<?php htmlspecialchars($extdisplay);?>"></td>
+            <td valign="top">
+                <br/>
 				<input type="submit" class="button" value="<?php echo _("Lookup")?>">
 			</td>
 		</tr>
@@ -51,3 +54,6 @@ if ($extdisplay != "") {
 		</tr>
 	</table>
 </form>
+
+</div>
+</div>

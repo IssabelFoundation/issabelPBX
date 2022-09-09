@@ -57,10 +57,10 @@ msgstr ""
 msgid "Results from DUNDi trunk: %s"
 msgstr ""
 
-msgid "Lookup Number:"
+msgid "Lookup Number"
 msgstr ""
 
-msgid "Lookup Another Number:"
+msgid "Lookup Another Number"
 msgstr ""
 
 msgid "Lookup"

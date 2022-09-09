@@ -67,10 +67,10 @@ msgstr "未找到匹配项"
 msgid "Results from DUNDi trunk: %s"
 msgstr "从DUNDi中继上获取的结果：%s"
 
-msgid "Lookup Number:"
+msgid "Lookup Number"
 msgstr "查询号码："
 
-msgid "Lookup Another Number:"
+msgid "Lookup Another Number"
 msgstr "查询另一个号码："
 
 msgid "Lookup"
