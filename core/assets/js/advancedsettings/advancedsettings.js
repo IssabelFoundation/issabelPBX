@@ -2,7 +2,7 @@ $(function() {
 	//save settings
 	function savebinder(e) {
 		if (!can_write_amportalconf) {
-			alert(amportalconf_error);
+			sweet_alert(amportalconf_error);
 			return false;
 		}
 		var mythis = $(this);
@@ -46,7 +46,7 @@ $(function() {
 				mythis.attr({src: '/admin/images/accept.png'});
                                 $(mythis).attr('class',saveclass);
 				if (!data.validated) {
-					alert(data.msg);
+					sweet_alert(data.msg);
 				}
 				if (!data.validated && data.saved) {
 				  $('#' + mykey).val(data.saved_value);
@@ -68,7 +68,7 @@ $(function() {
 							if (page_reload_check()) {
 								location.href=location.href;
 							} else {
-								alert(msgChangesRefresh);
+								sweet_alert(msgChangesRefresh);
 							}
 							break;
 						default:
@@ -87,7 +87,7 @@ $(function() {
 				}
 			},
 			error: function(data, textStatus, XMLHttpRequest) {
-				alert('Ajax Web ERROR: When saving key ' + mykey + ': ' + textStatus);
+				sweet_alert('Ajax Web ERROR: When saving key ' + mykey + ': ' + textStatus);
 			}
 		})
 	}
@@ -154,7 +154,7 @@ $(function() {
 function page_reload_check(msgUnsavedChanges) {
 	var reload = true;
 	$(".save").each(function() {
-		if ($(this).data("events") != undefined) {
+        if($._data($(this)[0],"events") != undefined) {
 			reload = false;
 			return false;
 		}
