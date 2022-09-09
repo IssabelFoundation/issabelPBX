@@ -740,20 +740,20 @@ function doready() {
         $(this).find('span').remove();
         $(this).replaceWith($(this).html())
     });
-    $(".infohelp").on('mouseenter', function() {
+
+    $(document).on('mouseenter', '.infohelp', function() {
         side = ipbx.conf.text_dir == 'lrt' ? 'left' : 'right';
         var pos = $(this).offset();
         var offset = (200 - pos.side) + "px";
         $(this).find("span").css(side, offset).stop(true, true).delay(500).animate({
             opacity: "show"
         }, 750);
-    }).on('mouseleave', function() {
+    }).on('mouseleave', '.infohelp', function() {
         $(this).find("span").stop(true, true).animate({
             opacity: "hide"
         }, "fast");
     });
 
-    
     $('.guielToggle').on('click',function() {
         console.log('click',this);
         var txt = $(this).find('.guielToggleBut');
