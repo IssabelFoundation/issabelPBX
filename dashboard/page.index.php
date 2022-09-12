@@ -456,9 +456,9 @@ function show_syslog(&$md5_checksum) {
         $out .= '</ul>';
     } else {
         if ($showall) {
-            $out .= _('No notifications');
+            $out .= '<div class="mx-3">'._('No notifications').'</div>';
         } else {
-            $out .= _('No new notifications');
+            $out .= '<div class="mx-3">'._('No new notifications').'</div>';
         }
     }
 
