@@ -125,3 +125,7 @@
 #syslog h4 span {
   cursor:pointer;
 }
+
+.syslog_text {
+  padding-right:1em;
+}
