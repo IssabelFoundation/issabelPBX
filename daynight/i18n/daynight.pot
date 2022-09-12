@@ -73,12 +73,6 @@ msgstr ""
 msgid "Call Flow Toggle Control"
 msgstr ""
 
-msgid "Add Call Flow Toggle Control"
-msgstr ""
-
-msgid "Edit Call Flow Toggle Control"
-msgstr ""
-
 #: page.daynight.php:121
 msgid "Call Flow Toggle Feature Code Index:"
 msgstr ""

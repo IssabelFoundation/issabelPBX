@@ -10,7 +10,7 @@ on 2004 by Coalescent Systems Inc.
 Version
 -------
 
-2.12
+2.11
 
 Tech
 ----
@@ -21,6 +21,7 @@ IssabelPBX uses a number of open source projects to work properly:
 * [Pear DB] - A database abstraction layer. License PHP License
 * [Pear Console::Getopt] - This is a PHP implementation of "getopt" supporting both short and long options. License PHP License
 * [jQuery] - A multi-browser JavaScript library designed to simplify the client-side scripting of HTML. License MIT
+* [jQueryUI] - jQuery UI is a JavaScript library that provides abstractions for low-level interaction and animation, advanced effects and high-level, themeable widgets, built on top of the jQuery JavaScript library, that can be used to build interactive web applications. License MIT
 * [CDR (Call Detail Records) Application] - Orignally by Arezqui Belaid, License GPL (depends on JPGraph which is QPL)
 * [CssMin] - A (simple) css minifier with benefits. By Joe Scylla, Copyright (c) 2008 - 2010. License MIT
 * [Codeigniter helpers/librarires] - Copyright (c) 2008 - 2011, EllisLab, Inc., All rights reserved. License GPL
