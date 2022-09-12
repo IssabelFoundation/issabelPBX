@@ -407,6 +407,9 @@ function show_syslog(&$md5_checksum) {
     if (count($items)) {
         $out .= '<ul>';
         foreach ($items as $item) {
+
+            $printdate = gmdate("Y-m-d H:i:s",$item['timestamp']);
+
             $checksum .= $item['module'].$item['id']; // checksum, so it is only updated on the page if this has changed
     
             $domid = "notify_item_".str_replace(' ','_',$item['module']).'_'.str_replace(' ','_',$item['id']);
@@ -422,6 +425,7 @@ function show_syslog(&$md5_checksum) {
             $out .= '<h4>';
             $out .= '<span data-tooltip="'._($notify_descriptions[$item['level']]).'" title="'._($notify_descriptions[$item['level']]).'" class="has-tooltip-right">';
             $out .= '<i class="mr-2 fa '.$notify_icons[$item['level']].'"></i></span>';
+            $out .= '<span class="mr-2">'.$printdate.'</span>';
             $out .= $item['display_text'].'';
             $out .= '</h4>';
             $out .= "\n";
