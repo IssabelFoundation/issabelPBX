@@ -30,16 +30,13 @@ class dahdi_sangoma {
         $option2 = _("T1/Mode");
         $byline = sprintf(_('This edits all settings in %s'),'/etc/wanpipe/global.conf');
         $output['html'] = <<< EOF
-            <h2>{$output['title']}</h2>
-            <h3>{$byline}</h3>
-            <hr />
-            <table width="100%" style="text-align:left;">
-                <tr>
-                    <td style="width:10px;">
-                        <label for="sangoma_dahdimode">$option1:</label>
-                    </td>
-                    <td>
-                        <select name="sangoma_dahdimode" id="sangoma_dahdimode">
+            <div class="is-size-7 mb-5">{$byline}</div>
+            <div class="columns">
+                    <div class="column">
+                        <label for="sangoma_dahdimode">$option1</label>
+                    </div>
+                    <div class="column">
+                        <select name="sangoma_dahdimode" id="sangoma_dahdimode" class="componentSelect">
 EOF;
         $no = $settings['dahdimode'] == 'no' ? 'selected' : '';
         $yes = $settings['dahdimode'] == 'yes' ? 'selected' : '';
@@ -49,14 +46,14 @@ EOF;
 		$display = ($settings['dahdimode'] == 'yes') ? '' : 'display:none;';
         $output['html'] .= <<< EOF
                         </select>
-                    </td>
-                </tr>
-                <tr id="sangoma_t1mode" style="${display}">
-                    <td style="width:10px">
-                        <label for="sangoma_t1mode">$option2:</label>
-                    </td>
-                    <td>
-                        <select name="sangoma_t1mode">
+                    </div>
+                </div>
+                <div class="columns" id="sangoma_t1mode" style="${display}">
+                    <div class="column">
+                        <label for="sangoma_t1mode">$option2</label>
+                    </div>
+                    <div class="column">
+                        <select name="sangoma_t1mode" class="componentSelect">
 EOF;
         $t1 = $settings['t1mode'] == 'T1' ? 'selected' : '';
         $e1 = $settings['t1mode'] == 'E1' ? 'selected' : '';
@@ -64,12 +61,11 @@ EOF;
         $output['html'] .= '<option value="E1" '.$e1.'>E1</option>';
         $output['html'] .= <<< EOF
                         </select>
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                </div>
 EOF;
         $output['javascript'] = <<< EOF
-        $('#sangoma_dahdimode').change(function() {
+        $('#sangoma_dahdimode').on('change',function() {
             val = $(this).val()
             if(val == 'yes') {
                 $('#sangoma_t1mode').show()

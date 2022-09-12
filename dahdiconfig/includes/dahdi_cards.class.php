@@ -1433,6 +1433,7 @@ class dahdi_cards {
 
 		//Enable/disable modules already in the file
 		$previous_module = '';
+
 		foreach($settings as $key => $state) {
 			$state = ($state == 'true') ? true : false;
 			$key_split = explode('::',$key);

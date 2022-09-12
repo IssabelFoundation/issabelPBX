@@ -1,5 +1,5 @@
+<div class='box my-5'>
 <h2><?php echo _('Analog Hardware')?></h2>
-<hr style="width: 75%; margin-left:0;" />
 <table class="alt_table" id="digital_cards_table" cellpadding="5" cellspacing="1" border="0">
         <thead>
         <tr>
@@ -37,3 +37,4 @@
 	</tr>
         </tbody>
 </table>
+</div>
