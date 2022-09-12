@@ -13,6 +13,16 @@ if (!$bootstrap_settings['astman_connected']) {
 
 $issabelpbx_conf =& issabelpbx_conf::create();
 
+// Set language
+$lang = $issabelpbx_conf->get_conf_setting('LANGUAGE');
+if($lang!='') {
+    setlocale(LC_ALL,  $lang);
+    putenv("LANGUAGE=".$lang);
+    bindtextdomain('amp',$amp_conf['AMPWEBROOT'].'/admin/i18n');
+    bind_textdomain_codeset('amp', 'utf8');
+    textdomain('amp');
+}
+
 class connectdirs {
 
     var $nt;

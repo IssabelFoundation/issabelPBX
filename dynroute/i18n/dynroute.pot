@@ -200,3 +200,12 @@ msgstr ""
 
 msgid "Leave blank to remove"
 msgstr ""
+
+msgid "Enter a name for this dynamic route"
+msgstr ""
+
+msgid "Add Dynamic Route"
+msgstr ""
+
+msgid "Edit Dynamic Route"
+msgstr ""

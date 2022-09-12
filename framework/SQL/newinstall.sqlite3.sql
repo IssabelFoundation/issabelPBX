@@ -24,7 +24,7 @@ CREATE TABLE `admin` (
   PRIMARY KEY  (`variable`)
 );
 INSERT INTO "admin" VALUES('need_reload', 'true');
-INSERT INTO "admin" VALUES('version', '2.11.0.49');
+INSERT INTO "admin" VALUES('version', '2.12.0.0');
 CREATE TABLE `ampusers` (
   `username` varchar(20) NOT NULL default '',
   `password_sha1` varchar(20) NOT NULL default '',

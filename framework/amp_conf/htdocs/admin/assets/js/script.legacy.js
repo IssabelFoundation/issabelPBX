@@ -796,7 +796,7 @@ function ipbx_reload() {
 			title: 'Reloading...',
 			resizable: false,
 			modal: true,
-			height: 50,
+			height: 150,
 			position: ['center', 50],
 			close: function (e) {
 				$(e.target).dialog("destroy").remove();
