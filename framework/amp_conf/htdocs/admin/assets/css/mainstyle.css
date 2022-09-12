@@ -677,7 +677,7 @@ body.swal2-shown > [aria-hidden="true"] {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   transition: 0.5s; 
-  z-index:100;
+  z-index:2;
   padding: 4px 8px;
   color: #000;
   clip-path: inset(-3px 0px -3px -3px);
