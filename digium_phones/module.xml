@@ -1,6 +1,5 @@
 <module>
 	<rawname>digium_phones</rawname>
-	<repo>standard</repo>
 	<type>setup</type>
 	<category>Connectivity</category>
 	<name>Digium Phones Config</name>
