@@ -305,8 +305,6 @@ function isEmail(s) {
     if (isEmpty(s)) {
         if (isEmail.arguments.length >= 1) {
             return defaultEmptyOK;
-//        } else {
-//            return (isEmail.arguments[1] == true)
         }
     }
     var emailAddresses = s.split(",");
@@ -577,8 +575,6 @@ function toggle_reload_button(action) {
 
 $(function() {
 
-    console.log('document ready: main');
-
     // Language menu
     $('body').on('click','.onelang',function(evt) {
         $.cookie('lang', $(this).data('lang'));
@@ -660,7 +656,7 @@ function sweet_toast(icon,msg) {
         icon: icon,
         title: msg,
         didDestroy: function() {
-            fetch(window.location.href+'&quietmode=1&action=resetnotifications').then(response=>{ console.log('reset noti');});
+            fetch(window.location.href+'&quietmode=1&action=resetnotifications').then(response=>{ });
         }
     });
 }
@@ -707,25 +703,13 @@ function sweet_confirm(msg) {
                 cancelButtonText: ipbx.msg.framework.cancel
             }).then((result) => {
                 if (result.isConfirmed) {
-                    console.log('sweet confirm resolve 1');
                     resolve(1);
                 } else {
-                    console.log('sweet confirm resolve 0');
                     //return false;
                     resolve(0);
                 }
             });
     });
-}
-
-async function mymyconfirm(msg) {
-    await myconfirm(msg);
-}
-
-async function myconfirm(msg) {
-    res = await sweet_confirm(msg);
-    console.log('listo',res);
-    return res;
 }
 
 function doready() {
@@ -755,12 +739,10 @@ function doready() {
     });
 
     $('.guielToggle').on('click',function() {
-        console.log('click',this);
         var txt = $(this).find('.guielToggleBut');
         var el = $(this).data('toggle_class');
         var section = $.urlParam('display') + '#' + el;
         var btcon = txt.html().replace(/ $/g, '');
-        console.log(btcon.indexOf('minus'));
         switch (btcon.indexOf('minus')) {
             case -1:
                 txt.html('<i class="fa fa-minus-square-o"></i>  ');
@@ -785,9 +767,6 @@ function doready() {
     // set initial right nav menu scroll position
     initial_rnav();
 
-    //$('.radioset').buttonset();
-    //$('.menubar').menubar().hide().show();
-
     $('.module_menu_button').on('hover',function() {
         $(this).trigger('click');
         var sh = $(window).height();
@@ -804,8 +783,6 @@ function doready() {
         toggle_reload_button('show');
     }
 
-    
-    //$('.sortable').menu();
     $('.sortable li').on('click',function(event) {
         if ($(event.target).is(':checkbox')) {
             return true;
@@ -842,7 +819,6 @@ function doready() {
                 $(this).removeClass('is-danger').next('p').addClass('is-hidden');
             } else {
                 parent_width = $(this).width() - 50;
-                console.log(parent_width);
                 var valtext = sprintf(ipbx.msg.framework.validation.duplicate, this.value, extmap[this.value]);
                 $(this).addClass('is-danger').next('p').html(valtext).removeClass('is-hidden').css('max-width',parent_width);
                 positionActionBar(); // page will get higher, possible scroll, position action bar then
@@ -1064,6 +1040,7 @@ function doready() {
         };
     });
 })(jQuery);
+
 (function($) {
     $.fn.toggleVal = function(theOptions) {
         if (!theOptions || typeof theOptions == 'object') {
@@ -1073,7 +1050,6 @@ function doready() {
         }
         return this.each(function() {
             if (destroy) {
-                //$(this).bind('focus.toggleval').unbind('blur.toggleval').removeData('defText');
                 $(this).on('focus.toggleval').off('blur.toggleval').removeData('defText');
                 return false;
             }
@@ -1143,211 +1119,6 @@ function doready() {
     });
 })(jQuery);
 
-/*
-(function($) {
-    $.widget("ui.menubar", {
-        _create: function() {
-            var self = this;
-            this.element.children("button, a").next("ul").each(function(i, elm) {
-                $(elm).flyoutmenu({
-                    select: self.options.select,
-                    input: $(elm).prev()
-                }).hide().addClass("ui-menu-flyout");
-            });
-            this.element.children("button, a").each(function(i, elm) {
-                $(elm).click(function(event) {
-                    $(document).find(".ui-menu-flyout").hide();
-                    if ($(this).next().is("ul")) {
-                        $(this).next().data("flyoutmenu").show();
-                        $(this).next().css({
-                            position: "absolute",
-                            top: 0,
-                            left: 0
-                        }).position({
-                            my: "left top",
-                            at: "left bottom",
-                            of: $(this),
-                            collision: "fit none"
-                        });
-                    }
-                    event.stopPropagation();
-                }).button({
-                    icons: {
-                        secondary: ($(elm).next("ul").length > 0) ? 'ui-icon-triangle-1-s' : ''
-                    }
-                });
-            });
-        }
-    });
-}(jQuery));
-*/
-/*
-(function($) {
-    $.widget("ui.flyoutmenu", {
-        _create: function() {
-            var self = this;
-            this.active = this.element;
-            this.activeItem = this.element.children("li").first();
-            this.element.find("ul").addClass("ui-menu-flyout").hide().prev("a").prepend('<span class="ui-icon ui-icon-carat-1-e"></span>');
-            this.element.find("ul").andSelf().menu({
-                input: (!this.options.input) ? $() : this.options.input,
-                select: this.options.select,
-                focus: function(event, ui) {
-                    self.active = ui.item.parent();
-                    self.activeItem = ui.item;
-                    ui.item.parent().find("ul").hide();
-                    var nested = $(">ul", ui.item);
-                    if (nested.length && /^mouse/.test(event.originalEvent.type)) {
-                        self._open(nested);
-                    }
-                }
-            }).keydown(function(event) {
-                if (self.element.is(":hidden")) return;
-                event.stopPropagation();
-                switch (event.keyCode) {
-                    case $.ui.keyCode.PAGE_UP:
-                        self.pageup(event);
-                        break;
-                    case $.ui.keyCode.PAGE_DOWN:
-                        self.pagedown(event);
-                        break;
-                    case $.ui.keyCode.UP:
-                        self.up(event);
-                        break;
-                    case $.ui.keyCode.LEFT:
-                        self.left(event);
-                        break;
-                    case $.ui.keyCode.RIGHT:
-                        self.right(event);
-                        break;
-                    case $.ui.keyCode.DOWN:
-                        self.down(event);
-                        break;
-                    case $.ui.keyCode.ENTER:
-                    case $.ui.keyCode.TAB:
-                        self._select(event);
-                        event.preventDefault();
-                        break;
-                    case $.ui.keyCode.ESCAPE:
-                        self.hide();
-                        break;
-                    default:
-                        clearTimeout(self.filterTimer);
-                        var prev = self.previousFilter || "";
-                        var character = String.fromCharCode(event.keyCode);
-                        var skip = false;
-                        if (character == prev) {
-                            skip = true;
-                        } else {
-                            character = prev + character;
-                        }
-                        var match = self.activeItem.parent("ul").children("li").filter(function() {
-                            return new RegExp("^" + character, "i").test($("a", this).text());
-                        });
-                        var match = skip && match.index(self.active.next()) != -1 ? match.next() : match;
-                        if (!match.length) {
-                            character = String.fromCharCode(event.keyCode);
-                            match = self.widget().children("li").filter(function() {
-                                return new RegExp("^" + character, "i").test($(this).text());
-                            });
-                        }
-                        if (match.length) {
-                            self.activate(event, match);
-                            if (match.length > 1) {
-                                self.previousFilter = character;
-                                self.filterTimer = setTimeout(function() {
-                                    delete self.previousFilter;
-                                }, 1000);
-                            } else {
-                                delete self.previousFilter;
-                            }
-                        } else {
-                            delete self.previousFilter;
-                        }
-                }
-            });
-        },
-        _open: function(submenu) {
-            $(document).find(".ui-menu-flyout").not(submenu.parents()).hide();
-            submenu.show().css({
-                top: 0,
-                left: 0
-            }).position({
-                my: "left top",
-                at: "right top",
-                of: this.activeItem,
-                collision: "fit none"
-            });
-            $(document).one("click", function() {
-                $(document).find(".ui-menu-flyout").hide();
-            })
-        },
-        _select: function(event) {
-            this.activeItem.parent().data("menu").select(event);
-            $(document).find(".ui-menu-flyout").hide();
-            activate(event, self.element.children("li").first());
-        },
-        left: function(event) {
-            this.activate(event, this.activeItem.parents("li").first());
-        },
-        right: function(event) {
-            this.activate(event, this.activeItem.children("ul").children("li").first());
-        },
-        up: function(event) {
-            if (this.activeItem.prev("li").length > 0) {
-                this.activate(event, this.activeItem.prev("li"));
-            } else {
-                this.activate(event, this.activeItem.parent("ul").children("li:last"));
-            }
-        },
-        down: function(event) {
-            if (this.activeItem.next("li").length > 0) {
-                this.activate(event, this.activeItem.next("li"));
-            } else {
-                this.activate(event, this.activeItem.parent("ul").children("li:first"));
-            }
-        },
-        pageup: function(event) {
-            if (this.activeItem.prev("li").length > 0) {
-                this.activate(event, this.activeItem.parent("ul").children("li:first"));
-            } else {
-                this.activate(event, this.activeItem.parent("ul").children("li:last"));
-            }
-        },
-        pagedown: function(event) {
-            if (this.activeItem.next("li").length > 0) {
-                this.activate(event, this.activeItem.parent("ul").children("li:last"));
-            } else {
-                this.activate(event, this.activeItem.parent("ul").children("li:first"));
-            }
-        },
-        activate: function(event, item) {
-            if (item) {
-                item.parent().data("menu").widget().show();
-                item.parent().data("menu").activate(event, item);
-            }
-            this.activeItem = item;
-            this.active = item.parent("ul");
-        },
-        show: function() {
-            this.active = this.element;
-            this.element.show();
-            if (this.element.hasClass("ui-menu-flyout")) {
-                $(document).one("click", function() {
-                    $(document).find(".ui-menu-flyout").hide();
-                })
-                this.element.one("mouseleave", function() {
-                    $(document).find(".ui-menu-flyout").hide();
-                })
-            }
-        },
-        hide: function() {
-            this.activeItem = this.element.children("li").first();
-            this.element.find("ul").andSelf().menu("deactivate").hide();
-        }
-    });
-}(jQuery));
-*/
 function tabberObj(argsObj) {
     var arg;
     this.div = null;
@@ -1609,10 +1380,7 @@ function toggle_action_bar() {
 
 async function initial_rnav() {
 
-    console.log('initial rnav');
-
     if(ispopover==true) { 
-        console.log('is popover, hide rnav and remove actionbar')
         // handle popover form modifications
         $('#action-bar').remove(); 
         $('.rnav').hide(); 
@@ -1626,7 +1394,6 @@ async function initial_rnav() {
         }).val(parent.$('#popover-frame').data('popover-class')).appendTo(pform);
         return;
     }
-
 
     if($('#collapsemenuicon').length==0) {
         $("<a id='collapsemenuicon' class='menu_icon'><i class='fa fa-angle-double-right'></i></a>").insertBefore(".rnav");
@@ -1669,10 +1436,7 @@ async function initial_rnav() {
     positionActionBar();
 }
 
-
-
 up.compiler('.rnav', function(element,data) {
-//    console.log('compiler rnav');
     if($('.rnav').length>0) {
         mitop = localStorage.getItem('rnav_scroll');
         $('.rnav ul:first').scrollTop(mitop);
@@ -1726,7 +1490,6 @@ function confirm_delete(form,mytext,deletevalue) {
         if (result.isConfirmed) {
             $.LoadingOverlay('show');
             $("input[name=action]").val(deletevalue);
-            console.log($("input[name=action]").val());
             form.trigger('submit');
         }
     });
@@ -1734,7 +1497,6 @@ function confirm_delete(form,mytext,deletevalue) {
 }
 
 up.compiler('#action-bar', function(element,data) {
-    // console.log('start compiler action bar');
 
     // Confirm on Delete
     $(":submit").on('click',function(evt) {
@@ -1763,11 +1525,14 @@ up.compiler('#action-bar', function(element,data) {
 
 up.compiler('.content', function(element,data) {
 
-    console.log('start compiler content');
     doready();
 
-    // agrega clases bulma a inputs que no lo tengan
-    //$('input[type=text]:not(".input")').addClass('input').addClass('w100');
+    // checks if form has been modified and prevent leaving in that case
+    if($('#mainform').length>0) {
+        $('#mainform').dirty({preventLeaving:true});
+    }
+
+    // adds bulma table classes to tables that lacks the table class
     $('table:not(".table")').addClass('table').addClass('is-borderless').addClass('is-narrow');
 
 });
@@ -1776,7 +1541,6 @@ function add_rnav_tooltips() {
     // if rnav entries are hidden/overflow, add tooltip
     $('#rnavul > li > a').each(function() {
         if(isOverflown(this)) {
-            console.log($(this).data('title'));
             $(this).attr('data-tooltip',$(this).data('title'));
         }
     });
@@ -1851,7 +1615,7 @@ function isOverflown(element) {
     return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
 }
 
-/* generic error for fetch operqations */
+/* generic error for fetch operations */
 function handleErrors(response) {
     if (!response.ok) {
         throw Error(response.statusText);
