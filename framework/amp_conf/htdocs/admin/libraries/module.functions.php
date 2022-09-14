@@ -89,7 +89,7 @@ function module_getonlinexml($module = false, $override_xml = false, &$sec_array
     $xmlarray = $parser->parseAdvanced($data);
 
     if ($got_new) {
-        module_update_notifications($old_xml, $xmlarray, ($old_xml == $data4sql));
+        module_update_notifications($old_xml, $xmlarray, ($old_xml == $data));
     }
 
     if (is_array($sec_array) && !empty($xmlarray['xml']['security'])) {
@@ -210,25 +210,26 @@ function module_update_notifications(&$old_xml, &$xmlarray, $passive) {
     }
 
     // If keys (rawnames) are different then there are new modules, create a notification.
-    // This will always be the case the first time it is run since the xml is empty.
-    //
-    $diff_modules = array_diff_key($new_modules, $old_modules);
-    $cnt = count($diff_modules);
-    if ($cnt) {
-        $active_repos = module_get_active_repos();
-        $extext = _("The following new modules are available for download. Click delete icon on the right to remove this notice.")."<br />";
-        foreach ($diff_modules as $modname=>$nada) {
-            $mod = $new_modules[$modname];
-            if (!isset($mod['repo'])) { $mod['repo']='unset'; }
-            // If it's a new module in a repo we are not interested in, then don't send a notification.
-            if (isset($active_repos[$mod['repo']]) && $active_repos[$mod['repo']]) {
-                $extext .= $mod['rawname']." (".$mod['version'].")<br />";
-            } else {
-                $cnt--;
-            }
-        }
+    // The first time if xml is empty, skip notification
+    if(count($old_modules)>0) {
+        $diff_modules = array_diff_key($new_modules, $old_modules);
+        $cnt = count($diff_modules);
         if ($cnt) {
-            $notifications->add_notice('issabelpbx', 'NEWMODS', sprintf(_('%s New modules are available'),$cnt), $extext, '', $reset_value, true);
+            $active_repos = module_get_active_repos();
+            $extext = _("The following new modules are available for download. Click delete icon on the right to remove this notice.")."<br />";
+            foreach ($diff_modules as $modname=>$nada) {
+                $mod = $new_modules[$modname];
+                if (!isset($mod['repo'])) { $mod['repo']='unset'; }
+                // If it's a new module in a repo we are not interested in, then don't send a notification.
+                if (isset($active_repos[$mod['repo']]) && $active_repos[$mod['repo']]) {
+                    $extext .= $mod['rawname']." (".$mod['version'].")<br />";
+                } else {
+                    $cnt--;
+                }
+            }
+            if ($cnt) {
+                $notifications->add_notice('issabelpbx', 'NEWMODS', sprintf(_('%s New modules are available'),$cnt), $extext, '', $reset_value, true);
+            }
         }
     }
 
