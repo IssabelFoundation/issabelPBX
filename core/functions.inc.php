@@ -5342,6 +5342,7 @@ function core_did_edit_properties($did_vars) {
 
 function core_did_add($incoming,$target=false){
     global $db;
+    if($incoming['privacyman']=='') $incoming['privacyman']=0;
     foreach ($incoming as $key => $val) { ${$key} = $db->escapeSimple($val); } // create variables from request
 
     // Check to make sure the did is not being used elsewhere
