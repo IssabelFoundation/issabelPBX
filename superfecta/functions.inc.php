@@ -14,11 +14,10 @@ function superfecta_hook_core($viewing_itemid, $target_menuid) {
 
         $html.='<tr><td colspan="2"><h5>' . _("Superfecta CID Lookup") . '</h5></td></tr>';
 
-        $html.='<tr><td><a href="#" class="info">' . _('Enable CID Superfecta') . '<span>' . _("Sources can be added/removed in CID Superfecta section") . '</span></a>:</td>';
-        $html.='<td><input type="checkbox" name="enable_superfecta" value="yes" ' . $checked_status . '></td></tr>';
-
-        $html.='<tr><td><a href="#" class="info">' . _('Scheme') . '<span>' . _("Setup Schemes in CID Superfecta section") . '</span></a>:</td>';
-        $html.='<td><select name="superfecta_scheme">';
+        $html.='<tr><td><a href="#" class="info">' . _('Enable CID Superfecta') . '<span>' . _("Sources can be added/removed in CID Superfecta section") . '</span></a></td>';
+        $html.='<td><input type="checkbox" class="switch" name="enable_superfecta" id="enable_superfecta" value="yes" ' . $checked_status . '/><label style="height:auto; line-height:1em; padding-left:3em;" for="enable_superfecta">&nbsp;</label></td></tr>';
+        $html.='<tr><td><a href="#" class="info">' . _('Scheme') . '<span>' . _("Setup Schemes in CID Superfecta section") . '</span></a></td>';
+        $html.='<td><select name="superfecta_scheme" class="componentSelect">';
         $info = explode("/", $viewing_itemid);
         $sql = "SELECT scheme FROM superfecta_to_incoming WHERE extension = '" . $info[0] . "'";
         $scheme = $db->getOne($sql);
