@@ -425,3 +425,6 @@ msgstr "dígitos presionados"
 
 msgid "Add Entry"
 msgstr "Añadir Opción"
+
+msgid "spoken word"
+msgstr "palabra hablada"

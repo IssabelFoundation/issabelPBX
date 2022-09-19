@@ -51,7 +51,8 @@ foreach ($entries as $e) {
 					'name'			=> 'entries[spoken][]',
 					'value'			=> $e['spoken'],
 					'placeholder'	=> _('spoken word'),
-				)
+                ),
+                '','class="input"'
         );
 
     }
