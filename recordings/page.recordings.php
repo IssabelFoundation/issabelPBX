@@ -203,6 +203,7 @@ function recording_addpage($usersnum) {
     global $fc_check;
     global $recordings_save_path;
     global $isSecure;
+    global $amp_conf;
 
     $tabindex = 0;
     $step = 0;
@@ -343,7 +344,6 @@ function recording_addpage($usersnum) {
 
         system("chgrp " . $amp_conf['AMPASTERISKGROUP'] . " " . $destfilename);
         system("chmod g+rw ".$destfilename);
-//        echo "<h6>"._("Successfully uploaded")." ".$_FILES['ivrfile']['name']."</h6>";
         $msg = sprintf(_("File %s successfully uploaded"),$_FILES['ivrfile']['name']); 
         echo "<article class='message is-success'><div class='message-body'>$msg</div></article>";
 
