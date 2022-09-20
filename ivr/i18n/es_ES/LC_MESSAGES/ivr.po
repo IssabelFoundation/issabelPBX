@@ -428,3 +428,10 @@ msgstr "Añadir Opción"
 
 msgid "spoken word"
 msgstr "palabra hablada"
+
+msgid "Use Vosk Grammar"
+msgstr "Usar gramática Vosk"
+
+msgid "When enabled, IVR will activate a grammar (word list) to limit vosk recognition to the options word list, increasing accuracy"
+msgstr "Cuando está habilitado, IVR activará una gramática (lista de palabras) para limitar el reconocimiento de Vosk a dicha lista, aumentando la precisión"
+

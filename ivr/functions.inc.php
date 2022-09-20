@@ -30,7 +30,7 @@ function ivr_destinations() {
 
 //dialplan generator
 function ivr_get_config($engine) {
-    global $ext;
+    global $ext, $amp_conf;
 
     $show_spoken=0;
     $engineinfo = engine_getinfo();
@@ -122,10 +122,26 @@ function ivr_get_config($engine) {
                     $ext->add($c, 's', '', new ext_waitexten($ivr['timeout_time']));
                 } else {
                     $ext->add($c, 's', '', new ext_speechcreate());
+
+                    // Grammar
+                    if(isset($amp_conf["IVR_USE_VOSK_GRAMMAR"]) && $amp_conf["IVR_USE_VOSK_GRAMMAR"]==1) {
+                        $allwords=array();
+                        if ($entries) {
+                            foreach($entries as $e) {
+                                if($e['spoken']!='') {
+                                    $allwords = array_merge($allwords,preg_split("/,/",$e['spoken']));
+                                }
+                            }
+                            $word_list = '"'.implode('","',$allwords).'"';
+                            $ext->add($c, 's', '', new ext_speechactivategrammar($word_list));
+                        }
+                    }
+
                     $ext->add($c, 's', '', new ext_gotoif('$["${ERROR}" = "1"]','skipspeech'));
                     $ext->add($c, 's', '', new ext_execif('$["${IVR_MSG}" != ""]','SpeechBackground','${IVR_MSG},'.$ivr['timeout_time']));
                     $ext->add($c, 's', '', new ext_execif('$["${IVR_MSG}X" = "X"]','SpeechBackground','silence/5,'.$ivr['timeout_time']));
                     $ext->add($c, 's', '', new ext_setvar('RESULT', '${SPEECH_TEXT(0)}'));
+
                 }
 
                 // Actually add the IVR entires now

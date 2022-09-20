@@ -539,4 +539,22 @@ if($db->IsError($check)) {
     out(_("not needed"));
 }
 
+
+$issabelpbx_conf =& issabelpbx_conf::create();
+// Config Section
+$set = array();
+$set['value'] = false;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 0;
+$set['module'] = 'ivr';
+$set['category'] = 'Vosk ASR';
+$set['emptyok'] = 0;
+$set['sortorder'] = 40;
+$set['name'] = 'Use Vosk Grammar';
+$set['description'] = "When enabled, IVR will activate a grammar (word list) to limit vosk recognition to the options word list, increasing accuracy";
+$set['type'] = CONF_TYPE_BOOL;
+$issabelpbx_conf->define_conf_setting('IVR_USE_VOSK_GRAMMAR',$set,true);
+
 ?>
