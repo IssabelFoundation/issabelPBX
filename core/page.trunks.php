@@ -243,6 +243,7 @@ case "addtrunk":
     needreload();
     $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
     $_SESSION['msgtype']='success';
+    $_SESSION['msgtstamp']=time();
     redirect_standard();
     break;
 case "edittrunk":
@@ -253,6 +254,7 @@ case "edittrunk":
     needreload();
     $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
     $_SESSION['msgtype']='success';
+    $_SESSION['msgtstamp']=time();
     redirect_standard('extdisplay');
     break;
 case "delete":
@@ -262,6 +264,7 @@ case "delete":
     needreload();
     $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
     $_SESSION['msgtype']='warning';
+    $_SESSION['msgtstamp']=time();
     redirect_standard();
     break;
 case "populatenpanxx7": 

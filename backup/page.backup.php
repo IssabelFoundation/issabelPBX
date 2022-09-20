@@ -62,6 +62,7 @@ switch ($var['action']) {
         $var['id'] = backup_put_backup($var);
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         $_REQUEST['action']='edit';
         unset($_REQUEST['type']);
         redirect_standard('id','action');

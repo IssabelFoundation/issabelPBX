@@ -24,6 +24,7 @@ if(isset($_REQUEST['action'])) {
 			phonebook_add($number, $name, $speeddial, $gensd);
             $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
             $_SESSION['msgtype']='success';
+            $_SESSION['msgtstamp']=time();
 			redirect_standard();
 		exit;
 		break;
@@ -32,6 +33,7 @@ if(isset($_REQUEST['action'])) {
 			phonebook_del($number, $numbers[$number]['speeddial']);
             $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
+            $_SESSION['msgtstamp']=time();
 			redirect_standard();
 		break;
 		case "edit":
@@ -40,6 +42,7 @@ if(isset($_REQUEST['action'])) {
 			phonebook_add($number, $name, $speeddial, $gensd);
             $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
+            $_SESSION['msgtstamp']=time();
 			redirect_standard('extdisplay');
 		break;
 		case "empty":

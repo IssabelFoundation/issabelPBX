@@ -40,6 +40,7 @@ switch ($var['action']) {
 			$var['action'] = '';
             $_SESSION['msg']=base64_encode(_('Error uploading file!'));
             $_SESSION['msgtype']='error';
+            $_SESSION['msgtstamp']=time();
             redirect_standard('');
 			break;
 		}
@@ -50,6 +51,7 @@ switch ($var['action']) {
             $var['action'] = '';
             $_SESSION['msg']=base64_encode(_('Error verifying uploaded file!'));
             $_SESSION['msgtype']='error';
+            $_SESSION['msgtstamp']=time();
             redirect_standard('');
 			break;
 		}

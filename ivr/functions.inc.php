@@ -598,6 +598,7 @@ function ivr_configprocess(){
                 fwmsg::set_dest($this_dest[0]);
                 $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
                 $_SESSION['msgtype']='success';
+                $_SESSION['msgtstamp']=time();
                 redirect_standard_continue('extdisplay');
             break;
             case 'delete':
@@ -605,6 +606,7 @@ function ivr_configprocess(){
                 needreload();
                 $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
                 $_SESSION['msgtype']='warning';
+                $_SESSION['msgtstamp']=time();
                 redirect_standard_continue();
             break;
         }

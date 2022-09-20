@@ -35,12 +35,14 @@ if ($action=='add') {
         needreload();
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         redirect_standard();
     }
     else
     {
         $_SESSION['msg']=base64_encode($errors[0]);
         $_SESSION['msgtype']='error';
+        $_SESSION['msgtstamp']=time();
         $params["group_label"] = $_POST["group_label"];
         $params["chiefs"] = $_POST["chiefs"];
         $params["bosses"] = $extensionsCleaned["bosses"];
@@ -58,12 +60,14 @@ elseif($action=='edit') {
         needreload();
         $_SESSION['msg']=base64_encode(dgettext('amp',sprintf(_("Group %s was edited successfully"),$group_label)));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         redirect_standard('extdisplay');
     }
     else
     {
         $_SESSION['msg']=base64_encode(dgettext('amp',$errors[0]));
         $_SESSION['msgtype']='error';
+        $_SESSION['msgtstamp']=time();
         $params["extdisplay"]    = $_POST["extdisplay"];
         $params["group_label"]   = $_POST["group_label"];
         $params["chiefs"]        = $chiefs;
@@ -91,6 +95,7 @@ elseif ($action=='delete') {
             needreload();
             $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
+            $_SESSION['msgtstamp']=time();
             redirect_standard();
         }
     }

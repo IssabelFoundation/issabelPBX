@@ -48,6 +48,7 @@ switch ($var['action']) {
 		$var['id'] = backup_put_server($var);
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         //$_REQUEST['action']='edit';
         //redirect_standard('id','action');
 		break;
@@ -55,6 +56,7 @@ switch ($var['action']) {
         $var['id'] = backup_del_server($var['id']);
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
 		break;
 }
 

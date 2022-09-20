@@ -405,11 +405,13 @@ if ($need_update && $action != 'usage') {
         needreload();
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         //redirect($url);
     } else {
         $url = "config.php?type=$type&display=$display&action=$action&extdisplay=$extension&updated=false";
         $_SESSION['msg']=base64_encode(ipbx.msg.framework.invalid_response);
         $_SESSION['msgtype']='error';
+        $_SESSION['msgtstamp']=time();
 //        redirect($url);
     }
 }

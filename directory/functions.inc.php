@@ -173,6 +173,7 @@ function directory_configprocess(){
                 if($vars['def_dir']=='1') { directory_save_default_dir($vars['extdisplay']); }
                 $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
                 $_SESSION['msgtype']='success';
+                $_SESSION['msgtstamp']=time();
                 redirect_standard('extdisplay');
             break;
             case 'delete':
@@ -180,6 +181,7 @@ function directory_configprocess(){
                 needreload();
                 $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
                 $_SESSION['msgtype']='warning';
+                $_SESSION['msgtstamp']=time();
                 redirect_standard_continue();
             break;
         }

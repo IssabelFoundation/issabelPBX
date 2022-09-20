@@ -207,6 +207,7 @@ function dialplaninjection_configpageload() {
         //$currentcomponent->addguielem('_top', new gui_pageheading('title', _("Injection").": $extdisplay"." deleted!", false), 0);
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
         redirect_standard();
     }
     else
@@ -273,6 +274,7 @@ function dialplaninjection_configprocess() {
         dialplaninjection_editcommands($injection,$arraycommands);
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         redirect_standard('extdisplay');
         break;
     case 'delete':

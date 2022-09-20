@@ -32,6 +32,7 @@ switch ($action) {
         phpagiconf_gen_conf();
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         redirect_standard('id');
 		//needreload();
 	break;
@@ -42,6 +43,7 @@ switch ($action) {
 		phpagiconf_gen_conf();
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         redirect_standard('');
         //needreload();
 	break;

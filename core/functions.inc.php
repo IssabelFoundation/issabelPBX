@@ -8284,6 +8284,7 @@ function core_users_configprocess() {
                     needreload();
                     $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
                     $_SESSION['msgtype']='success';
+                    $_SESSION['msgtstamp']=time();
                     redirect_standard_continue();
                 } else {
                     // really bad hack - but if core_users_add fails, want to stop core_devices_add
@@ -8302,6 +8303,7 @@ function core_users_configprocess() {
                 }
                 $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
                 $_SESSION['msgtype']='warning';
+                $_SESSION['msgtstamp']=time();
                 needreload();
                 redirect_standard_continue();
             break;
@@ -8310,6 +8312,7 @@ function core_users_configprocess() {
                     needreload();
                     $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
                     $_SESSION['msgtype']='success';
+                    $_SESSION['msgtstamp']=time();
                     redirect_standard_continue('extdisplay');
                 } else {
                     // really bad hack - but if core_users_edit fails, want to stop core_devices_edit
@@ -9162,6 +9165,7 @@ function core_devices_configprocess() {
                 core_devices_add($deviceid,$tech,$devinfo_dial,$devicetype,$deviceuser,$description,$emergency_cid,true);
                 $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
                 $_SESSION['msgtype']='success';
+                $_SESSION['msgtstamp']=time();
                 needreload();
                 redirect_standard_continue('extdisplay');
             }

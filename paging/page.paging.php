@@ -37,6 +37,7 @@ switch ($vars['action']) {
         needreload();
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
         redirect_standard();
 	case 'submit':
 		//TODO: issue, we are deleting and adding at the same time so remeber later to check
@@ -76,6 +77,7 @@ switch ($vars['action']) {
             needreload(); 
             $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
+            $_SESSION['msgtstamp']=time();
 			redirect_standard('extdisplay', 'action');
 		}
 		break;
@@ -193,6 +195,7 @@ switch ($vars['action']) {
         }
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
 		echo load_view(dirname(__FILE__) . '/views/settings.php', $vars);
 		break;
 	case 'delete':

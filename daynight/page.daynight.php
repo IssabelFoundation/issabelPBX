@@ -35,6 +35,7 @@ switch ($action) {
         daynight_show_edit($_POST,'add');
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         break;
     case "edit":
         daynight_show_edit($_POST);
@@ -43,12 +44,14 @@ switch ($action) {
             daynight_edit($_POST,$extdisplay);
             $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
+            $_SESSION['msgtstamp']=time();
             redirect_standard('extdisplay');
             break;
     case "delete":
             daynight_del($extdisplay);
             $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
+            $_SESSION['msgtstamp']=time();
             redirect_standard();
             break;
     default:

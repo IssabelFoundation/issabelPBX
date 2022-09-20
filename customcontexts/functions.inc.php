@@ -501,6 +501,7 @@ function customcontexts_customcontextsadmin_configprocess() {
         customcontexts_customcontextsadmin_add($context,$description);
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         redirect_standard();
     break;
     case 'edit':
@@ -509,6 +510,7 @@ function customcontexts_customcontextsadmin_configprocess() {
         customcontexts_customcontextsadmin_editincludes($context,$includes);
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         redirect_standard('extdisplay');
     break;
     case 'del':
@@ -516,6 +518,7 @@ function customcontexts_customcontextsadmin_configprocess() {
         customcontexts_customcontextsadmin_del($context);
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
         redirect_standard();
     break;
     }

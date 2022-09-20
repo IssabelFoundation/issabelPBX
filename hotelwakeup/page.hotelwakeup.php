@@ -66,6 +66,7 @@ case "edit":
 
         $_SESSION['msg']=base64_encode(_('Cannot schedule the call, either due to insufficient data or the scheduled time was in the past'));
         $_SESSION['msgtype']='error';
+        $_SESSION['msgtstamp']=time();
         redirect_standard('');
 
     } else {
@@ -94,6 +95,7 @@ case "edit":
         $newdisplay = hotelwakeup_gencallfile($foo);
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         $_SESSION['extdisplay']=$_POST['ExtBox'];
         $_REQUEST['extdisplay']=$newdisplay;
         redirect_standard('extdisplay');
@@ -104,6 +106,7 @@ case "saveconfig":
     $_REQUEST['action']='';
     $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
     $_SESSION['msgtype']='success';
+    $_SESSION['msgtstamp']=time();
     redirect_standard('extdisplay');
     break;
 case "delete":
@@ -117,11 +120,13 @@ case "delete":
         $_REQUEST['action']='';
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
         redirect_standard('');
     } else {
         $_REQUEST['action']='';
         $_SESSION['msg']=base64_encode(_('Could not find file to remove'));
         $_SESSION['msgtype']='error';
+        $_SESSION['msgtstamp']=time();
         redirect_standard('');
     }
 }

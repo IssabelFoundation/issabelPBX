@@ -70,6 +70,7 @@ function queuemetrics_configprocess(){
                     needreload();
                     $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
                     $_SESSION['msgtype']='success';
+                    $_SESSION['msgtstamp']=time();
                     $_REQUEST['action']='edit';
                     redirect_standard();
                     break;

@@ -48,9 +48,11 @@ if(isset($_REQUEST['action'])) {
             if(!isset($msg)) $msg = dgettext('amp','Item has been saved');
             $_SESSION['msg']=base64_encode($msg);
             $_SESSION['msgtype']='success';
+            $_SESSION['msgtstamp']=time();
         } else {
             $_SESSION['msg']=base64_encode($errors);
             $_SESSION['msgtype']='error';
+            $_SESSION['msgtstamp']=time();
         }
         redirect_standard('extdisplay');
         break;
@@ -59,6 +61,7 @@ if(isset($_REQUEST['action'])) {
         needreload();
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
         redirect_standard('');
     default:
         break;

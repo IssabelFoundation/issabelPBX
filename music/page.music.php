@@ -47,12 +47,14 @@ switch ($action) {
         needreload();
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         redirect_standard();
     case "addednew":
         music_makemusiccategory($path_to_dir);
         needreload();
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
         redirect_standard();
         break;
     case "deletefile":
@@ -66,6 +68,7 @@ switch ($action) {
             if($del=='') {
                 $_SESSION['msg']=base64_encode(_('No file specified'));
                 $_SESSION['msgtype']='error';
+                $_SESSION['msgtstamp']=time();
                 redirect_standard('extdisplay');
             }
             if (strpos($del, "\"") || strpos($del, "\'") || strpos($del, "\;")) {
@@ -85,15 +88,18 @@ switch ($action) {
             if (($numf == 1) && ($extdisplay == "default") ){
                 $_SESSION['msg']=base64_encode(_("You must have at least one file for On Hold Music.  Please upload one before deleting this one."));
                 $_SESSION['msgtype']='warning';
+                $_SESSION['msgtstamp']=time();
                 redirect_standard('extdisplay');
             } else {
                 if (@unlink($path_to_dir."/".$del)) {
                     $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
                     $_SESSION['msgtype']='success';
+                    $_SESSION['msgtstamp']=time();
                     needreload();
                 } else {
                     $_SESSION['msg']=base64_encode(_('Could not delete file'));
                     $_SESSION['msgtype']='error';
+                    $_SESSION['msgtstamp']=time();
                 }
                 redirect_standard('extdisplay');
             }
@@ -111,6 +117,7 @@ switch ($action) {
             }
             $_SESSION['msg']=base64_encode(dgettext('amp',$msg));
             $_SESSION['msgtype']='error';
+            $_SESSION['msgtstamp']=time();
             redirect_standard('extdisplay');
 
         }
@@ -130,9 +137,11 @@ switch ($action) {
                 $msg.= _("This is not a fatal error, your Music on Hold may still work.");
                 $_SESSION['msg']=base64_encode(dgettext('amp',$msg));
                 $_SESSION['msgtype']='warning';
+                $_SESSION['msgtstamp']=time();
             } else {
                 $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
                 $_SESSION['msgtype']='success';
+                $_SESSION['msgtstamp']=time();
             }
             redirect_standard('extdisplay');
         }
@@ -148,6 +157,7 @@ switch ($action) {
             needreload();
             $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
+            $_SESSION['msgtstamp']=time();
             redirect_standard();
         }
     break;

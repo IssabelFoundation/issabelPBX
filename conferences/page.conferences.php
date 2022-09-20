@@ -31,6 +31,7 @@ if ($account != "" && !checkRange($account)){
                 needreload();
                 $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
                 $_SESSION['msgtype']='success';
+                $_SESSION['msgtstamp']=time();
                 redirect_standard();
             }
         break;
@@ -39,6 +40,7 @@ if ($account != "" && !checkRange($account)){
             needreload();
             $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
+            $_SESSION['msgtstamp']=time();
             redirect_standard();
         break;
         case "edit":  //just delete and re-add
@@ -64,6 +66,7 @@ if ($account != "" && !checkRange($account)){
             needreload();
             $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
+            $_SESSION['msgtstamp']=time();
             redirect_standard('extdisplay');
         break;
     }

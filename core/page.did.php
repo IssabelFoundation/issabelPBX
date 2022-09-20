@@ -42,6 +42,7 @@ switch ($action) {
 			needreload();
             $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
             $_SESSION['msgtype']='success';
+            $_SESSION['msgtstamp']=time();
 			redirect_standard('extdisplay', 'extension', 'cidnum', 'didfilter', 'rnavsort');
 		}
 	break;
@@ -51,6 +52,7 @@ switch ($action) {
 		needreload();
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
 		redirect_standard('didfilter', 'rnavsort');
 	break;
 	case 'edtIncoming':
@@ -59,6 +61,7 @@ switch ($action) {
 			needreload();
             $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
+            $_SESSION['msgtstamp']=time();
 			redirect_standard('extdisplay', 'extension', 'cidnum', 'didfilter', 'rnavsort');
 		}
 	break;

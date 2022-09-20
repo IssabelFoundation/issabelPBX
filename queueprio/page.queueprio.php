@@ -20,6 +20,7 @@ case 'add':
 		needreload();
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
 		redirect_standard('extdisplay');
 	break;
 	case 'edit':
@@ -27,6 +28,7 @@ case 'add':
 		needreload();
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
 		redirect_standard('extdisplay');
 	break;
 	case 'delete':
@@ -34,6 +36,7 @@ case 'add':
 		needreload();
         $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
 		redirect_standard();
 	break;
 }
