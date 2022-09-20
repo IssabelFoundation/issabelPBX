@@ -328,12 +328,13 @@ function js_display_confirmation_toasts() {
         if(isset($_SESSION['msg'])) {
             if($_SESSION['msg']!='') {
                 $type = isset($_SESSION['msgtype'])?htmlspecialchars($_SESSION['msgtype']):'success';
+                $msg = json_encode(base64_decode($_SESSION['msg']));
                 $out.= "\$( function() {\n";
-                $out.= "sweet_toast('$type','".htmlspecialchars(base64_decode($_SESSION['msg']))."');\n";
+                $out.= "sweet_toast('$type',".$msg.");\n";
                 $out.= "});\n";
             }
         } else {
-            $out.='console.log("no toast");';
+            $out.='// console.log("no toast");';
         }
     }
     return $out;
