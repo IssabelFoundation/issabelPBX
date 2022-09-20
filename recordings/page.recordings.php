@@ -106,6 +106,7 @@ switch ($action) {
                 $error.= _("make sure you uploaded or recorded a file with the entered extension");
                 $_SESSION['msg']=base64_encode($error);
                 $_SESSION['msgtype']='error';
+                $_SESSION['msgtimer']=6000;
                 redirect_standard();
             } else {
                 exec("cp " . $recordings_save_path . "{$dest}ivrrecording.$suffix " . $astsnd."custom/{$filename}.$suffix 2>&1", $outarray, $ret);
@@ -120,6 +121,7 @@ switch ($action) {
                     $error .= _("Make sure you have entered a proper name");
                     $_SESSION['msg']=base64_encode($error);
                     $_SESSION['msgtype']='error';
+                    $_SESSION['msgtimer']=6000;
                     redirect_standard();
                 }
                 exec("rm " . $recordings_save_path . "{$dest}ivrrecording.$suffix ", $outarray, $ret);
@@ -131,6 +133,7 @@ switch ($action) {
                     $error .= _("Make sure Asterisk is not running as root ");
                     $_SESSION['msg']=base64_encode($error);
                     $_SESSION['msgtype']='error';
+                    $_SESSION['msgtimer']=6000;
                     redirect_standard();
                 }
             }
