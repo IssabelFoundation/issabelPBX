@@ -395,6 +395,7 @@ switch($display) {
             // Reset user add/edit/delete notifications, called via fetch when toast is destroyed
             unset($_SESSION['msg']);
             unset($_SESSION['msgtype']);
+            unset($_SESSION['msgtimer']);
             die();
         } 
         //TODO Determine which item is this module displaying.

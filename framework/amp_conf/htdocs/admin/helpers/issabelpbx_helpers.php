@@ -327,14 +327,15 @@ function js_display_confirmation_toasts() {
     if(!isset($_SERVER['HTTP_X_UP_MODE'])) { // is a full page load, not unpoly fragment
         if(isset($_SESSION['msg'])) {
             if($_SESSION['msg']!='') {
+                $timer = isset($_SESSION['msgtimer'])?$_SESSION['msgtimer']:3000;
                 $type = isset($_SESSION['msgtype'])?htmlspecialchars($_SESSION['msgtype']):'success';
                 $msg = json_encode(base64_decode($_SESSION['msg']));
                 $out.= "\$( function() {\n";
-                $out.= "sweet_toast('$type',".$msg.");\n";
+                $out.= "sweet_toast('$type',".$msg.",$timer);\n";
                 $out.= "});\n";
             }
         } else {
-            $out.='// console.log("no toast");';
+            $out.='console.log("no toast");';
         }
     }
     return $out;

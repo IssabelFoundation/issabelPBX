@@ -651,10 +651,11 @@ $(function() {
 
 });
 
-function sweet_toast(icon,msg) {
+function sweet_toast(icon,msg,timer=3000) {
     Toast.fire({
         icon: icon,
         title: msg,
+        timer: timer,
         didDestroy: function() {
             fetch(window.location.href+'&quietmode=1&action=resetnotifications').then(response=>{ });
         }
@@ -1346,7 +1347,6 @@ Toast = Swal.mixin({
         popup: 'colored-toast'
     },
     showConfirmButton: false,
-    timer: 3000,
     timerProgressBar: true
 });
 
