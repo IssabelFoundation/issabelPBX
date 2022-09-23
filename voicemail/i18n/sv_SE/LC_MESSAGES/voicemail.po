@@ -179,7 +179,7 @@ msgstr ""
 msgid "Please enter a valid phone number using number digits only"
 msgstr "Skriv in ett giltigt telefonnummer, endast siffror"
 
-msgid "Use When:"
+msgid "Use When"
 msgstr "Använd vid:"
 
 msgid ""
@@ -193,7 +193,7 @@ msgstr "otillgänglig"
 msgid "busy"
 msgstr "upptagen"
 
-msgid "Voicemail Instructions:"
+msgid "Voicemail Instructions"
 msgstr "Instruktioner för röstmeddelande:"
 
 msgid "Uncheck to play a beep after your personal Voicemail greeting."

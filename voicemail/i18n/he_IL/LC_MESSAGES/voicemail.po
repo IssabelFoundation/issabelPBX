@@ -166,7 +166,7 @@ msgstr ""
 msgid "Please enter a valid phone number using number digits only"
 msgstr ""
 
-msgid "Use When:"
+msgid "Use When"
 msgstr ""
 
 msgid ""
@@ -180,7 +180,7 @@ msgstr ""
 msgid "busy"
 msgstr ""
 
-msgid "Voicemail Instructions:"
+msgid "Voicemail Instructions"
 msgstr ""
 
 msgid "Uncheck to play a beep after your personal Voicemail greeting."

@@ -639,7 +639,7 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 	$set_vmx_text = 
 		"
 			<tr>
-				<td><a href='#' class='info'>" . _("Use When:") . "<span>" . _("Menu options below are available during your personal Voicemail greeting playback. <br/><br/>Check both to use at all times.") . "<br></span></a></td> <td>
+				<td><a href='#' class='info'>" . dgettext('voicemail',"Use When") . "<span>" . _("Menu options below are available during your personal Voicemail greeting playback. <br/><br/>Check both to use at all times.") . "<br></span></a></td> <td>
 					<input $tabindex_text $vmx_unavail_enabled_text_box_options $vmx_unavail_enabled_value type=checkbox name='vmx_unavail_enabled' id='vmx_unavail_enabled' value='checked'>
 					<small>" . _("unavailable") . "</small>
 					<input $tabindex_text $vmx_busy_enabled_text_box_options $vmx_busy_enabled_value type=checkbox name='vmx_busy_enabled' id='vmx_busy_enabled' value='checked'>
@@ -647,7 +647,7 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 				</td>
 			</tr>
 			<tr>
-				<td><a href='#' class='info'>" . _("Voicemail Instructions:") ."<span>" . _("Uncheck to play a beep after your personal Voicemail greeting.") . "<br></span></a></td>
+				<td><a href='#' class='info'>" . dgettext('voicemail',"Voicemail Instructions") ."<span>" . _("Uncheck to play a beep after your personal Voicemail greeting.") . "<br></span></a></td>
 				<td>
 					<input $tabindex_text $vmx_play_instructions_text_box_options $vmx_play_instructions type=checkbox name='vmx_play_instructions' id='vmx_play_instructions' value='checked'>
 					<small>" . _("Standard Voicemail prompts.") . "</small>
