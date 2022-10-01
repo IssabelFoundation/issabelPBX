@@ -727,12 +727,17 @@ function doready() {
     });
 
     $(document).on('mouseenter', '.infohelp', function() {
+
         side = ipbx.conf.text_dir == 'lrt' ? 'left' : 'right';
         var pos = $(this).offset();
         var offset = (200 - pos.side) + "px";
-        $(this).find("span").css(side, offset).css('top',pos.top).stop(true, true).delay(500).animate({
-            opacity: "show"
-        }, 750);
+        bulma_fixed_bar = 0;
+        if($('html')[0].className=='has-navbar-fixed-top') {
+            bulma_fixed_bar = '3.5rem';
+        }
+        val = 'calc('+pos.top+'-'+bulma_fixed_bar+')';
+        $(this).find("span").css(side, offset).css('top',val).stop(true, true).delay(500).animate({ opacity: "show" }, 750);
+
     }).on('mouseleave', '.infohelp', function() {
         $(this).find("span").stop(true, true).animate({
             opacity: "hide"
