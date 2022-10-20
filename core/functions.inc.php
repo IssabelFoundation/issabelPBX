@@ -781,6 +781,9 @@ class core_conf {
                             break;
                         case 'callerid':
                         case 'mailbox':
+                            if(!preg_match('/@/',$result2['data'])) {
+                                $result2['data']=$account.'@'.'device';
+                            }
                             $text = substr($this->map_dev_user($account, $result2['keyword'], $result2['data']),0,-1);
                             $text = preg_replace("/mailbox=/","mailboxes=",$text);
                             $output1[] = $text;
