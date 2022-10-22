@@ -354,7 +354,7 @@ function queues_get_config($engine) {
 					foreach ($device_list as $device) {
 						if (
 							(!$dynmemberonly || $device['devicetype'] == 'adhoc' || isset($mem[$device['user']]))
-							&& ($device['tech'] == 'sip' || $device['tech'] == 'iax2')
+							&& ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip')
 							) {
 							$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_setvar('QUEUENO',$exten));
 							$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_goto('start','s','app-queue-toggle'));
