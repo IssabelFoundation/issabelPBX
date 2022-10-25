@@ -52,7 +52,8 @@
             $queuestat=(array_search(trim($new_user),$static_agents_array[$queueno]))?'STATIC':$loggedvar;
             debug("Agent $new_user is $queuestat");
             $agi->set_variable('QUEUESTAT',$queuestat);
-            $agi->set_variable('MEMBERTECH',$queue_member_tech[$queueno][$new_user]);
+            $tech = isset($queue_member_tech[$queueno][$new_user])?$queue_member_tech[$queueno][$new_user]:'Local';
+            $agi->set_variable('MEMBERTECH',$tech);
         break;
         case 'getall':
             $new_user = get_login_user();
@@ -274,7 +275,7 @@
 
         $paused_state = 0;
         foreach ($agent_queues as $q) {
-            $tech = $queue_member_tech[$q][$pause_user];
+            $tech = isset($queue_member_tech[$q][$pause_user])?$queue_member_tech[$q][$pause_user]:'Local';
             if($tech=='Local') {
                 $user_interface = "Local/$pause_user@from-queue/n";
             } else {
@@ -287,7 +288,7 @@
         // in all queues
         $new_state = $paused_state ? '0' : '1';
         foreach ($agent_queues as $q) {
-            $tech = $queue_member_tech[$q][$pause_user];
+            $tech = isset($queue_member_tech[$q][$pause_user])?$queue_member_tech[$q][$pause_user]:'Local';
             if($tech=='Local') {
                 $user_interface = "Local/$pause_user@from-queue/n";
             } else {
