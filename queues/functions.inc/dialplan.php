@@ -422,7 +422,7 @@ function queues_get_config($engine) {
 					$ext->addExec($c,$amp_conf['AMPBIN'].'/generate_queue_hints.php '.$que_code);
 				} else {
 					foreach ($device_list as $device) {
-						if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
+						if ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip') {
 							$ext->add($c, $que_code . '*' . $device['id'], '', new ext_goto('start','s','app-all-queue-toggle'));
 							if ($device['user'] != '' &&  isset($qc[$device['user']])) {
 								$hlist = 'Custom:QUEUE' . $device['id'] . '*' . implode('&Custom:QUEUE' . $device['id'] . '*', $qc[$device['user']]);
@@ -458,7 +458,7 @@ function queues_get_config($engine) {
 						$pause_all_hints = array();
 						if (isset($qc[$device['user']])) foreach($qc[$device['user']] as $q) {
 							$ext->add($c, $que_pause_code . '*' . $device['id'] . '*' . $q, '', new ext_gosub('1','s','app-queue-pause-toggle',$q));
-							if (!$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
+							if (!$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip')) {
 								$hint = "qpause:$q:Local/{$device['user']}@from-queue/n";
 								$ext->addHint($c, $que_pause_code . '*' . $device['id'] . '*' . $q, $hint);
 								$pause_all_hints[] = $hint;
@@ -531,7 +531,7 @@ function queues_get_config($engine) {
 								$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_gosub('1', 's', 'app-queue-caller-count', $item[0]));
 								$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_hangup());
 
-								if ($ast_ge_11 && !$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
+								if ($ast_ge_11 && !$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip')) {
 									$hint = "Queue:$item[0]";
 									$ext->addHint($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], $hint);
 									$callers_all_hints[] = $hint;
