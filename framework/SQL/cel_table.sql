@@ -11,7 +11,7 @@ CREATE TABLE `cel` (
   `context` varchar(80) NOT NULL,
   `channame` varchar(80) NOT NULL,
   `appname` varchar(80) NOT NULL,
-  `appdata` varchar(80) NOT NULL,
+  `appdata` varchar(240) NOT NULL,
   `amaflags` int(11) NOT NULL,
   `accountcode` varchar(20) NOT NULL,
   `uniqueid` varchar(32) NOT NULL,
