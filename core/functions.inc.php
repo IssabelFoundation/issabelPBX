@@ -2982,6 +2982,7 @@ function core_do_get_config($engine) {
             $ext->add($context, $exten, '', new ext_execif('$["${REC_POLICY_MODE}"!="always"]','Return'));
             if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) {
                 $ext->add($context, $exten, '', new ext_set('CONFBRIDGE(bridge,record_conference)','yes'));
+                $ext->add($context, $exten, '', new ext_set('CONFBRIDGE(bridge,record_file_timestamp)','no'));
             }
             $ext->add($context, $exten, '', new ext_set('__REC_STATUS','RECORDING'));
             $ext->add($context, $exten, '', new ext_set('CDR(recordingfile)','${CALLFILENAME}.${MON_FMT}'));
