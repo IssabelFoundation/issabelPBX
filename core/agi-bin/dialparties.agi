@@ -792,9 +792,12 @@ function get_dial_string( $agi, $extnum, $use_confirmation, $ringgroup_index ) {
                 $dialstring .= $ds."&";
 	    } else {
                 $dialstring .= 'Local/LC-'.$adevice.'@from-internal&';
-            }		    
+            }
             if ($chan_dahdi) {
-                $dialstring .= str_replace('ZAP/', 'DAHDI/', $dds['data']);
+                $curcha = str_replace('ZAP/', 'DAHDI/',$dds['data']);
+                if(preg_match("/^DAHD/",$curcha)) {
+                    $dialstring .= $curcha;
+                }
             }
         }
         $dialstring = trim($dialstring," &");
