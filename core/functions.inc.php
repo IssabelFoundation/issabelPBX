@@ -2435,7 +2435,7 @@ function core_do_get_config($engine) {
                     //
                     if (!$amp_conf['DYNAMICHINTS']) {
                         $hint = core_hint_get($exten['extension']);
-                        $dnd_string = ($amp_conf['USEDEVSTATE'] && function_exists('donotdisturb_get_config')) ? "&Custom:DND".$exten['extension'] : '';
+                        $dnd_string = ($amp_conf['USEDNDSTATE'] && function_exists('donotdisturb_get_config')) ? "&Custom:DND".$exten['extension'] : '';
                         $presence_string = $amp_conf['AST_FUNC_PRESENCE_STATE'] ? ",CustomPresence:".$exten['extension'] : '';
                         $hint_string = (!empty($hint) ? $hint : '') . $dnd_string . $presence_string;
                         if ($hint_string) {
