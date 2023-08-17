@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `findmefollow`
 	PRIMARY KEY  (`grpnum`) 
 ) ";
 
-if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"]))  { $sql.=" DEFAULT CHARSET=utf8mb4";  }
+if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"]))  { $sql.=" DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";  }
 
 $check = $db->query($sql);
 if(DB::IsError($check)) {
