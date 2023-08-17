@@ -1798,6 +1798,10 @@ outn("Creating or updating issabelpbx_conf settings..");
 issabelpbx_settings_init(true);
 out("..OK");
 
+outn("Setting manager password..");
+exec($amp_conf["AMPBIN"]."/issabelpbx_setting AMPMGRPASS $manager_pass");
+out("..OK");
+
 if($language!="") {
     if(in_array($language,array("es_ES", "pt_BR", "bg_BG", "zh_CN", "de_DE", "fr_FR", "he_IL", "hu_HU", "it_IT", "pt_PT", "ru_RU", "sv_SE", "ja_JP"))) {
         outn("Setting language to $language...");
