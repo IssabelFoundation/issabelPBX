@@ -10,7 +10,7 @@ $sql = "CREATE TABLE IF NOT EXISTS daynight
         (
 				ext varchar(10) NOT NULL default '',
 				dmode varchar(40) NOT NULL default '',
-			  dest varchar(255) NOT NULL default '',
+			  dest varchar(190) NOT NULL default '',
 				PRIMARY KEY (ext, dmode, dest)
 			  );
 			 ";
