@@ -8,7 +8,7 @@ INSERT INTO `admin` VALUES("version","2.12.0.0");
 INSERT INTO `admin` VALUES("ALLOW_SIP_ANON","no");
 
 CREATE TABLE `ampusers` (
-`username` varchar(255) PRIMARY KEY NOT NULL,
+`username` varchar(155) PRIMARY KEY NOT NULL,
 `password_sha1` varchar(40) NOT NULL,
 `extension_low` varchar(20) NOT NULL,
 `extension_high` varchar(20) NOT NULL,
@@ -163,7 +163,7 @@ CREATE TABLE `issabelpbx_settings` (
 ) DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `globals` (
-`variable` varchar(255) PRIMARY KEY NOT NULL,
+`variable` varchar(155) PRIMARY KEY NOT NULL,
 `value` varchar(255) NOT NULL
 ) DEFAULT CHARSET=utf8mb4;
 
