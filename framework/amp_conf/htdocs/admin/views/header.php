@@ -89,6 +89,7 @@ $html .= '<script src="assets/js/chosen.jquery.js"></script>';
 $html .= '<script src="assets/js/unpoly.min.js"></script>';
 $html .= '<script src="assets/js/jquery-migrate-3.4.0.js"></script>';
 $html .= '<script src="assets/js/loadingoverlay.js"></script>';
+$html .= '<script src="assets/js/jquery.dirty.js"></script>';
 $html .= '<link rel="stylesheet" href="assets/css/unpoly.min.css" type="text/css"/>';
 $html .= '</head>';
 
