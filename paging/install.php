@@ -57,7 +57,7 @@ if(DB::IsError($result)) {
 //
 $sql = "
 CREATE TABLE IF NOT EXISTS `paging_autoanswer` (
-	`useragent` VARCHAR( 255 ) NOT NULL ,
+	`useragent` VARCHAR( 180 ) NOT NULL ,
 	`var` VARCHAR( 20 ) NOT NULL ,
 	`setting` VARCHAR( 255 ) NOT NULL ,
 	PRIMARY KEY ( `useragent` , `var` )
@@ -79,7 +79,7 @@ if(DB::IsError($check)) {
 	}
 	
 	$sql = "CREATE TABLE IF NOT EXISTS paging_config 
-		( page_group VARCHAR(255), 
+		( page_group VARCHAR(190), 
 	  	force_page INTEGER(1) NOT NULL,
 			duplex     INTEGER(1) NOT NULL default '0',
 			description VARCHAR(255) NOT NULL default '',
