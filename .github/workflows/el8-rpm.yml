@@ -9,7 +9,7 @@ jobs:
 
     - name: build RPM package el8
       id: rpm8
-      uses: naveenrajm7/rpmbuild@centos8
+      uses: asternic/rpmbuild@centos8
       with:
         spec_file: "issabelPBX.spec"
 
