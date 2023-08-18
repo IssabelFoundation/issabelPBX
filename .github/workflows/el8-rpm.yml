@@ -1,4 +1,4 @@
-name: RPM Build
+name: RPM Build Centos 8
 on: push
 
 jobs:
