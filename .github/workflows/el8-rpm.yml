@@ -1,0 +1,20 @@
+name: RPM Build
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: build RPM package el8
+      id: rpm8
+      uses: naveenrajm7/rpmbuild@centos8
+      with:
+        spec_file: "issabelPBX.spec"
+
+    - name: Upload artifact el8
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: Binary RPM
+        path: ${{ steps.rpm8.outputs.rpm_dir_path }}
