@@ -1534,7 +1534,7 @@ up.compiler('.content', function(element,data) {
 
     // checks if form has been modified and prevent leaving in that case
     if($('#mainform').length>0) {
-        $('#mainform').dirty({preventLeaving:true});
+//        $('#mainform').dirty({preventLeaving:true});
     }
 
     // adds bulma table classes to tables that lacks the table class
