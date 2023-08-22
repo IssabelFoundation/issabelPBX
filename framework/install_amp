@@ -1177,20 +1177,20 @@ if (!file_exists(AMP_CONF)) {
     out("Assuming new install, --install-moh added to command line");
     $install_moh = true;
 
+    $amp_conf = install_parse_amportal_conf(AMP_CONF);
+
+} else {
+
+    $amp_conf = install_parse_amportal_conf(AMP_CONF);
+    $manager_pass= $amp_conf['AMPMGRPASS'];
+    $database_pass= $amp_conf['AMPDBPASS'];
 }
 out("OK");
 
-// **** read amportal.conf
-
-// TODO: see comments above, have we already boostraped, if so, skip this?
-//
-outn("Reading ".AMP_CONF."..");
 $amp_conf = install_parse_amportal_conf(AMP_CONF);
 if (count($amp_conf) == 0) {
-    fatal("FAILED");
+    fatal("FAILED parsing/reading ".AMP_CONF);
 }
-out("OK");
-
 
 // TODO: if we boostrapped I think we can count on ALL of these being set but maybe it's
 //       fine to do a sanity check?
@@ -1402,12 +1402,21 @@ case "mysql":
     out("Connecting as: $datasource");
 
     $db = DB::connect($datasource); // attempt connection
-    $res = $db->query("CREATE DATABASE asterisk");
-    $res = $db->query("CREATE DATABASE asteriskcdrdb");
 
-    out("Databases created!");
+    $query = "SHOW DATABASES LIKE 'asterisk'";
+    $q = $db->query($query);
+    if (DB::iserror($q)) { die($q->getMessage( )); }
+    if($q->numRows()==0) {
+        $res = $db->query("CREATE DATABASE asterisk");
+        $res = $db->query("CREATE DATABASE asteriskcdrdb");
 
-    grant_mysql();
+        out("Databases created!");
+
+        grant_mysql();
+
+    } else {
+        out("Database asterisk already exists");
+    }
 
     $db->disconnect();
 
