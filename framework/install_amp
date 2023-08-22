@@ -1177,10 +1177,6 @@ if (!file_exists(AMP_CONF)) {
     out("Assuming new install, --install-moh added to command line");
     $install_moh = true;
 
-    if($dbengine=="mysql" || $dbengine=="mysqli") {
-        out("Grant MySQL");
-    }
-
 }
 out("OK");
 
