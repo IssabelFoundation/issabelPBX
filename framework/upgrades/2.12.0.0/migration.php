@@ -2,7 +2,7 @@
 global $amp_conf;
 include_once ($amp_conf['AMPWEBROOT'].'/admin/libraries/issabelpbx_conf.class.php');
 $issabelpbx_conf =& issabelpbx_conf::create();
-$issabelpbx_conf->set_conf_values(array('JQUERY_VER' => '3.6.0'),true);
+$issabelpbx_conf->set_conf_values(array('JQUERY_VER' => '3.6.0'),true,true);
 if (!$issabelpbx_conf->conf_setting_exists('LANGUAGE')) {
     $value = isset($_COOKIE['lang'])?$_COOKIE['lang']:'en_US';
     $set['value'] = $value;
