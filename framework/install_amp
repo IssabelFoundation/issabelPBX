@@ -82,27 +82,27 @@ function randomPass($length) {
 function install_parse_amportal_conf($filename) {
     $file = file($filename);
     foreach ($file as $line) {
-        if (preg_match("/^\s*([a-zA-Z0-9]+)\s*=\s*(.*)\s*([;#].*)?/",$line,$matches)) {
-
-        // TODO: force booleans into 0/1 this should be ok given the limited number of configuration values
-        //
-        switch (trim(strtolower($matches[2]))) {
-        case 'false':
-        case 'no':
-        case 'off':
-        case '0':
-            $conf[$matches[1]] = '0';
-            break;
-        case 'true':
-        case 'yes':
-        case 'on':
-        case '1':
-            $conf[$matches[1]] = '1';
-            break;
-        default:
-            $conf[$matches[1]] = $matches[2];
-            break;
-        }
+        if (preg_match("/^\s*([^;#]*)\s*=\s*([^;\n]*)/",$line,$matches)) {
+            trim($line);
+            // TODO: force booleans into 0/1 this should be ok given the limited number of configuration values
+            //
+            switch (trim(strtolower($matches[2]))) {
+            case 'false':
+            case 'no':
+            case 'off':
+            case '0':
+                $conf[$matches[1]] = '0';
+                break;
+            case 'true':
+            case 'yes':
+            case 'on':
+            case '1':
+                $conf[$matches[1]] = '1';
+                break;
+            default:
+                $conf[$matches[1]] = $matches[2];
+                break;
+            }
         }
     }
 
