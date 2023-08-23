@@ -1,11 +1,10 @@
 <?php
 $html = '';
-$html .= heading(_('Welcome to ') . $amp_conf['BRAND_TITLE'] . '!', 3) . '<hr/>';
+$html .= heading(_('Welcome to ' . $amp_conf['BRAND_TITLE'].'.') , 2) . '<hr/>';
 //$html .= '<div id="login_form">';
 $html .= form_open($_SERVER['REQUEST_URI'], 'id="loginform"');
 
-
-$html .= heading(_('Initial setup'), 5) . '<hr/>';
+$html .= heading(_('Initial setup'), 5);
 $html .= _('Please provide the core credentials that will be used to '
         . 'administer your system');
 $html .= br(2);
@@ -24,7 +23,8 @@ $data = array(
 			'required' => '',
 			'placeholder' => _('username')
 		);
-$table->add_row($label, form_input($data));
+//$table->add_row($label, form_input($data),'class="input"');
+$table->add_row($label, form_input($data,'','class="input w100"'));
 
 //password
 $label = ipbx_label(_('Password'), _('Admin password'));
@@ -36,7 +36,7 @@ $data = array(
 			'placeholder' => _('password')
         );
 
-$table->add_row($label, form_input($data));
+$table->add_row($label, form_input($data,'','class="input w100"'));
 
 //confirm password
 $label = ipbx_label(_('Confirm Password'));
@@ -48,7 +48,7 @@ $data = array(
 			'placeholder' => _('password')
         );
 
-$table->add_row($label, form_input($data));
+$table->add_row($label, form_input($data,'','class="input w100"'));
 
 //email address
 $label = ipbx_label(_('Admin Email address'));
@@ -59,7 +59,7 @@ $data = array(
 			'placeholder' => _('email address')
         );
 
-$table->add_row($label, form_input($data));
+$table->add_row($label, form_input($data,'','class="input"'));
 
 //Confirm email address
 $label = ipbx_label(_('Confirm Email address'));
@@ -70,13 +70,12 @@ $data = array(
 			'placeholder' => _('confirm email')
         );
 
-$table->add_row($label, form_input($data));
+$table->add_row($label, form_input($data,'','class="input"'));
 
 $html .= $table->generate();
-$html .= br(5);
 $html .= form_hidden('action', 'setup_admin');
-$html .= form_submit('submit', _('Set up my Account'));
-$html .= form_close();
+
+$html .= form_action_bar('','',true,true);
 
 echo $html;
 
