@@ -137,7 +137,7 @@
 "Styling and Logos","BRAND_ISSABELPBX_ALT_FOOT","IssabelPBX&reg;","","Alt for Footer Logo","alt attribute to use in place of image and title hover value. Defaults to IssabelPBX","1","1","1","text"
 "Styling and Logos","BRAND_ISSABELPBX_ALT_LEFT","IssabelPBX","","Alt for Left Logo","alt attribute to use in place of image and title hover value. Defaults to IssabelPBX","1","1","1","text"
 "Styling and Logos","BRAND_SPONSOR_ALT_FOOT","","","Alt for Footer Logo","alt attribute to use in place of image and title hover value. Defaults to IssabelPBX","1","1","1","text"
-"Styling and Logos","BRAND_TITLE","IssabelPBX Administration","","Page Title","HTML title of all pages","0","1","1","text"
+"Styling and Logos","BRAND_TITLE","IssabelPBX","","Page Title","HTML title of all pages","0","1","1","text"
 "Styling and Logos","JQUERY_CSS","assets/css/jquery-ui.css","","jQuery UI css","css file for jquery ui","0","1","1","text"
 "Styling and Logos","PDFAUTHOR","www.issabel.org","","tiff2pdf Author","Author to pass to tiff2pdf's -a option","0","0","1","text"
 "Styling and Logos","VIEW_BAD_REFFERER","views/bad_refferer.php","","View: bad_refferer.php","bad_refferer.php view. This should never be changed except for very advanced layout changes.","0","1","1","text"

@@ -545,7 +545,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/views/obe.php:54
 msgid "Admin Email address"
-msgstr ""
+msgstr "Dirección Email Administrador"
 
 #: amp_conf/htdocs/admin/views/obe.php:30
 msgid "Admin password"
@@ -1095,11 +1095,11 @@ msgstr "Confirmar"
 
 #: amp_conf/htdocs/admin/views/obe.php:65
 msgid "Confirm Email address"
-msgstr ""
+msgstr "Confirmar Email"
 
 #: amp_conf/htdocs/admin/views/obe.php:42
 msgid "Confirm Password"
-msgstr ""
+msgstr "Confirmar Contraseña"
 
 #: ../core/functions.inc.php:7113
 msgid "Conflicting Extensions"
@@ -2608,7 +2608,7 @@ msgstr "Información"
 
 #: amp_conf/htdocs/admin/views/obe.php:8
 msgid "Initial setup"
-msgstr ""
+msgstr "Configuración inicial"
 
 #: upgrades/2.9.0alpha1/migrate_ampconf.php:75
 msgid "Initialize issabelpbx_conf settings.."
@@ -3450,7 +3450,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/views/obe.php:30
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 #: ../core/functions.inc.php:7458 ../core/functions.inc.php:7510
 msgid ""
@@ -3589,7 +3589,7 @@ msgstr ""
 msgid ""
 "Please provide the core credentials that will be used to administer your "
 "system"
-msgstr ""
+msgstr "Proporcione las credenciales básicas que se utilizarán para administrar su sistema"
 
 #: amp_conf/htdocs/admin/views/footer.php:91
 msgid "Please select a \"Destination\""
