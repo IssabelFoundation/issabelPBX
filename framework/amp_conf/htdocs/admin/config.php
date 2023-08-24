@@ -66,10 +66,10 @@ require_once(dirname(__FILE__) . '/libraries/ampuser.class.php');
 
 $php_missing_module = array();
 
-session_set_cookie_params(60 * 60 * 24 * 30);//(re)set session cookie to 30 days
-ini_set('session.gc_maxlifetime', 60 * 60 * 24 * 30);//(re)set session to 30 days
 if (!isset($_SESSION)) {
     //start a session if we need one
+    session_set_cookie_params(60 * 60 * 24 * 30);//(re)set session cookie to 30 days
+    ini_set('session.gc_maxlifetime', 60 * 60 * 24 * 30);//(re)set session to 30 days
     session_start();
 }
 
@@ -228,6 +228,14 @@ if(!$admin_auth && $display=='modules') {
     $display='noauth';
 } else {
     if ($cur_menuitem === null && !in_array($display, array('noauth', 'badrefer','noaccess',''))) {
+        $display = 'noaccess';
+    }
+}
+
+
+// No direct access allowed if not permited from issabel security
+if(isset($allow_direct_access)) {
+    if($allow_direct_access==0) {
         $display = 'noaccess';
     }
 }
