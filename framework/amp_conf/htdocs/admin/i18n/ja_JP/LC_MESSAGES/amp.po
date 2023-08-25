@@ -8168,8 +8168,8 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr ""
 #~ "壊れているためインストールできません。再度ダウンロードしてください。"
 
-#~ msgid "IssabelPBX&reg;"
-#~ msgstr "IssabelPBX&reg;"
+#~ msgid "IssabelPBX"
+#~ msgstr "IssabelPBX"
 
 #~ msgid "Internal Options & Configuration"
 #~ msgstr "内部のオプション & 設定"

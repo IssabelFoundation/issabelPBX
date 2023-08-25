@@ -134,7 +134,7 @@
 "Styling and Logos","BRAND_IMAGE_SPONSOR_FOOT","","","Image: Footer","Logo in footer.  Path is relative to admin.","1","1","1","text"
 "Styling and Logos","BRAND_IMAGE_SPONSOR_LINK_FOOT","","","Link for Sponsor Footer Logo","link to follow when clicking on sponsor logo","1","1","1","text"
 "Styling and Logos","BRAND_IMAGE_TANGO_LEFT","images/tango.png","","Image: Left Upper","Left upper logo.  Path is relative to admin.","0","1","1","text"
-"Styling and Logos","BRAND_ISSABELPBX_ALT_FOOT","IssabelPBX&reg;","","Alt for Footer Logo","alt attribute to use in place of image and title hover value. Defaults to IssabelPBX","1","1","1","text"
+"Styling and Logos","BRAND_ISSABELPBX_ALT_FOOT","IssabelPBX;","","Alt for Footer Logo","alt attribute to use in place of image and title hover value. Defaults to IssabelPBX","1","1","1","text"
 "Styling and Logos","BRAND_ISSABELPBX_ALT_LEFT","IssabelPBX","","Alt for Left Logo","alt attribute to use in place of image and title hover value. Defaults to IssabelPBX","1","1","1","text"
 "Styling and Logos","BRAND_SPONSOR_ALT_FOOT","","","Alt for Footer Logo","alt attribute to use in place of image and title hover value. Defaults to IssabelPBX","1","1","1","text"
 "Styling and Logos","BRAND_TITLE","IssabelPBX","","Page Title","HTML title of all pages","0","1","1","text"
