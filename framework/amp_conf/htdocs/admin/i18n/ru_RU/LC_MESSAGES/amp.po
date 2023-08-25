@@ -6070,9 +6070,6 @@ msgstr ""
 #~ " поврежден и не может быть инсталлирован. Нужно попытаться скачать его "
 #~ "снова."
 
-#~ msgid "IssabelPBX"
-#~ msgstr "IssabelPBX"
-
 #~ msgid "%s is a registered trademark of %s"
 #~ msgstr "%s является зарегистрированной торговой маркой %s"
 
