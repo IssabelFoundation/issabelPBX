@@ -118,6 +118,11 @@ function install_parse_amportal_conf($filename) {
     if ( !isset($conf["AMPENGINE"]) || ($conf["AMPENGINE"] == "")) {
         $conf["AMPENGINE"] = "asterisk";
     }
+
+    if ( !isset($conf["AMPDBHOST"]) || ($conf["AMPDBHOST"] == "")) {
+        $conf["AMPDBHOST"] = "localhost";
+    }
+
     out("parsed amp_conf variables from $filename:");
     foreach ($conf as $keyword => $value) {
         out("amp_conf [$keyword] => [$value]");
@@ -263,6 +268,8 @@ function collect_settings($filename, $dbhost = '', $dbuser = '', $dbpass = '', $
     global $runas_uid;
     global $runas_gid;
     global $dbfile;
+
+    if($dbhost=='') $dbhost='localhost';
 
     out("Creating new $filename");
 
