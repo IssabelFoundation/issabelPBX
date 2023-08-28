@@ -31,7 +31,22 @@ cp -a * %{buildroot}/usr/src/issabelPBX
 
 pear install DB >/dev/null 2>&1
 
+systemctl is-active --quiet asterisk
+if [ $? -eq 0 ]; then
+echo "asterisk is up and running"
+systemctl is-active --quiet mysql
+if [ $? -eq 0 ]; then
+echo "mariadb is up and running"
+echo "perform installation"
 /usr/src/issabelPBX/framework/install_amp --dbuser=root --installdb --scripted --language=en
+else
+echo "mariadb is not running, installation process has been skipped"
+touch /installamp
+fi
+else
+echo "asterisk is not running, installation process has been skipped"
+touch /installamp
+fi
 
 # Compile .po files to .mo
 for A in `find /var/www/html/admin -name \*.po`
