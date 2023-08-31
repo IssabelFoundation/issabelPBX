@@ -9,7 +9,7 @@ $sql = <<< END
 CREATE TABLE IF NOT EXISTS `sipsettings` (
   `keyword` VARCHAR (50) NOT NULL default '',
   `data`    VARCHAR (255) NOT NULL default '',
-  `seq`     TINYINT (1),
+  `seq`     TINYINT (1) NOT NULL default '0',
   `type`    TINYINT (1) NOT NULL default '0',
   PRIMARY KEY (`keyword`,`seq`,`type`)
 )
@@ -61,7 +61,7 @@ $sql = <<< END
 CREATE TABLE IF NOT EXISTS `pjsipsettings` (
   `keyword` VARCHAR (50) NOT NULL default '',
   `data`    VARCHAR (255) NOT NULL default '',
-  `seq`     TINYINT (1),
+  `seq`     TINYINT (1) NOT NULL default '0',
   `type`    TINYINT (1) NOT NULL default '0',
   PRIMARY KEY (`keyword`,`seq`,`type`)
 )
