@@ -2305,7 +2305,8 @@ function core_do_get_config($engine) {
                         $ext->add($context, $exten, '', new ext_setvar("__ALERT_INFO", str_replace(';', '\;', $item['alertinfo'])));
                     }
                     if (!empty($item['grppre'])) {
-                        $ext->add($context, $exten, '', new ext_macro('prepend-cid', $item['grppre']));
+                        // $ext->add($context, $exten, '', new ext_macro('prepend-cid', $item['grppre'])); MACRO DEPRECATION
+                        $ext->add($context, $exten, '', new ext_gosub('1','s','sub-prepend-cid', $item['grppre']));
                     }
 
                     //the goto destination
@@ -3004,7 +3005,7 @@ function core_do_get_config($engine) {
 
       /* macro-prepend-cid */
       // prepend a cid and if set to replace previous prepends, do so, otherwise stack them
-      //
+      // MACRO DEPRECATION
       $mcontext = 'macro-prepend-cid';
       $exten = 's';
 
@@ -3018,6 +3019,21 @@ function core_do_get_config($engine) {
       $ext->add($mcontext, $exten, 'REPCID', new ext_set('_RGPREFIX', '${ARG1}'));
       $ext->add($mcontext, $exten, '', new ext_set('CALLERID(name)','${RGPREFIX}${CALLERID(name)}'));
 
+      /* sub-prepend-cid */
+      // prepend a cid and if set to replace previous prepends, do so, otherwise stack them
+      //
+      $mcontext = 'sub-prepend-cid';
+      $exten = 's';
+
+      if ($amp_conf['CID_PREPEND_REPLACE']) {
+        $ext->add($mcontext, $exten, '', new ext_gotoif('$["${RGPREFIX}" = ""]', 'REPCID'));
+        $ext->add($mcontext, $exten, '', new ext_gotoif('$["${RGPREFIX}" != "${CALLERID(name):0:${LEN(${RGPREFIX})}}"]', 'REPCID'));
+        $ext->add($mcontext, $exten, '', new ext_noop_trace('Current RGPREFIX is ${RGPREFIX}....stripping from CallerID'));
+        $ext->add($mcontext, $exten, '', new ext_set('CALLERID(name)', '${CALLERID(name):${LEN(${RGPREFIX})}}'));
+        $ext->add($mcontext, $exten, '', new ext_set('_RGPREFIX', ''));
+      }
+      $ext->add($mcontext, $exten, 'REPCID', new ext_set('_RGPREFIX', '${ARG1}'));
+      $ext->add($mcontext, $exten, '', new ext_set('CALLERID(name)','${RGPREFIX}${CALLERID(name)}'));
 
 
             /* outbound routes */
