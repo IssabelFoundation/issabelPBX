@@ -30,7 +30,9 @@ cp -a * %{buildroot}/usr/src/issabelPBX
 
 %post
 
-pear install DB >/dev/null 2>&1
+pear install DB >/dev/null 2>&1 || :
+
+PODIR=/usr/src/issabelPBX
 
 systemctl is-active --quiet asterisk
 if [ $? -eq 0 ]; then
@@ -39,7 +41,8 @@ systemctl is-active --quiet mysql
 if [ $? -eq 0 ]; then
 echo "mariadb is up and running"
 echo "perform installation"
-/usr/src/issabelPBX/framework/install_amp --dbuser=root --installdb --scripted --language=en
+/usr/src/issabelPBX/framework/install_amp --dbuser=root --installdb --scripted --language=en || :
+PODIR=/var/www/html/admin
 else
 echo "mariadb is not running, installation process has been skipped"
 touch /installamp
@@ -50,13 +53,14 @@ touch /installamp
 fi
 
 # Compile .po files to .mo
-for A in `find /var/www/html/admin -name \*.po`
+for A in `find $PODIR -name \*.po`
 do
 POFILE=${A}
 MOFILE=${POFILE%.po}.mo
 PODIR=${A%$POFILE}
-sudo -u asterisk msgfmt $POFILE -o $MOFILE
+sudo -u asterisk msgfmt $POFILE -o $MOFILE || :
 done
+
 
 %files
 /usr/src/issabelPBX/
