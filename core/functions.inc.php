@@ -8786,8 +8786,10 @@ function core_devices_configpageinit($dispnum) {
         $tmparr['allow_subscribe'] = array('value' => 'yes', 'tt' => $tt, 'select' => $select, 'level' => 1);
 
         unset($select);
-        $select[] = array('value' => 'yes', 'text' => _('Yes'));
-        $select[] = array('value' => 'no', 'text' => _('No'));
+        $select[] = array('value' => 'on', 'text' => _('Yes'));
+        $select[] = array('value' => 'off', 'text' => _('No'));
+        $select[] = array('value' => 'attest', 'text' => _('Attest'));
+        $select[] = array('value' => 'verify', 'text' => _('Verify'));
         $tt = _("Enable Stir Shaken for this endpoint");
         $tmparr['stir_shaken'] = array('value' => 'off', 'tt' => $tt, 'select' => $select, 'level' => 1);
 
