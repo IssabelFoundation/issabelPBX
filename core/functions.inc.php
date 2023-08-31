@@ -3268,17 +3268,17 @@ function core_do_get_config($engine) {
             $ext->add($context, $exten, '', new ext_gotoif('$[${LEN(${INPUT})} > 0]', '${INPUT},1', 't,1'));
 
             $exten = '1';
-      if ($amp_conf['AST_FUNC_SHARED']) {
-              $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" & "${SHARED(ANSWER_STATUS,${FORCE_CONFIRM})}"=""]', 'toolate,1'));
-      } else {
-              $ext->add($context, $exten, '', new ext_gotoif('$["${FORCE_CONFIRM}" != ""]', 'skip'));
-              $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0"]', 'toolate,1'));
-      }
+            if ($amp_conf['AST_FUNC_SHARED']) {
+                $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" & "${SHARED(ANSWER_STATUS,${FORCE_CONFIRM})}"=""]', 'toolate,1'));
+            } else {
+                $ext->add($context, $exten, '', new ext_gotoif('$["${FORCE_CONFIRM}" != ""]', 'skip'));
+                $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0"]', 'toolate,1'));
+            }
             $ext->add($context, $exten, '', new ext_dbdel('RG/${ARG3}/${UNIQCHAN}'));
             $ext->add($context, $exten, '', new ext_macro('blkvm-clr'));
-      if ($amp_conf['AST_FUNC_SHARED']) {
-        $ext->add($context, $exten, '', new ext_setvar('SHARED(ANSWER_STATUS,${FORCE_CONFIRM})',''));
-      }
+            if ($amp_conf['AST_FUNC_SHARED']) {
+                $ext->add($context, $exten, '', new ext_setvar('SHARED(ANSWER_STATUS,${FORCE_CONFIRM})',''));
+            }
             $ext->add($context, $exten, 'skip', new ext_setvar('__MACRO_RESULT',''));
             $ext->add($context, $exten, '', new ext_execif('$[("${MOHCLASS}"!="default") & ("${MOHCLASS}"!="")]', 'Set', 'CHANNEL(musicclass)=${MOHCLASS}'));
             $ext->add($context, $exten, 'exitopt1', new ext_macroexit());
@@ -3288,18 +3288,18 @@ function core_do_get_config($engine) {
 
             $exten = '3';
             $ext->add($context, $exten, '', new ext_saydigits('${CALLCONFIRMCID}'));
-      if ($amp_conf['AST_FUNC_SHARED']) {
-              $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" & "${SHARED(ANSWER_STATUS,${FORCE_CONFIRM})}"=""]', 'toolate,1','s,start'));
-      } else {
-        $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" & "${FORCE_CONFIRM}"=""]', 'toolate,1','s,start'));
-      }
+            if ($amp_conf['AST_FUNC_SHARED']) {
+                $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" & "${SHARED(ANSWER_STATUS,${FORCE_CONFIRM})}"=""]', 'toolate,1','s,start'));
+            } else {
+                $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" & "${FORCE_CONFIRM}"=""]', 'toolate,1','s,start'));
+            }
 
             $exten = 't';
-      if ($amp_conf['AST_FUNC_SHARED']) {
-              $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" & "${SHARED(ANSWER_STATUS,${FORCE_CONFIRM})}"=""]', 'toolate,1'));
-      } else {
-        $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" & "${FORCE_CONFIRM}"=""]', 'toolate,1'));
-      }
+            if ($amp_conf['AST_FUNC_SHARED']) {
+                $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" & "${SHARED(ANSWER_STATUS,${FORCE_CONFIRM})}"=""]', 'toolate,1'));
+            } else {
+                $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" & "${FORCE_CONFIRM}"=""]', 'toolate,1'));
+            }
             $ext->add($context, $exten, '', new ext_setvar('LOOPCOUNT','$[ ${LOOPCOUNT} + 1 ]'));
             $ext->add($context, $exten, '', new ext_gotoif('$[ ${LOOPCOUNT} < 5 ]', 's,start','noanswer,1'));
 
@@ -3309,11 +3309,11 @@ function core_do_get_config($engine) {
             } else {
                 $ext->add($context, $exten, '', new ext_background('invalid,m,${LANGUAGE},macro-confirm'));
             }
-      if ($amp_conf['AST_FUNC_SHARED']) {
-              $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" | "${SHARED(ANSWER_STATUS,${FORCE_CONFIRM})}"=""]', 'toolate,1'));
-      } else {
-        $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" & "${FORCE_CONFIRM}"=""]', 'toolate,1'));
-      }
+            if ($amp_conf['AST_FUNC_SHARED']) {
+                $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" | "${SHARED(ANSWER_STATUS,${FORCE_CONFIRM})}"=""]', 'toolate,1'));
+            } else {
+                $ext->add($context, $exten, '', new ext_gotoif('$["${DB_EXISTS(RG/${ARG3}/${UNIQCHAN})}"="0" & "${FORCE_CONFIRM}"=""]', 'toolate,1'));
+            }
             $ext->add($context, $exten, '', new ext_setvar('LOOPCOUNT','$[ ${LOOPCOUNT} + 1 ]'));
             $ext->add($context, $exten, '', new ext_gotoif('$[ ${LOOPCOUNT} < 5 ]', 's,start','noanswer,1'));
 
@@ -3349,11 +3349,11 @@ function core_do_get_config($engine) {
             $ext->add($context, $exten, '', new ext_macro('blkvm-clr'));
             $ext->add($context, $exten, '', new ext_dbdel('RG/${ARG1}/${UNIQCHAN}'));
             $ext->add($context, $exten, '', new ext_noop_trace('DIALEDPEERNUMBER: ${DIALEDPEERNUMBER} CID: ${CALLERID(all)}'));
-      if ($amp_conf['AST_FUNC_MASTER_CHANNEL'] && $amp_conf['AST_FUNC_CONNECTEDLINE']) {
+            if ($amp_conf['AST_FUNC_MASTER_CHANNEL'] && $amp_conf['AST_FUNC_CONNECTEDLINE']) {
                 // Check that it is numeric so we don't pollute it with odd dialplan stuff like FMGL-blah from followme
                 $ext->add($context, $exten, '', new ext_execif('$[!${REGEX("[^0-9]" ${DIALEDPEERNUMBER})} && "${DB(AMPUSER/${AMPUSER}/cidname)}" != ""]', 'Set', 'MASTER_CHANNEL(CONNECTEDLINE(num))=${DIALEDPEERNUMBER}'));
                 $ext->add($context, $exten, '', new ext_execif('$[!${REGEX("[^0-9]" ${DIALEDPEERNUMBER})} && "${DB(AMPUSER/${AMPUSER}/cidname)}" != ""]', 'Set', 'MASTER_CHANNEL(CONNECTEDLINE(name))=${DB(AMPUSER/${DIALEDPEERNUMBER}/cidname)}'));
-      }
+            }
 
             /*
             ;------------------------------------------------------------------------
@@ -3374,11 +3374,11 @@ function core_do_get_config($engine) {
             $ext->add($context, $exten, '', new ext_set('MASTER_CHANNEL(FORWARD_CONTEXT)','from-internal'));
             $ext->add($context, $exten, '', new ext_macro('blkvm-clr'));
             $ext->add($context, $exten, '', new ext_noop_trace('DIALEDPEERNUMBER: ${DIALEDPEERNUMBER} CID: ${CALLERID(all)}'));
-      if ($amp_conf['AST_FUNC_MASTER_CHANNEL'] && $amp_conf['AST_FUNC_CONNECTEDLINE']) {
+            if ($amp_conf['AST_FUNC_MASTER_CHANNEL'] && $amp_conf['AST_FUNC_CONNECTEDLINE']) {
                 // Check that it is numeric so we don't pollute it with odd dialplan stuff like FMGL-blah from followme
                 $ext->add($context, $exten, '', new ext_execif('$[!${REGEX("[^0-9]" ${DIALEDPEERNUMBER})} && "${DB(AMPUSER/${AMPUSER}/cidname)}" != ""]', 'Set', 'MASTER_CHANNEL(CONNECTEDLINE(num))=${DIALEDPEERNUMBER}'));
                 $ext->add($context, $exten, '', new ext_execif('$[!${REGEX("[^0-9]" ${DIALEDPEERNUMBER})} && "${DB(AMPUSER/${AMPUSER}/cidname)}" != ""]', 'Set', 'MASTER_CHANNEL(CONNECTEDLINE(name))=${DB(AMPUSER/${DIALEDPEERNUMBER}/cidname)}'));
-      }
+            }
 
             /*
             ;------------------------------------------------------------------------
@@ -3403,11 +3403,11 @@ function core_do_get_config($engine) {
             // the reason for the diversion (e.g. CFB could set it to busy)
             //
             if ($amp_conf['DIVERSIONHEADER']) {
-                    $context = 'sub-diversion-header';
-                    $exten = 's';
-                    $ext->add($context, $exten, '', new ext_set('DIVERSION_REASON', '${IF($[${LEN(${DIVERSION_REASON})}=0]?no-answer:${DIVERSION_REASON})}'));
-                    $ext->add($context, $exten, '', new ext_sipaddheader('Diversion', '<tel:${FROM_DID}>\;reason=${DIVERSION_REASON}\;screen=no\;privacy=off'));
-                    $ext->add($context, $exten, '', new ext_return(''));
+                $context = 'sub-diversion-header';
+                $exten = 's';
+                $ext->add($context, $exten, '', new ext_set('DIVERSION_REASON', '${IF($[${LEN(${DIVERSION_REASON})}=0]?no-answer:${DIVERSION_REASON})}'));
+                $ext->add($context, $exten, '', new ext_sipaddheader('Diversion', '<tel:${FROM_DID}>\;reason=${DIVERSION_REASON}\;screen=no\;privacy=off'));
+                $ext->add($context, $exten, '', new ext_return(''));
             }
 
             /*
@@ -3420,12 +3420,12 @@ function core_do_get_config($engine) {
              * screen of AMP
              */
             if (function_exists('outroutemsg_get')) {
-        $trunkreportmsg_ids = outroutemsg_get();
-      } else {
-        if (!defined('DEFAULT_MSG')) define('DEFAULT_MSG', -1);
-        if (!defined('CONGESTION_TONE')) define('CONGESTION_TONE', -2);
-        $trunkreportmsg_ids = array('no_answer_msg_id' => -1, 'invalidnmbr_msg_id' => -1);
-      }
+                $trunkreportmsg_ids = outroutemsg_get();
+            } else {
+                if (!defined('DEFAULT_MSG')) define('DEFAULT_MSG', -1);
+                if (!defined('CONGESTION_TONE')) define('CONGESTION_TONE', -2);
+                $trunkreportmsg_ids = array('no_answer_msg_id' => -1, 'invalidnmbr_msg_id' => -1);
+            }
 
             // Since rarely used only generate this dialplan if are using this feature
             //
@@ -3457,7 +3457,7 @@ function core_do_get_config($engine) {
 
             // Back to normal processing, whether intracompany or not.
             // But add the macro-setmusic if we don't want music on this outbound call
-      // if FORCE_CONFIRM then that macro will set any necessary MOHCLASS, and we will also call the confirm macro
+            // if FORCE_CONFIRM then that macro will set any necessary MOHCLASS, and we will also call the confirm macro
             $ext->add($context, $exten, '', new ext_execif('$["${MOHCLASS}"!="default" & "${MOHCLASS}"!="" & "${FORCE_CONFIRM}"="" ]', 'Set', 'DIAL_TRUNK_OPTIONS=M(setmusic^${MOHCLASS})${DIAL_TRUNK_OPTIONS}'));
             $ext->add($context, $exten, '', new ext_execif('$["${FORCE_CONFIRM}"!="" ]', 'Set', 'DIAL_TRUNK_OPTIONS=${DIAL_TRUNK_OPTIONS}M(confirm)'));
 
@@ -3467,21 +3467,18 @@ function core_do_get_config($engine) {
             $ext->add($context, $exten, 'gocall', new ext_macro('dialout-trunk-predial-hook'));
             $ext->add($context, $exten, '', new ext_gotoif('$["${PREDIAL_HOOK_RET}" = "BYPASS"]', 'bypass,1'));
 
-      if ($amp_conf['AST_FUNC_CONNECTEDLINE'] && $amp_conf['OUTBOUND_DIAL_UPDATE']) {
-        $ext->add($context, $exten, '', new ext_execif('$["${DB(AMPUSER/${AMPUSER}/cidname)}" != ""]','Set','CONNECTEDLINE(num,i)=${DIAL_NUMBER}'));
-      }
-      if ($amp_conf['AST_FUNC_CONNECTEDLINE'] && $amp_conf['OUTBOUND_CID_UPDATE']) {
-        $ext->add($context, $exten, '', new ext_execif('$["${DB(AMPUSER/${AMPUSER}/cidname)}" != ""]','Set','CONNECTEDLINE(name,i)=CID:${CALLERID(number)}'));
-      }
+            if ($amp_conf['AST_FUNC_CONNECTEDLINE'] && $amp_conf['OUTBOUND_DIAL_UPDATE']) {
+                $ext->add($context, $exten, '', new ext_execif('$["${DB(AMPUSER/${AMPUSER}/cidname)}" != ""]','Set','CONNECTEDLINE(num,i)=${DIAL_NUMBER}'));
+            }
+            if ($amp_conf['AST_FUNC_CONNECTEDLINE'] && $amp_conf['OUTBOUND_CID_UPDATE']) {
+                $ext->add($context, $exten, '', new ext_execif('$["${DB(AMPUSER/${AMPUSER}/cidname)}" != ""]','Set','CONNECTEDLINE(name,i)=CID:${CALLERID(number)}'));
+            }
 
             $ext->add($context, $exten, '', new ext_gotoif('$["${custom}" = "AMP"]', 'customtrunk'));
 
-// pjsip trunk dial
             $ext->add($context, $exten, '', new ext_set('DIALSTR', '${OUT_${DIAL_TRUNK}}/${OUTNUM}')); 
             $ext->add($context, $exten, '', new ext_gosubif('$["${DIALSTR:0:5}" = "PJSIP"]','pjsipdial,1'));
             $ext->add($context, $exten, '', new ext_dial('${DIALSTR}', '${TRUNK_RING_TIMER},${DIAL_TRUNK_OPTIONS}'));  // Regular Trunk Dial
-
-//            $ext->add($context, $exten, '', new ext_dial('${OUT_${DIAL_TRUNK}}/${OUTNUM}', '${TRUNK_RING_TIMER},${DIAL_TRUNK_OPTIONS}'));  // Regular Trunk Dial
             $ext->add($context, $exten, '', new ext_noop('Dial failed for some reason with DIALSTATUS = ${DIALSTATUS} and HANGUPCAUSE = ${HANGUPCAUSE}'));
             $ext->add($context, $exten, '', new ext_gotoif('$["${ARG4}" = "on"]','continue,1', 's-${DIALSTATUS},1'));
 
@@ -3512,7 +3509,7 @@ function core_do_get_config($engine) {
 
             /*
             * There are reported bugs in Asterisk Blind Trasfers that result in Dial() returning and continuing
-      * execution with a status of ANSWER. So we hangup at this point
+            * execution with a status of ANSWER. So we hangup at this point
             */
             $exten = 's-ANSWER';
             $ext->add($context, $exten, '', new ext_noop('Call successfully answered - Hanging up now'));
@@ -3526,17 +3523,17 @@ function core_do_get_config($engine) {
             $ext->add($context, $exten, '', new ext_noop('Dial failed due to trunk reporting NOANSWER - giving up'));
             $ext->add($context, $exten, '', new ext_progress());
             switch ($trunkreportmsg_ids['no_answer_msg_id']) {
-        case DEFAULT_MSG:
-          $ext->add($context, $exten, '', new ext_playback('number-not-answering,noanswer'));
-        break;
-        case CONGESTION_TONE:
-          $ext->add($context, $exten, '', new ext_playtones('congestion'));
-        break;
-        default:
-          $message = recordings_get_file($trunkreportmsg_ids['no_answer_msg_id']);
-          $message = ($message != "") ? $message : "number-not-answering";
-          $ext->add($context, $exten, '', new ext_playback("$message, noanswer"));
-      }
+              case DEFAULT_MSG:
+                  $ext->add($context, $exten, '', new ext_playback('number-not-answering,noanswer'));
+                  break;
+              case CONGESTION_TONE:
+                  $ext->add($context, $exten, '', new ext_playtones('congestion'));
+                  break;
+              default:
+                $message = recordings_get_file($trunkreportmsg_ids['no_answer_msg_id']);
+                $message = ($message != "") ? $message : "number-not-answering";
+                $ext->add($context, $exten, '', new ext_playback("$message, noanswer"));
+            }
             $ext->add($context, $exten, '', new ext_congestion(20));
 
             $exten = 's-INVALIDNMBR';
@@ -3546,17 +3543,17 @@ function core_do_get_config($engine) {
             $ext->add($context, $exten, '', new ext_noop('Dial failed due to trunk reporting Address Incomplete - giving up'));
             $ext->add($context, $exten, '', new ext_progress());
             switch ($trunkreportmsg_ids['invalidnmbr_msg_id']) {
-        case DEFAULT_MSG:
-          $ext->add($context, $exten, '', new ext_playback('ss-noservice,noanswer'));
-        break;
-        case CONGESTION_TONE:
-          $ext->add($context, $exten, '', new ext_playtones('congestion'));
-        break;
-        default:
-          $message = recordings_get_file($trunkreportmsg_ids['invalidnmbr_msg_id']);
-          $message = ($message != "") ? $message : "ss-noservice";
-          $ext->add($context, $exten, '', new ext_playback("$message, noanswer"));
-      }
+            case DEFAULT_MSG:
+                $ext->add($context, $exten, '', new ext_playback('ss-noservice,noanswer'));
+                break;
+            case CONGESTION_TONE:
+                $ext->add($context, $exten, '', new ext_playtones('congestion'));
+                break;
+            default:
+                $message = recordings_get_file($trunkreportmsg_ids['invalidnmbr_msg_id']);
+                $message = ($message != "") ? $message : "ss-noservice";
+                $ext->add($context, $exten, '', new ext_playback("$message, noanswer"));
+            }
             $ext->add($context, $exten, '', new ext_busy(20));
 
             $exten = "s-CHANGED";
@@ -3623,12 +3620,12 @@ function core_do_get_config($engine) {
             $ext->add($context, $exten, 'gocall', new ext_macro('dialout-dundi-predial-hook'));
             $ext->add($context, $exten, '', new ext_gotoif('$["${PREDIAL_HOOK_RET}" = "BYPASS"]', 'bypass,1'));
 
-      if ($amp_conf['AST_FUNC_CONNECTEDLINE'] && $amp_conf['OUTBOUND_DIAL_UPDATE']) {
-        $ext->add($context, $exten, '', new ext_execif('$["${DB(AMPUSER/${AMPUSER}/cidname)}" != ""]','Set','CONNECTEDLINE(num,i)=${DIAL_NUMBER}'));
-      }
-      if ($amp_conf['AST_FUNC_CONNECTEDLINE'] && $amp_conf['OUTBOUND_CID_UPDATE']) {
-        $ext->add($context, $exten, '', new ext_execif('$["${DB(AMPUSER/${AMPUSER}/cidname)}" != ""]','Set','CONNECTEDLINE(name,i)=CID:${CALLERID(number)}'));
-      }
+            if ($amp_conf['AST_FUNC_CONNECTEDLINE'] && $amp_conf['OUTBOUND_DIAL_UPDATE']) {
+                $ext->add($context, $exten, '', new ext_execif('$["${DB(AMPUSER/${AMPUSER}/cidname)}" != ""]','Set','CONNECTEDLINE(num,i)=${DIAL_NUMBER}'));
+            }
+            if ($amp_conf['AST_FUNC_CONNECTEDLINE'] && $amp_conf['OUTBOUND_CID_UPDATE']) {
+                $ext->add($context, $exten, '', new ext_execif('$["${DB(AMPUSER/${AMPUSER}/cidname)}" != ""]','Set','CONNECTEDLINE(name,i)=CID:${CALLERID(number)}'));
+            }
 
             $ext->add($context, $exten, '', new ext_macro('dundi-${DIAL_TRUNK}','${OUTNUM}'));
             $ext->add($context, $exten, '', new ext_gotoif('$["${ARG4}" = "on"]','continue,1', 's-${DIALSTATUS},1'));
@@ -3644,7 +3641,7 @@ function core_do_get_config($engine) {
 
             /*
             * There are reported bugs in Asterisk Blind Trasfers that result in Dial() returning and continuing
-      * execution with a status of ANSWER. So we hangup at this point
+            * execution with a status of ANSWER. So we hangup at this point
             */
             $exten = 's-ANSWER';
             $ext->add($context, $exten, '', new ext_noop('Call successfully answered - Hanging up now'));
@@ -3658,17 +3655,17 @@ function core_do_get_config($engine) {
             $ext->add($context, $exten, '', new ext_noop('Dial failed due to trunk reporting NOANSWER - giving up'));
             $ext->add($context, $exten, '', new ext_progress());
             switch ($trunkreportmsg_ids['no_answer_msg_id']) {
-        case DEFAULT_MSG:
-          $ext->add($context, $exten, '', new ext_playback('number-not-answering,noanswer'));
-        break;
-        case CONGESTION_TONE:
-          $ext->add($context, $exten, '', new ext_playtones('congestion'));
-        break;
-        default:
-          $message = recordings_get_file($trunkreportmsg_ids['no_answer_msg_id']);
-          $message = ($message != "") ? $message : "number-not-answering";
-          $ext->add($context, $exten, '', new ext_playback("$message, noanswer"));
-      }
+            case DEFAULT_MSG:
+                $ext->add($context, $exten, '', new ext_playback('number-not-answering,noanswer'));
+                break;
+            case CONGESTION_TONE:
+                $ext->add($context, $exten, '', new ext_playtones('congestion'));
+                break;
+            default:
+                $message = recordings_get_file($trunkreportmsg_ids['no_answer_msg_id']);
+                $message = ($message != "") ? $message : "number-not-answering";
+                $ext->add($context, $exten, '', new ext_playback("$message, noanswer"));
+            }
             $ext->add($context, $exten, '', new ext_congestion(20));
 
             $exten = 's-INVALIDNMBR';
@@ -3678,17 +3675,17 @@ function core_do_get_config($engine) {
             $ext->add($context, $exten, '', new ext_noop('Dial failed due to trunk reporting Address Incomplete - giving up'));
             $ext->add($context, $exten, '', new ext_progress());
             switch ($trunkreportmsg_ids['invalidnmbr_msg_id']) {
-        case DEFAULT_MSG:
-          $ext->add($context, $exten, '', new ext_playback('ss-noservice,noanswer'));
-        break;
-        case CONGESTION_TONE:
-          $ext->add($context, $exten, '', new ext_playtones('congestion'));
-        break;
-        default:
-          $message = recordings_get_file($trunkreportmsg_ids['invalidnmbr_msg_id']);
-          $message = ($message != "") ? $message : "ss-noservice";
-          $ext->add($context, $exten, '', new ext_playback("$message, noanswer"));
-      }
+            case DEFAULT_MSG:
+                $ext->add($context, $exten, '', new ext_playback('ss-noservice,noanswer'));
+                break;
+            case CONGESTION_TONE:
+                $ext->add($context, $exten, '', new ext_playtones('congestion'));
+                break;
+            default:
+                $message = recordings_get_file($trunkreportmsg_ids['invalidnmbr_msg_id']);
+                $message = ($message != "") ? $message : "ss-noservice";
+                $ext->add($context, $exten, '', new ext_playback("$message, noanswer"));
+            }
             $ext->add($context, $exten, '', new ext_busy(20));
 
             $exten = "s-CHANGED";
