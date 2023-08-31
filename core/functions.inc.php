@@ -8789,7 +8789,7 @@ function core_devices_configpageinit($dispnum) {
         $select[] = array('value' => 'yes', 'text' => _('Yes'));
         $select[] = array('value' => 'no', 'text' => _('No'));
         $tt = _("Enable Stir Shaken for this endpoint");
-        $tmparr['stir_shaken'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
+        $tmparr['stir_shaken'] = array('value' => 'off', 'tt' => $tt, 'select' => $select, 'level' => 1);
 
         unset($select);
         $select[] = array('value' => 'transport-udp', 'text' => _('UDP'));
