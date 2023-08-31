@@ -8348,6 +8348,7 @@ function core_devices_configpageinit($dispnum) {
     $engineinfo = engine_getinfo();
     $astver =  $engineinfo['version'];
     $pjsip_enabled = version_compare($astver, '13.00.00', 'ge');
+    $sip_deprecated = version_compare($astver, '20.00.00', 'ge');
 
     if ( $dispnum == 'devices' || $dispnum == 'extensions' ) {
 
@@ -8859,20 +8860,22 @@ function core_devices_configpageinit($dispnum) {
                 }
             }
 
-            $sql = "SELECT data FROM sipsettings WHERE keyword = 'bindport'";
-            $sip_port = sql($sql,'getOne');
-            if ($sip_port == '') {
-                $sip_port = "5060";
-            }
-            $currentcomponent->addoptlistitem('devicelist', 'sip_generic', _("Generic SIP Device")._(" - Port:").$sip_port);
+	    if($sip_deprecated==false) {
+                $sql = "SELECT data FROM sipsettings WHERE keyword = 'bindport'";
+                $sip_port = sql($sql,'getOne');
+                if ($sip_port == '') {
+                    $sip_port = "5060";
+                }
+	        $currentcomponent->addoptlistitem('devicelist', 'sip_generic', _("Generic SIP Device")._(" - Port:").$sip_port);
+	    }
 
             if($pjsip_enabled and $pjsip_second) {
-                 $currentcomponent->addoptlistitem('devicelist', 'pjsip_generic', _("Generic PJSIP Device")._(" - Port:").$pjsip_port);
+                $currentcomponent->addoptlistitem('devicelist', 'pjsip_generic', _("Generic PJSIP Device")._(" - Port:").$pjsip_port);
             }
 
             if(isset($amp_conf['HTTPSCERTFILE'])) {
                 if($amp_conf['HTTPSCERTFILE']<>'') {
-                    if ($pjsip_port != '5060') {
+                    if ($pjsip_port != '5060' && $sip_deprecated==false) {
                         $currentcomponent->addoptlistitem('devicelist', 'webrtc_generic', _("SIP WebRTC Device"));
                     }
                     if($pjsip_enabled and $sip_port != '5060') {
