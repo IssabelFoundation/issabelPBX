@@ -101,7 +101,7 @@
 "GUI Behavior","RELOADCONFIRM","0","","Require Confirm with Apply Changes","When set to false, will bypass the confirm on Reload Box.","0","0","0","bool"
 "GUI Behavior","SERVERINTITLE","0","","Include Server Name in Browser","Precede browser title with the server name.","0","0","0","bool"
 "GUI Behavior","SHOWLANGUAGE","1","","Show Language setting","Show Language setting on menu . Defaults = false","0","0","0","bool"
-"GUI Behavior","LANGUAGE","en_EN","","Language","General Language Setting for IssabelPBX","0","0","0","text"
+"GUI Behavior","LANGUAGE","en_US","","Language","General Language Setting for IssabelPBX","0","0","0","text"
 "GUI Behavior","USE_ISSABELPBX_MENU_CONF","0","","Use issabelpbx_menu.conf Configuration","When set to true, the system will check for a issabelpbx_menu.conf file amongst the normal configuraiton files and if found, it will be used to define and remap the menu tabs and contents. See the template supplied with IssabelPBX for details on how to do this.","0","0","0","bool"
 "GUI Behavior","XTNCONFLICTABORT","0","","Abort Config Gen on Exten Conflict","Setting either of these to true will result in retrieve_conf aborting during a reload if an extension conflict is detected or a destination is detected. It is usually better to allow the reload to go through and then correct the problem but these can be set if a more strict behavior is desired.","0","3","0","bool"
 "Internal Use","AST_APP_VQA","","","Asterisk Application VQA","Set to the application name if the application is present in this Asterisk install","1","10","1","text"
