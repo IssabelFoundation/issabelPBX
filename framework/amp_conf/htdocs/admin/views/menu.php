@@ -97,7 +97,7 @@ if (isset($ipbx_menu) && is_array($ipbx_menu)) {    // && issabelpbx_menu.conf n
             $href = isset($cat[0]['href']) ? $cat[0]['href'] : 'config.php?display=' . $cat[0]['display'];
             $target = isset($cat[0]['target']) ? ' target="' . $cat[0]['target'] . '"'  : '';
             $hclass = $cat[0]['display'] == $display ? 'ui-state-highlight' : '';
-	        $mods[$t] = '<a class="navbar-item" href="' . $href . '" ' . $target .'>'.modgettext:__(ucwords($cat[0]['name']),$cat[0]['module']['rawname']) . '</a>';
+	        $mods[$t] = '<a class="navbar-item" href="' . $href . '" ' . $target .'>'.modgettext::_(ucwords($cat[0]['name']),$cat[0]['module']['rawname']) . '</a>';
             continue;
         }
         // $t is a heading so can't be isolated to a module, translation must come from amp
@@ -144,7 +144,7 @@ if (isset($ipbx_menu) && is_array($ipbx_menu)) {    // && issabelpbx_menu.conf n
             }
 
 	        // try the module's translation domain first
-	        $trans_name = modgettext:__(ucwords($mod['name']), $mod['module']['rawname']);
+	        $trans_name = modgettext::_(ucwords($mod['name']), $mod['module']['rawname']);
             $items[$trans_name] = $scroll_div_open.'<a href="' . $href . '"'
                 . $target
                 . ' class="navbar-item ' . implode(' ', $classes) .'">' 

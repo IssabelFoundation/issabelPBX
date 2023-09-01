@@ -776,7 +776,7 @@ default:
         }
 
         $loc_domain = $name;
-        $name_text = modgettext:__($modules[$name]['name'], $loc_domain);
+        $name_text = modgettext::_($modules[$name]['name'], $loc_domain);
 
         echo "\t\t<li id=\"module_".prep_id($name)."\">\n";
 
@@ -875,7 +875,7 @@ default:
 
         if (isset($modules_online[$name]['attention']) && !empty($modules_online[$name]['attention'])) {
             echo "\t\t\t\t<div class=\"tabbertab\" title=\"".__("Attention")."\">\n";
-            echo nl2br(modgettext:__($modules[$name]['attention'], $loc_domain));
+            echo nl2br(modgettext::_($modules[$name]['attention'], $loc_domain));
             echo "\t\t\t\t</div>\n";
         }
 
@@ -972,7 +972,7 @@ default:
         }
         if (isset($modules[$name]['description']) && !empty($modules[$name]['description'])) {
             echo "<div class='has-text-weight-semibold'>".sprintf(__("Description for version %s"),$modules[$name]['version'])."</div>";
-            echo "<div class='moddesc'>".nl2br(modgettext:__($modules[$name]['description'], $loc_domain))."</div>";
+            echo "<div class='moddesc'>".nl2br(modgettext::_($modules[$name]['description'], $loc_domain))."</div>";
         } else {
             echo __("No description is available.");
         }

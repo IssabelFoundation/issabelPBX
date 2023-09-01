@@ -232,7 +232,7 @@ foreach ($tresults as $tresult) {
 
         echo "<option value=\"".$key."\"";
         if (in_array($key, $sections)) echo " SELECTED";
-        $label = modgettext:__($row['name'],$row['rawname']);
+        $label = modgettext::_($row['name'],$row['rawname']);
         //echo ">".__($row['name'])."</option>\n";
         echo ">".$label."</option>\n";
     }

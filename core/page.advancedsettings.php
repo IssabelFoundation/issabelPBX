@@ -126,15 +126,15 @@ foreach ($conf as $c){
     if ($current_category != $c['category']) {
         $current_category = $c['category'];
         $catcont++;
-        $current_category_loc = modgettext:__($current_category, $c['module']);
+        $current_category_loc = modgettext::_($current_category, $c['module']);
         echo '<div class="columns categorytitle mt-5" id="cat'.$catcont.'"><div class="column is-12"><h4 class="category">'.__("$current_category_loc").'</h4></div></div>';
         $row++;
     }
 
     $name_label_raw = $c['name'];
     $description_raw = $c['description'];
-    $name_label = modgettext:__($name_label_raw, $c['module']);
-    $tt_description = modgettext:__($description_raw, $c['module']);
+    $name_label = modgettext::_($name_label_raw, $c['module']);
+    $tt_description = modgettext::_($description_raw, $c['module']);
     if (!$display_friendly_name) {
         $tr_friendly_name = $name_label;
         $name_label = $c['keyword'];
@@ -180,7 +180,7 @@ foreach ($conf as $c){
                 $opt = $c['options'];
                 foreach($opt as $o => $l) {
                     $selected = ($amp_conf[$c['keyword']] == $o) ? ' selected ' : '';
-                    echo '<option value="'.$o.'"'.$selected.'>'.modgettext:__($l, $c['module']).'</option>';
+                    echo '<option value="'.$o.'"'.$selected.'>'.modgettext::_($l, $c['module']).'</option>';
                 }
             echo '</select>';
             break;

@@ -57,9 +57,9 @@ foreach ($full_list as $key => $value) {
   }
   if ($txtdom == 'core') {
     $active_modules[$key]['name'] = 'Extensions';
-    $core_heading = $sub_heading =  modgettext:__($active_modules[$key]['name'], $txtdom);
+    $core_heading = $sub_heading =  modgettext::_($active_modules[$key]['name'], $txtdom);
   } else {
-    $sub_heading =  modgettext:__($active_modules[$key]['name'], $txtdom);
+    $sub_heading =  modgettext::_($active_modules[$key]['name'], $txtdom);
   }
   $module_select[$sub_heading_id] = $sub_heading;
   $html_txt_arr[$sub_heading] =   "<div class=\"$sub_heading_id\"><table id=\"set_table\" class='table is-borderless is-narrow is-striped notfixed'><tr>";

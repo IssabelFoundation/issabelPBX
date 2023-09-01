@@ -130,12 +130,12 @@ foreach ($full_list as $key => $value) {
 	}
 	if ($key == 'did') {
 		$active_modules[$key]['name'] = 'Inbound Routes';
-		$core_heading = $sub_heading =  modgettext:__($active_modules[$key]['name'], $txtdom);
+		$core_heading = $sub_heading =  modgettext::_($active_modules[$key]['name'], $txtdom);
 	} elseif ($txtdom == 'core') {
 		$active_modules[$key]['name'] = 'Extensions';
-		$core_heading = $sub_heading =  modgettext:__($active_modules[$key]['name'], $txtdom);
+		$core_heading = $sub_heading =  modgettext::_($active_modules[$key]['name'], $txtdom);
 	} else {
-		$sub_heading =  modgettext:__($active_modules[$key]['name'], $txtdom);
+		$sub_heading =  modgettext::_($active_modules[$key]['name'], $txtdom);
 	}
 
 	$module_select[$sub_heading_id] = $sub_heading;
@@ -205,7 +205,7 @@ $sub_heading_id =  'featurecodeadmin';
 if ((!$quietmode || isset($_REQUEST[$sub_heading_id])) && isset($full_list['featurecodeadmin'])) {
 	$featurecodes = featurecodes_getAllFeaturesDetailed(false);
     $txtdom = $sub_heading_id;
-	$sub_heading =  modgettext:__($active_modules['featurecodeadmin']['name'], $txtdom);
+	$sub_heading =  modgettext::_($active_modules['featurecodeadmin']['name'], $txtdom);
 	$module_select[$sub_heading_id] = $sub_heading;
 	$html_txt_arr[$sub_heading] =  "<div class=\"$sub_heading_id\"><table border=\"0\" width=\"75%\" class='table notfixed'><tr colspan=\"2\" width='100%'><td><br /><strong>".sprintf("%s",$sub_heading)."</strong></td></tr>\n";
 	foreach ($featurecodes as $item) {
@@ -224,7 +224,7 @@ if ((!$quietmode || isset($_REQUEST[$sub_heading_id])) && isset($full_list['feat
 		$txtdom = $item['modulename'];
 		modgettext::textdomain($txtdom);
 		if ($featureena && $moduleena) {
-			$label_desc = sprintf(modgettext:__($item['featuredescription'],$txtdom));
+			$label_desc = sprintf(modgettext::_($item['featuredescription'],$txtdom));
 			if (!$quietmode) {
 				$thiscode = "<a href='config.php?type=setup&display=featurecodeadmin'>$thiscode</a>";
 				$label_desc = "<a href='config.php?type=setup&display=featurecodeadmin'>$label_desc</a>";
@@ -276,7 +276,7 @@ if (!$quietmode && ($search_pattern == '' || $found > 0)) {
 
 
 			}
-			$rnav_txt .= "</ul><div style=\"text-align:center\"><input class='button is-small is-rounded' type=\"submit\" value=\"".sprintf(modgettext:__("Printer Friendly Page", $dispnum))."\" /></div>\n";
+			$rnav_txt .= "</ul><div style=\"text-align:center\"><input class='button is-small is-rounded' type=\"submit\" value=\"".sprintf(modgettext::_("Printer Friendly Page", $dispnum))."\" /></div>\n";
 			echo $rnav_txt;
 			?>
 			<script language="javascript">
