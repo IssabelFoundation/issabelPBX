@@ -227,9 +227,9 @@ function ast_with_dahdi() {
         $issabelpbx_conf =& issabelpbx_conf::create();
         if ($issabelpbx_conf->conf_setting_exists('ZAP2DAHDICOMPAT')) {
             $issabelpbx_conf->set_conf_values(array('ZAP2DAHDICOMPAT' => true), true, true);
-            issabelpbx_log(IPBX_LOG_NOTICE, _("Auto set ZAP2DAHDICOMPAT to true because we are running a version of Asterisk greater than 1.4.21"));
+            issabelpbx_log(IPBX_LOG_NOTICE, __("Auto set ZAP2DAHDICOMPAT to true because we are running a version of Asterisk greater than 1.4.21"));
         } else {
-            issabelpbx_log(IPBX_LOG_ERROR, _("issabelpbx setting  ZAP2DAHDICOMPAT not found, somethng is corrupt in the conf database?"));
+            issabelpbx_log(IPBX_LOG_ERROR, __("issabelpbx setting  ZAP2DAHDICOMPAT not found, somethng is corrupt in the conf database?"));
         }
 
         $ast_with_dahdi = true;
@@ -363,8 +363,8 @@ function do_reload($passthru=false) {
         exec( $setting_pre_reload, $output, $exit_val );
 
         if ($exit_val != 0) {
-            $desc = sprintf(_("Exit code was %s and output was: %s"), $exit_val, "\n\n".implode("\n",$output));
-            $notify->add_error('issabelpbx','reload_pre_script', sprintf(_('Could not run %s script.'), $setting_pre_reload), $desc);
+            $desc = sprintf(__("Exit code was %s and output was: %s"), $exit_val, "\n\n".implode("\n",$output));
+            $notify->add_error('issabelpbx','reload_pre_script', sprintf(__('Could not run %s script.'), $setting_pre_reload), $desc);
 
             $return['num_errors']++;
         } else {
@@ -381,17 +381,17 @@ function do_reload($passthru=false) {
 
     if ($exit_val != 0) {
         $return['status'] = false;
-        $return['message'] = sprintf(_('Reload failed because retrieve_conf encountered an error: %s'),$exit_val);
+        $return['message'] = sprintf(__('Reload failed because retrieve_conf encountered an error: %s'),$exit_val);
         $return['num_errors']++;
-        $notify->add_critical('issabelpbx','RCONFFAIL', _("retrieve_conf failed, config not applied"), $return['message']);
+        $notify->add_critical('issabelpbx','RCONFFAIL', __("retrieve_conf failed, config not applied"), $return['message']);
         return $return;
     }
 
     if (!isset($astman) || !$astman) {
         $return['status'] = false;
-        $return['message'] = _('Reload failed because IssabelPBX could not connect to the asterisk manager interface.');
+        $return['message'] = __('Reload failed because IssabelPBX could not connect to the asterisk manager interface.');
         $return['num_errors']++;
-        $notify->add_critical('issabelpbx','RCONFFAIL', _("retrieve_conf failed, config not applied"), $return['message']);
+        $notify->add_critical('issabelpbx','RCONFFAIL', __("retrieve_conf failed, config not applied"), $return['message']);
         return $return;
     }
     $notify->delete('issabelpbx', 'RCONFFAIL');
@@ -407,14 +407,14 @@ function do_reload($passthru=false) {
   }
 
     $return['status'] = true;
-    $return['message'] = _('Successfully reloaded');
+    $return['message'] = __('Successfully reloaded');
   $return['retrieve_conf'] = '';
 
     //store asterisk reloaded status
     $sql = "UPDATE admin SET value = 'false' WHERE variable = 'need_reload'";
     $result = $db->query($sql);
     if(DB::IsError($result)) {
-        $return['message'] = _('Successful reload, but could not clear reload flag due to a database error: ').$db->getMessage();
+        $return['message'] = __('Successful reload, but could not clear reload flag due to a database error: ').$db->getMessage();
         $return['num_errors']++;
     }
 
@@ -422,8 +422,8 @@ function do_reload($passthru=false) {
         exec( $setting_post_reload, $output, $exit_val );
 
         if ($exit_val != 0) {
-            $desc = sprintf(_("Exit code was %s and output was: %s"), $exit_val, "\n\n".implode("\n",$output));
-            $notify->add_error('issabelpbx','reload_post_script', sprintf(_('Could not run %s script.'), $setting_post_reload), $desc);
+            $desc = sprintf(__("Exit code was %s and output was: %s"), $exit_val, "\n\n".implode("\n",$output));
+            $notify->add_error('issabelpbx','reload_post_script', sprintf(__('Could not run %s script.'), $setting_post_reload), $desc);
 
             $return['num_errors']++;
         } else {
@@ -443,10 +443,10 @@ function drawListMenu($results, $type, $dispnum, $extdisplay, $add_extra_param='
 
     echo '<nav class="rnav" up-nav>';
     if($disable_add_button==false) {
-        echo "\t<a class='button is-small mt-2 is-link' id='rnavadd' href='javascript:void(0)' data-href=\"config.php?type=".$type."&display=".$dispnum.$add_extra_param."\" >".dgettext('amp','Add')."</a>\n";
+        echo "\t<a class='button is-small mt-2 is-link' id='rnavadd' href='javascript:void(0)' data-href=\"config.php?type=".$type."&display=".$dispnum.$add_extra_param."\" >"._dgettext('amp','Add')."</a>\n";
     }
     echo "<div class='field has-addons mb0'><div class='control has-icons-left' style='width:100%;'>";
-    echo "<input type='search' id='rnavsearch' class='input is-rounded is-small mt-1 mb-1' name='search' onkeyup='filter_rnav()' placeholder='".dgettext('amp','Search')."' autocomplete='off' role='presentation'/>";
+    echo "<input type='search' id='rnavsearch' class='input is-rounded is-small mt-1 mb-1' name='search' onkeyup='filter_rnav()' placeholder='"._dgettext('amp','Search')."' autocomplete='off' role='presentation'/>";
     echo "<span class='icon is-medium is-left'><i class='fa fa-search'></i></span>";
     echo "</div></div>";
 

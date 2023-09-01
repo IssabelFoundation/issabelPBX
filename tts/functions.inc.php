@@ -220,7 +220,7 @@ function tts_getdestinfo($dest) {
         if (empty($thisqid)) {
             return array();
         } else {
-            return array('description' => sprintf(_("Text to Speech %s: "),$thisqid['description']),
+            return array('description' => sprintf(__("Text to Speech %s: "),$thisqid['description']),
                          'edit_url'    => 'config.php?display=tts&extdisplay='.urlencode($id),
                         );
         }

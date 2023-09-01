@@ -241,7 +241,7 @@ case "addtrunk":
 
     core_trunks_update_dialrules($trunknum, $dialpattern_insert);
     needreload();
-    $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+    $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
     $_SESSION['msgtype']='success';
     $_SESSION['msgtstamp']=time();
     redirect_standard();
@@ -252,7 +252,7 @@ case "edittrunk":
     // this can rewrite too, so edit is the same
     core_trunks_update_dialrules($trunknum, $dialpattern_insert, true);
     needreload();
-    $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+    $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
     $_SESSION['msgtype']='success';
     $_SESSION['msgtstamp']=time();
     redirect_standard('extdisplay');
@@ -262,7 +262,7 @@ case "delete":
     core_trunks_delete_dialrules($trunknum);
     core_routing_trunk_delbyid($trunknum);
     needreload();
-    $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+    $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
     $_SESSION['msgtype']='warning';
     $_SESSION['msgtstamp']=time();
     redirect_standard();
@@ -280,7 +280,7 @@ case "populatenpanxx10":
         curl_close($ch);
 
         if($str=="") {
-            $errormsg = _("Error connecting to localcallinguide.com");
+            $errormsg = __("Error connecting to localcallinguide.com");
             echo "<script>\$(document).ready(()=>{  sweet_alert('".addslashes($errormsg)."');});</script>";
             unset($errormsg);
             break;
@@ -381,12 +381,12 @@ case "populatenpanxx10":
             // check for duplicates, and re-sequence
             unset($hash_filter);
         } else {
-            $errormsg = _("Error fetching prefix list for: "). $_REQUEST["npanxx"];
+            $errormsg = __("Error fetching prefix list for: "). $_REQUEST["npanxx"];
         }
 
     } else {
         // what a horrible error message... :p
-        $errormsg = _("Invalid format for NPA-NXX code (must be format: NXXNXX)");
+        $errormsg = __("Invalid format for NPA-NXX code (must be format: NXXNXX)");
     }
 
     if (isset($errormsg)) {
@@ -420,7 +420,7 @@ foreach ($tresults as $tresult) {
     case 'dahdi':
         $label = substr($tresult['name'],0,15);
         if (trim($label) == '') {
-            $label = sprintf(_('Channel %s'),substr($tresult['channelid'],0,15));
+            $label = sprintf(__('Channel %s'),substr($tresult['channelid'],0,15));
         }
         $label .= " (".$tresult['tech'].")";
         break;
@@ -446,22 +446,22 @@ drawListMenu($alltrunks, $type, $display, $extdisplay);
 <?php 
 if (!$tech && !$extdisplay) {
 ?>
-    <h2><?php echo _("Add a Trunk")?></h2>
+    <h2><?php echo __("Add a Trunk")?></h2>
 <?php
     $baseURL   = $_SERVER['PHP_SELF'].'?display='.urlencode($display).'&';
-    $trunks[] = array('url'=> $baseURL.'tech=SIP', 'tlabel' =>  _("Add SIP Trunk"));
-    $trunks[] = array('url'=> $baseURL.'tech=PJSIP', 'tlabel' =>  _("Add PJSIP Trunk"));
-    $trunks[] = array('url'=> $baseURL.'tech=DAHDI', 'tlabel' =>  _("Add DAHDi Trunk"));
-    $trunks[] = array('url'=> $baseURL.'tech=IAX2', 'tlabel' =>  _("Add IAX2 Trunk"));
+    $trunks[] = array('url'=> $baseURL.'tech=SIP', 'tlabel' =>  __("Add SIP Trunk"));
+    $trunks[] = array('url'=> $baseURL.'tech=PJSIP', 'tlabel' =>  __("Add PJSIP Trunk"));
+    $trunks[] = array('url'=> $baseURL.'tech=DAHDI', 'tlabel' =>  __("Add DAHDi Trunk"));
+    $trunks[] = array('url'=> $baseURL.'tech=IAX2', 'tlabel' =>  __("Add IAX2 Trunk"));
     //--------------------------------------------------------------------------------------
     // Added to enable the unsupported misdn module
     if (function_exists('misdn_ports_list_trunks') && count(misdn_ports_list_trunks())) {
-        $trunks[] = array('url'=> $baseURL.'tech=MISDN', 'tlabel' =>  _("Add mISDN Trunk"));
+        $trunks[] = array('url'=> $baseURL.'tech=MISDN', 'tlabel' =>  __("Add mISDN Trunk"));
   }
     //--------------------------------------------------------------------------------------
-    $trunks[] = array('url'=> $baseURL.'tech=ENUM', 'tlabel' =>  _("Add ENUM Trunk"));
-    $trunks[] = array('url'=> $baseURL.'tech=DUNDI', 'tlabel' =>  _("Add DUNDi Trunk"));
-    $trunks[] = array('url'=> $baseURL.'tech=CUSTOM', 'tlabel' =>  _("Add Custom Trunk"));
+    $trunks[] = array('url'=> $baseURL.'tech=ENUM', 'tlabel' =>  __("Add ENUM Trunk"));
+    $trunks[] = array('url'=> $baseURL.'tech=DUNDI', 'tlabel' =>  __("Add DUNDi Trunk"));
+    $trunks[] = array('url'=> $baseURL.'tech=CUSTOM', 'tlabel' =>  __("Add Custom Trunk"));
     foreach ($trunks as $trunk) {
         $label="<span class='icon is-small is-left'><i class='fa fa-plus'></i></span>";
         $label .='<span>'.$trunk['tlabel'].'</span>';
@@ -535,24 +535,24 @@ if (!$tech && !$extdisplay) {
         }
         $upper_tech = strtoupper($tech);
         if (trim($trunk_name) == '') {
-            $trunk_name = ($upper_tech == 'ZAP'|$upper_tech == 'DAHDI'?sprintf(_('%s Channel %s'),$upper_tech,$channelid):$channelid);
+            $trunk_name = ($upper_tech == 'ZAP'|$upper_tech == 'DAHDI'?sprintf(__('%s Channel %s'),$upper_tech,$channelid):$channelid);
         }
-        echo "<h2>".sprintf(_("Edit %s Trunk"),$upper_tech).($upper_tech == 'ZAP' && ast_with_dahdi()?" ("._("DAHDi compatibility Mode").")":"")."</h2>";
+        echo "<h2>".sprintf(__("Edit %s Trunk"),$upper_tech).($upper_tech == 'ZAP' && ast_with_dahdi()?" (".__("DAHDi compatibility Mode").")":"")."</h2>";
 
         // find which routes use this trunk
         $routes = core_trunks_gettrunkroutes($trunknum);
         $num_routes = count($routes);
         if ($num_routes > 0) {
-            echo "<div class='tag is-success is-light ml-2'><a href=# class=\"info\">&nbsp;"._("In use by")." ".$num_routes." ".($num_routes == 1 ? _("route") : _("routes"))."<span>";
+            echo "<div class='tag is-success is-light ml-2'><a href=# class=\"info\">&nbsp;".__("In use by")." ".$num_routes." ".($num_routes == 1 ? __("route") : __("routes"))."<span>";
             foreach($routes as $route=>$priority) {
-                echo _("Route")." <b>".$route."</b>: "._("Sequence")." <b>".$priority."</b><br>";
+                echo __("Route")." <b>".$route."</b>: ".__("Sequence")." <b>".$priority."</b><br>";
             }
             echo "</span></a></div>";
         } else {
-            $warning_article = "<article class='message is-warning'><div class='message-header'><p>"._('WARNING:')."</p></div><div class='message-body'><a href=# class=\"info\">"._("This trunk is not used by any routes!")."<span>"._("This trunk will not be able to be used for outbound calls until a route is setup that uses it. Click on <b>Outbound Routes</b> to setup routing.")."</span></a></div></article>";
+            $warning_article = "<article class='message is-warning'><div class='message-header'><p>".__('WARNING:')."</p></div><div class='message-body'><a href=# class=\"info\">".__("This trunk is not used by any routes!")."<span>".__("This trunk will not be able to be used for outbound calls until a route is setup that uses it. Click on <b>Outbound Routes</b> to setup routing.")."</span></a></div></article>";
 
-            //echo "&nbsp;<b>"._("WARNING:")."</b> <a href=# class=\"info\">"._("This trunk is not used by any routes!")."<span>";
-            //echo _("This trunk will not be able to be used for outbound calls until a route is setup that uses it. Click on <b>Outbound Routes</b> to setup routing.");
+            //echo "&nbsp;<b>".__("WARNING:")."</b> <a href=# class=\"info\">".__("This trunk is not used by any routes!")."<span>";
+            //echo __("This trunk will not be able to be used for outbound calls until a route is setup that uses it. Click on <b>Outbound Routes</b> to setup routing.");
             //echo "</span></a>";
         }
         $usage_list = framework_display_destination_usage(core_getdest(ltrim($extdisplay,'OUT_')));
@@ -583,7 +583,7 @@ if (!$tech && !$extdisplay) {
         $areacode = "";
     
         $upper_tech = strtoupper($tech);
-        echo "<h2>".sprintf(_("Add %s Trunk"),$upper_tech).($upper_tech == 'ZAP' && ast_with_dahdi()?" ("._("DAHDi compatibility mode").")":"")."</h2>";
+        echo "<h2>".sprintf(__("Add %s Trunk"),$upper_tech).($upper_tech == 'ZAP' && ast_with_dahdi()?" (".__("DAHDi compatibility mode").")":"")."</h2>";
     } 
   if (!isset($dialpattern_array)) {
     $dialpattern_array = array();
@@ -591,7 +591,7 @@ if (!$tech && !$extdisplay) {
         
 switch ($tech) {
     case 'dundi':
-        $helptext = _('IssabelPBX offers limited support for DUNDi trunks and additional manual configuration is required. The trunk name should correspond to the [mappings] section of the remote dundi.conf systems. For example, you may have a mapping on the remote system, and corresponding configurations in dundi.conf locally, that looks as follows:<br /><br />[mappings]<br />priv => dundi-extens,0,IAX2,priv:${SECRET}@218.23.42.26/${NUMBER},nopartial<br /><br />In this example, you would create this trunk and name it priv. You would then create the corresponding IAX2 trunk with proper settings to work with DUNDi. This can be done by making an IAX2 trunk in IssabelPBX or by using the iax_custom.conf file.<br />The dundi-extens context in this example must be created in extensions_custom.conf. This can simply include contexts such as ext-local, ext-intercom-users, ext-paging and so forth to provide access to the corresponding extensions and features provided by these various contexts and generated by IssabelPBX.');
+        $helptext = __('IssabelPBX offers limited support for DUNDi trunks and additional manual configuration is required. The trunk name should correspond to the [mappings] section of the remote dundi.conf systems. For example, you may have a mapping on the remote system, and corresponding configurations in dundi.conf locally, that looks as follows:<br /><br />[mappings]<br />priv => dundi-extens,0,IAX2,priv:${SECRET}@218.23.42.26/${NUMBER},nopartial<br /><br />In this example, you would create this trunk and name it priv. You would then create the corresponding IAX2 trunk with proper settings to work with DUNDi. This can be done by making an IAX2 trunk in IssabelPBX or by using the iax_custom.conf file.<br />The dundi-extens context in this example must be created in extensions_custom.conf. This can simply include contexts such as ext-local, ext-intercom-users, ext-paging and so forth to provide access to the corresponding extensions and features provided by these various contexts and generated by IssabelPBX.');
         break;
     case 'sip':
         break;
@@ -623,25 +623,25 @@ if ($helptext != '') {
 if($warning_article!='') {
     echo "<tr><td colspan=2>".$warning_article."</td></tr>";
 }
-//echo '<tr><td colspan=2><input name="delete" class="button is-danger is-light is-small is-rounded" type="submit" value="'._("Delete").'">';
-echo '<tr><td colspan=2><input class="button is-info is-small is-light is-rounded" name="copytrunk" type="submit" value="'._("Duplicate Trunk").'"></td></tr>';
+//echo '<tr><td colspan=2><input name="delete" class="button is-danger is-light is-small is-rounded" type="submit" value="'.__("Delete").'">';
+echo '<tr><td colspan=2><input class="button is-info is-small is-light is-rounded" name="copytrunk" type="submit" value="'.__("Duplicate Trunk").'"></td></tr>';
 
 ?>
             <tr>
                 <td colspan="2">
-                    <h5><?php echo _("General Settings")?></h5>
+                    <h5><?php echo __("General Settings")?></h5>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href=# class="info"><?php echo _("Trunk Name")?><span><?php echo _("Descriptive Name for this Trunk")?></span></a>
+                    <a href=# class="info"><?php echo __("Trunk Name")?><span><?php echo __("Descriptive Name for this Trunk")?></span></a>
                 </td><td>
                     <input autofocus type="text" class="input w100" name="trunk_name" value="<?php echo $trunk_name;?>" tabindex="<?php echo ++$tabindex;?>"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href=# class="info"><?php echo _("Outbound CallerID")?><span><?php echo _("CallerID for calls placed out on this trunk<br><br>Format: <b>&lt;#######&gt;</b>. You can also use the format: \"hidden\" <b>&lt;#######&gt;</b> to hide the CallerID sent out over Digital lines if supported (E1/T1/J1/BRI/SIP/IAX).")?></span></a>
+                    <a href=# class="info"><?php echo __("Outbound CallerID")?><span><?php echo __("CallerID for calls placed out on this trunk<br><br>Format: <b>&lt;#######&gt;</b>. You can also use the format: \"hidden\" <b>&lt;#######&gt;</b> to hide the CallerID sent out over Digital lines if supported (E1/T1/J1/BRI/SIP/IAX).")?></span></a>
                 </td><td>
                     <input type="text" class="input w100" name="outcid" value="<?php echo $outcid;?>" tabindex="<?php echo ++$tabindex;?>"/>
                 </td>
@@ -650,16 +650,16 @@ echo '<tr><td colspan=2><input class="button is-info is-small is-light is-rounde
 
         <tr>
                 <td>
-                    <a href="#" class="info"><?php echo _("CID Options")?><span><?php echo _("Determines what CIDs will be allowed out this trunk. IMPORTANT: EMERGENCY CIDs defined on an extension/device will ALWAYS be used if this trunk is part of an EMERGENCY Route regardless of these settings.<br />Allow Any CID: all CIDs including foreign CIDS from forwarded external calls will be transmitted.<br />Block Foreign CIDs: blocks any CID that is the result of a forwarded call from off the system. CIDs defined for extensions/users are transmitted.<br />Remove CNAM: this will remove CNAM from any CID sent out this trunk<br />Force Trunk CID: Always use the CID defined for this trunk except if part of any EMERGENCY Route with an EMERGENCY CID defined for the extension/device.") . _("Intra-Company Routes will always trasmit an extension's internal number and name.");?></span></a>
+                    <a href="#" class="info"><?php echo __("CID Options")?><span><?php echo __("Determines what CIDs will be allowed out this trunk. IMPORTANT: EMERGENCY CIDs defined on an extension/device will ALWAYS be used if this trunk is part of an EMERGENCY Route regardless of these settings.<br />Allow Any CID: all CIDs including foreign CIDS from forwarded external calls will be transmitted.<br />Block Foreign CIDs: blocks any CID that is the result of a forwarded call from off the system. CIDs defined for extensions/users are transmitted.<br />Remove CNAM: this will remove CNAM from any CID sent out this trunk<br />Force Trunk CID: Always use the CID defined for this trunk except if part of any EMERGENCY Route with an EMERGENCY CID defined for the extension/device.") . __("Intra-Company Routes will always trasmit an extension's internal number and name.");?></span></a>
                 </td><td>
 
                 <select name="keepcid" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                 <?php
                     $default = (isset($keepcid) ? $keepcid : 'off');
-                    echo '<option value="off"' . ($default == 'off'  ? ' SELECTED' : '').'>'._("Allow Any CID")."\n";
-                    echo '<option value="on"'  . ($default == 'on'   ? ' SELECTED' : '').'>'._("Block Foreign CIDs")."\n";
-                    echo '<option value="cnum"'. ($default == 'cnum' ? ' SELECTED' : '').'>'._("Remove CNAM")."\n";
-                    echo '<option value="all"' . ($default == 'all'  ? ' SELECTED' : '').'>'._("Force Trunk CID")."\n";
+                    echo '<option value="off"' . ($default == 'off'  ? ' SELECTED' : '').'>'.__("Allow Any CID")."\n";
+                    echo '<option value="on"'  . ($default == 'on'   ? ' SELECTED' : '').'>'.__("Block Foreign CIDs")."\n";
+                    echo '<option value="cnum"'. ($default == 'cnum' ? ' SELECTED' : '').'>'.__("Remove CNAM")."\n";
+                    echo '<option value="all"' . ($default == 'all'  ? ' SELECTED' : '').'>'.__("Force Trunk CID")."\n";
                 ?>
                 </select>
                 </td>
@@ -671,11 +671,11 @@ echo '<tr><td colspan=2><input class="button is-info is-small is-light is-rounde
     if ($tech == "sip" || substr($tech,0,3) == "iax") {
         $pr_tech = ($tech == "iax") ? "iax2":$tech;
 ?>
-                    <a href=# class="info"><?php echo _("Maximum Channels")?><span><?php echo sprintf(_("Controls the maximum number of outbound channels (simultaneous calls) that can be used on this trunk. To count inbound calls against this maximum, use the auto-generated context: %s as the inbound trunk's context. (see extensions_additional.conf) Leave blank to specify no maximum."),((isset($channelid) && trim($channelid)!="")?"from-trunk-$pr_tech-$channelid":"from-trunk-[trunkname]"))?></span></a>
+                    <a href=# class="info"><?php echo __("Maximum Channels")?><span><?php echo sprintf(__("Controls the maximum number of outbound channels (simultaneous calls) that can be used on this trunk. To count inbound calls against this maximum, use the auto-generated context: %s as the inbound trunk's context. (see extensions_additional.conf) Leave blank to specify no maximum."),((isset($channelid) && trim($channelid)!="")?"from-trunk-$pr_tech-$channelid":"from-trunk-[trunkname]"))?></span></a>
 <?php
     } else {
 ?>
-                    <a href=# class="info"><?php echo _("Maximum Channels")?><span><?php echo _("Controls the maximum number of outbound channels (simultaneous calls) that can be used on this trunk. Inbound calls are not counted against the maximum. Leave blank to specify no maximum.")?></span></a>
+                    <a href=# class="info"><?php echo __("Maximum Channels")?><span><?php echo __("Controls the maximum number of outbound channels (simultaneous calls) that can be used on this trunk. Inbound calls are not counted against the maximum. Leave blank to specify no maximum.")?></span></a>
 <?php
     }
 ?>
@@ -694,8 +694,8 @@ echo '<tr><td colspan=2><input class="button is-info is-small is-light is-rounde
     $data['size'] = '20';
     $data['tabindex'] = $tabindex++;
 
-    $dialopts_label = ipbx_label(_('Asterisk Trunk Dial Options'), _('Asterisk Dial command options to be used when calling out this trunk. To override the Advanced Settings default, check the box and then provide the required options for this trunk')) . "\n";
-    $dialopts_box = ipbx_form_input_check($data, '', '', '<small>' . _('Override') . '</small>', $amp_conf['TRUNK_OPTIONS'], true) . "\n";
+    $dialopts_label = ipbx_label(__('Asterisk Trunk Dial Options'), __('Asterisk Dial command options to be used when calling out this trunk. To override the Advanced Settings default, check the box and then provide the required options for this trunk')) . "\n";
+    $dialopts_box = ipbx_form_input_check($data, '', '', '<small>' . __('Override') . '</small>', $amp_conf['TRUNK_OPTIONS'], true) . "\n";
 ?>
             <tr>
                 <td>
@@ -706,18 +706,18 @@ echo '<tr><td colspan=2><input class="button is-info is-small is-light is-rounde
             </tr>
 
             <tr>
-                <td><a class="info" href="#"><?php echo _("Continue if Busy")?><span><?php echo _("Normally the next trunk is only tried upon a trunk being 'Congested' in some form, or unavailable. Checking this box will force a failed call to always continue to the next configured trunk or destination even when the channel reports BUSY or INVALID NUMBER.")?></span></a>
+                <td><a class="info" href="#"><?php echo __("Continue if Busy")?><span><?php echo __("Normally the next trunk is only tried upon a trunk being 'Congested' in some form, or unavailable. Checking this box will force a failed call to always continue to the next configured trunk or destination even when the channel reports BUSY or INVALID NUMBER.")?></span></a>
                 </td>
                 <td>
-                <input type='checkbox'  tabindex="<?php echo ++$tabindex;?>"name='continue' id="continue" <?php if ($continue=="on") { echo 'CHECKED'; }?> '><label for='continue'><small><?php echo _("Check to always try next trunk")?></small></label>
+                <input type='checkbox'  tabindex="<?php echo ++$tabindex;?>"name='continue' id="continue" <?php if ($continue=="on") { echo 'CHECKED'; }?> '><label for='continue'><small><?php echo __("Check to always try next trunk")?></small></label>
                 </td>
             </tr>
 
             <tr>
-                <td><a class="info" href="#"><?php echo _("Disable Trunk")?><span><?php echo _("Check this to disable this trunk in all routes where it is used.")?></span></a>
+                <td><a class="info" href="#"><?php echo __("Disable Trunk")?><span><?php echo __("Check this to disable this trunk in all routes where it is used.")?></span></a>
                 </td>
                 <td>
-                <input type='checkbox'  tabindex="<?php echo ++$tabindex;?>"name='disabletrunk' id="disabletrunk" <?php if ($disabletrunk=="on") { echo 'CHECKED'; }?> OnClick='disable_verify(disabletrunk); return true;'><label for='disabletrunk'><small><?php echo _("Disable")?></small></label>
+                <input type='checkbox'  tabindex="<?php echo ++$tabindex;?>"name='disabletrunk' id="disabletrunk" <?php if ($disabletrunk=="on") { echo 'CHECKED'; }?> OnClick='disable_verify(disabletrunk); return true;'><label for='disabletrunk'><small><?php echo __("Disable")?></small></label>
                 </td>
             </tr>
 
@@ -725,11 +725,11 @@ echo '<tr><td colspan=2><input class="button is-info is-small is-light is-rounde
                         if ($failtrunk_enable && $failtrunk || $amp_conf['DISPLAY_MONITOR_TRUNK_FAILURES_FIELD']) {
 ?>
             <tr>
-                <td><a class="info" href="#"><?php echo _("Monitor Trunk Failures")?><span><?php echo _("If checked, supply the name of a custom AGI Script that will be called to report, log, email or otherwise take some action on trunk failures that are not caused by either NOANSWER or CANCEL.")?></span></a>
+                <td><a class="info" href="#"><?php echo __("Monitor Trunk Failures")?><span><?php echo __("If checked, supply the name of a custom AGI Script that will be called to report, log, email or otherwise take some action on trunk failures that are not caused by either NOANSWER or CANCEL.")?></span></a>
                 </td>
                 <td>
                 <input <?php if (!$failtrunk_enable) echo "disabled style='background: #DDD;'"?> type="text" size="20" name="failtrunk" value="<?php echo htmlspecialchars($failtrunk)?>"/>
-                <input type='checkbox' tabindex="<?php echo ++$tabindex;?>" name='failtrunk_enable' id="failtrunk_enable" value='1' <?php if ($failtrunk_enable) { echo 'CHECKED'; }?> OnClick='disable_field(failtrunk,failtrunk_enable); return true;'><small><?php echo _("Enable")?></small>
+                <input type='checkbox' tabindex="<?php echo ++$tabindex;?>" name='failtrunk_enable' id="failtrunk_enable" value='1' <?php if ($failtrunk_enable) { echo 'CHECKED'; }?> OnClick='disable_field(failtrunk,failtrunk_enable); return true;'><small><?php echo __("Enable")?></small>
                 </td>
             </tr>
 <?php
@@ -738,26 +738,26 @@ echo '<tr><td colspan=2><input class="button is-info is-small is-light is-rounde
 
     <tr>
       <td colspan="2"><h5>
-      <a href=# class="info"><?php echo _("Dialed Number Manipulation Rules")?><span>
-      <?php echo _("These rules can manipulate the dialed number before sending it out this trunk. If no rule applies, the number is not changed. The original dialed number is passed down from the route where some manipulation may have already occurred. This trunk has the option to further manipulate the number. If the number matches the combined values in the <b>prefix</b> plus the <b>match pattern</b> boxes, the rule will be applied and all subsequent rules ignored.<br/> Upon a match, the <b>prefix</b>, if defined, will be stripped. Next the <b>prepend</b> will be inserted in front of the <b>match pattern</b> and the resulting number will be sent to the trunk. All fields are optional.")?><br /><br /><b><?php echo _("Rules:")?></b><br />
-      <b>X</b>&nbsp;&nbsp;&nbsp; <?php echo _("matches any digit from 0-9")?><br />
-      <b>Z</b>&nbsp;&nbsp;&nbsp; <?php echo _("matches any digit from 1-9")?><br />
-      <b>N</b>&nbsp;&nbsp;&nbsp; <?php echo _("matches any digit from 2-9")?><br />
-      <b>[1237-9]</b>&nbsp;   <?php echo _("matches any digit in the brackets (example: 1,2,3,7,8,9)")?><br />
-      <b>.</b>&nbsp;&nbsp;&nbsp; <?php echo _("wildcard, matches one or more dialed digits")?> <br />
-      <b><?php echo _("prepend:")?></b>&nbsp;&nbsp;&nbsp; <?php echo _("Digits to prepend upon a successful match. If the dialed number matches the patterns in the <b>prefix</b> and <b>match pattern</b> boxes, this will be prepended before sending to the trunk.")?><br />
-      <b><?php echo _("prefix:")?></b>&nbsp;&nbsp;&nbsp; <?php echo _("Prefix to remove upon a successful match. If the dialed number matches this plus the <b>match pattern</b> box, this prefix is removed before adding the optional <b>prepend</b> box and sending the results to the trunk.")?><br />
-      <b><?php echo _("match pattern:")?></b>&nbsp;&nbsp;&nbsp; <?php echo _("The dialed number will be compared against the <b>prefix</b> plus this pattern. Upon a match, this portion of the number will be sent to the trunks after removing the <b>prefix</b> and appending the <b>prepend</b> digits")?><br />
-        <?php echo _("You can completely replace a number by matching on the <b>prefix</b> only, replacing it with a <b>prepend</b> and leaving the <b>match pattern</b> blank."); ?>
+      <a href=# class="info"><?php echo __("Dialed Number Manipulation Rules")?><span>
+      <?php echo __("These rules can manipulate the dialed number before sending it out this trunk. If no rule applies, the number is not changed. The original dialed number is passed down from the route where some manipulation may have already occurred. This trunk has the option to further manipulate the number. If the number matches the combined values in the <b>prefix</b> plus the <b>match pattern</b> boxes, the rule will be applied and all subsequent rules ignored.<br/> Upon a match, the <b>prefix</b>, if defined, will be stripped. Next the <b>prepend</b> will be inserted in front of the <b>match pattern</b> and the resulting number will be sent to the trunk. All fields are optional.")?><br /><br /><b><?php echo __("Rules:")?></b><br />
+      <b>X</b>&nbsp;&nbsp;&nbsp; <?php echo __("matches any digit from 0-9")?><br />
+      <b>Z</b>&nbsp;&nbsp;&nbsp; <?php echo __("matches any digit from 1-9")?><br />
+      <b>N</b>&nbsp;&nbsp;&nbsp; <?php echo __("matches any digit from 2-9")?><br />
+      <b>[1237-9]</b>&nbsp;   <?php echo __("matches any digit in the brackets (example: 1,2,3,7,8,9)")?><br />
+      <b>.</b>&nbsp;&nbsp;&nbsp; <?php echo __("wildcard, matches one or more dialed digits")?> <br />
+      <b><?php echo __("prepend:")?></b>&nbsp;&nbsp;&nbsp; <?php echo __("Digits to prepend upon a successful match. If the dialed number matches the patterns in the <b>prefix</b> and <b>match pattern</b> boxes, this will be prepended before sending to the trunk.")?><br />
+      <b><?php echo __("prefix:")?></b>&nbsp;&nbsp;&nbsp; <?php echo __("Prefix to remove upon a successful match. If the dialed number matches this plus the <b>match pattern</b> box, this prefix is removed before adding the optional <b>prepend</b> box and sending the results to the trunk.")?><br />
+      <b><?php echo __("match pattern:")?></b>&nbsp;&nbsp;&nbsp; <?php echo __("The dialed number will be compared against the <b>prefix</b> plus this pattern. Upon a match, this portion of the number will be sent to the trunks after removing the <b>prefix</b> and appending the <b>prepend</b> digits")?><br />
+        <?php echo __("You can completely replace a number by matching on the <b>prefix</b> only, replacing it with a <b>prepend</b> and leaving the <b>match pattern</b> blank."); ?>
       </span></a>
       </h5></td>
     </tr>
 
     <tr><td colspan="2"><div class="dialpatterns"><table>
 <?php
-  $pp_tit = _("prepend");
-  $pf_tit = _("prefix");
-  $mp_tit = _("match pattern");
+  $pp_tit = __("prepend");
+  $pf_tit = __("prefix");
+  $mp_tit = __("match pattern");
   $dpt_title_class = 'dpt-title dpt-display';
   foreach ($dialpattern_array as $idx => $pattern) {
     $tabindex++;
@@ -782,7 +782,7 @@ END;
 END;
 ?>
 
-<button type='button' class='button is-small is-danger has-tooltip-right' data-tooltip='<?php echo _('Delete')?>' onclick='patternsRemove(<?php echo _("$idx") ?>)'><span class='icon is-small'><i class='fa fa-trash'></i></span></button>
+<button type='button' class='button is-small is-danger has-tooltip-right' data-tooltip='<?php echo __('Delete')?>' onclick='patternsRemove(<?php echo __("$idx") ?>)'><span class='icon is-small'><i class='fa fa-trash'></i></span></button>
       </td>
     </tr>
 <?php
@@ -795,7 +795,7 @@ END;
         (<input title="<?php echo $pp_tit?>" type="text"  style="width:8em;" size="10" id="prepend_digit_<?php echo $next_idx?>" name="prepend_digit[<?php echo $next_idx?>]" class="dp-prepend dial-pattern dpt-title dpt-display input" value="" tabindex="<?php echo ++$tabindex;?>">) +
         <input title="<?php echo $pf_tit?>" type="text"  style="width:4em;" size="6" id="pattern_prefix_<?php echo $next_idx?>" name="pattern_prefix[<?php echo $next_idx?>]" class="dp-prefix dpt-title dpt-display input" value="" tabindex="<?php echo ++$tabindex;?>"> |
         <input title="<?php echo $mp_tit?>" type="text"  style="width:18em;" size="20" id="pattern_pass_<?php echo $next_idx?>" name="pattern_pass[<?php echo $next_idx?>]" class="dp-match dpt-title dpt-display input" value="" tabindex="<?php echo ++$tabindex;?>">
-<button type='button' class='button is-small is-danger has-tooltip-right' data-tooltip='<?php echo _('Delete')?>' onclick='patternsRemove(<?php echo _("$next_idx") ?>)'><span class='icon is-small'><i class='fa fa-trash'></i></span></button>
+<button type='button' class='button is-small is-danger has-tooltip-right' data-tooltip='<?php echo __('Delete')?>' onclick='patternsRemove(<?php echo __("$next_idx") ?>)'><span class='icon is-small'><i class='fa fa-trash'></i></span></button>
 
       </td>
     </tr>
@@ -805,26 +805,26 @@ END;
   $tabindex += 2000; // make room for dynamic insertion of new fields
 ?>
     <tr><td colspan="2">
-      <input type="button" id="dial-pattern-add"  class="button is-small is-info is-rounded is-light" value="<?php echo _("+ Add More Dial Pattern Fields")?>" />
-      <input type="button" id="dial-pattern-clear" class="button is-small is-warning is-rounded is-light" value="<?php echo _("Clear all Fields")?>" />
+      <input type="button" id="dial-pattern-add"  class="button is-small is-info is-rounded is-light" value="<?php echo __("+ Add More Dial Pattern Fields")?>" />
+      <input type="button" id="dial-pattern-clear" class="button is-small is-warning is-rounded is-light" value="<?php echo __("Clear all Fields")?>" />
     </td></tr>
             <tr>
                 <td>
-                    <a href=# class="info"><?php echo _("Dial Rules Wizards")?><span>
-                    <strong><?php echo _("Always dial with prefix")?></strong> <?php echo _("is useful for VoIP trunks, where if a number is dialed as \"5551234\", it can be converted to \"16135551234\".")?><br>
-                    <strong><?php echo _("Remove prefix from local numbers")?></strong> <?php echo _("is useful for ZAP and DAHDi trunks, where if a local number is dialed as \"6135551234\", it can be converted to \"555-1234\".")?><br>
-                    <strong><?php echo _("Setup directory assistance")?></strong> <?php echo _("is useful to translate a call to directory assistance")?><br>
-                    <strong><?php echo _("Lookup numbers for local trunk")?></strong> <?php echo _("This looks up your local number on www.localcallingguide.com (NA-only), and sets up so you can dial either 7 or 10 digits (regardless of what your PSTN is) on a local trunk (where you have to dial 1+area code for long distance, but only 5551234 (7-digit dialing) or 6135551234 (10-digit dialing) for local calls")?><br>
-                    <strong><?php echo _("Upload from CSV")?></strong> <?php echo sprintf(_("Upload patterns from a CSV file replacing existing entries. If there are no headers then the file must have 3 columns of patterns in the same order as in the GUI. You can also supply headers: %s, %s and %s in the first row. If there are less then 3 recognized headers then the remaining columns will be blank"),'<strong>prepend</strong>','<strong>prefix</strong>','<strong>match pattern</strong>')?><br>
+                    <a href=# class="info"><?php echo __("Dial Rules Wizards")?><span>
+                    <strong><?php echo __("Always dial with prefix")?></strong> <?php echo __("is useful for VoIP trunks, where if a number is dialed as \"5551234\", it can be converted to \"16135551234\".")?><br>
+                    <strong><?php echo __("Remove prefix from local numbers")?></strong> <?php echo __("is useful for ZAP and DAHDi trunks, where if a local number is dialed as \"6135551234\", it can be converted to \"555-1234\".")?><br>
+                    <strong><?php echo __("Setup directory assistance")?></strong> <?php echo __("is useful to translate a call to directory assistance")?><br>
+                    <strong><?php echo __("Lookup numbers for local trunk")?></strong> <?php echo __("This looks up your local number on www.localcallingguide.com (NA-only), and sets up so you can dial either 7 or 10 digits (regardless of what your PSTN is) on a local trunk (where you have to dial 1+area code for long distance, but only 5551234 (7-digit dialing) or 6135551234 (10-digit dialing) for local calls")?><br>
+                    <strong><?php echo __("Upload from CSV")?></strong> <?php echo sprintf(__("Upload patterns from a CSV file replacing existing entries. If there are no headers then the file must have 3 columns of patterns in the same order as in the GUI. You can also supply headers: %s, %s and %s in the first row. If there are less then 3 recognized headers then the remaining columns will be blank"),'<strong>prepend</strong>','<strong>prefix</strong>','<strong>match pattern</strong>')?><br>
                     </span></a>
                 </td><td valign="top"><select id="autopop"  tabindex="<?php echo ++$tabindex;?>" name="autopop" onChange="changeAutoPop();" class='componentSelect'>
-                        <option value="" SELECTED><?php echo _("(pick one)")?></option>
-                        <option value="always"><?php echo _("Always dial with prefix")?></option>
-                        <option value="remove"><?php echo _("Remove prefix from local numbers")?></option>
-                        <option value="directory"><?php echo _("Setup directory assistance")?></option>
-                        <option value="lookup7"><?php echo _("Lookup numbers for local trunk (7-digit dialing)")?></option>
-                        <option value="lookup10"><?php echo _("Lookup numbers for local trunk (10-digit dialing)")?></option>
-            <option value="csv"><?php echo _("Upload from CSV")?></option>
+                        <option value="" SELECTED><?php echo __("(pick one)")?></option>
+                        <option value="always"><?php echo __("Always dial with prefix")?></option>
+                        <option value="remove"><?php echo __("Remove prefix from local numbers")?></option>
+                        <option value="directory"><?php echo __("Setup directory assistance")?></option>
+                        <option value="lookup7"><?php echo __("Lookup numbers for local trunk (7-digit dialing)")?></option>
+                        <option value="lookup10"><?php echo __("Lookup numbers for local trunk (10-digit dialing)")?></option>
+            <option value="csv"><?php echo __("Upload from CSV")?></option>
                     </select>
           <input type="file" name="pattern_file" id="pattern_file" tabindex="<?php echo ++$tabindex;?>"/>
                 </td>
@@ -844,9 +844,9 @@ END;
 
             function disable_verify(field) {
                 if (field.checked) {
-                    sweet_confirm("<?php echo _("Are you sure you want to disable this trunk in all routes it is used?") ?>").then((result)=>{if(result==0){ field.checked=false }});
+                    sweet_confirm("<?php echo __("Are you sure you want to disable this trunk in all routes it is used?") ?>").then((result)=>{if(result==0){ field.checked=false }});
                 } else {
-                    Swal.fire({icon:'warning',text:'<?php echo _("You have enabled this trunk in all routes it is used") ?>', timer:5000});
+                    Swal.fire({icon:'warning',text:'<?php echo __("You have enabled this trunk in all routes it is used") ?>', timer:5000});
                 }
             }
 
@@ -856,7 +856,7 @@ END;
 ?>                
 
 
-                sweet_prompt("",`<div class='content'><?php echo _("What is your areacode + prefix (NPA-NXX)?<br><br>(Note: this database contains North American numbers only, and is not guaranteed to be 100% accurate. You will still have the option of modifying results.)<br><br>This may take a few seconds.");?></div><input type=text id="npanxx" value="" class="input">`,"npanxx","^[2-9][0-9][0-9][-]?[2-9][0-9][0-9]$",'<?php echo _("Invalid NPA-NXX. Must be of the format \'NXX-NXX\'");?>').then((npanxx)=> {
+                sweet_prompt("",`<div class='content'><?php echo __("What is your areacode + prefix (NPA-NXX)?<br><br>(Note: this database contains North American numbers only, and is not guaranteed to be 100% accurate. You will still have the option of modifying results.)<br><br>This may take a few seconds.");?></div><input type=text id="npanxx" value="" class="input">`,"npanxx","^[2-9][0-9][0-9][-]?[2-9][0-9][0-9]$",'<?php echo __("Invalid NPA-NXX. Must be of the format \'NXX-NXX\'");?>').then((npanxx)=> {
                 document.getElementById('npanxx').value = npanxx;
                 if (digits == 10) {
                     document.trunkEdit.action.value = "populatenpanxx10";
@@ -870,7 +870,7 @@ END;
 <?php  
     } else { // curl is not installed
 ?>
-                <?php echo 'alert("'._("Error: Cannot continue!\\n\\nPrefix lookup requires cURL support in PHP on the server. Please install or enable cURL support in your PHP installation to use this function. See http://www.php.net/curl for more information.").'")'?>;
+                <?php echo 'alert("'.__("Error: Cannot continue!\\n\\nPrefix lookup requires cURL support in PHP on the server. Please install or enable cURL support in your PHP installation to use this function. See http://www.php.net/curl for more information.").'")'?>;
 <?php 
     }
 ?>
@@ -878,16 +878,16 @@ END;
             
             function populateAlwaysAdd() {
 
-                sweet_prompt("",`<div class='content'><?php echo _("What is the local dialing pattern?<br><br>(ie. NXXNXXXXXX for US/CAN 10-digit dialing, NXXXXXX for 7-digit)");?></div><input type=text id="pattern" value="<?php echo _("NXXXXXX")?>" class="input">`,"pattern","^[0-9#*ZXN\.]+$",'<?php echo _("Invalid pattern. Only 0-9, #, *, Z, N, X and . are allowed.");?>').then((localpattern)=> {
-                sweet_prompt("",`<div class='content'><?php echo _("What prefix should be added to the dialing pattern?<br><br>(ie. for US/CAN, 1+areacode, ie, \'1613\')?");?></div><input type=text id="localprefix" value="" class="input">`,"localprefix","^[0-9#*]+$",'<?php echo _("Invalid prefix. Only dialable characters (0-9, #, and *) are allowed.");?>').then((localprefix)=>{
+                sweet_prompt("",`<div class='content'><?php echo __("What is the local dialing pattern?<br><br>(ie. NXXNXXXXXX for US/CAN 10-digit dialing, NXXXXXX for 7-digit)");?></div><input type=text id="pattern" value="<?php echo __("NXXXXXX")?>" class="input">`,"pattern","^[0-9#*ZXN\.]+$",'<?php echo __("Invalid pattern. Only 0-9, #, *, Z, N, X and . are allowed.");?>').then((localpattern)=> {
+                sweet_prompt("",`<div class='content'><?php echo __("What prefix should be added to the dialing pattern?<br><br>(ie. for US/CAN, 1+areacode, ie, \'1613\')?");?></div><input type=text id="localprefix" value="" class="input">`,"localprefix","^[0-9#*]+$",'<?php echo __("Invalid prefix. Only dialable characters (0-9, #, and *) are allowed.");?>').then((localprefix)=>{
                 return addCustomField(localprefix,'',localpattern,$("#last_row"));
 });
 });
             }
             
             function populateRemove() {
-                sweet_prompt("",`<div class='content'><?php echo _("What prefix should be removed from the number?<br><br>(ie. for US/CAN, 1+areacode, ie, \'1613\')");?></div><input type=text id="localprefix" value="" class="input">`,"localprefix","^[0-9#*ZXN\.]+$",'<?php echo _("Invalid prefix. Only 0-9, #, *, Z, N, and X are allowed.");?>').then((localprefix)=>{
-                sweet_prompt("",`<div class='content'><?php echo _("What is the dialing pattern for local numbers after");?> ${localprefix}?<br><br><?php echo _("(ie. NXXNXXXXXX for US/CAN 10-digit dialing, NXXXXXX for 7-digit)");?></div><input type=text id="localpattern" value="<?php echo _("NXXXXXX")?>" class="input">`,"localpattern","^[0-9#*ZXN\.]+$",'<?php echo _("Invalid pattern. Only 0-9, #, *, Z, N, X and . are allowed.");?>').then((localpattern)=>{
+                sweet_prompt("",`<div class='content'><?php echo __("What prefix should be removed from the number?<br><br>(ie. for US/CAN, 1+areacode, ie, \'1613\')");?></div><input type=text id="localprefix" value="" class="input">`,"localprefix","^[0-9#*ZXN\.]+$",'<?php echo __("Invalid prefix. Only 0-9, #, *, Z, N, and X are allowed.");?>').then((localprefix)=>{
+                sweet_prompt("",`<div class='content'><?php echo __("What is the dialing pattern for local numbers after");?> ${localprefix}?<br><br><?php echo __("(ie. NXXNXXXXXX for US/CAN 10-digit dialing, NXXXXXX for 7-digit)");?></div><input type=text id="localpattern" value="<?php echo __("NXXXXXX")?>" class="input">`,"localpattern","^[0-9#*ZXN\.]+$",'<?php echo __("Invalid pattern. Only 0-9, #, *, Z, N, X and . are allowed.");?>').then((localpattern)=>{
                 return addCustomField('',localprefix,localpattern,$("#last_row"));
 });
 });
@@ -896,8 +896,8 @@ END;
 
             function populatedirectory() {
 
-                sweet_prompt("",`<div class='content'><?php echo _("What is the directory assistance number you will dial locally in the format that is passed to this trunk?");?></div><input type=text id="localprefix" value="" class="input">`,"localprefix","^[0-9#*]+$",'<?php echo _("Invalid pattern. Only 0-9, #, *");?>').then((localprefix)=>{
-                sweet_prompt("",`<div class='content'><?php echo _("Number to dial when calling directory assistance on this trunk");?></div><input type=text id="localprepend" value="" class="input">`,"localprepend","^[0-9#*]+$",'<?php echo _("Invalid number. Only 0-9, #,  and * are allowed.");?>').then((localprepend)=>{
+                sweet_prompt("",`<div class='content'><?php echo __("What is the directory assistance number you will dial locally in the format that is passed to this trunk?");?></div><input type=text id="localprefix" value="" class="input">`,"localprefix","^[0-9#*]+$",'<?php echo __("Invalid pattern. Only 0-9, #, *");?>').then((localprefix)=>{
+                sweet_prompt("",`<div class='content'><?php echo __("Number to dial when calling directory assistance on this trunk");?></div><input type=text id="localprepend" value="" class="input">`,"localprepend","^[0-9#*]+$",'<?php echo __("Invalid number. Only 0-9, #,  and * are allowed.");?>').then((localprepend)=>{
         return addCustomField(localprepend,localprefix,'',$("#last_row"));
 });
 });
@@ -946,21 +946,21 @@ END;
 
             <tr>
                 <td>
-                    <a href=# class="info"><?php echo _("Outbound Dial Prefix")?><span><?php echo _("The outbound dialing prefix is used to prefix a dialing string to all outbound calls placed on this trunk. For example, if this trunk is behind another PBX or is a Centrex line, then you would put 9 here to access an outbound line. Another common use is to prefix calls with 'w' on a POTS line that need time to obtain dial tone to avoid eating digits.<br><br>Most users should leave this option blank.")?></span></a>
+                    <a href=# class="info"><?php echo __("Outbound Dial Prefix")?><span><?php echo __("The outbound dialing prefix is used to prefix a dialing string to all outbound calls placed on this trunk. For example, if this trunk is behind another PBX or is a Centrex line, then you would put 9 here to access an outbound line. Another common use is to prefix calls with 'w' on a POTS line that need time to obtain dial tone to avoid eating digits.<br><br>Most users should leave this option blank.")?></span></a>
                 </td><td>
                     <input type="text" size="8" class="input" name="dialoutprefix" id="dialoutprefix" value="<?php echo htmlspecialchars($dialoutprefix) ?>" tabindex="<?php echo ++$tabindex;?>"/>
                 </td>
             </tr>
             <?php if (isset($extdisplay) && !empty($extdisplay) && !empty($dialpattern_array)) {?>
             <tr>
-                <td><a href=# class="info"><?php echo _("Export Dialplans as CSV")?><span><?php echo sprintf(_("Export patterns as a CSV file with headers listed as: %s, %s and %s in the first row."),'<strong>prepend</strong>','<strong>prefix</strong>','<strong>match pattern</strong>')?></span><a>:</td>
-                <td><input type="button" class="button is-info is-rounded is-small" onclick="parent.location='config.php?quietmode=1&amp;handler=file&amp;file=export.html.php&amp;module=core&amp;display=trunks&amp;extdisplay=<?php echo $extdisplay;?>'" value="<?php echo _("Export");?>"></td>
+                <td><a href=# class="info"><?php echo __("Export Dialplans as CSV")?><span><?php echo sprintf(__("Export patterns as a CSV file with headers listed as: %s, %s and %s in the first row."),'<strong>prepend</strong>','<strong>prefix</strong>','<strong>match pattern</strong>')?></span><a>:</td>
+                <td><input type="button" class="button is-info is-rounded is-small" onclick="parent.location='config.php?quietmode=1&amp;handler=file&amp;file=export.html.php&amp;module=core&amp;display=trunks&amp;extdisplay=<?php echo $extdisplay;?>'" value="<?php echo __("Export");?>"></td>
             </tr>
             <?php } ?>
             <?php if ($tech != "enum" && $tech != "pjsip") { ?>
             <tr>
                 <td colspan="2">
-        <h5><?php echo _("Outgoing Settings")?></h5>
+        <h5><?php echo __("Outgoing Settings")?></h5>
                 </td>
             </tr>
             <?php } ?>
@@ -971,7 +971,7 @@ END;
     ?>
                 <tr>
                     <td>
-                        <a href=# class="info"><?php echo _("Zap Identifier")?><span><?php echo _("ZAP channels are referenced either by a group number or channel number (which is defined in zapata.conf).  <br><br>The default setting is <b>g0</b> (group zero).")?></span></a>
+                        <a href=# class="info"><?php echo __("Zap Identifier")?><span><?php echo __("ZAP channels are referenced either by a group number or channel number (which is defined in zapata.conf).  <br><br>The default setting is <b>g0</b> (group zero).")?></span></a>
                     </td><td>
                         <input type="text" size="8" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>" class="input"/>
                         <input type="hidden" size="14" name="usercontext" value="notneeded"/>
@@ -983,7 +983,7 @@ END;
     ?>
                 <tr>
                     <td>
-                        <a href=# class="info"><?php echo _("DAHDi Identifier")?><span><?php echo _("DAHDi channels are referenced either by a group number or channel number (which is defined in chan_dahdi.conf).  <br><br>The default setting is <b>g0</b> (group zero).")?></span></a>
+                        <a href=# class="info"><?php echo __("DAHDi Identifier")?><span><?php echo __("DAHDi channels are referenced either by a group number or channel number (which is defined in chan_dahdi.conf).  <br><br>The default setting is <b>g0</b> (group zero).")?></span></a>
                     </td><td>
                         <input type="text" size="8" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>" class="input"/>
                         <input type="hidden" size="14" name="usercontext" value="notneeded"/>
@@ -1000,7 +1000,7 @@ END;
   ?> 
         <tr> 
           <td> 
-            <a href=# class="info"><?php echo _("mISDN Group/Port")?><span><br><?php echo _("mISDN channels are referenced either by a group name or channel number (use <i>mISDN Port Groups</i> to configure).")?><br><br></span></a>
+            <a href=# class="info"><?php echo __("mISDN Group/Port")?><span><br><?php echo __("mISDN channels are referenced either by a group name or channel number (use <i>mISDN Port Groups</i> to configure).")?><br><br></span></a>
           </td> 
           <td> 
             <select name="channelid"> 
@@ -1025,7 +1025,7 @@ END;
     ?>
                 <tr>
                     <td>
-                        <a href=# class="info"><?php echo _("Custom Dial String")?><span><?php echo _("Define the custom Dial String.  Include the token")?> $OUTNUM$ <?php echo _("wherever the number to dial should go.<br><br><b>examples:</b><br>")?>CAPI/XXXXXXXX/$OUTNUM$<br>H323/$OUTNUM$@XX.XX.XX.XX<br>OH323/$OUTNUM$@XX.XX.XX.XX:XXXX<br>vpb/1-1/$OUTNUM$</span></a>
+                        <a href=# class="info"><?php echo __("Custom Dial String")?><span><?php echo __("Define the custom Dial String.  Include the token")?> $OUTNUM$ <?php echo __("wherever the number to dial should go.<br><br><b>examples:</b><br>")?>CAPI/XXXXXXXX/$OUTNUM$<br>H323/$OUTNUM$@XX.XX.XX.XX<br>OH323/$OUTNUM$@XX.XX.XX.XX:XXXX<br>vpb/1-1/$OUTNUM$</span></a>
                     </td><td>
                         <input type="text" size="35" maxlength="46" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>" class="input w100"/>
                         <input type="hidden" size="14" name="usercontext" value="notneeded"/>
@@ -1037,7 +1037,7 @@ END;
     ?>
                 <tr>
                     <td>
-                        <a href=# class="info"><?php echo _("DUNDi Mapping")?><span><?php echo _("This is the name of the DUNDi mapping as defined in the [mappings] section of remote dundi.conf peers. This corresponds to the 'include' section of the peer details in the local dundi.conf file. This requires manual configuration of DUNDi to use this trunk.")?></span></a>
+                        <a href=# class="info"><?php echo __("DUNDi Mapping")?><span><?php echo __("This is the name of the DUNDi mapping as defined in the [mappings] section of remote dundi.conf peers. This corresponds to the 'include' section of the peer details in the local dundi.conf file. This requires manual configuration of DUNDi to use this trunk.")?></span></a>
                     </td><td>
                         <input type="text" size="35" maxlength="46" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>" class="input w100"/>
                         <input type="hidden" size="14" name="usercontext" value="notneeded"/>
@@ -1049,14 +1049,14 @@ END;
     ?>
                 <tr>
                     <td>
-                        <a href=# class="info"><?php echo _("Trunk Name")?><span><?php echo _("Give this trunk a unique name.  Example: myiaxtel")?></span></a>
+                        <a href=# class="info"><?php echo __("Trunk Name")?><span><?php echo __("Give this trunk a unique name.  Example: myiaxtel")?></span></a>
                     </td><td>
                         <input type="text" size="14" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>" class="input w100"/>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                    <a href=# class="info"><?php echo _("PEER Details")?><span><?php echo _("Modify the default PEER connection parameters for your VoIP provider.<br><br>You may need to add to the default lines listed below, depending on your provider.<br /><br />WARNING: Order is important as it will be retained. For example, if you use the \"allow/deny\" directives make sure deny comes first.")?></span></a>
+                    <a href=# class="info"><?php echo __("PEER Details")?><span><?php echo __("Modify the default PEER connection parameters for your VoIP provider.<br><br>You may need to add to the default lines listed below, depending on your provider.<br /><br />WARNING: Order is important as it will be retained. For example, if you use the \"allow/deny\" directives make sure deny comes first.")?></span></a>
                     </td>
                 </tr>
                 <tr>
@@ -1066,19 +1066,19 @@ END;
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <h5><?php echo _("Incoming Settings")?></h5>
+                        <h5><?php echo __("Incoming Settings")?></h5>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href=# class="info"><?php echo _("USER Context")?><span><?php echo _("This is most often the account name or number your provider expects.<br><br>This USER Context will be used to define the below user details.")?></span></a>
+                        <a href=# class="info"><?php echo __("USER Context")?><span><?php echo __("This is most often the account name or number your provider expects.<br><br>This USER Context will be used to define the below user details.")?></span></a>
                     </td><td>
                         <input type="text" size="14" name="usercontext" value="<?php echo htmlspecialchars($usercontext)  ?>" tabindex="<?php echo ++$tabindex;?>" class="input w100"/>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                    <a href=# class="info"><?php echo _("USER Details")?><span><?php echo _("Modify the default USER connection parameters for your VoIP provider.")?><br><br><?php echo _("You may need to add to the default lines listed below, depending on your provider..<br /><br />WARNING: Order is important as it will be retained. For example, if you use the \"allow/deny\" directives make sure deny 
+                    <a href=# class="info"><?php echo __("USER Details")?><span><?php echo __("Modify the default USER connection parameters for your VoIP provider.")?><br><br><?php echo __("You may need to add to the default lines listed below, depending on your provider..<br /><br />WARNING: Order is important as it will be retained. For example, if you use the \"allow/deny\" directives make sure deny 
                 comes first.")?></span></a>
                     </td>
                 </tr>
@@ -1089,12 +1089,12 @@ END;
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <h5><?php echo _("Registration")?></h5>
+                        <h5><?php echo __("Registration")?></h5>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <a href=# class="info"><?php echo _("Register String")?><span><?php echo _("Most VoIP providers require your system to REGISTER with theirs. Enter the registration line here.<br><br>example:<br><br>username:password@switch.voipprovider.com.<br><br>Many providers will require you to provide a DID number, ex: username:password@switch.voipprovider.com/didnumber in order for any DID matching to work.")?></span></a>
+                        <a href=# class="info"><?php echo __("Register String")?><span><?php echo __("Most VoIP providers require your system to REGISTER with theirs. Enter the registration line here.<br><br>example:<br><br>username:password@switch.voipprovider.com.<br><br>Many providers will require you to provide a DID number, ex: username:password@switch.voipprovider.com/didnumber in order for any DID matching to work.")?></span></a>
                     </td>
                 </tr>
                 <tr>
@@ -1108,13 +1108,13 @@ END;
 ?>
                 <tr>
                     <td colspan="2">
-                        <h5><?php echo _("PJSIP Settings")?></h5>
+                        <h5><?php echo __("PJSIP Settings")?></h5>
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <a href=# class="info"><?php echo _("Trunk Name")?><span><?php echo _("Give this trunk a unique name.  Example: mypjsipprovider")?></span></a>
+                        <a href=# class="info"><?php echo __("Trunk Name")?><span><?php echo __("Give this trunk a unique name.  Example: mypjsipprovider")?></span></a>
                     </td><td>
                         <input type="text" class="input" id="pjsip_channelid" name="channelid" value="<?php echo htmlspecialchars($channelid) ?>" tabindex="<?php echo ++$tabindex;?>"/>
                     </td>
@@ -1122,7 +1122,7 @@ END;
     
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Username")?><span><?php echo _("Authentication user name for this trunk.")?></span></a>
+ <a href=# class="info"><?php echo __("Username")?><span><?php echo __("Authentication user name for this trunk.")?></span></a>
 </td> 
 <td> 
 <input type="text" class="input" name="pjsip_username" id="pjsip_username" data-originalvalue="<?php echo htmlspecialchars($pjsip_username) ?>" value="<?php echo htmlspecialchars($pjsip_username) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
@@ -1131,7 +1131,7 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Secret")?><span><?php echo _("Authentication password for this trunk.")?></span></a>
+ <a href=# class="info"><?php echo __("Secret")?><span><?php echo __("Authentication password for this trunk.")?></span></a>
 </td> 
 <td> 
 <input type="text" class="input" name="pjsip_secret" value="<?php echo htmlspecialchars($pjsip_secret) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
@@ -1140,16 +1140,16 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Authentication")?><span><?php echo _("When to use authentication on this trunk.")?></span></a>
+ <a href=# class="info"><?php echo __("Authentication")?><span><?php echo __("When to use authentication on this trunk.")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_authentication" id="pjsip_authentication" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $auths = array();
-     $auths[_('Outbound')]='outbound';
-     $auths[_('Inbound')]='inbound';
-     $auths[_('Both')]='both';
-     $auths[_('None')]='none';
+     $auths[__('Outbound')]='outbound';
+     $auths[__('Inbound')]='inbound';
+     $auths[__('Both')]='both';
+     $auths[__('None')]='none';
 
      foreach($auths as $key=>$val) {
          echo "<option value='$val'"; 
@@ -1166,15 +1166,15 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Registration")?><span><?php echo _("When to use registration on this trunk.")?></span></a>
+ <a href=# class="info"><?php echo __("Registration")?><span><?php echo __("When to use registration on this trunk.")?></span></a>
 </td> 
 <td> 
 <select id="pjsip_registration" name="pjsip_registration" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $regs = array();
-     $regs[_('Send')]='send';
-     $regs[_('Receive')]='receive';
-     $regs[_('None')]='none';
+     $regs[__('Send')]='send';
+     $regs[__('Receive')]='receive';
+     $regs[__('None')]='none';
 
      foreach($regs as $key=>$val) {
          echo "<option value='$val'"; 
@@ -1191,7 +1191,7 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("SIP Server")?><span><?php echo _("Hostname or IP address of your VoIP provider.")?></span></a>
+ <a href=# class="info"><?php echo __("SIP Server")?><span><?php echo __("Hostname or IP address of your VoIP provider.")?></span></a>
 </td> 
 <td> 
 <input type="text" class="input" name="pjsip_server" id="pjsip_server" value="<?php echo htmlspecialchars($pjsip_server) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
@@ -1200,7 +1200,7 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("SIP Server Port")?><span><?php echo _("SIP port your VoIP provider listens to.")?></span></a>
+ <a href=# class="info"><?php echo __("SIP Server Port")?><span><?php echo __("SIP port your VoIP provider listens to.")?></span></a>
 </td> 
 <td> 
 <input type="text" class="input" name="pjsip_port" id="pjsip_port" value="<?php echo htmlspecialchars($pjsip_port) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
@@ -1209,7 +1209,7 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Context")?><span><?php echo _("Dialplan context to use for inbound calls.")?></span></a>
+ <a href=# class="info"><?php echo __("Context")?><span><?php echo __("Dialplan context to use for inbound calls.")?></span></a>
 </td> 
 <td> 
 <input type="text" class="input" name="pjsip_context" value="<?php echo htmlspecialchars($pjsip_context) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
@@ -1218,7 +1218,7 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Transport")?><span><?php echo _("Transport to use.")?></span></a>
+ <a href=# class="info"><?php echo __("Transport")?><span><?php echo __("Transport to use.")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_transport" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
@@ -1245,23 +1245,23 @@ END;
 
                 <tr>
                     <td colspan="2">
-                        <h5><?php echo _("PJSIP Advanced Settings")?></h5>
+                        <h5><?php echo __("PJSIP Advanced Settings")?></h5>
                     </td>
                 </tr>
 
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("DTMF Mode")?><span><?php echo _("The DTMF signaling mode used by this trunk, usually RFC for most trunks<br/><ul><li>Auto [Asterisk 13] - DTMF is sent as RFC 4733 if the other side supports it or as INBAND if not.</li><li>rfc4733 - DTMF is sent out of band of the main audio stream.This supercedes the older RFC-2833 used within the older chan_sip.</li><li>inband - DTMF is sent as part of audio stream.</li><li>info - DTMF is sent as SIP INFO packets..</li></ul>")?></span></a>
+ <a href=# class="info"><?php echo __("DTMF Mode")?><span><?php echo __("The DTMF signaling mode used by this trunk, usually RFC for most trunks<br/><ul><li>Auto [Asterisk 13] - DTMF is sent as RFC 4733 if the other side supports it or as INBAND if not.</li><li>rfc4733 - DTMF is sent out of band of the main audio stream.This supercedes the older RFC-2833 used within the older chan_sip.</li><li>inband - DTMF is sent as part of audio stream.</li><li>info - DTMF is sent as SIP INFO packets..</li></ul>")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_dtmf_mode" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
-     $select['auto'] = _('Auto');
-     $select['rfc4733']  = _('RFC 4733');
-     $select['inband']   = _('Inband');
-     $select['info']     = _('Info');
+     $select['auto'] = __('Auto');
+     $select['rfc4733']  = __('RFC 4733');
+     $select['inband']   = __('Inband');
+     $select['info']     = __('Info');
 
      foreach($select as $key=>$val) {
          echo "<option value='$key'"; 
@@ -1277,7 +1277,7 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("From Domain")?><span><?php echo _("Domain to use in From header for requests to this trunk.")?></span></a>
+ <a href=# class="info"><?php echo __("From Domain")?><span><?php echo __("Domain to use in From header for requests to this trunk.")?></span></a>
 </td> 
 <td> 
 <input type="text" class="input" name="pjsip_from_domain" value="<?php echo htmlspecialchars($pjsip_from_domain) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
@@ -1286,7 +1286,7 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("From User")?><span><?php echo _("Username to use in From header for requests to this trunk.")?></span></a>
+ <a href=# class="info"><?php echo __("From User")?><span><?php echo __("Username to use in From header for requests to this trunk.")?></span></a>
 </td> 
 <td> 
 <input type="text" class="input" name="pjsip_from_user" value="<?php echo htmlspecialchars($pjsip_from_user) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
@@ -1295,7 +1295,7 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("General Retry Interval")?><span><?php echo _("The number of seconds Asterisk will wait before attempting to send another REGISTER request to the registrar.")?></span></a>
+ <a href=# class="info"><?php echo __("General Retry Interval")?><span><?php echo __("The number of seconds Asterisk will wait before attempting to send another REGISTER request to the registrar.")?></span></a>
 </td> 
 <td>
 <input type="text" class="input" name="pjsip_retry_interval" value="<?php echo htmlspecialchars($pjsip_retry_interval) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
@@ -1304,7 +1304,7 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Max Retries")?><span><?php echo _("How many times Asterisk will attempt to re-attempt registration before permanently giving up. Maximum of 10000000")?></span></a>
+ <a href=# class="info"><?php echo __("Max Retries")?><span><?php echo __("How many times Asterisk will attempt to re-attempt registration before permanently giving up. Maximum of 10000000")?></span></a>
 </td> 
 <td>
 <input type="text" class="input" name="pjsip_max_retries" value="<?php echo htmlspecialchars($pjsip_max_retries) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
@@ -1314,7 +1314,7 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Expiration")?><span><?php echo _("Expiration time for registrations in seconds")?></span></a>
+ <a href=# class="info"><?php echo __("Expiration")?><span><?php echo __("Expiration time for registrations in seconds")?></span></a>
 </td> 
 <td>
 <input type="text" class="input" name="pjsip_expiration" value="<?php echo htmlspecialchars($pjsip_expiration) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
@@ -1324,7 +1324,7 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Qualify Frequency")?><span><?php echo _("Interval at which to qualify.")?></span></a>
+ <a href=# class="info"><?php echo __("Qualify Frequency")?><span><?php echo __("Interval at which to qualify.")?></span></a>
 </td> 
 <td>
 <input type="text" class="input" name="pjsip_qualify_frequency" value="<?php echo htmlspecialchars($pjsip_qualify_frequency) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
@@ -1333,14 +1333,14 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Symmetric RTP")?><span><?php echo _("Enforce that RTP must be symmetric. This should almost always be on.")?></span></a>
+ <a href=# class="info"><?php echo __("Symmetric RTP")?><span><?php echo __("Enforce that RTP must be symmetric. This should almost always be on.")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_rtp_symmetric" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
-     $select['yes'] = _('Yes');
-     $select['no']  = _('No');
+     $select['yes'] = __('Yes');
+     $select['no']  = __('No');
 
      foreach($select as $key=>$val) {
          echo "<option value='$key'"; 
@@ -1356,14 +1356,14 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Rewrite Contact")?><span><?php echo _("Allow Contact header to be rewritten with the source IP address-port.")?></span></a>
+ <a href=# class="info"><?php echo __("Rewrite Contact")?><span><?php echo __("Allow Contact header to be rewritten with the source IP address-port.")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_rewrite_contact" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
-     $select['yes'] = _('Yes');
-     $select['no']  = _('No');
+     $select['yes'] = __('Yes');
+     $select['no']  = __('No');
 
      foreach($select as $key=>$val) {
          echo "<option value='$key'"; 
@@ -1380,14 +1380,14 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Inband Progress")?><span><?php echo _("Determines whether chan_pjsip will indicate ringing using inband progress.")?></span></a>
+ <a href=# class="info"><?php echo __("Inband Progress")?><span><?php echo __("Determines whether chan_pjsip will indicate ringing using inband progress.")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_inband_progress" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
-     $select['yes'] = _('Yes');
-     $select['no']  = _('No');
+     $select['yes'] = __('Yes');
+     $select['no']  = __('No');
 
      foreach($select as $key=>$val) {
          echo "<option value='$key'"; 
@@ -1403,14 +1403,14 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Permanent Auth Rejection")?><span><?php echo _("Determines whether failed authentication challenges are treated as permanent failures.")?></span></a>
+ <a href=# class="info"><?php echo __("Permanent Auth Rejection")?><span><?php echo __("Determines whether failed authentication challenges are treated as permanent failures.")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_auth_rejection_permanent" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
-     $select['yes'] = _('Yes');
-     $select['no']  = _('No');
+     $select['yes'] = __('Yes');
+     $select['no']  = __('No');
 
      foreach($select as $key=>$val) {
          echo "<option value='$key'"; 
@@ -1427,14 +1427,14 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Direct Media")?><span><?php echo _("Determines whether media may flow directly between endpoints.")?></span></a>
+ <a href=# class="info"><?php echo __("Direct Media")?><span><?php echo __("Determines whether media may flow directly between endpoints.")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_direct_media" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
-     $select['yes'] = _('Yes');
-     $select['no']  = _('No');
+     $select['yes'] = __('Yes');
+     $select['no']  = __('No');
 
      foreach($select as $key=>$val) {
          echo "<option value='$key'"; 
@@ -1452,14 +1452,14 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Trust RPID/PAI")?><span><?php echo _("Trust the Remote-Party-ID and/or P-Asserted-Identity header")?></span></a>
+ <a href=# class="info"><?php echo __("Trust RPID/PAI")?><span><?php echo __("Trust the Remote-Party-ID and/or P-Asserted-Identity header")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_trust_id_inbound" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
-     $select['yes'] = _('Yes');
-     $select['no']  = _('No');
+     $select['yes'] = __('Yes');
+     $select['no']  = __('No');
 
      foreach($select as $key=>$val) {
          echo "<option value='$key'"; 
@@ -1477,14 +1477,14 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Support T.38 UDPTL")?><span><?php echo _("Whether T.38 UDPTL support is enabled or not.")?></span></a>
+ <a href=# class="info"><?php echo __("Support T.38 UDPTL")?><span><?php echo __("Whether T.38 UDPTL support is enabled or not.")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_t38_udptl" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
-     $select['yes'] = _('Yes');
-     $select['no']  = _('No');
+     $select['yes'] = __('Yes');
+     $select['no']  = __('No');
 
      foreach($select as $key=>$val) {
          echo "<option value='$key'"; 
@@ -1501,14 +1501,14 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("T.38 UDPTL NAT")?><span><?php echo _("Whether NAT support is enabled on UDPTL sessions.")?></span></a>
+ <a href=# class="info"><?php echo __("T.38 UDPTL NAT")?><span><?php echo __("Whether NAT support is enabled on UDPTL sessions.")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_t38_udptl_nat" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
-     $select['yes'] = _('Yes');
-     $select['no']  = _('No');
+     $select['yes'] = __('Yes');
+     $select['no']  = __('No');
 
      foreach($select as $key=>$val) {
          echo "<option value='$key'"; 
@@ -1524,15 +1524,15 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("T.38 UDPTL Error Correction")?><span><?php echo _("T.38 UDPTL error correction method.")?></span></a>
+ <a href=# class="info"><?php echo __("T.38 UDPTL Error Correction")?><span><?php echo __("T.38 UDPTL error correction method.")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_t38_udptl_ec" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
-     $select['none'] = _('None');
-     $select['fec']  = _('Forward');
-     $select['redundancy']  = _('Redundancy');
+     $select['none'] = __('None');
+     $select['fec']  = __('Forward');
+     $select['redundancy']  = __('Redundancy');
 
      foreach($select as $key=>$val) {
          echo "<option value='$key'"; 
@@ -1549,14 +1549,14 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Fax Detect")?><span><?php echo _("This option can be set to send the session to the fax extension when a CNG tone is detected.")?></span></a>
+ <a href=# class="info"><?php echo __("Fax Detect")?><span><?php echo __("This option can be set to send the session to the fax extension when a CNG tone is detected.")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_fax_detect" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
-     $select['yes'] = _('Yes');
-     $select['no']  = _('No');
+     $select['yes'] = __('Yes');
+     $select['no']  = __('No');
 
      foreach($select as $key=>$val) {
          echo "<option value='$key'"; 
@@ -1572,7 +1572,7 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Match (Permit)")?><span><?php echo _("IP addresses or networks to match against. The value is a comma-delimited list of IP addresses. IP addresses may have a subnet mask appended. The subnet mask may be written in either CIDR or dot-decimal notation. Separate the IP address and subnet mask with a slash ('/'). This setting is automatically generated by the PBX if left blank")?></span></a>
+ <a href=# class="info"><?php echo __("Match (Permit)")?><span><?php echo __("IP addresses or networks to match against. The value is a comma-delimited list of IP addresses. IP addresses may have a subnet mask appended. The subnet mask may be written in either CIDR or dot-decimal notation. Separate the IP address and subnet mask with a slash ('/'). This setting is automatically generated by the PBX if left blank")?></span></a>
 </td> 
 <td>
 <input type="text" class="input" name="pjsip_match" value="<?php echo htmlspecialchars($pjsip_match) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
@@ -1582,14 +1582,14 @@ END;
 
 <tr> 
 <td> 
- <a href=# class="info"><?php echo _("Support Path")?><span><?php echo _("When this option is enabled, outbound REGISTER requests will advertise support for Path headers so that intervening proxies can add to the Path header as necessary..")?></span></a>
+ <a href=# class="info"><?php echo __("Support Path")?><span><?php echo __("When this option is enabled, outbound REGISTER requests will advertise support for Path headers so that intervening proxies can add to the Path header as necessary..")?></span></a>
 </td> 
 <td> 
 <select name="pjsip_support_path" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
-     $select['yes'] = _('Yes');
-     $select['no']  = _('No');
+     $select['yes'] = __('Yes');
+     $select['no']  = __('No');
 
      foreach($select as $key=>$val) {
          echo "<option value='$key'"; 
@@ -1605,10 +1605,10 @@ END;
 
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Audio Codecs")?></h5></td>
+    <td colspan="2"><h5><?php echo __("Audio Codecs")?></h5></td>
   </tr>
   <tr>
-    <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled. Drag to re-order.")?></span></a></td>
+    <td valign='top'><a href="#" class="info"><?php echo __("Codecs")?><span><?php echo __("Check the desired codecs, all others will be disabled. Drag to re-order.")?></span></a></td>
     <td>
 <?php
   $seq = 1;
@@ -1630,7 +1630,7 @@ echo '<ul class="sortable">';
   asort($codecs);
   foreach ($codecs as $codec => $codec_state) {
     $tabindex++;
-    $codec_trans = _($codec);
+    $codec_trans = __($codec);
     if($codec_state==1000) $codec_state=0;
     $codec_checked = $codec_state ? 'checked' : '';
         echo '<li class="draggable"><a href="javascript:void(0)">'
@@ -1702,14 +1702,14 @@ $('#pjsip_authentication').on('change', function() {
 
 function enable_disable_auth(value) {
    if(value=='none') {
-       $('#pjsip_username').prop('disabled',true).attr('placeholder','<?php echo _('Authetication disabled'); ?>').val('');
+       $('#pjsip_username').prop('disabled',true).attr('placeholder','<?php echo __('Authetication disabled'); ?>').val('');
        $('#pjsip_registration').prop('disabled',true);
    } else if(value=='outbound') {
        $('#pjsip_username').val($('#pjsip_username').data('originalvalue'));
        $('#pjsip_username').prop('disabled',false).attr('placeholder','');
        $('#pjsip_registration').prop('disabled',false);
    } else {
-       $('#pjsip_username').prop('disabled',true).attr('placeholder','<?php echo _('Username is trunk name'); ?>').val('');
+       $('#pjsip_username').prop('disabled',true).attr('placeholder','<?php echo __('Username is trunk name'); ?>').val('');
        $('#pjsip_registration').prop('disabled',false);
    }
    $('select').trigger('chosen:updated');
@@ -1750,7 +1750,7 @@ function addCustomField(prepend_digit, pattern_prefix, pattern_pass, start_loc) 
     (<input title="<?php echo $pp_tit?>" type="text"  style="width:8em;" size="10" id="prepend_digit_'+idx+'" name="prepend_digit['+idx+']" class="input dp-prepend dial-pattern '+dpt_prepend_digit+'" value="'+prepend_digit+'" tabindex="'+tabindex+'">) +\
     <input title="<?php echo $pf_tit?>" type="text"  style="width:4em;" size="6" id="pattern_prefix_'+idx+'" name="pattern_prefix['+idx+']" class="input dp-prefix '+dpt_pattern_prefix+'" value="'+pattern_prefix+'" tabindex="'+tabindex1+'"> |\
     <input title="<?php echo $mp_tit?>" type="text" style="width:18em;" size="20" id="pattern_pass_'+idx+'" name="pattern_pass['+idx+']" class="input dp-match '+dpt_pattern_pass+'" value="'+pattern_pass+'" tabindex="'+tabindex2+'"> \
-<button type="button" class="button is-small is-danger has-tooltip-right" data-tooltip="<?php echo _('Delete')?>" onclick="patternsRemove(<?php echo _("$idx") ?>)"><span class="icon is-small"><i class="fa fa-trash"></i></span></button>\
+<button type="button" class="button is-small is-danger has-tooltip-right" data-tooltip="<?php echo __('Delete')?>" onclick="patternsRemove(<?php echo __("$idx") ?>)"><span class="icon is-small"><i class="fa fa-trash"></i></span></button>\
     </td>\
   </tr>\
   ').prev();
@@ -1833,7 +1833,7 @@ function validatePatterns() {
   }
 
   if (culprit != undefined) {
-      msgInvalidDialPattern = "<?php echo _('Dial pattern is invalid'); ?>";
+      msgInvalidDialPattern = "<?php echo __('Dial pattern is invalid'); ?>";
     // now we have to put it back...
     // do I have to turn it off first though?
     $(".dpt-display").each(function() {
@@ -1856,16 +1856,16 @@ document.trunkEdit.trunk_name.focus();
 function trunkEdit_onsubmit(act) {
     var theForm = document.trunkEdit;
     if($("input[name=action]").val()=="delete") { return true; }
-    var msgInvalidOutboundCID = "<?php echo _('Invalid Outbound CallerID'); ?>";
-    var msgInvalidMaxChans = "<?php echo _('Invalid Maximum Channels'); ?>";
-    var msgInvalidDialRules = "<?php echo _('Invalid Dial Rules'); ?>";
-    var msgInvalidOutboundDialPrefix = "<?php echo _('The Outbound Dial Prefix contains non-standard characters. If these are intentional the press OK to continue.'); ?>";
-    var msgInvalidTrunkName = "<?php echo _('Invalid Trunk Name entered'); ?>";
-    var msgInvalidChannelName = "<?php echo _('Invalid Custom Dial String entered'); ?>"; 
-    var msgInvalidTrunkAndUserSame = "<?php echo _('Trunk Name and User Context cannot be set to the same value'); ?>";
-    var msgConfirmBlankContext = "<?php echo _('User Context was left blank and User Details will not be saved!'); ?>";
-    var msgCIDValueRequired = "<?php echo _('You must define an Outbound CallerID when Choosing this CID Options value'); ?>";
-    var msgCIDValueEmpty = "<?php echo _('It is highly recommended that you define an Outbound CallerID on all trunks, undefined behavior can result when nothing is specified. The CID Options can control when this CID is used. Do you still want to continue?'); ?>";
+    var msgInvalidOutboundCID = "<?php echo __('Invalid Outbound CallerID'); ?>";
+    var msgInvalidMaxChans = "<?php echo __('Invalid Maximum Channels'); ?>";
+    var msgInvalidDialRules = "<?php echo __('Invalid Dial Rules'); ?>";
+    var msgInvalidOutboundDialPrefix = "<?php echo __('The Outbound Dial Prefix contains non-standard characters. If these are intentional the press OK to continue.'); ?>";
+    var msgInvalidTrunkName = "<?php echo __('Invalid Trunk Name entered'); ?>";
+    var msgInvalidChannelName = "<?php echo __('Invalid Custom Dial String entered'); ?>"; 
+    var msgInvalidTrunkAndUserSame = "<?php echo __('Trunk Name and User Context cannot be set to the same value'); ?>";
+    var msgConfirmBlankContext = "<?php echo __('User Context was left blank and User Details will not be saved!'); ?>";
+    var msgCIDValueRequired = "<?php echo __('You must define an Outbound CallerID when Choosing this CID Options value'); ?>";
+    var msgCIDValueEmpty = "<?php echo __('It is highly recommended that you define an Outbound CallerID on all trunks, undefined behavior can result when nothing is specified. The CID Options can control when this CID is used. Do you still want to continue?'); ?>";
 
     defaultEmptyOK = true;
 

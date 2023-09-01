@@ -2,12 +2,12 @@
 $html = '<div class="content">';
 
 if($id=='') {
-    $html .= heading(_('Add FTP Server'), 2);
+    $html .= heading(__('Add FTP Server'), 2);
 } else {
-    $html .= heading(_('Edit FTP Server').": ".$name, 2);
+    $html .= heading(__('Edit FTP Server').": ".$name, 2);
 }
 
-$html .= heading(dgettext('amp','General Settings'), 5);
+$html .= heading(_dgettext('amp','General Settings'), 5);
 
 $html .= form_hidden('server_type', 'ftp');
 $html .= form_open($_SERVER['REQUEST_URI'],'id="mainform" onsubmit="return edit_onsubmit(this)"');
@@ -18,7 +18,7 @@ $html .= form_hidden('id', $id);
 $table = new CI_Table;
 
 //name
-$label	= ipbx_label(_('Server Name'));
+$label	= ipbx_label(__('Server Name'));
 $data 	= array(
 			'name' => 'name', 
             'value' => $name,
@@ -28,7 +28,7 @@ $data = backup_server_writeable('name', $readonly, $data);
 $table->add_row($label, form_input($data));
 
 //decription
-$label	= ipbx_label(_('Description'), _('Description or notes for this server'));
+$label	= ipbx_label(__('Description'), __('Description or notes for this server'));
 $data 	= array(
 			'name' => 'desc', 
 			'value' => $desc,
@@ -38,7 +38,7 @@ $data = backup_server_writeable('desc', $readonly, $data);
 $table->add_row($label, form_input($data));
 
 //hostname
-$label = ipbx_label(_('Hostname'), _('IP address or FQDN of remote ftp host'));
+$label = ipbx_label(__('Hostname'), __('IP address or FQDN of remote ftp host'));
 $data  = array(
 			'name' => 'host', 
 			'value' => $host,
@@ -56,7 +56,7 @@ $data = array(
             'class' => 'input'
 		);
 $data = backup_server_writeable('port', $readonly, $data);
-$table->add_row(ipbx_label(_('Port'), _('remote ftp port')), form_input($data));
+$table->add_row(ipbx_label(__('Port'), __('remote ftp port')), form_input($data));
 		
 //user name
 $data = array(
@@ -66,10 +66,10 @@ $data = array(
             'class' => 'input'
 		);
 $data = backup_server_writeable('user', $readonly, $data);
-$table->add_row(ipbx_label(_('User Name')), form_input($data));
+$table->add_row(ipbx_label(__('User Name')), form_input($data));
 		
 //ftp key
-$label	= ipbx_label(_('Password'));
+$label	= ipbx_label(__('Password'));
 $data 	= array(
 			'name' => 'password', 
 			'value' => $password,
@@ -81,7 +81,7 @@ $table->add_row($label, form_input($data));
 
 
 //remote directory
-$label	= ipbx_label(_('Path'), _('Path where files are stored'));
+$label	= ipbx_label(__('Path'), __('Path where files are stored'));
 $data 	= array(
 			'name' => 'path', 
 			'value' => $path,
@@ -91,10 +91,10 @@ $data = backup_server_writeable('path', $readonly, $data);
 $table->add_row($label, form_input($data));
 
 //connection type key
-$label	= ipbx_label(_('Transfer Mode'));
+$label	= ipbx_label(__('Transfer Mode'));
 
 $table->add_row($label, 
-    ipbx_radio('transfer',array(array('value'=>'active','text'=>_("Active")),array('value'=>'passive','text'=>_("Pasive"))),$transfer,false)
+    ipbx_radio('transfer',array(array('value'=>'active','text'=>__("Active")),array('value'=>'passive','text'=>__("Pasive"))),$transfer,false)
 );
 
 

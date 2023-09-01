@@ -2,10 +2,10 @@
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //for translation only
 if (false) {
-_("Do-Not-Disturb (DND)");
-_("DND Activate");
-_("DND Deactivate");
-_("DND Toggle");
+__("Do-Not-Disturb (DND)");
+__("DND Activate");
+__("DND Deactivate");
+__("DND Toggle");
 }
 
 // Register FeatureCode - Activate

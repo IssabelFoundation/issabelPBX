@@ -85,7 +85,7 @@ switch ($action) {
     case 'add':
         ttsengine_add($description, $ttsengine_engine, $ttsengine_cmd, $ttsengine_template);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -93,7 +93,7 @@ switch ($action) {
     case 'edit':
         ttsengine_edit($ttsengine_id, $description, $ttsengine_engine, $ttsengine_cmd, $ttsengine_template);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard('extdisplay');
@@ -101,7 +101,7 @@ switch ($action) {
     case 'delete':
         ttsengine_delete($ttsengine_id);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -126,10 +126,10 @@ if ($extdisplay) {
     $ttsengine_cmd        = htmlspecialchars($row['ttsengine_cmd']);
 }
 
-$helptext = _("The Text To Speech Engine module allows you to add different engines to convert text to speech");
+$helptext = __("The Text To Speech Engine module allows you to add different engines to convert text to speech");
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 echo "<div class='is-flex'><h2>";
-echo ($extdisplay ? _("Edit Text to Speech Engine")." $description" : _("Add Text to Speech Engine"));
+echo ($extdisplay ? __("Edit Text to Speech Engine")." $description" : __("Add Text to Speech Engine"));
 echo "</h2>$help</div>";
 
 ?>
@@ -139,13 +139,13 @@ echo "</h2>$help</div>";
     <input type="hidden" name="ttsengine_id" value="<?php echo $extdisplay; ?>">
     <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
     <table class='table is-fullwidth is-narrow is-borderless'>
-    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _("The descriptive name of this text to speech engine. For example \"new name here\"");?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Description")?><span><?php echo __("The descriptive name of this text to speech engine. For example \"new name here\"");?></span></a></td>
         <td><input class="input w100" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Engine")?><span><?php echo _("The TTS engine to use for the text to speech entry");?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Engine")?><span><?php echo __("The TTS engine to use for the text to speech entry");?></span></a></td>
         <td>
             <select name="ttsengine_engine" id="ttsengine_engine" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
@@ -159,13 +159,13 @@ echo "</h2>$help</div>";
         </td>
     </tr>
     <tr id='templatecell'>
-        <td colspan=2><a href="#" class="info"><?php echo _("Template")?><span><?php echo _("Set of key=value pairs needed for the TTS engine. Usually API credentials, voice name, etc.");?></span></a></td>
+        <td colspan=2><a href="#" class="info"><?php echo __("Template")?><span><?php echo __("Set of key=value pairs needed for the TTS engine. Usually API credentials, voice name, etc.");?></span></a></td>
    </tr>
    <tr>
         <td colspan=2><textarea id="ttstext" class='textarea' style='width:100px; height:10rem;' name="ttsengine_template" tabindex="<?php echo ++$tabindex;?>"><?php echo $ttsengine_template; ?></textarea></td>
     </tr>
     <tr>
-        <td colspan=2><a href="#" class="info"><?php echo _("Command")?><span><?php echo _("The actual command line to run the engine.<br/><br/>There are two variables you must use within the command if you select a <strong>custom</strong> engine: <dl><dt>{TEXT}</dt><dd>The actual text to convert to speech</dd><dt>{OUTPUTFILE}</dt><dd>The file name where the sound file will be saved.</dd></dl>");?></span></a></td>
+        <td colspan=2><a href="#" class="info"><?php echo __("Command")?><span><?php echo __("The actual command line to run the engine.<br/><br/>There are two variables you must use within the command if you select a <strong>custom</strong> engine: <dl><dt>{TEXT}</dt><dd>The actual text to convert to speech</dd><dt>{OUTPUTFILE}</dt><dd>The file name where the sound file will be saved.</dd></dl>");?></span></a></td>
     </tr>
     <tr>
         <td colspan=2><textarea class='textarea' id='ttsenginecmd'  name="ttsengine_cmd" tabindex="<?php echo ++$tabindex;?>"><?php echo $ttsengine_cmd; ?></textarea></td>
@@ -186,7 +186,7 @@ $(function () {
 });
 
 function checkTexttospeechadmin(theForm) {
-    var msgInvalidDescription = "<?php echo _('Invalid description specified'); ?>";
+    var msgInvalidDescription = "<?php echo __('Invalid description specified'); ?>";
 
     // set up the Destination stuff
     //setDestinations(theForm, '_post_dest');

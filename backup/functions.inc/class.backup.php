@@ -140,7 +140,7 @@ class Backup {
 			switch ($i['type']) {
 				case 'file':
 					//substitute variable if nesesary
-					$i['path'] = backup__($i['path']);
+					$i['path'] = backup___($i['path']);
 
 					//make sure file exists
 					if (!file_exists($i['path'])) {
@@ -164,7 +164,7 @@ class Backup {
 				case 'dir':
 
 					//subsitute variable if nesesary
-					$i['path'] = backup__($i['path']);
+					$i['path'] = backup___($i['path']);
 
 					//ensure directory exists
 					if (!is_dir($i['path'])) {
@@ -198,16 +198,16 @@ class Backup {
 					$s = str_replace('server-', '', $i['path']);
 					$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql';
 					$cmd[] = ipbx_which('mysqldump');
-					$cmd[] = '--host='		. backup__($this->s[$s]['host']);
-					$cmd[] = '--port='		. backup__($this->s[$s]['port']);
-					$cmd[] = '--user='		. backup__($this->s[$s]['user']);
-					$cmd[] = '--password='	. backup__($this->s[$s]['password']);
-					$cmd[] = backup__($this->s[$s]['dbname']);
+					$cmd[] = '--host='		. backup___($this->s[$s]['host']);
+					$cmd[] = '--port='		. backup___($this->s[$s]['port']);
+					$cmd[] = '--user='		. backup___($this->s[$s]['user']);
+					$cmd[] = '--password='	. backup___($this->s[$s]['password']);
+					$cmd[] = backup___($this->s[$s]['dbname']);
 
 					if ($i['exclude']) {
 						foreach ($i['exclude'] as $x) {
-							$cmd[] = '--ignore-table=' . backup__($this->s[$s]['dbname'])
-									. '.' . backup__($x);
+							$cmd[] = '--ignore-table=' . backup___($this->s[$s]['dbname'])
+									. '.' . backup___($x);
 						}
 					}
 					$cmd[] = ' --opt --skip-comments --skip-extended-insert';
@@ -228,9 +228,9 @@ class Backup {
 					if ($status !== 0) {
 						unlink($sql_file);
 						$error_string = sprintf(
-							_("Backup failed dumping SQL database [%s] to file [%s], "
+							__("Backup failed dumping SQL database [%s] to file [%s], "
 							. "you have a corrupted backup from server [%s]."),
-							backup__($this->s[$s]['dbname']), $sql_file, backup__($this->s[$s]['host'])
+							backup___($this->s[$s]['dbname']), $sql_file, backup___($this->s[$s]['host'])
 						);
 						backup_log($error_string);
 						issabelpbx_log(IPBX_LOG_FATAL, $error_string);
@@ -284,7 +284,7 @@ class Backup {
 			$s = $this->s[$s];
 			switch ($s['type']) {
 				case 'local':
-					$path = backup__($s['path']) . '/' . $this->b['_dirname'];
+					$path = backup___($s['path']) . '/' . $this->b['_dirname'];
 					//ensure directory structure
 					if (!is_dir($path)) {
 						mkdir($path, 0755, true);
@@ -322,15 +322,15 @@ class Backup {
 							? $this->amp_conf['AMPBACKUPEMAILFROM']
 							: 'issabel@issabel.org';
 
-					$msg[] = _('Name')			. ': ' . $this->b['name'];
-					$msg[] = _('Created')		. ': ' . date('r', $this->b['_ctime']);
-					$msg[] = _('Files')			. ': ' . $this->manifest['file_count'];
-					$msg[] = _('Mysql Db\'s')	. ': ' . $this->manifest['mysql_count'];
-					$msg[] = _('astDb\'s')		. ': ' . $this->manifest['astdb_count'];
+					$msg[] = __('Name')			. ': ' . $this->b['name'];
+					$msg[] = __('Created')		. ': ' . date('r', $this->b['_ctime']);
+					$msg[] = __('Files')			. ': ' . $this->manifest['file_count'];
+					$msg[] = __('Mysql Db\'s')	. ': ' . $this->manifest['mysql_count'];
+					$msg[] = __('astDb\'s')		. ': ' . $this->manifest['astdb_count'];
 
 					$email->from($from);
-					$email->to(backup__($s['addr']));
-					$email->subject(_('Backup') . ' ' . $this->b['name']);
+					$email->to(backup___($s['addr']));
+					$email->subject(__('Backup') . ' ' . $this->b['name']);
 					$email->message(implode("\n", $msg));
 					$email->attach($this->b['_tmpfile']);
 					$email->send();
@@ -339,11 +339,11 @@ class Backup {
 					break;
 				case 'ftp':
 					//subsitute variables if nesesary
-					$s['host'] = backup__($s['host']);
-					$s['port'] = backup__($s['port']);
-					$s['user'] = backup__($s['user']);
-					$s['password'] = backup__($s['password']);
-					$s['path'] = backup__($s['path']);
+					$s['host'] = backup___($s['host']);
+					$s['port'] = backup___($s['port']);
+					$s['user'] = backup___($s['user']);
+					$s['password'] = backup___($s['password']);
+					$s['path'] = backup___($s['path']);
 					$ftp = ftp_connect($s['host'], $s['port']);
 					if (ftp_login($ftp, $s['user'], $s['password'])) {
 						//chose pasive/active transfer mode
@@ -366,15 +366,15 @@ class Backup {
 						//release handel
 						ftp_close($ftp);
 					} else {
-						$this->b['error'] = _("Error connecting to the FTP Server...");
+						$this->b['error'] = __("Error connecting to the FTP Server...");
 						backup_log($this->b['error']);
 					}
 					break;
 				case 'ssh':
 					//subsitute variables if nesesary
-					$s['path'] = backup__($s['path']);
-					$s['user'] = backup__($s['user']);
-					$s['host'] = backup__($s['host']);
+					$s['path'] = backup___($s['path']);
+					$s['user'] = backup___($s['user']);
+					$s['host'] = backup___($s['host']);
 
 					//ensure directory structure
 					$cmd[] = ipbx_which('ssh');
@@ -451,10 +451,10 @@ class Backup {
 					//build array on this server
 					$ret['mysql'][$s] = array(
 								'file'		=> $file,
-								'host'		=> backup__($this->s[$s]['host']),
-								'port'		=> backup__($this->s[$s]['port']),
-								'name'		=> backup__($this->s[$s]['name']),
-								'dbname'	=> backup__($this->s[$s]['dbname']),
+								'host'		=> backup___($this->s[$s]['host']),
+								'port'		=> backup___($this->s[$s]['port']),
+								'name'		=> backup___($this->s[$s]['name']),
+								'dbname'	=> backup___($this->s[$s]['dbname']),
 								'exclude'	=> $exclude
 					);
 
@@ -524,7 +524,7 @@ class Backup {
 		//get file list
 		switch ($type) {
 			case 'local':
-				$dir = scandir(backup__($data['path']) . '/' . $this->b['_dirname']);
+				$dir = scandir(backup___($data['path']) . '/' . $this->b['_dirname']);
 				break;
 			case 'ftp':
 				$dir = ftp_nlist($handle, '.');
@@ -580,7 +580,7 @@ class Backup {
 		foreach($delete as $key => $file) {
 			switch($type) {
 				case 'local':
-					unlink(backup__($data['path']) . '/' . $this->b['_dirname'] . '/' . $file);
+					unlink(backup___($data['path']) . '/' . $this->b['_dirname'] . '/' . $file);
 					unset($delete[$key]);
 					break;
 				case 'ftp':

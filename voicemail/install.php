@@ -5,11 +5,11 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //
 //for translation only
 if (false) {
-_("Voicemail");
-_("My Voicemail");
-_("Dial Voicemail");
-_("Voicemail Admin");
-_("Direct Dial Prefix");
+__("Voicemail");
+__("My Voicemail");
+__("Dial Voicemail");
+__("Voicemail Admin");
+__("Direct Dial Prefix");
 }
 
 global $astman;
@@ -58,27 +58,27 @@ $globals = $db->getAll($sql,DB_FETCHMODE_ASSOC);
 if(DB::IsError($globals)) {
   die_issabelpbx($globals->getMessage());
 }
-outn(_("Checking for General Setting migrations.."));
+outn(__("Checking for General Setting migrations.."));
 if (count($globals)) {
-  out(_("preparing"));
+  out(__("preparing"));
   foreach ($globals as $global) {
 		unset($globals_convert[$global['variable']]);
 		switch ($global['variable']) {
 		case 'VMX_OPTS_TIMEOUT':
-    	out(sprintf(_("%s no longer used"),$global['variable']));
+    	out(sprintf(__("%s no longer used"),$global['variable']));
 		break;
 		case 'VM_GAIN':
 			if (is_numeric($global['value']) && $global['value'] >= 15) {
-    		out(sprintf(_("%s changed from %s to max value 15"),$global['variable'], $global['value']));
+    		out(sprintf(__("%s changed from %s to max value 15"),$global['variable'], $global['value']));
 				$global['value'] = 15;
 			} else if (is_numeric($global['value'])) {
 				$gain = ceil(round($global['value']) / 3) * 3;
 				if ($gain != $global['value']) {
-    			out(sprintf(_("%s adjusted from %s to %s"),$global['variable'], $global['value'], $gain));
+    			out(sprintf(__("%s adjusted from %s to %s"),$global['variable'], $global['value'], $gain));
 					$global['value'] = $gain;
 				}
 			} else if ($global['value'] != '') {
-   			out(sprintf(_("%s adjusted from bad value %s to default no gain"), $global['variable'], $global['value']));
+   			out(sprintf(__("%s adjusted from bad value %s to default no gain"), $global['variable'], $global['value']));
 				$global['value'] = '';
 			}
 			// FALL THROUGH TO SAVE
@@ -86,15 +86,15 @@ if (count($globals)) {
 			$sql = 'INSERT INTO `voicemail_admin` (`variable`, `value`) VALUES ("' . $global['variable'] . '","' . $global['value'] . '")';;
 			$result = $db->query($sql);
 			if(DB::IsError($result)) {
-				out(sprintf(_("ERROR inserting %s into voicemail_admin during migration, it may alreayd exist"), $global['variable']));
+				out(sprintf(__("ERROR inserting %s into voicemail_admin during migration, it may alreayd exist"), $global['variable']));
 			} else {
- 				out(sprintf(_("%s migrated"),$global['variable']));
+ 				out(sprintf(__("%s migrated"),$global['variable']));
 			}
 		break;
 		}
 	}
 } else {
-  out(_("not needed"));
+  out(__("not needed"));
 }
 
 // Now add any defaults not found in the globals table even though that should not happen
@@ -106,19 +106,19 @@ foreach ($globals_convert as $key => $value) {
 	$sql = 'INSERT INTO `voicemail_admin` (`variable`, `value`) VALUES ("' . $key . '","' . $value . '")';;
 	$result = $db->query($sql);
 	if(!DB::IsError($result)) {
-		out(sprintf(_("%s added"),$key));
+		out(sprintf(__("%s added"),$key));
 	}
 }
 
 if (count($globals)) {
-	out(_("General Settings migrated"));
-	outn(_("Deleting migrated settings.."));
+	out(__("General Settings migrated"));
+	outn(__("Deleting migrated settings.."));
   $sql = "DELETE".$sql_where;
   $globals = $db->query($sql);
   if(DB::IsError($globals)) {
-	  out(_("Fatal DB error trying to delete globals, trying to carry on"));
+	  out(__("Fatal DB error trying to delete globals, trying to carry on"));
   } else {
-	  out(_("done"));
+	  out(__("done"));
   }
 }
 
@@ -131,13 +131,13 @@ if(!DB::IsError($globals)) {
 	if (count($globals)) {
 		$current_prefix = trim($globals[0]['value']);
 		$sql = "DELETE FROM globals WHERE `variable` = 'VM_PREFIX'";
-		out(_("migrated VM_PREFIX to feature codes"));
-		outn(_("deleting VM_PREFIX from globals.."));
+		out(__("migrated VM_PREFIX to feature codes"));
+		outn(__("deleting VM_PREFIX from globals.."));
 		$res = $db->query($sql);
 		if(!DB::IsError($globals)) {
-			out(_("done"));
+			out(__("done"));
 		} else {
-			out(_("could not delete"));
+			out(__("could not delete"));
 		}
 	}
 }
@@ -167,7 +167,7 @@ if ($ver !== null && version_compare($ver,'1.6.2','lt')) { //we have to fix exis
 			$astman->database_put("AMPUSER",$user['extension']."/voicemail","\"novm\"");
 		}
 	} else {
-		echo _("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
+		echo __("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
 		return false;
 	}
 	sql("update users set voicemail='novm' where voicemail='disabled' or voicemail='';");
@@ -176,17 +176,17 @@ if ($ver !== null && version_compare($ver,'1.6.2','lt')) { //we have to fix exis
 // vmailadmin module functionality has been fully incporporated into this module
 // so if it is installed we remove and delete it from the repository.
 //
-outn(_("checking if Voicemail Admin (vmailadmin) is installed.."));
+outn(__("checking if Voicemail Admin (vmailadmin) is installed.."));
 $modules = module_getinfo('vmailadmin');
 if (!isset($modules['vmailadmin'])) {
-  out(_("not installed, ok"));
+  out(__("not installed, ok"));
 } else {
-  out(_("installed."));
-  out(_("Voicemail Admin being removed and merged with Voicemail"));
-  outn(_("Attempting to delete.."));
+  out(__("installed."));
+  out(__("Voicemail Admin being removed and merged with Voicemail"));
+  outn(__("Attempting to delete.."));
   $result = module_delete('vmailadmin');
   if ($result === true) {
-    out(_("ok"));
+    out(__("ok"));
   } else {
     out($result);
   }
@@ -235,14 +235,14 @@ if (file_exists($amp_conf['ASTMODDIR']."/res_mwi_blf.so")) {
     $mod_conf = $amp_conf['ASTETCDIR'].'/modules.conf';
     exec("grep -e '^[[:space:]]*preload[[:space:]]*=.*res_mwi_blf.so' $mod_conf",$output,$ret);
     if ($ret) {
-      outn(_("adding preload for res_mwi_blf.so to modules.conf.."));
+      outn(__("adding preload for res_mwi_blf.so to modules.conf.."));
       exec('sed -i.2.8.0-1.bak "s/\s*preload\s*=>\s*chan_local.so/&\npreload => res_mwi_blf.so ;auto-inserted by IssabelPBX/" '.$mod_conf,$output,$ret);
       exec("grep -e '^[[:space:]]*preload[[:space:]]*=.*res_mwi_blf.so' $mod_conf",$output,$ret);
       if ($ret) {
-        out(_("FAILED"));
-        out(_("you may need to add the line 'preload => res_mwi_blf.so' to your modules.conf manually"));
+        out(__("FAILED"));
+        out(__("you may need to add the line 'preload => res_mwi_blf.so' to your modules.conf manually"));
       } else {
-        out(_("ok"));
+        out(__("ok"));
       }
     }
     unset($output);

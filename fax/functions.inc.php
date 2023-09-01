@@ -18,7 +18,7 @@ function fax_getdestinfo($dest) {
             return array();
         } else {
             $display = ($amp_conf['AMPEXTENSIONS'] == "deviceanduser")?'users':'extensions';
-            return array('description' => sprintf(_("Fax user %s"),$usr),
+            return array('description' => sprintf(__("Fax user %s"),$usr),
                          'edit_url' => 'config.php?display='.$display.'&extdisplay='.urlencode($usr),
                                   );
         }
@@ -57,7 +57,7 @@ function fax_check_destinations($dest=true) {
         $thisid   = $result['extension'].'/'.$result['cidnum'];
         $destlist[] = array(
             'dest' => $thisdest,
-            'description' => sprintf(_("Inbound Fax Detection: %s (%s)"),$result['description'],$thisid),
+            'description' => sprintf(__("Inbound Fax Detection: %s (%s)"),$result['description'],$thisid),
             'edit_url' => 'config.php?display=did&extdisplay='.urlencode($thisid),
         );
     }
@@ -93,23 +93,23 @@ function fax_configpageload() {
             $faxemail=isset($fax['faxemail'])?$fax['faxemail']:'';
             $faxattachformat=isset($fax['faxattachformat'])?$fax['faxattachformat']:'';
         }//get settings in to variables
-        $section = _('Fax');
+        $section = __('Fax');
         $toggleemail='if($(this).attr(\'checked\')){$(\'[id^=fax]\').removeAttr(\'disabled\');}else{$(\'[id^=fax]\').attr(\'disabled\',\'true\');$(this).removeAttr(\'disabled\');}';
         //check for fax prereqs, and alert the user if something is amiss
         $fax=fax_detect();
         if(!$fax['module'] || ($fax['module'] && (!$fax['ffa'] && !$fax['spandsp'])) || !$ast_lt_18){//missing modules
-            $currentcomponent->addguielem($section, new gui_label('error','<font color="red">'._('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or spandsp based app_fax (res_fax_spandsp.so) to function.').'</font>'));
+            $currentcomponent->addguielem($section, new gui_label('error','<font color="red">'.__('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or spandsp based app_fax (res_fax_spandsp.so) to function.').'</font>'));
         }elseif($fax['ffa'] && $fax['license'] < 1){//missing license
-            $currentcomponent->addguielem($section, new gui_label('error','<font color="red">'._('ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed.').'</font>'));
+            $currentcomponent->addguielem($section, new gui_label('error','<font color="red">'.__('ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed.').'</font>'));
         }
         $usage_list = framework_display_destination_usage(fax_getdest($extdisplay));
         if (!empty($usage_list)) {
             $currentcomponent->addguielem('_top', new gui_link_label('faxdests', "&nbsp;Fax".$usage_list['text'], $usage_list['tooltip'], true), 5);
         }
 
-        $currentcomponent->addguielem($section, new gui_checkbox('faxenabled',$faxenabled,_('Enabled'), dgettext('fax','Enable this user to receive faxes'),'true','',$toggleemail));
+        $currentcomponent->addguielem($section, new gui_checkbox('faxenabled',$faxenabled,__('Enabled'), _dgettext('fax','Enable this user to receive faxes'),'true','',$toggleemail));
 
-        $currentcomponent->addguielem($section, new gui_textbox('faxemail', $faxemail, dgettext('fax','Fax Email'), dgettext('fax','Enter an email address where faxes sent to this extension will be delivered.'), '!isEmail()', _('Please Enter a valid email address for fax delivery.'), TRUE, '', ($faxenabled == 'true')?'':'true'));
+        $currentcomponent->addguielem($section, new gui_textbox('faxemail', $faxemail, _dgettext('fax','Fax Email'), _dgettext('fax','Enter an email address where faxes sent to this extension will be delivered.'), '!isEmail()', __('Please Enter a valid email address for fax delivery.'), TRUE, '', ($faxenabled == 'true')?'':'true'));
 
         $currentcomponent->addoptlist('faxattachformatopts', false);
         $currentcomponent->addoptlistitem('faxattachformatopts', 'pdf', 'pdf');
@@ -121,8 +121,8 @@ function fax_configpageload() {
                 'faxattachformat',
                 $currentcomponent->getoptlist('faxattachformatopts'),
                 $faxattachformat,
-                dgettext('fax','Attachment Format'),
-                dgettext('fax','Formats to convert incoming fax files to before emailing.'),
+                _dgettext('fax','Attachment Format'),
+                _dgettext('fax','Formats to convert incoming fax files to before emailing.'),
                 false
             )
         );
@@ -190,7 +190,7 @@ function fax_destinations(){
     global $module_page;
 
     foreach (fax_get_destinations() as $row) {
-        $extens[] = array('destination' => 'ext-fax,' . $row['user'] . ',1', 'description' => $row['name'].' ('.$row['user'].')', 'category' => _('Fax Recipient'));
+        $extens[] = array('destination' => 'ext-fax,' . $row['user'] . ',1', 'description' => $row['name'].' ('.$row['user'].')', 'category' => __('Fax Recipient'));
     }
     return isset($extens)?$extens:null;
 }
@@ -499,28 +499,28 @@ function fax_hook_core($viewing_itemid, $target_menuid){
     if($target_menuid == 'did'){
     $fax_dahdi_faxdetect=fax_dahdi_faxdetect();
     $fax_sip_faxdetect=fax_sip_faxdetect();
-    $dahdi=ast_with_dahdi()?_('Dahdi'):_('Zaptel');
+    $dahdi=ast_with_dahdi()?__('Dahdi'):__('Zaptel');
     $fax_detect=fax_detect();
     $fax_settings=fax_get_settings();
     //ensure that we are using destination for both fax detect and the regular calls
         $html='<script type="text/javascript">$(document).ready(function(){
         $("input[name=Submit]").on("click",function(){
             if($("input[name=faxenabled]:checked").val()=="true" && !$("[name=gotoFAX]").val()){//ensure the user selected a fax destination
-            sweet_alert('._('"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to."').');return false; }    }) });</script>';
+            sweet_alert('.__('"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to."').');return false; }    }) });</script>';
         $html .= '<tr><td colspan="2"><h5>';
-        $html.=_('Fax Detect');
+        $html.=__('Fax Detect');
         $html.='</h5></td></tr>';
         $html.='<tr>';
         $html.='<td><a href="#" class="info">';
-        $html.=_("Detect Faxes").'<span>'._("Attempt to detect faxes on this DID.")."<ul><li>"._("No: No attempts are made to auto-determine the call type; all calls sent to destination below. Use this option if this DID is used exclusively for voice OR fax.")."</li><li>"._("Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line")."</li>";
+        $html.=__("Detect Faxes").'<span>'.__("Attempt to detect faxes on this DID.")."<ul><li>".__("No: No attempts are made to auto-determine the call type; all calls sent to destination below. Use this option if this DID is used exclusively for voice OR fax.")."</li><li>".__("Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line")."</li>";
         if($fax_settings['legacy_mode'] == 'yes' || $fax['legacy_email']!==null){
-        $html.='<li>'._('Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!').'</li>';
+        $html.='<li>'.__('Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!').'</li>';
         }
         $html.='</ul></span></a></td>';
 
         //dont allow detection to be set if we have no valid detection types
         if(!$fax_dahdi_faxdetect && !$fax_sip_faxdetect && !$fax_detect['nvfax']){
-            $js="if ($(this).val() == 'true'){sweet_alert('"._('No fax detection methods found or no valid license. Faxing cannot be enabled.')."');return false;}";
+            $js="if ($(this).val() == 'true'){sweet_alert('".__('No fax detection methods found or no valid license. Faxing cannot be enabled.')."');return false;}";
             $html.='<td>';
             $html.='<fieldset class="radio">';
             $html.='<div class="radiotoggle">';
@@ -559,10 +559,10 @@ function fax_hook_core($viewing_itemid, $target_menuid){
             $html.='<td>';
             $html.='<fieldset class="radio">';
             $html.='<div class="radiotoggle">';
-            $html.='<input type="radio" name="faxenabled" id="faxenabled_no" value="false" '.($fax['detection']!=''?'':'CHECKED').' onclick="'.$jsno.'"/><label for="faxenabled_no">' . _('No') . '</label>';
-            $html.='<input type="radio" name="faxenabled" id="faxenabled_yes" value="true" '.($fax['detection']!=''?'CHECKED':'').' onclick="'.$jsyes.'"/><label for="faxenabled_yes">' . _('Yes') . '</label>';
+            $html.='<input type="radio" name="faxenabled" id="faxenabled_no" value="false" '.($fax['detection']!=''?'':'CHECKED').' onclick="'.$jsno.'"/><label for="faxenabled_no">' . __('No') . '</label>';
+            $html.='<input type="radio" name="faxenabled" id="faxenabled_yes" value="true" '.($fax['detection']!=''?'CHECKED':'').' onclick="'.$jsyes.'"/><label for="faxenabled_yes">' . __('Yes') . '</label>';
             if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){
-                $html.='<input type="radio" name="faxenabled" id="faxenabled_legacy" value="legacy" '.$legacy_checked.' onclick="'.$jslegacy.'"/><label for="faxenabled_legacy">' . _('Legacy');
+                $html.='<input type="radio" name="faxenabled" id="faxenabled_legacy" value="legacy" '.$legacy_checked.' onclick="'.$jslegacy.'"/><label for="faxenabled_legacy">' . __('Legacy');
             }
 
             $html.="</div>";
@@ -572,15 +572,15 @@ function fax_hook_core($viewing_itemid, $target_menuid){
         }
         //fax detection+destinations, hidden if there is fax is disabled
         $info=engine_getinfo();
-        $html.='<tr class=faxdetect '.($fax['detection']==''?'style="display: none;"':'').'><td><a href="#" class="info">'._('Fax Detection type').'<span>'._("Type of fax detection to use.")."<ul><li>".$dahdi.": "._("use ").$dahdi._(" fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in ").$dahdi.".conf</li><li>"._("SIP: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files")."</li><li>"._("NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk")."</li></ul>".'.</span></a></td>';
+        $html.='<tr class=faxdetect '.($fax['detection']==''?'style="display: none;"':'').'><td><a href="#" class="info">'.__('Fax Detection type').'<span>'.__("Type of fax detection to use.")."<ul><li>".$dahdi.": ".__("use ").$dahdi.__(" fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in ").$dahdi.".conf</li><li>".__("SIP: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files")."</li><li>".__("NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk")."</li></ul>".'.</span></a></td>';
         $html.='<td><select name="faxdetection" tabindex="'.++$tabindex.'" class="componentSelect">';
-        //$html.='<option value="Auto"'.($faxdetection == 'auto' ? 'SELECTED' : '').'>'. _("Auto").'</option>';<li>Auto: allow the system to chose the best fax detection method</li>
+        //$html.='<option value="Auto"'.($faxdetection == 'auto' ? 'SELECTED' : '').'>'. __("Auto").'</option>';<li>Auto: allow the system to chose the best fax detection method</li>
         $html.='<option value="dahdi" '.($fax['detection'] == 'dahdi' ? 'SELECTED' : '').' '.($fax_dahdi_faxdetect?'':'disabled').'>'.$dahdi.'</option>';
-        $html.='<option value="nvfax"'.($fax['detection'] == 'nvfax' ? 'SELECTED' : '').($fax_detect['nvfax']?'':'disabled').'>'. _("NVFax").'</option>';
-        $html.='<option value="sip" '.($fax['detection'] == 'sip' ? 'SELECTED' : '').' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>'. _("SIP").'</option>';
+        $html.='<option value="nvfax"'.($fax['detection'] == 'nvfax' ? 'SELECTED' : '').($fax_detect['nvfax']?'':'disabled').'>'. __("NVFax").'</option>';
+        $html.='<option value="sip" '.($fax['detection'] == 'sip' ? 'SELECTED' : '').' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>'. __("SIP").'</option>';
         $html.='</select></td></tr>';
 
-        $html.='<tr class="faxdetect" '.($fax['detection']==''?'style="display: none;"':'').'><td><a href="#" class="info">'._("Fax Detection Time").'<span>'.dgettext('fax','How long to wait and try to detect fax. Please note that callers to a ').$dahdi.dgettext('fax',' channel will hear ringing for this amount of time (i.e. the system wont "answer" the call, it will just play ringing)').'.</span></a></td>';
+        $html.='<tr class="faxdetect" '.($fax['detection']==''?'style="display: none;"':'').'><td><a href="#" class="info">'.__("Fax Detection Time").'<span>'._dgettext('fax','How long to wait and try to detect fax. Please note that callers to a ').$dahdi._dgettext('fax',' channel will hear ringing for this amount of time (i.e. the system wont "answer" the call, it will just play ringing)').'.</span></a></td>';
         $html.='<td><select name="faxdetectionwait" tabindex="'.++$tabindex.'" class="componentSelect">';
         if(!$fax['detectionwait']){$fax['detectionwait']=4;}//default wait time is 4 second
         for($i=2;$i < 11; $i++){
@@ -588,10 +588,10 @@ function fax_hook_core($viewing_itemid, $target_menuid){
         }
         $html.='</select></td></tr>';
         if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){
-            $html.='<tr class="legacyemail"'.($legacy_checked=='' ? ' style="display: none;"':'').'><td><a href="#" class="info">'._("Fax Email Destination").'<span>'._('Address to email faxes to on fax detection.<br />PLEASE NOTE: In this version of IssabelPBX, you can now set the fax destination from a list of destinations. Extensions/Users can be fax enabled in the user/extension screen and set an email address there. This will create a new destination type that can be selected. To upgrade this option to the full destination list, select YES to Detect Faxes and select a destination. After clicking submit, this route will be upgraded. This Legacy option will no longer be available after the change, it is provided to handle legacy migrations from previous versions of IssabelPBX only.').'.</span></a></td>';
+            $html.='<tr class="legacyemail"'.($legacy_checked=='' ? ' style="display: none;"':'').'><td><a href="#" class="info">'.__("Fax Email Destination").'<span>'.__('Address to email faxes to on fax detection.<br />PLEASE NOTE: In this version of IssabelPBX, you can now set the fax destination from a list of destinations. Extensions/Users can be fax enabled in the user/extension screen and set an email address there. This will create a new destination type that can be selected. To upgrade this option to the full destination list, select YES to Detect Faxes and select a destination. After clicking submit, this route will be upgraded. This Legacy option will no longer be available after the change, it is provided to handle legacy migrations from previous versions of IssabelPBX only.').'.</span></a></td>';
             $html.='<td><input name="legacy_email" value="'.$fax['legacy_email'].'" class="w100 input"></td></tr>';
     }
-        $html.='<tr class="faxdest27 faxdetect faxdest" '.($fax['detection']!='' && $legacy_checked==''?'':'style="display: none;"').'><td><a href="#" class="info">'._("Fax Destination").'<span>'._('Where to send the call if we detect that its a fax').'.</span></a></td>';
+        $html.='<tr class="faxdest27 faxdetect faxdest" '.($fax['detection']!='' && $legacy_checked==''?'':'style="display: none;"').'><td><a href="#" class="info">'.__("Fax Destination").'<span>'.__('Where to send the call if we detect that its a fax').'.</span></a></td>';
         $html.='<td>';
         $html.=$fax_detect?drawselects(isset($fax['destination'])?$fax['destination']:null,'FAX',false,false):'';
         $html.='</td></tr>';

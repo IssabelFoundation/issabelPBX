@@ -22,7 +22,7 @@ if(isset($_REQUEST['action'])) {
 	switch ($action) {
 		case "add":
 			phonebook_add($number, $name, $speeddial, $gensd);
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
 			redirect_standard();
@@ -31,7 +31,7 @@ if(isset($_REQUEST['action'])) {
 		case "delete":
 			$numbers = phonebook_list();
 			phonebook_del($number, $numbers[$number]['speeddial']);
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
             $_SESSION['msgtstamp']=time();
 			redirect_standard();
@@ -40,7 +40,7 @@ if(isset($_REQUEST['action'])) {
 			$numbers = phonebook_list();
 			phonebook_del($editnumber, $numbers[$editnumber]['speeddial']);
 			phonebook_add($number, $name, $speeddial, $gensd);
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
 			redirect_standard('extdisplay');
@@ -95,7 +95,7 @@ drawListMenu($rnavitems, $type, $display, $extdisplay);
 <?php
 
     
-$helptext = _('Use this module to create system wide speed dial numbers that can be dialed from any phone.');
+$helptext = __('Use this module to create system wide speed dial numbers that can be dialed from any phone.');
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 
 
@@ -108,7 +108,7 @@ if ($extdisplay) {
     $sdial = '';
 }
 
-echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Phonebook Entry').': '.$name : _("Add Phonebook Entry"))."</h2>$help</div>\n";
+echo "<div class='is-flex'><h2>".($extdisplay ? __('Edit Phonebook Entry').': '.$name : __("Add Phonebook Entry"))."</h2>$help</div>\n";
 ?>
 
 <form id="mainform" autocomplete="off" name="edit" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return edit_onsubmit(this);">
@@ -117,25 +117,25 @@ echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Phonebook Entry').': '.$
 <input type="hidden" name="editnumber" value="<?php echo ($extdisplay)?$extdisplay:'';?>">
 
 <table class='table is-borderless is-narrow'>
-    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Name")?><span><?php echo _("Enter the name")?></span></a></td>
+		<td><a href="#" class="info"><?php echo __("Name")?><span><?php echo __("Enter the name")?></span></a></td>
         <td><input class='input' type="text" name="name" tabindex="<?php echo ++$tabindex;?>" value='<?php echo $name;?>'></td>
 	</tr>
 	
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Number")?>
-		<span><?php echo _("Enter the number (For CallerID lookup to work it should match the CallerID received from network)")?></span></a></td>
+		<td><a href="#" class="info"><?php echo __("Number")?>
+		<span><?php echo __("Enter the number (For CallerID lookup to work it should match the CallerID received from network)")?></span></a></td>
         <td><input class='input' type="text" name="number" tabindex="<?php echo ++$tabindex;?>" value='<?php echo $extdisplay;?>'></td>
 	</tr>
 
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Speed dial code")?><span><?php echo _("Enter a speed dial code<br/>Speeddial module is required to use speeddial codes")?></span></a></td>
+		<td><a href="#" class="info"><?php echo __("Speed dial code")?><span><?php echo __("Enter a speed dial code<br/>Speeddial module is required to use speeddial codes")?></span></a></td>
         <td><input class='input' type="text" name="speeddial" tabindex="<?php echo ++$tabindex;?>" value='<?php echo $sdial;?>'></td>
 	</tr>
 
     <tr>
-		<td><a href="#" class="info"><?php echo _("Set Speed Dial?"); ?><span><?php echo _("Check to have a speed dial created automatically for this number"); ?></span></a></td>
+		<td><a href="#" class="info"><?php echo __("Set Speed Dial?"); ?><span><?php echo __("Check to have a speed dial created automatically for this number"); ?></span></a></td>
         <td>
            <div class='field'><input type='checkbox' class='switch' id='gensd' name='gensd' value='yes' checked='checked' tabindex='<?php echo ++$tabindex;?>'/><label style='height:auto; line-height:1em; padding-left:3em;' for='gensd'>&nbsp;</label></div>
         </td>
@@ -147,11 +147,11 @@ echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Phonebook Entry').': '.$
 <input type="hidden" name="display" value="<?php echo $dispnum?>">
 <input type="hidden" name="action" value="import">
 
-	<tr><td colspan="2"><h5><?php echo _("Import from CSV") ?></h5></td></tr>
+	<tr><td colspan="2"><h5><?php echo __("Import from CSV") ?></h5></td></tr>
 
         <tr>
-                <td><a href="#" class="info"><?php echo _("File")?>
-                <span><?php echo _("Import a CSV File formatted as follows:<br/>\"Name\";Number;Speeddial<br /> Names should be enclosed by '\"' and fields separated by ';' <br /><br /> Example:<br/>\"John Doe\";12345678;123")?></span></a></td>
+                <td><a href="#" class="info"><?php echo __("File")?>
+                <span><?php echo __("Import a CSV File formatted as follows:<br/>\"Name\";Number;Speeddial<br /> Names should be enclosed by '\"' and fields separated by ';' <br /><br /> Example:<br/>\"John Doe\";12345678;123")?></span></a></td>
                 <td>
 <!--input type="file" name="csv" tabindex="<?php echo ++$tabindex;?>"-->
 
@@ -163,12 +163,12 @@ echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Phonebook Entry').': '.$
       <span class="file-icon">
         <i class="fa fa-upload"></i>
       </span>
-      <span class="file-label"><?php echo _('Choose a file...');?></span>
+      <span class="file-label"><?php echo __('Choose a file...');?></span>
     </span>
     <span class="file-name" id="selected_file_name">
     </span>
   </label>
-  <div class="control"><input type="submit" class="button is-info" value="<?php echo _('Upload');?>"/></div>
+  <div class="control"><input type="submit" class="button is-info" value="<?php echo __('Upload');?>"/></div>
 </div>
 
 
@@ -181,7 +181,7 @@ echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Phonebook Entry').': '.$
 <script>
 
 function import_onsubmit(theForm) {
-    var msgInvalidFile = "<?php echo _("Please select a file"); ?>";
+    var msgInvalidFile = "<?php echo __("Please select a file"); ?>";
 
     if($('#csv').val()=='')
         return warnInvalid($('#csv')[0],msgInvalidFile);
@@ -191,9 +191,9 @@ function import_onsubmit(theForm) {
 }
 
 function edit_onsubmit(theForm) {
-	var msgInvalidNumber = "<?php echo _("Please enter a valid Number"); ?>";
-	var msgInvalidName = "<?php echo _("Please enter a valid Name"); ?>";
-	var msgInvalidCode = "<?php echo _("Please enter a valid Speeddial code or leave it empty"); ?>";
+	var msgInvalidNumber = "<?php echo __("Please enter a valid Number"); ?>";
+	var msgInvalidName = "<?php echo __("Please enter a valid Name"); ?>";
+	var msgInvalidCode = "<?php echo __("Please enter a valid Speeddial code or leave it empty"); ?>";
 	defaultEmptyOK = false;
 	if (!isInteger(theForm.number.value))
 		return warnInvalid(theForm.number, msgInvalidNumber);

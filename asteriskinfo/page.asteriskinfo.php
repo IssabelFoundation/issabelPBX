@@ -9,45 +9,45 @@ $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
 $extdisplay = !empty($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'summary';
 $chan_dahdi = ast_with_dahdi();
 
-$modesummary       = _("Summary");
-$moderegistries    = _("Registries");
-$modechannels      = _("Channels");
-$modepeers         = _("Peers");
-$modesip           = _("Sip Info");
-$modepjsip         = _("PJSip Info");
-$modeiax           = _("IAX Info");
-$modeconferences   = _("Conferences");
-$modequeues        = _("Queues");
-$modesubscriptions = _("Subscriptions");
-$modeall           = _("Full Report");
-$uptime            = _("Uptime");
-$activechannels    = _("Active Channel(s)");
-$sipchannels       = _("Sip Channel(s)");
-$pjsipchannels     = _("PJSip Channel(s)");
-$iax2channels      = _("IAX2 Channel(s)");
-$iax2peers         = _("IAX2 Peers");
-$sipregistry       = _("Sip Registry");
-$pjsipregistry     = _("PJSip Registrations");
-$pjsiptransports   = _("PJSip Transports");
-$pjsipcontacts     = _("PJSip Contacts");
-$pjsipauths        = _("PJSip Auths");
-$pjsipaors         = _("PJSip AORs");
-$sippeers          = _("Sip Peers");
-$pjsipendpoints    = _("PJSip Endpoints");
-$iax2registry      = _("IAX2 Registry");
-$subscribenotify   = _("Subscribe/Notify");
-$conf_meetme       = _("MeetMe Conference Info");
-$conf_confbridge   = _("Conference Bridge Info");
-$queuesinfo        = _("Queues Info");
-$voicemailusers    = _("Voicemail Users");
-$gtalkchannels     = _("Google Talk Channels");
-$jabberconnections = _("Jabber Connections");
-$xmppconnections   = _("Motif Connections");
+$modesummary       = __("Summary");
+$moderegistries    = __("Registries");
+$modechannels      = __("Channels");
+$modepeers         = __("Peers");
+$modesip           = __("Sip Info");
+$modepjsip         = __("PJSip Info");
+$modeiax           = __("IAX Info");
+$modeconferences   = __("Conferences");
+$modequeues        = __("Queues");
+$modesubscriptions = __("Subscriptions");
+$modeall           = __("Full Report");
+$uptime            = __("Uptime");
+$activechannels    = __("Active Channel(s)");
+$sipchannels       = __("Sip Channel(s)");
+$pjsipchannels     = __("PJSip Channel(s)");
+$iax2channels      = __("IAX2 Channel(s)");
+$iax2peers         = __("IAX2 Peers");
+$sipregistry       = __("Sip Registry");
+$pjsipregistry     = __("PJSip Registrations");
+$pjsiptransports   = __("PJSip Transports");
+$pjsipcontacts     = __("PJSip Contacts");
+$pjsipauths        = __("PJSip Auths");
+$pjsipaors         = __("PJSip AORs");
+$sippeers          = __("Sip Peers");
+$pjsipendpoints    = __("PJSip Endpoints");
+$iax2registry      = __("IAX2 Registry");
+$subscribenotify   = __("Subscribe/Notify");
+$conf_meetme       = __("MeetMe Conference Info");
+$conf_confbridge   = __("Conference Bridge Info");
+$queuesinfo        = __("Queues Info");
+$voicemailusers    = __("Voicemail Users");
+$gtalkchannels     = __("Google Talk Channels");
+$jabberconnections = __("Jabber Connections");
+$xmppconnections   = __("Motif Connections");
 
 if ($chan_dahdi){
-    $zapteldriverinfo = _("DAHDi driver info");
+    $zapteldriverinfo = __("DAHDi driver info");
 } else {
-    $zapteldriverinfo = _("Zaptel driver info");
+    $zapteldriverinfo = __("Zaptel driver info");
 }
 
 $modes = array(
@@ -238,13 +238,13 @@ if ($chan_dahdi){
 <div class="rnav"><ul>
 <?php
 foreach ($modes as $mode => $value) {
-    echo "<li><a class=\"".($extdisplay==$mode?'current':'')."\" href=\"config.php?&type=".urlencode("tool")."&display=".urlencode($dispnum)."&extdisplay=".urlencode($mode)."\">"._($value)."</a></li>";
+    echo "<li><a class=\"".($extdisplay==$mode?'current':'')."\" href=\"config.php?&type=".urlencode("tool")."&display=".urlencode($dispnum)."&extdisplay=".urlencode($mode)."\">".__($value)."</a></li>";
 }
 ?>
 </ul></div>
 
 <div class='content'>
-<h2><span class="headerHostInfo"><?php echo _("Asterisk (Ver. ").$astver."): "._($modes[$extdisplay])?></span></h2>
+<h2><span class="headerHostInfo"><?php echo __("Asterisk (Ver. ").$astver."): ".__($modes[$extdisplay])?></span></h2>
 
 <form id="mainform" name="asteriskinfo" action="" method="post" onsubmit='return do_submit(this)'>
 <input type="hidden" name="display" value="asteriskinfo"/>
@@ -253,9 +253,9 @@ foreach ($modes as $mode => $value) {
 <?php
 if (!$astman) {
 ?>
-        <div><h5><?php echo _("ASTERISK MANAGER ERROR")?></h5></div>
+        <div><h5><?php echo __("ASTERISK MANAGER ERROR")?></h5></div>
         <div>
-        <?php echo "<br>"._("The module was unable to connect to the Asterisk manager.<br>Make sure Asterisk is running and your manager.conf settings are proper.<br><br>"); ?>
+        <?php echo "<br>".__("The module was unable to connect to the Asterisk manager.<br>Make sure Asterisk is running and your manager.conf settings are proper.<br><br>"); ?>
         </div>
 <?php
 } else {
@@ -264,7 +264,7 @@ if (!$astman) {
         foreach ($$arr as $key => $value) {
                   if ($value) {
 ?>
-                <h5><?php echo _("$key")?></h5>
+                <h5><?php echo __("$key")?></h5>
                 <div>
                             <pre>
                                 <?php
@@ -279,7 +279,7 @@ if (!$astman) {
             }
         } else {
     ?>
-                <h5><?php echo _("Summary")?></h5>
+                <h5><?php echo __("Summary")?></h5>
                 <div>
                      <?php echo buildAsteriskInfo($astver); ?>
                 </div>
@@ -301,7 +301,7 @@ function do_submit(theForm) {
 <div id='action-bar' class=''>
     <div id='action-buttons'>
       <a id='collapseactionmenuicon' class='action_menu_icon'><i class='fa fa-angle-double-right'></i></a>
-     <input name="Submit" type="button" class="button is-rounded is-small is-light is-link" id="mainformsubmit" value="<?php echo _("Refresh")?>" tabindex="<?php echo ++$tabindex;?>">
+     <input name="Submit" type="button" class="button is-rounded is-small is-light is-link" id="mainformsubmit" value="<?php echo __("Refresh")?>" tabindex="<?php echo ++$tabindex;?>">
     </div>
 </div>
 
@@ -476,18 +476,18 @@ function buildAsteriskInfo($astver){
             $sipActive = false;
         }
     }
-    $uptime = _("Uptime: ");
-    $activesipchannels = _("Active SIP Channel(s): ");
-    $sipregistry = _("Sip Registry: ");
-    $sippeers = _("Sip Peers: ");
+    $uptime = __("Uptime: ");
+    $activesipchannels = __("Active SIP Channel(s): ");
+    $sipregistry = __("Sip Registry: ");
+    $sippeers = __("Sip Peers: ");
 
-    $activepjsipchannels = _("Active PJSIP Channel(s)").": ";
-    $pjsipregistrations = _("PJSip Registrations").": ";
-    $pjsipendpoints = _("PJSip Endpoints").": ";
+    $activepjsipchannels = __("Active PJSIP Channel(s)").": ";
+    $pjsipregistrations = __("PJSip Registrations").": ";
+    $pjsipendpoints = __("PJSip Endpoints").": ";
 
-    $activeiax2channels = _("Active IAX2 Channel(s): ");
-    $iax2registry = _("IAX2 Registry: ");
-    $iax2peers = _("IAX2 Peers: ");
+    $activeiax2channels = __("Active IAX2 Channel(s): ");
+    $iax2registry = __("IAX2 Registry: ");
+    $iax2peers = __("IAX2 Peers: ");
 
 
     $arr = array(
@@ -525,14 +525,14 @@ function buildAsteriskInfo($astver){
         $response = $astman->send_request('Command',array('Command'=>$value));
 
         $response_translated = $response['data'];
-        $response_translated = preg_replace("/Last reload/",_('Last reload'),$response_translated);
-        $response_translated = preg_replace("/minute/",_('minute'),$response_translated);
-        $response_translated = preg_replace("/hour/",_('hour'),$response_translated);
-        $response_translated = preg_replace("/week/",_('week'),$response_translated);
-        $response_translated = preg_replace("/month/",_('month'),$response_translated);
-        $response_translated = preg_replace("/second/",_('second'),$response_translated);
-        $response_translated = preg_replace("/year/",_('year'),$response_translated);
-        $response_translated = preg_replace("/day/",_('day'),$response_translated);
+        $response_translated = preg_replace("/Last reload/",__('Last reload'),$response_translated);
+        $response_translated = preg_replace("/minute/",__('minute'),$response_translated);
+        $response_translated = preg_replace("/hour/",__('hour'),$response_translated);
+        $response_translated = preg_replace("/week/",__('week'),$response_translated);
+        $response_translated = preg_replace("/month/",__('month'),$response_translated);
+        $response_translated = preg_replace("/second/",__('second'),$response_translated);
+        $response_translated = preg_replace("/year/",__('year'),$response_translated);
+        $response_translated = preg_replace("/day/",__('day'),$response_translated);
 
         $astout = explode("\n",$response_translated);
 
@@ -540,7 +540,7 @@ function buildAsteriskInfo($astver){
             case $uptime:
                 $uptime = $astout;
                 $uptime1 = 'Asterisk '.$uptime[1];
-                $uptime1 = preg_replace("/Asterisk System uptime/",_('Asterisk System uptime'),$uptime1);
+                $uptime1 = preg_replace("/Asterisk System uptime/",__('Asterisk System uptime'),$uptime1);
                 $htmlOutput .= '<div>'.$uptime1."<br/>".$uptime[2]."</div>";
                 $htmlOutput .= '<div class="columns mt-4">';
             break;
@@ -588,10 +588,10 @@ function buildAsteriskInfo($astver){
                 }
                 $htmlOutput .= '<tr>';
                 if (version_compare($astver, '1.4', 'ge')) {
-                    $htmlOutput .= "<div class='column'>".$key."<br/>"._("Online: ").$sipPeer_arr['online']."<br/>"._("Online-Unmonitored").": ".$sipPeer_arr['online-unmonitored'];
-                    $htmlOutput .= "<br/>"._("Offline: ")."<span style=\"color:".$sipPeerColor.";font-weight:bold;\"> ".$sipPeer_arr['offline']."</span><br/>"._("Offline-Unmonitored").": "."<span style=\"color:".$sipPeerColor.";font-weight:bold;\">".$sipPeer_arr['offline-unmonitored']."</span></div>";
+                    $htmlOutput .= "<div class='column'>".$key."<br/>".__("Online: ").$sipPeer_arr['online']."<br/>".__("Online-Unmonitored").": ".$sipPeer_arr['online-unmonitored'];
+                    $htmlOutput .= "<br/>".__("Offline: ")."<span style=\"color:".$sipPeerColor.";font-weight:bold;\"> ".$sipPeer_arr['offline']."</span><br/>".__("Offline-Unmonitored").": "."<span style=\"color:".$sipPeerColor.";font-weight:bold;\">".$sipPeer_arr['offline-unmonitored']."</span></div>";
                 } else {
-                    $htmlOutput .= "<div class='column'>".$key.""._("Online: ").$sipPeer_arr['online'].""._("Offline: ")."<span style=\"color:".$sipPeerColor.";font-weight:bold;\">".$sipPeer_arr['offline']."</span></div>";
+                    $htmlOutput .= "<div class='column'>".$key."".__("Online: ").$sipPeer_arr['online']."".__("Offline: ")."<span style=\"color:".$sipPeerColor.";font-weight:bold;\">".$sipPeer_arr['offline']."</span></div>";
                 }
             break;
             case $pjsipendpoints:
@@ -602,8 +602,8 @@ function buildAsteriskInfo($astver){
                 }else{
                     $pjsipPeerColor = '#000000';
                 }
-                $htmlOutput .= "<div class='column'>".$key."<br/>"._("Available").": ".$pjsipPeer_arr['available'];
-                $htmlOutput .= "<br/>"._("Unavailable").": "."<span style=\"color:".$pjsipPeerColor.";font-weight:bold;\"> ".$pjsipPeer_arr['unavailable']."</span><br/>"._("Unknown").": "."<span style=\"color:".$pjsipPeerColor.";font-weight:bold;\">".$pjsipPeer_arr['unknown']."</span></div>";
+                $htmlOutput .= "<div class='column'>".$key."<br/>".__("Available").": ".$pjsipPeer_arr['available'];
+                $htmlOutput .= "<br/>".__("Unavailable").": "."<span style=\"color:".$pjsipPeerColor.";font-weight:bold;\"> ".$pjsipPeer_arr['unavailable']."</span><br/>".__("Unknown").": "."<span style=\"color:".$pjsipPeerColor.";font-weight:bold;\">".$pjsipPeer_arr['unknown']."</span></div>";
 
             break;
             case $iax2peers:
@@ -614,7 +614,7 @@ function buildAsteriskInfo($astver){
                 }else{
                     $iax2PeerColor = '#000000';
                 }
-                $htmlOutput .= "<div class='column'>".$key."<br/>"._("Online: ").$iax2Peer_arr['online']."<br/>"._("Offline: ")."<span style=\"color:".$iax2PeerColor.";font-weight:bold;\">".$iax2Peer_arr['offline']."</span><br/>"._("Unmonitored: ").$iax2Peer_arr['unmonitored']."</div>";
+                $htmlOutput .= "<div class='column'>".$key."<br/>".__("Online: ").$iax2Peer_arr['online']."<br/>".__("Offline: ")."<span style=\"color:".$iax2PeerColor.";font-weight:bold;\">".$iax2Peer_arr['offline']."</span><br/>".__("Unmonitored: ").$iax2Peer_arr['unmonitored']."</div>";
             break;
             default:
             }

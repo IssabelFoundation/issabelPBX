@@ -27,7 +27,7 @@ if ($issabelpbx_conf->conf_setting_exists('DASHBOARD_STATS_UPDATE_TIME') || $iss
       $stats_value = $val;
     }
     if ($stats_value != $old_val) {
-      out(sprintf(_("%s changed from %s to %s"),'DASHBOARD_STATS_UPDATE_TIME',$old_val,$stats_value));
+      out(sprintf(__("%s changed from %s to %s"),'DASHBOARD_STATS_UPDATE_TIME',$old_val,$stats_value));
     }
   }
   if ($full_settings['DASHBOARD_INFO_UPDATE_TIME']['type'] != CONF_TYPE_SELECT) {
@@ -41,7 +41,7 @@ if ($issabelpbx_conf->conf_setting_exists('DASHBOARD_STATS_UPDATE_TIME') || $iss
       $info_value = $val;
     }
     if ($info_value != $old_val) {
-      out(sprintf(_("%s changed from %s to %s"),'DASHBOARD_INFO_UPDATE_TIME',$old_val,$info_value));
+      out(sprintf(__("%s changed from %s to %s"),'DASHBOARD_INFO_UPDATE_TIME',$old_val,$info_value));
     }
   }
   unset($full_settings);

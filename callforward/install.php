@@ -3,16 +3,16 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 //for translation only
 if (false) {
-_("Call Forward");
-_("Call Forward All Activate");
-_("Call Forward All Deactivate");
-_("Call Forward All Prompting Deactivate");
-_("Call Forward Busy Activate");
-_("Call Forward Busy Deactivate");
-_("Call Forward Busy Prompting Deactivate");
-_("Call Forward No Answer/Unavailable Activate");
-_("Call Forward No Answer/Unavailable Deactivate");
-_("Call Forward Toggle");
+__("Call Forward");
+__("Call Forward All Activate");
+__("Call Forward All Deactivate");
+__("Call Forward All Prompting Deactivate");
+__("Call Forward Busy Activate");
+__("Call Forward Busy Deactivate");
+__("Call Forward Busy Prompting Deactivate");
+__("Call Forward No Answer/Unavailable Activate");
+__("Call Forward No Answer/Unavailable Deactivate");
+__("Call Forward Toggle");
 }
 
 // Unconditional Call Forwarding

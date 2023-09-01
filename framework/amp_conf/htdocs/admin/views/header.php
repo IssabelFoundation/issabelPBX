@@ -26,7 +26,7 @@ if ($use_popover_css) {
 
 $html .= '<head>';
 $html .= '<title>'
-		. (isset($title) ? _($title) : $amp_conf['BRAND_TITLE'])
+		. (isset($title) ? __($title) : $amp_conf['BRAND_TITLE'])
 		. '</title>';
 
 $html .= '<meta http-equiv="Content-Type" content="text/html;charset=utf-8">'
@@ -100,7 +100,7 @@ $html .= '<div id="page">';//open page
 
 //add script warning
 $html .= '<noscript><div class="attention">'
-		. _('WARNING: Javascript is disabled in your browser. '
+		. __('WARNING: Javascript is disabled in your browser. '
 		. 'The IssabelPBX administration interface requires Javascript to run properly. '
 		. 'Please enable javascript or switch to another  browser that supports it.') 
 		. '</div></noscript>';

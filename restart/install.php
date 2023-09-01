@@ -6,12 +6,12 @@ $src = dirname(__FILE__).'/etc/sip_notify.conf';
 $dest = $amp_conf['ASTETCDIR'].'/sip_notify.conf';
 
 if (is_link($dest) && readlink($dest) == $src) {
-  outn(_("removing symlink to $dest.."));
+  outn(__("removing symlink to $dest.."));
   if (unlink($dest)) {
-    out(_("ok"));
+    out(__("ok"));
   } else {
-    out(_("FAILED"));
-    out(_("You may have to remove $dest manually"));
+    out(__("FAILED"));
+    out(__("You may have to remove $dest manually"));
   }
 }
 ?>

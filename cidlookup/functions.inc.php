@@ -9,11 +9,11 @@ function cidlookup_hook_core($viewing_itemid, $target_menuid) {
 	$html = '';
 	if ($target_menuid == 'did')	{
 		$html = '<tr><td colspan="2"><h5>';
-		$html .= _("CID Lookup Source");
+		$html .= __("CID Lookup Source");
 		$html .= '</h5></td></tr>';
 		$html .= '<tr>';
 		$html .= '<td><a href="#" class="info">';
-		$html .= _("Source").'<span>'._("Sources can be added in Caller Name Lookup Sources section").'.</span></a></td>';
+		$html .= __("Source").'<span>'.__("Sources can be added in Caller Name Lookup Sources section").'.</span></a></td>';
 		$html .= '<script type="text/javascript">';
 		$html .= 'function openCNAMNoteDisplay(source, key) {';
 		$html .= ' if (source.options[key].text === "OpenCNAM") {';
@@ -30,14 +30,14 @@ function cidlookup_hook_core($viewing_itemid, $target_menuid) {
 			$html .= sprintf('<option value="%d" %s>%s</option>', $source['cidlookup_id'], ($current == $source['cidlookup_id']?'selected':''), $source['description']);
 		$html .= '</select></td></tr>';
 		$html .= '<tr style="display:none" id="opencnam_hobbyist_note"><td colspan="2">';
-		$html .= '<p style="max-width:345px;max-height:40px;font-style:italic;font-size:12px;margin-bottom:40px;"><b>'.dgettext('cidlookup','NOTE:').'</b> '._('OpenCNAM\'s Hobbyist Tier only allows you to do 60 cached CID lookups per hour. If you get more than 60 incoming calls per hour, or want real-time CID information (which is more accurate), you should use the Professional Tier, which is configurable via the CallerID Lookup Sources menu.').'</td></p>';
+		$html .= '<p style="max-width:345px;max-height:40px;font-style:italic;font-size:12px;margin-bottom:40px;"><b>'._dgettext('cidlookup','NOTE:').'</b> '.__('OpenCNAM\'s Hobbyist Tier only allows you to do 60 cached CID lookups per hour. If you get more than 60 incoming calls per hour, or want real-time CID information (which is more accurate), you should use the Professional Tier, which is configurable via the CallerID Lookup Sources menu.').'</td></p>';
 		$html .= '</tr>';
 
 /*
 		// Not yet fully implemented
 		$html .= '<tr>';
 		$html .= '<td><a href="#" class="info">';
-		$html .= _("Overwrite Caller Name").'<span>'._("This option let the source specified overwrite the caller name if already supplied from telco").'.</span></a></td>';
+		$html .= __("Overwrite Caller Name").'<span>'.__("This option let the source specified overwrite the caller name if already supplied from telco").'.</span></a></td>';
 		$html .= '<td><input type="checkbox" name="overwrite" value="1"></td>';
 		$html .= '</tr>';
 */
@@ -301,7 +301,7 @@ function cidlookup_did_list($id=false) {
 }
 
 function cidlookup_list($all=false) {
-	$allowed = array(array('cidlookup_id' => 0, 'description' => _("None"), 'sourcetype' => null));
+	$allowed = array(array('cidlookup_id' => 0, 'description' => __("None"), 'sourcetype' => null));
 	$results = sql("SELECT * FROM cidlookup","getAll",DB_FETCHMODE_ASSOC);
 	if(is_array($results)){
 		foreach($results as $result){

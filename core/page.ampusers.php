@@ -45,13 +45,13 @@ if (isset($amp_conf["AMPEXTENSIONS"]) && ($amp_conf["AMPEXTENSIONS"] == "devicea
 }
 
 // no more adding the APPLY Changes bar to module list because array_multisort messes up integer array keys
-// $module_list['99'] = array('category' => NULL, 'name' => _("Apply Changes Bar"));
+// $module_list['99'] = array('category' => NULL, 'name' => __("Apply Changes Bar"));
 
 // changed from $module_name to $admin_module_name because the former is used by framework
 foreach ($module_list as $key => $row) {
     $module_category[$key] = $row['category'];
     //$admin_module_name[$key] = $row['name'];
-    $admin_module_name[$key] = dgettext($row['rawname'],$row['name']);
+    $admin_module_name[$key] = _dgettext($row['rawname'],$row['name']);
 }
 array_multisort($module_category, SORT_ASC, $admin_module_name, SORT_ASC, $module_list);
 
@@ -71,7 +71,7 @@ switch ($action) {
         core_ampusers_add($username, $password, $extension_low, $extension_high, $deptname, $sections);
         //indicate 'need reload' link in footer.php
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -89,7 +89,7 @@ switch ($action) {
         }
         //indicate 'need reload' link in footer.php
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard('extdisplay');
@@ -99,7 +99,7 @@ switch ($action) {
         //indicate 'need reload' link in footer.php
         needreload();
         $extdisplay = ""; // go "add" screen
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         //redirect_standard();
@@ -117,7 +117,7 @@ drawListMenu($rnaventries, $type, $display, $extdisplay);
 
 <!--div class="rnav">
 <ul>
-    <li><a <?php  echo ($extdisplay=='' ? 'class="current"':'') ?> href="config.php?display=<?php echo urlencode($display)?>"><?php echo _("Add User")?></a></li>
+    <li><a <?php  echo ($extdisplay=='' ? 'class="current"':'') ?> href="config.php?display=<?php echo urlencode($display)?>"><?php echo __("Add User")?></a></li>
 <?php
 //get existing trunk info
 $tresults = core_ampusers_list();
@@ -132,7 +132,7 @@ foreach ($tresults as $tresult) {
 <?php
 
     if ($extdisplay) {
-        echo "<h2>"._("Edit Administrator").": ".$extdisplay."</h2>";
+        echo "<h2>".__("Edit Administrator").": ".$extdisplay."</h2>";
         
         $user = getAmpUser($extdisplay);
         
@@ -158,7 +158,7 @@ foreach ($tresults as $tresult) {
         $myaction = 'addampuser';        
         
     
-        echo "<h2>"._("Add Administrator")."</h2>";
+        echo "<h2>".__("Add Administrator")."</h2>";
     }
 ?>
     
@@ -170,53 +170,53 @@ foreach ($tresults as $tresult) {
     <input type="hidden" name="password_sha1" value="<?php echo isset($password_sha1)?$password_sha1:'' ?>"/>
 
     <table class='table is-narrow is-borderless'>
-    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
 
 <?php if (($amp_conf["AUTHTYPE"] != "database") && ($amp_conf["AUTHTYPE"] != "webserver")) { ?>            
     <tr>
         <td colspan="2">
-    <?php echo '<b>'._("NOTE:").'</b>'._("Authorization Type is not set to 'database' in Advanced Setting - note that this module is not currently providing access control, and changing passwords here or adding users will have no effect unless Authorization Type is set to 'database'.") ?><br /><br />
+    <?php echo '<b>'.__("NOTE:").'</b>'.__("Authorization Type is not set to 'database' in Advanced Setting - note that this module is not currently providing access control, and changing passwords here or adding users will have no effect unless Authorization Type is set to 'database'.") ?><br /><br />
         </td>
     </tr>
 <?php } ?>
     <tr>
         <td>
-            <a href=# class="info"><?php echo _("Username<span>Create a unique username for this new user</span>")?></a>
+            <a href=# class="info"><?php echo __("Username<span>Create a unique username for this new user</span>")?></a>
         </td><td>
             <input autofocus type="text" class="input w100" name="username" value="<?php echo $username;?>" tabindex="<?php echo ++$tabindex;?>"/>
         </td>
     </tr>
     <tr>
         <td>
-            <a href=# class="info"><?php echo _("Password<span>Create a password for this new user</span>")?></a>
+            <a href=# class="info"><?php echo __("Password<span>Create a password for this new user</span>")?></a>
         </td><td>
             <input type="password" class="input w100" name="password" value="<?php echo $password; ?>" tabindex="<?php echo ++$tabindex;?>"/>
         </td>
     </tr>
     <tr>
         <td colspan="2">
-            <h5><?php echo _("Access Restrictions")?></h5>
+            <h5><?php echo __("Access Restrictions")?></h5>
         </td>
     </tr>
     <tr>
         <td>
-            <a href=# class="info"><?php echo _("Department Name<span>Restrict this user's view of Digital Receptionist menus and System Recordings to only those for this department.</span>")?></a>
+            <a href=# class="info"><?php echo __("Department Name<span>Restrict this user's view of Digital Receptionist menus and System Recordings to only those for this department.</span>")?></a>
         </td><td>
             <input type="text" class="input w100" name="deptname" value="<?php echo htmlspecialchars($deptname);?>" tabindex="<?php echo ++$tabindex;?>"/>
         </td>
     </tr>
     <tr>
         <td>
-            <a href=# class="info"><?php echo _("Extension Range<span>Restrict this user's view to only Extensions, Ring Groups, and Queues within this range.</span>")?></a>
+            <a href=# class="info"><?php echo __("Extension Range<span>Restrict this user's view to only Extensions, Ring Groups, and Queues within this range.</span>")?></a>
         </td><td>
             <input type="text" class="input input-short" name="extension_low" value="<?php echo htmlspecialchars($extension_low);?>" tabindex="<?php echo ++$tabindex;?>"/>
-            &nbsp;<?php echo _('to');?>
+            &nbsp;<?php echo __('to');?>
             <input type="text" class="input input-short" name="extension_high" value="<?php echo htmlspecialchars($extension_high);?>" tabindex="<?php echo ++$tabindex;?>"/>
         </td>
     </tr>
     <tr>
         <td valign="top">
-            <a href=# class="info"><?php echo _("Admin Access<span>Select the Admin Sections this user should have access to.</span>")?></a>
+            <a href=# class="info"><?php echo __("Admin Access<span>Select the Admin Sections this user should have access to.</span>")?></a>
         </td><td>
             <select multiple class="componentSelect" name="sections[]" tabindex="<?php echo ++$tabindex;?>" size="15">
             <option></option>
@@ -226,14 +226,14 @@ foreach ($tresults as $tresult) {
         if ($row['category'] != $prev_category) {
             if ($prev_category)
                 echo "</optgroup>\n";
-            echo "<optgroup label=\""._($row['category'])."\">\n";
+            echo "<optgroup label=\"".__($row['category'])."\">\n";
             $prev_category = $row['category'];
         }
 
         echo "<option value=\"".$key."\"";
         if (in_array($key, $sections)) echo " SELECTED";
-        $label = modgettext::_($row['name'],$row['rawname']);
-        //echo ">"._($row['name'])."</option>\n";
+        $label = modgettext:__($row['name'],$row['rawname']);
+        //echo ">".__($row['name'])."</option>\n";
         echo ">".$label."</option>\n";
     }
     echo "</optgroup>\n";
@@ -241,17 +241,17 @@ foreach ($tresults as $tresult) {
     // Apply Changes Bar
     echo "<option value=\"99\"";
     if (in_array("99", $sections)) echo " SELECTED";
-    echo ">"._("Apply Changes Bar")."</option>\n";
+    echo ">".__("Apply Changes Bar")."</option>\n";
 
     // Apply Changes Bar
     echo "<option value=\"999\"";
     if (in_array("999", $sections)) echo " SELECTED";
-    echo ">".(($amp_conf['AMPEXTENSIONS'] == 'deviceanduser')?_("Add Device"):_("Add Extension"))."</option>\n";
+    echo ">".(($amp_conf['AMPEXTENSIONS'] == 'deviceanduser')?__("Add Device"):__("Add Extension"))."</option>\n";
 
     // All Sections
     echo "<option value=\"*\"";
     if (in_array("*", $sections)) echo " SELECTED";
-    echo ">"._("ALL SECTIONS")."</option>\n";
+    echo ">".__("ALL SECTIONS")."</option>\n";
 ?>                    
             </select>
         </td>
@@ -267,13 +267,13 @@ function checkAmpUser(theForm) {
     $deptname = theForm.deptname.value;
 
     if ($username == "") {
-        <?php echo "return warnInvalid(theForm.username,'"._("Username must not be blank")."')"?>;
+        <?php echo "return warnInvalid(theForm.username,'".__("Username must not be blank")."')"?>;
     } else if (!$username.match('^[a-zA-Z][a-zA-Z0-9]+$')) {
-        <?php echo "return warnInvalid(theForm.username,'"._("Username cannot start with a number, and can only contain letters and numbers")."')"?>;
+        <?php echo "return warnInvalid(theForm.username,'".__("Username cannot start with a number, and can only contain letters and numbers")."')"?>;
     } else if ($deptname == "default") {
-        <?php echo "return warnInvalid(theForm.deptname,'"._("For security reasons, you cannot use the department name default")."')"?>;
+        <?php echo "return warnInvalid(theForm.deptname,'".__("For security reasons, you cannot use the department name default")."')"?>;
     } else if ($deptname != "" && !$deptname.match('^[a-zA-Z0-9]+$')) {
-        <?php echo "return warnInvalid(theForm.deptname,'"._("Department name cannot have a space")."')"?>;
+        <?php echo "return warnInvalid(theForm.deptname,'".__("Department name cannot have a space")."')"?>;
     }
     $.LoadingOverlay('show');
     return true;

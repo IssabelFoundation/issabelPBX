@@ -19,7 +19,7 @@ drawListMenu($extens, $type, $display, $extdisplay);
 <!--
 
 function checkBlankUserPwd() {
-	msgConfirmBlankUserPwd = "<?php echo _('You have not entered a User Password.  While this is acceptable, this user will not be able to login to an AdHoc device.\n\nAre you sure you wish to leave the User Password empty?'); ?>";
+	msgConfirmBlankUserPwd = "<?php echo __('You have not entered a User Password.  While this is acceptable, this user will not be able to login to an AdHoc device.\n\nAre you sure you wish to leave the User Password empty?'); ?>";
 
 	// check for password and warn if none entered
 	if (isEmpty(theForm.password.value)) {

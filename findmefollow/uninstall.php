@@ -27,7 +27,7 @@ if ($astman) {
 		$astman->database_deltree("AMPUSER/".$grpnum."/followme");
 	}	
 } else {
-	echo _("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
+	echo __("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
 }
 
 sql('DROP TABLE IF EXISTS findmefollow');

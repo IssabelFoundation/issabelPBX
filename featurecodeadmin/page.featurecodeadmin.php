@@ -45,9 +45,9 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 				$conflict_url = framework_display_extension_usage_alert($usage_arr,false,false);
 			}
 			if (!empty($conflict_url)) {
-				$str = _("You have feature code conflicts with extension numbers in other modules. This will result in unexpected and broken behavior.");
+				$str = __("You have feature code conflicts with extension numbers in other modules. This will result in unexpected and broken behavior.");
 				echo "<script>javascript:alert('$str')</script>";
-      	echo "<h4>"._("Feature Code Conflicts with other Extensions")."</h4>";
+      	echo "<h4>".__("Feature Code Conflicts with other Extensions")."</h4>";
       	echo implode('<br .>',$conflict_url);
 
 				// Create hash of conflicting extensions
@@ -68,26 +68,26 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
       }
 	?>
 	<table class='table is-borderless is-narrow notfixed'>
-	<tr><td colspan="4"><h3><?php echo _("Feature Code Admin"); ?></h3></td></tr>
+	<tr><td colspan="4"><h3><?php echo __("Feature Code Admin"); ?></h3></td></tr>
 	<tr>
 		<td colspan="2">&nbsp;</td>
-		<td align="center"><b><?php echo _("Use"); ?><br><?php echo _("Default"); ?>?</b></td>
-		<td align="center"><b><?php echo _("Feature"); ?><br><?php echo _("Status"); ?></b></td>
+		<td align="center"><b><?php echo __("Use"); ?><br><?php echo __("Default"); ?>?</b></td>
+		<td align="center"><b><?php echo __("Feature"); ?><br><?php echo __("Status"); ?></b></td>
 	</tr>
 	<?php 
 	$currentmodule = "(none)";
 	foreach($featurecodes as $item) {
 
-		$moduledesc = isset($item['moduledescription']) ? modgettext::_($item['moduledescription'], $item['modulename']) : null;
+		$moduledesc = isset($item['moduledescription']) ? modgettext:__($item['moduledescription'], $item['modulename']) : null;
 		// just in case the translator put the translation in featurcodes module:
 		if (($moduledesc !== null) && ($moduledesc == $item['moduledescription'])) {
-			$moduledesc = _($moduledesc);
+			$moduledesc = __($moduledesc);
 		}
 
-		$featuredesc = modgettext::_($item['featuredescription'], $item['modulename']);
+		$featuredesc = modgettext:__($item['featuredescription'], $item['modulename']);
 		// just in case the translator put the translation in featurcodes module:
 		if ($featuredesc == $item['featuredescription']) {
-			$featuredesc = _($featuredesc);
+			$featuredesc = __($featuredesc);
 		}
 
 		$moduleena = ($item['moduleenabled'] == 1 ? true : false);
@@ -106,7 +106,7 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 					<h5>
 					<?php echo $currentmodule; ?>
 					<?php if ($moduleena == false) {?>
-					<i>(<?php echo _("Disabled"); ?>)</i>
+					<i>(<?php echo __("Disabled"); ?>)</i>
 					<?php } ?>
 					</h5>
 				</td>
@@ -142,7 +142,7 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
             <td>
             <?php 
             $curvalue = ($featureena == true)?1:0;       
-            echo ipbx_radio('ena#'.$featureid,array(array('value'=>'1','text'=>_('Enabled')),array('value'=>'0','text'=>_('Disabled'))),$curvalue,false);
+            echo ipbx_radio('ena#'.$featureid,array(array('value'=>'1','text'=>__('Enabled')),array('value'=>'0','text'=>__('Disabled'))),$curvalue,false);
             ?>
 			</td>
 		</tr>	
@@ -151,7 +151,7 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
     echo form_action_bar($extdisplay,'',true,true); 
  ?>
 	 <!--tr>
-		<td colspan="4"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>"></h6></td>		
+		<td colspan="4"><br><h6><input name="Submit" type="submit" value="<?php echo __("Submit Changes")?>"></h6></td>		
 	</tr-->
 	</table>
 
@@ -185,9 +185,9 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 	
 	// form validation
 	function frmAdmin_onsubmit(theForm) {
-        var msgErrorMissingFC = "<?php echo addslashes(_("Please enter a Feature Code or check Use Default for all Enabled Feature Codes")); ?>";
-		var msgErrorDuplicateFC = "<?php echo _("Feature Codes have been duplicated"); ?>";
-		var msgErrorProceedOK = "<?php echo _("Are you sure you wish to proceed?"); ?>";
+        var msgErrorMissingFC = "<?php echo addslashes(__("Please enter a Feature Code or check Use Default for all Enabled Feature Codes")); ?>";
+		var msgErrorDuplicateFC = "<?php echo __("Feature Codes have been duplicated"); ?>";
+		var msgErrorProceedOK = "<?php echo __("Are you sure you wish to proceed?"); ?>";
 		
 		for (var i=0; i<theForm.elements.length; i++) {
 			var theFld = theForm.elements[i];

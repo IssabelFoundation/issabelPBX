@@ -155,7 +155,7 @@ function recordings_get_or_create_id($fn, $module) {
 		$dname = explode('&',$displayname);
 		$displayname = 'auto-created: ';
 		$displayname .= count($dname) == 1 ? $fn : $dname[0]."&...";
-		$description = sprintf(_("Missing Sound file auto-created from migration of %s module"),$module);
+		$description = sprintf(__("Missing Sound file auto-created from migration of %s module"),$module);
 		recordings_add($displayname, $fn, $description='');
 
 		// get the id we just created
@@ -165,8 +165,8 @@ function recordings_get_or_create_id($fn, $module) {
 		// Notify of issue
 		//
 		$nt =& notifications::create($db);
-		$text = sprintf(_("Non-Existent Recording in module %s"),$module);
-		$extext = sprintf(_("The %s referenced a recording file listed below that does not exists. An entry has been generated, named %s, with the referenced file(s) but you should confirm that it really works and the real files exist. The file(s) referenced: %s "),$module, $displayname, $fn);
+		$text = sprintf(__("Non-Existent Recording in module %s"),$module);
+		$extext = sprintf(__("The %s referenced a recording file listed below that does not exists. An entry has been generated, named %s, with the referenced file(s) but you should confirm that it really works and the real files exist. The file(s) referenced: %s "),$module, $displayname, $fn);
 		$nt->add_error('recordings', 'NEWREC-'.$id, $text, $extext, '', true, true);
 		unset($nt);
 
@@ -251,7 +251,7 @@ function recordings_add($displayname, $filename, $description='') {
 	} else {
 		$fname = $filename;
 	}
-	$description = ($description != '') ? $db->escapeSimple($description) : _("No long description available");
+	$description = ($description != '') ? $db->escapeSimple($description) : __("No long description available");
 	$displayname = $db->escapeSimple($displayname);
 	sql("INSERT INTO recordings (displayname, filename, description) VALUES ( '$displayname', '$fname', '$description')");
 

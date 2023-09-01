@@ -33,7 +33,7 @@ function languages_getdestinfo($dest) {
 			return array();
 		} else {
 			$type = isset($active_modules['languages']['type'])?$active_modules['languages']['type']:'setup';
-			return array('description' => sprintf(_("Language: %s"),$thisexten['description']),
+			return array('description' => sprintf(__("Language: %s"),$thisexten['description']),
 			             'edit_url' => 'config.php?display=languages&type='.$type.'&extdisplay='.urlencode($exten),
 								  );
 		}
@@ -199,9 +199,9 @@ function languages_configpageload() {
 	if ($action != 'del') {
 		$langcode = languages_user_get($extdisplay);
 
-		$section = _('Language');
-		$msgInvalidLanguage = _('Please enter a valid Language Code');
-		$currentcomponent->addguielem($section, new gui_textbox('langcode', $langcode, _('Language Code'), _('This will cause all messages and voice prompts to use the selected language if installed.'), "!isFilename()", $msgInvalidLanguage, true));
+		$section = __('Language');
+		$msgInvalidLanguage = __('Please enter a valid Language Code');
+		$currentcomponent->addguielem($section, new gui_textbox('langcode', $langcode, __('Language Code'), __('This will cause all messages and voice prompts to use the selected language if installed.'), "!isFilename()", $msgInvalidLanguage, true));
 	}
 }
 
@@ -274,8 +274,8 @@ function languages_hook_core($viewing_itemid, $target_menuid){
 	}
 	$html = '';
 	if ($target_menuid == 'did'){
-		$html.='<tr><td colspan="2"><h5>'._("Language").'</h5></td></tr>';
-		$html.='<tr><td><a href="#" class="info">'._('Language').'<span>'._("Allows you to set the language for this DID.").'</span></a></td>';
+		$html.='<tr><td colspan="2"><h5>'.__("Language").'</h5></td></tr>';
+		$html.='<tr><td><a href="#" class="info">'.__('Language').'<span>'.__("Allows you to set the language for this DID.").'</span></a></td>';
 		$html.='<td><input type="text" tabindex="{tabindex}" class="input w100" name="language" value="'.languages_incoming_get($extension,$cidnum).'"></td></tr>';
 	}
 	return $html;
@@ -329,7 +329,7 @@ function languages_check_destinations($dest=true) {
 		$thisid   = $result['language_id'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => sprintf(_("Language Change: %s"),$result['description']),
+			'description' => sprintf(__("Language Change: %s"),$result['description']),
 			'edit_url' => 'config.php?display=languages&type='.$type.'&extdisplay='.urlencode($thisid),
 		);
 	}

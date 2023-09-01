@@ -51,13 +51,13 @@ $lf = $amp_conf['ASTETCDIR'] . '/logger.conf';
 if (file_exists($lf) && is_link($lf)) {
 	$l = readlink($lf);
 	if ($l != $amp_conf['AMPWEBROOT'] . "/admin/modules/logfiles/etc/logger.conf") {
-		out(_("logger.conf symlinked to incorrect file:"));
+		out(__("logger.conf symlinked to incorrect file:"));
 		out($l);
-		outn(_("removing.."));
+		outn(__("removing.."));
 		if (unlink($lf)) {
-			out(_('ok'));
+			out(__('ok'));
 		} else {
-			out(_('failed'));
+			out(__('failed'));
 		}
 	}
 }

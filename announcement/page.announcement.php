@@ -27,7 +27,7 @@ switch ($action) {
         $_REQUEST['extdisplay'] = '';
         announcement_add($description, $recording_id, $allow_skip, $post_dest, $return_ivr, $noanswer, $repeat_msg, $tts_lang, $tts_text);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -35,7 +35,7 @@ switch ($action) {
     case 'edit':
         announcement_edit($announcement_id, $description, $recording_id, $allow_skip, $post_dest, $return_ivr, $noanswer, $repeat_msg, $tts_lang, $tts_text);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard('extdisplay');
@@ -43,7 +43,7 @@ switch ($action) {
     case 'delete':
         announcement_delete($announcement_id);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -78,7 +78,7 @@ if ($extdisplay) {
 }
 
 echo "<h2>";
-echo ($extdisplay ? _("Edit Announcement").": $description" : _("Add Announcement"));
+echo ($extdisplay ? __("Edit Announcement").": $description" : __("Add Announcement"));
 echo "</h2>";
 
 if ($extdisplay) {
@@ -94,16 +94,16 @@ if ($extdisplay) {
     <input type="hidden" name="announcement_id" value="<?php echo $extdisplay; ?>">
     <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
     <table class='table is-narrow is-borderless'>
-    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("The name of this announcement")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Description")?>:<span><?php echo __("The name of this announcement")?></span></a></td>
         <td><input type="text" class='input w100' name="description" value="<?php  echo $description; ?>" autofocus tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
 
 <?php if(function_exists('recordings_list')) { //only include if recordings is enabled ?>
 
     <tr>
-        <td><a href="#" class="info"><?php echo _("Recording")?><span><?php echo _("Message to be played.<br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Recording")?><span><?php echo __("Message to be played.<br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
         <td>
             <select id="recording_id" name="recording_id"  tabindex="<?php echo ++$tabindex;?>" class="componentSelect" xxonchange="checkid()">
             <?php
@@ -111,7 +111,7 @@ if ($extdisplay) {
                 $default = (isset($recording_id) ? $recording_id : '');
                 if($recording_id==-1) { $picoselected=' selected '; } else { $picoselected=''; }
                 if (isset($tresults[0])) {
-                    echo '<option value="">'._("None")."</option>\n";
+                    echo '<option value="">'.__("None")."</option>\n";
                     foreach ($tresults as $tresult) {
                         echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
                     }
@@ -124,7 +124,7 @@ if ($extdisplay) {
 <?php } ?>
 
     <tr>
-        <td><a href="#" class="info"><?php echo _("Repeat")?><span><?php echo _("Key to press that will allow for the message to be replayed. If you choose this option there will be a short delay inserted after the message. If a longer delay is needed it should be incorporated into the recording.")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Repeat")?><span><?php echo __("Key to press that will allow for the message to be replayed. If you choose this option there will be a short delay inserted after the message. If a longer delay is needed it should be incorporated into the recording.")?></span></a></td>
         <td>
             <select name="repeat_msg"  tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
@@ -134,7 +134,7 @@ if ($extdisplay) {
                 }
                 $digits[] = '*';
                 $digits[] = '#';
-                echo '<option value=""'.($default == '' ? ' SELECTED' : '').'>'._("Disable")."</option>";
+                echo '<option value=""'.($default == '' ? ' SELECTED' : '').'>'.__("Disable")."</option>";
                 foreach ($digits as $digit) {
                     echo '<option value="'.$digit.'"'.($digit == $default ? ' SELECTED' : '').'>'.$digit."</option>\n";
                 }
@@ -143,19 +143,19 @@ if ($extdisplay) {
         </td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Allow Skip")?><span><?php echo _("If the caller is allowed to press a key to skip the message.")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Allow Skip")?><span><?php echo __("If the caller is allowed to press a key to skip the message.")?></span></a></td>
         <td>
           <?php echo ipbx_yesno_checkbox("allow_skip",$allow_skip,false); ?>
         </td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Return to IVR")?><span><?php echo _("If this announcement came from an IVR and this box is checked, the destination below will be ignored and instead it will return to the calling IVR. Otherwise, the destination below will be taken. Don't check if not using in this mode. <br>The IVR return location will be to the last IVR in the call chain that was called so be careful to only check when needed. For example, if an IVR directs a call to another destination which eventually calls this announcement and this box is checked, it will return to that IVR which may not be the expected behavior.")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Return to IVR")?><span><?php echo __("If this announcement came from an IVR and this box is checked, the destination below will be ignored and instead it will return to the calling IVR. Otherwise, the destination below will be taken. Don't check if not using in this mode. <br>The IVR return location will be to the last IVR in the call chain that was called so be careful to only check when needed. For example, if an IVR directs a call to another destination which eventually calls this announcement and this box is checked, it will return to that IVR which may not be the expected behavior.")?></span></a></td>
         <td>
           <?php echo ipbx_yesno_checkbox("return_ivr",$return_ivr,false); ?>
         </td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Don't Answer Channel")?><span><?php echo _("Check this to keep the channel from explicitly being answered. When checked, the message will be played and if the channel is not already answered it will be delivered as early media if the channel supports that. When not checked, the channel is answered followed by a 1 second delay. When using an announcement from an IVR or other sources that have already answered the channel, that 1 second delay may not be desired.")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Don't Answer Channel")?><span><?php echo __("Check this to keep the channel from explicitly being answered. When checked, the message will be played and if the channel is not already answered it will be delivered as early media if the channel supports that. When not checked, the channel is answered followed by a 1 second delay. When using an announcement from an IVR or other sources that have already answered the channel, that 1 second delay may not be desired.")?></span></a></td>
         <td>
           <?php echo ipbx_yesno_checkbox("noanswer",$noanswer,false); ?>
         </td>
@@ -166,9 +166,9 @@ if(tts_enabled()) {
     $arrOptionsLang = array( 'en-US'=>'en-US', 'es-ES'=>'es-ES', 'fr-FR'=>'fr-FR', 'it-IT'=>'it-IT','de-DE'=>'de-DE','en-GB'=>'en-GB'  );
 ?>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Text to Speech")?></h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo __("Text to Speech")?></h5></td></tr>
     <tr>
-        <td><?php echo _('Language');?></td>
+        <td><?php echo __('Language');?></td>
         <td>
             <select name='tts_lang' id='tts_lang' tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
@@ -182,14 +182,14 @@ if(tts_enabled()) {
         </td>
     </tr>
     <tr>
-        <td><?php echo _('Text');?></td>
+        <td><?php echo __('Text');?></td>
         <td><textarea name=tts_text id=tts_text class='textarea' tabindex="<?php echo ++$tabindex;?>"><?php echo $tts_text;?></textarea></td>
     </tr>
 
 <?php } ?>
 
     <tr>
-        <td colspan="2"><br><h5><?php echo _("Destination after playback")?></h5></td>
+        <td colspan="2"><br><h5><?php echo __("Destination after playback")?></h5></td>
     </tr>
 
 <?php 
@@ -203,7 +203,7 @@ echo drawselects($post_dest,0);
 <script>
 function checkAnnouncement(theForm) {
 
-    var msgInvalidDescription = "<?php echo _('Invalid description specified'); ?>";
+    var msgInvalidDescription = "<?php echo __('Invalid description specified'); ?>";
 
     // set up the Destination stuff
     setDestinations(theForm, '_post_dest');

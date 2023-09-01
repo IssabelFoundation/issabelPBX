@@ -501,23 +501,23 @@ function sipsettings_edit($sip_settings) {
     // TODO: this is where I will build validation before saving
     //
     $bindport='';
-    $integer_msg = _("%s must be a non-negative integer");
+    $integer_msg = __("%s must be a non-negative integer");
     foreach ($sip_settings as $key => $val) {
         switch ($key) {
         case 'bindaddr':
-            $msg = _("Bind Address (bindaddr) must be an IP address.");
+            $msg = __("Bind Address (bindaddr) must be an IP address.");
             $ipv6_ok = version_compare($amp_conf['ASTVERSION'],'1.8','ge');
             $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg,$ipv6_ok)),'2',SIP_NORMAL);
             break;
 
         case 'bindport':
-            $msg = _("Bind Port (bindport) must be between 1024..65535, default 5060");
+            $msg = __("Bind Port (bindport) must be between 1024..65535, default 5060");
             $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'1',SIP_NORMAL);
             $bindport = $val;
             break;
 
         case 'tlsbindport':
-            $msg = _("TLS Bind Port (tlsbindport) must be between 1024..65535, default 5061");
+            $msg = __("TLS Bind Port (tlsbindport) must be between 1024..65535, default 5061");
             $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'1',SIP_NORMAL);
             $tlsbindport = $val;
             break;
@@ -526,7 +526,7 @@ function sipsettings_edit($sip_settings) {
             // validation: must be > $sip_settings['rtptimeout'] (and of course a proper number)
             //$vd->log_error();
             if ($val < $sip_settings['rtptimeout']) {
-                $msg = _("rtpholdtimeout must be higher than rtptimeout");
+                $msg = __("rtpholdtimeout must be higher than rtptimeout");
                 $vd->log_error($val, $key, $msg);
             }
             $msg = sprintf($integer_msg,$key);
@@ -557,7 +557,7 @@ function sipsettings_edit($sip_settings) {
             break;
 
         case 'context':
-            $msg = sprintf(_("%s must be alphanumeric"),$key);
+            $msg = sprintf(__("%s must be alphanumeric"),$key);
             $save_settings[] = array($key,$db->escapeSimple($vd->is_alphanumeric($val,$key,$msg)),'0',SIP_NORMAL);
             break;
 
@@ -572,7 +572,7 @@ function sipsettings_edit($sip_settings) {
 
         case 'externip_val':
             if (trim($val) == '' && $sip_settings['nat_mode'] == 'externip') {
-                $msg = _("External IP can not be blank");
+                $msg = __("External IP can not be blank");
                 $vd->log_error($val, $key, $msg);
             }
             $save_settings[] = array($key,$val,'40',SIP_NORMAL);
@@ -580,7 +580,7 @@ function sipsettings_edit($sip_settings) {
 
         case 'externhost_val':
             if (trim($val) == '' && $sip_settings['nat_mode'] == 'externhost') {
-                $msg = _("Dynamic Host can not be blank");
+                $msg = __("Dynamic Host can not be blank");
                 $vd->log_error($val, $key, $msg);
             }
             $save_settings[] = array($key,$val,'40',SIP_NORMAL);
@@ -621,12 +621,12 @@ function sipsettings_edit($sip_settings) {
             if (substr($key,0,9) == "localnet_") {
                 // ip validate this and store
                 $seq = substr($key,9);
-                $msg = _("Localnet setting must be an IP address");
+                $msg = __("Localnet setting must be an IP address");
                 $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),(42+$seq),SIP_NORMAL);
             } else if (substr($key,0,8) == "netmask_") {
                 // ip validate this and store
                 $seq = substr($key,8);
-                $msg = _("Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)");
+                $msg = __("Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)");
                 $save_settings[] = array($key,$db->escapeSimple($vd->is_netmask($val,$key,$msg)),$seq,SIP_NORMAL);
             } else if (substr($key,0,15) == "sip_custom_key_") {
                 $seq = substr($key,15);
@@ -702,17 +702,17 @@ function pjsipsettings_edit($pjsip_settings) {
 
     // TODO: this is where I will build validation before saving
     //
-    $integer_msg = _("%s must be a non-negative integer");
+    $integer_msg = __("%s must be a non-negative integer");
     foreach ($pjsip_settings as $key => $val) {
         switch ($key) {
         case 'bindaddr':
-            $msg = _("Bind Address (bindaddr) must be an IP address.");
+            $msg = __("Bind Address (bindaddr) must be an IP address.");
             $ipv6_ok = version_compare($amp_conf['ASTVERSION'],'1.8','ge');
             $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg,$ipv6_ok)),'2',SIP_NORMAL);
             break;
 
         case 'bindport':
-            $msg = _("Bind Port (bindport) must be between 1024..65535, default 5060");
+            $msg = __("Bind Port (bindport) must be between 1024..65535, default 5060");
             $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'1',SIP_NORMAL);
             break;
 
@@ -720,7 +720,7 @@ function pjsipsettings_edit($pjsip_settings) {
             // validation: must be > $pjsip_settings['rtptimeout'] (and of course a proper number)
             //$vd->log_error();
             if ($val < $pjsip_settings['rtptimeout']) {
-                $msg = _("rtpholdtimeout must be higher than rtptimeout");
+                $msg = __("rtpholdtimeout must be higher than rtptimeout");
                 $vd->log_error($val, $key, $msg);
             }
             $msg = sprintf($integer_msg,$key);
@@ -751,7 +751,7 @@ function pjsipsettings_edit($pjsip_settings) {
             break;
 
         case 'context':
-            $msg = sprintf(_("%s must be alphanumeric"),$key);
+            $msg = sprintf(__("%s must be alphanumeric"),$key);
             $save_settings[] = array($key,$db->escapeSimple($vd->is_alphanumeric($val,$key,$msg)),'0',SIP_NORMAL);
             break;
 
@@ -766,7 +766,7 @@ function pjsipsettings_edit($pjsip_settings) {
 
         case 'externip_val':
             if (trim($val) == '' && $pjsip_settings['nat_mode'] == 'externip') {
-                $msg = _("External IP can not be blank");
+                $msg = __("External IP can not be blank");
                 $vd->log_error($val, $key, $msg);
             }
             $save_settings[] = array($key,$val,'40',SIP_NORMAL);
@@ -774,7 +774,7 @@ function pjsipsettings_edit($pjsip_settings) {
 
         case 'externhost_val':
             if (trim($val) == '' && $pjsip_settings['nat_mode'] == 'externhost') {
-                $msg = _("Dynamic Host can not be blank");
+                $msg = __("Dynamic Host can not be blank");
                 $vd->log_error($val, $key, $msg);
             }
             $save_settings[] = array($key,$val,'40',SIP_NORMAL);
@@ -789,12 +789,12 @@ function pjsipsettings_edit($pjsip_settings) {
             if (substr($key,0,9) == "localnet_") {
                 // ip validate this and store
                 $seq = substr($key,9);
-                $msg = _("Localnet setting must be an IP address");
+                $msg = __("Localnet setting must be an IP address");
                 $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),(42+$seq),SIP_NORMAL);
             } else if (substr($key,0,8) == "netmask_") {
                 // ip validate this and store
                 $seq = substr($key,8);
-                $msg = _("Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)");
+                $msg = __("Localnet netmask must be formatted properly (e.g. 255.255.255.0 or 24)");
                 $save_settings[] = array($key,$db->escapeSimple($vd->is_netmask($val,$key,$msg)),$seq,SIP_NORMAL);
             } else if (substr($key,0,15) == "sip_custom_key_") {
                 $seq = substr($key,15);

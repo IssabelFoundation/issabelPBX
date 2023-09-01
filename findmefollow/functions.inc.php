@@ -16,7 +16,7 @@ function findmefollow_destinations() {
 	global $db;
 
 	if ($display == 'findmefollow' && $followme_exten != '') {
-		$extens[] = array('destination' => 'ext-local,'.$followme_exten.',dest', 'description' => _("Normal Extension Behavior"));
+		$extens[] = array('destination' => 'ext-local,'.$followme_exten.',dest', 'description' => __("Normal Extension Behavior"));
 		return $extens;
 	}
   if (($display != 'extensions' && $display != 'users') || !isset($extdisplay) || $extdisplay == '') {
@@ -32,7 +32,7 @@ function findmefollow_destinations() {
 	
 	// return an associative array with destination and description
 	if ($grpnum != '') {
-    $extens[] = array('destination' => 'ext-findmefollow,FM'.$grpnum.',1', 'description' => _("Force Follow Me"));
+    $extens[] = array('destination' => 'ext-findmefollow,FM'.$grpnum.',1', 'description' => __("Force Follow Me"));
 		return $extens;
 	} else {
 		return null;
@@ -547,14 +547,14 @@ function findmefollow_configpageload() {
         $grpURL = $_SERVER['PHP_SELF'].'?'.'display=findmefollow&extdisplay=GRP-'.$viewing_itemid;
         if (is_array($set_findmefollow)) {
             if (in_array($viewing_itemid,$set_findmefollow)) {
-                $grpTEXT = _("Edit Follow Me Settings");
+                $grpTEXT = __("Edit Follow Me Settings");
                 $icon = "fa-user";
             } else {
-                $grpTEXT = _("Add Follow Me Settings");
+                $grpTEXT = __("Add Follow Me Settings");
                 $icon = "fa-user-plus";
             }
         } else {
-            $grpTEXT = _("Add Follow Me Settings");
+            $grpTEXT = __("Add Follow Me Settings");
             $icon = "fa-user-plus";
         }
         $label = '<span class="icon mr-1"><i class="fa '.$icon.'"></i></span>'.$grpTEXT;
@@ -603,7 +603,7 @@ function findmefollow_getdestinfo($dest) {
 		if (empty($thisgrp)) {
 			return array();
 		} else {
-			return array('description' => sprintf(_("Follow Me: %s"),urlencode($grp)),
+			return array('description' => sprintf(__("Follow Me: %s"),urlencode($grp)),
 			             'edit_url' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($grp),
 								  );
 		}
@@ -632,7 +632,7 @@ function findmefollow_check_destinations($dest=true) {
 		$thisid   = $result['grpnum'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => sprintf(_("Follow-Me: %s (%s)"),$thisid,$result['name']),
+			'description' => sprintf(__("Follow-Me: %s (%s)"),$thisid,$result['name']),
 			'edit_url' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($thisid),
 		);
 	}
@@ -656,7 +656,7 @@ function findmefollow_recordings_usage($recording_id) {
 		foreach ($results as $result) {
 			$usage_arr[] = array(
 				'url_query' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($result['grpnum']),
-				'description' => sprintf(_("Follow-Me User: %s"),$result['grpnum']),
+				'description' => sprintf(__("Follow-Me User: %s"),$result['grpnum']),
 			);
 		}
 		return $usage_arr;

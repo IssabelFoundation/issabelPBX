@@ -12,11 +12,11 @@ function superfecta_hook_core($viewing_itemid, $target_menuid) {
             $checked_status = '';
         }
 
-        $html.='<tr><td colspan="2"><h5>' . _("Superfecta CID Lookup") . '</h5></td></tr>';
+        $html.='<tr><td colspan="2"><h5>' . __("Superfecta CID Lookup") . '</h5></td></tr>';
 
-        $html.='<tr><td><a href="#" class="info">' . _('Enable CID Superfecta') . '<span>' . _("Sources can be added/removed in CID Superfecta section") . '</span></a></td>';
+        $html.='<tr><td><a href="#" class="info">' . __('Enable CID Superfecta') . '<span>' . __("Sources can be added/removed in CID Superfecta section") . '</span></a></td>';
         $html.='<td><input type="checkbox" class="switch" name="enable_superfecta" id="enable_superfecta" value="yes" ' . $checked_status . '/><label style="height:auto; line-height:1em; padding-left:3em;" for="enable_superfecta">&nbsp;</label></td></tr>';
-        $html.='<tr><td><a href="#" class="info">' . _('Scheme') . '<span>' . _("Setup Schemes in CID Superfecta section") . '</span></a></td>';
+        $html.='<tr><td><a href="#" class="info">' . __('Scheme') . '<span>' . __("Setup Schemes in CID Superfecta section") . '</span></a></td>';
         $html.='<td><select name="superfecta_scheme" class="componentSelect">';
         $info = explode("/", $viewing_itemid);
         $sql = "SELECT scheme FROM superfecta_to_incoming WHERE extension = '" . $info[0] . "'";
@@ -47,7 +47,7 @@ function superfecta_hook_core($viewing_itemid, $target_menuid) {
 
 function superfecta_hookProcess_core($viewing_itemid, $request) {
 
-    // TODO: move sql to functions superfecta_did_(add, del, edit)
+    // TODO: move sql to functions superfecta_did__(add, del, edit)
     if (!isset($request['action']))
         return;
 
@@ -221,7 +221,7 @@ function superfecta_update_scheme($post) {
     //see if the scheme name has changed, and make sure that there isn't already one named the new name.
     if($scheme_name == "") {
         $error = true;
-        $error_text = _('Name cannot be blank');
+        $error_text = __('Name cannot be blank');
     }
 
     if(($scheme_name != $scheme_name_orig) && !$error) {
@@ -230,7 +230,7 @@ function superfecta_update_scheme($post) {
 
         if(!empty($results)) {
             $error = true;
-            $error_text = _('Scheme name already used');
+            $error_text = __('Scheme name already used');
         } else {
             $sql = "UPDATE superfectaconfig SET source = 'base_".$scheme_name."' WHERE source = 'base_".$scheme_name_orig."'";
             sql($sql);

@@ -7,7 +7,7 @@ $rnaventries = array();
 foreach ($lots as $l) {
     $extra='';
     if($l['defaultlot']=='yes') {
-        $extra=' <span class="tag is-info">'._('Default').'</span>';
+        $extra=' <span class="tag is-info">'.__('Default').'</span>';
     }
     $rnaventries[] = array($l['id'],$l['name'].$extra,$l['parkext']);
 }
@@ -16,7 +16,7 @@ drawListMenu($rnaventries, $type, $display, $extdisplay);
 ?>
 <!--div class="rnav">
 	<ul>
-        <li><a href="config.php?display=parking&type=setup&action=add"><?php echo _('Add Park Slot');?></a></li>
+        <li><a href="config.php?display=parking&type=setup&action=add"><?php echo __('Add Park Slot');?></a></li>
 
         <li><hr></li>
         <?php foreach($lots as $l) {?>
@@ -27,14 +27,14 @@ drawListMenu($rnaventries, $type, $display, $extdisplay);
 <div class='content'>
 <?php
 
-$helptext = _("This module is used to configure Parking Lot(s) in Asterisk.");
+$helptext = __("This module is used to configure Parking Lot(s) in Asterisk.");
 $helptext.= "<br/><br/>";
-$helptext.= _("Simply transfer the call to said parking lot extension. Asterisk will then read back the parking lot number the call has been placed in. To retrieve the call simply dial that number back.");
+$helptext.= __("Simply transfer the call to said parking lot extension. Asterisk will then read back the parking lot number the call has been placed in. To retrieve the call simply dial that number back.");
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 
 if($extdisplay) {
-     echo "<div class='is-flex'><h2>"._("Edit Parking Lot").": ".$description."</h2>$help</div>";
+     echo "<div class='is-flex'><h2>".__("Edit Parking Lot").": ".$description."</h2>$help</div>";
 }else {
-     echo "<div class='is-flex'><h2>"._("Add Parking Lot")."</h2>$help</div>";
+     echo "<div class='is-flex'><h2>".__("Add Parking Lot")."</h2>$help</div>";
 
 }

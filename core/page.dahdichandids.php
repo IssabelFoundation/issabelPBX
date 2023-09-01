@@ -14,7 +14,7 @@ switch ($action) {
     case 'add':
         if (core_dahdichandids_add($description, $channel, $did)) {
             needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
             redirect_standard();
@@ -23,7 +23,7 @@ switch ($action) {
     case 'edit':
         if (core_dahdichandids_edit($description, $channel, $did)) {
             needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
             redirect_standard('extdisplay');
@@ -32,7 +32,7 @@ switch ($action) {
     case 'delete':
         core_dahdichandids_delete($channel);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -48,7 +48,7 @@ drawListMenu($dahdidids, $type, $display, $extdisplay);
 <div class='content'>
 <?php
 
-$helptext = _("DAHDI Channel DIDs allow you to assign a DID to specific DAHDI Channels. You can supply the same DID to multiple channels. This would be a common scenario if you have multiple POTS lines that are on a hunt group from your provider. You MUST assign the channel's context to from-analog for these settings to have effect. It will be a line that looks like:<br /><br />context = from-analog<br /><br />in your chan_dahdi.conf configuration effecting the specified channel(s). Once you have assigned DIDs you can use standard Inbound Routes with the specified DIDs to route your calls.");
+$helptext = __("DAHDI Channel DIDs allow you to assign a DID to specific DAHDI Channels. You can supply the same DID to multiple channels. This would be a common scenario if you have multiple POTS lines that are on a hunt group from your provider. You MUST assign the channel's context to from-analog for these settings to have effect. It will be a line that looks like:<br /><br />context = from-analog<br /><br />in your chan_dahdi.conf configuration effecting the specified channel(s). Once you have assigned DIDs you can use standard Inbound Routes with the specified DIDs to route your calls.");
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 
 if ($extdisplay != '') {
@@ -59,9 +59,9 @@ if ($extdisplay != '') {
     $channel     = $row['channel'];
     $did         = $row['did'];
 
-    echo "<div class='is-flex'><h2>"._("Edit DAHDI Channel: ").$channel."</h2>$help</div>\n";
+    echo "<div class='is-flex'><h2>".__("Edit DAHDI Channel: ").$channel."</h2>$help</div>\n";
 } else {
-    echo "<div class='is-flex'><h2>"._("Add DAHDI Channel")."</h2>$help</div>\n";
+    echo "<div class='is-flex'><h2>".__("Add DAHDI Channel")."</h2>$help</div>\n";
 }
 
 ?>
@@ -72,24 +72,24 @@ if ($extdisplay != '') {
 <?php } ?>
     <input type="hidden" name="action" value="<?php echo ($extdisplay != '' ? 'edit' : 'add'); ?>">
     <table class='table is-borderless is-narrow'>
-    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
 <?php
 if ($extdisplay == '') {
 ?>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Channel")?><span><?php echo _("The DAHDI Channel number to map to a DID")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Channel")?><span><?php echo __("The DAHDI Channel number to map to a DID")?></span></a></td>
         <td><input class='input w100' type="text" name="channel" value="<?php  echo $channel; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
 <?php
 }
 ?>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _("A useful description describing this channel")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Description")?><span><?php echo __("A useful description describing this channel")?></span></a></td>
         <td><input class='input w100' type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
 
     <tr>
-        <td><a href="#" class="info"><?php echo _("DID")?><span><?php echo _("The DID that this channel represents. The incoming call on this channel will be treated as if it came in with this DID and can be managed with Inbound Routing on DIDs")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("DID")?><span><?php echo __("The DID that this channel represents. The incoming call on this channel will be treated as if it came in with this DID and can be managed with Inbound Routing on DIDs")?></span></a></td>
         <td><input class='input w100' type="text" name="did" value="<?php echo $did; ?>" tabindex="<?php echo ++$tabindex;?>"/></td>
     </tr>
 
@@ -101,10 +101,10 @@ if ($extdisplay == '') {
 var actionDelete = false;
 
 function checkDAHDIchandid(theForm) {
-    var msgInvalidChannel = "<?php echo _('Invalid Channel Number, must be numeric and not blank'); ?>";
-    var msgInvalidDID = "<?php echo _('Invalid DID, must be a non-blank DID'); ?>";
-    var msgConfirmDIDNonStd = "<?php echo _('DID information is normally just an incoming telephone number.\n\nYou have entered a non standard DID pattern.\n\nAre you sure this is correct?'); ?>";
-    var msgConfirmConvertDID = "<?php echo _('You appear to be using a converted DID in the form of zapchanNN that was automatically generated during an upgrade. You should consider assigning the DID that is normally associated with this channel to take full advantage of the inbound routing abilities. Changing the DID here will require you to make changes in the Inbound Routes tab. Do you want to continue?'); ?>";
+    var msgInvalidChannel = "<?php echo __('Invalid Channel Number, must be numeric and not blank'); ?>";
+    var msgInvalidDID = "<?php echo __('Invalid DID, must be a non-blank DID'); ?>";
+    var msgConfirmDIDNonStd = "<?php echo __('DID information is normally just an incoming telephone number.\n\nYou have entered a non standard DID pattern.\n\nAre you sure this is correct?'); ?>";
+    var msgConfirmConvertDID = "<?php echo __('You appear to be using a converted DID in the form of zapchanNN that was automatically generated during an upgrade. You should consider assigning the DID that is normally associated with this channel to take full advantage of the inbound routing abilities. Changing the DID here will require you to make changes in the Inbound Routes tab. Do you want to continue?'); ?>";
 
     // If deleting we don't care what is in the elements
     if (actionDelete) {

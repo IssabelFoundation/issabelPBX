@@ -18,7 +18,7 @@ switch ($action) {
 case 'add':
 		$_REQUEST['extdisplay'] = queueprio_add($description, $queue_priority, $dest);
 		needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
 		redirect_standard('extdisplay');
@@ -26,7 +26,7 @@ case 'add':
 	case 'edit':
 		queueprio_edit($queueprio_id, $description, $queue_priority, $dest);
 		needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
 		redirect_standard('extdisplay');
@@ -34,7 +34,7 @@ case 'add':
 	case 'delete':
 		queueprio_delete($queueprio_id);
 		needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
 		redirect_standard();
@@ -51,7 +51,7 @@ drawListMenu($rnaventries, $type, $display, $extdisplay);
 <div class='content'>
 <?php
 
-$helptext = _("Queue Priority allows you to set a caller's priority in a queue. By default, a caller's priority is set to 0. Setting a higher priority will put the caller ahead of other callers already in a queue. The priority will apply to any queue that this caller is eventually directed to. You would typically set the destination to a queue, however that is not necessary. You might set the destination of a priority customer DID to an IVR that is used by other DIDs, for example, and any subsequent queue that is entered would be entered with this priority");
+$helptext = __("Queue Priority allows you to set a caller's priority in a queue. By default, a caller's priority is set to 0. Setting a higher priority will put the caller ahead of other callers already in a queue. The priority will apply to any queue that this caller is eventually directed to. You would typically set the destination to a queue, however that is not necessary. You might set the destination of a priority customer DID to an IVR that is used by other DIDs, for example, and any subsequent queue that is entered would be entered with this priority");
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 
 if ($extdisplay) {
@@ -62,9 +62,9 @@ if ($extdisplay) {
 	$queue_priority = $row['queue_priority'];
 	$dest           = $row['dest'];
 
-    echo "<div class='is-flex'><h2>"._("Edit Queue Priority").": ".$description."</h2>$help</div>";
+    echo "<div class='is-flex'><h2>".__("Edit Queue Priority").": ".$description."</h2>$help</div>";
 } else {
-	echo "<div class='is-flex'><h2>"._("Add Queue Priority")."</h2>$help</div>";
+	echo "<div class='is-flex'><h2>".__("Add Queue Priority")."</h2>$help</div>";
 }
 
 if ($extdisplay != '') {
@@ -80,13 +80,13 @@ if ($extdisplay != '') {
 	<input type="hidden" name="queueprio_id" value="<?php echo $extdisplay; ?>">
 	<input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
     <table class='table is-borderless is-narrow'>
-    <tr><td colspan="2"><h5><?php  echo dgettext('amp','General Settings') ?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php  echo _dgettext('amp','General Settings') ?></h5></td></tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _("The descriptive name of this Queue Priority instance.")?></span></a></td>
+		<td><a href="#" class="info"><?php echo __("Description")?><span><?php echo __("The descriptive name of this Queue Priority instance.")?></span></a></td>
 		<td><input class='input w100' type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Priority")?><span><?php echo _("The Queue Priority to set")?></span></a></td>
+		<td><a href="#" class="info"><?php echo __("Priority")?><span><?php echo __("The Queue Priority to set")?></span></a></td>
 		<td>
 			<select name="queue_priority" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 			<?php 
@@ -97,7 +97,7 @@ if ($extdisplay != '') {
 			?>		
 			</select>		
 		</td>
-	<tr><td colspan="2"><br><h5><?php echo _("Destination")?></h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo __("Destination")?></h5></td></tr>
 
 <?php 
 //draw goto selects
@@ -110,7 +110,7 @@ echo drawselects($dest,0);
 <script>
 
 function checkQueuePriority(theForm) {
-	var msgInvalidDescription = "<?php echo _('Invalid description specified'); ?>";
+	var msgInvalidDescription = "<?php echo __('Invalid description specified'); ?>";
 
 	// set up the Destination stuff
 	//setDestinations(theForm, '_post_dest');

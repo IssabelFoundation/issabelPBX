@@ -40,8 +40,8 @@ drawListMenu($rnaventries, $type, $display, $extdisplay);
 
 echo "<div class='content'>\n";
 
-$helptext = _("You use the Dynamic Routing module to route calls based on the info returned from an sql lookup via mysql or odbc, from an agi script, web service or the value of an asterisk variable.")."\n";
-$helptext.= _("For configuration instructions see").' <a href="http://www.voipsupport.it/pmwiki/pmwiki.php?n=Freepbx.DynamicRouting" target="_blank">www.voipsupport.it</a>'."\n"; 
+$helptext = __("You use the Dynamic Routing module to route calls based on the info returned from an sql lookup via mysql or odbc, from an agi script, web service or the value of an asterisk variable.")."\n";
+$helptext.= __("For configuration instructions see").' <a href="http://www.voipsupport.it/pmwiki/pmwiki.php?n=Freepbx.DynamicRouting" target="_blank">www.voipsupport.it</a>'."\n"; 
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 
 switch ($action) {
@@ -52,14 +52,14 @@ switch ($action) {
         sql("DELETE from dynroute where dynroute_id='$extdisplay'");
         sql("DELETE FROM dynroute_dests where dynroute_id='$extdisplay'");
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
     case "edited":
         dynroute_do_edit($extdisplay, $_POST);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard('extdisplay');
@@ -100,9 +100,9 @@ function dynroute_show_edit($extdisplay, $nbroptions, $post, $help) {
     $dynroute_details = ($extdisplay!='')?dynroute_get_details($extdisplay):$empty;
 
     if($extdisplay=='') {
-        echo "<div class='is-flex'><h2>"._("Add Dynamic Route")."</h2>$help</div>";
+        echo "<div class='is-flex'><h2>".__("Add Dynamic Route")."</h2>$help</div>";
     } else {
-        echo "<div class='is-flex'><h2>"._("Edit Dynamic Route").": ".$dynroute_details['displayname']."</h2>$help</div>";
+        echo "<div class='is-flex'><h2>".__("Edit Dynamic Route").": ".$dynroute_details['displayname']."</h2>$help</div>";
     }
 
     if ($extdisplay) {
@@ -120,27 +120,27 @@ function dynroute_show_edit($extdisplay, $nbroptions, $post, $help) {
     <input type="hidden" name="id" value="<?php echo $extdisplay ?>" />
     <input name="Submit" type="submit" style="display:none;" value="save" onclick="this.form.submited='save';" />
     <table class='table is-borderless is-narrow'>
-        <tr><td colspan="2"><h5><?php  echo dgettext('amp','General Settings') ?></h5></td></tr>
+        <tr><td colspan="2"><h5><?php  echo _dgettext('amp','General Settings') ?></h5></td></tr>
         <tr>
-            <td><a href="#" class="info"><?php echo _("Name"); ?><span><?php echo _("Enter a name for this dynamic route");?></span></a></td>
+            <td><a href="#" class="info"><?php echo __("Name"); ?><span><?php echo __("Enter a name for this dynamic route");?></span></a></td>
             <td><input class="w100 input" type="text" autofocus name="displayname" value="<?php echo $dynroute_details['displayname'] ?>" tabindex="<?php echo ++$tabindex;?>"></td>
         </tr>
         <tr>
-            <td><a href="#" class="info"><?php echo _("Get DTMF input");?><span><?php echo _("If checked reads in DTMF digis, the value is available in the sql query with special name of [INPUT].");?></span></a></td>
+            <td><a href="#" class="info"><?php echo __("Get DTMF input");?><span><?php echo __("If checked reads in DTMF digis, the value is available in the sql query with special name of [INPUT].");?></span></a></td>
             <td>
                 <div class='field'><input type='checkbox' class='switch' id='enable_dtmf_input' name='enable_dtmf_input' value='CHECKED' <?php echo $dynroute_details['enable_dtmf_input'];?> tabindex='<?php echo ++$tabindex;?>'/><label style='height:auto; line-height:2em; padding-left:3em;' for='enable_dtmf_input'>&nbsp;</label></div>
             </td>
         </tr>
         <tr>
-            <td><a href="#" class="info"><?php echo _("Timeout");?><span><?php echo _("The amount of time (in seconds) to wait for input");?></span></a></td>
+            <td><a href="#" class="info"><?php echo __("Timeout");?><span><?php echo __("The amount of time (in seconds) to wait for input");?></span></a></td>
             <td><input class="w100 input" type="text" name="timeout" value="<?php echo $dynroute_details['timeout'] ?>" tabindex="<?php echo ++$tabindex;?>"></td>
         </tr>
         <tr>
-            <td><a href="#" class="info"><?php echo _("Input Variable");?><span><?php echo _("Optional variable name if you want the dmtf input to be available later in the call (e.g. futher dynamic route query or to pass to agi script)");?></span></a></td>
+            <td><a href="#" class="info"><?php echo __("Input Variable");?><span><?php echo __("Optional variable name if you want the dmtf input to be available later in the call (e.g. futher dynamic route query or to pass to agi script)");?></span></a></td>
             <td><input class="w100 input" type="text" name="chan_var_name" value="<?php echo $dynroute_details['chan_var_name'] ?>" tabindex="<?php echo ++$tabindex;?>"></td>
         </tr>
         <tr>
-            <td><a href="#" class="info"><?php echo _("Result Variable");?><span><?php echo _("Optional variable name if you want the query result to be available later in the call (e.g. futher dynamic route query or to pass to agi script)");?></span></a></td>
+            <td><a href="#" class="info"><?php echo __("Result Variable");?><span><?php echo __("Optional variable name if you want the query result to be available later in the call (e.g. futher dynamic route query or to pass to agi script)");?></span></a></td>
             <td><input class="w100 input" type="text" name="chan_var_name_res" value="<?php echo $dynroute_details['chan_var_name_res'] ?>" tabindex="<?php echo ++$tabindex;?>"></td>
         </tr>
  
@@ -151,13 +151,13 @@ function dynroute_show_edit($extdisplay, $nbroptions, $post, $help) {
 
         <tr>
             <td>
-                <a href="#" class="info"><?php echo _("Announcement")?><span><?php echo _("Message to be played to the caller. To add additional recordings please use the \"System Recordings\" MENU above")?></span></a>
+                <a href="#" class="info"><?php echo __("Announcement")?><span><?php echo __("Message to be played to the caller. To add additional recordings please use the \"System Recordings\" MENU above")?></span></a>
             </td>
             <td>
                 <select name="annmsg_id" tabindex="<?php echo ++$tabindex;?>" class="componentSelect">
                 <?php
                     $tresults = recordings_list();
-                    echo '<option value="">'._("None")."</option>";
+                    echo '<option value="">'.__("None")."</option>";
                     if (isset($tresults[0])) {
                         foreach ($tresults as $tresult) {
                             echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $annmsg_id ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
@@ -172,7 +172,7 @@ function dynroute_show_edit($extdisplay, $nbroptions, $post, $help) {
     } else {
 ?>
         <tr>
-            <td><a href="#" class="info"><?php echo _("Announcement")?><span><?php echo _("Message to be played to the caller.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
+            <td><a href="#" class="info"><?php echo __("Announcement")?><span><?php echo __("Message to be played to the caller.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
             <td>
             <?php
                 $default = (isset($annmsg_id) ? $annmsg_id : '');
@@ -184,7 +184,7 @@ function dynroute_show_edit($extdisplay, $nbroptions, $post, $help) {
     }
 ?>
         <tr>
-            <td><a href="#" class="info"><?php echo _("Source type")?><span><?php echo _("Select the source type, you can choose between:<ul><li>MySQL: It queries a MySQL database to retrieve the routing information</li><li>ODBC: It queries an ODBC data source to retrieve the routing information</li></ul>")?></span></a></td>
+            <td><a href="#" class="info"><?php echo __("Source type")?><span><?php echo __("Select the source type, you can choose between:<ul><li>MySQL: It queries a MySQL database to retrieve the routing information</li><li>ODBC: It queries an ODBC data source to retrieve the routing information</li></ul>")?></span></a></td>
             <td>
                 <select id="sourcetype" name="sourcetype" onChange="javascript:displaySourceParameters(this, this.selectedIndex)" tabindex="<?php echo ++$tabindex;?>" class="componentSelect">
                     <option value="none" <?php echo ($dynroute_details['sourcetype'] == 'none' ? 'selected' : '')?>>choose...</option>
@@ -202,10 +202,10 @@ function dynroute_show_edit($extdisplay, $nbroptions, $post, $help) {
                 <div id="url"> 
                     <table cellpadding="2" cellspacing="0" width="100%">
                         <tr>
-                            <td colspan="2"><h5><?php echo _("URL") ?></h5></div></td>
+                            <td colspan="2"><h5><?php echo __("URL") ?></h5></div></td>
                         </tr>
                         <tr>
-                            <td><a href="#" class="info"><?php echo _("URL")?><span><?php echo _("The url that returns the result")?></span></a></td>
+                            <td><a href="#" class="info"><?php echo __("URL")?><span><?php echo __("The url that returns the result")?></span></a></td>
                             <td><input type="text" name="url_query" class="input" value="<?php echo (isset($dynroute_details['url_query']) ? htmlentities($dynroute_details['url_query']) : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
                         </tr>
                     </table>
@@ -218,10 +218,10 @@ function dynroute_show_edit($extdisplay, $nbroptions, $post, $help) {
                 <div id="astvar">
                     <table cellpadding="2" cellspacing="0" width="100%">
                         <tr>
-                            <td colspan="2"><h5><?php echo _("Asterisk variable") ?></h5></div></td>
+                            <td colspan="2"><h5><?php echo __("Asterisk variable") ?></h5></div></td>
                         </tr>
                         <tr>
-                            <td><a href="#" class="info"><?php echo _("Variable string")?><span><?php echo _("The string containing one or more asterisk variables")?></span></a></td>
+                            <td><a href="#" class="info"><?php echo __("Variable string")?><span><?php echo __("The string containing one or more asterisk variables")?></span></a></td>
                             <td><input type="text" name="astvar_query" class="input" value="<?php echo (isset($dynroute_details['astvar_query']) ? htmlentities($dynroute_details['astvar_query']) : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
                         </tr>
                     </table>
@@ -234,14 +234,14 @@ function dynroute_show_edit($extdisplay, $nbroptions, $post, $help) {
                 <div id="agi">
                     <table cellpadding="2" cellspacing="0" width="100%">
                         <tr>
-                            <td colspan="2"><h5><?php echo _("AGI") ?></h5></div></td>
+                            <td colspan="2"><h5><?php echo __("AGI") ?></h5></div></td>
                         </tr>
                         <tr>
-                            <td><a href="#" class="info"><?php echo _("AGI script and parameters")?><span><?php echo _("Name of the AGI script. Optional parameters may be appended using the , as separator")?></span></a></td>
+                            <td><a href="#" class="info"><?php echo __("AGI script and parameters")?><span><?php echo __("Name of the AGI script. Optional parameters may be appended using the , as separator")?></span></a></td>
                             <td><input type="text" name="agi_query" class="input" value="<?php echo (isset($dynroute_details['agi_query']) ? htmlentities($dynroute_details['agi_query']) : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
                         </tr>
                         <tr>
-                            <td><a href="#" class="info"><?php echo _("AGI result variable")?><span><?php echo _("The name of the variable in the script which must be set with the result. See test.agi for an example.")?></span></a></td>
+                            <td><a href="#" class="info"><?php echo __("AGI result variable")?><span><?php echo __("The name of the variable in the script which must be set with the result. See test.agi for an example.")?></span></a></td>
                             <td><input type="text" name="agi_var_name_res" value="<?php echo (isset($dynroute_details['agi_var_name_res']) ? htmlentities($dynroute_details['agi_var_name_res']) : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
                        </tr>
                     </table>
@@ -253,13 +253,13 @@ function dynroute_show_edit($extdisplay, $nbroptions, $post, $help) {
             <td colspan="2">
                 <div id="odbc">
                     <table cellpadding="2" cellspacing="0" width="100%">
-                        <tr><td colspan="2"><h5><?php echo _("ODBC") ?></h5></div></td></tr>
+                        <tr><td colspan="2"><h5><?php echo __("ODBC") ?></h5></div></td></tr>
                         <tr>
-                            <td><a href="#" class="info"><?php echo _("Function")?><span><?php echo _("Name of the odbc function (excluding ODBC prefix) in /etc/asterisk/func_odbc.conf")?></span></a></td>
+                            <td><a href="#" class="info"><?php echo __("Function")?><span><?php echo __("Name of the odbc function (excluding ODBC prefix) in /etc/asterisk/func_odbc.conf")?></span></a></td>
                             <td><input type="text" name="odbc_func" class="input" value="<?php echo (isset($dynroute_details['odbc_func']) ? htmlentities($dynroute_details['odbc_func']) : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
                         </tr>
                         <tr>
-                            <td><a href="#" class="info"><?php echo _("Query")?><span><?php echo _("The query which gets the result out of the database")?></span></a></td>
+                            <td><a href="#" class="info"><?php echo __("Query")?><span><?php echo __("The query which gets the result out of the database")?></span></a></td>
                             <td><input type="text" name="odbc_query" class="input" value="<?php echo (isset($dynroute_details['odbc_query']) ? htmlentities($dynroute_details['odbc_query']) : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
                         </tr>
                     </table>
@@ -271,25 +271,25 @@ function dynroute_show_edit($extdisplay, $nbroptions, $post, $help) {
             <td colspan="2">
                 <div id="mysql">
                     <table cellpadding="2" cellspacing="0" width="100%">
-                        <tr><td colspan="2"><h5><?php echo _("MySQL") ?></h5></div></td></tr>
+                        <tr><td colspan="2"><h5><?php echo __("MySQL") ?></h5></div></td></tr>
                         <tr>
-                            <td><a href="#" class="info"><?php echo _("Host");?><span><?php echo _("Hostname or IP address of the server running the MySQL database");?></span></a></td>
+                            <td><a href="#" class="info"><?php echo __("Host");?><span><?php echo __("Hostname or IP address of the server running the MySQL database");?></span></a></td>
                             <td><input class="input" type="text" name="mysql_host" value="<?php echo (isset($dynroute_details['mysql_host']) ? $dynroute_details['mysql_host'] : '') ?>" tabindex="<?php echo ++$tabindex;?>"></td>
                         </tr>
                         <tr>
-                            <td><a href="#" class="info"><?php echo _("Database");?><span><?php echo _("The name of the database out of wich the information is being queried");?></span></a></td>
+                            <td><a href="#" class="info"><?php echo __("Database");?><span><?php echo __("The name of the database out of wich the information is being queried");?></span></a></td>
                             <td><input class="input"type="text" name="mysql_dbname" value="<?php echo (isset($dynroute_details['mysql_dbname']) ? $dynroute_details['mysql_dbname'] : '') ?>" tabindex="<?php echo ++$tabindex;?>"></td>
                         </tr>
                         <tr>
-                            <td><a href="#" class="info"><?php echo _("Username");?><span><?php echo _("The user/login name for accessing the database");?></span></a></td>
+                            <td><a href="#" class="info"><?php echo __("Username");?><span><?php echo __("The user/login name for accessing the database");?></span></a></td>
                             <td><input class="input" type="text" name="mysql_username" value="<?php echo (isset($dynroute_details['mysql_username']) ? $dynroute_details['mysql_username'] : '') ?>" tabindex="<?php echo ++$tabindex;?>"></td>
                         </tr>
                         <tr>
-                            <td><a href="#" class="info"><?php echo _("Password");?><span><?php echo _("The password wich is needed to access the database");?></span></a></td>
+                            <td><a href="#" class="info"><?php echo __("Password");?><span><?php echo __("The password wich is needed to access the database");?></span></a></td>
                             <td><input class="input" type="text" name="mysql_password" value="<?php echo (isset($dynroute_details['mysql_password']) ? htmlentities($dynroute_details['mysql_password']) : '') ?>" tabindex="<?php echo ++$tabindex;?>"></td>
                         </tr>
                         <tr>
-                            <td><a href="#" class="info"><?php echo _("Query");?><span><?php echo _("The query wich gets the result out of the database");?></span></a></td>
+                            <td><a href="#" class="info"><?php echo __("Query");?><span><?php echo __("The query wich gets the result out of the database");?></span></a></td>
                             <td><input class="input" type="text" name="mysql_query" class="input" value="<?php echo (isset($dynroute_details['mysql_query']) ? htmlentities($dynroute_details['mysql_query']) : '') ?>" tabindex="<?php echo ++$tabindex;?>"></td>
                         </tr>
                     </table>
@@ -297,13 +297,13 @@ function dynroute_show_edit($extdisplay, $nbroptions, $post, $help) {
             </td>
         </tr>
 
-    <tr><td colspan="2"><h5><?php  echo dgettext('amp','Optional Destinations') ?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php  echo _dgettext('amp','Optional Destinations') ?></h5></td></tr>
 
     <tr><td colspan=2>
 
     <table class='table' id='mydestinations'>
     <thead>
-    <tr><th><?php echo _("Match")?></th><th><?php echo _("Destination")?></th><th></th></tr>
+    <tr><th><?php echo __("Match")?></th><th><?php echo __("Destination")?></th><th></th></tr>
     </thead>
     <tbody>
 <?php
@@ -315,7 +315,7 @@ function dynroute_show_edit($extdisplay, $nbroptions, $post, $help) {
     $count = 0;
 ?>
     <tr>
-    <td style="text-align:right; width:14em;"><?php echo _("Default destination")?></td>
+    <td style="text-align:right; width:14em;"><?php echo __("Default destination")?></td>
     <td> 
     <table> <?php echo drawselects($default_dest,$count++); ?> </table></td>
     <td></td>
@@ -344,7 +344,7 @@ function dynroute_show_edit($extdisplay, $nbroptions, $post, $help) {
     echo "</tbody></table></div>";
 ?>
 
-    <input type="button" id="destination-add"  class="button is-small is-info is-rounded is-light" value="<?php echo _("Increase Destinations")?>" />
+    <input type="button" id="destination-add"  class="button is-small is-info is-rounded is-light" value="<?php echo __("Increase Destinations")?>" />
     <script>
     clone_select  = $('#cloneselect').html();
     </script>
@@ -381,7 +381,7 @@ function addCustomField(key, val) {
 }
 
 function prompt_onsubmit(theForm) {
-    var msgInvalidOption = "<?php echo _("Invalid default destination"); ?>";
+    var msgInvalidOption = "<?php echo __("Invalid default destination"); ?>";
 
     defaultEmptyOK = true;
 
@@ -489,7 +489,7 @@ function drawdestinations($count, $sel,  $dest) {
         <td><table class='destselect'> <?php echo drawselects($dest,$count); ?> </table> </td>
         <td valign='middle'>
 <?php
-             echo "<button name='del$count' id='del$count' value='Delete' type='button' class='btndelete mt-2 button is-small is-danger' data-tooltip='"._('Delete')."'><span class='icon is-small'><i class='fa fa-trash'></i></span></button>";
+             echo "<button name='del$count' id='del$count' value='Delete' type='button' class='btndelete mt-2 button is-small is-danger' data-tooltip='".__('Delete')."'><span class='icon is-small'><i class='fa fa-trash'></i></span></button>";
 ?>
     </td>
     </tr>

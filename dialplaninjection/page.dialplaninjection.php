@@ -18,6 +18,6 @@ foreach ($contexts as $row) {
 }
 drawListMenu($rnaventries, $type, $display, $extdisplay);
 
-//drawListMenu($contexts, $skip, $type, $display, $extdisplay, _("Injection"));
+//drawListMenu($contexts, $skip, $type, $display, $extdisplay, __("Injection"));
 ?>
 <div class='content'>

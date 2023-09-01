@@ -6,7 +6,7 @@ global $db;
 $sql = "SELECT * FROM `queuemetrics_options` LIMIT 1";
 $check = $db->query($sql);
 if(!DB::IsError($check)) {
-	out(_("queuemetrics table already exists, exiting"));
+	out(__("queuemetrics table already exists, exiting"));
 } else {
 
 	unset($sql);
@@ -23,11 +23,11 @@ if(!DB::IsError($check)) {
 	        }
 	}
 
-	outn(_("creating queuemetrics...ok"));
+	outn(__("creating queuemetrics...ok"));
 }
 
 // sysadmin migration
-outn(_("checking for ivr_logging field..."));
+outn(__("checking for ivr_logging field..."));
 $sql = "SELECT `keyword` FROM `queuemetrics_options` where `keyword` = 'ivr_logging'";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if($db->IsError($check) || empty($check)) {
@@ -37,8 +37,8 @@ if($db->IsError($check) || empty($check)) {
         if($db->IsError($result)) {
                 die_issabelpbx($result->getDebugInfo());
         }
-        out(_("OK"));
+        out(__("OK"));
 } else {
-        out(_("already exists"));
+        out(__("already exists"));
 }
 ?>

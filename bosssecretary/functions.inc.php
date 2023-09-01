@@ -488,11 +488,11 @@ function bosssecretary_group_add ( $group_number, $group_label,  array $bosses, 
         {
             if (empty($bosses))
             {
-                array_push($errors, _('You must put at least one boss extension'));
+                array_push($errors, __('You must put at least one boss extension'));
             }
             if (empty($secretaries))
             {
-                array_push($errors, _('You must put at least one secretary extension'));
+                array_push($errors, __('You must put at least one secretary extension'));
             }
 
 
@@ -513,7 +513,7 @@ function bosssecretary_group_add ( $group_number, $group_label,  array $bosses, 
                     }
                     else
                     {
-                        array_push($errors, sprintf(_('Extension %s already exists in another group like boss'),$boss));
+                        array_push($errors, sprintf(__('Extension %s already exists in another group like boss'),$boss));
                     }
                 }
                 foreach ($secretaries as $secretary)
@@ -526,7 +526,7 @@ function bosssecretary_group_add ( $group_number, $group_label,  array $bosses, 
                     }
                     else
                     {
-                        array_push($errors, sprintf(_('Extension %s already exists in another group like secretary'),$secretary));
+                        array_push($errors, sprintf(__('Extension %s already exists in another group like secretary'),$secretary));
                     }
 
                 }
@@ -546,7 +546,7 @@ function bosssecretary_group_add ( $group_number, $group_label,  array $bosses, 
         }
         else
         {
-            array_push($errors, _('Group already exists'));
+            array_push($errors, __('Group already exists'));
         }
     }
     else
@@ -567,11 +567,11 @@ function bosssecretary_group_edit ( $group_number, $group_label,  array $bosses,
         {
             if (empty($bosses))
             {
-                array_push($errors, _('You must put at least one boss extension'));
+                array_push($errors, __('You must put at least one boss extension'));
             }
             if (empty($secretaries))
             {
-                array_push($errors, _('You must put at least one secretary extension'));
+                array_push($errors, __('You must put at least one secretary extension'));
             }
 
             if (empty($errors))
@@ -623,7 +623,7 @@ function bosssecretary_group_edit ( $group_number, $group_label,  array $bosses,
         }
         else
         {
-            array_push($errors, _("Group doesn't exists"));
+            array_push($errors, __("Group doesn't exists"));
         }
     }
     else
@@ -885,9 +885,9 @@ function bosssecretary_set_params_to_edit( $records)
 
 function bosssecretary_content($title, $content) {
 
-    $extenlabel = _('Extension');
-    $searchlabel = _('Search');
-    $searchgrouplabel = _('Search Group');
+    $extenlabel = __('Extension');
+    $searchlabel = __('Search');
+    $searchgrouplabel = __('Search Group');
 
     echo <<<OUTPUT
 
@@ -902,7 +902,7 @@ function getExtensions(extensions)
     xmlHttp=GetXmlHttpObject(setExtensions);
     xmlHttp.open("GET", url , true);
     xmlHttp.send(null);
-    document.getElementById('divExtensions').innerHTML = _("Searching");
+    document.getElementById('divExtensions').innerHTML = __("Searching");
     return true;
 }
 
@@ -961,7 +961,7 @@ OUTPUT;
 
 function bosssecretary_get_form_add( array $params)
 {
-    $vars["form_title"]             = dgettext('amp','General Settings');
+    $vars["form_title"]             = _dgettext('amp','General Settings');
     $vars["form_url"] = "config.php?display=bosssecretary";
     $vars["bosses_extensions"]         =    (isset($params["bosses"])) ? implode("\n",$params["bosses"]) : '';
     $vars["secretaries_extensions"]    =    (isset($params["secretaries"])) ? implode("\n",$params["secretaries"]) : '';
@@ -971,15 +971,15 @@ function bosssecretary_get_form_add( array $params)
     $vars["action"] = "add";
     $vars["message_details"] = $params["message_details"];
     $vars["message_title"] = $params["message_title"];
-    $vars["clean_and_remove_duplicates"] = _('Clean and remove duplicates');
-    $vars["group_label_title"]=_("Group Label");
-    $vars["bosses_label"] = _('Bosses');
-    $vars["secretaries_label"] = _('Secretaries');
-    $vars["chiefs_label"] = _('Chiefs');
-    $vars["bosses_help"] = _('Put bosses extensions here');
-    $vars["secretaries_help"] = _('Put secretaries extensions here');
-    $vars["chiefs_help"] = _('Put chiefs extensions here');
-    $vars["save"] = _('Save');
+    $vars["clean_and_remove_duplicates"] = __('Clean and remove duplicates');
+    $vars["group_label_title"]=__("Group Label");
+    $vars["bosses_label"] = __('Bosses');
+    $vars["secretaries_label"] = __('Secretaries');
+    $vars["chiefs_label"] = __('Chiefs');
+    $vars["bosses_help"] = __('Put bosses extensions here');
+    $vars["secretaries_help"] = __('Put secretaries extensions here');
+    $vars["chiefs_help"] = __('Put chiefs extensions here');
+    $vars["save"] = __('Save');
 
 
     $vars['toast_and_submit']="<script>";
@@ -992,7 +992,7 @@ function bosssecretary_get_form_add( array $params)
 
 function bosssecretary_get_form_edit( array $params)
 {
-    $vars["form_title"]             = dgettext('amp','General Settings');
+    $vars["form_title"]             = _dgettext('amp','General Settings');
     $vars["form_url"]               = "config.php?display=bosssecretary";
     $vars["bosses_extensions"]      = (isset($params["bosses"])) ? implode("\n",$params["bosses"]) : '';
     $vars["secretaries_extensions"] = (isset($params["secretaries"])) ? implode("\n",$params["secretaries"]) : '';
@@ -1002,17 +1002,17 @@ function bosssecretary_get_form_edit( array $params)
     $vars["action"]                 = "edit";
     $vars["message_details"]        = $params["message_details"];
     $vars["message_title"]          = $params["message_title"];
-    $vars["delete_question"]        = sprintf(_("Do you really to want delete %s (%s) group?"), $vars["group_number"], $vars["group_label"]);
+    $vars["delete_question"]        = sprintf(__("Do you really to want delete %s (%s) group?"), $vars["group_number"], $vars["group_label"]);
 
-    $vars["group_label_title"]=_("Group Label");
-    $vars["clean_and_remove_duplicates"] = _('Clean and remove duplicates');
-    $vars["bosses_label"] = _('Bosses');
-    $vars["secretaries_label"] = _('Secretaries');
-    $vars["chiefs_label"] = _('Chiefs');
-    $vars["bosses_help"] = _('Put bosses extensions here');
-    $vars["secretaries_help"] = _('Put secretaries extensions here');
-    $vars["chiefs_help"] = _('Put chiefs extensions here');
-    $vars["save"] = _('Save');
+    $vars["group_label_title"]=__("Group Label");
+    $vars["clean_and_remove_duplicates"] = __('Clean and remove duplicates');
+    $vars["bosses_label"] = __('Bosses');
+    $vars["secretaries_label"] = __('Secretaries');
+    $vars["chiefs_label"] = __('Chiefs');
+    $vars["bosses_help"] = __('Put bosses extensions here');
+    $vars["secretaries_help"] = __('Put secretaries extensions here');
+    $vars["chiefs_help"] = __('Put chiefs extensions here');
+    $vars["save"] = __('Save');
 
     $vars['toast_and_submit']="<script>";
     $vars['toast_and_submit'].=js_display_confirmation_toasts();

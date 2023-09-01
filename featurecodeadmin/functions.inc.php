@@ -58,7 +58,7 @@ function featurecodeadmin_check_extensions($exten=true) {
 		// Ignore disabled codes, and modules, and any exten not being requested unless all (true)
 		//
 		if (($result['featureenabled'] == 1) && ($result['moduleenabled'] == 1) && ($exten === true || in_array($thisexten, $exten))) {
-			$extenlist[$thisexten]['description'] = _("Featurecode: ").$result['featurename']." (".$result['modulename'].":".$result['featuredescription'].")";
+			$extenlist[$thisexten]['description'] = __("Featurecode: ").$result['featurename']." (".$result['modulename'].":".$result['featuredescription'].")";
 			$extenlist[$thisexten]['status'] = 'INUSE';
 			$extenlist[$thisexten]['edit_url'] = 'config.php?type=setup&display=featurecodeadmin';
 		}
@@ -99,7 +99,7 @@ function featurecodeadmin_getdestinfo($dest) {
 		$dest = explode(',',$dest);
 		foreach ($fcs as $fc) {
 			if ($fc['defaultcode'] == $dest[1]) {
-                $desc = dgettext($fc['modulename'],$fc['featuredescription']);
+                $desc = _dgettext($fc['modulename'],$fc['featuredescription']);
 				$found = true;
 				break;
 			}
@@ -159,11 +159,11 @@ function featurecodeadmin_destinations() {
       if ($result['featureenabled'] == 1 && $result['moduleenabled'] == 1 && $result['providedest'] == 1) {
         $modulename = $result['modulename'];
 
-				$description = modgettext::_($result['featuredescription'], $modulename);
+				$description = modgettext:__($result['featuredescription'], $modulename);
 				// Just in case the translation was not found in either the module or amp, we will try to see
 				// if they put it in the featurecode module i18n
         if ($description == $result['featuredescription']) {
-            $description = _($description);
+            $description = __($description);
         }
         $thisexten = ($result['customcode'] != '')?$result['customcode']:$result['defaultcode'];
 				$extens[] = array('destination' => 'ext-featurecodes,'.$result['defaultcode'].',1', 'description' => $description.' &lt;'.$thisexten.'&gt;');

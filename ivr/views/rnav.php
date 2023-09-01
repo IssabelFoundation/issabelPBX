@@ -1,6 +1,6 @@
 <?php
 
-$li[] = '<a class="'.($id=='' ? 'current':'').'" href="config.php?display='. urlencode($display) . '&action=add">' . _("Add IVR") . '</a>';
+$li[] = '<a class="'.($id=='' ? 'current':'').'" href="config.php?display='. urlencode($display) . '&action=add">' . __("Add IVR") . '</a>';
 
 
 if (isset($ivr_results)){

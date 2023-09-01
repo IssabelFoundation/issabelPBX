@@ -172,7 +172,7 @@ function compress_framework_css() {
             // If it is a regular file (could have been first time and previous was blank then delete old
             if (is_file($mainstyle_css_gen) && !unlink($mainstyle_css_gen)) {
                 issabelpbx_log(IPBX_LOG_WARNING,
-                            sprintf(_('failed to delete %s from assets/css directory after '
+                            sprintf(__('failed to delete %s from assets/css directory after '
                                     . 'creating updated CSS file.'),
                                     $mainstyle_css_generated_full_path));
             }
@@ -208,7 +208,7 @@ function die_issabelpbx($text, $extended_text="", $type="FATAL") {
         if (!empty($extended_text)) {
             $trace .= "<p>".$extended_text."</p>\n";
         }
-        $trace .= "<h4>"._("Trace Back")."</h4>";
+        $trace .= "<h4>".__("Trace Back")."</h4>";
 
         $main_fmt = "%s:%s %s()<br />\n";
         $arg_fmt = "&nbsp;&nbsp;[%s]: %s<br />\n";
@@ -523,7 +523,7 @@ function file_get_contents_url($file_url) {
             if ($retcode) {
                 // if server isn't available for some reason should return non-zero
                 // so we return and we don't set the flag below
-                issabelpbx_log(IPBX_LOG_ERROR,sprintf(_('Failed to get remote file, mirror site may be down: %s'),$fn));
+                issabelpbx_log(IPBX_LOG_ERROR,sprintf(__('Failed to get remote file, mirror site may be down: %s'),$fn));
                 continue;
 
                 // We are here if contents were blank. It's possible that whatever we were getting were suppose to be blank
@@ -535,8 +535,8 @@ function file_get_contents_url($file_url) {
                 $issabelpbx_conf->set_conf_values(array('MODULEADMINWGET' => true),true);
 
                 $nt =& notifications::create($db);
-                $text = sprintf(_("Forced %s to true"),'MODULEADMINWGET');
-                $extext = sprintf(_("The system detected a problem trying to access external server data and changed internal setting %s (Use wget For Module Admin) to true, see the tooltip in Advanced Settings for more details."),'MODULEADMINWGET');
+                $text = sprintf(__("Forced %s to true"),'MODULEADMINWGET');
+                $extext = sprintf(__("The system detected a problem trying to access external server data and changed internal setting %s (Use wget For Module Admin) to true, see the tooltip in Advanced Settings for more details."),'MODULEADMINWGET');
                 $nt->add_warning('issabelpbx', 'MODULEADMINWGET', $text, $extext, '', false, true);
             }
             $contents = implode("\n",$data_arr);
@@ -1350,9 +1350,9 @@ function ipbx_ami_update($user=false, $pass=false, $writetimeout = false) {
         if ($ret) {
             dbug($output);
             dbug($ret);
-            issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("Failed changing AMI user to [%s], internal failure details follow:"),$amp_conf['AMPMGRUSER']));
+            issabelpbx_log(IPBX_LOG_ERROR,sprintf(__("Failed changing AMI user to [%s], internal failure details follow:"),$amp_conf['AMPMGRUSER']));
             foreach ($output as $line) {
-                issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("AMI failure details:"),$line));
+                issabelpbx_log(IPBX_LOG_ERROR,sprintf(__("AMI failure details:"),$line));
             }
         }
     }
@@ -1363,9 +1363,9 @@ function ipbx_ami_update($user=false, $pass=false, $writetimeout = false) {
         if ($ret2) {
             dbug($output);
             dbug($ret2);
-            issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("Failed changing AMI password to [%s], internal failure details follow:"),$amp_conf['AMPMGRPASS']));
+            issabelpbx_log(IPBX_LOG_ERROR,sprintf(__("Failed changing AMI password to [%s], internal failure details follow:"),$amp_conf['AMPMGRPASS']));
             foreach ($output as $line) {
-                issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("AMI failure details:"),$line));
+                issabelpbx_log(IPBX_LOG_ERROR,sprintf(__("AMI failure details:"),$line));
             }
         }
 
@@ -1377,7 +1377,7 @@ function ipbx_ami_update($user=false, $pass=false, $writetimeout = false) {
             $issabelpbx_conf =& issabelpbx_conf::create();
             if ($amp_conf['AMPMGRPASS'] == $issabelpbx_conf->get_conf_default_setting('AMPMGRPASS')) {
                 if (!$nt->exists('core', 'AMPMGRPASS')) {
-                    $nt->add_warning('core', 'AMPMGRPASS', _("Default Asterisk Manager Password Used"), _("You are using the default Asterisk Manager password that is widely known, you should set a secure password"));
+                    $nt->add_warning('core', 'AMPMGRPASS', __("Default Asterisk Manager Password Used"), __("You are using the default Asterisk Manager password that is widely known, you should set a secure password"));
                 }
             } else {
                 $nt->delete('core', 'AMPMGRPASS');
@@ -1393,9 +1393,9 @@ function ipbx_ami_update($user=false, $pass=false, $writetimeout = false) {
         if ($ret3) {
             dbug($output);
             dbug($ret3);
-            issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("Failed changing AMI writetimout to [%s], internal failure details follow:"),$amp_conf['ASTMGRWRITETIMEOUT']));
+            issabelpbx_log(IPBX_LOG_ERROR,sprintf(__("Failed changing AMI writetimout to [%s], internal failure details follow:"),$amp_conf['ASTMGRWRITETIMEOUT']));
             foreach ($output as $line) {
-                issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("AMI failure details:"),$line));
+                issabelpbx_log(IPBX_LOG_ERROR,sprintf(__("AMI failure details:"),$line));
             }
         }
     }
@@ -1412,7 +1412,7 @@ function ipbx_ami_update($user=false, $pass=false, $writetimeout = false) {
         if ($ret2) {
             dbug($output);
             dbug($ret2);
-            issabelpbx_log(IPBX_LOG_ERROR,_("Failed to reload AMI, manual reload will be necessary, try: [asterisk -rx 'module reload manager']"));
+            issabelpbx_log(IPBX_LOG_ERROR,__("Failed to reload AMI, manual reload will be necessary, try: [asterisk -rx 'module reload manager']"));
         }
     }
     return true;

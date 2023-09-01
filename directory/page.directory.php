@@ -59,26 +59,26 @@ drawListMenu($rnaventries, $type, $display, $extdisplay);
 
 if($action == '' && $extdisplay == ''){
 	$dirlist = directory_list();
-	array_unshift($dirlist, array('id' => '', 'dirname' => _('none')));
+	array_unshift($dirlist, array('id' => '', 'dirname' => __('none')));
 	$def_dir = directory_get_default_dir();
-	echo '<h2 id="title">' . _('Directory') . '</h2>';
-	echo '<br /><br /><input type="button" value="' . _('Add a new Directory') . '" id="new_dir"/>';
+	echo '<h2 id="title">' . __('Directory') . '</h2>';
+	echo '<br /><br /><input type="button" value="' . __('Add a new Directory') . '" id="new_dir"/>';
 	echo '<form action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
-	echo '<br /><br /><h5>' . _('Directory Options') . '</h5><hr class="dirhr">';
-	echo '<a href="javascript:void(null)" class="info">' . _('Default Directory') . '<span style="left: -18px; display: none; ">';
-	echo _('When checked, this becomes the default directory and replaces any other directory as the default directory. This has the effect of exposing entries for this directory into the Extension/User page');
+	echo '<br /><br /><h5>' . __('Directory Options') . '</h5><hr class="dirhr">';
+	echo '<a href="javascript:void(null)" class="info">' . __('Default Directory') . '<span style="left: -18px; display: none; ">';
+	echo __('When checked, this becomes the default directory and replaces any other directory as the default directory. This has the effect of exposing entries for this directory into the Extension/User page');
 	echo '</span></a>';
 	echo '&nbsp&nbsp<select name="def_dir">';
 	if (isset($dirlist) && $dirlist) {
 		foreach ($dirlist as $dir) {
 			echo '<option value="' . $dir['id'] . '"';
 			echo  (($dir['id'] == $def_dir) ? ' SELECTED ' : '') . '>';
-			echo $dir['dirname'] ? $dir['dirname'] : _('Directory') . ' ' . $dir['id'];
+			echo $dir['dirname'] ? $dir['dirname'] : __('Directory') . ' ' . $dir['id'];
 			echo '</option>';
 		}
 	}
 	echo '</select>';
-	echo '<br /><br /><input type="submit" name="Submit" value="' . _('Submit') . '">';
+	echo '<br /><br /><input type="submit" name="Submit" value="' . __('Submit') . '">';
     echo '</form>';
 }
 

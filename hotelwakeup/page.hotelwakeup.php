@@ -64,7 +64,7 @@ case "edit":
     // check for insufficient data
     if ($HH == "" || $ext == "" || $DD == "" || $MON == "" || $YYYY == "" || $badtime )  {
 
-        $_SESSION['msg']=base64_encode(_('Cannot schedule the call, either due to insufficient data or the scheduled time was in the past'));
+        $_SESSION['msg']=base64_encode(__('Cannot schedule the call, either due to insufficient data or the scheduled time was in the past'));
         $_SESSION['msgtype']='error';
         $_SESSION['msgtstamp']=time();
         redirect_standard('');
@@ -93,7 +93,7 @@ case "edit":
         );
 
         $newdisplay = hotelwakeup_gencallfile($foo);
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         $_SESSION['extdisplay']=$_POST['ExtBox'];
@@ -104,7 +104,7 @@ case "edit":
 case "saveconfig":
     hotelwakeup_saveconfig();
     $_REQUEST['action']='';
-    $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+    $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
     $_SESSION['msgtype']='success';
     $_SESSION['msgtstamp']=time();
     redirect_standard('extdisplay');
@@ -118,13 +118,13 @@ case "delete":
     if (file_exists($fullpath)) {
         unlink($fullpath);
         $_REQUEST['action']='';
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         redirect_standard('');
     } else {
         $_REQUEST['action']='';
-        $_SESSION['msg']=base64_encode(_('Could not find file to remove'));
+        $_SESSION['msg']=base64_encode(__('Could not find file to remove'));
         $_SESSION['msgtype']='error';
         $_SESSION['msgtstamp']=time();
         redirect_standard('');
@@ -208,7 +208,7 @@ $count=0;
 $rnaventries = array();
 $allcalls    = array();
 $files = glob("/var/spool/asterisk/outgoing/wuc*.call");
-$rnaventries[] = array("config",_("Module configuration"),"");
+$rnaventries[] = array("config",__("Module configuration"),"");
 foreach ($files as $file) {
     $myresult = checkWakeUpProp($file);
     $filetime = date('H',filemtime($file)).":".date('i',filemtime($file));   //create a time string to display from the file timestamp
@@ -227,8 +227,8 @@ drawListMenu($rnaventries, $type, $display, $extdisplay);
 <div class='content'>
 <?php
 
-$helptext = _("Wake Up calls can be used to schedule a reminder or wakeup call to any valid destination. To schedule a call, dial the feature code assigned in IssabelPBX Feature Codes or use the form below.");
-$helptextconfig = _("By default, Wake Up calls are only made back to the Caller ID of the user which requests them. When the Operator Mode is enabled, certain extensions are identified to be able to request a Wake Up call for any valid internal or external destination.");
+$helptext = __("Wake Up calls can be used to schedule a reminder or wakeup call to any valid destination. To schedule a call, dial the feature code assigned in IssabelPBX Feature Codes or use the form below.");
+$helptextconfig = __("By default, Wake Up calls are only made back to the Caller ID of the user which requests them. When the Operator Mode is enabled, certain extensions are identified to be able to request a Wake Up call for any valid internal or external destination.");
 
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 $helpconfig = '<div class="infohelp">?<span style="display:none;">'.$helptextconfig.'</span></div>';
@@ -246,14 +246,14 @@ if($extdisplay!='') {
         $current_ext   = isset($allcalls[$extdisplay])?$allcalls[$extdisplay]['ext']:'';
         $action        = "edit";
 
-        echo "<div class='is-flex'><h2>"._("Edit Wake Up Call").": ".$current_ext."</h2>$help</div>";
+        echo "<div class='is-flex'><h2>".__("Edit Wake Up Call").": ".$current_ext."</h2>$help</div>";
 
     } else {
 
         // Get module config info
         $disable_delete=true;
         $moduleconfig = hotelwakeup_getconfig();
-        echo "<div class='is-flex'><h2>"._("Hotel Wake Up Configuration")."</h2>$helpconfig</div>";
+        echo "<div class='is-flex'><h2>".__("Hotel Wake Up Configuration")."</h2>$helpconfig</div>";
     }
 
 }  else {
@@ -265,7 +265,7 @@ if($extdisplay!='') {
     $current_ext   = "";
     $action        = "add";
 
-    echo "<div class='is-flex'><h2>"._("Add Wake Up Call")."</h2>$help</div>";
+    echo "<div class='is-flex'><h2>".__("Add Wake Up Call")."</h2>$help</div>";
 }
 
 if($extdisplay!='config') {
@@ -277,11 +277,11 @@ if($extdisplay!='config') {
 
     <table class='table is-borderless is-narrow'>
 
-    <tr><td colspan="2"><h5><?php  echo dgettext('amp','General Settings') ?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php  echo _dgettext('amp','General Settings') ?></h5></td></tr>
 
     <tr>
         <td>
-            <a href="#" class="info"><?php echo _("Destination")?><span><?php echo _("The destination extension for this call")?></span></a>
+            <a href="#" class="info"><?php echo __("Destination")?><span><?php echo __("The destination extension for this call")?></span></a>
         </td>
         <td>
             <input class='input w100' autofocus type="text" name="ExtBox" id="ExtBox" value="<?php  echo $current_ext; ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -289,17 +289,17 @@ if($extdisplay!='config') {
     </tr>
     <tr>
         <td>
-            <a href="#" class="info"><?php echo _("Date/Time")?><span><?php echo _("The date")?></span></a>
+            <a href="#" class="info"><?php echo __("Date/Time")?><span><?php echo __("The date")?></span></a>
         </td>
         <td>
             <input class='input' type="datetime-local" name="datetime" value="<?php  echo "$current_year-$current_month-${current_day}T$current_hour:$current_min"; ?>" tabindex="<?php echo ++$tabindex;?>">
         </td>
     </tr>
 
-    <tr><td colspan="2"><h5><?php  echo _('System Settings') ?></h5></td></tr>
-    <tr><td colspan="2"><?php echo _("For scheduled calls to be delivered at the correct time, the system time zone and current time must be set properly. The system is reporting the following time zone and time:")?></td></tr>
-    <tr><td><?php echo _("Time zone");?></td><td><?php echo date_default_timezone_get() ?></td></tr>
-    <tr><td><?php echo _("System time");?></td><td><span id="idTime">00:00:00</span></td></tr>
+    <tr><td colspan="2"><h5><?php  echo __('System Settings') ?></h5></td></tr>
+    <tr><td colspan="2"><?php echo __("For scheduled calls to be delivered at the correct time, the system time zone and current time must be set properly. The system is reporting the following time zone and time:")?></td></tr>
+    <tr><td><?php echo __("Time zone");?></td><td><?php echo date_default_timezone_get() ?></td></tr>
+    <tr><td><?php echo __("System time");?></td><td><span id="idTime">00:00:00</span></td></tr>
 </table>
 </form>
 
@@ -309,18 +309,18 @@ if($extdisplay!='config') {
   <input type=hidden name=action value='saveconfig'>
 
   <table class='table is-borderless is-narrow'>
-    <tr><td colspan="2"><h5><?php  echo dgettext('amp','General Settings') ?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php  echo _dgettext('amp','General Settings') ?></h5></td></tr>
     <tr>
       <td>
-        <a href="#" class="info"><?php echo _("Operator Mode")?><span><?php echo _("<u>ENABLE</u> Operator Mode to allow designated extentions to create wake up calls for any valid destination.<br><u>DISABLE</u> Calls can only be placed back to the caller ID of the user scheduling the wakeup call.")?></span></a>
+        <a href="#" class="info"><?php echo __("Operator Mode")?><span><?php echo __("<u>ENABLE</u> Operator Mode to allow designated extentions to create wake up calls for any valid destination.<br><u>DISABLE</u> Calls can only be placed back to the caller ID of the user scheduling the wakeup call.")?></span></a>
       </td>
       <td>
-          <?php echo ipbx_radio('operator_mode',array(array('value'=>'1','text'=>_('Enabled')),array('value'=>'0','text'=>_('Disabled'))),$moduleconfig['operator_mode'],false); ?>
+          <?php echo ipbx_radio('operator_mode',array(array('value'=>'1','text'=>__('Enabled')),array('value'=>'0','text'=>__('Disabled'))),$moduleconfig['operator_mode'],false); ?>
       </td>
     </tr>
     <tr>
       <td>
-        <a href="#" class="info"><?php echo _("Max Dest. Length")?><span><?php echo _("This controls the maximum number of digits an operator can send a wakeup call to. Set to 10 or 11 to allow wake up calls to outside numbers.")?></span></a>
+        <a href="#" class="info"><?php echo __("Max Dest. Length")?><span><?php echo __("This controls the maximum number of digits an operator can send a wakeup call to. Set to 10 or 11 to allow wake up calls to outside numbers.")?></span></a>
       </td>
       <td>
           <input type="text" name="extensionlength" class="input" value="<?php echo $moduleconfig['extensionlength']?>">
@@ -328,18 +328,18 @@ if($extdisplay!='config') {
     </tr>
     <tr>
       <td>
-        <a href="#" class="info"><?php echo _("Operator Extensions")?><span><?php echo _("Enter the Caller ID's of each telephone you wish to be recognized as an `Operator`.  Operator extensions are allowed to create wakeup calls for any valid destination. Numbers can be extension numbers, full caller ID numbers or Asterisk dialing patterns.")?></span></a>
+        <a href="#" class="info"><?php echo __("Operator Extensions")?><span><?php echo __("Enter the Caller ID's of each telephone you wish to be recognized as an `Operator`.  Operator extensions are allowed to create wakeup calls for any valid destination. Numbers can be extension numbers, full caller ID numbers or Asterisk dialing patterns.")?></span></a>
       <td >
           <input type="text" name="operator_extensions" class="input" value="<?php echo $moduleconfig['operator_extensions']?>">
       </td>
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td><?php echo _('(Use a comma separated list)');?></td>
+      <td><?php echo __('(Use a comma separated list)');?></td>
     </tr>
     <tr>
       <td>
-        <a href="#" class="info"><?php echo _("Ring Time")?><span><?php echo _("The number of seconds for the phone to ring. Consider setting lower than the voicemail threshold or the wakeup call can end up going to voicemail.")?></span></a>
+        <a href="#" class="info"><?php echo __("Ring Time")?><span><?php echo __("The number of seconds for the phone to ring. Consider setting lower than the voicemail threshold or the wakeup call can end up going to voicemail.")?></span></a>
     </td>
       <td>
         <input type="number" name="waittime" class="input" value="<?php echo $moduleconfig['waittime']?>">
@@ -347,7 +347,7 @@ if($extdisplay!='config') {
   </tr>
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Retry Time")?><span><?php echo _("The number of seconds to wait between retrys.  A 'retry' happens if the wakeup call is not answered.")?></span></a>
+      <a href="#" class="info"><?php echo __("Retry Time")?><span><?php echo __("The number of seconds to wait between retrys.  A 'retry' happens if the wakeup call is not answered.")?></span></a>
     </td>
     <td>
         <input type="number" name="retrytime" class="input" value="<?php echo $moduleconfig['retrytime']?>">
@@ -355,7 +355,7 @@ if($extdisplay!='config') {
   </tr>
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Max Retries")?><span><?php echo _("The maximum number of times the system should attempt to deliver the wakeup call when there is no answer.  Zero retries means only one call will be placed.")?></span></a>
+      <a href="#" class="info"><?php echo __("Max Retries")?><span><?php echo __("The maximum number of times the system should attempt to deliver the wakeup call when there is no answer.  Zero retries means only one call will be placed.")?></span></a>
     </td>
     <td>
         <input type="number" name="maxretries" class="input" value="<?php echo $moduleconfig['maxretries']?>">
@@ -363,14 +363,14 @@ if($extdisplay!='config') {
   </tr>
   <tr>
     <td>
-        <a href="#" class="info"><?php echo _("Caller ID")?><span><?php echo _("<u>First Box:</u> Enter the CNAM (Caller ID Name) to be sent by the system when placing the wakeup calls.  Enclose this string with \" if required by your system.<br><u>Second Box:</u> Enter the CID (Caller ID number) of the Caller ID to be sent when the system places wake up calls.")?></span></a>
+        <a href="#" class="info"><?php echo __("Caller ID")?><span><?php echo __("<u>First Box:</u> Enter the CNAM (Caller ID Name) to be sent by the system when placing the wakeup calls.  Enclose this string with \" if required by your system.<br><u>Second Box:</u> Enter the CID (Caller ID number) of the Caller ID to be sent when the system places wake up calls.")?></span></a>
     <td>
       <input type="text" name="calleridtext" class="myinput" size="13" value="<?php echo $moduleconfig['cnam'];?>">
       &lt; <input type="text" name="calleridnumber" class="myinput" size="13" value="<?php echo $moduleconfig['cid'];?>"> &gt;
     </td>
   </tr>
 </table>
-<small><?php echo _('*Some systems require quote marks around the textual caller ID. You may include the " " if needed by your system.');?></small>
+<small><?php echo __('*Some systems require quote marks around the textual caller ID. You may include the " " if needed by your system.');?></small>
 </form>
 <?php } ?>
 
@@ -425,7 +425,7 @@ function updateTime()
 
 function edit_onsubmit(theForm) {
 
-    var msgInvalid = "<?php echo _('Please enter a valid extension');?>";
+    var msgInvalid = "<?php echo __('Please enter a valid extension');?>";
 
     if (isEmpty(theForm.ExtBox.value))
         return warnInvalid(theForm.ExtBox, msgInvalid);

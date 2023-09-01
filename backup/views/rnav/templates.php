@@ -8,7 +8,7 @@ if (isset($templates)){
 			. ( $id == $t['id'] ? ' class="current" ' : '') 
 			. '" href="config.php?display=backup_templates&action=edit&id=' 
 			. $t['id'] . '">' 
-			. _($t['name'])
+			. __($t['name'])
 			.'</a>';
 	}
 }	

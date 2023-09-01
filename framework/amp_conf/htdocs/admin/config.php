@@ -355,7 +355,7 @@ switch($display) {
             //error message
             $login['errors'] = array();
             if ($config_vars['username'] && $action !== 'setup_admin') {
-                $login['errors'][] = _('Invalid Username or Password');
+                $login['errors'][] = __('Invalid Username or Password');
             }
 
 	    if($username != '' || $password != '') {
@@ -546,7 +546,7 @@ if ($quietmode) {
 
     // Check for required PHP modules
     if (!extension_loaded('mbstring')) {
-        $php_missing_module[] = _('PHP mbstring module is not installed. Please install it to avoid issues with language/localization.');
+        $php_missing_module[] = __('PHP mbstring module is not installed. Please install it to avoid issues with language/localization.');
     }
 
     // send menu

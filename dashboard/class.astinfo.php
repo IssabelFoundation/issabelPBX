@@ -232,12 +232,12 @@ class astinfo {
                 '/\byears\b/', '/\byear\b/',
             );
             $tunits = array(
-                _('seconds'), _('second'),
-                _('minutes'), _('minute'),
-                _('hours'), _('hour'),
-                _('days'), _('day'),
-                _('weeks'), _('week'),
-                _('years'), _('year'),
+                __('seconds'), __('second'),
+                __('minutes'), __('minute'),
+                __('hours'), __('hour'),
+                __('days'), __('day'),
+                __('weeks'), __('week'),
+                __('years'), __('year'),
             );
         }
         foreach ($astout as $line) {

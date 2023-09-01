@@ -2,9 +2,9 @@
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //for translation only
 if (false) {
-_("Intercom prefix");
-_("User Intercom Allow");
-_("User Intercom Disallow");
+__("Intercom prefix");
+__("User Intercom Allow");
+__("User Intercom Disallow");
 }
 
 global $amp_conf;

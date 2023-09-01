@@ -158,7 +158,7 @@ function setcid_getdestinfo($dest) {
         if (empty($thiscid)) {
             return array();
         } else {
-            return array('description' => sprintf(_("Set CallerID %s: "),$thiscid['description']),
+            return array('description' => sprintf(__("Set CallerID %s: "),$thiscid['description']),
                          'edit_url' => 'config.php?display=setcid&extdisplay='.urlencode($id),
                                   );
         }

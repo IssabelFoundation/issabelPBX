@@ -216,7 +216,7 @@ function module_update_notifications(&$old_xml, &$xmlarray, $passive) {
         $cnt = count($diff_modules);
         if ($cnt) {
             $active_repos = module_get_active_repos();
-            $extext = _("The following new modules are available for download. Click delete icon on the right to remove this notice.")."<br />";
+            $extext = __("The following new modules are available for download. Click delete icon on the right to remove this notice.")."<br />";
             foreach ($diff_modules as $modname=>$nada) {
                 $mod = $new_modules[$modname];
                 if (!isset($mod['repo'])) { $mod['repo']='unset'; }
@@ -228,7 +228,7 @@ function module_update_notifications(&$old_xml, &$xmlarray, $passive) {
                 }
             }
             if ($cnt) {
-                $notifications->add_notice('issabelpbx', 'NEWMODS', sprintf(_('%s New modules are available'),$cnt), $extext, '', $reset_value, true);
+                $notifications->add_notice('issabelpbx', 'NEWMODS', sprintf(__('%s New modules are available'),$cnt), $extext, '', $reset_value, true);
             }
         }
     }
@@ -264,13 +264,13 @@ function module_upgrade_notifications(&$new_modules, $passive_value) {
     $cnt = count($modules_upgradable);
     if ($cnt) {
         if ($cnt == 1) {
-            $text = _("There is 1 module available for online upgrade");
+            $text = __("There is 1 module available for online upgrade");
         } else {
-            $text = sprintf(_("There are %s modules available for online upgrades"),$cnt);
+            $text = sprintf(__("There are %s modules available for online upgrades"),$cnt);
         }
         $extext = "";
         foreach ($modules_upgradable as $mod) {
-            $extext .= sprintf(_("%s (current: %s)"), $mod['name'].' '.$mod['online_version'], $mod['local_version'])."\n";
+            $extext .= sprintf(__("%s (current: %s)"), $mod['name'].' '.$mod['online_version'], $mod['local_version'])."\n";
         }
         $notifications->add_update('issabelpbx', 'NEWUPDATES', $text, $extext, '', $passive_value);
     } else {
@@ -291,14 +291,14 @@ function module_update_security_notifications($exposures) {
     if (!empty($exposures)) {
         $cnt = count($exposures);
         if ($cnt == 1) {
-            $text = _("There is 1 module vulnerable to security threats");
+            $text = __("There is 1 module vulnerable to security threats");
         } else {
-            $text = sprintf(_("There are %s modules vulnerable to security threats"), $cnt);
+            $text = sprintf(__("There are %s modules vulnerable to security threats"), $cnt);
         }
         $extext = "";
         foreach($exposures as $m => $vinfo) {
             $extext .= sprintf(
-                _("%s (Cur v. %s) should be upgraded to v. %s to fix security issues: %s\n"),
+                __("%s (Cur v. %s) should be upgraded to v. %s to fix security issues: %s\n"),
                 $m, $vinfo['curver'], $vinfo['minver'], implode(', ',$vinfo['vul'])
             );
         }
@@ -563,9 +563,9 @@ function module_checkdepends($modulename) {
                                 }
                             } else {
                                 if ($compare_version == '') {
-                                    $newerrors[] = sprintf(_('PHP Component %s is required but missing from you PHP installation.'), $matches[1]);
+                                    $newerrors[] = sprintf(__('PHP Component %s is required but missing from you PHP installation.'), $matches[1]);
                                 } else {
-                                    $newerrors[] = sprintf(_('PHP Component %s version %s is required but missing from you PHP installation.'), $matches[1], $compare_version);
+                                    $newerrors[] = sprintf(__('PHP Component %s version %s is required but missing from you PHP installation.'), $matches[1], $compare_version);
                                 }
                             }
                         }
@@ -597,24 +597,24 @@ function module_checkdepends($modulename) {
                                 }
                                 break;
                             case MODULE_STATUS_BROKEN:
-                                $errors[] = sprintf(_('Module %s is required, but yours is broken. You should reinstall '.
+                                $errors[] = sprintf(__('Module %s is required, but yours is broken. You should reinstall '.
                                     'it and try again.'), $needed_module);
                                 break;
                             case MODULE_STATUS_DISABLED:
-                                $errors[] = sprintf(_('Module %s is required, but yours is disabled.'), $needed_module);
+                                $errors[] = sprintf(__('Module %s is required, but yours is disabled.'), $needed_module);
                                 break;
                             case MODULE_STATUS_NEEDUPGRADE:
-                                $errors[] = sprintf(_('Module %s is required, but yours is disabled because it needs to '.
+                                $errors[] = sprintf(__('Module %s is required, but yours is disabled because it needs to '.
                                     'be upgraded. Please upgrade %s first, and then try again.'),
                                 $needed_module, $needed_module);
                                 break;
                             default:
                             case MODULE_STATUS_NOTINSTALLED:
-                                $errors[] = sprintf(_('Module %s is required, yours is not installed.'), $needed_module);
+                                $errors[] = sprintf(__('Module %s is required, yours is not installed.'), $needed_module);
                                 break;
                             }
                         } else {
-                            $errors[] = sprintf(_('Module %s is required.'), $matches[1]);
+                            $errors[] = sprintf(__('Module %s is required.'), $matches[1]);
                         }
                     }
                     break;
@@ -628,7 +628,7 @@ function module_checkdepends($modulename) {
                     $file = _module_ampconf_string_replace($value);
 
                     if (!file_exists( $file )) {
-                        $errors[] = sprintf(_('File %s must exist.'), $file);
+                        $errors[] = sprintf(__('File %s must exist.'), $file);
                     }
                     break;
                 case 'engine':
@@ -675,9 +675,9 @@ function module_checkdepends($modulename) {
             $yourengine = $engineinfo['engine'].' '.$engineinfo['version'];
             // print it nicely
             if (count($engine_errors) == 1) {
-                $errors[] = sprintf(_('Requires engine %s, you have: %s'),$engine_errors[0],$yourengine);
+                $errors[] = sprintf(__('Requires engine %s, you have: %s'),$engine_errors[0],$yourengine);
             } else {
-                $errors[] = sprintf(_('Requires one of the following engines: %s; you have: %s'),implode(', ', $engine_errors),$yourengine);
+                $errors[] = sprintf(__('Requires one of the following engines: %s; you have: %s'),implode(', ', $engine_errors),$yourengine);
             }
         }
     }
@@ -692,23 +692,23 @@ function module_checkdepends($modulename) {
 function _module_comparison_error_message($module, $reqversion, $version, $operator) {
     switch ($operator) {
     case 'lt': case '<':
-        return sprintf(_('A %s version below %s is required, you have %s'), $module, $reqversion, $version);
+        return sprintf(__('A %s version below %s is required, you have %s'), $module, $reqversion, $version);
         break;
     case 'le': case '<=';
-        return sprintf(_('%s version %s or below is required, you have %s'), $module, $reqversion, $version);
+        return sprintf(__('%s version %s or below is required, you have %s'), $module, $reqversion, $version);
         break;
     case 'gt': case '>';
-        return sprintf(_('A %s version newer than %s required, you have %s'), $module, $reqversion, $version);
+        return sprintf(__('A %s version newer than %s required, you have %s'), $module, $reqversion, $version);
         break;
     case 'ne': case '!=': case '<>':
-        return sprintf(_('Your %s version (%s) is incompatible.'), $version, $reqversion);
+        return sprintf(__('Your %s version (%s) is incompatible.'), $version, $reqversion);
         break;
     case 'eq': case '==': case '=':
-        return sprintf(_('Only %s version %s is compatible, you have %s'), $module, $reqversion, $version);
+        return sprintf(__('Only %s version %s is compatible, you have %s'), $module, $reqversion, $version);
         break;
     default:
     case 'ge': case '>=':
-        return sprintf(_('%s version %s or higher is required, you have %s'), $module, $reqversion, $version);
+        return sprintf(__('%s version %s or higher is required, you have %s'), $module, $reqversion, $version);
     }
 }
 
@@ -766,12 +766,12 @@ function module_enable($modulename, $force = false) { // was enableModule
     $modules = module_getinfo($modulename);
 
     if ($modules[$modulename]['status'] == MODULE_STATUS_ENABLED) {
-        return array(_("Module ".$modulename." is already enabled"));
+        return array(__("Module ".$modulename." is already enabled"));
     }
 
     // doesn't make sense to skip this on $force - eg, we can't enable a non-installed or broken module
     if ($modules[$modulename]['status'] != MODULE_STATUS_DISABLED) {
-        return array(_("Module ".$modulename." cannot be enabled"));
+        return array(__("Module ".$modulename." cannot be enabled"));
     }
 
     if (!$force) {
@@ -818,7 +818,7 @@ function module_download($modulename, $force = false, $progress_callback = null,
 
     $res = module_getonlinexml($modulename, $override_xml);
     if ($res == null) {
-        return array(_("Module not found in repository"));
+        return array(__("Module not found in repository"));
     }
 
     $file = basename($res['location']);
@@ -851,25 +851,25 @@ function module_download($modulename, $force = false, $progress_callback = null,
              */
             exec("rm -rf ".$amp_conf['AMPWEBROOT']."/admin/modules/_cache/$modulename", $output, $exitcode);
             if ($exitcode != 0) {
-                return array(sprintf(_('Could not remove %s to install new version'), $amp_conf['AMPWEBROOT'].'/admin/modules/_cache/'.$modulename));
+                return array(sprintf(__('Could not remove %s to install new version'), $amp_conf['AMPWEBROOT'].'/admin/modules/_cache/'.$modulename));
             }
             exec("tar zxf ".escapeshellarg($filename)." -C ".escapeshellarg($amp_conf['AMPWEBROOT'].'/admin/modules/_cache/'), $output, $exitcode);
             if ($exitcode != 0) {
-                issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("failed to open %s module archive into _cache directory."),$filename));
-                return array(sprintf(_('Could not untar %s to %s'), $filename, $amp_conf['AMPWEBROOT'].'/admin/modules/_cache'));
+                issabelpbx_log(IPBX_LOG_ERROR,sprintf(__("failed to open %s module archive into _cache directory."),$filename));
+                return array(sprintf(__('Could not untar %s to %s'), $filename, $amp_conf['AMPWEBROOT'].'/admin/modules/_cache'));
             } else {
                 // since untarring was successful, remvove the tarball so they do not accumulate
                 if (unlink($filename) === false) {
-                    issabelpbx_log(IPBX_LOG_WARNING,sprintf(_("failed to delete %s from cache directory after opening module archive."),$filename));
+                    issabelpbx_log(IPBX_LOG_WARNING,sprintf(__("failed to delete %s from cache directory after opening module archive."),$filename));
                 }
             }
             exec("rm -rf ".$amp_conf['AMPWEBROOT']."/admin/modules/$modulename", $output, $exitcode);
             if ($exitcode != 0) {
-                return array(sprintf(_('Could not remove old module %s to install new version'), $amp_conf['AMPWEBROOT'].'/admin/modules/'.$modulename));
+                return array(sprintf(__('Could not remove old module %s to install new version'), $amp_conf['AMPWEBROOT'].'/admin/modules/'.$modulename));
             }
             exec("mv ".$amp_conf['AMPWEBROOT']."/admin/modules/_cache/$modulename ".$amp_conf['AMPWEBROOT']."/admin/modules/$modulename", $output, $exitcode);
             if ($exitcode != 0) {
-                return array(sprintf(_('Could not move %s to %s'), $amp_conf['AMPWEBROOT']."/admin/modules/_cache/$modulename", $amp_conf['AMPWEBROOT'].'/admin/modules/'));
+                return array(sprintf(__('Could not move %s to %s'), $amp_conf['AMPWEBROOT']."/admin/modules/_cache/$modulename", $amp_conf['AMPWEBROOT'].'/admin/modules/'));
             }
 
             // invoke progress_callback
@@ -884,7 +884,7 @@ function module_download($modulename, $force = false, $progress_callback = null,
     }
 
     if (!($fp = @fopen($filename,"w"))) {
-        return array(sprintf(_("Error opening %s for writing"), $filename));
+        return array(sprintf(__("Error opening %s for writing"), $filename));
     }
 
     if ($override_svn) {
@@ -903,10 +903,10 @@ function module_download($modulename, $force = false, $progress_callback = null,
             $url = $u;
             break;
         }
-        issabelpbx_log(IPBX_LOG_ERROR,sprintf(_('Failed download module tarball from %s, server may be down'),$u));
+        issabelpbx_log(IPBX_LOG_ERROR,sprintf(__('Failed download module tarball from %s, server may be down'),$u));
     }
     if (!$headers || !$url) {
-        return array(sprintf(_("Unable to connect to servers from URLs provided: %s"), implode(',',$url_list)));
+        return array(sprintf(__("Unable to connect to servers from URLs provided: %s"), implode(',',$url_list)));
     }
 
     // TODO: do we want to make more robust past this point:
@@ -926,10 +926,10 @@ function module_download($modulename, $force = false, $progress_callback = null,
     if ($amp_conf['MODULEADMINWGET'] || !$dp = @fopen($url,'r')) {
         exec("wget --tries=1 --timeout=600 -O $filename $url 2> /dev/null", $filedata, $retcode);
         if ($retcode != 0) {
-            return array(sprintf(_("Error opening %s for reading"), $url));
+            return array(sprintf(__("Error opening %s for reading"), $url));
         } else {
             if (!$dp = @fopen($filename,'r')) {
-                return array(sprintf(_("Error opening %s for reading"), $url));
+                return array(sprintf(__("Error opening %s for reading"), $url));
             }
         }
     }
@@ -949,15 +949,15 @@ function module_download($modulename, $force = false, $progress_callback = null,
 
 
     if (is_readable($filename) !== TRUE ) {
-        return array(sprintf(_('Unable to save %s'),$filename));
+        return array(sprintf(__('Unable to save %s'),$filename));
     }
 
     // Check the MD5 info against what's in the module's XML
     if (!isset($res['md5sum']) || empty($res['md5sum'])) {
-        //echo "<div class=\"error\">"._("Unable to Locate Integrity information for")." {$filename} - "._("Continuing Anyway")."</div>";
+        //echo "<div class=\"error\">".__("Unable to Locate Integrity information for")." {$filename} - ".__("Continuing Anyway")."</div>";
     } else if ($res['md5sum'] != md5 ($filedata)) {
         unlink($filename);
-        return array(sprintf(_('File Integrity failed for %s - aborting'), $filename));
+        return array(sprintf(__('File Integrity failed for %s - aborting'), $filename));
     }
 
     // invoke progress callback
@@ -973,25 +973,25 @@ function module_download($modulename, $force = false, $progress_callback = null,
      */
     exec("rm -rf ".$amp_conf['AMPWEBROOT']."/admin/modules/_cache/$modulename", $output, $exitcode);
     if ($exitcode != 0) {
-        return array(sprintf(_('Could not remove %s to install new version'), $amp_conf['AMPWEBROOT'].'/admin/modules/_cache/'.$modulename));
+        return array(sprintf(__('Could not remove %s to install new version'), $amp_conf['AMPWEBROOT'].'/admin/modules/_cache/'.$modulename));
     }
     exec("tar zxf ".escapeshellarg($filename)." -C ".escapeshellarg($amp_conf['AMPWEBROOT'].'/admin/modules/_cache/'), $output, $exitcode);
     if ($exitcode != 0) {
-        issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("failed to open %s module archive into _cache directory."),$filename));
-        return array(sprintf(_('Could not untar %s to %s'), $filename, $amp_conf['AMPWEBROOT'].'/admin/modules/_cache'));
+        issabelpbx_log(IPBX_LOG_ERROR,sprintf(__("failed to open %s module archive into _cache directory."),$filename));
+        return array(sprintf(__('Could not untar %s to %s'), $filename, $amp_conf['AMPWEBROOT'].'/admin/modules/_cache'));
     } else {
         // since untarring was successful, remvove the tarball so they do not accumulate
         if (unlink($filename) === false) {
-            issabelpbx_log(IPBX_LOG_WARNING,sprintf(_("failed to delete %s from cache directory after opening module archive."),$filename));
+            issabelpbx_log(IPBX_LOG_WARNING,sprintf(__("failed to delete %s from cache directory after opening module archive."),$filename));
         }
     }
     exec("rm -rf ".$amp_conf['AMPWEBROOT']."/admin/modules/$modulename", $output, $exitcode);
     if ($exitcode != 0) {
-        return array(sprintf(_('Could not remove old module %s to install new version'), $amp_conf['AMPWEBROOT'].'/admin/modules/'.$modulename));
+        return array(sprintf(__('Could not remove old module %s to install new version'), $amp_conf['AMPWEBROOT'].'/admin/modules/'.$modulename));
     }
     exec("mv ".$amp_conf['AMPWEBROOT']."/admin/modules/_cache/$modulename ".$amp_conf['AMPWEBROOT']."/admin/modules/$modulename", $output, $exitcode);
     if ($exitcode != 0) {
-        return array(sprintf(_('Could not move %s to %s'), $amp_conf['AMPWEBROOT']."/admin/modules/_cache/$modulename", $amp_conf['AMPWEBROOT'].'/admin/modules/'));
+        return array(sprintf(__('Could not move %s to %s'), $amp_conf['AMPWEBROOT']."/admin/modules/_cache/$modulename", $amp_conf['AMPWEBROOT'].'/admin/modules/'));
     }
 
     // invoke progress_callback
@@ -1008,17 +1008,17 @@ function module_handleupload($uploaded_file) {
     $errors = array();
 
     if (!isset($uploaded_file['tmp_name']) || !file_exists($uploaded_file['tmp_name'])) {
-        $errors[] = _("Error finding uploaded file - check your PHP and/or web server configuration");
+        $errors[] = __("Error finding uploaded file - check your PHP and/or web server configuration");
         return $errors;
     }
 
     if (!preg_match('/\.(tar\.gz|tgz|tar)$/', $uploaded_file['name'])) {
-        $errors[] = _("File must be in tar or tar+gzip (.tar, .tgz or .tar.gz) format");
+        $errors[] = __("File must be in tar or tar+gzip (.tar, .tgz or .tar.gz) format");
         return $errors;
     }
 
     if (!preg_match('/^([A-Za-z][A-Za-z0-9_]+)\-([0-9a-zA-Z]+(\.[0-9a-zA-Z]+)*)\.(tar\.gz|tgz|tar)$/', $uploaded_file['name'], $matches)) {
-        $errors[] = _("Filename not in correct format: must be modulename-version.[tar|tar.gz|tgz] (eg. custommodule-0.1.tgz)");
+        $errors[] = __("Filename not in correct format: must be modulename-version.[tar|tar.gz|tgz] (eg. custommodule-0.1.tgz)");
         return $errors;
     } else {
         $modulename = $matches[1];
@@ -1027,7 +1027,7 @@ function module_handleupload($uploaded_file) {
 
     $temppath = $amp_conf['AMPWEBROOT'].'/admin/modules/_cache/'.uniqid("upload");
     if (! @mkdir($temppath) ) {
-        return array(sprintf(_("Error creating temporary directory: %s"), $temppath));
+        return array(sprintf(__("Error creating temporary directory: %s"), $temppath));
     }
     $filename = $temppath.'/'.$uploaded_file['name'];
 
@@ -1036,7 +1036,7 @@ function module_handleupload($uploaded_file) {
     $tar_z_arg = substr($uploaded_file['name'],-4) == '.tar' ? '' : 'z';
     exec("tar ".$tar_z_arg."tf ".escapeshellarg($filename), $output, $exitcode);
     if ($exitcode != 0) {
-        $errors[] = _("Error untaring uploaded file. Must be a tar or tar+gzip file");
+        $errors[] = __("Error untaring uploaded file. Must be a tar or tar+gzip file");
         return $errors;
     }
 
@@ -1058,30 +1058,30 @@ function module_handleupload($uploaded_file) {
      */
     exec("rm -rf ".$amp_conf['AMPWEBROOT']."/admin/modules/_cache/$modulename", $output, $exitcode);
     if ($exitcode != 0) {
-        return array(sprintf(_('Could not remove %s to install new version'), $amp_conf['AMPWEBROOT'].'/admin/modules/_cache/'.$modulename));
+        return array(sprintf(__('Could not remove %s to install new version'), $amp_conf['AMPWEBROOT'].'/admin/modules/_cache/'.$modulename));
     }
     exec("tar ".$tar_z_arg."xf ".escapeshellarg($filename)." -C ".escapeshellarg($amp_conf['AMPWEBROOT'].'/admin/modules/_cache/'), $output, $exitcode);
     if ($exitcode != 0) {
-        issabelpbx_log(IPBX_LOG_ERROR,sprintf(_("failed to open %s module archive into _cache directory."),$filename));
-        return array(sprintf(_('Could not untar %s to %s'), $filename, $amp_conf['AMPWEBROOT'].'/admin/modules/_cache'));
+        issabelpbx_log(IPBX_LOG_ERROR,sprintf(__("failed to open %s module archive into _cache directory."),$filename));
+        return array(sprintf(__('Could not untar %s to %s'), $filename, $amp_conf['AMPWEBROOT'].'/admin/modules/_cache'));
     } else {
         // since untarring was successful, remvove the tarball so they do not accumulate
         if (unlink($filename) === false) {
-            issabelpbx_log(IPBX_LOG_WARNING,sprintf(_("failed to delete %s from cache directory after opening module archive."),$filename));
+            issabelpbx_log(IPBX_LOG_WARNING,sprintf(__("failed to delete %s from cache directory after opening module archive."),$filename));
         }
     }
     exec("rm -rf ".$amp_conf['AMPWEBROOT']."/admin/modules/$modulename", $output, $exitcode);
     if ($exitcode != 0) {
-        return array(sprintf(_('Could not remove old module %s to install new version'), $amp_conf['AMPWEBROOT'].'/admin/modules/'.$modulename));
+        return array(sprintf(__('Could not remove old module %s to install new version'), $amp_conf['AMPWEBROOT'].'/admin/modules/'.$modulename));
     }
     exec("mv ".$amp_conf['AMPWEBROOT']."/admin/modules/_cache/$modulename ".$amp_conf['AMPWEBROOT']."/admin/modules/$modulename", $output, $exitcode);
     if ($exitcode != 0) {
-        return array(sprintf(_('Could not move %s to %s'), $amp_conf['AMPWEBROOT']."/admin/modules/_cache/$modulename", $amp_conf['AMPWEBROOT'].'/admin/modules/'));
+        return array(sprintf(__('Could not move %s to %s'), $amp_conf['AMPWEBROOT']."/admin/modules/_cache/$modulename", $amp_conf['AMPWEBROOT'].'/admin/modules/'));
     }
 
     exec("rm -rf ".$temppath, $output, $exitcode);
     if ($exitcode != 0) {
-        $errors[] = sprintf(_('Error removing temporary directory: %s'), $temppath);
+        $errors[] = sprintf(__('Error removing temporary directory: %s'), $temppath);
     }
 
     if (count($errors)) {
@@ -1110,24 +1110,24 @@ function module_install($modulename, $force = false) {
     // make sure we have a directory, to begin with
     $dir = $amp_conf['AMPWEBROOT'].'/admin/modules/'.$modulename;
     if (!is_dir($dir)) {
-        return array(_("Cannot find module"));
+        return array(__("Cannot find module"));
     }
 
     // read the module.xml file
     $modules = module_getinfo($modulename);
     if (!isset($modules[$modulename])) {
-        return array(_("Could not read module.xml"));
+        return array(__("Could not read module.xml"));
     }
 
     // don't force this bit - we can't install a broken module (missing files)
     if ($modules[$modulename]['status'] == MODULE_STATUS_BROKEN) {
-        return array(_("Module ".$modules[$modulename]['rawname']." is broken and cannot be installed. You should try to download it again."));
+        return array(__("Module ".$modules[$modulename]['rawname']." is broken and cannot be installed. You should try to download it again."));
     }
 
     if (!$force) {
 
         if (!in_array($modules[$modulename]['status'], array(MODULE_STATUS_NOTINSTALLED, MODULE_STATUS_NEEDUPGRADE))) {
-            //return array(_("This module is already installed."));
+            //return array(__("This module is already installed."));
             // This isn't really an error, we just exit
             return true;
         }
@@ -1148,7 +1148,7 @@ function module_install($modulename, $force = false) {
 
     //We need to include developer files before the callback happens during an install
     if (!_module_runscripts_include($modules, 'install')) {
-        return array(_("Failed to run installation scripts"));
+        return array(__("Failed to run installation scripts"));
     }
 
     foreach (mod_func_iterator('module_install_check_callback', $modules) as $mod => $res) {
@@ -1162,7 +1162,7 @@ function module_install($modulename, $force = false) {
 
     // run the scripts
     if (!_module_runscripts($modulename, 'install', $modules)) {
-        return array(_("Failed to run installation scripts"));
+        return array(__("Failed to run installation scripts"));
     }
 
     if ($modules[$modulename]['status'] == MODULE_STATUS_NOTINSTALLED) {
@@ -1176,7 +1176,7 @@ function module_install($modulename, $force = false) {
     // run query
     $results = $db->query($sql);
     if(DB::IsError($results)) {
-        return array(sprintf(_("Error updating database. Command was: %s; error was: %s "), $sql, $results->getMessage()));
+        return array(sprintf(__("Error updating database. Command was: %s; error was: %s "), $sql, $results->getMessage()));
     }
 
     // module is now installed & enabled, invalidate the modulelist class since it is now stale
@@ -1211,16 +1211,16 @@ function module_install($modulename, $force = false) {
 function module_disable($modulename, $force = false) { // was disableModule
     $modules = module_getinfo($modulename);
     if (!isset($modules[$modulename])) {
-        return array(_("Specified module not found"));
+        return array(__("Specified module not found"));
     }
 
     if (!$force) {
         if ($modules[$modulename]['status'] != MODULE_STATUS_ENABLED) {
-            return array(_("Module not enabled: cannot disable"));
+            return array(__("Module not enabled: cannot disable"));
         }
 
         if ( ($depmods = module_reversedepends($modulename)) !== false) {
-            return array(_("Cannot disable: The following modules depend on this one: ").implode(',',$depmods));
+            return array(__("Cannot disable: The following modules depend on this one: ").implode(',',$depmods));
         }
     }
 
@@ -1240,16 +1240,16 @@ function module_uninstall($modulename, $force = false) {
 
     $modules = module_getinfo($modulename);
     if (!isset($modules[$modulename])) {
-        return array(_("Specified module not found"));
+        return array(__("Specified module not found"));
     }
 
     if (!$force) {
         if ($modules[$modulename]['status'] == MODULE_STATUS_NOTINSTALLED) {
-            return array(_("Module not installed: cannot uninstall"));
+            return array(__("Module not installed: cannot uninstall"));
         }
 
         if ( ($depmods = module_reversedepends($modulename)) !== false) {
-            return array(_("Cannot disable: The following modules depend on this one: ").implode(',',$depmods));
+            return array(__("Cannot disable: The following modules depend on this one: ").implode(',',$depmods));
         }
     }
 
@@ -1272,11 +1272,11 @@ function module_uninstall($modulename, $force = false) {
     $sql = "DELETE FROM modules WHERE modulename = '".$db->escapeSimple($modulename)."'";
     $results = $db->query($sql);
     if(DB::IsError($results)) {
-        return array(_("Error updating database: ").$results->getMessage());
+        return array(__("Error updating database: ").$results->getMessage());
     }
 
     if (!_module_runscripts($modulename, 'uninstall', $modules)) {
-        return array(_("Failed to run un-installation scripts"));
+        return array(__("Failed to run un-installation scripts"));
     }
 
     // Now make sure all feature codes are uninstalled in case the module has not already done it
@@ -1305,7 +1305,7 @@ function module_delete($modulename, $force = false) {
 
     $modules = module_getinfo($modulename);
     if (!isset($modules[$modulename])) {
-        return array(_("Specified module not found"));
+        return array(__("Specified module not found"));
     }
 
     if ($modules[$modulename]['status'] != MODULE_STATUS_NOTINSTALLED) {
@@ -1318,14 +1318,14 @@ function module_delete($modulename, $force = false) {
     //TODO : do this in pure php
     $dir = $amp_conf['AMPWEBROOT'].'/admin/modules/'.$modulename;
     if (!is_dir($dir)) {
-        return array(sprintf(_("Cannot delete directory %s"), $dir));
+        return array(sprintf(__("Cannot delete directory %s"), $dir));
     }
     if (strpos($dir,"..") !== false) {
         die_issabelpbx("Security problem, denying delete");
     }
     exec("rm -r ".escapeshellarg($dir),$output, $exitcode);
     if ($exitcode != 0) {
-        return array(sprintf(_("Error deleting directory %s (code %d)"), $dir, $exitcode));
+        return array(sprintf(__("Error deleting directory %s (code %d)"), $dir, $exitcode));
     }
 
     // uninstall will have called needreload() if necessary
@@ -1516,13 +1516,13 @@ function _module_runscripts_include($modulexml, $type) {
             if(!is_array($items['fileinclude'][$type])) {
                 $ret = _modules_doinclude($moduledir.'/'.$items['fileinclude'][$type], $modulename);
                 if (!$ret) {
-                    issabelpbx_log(IPBX_LOG_WARNING,sprintf(_("failed to include %s during %s of the %s module."),$items['fileinclude'][$type],$type,$modulename));
+                    issabelpbx_log(IPBX_LOG_WARNING,sprintf(__("failed to include %s during %s of the %s module."),$items['fileinclude'][$type],$type,$modulename));
                 }
             } else {
                 foreach($items['fileinclude'][$type] as $key => $filename) {
                     $ret = _modules_doinclude($moduledir.'/'.$filename, $modulename);
                     if (!$ret) {
-                        issabelpbx_log(IPBX_LOG_WARNING,sprintf(_("failed to include %s during %s of the %s module."),$filename,$type,$modulename));
+                        issabelpbx_log(IPBX_LOG_WARNING,sprintf(__("failed to include %s during %s of the %s module."),$filename,$type,$modulename));
                     }
                 }
             }
@@ -1752,17 +1752,17 @@ function module_run_notification_checks() {
 
     $notifications =& notifications::create($db);
     if ($cnt = count($modules_needup)) {
-        $text = (($cnt > 1) ? sprintf(_('You have %s disabled modules'), $cnt) : _('You have a disabled module'));
-        $desc = _('The following modules are disabled because they need to be upgraded:')."\n".implode(", ",array_keys($modules_needup));
-        $desc .= "\n\n"._('You should go to the module admin page to fix these.');
+        $text = (($cnt > 1) ? sprintf(__('You have %s disabled modules'), $cnt) : __('You have a disabled module'));
+        $desc = __('The following modules are disabled because they need to be upgraded:')."\n".implode(", ",array_keys($modules_needup));
+        $desc .= "\n\n".__('You should go to the module admin page to fix these.');
         $notifications->add_error('issabelpbx', 'modules_disabled', $text, $desc, '?type=tool&display=modules');
     } else {
         $notifications->delete('issabelpbx', 'modules_disabled');
     }
     if ($cnt = count($modules_broken)) {
-        $text = (($cnt > 1) ? sprintf(_('You have %s broken modules'), $cnt) : _('You have a broken module'));
-        $desc = _('The following modules are disabled because they are broken:')."\n".implode(", ",array_keys($modules_broken));
-        $desc .= "\n\n"._('You should go to the module admin page to fix these.');
+        $text = (($cnt > 1) ? sprintf(__('You have %s broken modules'), $cnt) : __('You have a broken module'));
+        $desc = __('The following modules are disabled because they are broken:')."\n".implode(", ",array_keys($modules_broken));
+        $desc .= "\n\n".__('You should go to the module admin page to fix these.');
         $notifications->add_critical('issabelpbx', 'modules_broken', $text, $desc, '?type=tool&display=modules', false);
     } else {
         $notifications->delete('issabelpbx', 'modules_broken');

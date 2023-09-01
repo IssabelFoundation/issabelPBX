@@ -14,12 +14,12 @@ function backup_jstree_list_dir($id, $path = '') {
 
 	$s = backup_get_server($id);
 	if(!$s) {
-		$ret[] = array('data' => _('error/not found!'));
+		$ret[] = array('data' => __('error/not found!'));
 	}
 
 	switch ($s['type']) {
 		case 'local':
-			$s['path'] = backup__($s['path']);
+			$s['path'] = backup___($s['path']);
 			$dir = scandir($s['path'] . '/' . $path);
 			foreach ($dir as $file) {
 
@@ -55,11 +55,11 @@ function backup_jstree_list_dir($id, $path = '') {
 			break;
 		case 'ftp':
 			//subsitute variables if nesesary
-			$s['host'] = backup__($s['host']);
-			$s['port'] = backup__($s['port']);
-			$s['user'] = backup__($s['user']);
-			$s['password'] = backup__($s['password']);
-			$s['path'] = backup__($s['path']);
+			$s['host'] = backup___($s['host']);
+			$s['port'] = backup___($s['port']);
+			$s['user'] = backup___($s['user']);
+			$s['password'] = backup___($s['password']);
+			$s['path'] = backup___($s['path']);
 			$path = trim($path, '/') . '/';
 			$ftp = ftp_connect($s['host'], $s['port']);
 			if (ftp_login($ftp, $s['user'], $s['password'])) {
@@ -92,14 +92,14 @@ function backup_jstree_list_dir($id, $path = '') {
 				//release handel
 				ftp_close($ftp);
 			} else {
-				$ret[] = array('data' => _('FTP Connection error!'));
+				$ret[] = array('data' => __('FTP Connection error!'));
 				dbug('ftp connect error');
 			}
 			break;
 		case 'ssh':
-			$s['path'] = backup__($s['path']);
-			$s['user'] = backup__($s['user']);
-			$s['host'] = backup__($s['host']);
+			$s['path'] = backup___($s['path']);
+			$s['user'] = backup___($s['user']);
+			$s['host'] = backup___($s['host']);
 			$cmd[] = 'ssh';//TODO: path shouldnt be hardocded
 			$cmd[] = '-o StrictHostKeyChecking=no -i';
 			$cmd[] = $s['key'];
@@ -157,7 +157,7 @@ function backup_get_manifest_db($bu) {
 	if ($ret) {
 		return unserialize($ret);
 	} else {
-		return _('manifest not found');
+		return __('manifest not found');
 	}
 
 }
@@ -246,7 +246,7 @@ function backup_restore_locate_file($id, $path) {
 
 	$s = backup_get_server($id);
 	if (!$s) {
-		return array('error_msg' => _('Backup Server not found!'));
+		return array('error_msg' => __('Backup Server not found!'));
 	}
 
 	//dest is where we gona put backup files pulled infrom other servers
@@ -258,23 +258,23 @@ function backup_restore_locate_file($id, $path) {
 
 	switch ($s['type']) {
 		case 'local':
-			$s['path'] = backup__($s['path']);
+			$s['path'] = backup___($s['path']);
 			$path = $s['path'] . '/' . $path;
 			break;
 		case 'ftp':
 			//subsitute variables if nesesary
-			$s['host'] = backup__($s['host']);
-			$s['port'] = backup__($s['port']);
-			$s['user'] = backup__($s['user']);
-			$s['password'] = backup__($s['password']);
-			$s['path'] = backup__($s['path']);
+			$s['host'] = backup___($s['host']);
+			$s['port'] = backup___($s['port']);
+			$s['user'] = backup___($s['user']);
+			$s['password'] = backup___($s['password']);
+			$s['path'] = backup___($s['path']);
 			$ftp = ftp_connect($s['host'], $s['port']);
 			if (ftp_login($ftp, $s['user'], $s['password'])) {
 				ftp_pasv($ftp, ($s['transfer'] == 'passive'));
 				if (ftp_get($ftp, $dest, $s['path'] . '/' . $path, FTP_BINARY)) {
 					$path = $dest;
 				} else {
-					return array('error_msg' => _('Failed to retrieve file from server!'));
+					return array('error_msg' => __('Failed to retrieve file from server!'));
 				}
 				ftp_close($ftp);
 			} else {
@@ -282,9 +282,9 @@ function backup_restore_locate_file($id, $path) {
 			}
 			break;
 		case 'ssh':
-			$s['path'] = backup__($s['path']);
-			$s['user'] = backup__($s['user']);
-			$s['host'] = backup__($s['host']);
+			$s['path'] = backup___($s['path']);
+			$s['user'] = backup___($s['user']);
+			$s['host'] = backup___($s['host']);
 			$cmd[] = ipbx_which('scp');
 			$cmd[] = '-o StrictHostKeyChecking=no -i';
 			$cmd[] = $s['key'];
@@ -298,7 +298,7 @@ function backup_restore_locate_file($id, $path) {
 			if ($ret === 0) {
 				$path = $dest;
 			} 	else {
-					return array('error_msg' => _('Failed to retrieve file from server!'));
+					return array('error_msg' => __('Failed to retrieve file from server!'));
 				}
 			break;
 	}
@@ -306,7 +306,7 @@ function backup_restore_locate_file($id, $path) {
 	if (file_exists($path)) {
 		return $path;
 	} else {
-		return array('error_msg' => _('File not found! ' . $path));
+		return array('error_msg' => __('File not found! ' . $path));
 	}
 }
 
@@ -432,7 +432,7 @@ function backup_migrate_legacy($bu) {
 		if ($status) {
 			// The grep failed, if there is a $dst file remove it and either way rename the $src
 			issabelpbx_log(IPBX_LOG_ERROR,
-				_("Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in current state"));
+				__("Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in current state"));
 			if (is_file($dst)) {
 				unlink($dst);
 			}
@@ -459,7 +459,7 @@ function backup_migrate_legacy($bu) {
 		exec(implode(' ', $cmd), $file, $status);
 		if ($status) {
 			// The grep failed, if there is a $dst file remove it and either way rename the $src
-			issabelpbx_log(IPBX_LOG_ERROR, _("Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr.sql in current state"));
+			issabelpbx_log(IPBX_LOG_ERROR, __("Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr.sql in current state"));
 			if (is_file($dst)) {
 				unlink($dst);
 			}

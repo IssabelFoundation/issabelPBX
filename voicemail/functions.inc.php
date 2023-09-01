@@ -317,7 +317,7 @@ function voicemail_configpageinit($pagename) {
         $currentcomponent->addjsfunc('isVoiceMailEnabled(value,theForm)',$js);
 
         // JS for verifying an empty password is OK
-        $msg = dgettext('voicemail','Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?');
+        $msg = _dgettext('voicemail','Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?');
         $js = 'if(theForm.vmpwd.value.match(/^[0-9A-D\*#]*$/i)) {return true;}else{return false;}';
         $js = 'if (theForm.vmpwd.value == "") { if(confirm("'.$msg.'")) { return true } else { return false; }} else { '.$js.' };';
         $currentcomponent->addjsfunc('isValidVoicemailPass(notused,theForm)', $js);
@@ -450,16 +450,16 @@ function voicemail_applyhooks() {
 
 	// Setup two option lists we need
 	// Enable / Disable list
-	$currentcomponent->addoptlistitem('vmena', 'enabled', _('Enabled'));
-	$currentcomponent->addoptlistitem('vmena', 'disabled', _('Disabled'));
+	$currentcomponent->addoptlistitem('vmena', 'enabled', __('Enabled'));
+	$currentcomponent->addoptlistitem('vmena', 'disabled', __('Disabled'));
 	$currentcomponent->setoptlistopts('vmena', 'sort', false);
 	// Enable / Disable vmx list
-	$currentcomponent->addoptlistitem('vmxena', '', _('Disabled'));
-	$currentcomponent->addoptlistitem('vmxena', 'checked', _('Enabled'));
+	$currentcomponent->addoptlistitem('vmxena', '', __('Disabled'));
+	$currentcomponent->addoptlistitem('vmxena', 'checked', __('Enabled'));
 	$currentcomponent->setoptlistopts('vmxena', 'sort', false);
 	// Yes / No Radio button list
-	$currentcomponent->addoptlistitem('vmyn', 'yes', _('yes'));
-	$currentcomponent->addoptlistitem('vmyn', 'no', _('no'));
+	$currentcomponent->addoptlistitem('vmyn', 'yes', __('yes'));
+	$currentcomponent->addoptlistitem('vmyn', 'no', __('no'));
 	$currentcomponent->setoptlistopts('vmyn', 'sort', false);
 
 	// Add the 'proces' function
@@ -545,38 +545,38 @@ function voicemail_configpageload() {
 
 		$fc_vm = featurecodes_getFeatureCode('voicemail', 'dialvoicemail');
 
-		$msgInvalidVmPwd = _("Please enter a valid Voicemail Password, using digits only");
-		$msgInvalidEmail = _("Please enter a valid Email Address");
-		$msgInvalidPager = _("Please enter a valid Pager Email Address");
-		$msgInvalidVMContext = _("VM Context cannot be blank");
+		$msgInvalidVmPwd = __("Please enter a valid Voicemail Password, using digits only");
+		$msgInvalidEmail = __("Please enter a valid Email Address");
+		$msgInvalidPager = __("Please enter a valid Pager Email Address");
+		$msgInvalidVMContext = __("VM Context cannot be blank");
 		$vmops_imapuser = isset($vmops_imapuser) ? $vmops_imapuser : '';
 		$vmops_imappassword = isset($vmops_imappassword) ? $vmops_imappassword : '';
 
-		$section = _("Voicemail");
-		$currentcomponent->addguielem($section, new gui_selectbox('vm', $currentcomponent->getoptlist('vmena'), $vmselect, _('Status'), '', false,"frm_${display}_voicemailEnabled() && frm_${display}_vmx_disable_fields()"));
+		$section = __("Voicemail");
+		$currentcomponent->addguielem($section, new gui_selectbox('vm', $currentcomponent->getoptlist('vmena'), $vmselect, __('Status'), '', false,"frm_${display}_voicemailEnabled() && frm_${display}_vmx_disable_fields()"));
 		$disable = ($vmselect == 'disabled');
-        $currentcomponent->addguielem($section, new gui_textbox('vmpwd', $vmpwd, _('Voicemail Password'), sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "frm_${display}_isVoiceMailEnabled() && !frm_${display}_isValidVoicemailPass()", $msgInvalidVmPwd, false,0,$disable));
-		$currentcomponent->addguielem($section, new gui_textbox('email', $email, _('Email Address'), _("The email address that Voicemails are sent to."), "frm_${display}_isVoiceMailEnabled() && !isEmail()", $msgInvalidEmail, true, 0, $disable));
-		$currentcomponent->addguielem($section, new gui_textbox('pager', $pager, _('Pager Email Address'), _("Pager/mobile email address that short Voicemail notifications are sent to."), "frm_${display}_isVoiceMailEnabled() && !isEmail()", $msgInvalidEmail, true, 0, $disable));
-		$currentcomponent->addguielem($section, new gui_radio('attach', $currentcomponent->getoptlist('vmyn'), $vmops_attach, _('Email Attachment'), _("Option to attach Voicemails to email."),$disable));
-		$currentcomponent->addguielem($section, new gui_radio('saycid', $currentcomponent->getoptlist('vmyn'), $vmops_saycid, _('Play CID'), _("Read back caller's telephone number prior to playing the incoming message, and just after announcing the date and time the message was left."), $disable));
-		$currentcomponent->addguielem($section, new gui_radio('envelope', $currentcomponent->getoptlist('vmyn'), $vmops_envelope, _('Play Envelope'), _("Envelope controls whether or not the Voicemail system will play the message envelope (date/time) before playing the Voicemail message. This setting does not affect the operation of the envelope option in the advanced Voicemail menu."), $disable));
-		$currentcomponent->addguielem($section, new gui_radio('delete', $currentcomponent->getoptlist('vmyn'), $vmops_delete, _('Delete Voicemail'), _("If set to \"yes\" the message will be deleted from the Voicemailbox (after having been emailed). Provides functionality that allows a user to receive their Voicemail via email alone, rather than having the Voicemail able to be retrieved from the Webinterface or the Extension handset.  CAUTION: MUST HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER."), $disable));
+        $currentcomponent->addguielem($section, new gui_textbox('vmpwd', $vmpwd, __('Voicemail Password'), sprintf(__("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "frm_${display}_isVoiceMailEnabled() && !frm_${display}_isValidVoicemailPass()", $msgInvalidVmPwd, false,0,$disable));
+		$currentcomponent->addguielem($section, new gui_textbox('email', $email, __('Email Address'), __("The email address that Voicemails are sent to."), "frm_${display}_isVoiceMailEnabled() && !isEmail()", $msgInvalidEmail, true, 0, $disable));
+		$currentcomponent->addguielem($section, new gui_textbox('pager', $pager, __('Pager Email Address'), __("Pager/mobile email address that short Voicemail notifications are sent to."), "frm_${display}_isVoiceMailEnabled() && !isEmail()", $msgInvalidEmail, true, 0, $disable));
+		$currentcomponent->addguielem($section, new gui_radio('attach', $currentcomponent->getoptlist('vmyn'), $vmops_attach, __('Email Attachment'), __("Option to attach Voicemails to email."),$disable));
+		$currentcomponent->addguielem($section, new gui_radio('saycid', $currentcomponent->getoptlist('vmyn'), $vmops_saycid, __('Play CID'), __("Read back caller's telephone number prior to playing the incoming message, and just after announcing the date and time the message was left."), $disable));
+		$currentcomponent->addguielem($section, new gui_radio('envelope', $currentcomponent->getoptlist('vmyn'), $vmops_envelope, __('Play Envelope'), __("Envelope controls whether or not the Voicemail system will play the message envelope (date/time) before playing the Voicemail message. This setting does not affect the operation of the envelope option in the advanced Voicemail menu."), $disable));
+		$currentcomponent->addguielem($section, new gui_radio('delete', $currentcomponent->getoptlist('vmyn'), $vmops_delete, __('Delete Voicemail'), __("If set to \"yes\" the message will be deleted from the Voicemailbox (after having been emailed). Provides functionality that allows a user to receive their Voicemail via email alone, rather than having the Voicemail able to be retrieved from the Webinterface or the Extension handset.  CAUTION: MUST HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER."), $disable));
     if ($amp_conf['VM_SHOW_IMAP'] || $vmops_imapuser || $vmops_imappassword) {
-		  $currentcomponent->addguielem($section, new gui_textbox('imapuser', $vmops_imapuser, _('IMAP Username'), sprintf(_("This is the IMAP username, if using IMAP storage"),"<br /><br />"),'','',true,0,$disable));
-		  $currentcomponent->addguielem($section, new gui_textbox('imappassword', $vmops_imappassword, _('IMAP Password'), sprintf(_("This is the IMAP password, if using IMAP storage"),"<br /><br />"),'','',true,0,$disable));
+		  $currentcomponent->addguielem($section, new gui_textbox('imapuser', $vmops_imapuser, __('IMAP Username'), sprintf(__("This is the IMAP username, if using IMAP storage"),"<br /><br />"),'','',true,0,$disable));
+		  $currentcomponent->addguielem($section, new gui_textbox('imappassword', $vmops_imappassword, __('IMAP Password'), sprintf(__("This is the IMAP password, if using IMAP storage"),"<br /><br />"),'','',true,0,$disable));
     }
-		$currentcomponent->addguielem($section, new gui_textbox('options', $options, _('VM Options'), sprintf(_("Separate options with pipe ( | )%sie: review=yes|maxmessage=60"),"<br /><br />"),'','',true,0,$disable));
-		$currentcomponent->addguielem($section, new gui_textbox('vmcontext', $vmcontext, _('VM Context'), _("This is the Voicemail Context which is normally set to default. Do not change unless you understand the implications."), "frm_${display}_isVoiceMailEnabled() && isEmpty()", $msgInvalidVMContext, false,0,$disable));
+		$currentcomponent->addguielem($section, new gui_textbox('options', $options, __('VM Options'), sprintf(__("Separate options with pipe ( | )%sie: review=yes|maxmessage=60"),"<br /><br />"),'','',true,0,$disable));
+		$currentcomponent->addguielem($section, new gui_textbox('vmcontext', $vmcontext, __('VM Context'), __("This is the Voicemail Context which is normally set to default. Do not change unless you understand the implications."), "frm_${display}_isVoiceMailEnabled() && isEmpty()", $msgInvalidVMContext, false,0,$disable));
 
-		$section = _("VmX Locater");
-		$currentcomponent->addguielem($section, new gui_selectbox('vmx_state', $currentcomponent->getoptlist('vmxena'), $vmx_state, _('VmX Locater&trade;'), _("Enable/Disable the VmX Locater feature for this user. When enabled all settings are controlled by the user in the User Portal (ARI). Disabling will not delete any existing user settings but will disable access to the feature"), false, "frm_{$display}_vmx_disable_fields()",$disable),5,6);
+		$section = __("VmX Locater");
+		$currentcomponent->addguielem($section, new gui_selectbox('vmx_state', $currentcomponent->getoptlist('vmxena'), $vmx_state, __('VmX Locater&trade;'), __("Enable/Disable the VmX Locater feature for this user. When enabled all settings are controlled by the user in the User Portal (ARI). Disabling will not delete any existing user settings but will disable access to the feature"), false, "frm_{$display}_vmx_disable_fields()",$disable),5,6);
 
 		$vmxhtml = voicemail_draw_vmxgui($extdisplay, $disable);
                 $mysec = preg_replace('/[^A-Za-z]/', '' ,$section);
 		$vmxhtml = '<tr class="'.$mysec.'"><td colspan="2"><table>'.$vmxhtml.'</table></td></tr>';
 
-		$msgValidNumber = _("Please enter a valid phone number using number digits only");
+		$msgValidNumber = __("Please enter a valid phone number using number digits only");
 		$vmxcustom_validate = "
 		defaultEmptyOK = true;
 		if (!theForm.vmx_option_0_system_default.checked && !isInteger(theForm.vmx_option_0_number.value)) 
@@ -639,18 +639,18 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 	$set_vmx_text = 
 		"
 			<tr>
-				<td><a href='#' class='info'>" . dgettext('voicemail',"Use When") . "<span>" . _("Menu options below are available during your personal Voicemail greeting playback. <br/><br/>Check both to use at all times.") . "<br></span></a></td> <td>
+				<td><a href='#' class='info'>" . _dgettext('voicemail',"Use When") . "<span>" . __("Menu options below are available during your personal Voicemail greeting playback. <br/><br/>Check both to use at all times.") . "<br></span></a></td> <td>
 					<input $tabindex_text $vmx_unavail_enabled_text_box_options $vmx_unavail_enabled_value type=checkbox name='vmx_unavail_enabled' id='vmx_unavail_enabled' value='checked'>
-					<small>" . _("unavailable") . "</small>
+					<small>" . __("unavailable") . "</small>
 					<input $tabindex_text $vmx_busy_enabled_text_box_options $vmx_busy_enabled_value type=checkbox name='vmx_busy_enabled' id='vmx_busy_enabled' value='checked'>
-					<small>" . _("busy") . "</small>
+					<small>" . __("busy") . "</small>
 				</td>
 			</tr>
 			<tr>
-				<td><a href='#' class='info'>" . dgettext('voicemail',"Voicemail Instructions") ."<span>" . _("Uncheck to play a beep after your personal Voicemail greeting.") . "<br></span></a></td>
+				<td><a href='#' class='info'>" . _dgettext('voicemail',"Voicemail Instructions") ."<span>" . __("Uncheck to play a beep after your personal Voicemail greeting.") . "<br></span></a></td>
 				<td>
 					<input $tabindex_text $vmx_play_instructions_text_box_options $vmx_play_instructions type=checkbox name='vmx_play_instructions' id='vmx_play_instructions' value='checked'>
-					<small>" . _("Standard Voicemail prompts.") . "</small>
+					<small>" . __("Standard Voicemail prompts.") . "</small>
 				</td>
 			</tr>
 		</table>
@@ -658,23 +658,23 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 		<br>
 		<table class='settings'>
 			<tr>
-				<td><a href='#' class='info'>" . _("Press 0:") . "<span>" . _("Pressing 0 during your personal Voicemail greeting goes to the Operator. Uncheck to enter another destination here. This feature can be used while still disabling VmX to allow an alternative Operator extension without requiring the VmX feature for the user.") . "<br></span></a>
+				<td><a href='#' class='info'>" . __("Press 0:") . "<span>" . __("Pressing 0 during your personal Voicemail greeting goes to the Operator. Uncheck to enter another destination here. This feature can be used while still disabling VmX to allow an alternative Operator extension without requiring the VmX feature for the user.") . "<br></span></a>
 				</td>
 				<td>
 					<input $tabindex_text $vmx_option_0_number_text_box_options name='vmx_option_0_number' id='vmx_option_0_number' type='text' size=24 value='$vmx_option_0_number'>
 				</td>
 				<td>
 					<input $tabindex_text $vmx_option_0_system_default_text_box_options $vmx_option_0_system_default type=checkbox name='vmx_option_0_system_default' id='vmx_option_0_system_default' value='checked' OnClick=\"frm_{$display}_vmx_disable_fields();\">
-					<small>" . _("Go To Operator") . "</small>
+					<small>" . __("Go To Operator") . "</small>
 				</td>
 			</tr>
 			<tr>
-				<td><a href='#' class='info'>" . _("Press 1:") . "<span>";
+				<td><a href='#' class='info'>" . __("Press 1:") . "<span>";
 			
 	if ($follow_me_disabled) {
-		$set_vmx_text .= _("The remaining options can have internal extensions, ringgroups, queues and external numbers that may be rung. It is often used to include your cell phone. You should run a test to make sure that the number is functional any time a change is made so you don't leave a caller stranded or receiving invalid number messages.");
+		$set_vmx_text .= __("The remaining options can have internal extensions, ringgroups, queues and external numbers that may be rung. It is often used to include your cell phone. You should run a test to make sure that the number is functional any time a change is made so you don't leave a caller stranded or receiving invalid number messages.");
 		} else {
-		$set_vmx_text .= _("Enter an alternate number here, then change your personal Voicemail greeting to let callers know to press 1 to reach that number. <br/><br/>If you'd like to use your Follow Me List, check \"Send to Follow Me\" and disable Follow Me above.");
+		$set_vmx_text .= __("Enter an alternate number here, then change your personal Voicemail greeting to let callers know to press 1 to reach that number. <br/><br/>If you'd like to use your Follow Me List, check \"Send to Follow Me\" and disable Follow Me above.");
 		}
 	
 	$set_vmx_text .=  
@@ -686,7 +686,7 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 				<td>";
 				
 	if (!$follow_me_disabled) {
-		$set_vmx_text .=  "<input $tabindex_text $vmx_option_1_system_default_text_box_options $vmx_option_1_system_default type=checkbox name='vmx_option_1_system_default' id='vmx_option_1_system_default' value='checked' OnClick=\"frm_{$display}_vmx_disable_fields(); \"><small>" . _("Send to Follow-Me") . "</small>";
+		$set_vmx_text .=  "<input $tabindex_text $vmx_option_1_system_default_text_box_options $vmx_option_1_system_default type=checkbox name='vmx_option_1_system_default' id='vmx_option_1_system_default' value='checked' OnClick=\"frm_{$display}_vmx_disable_fields(); \"><small>" . __("Send to Follow-Me") . "</small>";
 	}
 
 	$set_vmx_text .=  
@@ -694,7 +694,7 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 				</td>
 			</tr>
 			<tr>
-				<td><a href='#' class='info'>" . _("Press 2:") . "<span>" . _("Use any extensions, ringgroups, queues or external numbers. <br/><br/>Remember to re-record your personal Voicemail greeting and include instructions. Run a test to make sure that the number is functional.") . "<br></span></a></td>
+				<td><a href='#' class='info'>" . __("Press 2:") . "<span>" . __("Use any extensions, ringgroups, queues or external numbers. <br/><br/>Remember to re-record your personal Voicemail greeting and include instructions. Run a test to make sure that the number is functional.") . "<br></span></a></td>
 				<td>
 					<input $tabindex_text $vmx_option_2_number_text_box_options name='vmx_option_2_number' id='vmx_option_2_number' type='text' size=24 value='$vmx_option_2_number'>
 				</td>
@@ -774,15 +774,15 @@ function voicemail_mailbox_remove($mbox) {
 			exec("rm -rf $vm_dir",$output,$ret);
 			if ($ret) {
 				$return = false;
-				$text   = sprintf(_("Failed to delete vmbox: %s@%s"),$mbox, $vmcontext);
-				$etext  = sprintf(_("failed with retcode %s while removing %s:"),$ret, $vm_dir)."<br>";
+				$text   = sprintf(__("Failed to delete vmbox: %s@%s"),$mbox, $vmcontext);
+				$etext  = sprintf(__("failed with retcode %s while removing %s:"),$ret, $vm_dir)."<br>";
 				$etext .= implode("<br>",$output);
 				$nt =& notifications::create($db);
 				$nt->add_error('voicemail', 'MBOXREMOVE', $text, $etext, '', true, true);
 				//
 				// TODO: this does not work but we should give some sort of feedback that id did not work
 				//
-				// echo "<script>javascript:alert('$text\n"._("See notification panel for details")."')</script>";
+				// echo "<script>javascript:alert('$text\n".__("See notification panel for details")."')</script>";
 			}
 		}
 	}
@@ -957,40 +957,40 @@ function voicemail_getVoicemail() {
 //
 
 function voicemail_get_title($action, $context="", $account="") {
-    $title = "<h2>" . _("Voicemail Administration") . "</h2>";
+    $title = "<h2>" . __("Voicemail Administration") . "</h2>";
     return $title;
 
-	$title = "<h3>" . _("Voicemail Administration") . "<br />";
+	$title = "<h3>" . __("Voicemail Administration") . "<br />";
 	switch ($action) {
 		case "tz":
-			$title .= _("Timezone Definitions");
+			$title .= __("Timezone Definitions");
 			break;
 		case "bsettings":
 			if (!empty($account)) {
-				$title .= _("Basic Settings For: ") . "$account($context)";
+				$title .= __("Basic Settings For: ") . "$account($context)";
 			} else {
-				$title .= _("Basic settings view is for individual accounts.");
+				$title .= __("Basic settings view is for individual accounts.");
 			}
 			break;
 		case "settings":
 			if (!empty($account)) {
-				$title .= _("Advanced Settings For: ") . "$account($context)";
+				$title .= __("Advanced Settings For: ") . "$account($context)";
 			} else {
-				$title .= _("System Settings");
+				$title .= __("System Settings");
 			}
 			break;
 		case "dialplan":
-			$title .= _("Dialplan Behavior");
+			$title .= __("Dialplan Behavior");
 			break;
 		case "usage":
 			if (!empty($account)) {
-				$title .= _("Usage Statistics For: ") . "$account($context)";
+				$title .= __("Usage Statistics For: ") . "$account($context)";
 			} else {
-				$title .= _("System Usage Statistics");
+				$title .= __("System Usage Statistics");
 			}
 			break;
 		default:
-			$title .= "" . _("Invalid Action");
+			$title .= "" . __("Invalid Action");
 			break;
 	}
 	$title .= "</h3>";

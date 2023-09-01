@@ -28,7 +28,7 @@ switch ($action) {
 		} else {
 			miscapps_add($description, $ext, $dest);
             needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
 			redirect_standard();
@@ -46,7 +46,7 @@ switch ($action) {
 		if (empty($conflict_url)) {
 			miscapps_edit($miscapp_id, $description, $ext, $dest, $enabled);
 			needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
 			redirect_standard('extdisplay');
@@ -55,7 +55,7 @@ switch ($action) {
 	case 'delete':
 		miscapps_delete($miscapp_id);
 		needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
 		redirect_standard();
@@ -73,7 +73,7 @@ drawListMenu($rnaventries, $type, $display, $extdisplay);
 <div class='content'>
 <?php
 
-$helptext = _("Misc Applications are for adding feature codes that you can dial from internal phones that go to various destinations available in IssabelPBX. This is in contrast to the <strong>Misc Destinations</strong> module, which is for creating destinations that can be used by other IssabelPBX modules to dial internal numbers or feature codes.");
+$helptext = __("Misc Applications are for adding feature codes that you can dial from internal phones that go to various destinations available in IssabelPBX. This is in contrast to the <strong>Misc Destinations</strong> module, which is for creating destinations that can be used by other IssabelPBX modules to dial internal numbers or feature codes.");
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 
 if ($extdisplay) {
@@ -85,10 +85,10 @@ if ($extdisplay) {
 	$dest        = $row['dest'];
 	$enabled     = $row['enabled'];
 
-    echo "<div class='is-flex'><h2>"._("Edit Misc Application").": ".$description."</h2>$help</div>";
+    echo "<div class='is-flex'><h2>".__("Edit Misc Application").": ".$description."</h2>$help</div>";
 
 } else {
-	echo "<div class='is-flex'><h2>"._("Add Misc Application")."</h2>$help</div>";
+	echo "<div class='is-flex'><h2>".__("Add Misc Application")."</h2>$help</div>";
 }
 
 if (!empty($conflict_url)) {
@@ -102,11 +102,11 @@ if (!empty($conflict_url)) {
 	<input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
 
     <table class='table is-borderless is-narrow'>
-    <tr><td colspan="2"><h5><?php  echo dgettext('amp','General Settings') ?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php  echo _dgettext('amp','General Settings') ?></h5></td></tr>
 
 	<tr>
         <td>
-            <a href="#" class="info"><?php echo _("Description")?><span><?php echo _("The name of this application")?></span></a>
+            <a href="#" class="info"><?php echo __("Description")?><span><?php echo __("The name of this application")?></span></a>
         </td>
         <td>
             <input class='input w100' autofocus type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -115,7 +115,7 @@ if (!empty($conflict_url)) {
 
 	<tr>
         <td>
-            <a href="#" class="info"><?php echo _("Feature Code")?><span><?php echo _("The feature code/extension users can dial to access this application. This can also be modified on the Feature Codes page.")?></span></a>
+            <a href="#" class="info"><?php echo __("Feature Code")?><span><?php echo __("The feature code/extension users can dial to access this application. This can also be modified on the Feature Codes page.")?></span></a>
         </td>
         <td>
             <input type="text" class="extdisplay input w100" name="ext" value="<?php echo $ext; ?>"  tabindex="<?php echo ++$tabindex;?>"/>
@@ -124,17 +124,17 @@ if (!empty($conflict_url)) {
 
 	<tr>
         <td>
-            <a href="#" class="info"><?php echo _("Feature Status")?><span><?php echo _("If this code is enabled or not.")?></span></a>
+            <a href="#" class="info"><?php echo __("Feature Status")?><span><?php echo __("If this code is enabled or not.")?></span></a>
         </td>
         <td>
             <select name="enabled" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
-			   <option value="1" <?php if ($enabled) echo "SELECTED"; ?>><?php echo _("Enabled");?></option>
-			   <option value="0" <?php if (!$enabled) echo "SELECTED"; ?>><?php echo _("Disabled");?></option>
+			   <option value="1" <?php if ($enabled) echo "SELECTED"; ?>><?php echo __("Enabled");?></option>
+			   <option value="0" <?php if (!$enabled) echo "SELECTED"; ?>><?php echo __("Disabled");?></option>
 		    </select>
         </td>
 	</tr>
 	
-	<tr><td colspan="2"><br><h5><?php echo _("Destination")?></h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo __("Destination")?></h5></td></tr>
 
 <?php 
 //draw goto selects
@@ -147,7 +147,7 @@ echo drawselects($dest,0);
 <script>
 
 function checkMiscapp(theForm) {
-	var msgInvalidDescription = "<?php echo _('Invalid description specified'); ?>";
+	var msgInvalidDescription = "<?php echo __('Invalid description specified'); ?>";
 
 	// set up the Destination stuff
 	setDestinations(theForm, '_post_dest');

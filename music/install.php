@@ -34,7 +34,7 @@ if (isset($tresults)) {
 $handle = fopen($amp_conf['ASTETCDIR']."/musiconhold_additional.conf", "w");
 
 if (fwrite($handle, $File_Write) === FALSE) {
-	echo _("Cannot write to file")." ($tmpfname)";
+	echo __("Cannot write to file")." ($tmpfname)";
 	exit;
 }
 

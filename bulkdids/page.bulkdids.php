@@ -77,7 +77,7 @@ if ($_REQUEST["csv_type"] == "output") {
                     }
                 }
                 $i++;
-                $output .= sprintf(_("Row %s: Headers parsed."),$k)."<br>";
+                $output .= sprintf(__("Row %s: Headers parsed."),$k)."<br>";
                 continue;
             }
 
@@ -178,13 +178,13 @@ if ($_REQUEST["csv_type"] == "output") {
                 ob_start("bulkdids_fatal");
                 if(!core_did_add($vars,($vars["destination"]?$vars["destination"]:false)))  {
 //                    $output .= "ERROR: ".$vars["extension"]." ".$vars["description"].". See error above<br>";
-                    $output .= sprintf(_("Error: %s %s (see error above)."),$vars['extension'],$vars['description'])."<br>";
+                    $output .= sprintf(__("Error: %s %s (see error above)."),$vars['extension'],$vars['description'])."<br>";
 
                 }
                 else  {
 //                    $output .= "Row $k: Added: " . $vars["extension"];
 //                    $output .= "<br />";
-                    $output .= sprintf(_("Row %s: Added: %s"),$k,$vars['extension'])."<br>";
+                    $output .= sprintf(__("Row %s: Added: %s"),$k,$vars['extension'])."<br>";
                 }
                 // Add Language
                 if (isset($vars["langcode"]) && $bulkdids_lang_exists == TRUE) {
@@ -197,7 +197,7 @@ if ($_REQUEST["csv_type"] == "output") {
                         cidlookup_did_add($vars["cidlookup"],$vars["extension"],$vars["cidnum"]);
                     } else {
 //                        $output .= "WARNING: Row $k: " . $vars["extension"] . " CID Lookup NOT added, index ".$vars["cidlookup"]." does NOT exist<BR>";
-                        $output .= sprintf(_("Warning: Row %s: %s CID Lookup NOT added, index %s does not exist"),$k,$vars['extension'],$vars['cidlookup'])."<br>";
+                        $output .= sprintf(__("Warning: Row %s: %s CID Lookup NOT added, index %s does not exist"),$k,$vars['extension'],$vars['cidlookup'])."<br>";
                     }
                 }
                 //Add inbound fax information
@@ -215,7 +215,7 @@ if ($_REQUEST["csv_type"] == "output") {
                     $error = ob_start("bulkdids_fatal");
                     if(!core_did_add($vars,($vars["destination"]?$vars["destination"]:false)))  {
                         //$output .= "ERROR: ".$vars["extension"]." ".$vars["description"].". See error above<br>";
-                        $output .= sprintf(_("Error: %s %s (see error above)."),$vars['extension'],$vars['description'])."<br>";
+                        $output .= sprintf(__("Error: %s %s (see error above)."),$vars['extension'],$vars['description'])."<br>";
                     }
                     else  {
                         // Edit Language
@@ -229,7 +229,7 @@ if ($_REQUEST["csv_type"] == "output") {
                                 cidlookup_did_add($vars["cidlookup"],$vars["extension"],$vars["cidnum"]);
                             } else {
                                 //$output .= "WARNING: Row $k: " . $vars["extension"] . " CID Lookup NOT added, index ".$vars["cidlookup"]." does NOT exist<BR>";
-                                $output .= sprintf(_("Warning: Row %s: %s CID Lookup NOT added, index %s does not exist"),$k,$vars['extension'],$vars['cidlookup'])."<br>";
+                                $output .= sprintf(__("Warning: Row %s: %s CID Lookup NOT added, index %s does not exist"),$k,$vars['extension'],$vars['cidlookup'])."<br>";
                             }
                         }
                         if ($bulkdids_fax_exists == TRUE) {
@@ -239,12 +239,12 @@ if ($_REQUEST["csv_type"] == "output") {
                             }
                         }
 //                        $output .= "Row $k: Edited: " . $vars["extension"] . "<BR>";
-                        $output .= sprintf(_("Row %s: Edited: %s"),$k,$vars['extension'])."<br>";
+                        $output .= sprintf(__("Row %s: Edited: %s"),$k,$vars['extension'])."<br>";
                     }
 
                     ob_end_flush();
                     $change = true;
-                } else { $output .= sprintf(_("Row %s: DID (%s) not found, skipping..."),$k, $vars['cidnum'])."<br>"; ob_end_flush(); }
+                } else { $output .= sprintf(__("Row %s: DID (%s) not found, skipping..."),$k, $vars['cidnum'])."<br>"; ob_end_flush(); }
                 break;
             case "del":
                 if (core_did_get($vars["extension"],$vars["cidnum"])) {
@@ -274,7 +274,7 @@ if ($_REQUEST["csv_type"] == "output") {
             }
         } // while loop
     }
-    $output.=_("Finished")."<br>";
+    $output.=__("Finished")."<br>";
     print $output;
 
 } else {
@@ -287,11 +287,11 @@ if ($_REQUEST["csv_type"] == "output") {
         $table_output .=    "<table class='rules table is-borderless is-narrow notfixed' rules='rows'>";
         $table_output .=    "<tr valign='top'>
                         <th align='left' valign='top'>#</th>
-                        <th align='left' valign='top'>"._('Field')."</th>
-                        <th align='left' valign='top'>"._('Default')."</th>
-                        <th align='left' valign='top'>"._('Allowed')."</th>
-                        <th align='left' valign='top'>"._('Field Details')."</th>
-                        <th align='left' valign='top'>"._('Description')."</th>
+                        <th align='left' valign='top'>".__('Field')."</th>
+                        <th align='left' valign='top'>".__('Default')."</th>
+                        <th align='left' valign='top'>".__('Allowed')."</th>
+                        <th align='left' valign='top'>".__('Field Details')."</th>
+                        <th align='left' valign='top'>".__('Description')."</th>
                     </tr>";
         $i = 1;
         foreach ($table_rows as $row) {
@@ -299,7 +299,7 @@ if ($_REQUEST["csv_type"] == "output") {
             $table_output .= "<td valign='top'>" . $i . "</td>";
             $i++;
             foreach ($row as $col) {
-                $text = ($col!='')?_($col):'';
+                $text = ($col!='')?__($col):'';
                 $table_output .= "<td valign='top'>" . $text . "</td>";
             }
             $table_output .= "</tr>";
@@ -307,7 +307,7 @@ if ($_REQUEST["csv_type"] == "output") {
         $table_output .= "</table>";
     }
 
-$helptext = _("Manage DIDs in bulk using CSV files.");
+$helptext = __("Manage DIDs in bulk using CSV files.");
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 
 echo "<div class='content'>";
@@ -315,16 +315,16 @@ echo "<div class='content'>";
 <form name="uploadcsv" method="post" enctype="multipart/form-data">
 <input id="csv_type" name="csv_type" type="hidden" value="none" />
 <?php
-echo "<div class='is-flex'><h2>"._("Bulk DIDs")."</h2>$help</div>";
+echo "<div class='is-flex'><h2>".__("Bulk DIDs")."</h2>$help</div>";
 
 $blurb = "Start by downloading the %s (right-click > save as) or clicking the Export DIDs button.";
 $blurb2 = "Modify the CSV file to add, edit, or delete DIDs as desired. Then load the CSV file. After the CSV file is processed, the action taken for each row will be displayed.";
 
-echo "<div class='mx-2 mb-3'><p>".sprintf(_($blurb),'<a href="modules/bulkdids/template.csv">'._('Template CSV file').'</a>').'</p>';
+echo "<div class='mx-2 mb-3'><p>".sprintf(__($blurb),'<a href="modules/bulkdids/template.csv">'.__('Template CSV file').'</a>').'</p>';
 ?>
-<input type="submit" onclick="document.getElementById('csv_type').value='output';" class='button is-small is-rounded' value="<?php echo _('Export DIDs')?>" />
+<input type="submit" onclick="document.getElementById('csv_type').value='output';" class='button is-small is-rounded' value="<?php echo __('Export DIDs')?>" />
 <?php
-echo "<p class='mt-3'>"._($blurb2)."</p></div>\n";
+echo "<p class='mt-3'>".__($blurb2)."</p></div>\n";
 ?>
 
 <div class="file has-name is-fullwidth has-addons">
@@ -335,25 +335,25 @@ echo "<p class='mt-3'>"._($blurb2)."</p></div>\n";
         <i class="fa fa-upload"></i>
       </span>
       <span class="file-label">
-<?php echo _('Choose a CSV file...')?>
+<?php echo __('Choose a CSV file...')?>
       </span>
     </span>
     <span class="file-name" id="selected_file_name">
     </span>
   </label>
-  <div class='control'><input type='submit' class='button is-info' value="<?php echo _("Upload")?>" onclick="document.getElementById('csv_type').value='input'; $.LoadingOverlay('show')" tabindex="<?php echo ++$tabindex;?>"/></div>
+  <div class='control'><input type='submit' class='button is-info' value="<?php echo __("Upload")?>" onclick="document.getElementById('csv_type').value='input'; $.LoadingOverlay('show')" tabindex="<?php echo ++$tabindex;?>"/></div>
 </div>
 
 <!--
 &nbsp;&nbsp;CSV File to Load: <input name="csvFile" type="file" />
-<input type="submit" onclick="document.getElementById('csv_type').value='input';"  value="<?php echo _('Load File')?>" />
+<input type="submit" onclick="document.getElementById('csv_type').value='input';"  value="<?php echo __('Load File')?>" />
 -->
 
 </form>
 <div class="box">
-<h3><?php echo _('Bulk DIDs CSV File Columns');?></h3>
+<h3><?php echo __('Bulk DIDs CSV File Columns');?></h3>
 <p>
-<?php echo _('The table below explains each column in the CSV file. You can change the column order of the CSV file as you like, however, the column names must be preserved.');?>
+<?php echo __('The table below explains each column in the CSV file. You can change the column order of the CSV file as you like, however, the column names must be preserved.');?>
 </p>
 <?php
     print $table_output;

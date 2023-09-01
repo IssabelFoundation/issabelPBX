@@ -215,7 +215,7 @@ if ($action == "output") {
                 }
             }
             $i++;
-            $output .= sprintf(_("Row %s: Headers parsed."),$k)."<br>";
+            $output .= sprintf(__("Row %s: Headers parsed."),$k)."<br>";
             continue;
         }
 
@@ -909,7 +909,7 @@ if ($action == "output") {
                     }
                 }
                 if ($user_vmexists || core_users_get($vars["extension"]) || core_devices_get($vars["extension"])) {
-                    $output .= sprintf(_("Row %s: Extension %s already exists."),$k,$vars['extension'])."<br>";
+                    $output .= sprintf(__("Row %s: Extension %s already exists."),$k,$vars['extension'])."<br>";
                 } else {
                     if ($vm_exists) {
                         voicemail_mailbox_add($vars["extension"], $vars);
@@ -956,7 +956,7 @@ if ($action == "output") {
                         extensionroutes_add_user($vars['extension'], $route_list);
                     }
                     // begin status output for this row
-                    $output .= sprintf(_("Row %s: Added: %s"),$k,$vars['extension']);
+                    $output .= sprintf(__("Row %s: Added: %s"),$k,$vars['extension']);
                     // send notification email for new Voicemail account
                     $email_to = "";
                     // first use user email defined for Voicemail account
@@ -980,7 +980,7 @@ if ($action == "output") {
                     if ($email_to != "") {
                         // SUBJECT - set default subject if not set by user
                         if (!isset($email_subject) || $email_subject == "") {
-                            $email_subject = _("Voicemail Account Activated");
+                            $email_subject = __("Voicemail Account Activated");
                         }
                         // FROM - if specified, use that, otherwise leave blank
                         if (isset($email_from) && $email_from != "") {
@@ -998,22 +998,22 @@ if ($action == "output") {
                         $email_headers = $email_from_header . $email_replyto_header;
                         // BODY
                         if (!isset($email_body_open) || $email_body_open == "") {
-                            $email_body = _("Login information for your Voicemail account is as follows:"). "\n\n";
+                            $email_body = __("Login information for your Voicemail account is as follows:"). "\n\n";
                         } else {
                             $email_body = $email_body_open . "\n\n";
                         }
-                        $email_body .= "\t" . _("Account Name: ") . $vars["name"] . $line_end;
-                        $email_body .= "\t" . _("Extension: ") . $vars["extension"] . $line_end;
-                        $email_body .= "\t" . _("Voicemail Password: ") . $vars["vmpwd"] . $line_end;
+                        $email_body .= "\t" . __("Account Name: ") . $vars["name"] . $line_end;
+                        $email_body .= "\t" . __("Extension: ") . $vars["extension"] . $line_end;
+                        $email_body .= "\t" . __("Voicemail Password: ") . $vars["vmpwd"] . $line_end;
                         if (isset($email_body_close) && $email_body_close != "") {
                             $email_body .= "\n\n" . $email_body_close . $line_end;
                         }
 
                         // Mail it!
                         if (mail($email_to, $email_subject, $email_body, $email_headers)) {
-                            $output .= sprintf(_(", notification sent to: %s"),$email_to);;
+                            $output .= sprintf(__(", notification sent to: %s"),$email_to);;
                         } else {
-                            $output .= sprintf(_(", notification failed to: %s"),$email_to);;
+                            $output .= sprintf(__(", notification failed to: %s"),$email_to);;
                         }
                     }
                     // close status output for this row with line break
@@ -1073,7 +1073,7 @@ if ($action == "output") {
                     }
                 }
                 if ($user_vmexists || core_users_get($vars["extension"]) || core_devices_get($vars["extension"])) {
-                    $output .= sprintf(_("Row %s: Extension %s already exists."),$k,$vars['extension'])."<br>";
+                    $output .= sprintf(__("Row %s: Extension %s already exists."),$k,$vars['extension'])."<br>";
                 } else {
                     if ($vm_exists) {
                         voicemail_mailbox_add($vars["extension"], $vars);
@@ -1124,7 +1124,7 @@ if ($action == "output") {
                     }
                     extensionroutes_add_user($vars['extension'], $route_list);
                 }
-                $output .= sprintf(_("Row %s: Edited: %s"),$k,$vars['extension'])."<br>";
+                $output .= sprintf(__("Row %s: Edited: %s"),$k,$vars['extension'])."<br>";
                 break;
             case "del":
                 // Functions core_devices_del and core_users_del
@@ -1177,10 +1177,10 @@ if ($action == "output") {
                 if ($extensionroutes_exists) {
                     extensionroutes_del_user($vars['extension']);
                 }
-                $output .= sprintf(_("Row %s: Deleted: %s"),$k,$vars['extension'])."<br>";
+                $output .= sprintf(__("Row %s: Deleted: %s"),$k,$vars['extension'])."<br>";
                 break;
             default:
-                $output .= sprintf(_("Row %s: Unrecognized action: the only actions recognized are add, edit, del."),$k)."<br>";
+                $output .= sprintf(__("Row %s: Unrecognized action: the only actions recognized are add, edit, del."),$k)."<br>";
                 break;
             }  // end switch
 
@@ -1188,7 +1188,7 @@ if ($action == "output") {
                 needreload();
             }
         } else { // End if checkrange
-            $output .= sprintf(_("Row $k: Access denied to extension %s. No action performed."),$vars['extension'])."<br>";
+            $output .= sprintf(__("Row $k: Access denied to extension %s. No action performed."),$vars['extension'])."<br>";
         }
     } // while loop
     print $output;
@@ -1212,11 +1212,11 @@ if ($action == "output") {
             </colgroup>";
         $table_output .= "<tr valign='top'>
             <th align='left' valign='top' style='width:2em;'>#</th>
-            <th align='left' valign='top'>"._('Name')."</th>
-            <th align='left' valign='top'>"._('Default')."</th>
-            <th align='left' valign='top'>"._('Allowed')."</th>
-            <th align='left' valign='top'>"._('On Extensions page')."</th>
-            <th align='left' valign='top'>"._('Details')."</th>
+            <th align='left' valign='top'>".__('Name')."</th>
+            <th align='left' valign='top'>".__('Default')."</th>
+            <th align='left' valign='top'>".__('Allowed')."</th>
+            <th align='left' valign='top'>".__('On Extensions page')."</th>
+            <th align='left' valign='top'>".__('Details')."</th>
             </tr>";
         $i = 1;
         foreach ($table_rows as $row) {
@@ -1224,7 +1224,7 @@ if ($action == "output") {
             $table_output .= "<td valign='top'>" . $i . "</td>";
             $i++;
             foreach ($row as $col) {
-                $text = ($col!='')?_($col):'';
+                $text = ($col!='')?__($col):'';
                 $table_output .= "<td valign='top'>" . $text . "</td>";
             }
             $table_output .= "</tr>";
@@ -1234,15 +1234,15 @@ if ($action == "output") {
 
     echo "<div class='content'>";
 
-    $helptext = _("Manage Extensions in bulk using CSV files.");
+    $helptext = __("Manage Extensions in bulk using CSV files.");
     $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
-    echo "<div class='is-flex'><h2>"._("Bulk Extensions")."</h2>$help</div>";
+    echo "<div class='is-flex'><h2>".__("Bulk Extensions")."</h2>$help</div>";
 
     if($amp_conf['AMPEXTENSIONS'] == "deviceanduser") {
 
         echo "<div class='notification is-warning'>";
-        echo _("You are running IssabelPBX in <b>deviceanduser</b> mode");
-        echo "<br>"._("This module is only supported when IssabelPBX is in <b>extensions</b> mode");
+        echo __("You are running IssabelPBX in <b>deviceanduser</b> mode");
+        echo "<br>".__("This module is only supported when IssabelPBX is in <b>extensions</b> mode");
         echo "</div>";
 
     } else {
@@ -1252,12 +1252,12 @@ if ($action == "output") {
         $blurb3 = "Bulk extension changes can take a long time to complete. It can take 30-60 seconds to add 100 extensions on a small system. However, on a system with 2000 extensions it can take about 5 minutes to add 100 new extensions.";
 ?>
 <div class='box'>
-<?php echo "<p>".sprintf(_($blurb),'<a href="modules/bulkextensions/template.csv">','</a>').'</p>'; ?>
+<?php echo "<p>".sprintf(__($blurb),'<a href="modules/bulkextensions/template.csv">','</a>').'</p>'; ?>
 <form action="<?php $_SERVER["PHP_SELF"] ?>" name="uploadcsv" method="post" enctype="multipart/form-data">
 <input id="csv_type" name="csv_type" type="hidden" value="none" />
-<input type="submit" onclick="document.getElementById('csv_type').value='output';" value="<?php echo _("Export Extensions")?>" class="button is-rounded is-small"/>
+<input type="submit" onclick="document.getElementById('csv_type').value='output';" value="<?php echo __("Export Extensions")?>" class="button is-rounded is-small"/>
 <?php
-    echo "<div class='mt-3'>"._($blurb2)."</div><div class='notification is-warning is-light'>"._($blurb3)."</div>\n";
+    echo "<div class='mt-3'>".__($blurb2)."</div><div class='notification is-warning is-light'>".__($blurb3)."</div>\n";
 ?>
 
 <div class="file has-name is-fullwidth has-addons">
@@ -1268,35 +1268,35 @@ if ($action == "output") {
         <i class="fa fa-upload"></i>
       </span>
       <span class="file-label">
-<?php echo _('Choose a CSV file...')?>
+<?php echo __('Choose a CSV file...')?>
       </span>
     </span>
     <span class="file-name" id="selected_file_name">
     </span>
   </label>
-  <div class='control'><input type='submit' class='button is-info' value="<?php echo _("Upload")?>" onclick="document.getElementById('csv_type').value='input'; $.LoadingOverlay('show')" tabindex="<?php echo ++$tabindex;?>"/></div>
+  <div class='control'><input type='submit' class='button is-info' value="<?php echo __("Upload")?>" onclick="document.getElementById('csv_type').value='input'; $.LoadingOverlay('show')" tabindex="<?php echo ++$tabindex;?>"/></div>
 </div>
 
 </div>
 
-<!--&nbsp;&nbsp;<?php echo _("CSV File to Load")?>: <input name="csvFile" type="file" />
-<input type="submit" onclick="document.getElementById('csv_type').value='input';"  value="<?php echo _("Load File")?>" />
+<!--&nbsp;&nbsp;<?php echo __("CSV File to Load")?>: <input name="csvFile" type="file" />
+<input type="submit" onclick="document.getElementById('csv_type').value='input';"  value="<?php echo __("Load File")?>" />
 <hr />
 -->
 
 <div class='box'>
 <?php
-echo "<h3>"._("Email Notification for New Accounts")."</h3>";
+echo "<h3>".__("Email Notification for New Accounts")."</h3>";
 echo "<p>";
-echo _("By default, a notification email will be sent to the Voicemail email address set for each account added.")."<br>";
-echo _("The settings below can be used to control the content and destination of the notification emails.");
+echo __("By default, a notification email will be sent to the Voicemail email address set for each account added.")."<br>";
+echo __("The settings below can be used to control the content and destination of the notification emails.");
 ?>
 <table>
   <tr>
     <td>
       <a href="#" class="info">
-        <?php echo _("Default Address")?>
-        <span><?php echo _("If a Default Address is specified, notification emails for new accounts without a Voicemail email address will be sent to the Default Address.")?>
+        <?php echo __("Default Address")?>
+        <span><?php echo __("If a Default Address is specified, notification emails for new accounts without a Voicemail email address will be sent to the Default Address.")?>
         </span>
       </a>
     </td>
@@ -1307,8 +1307,8 @@ echo _("The settings below can be used to control the content and destination of
     <tr>
       <td>
         <a href="#" class="info">
-        <?php echo _("Override Address")?>
-          <span><?php echo _("If an Override Address is specified, all notification emails will be sent to the Override Address only. Type \"noemail\" (without the quotes) as the Override Address to stop notification emails from being sent.")?>
+        <?php echo __("Override Address")?>
+          <span><?php echo __("If an Override Address is specified, all notification emails will be sent to the Override Address only. Type \"noemail\" (without the quotes) as the Override Address to stop notification emails from being sent.")?>
           </span>
         </a>
       </td>
@@ -1319,9 +1319,9 @@ echo _("The settings below can be used to control the content and destination of
     <tr>
       <td>
         <a href="#" class="info">
-          <?php echo _("Email From")?>
+          <?php echo __("Email From")?>
           <span>
-            <?php echo _("The Email From header may be specified. If left blank, the system default will be used.")?>
+            <?php echo __("The Email From header may be specified. If left blank, the system default will be used.")?>
           </span>
         </a>
       </td>
@@ -1332,9 +1332,9 @@ echo _("The settings below can be used to control the content and destination of
     <tr>
       <td>
         <a href="#" class="info">
-        <?php echo _("Email Reply-To")?>
+        <?php echo __("Email Reply-To")?>
           <span>
-            <?php echo _("The Email Reply-To header may be specified. If left blank, the system default will be used.")?>
+            <?php echo __("The Email Reply-To header may be specified. If left blank, the system default will be used.")?>
           </span>
         </a>
       </td>
@@ -1345,9 +1345,9 @@ echo _("The settings below can be used to control the content and destination of
     <tr>
       <td>
         <a href="#" class="info">
-          <?php echo _("Email Subject")?>
+          <?php echo __("Email Subject")?>
           <span>
-            <?php echo _("The Email Subject may be specified. If left blank, the default subject, \"Voicemail Account Activated\", will be used.")?>
+            <?php echo __("The Email Subject may be specified. If left blank, the default subject, \"Voicemail Account Activated\", will be used.")?>
           </span>
         </a>
       </td>
@@ -1358,10 +1358,10 @@ echo _("The settings below can be used to control the content and destination of
     <tr>
       <td>
         <a href="#" class="info">
-        <?php echo _("Email Opening")?>
+        <?php echo __("Email Opening")?>
           <span>
-          <?php echo _("The Email Opening may be specified. If left blank, the default opening, \"Login information for your Voicemail account is as follows:\", will be used.")?>
-          <?php echo _("The account name, extension, and Voicemail password will automatically be inserted after the opening.")?> 
+          <?php echo __("The Email Opening may be specified. If left blank, the default opening, \"Login information for your Voicemail account is as follows:\", will be used.")?>
+          <?php echo __("The account name, extension, and Voicemail password will automatically be inserted after the opening.")?> 
           </span>
         </a>
       </td>
@@ -1372,9 +1372,9 @@ echo _("The settings below can be used to control the content and destination of
     <tr>
       <td>
         <a href="#" class="info">
-        <?php echo _("Email Closing")?>
+        <?php echo __("Email Closing")?>
           <span>
-          <?php echo _("The Email Closing may be specified. If any text is entered, it will be inserted at the end of the email.")?>
+          <?php echo __("The Email Closing may be specified. If any text is entered, it will be inserted at the end of the email.")?>
           </span>
         </a>
       </td>
@@ -1387,8 +1387,8 @@ echo _("The settings below can be used to control the content and destination of
 </div>
 <div class='box'>
 <?php 
-echo "<h3>"._("Bulk Extensions CSV File Columns")."</h3><p>";
-echo _("The table below explains each column in the CSV file. You can change the column order of the CSV file as you like, however, the column names must be preserved.")."<p>";
+echo "<h3>".__("Bulk Extensions CSV File Columns")."</h3><p>";
+echo __("The table below explains each column in the CSV file. You can change the column order of the CSV file as you like, however, the column names must be preserved.")."<p>";
 print $table_output;
 }
 }

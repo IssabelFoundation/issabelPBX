@@ -4,8 +4,8 @@ $table = new CI_Table;
 
 //item table
 $table->set_template(array('table_open' => '<table class="is-striped table is-narrow" id="template_table">'));
-//$table->set_heading(_('Type'), _('Path/DB'), _('Exclude'), _('Delete'));
-$table->set_heading(_('Type'), _('Path/DB'), _('Exclude'), array('style'=>'width:3.5em;', 'data'=> ''));
+//$table->set_heading(__('Type'), __('Path/DB'), __('Exclude'), __('Delete'));
+$table->set_heading(__('Type'), __('Path/DB'), __('Exclude'), array('style'=>'width:3.5em;', 'data'=> ''));
 
 $table->add_row('', '', '', '');
 $c = 0;
@@ -20,7 +20,7 @@ $html .= $table->clear();
 $html .= br() . PHP_EOL;
 if ($immortal != 'true') {
 //    $html .= '<img src="modules/backup/assets/images/add.png" style="cursor:pointer" title="Add Entry" id="add_entry" />';
-    $html .= '<button type="button" class="button is-small is-rounded" id="add_entry">'._('Add Entry').'</button>';
+    $html .= '<button type="button" class="button is-small is-rounded" id="add_entry">'.__('Add Entry').'</button>';
 }
 
 
@@ -39,11 +39,11 @@ $html	.= 'template_tr["mysql"] = '	. json_encode($mysql)	. PHP_EOL;
 $html	.= 'template_tr["astdb"] = '	. json_encode($astdb)	. PHP_EOL;
 $html	.= '</script>'. PHP_EOL;
 $data 	= array(
-			''		=> '== ' . _('chose') . ' ==',
-			'file'	=> _('File'),
-			'dir'	=> _('Directory'),
-			'mysql'	=> _('Mysql'),
-			'astdb'	=> _('Asterisk Database'),
+			''		=> '== ' . __('chose') . ' ==',
+			'file'	=> __('File'),
+			'dir'	=> __('Directory'),
+			'mysql'	=> __('Mysql'),
+			'astdb'	=> __('Asterisk Database'),
 			);
 $html	.= form_dropdown('add_tr_select', $data, '', 'style="display:none"');
 

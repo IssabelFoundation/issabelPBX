@@ -50,7 +50,7 @@ function framework_check_extension_usage($exten=true, $module_hash=false, $repor
 		}
 	}
 	if (!empty($exten_matches) && $report_conflicts) {
-		fwmsg::set_error(_("Extension Numbering Duplicate Conflict Detected"));
+		fwmsg::set_error(__("Extension Numbering Duplicate Conflict Detected"));
 	}
 	return $exten_matches;
 }
@@ -195,31 +195,31 @@ function framework_display_extension_usage_alert($usage_arr=array(),$split=false
 				if ($conflicts == 1) {
 					switch ($details['status']) {
 						case 'INUSE':
-                            $str = sprintf(dgettext('amp','Extension %s already in use by: %s'),$exten,htmlspecialchars($details['description']));
+                            $str = sprintf(_dgettext('amp','Extension %s already in use by: %s'),$exten,htmlspecialchars($details['description']));
 							if ($split) {
-								$url[] =  array('label' => sprintf(dgettext('amp','Edit %s'),htmlspecialchars($details['description'])),
+								$url[] =  array('label' => sprintf(_dgettext('amp','Edit %s'),htmlspecialchars($details['description'])),
 								                 'url'  =>  $details['edit_url'],
 								               );
 							} else {
-								$url[] =  "<a href='".$details['edit_url']."'>".sprintf(dgettext('amp','Edit %s'),htmlspecialchars($details['description']))."</a>";
+								$url[] =  "<a href='".$details['edit_url']."'>".sprintf(_dgettext('amp','Edit %s'),htmlspecialchars($details['description']))."</a>";
 							}
 							break;
 						default:
-						$str = sprintf(dgettext('amp',"This extension is not available: %s"),htmlspecialchars($details['description']));
+						$str = sprintf(_dgettext('amp',"This extension is not available: %s"),htmlspecialchars($details['description']));
 					}
 				} else {
 					if ($split) {
-						$url[] =  array('label' => sprintf(dgettext('amp','Edit %s'),htmlspecialchars($details['description'])),
+						$url[] =  array('label' => sprintf(_dgettext('amp','Edit %s'),htmlspecialchars($details['description'])),
 						                 'url'  =>  $details['edit_url'],
 													 );
 					} else {
-						$url[] =  "<a href='".$details['edit_url']."'>".sprintf(dgettext('amp','Edit %s'),htmlspecialchars($details['description']))."</a>";
+						$url[] =  "<a href='".$details['edit_url']."'>".sprintf(_dgettext('amp','Edit %s'),htmlspecialchars($details['description']))."</a>";
 					}
 				}
 			}
 		}
 		if ($conflicts > 1) {
-			$str .= ' '.sprintf(dgettext('amp',"There are %s additonal conflicts not listed"),$conflicts-1);
+			$str .= ' '.sprintf(_dgettext('amp',"There are %s additonal conflicts not listed"),$conflicts-1);
 		}
 	}
 	if ($alert) {
@@ -251,8 +251,8 @@ function framework_display_destination_usage($dest, $module_hash=false) {
 				$str .= $details['description']."<br />";
 			}
 		}
-		$object = $usage_count > 1 ? _("Objects"):_("Object");
-		return array('text' => '&nbsp;'.sprintf(dgettext('amp',"Used as Destination by %s %s"),$usage_count, dgettext('amp',$object)),
+		$object = $usage_count > 1 ? __("Objects"):__("Object");
+		return array('text' => '&nbsp;'.sprintf(_dgettext('amp',"Used as Destination by %s %s"),$usage_count, _dgettext('amp',$object)),
 		             'tooltip' => $str,
 							 	);
 	} else {

@@ -30,7 +30,7 @@ if (! function_exists("outn")) {
 // TODO: returning false will fail the install with #4345 checked in
 //
 if (!function_exists('timeconditions_timegroups_add_group_timestrings')) {
-  out(_('Time Conditions Module required and not present .. aborting install'));
+  out(__('Time Conditions Module required and not present .. aborting install'));
   return false;
 }
 
@@ -145,20 +145,20 @@ function customcontexts_updatedb() {
 
 $tgs = $db->getAll('SELECT * FROM customcontexts_timegroups',DB_FETCHMODE_ASSOC);
 if(!DB::IsError($tgs)) {
-  outn(_("migrating customcontexts_timegroups if needed.."));			    
+  outn(__("migrating customcontexts_timegroups if needed.."));			    
   foreach ($tgs as $tg) {
     $tg_strings = sql('SELECT time FROM customcontexts_timegroups_detail WHERE timegroupid = '.$tg['id'].' ORDER BY id','getCol','time');
     $tg_id = timeconditions_timegroups_add_group_timestrings($tg['description'],$tg_strings);
     sql("UPDATE customcontexts_includes set timegroupid = $tg_id WHERE timegroupid = {$tg['id']}");
   }
-  out(_("done"));			    
-  outn(_("removing customcontexts_timegroups and customcontexts_tiemgroups_detail tables.."));			    
+  out(__("done"));			    
+  outn(__("removing customcontexts_timegroups and customcontexts_tiemgroups_detail tables.."));			    
   unset($sql);
   $sql[] = "DROP TABLE IF EXISTS `customcontexts_timegroups`";
   $sql[] = "DROP TABLE IF EXISTS `customcontexts_timegroups_detail`";
   foreach ($sql as $q){
 	  $db->query($q);
   }
-  out(_("done"));			    
+  out(__("done"));			    
 }
 ?>

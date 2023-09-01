@@ -74,13 +74,13 @@ unset($fcc);
 // Sqlite3 does not like this syntax, but no migration needed since it started in 2.5
 //
 if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
-	outn(_("changing primary keys to all fields.."));
+	outn(__("changing primary keys to all fields.."));
 	$sql = 'ALTER TABLE `daynight` DROP PRIMARY KEY , ADD PRIMARY KEY ( `ext` , `dmode` , `dest` )';
 	$results = $db->query($sql);
 	if(DB::IsError($results)) {
-		out(_("ERROR: failed to alter primary keys ").$results->getMessage());
+		out(__("ERROR: failed to alter primary keys ").$results->getMessage());
 	} else {
-		out(_("OK"));
+		out(__("OK"));
 	}
 }
 

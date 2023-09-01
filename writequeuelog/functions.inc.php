@@ -139,7 +139,7 @@ function writequeuelog_getdestinfo($dest) {
         if (empty($thisqid)) {
             return array();
         } else {
-            return array('description' => sprintf(_("Write Queue Log %s: "),$thisqid['description']),
+            return array('description' => sprintf(__("Write Queue Log %s: "),$thisqid['description']),
                          'edit_url'    => 'config.php?display=writequeuelog&extdisplay='.urlencode($id),
                         );
         }

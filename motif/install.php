@@ -30,12 +30,12 @@ if($amp_conf["AMPDBENGINE"] == "mysql")  {
 ";
 	$check = $db->query($sql);
 	if(DB::IsError($check)) {
-		die_issabelpbx(_("Can not create Google Voice/Motif table"));
+		die_issabelpbx(__("Can not create Google Voice/Motif table"));
 	} else {
 		out("Database table for Google Voice/Motif installed");
 	}
 } else {
-	die_issabelpbx(_("Unknown/Not Supported database type: ".$amp_conf["AMPDBENGINE"]));
+	die_issabelpbx(__("Unknown/Not Supported database type: ".$amp_conf["AMPDBENGINE"]));
 }
 
 out('Updating Route Settings');

@@ -45,14 +45,14 @@ switch ($action) {
         }
         makestreamcatergory($path_to_dir,$stream);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
     case "addednew":
         music_makemusiccategory($path_to_dir);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -66,7 +66,7 @@ switch ($action) {
 
             $del = $_REQUEST['del'];
             if($del=='') {
-                $_SESSION['msg']=base64_encode(_('No file specified'));
+                $_SESSION['msg']=base64_encode(__('No file specified'));
                 $_SESSION['msgtype']='error';
                 $_SESSION['msgtstamp']=time();
                 redirect_standard('extdisplay');
@@ -76,28 +76,28 @@ switch ($action) {
                 "<div class='content'>
                 <article class='message is-warning'>
                   <div class='message-header'>
-                    <p>"._("Potential Security Breach")."</p>
+                    <p>".__("Potential Security Breach")."</p>
                   </div>
                   <div class='message-body'>
-                    <p>"._("You are trying to use an invalid character.").
+                    <p>".__("You are trying to use an invalid character.").
                   "</div>
                   </article>
                 </div></div></body></html>";
                 die($html);
             }
             if (($numf == 1) && ($extdisplay == "default") ){
-                $_SESSION['msg']=base64_encode(_("You must have at least one file for On Hold Music.  Please upload one before deleting this one."));
+                $_SESSION['msg']=base64_encode(__("You must have at least one file for On Hold Music.  Please upload one before deleting this one."));
                 $_SESSION['msgtype']='warning';
                 $_SESSION['msgtstamp']=time();
                 redirect_standard('extdisplay');
             } else {
                 if (@unlink($path_to_dir."/".$del)) {
-                    $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+                    $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
                     $_SESSION['msgtype']='success';
                     $_SESSION['msgtstamp']=time();
                     needreload();
                 } else {
-                    $_SESSION['msg']=base64_encode(_('Could not delete file'));
+                    $_SESSION['msg']=base64_encode(__('Could not delete file'));
                     $_SESSION['msgtype']='error';
                     $_SESSION['msgtstamp']=time();
                 }
@@ -111,11 +111,11 @@ switch ($action) {
         // Check to see if the upload failed for some reason
         if (isset($_FILES['mohfile']['name']) && !is_uploaded_file($_FILES['mohfile']['tmp_name'])) {
             if (strlen($_FILES['mohfile']['name']) == 0) {
-                $msg = _("Error Processing")."! "._("No file provided")." "._("Please select a file to upload");
+                $msg = __("Error Processing")."! ".__("No file provided")." ".__("Please select a file to upload");
             } else {
-                $msg = _("Error Processing")." ".htmlentities($_FILES['mohfile']['name'])."! "._("Check")." upload_max_filesize "._("in")." /etc/php.ini";
+                $msg = __("Error Processing")." ".htmlentities($_FILES['mohfile']['name'])."! ".__("Check")." upload_max_filesize ".__("in")." /etc/php.ini";
             }
-            $_SESSION['msg']=base64_encode(dgettext('amp',$msg));
+            $_SESSION['msg']=base64_encode(_dgettext('amp',$msg));
             $_SESSION['msgtype']='error';
             $_SESSION['msgtstamp']=time();
             redirect_standard('extdisplay');
@@ -133,13 +133,13 @@ switch ($action) {
             }
     
             if (isset($process_err)) {
-                $msg = _("Error Processing").": \"$process_err\" for ".htmlentities($_FILES['mohfile']['name'])."! ";
-                $msg.= _("This is not a fatal error, your Music on Hold may still work.");
-                $_SESSION['msg']=base64_encode(dgettext('amp',$msg));
+                $msg = __("Error Processing").": \"$process_err\" for ".htmlentities($_FILES['mohfile']['name'])."! ";
+                $msg.= __("This is not a fatal error, your Music on Hold may still work.");
+                $_SESSION['msg']=base64_encode(_dgettext('amp',$msg));
                 $_SESSION['msgtype']='warning';
                 $_SESSION['msgtstamp']=time();
             } else {
-                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+                $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
                 $_SESSION['msgtype']='success';
                 $_SESSION['msgtstamp']=time();
             }
@@ -155,7 +155,7 @@ switch ($action) {
             $path_to_dir = $path_to_moh_dir;
             $extdisplay='default';
             needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
             $_SESSION['msgtstamp']=time();
             redirect_standard();
@@ -166,10 +166,10 @@ switch ($action) {
 
 $rnaventries = array();
 $tresults    = music_list();
-$rnaventries[] = array('',_("Add Streaming Category"),'','','&action=addstream');
+$rnaventries[] = array('',__("Add Streaming Category"),'','','&action=addstream');
 foreach ($tresults as $tresult) {
     if ($tresult != "none") {
-        ( $tresult == 'default' ? $ttext = _("default") : $ttext = $tresult );
+        ( $tresult == 'default' ? $ttext = __("default") : $ttext = $tresult );
         $rnaventries[] = array($tresult,$ttext,'');
     }
 }
@@ -215,7 +215,7 @@ function draw_list($file_array, $path_to_dir, $extdisplay) {
     global $display;
     //list existing mp3s and provide delete buttons
     if ($file_array) {
-        echo "<tr><td colspan=2><h5>"._('Music Files')."</h5></td></tr>";
+        echo "<tr><td colspan=2><h5>".__('Music Files')."</h5></td></tr>";
         echo "<tr><td colspan=2>";
         echo "<table class='table is-striped'>";
         $cont=0;
@@ -223,7 +223,7 @@ function draw_list($file_array, $path_to_dir, $extdisplay) {
             $cont++;
 
             echo "<tr><td>$thisfile</td>";
-            echo "<td class='has-text-right'><button type='button' name='del$cont' id='del$cont' value='".urlencode($thisfile)."' class='button is-small is-danger' data-tooltip='"._('Delete')."' onclick='edit_onsubmit()'><span class='icon is-small'><i class='fa fa-trash'></i></span></button></td></tr>";
+            echo "<td class='has-text-right'><button type='button' name='del$cont' id='del$cont' value='".urlencode($thisfile)."' class='button is-small is-danger' data-tooltip='".__('Delete')."' onclick='edit_onsubmit()'><span class='icon is-small'><i class='fa fa-trash'></i></span></button></td></tr>";
 
         }
         echo "</table>";
@@ -273,7 +273,7 @@ function process_mohfile($mohfile,$onlywav=false,$volume=false) {
                         $returncode = 0;
                     } else {
                         $returncode = 1;
-                        $output[] = _("sox failed to convert file and original could not be copied as a fall back");
+                        $output[] = __("sox failed to convert file and original could not be copied as a fall back");
                     }
                 }
             }
@@ -326,14 +326,14 @@ function process_mohfile($mohfile,$onlywav=false,$volume=false) {
 <?php
 if ($action == 'add') {
     ?>
-    <h2><?php echo _("Add Music on Hold Category")?></h2>
+    <h2><?php echo __("Add Music on Hold Category")?></h2>
     <form id="mainform" name="addcategory" method="post" onsubmit="return addcategory_onsubmit(this);">
     <input type="hidden" name="display" value="<?php echo $display?>">
     <input type="hidden" name="action" value="addednew">
     <table class='table is-narrow is-borderless'>
-    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings')?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings')?></h5></td></tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Category Name")?><span><?php echo _("Allows you to Set up Different Categories for music on hold.  This is useful if you would like to specify different Hold Music or Commercials for various ACD Queues.")?> </span></a></td>
+        <td><a href="#" class="info"><?php echo __("Category Name")?><span><?php echo __("Allows you to Set up Different Categories for music on hold.  This is useful if you would like to specify different Hold Music or Commercials for various ACD Queues.")?> </span></a></td>
         <td><input autofocus class="input w100" type="text" name="extdisplay" value=""></td>
     </tr>
     </table>
@@ -341,8 +341,8 @@ if ($action == 'add') {
 <script>
 
 function addcategory_onsubmit(theForm) {
-    var msgInvalidCategoryName = "<?php echo _('Please enter a valid Category Name'); ?>";
-    var msgReservedCategoryName = "<?php echo _('Categories: \"none\" and \"default\" are reserved names. Please enter a different name'); ?>";
+    var msgInvalidCategoryName = "<?php echo __('Please enter a valid Category Name'); ?>";
+    var msgReservedCategoryName = "<?php echo __('Categories: \"none\" and \"default\" are reserved names. Please enter a different name'); ?>";
 
     defaultEmptyOK = false;
     if (!isAlphanumeric(theForm.extdisplay.value))
@@ -361,23 +361,23 @@ function addcategory_onsubmit(theForm) {
 <?php
 } else if ($action == 'addstream') {
 ?>
-    <h2><?php echo _("Add Streaming Category")?></h2>
+    <h2><?php echo __("Add Streaming Category")?></h2>
     <form id="mainform" name="addstream" method="post" onsubmit="return addstream_onsubmit(this);">
     <input type="hidden" name="display" value="<?php echo $display?>">
     <input type="hidden" name="action" value="addednewstream">
     <table class='table is-narrow is-borderless'>
-    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings')?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings')?></h5></td></tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Category Name")?><span><?php echo _("Allows you to Set up Different Categories for music on hold.  This is useful if you would like to specify different Hold Music or Commercials for various ACD Queues.")?> </span></a></td>
+        <td><a href="#" class="info"><?php echo __("Category Name")?><span><?php echo __("Allows you to Set up Different Categories for music on hold.  This is useful if you would like to specify different Hold Music or Commercials for various ACD Queues.")?> </span></a></td>
         <td><input autofocus class="input w100" type="text" name="extdisplay" value=""></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Application:")?><span><?php echo _("This is the \"application=\" line used to provide the streaming details to Asterisk. See information on musiconhold.conf configuration for different audio and Internet streaming source options.")?> </span></a></td>
+        <td><a href="#" class="info"><?php echo __("Application:")?><span><?php echo __("This is the \"application=\" line used to provide the streaming details to Asterisk. See information on musiconhold.conf configuration for different audio and Internet streaming source options.")?> </span></a></td>
         <td><input type="text" name="stream" class="input w100" value=""></td>
     </tr>
     <tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Optional Format:")?><span><?php echo _("Optional value for \"format=\" line used to provide the format to Asterisk. This should be a format understood by Asterisk such as ulaw, and is specific to the streaming application you are using. See information on musiconhold.conf configuration for different audio and Internet streaming source options.")?> </span></a></td>
+        <td><a href="#" class="info"><?php echo __("Optional Format:")?><span><?php echo __("Optional value for \"format=\" line used to provide the format to Asterisk. This should be a format understood by Asterisk such as ulaw, and is specific to the streaming application you are using. See information on musiconhold.conf configuration for different audio and Internet streaming source options.")?> </span></a></td>
         <td><input type="text" name="format" class="input w100" value=""></td>
     </tr>
     </table>
@@ -385,9 +385,9 @@ function addcategory_onsubmit(theForm) {
 <script>
 
 function addstream_onsubmit(theForm) {
-    var msgInvalidCategoryName = "<?php echo _('Please enter a valid Category Name'); ?>";
-    var msgInvalidStreamName = "<?php echo _('Please enter a streaming application command and arguments'); ?>";
-    var msgReservedCategoryName = "<?php echo _('Categories: \"none\" and \"default\" are reserved names. Please enter a different name'); ?>";
+    var msgInvalidCategoryName = "<?php echo __('Please enter a valid Category Name'); ?>";
+    var msgInvalidStreamName = "<?php echo __('Please enter a streaming application command and arguments'); ?>";
+    var msgReservedCategoryName = "<?php echo __('Categories: \"none\" and \"default\" are reserved names. Please enter a different name'); ?>";
 
     defaultEmptyOK = false;
     if (!isAlphanumeric(theForm.extdisplay.value))
@@ -422,15 +422,15 @@ function addstream_onsubmit(theForm) {
         $application = false;
     }
     if(is_array($application)) {
-        echo "<h2>"._("Edit Streaming Category").": $extdisplay</h2>";
+        echo "<h2>".__("Edit Streaming Category").": $extdisplay</h2>";
     } else {
-        echo "<h2>"._("Edit Music on Hold Category").": ".($extdisplay=="default"?_("default"):$extdisplay)."</h2>\n";
+        echo "<h2>".__("Edit Music on Hold Category").": ".($extdisplay=="default"?__("default"):$extdisplay)."</h2>\n";
     }
     $disabledelete=true;
     if ($extdisplay!="default") {
         $disabledelete=false;
         //$delURL = $_SERVER['PHP_SELF'].'?display='.urlencode($display).'&action=delete&extdisplay='.urlencode($extdisplay);
-        //$tlabel = sprintf(($application === false)?_("Delete Music Category %s"):_("Delete Streaming Category"),$extdisplay);
+        //$tlabel = sprintf(($application === false)?__("Delete Music Category %s"):__("Delete Streaming Category"),$extdisplay);
         //$label = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="images/core_delete.png"/>&nbsp;'.$tlabel.'</span>';
 ?>
         <!--p><a href="<?php echo $delURL ?>"><?php echo $label; ?></a></p-->
@@ -442,13 +442,13 @@ function addstream_onsubmit(theForm) {
         <input type="hidden" name="display" value="<?php echo $display?>">
         <input type="hidden" name="action" value="editednewstream">
         <table class='table is-narrow is-borderless'>
-        <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings')?></h5></td></tr>
+        <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings')?></h5></td></tr>
         <tr>
-            <td><a href="#" class="info"><?php echo _("Application:")?><span><?php echo _("This is the \"application=\" line used to provide the streaming details to Asterisk. See information on musiconhold.conf configuration for different audio and Internet streaming source options.")?> </span></a></td>
+            <td><a href="#" class="info"><?php echo __("Application:")?><span><?php echo __("This is the \"application=\" line used to provide the streaming details to Asterisk. See information on musiconhold.conf configuration for different audio and Internet streaming source options.")?> </span></a></td>
             <td><input type="text" autofocus name="stream" class="input w100" value="<?php echo $application[0]?>"></td>
         </tr>
         <tr>
-            <td><a href="#" class="info"><?php echo _("Optional Format:")?><span><?php echo _("Optional value for \"format=\" line used to provide the format to Asterisk. This should be a format understood by Asterisk such as ulaw, and is specific to the streaming application you are using. See information on musiconhold.conf configuration for different audio and Internet streaming source options.")?> </span></a></td>
+            <td><a href="#" class="info"><?php echo __("Optional Format:")?><span><?php echo __("Optional value for \"format=\" line used to provide the format to Asterisk. This should be a format understood by Asterisk such as ulaw, and is specific to the streaming application you are using. See information on musiconhold.conf configuration for different audio and Internet streaming source options.")?> </span></a></td>
             <td><input type="text" name="format" size="6" value="<?php echo htmlentities($format)?>"></td>
         </tr>
         </table>
@@ -457,7 +457,7 @@ function addstream_onsubmit(theForm) {
 <script>
 
 function editstream_onsubmit(theForm) {
-    var msgInvalidStreamName = "<?php echo _('Please enter a streaming application command and arguments'); ?>";
+    var msgInvalidStreamName = "<?php echo __('Please enter a streaming application command and arguments'); ?>";
 
     defaultEmptyOK = false;
     if (isEmpty(theForm.stream.value))
@@ -482,7 +482,7 @@ function editstream_onsubmit(theForm) {
         <input type="hidden" name="del" value="">
 
         <table class='table is-narrow is-borderless'>
-        <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings')?></h5></td></tr>
+        <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings')?></h5></td></tr>
 
 <?php
     if (file_exists("{$path_to_dir}/.random")) {
@@ -491,14 +491,14 @@ function editstream_onsubmit(theForm) {
         $checked='';
     }
     echo "<tr>\n<td>";
-    echo _("Enable Random Play");
+    echo __("Enable Random Play");
     echo "</td>\n<td class='has-text-right'>";
 
     echo "<div class='field'><input type='checkbox' class='switch' id='enablerandom' name='enablerandom' value='1' $checked tabindex='".++$tabindex."' onclick='enable_random(this)'/><label style='height:auto; line-height:1em; padding-left:3em;' for='enablerandom'>&nbsp;</label></div>\n";
     echo "</td>\n</tr>";
 
     echo "<tr><td colspan=2><h5>";
-    echo _("Upload a .wav or .mp3 file");
+    echo __("Upload a .wav or .mp3 file");
     echo "</h5></td></tr>";
 ?>
 
@@ -511,13 +511,13 @@ function editstream_onsubmit(theForm) {
         <i class="fa fa-upload"></i>
       </span>
       <span class="file-label">
-<?php echo _('Choose a file...')?>
+<?php echo __('Choose a file...')?>
       </span>
     </span>
     <span class="file-name" id="selected_file_name">
     </span>
   </label>
-  <div class='control'><input type='button' class='button is-info' value="<?php echo _("Upload")?>" onclick="document.upload.submit(upload);$.LoadingOverlay('show');" tabindex="<?php echo ++$tabindex;?>"/></div>
+  <div class='control'><input type='button' class='button is-info' value="<?php echo __("Upload")?>" onclick="document.upload.submit(upload);$.LoadingOverlay('show');" tabindex="<?php echo ++$tabindex;?>"/></div>
 </div>
 </td></tr>
 
@@ -525,16 +525,16 @@ function editstream_onsubmit(theForm) {
     if ($amp_conf['AMPMPG123']) {
 ?>
 <tr><td>
-        <a href="#" class="info"><?php echo "&nbsp;"._("Volume Adjustment")?><span> <?php echo _("The volume adjustment is a linear value. Since loudness is logarithmic, the linear level will be less of an adjustment. You should test out the installed music to assure it is at the correct volume. This feature will convert MP3 files to WAV files. If you do not have mpg123 installed, you can set the parameter: <strong>Convert Music Files to WAV</strong> to false in Advanced Settings") ?></span></a>
+        <a href="#" class="info"><?php echo "&nbsp;".__("Volume Adjustment")?><span> <?php echo __("The volume adjustment is a linear value. Since loudness is logarithmic, the linear level will be less of an adjustment. You should test out the installed music to assure it is at the correct volume. This feature will convert MP3 files to WAV files. If you do not have mpg123 installed, you can set the parameter: <strong>Convert Music Files to WAV</strong> to false in Advanced Settings") ?></span></a>
 </td><td>
         <select name="volume" tabindex="<?php echo ++$tabindex;?>" class="componentSelect">
-            <option value="1.50"><?php echo _("Volume 150%")?></option>
-            <option value="1.25"><?php echo _("Volume 125%")?></option>
-            <option value="" selected><?php echo _("Volume 100%")?></option>
-            <option value=".75"><?php echo _("Volume 75%")?></option>
-            <option value=".5"><?php echo _("Volume 50%")?></option>
-            <option value=".25"><?php echo _("Volume 25%")?></option>
-            <option value=".1"><?php echo _("Volume 10%")?></option>
+            <option value="1.50"><?php echo __("Volume 150%")?></option>
+            <option value="1.25"><?php echo __("Volume 125%")?></option>
+            <option value="" selected><?php echo __("Volume 100%")?></option>
+            <option value=".75"><?php echo __("Volume 75%")?></option>
+            <option value=".5"><?php echo __("Volume 50%")?></option>
+            <option value=".25"><?php echo __("Volume 25%")?></option>
+            <option value=".1"><?php echo __("Volume 10%")?></option>
         </select>
 </td></tr>
 <?php
@@ -542,7 +542,7 @@ function editstream_onsubmit(theForm) {
 ?>
 <tr>
 <td>
-<?php echo _("Do not encode wav to mp3")?>
+<?php echo __("Do not encode wav to mp3")?>
 </td>
 <td class='has-text-right'>
 <?php echo "<div class='field'><input type='checkbox' class='switch' id='onlywav' name='onlywav' value='1' checked='checked' tabindex='".++$tabindex."'/><label style='height:auto; line-height:1em; padding-left:3em;' for='onlywav'>&nbsp;</label></div>\n"; ?>

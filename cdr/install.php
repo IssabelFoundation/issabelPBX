@@ -36,65 +36,65 @@ if (! function_exists("out")) {
                 echo $text."<br />";
         }
 }
-out(_("Checking if field did is present in cdr table.."));
+out(__("Checking if field did is present in cdr table.."));
 $sql = "SELECT did FROM $db_name.$db_table_name";
 $confs = $dbcdr->getRow($sql, DB_FETCHMODE_ASSOC);
 if (DB::IsError($confs)) { // no error... Already there
-  out(_("Adding did field to cdr"));
-  out(_("This might take a while......"));
+  out(__("Adding did field to cdr"));
+  out(__("This might take a while......"));
   $sql = "ALTER TABLE $db_name.$db_table_name ADD did VARCHAR ( 50 ) NOT NULL DEFAULT ''";
   $results = $dbcdr->query($sql);
   if(DB::IsError($results)) {
     die($results->getMessage());
   }
-  out(_("Added field did to cdr"));
+  out(__("Added field did to cdr"));
 } else {
-  out(_("did field already present."));
+  out(__("did field already present."));
 }
 
-out(_("Checking if field recordingfile is present in cdr table.."));
+out(__("Checking if field recordingfile is present in cdr table.."));
 $sql = "SELECT recordingfile FROM $db_name.$db_table_name";
 $confs = $dbcdr->getRow($sql, DB_FETCHMODE_ASSOC);
 if (DB::IsError($confs)) { // no error... Already there
-    out(_("Adding recordingfile field to cdr"));
+    out(__("Adding recordingfile field to cdr"));
     $sql = "ALTER TABLE $db_name.$db_table_name ADD recordingfile VARCHAR ( 255 ) NOT NULL DEFAULT ''";
     $results = $dbcdr->query($sql);
     if(DB::IsError($results)) {
-        out(_('Unable to add recordingfile field to cdr table'));
+        out(__('Unable to add recordingfile field to cdr table'));
         issabelpbx_log(IPBX_LOG_ERROR,"failed to add recordingfile field to cdr table");
     } else {
-        out(_("Added field recordingfile to cdr"));
+        out(__("Added field recordingfile to cdr"));
     }
 } else {
-      out(_("recordingfile field already present."));
+      out(__("recordingfile field already present."));
 }
 
 $cid_fields = array('cnum', 'cnam', 'outbound_cnum', 'outbound_cnam', 'dst_cnam');
 foreach($cid_fields as $cf) {
-	out(_("Checking if field $cf is present in cdr table.."));
+	out(__("Checking if field $cf is present in cdr table.."));
 	$sql = "SELECT $cf FROM $db_name.$db_table_name";
 	$confs = $dbcdr->getRow($sql, DB_FETCHMODE_ASSOC);
 	if (DB::IsError($confs)) { // no error... Already there
-    	out(_("Adding $cf field to cdr"));
+    	out(__("Adding $cf field to cdr"));
     	$sql = "ALTER TABLE $db_name.$db_table_name ADD $cf VARCHAR ( 40 ) NOT NULL DEFAULT ''";
     	$results = $dbcdr->query($sql);
     	if(DB::IsError($results)) {
-        	out(_("Unable to add $cf field to cdr table"));
+        	out(__("Unable to add $cf field to cdr table"));
         	issabelpbx_log(IPBX_LOG_ERROR,"failed to add $cf field to cdr table");
     	} else {
-        	out(_("Added field $cf to cdr"));
+        	out(__("Added field $cf to cdr"));
 					// TODO: put onetime notification about old src field searches and query that could be
 					// done if user wants to get that into cnum field.
     	}
 	} else {
-      	out(_("$cf field already present."));
+      	out(__("$cf field already present."));
 	}
 }
 
 
 $db_cel_name = !empty($amp_conf['CELDBNAME'])?$amp_conf['CELDBNAME']:$db_name;
 $db_cel_table_name = !empty($amp_conf['CELDBTABLENAME'])?$amp_conf['CELDBTABLENAME']:"cel";
-outn(_("Creating $db_cel_table_name if needed.."));
+outn(__("Creating $db_cel_table_name if needed.."));
 $sql = "
 CREATE TABLE IF NOT EXISTS `" . $db_cel_name . "`.`" . $db_cel_table_name . "` (
   `id` int(11) NOT NULL auto_increment,
@@ -131,7 +131,7 @@ $check = $dbcdr->query($sql);
 if(DB::IsError($check)) {
 	die_issabelpbx("Can not create $db_cel_table_name table");
 } else {
-	out(_("OK"));
+	out(__("OK"));
 }
 
 $issabelpbx_conf =& issabelpbx_conf::create();

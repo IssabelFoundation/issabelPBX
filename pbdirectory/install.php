@@ -2,7 +2,7 @@
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //for translation only
 if (false) {
-_("Phonebook dial-by-name directory");
+__("Phonebook dial-by-name directory");
 }
 
 // Enable phonebook directory as a feature code
