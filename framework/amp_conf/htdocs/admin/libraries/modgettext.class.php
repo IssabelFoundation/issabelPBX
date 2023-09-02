@@ -54,14 +54,11 @@ class modgettext {
      * @return string
      */
     static public function textdomain($module) {
-        // can't do anything without gettext
-        if (!extension_loaded('gettext')) {
-            return null;
-        }
         // act like textdomain() would if passed null even though that is not the intended use
         if ($module === null) {
             return _textdomain(null);
-        }        
+        }
+        _textdomain($module);
         return textdomain(self::_bindtextdomain($module));
     }
 
