@@ -6,6 +6,7 @@
     <publisher>Mikael Carlsson</publisher>
     <license>GPLv2</license>
     <category>Reports</category>
+    <embedcategory>Advanced</embedcategory>
     <description>Creates a list of all extensions and their current settings for CW, CF, CFB, CFU, VMXB and VMXU</description>
     <menuitems>
         <extensionsettings>Extension Settings</extensionsettings>
