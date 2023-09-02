@@ -267,7 +267,11 @@ function _bind_textdomain_codeset($domain, $codeset) {
  */
 function _textdomain($domain) {
     global $default_domain;
-    $default_domain = $domain;
+    if($domain!='') {
+        $default_domain = $domain;
+    } else {
+        $default_domain = 'amp';
+    }
 }
 
 /**
@@ -282,10 +286,12 @@ function _gettext($msgid) {
  * Alias for gettext.
  */
 function __($msgid) {
-	global $default_domain;
-	$ret = _gettext($msgid);
-	file_put_contents("/tmp/i18n.log","__($msgid) en $default_domain devuelve $ret\n",FILE_APPEND);
-    return _gettext($msgid);
+    global $default_domain;
+    $ret = _gettext($msgid);
+    if($ret==$msgid && $default_domain!='amp') {
+        $ret = _dgettext('amp',$msgid);
+    }
+    return $ret;
 }
 
 /**
