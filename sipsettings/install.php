@@ -31,7 +31,7 @@ if(DB::IsError($check)) {
     array('slin'    ,'' , '2'),
     array('g726'    ,'' , '3'),
     array('gsm'     ,'3', '4'),
-    array('g729'    ,'' , '5'),
+    array('g729'    ,'5', '5'),
     array('ilbc'    ,'' , '6'),
     array('g723'    ,'' , '7'),
     array('g726aal2','' , '8'),
@@ -113,9 +113,9 @@ $sql = "SELECT data FROM pjsipsettings WHERE data = '1' and type = 1";
 $PJcodecs = sql($sql,'getOne');
 if (!$PJcodecs) {
 	sql("INSERT INTO pjsipsettings (keyword,data,seq,type) values ('ulaw', '1', 0, 1), 
-	('alaw', '1', 1, 1), ('slin', '', 2, 1), ('g726', '', 3, 1), ('gsm', '1', 4, 1), 
-	('g729', '', 5, 1), ('ilbc', '1', 6, 1), ('g723', '', 7, 1), ('g726aal2', '', 8, 1), 
-	('adpcm', '', 9, 1), ('lpc10', '', 10, 1), ('speex', '', 11, 1), ('g722', '', 12, 1), ('opus','1',13,1)");
+	('alaw', '2', 1, 1), ('slin', '', 2, 1), ('g726', '', 3, 1), ('gsm', '3', 4, 1),
+	('g729', '5', 5, 1), ('ilbc', '0', 6, 1), ('g723', '', 7, 1), ('g726aal2', '', 8, 1),
+	('adpcm', '', 9, 1), ('lpc10', '', 10, 1), ('speex', '', 11, 1), ('g722', '', 12, 1), ('opus','4',13,1)");
 }
 
 out(__("Migrate rtp.conf values if needed and initialize"));
