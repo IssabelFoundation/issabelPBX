@@ -13,9 +13,9 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2011 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2011.
 #
 # Use iconv sipsettings.pot -f UTF-8 -t ISO-8859-5 -o sipsettings.po
@@ -44,7 +44,7 @@ msgstr ""
 "значение - 5060"
 
 msgid "rtpholdtimeout must be higher than rtptimeout"
-msgstr "rtpholdtimeout должен быть больше чем rtptimeout"
+msgstr "rtpholdtimeout должен быть больше чм rtptimeout"
 
 #, php-format
 msgid "%s must be alphanumeric"
@@ -163,7 +163,7 @@ msgstr ""
 "externhost)"
 
 msgid "Refresh Rate"
-msgstr "Частота обновления"
+msgstr "Частот обновления"
 
 msgid ""
 "Asterisk: externrefresh. How often to lookup and refresh the External Host "
@@ -260,7 +260,7 @@ msgid "Maximum bitrate for video calls in kb/s"
 msgstr "Максимальная полоса пропускания для видео звонков в кбит/сек"
 
 msgid "kb/s"
-msgstr "кбит/сек"
+msgstr "кбит/ек"
 
 msgid "MEDIA & RTP Settings"
 msgstr "Установки Медиа и RTP"
@@ -279,7 +279,7 @@ msgstr ""
 "Параметр Asterisk: canreinvite. yes: стандартный реинвайт; no: никогда; "
 "nonat: дополнительная опция, разрешающая перенаправить медиа поток "
 "(реинвайт), но только если пир установлен не за NAT (RTP может определить "
-"это на основе ИП адресов абонентов) update: используется специальный SIP "
+"это на основе ИП адресов абонентов) update: испльзуется специальный SIP "
 "пакет UPDATE для приняти решения о перенаправлении вместо пакета INVITE. "
 "(Значение yes соответствует = update + nonat)"
 
@@ -333,7 +333,7 @@ msgid ""
 "Control whether subscriptions already INUSE get sent RINGING when another "
 "call is sent. Useful when using BLF."
 msgstr ""
-"Контролирует внутренний номер о состоянии абонента INUSE получением пакета "
+"Контролирует внутренний номер о состоянии абонента INUSE получением акета "
 "RINGING если уже принят один звонок. Удобно при использовании BLF - Busy "
 "Lamp Functionality."
 
@@ -403,7 +403,7 @@ msgstr ""
 "Параметр Asterisk: jbenable. Используйте опцию джиттер-буфер на принимающей "
 "стороне канала SIP. Включеный буфер будет задействован только если "
 "посылающая сторона может создать джиттер (дрожжание звука) в канале, а "
-"принимающая сторона не поддерживает джиттер. В таком случае сам канал SIP "
+"принимающая сорона не поддерживает джиттер. В таком случае сам канал SIP "
 "содаст поддержку джиттера на принимающей стороне буферизируя поток, если "
 "будут включены опции jbenable и jbforce (ниже). Например, такая обработка "
 "может быть задействована при записи дрожащего канала в голосовую почту, "
@@ -427,7 +427,7 @@ msgstr ""
 "принимающей стороне канала SIP. Обычным образом джиттер-буфер не "
 "используется, если посылаемый аудио сигнал в канале имеет признаки джитера, "
 "но необходимо отключать его при отправке в SIP канал удалённой стороне, то "
-"есть типичная ситуация при использовании джиттер-буфера на удалённой "
+"ест типичная ситуация при использовании джиттер-буфера на удалённой "
 "стороне. Эта опция форсирует использование буфера перед отправкой речевого "
 "потока в канал. Это не типичная ситуация, и выбирая её понимаем, что тем "
 "самым вносим дополнительную задержку в поток."
@@ -583,7 +583,7 @@ msgid ""
 "Add Field box to add additional fields. Blank boxes will be deleted when "
 "submitted."
 msgstr ""
-"Здесь можно также добавлять другие параметры SIP которые допустимы в "
+"десь можно также добавлять другие параметры SIP которые допустимы в "
 "конфигурации секции [general] файла sip.conf. Здесь нет автоматической "
 "проверки синтаксиса параметров, поэтому будьте осторожны. Укажите их "
 "построчно в формате: параметр = значение<br /> [setting] = [value]<br /> в "
