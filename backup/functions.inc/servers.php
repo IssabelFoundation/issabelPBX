@@ -251,19 +251,19 @@ function backup_get_server($id = '') {
 				if (!$servers[$s['id']]['name']) {
 					switch ($s['type']) {
 						case 'email':
-							$sname = _('Email Server ');
+							$sname = __('Email Server ');
 							break;
 						case 'ftp':
-							$sname = _('FTP Server ');
+							$sname = __('FTP Server ');
 							break;
 						case 'local':
-							$sname = _('Local Server ');
+							$sname = __('Local Server ');
 							break;
 						case 'mysql':
-							$sname = _('Mysql Server ');
+							$sname = __('Mysql Server ');
 							break;
 						case 'ssh':
-							$sname = _('SSH Server ');
+							$sname = __('SSH Server ');
 							break;
 					}
 					$servers[$s['id']]['name'] = $sname . $s['id'];
@@ -303,19 +303,19 @@ function backup_get_server($id = '') {
 			//default a name
 			switch ($ret['type']) {
 				case 'email':
-					$sname = _('Email Server ');
+					$sname = __('Email Server ');
 					break;
 				case 'ftp':
-					$sname = _('FTP Server ');
+					$sname = __('FTP Server ');
 					break;
 				case 'local':
-					$sname = _('Local Server ');
+					$sname = __('Local Server ');
 					break;
 				case 'mysql':
-					$sname = _('Mysql Server ');
+					$sname = __('Mysql Server ');
 					break;
 				case 'ssh':
-					$sname = _('SSH Server ');
+					$sname = __('SSH Server ');
 					break;
 			}
 			

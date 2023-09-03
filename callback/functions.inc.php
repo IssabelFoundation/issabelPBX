@@ -33,7 +33,7 @@ function callback_getdestinfo($dest) {
 			return array();
 		} else {
 			//$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
-			return array('description' => sprintf(_("Callback: %s"),$thisexten['description']),
+			return array('description' => sprintf(__("Callback: %s"),$thisexten['description']),
 			             'edit_url' => 'config.php?display=callback&itemid='.urlencode($exten),
 								  );
 		}
@@ -62,7 +62,7 @@ function callback_check_destinations($dest=true) {
 		$thisid   = $result['callback_id'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => sprintf(_("Callback: %s"),$result['description']),
+			'description' => sprintf(__("Callback: %s"),$result['description']),
 			'edit_url' => 'config.php?display=callback&type='.$type.'&itemid='.urlencode($thisid),
 		);
 	}

@@ -14,7 +14,7 @@ if(isset($_POST['action'])) {
         case "add":
             pinsets_add($_POST);
             needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
             redirect_standard();
@@ -22,7 +22,7 @@ if(isset($_POST['action'])) {
         case "delete":
             pinsets_del($extdisplay);
             needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
             $_SESSION['msgtstamp']=time();
             redirect_standard();
@@ -30,7 +30,7 @@ if(isset($_POST['action'])) {
         case "edit":
             pinsets_edit($extdisplay,$_POST);
             needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
             redirect_standard('extdisplay');
@@ -50,7 +50,7 @@ drawListMenu($rnaventries, $type, $display, $extdisplay);
 
 <!-- right side menu -->
 <!--div class="rnav"><ul>
-    <li><a class="<?php echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add PIN Set")?></a></li>
+    <li><a class="<?php echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo __("Add PIN Set")?></a></li>
 <?php
 if (isset($pinsetss)) {
     foreach ($pinsetss as $pinsets) {
@@ -61,15 +61,15 @@ if (isset($pinsetss)) {
 </ul></div-->
 <div class='content'>
 <?php
-$helptext = _("PIN Sets are used to manage lists of PINs that can be used to access restricted features such as Outbound Routes. The PIN can also be added to the CDR record's 'accountcode' field."); 
+$helptext = __("PIN Sets are used to manage lists of PINs that can be used to access restricted features such as Outbound Routes. The PIN can also be added to the CDR record's 'accountcode' field."); 
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 
 if ($extdisplay){
     //get details for this time condition
     $thisItem = pinsets_get($extdisplay);
-    echo "<div class='is-flex'><h2>"._("Edit PIN Set").": ".$thisItem['description']."</h2>$help</div>";
+    echo "<div class='is-flex'><h2>".__("Edit PIN Set").": ".$thisItem['description']."</h2>$help</div>";
 } else {
-    echo "<div class='is-flex'><h2>"._("Add PIN Set")."</h2>$help</div>";
+    echo "<div class='is-flex'><h2>".__("Add PIN Set")."</h2>$help</div>";
 
 }
 
@@ -81,22 +81,22 @@ if ($extdisplay){
     <input type="hidden" name="deptname" value="<?php echo $_SESSION["AMP_user"]->_deptname ?>">
 
     <table class='table is-borderless is-narrow'>
-    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings')?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings')?></h5></td></tr>
 
 <?php if ($extdisplay){ ?>
         <input type="hidden" name="account" value="<?php echo $extdisplay; ?>">
 <?php } ?>
 
     <tr>
-        <td><?php echo _("PIN Set Description:")?></td>
+        <td><?php echo __("PIN Set Description:")?></td>
         <td><input type="text" class="input w100" name="description" value="<?php echo (isset($thisItem['description']) ? $thisItem['description'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Record In CDR?:")?><span><?php echo _("Select this box if you would like to record the PIN in the call detail records when used")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Record In CDR?:")?><span><?php echo __("Select this box if you would like to record the PIN in the call detail records when used")?></span></a></td>
         <td><div class="field"><input type="checkbox" class="switch" id="chkaddtocdr" name="addtocdr" value="1" <?php echo (isset($thisItem['addtocdr']) && $thisItem['addtocdr'] == '1' ? 'CHECKED' : ''); ?> tabindex="<?php echo ++$tabindex;?>"><label for="chkaddtocdr"> </label></div></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("PIN List:")?><span><?php echo _("Enter a list of one or more PINs.  One PIN per line.")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("PIN List:")?><span><?php echo __("Enter a list of one or more PINs.  One PIN per line.")?></span></a></td>
         <td>
             <textarea class="textarea" name="passwords" tabindex="<?php echo ++$tabindex;?>"><?php echo (isset($thisItem['passwords']) ? $thisItem['passwords'] : ''); ?></textarea>
         </td>
@@ -113,11 +113,11 @@ function edit_onsubmit(theForm) {
     <?php if (function_exists('module_get_field_size')) { ?>
         var sizeDisplayName = "<?php echo module_get_field_size('pinsets', 'description', 50); ?>";
         if (!isCorrectLength(theForm.description.value, sizeDisplayName))
-            return warnInvalid(theForm.description, "<?php echo _('The PIN Set Description provided is too long.'); ?>")
+            return warnInvalid(theForm.description, "<?php echo __('The PIN Set Description provided is too long.'); ?>")
     <?php } ?>
 
     if (!isAlphanumeric(theForm.description.value))
-        return warnInvalid(theForm.description, "<?php echo _("Please enter a valid Description") ?>");
+        return warnInvalid(theForm.description, "<?php echo __("Please enter a valid Description") ?>");
 
     $.LoadingOverlay('show');
     return true;

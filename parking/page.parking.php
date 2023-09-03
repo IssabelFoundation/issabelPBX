@@ -47,14 +47,14 @@ switch ($action) {
                 needreload();
                 $vars['id'] = $_REQUEST['extdisplay'];
                 $id = parking_save($vars);
-                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+                $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
                 $_SESSION['msgtype']='success';
                 $_SESSION['msgtstamp']=time();
                 redirect_standard('extdisplay');
             } else {
                 needreload();
                 $id = parking_save($vars);
-                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+                $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
                 $_SESSION['msgtype']='success';
                 $_SESSION['msgtstamp']=time();
                 redirect_standard();
@@ -64,7 +64,7 @@ switch ($action) {
     case "delete":
         parking_delete($extdisplay);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         redirect_standard();

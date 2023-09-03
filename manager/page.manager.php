@@ -32,7 +32,7 @@ switch ($action) {
         $rights = manager_format_in($_REQUEST);
         manager_add($name,$secret,$deny,$permit,$rights['read'],$rights['write']);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -40,7 +40,7 @@ switch ($action) {
     case "delete":
         manager_del($extdisplay);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -50,7 +50,7 @@ switch ($action) {
         $rights = manager_format_in($_REQUEST);
         manager_add($name,$secret,$deny,$permit,$rights['read'],$rights['write']);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard('extdisplay');
@@ -75,9 +75,9 @@ if ($extdisplay){
     //get details for this manager
     $thisManager = manager_get($extdisplay);
     extract(manager_format_out($thisManager));
-    echo "<h2>"._("Edit Manager").": ".$extdisplay."</h2>\n";
+    echo "<h2>".__("Edit Manager").": ".$extdisplay."</h2>\n";
 } else {
-    echo "<h2>"._("Add Manager")."</h2>\n";
+    echo "<h2>".__("Add Manager")."</h2>\n";
 }
 
 ?>
@@ -85,30 +85,30 @@ if ($extdisplay){
     <input type="hidden" name="display" value="<?php echo $dispnum?>">
     <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add') ?>">
     <table class='table is-narrow is-borderless'>
-    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Manager name")?><span><?php echo _("Name of the manager without space.")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Manager name")?><span><?php echo __("Name of the manager without space.")?></span></a></td>
         <td><input class="input w100" autofocus type="text" name="name" value="<?php echo (isset($name) ? $name : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Manager secret")?><span><?php echo _("Password for the manager.")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Manager secret")?><span><?php echo __("Password for the manager.")?></span></a></td>
         <td><input class="input w100" type="text" name="secret" value="<?php echo (isset($secret) ? $secret : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Deny")?><span><?php echo _("If you want to deny many hosts or networks, use & char as separator.<br/><br/>Example: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Deny")?><span><?php echo __("If you want to deny many hosts or networks, use & char as separator.<br/><br/>Example: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0")?></span></a></td>
         <td><input class="input w100" type="text" name="deny" value="<?php echo (isset($deny) ? $deny : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Permit")?><span><?php echo _("If you want to permit many hosts or networks, use & char as separator. Look at deny example.")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Permit")?><span><?php echo __("If you want to permit many hosts or networks, use & char as separator. Look at deny example.")?></span></a></td>
         <td><input class="input w100" type="text" name="permit" value="<?php echo (isset($permit) ? $permit : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
     <tr>
-        <td colspan="2"><h5><?php echo _("Rights")?></h5></td>
+        <td colspan="2"><h5><?php echo __("Rights")?></h5></td>
     </tr>
     <tr>
         <td colspan="2">
         <table class='table is-narrow notfixed'>
-            <tr><th></th><th><?php echo _("Read")?></th><th><?php echo _("Write")?></th></tr>
+            <tr><th></th><th><?php echo __("Read")?></th><th><?php echo __("Write")?></th></tr>
 
 <?php 
     $mgrperms = array('system','call','log','verbose','command','agent','user');
@@ -124,7 +124,7 @@ if ($extdisplay){
          $wname = "w$perm";
 
          echo "<tr>\n";
-         echo "  <td><a href='javascript:void(0)' class='info'>$perm<span>"._("Check Asterisk documentation.")."</span></a></td>\n";
+         echo "  <td><a href='javascript:void(0)' class='info'>$perm<span>".__("Check Asterisk documentation.")."</span></a></td>\n";
          echo "  <td>";
          echo form_switch($rname, 'true', isset($$rname));
          echo "  </td>\n";
@@ -135,7 +135,7 @@ if ($extdisplay){
     }
 ?>
             <tr>
-                <td><a href="#" class="info">ALL<span><?php echo _("Check All/None.")?></span></a></td>
+                <td><a href="#" class="info">ALL<span><?php echo __("Check All/None.")?></span></a></td>
                 <td><?php echo form_switch('allnoner',false); ?></td>
                 <td><?php echo form_switch('allnonew',false); ?></td>
             </tr>
@@ -166,12 +166,12 @@ if ($extdisplay){
 
     function checkConf(theForm)
     {
-        var errName = "<?php echo _('The manager name cannot be empty or may not have any space in it.'); ?>";
-        var errSecret = "<?php echo _('The manager secret cannot be empty.'); ?>";
-        var errDeny = "<?php echo _('The manager deny is not well formatted.'); ?>";
-        var errPermit = "<?php echo _('The manager permit is not well formatted.'); ?>";
-        var errRead = "<?php echo _('The manager read field is not well formatted.'); ?>";
-        var errWrite = "<?php echo _('The manager write field is not well formatted.'); ?>";
+        var errName = "<?php echo __('The manager name cannot be empty or may not have any space in it.'); ?>";
+        var errSecret = "<?php echo __('The manager secret cannot be empty.'); ?>";
+        var errDeny = "<?php echo __('The manager deny is not well formatted.'); ?>";
+        var errPermit = "<?php echo __('The manager permit is not well formatted.'); ?>";
+        var errRead = "<?php echo __('The manager read field is not well formatted.'); ?>";
+        var errWrite = "<?php echo __('The manager write field is not well formatted.'); ?>";
 
         defaultEmptyOK = false;
         if ((theForm.name.value.search(/\s/) >= 0) || (theForm.name.value.length == 0))

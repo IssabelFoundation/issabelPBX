@@ -225,14 +225,14 @@ class queues_conf {
 		if (empty($compound_recordings)) {
 			$nt->delete('queues', 'COMPOUNDREC');
 		} else {
-			$str = _('Warning, there are compound recordings configured in '
+			$str = __('Warning, there are compound recordings configured in '
 				. 'one or more Queue configurations. Queues can not play these '
 				. 'so they have been truncated to the first sound file. You '
 				. 'should correct this problem.<br />Details:<br /><br />');
 			foreach ($compound_recordings as $item) {
-				$str .= sprintf(_("Queue - %s (%s): %s<br />"), $item['extension'], $item['descr'], $item['error']);
+				$str .= sprintf(__("Queue - %s (%s): %s<br />"), $item['extension'], $item['descr'], $item['error']);
 			}
-			$nt->add_error('queues', 'COMPOUNDREC', _("Compound Recordings in Queues Detected"), $str);
+			$nt->add_error('queues', 'COMPOUNDREC', __("Compound Recordings in Queues Detected"), $str);
 		}
 		return $output;
 	}

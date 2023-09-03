@@ -7,11 +7,11 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 function fw_langpacks_print_errors($src, $dst, $errors) {
 	out("error copying files:");
-	out(sprintf(_("'cp -ru' from src: '%s' to dst: '%s'...details follow"), $src, $dst));
-	issabelpbx_log(IPBX_LOG_ERROR, sprintf(_("fw_langpacks couldn't copy file to %s"),$dst));
+	out(sprintf(__("'cp -ru' from src: '%s' to dst: '%s'...details follow"), $src, $dst));
+	issabelpbx_log(IPBX_LOG_ERROR, sprintf(__("fw_langpacks couldn't copy file to %s"),$dst));
 	foreach ($errors as $error) {
 		out("$error");
-		issabelpbx_log(IPBX_LOG_ERROR, _("cp error output: $error"));
+		issabelpbx_log(IPBX_LOG_ERROR, __("cp error output: $error"));
 	}
 }
 global $amp_conf;
@@ -46,7 +46,7 @@ if (!function_exists('version_compare_issabel')) {
 	$htdocs_dest = $amp_conf['AMPWEBROOT'];
 
 	if (!file_exists($htdocs_source)) {
-    out(sprintf(_("No directory %s, install script not needed"),$htdocs_source));
+    out(sprintf(__("No directory %s, install script not needed"),$htdocs_source));
     return true;
   }
 
@@ -71,7 +71,7 @@ if (!function_exists('version_compare_issabel')) {
 			if ($ret != 0) {
 				fw_langpacks_print_errors($mo, $i18n."/".$lang."/LC_MESSAGES/".basename($mo), $out);
 			} else {
-				out(sprintf(_("Updated %s"),basename($mo)));
+				out(sprintf(__("Updated %s"),basename($mo)));
 			}
 		}
 	}
@@ -79,11 +79,11 @@ if (!function_exists('version_compare_issabel')) {
 	// We now delete the files, this makes sure that if someone had an unprotected system where they have not enabled
 	// the .htaccess files or otherwise allowed direct access, that these files are not around to possibly cause problems
 	//
-	out(_("fw_langpacks file install done, removing packages from module"));
+	out(__("fw_langpacks file install done, removing packages from module"));
 	unset($out);
 	exec("rm -rf $htdocs_source 2>&1",$out,$ret);
 	if ($ret != 0) {
-		out(_("an error occured removing the packaged files"));
+		out(__("an error occured removing the packaged files"));
 	} else {
-		out(_("files removed successfully"));
+		out(__("files removed successfully"));
 	}

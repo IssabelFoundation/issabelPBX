@@ -298,16 +298,16 @@ function iaxsettings_edit($iax_settings) {
 
 
 
-  $integer_msg = _("%s must be a non-negative integer");
+  $integer_msg = __("%s must be a non-negative integer");
   foreach ($iax_settings as $key => $val) {
     switch ($key) {
       case 'bindaddr':
-        $msg = _("Bind Address (bindaddr) must be an IP address.");
+        $msg = __("Bind Address (bindaddr) must be an IP address.");
         $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),'2',IAX_NORMAL);
       break;
 
       case 'bindport':
-        $msg = _("Bind Port (bindport) must be between 1024..65535, default 4569");
+        $msg = __("Bind Port (bindport) must be between 1024..65535, default 4569");
         $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'1',IAX_NORMAL);
       break;
 
@@ -343,7 +343,7 @@ function iaxsettings_edit($iax_settings) {
       break;
 
       case 'resyncthreshold':
-        $msg = _("resyncthreshold must be a non-negative integer or -1 to disable");
+        $msg = __("resyncthreshold must be a non-negative integer or -1 to disable");
         $save_settings[] = array($key,$db->escapeSimple($vd->is_int($val,$key,$msg,true)),'5',IAX_NORMAL);
       break;
 

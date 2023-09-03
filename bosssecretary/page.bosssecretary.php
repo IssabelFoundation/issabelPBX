@@ -14,7 +14,7 @@
 
 $extensionsCleaned = array();
 $dispnum           = 'bosssecretary';
-$title             = _("Boss Secretary");
+$title             = __("Boss Secretary");
 $params            = array();
 $extdisplay        = isset($_REQUEST['extdisplay'])?htmlspecialchars($_REQUEST['extdisplay']):'';
 $action            = isset($_REQUEST['action'])?htmlspecialchars($_REQUEST['action']):'';
@@ -33,7 +33,7 @@ if ($action=='add') {
     if (empty($errors))
     {
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -58,14 +58,14 @@ elseif($action=='edit') {
     {
         $group_label = htmlentities($_POST['group_label']);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp',sprintf(_("Group %s was edited successfully"),$group_label)));
+        $_SESSION['msg']=base64_encode(_dgettext('amp',sprintf(__("Group %s was edited successfully"),$group_label)));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard('extdisplay');
     }
     else
     {
-        $_SESSION['msg']=base64_encode(dgettext('amp',$errors[0]));
+        $_SESSION['msg']=base64_encode(_dgettext('amp',$errors[0]));
         $_SESSION['msgtype']='error';
         $_SESSION['msgtstamp']=time();
         $params["extdisplay"]    = $_POST["extdisplay"];
@@ -80,11 +80,11 @@ elseif ($action=='showedit' || $action=='showadd') {
 
     if(bosssecretary_group_exists($extdisplay)) {
         $params = bosssecretary_set_params_to_edit(bosssecretary_get_data_of_group($extdisplay));
-        $title  = _('Edit Boss Secretary Group').": ".$params['group_label'];
+        $title  = __('Edit Boss Secretary Group').": ".$params['group_label'];
         $content = bosssecretary_get_form_edit($params);
     } else {
         //add
-        $title  = _('Add Boss Secretary Group');
+        $title  = __('Add Boss Secretary Group');
         $params['action']=$action;
         $content = bosssecretary_get_form_add($params);
     }
@@ -93,7 +93,7 @@ elseif ($action=='delete') {
     if (bosssecretary_group_exists($extdisplay)) {
         if (bosssecretary_group_delete($extdisplay)) {
             needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
             $_SESSION['msgtstamp']=time();
             redirect_standard();

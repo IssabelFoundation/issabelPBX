@@ -13,7 +13,7 @@ switch ($action) {
     case "add":
         $_REQUEST['extdisplay'] = miscdests_add($_REQUEST['description'],$_REQUEST['destdial']);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -21,7 +21,7 @@ switch ($action) {
     case "delete":
         miscdests_del($extdisplay);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -29,7 +29,7 @@ switch ($action) {
     case "edit":  //just delete and re-add
         miscdests_update($extdisplay,$_REQUEST['description'],$_REQUEST['destdial']);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard('extdisplay');
@@ -53,10 +53,10 @@ if ($extdisplay){
     extract($thisMiscDest);
 }
 
-$helptext = _("Misc Destinations are for adding destinations that can be used by other IssabelPBX modules, generally used to route incoming calls. If you want to create feature codes that can be dialed by internal users and go to various destinations, please see the <strong>Misc Applications</strong> module.").' '._('If you need access to a Feature Code, such as *98 to dial voicemail or a Time Condition toggle, these destinations are now provided as Feature Code Admin destinations. For upgrade compatibility, if you previously had configured such a destination, it will still work but the Feature Code short cuts select list is not longer provided.');
+$helptext = __("Misc Destinations are for adding destinations that can be used by other IssabelPBX modules, generally used to route incoming calls. If you want to create feature codes that can be dialed by internal users and go to various destinations, please see the <strong>Misc Applications</strong> module.").' '.__('If you need access to a Feature Code, such as *98 to dial voicemail or a Time Condition toggle, these destinations are now provided as Feature Code Admin destinations. For upgrade compatibility, if you previously had configured such a destination, it will still work but the Feature Code short cuts select list is not longer provided.');
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 
-echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Misc Destination').': '.$description : _("Add Misc Destination"))."</h2>$help</div>\n";
+echo "<div class='is-flex'><h2>".($extdisplay ? __('Edit Misc Destination').': '.$description : __("Add Misc Destination"))."</h2>$help</div>\n";
 
 if ($extdisplay) { 
     $usage_list = framework_display_destination_usage(miscdests_getdest($extdisplay));
@@ -74,13 +74,13 @@ if ($extdisplay) {
 <?php } ?>
 
 <table class='table is-borderless is-narrow'>
-<tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
+<tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
 <tr>
-    <td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _("Give this Misc Destination a brief name to help you identify it.")?></span></a></td>
+    <td><a href="#" class="info"><?php echo __("Description")?><span><?php echo __("Give this Misc Destination a brief name to help you identify it.")?></span></a></td>
     <td><input autofocus type="text" name="description" value="<?php echo (isset($description) ? $description : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'></td>
 </tr>
 <tr>
-    <td><a href="#" class="info"><?php echo _("Dial")?><span><?php echo _("Enter the number this destination will simulate dialing, exactly as you would dial it from an internal phone. When you route a call to this destination, it will be as if the caller dialed this number from an internal phone.") ?></span></a></td>
+    <td><a href="#" class="info"><?php echo __("Dial")?><span><?php echo __("Enter the number this destination will simulate dialing, exactly as you would dial it from an internal phone. When you route a call to this destination, it will be as if the caller dialed this number from an internal phone.") ?></span></a></td>
     <td>
         <input type="text" name="destdial" value="<?php echo (isset($destdial) ? $destdial : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'>&nbsp;&nbsp;
     </td>
@@ -92,15 +92,15 @@ if ($extdisplay) {
 
 function editMD_onsubmit(theForm) {
 
-    var msgInvalidDescription = "<?php echo _('Please enter a valid Description'); ?>";
-    var msgInvalidDial = "<?php echo _('Please enter a valid Dial string'); ?>";
+    var msgInvalidDescription = "<?php echo __('Please enter a valid Description'); ?>";
+    var msgInvalidDial = "<?php echo __('Please enter a valid Dial string'); ?>";
 
     defaultEmptyOK = false;
 
     <?php if (function_exists('module_get_field_size')) { ?>
         var sizeDisplayName = "<?php echo module_get_field_size('miscdests', 'description', 100); ?>";
         if (!isCorrectLength(theForm.description.value, sizeDisplayName))
-            return warnInvalid(theForm.description, "<?php echo _('The description provided is too long.'); ?>")
+            return warnInvalid(theForm.description, "<?php echo __('The description provided is too long.'); ?>")
     <?php } ?>
     
     if (!isAlphanumeric(theForm.description.value))

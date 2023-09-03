@@ -2,13 +2,13 @@
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title" style="margin-bottom:0;"><?php echo _('DAHDi Module Load/Order')?></p>
+      <p class="modal-card-title" style="margin-bottom:0;"><?php echo __('DAHDi Module Load/Order')?></p>
       <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
 
     <div class='columns mb-5'><div class='column'>
-        <div class='is-size-7'><?php echo sprintf(_('This edits order and loading of DAHDi modules in %s'),'/etc/dahdi/modules')?></div>
+        <div class='is-size-7'><?php echo sprintf(__('This edits order and loading of DAHDi modules in %s'),'/etc/dahdi/modules')?></div>
     </div></div>
 
 
@@ -31,7 +31,7 @@
 				<input type="checkbox" class='mx-2 checkbox' id="mod-ud-checkbox-<?php echo $mod_id?>"><a href='javascript:void(0);' onclick="mods_del_field('mod-ud-<?php echo $mod_id?>')"><button type="button" class="is-danger button is-small mx-2"><span class="icon is-small"><i class="fa fa-trash"></i></span></button></a> <input type="text" class="valueinput" id="mod-ud-name-<?php echo $mod_id?>" value="">
 			</li>
 		</ul>
-		<a onclick="mods_add_field()" class='button is-small is-rounded'><?php echo _('Add another field')?></a>
+		<a onclick="mods_add_field()" class='button is-small is-rounded'><?php echo __('Add another field')?></a>
 	<input type="hidden" id="mods_add_id" value"<?php echo $mod_id + 1?>">
     <input type="hidden" name="reset" id="reset" value=0>
 </form>
@@ -40,9 +40,9 @@
     </form>
     </section>
     <footer class="modal-card-foot">
-      <button data-target="form-modules" onclick='$("#reset").val(0)' class="button is-success formsubmit"><?php echo _('Save')?></button>
-      <button data-target="form-modules" id="reset" onclick='$("#reset").val(1)' class="button is-success formsubmit"><?php echo _('Reset File to Defaults')?></button>
-      <button class="button"><?php echo _('Cancel')?></button>
+      <button data-target="form-modules" onclick='$("#reset").val(0)' class="button is-success formsubmit"><?php echo __('Save')?></button>
+      <button data-target="form-modules" id="reset" onclick='$("#reset").val(1)' class="button is-success formsubmit"><?php echo __('Reset File to Defaults')?></button>
+      <button class="button"><?php echo __('Cancel')?></button>
     </footer>
   </div>
 </div>

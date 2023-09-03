@@ -85,8 +85,8 @@ class cronmanager {
 		sql("DELETE FROM cronmanager WHERE module = 'module_admin' AND id = 'UPDATES'");
 
 		$nt =& notifications::create($db);
-		$text = _("Online Updates are Disabled");
-		$extext = _("Online updates are disabled in Advanced Settings. When disabled, you will not be notified of bug fixes and Security issues without manually checking for updates online. You are advised to enable the update checking. Updates are never downloaded automatically, they are only checked and reported in the notification panel and log if enabled.");
+		$text = __("Online Updates are Disabled");
+		$extext = __("Online updates are disabled in Advanced Settings. When disabled, you will not be notified of bug fixes and Security issues without manually checking for updates online. You are advised to enable the update checking. Updates are never downloaded automatically, they are only checked and reported in the notification panel and log if enabled.");
 		$nt->add_notice('core', 'UPDATES_OFF', $text, $extext, '', true, true);
 
 		$issabelpbx_conf =& issabelpbx_conf::create();
@@ -153,8 +153,8 @@ class cronmanager {
 		}
 		if ($errors) {
 			$nt =& notifications::create($db);
-			$text = sprintf(_("Cronmanager encountered %s Errors"),$errors);
-			$extext = _("The following commands failed with the listed error");
+			$text = sprintf(__("Cronmanager encountered %s Errors"),$errors);
+			$extext = __("The following commands failed with the listed error");
 			foreach ($error_arr as $item) {
 				$extext .= "<br />".$item[0]." (".$item[1].")";
 			}

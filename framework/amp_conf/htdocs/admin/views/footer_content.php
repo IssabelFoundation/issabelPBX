@@ -24,7 +24,7 @@ $html .= '<a target="_blank" href="'
 
 $html .= '<span class="footer-float-left" id="footer_text">';
 $html .= '<a href="http://www.issabel.org" target="_blank">IssabelPBX</a> ' . br();
-$html .= _('IssabelPBX') . ' ' . $version . ' ' . _('is licensed under the')
+$html .= __('IssabelPBX') . ' ' . $version . ' ' . __('is licensed under the')
 		. '<a href="http://www.gnu.org/copyleft/gpl.html" target="_blank"> GPL</a>' . br();
 $html .= 'Copyright&copy; 2004-'.date('Y',time());
 
@@ -33,7 +33,7 @@ $html .= 'Copyright&copy; 2004-'.date('Y',time());
 
 //module license
 if (!empty($active_modules[$module_name]['license'])) {
-  $html .= br() . sprintf(_('Current module licensed under %s'),
+  $html .= br() . sprintf(__('Current module licensed under %s'),
   trim($active_modules[$module_name]['license']));
 }
 

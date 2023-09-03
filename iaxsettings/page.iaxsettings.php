@@ -98,7 +98,7 @@ switch ($action) {
       $error_displays = process_errors($errors);
     } else {
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -113,7 +113,7 @@ $error_displays = array_merge($error_displays,iaxsettings_check_custom_files());
 ?>
 <div class='content'>
 
-  <h2><?php echo _("IAX Settings"); ?></h2>
+  <h2><?php echo __("IAX Settings"); ?></h2>
 
 <?php
 
@@ -144,7 +144,7 @@ $error_displays = array_merge($error_displays,iaxsettings_check_custom_files());
   <tr>
     <td colspan="2">
       <div class="iax-errors">
-        <p><?php echo _("ERRORS") ?></p>
+        <p><?php echo __("ERRORS") ?></p>
         <ul>
 <?php
     foreach ($error_displays as $div_disp) {
@@ -159,17 +159,17 @@ $error_displays = array_merge($error_displays,iaxsettings_check_custom_files());
   }
 ?>
   <tr>
-    <td colspan="2"><h5><?php echo _("Audio Codecs")?></h5></td>
+    <td colspan="2"><h5><?php echo __("Audio Codecs")?></h5></td>
   </tr>
   <tr>
-    <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration. Drag to re-order.")?></span></a></td>
+    <td valign='top'><a href="#" class="info"><?php echo __("Codecs")?><span><?php echo __("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration. Drag to re-order.")?></span></a></td>
     <td>
 <?php
   $seq = 1;
 echo '<ul class="sortable">';
   foreach ($codecs as $codec => $codec_state) {
     $tabindex++;
-    $codec_trans = _($codec);
+    $codec_trans = __($codec);
     $codec_checked = $codec_state ? 'checked' : '';
 	echo '<li class="draggable"><a href="javascript:void(0)">'
         . '<i class="fa fa-arrows-v mx-2"></i>'
@@ -192,7 +192,7 @@ echo '</ul>';
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Codec Priority")?><span><?php echo _("Asterisk: codecpriority. Controls the codec negotiation of an inbound IAX call. This option is inherited to all user entities.  It can also be defined in each user entity separately which will override the setting here. The valid values are:<br />host - Consider the host's preferred order ahead of the caller's.<br />caller - Consider the callers preferred order ahead of the host's.<br /> disabled - Disable the consideration of codec preference altogether. (this is the original behavior before preferences were added)<br />reqonly  - Same as disabled, only do not consider capabilities if the requested format is not available the call will only be accepted if the requested format is available.")?></span></a>
+      <a href="#" class="info"><?php echo __("Codec Priority")?><span><?php echo __("Asterisk: codecpriority. Controls the codec negotiation of an inbound IAX call. This option is inherited to all user entities.  It can also be defined in each user entity separately which will override the setting here. The valid values are:<br />host - Consider the host's preferred order ahead of the caller's.<br />caller - Consider the callers preferred order ahead of the host's.<br /> disabled - Disable the consideration of codec preference altogether. (this is the original behavior before preferences were added)<br />reqonly  - Same as disabled, only do not consider capabilities if the requested format is not available the call will only be accepted if the requested format is available.")?></span></a>
     </td>
     <td>
       <table width="100%">
@@ -207,13 +207,13 @@ echo '</ul>';
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Bandwidth")?><span><?php echo _("Asterisk: bandwidth. Specify bandwidth of low, medium, or high to control which codecs are used in general.")?></span></a>
+      <a href="#" class="info"><?php echo __("Bandwidth")?><span><?php echo __("Asterisk: bandwidth. Specify bandwidth of low, medium, or high to control which codecs are used in general.")?></span></a>
     </td>
     <td>
       <table width="100%">
         <tr>
           <td>
-<?php echo ipbx_radio('bandwidth',array(array('value'=>'low','text'=>_('low')),array('value'=>'medium','text'=>_('medium')),array('value'=>'high','text'=>_('high')),array('value'=>'unset','text'=>_('unset'))),$bandwidth,false); ?>
+<?php echo ipbx_radio('bandwidth',array(array('value'=>'low','text'=>__('low')),array('value'=>'medium','text'=>__('medium')),array('value'=>'high','text'=>__('high')),array('value'=>'unset','text'=>__('unset'))),$bandwidth,false); ?>
           </td>
         </tr>
       </table>
@@ -221,18 +221,18 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Video Codecs")?></h5></td>
+    <td colspan="2"><h5><?php echo __("Video Codecs")?></h5></td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Video Support")?><span><?php echo _("Check to enable and then choose allowed codecs.")._(" If you clear each codec and then add them one at a time, submitting with each addition, they will be added in order which will effect the codec priority.")?></span></a>
+      <a href="#" class="info"><?php echo __("Video Support")?><span><?php echo __("Check to enable and then choose allowed codecs.").__(" If you clear each codec and then add them one at a time, submitting with each addition, they will be added in order which will effect the codec priority.")?></span></a>
     </td>
     <td>
       <table width="100%">
         <tr>
           <td>
-<?php echo ipbx_radio('videosupport',array(array('value'=>'yes','text'=>_('Enabled')),array('value'=>'no','text'=>_('Disabled'))),$videosupport,false); ?>
+<?php echo ipbx_radio('videosupport',array(array('value'=>'yes','text'=>__('Enabled')),array('value'=>'no','text'=>__('Disabled'))),$videosupport,false); ?>
           </td>
         </tr>
       </table>
@@ -247,7 +247,7 @@ echo '</ul>';
 echo '<ul  class="sortable video-codecs">';
    foreach ($video_codecs as $codec => $codec_state) {
     $tabindex++;
-    $codec_trans = _($codec);
+    $codec_trans = __($codec);
     $codec_checked = $codec_state ? 'checked' : '';
 	echo '<li class="draggable"><a href="javascript:void(0)">'
         . '<i class="fa fa-arrows-v mx-2"></i>'
@@ -271,12 +271,12 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Registration Settings") ?></h5></td>
+    <td colspan="2"><h5><?php echo __("Registration Settings") ?></h5></td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Registration Times")?><span><?php echo _("Asterisk: minregexpire, maxregexpire. Minimum and maximum length of time that IAX peers can request as a registration expiration interval (in seconds).")?></span></a>
+      <a href="#" class="info"><?php echo __("Registration Times")?><span><?php echo __("Asterisk: minregexpire, maxregexpire. Minimum and maximum length of time that IAX peers can request as a registration expiration interval (in seconds).")?></span></a>
     </td>
     <td>
       <input type="text" class='input' style='width:4em;' id="minregexpire" name="minregexpire" class="validate-int" value="<?php echo $minregexpire ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(minregexpire)</small>&nbsp;
@@ -285,18 +285,18 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Jitter Buffer Settings") ?></h5></td>
+    <td colspan="2"><h5><?php echo __("Jitter Buffer Settings") ?></h5></td>
   </tr>
 
   <tr>
     <td>
-       <a href="#" class="info"><?php echo _("Jitter Buffer")?><span><?php echo _("Asterisk: jitterbuffer. You can adjust several parameters relating to the jitter buffer. The jitter buffer's function is to compensate for varying network delay. The jitter buffer works for INCOMING audio - the outbound audio will be dejittered by the jitter buffer at the other end.")?></span></a>
+       <a href="#" class="info"><?php echo __("Jitter Buffer")?><span><?php echo __("Asterisk: jitterbuffer. You can adjust several parameters relating to the jitter buffer. The jitter buffer's function is to compensate for varying network delay. The jitter buffer works for INCOMING audio - the outbound audio will be dejittered by the jitter buffer at the other end.")?></span></a>
     </td>
     <td>
       <table width="100%">
         <tr>
           <td>
-<?php echo ipbx_radio('jitterbuffer',array(array('value'=>'yes','text'=>_('Enabled')),array('value'=>'no','text'=>_('Disabled'))),$jitterbuffer,false); ?>
+<?php echo ipbx_radio('jitterbuffer',array(array('value'=>'yes','text'=>__('Enabled')),array('value'=>'no','text'=>__('Disabled'))),$jitterbuffer,false); ?>
           </td>
         </tr>
       </table>
@@ -305,13 +305,13 @@ echo '</ul>';
 
   <tr class="jitter-buffer">
     <td>
-      <a href="#" class="info"><?php echo _("Force Jitter Buffer")?><span><?php echo _("Asterisk: forcejitterbuffer. Forces the use of a jitterbuffer on the receive side of an IAX channel. Normally the jitter buffer will not be used if receiving a jittery channel but sending it off to another channel such as a SIP channel to an endpoint, since there is typically a jitter buffer at the far end. This will force the use of the jitter buffer before sending the stream on. This is not typically desired as it adds additional latency into the stream.")?></span></a>
+      <a href="#" class="info"><?php echo __("Force Jitter Buffer")?><span><?php echo __("Asterisk: forcejitterbuffer. Forces the use of a jitterbuffer on the receive side of an IAX channel. Normally the jitter buffer will not be used if receiving a jittery channel but sending it off to another channel such as a SIP channel to an endpoint, since there is typically a jitter buffer at the far end. This will force the use of the jitter buffer before sending the stream on. This is not typically desired as it adds additional latency into the stream.")?></span></a>
     </td>
     <td>
       <table width="100%">
         <tr>
           <td>
-<?php echo ipbx_radio('forcejitterbuffer',array(array('value'=>'yes','text'=>_('Yes')),array('value'=>'no','text'=>_('No'))),$forcejitterbuffer,false); ?>
+<?php echo ipbx_radio('forcejitterbuffer',array(array('value'=>'yes','text'=>__('Yes')),array('value'=>'no','text'=>__('No'))),$forcejitterbuffer,false); ?>
           </td>
         </tr>
       </table>
@@ -320,7 +320,7 @@ echo '</ul>';
 
   <tr class="jitter-buffer">
     <td>
-      <a href="#" class="info"><?php echo _("Jitter Buffer Size")?><span><?php echo _("Asterisk: maxjitterbuffer. Max length of the jitterbuffer in milliseconds.<br /> Asterisk: resyncthreshold. When the jitterbuffer notices a significant change in delay that continues over a few frames, it will resync, assuming that the change in delay was caused by a timestamping mix-up. The threshold for noticing a change in delay is measured as twice the measured jitter plus this resync threshold. Resyncing can be disabled by setting this parameter to -1.")?></span></a>
+      <a href="#" class="info"><?php echo __("Jitter Buffer Size")?><span><?php echo __("Asterisk: maxjitterbuffer. Max length of the jitterbuffer in milliseconds.<br /> Asterisk: resyncthreshold. When the jitterbuffer notices a significant change in delay that continues over a few frames, it will resync, assuming that the change in delay was caused by a timestamping mix-up. The threshold for noticing a change in delay is measured as twice the measured jitter plus this resync threshold. Resyncing can be disabled by setting this parameter to -1.")?></span></a>
     </td>
     <td>
       <input type="text" class="input" style="width:4em;" id="maxjitterbuffer" name="maxjitterbuffer" class="jitter-buffer validate-int" value="<?php echo $maxjitterbuffer ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(maxjitterbuffer)</small>&nbsp;
@@ -330,7 +330,7 @@ echo '</ul>';
 
   <tr class="jitter-buffer">
     <td>
-      <a href="#" class="info"><?php echo _("Max Interpolations")?><span><?php echo _("Asterisk: maxjitterinterps. The maximum number of interpolation frames the jitterbuffer should return in a row. Since some clients do not send CNG/DTX frames to indicate silence, the jitterbuffer will assume silence has begun after returning this many interpolations. This prevents interpolating throughout a long silence.")?></span></a>
+      <a href="#" class="info"><?php echo __("Max Interpolations")?><span><?php echo __("Asterisk: maxjitterinterps. The maximum number of interpolation frames the jitterbuffer should return in a row. Since some clients do not send CNG/DTX frames to indicate silence, the jitterbuffer will assume silence has begun after returning this many interpolations. This prevents interpolating throughout a long silence.")?></span></a>
     </td>
     <td>
       <input type="text" class="input" id="maxjitterinterps" name="maxjitterinterps" class="jitter-buffer validate-int" value="<?php echo $maxjitterinterps ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -338,12 +338,12 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Advanced General Settings") ?></h5></td>
+    <td colspan="2"><h5><?php echo __("Advanced General Settings") ?></h5></td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Language")?><span><?php echo _("Default Language for a channel, Asterisk: language")?></span></a>
+      <a href="#" class="info"><?php echo __("Language")?><span><?php echo __("Default Language for a channel, Asterisk: language")?></span></a>
     </td>
     <td>
       <input type="text" class="input" id="iax_language" name="iax_language" class="validate-alphanumeric" value="<?php echo $iax_language ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -352,7 +352,7 @@ echo '</ul>';
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Bind Address")?><span><?php echo _("Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. To bind to multiple IP addresses or ports, use the Other 'IAX Settings' fields where you can put settings such as:<br /> bindaddr=192.168.10.100:4555.<br />  It is recommended to leave this blank.")?></span></a>
+      <a href="#" class="info"><?php echo __("Bind Address")?><span><?php echo __("Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. To bind to multiple IP addresses or ports, use the Other 'IAX Settings' fields where you can put settings such as:<br /> bindaddr=192.168.10.100:4555.<br />  It is recommended to leave this blank.")?></span></a>
     </td>
     <td>
       <input type="text" class="input" id="bindaddr" name="bindaddr" class="validate-ip" value="<?php echo $bindaddr ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -361,7 +361,7 @@ echo '</ul>';
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Bind Port")?><span><?php echo _("Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and listen for IAX messages. The IAX standard is 4569 and in most cases this is what you want. It is recommended to leave this blank.")?></span></a>
+      <a href="#" class="info"><?php echo __("Bind Port")?><span><?php echo __("Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and listen for IAX messages. The IAX standard is 4569 and in most cases this is what you want. It is recommended to leave this blank.")?></span></a>
     </td>
     <td>
       <input type="text" class="input" id="bindport" name="bindport" class="validate-ip-port" value="<?php echo $bindport ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -370,13 +370,13 @@ echo '</ul>';
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Delay Auth Rejects")?><span><?php echo _("Asterisk: delayreject. For increased security against brute force password attacks enable this which will delay the sending of authentication reject for REGREQ or AUTHREP if there is a password.")?></span></a>
+      <a href="#" class="info"><?php echo __("Delay Auth Rejects")?><span><?php echo __("Asterisk: delayreject. For increased security against brute force password attacks enable this which will delay the sending of authentication reject for REGREQ or AUTHREP if there is a password.")?></span></a>
     </td>
     <td>
       <table width="100%">
         <tr>
           <td>
-<?php echo ipbx_radio('delayreject',array(array('value'=>'yes','text'=>_('Enable')),array('value'=>'no','text'=>_('Disable'))),$delayreject,false); ?>
+<?php echo ipbx_radio('delayreject',array(array('value'=>'yes','text'=>__('Enable')),array('value'=>'no','text'=>__('Disable'))),$delayreject,false); ?>
           </td>
         </tr>
       </table>
@@ -387,7 +387,7 @@ echo '</ul>';
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Other IAX Settings")?><span><?php echo _("You may set any other IAX settings not present here that are allowed to be configured in the General section of iax.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields. Blank boxes will be deleted when submitted.")?></span></a>
+      <a href="#" class="info"><?php echo __("Other IAX Settings")?><span><?php echo __("You may set any other IAX settings not present here that are allowed to be configured in the General section of iax.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields. Blank boxes will be deleted when submitted.")?></span></a>
     </td>
     <td>
       <input type="text" class="input iax-custom" style="width:10em;" id="iax_custom_key_0" name="iax_custom_key_0" value="<?php echo $iax_custom_key_0 ?>" tabindex="<?php echo ++$tabindex;?>"> =
@@ -425,7 +425,7 @@ END;
   <tr id="iax-custom-buttons">
     <td></td>
     <td><br \>
-      <input type="button" id="iax-custom-add" class="button is-small is-rounded" value="<?php echo _("Add Field")?>" />
+      <input type="button" id="iax-custom-add" class="button is-small is-rounded" value="<?php echo __("Add Field")?>" />
     </td>
   </tr>
 
@@ -524,11 +524,11 @@ function iaxsettings_check_custom_files() {
         // If setting is an array, then it is a subsection
         //
         if (!is_array($item)) {
-          $msg =  sprintf(_("Settings in %s may override these. Those settings should be removed."),"<b>$file</b>");
+          $msg =  sprintf(__("Settings in %s may override these. Those settings should be removed."),"<b>$file</b>");
           $errors[] = array( 'js' => '', 'div' => $msg);
           break;
         } elseif ($main && is_array($item) && strtolower($section) == 'general' && !empty($item)) {
-          $msg =  sprintf(_("File %s should not have any settings in it. Those settings should be removed."),"<b>$file</b>");
+          $msg =  sprintf(__("File %s should not have any settings in it. Those settings should be removed."),"<b>$file</b>");
           $errors[] = array( 'js' => '', 'div' => $msg);
           break;
         }

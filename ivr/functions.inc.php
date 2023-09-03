@@ -374,7 +374,7 @@ function ivr_configpageload() {
     $id     = isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay'] : null;
 
     if ($action  == 'add' || ($action == '' && $id == null)) {
-        $currentcomponent->addguielem('_top', new gui_pageheading('title', _('Add IVR')), 0);
+        $currentcomponent->addguielem('_top', new gui_pageheading('title', __('Add IVR')), 0);
 
         $deet = array('id', 'name', 'description', 'announcement', 'directdial',
                     'invalid_loops', 'invalid_retry_recording',
@@ -410,7 +410,7 @@ function ivr_configpageload() {
     } else {
         $ivr = ivr_get_details($id);
 
-        $label = sprintf(_("Edit IVR: %s"), $ivr['name'] ? $ivr['name'] : 'ID '.$ivr['id']);
+        $label = sprintf(__("Edit IVR: %s"), $ivr['name'] ? $ivr['name'] : 'ID '.$ivr['id']);
         $currentcomponent->addguielem('_top', new gui_pageheading('title', $label), 0);
 
         //display usage
@@ -425,19 +425,19 @@ function ivr_configpageload() {
     }
 
     //general options
-    $gen_section = _('IVR General Options');
+    $gen_section = __('IVR General Options');
     $currentcomponent->addguielem($gen_section,
-        new gui_textbox('name', stripslashes($ivr['name']), _('IVR Name'), _('Name of this IVR.')));
+        new gui_textbox('name', stripslashes($ivr['name']), __('IVR Name'), __('Name of this IVR.')));
     $currentcomponent->addguielem($gen_section,
         new gui_textbox('description', stripslashes($ivr['description']),
-        _('IVR Description'), _('Description of this ivr.')));
+        __('IVR Description'), __('Description of this ivr.')));
 
 
     //dtmf options
-    $section = _('IVR Options (DTMF)');
+    $section = __('IVR Options (DTMF)');
 
     //build recordings select list
-    $currentcomponent->addoptlistitem('recordings', '', _('None'));
+    $currentcomponent->addoptlistitem('recordings', '', __('None'));
     foreach(recordings_list() as $r){
         $currentcomponent->addoptlistitem('recordings', $r['id'], $r['displayname']);
     }
@@ -446,7 +446,7 @@ function ivr_configpageload() {
     //build repeat_loops select list and defualt it to 3
     //while addoptlist is not usually required, declaring this is the only way to prevent sorting on the list
     $currentcomponent->addoptlist('ivr_repeat_loops', false);
-    $currentcomponent->addoptlistitem('ivr_repeat_loops', 'disabled', _('Disabled'));
+    $currentcomponent->addoptlistitem('ivr_repeat_loops', 'disabled', __('Disabled'));
     for($i=0; $i <11; $i++){
         $currentcomponent->addoptlistitem('ivr_repeat_loops', $i, $i);
     }
@@ -454,44 +454,44 @@ function ivr_configpageload() {
     //greating to be played on entry to the ivr
     $currentcomponent->addguielem($section,
         new gui_selectbox('announcement', $currentcomponent->getoptlist('recordings'),
-            $ivr['announcement'], _('Announcement'), _('Greeting to be played on entry to the Ivr.'), false));
+            $ivr['announcement'], __('Announcement'), __('Greeting to be played on entry to the Ivr.'), false));
 
 
 
     //direct dial
-    $currentcomponent->addoptlistitem('directdial', '', _('Disabled'));
-    $currentcomponent->addoptlistitem('directdial', 'ext-local', _('Extensions'));
+    $currentcomponent->addoptlistitem('directdial', '', __('Disabled'));
+    $currentcomponent->addoptlistitem('directdial', 'ext-local', __('Extensions'));
 
-    $currentcomponent->addgeneralarrayitem('directdial_help', 'disabled', _('Completely disabled'));
-    $currentcomponent->addgeneralarrayitem('directdial_help', 'local', _('Enabled for all extensions on a system'));
+    $currentcomponent->addgeneralarrayitem('directdial_help', 'disabled', __('Completely disabled'));
+    $currentcomponent->addgeneralarrayitem('directdial_help', 'local', __('Enabled for all extensions on a system'));
 
     $currentcomponent->addguielem($section,
         new gui_selectbox('directdial', $currentcomponent->getoptlist('directdial'),
-        $ivr['directdial'], _('Direct Dial'), _('Provides options for callers to direct dial an extension. Direct dialing can be:')
+        $ivr['directdial'], __('Direct Dial'), __('Provides options for callers to direct dial an extension. Direct dialing can be:')
         . ul($currentcomponent->getgeneralarray('directdial_help')), false));
 
     //add default to the recordings list. We dont want this for the general announcement, so we do it here
-    $currentcomponent->addoptlistitem('recordings', 'default', _('Default'));
-    //$currentcomponent->addguielem($section, new gui_textbox('timeout_time', stripslashes($ivr['timeout_time']), _('Timeout'), _('Amount of time to be concidered a timeout')));
+    $currentcomponent->addoptlistitem('recordings', 'default', __('Default'));
+    //$currentcomponent->addguielem($section, new gui_textbox('timeout_time', stripslashes($ivr['timeout_time']), __('Timeout'), __('Amount of time to be concidered a timeout')));
     $currentcomponent->addguielem($section, new guielement('timeout_time',
-        '<tr class="IVROptionsDTMF"><td>' . ipbx_label(_('Timeout'), _('Amount of time to be considered a timeout')).'</td><td><input type="number" name="timeout_time" value="'
+        '<tr class="IVROptionsDTMF"><td>' . ipbx_label(__('Timeout'), __('Amount of time to be considered a timeout')).'</td><td><input type="number" name="timeout_time" value="'
                     . $ivr['timeout_time']
                     .'" required class="w100 input"></td></tr>'));
     //invalid
     $currentcomponent->addguielem($section,
         new gui_selectbox('invalid_loops', $currentcomponent->getoptlist('ivr_repeat_loops'),
-        $ivr['invalid_loops'], _('Invalid Retries'), _('Number of times to retry when receiving an invalid/unmatched response from the caller'), false));
+        $ivr['invalid_loops'], __('Invalid Retries'), __('Number of times to retry when receiving an invalid/unmatched response from the caller'), false));
     $currentcomponent->addguielem($section,
         new gui_selectbox('invalid_retry_recording', $currentcomponent->getoptlist('recordings'),
-        $ivr['invalid_retry_recording'], _('Invalid Retry Recording'), _('Prompt to be played when an invalid/unmatched response is received, before prompting the caller to try again'), false));
+        $ivr['invalid_retry_recording'], __('Invalid Retry Recording'), __('Prompt to be played when an invalid/unmatched response is received, before prompting the caller to try again'), false));
 
     if(!isset($ivr['invalid_append_announce'])) $ivr['invalid_append_announce']=0;
 
     $currentcomponent->addguielem($section,
-        new gui_switch('invalid_append_announce', $ivr['invalid_append_announce'], _('Append Announcement on Invalid'), _('After playing the Invalid Retry Recording the system will replay the main IVR Announcement')));
+        new gui_switch('invalid_append_announce', $ivr['invalid_append_announce'], __('Append Announcement on Invalid'), __('After playing the Invalid Retry Recording the system will replay the main IVR Announcement')));
 
     $currentcomponent->addguielem($section,
-        new gui_switch('invalid_ivr_ret', $ivr['invalid_ivr_ret'], _('Return on Invalid'), _('Check this box to have this option return to a parent IVR if it was called '
+        new gui_switch('invalid_ivr_ret', $ivr['invalid_ivr_ret'], __('Return on Invalid'), __('Check this box to have this option return to a parent IVR if it was called '
             . 'from a parent IVR. If not, it will go to the chosen destination.<br><br>'
             . 'The return path will be to any IVR that was in the call path prior to this '
             . 'IVR which could lead to strange results if there was an IVR called in the '
@@ -499,25 +499,25 @@ function ivr_configpageload() {
 
     $currentcomponent->addguielem($section,
         new gui_selectbox('invalid_recording', $currentcomponent->getoptlist('recordings'),
-        $ivr['invalid_recording'], _('Invalid Recording'), _('Prompt to be played before sending the caller to an alternate destination due to the caller pressing 0 or receiving the maximum amount of invalid/unmatched responses (as determined by Invalid Retries)'), false));
+        $ivr['invalid_recording'], __('Invalid Recording'), __('Prompt to be played before sending the caller to an alternate destination due to the caller pressing 0 or receiving the maximum amount of invalid/unmatched responses (as determined by Invalid Retries)'), false));
     $currentcomponent->addguielem($section,
-        new gui_drawselects('invalid_destination', 'invalid', $ivr['invalid_destination'], _('Invalid Destination'),
-         _('Destination to send the call to after Invalid Recording is played.'), true));
+        new gui_drawselects('invalid_destination', 'invalid', $ivr['invalid_destination'], __('Invalid Destination'),
+         __('Destination to send the call to after Invalid Recording is played.'), true));
 
     //timeout
     $currentcomponent->addguielem($section,
         new gui_selectbox('timeout_loops', $currentcomponent->getoptlist('ivr_repeat_loops'),
-        $ivr['timeout_loops'], _('Timeout Retries'), _('Number of times to retry when no DTMF is heard and the IVR choice times out.'), false));
+        $ivr['timeout_loops'], __('Timeout Retries'), __('Number of times to retry when no DTMF is heard and the IVR choice times out.'), false));
     $currentcomponent->addguielem($section,
         new gui_selectbox('timeout_retry_recording', $currentcomponent->getoptlist('recordings'),
-        $ivr['timeout_retry_recording'], _('Timeout Retry Recording'), _('Prompt to be played when a timeout occurs, before prompting the caller to try again'), false));
+        $ivr['timeout_retry_recording'], __('Timeout Retry Recording'), __('Prompt to be played when a timeout occurs, before prompting the caller to try again'), false));
 
     if(!isset($ivr['timeout_append_announce'])) $ivr['timeout_append_announce']=0;
     $currentcomponent->addguielem($section,
-        new gui_switch('timeout_append_announce', $ivr['timeout_append_announce'], _('Append Announcement on Timeout'), _('After playing the Timeout Retry Recording the system will replay the main IVR Announcement')));
+        new gui_switch('timeout_append_announce', $ivr['timeout_append_announce'], __('Append Announcement on Timeout'), __('After playing the Timeout Retry Recording the system will replay the main IVR Announcement')));
 
     $currentcomponent->addguielem($section,
-        new gui_switch('timeout_ivr_ret', $ivr['timeout_ivr_ret'], _('Return on Timeout'), _('Check this box to have this option return to a parent IVR if it was called '
+        new gui_switch('timeout_ivr_ret', $ivr['timeout_ivr_ret'], __('Return on Timeout'), __('Check this box to have this option return to a parent IVR if it was called '
             . 'from a parent IVR. If not, it will go to the chosen destination.<br><br>'
             . 'The return path will be to any IVR that was in the call path prior to this '
             . 'IVR which could lead to strange results if there was an IVR called in the '
@@ -525,22 +525,22 @@ function ivr_configpageload() {
 
     $currentcomponent->addguielem($section,
         new gui_selectbox('timeout_recording', $currentcomponent->getoptlist('recordings'),
-        $ivr['timeout_recording'], _('Timeout Recording'), _('Prompt to be played before sending the caller to an alternate destination due to the caller pressing 0 or receiving the maximum amount of invalid/unmatched responses (as determined by Invalid Retries)'), false));
+        $ivr['timeout_recording'], __('Timeout Recording'), __('Prompt to be played before sending the caller to an alternate destination due to the caller pressing 0 or receiving the maximum amount of invalid/unmatched responses (as determined by Invalid Retries)'), false));
     $currentcomponent->addguielem($section,
         new gui_drawselects('timeout_destination', 'timeout',
-        $ivr['timeout_destination'], _('Timeout Destination'), _('Destination to send the call to after Timeout Recording is played.'), true));
+        $ivr['timeout_destination'], __('Timeout Destination'), __('Destination to send the call to after Timeout Recording is played.'), true));
 
     //return to ivr
     $currentcomponent->addguielem($section,
-        new gui_switch('retvm', $ivr['retvm'], _('Return to IVR after VM'), _('If checked, upon exiting voicemail a caller will be returned to this IVR if they got a users voicemail')));
+        new gui_switch('retvm', $ivr['retvm'], __('Return to IVR after VM'), __('If checked, upon exiting voicemail a caller will be returned to this IVR if they got a users voicemail')));
 
     /*$currentcomponent->addguielem($section,
-        new gui_switch('say_extension', $dir['say_extension'], _('Announce Extension'),
-        _('When checked, the extension number being transferred to will be announced prior to the transfer'),true));*/
+        new gui_switch('say_extension', $dir['say_extension'], __('Announce Extension'),
+        __('When checked, the extension number being transferred to will be announced prior to the transfer'),true));*/
     $currentcomponent->addguielem($section, new gui_hidden('extdisplay', $ivr['id']));
     $currentcomponent->addguielem($section, new gui_hidden('action', 'save'));
 
-    $section = _('IVR Entries');
+    $section = __('IVR Entries');
     //draw the entries part of the table. A bit hacky perhaps, but hey - it works!
     $currentcomponent->addguielem($section, new guielement('rawhtml', ivr_draw_entries($ivr['id']), ''), 6);
 }
@@ -596,7 +596,7 @@ function ivr_configprocess(){
                 //$_REQUEST['action'] = 'edit';
                 $this_dest = ivr_getdest($vars['extdisplay']);
                 fwmsg::set_dest($this_dest[0]);
-                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+                $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
                 $_SESSION['msgtype']='success';
                 $_SESSION['msgtstamp']=time();
                 redirect_standard_continue('extdisplay');
@@ -604,7 +604,7 @@ function ivr_configprocess(){
             case 'delete':
                 ivr_delete($vars['extdisplay']);
                 needreload();
-                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+                $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
                 $_SESSION['msgtype']='warning';
                 $_SESSION['msgtstamp']=time();
                 redirect_standard_continue();
@@ -699,14 +699,14 @@ function ivr_draw_entries_table_header_ivr() {
     }
 
     $headers = array();
-    $headers[] = ipbx_label(_('Ext'),_('Any digit selection will be saved in the IVR_DIGIT_PRESSED chanel variable'));
-    $headers[] = _('Destination');
-    $headers[] = ipbx_label(_('Return'), _('Return to IVR'));
+    $headers[] = ipbx_label(__('Ext'),__('Any digit selection will be saved in the IVR_DIGIT_PRESSED chanel variable'));
+    $headers[] = __('Destination');
+    $headers[] = ipbx_label(__('Return'), __('Return to IVR'));
 
     if($show_spoken==1) {
-        $headers[] = _('Spoken');
+        $headers[] = __('Spoken');
     }
-    $headers[] = _('Delete');
+    $headers[] = __('Delete');
 
     return $headers;
 }
@@ -766,7 +766,7 @@ function ivr_check_destinations($dest=true) {
         $name = $result['name'] ? $result['name'] : 'IVR ' . $thisid;
         $destlist[] = array(
             'dest' => $thisdest,
-            'description' => sprintf(_("IVR: %s / Option: %s"),$name,$result['selection']),
+            'description' => sprintf(__("IVR: %s / Option: %s"),$name,$result['selection']),
             'edit_url' => 'config.php?display=ivr&action=edit&extdisplay='.urlencode($thisid),
         );
     }
@@ -799,7 +799,7 @@ function ivr_getdestinfo($dest) {
             return array();
         } else {
             //$type = isset($active_modules['ivr']['type'])?$active_modules['ivr']['type']:'setup';
-            return array('description' => sprintf(_("IVR: %s"), ($thisexten['name'] ? $thisexten['name'] : $thisexten['id'])),
+            return array('description' => sprintf(__("IVR: %s"), ($thisexten['name'] ? $thisexten['name'] : $thisexten['id'])),
                          'edit_url' => 'config.php?display=ivr&action=edit&extdisplay='.urlencode($exten),
                                   );
         }
@@ -819,7 +819,7 @@ function ivr_recordings_usage($recording_id) {
         foreach ($results as $result) {
             $usage_arr[] = array(
                 'url_query' => 'config.php?display=ivr&action=edit&extdisplay='.urlencode($result['id']),
-                'description' => sprintf(_("IVR: %s"), ($result['name'] ? $result['name'] : $result['id'])),
+                'description' => sprintf(__("IVR: %s"), ($result['name'] ? $result['name'] : $result['id'])),
             );
         }
         return $usage_arr;

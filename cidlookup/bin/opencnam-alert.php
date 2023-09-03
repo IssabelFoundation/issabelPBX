@@ -22,6 +22,6 @@ if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc
  * account to continue getting Caller ID Name information.
  */
 $nt = notifications::create($db);
-$nt->add_warning('cidlookup', 'USAGELIMITS', _("OpenCNAM Throttle Reached!"), _("You have gone past the free OpenCNAM usage limits.<br/><br/>To continue getting caller ID name information, you need to create an OpenCNAM Professional Account.<br/><br/>You can create an OpenCNAM account at: <a href=\"https://www.opencnam.com/register\">https://www.opencnam.com/register</a>.<br/><br/>Once you have created an account, visit the CallerID Lookup Sources menu and enter your OpenCNAM Professional Tier credentials.<br/>"));
+$nt->add_warning('cidlookup', 'USAGELIMITS', __("OpenCNAM Throttle Reached!"), __("You have gone past the free OpenCNAM usage limits.<br/><br/>To continue getting caller ID name information, you need to create an OpenCNAM Professional Account.<br/><br/>You can create an OpenCNAM account at: <a href=\"https://www.opencnam.com/register\">https://www.opencnam.com/register</a>.<br/><br/>Once you have created an account, visit the CallerID Lookup Sources menu and enter your OpenCNAM Professional Tier credentials.<br/>"));
 
 ?>

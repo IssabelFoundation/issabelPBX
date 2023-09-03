@@ -362,7 +362,7 @@ class component {
                             ? '<i class="fa fa-plus-square-o"></i> ' : '<i class="fa fa-minus-square-o"></i> ';
                         $htmlout .= "<h5>" 
                                 . "<span class=\"guielToggleBut\">$state</span>" 
-                                . _($section) 
+                                . __($section) 
                                 . "</h5>";
                     }
 
@@ -703,7 +703,7 @@ class gui_textbox extends guiinput {
                 $html_input_extra = '';
                 if(preg_match("/secret/",$elemname)) {
                     $extraclass = ($extraclass<>'')?"$extraclass confidential":"confidential";
-                    $html_input_extra = "<p class='js-copybtn' title='"._('Copy to Clipboard')."'><i class='fa fa-clipboard fa-fw'></i></p>";
+                    $html_input_extra = "<p class='js-copybtn' title='".__('Copy to Clipboard')."'><i class='fa fa-clipboard fa-fw'></i></p>";
                 } 
 
         $maxlength = ($maxchars > 0) ? " maxlength=\"$maxchars\"" : '';

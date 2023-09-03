@@ -189,13 +189,13 @@ function manager_add($p_name, $p_secret, $p_deny, $p_permit, $p_read, $p_write) 
 	$managers = manager_list();
 	$ampuser = $amp_conf['AMPMGRUSER'];
 	if($p_name == $ampuser) {
-		echo "<script>javascript:alert('"._("This manager already exists")."');</script>";
+		echo "<script>javascript:alert('".__("This manager already exists")."');</script>";
 		return false;
 	}
 	if (is_array($managers)) {
 		foreach ($managers as $manager) {
 			if ($manager['name'] === $p_name) {
-				echo "<script>javascript:alert('"._("This manager already exists")."');</script>";
+				echo "<script>javascript:alert('".__("This manager already exists")."');</script>";
 				return false;
 			}
 		}
@@ -227,7 +227,7 @@ function manager_hook_phpagiconf($viewing_itemid, $target_menuid) {
 			$selectedmanager = $res['asman_user'];
 		break;
 	}
-	$output = "<tr><td><a href=\"#\" class=\"info\">"._("Choose Manager")."<span>"._("Choose the user that PHPAGI will use to connect the Asterisk API.")."</span></a></td><td><select name=\"asmanager\" class=\"componentSelect\" >";
+	$output = "<tr><td><a href=\"#\" class=\"info\">".__("Choose Manager")."<span>".__("Choose the user that PHPAGI will use to connect the Asterisk API.")."</span></a></td><td><select name=\"asmanager\" class=\"componentSelect\" >";
 	$selected = "";
 	$managers = manager_list();
 	foreach ($managers as $manager) {

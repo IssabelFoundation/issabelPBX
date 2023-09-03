@@ -7,6 +7,7 @@
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Reports</category>
+    <embedcategory>Advanced</embedcategory>
     <description>Creates a printable list of extension numbers used throughout the system from all modules that provide an internal callable number</description>
     <menuitems>
         <printextensions>Print Extensions</printextensions>

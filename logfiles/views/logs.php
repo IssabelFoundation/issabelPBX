@@ -1,7 +1,7 @@
 <?php
 $html = '';
 $html = '<div id="logfiles_header" class="content">';
-$html .= heading(_('Asterisk Log Files'), 2);
+$html .= heading(__('Asterisk Log Files'), 2);
 
 
 $logs = array('1'  => '/var/log/asterisk/full');
@@ -13,13 +13,13 @@ $lines = array(
 			'name'			=> 'lines',
 			'id'			=> 'lines',
 			'value'			=> 500,
-			'placeholder'	=> _('lines')
+			'placeholder'	=> __('lines')
 );
 $html .= form_input($lines,'',' class="input" style="width:100px;" ');
 
 $show = array(
 		'name'		=> 'show',
-		'content'	=> _('Show'),
+		'content'	=> __('Show'),
 		'id'		=> 'show',
 );
 $html .= form_button($show,'',' class="button is-small" ');
@@ -45,7 +45,7 @@ $html.="
     <input class='input' type='text' name='lines' value='500' id='lines'>
   </p>
   <p class='control'>
-    <a class='button'>"._('Show')."
+    <a class='button'>".__('Show')."
     </a>
   </p>
 </div>

@@ -87,30 +87,30 @@ if (!DB::IsError($results)) { // error - table must not be there
 
 // Version 2.5 migrate to recording ids
 //
-outn(_("Checking if recordings need migration.."));
+outn(__("Checking if recordings need migration.."));
 $sql = "SELECT recording_id FROM announcement";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
 	//  Add recording_id field
 	//
-	out(_("migrating"));
-	outn(_("adding recording_id field.."));
+	out(__("migrating"));
+	outn(__("adding recording_id field.."));
   $sql = "ALTER TABLE announcement ADD recording_id INTEGER";
   $result = $db->query($sql);
   if(DB::IsError($result)) {
-		out(_("fatal error"));
+		out(__("fatal error"));
 		die_issabelpbx($result->getDebugInfo()); 
 	} else {
-		out(_("ok"));
+		out(__("ok"));
 	}
 
 	// Get all the valudes and replace them with recording_id
 	//
-	outn(_("migrate to recording ids.."));
+	outn(__("migrate to recording ids.."));
   $sql = "SELECT `announcement_id`, `recording` FROM `announcement`";
 	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($results)) {
-		out(_("fatal error"));
+		out(__("fatal error"));
 		die_issabelpbx($results->getDebugInfo());	
 	}
 	$migrate_arr = array();
@@ -126,25 +126,25 @@ if(DB::IsError($check)) {
 		$compiled = $db->prepare('UPDATE `announcement` SET `recording_id` = ? WHERE `announcement_id` = ?');
 		$result = $db->executeMultiple($compiled,$migrate_arr);
 		if(DB::IsError($result)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($result->getDebugInfo());	
 		}
 	}
-	out(sprintf(_("migrated %s entries"),$count));
+	out(sprintf(__("migrated %s entries"),$count));
 
 	// Now remove the old recording field replaced by new id field
 	//
-	outn(_("dropping recording field.."));
+	outn(__("dropping recording field.."));
   $sql = "ALTER TABLE `announcement` DROP `recording`";
   $result = $db->query($sql);
   if(DB::IsError($result)) { 
-		out(_("no recording field???"));
+		out(__("no recording field???"));
 	} else {
-		out(_("ok"));
+		out(__("ok"));
 	}
 
 } else {
-	out(_("already migrated"));
+	out(__("already migrated"));
 }
 
 // Version 2.11.0.5 adds tts options por picoTTS
@@ -152,7 +152,7 @@ $sql = "SELECT tts_lang FROM announcement";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
 	// add new field
-	outn(_("adding tts_lang and tts_text fields.."));
+	outn(__("adding tts_lang and tts_text fields.."));
     $sql = "ALTER TABLE announcement ADD `tts_lang` VARCHAR( 10 ) NOT NULL DEFAULT 'en-US'";
     $result = $db->query($sql);
     if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }

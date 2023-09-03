@@ -2,9 +2,9 @@
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //for translation only
 if (false) {
-_("Dictation");
-_("Perform dictation");
-_("Email completed dictation");
+__("Dictation");
+__("Perform dictation");
+__("Email completed dictation");
 }
 
 // Register Feature Code - Perform Dictation

@@ -12,7 +12,7 @@ function directory_configpageload() {
 
     if ($display == 'directory' && (isset($_REQUEST['action']) && $_REQUEST['action']=='add'|| isset($_REQUEST['extdisplay']) && $_REQUEST['extdisplay']!='')) { 
         if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'add') {
-            $currentcomponent->addguielem('_top', new gui_pageheading('title', _('Add Directory')), 0);
+            $currentcomponent->addguielem('_top', new gui_pageheading('title', __('Add Directory')), 0);
 
             $deet = array('dirname', 'description', 'repeat_loops', 'announcement',
                 'repeat_recording', 'invalid_recording', 
@@ -36,11 +36,11 @@ function directory_configpageload() {
             }
         } else {
             $dir     = directory_get_dir_details($_REQUEST['extdisplay']);
-            $label   = sprintf(_("Edit Directory: %s"), $dir['dirname'] ? $dir['dirname'] : 'ID '.$dir['id']);
+            $label   = sprintf(__("Edit Directory: %s"), $dir['dirname'] ? $dir['dirname'] : 'ID '.$dir['id']);
             $def_dir = directory_get_default_dir();
             $dirdefault=false;
             if ($dir['id'] == $def_dir) {
-                $label .= ' ' . _("[default]");
+                $label .= ' ' . __("[default]");
                 $dirdefault=true;
             }
             $currentcomponent->addguielem('_top', new gui_pageheading('title', $label), 0);
@@ -53,16 +53,16 @@ function directory_configpageload() {
                 $currentcomponent->addguielem('_top', new gui_link_label('usage', $usage_list_text, $usage_list_tooltip), 0);
             }
         }
-        $gen_section = dgettext('amp','General Settings');
-        $currentcomponent->addguielem($gen_section, new gui_textbox('dirname', stripslashes($dir['dirname']), _('Name'), _('Name of this directory.')),1);
-        $currentcomponent->addguielem($gen_section, new gui_textbox('description', stripslashes($dir['description']), _('Description'), _('Description of this directory.')),1);
-        $currentcomponent->addguielem($gen_section, new gui_textbox('callid_prefix', stripslashes($dir['callid_prefix']), _('CallerID Name Prefix'), _('Prefix to be appended to current CallerID Name.')));
-        $currentcomponent->addguielem($gen_section, new gui_textbox('alert_info', stripslashes($dir['alert_info']), _('Alert Info'), _('ALERT_INFO to be sent when called from this Directory. Can be used for distinctive ring for SIP devices.')));
+        $gen_section = _dgettext('amp','General Settings');
+        $currentcomponent->addguielem($gen_section, new gui_textbox('dirname', stripslashes($dir['dirname']), __('Name'), __('Name of this directory.')),1);
+        $currentcomponent->addguielem($gen_section, new gui_textbox('description', stripslashes($dir['description']), __('Description'), __('Description of this directory.')),1);
+        $currentcomponent->addguielem($gen_section, new gui_textbox('callid_prefix', stripslashes($dir['callid_prefix']), __('CallerID Name Prefix'), __('Prefix to be appended to current CallerID Name.')));
+        $currentcomponent->addguielem($gen_section, new gui_textbox('alert_info', stripslashes($dir['alert_info']), __('Alert Info'), __('ALERT_INFO to be sent when called from this Directory. Can be used for distinctive ring for SIP devices.')));
 
-        $section = _('Directory Options (DTMF)');
+        $section = __('Directory Options (DTMF)');
 
         //build recordings select list
-        $currentcomponent->addoptlistitem('recordings', 0, _('Default'));
+        $currentcomponent->addoptlistitem('recordings', 0, __('Default'));
         foreach(recordings_list() as $r){
             $currentcomponent->addoptlistitem('recordings', $r['id'], $r['displayname']);
         }
@@ -74,21 +74,21 @@ function directory_configpageload() {
 
         $currentcomponent->addguielem('_top', new gui_hidden('extdisplay', $dir['id']));
         //generate page
-        $currentcomponent->addguielem($section, new gui_selectbox('announcement', $currentcomponent->getoptlist('recordings'), $dir['announcement'], _('Announcement'), _('Greeting to be played on entry to the directory.'), false),2);
-        $currentcomponent->addguielem($section, new gui_selectbox('repeat_loops', $currentcomponent->getoptlist('repeat_loops'), $dir['repeat_loops'], _('Invalid Retries'), _('Number of times to retry when receiving an invalid/unmatched response from the caller'), false));
-        $currentcomponent->addguielem($section, new gui_selectbox('repeat_recording', $currentcomponent->getoptlist('recordings'), $dir['repeat_recording'], _('Invalid Retry Recording'), _('Prompt to be played when an invalid/unmatched response is received, before prompting the caller to try again'), false));
-        $currentcomponent->addguielem($section, new gui_selectbox('invalid_recording', $currentcomponent->getoptlist('recordings'), $dir['invalid_recording'], _('Invalid Recording'), _('Prompt to be played before sending the caller to an alternate destination due to the caller pressing 0 or receiving the maximum amount of invalid/unmatched responses (as determined by Invalid Retries)'), false));
-        $currentcomponent->addguielem($section, new gui_drawselects('invalid_destination', 0, $dir['invalid_destination'], _('Invalid Destination'), _('Destination to send the call to after Invalid Recording is played.'), false));
+        $currentcomponent->addguielem($section, new gui_selectbox('announcement', $currentcomponent->getoptlist('recordings'), $dir['announcement'], __('Announcement'), __('Greeting to be played on entry to the directory.'), false),2);
+        $currentcomponent->addguielem($section, new gui_selectbox('repeat_loops', $currentcomponent->getoptlist('repeat_loops'), $dir['repeat_loops'], __('Invalid Retries'), __('Number of times to retry when receiving an invalid/unmatched response from the caller'), false));
+        $currentcomponent->addguielem($section, new gui_selectbox('repeat_recording', $currentcomponent->getoptlist('recordings'), $dir['repeat_recording'], __('Invalid Retry Recording'), __('Prompt to be played when an invalid/unmatched response is received, before prompting the caller to try again'), false));
+        $currentcomponent->addguielem($section, new gui_selectbox('invalid_recording', $currentcomponent->getoptlist('recordings'), $dir['invalid_recording'], __('Invalid Recording'), __('Prompt to be played before sending the caller to an alternate destination due to the caller pressing 0 or receiving the maximum amount of invalid/unmatched responses (as determined by Invalid Retries)'), false));
+        $currentcomponent->addguielem($section, new gui_drawselects('invalid_destination', 0, $dir['invalid_destination'], __('Invalid Destination'), __('Destination to send the call to after Invalid Recording is played.'), false));
 
-        $currentcomponent->addguielem($section, new gui_switch('retivr', $dir['retivr'], _('Return to IVR'), _('When selected, if the call passed through an IVR that had "Return to IVR" selected, the call will be returned there instead of the Invalid destination.'),true));
+        $currentcomponent->addguielem($section, new gui_switch('retivr', $dir['retivr'], __('Return to IVR'), __('When selected, if the call passed through an IVR that had "Return to IVR" selected, the call will be returned there instead of the Invalid destination.'),true));
 
-        $currentcomponent->addguielem($section, new gui_switch('say_extension', $dir['say_extension'], _('Announce Extension'), _('When checked, the extension number being transferred to will be announced prior to the transfer'),true));
-        $currentcomponent->addguielem($section, new gui_switch('def_dir', $dirdefault, _('Default Directory'), _('When checked, this becomes the default directory and replaces any other directory as the default directory. This has the effect of exposing entries for this directory into the Extension/User page'),true));
+        $currentcomponent->addguielem($section, new gui_switch('say_extension', $dir['say_extension'], __('Announce Extension'), __('When checked, the extension number being transferred to will be announced prior to the transfer'),true));
+        $currentcomponent->addguielem($section, new gui_switch('def_dir', $dirdefault, __('Default Directory'), __('When checked, this becomes the default directory and replaces any other directory as the default directory. This has the effect of exposing entries for this directory into the Extension/User page'),true));
         $currentcomponent->addguielem($section, new gui_hidden('id', $dir['id']));
         $currentcomponent->addguielem($section, new gui_hidden('action', 'edit'));
 
         //TODO: the &nbsp; needs to be here instead of a space, guielements freaks for some reason with this specific section name
-        $section = _('Directory Entries');
+        $section = __('Directory Entries');
         //draw the entries part of the table. A bit hacky perhaps, but hey - it works!
         $currentcomponent->addguielem($section, new guielement('rawhtml', directory_draw_entries($dir['id']), ''),3);
     }
@@ -109,7 +109,7 @@ function directory_configpageinit($pagename) {
         if ($action || $id) {
             //add help text
             $currentcomponent->addgeneralarrayitem('directdial_help', 'directory', 
-                    _('Tied to a Directory allowing all entries in that directory '
+                    __('Tied to a Directory allowing all entries in that directory '
                     . 'to be dialed directly, as they appear in the directory'));
 
             //add gui items
@@ -171,7 +171,7 @@ function directory_configprocess(){
                 fwmsg::set_dest($this_dest[0]);
                 needreload();
                 if($vars['def_dir']=='1') { directory_save_default_dir($vars['extdisplay']); }
-                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+                $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
                 $_SESSION['msgtype']='success';
                 $_SESSION['msgtstamp']=time();
                 redirect_standard('extdisplay');
@@ -179,7 +179,7 @@ function directory_configprocess(){
             case 'delete':
                 directory_delete($vars['id']);
                 needreload();
-                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+                $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
                 $_SESSION['msgtype']='warning';
                 $_SESSION['msgtstamp']=time();
                 redirect_standard_continue();
@@ -270,13 +270,13 @@ function directory_destinations(){
 
     foreach($results as $row){
         $row['dirname'] = ($row['dirname'])?$row['dirname']:'Directory '.$row['id'] ;
-        $extens[] = array('destination' => 'directory,' . $row['id'] . ',1', 'description' => $row['dirname'], 'category' => _('Directory'));
+        $extens[] = array('destination' => 'directory,' . $row['id'] . ',1', 'description' => $row['dirname'], 'category' => __('Directory'));
     }
     return isset($extens)?$extens:null;
 }
 
 function directory_draw_entries_table_header_directory() {
-    return  array(_('Name'), _('Name Announcement'), _('Dial'));
+    return  array(__('Name'), __('Name Announcement'), __('Dial'));
 }
 
 function directory_draw_entries($id){
@@ -303,16 +303,16 @@ function directory_draw_entries($id){
     $html .= '</tr></thead>';
 
     $newuser = '<select id="addusersel" class="componentSelectSearch">';
-    $newuser .= '<option value="none" selected> == '.dgettext('amp','Select an option').' == </option>';
-    $newuser .= '<option value="all">'._('All Users').'</option>';
-    $newuser .= '<option value="|">'._('Custom').'</option>';
+    $newuser .= '<option value="none" selected> == '._dgettext('amp','Select an option').' == </option>';
+    $newuser .= '<option value="all">'.__('All Users').'</option>';
+    $newuser .= '<option value="|">'.__('Custom').'</option>';
 
   //TODO: could this cause a problem with the '|' separator if a name has a '|' in it? (probably not check for comment where parsed
     foreach((array) core_users_list() as $user){
         $newuser .= '<option value="'.$user[0].'|'.$user[1].'">('.$user[0].') '.$user[1]."</option>\n";
     }
     $newuser    .= '</select>';
-    $html        .= '<tfoot><tr><td id="addbut"><a href="javascript:void(0);" class="button is-small is-rounded">'._('Add new entry').'</a></td><td colspan="3" id="addrow">'.$newuser.'</td></tr></tfoot>';
+    $html        .= '<tfoot><tr><td id="addbut"><a href="javascript:void(0);" class="button is-small is-rounded">'.__('Add new entry').'</a></td><td colspan="3" id="addrow">'.$newuser.'</td></tr></tfoot>';
     $html        .= '<tbody>';
     $entries    = directory_get_dir_entries($id);
     foreach($entries as $e){
@@ -334,10 +334,10 @@ function directory_draw_entries_tr($id, $realid, $name = '',$foreign_name, $audi
     if (!$audio_select || !$reuse_audio) {
          unset($audio_select);
         $audio_select = '<select name="entries['.$e_id.'][audio]" class="componentSelect">';
-        $audio_select .= '<option value="vm" '.(($audio=='vm')?'SELECTED':'').'>'._('Voicemail Greeting').'</option>';
-        $audio_select .= '<option value="tts" '.(($audio=='tts')?'SELECTED':'').'>'._('Text to Speech').'</option>';
-        $audio_select .= '<option value="spell" '.(($audio=='spell')?'SELECTED':'').'>'._('Spell Name').'</option>';
-        $audio_select .= '<optgroup label="'._('System Recordings').'">';
+        $audio_select .= '<option value="vm" '.(($audio=='vm')?'SELECTED':'').'>'.__('Voicemail Greeting').'</option>';
+        $audio_select .= '<option value="tts" '.(($audio=='tts')?'SELECTED':'').'>'.__('Text to Speech').'</option>';
+        $audio_select .= '<option value="spell" '.(($audio=='spell')?'SELECTED':'').'>'.__('Spell Name').'</option>';
+        $audio_select .= '<optgroup label="'.__('System Recordings').'">';
         foreach($directory_draw_recordings_list as $r){
             $audio_select .= '<option value="' . $r['id'] . '" ' . (($audio == $r['id']) ? 'SELECTED' : '') . '>' . $r['displayname'] . '</option>';
         }
@@ -346,7 +346,7 @@ function directory_draw_entries_tr($id, $realid, $name = '',$foreign_name, $audi
 
     if ($realid != 'custom') {
         $user_type    =  (isset($amp_conf['AMPEXTENSION']) && $amp_conf['AMPEXTENSION']) == 'deviceanduser' ? 'user' : 'extension';
-        $tlabel        =  sprintf(_("Edit %s: %s"), $user_type ,$realid);
+        $tlabel        =  sprintf(__("Edit %s: %s"), $user_type ,$realid);
         
         //$label        = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="images/user_edit.png"/>&nbsp;</span>';
         $label = "<button type='button' class='button is-link is-small has-tooltip-right' data-tooltip='$tlabel' ><span class='icon is-small'><i class='fa fa-user'></i></span></button>";
@@ -355,7 +355,7 @@ function directory_draw_entries_tr($id, $realid, $name = '',$foreign_name, $audi
     } else {
         $user        = '';
     }
-    $delete = "<button type='button' class='trash-tr button is-small is-danger has-tooltip-right' data-tooltip='"._('Delete')."' ><span class='icon is-small'><i class='fa fa-trash'></i></span></button>";
+    $delete = "<button type='button' class='trash-tr button is-small is-danger has-tooltip-right' data-tooltip='".__('Delete')."' ><span class='icon is-small'><i class='fa fa-trash'></i></span></button>";
 
     $t1_class         = $name == '' ? ' class = "dpt-title" ' : '';
     $t2_class         = $realid == 'custom' ? ' title="Custom Dialstring" ' : ' title="' . $realid . '" ';
@@ -520,8 +520,8 @@ function directory_applyhooks() {
 
     // Add the 'process' function - this gets called when the page is loaded, to hook into 
     // displaying stuff on the page.
-    $currentcomponent->addoptlistitem('directory_group', '0', _("Exclude"));
-    $currentcomponent->addoptlistitem('directory_group', '1', _("Include"));
+    $currentcomponent->addoptlistitem('directory_group', '0', __("Exclude"));
+    $currentcomponent->addoptlistitem('directory_group', '1', __("Include"));
     $currentcomponent->setoptlistopts('directory_group', 'sort', false);
 
     $currentcomponent->addguifunc('directory_configpageload_exten');
@@ -539,10 +539,10 @@ function directory_configpageload_exten() {
     if ($action != 'del') {
 
         $default_directory_id = directory_get_default_dir();
-        $section = _("Default Group Inclusion");
+        $section = __("Default Group Inclusion");
         if ($default_directory_id != "") {
             $in_default_directory = directory_check_default($extdisplay);
-            $currentcomponent->addguielem($section, new gui_selectbox('in_default_directory', $currentcomponent->getoptlist('directory_group'), $in_default_directory, _('Default Directory'), _('You can include or exclude this extension/user from being part of the default directory when creating or editing.'), false));
+            $currentcomponent->addguielem($section, new gui_selectbox('in_default_directory', $currentcomponent->getoptlist('directory_group'), $in_default_directory, __('Default Directory'), __('You can include or exclude this extension/user from being part of the default directory when creating or editing.'), false));
         } 
     }
 }
@@ -592,7 +592,7 @@ function directory_check_destinations($dest=true) {
         $thisid     = $result['id'];
         $destlist[]    = array(
             'dest' => $thisdest,
-            'description' => sprintf(_("Directory: %s "), ($result['dirname'] ? $result['dirname'] : $result['id'])),
+            'description' => sprintf(__("Directory: %s "), ($result['dirname'] ? $result['dirname'] : $result['id'])),
             'edit_url' => 'config.php?display=directory&extdisplay=' . urlencode($result['id']),
         );
     }
@@ -617,7 +617,7 @@ function directory_getdestinfo($dest) {
         if (empty($thisdir)) {
             return array();
         } else {
-            return array('description' => sprintf(_("Directory %s: "), ($thisdir['dirname'] ? $thisdir['dirname'] : $id)),
+            return array('description' => sprintf(__("Directory %s: "), ($thisdir['dirname'] ? $thisdir['dirname'] : $id)),
                          'edit_url' => 'config.php?display=directory&extdisplay=' . urlencode($id),
                     );
         }
@@ -647,7 +647,7 @@ function directory_recordings_usage($recording_id) {
         foreach ($results as $result) {
             $usage_arr[] = array(
                 'url_query' => 'config.php?display=directory&extdisplay=' . urlencode($result['id']),
-                'description' => sprintf(_("Directory: %s"), ($result['dirname'] ? $result['dirname'] : $result['id'])),
+                'description' => sprintf(__("Directory: %s"), ($result['dirname'] ? $result['dirname'] : $result['id'])),
             );
         }
         return $usage_arr;

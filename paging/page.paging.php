@@ -25,7 +25,7 @@ foreach ($get_vars as $k => $v) {
 	$vars[$k] = isset($_REQUEST[$k]) ? $_REQUEST[$k] : $v;
 }
 $vars['pagenbr'] = trim($vars['pagenbr']);
-if ($vars['Submit'] == _('Delete')) {
+if ($vars['Submit'] == __('Delete')) {
 	$vars['action'] = 'delete';
 	$_REQUEST['action'] = 'delete';
 }
@@ -35,7 +35,7 @@ switch ($vars['action']) {
 	case 'delete':
         paging_del($vars['extdisplay']);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -75,7 +75,7 @@ switch ($vars['action']) {
 				$vars['extdisplay'] = $vars['pagenbr'];
             }
             needreload(); 
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
 			redirect_standard('extdisplay', 'action');
@@ -162,8 +162,8 @@ switch ($vars['action']) {
 	case 'settings':
 	case 'save_settings':
 		//build recordings list
-		$vars['rec_list']['none'] = _('None');
-		$vars['rec_list']['beep'] = _('Default');
+		$vars['rec_list']['none'] = __('None');
+		$vars['rec_list']['beep'] = __('Default');
 		
 		if (!function_exists('recordings_list')) {
 			$announce = 'default';
@@ -193,7 +193,7 @@ switch ($vars['action']) {
 				}
 			}
         }
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
 		echo load_view(dirname(__FILE__) . '/views/settings.php', $vars);
@@ -205,7 +205,7 @@ switch ($vars['action']) {
 }
 
 function overview() {
-		$disabled = '(' . _('Disabled') . ')';
+		$disabled = '(' . __('Disabled') . ')';
 
 		$fcc = new featurecode('paging', 'intercom-prefix');
 		$vars['intercom_code'] = $fcc->getCodeActive();

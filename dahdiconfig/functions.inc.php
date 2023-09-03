@@ -305,11 +305,11 @@ function dahdiconfig_get_unused_trunk_options($current_identifier='') {
 		$port_details = $dahdi_cards->get_port($port);
 		$grp = $port_details['group'];
 		$chan = (string) $port_details['port'];
-		$avail_group["g$grp"] = array('identifier' => "g$grp",'name' => sprintf(_("Group %s Ascending"),$grp),'alarms' => '','selected'  => ($current_identifier == "g$grp"));
-		$avail_group["G$grp"] = array('identifier' => "G$grp",'name' => sprintf(_("Group %s Descending"),$grp),'alarms' => '','selected' => ($current_identifier == "G$grp"));
-		$avail_group["r$grp"] = array('identifier' => "r$grp",'name' => sprintf(_("Group %s Round Robin Ascending"),$grp),'alarms' => '','selected'  => ($current_identifier == "r$grp"));
-		$avail_group["R$grp"] = array('identifier' => "R$grp",'name' => sprintf(_("Group %s Round Robin Descending"),$grp),'alarms' => '','selected' => ($current_identifier == "R$grp"));
-		$analog_chan[$chan] = array('identifier' => $chan, 'name' => sprintf(_("Analog Channel %s"),$chan),'alarms' => '','selected' => ($current_identifier == $chan));
+		$avail_group["g$grp"] = array('identifier' => "g$grp",'name' => sprintf(__("Group %s Ascending"),$grp),'alarms' => '','selected'  => ($current_identifier == "g$grp"));
+		$avail_group["G$grp"] = array('identifier' => "G$grp",'name' => sprintf(__("Group %s Descending"),$grp),'alarms' => '','selected' => ($current_identifier == "G$grp"));
+		$avail_group["r$grp"] = array('identifier' => "r$grp",'name' => sprintf(__("Group %s Round Robin Ascending"),$grp),'alarms' => '','selected'  => ($current_identifier == "r$grp"));
+		$avail_group["R$grp"] = array('identifier' => "R$grp",'name' => sprintf(__("Group %s Round Robin Descending"),$grp),'alarms' => '','selected' => ($current_identifier == "R$grp"));
+		$analog_chan[$chan] = array('identifier' => $chan, 'name' => sprintf(__("Analog Channel %s"),$chan),'alarms' => '','selected' => ($current_identifier == $chan));
 	}
 	// Get Digital Groups and Channels. Channels are not that useful
 	// but can be helpful when testing bad channels
@@ -323,10 +323,10 @@ function dahdiconfig_get_unused_trunk_options($current_identifier='') {
 		foreach(json_decode($span['additional_groups'],TRUE) as $groups) {
 			$grp = $groups['group'];
 			if (!isset($avail_group["g$grp"])) {
-				$avail_group["g$grp"] = array('identifier' => "g$grp",'name' => sprintf(_("Group %s Ascending"),$grp),'alarms' => $alarms,'selected'  => ($current_identifier == "g$grp"));
-				$avail_group["G$grp"] = array('identifier' => "G$grp",'name' => sprintf(_("Group %s Descending"),$grp),'alarms' => $alarms,'selected' => ($current_identifier == "G$grp"));
-				$avail_group["r$grp"] = array('identifier' => "r$grp",'name' => sprintf(_("Group %s Round Robin Ascending"),$grp),'alarms' => '','selected'  => ($current_identifier == "r$grp"));
-				$avail_group["R$grp"] = array('identifier' => "R$grp",'name' => sprintf(_("Group %s Round Robin Descending"),$grp),'alarms' => '','selected' => ($current_identifier == "R$grp"));
+				$avail_group["g$grp"] = array('identifier' => "g$grp",'name' => sprintf(__("Group %s Ascending"),$grp),'alarms' => $alarms,'selected'  => ($current_identifier == "g$grp"));
+				$avail_group["G$grp"] = array('identifier' => "G$grp",'name' => sprintf(__("Group %s Descending"),$grp),'alarms' => $alarms,'selected' => ($current_identifier == "G$grp"));
+				$avail_group["r$grp"] = array('identifier' => "r$grp",'name' => sprintf(__("Group %s Round Robin Ascending"),$grp),'alarms' => '','selected'  => ($current_identifier == "r$grp"));
+				$avail_group["R$grp"] = array('identifier' => "R$grp",'name' => sprintf(__("Group %s Round Robin Descending"),$grp),'alarms' => '','selected' => ($current_identifier == "R$grp"));
 			} else {
 				//TODO: figure out the possible alarms and the create proper hiearchy of what to report
 				//
@@ -342,7 +342,7 @@ function dahdiconfig_get_unused_trunk_options($current_identifier='') {
 			$topchan = $basechan + $definedchans;
 			for ($port = $basechan; $port < $topchan; $port++) {
 				if($port != $span['reserved_ch'])
-				$digital_chan["$port"] = array('identifier' => "$port", 'name' => sprintf(_("Digital Channel %s"),$port),'alarms' => $alarms,'selected' => ($current_identifier == "$port"));
+				$digital_chan["$port"] = array('identifier' => "$port", 'name' => sprintf(__("Digital Channel %s"),$port),'alarms' => $alarms,'selected' => ($current_identifier == "$port"));
 			}
 		}
 	}
@@ -386,7 +386,7 @@ function dahdiconfig_configpageinit($dispnum) {
 		}
 
 		$channel_select  = dahdiconfig_get_unused_fxs_channels($extdisplay);
-		$currentcomponent->addoptlistitem('dahdi_channel_select', '', "=="._('Choose')."==");
+		$currentcomponent->addoptlistitem('dahdi_channel_select', '', "==".__('Choose')."==");
 		foreach ($channel_select as $val) {
 			$currentcomponent->addoptlistitem('dahdi_channel_select', $val['channel'].':'.$val['signalling'], $val['channel']);
 		}
@@ -459,7 +459,7 @@ function dahdiconfig_hook_core($viewing_itemid, $target_menuid) {
 			$html = '
 			<tr>
 			<td>
-			<a href=# class="info">' . _("DAHDI Trunks") . '<span>' . _("Available DAHDI Groups and Channels configued in the DAHDI Configuration Module") . '</span></a>:
+			<a href=# class="info">' . __("DAHDI Trunks") . '<span>' . __("Available DAHDI Groups and Channels configued in the DAHDI Configuration Module") . '</span></a>:
 			</td>
 			<td>
 			<select name="dahdi_trunks" id="dahdi_trunks" tabindex="' . ++$tabindex . '">
@@ -479,7 +479,7 @@ function dahdiconfig_hook_core($viewing_itemid, $target_menuid) {
 			$html .= '
 			<tr>
 			<td colspan="2">
-			<a href=# class="info">' . _("No Available Groups or Channels") . '<span>' . _("There are no DAHDI Groups or Channels available to be configured. Check the DAHDI module (linked below) to configure any un-used cards") . '</span></a>
+			<a href=# class="info">' . __("No Available Groups or Channels") . '<span>' . __("There are no DAHDI Groups or Channels available to be configured. Check the DAHDI module (linked below) to configure any un-used cards") . '</span></a>
 			</td>
 			</tr>
 			';
@@ -490,7 +490,7 @@ function dahdiconfig_hook_core($viewing_itemid, $target_menuid) {
 		<tr><td colspan="2"><input type="hidden" id="dahdi_trunks" value=""></td></tr>
 		<tr>
 		<td colspan="2">
-		<a href="'.$URL.'" class="info">' . _("Configure/Edit DAHDI Cards") . '<span>' . _("Configure/Edit DAHDI Card settings in DAHDi Module") . '</span></a>
+		<a href="'.$URL.'" class="info">' . __("Configure/Edit DAHDI Cards") . '<span>' . __("Configure/Edit DAHDI Card settings in DAHDi Module") . '</span></a>
 		</td>
 		</tr>
 		';
@@ -509,7 +509,7 @@ function dahdiconfig_extensions_configpageload() {
 function dahdiconfig_configpageload($mode) {
 	global $currentcomponent;
 
-	$section = _('Device Options');
+	$section = __('Device Options');
 
 	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
 
@@ -520,8 +520,8 @@ function dahdiconfig_configpageload($mode) {
 		'dahdi_channel',
 		$dahdi_channel_select,
 		'',
-		_('Channel'),
-		sprintf(_('Choose the FXS channel for this %s'),$mode),
+		__('Channel'),
+		sprintf(__('Choose the FXS channel for this %s'),$mode),
 		false,
 		"javascript:if (document.frm_{$mode}s.dahdi_channel.value) {parts = document.frm_{$mode}s.dahdi_channel.value.split(':');document.frm_{$mode}s.devinfo_channel.value = parts[0];document.frm_{$mode}s.devinfo_dial.value = 'DAHDI/'+parts[0];document.frm_{$mode}s.devinfo_signalling.value = parts[1]; } else { document.frm_{$mode}s.devinfo_channel.value = ''}"
 	));
@@ -541,7 +541,7 @@ function dahdiconfig_configpageload($mode) {
 	$currentcomponent->addguielem($section, new guielement('dahdi-chan-html', $js, ''));
 } else {
 	// No available channels so display that and hide channel, signalling and dial fields
-	$currentcomponent->addguielem($section, new gui_label('no_dahdi_channel', _('No Unused DAHDi Channels Available')));
+	$currentcomponent->addguielem($section, new gui_label('no_dahdi_channel', __('No Unused DAHDi Channels Available')));
 	$js = '<script type="text/javascript">
 	$(document).ready(function(){
 		$("#devinfo_channel").parent().parent().hide();

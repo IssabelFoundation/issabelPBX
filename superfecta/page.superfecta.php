@@ -39,13 +39,13 @@ $goto = NULL;
 if(isset($_REQUEST['action'])) {
     switch($action) {
     case "add":
-        $msg = dgettext('amp','Item has been added');
+        $msg = _dgettext('amp','Item has been added');
         $_REQUEST['extdisplay'] = 'base_'.$_REQUEST['scheme_name'];
     case "edit":
         $errors = superfecta_update_scheme($_POST);
         if($errors=='') {
             needreload();
-            if(!isset($msg)) $msg = dgettext('amp','Item has been saved');
+            if(!isset($msg)) $msg = _dgettext('amp','Item has been saved');
             $_SESSION['msg']=base64_encode($msg);
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
@@ -59,7 +59,7 @@ if(isset($_REQUEST['action'])) {
     case "delete":
         superfecta_delete_scheme($_REQUEST);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         redirect_standard('');
@@ -164,7 +164,7 @@ $conf = superfecta_getConfig($scheme);
 
 if(!isset($conf['Prefix_URL'])) {
     $action='add';
-    $title=_('Add Superfecta Scheme');
+    $title=__('Add Superfecta Scheme');
     if(isset($_REQUEST['extdisplay'])) {
         if(preg_match("/^base_/",$_REQUEST['extdisplay'])) {
             $scheme = $_REQUEST['extdisplay'];
@@ -174,7 +174,7 @@ if(!isset($conf['Prefix_URL'])) {
     }
 } else {
     $action ='edit';
-    $title=_('Edit Superfecta Scheme').': '.substr($_REQUEST['extdisplay'],5);
+    $title=__('Edit Superfecta Scheme').': '.substr($_REQUEST['extdisplay'],5);
 }
 
 $goto = (!empty($conf['spam_destination'])) ? $conf['spam_destination'] : '';

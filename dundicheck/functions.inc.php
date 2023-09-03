@@ -54,7 +54,7 @@ function dundicheck_check_extensions($exten=true) {
 
 		foreach ($results as $result) {
 			$thisexten = $result['exten'];
-			$extenlist[$thisexten]['description'] = _("DUNDi: ").$result['description'];
+			$extenlist[$thisexten]['description'] = __("DUNDi: ").$result['description'];
 			$extenlist[$thisexten]['status'] = 'INUSE';
 			$extenlist[$thisexten]['edit_url'] = 'config.php?display=dundicheck&dundiconflict=true&extdisplay='.urlencode($thisexten);
 		}

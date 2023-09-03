@@ -9,11 +9,11 @@ if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc
 // Set language
 $lang = $issabelpbx_conf->get_conf_setting('LANGUAGE');
 if($lang!='') {
-    setlocale(LC_ALL,  $lang);
-    putenv("LANGUAGE=".$lang);
-    bindtextdomain('amp',$amp_conf['AMPWEBROOT'].'/admin/i18n');
-    bind_textdomain_codeset('amp', 'utf8');
-    textdomain('amp');
+    T_setlocale(LC_MESSAGES,  $lang);
+    //putenv("LANGUAGE=".$lang);
+    _bindtextdomain('amp',$amp_conf['AMPWEBROOT'].'/admin/i18n');
+    _bind_textdomain_codeset('amp', 'utf8');
+    _textdomain('amp');
 }
 
 // Define the notification class for logging to the dashboard
@@ -64,13 +64,13 @@ if ($email) {
 
 	if ($send_email && (! $cm->check_hash('update_email', $text))) {
 		$cm->save_hash('update_email', $text);
-		if (mail($email, _("IssabelPBX: New Online Updates Available"), $text)) {
+		if (mail($email, __("IssabelPBX: New Online Updates Available"), $text)) {
 			$nt->delete('issabelpbx', 'EMAILFAIL');
 		} else {
-			$nt->add_error('issabelpbx', 'EMAILFAIL', _('Failed to send online update email'), sprintf(_('An attempt to send email to: %s with online update status failed'),$email));
+			$nt->add_error('issabelpbx', 'EMAILFAIL', __('Failed to send online update email'), sprintf(__('An attempt to send email to: %s with online update status failed'),$email));
 		}
 	}
 } else {
-		$nt->add_notice('issabelpbx', 'NOEMAIL', _('No email address for online update checks'), _('You are automatically checking for online updates nightly but you have no email address setup to send the results. This can be set in Module Admin. They will continue to show up here.'), '', 'PASSIVE', false);
+		$nt->add_notice('issabelpbx', 'NOEMAIL', __('No email address for online update checks'), __('You are automatically checking for online updates nightly but you have no email address setup to send the results. This can be set in Module Admin. They will continue to show up here.'), '', 'PASSIVE', false);
 }
 ?>

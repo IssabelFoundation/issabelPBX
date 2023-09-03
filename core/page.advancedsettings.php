@@ -22,7 +22,7 @@ if($var['action'] === 'setkey') {
         $issabelpbx_conf->set_conf_values(array($keyword => trim($var['value'])),true,$amp_conf['AS_OVERRIDE_READONLY']);
         $status = $issabelpbx_conf->get_last_update_status();
         if ($status[$keyword]['saved']) {
-            issabelpbx_log(IPBX_LOG_INFO,sprintf(_("Advanced Settings changed issabelpbx_conf setting: [$keyword] => [%s]"),$var['value']));
+            issabelpbx_log(IPBX_LOG_INFO,sprintf(__("Advanced Settings changed issabelpbx_conf setting: [$keyword] => [%s]"),$var['value']));
             needreload();
         }
         echo json_encode($status[$keyword]);
@@ -33,9 +33,9 @@ if($var['action'] === 'setkey') {
 $amportal_canwrite = $issabelpbx_conf->amportal_canwrite() ? 'true' : 'false';
 echo '<script>';
 echo 'can_write_amportalconf = ' . $amportal_canwrite . '; ';
-echo 'amportalconf_error = "' . _("You must run 'amportal restart' from the Linux command line before you can save setting here.") . '";';
-echo 'msgUnsavedChanges = "' . _("You have un-saved changes, press OK to disregard changes and reload page or Cancel to abort.") . '";';
-echo 'msgChangesRefresh = "' . _("Your Display settings have been changed, click on 'Refresh Page' to view the affects of your changes once you have saved other outstanding changes that are still un-confirmed.") . '";';
+echo 'amportalconf_error = "' . __("You must run 'amportal restart' from the Linux command line before you can save setting here.") . '";';
+echo 'msgUnsavedChanges = "' . __("You have un-saved changes, press OK to disregard changes and reload page or Cancel to abort.") . '";';
+echo 'msgChangesRefresh = "' . __("Your Display settings have been changed, click on 'Refresh Page' to view the affects of your changes once you have saved other outstanding changes that are still un-confirmed.") . '";';
 echo '$(function(){';
 echo "$('select').chosen({width:'50%', disable_search: true});";
 
@@ -88,8 +88,8 @@ echo '</script>';
 
 echo '<div class="content">';
 echo '<div id="main_page">';
-echo "<h2>"._("IssabelPBX Advanced Settings")."</h2>";
-echo '<div class="notification is-warning"><p>'._("<b>IMPORTANT:</b> Use extreme caution when making changes!").'</p><p>'._("Some of these settings can render your system inoperable. You are urged to backup before making any changes. Readonly settings are usually more volatile, they can be changed by changing 'Override Readonly Settings' to true. Once changed you must save the setting by checking the green check box that appears. You can restore the default setting by clicking on the icon to the right of the values if not set at default.").'</p></div>';
+echo "<h2>".__("IssabelPBX Advanced Settings")."</h2>";
+echo '<div class="notification is-warning"><p>'.__("<b>IMPORTANT:</b> Use extreme caution when making changes!").'</p><p>'.__("Some of these settings can render your system inoperable. You are urged to backup before making any changes. Readonly settings are usually more volatile, they can be changed by changing 'Override Readonly Settings' to true. Once changed you must save the setting by checking the green check box that appears. You can restore the default setting by clicking on the icon to the right of the values if not set at default.").'</p></div>';
 
 $conf                    = $issabelpbx_conf->get_conf_settings();
 
@@ -108,7 +108,7 @@ echo '<div class="columns">';
 echo '<div  class="column">';
 echo '<div class="field mt-3">
   <div class="control has-icons-left">
-    <input class="input is-rounded" type="search" id="pagesearch" placeholder="'._('Search').'">
+    <input class="input is-rounded" type="search" id="pagesearch" placeholder="'.__('Search').'">
     <span class="icon is-small is-left">
       <i class="fa fa-search fa-xs"></i>
     </span>
@@ -127,7 +127,7 @@ foreach ($conf as $c){
         $current_category = $c['category'];
         $catcont++;
         $current_category_loc = modgettext::_($current_category, $c['module']);
-        echo '<div class="columns categorytitle mt-5" id="cat'.$catcont.'"><div class="column is-12"><h4 class="category">'._("$current_category_loc").'</h4></div></div>';
+        echo '<div class="columns categorytitle mt-5" id="cat'.$catcont.'"><div class="column is-12"><h4 class="category">'.__("$current_category_loc").'</h4></div></div>';
         $row++;
     }
 
@@ -141,19 +141,19 @@ foreach ($conf as $c){
     }
 
     $row++;
-    $dv = $c['type'] == CONF_TYPE_BOOL ? ($c['defaultval'] ? _("True") : _("False")) : $c['defaultval'];
-    $default_val = $dv == '' ? _("No Default Provided") : sprintf(_("Default Value: %s"),$dv);
+    $dv = $c['type'] == CONF_TYPE_BOOL ? ($c['defaultval'] ? __("True") : __("False")) : $c['defaultval'];
+    $default_val = $dv == '' ? __("No Default Provided") : sprintf(__("Default Value: %s"),$dv);
     if ($c['emptyok'] && $c['type'] != CONF_TYPE_BOOL && $c['type'] != CONF_TYPE_SELECT && $c['type'] != CONF_TYPE_FSELECT) {
-        $default_val.= ', '._("field can be left blank");
+        $default_val.= ', '.__("field can be left blank");
     }
     if ($c['type'] == CONF_TYPE_INT && $c['options']) {
         $range = explode(',',$c['options']);
-        $default_val .= '<br />'.sprintf(_("Acceptable Values: %s - %s"),$range[0],$range[1]);
+        $default_val .= '<br />'.sprintf(__("Acceptable Values: %s - %s"),$range[0],$range[1]);
     }
     if ($display_friendly_name) {
-        $default_val .= '<br />'.sprintf(_("Internal Name: %s"),$c['keyword']);
+        $default_val .= '<br />'.sprintf(__("Internal Name: %s"),$c['keyword']);
     } else {
-        $default_val .= '<br />'.sprintf(_("Friendly Name: %s"),$tr_friendly_name);
+        $default_val .= '<br />'.sprintf(__("Friendly Name: %s"),$tr_friendly_name);
     }
     echo '<div class="columns trsearch">';
     echo '<div class="column tdsearch"><a href="javascript:void(null)" class="info">'.$name_label.'<span>'.htmlspecialchars($tt_description).'<br><br>'.$default_val.'</span></a></div>';
@@ -189,9 +189,9 @@ foreach ($conf as $c){
 <fieldset class='radio'>
 <div class="radiotoggle">
 <input type="radio" class="valueinput" data-valueinput-orig="<?php echo $amp_conf[$c['keyword']] ? 1 : 0 ?>" name="<?php echo $c['keyword'] ?>" id="<?php echo $c['keyword'] ?>-true" value=1 <?php echo $amp_conf[$c['keyword']]?"checked=\"checked\"":""?> />
-<label for="<?php echo $c['keyword'] ?>-true"><?php echo _("True") ?></label>
+<label for="<?php echo $c['keyword'] ?>-true"><?php echo __("True") ?></label>
 <input type="radio" class="valueinput" data-valueinput-orig="<?php echo $amp_conf[$c['keyword']] ? 1 : 0 ?>" name="<?php echo $c['keyword'] ?>" id="<?php echo $c['keyword'] ?>-false" value=0 <?php echo !$amp_conf[$c['keyword']]?"checked=\"checked\"":""?> />
-<label for="<?php echo $c['keyword'] ?>-false"><?php echo _("False") ?></label>
+<label for="<?php echo $c['keyword'] ?>-false"><?php echo __("False") ?></label>
 </div>
 </fieldset>
 <?php
@@ -200,11 +200,11 @@ foreach ($conf as $c){
     echo '</div>';
     if(!$c['readonly'] || $amp_conf['AS_OVERRIDE_READONLY'] && !$c['hidden']){
         echo '<div class="column is-1">';
-        echo '<span data-tooltip="'._('Revert to Default').'"><i class="fa fa-rotate-left adv_set_default" data-key="'.$c['keyword'].'" data-default="'.$c['defaultval'].'" data-type="' . (($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '') . '" '. (($amp_conf[$c['keyword']] == $c['defaultval']) ? ' style="display:none" ' : '').'></i></span>';
+        echo '<span data-tooltip="'.__('Revert to Default').'"><i class="fa fa-rotate-left adv_set_default" data-key="'.$c['keyword'].'" data-default="'.$c['defaultval'].'" data-type="' . (($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '') . '" '. (($amp_conf[$c['keyword']] == $c['defaultval']) ? ' style="display:none" ' : '').'></i></span>';
         echo '</div>';
 
         echo '<div class="column is-1">';
-        echo '<span data-tooltip="'._('Save').'"><i class="fa has-text-success-dark fa-check-square-o save" data-key="'.$c['keyword'].'" title="'._('Save').'"'.' data-type="'.(($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '').'"></i></span>';
+        echo '<span data-tooltip="'.__('Save').'"><i class="fa has-text-success-dark fa-check-square-o save" data-key="'.$c['keyword'].'" title="'.__('Save').'"'.' data-type="'.(($c['type'] == CONF_TYPE_BOOL) ? 'BOOL' : '').'"></i></span>';
         echo '</div>';
     } else {
 	    echo '<div class="column is-2"></div>';
@@ -219,7 +219,7 @@ foreach ($conf as $c){
     <div id='action-buttons'>
       <a id='collapseactionmenuicon' class='action_menu_icon'><i class='fa fa-angle-double-right'></i></a>
 <button type="submit" class="button is-link is-light is-small is-rounded" id="page_reload">
-<?php echo _("Refresh Page"); ?>
+<?php echo __("Refresh Page"); ?>
 </button>
     </div>
 </div>

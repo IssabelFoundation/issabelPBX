@@ -19,7 +19,7 @@ drawListMenu($groups, $type, $display, $extdisplay);
 <div class='content' up-main>
 
 <div class="tag is-info servertime">
-	<?php echo _("Server time")?>: <span id="idTime">00:00:00</span>
+	<?php echo __("Server time")?>: <span id="idTime">00:00:00</span>
 </div>
 
 <script>
@@ -70,7 +70,7 @@ function updateTime()
 updateTime();
 $(document).ready(function(){
 	$(".remove_section").on('click',function(){
-    if (confirm('<?php echo _("This section will be removed from this time group and all current settings including changes will be updated. OK to proceed?") ?>')) {
+    if (confirm('<?php echo __("This section will be removed from this time group and all current settings including changes will be updated. OK to proceed?") ?>')) {
       $(this).parent().parent().prev().remove();
       $(this).closest('form').submit();
     }
@@ -80,7 +80,7 @@ $(document).ready(function(){
 
        e.preventDefault();
 
-       msg = '<?php echo _("This action will remove all configured times in this groups and recreate them based on holiday calendars by Google and other providers. Are you sure you want to continue?") ?>"';
+       msg = '<?php echo __("This action will remove all configured times in this groups and recreate them based on holiday calendars by Google and other providers. Are you sure you want to continue?") ?>"';
        Swal.fire({
            title: ipbx.msg.framework.areyousure,
            text: msg,

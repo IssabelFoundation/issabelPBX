@@ -1,13 +1,13 @@
 <?php
 $html = '<div class="content">';
-$html .= heading(_('Restore'), 2);
+$html .= heading(__('Restore'), 2);
 //$html .= form_hidden('restore_source', 'upload');
 //$html .= form_hidden('post_max_size ', '1048576000');
 $html .= form_open_multipart($_SERVER['REQUEST_URI'],' name="upload" id="upload" class="mx-2" ');
 $html .= form_hidden('action', 'upload');
 
 
-$html .= _('Upload a backup file to restore from it. Or, pick a saved backup by selecting a server from the list on the right.');
+$html .= __('Upload a backup file to restore from it. Or, pick a saved backup by selecting a server from the list on the right.');
 $html .= br(2);
 //$html .= form_upload('upload');
 
@@ -20,18 +20,18 @@ $html .='<div class="file has-name is-fullwidth has-addons">
       <span class="file-icon">
         <i class="fa fa-upload"></i>
       </span>
-      <span class="file-label">'._('Choose a file...').'</span>
+      <span class="file-label">'.__('Choose a file...').'</span>
     </span>
     <span class="file-name" id="selected_file_name">
     </span>
   </label>
-  <div class="control"><input type="button" class="button is-info" value="'._("Go!").'" onclick="document.upload.submit();$.LoadingOverlay(\'show\');"/></div>
+  <div class="control"><input type="button" class="button is-info" value="'.__("Go!").'" onclick="document.upload.submit();$.LoadingOverlay(\'show\');"/></div>
 </div>';
 
 
 
 
-//$html .= form_submit('submit', _('Go!'), ' class="button is-rounded is-small" ');
+//$html .= form_submit('submit', __('Go!'), ' class="button is-rounded is-small" ');
 $html .= form_close();
 
 $html.='

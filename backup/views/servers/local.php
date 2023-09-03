@@ -2,12 +2,12 @@
 $html = '<div class="content">';
 
 if($id=='') {
-    $html .= heading(_('Add Local Server'), 2);
+    $html .= heading(__('Add Local Server'), 2);
 } else {
-    $html .= heading(_('Edit Local Server').": ".$name, 2);
+    $html .= heading(__('Edit Local Server').": ".$name, 2);
 }
 
-$html .= heading(dgettext('amp','General Settings'), 5);
+$html .= heading(_dgettext('amp','General Settings'), 5);
 
 $html .= form_hidden('server_type', 'ssh');
 $html .= form_open($_SERVER['REQUEST_URI'],'id="mainform" onsubmit="return edit_onsubmit(this)"');
@@ -18,7 +18,7 @@ $html .= form_hidden('id', $id);
 $table = new CI_Table;
 
 //name
-$label	= ipbx_label(_('Server Name'));
+$label	= ipbx_label(__('Server Name'));
 $data 	= array(
 			'name' => 'name', 
             'value' => $name,
@@ -28,7 +28,7 @@ $data = backup_server_writeable('name', $readonly, $data);
 $table->add_row($label, form_input($data));
 
 //decription
-$label	= ipbx_label(_('Description'), _('Description or notes for this server'));
+$label	= ipbx_label(__('Description'), __('Description or notes for this server'));
 $data 	= array(
 			'name' => 'desc', 
 			'value' => $desc,
@@ -39,7 +39,7 @@ $table->add_row($label, form_input($data));
 
 
 // directory
-$label	= ipbx_label(_('Path'), _('Path where files are stored'));
+$label	= ipbx_label(__('Path'), __('Path where files are stored'));
 $data 	= array(
 			'name' => 'path', 
 			'value' => $path,

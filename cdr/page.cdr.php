@@ -70,29 +70,29 @@ foreach ($_POST as $k => $v) {
 $h_step = 30;
 ?>
 <div class='content'>
-	<h2><?php echo _('CDR Reports'); ?></h2>
+	<h2><?php echo __('CDR Reports'); ?></h2>
 	<div id="maincdr">
 	<table class="table is-borderless is-narrow notfixed cdr">
 	<tr><td>
 		<form method="post" enctype="application/x-www-form-urlencoded" id='mainform'>
 		<fieldset>
-		<legend class="title"><?php echo _("Call Detail Record Search")?></legend>
+		<legend class="title"><?php echo __("Call Detail Record Search")?></legend>
 			<table class='table is-narrow is-borderless notfixed cdr'>
 			<tr>
-				<th><?php echo _("Order By")?></th>
-				<th><?php echo _("Search conditions")?></th>
-				<th><?php echo _("Extra options")?></th>
+				<th><?php echo __("Order By")?></th>
+				<th><?php echo __("Search conditions")?></th>
+				<th><?php echo __("Extra options")?></th>
 			</tr>
 			<tr>
-				<?php $calldate_tooltip = _("Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search");?>
-				<td><input <?php if (empty($_POST['order']) || $_POST['order'] == 'calldate') { echo 'checked="checked"'; } ?> type="radio" name="order" value="calldate" />&nbsp;<?php echo "<a href=\"#\" class=\"info\">"._("Call Date")."<span>".$calldate_tooltip."</span></a>"?></td>
+				<?php $calldate_tooltip = __("Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search");?>
+				<td><input <?php if (empty($_POST['order']) || $_POST['order'] == 'calldate') { echo 'checked="checked"'; } ?> type="radio" name="order" value="calldate" />&nbsp;<?php echo "<a href=\"#\" class=\"info\">".__("Call Date")."<span>".$calldate_tooltip."</span></a>"?></td>
 				<td>
 				<input type="text" name="dates" class="input" value='<?php echo isset($_POST['dates'])?$_POST['dates']:'';?>'>
 <!--
 				<input type="text" name="startday" id="startday" size="2" maxlength="2" value="<?php if (isset($_POST['startday'])) { echo htmlspecialchars($_POST['startday']); } else { echo '01'; } ?>" />
 				<select name="startmonth" id="startmonth">
 <?php
-				$months = array('01' => _('January'), '02' => _('February'), '03' => _('March'), '04' => _('April'), '05' => _('May'), '06' => _('June'), '07' => _('July'), '08' => _('August'), '09' => _('September'), '10' => _('October'), '11' => _('November'), '12' => _('December'));
+				$months = array('01' => __('January'), '02' => __('February'), '03' => __('March'), '04' => __('April'), '05' => __('May'), '06' => __('June'), '07' => __('July'), '08' => __('August'), '09' => __('September'), '10' => __('October'), '11' => __('November'), '12' => __('December'));
 				foreach ($months as $i => $month) {
 					if ((empty($_POST['startmonth']) && date('m') == $i) || (isset($_POST['startmonth']) && $_POST['startmonth'] == $i)) {
 						echo "<option value=\"$i\" selected=\"selected\">$month</option>\n";
@@ -114,7 +114,7 @@ $h_step = 30;
 ?>
 				</select>
 				<input type="text" name="starthour" id="starthour" size="2" maxlength="2" value="<?php if (isset($_POST['starthour'])) { echo htmlspecialchars($_POST['starthour']); } else { echo '00'; } ?>" />
-				<input type="text" name="startmin" id="startmin" size="2" maxlength="2" value="<?php if (isset($_POST['startmin'])) { echo htmlspecialchars($_POST['startmin']); } else { echo '00'; } ?>" /><?php echo _("To")?>:
+				<input type="text" name="startmin" id="startmin" size="2" maxlength="2" value="<?php if (isset($_POST['startmin'])) { echo htmlspecialchars($_POST['startmin']); } else { echo '00'; } ?>" /><?php echo __("To")?>:
 				<input type="text" name="endday" id="endday" size="2" maxlength="2" value="<?php if (isset($_POST['endday'])) { echo htmlspecialchars($_POST['endday']); } else { echo '31'; } ?>" />
 				<select name="endmonth" id="endmonth">
 <?php
@@ -146,18 +146,18 @@ for ( $i = 2000; $i <= date('Y'); $i++) {
 <fieldset>
 <table>
 <tr>
-<td><?php echo _("Report type")?> : </td>
+<td><?php echo __("Report type")?> : </td>
 <td>
-<input <?php if ( (empty($_POST['need_html']) && empty($_POST['need_chart']) && empty($_POST['need_chart_cc']) && empty($_POST['need_csv'])) || ( ! empty($_POST['need_html']) &&  $_POST['need_html'] == 'true' ) ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_html" value="true" /> : <?php echo _("CDR search")?><br />
-<input <?php if ( ! empty($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_csv" value="true" /> : <?php echo _("CSV file")?><br/>
-<input <?php if ( ! empty($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_chart" value="true" /> : <?php echo _("Call Graph")?><br />
+<input <?php if ( (empty($_POST['need_html']) && empty($_POST['need_chart']) && empty($_POST['need_chart_cc']) && empty($_POST['need_csv'])) || ( ! empty($_POST['need_html']) &&  $_POST['need_html'] == 'true' ) ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_html" value="true" /> : <?php echo __("CDR search")?><br />
+<input <?php if ( ! empty($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_csv" value="true" /> : <?php echo __("CSV file")?><br/>
+<input <?php if ( ! empty($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_chart" value="true" /> : <?php echo __("Call Graph")?><br />
 <!--
-<input <?php if ( ! empty($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_chart_cc" value="true" /> : <?php echo _("Concurrent Calls")?><br />
+<input <?php if ( ! empty($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_chart_cc" value="true" /> : <?php echo __("Concurrent Calls")?><br />
 -->
 </td>
 </tr>
 <tr>
-<td><label for="Result limit"><?php echo _("Result limit")?></label></td>
+<td><label for="Result limit"><?php echo __("Result limit")?></label></td>
 <td>
 <input value="<?php
 if (isset($_POST['limit']) ) {
@@ -172,184 +172,184 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 <tr>
-<?php $cnum_tooltip = _("Search for calls based on CallerID Number. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>");?>
-<?php $cnum_tooltip .= _("<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>");?>
-<?php $cnum_tooltip .= _("<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers");?>
-<?php $cnum_tooltip .= _("<br>Asterisk pattern matching<br>");?>
-<?php $cnum_tooltip .= _("<b>X</b> = matches any digit from 0-9<br>");?>
-<?php $cnum_tooltip .= _("<b>Z</b> = matches any digit from 1-9<br>");?>
-<?php $cnum_tooltip .= _("<b>N</b> = matches any digit from 2-9<br>");?>
-<?php $cnum_tooltip .= _("<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>");?>
-<?php $cnum_tooltip .= _("<b>.</b> = wildcard, matches one or more characters<br>");?>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'cnum') { echo 'checked="checked"'; } ?> type="radio" name="order" value="cnum" />&nbsp;<label for="cnum"><?php echo "<a href=\"#\" class=\"info\">"._("CallerID Number")."<span>$cnum_tooltip</span></a>"?></label></td>
+<?php $cnum_tooltip = __("Search for calls based on CallerID Number. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>");?>
+<?php $cnum_tooltip .= __("<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>");?>
+<?php $cnum_tooltip .= __("<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers");?>
+<?php $cnum_tooltip .= __("<br>Asterisk pattern matching<br>");?>
+<?php $cnum_tooltip .= __("<b>X</b> = matches any digit from 0-9<br>");?>
+<?php $cnum_tooltip .= __("<b>Z</b> = matches any digit from 1-9<br>");?>
+<?php $cnum_tooltip .= __("<b>N</b> = matches any digit from 2-9<br>");?>
+<?php $cnum_tooltip .= __("<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>");?>
+<?php $cnum_tooltip .= __("<b>.</b> = wildcard, matches one or more characters<br>");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'cnum') { echo 'checked="checked"'; } ?> type="radio" name="order" value="cnum" />&nbsp;<label for="cnum"><?php echo "<a href=\"#\" class=\"info\">".__("CallerID Number")."<span>$cnum_tooltip</span></a>"?></label></td>
 <td><input class="valueinput" type="text" name="cnum" id="cnum" value="<?php if (isset($_POST['cnum'])) { echo htmlspecialchars($_POST['cnum']); } ?>" />
-<?php echo _("Not")?><input <?php if ( isset($_POST['cnum_neg'] ) && $_POST['cnum_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="cnum_neg" value="true" />
-<?php echo _("Begins With")?><input <?php if (empty($_POST['cnum_mod']) || $_POST['cnum_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="cnum_mod" value="begins_with" />
-<?php echo _("Contains")?><input <?php if (isset($_POST['cnum_mod']) && $_POST['cnum_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="cnum_mod" value="contains" />
-<?php echo _("Ends With")?><input <?php if (isset($_POST['cnum_mod']) && $_POST['cnum_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="cnum_mod" value="ends_with" />
-<?php echo _("Exactly")?><input <?php if (isset($_POST['cnum_mod']) && $_POST['cnum_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="cnum_mod" value="exact" />
+<?php echo __("Not")?><input <?php if ( isset($_POST['cnum_neg'] ) && $_POST['cnum_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="cnum_neg" value="true" />
+<?php echo __("Begins With")?><input <?php if (empty($_POST['cnum_mod']) || $_POST['cnum_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="cnum_mod" value="begins_with" />
+<?php echo __("Contains")?><input <?php if (isset($_POST['cnum_mod']) && $_POST['cnum_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="cnum_mod" value="contains" />
+<?php echo __("Ends With")?><input <?php if (isset($_POST['cnum_mod']) && $_POST['cnum_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="cnum_mod" value="ends_with" />
+<?php echo __("Exactly")?><input <?php if (isset($_POST['cnum_mod']) && $_POST['cnum_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="cnum_mod" value="exact" />
 </td>
 </tr>
 
 <tr>
-<?php $cnam_tooltip = _("Select CallerID Name to search for.");?>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'cnam') { echo 'checked="checked"'; } ?> type="radio" name="order" value="cnam" />&nbsp;<label for="cnam"><?php echo "<a href=\"#\" class=\"info\">"._("CallerID Name")."<span>$cnam_tooltip</span></a>"?></label></td>
+<?php $cnam_tooltip = __("Select CallerID Name to search for.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'cnam') { echo 'checked="checked"'; } ?> type="radio" name="order" value="cnam" />&nbsp;<label for="cnam"><?php echo "<a href=\"#\" class=\"info\">".__("CallerID Name")."<span>$cnam_tooltip</span></a>"?></label></td>
 <td><input class="valueinput" type="text" name="cnam" id="cnam" value="<?php if (isset($_POST['cnam'])) { echo htmlspecialchars($_POST['cnam']); } ?>" />
-<?php echo _("Not")?><input <?php if ( isset($_POST['cnam_neg'] ) && $_POST['cnam_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="cnam_neg" value="true" />
-<?php echo _("Begins With")?><input <?php if (empty($_POST['cnam_mod']) || $_POST['cnam_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="cnam_mod" value="begins_with" />
-<?php echo _("Contains")?><input <?php if (isset($_POST['cnam_mod']) && $_POST['cnam_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="cnam_mod" value="contains" />
-<?php echo _("Ends With")?><input <?php if (isset($_POST['cnam_mod']) && $_POST['cnam_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="cnam_mod" value="ends_with" />
-<?php echo _("Exactly")?><input <?php if (isset($_POST['cnam_mod']) && $_POST['cnam_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="cnam_mod" value="exact" />
+<?php echo __("Not")?><input <?php if ( isset($_POST['cnam_neg'] ) && $_POST['cnam_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="cnam_neg" value="true" />
+<?php echo __("Begins With")?><input <?php if (empty($_POST['cnam_mod']) || $_POST['cnam_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="cnam_mod" value="begins_with" />
+<?php echo __("Contains")?><input <?php if (isset($_POST['cnam_mod']) && $_POST['cnam_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="cnam_mod" value="contains" />
+<?php echo __("Ends With")?><input <?php if (isset($_POST['cnam_mod']) && $_POST['cnam_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="cnam_mod" value="ends_with" />
+<?php echo __("Exactly")?><input <?php if (isset($_POST['cnam_mod']) && $_POST['cnam_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="cnam_mod" value="exact" />
 </td>
 </tr>
 
 <tr>
-<?php $obcnum_tooltip = _("Search for calls based on outbound CID used. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>");?>
-<?php $obcnum_tooltip .= _("<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>");?>
-<?php $obcnum_tooltip .= _("<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers");?>
-<?php $obcnum_tooltip .= _("<br>Asterisk pattern matching<br>");?>
-<?php $obcnum_tooltip .= _("<b>X</b> = matches any digit from 0-9<br>");?>
-<?php $obcnum_tooltip .= _("<b>Z</b> = matches any digit from 1-9<br>");?>
-<?php $obcnum_tooltip .= _("<b>N</b> = matches any digit from 2-9<br>");?>
-<?php $obcnum_tooltip .= _("<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>");?>
-<?php $obcnum_tooltip .= _("<b>.</b> = wildcard, matches one or more characters<br>");?>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'outbound_cnum') { echo 'checked="checked"'; } ?> type="radio" name="order" value="outbound_cnum" />&nbsp;<label for="outbound_cnum"><?php echo "<a href=\"#\" class=\"info\">"._("Outbound CallerID Number")."<span>$obcnum_tooltip</span></a>"?></label></td>
+<?php $obcnum_tooltip = __("Search for calls based on outbound CID used. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>");?>
+<?php $obcnum_tooltip .= __("<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>");?>
+<?php $obcnum_tooltip .= __("<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers");?>
+<?php $obcnum_tooltip .= __("<br>Asterisk pattern matching<br>");?>
+<?php $obcnum_tooltip .= __("<b>X</b> = matches any digit from 0-9<br>");?>
+<?php $obcnum_tooltip .= __("<b>Z</b> = matches any digit from 1-9<br>");?>
+<?php $obcnum_tooltip .= __("<b>N</b> = matches any digit from 2-9<br>");?>
+<?php $obcnum_tooltip .= __("<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>");?>
+<?php $obcnum_tooltip .= __("<b>.</b> = wildcard, matches one or more characters<br>");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'outbound_cnum') { echo 'checked="checked"'; } ?> type="radio" name="order" value="outbound_cnum" />&nbsp;<label for="outbound_cnum"><?php echo "<a href=\"#\" class=\"info\">".__("Outbound CallerID Number")."<span>$obcnum_tooltip</span></a>"?></label></td>
 <td><input class="valueinput" type="text" name="outbound_cnum" id="outbound_cnum" value="<?php if (isset($_POST['outbound_cnum'])) { echo htmlspecialchars($_POST['outbound_cnum']); } ?>" />
-<?php echo _("Not")?>:<input <?php if ( isset($_POST['outbound_cnum_neg'] ) && $_POST['outbound_cnum_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="outbound_cnum_neg" value="true" />
-<?php echo _("Begins With")?>:<input <?php if (empty($_POST['outbound_cnum_mod']) || $_POST['outbound_cnum_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnum_mod" value="begins_with" />
-<?php echo _("Contains")?>:<input <?php if (isset($_POST['outbound_cnum_mod']) && $_POST['outbound_cnum_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnum_mod" value="contains" />
-<?php echo _("Ends With")?>:<input <?php if (isset($_POST['outbound_cnum_mod']) && $_POST['outbound_cnum_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnum_mod" value="ends_with" />
-<?php echo _("Exactly")?>:<input <?php if (isset($_POST['outbound_cnum_mod']) && $_POST['outbound_cnum_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnum_mod" value="exact" />
+<?php echo __("Not")?>:<input <?php if ( isset($_POST['outbound_cnum_neg'] ) && $_POST['outbound_cnum_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="outbound_cnum_neg" value="true" />
+<?php echo __("Begins With")?>:<input <?php if (empty($_POST['outbound_cnum_mod']) || $_POST['outbound_cnum_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnum_mod" value="begins_with" />
+<?php echo __("Contains")?>:<input <?php if (isset($_POST['outbound_cnum_mod']) && $_POST['outbound_cnum_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnum_mod" value="contains" />
+<?php echo __("Ends With")?>:<input <?php if (isset($_POST['outbound_cnum_mod']) && $_POST['outbound_cnum_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnum_mod" value="ends_with" />
+<?php echo __("Exactly")?>:<input <?php if (isset($_POST['outbound_cnum_mod']) && $_POST['outbound_cnum_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnum_mod" value="exact" />
 </td>
 </tr>
 
 <tr>
-<?php $did_tooltip = _("Search for a DID.");?>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'did') { echo 'checked="checked"'; } ?> type="radio" name="order" value="did" />&nbsp;<label for="did"><?php echo "<a href=\"#\" class=\"info\">"._("DID")."<span>$did_tooltip</span></a>"?></label></td>
+<?php $did_tooltip = __("Search for a DID.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'did') { echo 'checked="checked"'; } ?> type="radio" name="order" value="did" />&nbsp;<label for="did"><?php echo "<a href=\"#\" class=\"info\">".__("DID")."<span>$did_tooltip</span></a>"?></label></td>
 <td><input class="valueinput" type="text" name="did" id="did" value="<?php if (isset($_POST['did'])) { echo htmlspecialchars($_POST['did']); } ?>" />
-<?php echo _("Not")?><input <?php if ( isset($_POST['did_neg'] ) && $_POST['did_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="did_neg" value="true" />
-<?php echo _("Begins With")?><input <?php if (empty($_POST['did_mod']) || $_POST['did_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="begins_with" />
-<?php echo _("Contains")?><input <?php if (isset($_POST['did_mod']) && $_POST['did_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="contains" />
-<?php echo _("Ends With")?><input <?php if (isset($_POST['did_mod']) && $_POST['did_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="ends_with" />
-<?php echo _("Exactly")?><input <?php if (isset($_POST['did_mod']) && $_POST['did_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="exact" />
+<?php echo __("Not")?><input <?php if ( isset($_POST['did_neg'] ) && $_POST['did_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="did_neg" value="true" />
+<?php echo __("Begins With")?><input <?php if (empty($_POST['did_mod']) || $_POST['did_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="begins_with" />
+<?php echo __("Contains")?><input <?php if (isset($_POST['did_mod']) && $_POST['did_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="contains" />
+<?php echo __("Ends With")?><input <?php if (isset($_POST['did_mod']) && $_POST['did_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="ends_with" />
+<?php echo __("Exactly")?><input <?php if (isset($_POST['did_mod']) && $_POST['did_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="exact" />
 </td>
 </tr>
 <tr>
-<?php $destination_tooltip = _("Search for destination calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>");?>
-<?php $destination_tooltip .= _("<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>");?>
-<?php $destination_tooltip .= _("<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers");?>
-<?php $destination_tooltip .= _("<br>Asterisk pattern matching<br>");?>
-<?php $destination_tooltip .= _("<b>X</b> = matches any digit from 0-9<br>");?>
-<?php $destination_tooltip .= _("<b>Z</b> = matches any digit from 1-9<br>");?>
-<?php $destination_tooltip .= _("<b>N</b> = matches any digit from 2-9<br>");?>
-<?php $destination_tooltip .= _("<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>");?>
-<?php $destination_tooltip .= _("<b>.</b> = wildcard, matches one or more characters<br>");?>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dst') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dst" />&nbsp;<label for="dst"><?php echo "<a href=\"#\" class=\"info\">"._("Destination")."<span>$destination_tooltip</span></a>"?></label></td>
+<?php $destination_tooltip = __("Search for destination calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>");?>
+<?php $destination_tooltip .= __("<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>");?>
+<?php $destination_tooltip .= __("<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers");?>
+<?php $destination_tooltip .= __("<br>Asterisk pattern matching<br>");?>
+<?php $destination_tooltip .= __("<b>X</b> = matches any digit from 0-9<br>");?>
+<?php $destination_tooltip .= __("<b>Z</b> = matches any digit from 1-9<br>");?>
+<?php $destination_tooltip .= __("<b>N</b> = matches any digit from 2-9<br>");?>
+<?php $destination_tooltip .= __("<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>");?>
+<?php $destination_tooltip .= __("<b>.</b> = wildcard, matches one or more characters<br>");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dst') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dst" />&nbsp;<label for="dst"><?php echo "<a href=\"#\" class=\"info\">".__("Destination")."<span>$destination_tooltip</span></a>"?></label></td>
 <td><input class="valueinput" type="text" name="dst" id="dst" value="<?php if (isset($_POST['dst'])) { echo htmlspecialchars($_POST['dst']); } ?>" />
-<?php echo _("Not")?><input <?php if ( isset($_POST['dst_neg'] ) &&  $_POST['dst_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="dst_neg" value="true" />
-<?php echo _("Begins With")?><input <?php if (empty($_POST['dst_mod']) || $_POST['dst_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="begins_with" />
-<?php echo _("Contains")?><input <?php if (isset($_POST['dst_mod']) && $_POST['dst_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="contains" />
-<?php echo _("Ends With")?><input <?php if (isset($_POST['dst_mod']) && $_POST['dst_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="ends_with" />
-<?php echo _("Exactly")?><input <?php if (isset($_POST['dst_mod']) && $_POST['dst_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="exact" />
+<?php echo __("Not")?><input <?php if ( isset($_POST['dst_neg'] ) &&  $_POST['dst_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="dst_neg" value="true" />
+<?php echo __("Begins With")?><input <?php if (empty($_POST['dst_mod']) || $_POST['dst_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="begins_with" />
+<?php echo __("Contains")?><input <?php if (isset($_POST['dst_mod']) && $_POST['dst_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="contains" />
+<?php echo __("Ends With")?><input <?php if (isset($_POST['dst_mod']) && $_POST['dst_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="ends_with" />
+<?php echo __("Exactly")?><input <?php if (isset($_POST['dst_mod']) && $_POST['dst_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="exact" />
 </td>
 </tr>
 <?php
 	// TODO: make this configurable since it requires outbound CNAM lookup
 ?>
 <tr>
-<?php $dstcnam_tooltip = _("Select Destination Caller Name to search for.");?>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dst_cnam') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dst_cnam" />&nbsp;<label for="dst_cnam"><?php echo "<a href=\"#\" class=\"info\">"._("Destination CallerID Name")."<span>$dstcnam_tooltip</span></a>"?></label></td>
+<?php $dstcnam_tooltip = __("Select Destination Caller Name to search for.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dst_cnam') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dst_cnam" />&nbsp;<label for="dst_cnam"><?php echo "<a href=\"#\" class=\"info\">".__("Destination CallerID Name")."<span>$dstcnam_tooltip</span></a>"?></label></td>
 <td><input class="valueinput" type="text" name="dst_cnam" id="dst_cnam" value="<?php if (isset($_POST['dst_cnam'])) { echo htmlspecialchars($_POST['dst_cnam']); } ?>" />
-<?php echo _("Not")?><input <?php if ( isset($_POST['dst_cnam_neg'] ) && $_POST['dst_cnam_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="dst_cnam_neg" value="true" />
-<?php echo _("Begins With")?><input <?php if (empty($_POST['dst_cnam_mod']) || $_POST['dst_cnam_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="begins_with" />
-<?php echo _("Contains")?><input <?php if (isset($_POST['dst_cnam_mod']) && $_POST['dst_cnam_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="contains" />
-<?php echo _("Ends With")?><input <?php if (isset($_POST['dst_cnam_mod']) && $_POST['dst_cnam_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="ends_with" />
-<?php echo _("Exactly")?><input <?php if (isset($_POST['dst_cnam_mod']) && $_POST['dst_cnam_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="exact" />
+<?php echo __("Not")?><input <?php if ( isset($_POST['dst_cnam_neg'] ) && $_POST['dst_cnam_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="dst_cnam_neg" value="true" />
+<?php echo __("Begins With")?><input <?php if (empty($_POST['dst_cnam_mod']) || $_POST['dst_cnam_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="begins_with" />
+<?php echo __("Contains")?><input <?php if (isset($_POST['dst_cnam_mod']) && $_POST['dst_cnam_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="contains" />
+<?php echo __("Ends With")?><input <?php if (isset($_POST['dst_cnam_mod']) && $_POST['dst_cnam_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="ends_with" />
+<?php echo __("Exactly")?><input <?php if (isset($_POST['dst_cnam_mod']) && $_POST['dst_cnam_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="exact" />
 </td>
 </tr>
 
 <tr>
-<?php $userfield_tooltip = _("Search for userfield data (if enabled).");?>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'userfield') { echo 'checked="checked"'; } ?> type="radio" name="order" value="userfield" />&nbsp;<label for="userfield"><?php echo "<a href=\"#\" class=\"info\">"._("Userfield")."<span>$userfield_tooltip</span></a>"?></label></td>
+<?php $userfield_tooltip = __("Search for userfield data (if enabled).");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'userfield') { echo 'checked="checked"'; } ?> type="radio" name="order" value="userfield" />&nbsp;<label for="userfield"><?php echo "<a href=\"#\" class=\"info\">".__("Userfield")."<span>$userfield_tooltip</span></a>"?></label></td>
 <td><input class="valueinput" type="text" name="userfield" id="userfield" value="<?php if (isset($_POST['userfield'])) { echo htmlspecialchars($_POST['userfield']); } ?>" />
-<?php echo _("Not")?><input <?php if (  isset($_POST['userfield_neg'] ) && $_POST['userfield_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="userfield_neg" value="true" />
-<?php echo _("Begins With")?><input <?php if (empty($_POST['userfield_mod']) || $_POST['userfield_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="userfield_mod" value="begins_with" />
-<?php echo _("Contains")?><input <?php if (isset($_POST['userfield_mod']) && $_POST['userfield_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="userfield_mod" value="contains" />
-<?php echo _("Ends With")?><input <?php if (isset($_POST['userfield_mod']) && $_POST['userfield_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="userfield_mod" value="ends_with" />
-<?php echo _("Exactly")?><input <?php if (isset($_POST['userfield_mod']) && $_POST['userfield_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="userfield_mod" value="exact" />
+<?php echo __("Not")?><input <?php if (  isset($_POST['userfield_neg'] ) && $_POST['userfield_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="userfield_neg" value="true" />
+<?php echo __("Begins With")?><input <?php if (empty($_POST['userfield_mod']) || $_POST['userfield_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="userfield_mod" value="begins_with" />
+<?php echo __("Contains")?><input <?php if (isset($_POST['userfield_mod']) && $_POST['userfield_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="userfield_mod" value="contains" />
+<?php echo __("Ends With")?><input <?php if (isset($_POST['userfield_mod']) && $_POST['userfield_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="userfield_mod" value="ends_with" />
+<?php echo __("Exactly")?><input <?php if (isset($_POST['userfield_mod']) && $_POST['userfield_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="userfield_mod" value="exact" />
 </td>
 </tr>
 <tr>
-<?php $accountcode_tooltip = _("Search for accountcode.");?>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'accountcode') { echo 'checked="checked"'; } ?> type="radio" name="order" value="accountcode" />&nbsp;<label for="userfield"><?php echo "<a href=\"#\" class=\"info\">"._("Account Code")."<span>$accountcode_tooltip</span></a>"?></label></td>
+<?php $accountcode_tooltip = __("Search for accountcode.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'accountcode') { echo 'checked="checked"'; } ?> type="radio" name="order" value="accountcode" />&nbsp;<label for="userfield"><?php echo "<a href=\"#\" class=\"info\">".__("Account Code")."<span>$accountcode_tooltip</span></a>"?></label></td>
 <td><input class="valueinput" type="text" name="accountcode" id="accountcode" value="<?php if (isset($_POST['accountcode'])) { echo htmlspecialchars($_POST['accountcode']); } ?>" />
-<?php echo _("Not")?><input <?php if ( isset($_POST['accountcode_neg'] ) &&  $_POST['accountcode_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="accountcode_neg" value="true" />
-<?php echo _("Begins With")?><input <?php if (empty($_POST['accountcode_mod']) || $_POST['accountcode_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="accountcode_mod" value="begins_with" />
-<?php echo _("Contains")?><input <?php if (isset($_POST['accountcode_mod']) && $_POST['accountcode_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="accountcode_mod" value="contains" />
-<?php echo _("Ends With")?><input <?php if (isset($_POST['accountcode_mod']) && $_POST['accountcode_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="accountcode_mod" value="ends_with" />
-<?php echo _("Exactly")?><input <?php if (isset($_POST['accountcode_mod']) && $_POST['accountcode_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="accountcode_mod" value="exact" />
+<?php echo __("Not")?><input <?php if ( isset($_POST['accountcode_neg'] ) &&  $_POST['accountcode_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="accountcode_neg" value="true" />
+<?php echo __("Begins With")?><input <?php if (empty($_POST['accountcode_mod']) || $_POST['accountcode_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="accountcode_mod" value="begins_with" />
+<?php echo __("Contains")?><input <?php if (isset($_POST['accountcode_mod']) && $_POST['accountcode_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="accountcode_mod" value="contains" />
+<?php echo __("Ends With")?><input <?php if (isset($_POST['accountcode_mod']) && $_POST['accountcode_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="accountcode_mod" value="ends_with" />
+<?php echo __("Exactly")?><input <?php if (isset($_POST['accountcode_mod']) && $_POST['accountcode_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="accountcode_mod" value="exact" />
 </td>
 </tr>
 <tr>
-<?php $duration_tooltip = _("Search for calls that matches the call length specified.");?>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'duration') { echo 'checked="checked"'; } ?> type="radio" name="order" value="duration" />&nbsp;<label><?php echo "<a href=\"#\" class=\"info\">"._("Duration")."<span>$duration_tooltip</span></a>"?></label></td>
-<td><?php echo _("Between")?>&nbsp;
+<?php $duration_tooltip = __("Search for calls that matches the call length specified.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'duration') { echo 'checked="checked"'; } ?> type="radio" name="order" value="duration" />&nbsp;<label><?php echo "<a href=\"#\" class=\"info\">".__("Duration")."<span>$duration_tooltip</span></a>"?></label></td>
+<td><?php echo __("Between")?>&nbsp;
 <input class="valueinput" type="text" name="dur_min" value="<?php if (isset($_POST['dur_min'])) { echo htmlspecialchars($_POST['dur_min']); } ?>" size="3" maxlength="5" />
-&nbsp;<?php echo _("And")?>&nbsp;
+&nbsp;<?php echo __("And")?>&nbsp;
 <input class="valueinput" type="text" name="dur_max" value="<?php if (isset($_POST['dur_max'])) { echo htmlspecialchars($_POST['dur_max']); } ?>" size="3" maxlength="5" />
-<?php echo _("Seconds")?>
+<?php echo __("Seconds")?>
 </td>
 </tr>
 <tr>
-<?php $disposition_tooltip = _("Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER.");?>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'disposition') { echo 'checked="checked"'; } ?> type="radio" name="order" value="disposition" />&nbsp;<label for="disposition"><?php echo "<a href=\"#\" class=\"info\">"._("Disposition")."<span>$disposition_tooltip</span></a>"?></label></td>
+<?php $disposition_tooltip = __("Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'disposition') { echo 'checked="checked"'; } ?> type="radio" name="order" value="disposition" />&nbsp;<label for="disposition"><?php echo "<a href=\"#\" class=\"info\">".__("Disposition")."<span>$disposition_tooltip</span></a>"?></label></td>
 <td>
 
 <select name="disposition" id="disposition" class='componentSelectAutoWidthNoSearch'>
-<option <?php if (empty($_POST['disposition']) || $_POST['disposition'] == 'all') { echo 'selected="selected"'; } ?> value="all"><?php echo _("All Dispositions")?></option>
-<option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'ANSWERED') { echo 'selected="selected"'; } ?> value="ANSWERED"><?php echo _("Answered")?></option>
-<option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'BUSY') { echo 'selected="selected"'; } ?> value="BUSY"><?php echo _("Busy")?></option>
-<option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'FAILED') { echo 'selected="selected"'; } ?> value="FAILED"><?php echo _("Failed")?></option>
-<option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'NO ANSWER') { echo 'selected="selected"'; } ?> value="NO ANSWER"><?php echo _("No Answer")?></option>
+<option <?php if (empty($_POST['disposition']) || $_POST['disposition'] == 'all') { echo 'selected="selected"'; } ?> value="all"><?php echo __("All Dispositions")?></option>
+<option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'ANSWERED') { echo 'selected="selected"'; } ?> value="ANSWERED"><?php echo __("Answered")?></option>
+<option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'BUSY') { echo 'selected="selected"'; } ?> value="BUSY"><?php echo __("Busy")?></option>
+<option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'FAILED') { echo 'selected="selected"'; } ?> value="FAILED"><?php echo __("Failed")?></option>
+<option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'NO ANSWER') { echo 'selected="selected"'; } ?> value="NO ANSWER"><?php echo __("No Answer")?></option>
 </select>
-<?php echo _("Not")?><input <?php if ( isset($_POST['disposition_neg'] ) && $_POST['disposition_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="disposition_neg" value="true" />
+<?php echo __("Not")?><input <?php if ( isset($_POST['disposition_neg'] ) && $_POST['disposition_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="disposition_neg" value="true" />
 </td>
 </tr>
 <tr>
 <td>
-<label><?php echo _('Sort direction');?></label>
+<label><?php echo __('Sort direction');?></label>
 <select name="sort" id="sort" class='componentSelectAutoWidthNoSearch'>
-<option <?php if (isset($_POST['sort']) && $_POST['sort'] == 'ASC') { echo 'selected="selected"'; } ?> value="ASC"><?php echo _("Oldest First")?></option>
-<option <?php if (empty($_POST['sort']) || $_POST['sort'] == 'DESC') { echo 'selected="selected"'; } ?> value="DESC"><?php echo _("Newest First")?></option>
+<option <?php if (isset($_POST['sort']) && $_POST['sort'] == 'ASC') { echo 'selected="selected"'; } ?> value="ASC"><?php echo __("Oldest First")?></option>
+<option <?php if (empty($_POST['sort']) || $_POST['sort'] == 'DESC') { echo 'selected="selected"'; } ?> value="DESC"><?php echo __("Newest First")?></option>
 </select>
 </td>
 <td><table width="100%"><tr><td>
-<label for="group"><?php echo _("Group by")?></label>
+<label for="group"><?php echo __("Group by")?></label>
 <select name="group" id="group" class='componentSelect'>
-<optgroup label="<?php echo _("Account Information")?>">
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'accountcode') { echo 'selected="selected"'; } ?> value="accountcode"><?php echo _("Account Code")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'userfield') { echo 'selected="selected"'; } ?> value="userfield"><?php echo _("User Field")?></option>
+<optgroup label="<?php echo __("Account Information")?>">
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'accountcode') { echo 'selected="selected"'; } ?> value="accountcode"><?php echo __("Account Code")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'userfield') { echo 'selected="selected"'; } ?> value="userfield"><?php echo __("User Field")?></option>
 </optgroup>
-<optgroup label="<?php echo _("Date/Time")?>">
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'minutes1') { echo 'selected="selected"'; } ?> value="minutes1"><?php echo _("Minute")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'minutes10') { echo 'selected="selected"'; } ?> value="minutes10"><?php echo _("10 Minutes")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'hour') { echo 'selected="selected"'; } ?> value="hour"><?php echo _("Hour")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'hour_of_day') { echo 'selected="selected"'; } ?> value="hour_of_day"><?php echo _("Hour of day")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'day_of_week') { echo 'selected="selected"'; } ?> value="day_of_week"><?php echo _("Day of week")?></option>
-<option <?php if (empty($_POST['group']) || $_POST['group'] == 'day') { echo 'selected="selected"'; } ?> value="day"><?php echo _("Day")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'week') { echo 'selected="selected"'; } ?> value="week"><?php echo _("Week ( Sun-Sat )")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'month') { echo 'selected="selected"'; } ?> value="month"><?php echo _("Month")?></option>
+<optgroup label="<?php echo __("Date/Time")?>">
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'minutes1') { echo 'selected="selected"'; } ?> value="minutes1"><?php echo __("Minute")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'minutes10') { echo 'selected="selected"'; } ?> value="minutes10"><?php echo __("10 Minutes")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'hour') { echo 'selected="selected"'; } ?> value="hour"><?php echo __("Hour")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'hour_of_day') { echo 'selected="selected"'; } ?> value="hour_of_day"><?php echo __("Hour of day")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'day_of_week') { echo 'selected="selected"'; } ?> value="day_of_week"><?php echo __("Day of week")?></option>
+<option <?php if (empty($_POST['group']) || $_POST['group'] == 'day') { echo 'selected="selected"'; } ?> value="day"><?php echo __("Day")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'week') { echo 'selected="selected"'; } ?> value="week"><?php echo __("Week ( Sun-Sat )")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'month') { echo 'selected="selected"'; } ?> value="month"><?php echo __("Month")?></option>
 </optgroup>
-<optgroup label="<?php echo _("Telephone Number")?>">
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'dst') { echo 'selected="selected"'; } ?> value="dst"><?php echo _("Destination Number")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'did') { echo 'selected="selected"'; } ?> value="did"><?php echo _("DID")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'cnum') { echo 'selected="selected"'; } ?> value="cnum"><?php echo _("Caller ID Number")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'cnam') { echo 'selected="selected"'; } ?> value="cnam"><?php echo _("Caller ID Name")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'outbound_cnum') { echo 'selected="selected"'; } ?> value="outbound_cnum"><?php echo _("Outbound Caller ID Number")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'outbound_cnam') { echo 'selected="selected"'; } ?> value="outbound_cnam"><?php echo _("Outbound Caller ID Name")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'dst_cnam') { echo 'selected="selected"'; } ?> value="dst_cnam"><?php echo _("Destination Caller ID Name")?></option>
+<optgroup label="<?php echo __("Telephone Number")?>">
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'dst') { echo 'selected="selected"'; } ?> value="dst"><?php echo __("Destination Number")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'did') { echo 'selected="selected"'; } ?> value="did"><?php echo __("DID")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'cnum') { echo 'selected="selected"'; } ?> value="cnum"><?php echo __("Caller ID Number")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'cnam') { echo 'selected="selected"'; } ?> value="cnam"><?php echo __("Caller ID Name")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'outbound_cnum') { echo 'selected="selected"'; } ?> value="outbound_cnum"><?php echo __("Outbound Caller ID Number")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'outbound_cnam') { echo 'selected="selected"'; } ?> value="outbound_cnam"><?php echo __("Outbound Caller ID Name")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'dst_cnam') { echo 'selected="selected"'; } ?> value="dst_cnam"><?php echo __("Destination Caller ID Name")?></option>
 </optgroup>
-<optgroup label="<?php echo _("Tech info")?>">
+<optgroup label="<?php echo __("Tech info")?>">
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'disposition') { echo 'selected="selected"'; } ?> value="disposition">Disposition</option>
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'disposition_by_day') { echo 'selected="selected"'; } ?> value="disposition_by_day">Disposition by Day</option>
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'disposition_by_hour') { echo 'selected="selected"'; } ?> value="disposition_by_hour">Disposition by Hour</option>
@@ -369,7 +369,7 @@ if (isset($_POST['limit']) ) {
 <div id='action-bar' class=''>
     <div id='action-buttons'>
       <a id='collapseactionmenuicon' class='action_menu_icon'><i class='fa fa-angle-double-right'></i></a>
-<input type="submit" id='mainformsubmit' class="button is-small is-rounded" value="<?php echo _("Search")?>" />
+<input type="submit" id='mainformsubmit' class="button is-small is-rounded" value="<?php echo __("Search")?>" />
 </div></div>
 <?php
 
@@ -388,7 +388,7 @@ if ($amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_s
 	$tot_cel_events = count($cel);
 
 	if ( $tot_cel_events ) {
-		echo "<p class=\"center title\">".sprintf(_("Call Event Log - Search returned %s events"),$tot_cel_events)."</p>";
+		echo "<p class=\"center title\">".sprintf(__("Call Event Log - Search returned %s events"),$tot_cel_events)."</p>";
 		echo "<table id=\"cdr_table\" class=\"cdr table notfixed is-narrow is-borderless\">";
 
 		$i = $h_step - 1;
@@ -403,19 +403,19 @@ if ($amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_s
 			if ($i == $h_step) {
 			?>
 				<tr>
-				<th class="record_col"><?php echo _("Time")?></th>
-				<th class="record_col"><?php echo _("Event")?></th>
-				<th class="record_col"><?php echo _("CNAM")?></th>
-				<th class="record_col"><?php echo _("CNUM")?></th>
-				<th class="record_col"><?php echo _("ANI")?></th>
-				<th class="record_col"><?php echo _("DID")?></th>
-				<th class="record_col"><?php echo _("AMA")?></th>
-				<th class="record_col"><?php echo _("exten")?></th>
-				<th class="record_col"><?php echo _("context")?></th>
-				<th class="record_col"><?php echo _("App")?></th>
-				<th class="record_col"><?php echo _("channel")?></th>
-				<th class="record_col"><?php echo _("UserDefType")?></th>
-				<th class="record_col"><?php echo _("EventExtra")?></th>
+				<th class="record_col"><?php echo __("Time")?></th>
+				<th class="record_col"><?php echo __("Event")?></th>
+				<th class="record_col"><?php echo __("CNAM")?></th>
+				<th class="record_col"><?php echo __("CNUM")?></th>
+				<th class="record_col"><?php echo __("ANI")?></th>
+				<th class="record_col"><?php echo __("DID")?></th>
+				<th class="record_col"><?php echo __("AMA")?></th>
+				<th class="record_col"><?php echo __("exten")?></th>
+				<th class="record_col"><?php echo __("context")?></th>
+				<th class="record_col"><?php echo __("App")?></th>
+				<th class="record_col"><?php echo __("channel")?></th>
+				<th class="record_col"><?php echo __("UserDefType")?></th>
+				<th class="record_col"><?php echo __("EventExtra")?></th>
 				<th class="img_col"><a href="#CEL" title="Go to the top of the CEL table"><img src="images/scrollup.gif" alt="CEL Table" /></a></th>
 				</tr>
 				<?php
@@ -671,9 +671,9 @@ if ( $tot_calls_raw ) {
 	// event stream.
 	//
 	if (!isset($cel)) {
-		echo "<p class=\"center title\">".sprintf(_("Call Detail Record - Search returned %s calls"),$tot_calls_raw)."</p>";
+		echo "<p class=\"center title\">".sprintf(__("Call Detail Record - Search returned %s calls"),$tot_calls_raw)."</p>";
 	} else {
-		echo "<p class=\"center title\">"._("Related Call Detail Records") . "</p>";
+		echo "<p class=\"center title\">".__("Related Call Detail Records") . "</p>";
 	}
 	echo "<table id=\"cdr_table\" class=\"table is-borderless is-narrow notfixed cdr\">";
 
@@ -685,18 +685,18 @@ if ( $tot_calls_raw ) {
 		if ($i == $h_step) {
 		?>
 			<tr>
-			<th class="record_col"><?php echo _("Call Date")?></th>
-			<th class="record_col"><?php echo _("Recording")?></th>
-			<th class="record_col"><?php echo _("Uniqueid")?></th>
-			<th class="record_col"><?php echo _("CallerID")?></th>
-			<th class="record_col"><?php echo _("Outbound CallerID")?></th>
-			<th class="record_col"><?php echo _("DID")?></th>
-			<th class="record_col"><?php echo _("App")?></th>
-			<th class="record_col"><?php echo _("Destination")?></th>
-			<th class="record_col"><?php echo _("Disposition")?></th>
-			<th class="record_col"><?php echo _("Duration")?></th>
-			<th class="record_col"><?php echo _("Userfield")?></th>
-			<th class="record_col"><?php echo _("Account")?></th>
+			<th class="record_col"><?php echo __("Call Date")?></th>
+			<th class="record_col"><?php echo __("Recording")?></th>
+			<th class="record_col"><?php echo __("Uniqueid")?></th>
+			<th class="record_col"><?php echo __("CallerID")?></th>
+			<th class="record_col"><?php echo __("Outbound CallerID")?></th>
+			<th class="record_col"><?php echo __("DID")?></th>
+			<th class="record_col"><?php echo __("App")?></th>
+			<th class="record_col"><?php echo __("Destination")?></th>
+			<th class="record_col"><?php echo __("Disposition")?></th>
+			<th class="record_col"><?php echo __("Duration")?></th>
+			<th class="record_col"><?php echo __("Userfield")?></th>
+			<th class="record_col"><?php echo __("Account")?></th>
 			<th class="img_col"><a href="#CDR" title="Go to the top of the CDR table"><img src="images/scrollup.gif" alt="CDR Table" /></a></th>
 			<th class="img_col"><a href="#Graph" title="Go to the top of the CDR graph"><img src="images/scrolldown.gif" alt="CDR Graph" /></a></th>
 			</tr>
@@ -791,72 +791,72 @@ switch ($group) {
 	    $graph_col_title = 'Destination context';
 	break;
 	case "accountcode":
-		$graph_col_title = _("Account Code");
+		$graph_col_title = __("Account Code");
 	break;
 	case "dst":
-		$graph_col_title = _("Destination Number");
+		$graph_col_title = __("Destination Number");
 	break;
 	case "did":
-		$graph_col_title = _("DID");
+		$graph_col_title = __("DID");
 	break;
 	case "cnum":
-		$graph_col_title = _("Caller ID Number");
+		$graph_col_title = __("Caller ID Number");
 	break;
 	case "cnam":
-		$graph_col_title = _("Caller ID Name");
+		$graph_col_title = __("Caller ID Name");
 	break;
 	case "outbound_cnum":
-		$graph_col_title = _("Outbound Caller ID Number");
+		$graph_col_title = __("Outbound Caller ID Number");
 	break;
 	case "outbound_cnam":
-		$graph_col_title = _("Outbound Caller ID Name");
+		$graph_col_title = __("Outbound Caller ID Name");
 	break;
 	case "dst_cnam":
-		$graph_col_title = _("Destination Caller ID Name");
+		$graph_col_title = __("Destination Caller ID Name");
 	break;
 	case "userfield":
-		$graph_col_title = _("User Field");
+		$graph_col_title = __("User Field");
 	break;
 	case "hour":
 		$group_by_field_php = array( '%Y-%m-%d %H', 13, '' );
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]')";
-		$graph_col_title = _("Hour");
+		$graph_col_title = __("Hour");
 	break;
 	case "hour_of_day":
 		$group_by_field_php = array('%H',2,'');
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]')";
-		$graph_col_title = _("Hour of day");
+		$graph_col_title = __("Hour of day");
 	break;
 	case "week":
 		$group_by_field_php = array('%V',2,'');
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]') ";
-		$graph_col_title = _("Week ( Sun-Sat )");
+		$graph_col_title = __("Week ( Sun-Sat )");
 	break;
 	case "month":
 		$group_by_field_php = array('%Y-%m',7,'');
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]')";
-		$graph_col_title = _("Month");
+		$graph_col_title = __("Month");
 	break;
 	case "day_of_week":
 		$group_by_field_php = array('%w - %A',20,'');
 		$group_by_field = "DATE_FORMAT( calldate, '%W' )";
-		$graph_col_title = _("Day of week");
+		$graph_col_title = __("Day of week");
 	break;
 	case "minutes1":
 		$group_by_field_php = array( '%Y-%m-%d %H:%M', 16, '' );
 		$group_by_field = "DATE_FORMAT(calldate, '%Y-%m-%d %H:%i')";
-		$graph_col_title = _("Minute");
+		$graph_col_title = __("Minute");
 	break;
 	case "minutes10":
 		$group_by_field_php = array('%Y-%m-%d %H:%M',15,'0');
 		$group_by_field = "CONCAT(SUBSTR(DATE_FORMAT(calldate, '%Y-%m-%d %H:%i'),1,15), '0')";
-		$graph_col_title = _("10 Minutes");
+		$graph_col_title = __("10 Minutes");
 	break;
 	case "day":
 	default:
 		$group_by_field_php = array('%Y-%m-%d',10,'');
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]')";
-		$graph_col_title = _("Day");
+		$graph_col_title = __("Day");
 }
 
 if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
@@ -883,12 +883,12 @@ if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 	$tot_duration = sprintf('%02d', intval($tot_duration_secs/60)).':'.sprintf('%02d', intval($tot_duration_secs%60));
 
 	if ( $tot_calls ) {
-		$html = "<p class=\"center title\">"._("Call Detail Record - Call Graph by")." ".$graph_col_title."</p><table class=\"cdr\">";
+		$html = "<p class=\"center title\">".__("Call Detail Record - Call Graph by")." ".$graph_col_title."</p><table class=\"cdr\">";
 		$html .= "<tr><th class=\"end_col\">". $graph_col_title . "</th>";
-		$html .= "<th class=\"center_col\">"._("Total Calls").": ". $tot_calls ." / "._("Max Calls").": ". $max_calls ." / "._("Total Duration").": ". $tot_duration ."</th>";
-		$html .= "<th class=\"end_col\">"._("Average Call Time")."</th>";
-		$html .= "<th class=\"img_col\"><a href=\"#CDR\" title=\""._("Go to the top of the CDR table")."\"><img src=\"images/scrollup.gif\" alt=\"CDR Table\" /></a></th>";
-		$html .= "<th class=\"img_col\"><a href=\"#Graph\" title=\""._("Go to the CDR Graph")."\"><img src=\"images/scrolldown.gif\" alt=\"CDR Graph\" /></a></th>";
+		$html .= "<th class=\"center_col\">".__("Total Calls").": ". $tot_calls ." / ".__("Max Calls").": ". $max_calls ." / ".__("Total Duration").": ". $tot_duration ."</th>";
+		$html .= "<th class=\"end_col\">".__("Average Call Time")."</th>";
+		$html .= "<th class=\"img_col\"><a href=\"#CDR\" title=\"".__("Go to the top of the CDR table")."\"><img src=\"images/scrollup.gif\" alt=\"CDR Table\" /></a></th>";
+		$html .= "<th class=\"img_col\"><a href=\"#Graph\" title=\"".__("Go to the CDR Graph")."\"><img src=\"images/scrolldown.gif\" alt=\"CDR Graph\" /></a></th>";
 		$html .= "</tr>";
 		echo $html;
 
@@ -983,10 +983,10 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 		}
 	}
 	if ( $tot_calls ) {
-		$html = "<p class=\"center title\">"._("Call Detail Record - Concurrent Calls by")." ".$graph_col_title."</p><table class=\"cdr\">";
+		$html = "<p class=\"center title\">".__("Call Detail Record - Concurrent Calls by")." ".$graph_col_title."</p><table class=\"cdr\">";
 		$html .= "<tr><th class=\"end_col\">". $graph_col_title . "</th>";
-		$html .= "<th class=\"center_col\">"._("Total Calls").": ". $tot_calls ." / "._("Max Calls").": ". $max_calls ."</th>";
-		$html .= "<th class=\"end_col\">"._("Time")."</th>";
+		$html .= "<th class=\"center_col\">".__("Total Calls").": ". $tot_calls ." / ".__("Max Calls").": ". $max_calls ."</th>";
+		$html .= "<th class=\"end_col\">".__("Time")."</th>";
 		$html .= "</tr>";
 		echo $html;
 
@@ -1019,16 +1019,16 @@ function cdr_formatUniqueID($uniqueid) {
 	$system = explode('-', $uniqueid, 2);
 	if ($amp_conf['CEL_ENABLED']) {
 		$href=$_SERVER['SCRIPT_NAME']."?display=cdr&action=cel_show&uid=" . urlencode($uniqueid);
-		echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' .
+		echo '<td title="' . __("UniqueID") . ": " . $uniqueid . '">' .
 			'<a href="' . $href . '" >' . $system[0] . '</a></td>';
 	} else {
-		echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' . $system[0] . '</td>';
+		echo '<td title="' . __("UniqueID") . ": " . $uniqueid . '">' . $system[0] . '</td>';
 	}
 }
 
 function cdr_formatChannel($channel) {
 	$chan_type = explode('/', $channel, 2);
-	echo '<td title="' . _("Channel") . ": " . $channel . '">' . $chan_type[0] . "</td>";
+	echo '<td title="' . __("Channel") . ": " . $channel . '">' . $chan_type[0] . "</td>";
 }
 
 function cdr_formatSrc($src, $clid) {
@@ -1036,30 +1036,30 @@ function cdr_formatSrc($src, $clid) {
 		echo "<td class=\"record_col\">UNKNOWN</td>";
 	} else {
 		$clid = htmlspecialchars($clid);
-		echo '<td title="' . _("CallerID") . ": " . $clid . '">' . $src . "</td>";
+		echo '<td title="' . __("CallerID") . ": " . $clid . '">' . $src . "</td>";
 	}
 }
 
 function cdr_formatCallerID($cnam, $cnum, $channel) {
 	$dcnum = $cnum == '' && $cnam == '' ? '' : htmlspecialchars('<' . $cnum . '>');
 	$dcnam = htmlspecialchars($cnam == '' ? '' : '"' . $cnam . ' "');
-	echo '<td title="' ._("Channel") . ": " . $channel . '">' . $dcnam . $dcnum . '</td>';
+	echo '<td title="' .__("Channel") . ": " . $channel . '">' . $dcnam . $dcnum . '</td>';
 }
 
 function cdr_formatDID($did) {
 	$did = htmlspecialchars($did);
-	echo '<td title="' . _("DID") . ": " . $did . '">' . $did . "</td>";
+	echo '<td title="' . __("DID") . ": " . $did . '">' . $did . "</td>";
 }
 
 function cdr_formatANI($ani) {
 	$ani = htmlspecialchars($ani);
-	echo '<td title="' . _("ANI") . ": " . $ani . '">' . $ani . "</td>";
+	echo '<td title="' . __("ANI") . ": " . $ani . '">' . $ani . "</td>";
 }
 
 function cdr_formatApp($app, $lastdata) {
 	$app = htmlspecialchars($app);
 	$lastdata = htmlspecialchars($lastdata);
-	echo '<td title="' .  _("Application") . ": " . $app . "(" . $lastdata . ")" . '">'
+	echo '<td title="' .  __("Application") . ": " . $app . "(" . $lastdata . ")" . '">'
 	. $app . "</td>";
 }
 
@@ -1070,7 +1070,7 @@ function cdr_formatDst($dst, $dst_cnam, $channel, $dcontext) {
 	if ($dst_cnam != '') {
 		$dst = '"' . $dst_cnam . '" ' . $dst;
 	}
-	echo '<td title="' . _("Channel") . ": " . $channel . ' ' . _("Destination Context") . ": " . $dcontext . '">'
+	echo '<td title="' . __("Channel") . ": " . $channel . ' ' . __("Destination Context") . ": " . $dcontext . '">'
 		. $dst . "</td>";
 }
 
@@ -1089,14 +1089,14 @@ function cdr_formatDisposition($disposition, $amaflags) {
 		default:
 			$amaflags = 'DEFAULT';
 	}
-	echo '<td title="' . _("AMA Flag") . ": " . $amaflags . '">'
+	echo '<td title="' . __("AMA Flag") . ": " . $amaflags . '">'
 		. $disposition . "</td>";
 }
 
 function cdr_formatDuration($duration, $billsec) {
 	$duration = sprintf('%02d', intval($duration/60)).':'.sprintf('%02d', intval($duration%60));
 	$billduration = sprintf('%02d', intval($billsec/60)).':'.sprintf('%02d', intval($billsec%60));
-	echo '<td title="' . _("Billing Duration") . ": " . $billduration . '">'
+	echo '<td title="' . __("Billing Duration") . ": " . $billduration . '">'
 		. $duration . "</td>";
 }
 
@@ -1132,22 +1132,22 @@ function cdr_formatRecordingFile($recordingfile, $basename, $id, $uid) {
 
 function cdr_formatCNAM($cnam) {
 	$cnam = htmlspecialchars($cnam);
-	echo '<td title="' . _("Caller ID Name") . ": " . $cnam . '">' . $cnam . "</td>";
+	echo '<td title="' . __("Caller ID Name") . ": " . $cnam . '">' . $cnam . "</td>";
 }
 
 function cdr_formatCNUM($cnum) {
 	$cnum = htmlspecialchars($cnum);
-	echo '<td title="' . _("Caller ID Number") . ": " . $cnum . '">' . $cnum . "</td>";
+	echo '<td title="' . __("Caller ID Number") . ": " . $cnum . '">' . $cnum . "</td>";
 }
 
 function cdr_formatExten($exten) {
 	$exten = htmlspecialchars($exten);
-	echo '<td title="' . _("Dialplan exten") . ": " . $exten . '">' . $exten . "</td>";
+	echo '<td title="' . __("Dialplan exten") . ": " . $exten . '">' . $exten . "</td>";
 }
 
 function cdr_formatContext($context) {
 	$context = htmlspecialchars($context);
-	echo '<td title="' . _("Dialplan context") . ": " . $context . '">' . $context . "</td>";
+	echo '<td title="' . __("Dialplan context") . ": " . $context . '">' . $context . "</td>";
 }
 
 function cdr_formatAMAFlags($amaflags) {
@@ -1165,7 +1165,7 @@ function cdr_formatAMAFlags($amaflags) {
 		default:
 			$amaflags = 'DEFAULT';
 	}
-	echo '<td title="' . _("AMA Flag") . ": " . $amaflags . '">'
+	echo '<td title="' . __("AMA Flag") . ": " . $amaflags . '">'
 		. $amaflags . "</td>";
 }
 
@@ -1179,13 +1179,13 @@ function cdr_cel_formatEventType($eventtype) {
 
 function cdr_cel_formatUserDefType($userdeftype) {
 	$userdeftype = htmlspecialchars($userdeftype);
-	echo '<td title="' .  _("UserDefType") . ": " . $userdeftype . '">'
+	echo '<td title="' .  __("UserDefType") . ": " . $userdeftype . '">'
 	. $userdeftype . "</td>";
 }
 
 function cdr_cel_formatEventExtra($eventextra) {
 	$eventextra = htmlspecialchars($eventextra);
-	echo '<td title="' .  _("Event Extra") . ": " . $eventextra . '">'
+	echo '<td title="' .  __("Event Extra") . ": " . $eventextra . '">'
 	. $eventextra . "</td>";
 }
 
@@ -1193,13 +1193,13 @@ function cdr_cel_formatChannelName($channel) {
 	$chan_type = explode('/', $channel, 2);
 	$type = htmlspecialchars($chan_type[0]);
 	$channel = htmlspecialchars($channel);
-	echo '<td title="' . _("Channel") . ": " . $channel . '">' . $channel . "</td>";
+	echo '<td title="' . __("Channel") . ": " . $channel . '">' . $channel . "</td>";
 }
 
 echo "</div>";
 echo "<script>
 \$(document).ready(function() {
-	ipbx.msg.framework.apply = '"._('Apply')."';
+	ipbx.msg.framework.apply = '".__('Apply')."';
 });
 </script>
 ";

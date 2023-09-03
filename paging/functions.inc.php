@@ -584,7 +584,7 @@ function paging_destinations() {
         $extens = array();
     if (isset($results)) {
         foreach($results as $result){
-            $desc = $result['description'] ? $result['description'] : _('Page Group') . ' ' . $result['page_group'];
+            $desc = $result['description'] ? $result['description'] : __('Page Group') . ' ' . $result['page_group'];
             $extens[] = array('destination' => 'app-pagegroups,' . $result['page_group'] . ',1', 'description' => $desc);
         }
         return $extens;
@@ -686,7 +686,7 @@ function paging_check_extensions($exten=true) {
     $type = isset($active_modules['paging']['type'])?$active_modules['paging']['type']:'setup';
     foreach ($results as $result) {
         $thisexten = $result['page_group'];
-        $extenlist[$thisexten]['description'] = _("Page Group: ").$result['description'];
+        $extenlist[$thisexten]['description'] = __("Page Group: ").$result['description'];
         $extenlist[$thisexten]['status'] = 'INUSE';
         $extenlist[$thisexten]['edit_url'] = 'config.php?type='.urlencode($type).'setup&display=paging&selection='.urlencode($thisexten).'&action=modify';
     }
@@ -851,8 +851,8 @@ function paging_applyhooks() {
 
     // Add the 'process' function - this gets called when the page is loaded, to hook into 
     // displaying stuff on the page.
-    $currentcomponent->addoptlistitem('page_group', '0', _("Exclude"));
-    $currentcomponent->addoptlistitem('page_group', '1', _("Include"));
+    $currentcomponent->addoptlistitem('page_group', '0', __("Exclude"));
+    $currentcomponent->addoptlistitem('page_group', '1', __("Include"));
     $currentcomponent->setoptlistopts('page_group', 'sort', false);
 
     $currentcomponent->addguifunc('paging_configpageload');
@@ -873,10 +873,10 @@ function paging_configpageload() {
     if ($action != 'del' && $tech_hardware != 'virtual') {
 
         $default_group = sql("SELECT value FROM `admin` WHERE variable = 'default_page_grp'", "getOne");
-        $section = _("Default Group Inclusion");
+        $section = __("Default Group Inclusion");
         if ($default_group != "") {
             $in_default_page_grp = paging_check_default($extdisplay);
-            $currentcomponent->addguielem($section, new gui_selectbox('in_default_page_grp', $currentcomponent->getoptlist('page_group'), $in_default_page_grp, _('Default Page Group'), _('You can include or exclude this extension/device from being part of the default page group when creating or editing.'), false));
+            $currentcomponent->addguielem($section, new gui_selectbox('in_default_page_grp', $currentcomponent->getoptlist('page_group'), $in_default_page_grp, __('Default Page Group'), __('You can include or exclude this extension/device from being part of the default page group when creating or editing.'), false));
         } 
     }
 }

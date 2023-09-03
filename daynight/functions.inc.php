@@ -154,7 +154,7 @@ function daynight_getdestinfo($dest) {
             return array();
         } else {
             //$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
-            return array('description' => sprintf(_("Call Flow Toggle (%s) : %s"),$exten,$thisexten['dest']),
+            return array('description' => sprintf(__("Call Flow Toggle (%s) : %s"),$exten,$thisexten['dest']),
                          'edit_url' => 'config.php?display=daynight&extdisplay='.urlencode($exten).'&action=edit',
                                   );
         }
@@ -509,7 +509,7 @@ function daynight_check_destinations($dest=true) {
         $thisid   = $result['ext'];
         $destlist[] = array(
             'dest' => $thisdest,
-            'description' => sprintf(_("Call Flow Toggle: %s (%s)"),$result['description'],$result['dmode']),
+            'description' => sprintf(__("Call Flow Toggle: %s (%s)"),$result['description'],$result['dmode']),
             'edit_url' => 'config.php?display=daynight&extdisplay='.urlencode($thisid).'&action=edit',
         );
     }
@@ -629,19 +629,19 @@ function daynight_hook_timeconditions($viewing_extdisplay, $target_menuid) {
 
             $html = '';
             $html = '<tr><td colspan="2"><h5>';
-            $html .= _("Call Flow Toggle Mode Association");
+            $html .= __("Call Flow Toggle Mode Association");
             $html .= '</h5></td></tr>';
             $html .= '<tr>';
             $html .= '<td><a href="#" class="info">';
-            $html .= _("Associate with").'<span>'._("If a selection is made, this timecondition will be associated with the specified call flow toggle  featurecode. This means that if the Call Flow Feature code is set to override (Red/BLF on) then this time condition will always go to its True destination if the chosen association is to 'Force Time Condition True Destination' and it will always go to its False destination if the association is with the 'Force Time Condition False Destination'. When the associated Call Flow Control Feature code is in its Normal mode (Green/BLF off), then then this Time Condition will operate as normal based on the current time. The Destinations that are part of any Associated Call Flow Control Feature Code will have no affect on where a call will go if passing through this time condition. The only thing that is done when making an association is allowing the override state of a Call Flow Toggle to force this time condition to always follow one of its two destinations when that associated Call Flow Toggle is in its override (Red/BLF on) state.").'.</span></a>:</td>';
+            $html .= __("Associate with").'<span>'.__("If a selection is made, this timecondition will be associated with the specified call flow toggle  featurecode. This means that if the Call Flow Feature code is set to override (Red/BLF on) then this time condition will always go to its True destination if the chosen association is to 'Force Time Condition True Destination' and it will always go to its False destination if the association is with the 'Force Time Condition False Destination'. When the associated Call Flow Control Feature code is in its Normal mode (Green/BLF off), then then this Time Condition will operate as normal based on the current time. The Destinations that are part of any Associated Call Flow Control Feature Code will have no affect on where a call will go if passing through this time condition. The only thing that is done when making an association is allowing the override state of a Call Flow Toggle to force this time condition to always follow one of its two destinations when that associated Call Flow Toggle is in its override (Red/BLF on) state.").'.</span></a>:</td>';
             $html .= '<td><select tabindex="'.++$tabindex.'" name="daynight_ref">';
             $html .= "\n";
-            $html .= sprintf('<option value="" %s>%s</option>',$current['ext'] == '' ?'selected':'', _("No Association"));
+            $html .= sprintf('<option value="" %s>%s</option>',$current['ext'] == '' ?'selected':'', __("No Association"));
             $html .= "\n";
             foreach ($daynightcodes as $dn_item) {
-                $html .= sprintf('<option value="%d,timeday" %s>%s</option>', $dn_item['ext'], ($current['ext'].','.$current['dmode'] == $dn_item['ext'].',timeday'?'selected':''), $dn_item['dest']._(" - Force Time Condition True Destination"));
+                $html .= sprintf('<option value="%d,timeday" %s>%s</option>', $dn_item['ext'], ($current['ext'].','.$current['dmode'] == $dn_item['ext'].',timeday'?'selected':''), $dn_item['dest'].__(" - Force Time Condition True Destination"));
                 $html .= "\n";
-                $html .= sprintf('<option value="%d,timenight" %s>%s</option>', $dn_item['ext'], ($current['ext'].','.$current['dmode'] == $dn_item['ext'].',timenight'?'selected':''), $dn_item['dest']._(" - Force Time Condition False Destination"));
+                $html .= sprintf('<option value="%d,timenight" %s>%s</option>', $dn_item['ext'], ($current['ext'].','.$current['dmode'] == $dn_item['ext'].',timenight'?'selected':''), $dn_item['dest'].__(" - Force Time Condition False Destination"));
                 $html .= "\n";
             }
             $html .= '</select></td></tr>';

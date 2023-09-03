@@ -36,7 +36,7 @@ function vmblast_getdestinfo($dest) {
 		if (empty($thisgrp)) {
 			return array();
 		} else {
-			return array('description' => sprintf(_("Voicemail Group %s: %s"),$grp,$thisgrp['description']),
+			return array('description' => sprintf(__("Voicemail Group %s: %s"),$grp,$thisgrp['description']),
 			             'edit_url' => 'config.php?display=vmblast&extdisplay=GRP-'.urlencode($grp),
 								  );
 		}
@@ -135,7 +135,7 @@ function vmblast_check_extensions($exten=true) {
 
 	foreach ($results as $result) {
 		$thisexten = $result['grpnum'];
-		$extenlist[$thisexten]['description'] = _("Voicemail Group: ").$result['description'];
+		$extenlist[$thisexten]['description'] = __("Voicemail Group: ").$result['description'];
 		$extenlist[$thisexten]['status'] = 'INUSE';
 		$extenlist[$thisexten]['edit_url'] = 'config.php?display=vmblast&extdisplay=GRP-'.urlencode($thisexten);
 	}
@@ -266,8 +266,8 @@ function vmblast_applyhooks() {
 
 	// Add the 'process' function - this gets called when the page is loaded, to hook into 
 	// displaying stuff on the page.
-	$currentcomponent->addoptlistitem('vmblast_group', '0', _("Exclude"));
-	$currentcomponent->addoptlistitem('vmblast_group', '1', _("Include"));
+	$currentcomponent->addoptlistitem('vmblast_group', '0', __("Exclude"));
+	$currentcomponent->addoptlistitem('vmblast_group', '1', __("Include"));
 	$currentcomponent->setoptlistopts('vmblast_group', 'sort', false);
 
 	$currentcomponent->addguifunc('vmblast_configpageload');
@@ -285,10 +285,10 @@ function vmblast_configpageload() {
 	if ($action != 'del') {
 
 		$default_group = sql("SELECT value FROM `admin` WHERE variable = 'default_vmblast_grp'", "getOne");
-		$section = _("Default Group Inclusion");
+		$section = __("Default Group Inclusion");
 		if ($default_group != "") {
 			$in_default_vmblast_grp = vmblast_check_default($extdisplay);
-			$currentcomponent->addguielem($section, new gui_selectbox('in_default_vmblast_grp', $currentcomponent->getoptlist('vmblast_group'), $in_default_vmblast_grp, _('Default VMblast Group'), _('You can include or exclude this extension/user from being part of the default voicemail blast group when creating or editing. Choosing this option will be ignored if the user does not have a voicemail box.'), false));
+			$currentcomponent->addguielem($section, new gui_selectbox('in_default_vmblast_grp', $currentcomponent->getoptlist('vmblast_group'), $in_default_vmblast_grp, __('Default VMblast Group'), __('You can include or exclude this extension/user from being part of the default voicemail blast group when creating or editing. Choosing this option will be ignored if the user does not have a voicemail box.'), false));
 		} 
 	}
 }

@@ -2,9 +2,9 @@
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //for translation only
 if (false) {
-_("Recordings");
-_("Save Recording");
-_("Check Recording");
+__("Recordings");
+__("Save Recording");
+__("Check Recording");
 }
 
 global $amp_conf;
@@ -91,7 +91,7 @@ if (!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
  }
 
 	// Version 2.5 upgrade
-	outn(_("checking for fcode field.."));
+	outn(__("checking for fcode field.."));
 	$sql = "SELECT `fcode` FROM recordings";
 	$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($check)) {
@@ -101,11 +101,11 @@ if (!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
 		if(DB::IsError($result)) {
 			die_issabelpbx($result->getDebugInfo());
 		}
-		out(_("OK"));
+		out(__("OK"));
 	} else {
-		out(_("already exists"));
+		out(__("already exists"));
 	}
-	outn(_("checking for fcode_pass field.."));
+	outn(__("checking for fcode_pass field.."));
 	$sql = "SELECT `fcode_pass` FROM recordings";
 	$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($check)) {
@@ -115,9 +115,9 @@ if (!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
 		if(DB::IsError($result)) {
 			die_issabelpbx($result->getDebugInfo());
 		}
-		out(_("OK"));
+		out(__("OK"));
 	} else {
-		out(_("already exists"));
+		out(__("already exists"));
 	}
 
 $issabelpbx_conf =& issabelpbx_conf::create();

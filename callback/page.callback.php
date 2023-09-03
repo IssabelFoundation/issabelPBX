@@ -17,7 +17,7 @@ if(isset($_POST['action'])) {
         case "add":
             $_REQUEST['itemid'] = callback_add($_POST);
             needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
             redirect_standard();
@@ -25,7 +25,7 @@ if(isset($_POST['action'])) {
         case "delete":
             callback_del($itemid);
             needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
             $_SESSION['msgtstamp']=time();
             redirect_standard();
@@ -33,7 +33,7 @@ if(isset($_POST['action'])) {
         case "edit":
             callback_edit($itemid,$_POST);
             needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
             redirect_standard('extdisplay');
@@ -51,7 +51,7 @@ drawListMenu($rnavitems, $type, $display, $extdisplay);
 ?>
 
 <!--div class="rnav"><ul>
-    <li><a class="<?php echo ($itemid=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Callback")?></a></li>
+    <li><a class="<?php echo ($itemid=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo __("Add Callback")?></a></li>
 <?php
 if (isset($callbacks)) {
     foreach ($callbacks as $callback) {
@@ -64,10 +64,10 @@ if (isset($callbacks)) {
 <div class='content'>
 
 <?php
-$helptext = _("A callback will hang up on the caller and then call them back, directing them to the selected destination. This is useful for reducing mobile phone charges as well as other applications. Outbound calls will proceed according to the dial patterns in Outbound Routes."); 
+$helptext = __("A callback will hang up on the caller and then call them back, directing them to the selected destination. This is useful for reducing mobile phone charges as well as other applications. Outbound calls will proceed according to the dial patterns in Outbound Routes."); 
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 
-echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Callback').': '.$description : _("Add Callback"))."</h2>$help</div>\n";
+echo "<div class='is-flex'><h2>".($extdisplay ? __('Edit Callback').': '.$description : __("Add Callback"))."</h2>$help</div>\n";
 
 if ($itemid) {
     //get details for this time condition
@@ -89,20 +89,20 @@ if ($itemid) {
     <input type="hidden" name="account" value="<?php echo $itemid; ?>">
 <?php } ?>
     <table class='table is-borderless is-narrow'>
-    <tr><td colspan="2"><h5><?php echo ($itemid ? _("Edit Callback") : _("Add Callback")) ?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo ($itemid ? __("Edit Callback") : __("Add Callback")) ?></h5></td></tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Callback Description:")?><span><?php echo _("Enter a description for this callback.")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Callback Description:")?><span><?php echo __("Enter a description for this callback.")?></span></a></td>
         <td><input autofocus type="text" name="description" value="<?php echo (isset($thisItem['description']) ? $thisItem['description'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class="input w100"></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Callback Number:")?><span><?php echo _("Optional: Enter the number to dial for the callback.  Leave this blank to just dial the incoming CallerID Number")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Callback Number:")?><span><?php echo __("Optional: Enter the number to dial for the callback.  Leave this blank to just dial the incoming CallerID Number")?></span></a></td>
         <td><input type="text" name="callbacknum" value="<?php echo (isset($thisItem['callbacknum']) ? $thisItem['callbacknum'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class="input w100"></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Delay Before Callback:")?><span><?php echo _("Optional: Enter the number of seconds the system should wait before calling back.")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Delay Before Callback:")?><span><?php echo __("Optional: Enter the number of seconds the system should wait before calling back.")?></span></a></td>
         <td><input size="3" type="text" name="sleep" value="<?php echo (isset($thisItem['sleep']) ? $thisItem['sleep'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class="input w100"></td>
     </tr>
-    <tr><td colspan="2"><br><h5><?php echo _("Destination after Callback")?></h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo __("Destination after Callback")?></h5></td></tr>
 
 <?php 
 //draw goto selects
@@ -125,7 +125,7 @@ function edit_onsubmit(theForm) {
         var sizeDisplayName = "<?php echo module_get_field_size('callback', 'description', 50); ?>";    
     
     if (!isCorrectLength(theForm.description.value, sizeDisplayName)) {
-        return warnInvalid(theForm.description, "<?php echo _('The callback description provided is too long.'); ?>")
+        return warnInvalid(theForm.description, "<?php echo __('The callback description provided is too long.'); ?>")
     }
     <?php } ?>
     if (!isAlphanumeric(theForm.description.value)) {

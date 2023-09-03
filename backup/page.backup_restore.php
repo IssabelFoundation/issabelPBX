@@ -17,7 +17,7 @@ foreach ($get_vars as $k => $v) {
 }
 
 //set action to delete if delete was pressed instead of submit
-if ($var['submit'] == _('Download') && $var['action'] == 'backup_list') {
+if ($var['submit'] == __('Download') && $var['action'] == 'backup_list') {
 	$var['action'] = 'download';
 }
 
@@ -38,7 +38,7 @@ switch ($var['action']) {
 		//make sure our file was uploaded
 		if (!is_uploaded_file($_FILES['upload']['tmp_name'])) {
 			$var['action'] = '';
-            $_SESSION['msg']=base64_encode(_('Error uploading file!'));
+            $_SESSION['msg']=base64_encode(__('Error uploading file!'));
             $_SESSION['msgtype']='error';
             $_SESSION['msgtstamp']=time();
             redirect_standard('');
@@ -49,7 +49,7 @@ switch ($var['action']) {
 		exec(ipbx_which('tar') . ' -tf ' . $_FILES['upload']['tmp_name'], $array, $ret_code);
 		if ($ret_code !== 0) {
             $var['action'] = '';
-            $_SESSION['msg']=base64_encode(_('Error verifying uploaded file!'));
+            $_SESSION['msg']=base64_encode(__('Error verifying uploaded file!'));
             $_SESSION['msgtype']='error';
             $_SESSION['msgtstamp']=time();
             redirect_standard('');
@@ -116,7 +116,7 @@ switch ($var['action']) {
 		//transalate variables
 		//TODO: make this anonymous once we require php 5.3
 		function callback(&$var) {
-			$var = backup__($var);
+			$var = backup___($var);
 		}
 		array_walk_recursive($var['servers'], 'callback');
 		array_walk_recursive($var['templates'], 'callback');
@@ -124,7 +124,7 @@ switch ($var['action']) {
 		if (is_array($_SESSION['backup_restore_path'])) {
 			//TODO: if $var['restore_path'] is an array, that means it contains an error + error
 			// message. Do something with the error meesage
-			echo _('Invalid backup for or undefined error');
+			echo __('Invalid backup for or undefined error');
 			break;
 		}
 		
@@ -144,7 +144,7 @@ switch ($var['action']) {
 		}
 		
 		//still here? oops, something is really broken
-		echo _('Invalid backup for or undefined error');
+		echo __('Invalid backup for or undefined error');
 
 		dbug($_SESSION['backup_restore_path'], $var);
 		break;

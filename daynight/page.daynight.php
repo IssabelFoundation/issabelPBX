@@ -33,7 +33,7 @@ drawListMenu($rnaventries, $type, $display, $extdisplay);
 switch ($action) {
     case "add":
         daynight_show_edit($_POST,'add');
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         break;
@@ -42,14 +42,14 @@ switch ($action) {
         break;
     case "edited":
             daynight_edit($_POST,$extdisplay);
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
             redirect_standard('extdisplay');
             break;
     case "delete":
             daynight_del($extdisplay);
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
             $_SESSION['msgtstamp']=time();
             redirect_standard();
@@ -78,9 +78,9 @@ function daynight_show_edit($post, $add="") {
     $night_recording_id = isset($dests['night_recording_id'])?$dests['night_recording_id']:'';
 
     if ($extdisplay != "") { 
-        echo "<h2>"._("Edit Call Flow Toggle Control").": ".$fc_description."</h2>\n";
+        echo "<h2>".__("Edit Call Flow Toggle Control").": ".$fc_description."</h2>\n";
     } else {
-        echo "<h2>"._("Add Call Flow Toggle Control")."</h2>\n";
+        echo "<h2>".__("Add Call Flow Toggle Control")."</h2>\n";
     }
 
 ?>
@@ -95,10 +95,10 @@ function daynight_show_edit($post, $add="") {
         if (!empty($timeconditions_refs)) {
             echo "<br />";
             foreach($timeconditions_refs as $ref) {
-                $dmode = ($ref['dmode'] == 'timeday') ? _("Forces to Normal Mode (Green/BLF off)") : _("Forces to Override Mode (Red/BLF on)");
+                $dmode = ($ref['dmode'] == 'timeday') ? __("Forces to Normal Mode (Green/BLF off)") : __("Forces to Override Mode (Red/BLF on)");
                 $timecondition_id = $ref['dest'];
                 $tcURL = $_SERVER['PHP_SELF'].'?'."display=timeconditions&extdisplay=$timecondition_id";
-                $label = '<span><img width="16" height="16" border="0" title="'.sprintf(_("Linked to Time Condition %s - %s"),$timecondition_id,$dmode).'" alt="" src="images/clock_link.png"/>&nbsp;'.sprintf(_("Linked to Time Condition %s - %s"),$timecondition_id,$dmode).'</span>';
+                $label = '<span><img width="16" height="16" border="0" title="'.sprintf(__("Linked to Time Condition %s - %s"),$timecondition_id,$dmode).'" alt="" src="images/clock_link.png"/>&nbsp;'.sprintf(__("Linked to Time Condition %s - %s"),$timecondition_id,$dmode).'</span>';
 ?>
                 <a href="<?php echo $tcURL ?>"><?php echo $label; ?></a><br />
 <?php
@@ -115,18 +115,18 @@ function daynight_show_edit($post, $add="") {
 <?php 
     if ($extdisplay != '') {
         echo "<tr><td colspan=2>";
-        echo "<div class='box'>".sprintf(_("Use feature code: %s to toggle the call flow mode"),"<strong>".$code."</strong>")."</div>";
+        echo "<div class='box'>".sprintf(__("Use feature code: %s to toggle the call flow mode"),"<strong>".$code."</strong>")."</div>";
         echo "</td></tr>";
     }
 ?>
 <tr>
 <td colspan=2>
-<h5><?php echo dgettext('amp','General Settings');?></h5>
+<h5><?php echo _dgettext('amp','General Settings');?></h5>
 </td>
 </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Call Flow Toggle Feature Code Index:")?>
-        <span><?php echo _("There are a total of 10 Feature code objects, 0-9, each can control a call flow and be toggled using the call flow toggle feature code plus the index.")?>
+        <td><a href="#" class="info"><?php echo __("Call Flow Toggle Feature Code Index:")?>
+        <span><?php echo __("There are a total of 10 Feature code objects, 0-9, each can control a call flow and be toggled using the call flow toggle feature code plus the index.")?>
         </span></a>
         </td>
         <td>
@@ -151,32 +151,32 @@ if ($add == "add" && $extdisplay =="") {
         </td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("Description for this Call Flow Toggle Control")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Description")?>:<span><?php echo __("Description for this Call Flow Toggle Control")?></span></a></td>
         <td><input class="input w100" autofocus type="text" name="fc_description" value="<?php  echo $fc_description ?>" tabindex="<?php echo ++$tabindex;?>">
         </td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Current Mode:")?>
-        <span><?php echo _("This will change the current state for this Call Flow Toggle Control, or set the initial state when creating a new one.")?>
+        <td><a href="#" class="info"><?php echo __("Current Mode:")?>
+        <span><?php echo __("This will change the current state for this Call Flow Toggle Control, or set the initial state when creating a new one.")?>
         </span></a>
         </td>
         <td>
             <select name="state" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
-                <option value="DAY" <?php echo ($state == 'DAY' ? 'SELECTED':'') ?> ><?php echo _("Normal (Green/BLF off)");?></option> 
-                <option value="NIGHT" <?php echo ($state == 'NIGHT' ? 'SELECTED':'') ?> ><?php echo _("Override (Red/BLF on)");?></option> 
+                <option value="DAY" <?php echo ($state == 'DAY' ? 'SELECTED':'') ?> ><?php echo __("Normal (Green/BLF off)");?></option> 
+                <option value="NIGHT" <?php echo ($state == 'NIGHT' ? 'SELECTED':'') ?> ><?php echo __("Override (Red/BLF on)");?></option> 
             </select>
         </td>
     </tr>
 
 <?php if(function_exists('recordings_list')) { //only include if recordings are enabled ?>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Recording for Normal Mode")?><span><?php echo _("Message to be played in normal mode (Green/BLF off).<br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Recording for Normal Mode")?><span><?php echo __("Message to be played in normal mode (Green/BLF off).<br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
         <td>
             <select name="day_recording_id"  tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
                 $tresults = recordings_list();
                 $default = (isset($day_recording_id) ? $day_recording_id : '');
-                echo '<option value="0">' ._("Default") ."</option>\n";
+                echo '<option value="0">' .__("Default") ."</option>\n";
                 if (isset($tresults[0])) {
                     foreach ($tresults as $tresult) {
                         echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
@@ -187,12 +187,12 @@ if ($add == "add" && $extdisplay =="") {
         </td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Recording for Override Mode")?><span><?php echo _("Message to be played in override mode (Red/BLF on).<br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Recording for Override Mode")?><span><?php echo __("Message to be played in override mode (Red/BLF on).<br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
         <td>
             <select name="night_recording_id"  tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
                 $default = (isset($night_recording_id) ? $night_recording_id : '');
-                echo '<option value="0">' ._("Default") ."</option>\n";
+                echo '<option value="0">' .__("Default") ."</option>\n";
                 if (isset($tresults[0])) {
                     foreach ($tresults as $tresult) {
                         echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
@@ -206,7 +206,7 @@ if ($add == "add" && $extdisplay =="") {
 <?php } ?>
 
     <tr>
-        <td><a href="#" class="info"><?php echo _("Optional Password")?>:<span><?php echo _('You can optionally include a password to authenticate before toggling the call flow. If left blank anyone can use the feature code and it will be un-protected')?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Optional Password")?>:<span><?php echo __('You can optionally include a password to authenticate before toggling the call flow. If left blank anyone can use the feature code and it will be un-protected')?></span></a></td>
         <td><input class="input w100" type="text" name="password" value="<?php  echo $password ?>" tabindex="<?php echo ++$tabindex;?>">
         </td>
     </tr>
@@ -217,8 +217,8 @@ if ($add == "add" && $extdisplay =="") {
     // returns an array, $dest['day'], $dest['night']
     // and puts null if nothing set
 
-    drawdestinations(0, _("Normal Flow (Green/BLF off)"),   (isset($dests['day'])?$dests['day']:''));
-    drawdestinations(1, _("Override Flow (Red/BLF on)"), (isset($dests['night'])?$dests['night']:''));
+    drawdestinations(0, __("Normal Flow (Green/BLF off)"),   (isset($dests['day'])?$dests['day']:''));
+    drawdestinations(1, __("Override Flow (Red/BLF on)"), (isset($dests['night'])?$dests['night']:''));
 
     //TODO: Check to make sure a destination radio button was checked, and if custom, that it was not blank
     //
@@ -229,7 +229,7 @@ if ($add == "add" && $extdisplay =="") {
 
 <script>
 function prompt_onsubmit(theForm) {
-    var msgInvalidPassword = "<?php echo _('Please enter a valid numeric password, only numbers are allowed'); ?>";
+    var msgInvalidPassword = "<?php echo __('Please enter a valid numeric password, only numbers are allowed'); ?>";
     defaultEmptyOK = true;
     if (!isInteger(theForm.password.value))
         return warnInvalid(theForm.password, msgInvalidPassword);
@@ -254,7 +254,7 @@ function prompt_onsubmit(theForm) {
 function drawdestinations($count, $mode, $dest) { ?>
     <tr> 
         <td>
-        <a href="#" class="info"><strong><?php echo $mode?></strong><span><?php echo sprintf(_("Destination to use when set to %s mode"),$mode);?></span></a>
+        <a href="#" class="info"><strong><?php echo $mode?></strong><span><?php echo sprintf(__("Destination to use when set to %s mode"),$mode);?></span></a>
         </td>
         <td> 
             <table> <?php echo drawselects($dest,$count); ?> 

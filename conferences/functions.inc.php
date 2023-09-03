@@ -171,7 +171,7 @@ function conferences_getdestinfo($dest) {
 			return array();
 		} else {
 			//$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
-			return array('description' => sprintf(_("Conference Room %s : %s"),$exten,$thisexten['description']),
+			return array('description' => sprintf(__("Conference Room %s : %s"),$exten,$thisexten['description']),
 			             'edit_url' => 'config.php?display=conferences&extdisplay='.urlencode($exten),
 					);
 		}
@@ -190,7 +190,7 @@ function conferences_recordings_usage($recording_id) {
 		foreach ($results as $result) {
 			$usage_arr[] = array(
 				'url_query' => 'config.php?display=conferences&extdisplay='.urlencode($result['exten']),
-				'description' => sprintf(_("Conference: %s"),$result['description']),
+				'description' => sprintf(__("Conference: %s"),$result['description']),
 			);
 		}
 		return $usage_arr;
@@ -429,7 +429,7 @@ function conferences_check_extensions($exten=true) {
 
 	foreach ($results as $result) {
 		$thisexten = $result['exten'];
-		$extenlist[$thisexten]['description'] = dgettext("conferences","Conference: ").$result['description'];
+		$extenlist[$thisexten]['description'] = _dgettext("conferences","Conference: ").$result['description'];
 		$extenlist[$thisexten]['status'] = 'INUSE';
 		$extenlist[$thisexten]['edit_url'] = 'config.php?display=conferences&extdisplay='.urlencode($thisexten);
 	}

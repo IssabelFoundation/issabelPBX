@@ -615,15 +615,15 @@ function download_firmware($selected, $version_info, $firmware_manager) {
 	if ($needdownload) {
 		$headers = get_headers_assoc($url);
 		if (empty($headers)) {
-			return sprintf(_("Error opening %s for reading"), $url);
+			return sprintf(__("Error opening %s for reading"), $url);
 		}
 
 		if (!$dp = @fopen($url,'r')) {
-			return sprintf(_("Error opening %s for reading"), $url);
+			return sprintf(__("Error opening %s for reading"), $url);
 		}
 
 		if (!($fp = @fopen($filename,"w"))) {
-			return sprintf(_("Error opening %s for writing"), $filename);
+			return sprintf(__("Error opening %s for writing"), $filename);
 		}
 
 		$totalread = 0;
@@ -648,7 +648,7 @@ function download_firmware($selected, $version_info, $firmware_manager) {
 
 		if ($md5sum != md5_file($filename)) {
 			unlink($filename);
-			return sprintf(_("Checksum error retrieving %s"), $url);
+			return sprintf(__("Checksum error retrieving %s"), $url);
 		}
 	}
 

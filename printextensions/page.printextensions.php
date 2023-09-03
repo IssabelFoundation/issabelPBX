@@ -27,8 +27,8 @@ if (!$quietmode) {
 		<input type="hidden" name="type" value="<?php echo $type ?>">
 		<table class='table is-borderless is-narrow mb-5'>
 			<tr>
-				<td class="label" align="right"><a href="#" class="info"><?php echo _("Search")?>
-				<span><?php echo _("You can narrow the list of extensions based on a search criteria. If you search for an exact extension number the page will redirect to the edit page for the given number. You can also do a bounded or unbounded regex search. The bounded search simply encloses you search criteria between a '^' and '$' where as an unbounded one is completely free form. All normal regex patterns are acceptable in your search. So for example, a bounded search of 20\d\d would search for all extensions of the form 20XX. The resulting lists of numbers all contain links to go directly to the edit pages and the Printer Friendly page will reflect the filtered list of numbers.") ?></span>
+				<td class="label" align="right"><a href="#" class="info"><?php echo __("Search")?>
+				<span><?php echo __("You can narrow the list of extensions based on a search criteria. If you search for an exact extension number the page will redirect to the edit page for the given number. You can also do a bounded or unbounded regex search. The bounded search simply encloses you search criteria between a '^' and '$' where as an unbounded one is completely free form. All normal regex patterns are acceptable in your search. So for example, a bounded search of 20\d\d would search for all extensions of the form 20XX. The resulting lists of numbers all contain links to go directly to the edit pages and the Printer Friendly page will reflect the filtered list of numbers.") ?></span>
 				</a></td>
 				<td class="type">
 					<input name="search_pattern" type="search" size="30" class="input" 
@@ -38,11 +38,11 @@ if (!$quietmode) {
 				<td valign="top"></td>
 				<td valign="top" class="label">
 					<input type="submit" name="exact" class="button is-rounded" 
-					value="<?php echo _("Search Exact Exten")?>" tabindex="<?php echo ++$tabindex;?>">
+					value="<?php echo __("Search Exact Exten")?>" tabindex="<?php echo ++$tabindex;?>">
 					<input type="submit" name="bounded" class="button is-rounded" 
-					value="<?php echo _("Search Bounded Regex")?>" tabindex="<?php echo ++$tabindex;?>">
+					value="<?php echo __("Search Bounded Regex")?>" tabindex="<?php echo ++$tabindex;?>">
 					<input type="submit" name="regex" class="button is-rounded" 
-					value="<?php echo _("Search Unbounded Regex")?>" tabindex="<?php echo ++$tabindex;?>">
+					value="<?php echo __("Search Unbounded Regex")?>" tabindex="<?php echo ++$tabindex;?>">
 				</td>
 			</tr>
 		</table>
@@ -55,7 +55,7 @@ global $active_modules;
 $html_txt = '<div class="content">';
 
 if (!$extdisplay) {
-	$html_txt .= '<h2>'._("IssabelPBX Extension Layout").'</h2>';
+	$html_txt .= '<h2>'.__("IssabelPBX Extension Layout").'</h2>';
 }
 
 $full_list = framework_check_extension_usage(true);
@@ -111,7 +111,7 @@ if ($exact && $found ==1) {
 }
 
 if ($search_pattern != '' && $found == 0) {
-	$html_txt .= '<br /><h3>'._("No Matches for the Requested Search").'</h3><br /><br /><br /><br />';
+	$html_txt .= '<br /><h3>'.__("No Matches for the Requested Search").'</h3><br /><br /><br /><br />';
 }
 
 
@@ -139,7 +139,7 @@ foreach ($full_list as $key => $value) {
 	}
 
 	$module_select[$sub_heading_id] = $sub_heading;
-	$textext = $key != 'did' ? _("Extension") : _("Destination");
+	$textext = $key != 'did' ? __("Extension") : __("Destination");
 	$html_txt_arr[$sub_heading] = "<div class=\"$sub_heading_id\"><table border=\"0\" class='table notfixed' width=\"75%\"><tr width='90%'><td><br><strong><a href=\"config.php?display=printextensions&sort_table=$sub_heading_id&sort_col=1\">".sprintf("%s",$sub_heading)."</a></strong></td><td width=\"10%\" align=\"right\"><br><strong><a href=\"config.php?display=printextensions&sort_table=$sub_heading_id&sort_col=2\">".$textext."</a></strong></td></tr>\n";
         if(isset($_REQUEST['sort_table'])) {
 		if ($_REQUEST["sort_table"] == $sub_heading_id) {

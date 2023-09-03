@@ -24,22 +24,22 @@ switch ($action) {
 <div class='content'>
 <?php
 
-    echo "<h2>"._("Restart Phones")."</h2>";
+    echo "<h2>".__("Restart Phones")."</h2>";
 	echo "<form name='restart' action='".$_SERVER['PHP_SELF']."' method='post'>\n";
 	echo "<input type='hidden' name='action' value='restart'>\n";
 	echo "<input type='hidden' name='display' value='${display}'>\n";
 
     echo "<table class='table is-borderless'>";
 	if($restarted)  {
-		echo "<tr><td><b>"._("Restart requests sent!")."</b><br/><br/></td></tr>";
+		echo "<tr><td><b>".__("Restart requests sent!")."</b><br/><br/></td></tr>";
 	}
 	else  {
-		echo "<tr><td><b>"._("Warning: The restart mechanism behavior is vendor specific.  Some vendors only restart the phone if there is a change to the phone configuration or if an updated firmware is available via tftp/ftp/http"). "</b><br/><br/></td></tr>";
+		echo "<tr><td><b>".__("Warning: The restart mechanism behavior is vendor specific.  Some vendors only restart the phone if there is a change to the phone configuration or if an updated firmware is available via tftp/ftp/http"). "</b><br/><br/></td></tr>";
 		
 	}
 
 ?>
-	<tr><td valign='top'><a href='#' class='info'><?php echo _("Device List")."<span><br>"._("Select Device(s) to restart.  Currently, only Aastra, Snom, Polycom, Grandstream and Cisco devices are supported.  All other devices will not show up in this list.  Click the \"Select All\" button to restart all supported devices. ") ?> 
+	<tr><td valign='top'><a href='#' class='info'><?php echo __("Device List")."<span><br>".__("Select Device(s) to restart.  Currently, only Aastra, Snom, Polycom, Grandstream and Cisco devices are supported.  All other devices will not show up in this list.  Click the \"Select All\" button to restart all supported devices. ") ?> 
 	<br><br></span></a></td>
 	<tr>
 	<td valign="top"> 
@@ -57,7 +57,7 @@ switch ($action) {
 	?>
 	</select>		
 	</td></tr>
-	<tr><td><input type="button" class="button is-rounded is-small" name="Button" value="<?php echo _('Select All'); ?>" onclick="selectAll('xtnlist',true)" /></td></tr>
+	<tr><td><input type="button" class="button is-rounded is-small" name="Button" value="<?php echo __('Select All'); ?>" onclick="selectAll('xtnlist',true)" /></td></tr>
 
 <?php
 			// implementation of module hook
@@ -66,7 +66,7 @@ switch ($action) {
 ?>
 	
 	<tr>
-	<td colspan="2"><br><h6><input class='button is-rounded is-info is-light' type="submit" name="Submit" type="button" value="<?php echo _("Restart Phones")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
+	<td colspan="2"><br><h6><input class='button is-rounded is-info is-light' type="submit" name="Submit" type="button" value="<?php echo __("Restart Phones")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
 	</tr>
 	</table>
 	</form>

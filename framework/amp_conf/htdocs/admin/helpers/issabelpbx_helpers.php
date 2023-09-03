@@ -100,7 +100,7 @@ function drawselects($goto, $i, $show_custom=false, $table=true, $nodest_msg='',
     $html=$destmod=$errorclass=$errorstyle='';
 
     if ($nodest_msg == '') {
-        $nodest_msg = '== '.dgettext('amp','choose one').' ==';
+        $nodest_msg = '== '._dgettext('amp','choose one').' ==';
     }
 
     if ($table) {
@@ -109,7 +109,7 @@ function drawselects($goto, $i, $show_custom=false, $table=true, $nodest_msg='',
 
     if(!isset($drawselect_destinations)){ 
         $popover_hash = array();
-        $add_a_new = dgettext('amp','Add new %s &#8230;');
+        $add_a_new = _dgettext('amp','Add new %s &#8230;');
         //check for module-specific destination functions
         foreach($active_modules as $rawmod => $module){
             $funct = strtolower($rawmod.'_destinations');
@@ -122,7 +122,7 @@ function drawselects($goto, $i, $show_custom=false, $table=true, $nodest_msg='',
                 modgettext::pop_textdomain();
                 if(is_Array($destArray)) {
                     foreach($destArray as $dest){
-                        $cat=(isset($dest['category'])?$dest['category']:dgettext($rawmod,$module['displayname']));
+                        $cat=(isset($dest['category'])?$dest['category']:_dgettext($rawmod,$module['displayname']));
                         $ds_id = (isset($dest['id']) ? $dest['id'] : $rawmod);
                         $popover_hash[$ds_id] = $cat;
                         $drawselect_destinations[$cat][] = $dest;
@@ -145,7 +145,7 @@ function drawselects($goto, $i, $show_custom=false, $table=true, $nodest_msg='',
                         // We have popovers in XML, there were no destinations, and no mod_destination_popovers()
                         // funciton so generate the Add a new selection.
                         //
-                        $cat = dgettext($rawmod,$module['displayname']);
+                        $cat = _dgettext($rawmod,$module['displayname']);
                         $drawselects_module_hash[$cat] = $rawmod;
                         $drawselects_id_hash[$cat] = $rawmod;
                         $drawselect_destinations[$cat][99999] = array(
@@ -361,17 +361,17 @@ function form_action_bar($extdisplay, $formname='', $delete_disabled=false, $res
       <div id='action-bar' class=''>
         <div id='action-buttons'>
           <a id='collapseactionmenuicon' class='action_menu_icon'><i class='fa fa-angle-double-right'></i></a>
-          <input name='btnsubmit' ".$tabindexhtml.$target." id='mainformsubmit' type='submit' value='".dgettext('amp','Submit')."' class='button is-rounded is-light is-small is-link'>
+          <input name='btnsubmit' ".$tabindexhtml.$target." id='mainformsubmit' type='submit' value='"._dgettext('amp','Submit')."' class='button is-rounded is-light is-small is-link'>
           &nbsp;
     ";
     if(!$extdisplay) {
         if(!$reset_disabled) {
-            $out .=" <input name='reset' ".$tabindexhtml.$target." type='submit' id='mainformreset' value='".dgettext('amp','Reset')."' class='button is-rounded is-light is-small is-link'> ";
+            $out .=" <input name='reset' ".$tabindexhtml.$target." type='submit' id='mainformreset' value='"._dgettext('amp','Reset')."' class='button is-rounded is-light is-small is-link'> ";
         }
     } else {
         $disabled = ($delete_disabled) ? ' disabled="disabled "':'';
         $extratext = ($delete_text!='')? ' data-text="'.base64_encode($delete_text).'" ' : '';
-        $out .= " <input $disabled name='delete' ".$tabindexhtml.$target.$extratext." type='submit' id='mainformdelete' value='".dgettext('amp','Delete')."' class='button is-rounded is-light is-small is-danger'> ";
+        $out .= " <input $disabled name='delete' ".$tabindexhtml.$target.$extratext." type='submit' id='mainformdelete' value='"._dgettext('amp','Delete')."' class='button is-rounded is-light is-small is-danger'> ";
     }
     $out .= "
         </div>
@@ -383,7 +383,7 @@ function form_action_bar($extdisplay, $formname='', $delete_disabled=false, $res
 
 function ipbx_yesno_checkbox($name,$currentvalue,$disabled=false) {
     global $tabindex;
-    return ipbx_radio($name,array(array('value'=>1,'text'=>dgettext('amp','Yes')),array('value'=>0,'text'=>dgettext('amp','No'))),($currentvalue ? 1:0),false);
+    return ipbx_radio($name,array(array('value'=>1,'text'=>_dgettext('amp','Yes')),array('value'=>0,'text'=>_dgettext('amp','No'))),($currentvalue ? 1:0),false);
 }
 
 function ipbx_radio($name,$valarray, $currentvalue, $disable=false) {
@@ -412,7 +412,7 @@ function ipbx_usage_info($text,$tooltip) {
 }
 
 function ipbx_extension_conflict($conflict_url) {
-    $out  = "<div class='notification is-warning column is-three-quarters'><h6>".dgettext("amp","Conflicting Extensions")."</h6>";
+    $out  = "<div class='notification is-warning column is-three-quarters'><h6>"._dgettext("amp","Conflicting Extensions")."</h6>";
     $out .= implode('<br>',$conflict_url);
     $out .= "</div>\n";
     return $out;

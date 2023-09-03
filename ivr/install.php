@@ -65,20 +65,20 @@ if($db->IsError($res)) {
         `spoken` varchar(250) NOT NULL default '')");
     out('Migration 2.10 not needed');
 
-    outn(_("Checking for spoken.."));
+    outn(__("Checking for spoken.."));
     $sql = "SELECT `spoken` FROM ivr_entries";
     $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
     if(DB::IsError($check)) {
         $sql = "ALTER TABLE ivr_entries ADD spoken varchar(200) not null default ''";
         $result = $db->query($sql);
         if($db->IsError($result)) {
-            out(_("fatal error"));
+            out(__("fatal error"));
             die_issabelpbx($result->getDebugInfo());
         } else {
-            out(_("added"));
+            out(__("added"));
         }
     } else {
-        out(_("not needed"));
+        out(__("not needed"));
     }
 
 
@@ -181,30 +181,30 @@ if($db->IsError($res)) {
 
     // Version 2.5 migrate to recording ids
     //
-    outn(_("Checking if announcements need migration.."));
+    outn(__("Checking if announcements need migration.."));
     $sql = "SELECT announcement_id FROM ivr";
     $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
     if($db->IsError($check)) {
         //  Add announcement_id field
         //
-        out(_("migrating"));
-        outn(_("adding announcement_id field.."));
+        out(__("migrating"));
+        outn(__("adding announcement_id field.."));
         $sql = "ALTER TABLE ivr ADD announcement_id INTEGER";
         $result = $db->query($sql);
         if($db->IsError($result)) {
-            out(_("fatal error"));
+            out(__("fatal error"));
             die_issabelpbx($result->getDebugInfo());
         } else {
-            out(_("ok"));
+            out(__("ok"));
         }
 
         // Get all the valudes and replace them with announcement_id
         //
-        outn(_("migrate to recording ids.."));
+        outn(__("migrate to recording ids.."));
         $sql = "SELECT `ivr_id`, `announcement` FROM `ivr`";
         $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
         if($db->IsError($results)) {
-            out(_("fatal error"));
+            out(__("fatal error"));
             die_issabelpbx($results->getDebugInfo());
         }
         $migrate_arr = array();
@@ -220,30 +220,30 @@ if($db->IsError($res)) {
             $compiled = $db->prepare('UPDATE `ivr` SET `announcement_id` = ? WHERE `ivr_id` = ?');
             $result = $db->executeMultiple($compiled,$migrate_arr);
             if($db->IsError($result)) {
-                out(_("fatal error"));
+                out(__("fatal error"));
                 die_issabelpbx($result->getDebugInfo());
             }
         }
-        out(sprintf(_("migrated %s entries"),$count));
+        out(sprintf(__("migrated %s entries"),$count));
 
         // Now remove the old recording field replaced by new id field
         //
-        outn(_("dropping announcement field.."));
+        outn(__("dropping announcement field.."));
         $sql = "ALTER TABLE `ivr` DROP `announcement`";
         $result = $db->query($sql);
         if($db->IsError($result)) {
-            out(_("no announcement field???"));
+            out(__("no announcement field???"));
         } else {
-            out(_("ok"));
+            out(__("ok"));
         }
 
     } else {
-        out(_("already migrated"));
+        out(__("already migrated"));
     }
 
     // Version 2.5.19 add invalid and timeout messages
     //
-    outn(_("Checking for timeout_id.."));
+    outn(__("Checking for timeout_id.."));
     $sql = "SELECT timeout_id FROM ivr";
     $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
     if($db->IsError($check)) {
@@ -252,15 +252,15 @@ if($db->IsError($res)) {
         $sql = "ALTER TABLE ivr ADD timeout_id INTEGER DEFAULT null";
         $result = $db->query($sql);
         if($db->IsError($result)) {
-            out(_("fatal error"));
+            out(__("fatal error"));
             die_issabelpbx($result->getDebugInfo());
         } else {
-            out(_("added"));
+            out(__("added"));
         }
     } else {
-        out(_("not needed"));
+        out(__("not needed"));
     }
-    outn(_("Checking for invalid_id.."));
+    outn(__("Checking for invalid_id.."));
     $sql = "SELECT invalid_id FROM ivr";
     $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
     if($db->IsError($check)) {
@@ -269,16 +269,16 @@ if($db->IsError($res)) {
         $sql = "ALTER TABLE ivr ADD invalid_id INTEGER DEFAULT null";
         $result = $db->query($sql);
         if($db->IsError($result)) {
-            out(_("fatal error"));
+            out(__("fatal error"));
             die_issabelpbx($result->getDebugInfo());
         } else {
-            out(_("added"));
+            out(__("added"));
         }
     } else {
-        out(_("not needed"));
+        out(__("not needed"));
     }
 
-    outn(_("Checking for retvm.."));
+    outn(__("Checking for retvm.."));
     $sql = "SELECT retvm FROM ivr";
     $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
     if($db->IsError($check)) {
@@ -287,22 +287,22 @@ if($db->IsError($res)) {
         $sql = "ALTER TABLE ivr ADD retvm VARCHAR(8);";
         $result = $db->query($sql);
         if($db->IsError($result)) {
-            out(_("fatal error"));
+            out(__("fatal error"));
             die_issabelpbx($result->getDebugInfo());
         } else {
-            out(_("added"));
+            out(__("added"));
         }
     } else {
-        out(_("not needed"));
+        out(__("not needed"));
     }
 
     $count = sql('SELECT COUNT(*) FROM `ivr` WHERE `enable_directory` = "CHECKED"','getOne');
     if ($count) {
       global $db;
       $notifications =& notifications::create($db); 
-      $extext = sprintf(_("There are %s IVRs that have the legacy Directory dialing enabled. This has been deprecated and will be removed from future releases. You should convert your IVRs to use the Directory module for this functionality and assign an IVR destination to a desired Directory. You can install the Directory module from the Online Module Repository"),$count);
-      $notifications->add_notice('ivr', 'DIRECTORY_DEPRECATED', sprintf(_('Deprecated Directory used by %s IVRs'),$count), $extext, '', true, true);
-        out(_("posting notice about deprecated functionality"));
+      $extext = sprintf(__("There are %s IVRs that have the legacy Directory dialing enabled. This has been deprecated and will be removed from future releases. You should convert your IVRs to use the Directory module for this functionality and assign an IVR destination to a desired Directory. You can install the Directory module from the Online Module Repository"),$count);
+      $notifications->add_notice('ivr', 'DIRECTORY_DEPRECATED', sprintf(__('Deprecated Directory used by %s IVRs'),$count), $extext, '', true, true);
+        out(__("posting notice about deprecated functionality"));
     }
 
     //migrate to 2.10 tables
@@ -465,7 +465,7 @@ if($db->IsError($res)) {
 
 // Add timeout/invalid_append_announce if not there
 //
-outn(_("Checking for timeout_append_announce.."));
+outn(__("Checking for timeout_append_announce.."));
 $sql = "SELECT timeout_append_announce FROM ivr_details";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if($db->IsError($check)) {
@@ -474,16 +474,16 @@ if($db->IsError($check)) {
     $sql = "ALTER TABLE ivr_details ADD timeout_append_announce tinyint(1) NOT NULL DEFAULT '1'";
     $result = $db->query($sql);
     if($db->IsError($result)) {
-        out(_("fatal error"));
+        out(__("fatal error"));
         die_issabelpbx($result->getDebugInfo());
     } else {
-        out(_("added"));
+        out(__("added"));
     }
 } else {
-    out(_("not needed"));
+    out(__("not needed"));
 }
 
-outn(_("Checking for invalid_append_announce.."));
+outn(__("Checking for invalid_append_announce.."));
 $sql = "SELECT invalid_append_announce FROM ivr_details";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if($db->IsError($check)) {
@@ -492,18 +492,18 @@ if($db->IsError($check)) {
     $sql = "ALTER TABLE ivr_details ADD invalid_append_announce tinyint(1) NOT NULL DEFAULT '1'";
     $result = $db->query($sql);
     if($db->IsError($result)) {
-        out(_("fatal error"));
+        out(__("fatal error"));
         die_issabelpbx($result->getDebugInfo());
     } else {
-        out(_("added"));
+        out(__("added"));
     }
 } else {
-    out(_("not needed"));
+    out(__("not needed"));
 }
 
 // Add timeout/invalid_ivr_ret if not there
 //
-outn(_("Checking for timeout_ivr_ret.."));
+outn(__("Checking for timeout_ivr_ret.."));
 $sql = "SELECT timeout_ivr_ret FROM ivr_details";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if($db->IsError($check)) {
@@ -512,16 +512,16 @@ if($db->IsError($check)) {
     $sql = "ALTER TABLE ivr_details ADD timeout_ivr_ret tinyint(1) NOT NULL DEFAULT '0'";
     $result = $db->query($sql);
     if($db->IsError($result)) {
-        out(_("fatal error"));
+        out(__("fatal error"));
         die_issabelpbx($result->getDebugInfo());
     } else {
-        out(_("added"));
+        out(__("added"));
     }
 } else {
-    out(_("not needed"));
+    out(__("not needed"));
 }
 
-outn(_("Checking for invalid_ivr_ret.."));
+outn(__("Checking for invalid_ivr_ret.."));
 $sql = "SELECT invalid_ivr_ret FROM ivr_details";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if($db->IsError($check)) {
@@ -530,13 +530,13 @@ if($db->IsError($check)) {
     $sql = "ALTER TABLE ivr_details ADD invalid_ivr_ret tinyint(1) NOT NULL DEFAULT '0'";
     $result = $db->query($sql);
     if($db->IsError($result)) {
-        out(_("fatal error"));
+        out(__("fatal error"));
         die_issabelpbx($result->getDebugInfo());
     } else {
-        out(_("added"));
+        out(__("added"));
     }
 } else {
-    out(_("not needed"));
+    out(__("not needed"));
 }
 
 

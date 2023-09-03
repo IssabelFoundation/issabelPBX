@@ -31,7 +31,7 @@ global $amp_conf;
 if ($astman) {
         $astman->database_deltree("bosssecretary/group");
 } else {
-        echo _("Cannot connect to Asterisk Manager with
+        echo __("Cannot connect to Asterisk Manager with
 ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
 }
 

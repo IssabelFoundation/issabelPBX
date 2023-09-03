@@ -41,7 +41,7 @@ switch ($action) {
     case 'add':
         tts_add($description, $tts_engine, $tts_text, $dest);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -49,7 +49,7 @@ switch ($action) {
     case 'edit':
         tts_edit($tts_id, $description, $tts_engine, $tts_text, $dest);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard('extdisplay');
@@ -57,7 +57,7 @@ switch ($action) {
     case 'delete':
         tts_delete($tts_id);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -83,10 +83,10 @@ if ($extdisplay) {
     $dest           = $row['dest'];
 } 
 
-$helptext = _("The Text to Speech module allows you to add text to speech (TTS) instances on your PBX. You enter text to be read by a computer voice. When a TTS instance is entered as a destination in your call path, the system will play the text entered using the selected TTS engine. Then the call will then continue on to the target destination defined in the instance.");
+$helptext = __("The Text to Speech module allows you to add text to speech (TTS) instances on your PBX. You enter text to be read by a computer voice. When a TTS instance is entered as a destination in your call path, the system will play the text entered using the selected TTS engine. Then the call will then continue on to the target destination defined in the instance.");
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 echo "<div class='is-flex'><h2>";
-echo ($extdisplay ? _("Edit Text to Speech").": $description" : _("Add Text to Speech"));
+echo ($extdisplay ? __("Edit Text to Speech").": $description" : __("Add Text to Speech"));
 echo "</h2>$help</div>";
 
 $usage_list = framework_display_destination_usage(tts_getdest($extdisplay));
@@ -100,14 +100,14 @@ if (!empty($usage_list)) {
     <input type="hidden" name="tts_id" value="<?php echo $extdisplay; ?>">
     <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
     <table class='table is-fullwidth is-narrow is-borderless'>
-    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _("The descriptive name of this text to speech instance. For example \"new name here\"");?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Description")?><span><?php echo __("The descriptive name of this text to speech instance. For example \"new name here\"");?></span></a></td>
         <td><input class="input w100" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
     <tr>
 
-        <td><a href="#" class="info"><?php echo _("Engine")?><span><?php echo _("The TTS engine to use for the text to speech entry");?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Engine")?><span><?php echo __("The TTS engine to use for the text to speech entry");?></span></a></td>
         <td>
 
             <select name="tts_engine"  tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
@@ -125,11 +125,11 @@ if (!empty($usage_list)) {
 
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Text")?><span><?php echo _("The actual text to be spoken by the engine. You can use channel variables in the format %{variable}.");?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Text")?><span><?php echo __("The actual text to be spoken by the engine. You can use channel variables in the format %{variable}.");?></span></a></td>
         <td><textarea name="tts_text" class="textarea" tabindex="<?php echo ++$tabindex;?>"/><?php echo $tts_text; ?></textarea></td>
     </tr>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Destination")?></h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo __("Destination")?></h5></td></tr>
 
 <?php
 //draw goto selects
@@ -150,7 +150,7 @@ $(function () {
 });
 
 function checkTexttospeech(theForm) {
-    var msgInvalidDescription = "<?php echo _('Invalid description specified'); ?>";
+    var msgInvalidDescription = "<?php echo __('Invalid description specified'); ?>";
 
     // form validation
     defaultEmptyOK = false;

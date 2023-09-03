@@ -21,18 +21,18 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 // make table scrollable with the headers intact
 
 $dispnum = 'extensionsettings';
-$extension = _("Extension");
-$vmxlocator = _("VmX Locator");
-$followme   = _("Follow-Me");
-$callstatus = _("Call status");
-$status     =_("Status");
+$extension = __("Extension");
+$vmxlocator = __("VmX Locator");
+$followme   = __("Follow-Me");
+$callstatus = __("Call status");
+$status     =__("Status");
 
 global $active_modules;
 
 $html_txt = '<div class="content">';
 
 if (!$extdisplay) {
-        $html_txt .= '<h2>'._("IssabelPBX Extension Settings").'</h2>';
+        $html_txt .= '<h2>'.__("IssabelPBX Extension Settings").'</h2>';
 }
 $full_list = framework_check_extension_usage(true);
 // Dont waste astman calls, get all family keys in one call
@@ -69,12 +69,12 @@ foreach ($full_list as $key => $value) {
   $html_txt_arr[$sub_heading] .=  "<td colspan=\"5\" align=\"center\"><strong>".$callstatus."</strong></td>";
   $html_txt_arr[$sub_heading] .=  "</tr><td>&nbsp;</td>";
   $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>".$status."</strong></td>";
-  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>"._('Busy')."</strong></td>";
-  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>"._('Unavail')."</strong></td>";
-  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>"._('Operator')."</strong></td>";
-  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>"._('Press 0')."</strong></td>";
-  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>"._('Press 1')."</strong></td>";
-  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>"._('Press 2')."</strong></td>";
+  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>".__('Busy')."</strong></td>";
+  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>".__('Unavail')."</strong></td>";
+  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>".__('Operator')."</strong></td>";
+  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>".__('Press 0')."</strong></td>";
+  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>".__('Press 1')."</strong></td>";
+  $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>".__('Press 2')."</strong></td>";
   $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>FM</strong></td>";
   $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>FM-list</strong></td>";
   $html_txt_arr[$sub_heading] .=  "<td align=\"center\"><strong>CW</strong></td>";

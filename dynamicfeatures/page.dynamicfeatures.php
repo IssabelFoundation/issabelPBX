@@ -17,7 +17,7 @@ switch ($action) {
     case 'add':
         $_REQUEST['extdisplay'] = dynamicfeatures_add($name, $dtmf, $activate_on, $application, $arguments, $moh_class);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -25,7 +25,7 @@ switch ($action) {
     case 'edit':
         dynamicfeatures_edit($id, $name, $dtmf, $activate_on, $application, $arguments, $moh_class);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard('extdisplay');
@@ -33,7 +33,7 @@ switch ($action) {
     case 'delete':
         dynamicfeatures_delete($id);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -62,10 +62,10 @@ if ($extdisplay) {
     $moh_class   = $row['moh_class'];
 }
 
-$helptext = _("Dynamic Features allow you to define custom feature codes  mapped to Asterisk applications. In this way you can trigger some action over an active call by dialing the configured feature code");
+$helptext = __("Dynamic Features allow you to define custom feature codes  mapped to Asterisk applications. In this way you can trigger some action over an active call by dialing the configured feature code");
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 
-echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Dynamic Feature').': '.$description : _("Add Dynamic Feature"))."</h2>$help</div>\n";
+echo "<div class='is-flex'><h2>".($extdisplay ? __('Edit Dynamic Feature').': '.$description : __("Add Dynamic Feature"))."</h2>$help</div>\n";
 ?>
 
 <form id="mainform" name="editDynamicFeature" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkDynamicFeature(this);">
@@ -73,19 +73,19 @@ echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Dynamic Feature').': '.$
     <input type="hidden" name="id" value="<?php echo $extdisplay; ?>">
     <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
     <table class='table is-borderless is-narrow'>
-    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Name")?><span><?php echo _("The descriptive name of this dynamic feature. For example \"playback_rules\"")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Name")?><span><?php echo __("The descriptive name of this dynamic feature. For example \"playback_rules\"")?></span></a></td>
         <td><input autofocus type="text" name="name" value="<?php  echo $name; ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'></td>
     </tr>
 
     <tr>
-        <td><a href="#" class="info"><?php echo _("DTMF")?><span><?php echo _("The DTMF sequence to trigger this dynamic feature")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("DTMF")?><span><?php echo __("The DTMF sequence to trigger this dynamic feature")?></span></a></td>
         <td><input type="text" name="dtmf" value="<?php echo $dtmf; ?>"  tabindex="<?php echo ++$tabindex;?>" class='input w100'/></td> 
     </tr>
 
     <tr>
-        <td><a href="#" class="info"><?php echo _("Activate On")?><span><?php echo _("On what leg to execute the application, could be set to 'self' or 'peer'")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Activate On")?><span><?php echo __("On what leg to execute the application, could be set to 'self' or 'peer'")?></span></a></td>
         <td>
             <select name="activate_on"  tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/>
                 <option value='self' <?php if($activate_on=='self') echo  " selected "; ?>>self</option>
@@ -95,17 +95,17 @@ echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Dynamic Feature').': '.$
     </tr>
 
     <tr>
-        <td><a href="#" class="info"><?php echo _("Application")?><span><?php echo _("The application to run")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Application")?><span><?php echo __("The application to run")?></span></a></td>
         <td><input type="text" name="application" value="<?php echo $application; ?>"  tabindex="<?php echo ++$tabindex;?>" class='input w100'/></td> 
     </tr>
 
     <tr>
-        <td><a href="#" class="info"><?php echo _("Arguments")?><span><?php echo _("Arguments to pass to the application")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Arguments")?><span><?php echo __("Arguments to pass to the application")?></span></a></td>
         <td><input type="text" name="arguments" value="<?php echo $arguments; ?>"  tabindex="<?php echo ++$tabindex;?>" class='input w100'/></td> 
     </tr>
 
     <tr>
-        <td><a href="#" class="info"><?php echo _("Music on Hold")?><span><?php echo _("Music on Hold class to play to other leg while application is being run")?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Music on Hold")?><span><?php echo __("Music on Hold class to play to other leg while application is being run")?></span></a></td>
         <td>
             <select name="moh_class" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
@@ -113,9 +113,9 @@ echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Dynamic Feature').': '.$
             $cur = (isset($moh_class) && $moh_class != "" ? $moh_class : 'default');
             if (isset($tresults[0])) {
                 foreach ($tresults as $tresult) {
-                   ($tresult == 'none' ? $ttext = _("No Music") : $ttext = $tresult);
-                   ($tresult == 'default' ? $ttext = _("Default") : $ttext = $tresult);
-                   echo '<option value="'.$tresult.'"'.($tresult == $cur ? ' SELECTED' : '').'>'._($ttext)."</option>\n";
+                   ($tresult == 'none' ? $ttext = __("No Music") : $ttext = $tresult);
+                   ($tresult == 'default' ? $ttext = __("Default") : $ttext = $tresult);
+                   echo '<option value="'.$tresult.'"'.($tresult == $cur ? ' SELECTED' : '').'>'.__($ttext)."</option>\n";
                 }
             }
             ?>
@@ -129,7 +129,7 @@ echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Dynamic Feature').': '.$
 <script>
 
 function checkDynamicFeature(theForm) {
-    var msgInvalidDescription = "<?php echo _('Invalid name specified'); ?>";
+    var msgInvalidDescription = "<?php echo __('Invalid name specified'); ?>";
 
     // form validation
     defaultEmptyOK = false;    

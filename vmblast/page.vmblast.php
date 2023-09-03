@@ -19,7 +19,7 @@ $vmblast_list   = isset($_REQUEST['vmblast_list'])  ? $_REQUEST['vmblast_list'] 
 if(isset($_REQUEST['action'])){
 	//check if the extension is within range for this user
 	if (isset($account) && !checkRange($account)){
-		echo "<script>javascript:sweet_alert('". _("Warning! Extension")." ".$account." "._("is not allowed for your account").".');</script>";
+		echo "<script>javascript:sweet_alert('". __("Warning! Extension")." ".$account." ".__("is not allowed for your account").".');</script>";
 	} else {
 		//add group
 		if ($action == 'addGRP') {
@@ -31,7 +31,7 @@ if(isset($_REQUEST['action'])){
 			} else if (vmblast_add($account,$vmblast_list,$description,$audio_label,$password,$default_group)) {
 				$_REQUEST['action'] = 'delGRP';
 				needreload();
-                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+                $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
                 $_SESSION['msgtype']='success';
                 $_SESSION['msgtstamp']=time();
 				redirect_standard('');
@@ -42,7 +42,7 @@ if(isset($_REQUEST['action'])){
 		if ($action == 'delete') {
 			vmblast_del($account);
 			needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
             $_SESSION['msgtstamp']=time();
 			redirect_standard();
@@ -53,7 +53,7 @@ if(isset($_REQUEST['action'])){
 			vmblast_del($account);
 			vmblast_add($account,$vmblast_list,$description,$audio_label,$password,$default_group);
 			needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
 			redirect_standard('extdisplay');
@@ -66,14 +66,14 @@ $rnaventries = array();
 $gresults    = vmblast_list();
 $default_grp = vmblast_get_default_grp();
 foreach ($gresults as $gresult) {
-    $hl = $gresult[0] == $default_grp ? _(' [DEFAULT]') : '';
+    $hl = $gresult[0] == $default_grp ? __(' [DEFAULT]') : '';
     $rnaventries[] = array($gresult[0],$gresult[1].$hl,$gresult[0]);
 }
 drawListMenu($rnaventries, $type, $display, $extdisplay);
 ?>
 
 <!--div class="rnav"><ul>
-    <li><a id="<?php  echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add VMBlast Group")?></a></li> <?php
+    <li><a id="<?php  echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo __("Add VMBlast Group")?></a></li> <?php
 //get unique ring groups
 $gresults = vmblast_list();
 $default_grp = vmblast_get_default_grp();
@@ -85,7 +85,7 @@ if(count($gresult)==0) {
 
 if (isset($gresults)) {
 	foreach ($gresults as $gresult) {
-    $hl = $gresult[0] == $default_grp ? _(' [DEFAULT]') : '';
+    $hl = $gresult[0] == $default_grp ? __(' [DEFAULT]') : '';
 		echo "<li><a class=\"".($extdisplay==$gresult[0] ? 'current':'')."\" href=\"config.php?display=".urlencode($dispnum)."&extdisplay=".urlencode("GRP-".$gresult[0])."\">".$gresult[1]." ({$gresult[0]})$hl</a></li>";
 	}
 }
@@ -103,7 +103,7 @@ if (isset($gresults)) {
 		$default_group = $thisgrp['default_group'];
 		unset($thisgrp);
 
-		echo "<h2>"._("VMBlast Group").": ".$extdisplay."</h2>";
+		echo "<h2>".__("VMBlast Group").": ".$extdisplay."</h2>";
 
 		$usage_list = framework_display_destination_usage(vmblast_getdest($extdisplay));
 		if (!empty($usage_list)) {
@@ -116,43 +116,43 @@ if (isset($gresults)) {
 		$ringing = '';
 
 		if (!empty($conflict_url)) {
-			echo "<h5>"._("Conflicting Extensions")."</h5>";
+			echo "<h5>".__("Conflicting Extensions")."</h5>";
 			echo implode('<br .>',$conflict_url);
 		}
-		echo "<h2>"._("Add VMBlast Group")."</h2>";
+		echo "<h2>".__("Add VMBlast Group")."</h2>";
 	}
 	?>
 	<form id="mainform" name="editGRP" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkGRP(editGRP);">
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
 	<input type="hidden" name="action" value="<?php echo ($extdisplay != '' ? 'editGRP' : 'addGRP'); ?>">
     <table class='table is-borderless is-narrow'>
-    <tr><td colspan="2"><h5><?php  echo dgettext('amp','General Settings') ?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php  echo _dgettext('amp','General Settings') ?></h5></td></tr>
     <tr>
 <?php
 	if ($extdisplay != '') {
 ?>
 				<input size="5" type="hidden" name="account" value="<?php  echo $extdisplay; ?>" tabindex="<?php echo ++$tabindex;?>">
 <?php 	} else { ?>
-				<td><a href="#" class="info"><?php echo _("VMBlast Number")?><span><?php echo _("The number users will dial to voicemail boxes in this VMBlast group")?></span></a></td>
+				<td><a href="#" class="info"><?php echo __("VMBlast Number")?><span><?php echo __("The number users will dial to voicemail boxes in this VMBlast group")?></span></a></td>
 				<td><input class='w100 input' type="text" name="account" data-extdisplay="" value="<?php  if ($gresult[0]==0) { echo "500"; } else { echo $gresult[0] + 1; } ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 <?php 		} ?>
 			</tr>
 
 			<tr>
-				<td> <a href="#" class="info"><?php echo _("Group Description")?><span><?php echo _("Provide a descriptive title for this VMBlast Group.")?></span></a></td>
+				<td> <a href="#" class="info"><?php echo __("Group Description")?><span><?php echo __("Provide a descriptive title for this VMBlast Group.")?></span></a></td>
 				<td><input class='w100 input' maxlength="35" type="text" name="description" value="<?php echo htmlspecialchars($description); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 			</tr>
 
 <?php if(function_exists('recordings_list')) { //only include if recordings is enabled?>
 			<tr>
-				<td><a href="#" class="info"><?php echo _("Audio Label")?><span><?php echo _("Play this message to the caller so they can confirm they have dialed the proper voice mail group number, or have the system simply read the group number.")?></span></a></td>
+				<td><a href="#" class="info"><?php echo __("Audio Label")?><span><?php echo __("Play this message to the caller so they can confirm they have dialed the proper voice mail group number, or have the system simply read the group number.")?></span></a></td>
 				<td>
 					<select name="audio_label" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
 					<?php
 						$tresults = recordings_list();
 						$default = (isset($audio_label) ? $audio_label : -1);
-						echo '<option value="-1">'._("Read Group Number")."</option>";
-						echo '<option value="-2"'.(($default == -2) ? ' SELECTED':'').'>'._("Beep Only - No Confirmation")."</option>";
+						echo '<option value="-1">'.__("Read Group Number")."</option>";
+						echo '<option value="-2"'.(($default == -2) ? ' SELECTED':'').'>'.__("Beep Only - No Confirmation")."</option>";
 						if (isset($tresults[0])) {
 							foreach ($tresults as $tresult) {
 								echo '<option value="'.$tresult[0].'"'.($tresult[0] == $default ? ' SELECTED' : '').'>'.$tresult[1]."</option>\n";
@@ -164,24 +164,24 @@ if (isset($gresults)) {
 			</tr>
 <?php }	else { ?>
 			<tr>
-				<td><a href="#" class="info"><?php echo _("Audio Label")?><span><?php echo _("The group number will be played to the caller so they can confirm they have dialed the proper voice mail group number.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option and choose from recordings.")?></span></a></td>
+				<td><a href="#" class="info"><?php echo __("Audio Label")?><span><?php echo __("The group number will be played to the caller so they can confirm they have dialed the proper voice mail group number.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option and choose from recordings.")?></span></a></td>
 				<td>
 					<?php
 						$default = (isset($audio_label) ? $audio_label : -1);
 					?>
-					<input type="hidden" name="audio_label" value="<?php echo $default; ?>"><?php echo ($default != -1 ? $default : _('Read Group Number')); ?>
+					<input type="hidden" name="audio_label" value="<?php echo $default; ?>"><?php echo ($default != -1 ? $default : __('Read Group Number')); ?>
 				</td>
 			</tr>
 <?php }
 ?>
 			<tr>
-				<td><a href="#" class="info"><?php echo _("Optional Password")?><span><?php echo _('You can optionally include a password to authenticate before providing access to this group voicemail list.')?></span></a></td>
+				<td><a href="#" class="info"><?php echo __("Optional Password")?><span><?php echo __('You can optionally include a password to authenticate before providing access to this group voicemail list.')?></span></a></td>
 				<td><input class='w100 input' type="text" name="password" value="<?php  echo $password ?>" tabindex="<?php echo ++$tabindex;?>">
 				</td>
 			</tr>
 
 			<tr>
-				<td valign='top'><a href='#' class='info'><?php echo _("Voicemail Box List")."<span><br>"._("Select voice mail boxes to add to this group.") ?>
+				<td valign='top'><a href='#' class='info'><?php echo __("Voicemail Box List")."<span><br>".__("Select voice mail boxes to add to this group.") ?>
 	<br><br></span></a>
 				</td>
 				<td valign="top">
@@ -204,8 +204,8 @@ if (isset($gresults)) {
 
 			<tr>
 				<td>
-					<a href='#' class='info'><?php echo _("Default VMBlast Group") ?>
-						<span> <?php echo _("Each PBX system can have a single Default Voicemail Blast Group. If specified, extensions can be automatically added (or removed) from this default group in the Extensions (or Users) tab.<br />Making this group the default will uncheck the option from the current default group if specified.") ?> </span>
+					<a href='#' class='info'><?php echo __("Default VMBlast Group") ?>
+						<span> <?php echo __("Each PBX system can have a single Default Voicemail Blast Group. If specified, extensions can be automatically added (or removed) from this default group in the Extensions (or Users) tab.<br />Making this group the default will uncheck the option from the current default group if specified.") ?> </span>
 					</a>
 				</td>
 				<td>
@@ -228,12 +228,12 @@ if (isset($gresults)) {
 <script>
 
 function checkGRP(theForm) {
-	var msgInvalidGrpNum = "<?php echo _('Invalid Group Number specified'); ?>";
-	var msgInvalidGrpNumStartWithZero = "<?php echo _('Group numbers with more than one digit cannot begin with 0'); ?>";
-	var msgInvalidExtList = "<?php echo _('Please enter an extension list.'); ?>";
-	var msgInvalidDescription = "<?php echo _('Please enter a valid Group Description'); ?>";
-	var msgInvalidPassword = "<?php echo _('Please enter a valid numeric password, only numbers are allowed'); ?>";
-	var msgInvalidExtList = "<?php echo _('Please select at least one extension'); ?>";
+	var msgInvalidGrpNum = "<?php echo __('Invalid Group Number specified'); ?>";
+	var msgInvalidGrpNumStartWithZero = "<?php echo __('Group numbers with more than one digit cannot begin with 0'); ?>";
+	var msgInvalidExtList = "<?php echo __('Please enter an extension list.'); ?>";
+	var msgInvalidDescription = "<?php echo __('Please enter a valid Group Description'); ?>";
+	var msgInvalidPassword = "<?php echo __('Please enter a valid numeric password, only numbers are allowed'); ?>";
+	var msgInvalidExtList = "<?php echo __('Please select at least one extension'); ?>";
 
 	// form validation
 	defaultEmptyOK = false;
@@ -252,7 +252,7 @@ function checkGRP(theForm) {
 	<?php if (function_exists('module_get_field_size')) { ?>
 		var sizeDisplayName = "<?php echo module_get_field_size('vmblast', 'description', 35); ?>";
 		if (!isCorrectLength(theForm.description.value, sizeDisplayName))
-			return warnInvalid(theForm.description, "<?php echo _('The Group Description provided is too long.'); ?>")
+			return warnInvalid(theForm.description, "<?php echo __('The Group Description provided is too long.'); ?>")
 	<?php } ?>
 
 	if (!isAlphanumeric(theForm.description.value))

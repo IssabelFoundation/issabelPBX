@@ -2,7 +2,7 @@
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //for translation only
 if (false) {
-_("Findme Follow Toggle");
+__("Findme Follow Toggle");
 }
 
 global $db;
@@ -129,7 +129,7 @@ if ($astman) {
 		$astman->database_put("AMPUSER",$grpnum."/followme/ddial",$ddial);
 	}	
 } else {
-	echo _("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
+	echo __("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
 }
 
 // Version 2.4.13 change (#1961)
@@ -147,48 +147,48 @@ if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 //
 // Do not do upgrades for sqlite3.  Assume full support begins in 2.5 and our CREATE syntax is correct
 if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
-	outn(_("Checking if recordings need migration.."));
+	outn(__("Checking if recordings need migration.."));
 	$sql = "SELECT annmsg_id FROM findmefollow";
 	$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($check)) {
 		//  Add recording_id field
 		//
-		out(_("migrating"));	
-		outn(_("adding annmsg_id field.."));
+		out(__("migrating"));	
+		outn(__("adding annmsg_id field.."));
   	$sql = "ALTER TABLE findmefollow ADD annmsg_id INTEGER";
   	$result = $db->query($sql);
   	if(DB::IsError($result)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($result->getDebugInfo()); 	
 		} else {
-			out(_("ok"));
+			out(__("ok"));
 		}
-		outn(_("adding remotealert_id field.."));
+		outn(__("adding remotealert_id field.."));
   	$sql = "ALTER TABLE findmefollow ADD remotealert_id INTEGER";
   	$result = $db->query($sql);
   	if(DB::IsError($result)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($result->getDebugInfo()); 
 		} else {
-			out(_("ok"));
+			out(__("ok"));
 		}
-		outn(_("adding toolate_id field.."));
+		outn(__("adding toolate_id field.."));
  	 	$sql = "ALTER TABLE findmefollow ADD toolate_id INTEGER";
 		  $result = $db->query($sql);
  		 if(DB::IsError($result)) {
-				out(_("fatal error"));
+				out(__("fatal error"));
 				die_issabelpbx($result->getDebugInfo()); 
 			} else {
-				out(_("ok"));
+				out(__("ok"));
 			}
 
 		// Get all the valudes and replace them with recording_id
 		//
-		outn(_("migrate annmsg to ids.."));
+		outn(__("migrate annmsg to ids.."));
  	 $sql = "SELECT `grpnum`, `annmsg` FROM `findmefollow`";
 		$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 		if(DB::IsError($results)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($results->getDebugInfo());	
 		}
 		$migrate_arr = array();
@@ -204,17 +204,17 @@ if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 			$compiled = $db->prepare('UPDATE `findmefollow` SET `annmsg_id` = ? WHERE `grpnum` = ?');
 			$result = $db->executeMultiple($compiled,$migrate_arr);
 			if(DB::IsError($result)) {
-				out(_("fatal error"));
+				out(__("fatal error"));
 				die_issabelpbx($result->getDebugInfo());	
 			}
 		}
-		out(sprintf(_("migrated %s entries"),$count));
+		out(sprintf(__("migrated %s entries"),$count));
 
-		outn(_("migrate remotealert to ids.."));
+		outn(__("migrate remotealert to ids.."));
   	$sql = "SELECT `grpnum`, `remotealert` FROM `findmefollow`";
 		$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 		if(DB::IsError($results)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($results->getDebugInfo());	
 		}
 		$migrate_arr = array();
@@ -230,17 +230,17 @@ if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 			$compiled = $db->prepare('UPDATE `findmefollow` SET `remotealert_id` = ? WHERE `grpnum` = ?');
 			$result = $db->executeMultiple($compiled,$migrate_arr);
 			if(DB::IsError($result)) {
-				out(_("fatal error"));
+				out(__("fatal error"));
 				die_issabelpbx($result->getDebugInfo());	
 			}
 		}
-		out(sprintf(_("migrated %s entries"),$count));	
+		out(sprintf(__("migrated %s entries"),$count));	
 
-		outn(_("migrate toolate to  ids.."));
+		outn(__("migrate toolate to  ids.."));
  	 $sql = "SELECT `grpnum`, `toolate` FROM `findmefollow`";
 		$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 		if(DB::IsError($results)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($results->getDebugInfo());	
 		}
 		$migrate_arr = array();
@@ -256,41 +256,41 @@ if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 			$compiled = $db->prepare('UPDATE `findmefollow` SET `toolate_id` = ? WHERE `grpnum` = ?');
 			$result = $db->executeMultiple($compiled,$migrate_arr);
 			if(DB::IsError($result)) {
-				out(_("fatal error"));
+				out(__("fatal error"));
 				die_issabelpbx($result->getDebugInfo());	
 			}
 		}
-		out(sprintf(_("migrated %s entries"),$count));
+		out(sprintf(__("migrated %s entries"),$count));
 
 		// Now remove the old recording field replaced by new id field
 		//
-		outn(_("dropping annmsg field.."));
+		outn(__("dropping annmsg field.."));
   	$sql = "ALTER TABLE `findmefollow` DROP `annmsg`";
   	$result = $db->query($sql);
   	if(DB::IsError($result)) { 
-			out(_("no annmsg field???"));
+			out(__("no annmsg field???"));
 		} else {
-			out(_("ok"));
+			out(__("ok"));
 		}
-		outn(_("dropping remotealert field.."));
+		outn(__("dropping remotealert field.."));
 	  $sql = "ALTER TABLE `findmefollow` DROP `remotealert`";
  	 $result = $db->query($sql);
   	if(DB::IsError($result)) { 
-			out(_("no remotealert field???"));
+			out(__("no remotealert field???"));
 		} else {
-			out(_("ok"));
+			out(__("ok"));
 		}
-		outn(_("dropping toolate field.."));
+		outn(__("dropping toolate field.."));
  	 $sql = "ALTER TABLE `findmefollow` DROP `toolate`";
   	$result = $db->query($sql);
   	if(DB::IsError($result)) { 
-			out(_("no toolate field???"));
+			out(__("no toolate field???"));
 		} else {
-			out(_("ok"));
+			out(__("ok"));
 		}
 
 	} else {
-		out(_("already migrated"));
+		out(__("already migrated"));
 	}
 }
 

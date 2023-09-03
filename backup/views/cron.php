@@ -2,14 +2,14 @@
 $html = '';
 
 $data = array(
-			'never'		=> _('Never'),
-			'hourly'	=> _('Hourly'),
-			'daily'		=> _('Daily'),
-			'weekly'	=> _('Weekly'),
-			'monthly'	=> _('Monthly'),
-			'annually'	=> _('Annually'),
-			'reboot'	=> _('Reboot'),
-			'custom'	=> _('Custom')
+			'never'		=> __('Never'),
+			'hourly'	=> __('Hourly'),
+			'daily'		=> __('Daily'),
+			'weekly'	=> __('Weekly'),
+			'monthly'	=> __('Monthly'),
+			'annually'	=> __('Annually'),
+			'reboot'	=> __('Reboot'),
+			'custom'	=> __('Custom')
 );
 $txt = "Select how often to run this backup. The following schedule will be followed for all but custom:<br/>";
 $txt.= "Hourly &nbsp&nbspRun once an hour, beginning of hour<br/>";
@@ -27,7 +27,7 @@ $txt.= "If a custom schedule is selected, any section not specficed will be cons
 $txt.= "I.e. if Day of Month is set to 12 and Day of Week is not set, the Backup will be run on ANY 12th of ";
 $txt.= "the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the Backup will run ONLY ";
 $txt.= "on a Monday, and ONLY if it's the 12th of the month.";
-$label = ipbx_label(_('Run Automatically'), _($txt));
+$label = ipbx_label(__('Run Automatically'), __($txt));
 $html .= $label . ' ' . form_dropdown('cron_schedule', $data, $cron_schedule, ' class="componentSelect" ');
 $data = array(
 	'name'		=> 'cron_random',
@@ -36,12 +36,12 @@ $data = array(
 	'checked'	=> ($cron_random == 'true' ? true : false),
 );
 
-$html .= br() . form_label(_('Randomize'), 'cron_random') . form_checkbox($data);
+$html .= br() . form_label(__('Randomize'), 'cron_random') . form_checkbox($data);
 
 $html .= '<div id="crondiv" class="columns">';
 //minutes
 $html .= "<div class='column'>";
-$html .= form_fieldset(_('Minutes'), ' class="cronset ui-widget-content" ');
+$html .= form_fieldset(__('Minutes'), ' class="cronset ui-widget-content" ');
 $html .= '<div class="cronsetdiv">';
 
 for($i = 0; $i < 60; $i++) {
@@ -56,7 +56,7 @@ $html .= form_fieldset_close();
 
 //hours
 $html .= "<div class='column'>";
-$html .= form_fieldset(_('Hour'), ' class="cronset ui-widget-content" ');
+$html .= form_fieldset(__('Hour'), ' class="cronset ui-widget-content" ');
 $html .= '<div class="cronsetdiv">';
 
 for($i = 0; $i < 24; $i++) {
@@ -72,16 +72,16 @@ $html .= form_fieldset_close();
 
 //day of week
 $html .= "<div class='column'>";
-$html .= form_fieldset(_('Day of Week'), ' class="cronset ui-widget-content" ');
+$html .= form_fieldset(__('Day of Week'), ' class="cronset ui-widget-content" ');
 $html .= '<div class="cronsetdiv">';
 $doy = array(
-		'0' => dgettext('amp','Sunday'),
-		'1' => dgettext('amp','Monday'),
-		'2' => dgettext('amp','Tuesday'),
-		'3' => dgettext('amp','Wednesday'),
-		'4' => dgettext('amp','Thursday'),
-		'5' => dgettext('amp','Friday'),
-		'6' => dgettext('amp','Saturday'),
+		'0' => _dgettext('amp','Sunday'),
+		'1' => _dgettext('amp','Monday'),
+		'2' => _dgettext('amp','Tuesday'),
+		'3' => _dgettext('amp','Wednesday'),
+		'4' => _dgettext('amp','Thursday'),
+		'5' => _dgettext('amp','Friday'),
+		'6' => _dgettext('amp','Saturday'),
 );
 foreach ($doy as $k => $v) {
     $checked = in_array((string)$k, $cron_dow) ? "checked='checked' " : "";
@@ -109,21 +109,21 @@ maxW=0;
 
 //month
 $html .= "<div class='column'>";
-$html .= form_fieldset(_('Month'), ' class="cronset ui-widget-content" ');
+$html .= form_fieldset(__('Month'), ' class="cronset ui-widget-content" ');
 $html .= '<div class="cronsetdiv">';
 $doy = array(
-        '1' => dgettext('amp','January'),
-        '2' => dgettext('amp','February'),
-        '3' => dgettext('amp','March'),
-        '4' => dgettext('amp','April'),
-        '5' => dgettext('amp','May'),
-        '6' => dgettext('amp','June'),
-        '7' => dgettext('amp','July'),
-        '8' => dgettext('amp','August'),
-        '9' => dgettext('amp','September'),
-        '10' => dgettext('amp','October'),
-        '11' => dgettext('amp','November'),
-        '12' => dgettext('amp','December'),
+        '1' => _dgettext('amp','January'),
+        '2' => _dgettext('amp','February'),
+        '3' => _dgettext('amp','March'),
+        '4' => _dgettext('amp','April'),
+        '5' => _dgettext('amp','May'),
+        '6' => _dgettext('amp','June'),
+        '7' => _dgettext('amp','July'),
+        '8' => _dgettext('amp','August'),
+        '9' => _dgettext('amp','September'),
+        '10' => _dgettext('amp','October'),
+        '11' => _dgettext('amp','November'),
+        '12' => _dgettext('amp','December'),
 );
 
 foreach ($doy as $k => $v) {
@@ -152,7 +152,7 @@ maxW=0;
 
 //day of month
 $html .= "<div class='column'>";
-$html .= form_fieldset(_('Day of Month'), ' class="cronset ui-widget-content" ');
+$html .= form_fieldset(__('Day of Month'), ' class="cronset ui-widget-content" ');
 $html .= '<div class="cronsetdiv">';
 
 

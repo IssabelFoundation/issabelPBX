@@ -17,7 +17,7 @@ switch ($action) {
 	case 'add':
 		$_REQUEST['extdisplay'] = languages_add($description, $lang_code, $dest);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
 		redirect_standard('extdisplay');
@@ -25,7 +25,7 @@ switch ($action) {
 	case 'edit':
 		languages_edit($language_id, $description, $lang_code, $dest);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
 		redirect_standard('extdisplay');
@@ -33,7 +33,7 @@ switch ($action) {
 	case 'delete':
 		languages_delete($language_id);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
 		redirect_standard();
@@ -60,9 +60,9 @@ if ($extdisplay) {
 
 }
 
-$helptext = _("Languages allow you to change the language of the call flow and then continue on to the desired destination. For example, you may have an IVR option that says \"For French Press 5 now\". You would then create a French language instance and point it's destination at a French IVR. The language of the call's channel will now be in French. This will result in French sounds being chosen if installed.");
+$helptext = __("Languages allow you to change the language of the call flow and then continue on to the desired destination. For example, you may have an IVR option that says \"For French Press 5 now\". You would then create a French language instance and point it's destination at a French IVR. The language of the call's channel will now be in French. This will result in French sounds being chosen if installed.");
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
-echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Language').': '.$description.' ('.$lang_code.')': _("Add Language"))."</h2>$help</div>\n";
+echo "<div class='is-flex'><h2>".($extdisplay ? __('Edit Language').': '.$description.' ('.$lang_code.')': __("Add Language"))."</h2>$help</div>\n";
 
 if ($extdisplay) {
     $usage_list = framework_display_destination_usage(languages_getdest($extdisplay));
@@ -78,15 +78,15 @@ if ($extdisplay) {
 	<input type="hidden" name="language_id" value="<?php echo $extdisplay; ?>">
     <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
     <table class='table is-borderless is-narrow'>
-    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _("The descriptive name of this language instance. For example \"French Main IVR\"")?></span></a></td>
+		<td><a href="#" class="info"><?php echo __("Description")?><span><?php echo __("The descriptive name of this language instance. For example \"French Main IVR\"")?></span></a></td>
 		<td><input autofocus class='input w100' type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Language Code")?><span><?php echo _("The Asterisk language code you want to change to. For example \"fr\" for French, \"de\" for German")?></span></a></td>
+		<td><a href="#" class="info"><?php echo __("Language Code")?><span><?php echo __("The Asterisk language code you want to change to. For example \"fr\" for French, \"de\" for German")?></span></a></td>
 		<td><input class="input w100" type="text" name="lang_code" value="<?php echo $lang_code; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td> </tr>
-	<tr><td colspan="2"><br><h5><?php echo _("Destination")?></h5></td></tr>
+	<tr><td colspan="2"><br><h5><?php echo __("Destination")?></h5></td></tr>
 
 <?php 
 //draw goto selects
@@ -99,7 +99,7 @@ echo drawselects($dest,0);
 <script>
 
 function checkLanguage(theForm) {
-	var msgInvalidDescription = "<?php echo _('Invalid description specified'); ?>";
+	var msgInvalidDescription = "<?php echo __('Invalid description specified'); ?>";
 
 	// set up the Destination stuff
 	setDestinations(theForm, '_post_dest');

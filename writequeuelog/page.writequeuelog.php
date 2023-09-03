@@ -18,7 +18,7 @@ $qlog_event    = isset($_REQUEST['qlog_event']) ? $_REQUEST['qlog_event'] :  '';
 $qlog_queue    = isset($_REQUEST['qlog_queue']) ? $_REQUEST['qlog_queue'] :  '';
 $qlog_extra    = isset($_REQUEST['qlog_extra']) ? $_REQUEST['qlog_extra'] :  '';
 
-$add_field = _("Add Field");
+$add_field = __("Add Field");
 
 if (isset($_REQUEST['goto0']) && $_REQUEST['goto0']) {
     $dest = $_REQUEST[ $_REQUEST['goto0'] ];
@@ -28,7 +28,7 @@ switch ($action) {
     case 'add':
         writequeuelog_add($description, $qlog_uniqueid, $qlog_queue, $qlog_agent, $qlog_event, $qlog_extra, $dest);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -36,7 +36,7 @@ switch ($action) {
     case 'edit':
         writequeuelog_edit($qlog_id, $description, $qlog_uniqueid, $qlog_queue, $qlog_agent, $qlog_event, $qlog_extra, $dest);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
         redirect_standard('extdisplay');
@@ -44,7 +44,7 @@ switch ($action) {
     case 'delete':
         writequeuelog_delete($qlog_id);
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
         $_SESSION['msgtype']='warning';
         $_SESSION['msgtstamp']=time();
         redirect_standard();
@@ -75,10 +75,10 @@ if ($extdisplay) {
     $dest          = $row['dest'];
 }
 
-$helptext = _("Write queue log lets you append a line into the queue_log file for call center tracking purposes");
+$helptext = __("Write queue log lets you append a line into the queue_log file for call center tracking purposes");
 $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 
-echo "<div class='is-flex'><h2>".($extdisplay ? _('Edit Write Queue Log').': '.$description : _("Add Write Queue Log"))."</h2>$help</div>\n";
+echo "<div class='is-flex'><h2>".($extdisplay ? __('Edit Write Queue Log').': '.$description : __("Add Write Queue Log"))."</h2>$help</div>\n";
 
 if ($extdisplay) {
     $usage_list = framework_display_destination_usage(writequeuelog_getdest($extdisplay));
@@ -94,33 +94,33 @@ if ($extdisplay) {
     <input type="hidden" name="qlog_id" value="<?php echo $extdisplay; ?>">
     <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
     <table class='table is-borderless is-narrow'>
-    <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Description")?><span><?php echo _("The descriptive name of this queue log instance. For example \"new name here\"");?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Description")?><span><?php echo __("The descriptive name of this queue log instance. For example \"new name here\"");?></span></a></td>
         <td><input autofocus class="input w100" type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Uniqueid")?><span><?php echo _("The uniqueid field for the queue log entry");?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Uniqueid")?><span><?php echo __("The uniqueid field for the queue log entry");?></span></a></td>
         <td><input class="input w100" type="text" name="qlog_uniqueid" value="<?php echo $qlog_uniqueid; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Queue")?><span><?php echo _("The queue field for the queue log entry");?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Queue")?><span><?php echo __("The queue field for the queue log entry");?></span></a></td>
         <td><input class="input w100" type="text" name="qlog_queue" value="<?php echo $qlog_queue; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Agent")?><span><?php echo _("The agent field for the queue log entry");?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Agent")?><span><?php echo __("The agent field for the queue log entry");?></span></a></td>
         <td><input class="input w100" type="text" name="qlog_agent" value="<?php echo $qlog_agent; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Event")?><span><?php echo _("The event field for the queue log entry");?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Event")?><span><?php echo __("The event field for the queue log entry");?></span></a></td>
         <td><input class="input w100" type="text" name="qlog_event" value="<?php echo $qlog_event; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo _("Extra")?><span><?php echo _("The rest of extra data info1|info2|info3 for the queue log entry");?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Extra")?><span><?php echo __("The rest of extra data info1|info2|info3 for the queue log entry");?></span></a></td>
         <td><input class="input w100" type="text" name="qlog_extra" value="<?php echo $qlog_extra; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td>
     </tr>
 
-    <tr><td colspan="2"><br><h5><?php echo _("Destination")?>:</h5></td></tr>
+    <tr><td colspan="2"><br><h5><?php echo __("Destination")?>:</h5></td></tr>
 
 <?php
 //draw goto selects
@@ -143,7 +143,7 @@ $(document).ready(function () {
 });
 
 function checkQueuelog(theForm) {
-    var msgInvalidDescription = "<?php echo _('Invalid description specified'); ?>";
+    var msgInvalidDescription = "<?php echo __('Invalid description specified'); ?>";
 
     // set up the Destination stuff
     setDestinations(theForm, '_post_dest');

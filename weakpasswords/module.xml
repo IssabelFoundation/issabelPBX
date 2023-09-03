@@ -6,7 +6,8 @@
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<category>Reports</category>
+    <category>Reports</category>
+    <embedcategory>Advanced</embedcategory>
     <changelog>
         *2.12.0.0* Newer GUI, standarize module components
 		*2.11.0.1* Initial Issabel Foundation release

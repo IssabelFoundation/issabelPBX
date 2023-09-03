@@ -14,7 +14,7 @@ $out .= '<img src="' . $amp_conf['BRAND_IMAGE_TANGO_LEFT']
     . '" title="' . $amp_conf['BRAND_ISSABELPBX_ALT_LEFT']
     . '" id="MENU_BRAND_IMAGE_TANGO_LEFT" /></a>';
 
-$out .= '<a id="button_reload" href="#" data-button-icon-primary="ui-icon-gear" class="mt-2 button is-danger animate__animated animate__tada">' . _("Apply Config") .'</a>';
+$out .= '<a id="button_reload" href="#" data-button-icon-primary="ui-icon-gear" class="mt-2 button is-danger animate__animated animate__tada">' . __("Apply Config") .'</a>';
 $out .= '<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainnavbar">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -59,7 +59,7 @@ if ($amp_conf['USE_ISSABELPBX_MENU_CONF']) {
                 }
             }
         } else {
-            issabelpbx_log('IPBX_LOG_ERROR', _("Syntax error in your issabelpbx_menu.conf file"));
+            issabelpbx_log('IPBX_LOG_ERROR', __("Syntax error in your issabelpbx_menu.conf file"));
         }
     }
 }
@@ -101,8 +101,8 @@ if (isset($ipbx_menu) && is_array($ipbx_menu)) {    // && issabelpbx_menu.conf n
             continue;
         }
         // $t is a heading so can't be isolated to a module, translation must come from amp
-	    //$mods[$t] = '<div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">'. _(ucwords($t)) .'</a>';
-	    $mods[$t] = '<button class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">'. _(ucwords($t)) .'</a>';
+	    //$mods[$t] = '<div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">'. __(ucwords($t)) .'</a>';
+	    $mods[$t] = '<button class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">'. __(ucwords($t)) .'</a>';
 
         if(count($cat)>7) {
             $multico=' multicolumn ';
@@ -172,25 +172,25 @@ $out.='</div><div class="navbar-end">';
 $current_lang = $_COOKIE['lang'];
 
 $aval_lang = array();
-$aval_lang["en_US"]=_('English');
-$aval_lang["es_ES"]= _('Español');
-$aval_lang["pt_BR"]= _('Português');
-$aval_lang["bg_BG"]= _('Български');
-$aval_lang["zh_CN"]= _('中文');
-$aval_lang["de_DE"]= _('Deutsch');
-$aval_lang["fr_FR"]= _('Français');
-$aval_lang["he_IL"]= _('עִברִית');
-$aval_lang["hu_HU"]= _('Magyar');
-$aval_lang["it_IT"]= _('Italiano');
-$aval_lang["pt_PT"]= _('Português');
-$aval_lang["ru_RU"]= _('Русский');
-$aval_lang["sv_SE"]= _('Svenska');
-$aval_lang["ja_JP"]= _('日本');
+$aval_lang["en_US"]=__('English');
+$aval_lang["es_ES"]= __('Español');
+$aval_lang["pt_BR"]= __('Português');
+$aval_lang["bg_BG"]= __('Български');
+$aval_lang["zh_CN"]= __('中文');
+$aval_lang["de_DE"]= __('Deutsch');
+$aval_lang["fr_FR"]= __('Français');
+$aval_lang["he_IL"]= __('עִברִית');
+$aval_lang["hu_HU"]= __('Magyar');
+$aval_lang["it_IT"]= __('Italiano');
+$aval_lang["pt_PT"]= __('Português');
+$aval_lang["ru_RU"]= __('Русский');
+$aval_lang["sv_SE"]= __('Svenska');
+$aval_lang["ja_JP"]= __('日本');
 
 if($amp_conf['SHOWLANGUAGE']) {
     $out .= '<button class="navbar-item has-dropdown is-hoverable"><a class="navbar-link" id="language-menu-button">';
     $out .= '<i class="fa fa-language mr-2"></i>';
-    $out .= _('Language') . '</a>';
+    $out .= __('Language') . '</a>';
     $out .= '<div class="navbar-dropdown is-right">';
     foreach($aval_lang as $iso=>$desc) {
         $parts = preg_split("/_/",strtolower($iso));
@@ -215,7 +215,7 @@ $out .= '<div class="navbar-item"><div class="buttons">';
 if ( isset($_SESSION['AMP_user']) && ($authtype != 'none')) {
     $out .= '<a id="user_logout" href="#"'
         . ' class="button is-primary" title="logout">'
-        . _('Logout') . ': ' . (isset($_SESSION['AMP_user']->username) ? $_SESSION['AMP_user']->username : 'ERROR')
+        . __('Logout') . ': ' . (isset($_SESSION['AMP_user']->username) ? $_SESSION['AMP_user']->username : 'ERROR')
 	. '</a>';
 }
  

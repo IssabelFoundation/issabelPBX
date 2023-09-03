@@ -22,7 +22,7 @@ foreach ($entries as $e) {
 				array(
 					'name'			=> 'entries[ext][]',
 					'value'			=> $e['selection'],
-					'placeholder'	=> _('digits pressed'),
+					'placeholder'	=> __('digits pressed'),
 					'required'		=> ''
                 ),
                 '','class="input"'
@@ -38,7 +38,7 @@ foreach ($entries as $e) {
 	
 	//return to ivr
 	$row[] = ipbx_label(form_switch('entries[ivr_ret][]', '1', ($e['ivr_ret'] == 1)), 
-			_('Check this box to have this option return to a parent IVR if it was called '
+			__('Check this box to have this option return to a parent IVR if it was called '
 			. 'from a parent IVR. If not, it will go to the chosen destination.<br><br>'
 			. 'The return path will be to any IVR that was in the call path prior to this '
 			. 'IVR which could lead to strange results if there was an IVR called in the '
@@ -50,13 +50,13 @@ foreach ($entries as $e) {
 				array(
 					'name'			=> 'entries[spoken][]',
 					'value'			=> $e['spoken'],
-					'placeholder'	=> _('spoken word'),
+					'placeholder'	=> __('spoken word'),
                 ),
                 '','class="input"'
         );
 
     }
-    $row[] = '<button type="button" class="delete_entrie button is-small is-danger has-tooltip-right" data-tooltip="'._('Delete').'"><span class="icon is-small""><i class="fa fa-trash"></i></span></button>';
+    $row[] = '<button type="button" class="delete_entrie button is-small is-danger has-tooltip-right" data-tooltip="'.__('Delete').'"><span class="icon is-small""><i class="fa fa-trash"></i></span></button>';
 		
 	//add module hooks	
 	if (isset($e['hooks']) && $e['hooks']) {
@@ -76,7 +76,7 @@ foreach ($entries as $e) {
 
 $ret = '';
 $ret .= $table->generate();
-$ret .= '<button class="button is-small is-rounded" id="add_entrie"><span class="icon is-small is-left"><i class="fa fa-plus"></i></span><span>'._('Add Entry').'</span></button>';
+$ret .= '<button class="button is-small is-rounded" id="add_entrie"><span class="icon is-small is-left"><i class="fa fa-plus"></i></span><span>'.__('Add Entry').'</span></button>';
 
 $ret .= "<script>var clone = \$(\"#ivr_entries tr:last\").clone(true);</script>";
 

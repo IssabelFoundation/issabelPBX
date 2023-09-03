@@ -1,4 +1,4 @@
-<h2><?php echo sprintf(_('Analog %s Ports'),(($_GET['ports'] == 'fxo')?'FXO':'FXS'))?></h2>
+<h2><?php echo sprintf(__('Analog %s Ports'),(($_GET['ports'] == 'fxo')?'FXO':'FXS'))?></h2>
 <hr />
 <form name="dahdi_editanalog" action="/admin/config.php?type=setup&amp;display=dahdi&amp;dahdi_form=analog_signalling&amp;ports=<?=$_GET['ports']?>" method="post">
 <input type="hidden" name="type" value="<?=$_GET['ports']?>" />
@@ -8,23 +8,23 @@
 	foreach ($spans as $p): ?>
 	<? $port = $dahdi_cards->get_port($p); ?>
 	<div>
-		<?php echo sprintf(_('Port %s'),$p)?>:
+		<?php echo sprintf(__('Port %s'),$p)?>:
 		<select name="port_<?=$p?>" id="port_<?=$p?>">
-			<option value="ks"><?php echo _('Kewl Start')?></option>
-			<option value="ls"><?php echo _('Loop Start')?></option>
+			<option value="ks"><?php echo __('Kewl Start')?></option>
+			<option value="ls"><?php echo __('Loop Start')?></option>
 		</select>
-		<?php echo _('Group')?>:
+		<?php echo __('Group')?>:
 		<input type="text" name="port_<?=$p?>_group" id="port_<?=$p?>_group" size="2" value="<?=$port['group']?>" />
 		<? if ($_GET['ports'] == 'fxo'): ?>
-		<?php echo _('Context')?>:
+		<?php echo __('Context')?>:
 		<input type="text" name="port_<?=$p?>_context" id="port_<?=$p?>_context" value="<?=$port['context']?>" />
 		<? endif; ?>
 	</div>
 	<? endforeach; ?>
 </div>
 <div id="editanalog_buttons">
-	<input type="submit" name="editanalog_cancel" value="<?php echo _('Cancel')?>" />
-	<input type="submit" name="editanalog_submit" value="<?php echo _('Save')?>" />
+	<input type="submit" name="editanalog_cancel" value="<?php echo __('Cancel')?>" />
+	<input type="submit" name="editanalog_submit" value="<?php echo __('Save')?>" />
 </div>
 </form>
 <script type="text/javascript">

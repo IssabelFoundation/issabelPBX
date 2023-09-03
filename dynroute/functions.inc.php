@@ -31,7 +31,7 @@ function dynroute_init() {
     $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 
     if (DB::IsError($results)) {
-                    echo _("There is a problem with installation Contact support\n");
+                    echo __("There is a problem with installation Contact support\n");
                     die;
     } else {
 	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
@@ -79,7 +79,7 @@ function dynroute_getdestinfo($dest) {
 		if (empty($thisexten)) {
 			return array();
 		} else {
-			return array('description' => sprintf(_("Route: %s"),$thisexten['displayname']),
+			return array('description' => sprintf(__("Route: %s"),$thisexten['displayname']),
 			             'edit_url' => 'config.php?display=dynroute&action=edit&extdisplay='.urlencode($exten),
 								  );
 		}
@@ -98,7 +98,7 @@ function dynroute_recordings_usage($recording_id) {
                 foreach ($results as $result) {
                         $usage_arr[] = array(
                                 'url_query' => 'config.php?display=dynroute&action=edit&extdisplay='.urlencode($result['dynroute_id']),
-                                'description' => sprintf(_("Dynamic route: %s"),$result['displayname']),
+                                'description' => sprintf(__("Dynamic route: %s"),$result['displayname']),
                         );
                 }
                 return $usage_arr;
@@ -420,7 +420,7 @@ function dynroute_check_destinations($dest=true) {
 		if ($result['default_dest']=='y') $sel='Default'; else $sel=$result['selection'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => sprintf(_("Route: %s / Destination: %s"),$result['displayname'],$sel),
+			'description' => sprintf(__("Route: %s / Destination: %s"),$result['displayname'],$sel),
 			'edit_url' => 'config.php?display=dynroute&action=edit&extdisplay='.urlencode($thisid),
 		);
 	}

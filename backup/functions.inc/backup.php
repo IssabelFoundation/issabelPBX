@@ -78,7 +78,7 @@ function backup_get_backup($id = '') {
 
 				//default name in one is missing
 				if (!$backups[$s['id']]['name']) {
-					$backups[$s['id']]['name'] = _('Backup') . ' ' . $s['id'];
+					$backups[$s['id']]['name'] = __('Backup') . ' ' . $s['id'];
 				}
 
 				//add details if requested

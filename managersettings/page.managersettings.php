@@ -39,7 +39,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
           $error_displays = process_errors($errors);
       } else {
           needreload();
-          $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+          $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
           $_SESSION['msgtype']='success';
           $_SESSION['msgtstamp']=time();
           redirect_standard();
@@ -52,7 +52,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 ?>
 <div class='content'>
-  <h2><?php echo _("Asterisk Manager Settings"); ?></h2>
+  <h2><?php echo __("Asterisk Manager Settings"); ?></h2>
 
 <?php
 
@@ -72,7 +72,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   <tr>
     <td colspan="2">
       <div class="manager-errors">
-        <p><?php echo _("ERRORS") ?></p>
+        <p><?php echo __("ERRORS") ?></p>
         <ul>
 <?php
     foreach ($error_displays as $div_disp) {
@@ -87,20 +87,20 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   }
 ?>
   <tr>
-    <td colspan="2"><h5><?php echo dgettext("amp","General Settings")?></h5></td>
+    <td colspan="2"><h5><?php echo _dgettext("amp","General Settings")?></h5></td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Web Enabled")?><span><?php echo _("You can  make the manager interface available over http/https if Asterisk's http server is enabled in  http.conf")?></span></a>
+      <a href="#" class="info"><?php echo __("Web Enabled")?><span><?php echo __("You can  make the manager interface available over http/https if Asterisk's http server is enabled in  http.conf")?></span></a>
     </td>
     <td>
             <fieldset class="radioset">
               <div class='radiotoggle'>
                 <input id="webenabled-yes" type="radio" name="webenabled" value="yes" tabindex="<?php echo ++$tabindex;?>" <?php echo $webenabled=="yes"?"checked=\"checked\"":""?>/>
-                <label for="webenabled-yes"><?php echo _('yes');?></label>
+                <label for="webenabled-yes"><?php echo __('yes');?></label>
                 <input id="webenabled-no" type="radio" name="webenabled" value="no" tabindex="<?php echo ++$tabindex;?>" <?php echo $webenabled=="no"?"checked=\"checked\"":""?>/>
-                <label for="webenabled-no"><?php echo _('no');?></label>
+                <label for="webenabled-no"><?php echo __('no');?></label>
               </div>
             </fieldset>
     </td>
@@ -108,15 +108,15 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Display Connects")?><span><?php echo _("If enabled, any AMI connection will display a message in the Asterisk CLI")?></span></a>
+      <a href="#" class="info"><?php echo __("Display Connects")?><span><?php echo __("If enabled, any AMI connection will display a message in the Asterisk CLI")?></span></a>
     </td>
     <td>
             <fieldset class="radioset">
               <div class='radiotoggle'>
                 <input id="displayconnects-yes" type="radio" name="displayconnects" value="yes" tabindex="<?php echo ++$tabindex;?>" <?php echo $displayconnects=="yes"?"checked=\"checked\"":""?>/>
-                <label for="displayconnects-yes"><?php echo _('yes');?></label>
+                <label for="displayconnects-yes"><?php echo __('yes');?></label>
                 <input id="displayconnects-no" type="radio" name="displayconnects" value="no" tabindex="<?php echo ++$tabindex;?>" <?php echo $displayconnects=="no"?"checked=\"checked\"":""?>/>
-                <label for="displayconnects-no"><?php echo _('no');?></label>
+                <label for="displayconnects-no"><?php echo __('no');?></label>
               </div>
             </fieldset>
     </td>
@@ -124,15 +124,15 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
  
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Timestamp Events")?><span><?php echo _("Add a Unix epoch timestamp to events (not action responses)")?></span></a>
+      <a href="#" class="info"><?php echo __("Timestamp Events")?><span><?php echo __("Add a Unix epoch timestamp to events (not action responses)")?></span></a>
     </td>
     <td>
             <fieldset class="radioset">
               <div class='radiotoggle'>
                 <input id="timestampevents-yes" type="radio" name="timestampevents" value="yes" tabindex="<?php echo ++$tabindex;?>" <?php echo $timestampevents=="yes"?"checked=\"checked\"":""?>/>
-                <label for="timestampevents-yes"><?php echo _('yes');?></label>
+                <label for="timestampevents-yes"><?php echo __('yes');?></label>
                 <input id="timestampevents-no" type="radio" name="timestampevents" value="no" tabindex="<?php echo ++$tabindex;?>" <?php echo $timestampevents=="no"?"checked=\"checked\"":""?>/>
-                <label for="timestampevents-no"><?php echo _('no');?></label>
+                <label for="timestampevents-no"><?php echo __('no');?></label>
               </div>
             </fieldset>
     </td>
@@ -140,7 +140,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
  
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Channel Variables")?><span><?php echo _("Comma separated list of channel variables to broadcast inside AMI events")?></span></a>
+      <a href="#" class="info"><?php echo __("Channel Variables")?><span><?php echo __("Comma separated list of channel variables to broadcast inside AMI events")?></span></a>
     </td>
     <td>
       <textarea id="channelvars" name="channelvars" class='textarea' tabindex="<?php echo ++$tabindex;?>"><?php echo $channelvars; ?></textarea>
@@ -149,13 +149,13 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
   <tr>
 <td></td><td><div class='columns'>
-<div class='column'><?php echo _('Configuration');?></div>
-<div class='column'><?php echo _('Value');?></div>
+<div class='column'><?php echo __('Configuration');?></div>
+<div class='column'><?php echo __('Value');?></div>
 </div>
 </td</tr>
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Other Manager Settings")?><span><?php echo _("You may set any other Manager settings not present here that are allowed to be configured in the General section of manager.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields. Blank boxes will be deleted when submitted.")?></span></a>
+      <a href="#" class="info"><?php echo __("Other Manager Settings")?><span><?php echo __("You may set any other Manager settings not present here that are allowed to be configured in the General section of manager.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields. Blank boxes will be deleted when submitted.")?></span></a>
     </td>
     <td>
 <div class='columns'>
@@ -204,7 +204,7 @@ END;
   <tr id="manager-custom-buttons">
     <td></td>
     <td><br>
-      <input type="button" id="manager-custom-add" class="button is-small is-rounded" value="<?php echo _("Add Field")?>" />
+      <input type="button" id="manager-custom-add" class="button is-small is-rounded" value="<?php echo __("Add Field")?>" />
  
     </td>
   </tr>
@@ -212,7 +212,7 @@ END;
 </table>
 </form>
 
-<!--button class='fixed-submit button is-link' name="Submit" type="submit" tabindex="<?php echo ++$tabindex;?>"><?php echo _("Submit Changes");?></button-->
+<!--button class='fixed-submit button is-link' name="Submit" type="submit" tabindex="<?php echo ++$tabindex;?>"><?php echo __("Submit Changes");?></button-->
 
 <script>
 $(function(){

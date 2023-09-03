@@ -23,8 +23,8 @@ $issabelpbx_conf =& issabelpbx_conf::create();
 $lang = $issabelpbx_conf->get_conf_setting('LANGUAGE');
 $module = 'backup';
 if($lang!='') {
-    setlocale(LC_ALL,  $lang);
-    putenv("LANGUAGE=".$lang);
+    T_setlocale(LC_MESSAGES,  $lang);
+    //putenv("LANGUAGE=".$lang);
     $result_textdomain = modgettext::textdomain($module);
 }
 
@@ -33,15 +33,15 @@ if (isset($vars['restore'], $vars['items'])) {
 	$items = unserialize(base64_decode($vars['items']));
 
     if (!$items) {
-        backup_log(_('Nothing to restore!'));
+        backup_log(__('Nothing to restore!'));
         print_r($vars);
 		exit();
 	}
 	
-	backup_log(_('Initializing Restore...'));
+	backup_log(__('Initializing Restore...'));
 
 	if (!file_exists($vars['restore'])) {
-		backup_log(_('Backup file not found! Aborting.'));
+		backup_log(__('Backup file not found! Aborting.'));
 		return false;
 	}
 	//TODO: should we use the manifest to ensure that all 
@@ -50,17 +50,17 @@ if (isset($vars['restore'], $vars['items'])) {
 	
 	//run hooks
 	if (isset($manifest['hooks']['pre_restore']) && $manifest['hooks']['pre_restore']) {
-		backup_log(_('Running pre-restore scripts...'));
+		backup_log(__('Running pre-restore scripts...'));
 		exec($manifest['hooks']['pre_restore']);
 	}
-	backup_log(_('Running pre-restore hooks, if any...'));
+	backup_log(__('Running pre-restore hooks, if any...'));
 	mod_func_iterator('backup_pre_restore_hook', $manifest);
 	
 	if (isset($items['files']) && $items['files']) {
-		backup_log(_('Restoring files...'));
+		backup_log(__('Restoring files...'));
 
 		if (count($items['files']) > 500) {
-			backup_log(_('A large number of files have been selected for restore. Please be '
+			backup_log(__('A large number of files have been selected for restore. Please be '
 						. 'patient - this process will take a while.'));
 		}
 		$cmd[] = ipbx_which('tar');
@@ -74,7 +74,7 @@ if (isset($vars['restore'], $vars['items'])) {
 			$cmd[] = './' . trim($f, '/');
 		}
         exec(implode(' ', $cmd));
-		backup_log(_('File restore complete!'));
+		backup_log(__('File restore complete!'));
 		unset($cmd);
 	}
 	unset($manifest['file_list']);
@@ -82,7 +82,7 @@ if (isset($vars['restore'], $vars['items'])) {
 	
 	//restore cdr's if requested
 	if (isset($items['cdr']) && $items['cdr'] == 'true') {
-		backup_log(_('Restoring CDR\'s...'));
+		backup_log(__('Restoring CDR\'s...'));
 		$s = explode('-', $manifest['fpbx_cdrdb']);
 		$file = $manifest['mysql'][$s[1]]['file'];
 		$cdr_stat_time = time();//last time we sent status update
@@ -123,7 +123,7 @@ if (isset($vars['restore'], $vars['items'])) {
 		exec(implode(' ', $cmd), $file);
 		unset($cmd);
 		
-		backup_log(_('Getting CDR size...'));
+		backup_log(__('Getting CDR size...'));
 		$cmd[] = ipbx_which('wc');
 		$cmd[] = ' -l';
 		$cmd[] = $path;
@@ -186,7 +186,7 @@ if (isset($vars['restore'], $vars['items'])) {
 					&& !in_array($precent, $notifed_for)
 					|| $next_due)
 			) {
-				backup_log(_('Processed ' . $precent
+				backup_log(__('Processed ' . $precent
 						. '% of CDR\'s (' 
 						. number_format($linecount) 
 						. '/' . $pretty_lines . ' lines)'));
@@ -199,17 +199,17 @@ if (isset($vars['restore'], $vars['items'])) {
 			}
 		}
 		if (!in_array(100, $notifed_for)) {
-			backup_log(_('Processed 100% of CDR\'s!'));
+			backup_log(__('Processed 100% of CDR\'s!'));
 		}
 
 		fclose($file);
 		unlink($path);
-		backup_log(_('CDR\'s restore complete'));
+		backup_log(__('CDR\'s restore complete'));
 	}
 	
 	//restore settings
 	if (isset($items['settings']) && $items['settings'] == 'true') {
-		backup_log(_('Restoring settings...'));
+		backup_log(__('Restoring settings...'));
 		if ($manifest['fpbx_db'] != '') {
 			$s = explode('-', $manifest['fpbx_db']);
 			$file = $manifest['mysql'][$s[1]]['file'];
@@ -228,7 +228,7 @@ if (isset($vars['restore'], $vars['items'])) {
 			exec(implode(' ', $cmd), $file);
 			unset($cmd);
 		
-			backup_log(_('Getting Settings size...'));
+			backup_log(__('Getting Settings size...'));
 			$cmd[] = ipbx_which('wc');
 			$cmd[] = ' -l';
 			$cmd[] = $path;
@@ -291,7 +291,7 @@ if (isset($vars['restore'], $vars['items'])) {
 						&& !in_array($precent, $notifed_for)
 						|| $next_due)
 				) {
-					backup_log(_('Processed ' . $precent
+					backup_log(__('Processed ' . $precent
 							. '% of Settings\' (' 
 							. number_format($linecount) 
 							. '/' . $pretty_lines . ' lines)'));
@@ -304,7 +304,7 @@ if (isset($vars['restore'], $vars['items'])) {
 				}
 			}
 			if (!in_array(100, $notifed_for)) {
-				backup_log(_('Processed 100% of Settings!'));
+				backup_log(__('Processed 100% of Settings!'));
 			}
 
 			fclose($file);
@@ -313,7 +313,7 @@ if (isset($vars['restore'], $vars['items'])) {
 	
 		//restore astdb
 		if ($manifest['astdb'] != '') {
-			backup_log(_('Restoring astDB...'));
+			backup_log(__('Restoring astDB...'));
 			$cmd[] = ipbx_which('tar');
 			$cmd[] = 'zxOf';
 			$cmd[] = $vars['restore'];
@@ -323,22 +323,22 @@ if (isset($vars['restore'], $vars['items'])) {
 			unset($cmd);
 		}
 		
-		backup_log(_('Settings restore complete'));
+		backup_log(__('Settings restore complete'));
 	}
 	//dbug($file);
 	
 	//run hooks
 	if (isset($manifest['hooks']['post_restore']) && $manifest['hooks']['post_restore']) {
-		backup_log(_('Running post restore script...'));
+		backup_log(__('Running post restore script...'));
 		exec($manifest['hooks']['post_restore']);
 	}
 
-	backup_log(_('Running post-restore hooks, if any...'));
+	backup_log(__('Running post-restore hooks, if any...'));
 	mod_func_iterator('backup_post_restore_hook', $manifest);
 	
 	//ensure that manager username and password are whatever we think they should be
 	//the DB is authoritative, fetch whatever we have set there
-	backup_log(_('Cleaning up...'));
+	backup_log(__('Cleaning up...'));
 	$issabelpbx_conf =& issabelpbx_conf::create();
 	ipbx_ami_update($issabelpbx_conf->get_conf_setting('AMPMGRUSER', true), 
 					$issabelpbx_conf->get_conf_setting('AMPMGRPASS', true));
@@ -368,10 +368,10 @@ if (isset($vars['restore'], $vars['items'])) {
 		}
 	}
 	
-	backup_log(_('Restore complete!'));
-	backup_log(_('Reloading...'));
+	backup_log(__('Restore complete!'));
+	backup_log(__('Reloading...'));
 	do_reload();
-	backup_log(_('Done!'));
+	backup_log(__('Done!'));
 	exit();
 //show manifest
 } elseif(isset($vars['manifest'])) {

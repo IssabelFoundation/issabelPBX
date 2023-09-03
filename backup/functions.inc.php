@@ -14,7 +14,7 @@ require_once($dir . '/functions.inc/restore.php');
 /**
 * do variable substitution 
 */
-function backup__($var) {
+function backup___($var) {
 	global $amp_conf;
 	/*
 	 * substitution string can look like: __STRING__
@@ -69,10 +69,10 @@ function backup_email_log($to, $from, $subject) {
 	$tmp = (function_exists('sys_get_temp_dir')) ? sys_get_temp_dir() : '/tmp';
 	$email_options = array('useragent' => 'issabelpbx', 'protocol' => 'mail');
 	$email = new CI_Email();
-	$msg[] = _('BACKUP LOG ATTACHED');
+	$msg[] = __('BACKUP LOG ATTACHED');
 	$email->from($from);
 	$email->to($to);
-	$email->subject(_('Backup Log:') . $subject);
+	$email->subject(__('Backup Log:') . $subject);
 	$email->message(implode("\n", $msg));
 	$email->attach($tmp.'/backup.log');
 	$email->send();

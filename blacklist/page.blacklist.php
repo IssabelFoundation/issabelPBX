@@ -27,14 +27,14 @@ if(isset($_REQUEST['action'])) {
     switch ($action) {
         case "add":
             blacklist_add($_POST);
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
             redirect_standard();
         break;
         case "delete":
             blacklist_del($extdisplay);
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
             $_SESSION['msgtstamp']=time();
             redirect_standard();
@@ -42,7 +42,7 @@ if(isset($_REQUEST['action'])) {
     case "edit":
             blacklist_del($extdisplay);
             blacklist_add($_POST);
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
             redirect_standard('extdisplay');
@@ -88,7 +88,7 @@ if ($extdisplay) {
 
 
 echo "<h2>";
-echo ($extdisplay ? _("Edit Blacklist").": $description" : _("Add Blacklist"));
+echo ($extdisplay ? __("Edit Blacklist").": $description" : __("Add Blacklist"));
 echo "</h2>";
 ?>
 <form id="mainform" autocomplete="off" name="edit" method="post" onsubmit="return edit_onsubmit(this);">
@@ -101,10 +101,10 @@ echo "</h2>";
     }?>
 
     <table class='table is-narrow is-borderless'>
-        <tr><td colspan="2"><h5><?php echo dgettext('amp','General Settings');?></h5></td></tr>
+        <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
         <tr>
-            <td><a href="#" class="info"><?php echo _("Block Unknown/Blocked Caller ID")?>
-                <span><?php echo _("Check here to catch Unknown/Blocked Caller ID")?></span></a>
+            <td><a href="#" class="info"><?php echo __("Block Unknown/Blocked Caller ID")?>
+                <span><?php echo __("Check here to catch Unknown/Blocked Caller ID")?></span></a>
             </td>
             <td>
                 <?php echo ipbx_yesno_checkbox("blocked",$filter_blocked,false); ?>
@@ -114,19 +114,19 @@ echo "</h2>";
  
         <tr>
         <td colspan="2"><h5>
-            <?php echo ($extdisplay ? _("Edit Blacklist").": $description" : _("Add Blacklist")); ?>
+            <?php echo ($extdisplay ? __("Edit Blacklist").": $description" : __("Add Blacklist")); ?>
         </h5></td>
         </tr>
         <tr>
-            <td><a href="#" class="info"><?php echo _("Number/CallerID")?>
-                <span><?php echo _("Enter the number/CallerID you want to block")?></span></a>
+            <td><a href="#" class="info"><?php echo __("Number/CallerID")?>
+                <span><?php echo __("Enter the number/CallerID you want to block")?></span></a>
             </td>
             <td><input autofocus class="input w100" type="text" name="number" value="<?php echo $number;?>" tabindex="<?php echo ++$tabindex;?>"></td>
         </tr>
         <?php if($ast_ge_16) {
             echo "<tr>";
-                echo "<td><a href=\"#\" class=\"info\">"._("Description");
-                echo "<span>"._("Enter a description for the number you want to block")."</span></a></td>";
+                echo "<td><a href=\"#\" class=\"info\">".__("Description");
+                echo "<span>".__("Enter a description for the number you want to block")."</span></a></td>";
                 echo "<td><input class=\"input w100\" type=\"text\" name=\"description\" value=\"$description\" tabindex=\"".++$tabindex."\"></td>";
         echo "</tr>";        
         }?>

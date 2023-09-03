@@ -28,7 +28,7 @@ function announcement_getdestinfo($dest) {
 			return array();
 		} else {
 			$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
-			return array('description' => sprintf(_("Announcement: %s"),$thisexten['description']),
+			return array('description' => sprintf(__("Announcement: %s"),$thisexten['description']),
 			             'edit_url' => 'config.php?display=announcement&type='.$type.'&extdisplay='.urlencode($exten),
 								  );
 		}
@@ -48,7 +48,7 @@ function announcement_recordings_usage($recording_id) {
 		foreach ($results as $result) {
 			$usage_arr[] = array(
 				'url_query' => 'config.php?display=announcement&type='.$type.'&extdisplay='.urlencode($result['announcement_id']),
-				'description' => sprintf(_("Announcement: %s"),$result['description']),
+				'description' => sprintf(__("Announcement: %s"),$result['description']),
 			);
 		}
 		return $usage_arr;
@@ -264,7 +264,7 @@ function announcement_check_destinations($dest=true) {
 		$thisid   = $result['announcement_id'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => sprintf(_("Announcement: %s"),$result['description']),
+			'description' => sprintf(__("Announcement: %s"),$result['description']),
 			'edit_url' => 'config.php?display=announcement&type='.$type.'&extdisplay='.urlencode($thisid),
 		);
 	}

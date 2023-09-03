@@ -14,10 +14,10 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   $sip_settings['externhost_val']    = isset($_POST['externhost_val']) ? htmlspecialchars($_POST['externhost_val']) : '';
   $sip_settings['externrefresh']     = isset($_POST['externrefresh']) ? htmlspecialchars($_POST['externrefresh']) : '120';
   // QaD fix for localization, xgettext does not pickup the localization string in the code
-	$add_field = _("Add Field");
-	$auto_configure = _("Auto Configure");
-	$add_local_network_field = _("Add Local Network Field");
-	$submit_changes = _("Submit Changes");
+	$add_field = __("Add Field");
+	$auto_configure = __("Auto Configure");
+	$add_local_network_field = __("Add Local Network Field");
+	$submit_changes = __("Submit Changes");
 
   $p_idx = 0;
   $n_idx = 0;
@@ -160,7 +160,7 @@ switch ($action) {
       $error_displays = process_errors($errors);
     } else {
         needreload();
-        $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
         $_SESSION['msgtype']='success';
         $_SESSION['msgtstamp']=time();
     }
@@ -176,7 +176,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 ?>
 <div class='content'>
 
-  <h2><?php echo _("SIP Settings"); ?></h2>
+  <h2><?php echo __("SIP Settings"); ?></h2>
 
 <?php
 
@@ -208,7 +208,7 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
   <!--tr>
     <td colspan="2">
       <div class="sip-errors">
-        <p><?php echo _("ERRORS") ?></p>
+        <p><?php echo __("ERRORS") ?></p>
         <ul>
 <?php
     foreach ($error_displays as $div_disp) {
@@ -224,45 +224,45 @@ $error_displays = array_merge($error_displays,sipsettings_check_custom_files());
 ?>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("NAT Settings") ?></h5></td>
+    <td colspan="2"><h5><?php echo __("NAT Settings") ?></h5></td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("NAT")?><span><?php echo _("Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no = Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT mode or RFC3581 <br /> route = Assume NAT, don't send rport")?></span></a>
+      <a href="#" class="info"><?php echo __("NAT")?><span><?php echo __("Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no = Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT mode or RFC3581 <br /> route = Assume NAT, don't send rport")?></span></a>
     </td>
     <td>
-<?php echo ipbx_radio('nat',array(array('value'=>'yes','text'=>mb_strtolower(dgettext('amp','Yes'))),array('value'=>'no','text'=>mb_strtolower(dgettext('amp','No'))),array('value'=>'never','text'=>mb_strtolower(dgettext('amp','Never'))),array('value'=>'route','text'=>mb_strtolower(dgettext('amp','route')))),$nat,false); ?>
+<?php echo ipbx_radio('nat',array(array('value'=>'yes','text'=>mb_strtolower(_dgettext('amp','Yes'))),array('value'=>'no','text'=>mb_strtolower(_dgettext('amp','No'))),array('value'=>'never','text'=>mb_strtolower(_dgettext('amp','Never'))),array('value'=>'route','text'=>mb_strtolower(_dgettext('amp','route')))),$nat,false); ?>
     </td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("IP Configuration")?><span><?php echo _("Indicate whether the box has a public IP or requires NAT settings. Automatic configuration of what is often put in sip_nat.conf")?></span></a>
+      <a href="#" class="info"><?php echo __("IP Configuration")?><span><?php echo __("Indicate whether the box has a public IP or requires NAT settings. Automatic configuration of what is often put in sip_nat.conf")?></span></a>
     </td>
     <td>
-<?php echo ipbx_radio('nat_mode',array(array('value'=>'public','text'=>_("Public IP")),array('value'=>'externip','text'=>_("Static IP")),array('value'=>'externhost','text'=>_("Dynamic IP"))),$nat_mode,false); ?>
+<?php echo ipbx_radio('nat_mode',array(array('value'=>'public','text'=>__("Public IP")),array('value'=>'externip','text'=>__("Static IP")),array('value'=>'externhost','text'=>__("Dynamic IP"))),$nat_mode,false); ?>
     </td>
   </tr>
 
   <tr class="nat-settings externip">
-    <td><a href="#" class="info"><?php echo _("External IP")?><span><?php echo _("External Static IP or FQDN as seen on the WAN side of the router. (asterisk: externip)")?></span></a></td>
+    <td><a href="#" class="info"><?php echo __("External IP")?><span><?php echo __("External Static IP or FQDN as seen on the WAN side of the router. (asterisk: externip)")?></span></a></td>
     <td><input type="text" class="input" id="externip_val" name="externip_val" value="<?php echo $externip_val ?>" tabindex="<?php echo ++$tabindex;?>"></td>
   </tr>
 
   <tr class="nat-settings externhost">
     <td>
-      <a href="#" class="info"><?php echo _("Dynamic Host")?><span><?php echo _("External FQDN as seen on the WAN side of the router and updated dynamically, e.g. mydomain.dyndns.com. (asterisk: externhost)")?></span></a>
+      <a href="#" class="info"><?php echo __("Dynamic Host")?><span><?php echo __("External FQDN as seen on the WAN side of the router and updated dynamically, e.g. mydomain.dyndns.com. (asterisk: externhost)")?></span></a>
     </td>
     <td>
       <input type="text" id="externhost_val" name="externhost_val" size="30" value="<?php echo $externhost_val ?>" tabindex="<?php echo ++$tabindex;?>">
       <input type="text" id="externrefresh" name="externrefresh" size="4" class="validate-int" value="<?php echo $externrefresh ?>" tabindex="<?php echo ++$tabindex;?>">
-      <a href="#" class="info"><small><?php echo _("Refresh Rate")?><span><?php echo _("Asterisk: externrefresh. How often to lookup and refresh the External Host FQDN, in seconds.")?></span></small></a>
+      <a href="#" class="info"><small><?php echo __("Refresh Rate")?><span><?php echo __("Asterisk: externrefresh. How often to lookup and refresh the External Host FQDN, in seconds.")?></span></small></a>
     </td>
   </tr>
   <tr class="nat-settings">
     <td>
-      <a href="#" class="info"><?php echo _("Local Networks")?><span><?php echo _("Local network settings (Asterisk: localnet) in the form of ip/mask such as 192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use the Add Local Network Field button for more fields. Blank fields will be removed upon submitting.")?></span></a>
+      <a href="#" class="info"><?php echo __("Local Networks")?><span><?php echo __("Local network settings (Asterisk: localnet) in the form of ip/mask such as 192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use the Add Local Network Field button for more fields. Blank fields will be removed upon submitting.")?></span></a>
     </td>
     <td>
       <input type="text" id="localnet_0" name="localnet_0" class="input localnet validate-ip" value="<?php echo $localnet_0 ?>" tabindex="<?php echo ++$tabindex;?>"> /
@@ -306,17 +306,17 @@ END;
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Audio Codecs")?></h5></td>
+    <td colspan="2"><h5><?php echo __("Audio Codecs")?></h5></td>
   </tr>
   <tr>
-    <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration. Drag to re-order.")?></span></a></td>
+    <td valign='top'><a href="#" class="info"><?php echo __("Codecs")?><span><?php echo __("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration. Drag to re-order.")?></span></a></td>
     <td>
 <?php
   $seq = 1;
 echo '<ul class="sortable">';
   foreach ($codecs as $codec => $codec_state) {
     $tabindex++;
-    $codec_trans = _($codec);
+    $codec_trans = __($codec);
     $codec_checked = $codec_state ? 'checked' : '';
     echo '<li class="draggable"><a href="javascript:void(0)">'
         . '<i class="fa fa-arrows-v mx-2"></i>'
@@ -339,32 +339,32 @@ echo '</ul>';
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Non-Standard g726")?><span><?php echo _("Asterisk: g726nonstandard. If the peer negotiates G726-32 audio, use AAL2 packing order instead of RFC3551 packing order (this is required for Sipura and Grandstream ATAs, among others). This is contrary to the RFC3551 specification, the peer _should_ be negotiating AAL2-G726-32 instead.")?></span></a>
+      <a href="#" class="info"><?php echo __("Non-Standard g726")?><span><?php echo __("Asterisk: g726nonstandard. If the peer negotiates G726-32 audio, use AAL2 packing order instead of RFC3551 packing order (this is required for Sipura and Grandstream ATAs, among others). This is contrary to the RFC3551 specification, the peer _should_ be negotiating AAL2-G726-32 instead.")?></span></a>
     </td>
     <td>
-<?php echo ipbx_radio('g726nonstandard',array(array('value'=>'yes','text'=>dgettext('amp','Yes')),array('value'=>'no','text'=>dgettext('amp','No'))),$g726nonstandard,false); ?>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <a href="#" class="info"><?php echo _("T38 Pass-Through")?><span><?php echo _("Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP channels that support sending/receiving T38 Fax codecs to pass the call. Asterisk can not process the media.")?></span></a>
-    </td>
-    <td>
-<?php echo ipbx_radio('t38pt_udptl',array(array('value'=>'yes','text'=>dgettext('amp','Yes')),array('value'=>'no','text'=>dgettext('amp','No'))),$t38pt_udptl,false); ?>
+<?php echo ipbx_radio('g726nonstandard',array(array('value'=>'yes','text'=>_dgettext('amp','Yes')),array('value'=>'no','text'=>_dgettext('amp','No'))),$g726nonstandard,false); ?>
     </td>
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Video Codecs")?></h5></td>
+    <td>
+      <a href="#" class="info"><?php echo __("T38 Pass-Through")?><span><?php echo __("Asterisk: t38pt_udptl. Enables T38 passthrough if enabled. This SIP channels that support sending/receiving T38 Fax codecs to pass the call. Asterisk can not process the media.")?></span></a>
+    </td>
+    <td>
+<?php echo ipbx_radio('t38pt_udptl',array(array('value'=>'yes','text'=>_dgettext('amp','Yes')),array('value'=>'no','text'=>_dgettext('amp','No'))),$t38pt_udptl,false); ?>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2"><h5><?php echo __("Video Codecs")?></h5></td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Video Support")?><span><?php echo _("Check to enable and then choose allowed codecs.")._(" If you clear each codec and then add them one at a time, submitting with each addition, they will be added in order which will effect the codec priority.")?></span></a>
+      <a href="#" class="info"><?php echo __("Video Support")?><span><?php echo __("Check to enable and then choose allowed codecs.").__(" If you clear each codec and then add them one at a time, submitting with each addition, they will be added in order which will effect the codec priority.")?></span></a>
     </td>
     <td>
-<?php echo ipbx_radio('videosupport',array(array('value'=>'yes','text'=>_("Enabled")),array('value'=>'no','text'=>_("Disabled"))),$videosupport,false); ?>
+<?php echo ipbx_radio('videosupport',array(array('value'=>'yes','text'=>__("Enabled")),array('value'=>'no','text'=>__("Disabled"))),$videosupport,false); ?>
     </td>
   </tr>
   <tr class="video-codecs">
@@ -376,7 +376,7 @@ echo '</ul>';
 echo '<ul  class="sortable video-codecs">';
    foreach ($video_codecs as $codec => $codec_state) {
     $tabindex++;
-    $codec_trans = _($codec);
+    $codec_trans = __($codec);
     $codec_checked = $codec_state ? 'checked' : '';
     echo '<li class="draggable"><a href="javascript:void(0)">'
         . '<i class="fa fa-arrows-v mx-2"></i>'
@@ -401,24 +401,24 @@ echo '</ul>';
 
   <tr class="video-codecs">
     <td>
-      <a href="#" class="info"><?php echo _("Max Bit Rate")?><span><?php echo _("Maximum bitrate for video calls in kb/s")?></span></a>
+      <a href="#" class="info"><?php echo __("Max Bit Rate")?><span><?php echo __("Maximum bitrate for video calls in kb/s")?></span></a>
     </td>
-    <td><input type="text" class="input" style="width:6em;" id="maxcallbitrate" name="maxcallbitrate" class="video-codecs validate-int" value="<?php echo $maxcallbitrate ?>" tabindex="<?php echo ++$tabindex;?>"> <small><?php echo _("kb/s") ?></small></td>
+    <td><input type="text" class="input" style="width:6em;" id="maxcallbitrate" name="maxcallbitrate" class="video-codecs validate-int" value="<?php echo $maxcallbitrate ?>" tabindex="<?php echo ++$tabindex;?>"> <small><?php echo __("kb/s") ?></small></td>
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("MEDIA & RTP Settings") ?></h5></td>
+    <td colspan="2"><h5><?php echo __("MEDIA & RTP Settings") ?></h5></td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Reinvite Behavior")?><span><?php echo _("Asterisk: canreinvite. yes: standard reinvites; no: never; nonat: An additional option is to allow media path redirection (reinvite) but only when the peer where the media is being sent is known to not be behind a NAT (as the RTP core can determine it based on the apparent IP address the media arrives from; update: use UPDATE for media path redirection, instead of INVITE. (yes = update + nonat)")?></span></a>
+      <a href="#" class="info"><?php echo __("Reinvite Behavior")?><span><?php echo __("Asterisk: canreinvite. yes: standard reinvites; no: never; nonat: An additional option is to allow media path redirection (reinvite) but only when the peer where the media is being sent is known to not be behind a NAT (as the RTP core can determine it based on the apparent IP address the media arrives from; update: use UPDATE for media path redirection, instead of INVITE. (yes = update + nonat)")?></span></a>
     </td>
     <td>
       <table width="100%">
         <tr>
 	  <td>
-<?php echo ipbx_radio('canreinvite',array(array('value'=>'yes','text'=>_("yes")),array('value'=>'no','text'=>_("no")),array('value'=>'nonat','text'=>_('nonat')),array('value'=>'update','text'=>_('update'))),$canreinvite,false); ?>
+<?php echo ipbx_radio('canreinvite',array(array('value'=>'yes','text'=>__("yes")),array('value'=>'no','text'=>__("no")),array('value'=>'nonat','text'=>__('nonat')),array('value'=>'update','text'=>__('update'))),$canreinvite,false); ?>
           </td>
         </tr>
       </table>
@@ -427,7 +427,7 @@ echo '</ul>';
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("RTP Timers")?><span><?php echo _("Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP activity on the audio channel when we're not on hold. This is to be able to hangup a call in the case of a phone disappearing from the net, like a powerloss or someone tripping over a cable.<br /> Asterisk: rtpholdtimeout. Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the audio channel when we're on hold (must be > rtptimeout). <br /> Asterisk: rtpkeepalive. Send keepalives in the RTP stream to keep NAT open during periods where no RTP stream may be flowing (like on hold).")?></span></a>
+      <a href="#" class="info"><?php echo __("RTP Timers")?><span><?php echo __("Asterisk: rtptimeout. Terminate call if rtptimeout seconds of no RTP or RTCP activity on the audio channel when we're not on hold. This is to be able to hangup a call in the case of a phone disappearing from the net, like a powerloss or someone tripping over a cable.<br /> Asterisk: rtpholdtimeout. Terminate call if rtpholdtimeout seconds of no RTP or RTCP activity on the audio channel when we're on hold (must be > rtptimeout). <br /> Asterisk: rtpkeepalive. Send keepalives in the RTP stream to keep NAT open during periods where no RTP stream may be flowing (like on hold).")?></span></a>
     </td>
     <td>
       <input type="text" class="valueinput" style="width:3em;" id="rtptimeout" name="rtptimeout" class="validate-int" value="<?php echo $rtptimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtptimeout)</small>&nbsp;
@@ -438,7 +438,7 @@ echo '</ul>';
   
   <tr>
 	  <td>
-		  <a href="#" class="info"><?php echo _("RTP Port Ranges")?><span><?php echo _("Asterisk: rtpstart. The starting RTP port range.<br /> Asterisk: rtpend. The ending RTP port range.")?></span></a>
+		  <a href="#" class="info"><?php echo __("RTP Port Ranges")?><span><?php echo __("Asterisk: rtpstart. The starting RTP port range.<br /> Asterisk: rtpend. The ending RTP port range.")?></span></a>
 	  </td>
 	  <td>
 		  <input type="text" class="valueinput" style="width:4em;" id="rtpstart" name="rtpstart" class="validate-int" value="<?php echo !empty($rtpstart) ? $rtpstart : '10000' ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(rtpstart)</small>&nbsp;
@@ -447,25 +447,25 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Notification & MWI")?></h5></td>
+    <td colspan="2"><h5><?php echo __("Notification & MWI")?></h5></td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("MWI Polling Freq")?><span><?php echo _("Frequency in seconds to check if MWI state has changed and inform peers.")?></span></a>
+      <a href="#" class="info"><?php echo __("MWI Polling Freq")?><span><?php echo __("Frequency in seconds to check if MWI state has changed and inform peers.")?></span></a>
     </td>
     <td><input type="text" class="valueinput" style="width:3em;" id="checkmwi" name="checkmwi" class="validate-int" value="<?php echo $checkmwi ?>" tabindex="<?php echo ++$tabindex;?>"></td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Notify Ringing")?><span><?php echo _("Control whether subscriptions already INUSE get sent RINGING when another call is sent. Useful when using BLF.")?></span></a>
+      <a href="#" class="info"><?php echo __("Notify Ringing")?><span><?php echo __("Control whether subscriptions already INUSE get sent RINGING when another call is sent. Useful when using BLF.")?></span></a>
     </td>
     <td>
       <table width="100%">
         <tr>
 	  <td>
-            <?php echo ipbx_radio('notifyringing',array(array('value'=>'yes','text'=>_("yes")),array('value'=>'no','text'=>_("no"))),$notifyringing,false); ?>
+            <?php echo ipbx_radio('notifyringing',array(array('value'=>'yes','text'=>__("yes")),array('value'=>'no','text'=>__("no"))),$notifyringing,false); ?>
           </td>
         </tr>
       </table>
@@ -474,13 +474,13 @@ echo '</ul>';
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Notify Hold")?><span><?php echo _("Control whether subscriptions INUSE get sent ONHOLD when call is placed on hold. Useful when using BLF.")?></span></a>
+      <a href="#" class="info"><?php echo __("Notify Hold")?><span><?php echo __("Control whether subscriptions INUSE get sent ONHOLD when call is placed on hold. Useful when using BLF.")?></span></a>
     </td>
     <td>
       <table width="100%">
         <tr>
           <td>
-            <?php echo ipbx_radio('notifyhold',array(array('value'=>'yes','text'=>_("yes")),array('value'=>'no','text'=>_("no"))),$notifyhold,false); ?>
+            <?php echo ipbx_radio('notifyhold',array(array('value'=>'yes','text'=>__("yes")),array('value'=>'no','text'=>__("no"))),$notifyhold,false); ?>
           </td>
         </tr>
       </table>
@@ -488,12 +488,12 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Registration Settings") ?></h5></td>
+    <td colspan="2"><h5><?php echo __("Registration Settings") ?></h5></td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Registrations")?><span><?php echo _("Asterisk: registertimeout. Retry registration attempts every registertimeout seconds until successful or until registrationattempts tries have been made.<br /> Asterisk: registrationattempts. Number of times to try and register before giving up. A value of 0 means keep trying forever. Normally this should be set to 0 so that Asterisk will continue to register until successful in the case of network or gateway outages.")?></span></a>
+      <a href="#" class="info"><?php echo __("Registrations")?><span><?php echo __("Asterisk: registertimeout. Retry registration attempts every registertimeout seconds until successful or until registrationattempts tries have been made.<br /> Asterisk: registrationattempts. Number of times to try and register before giving up. A value of 0 means keep trying forever. Normally this should be set to 0 so that Asterisk will continue to register until successful in the case of network or gateway outages.")?></span></a>
     </td>
     <td>
       <input type="text" class="input" style="width:4em;" id="registertimeout" name="registertimeout" class="validate-int" value="<?php echo $registertimeout ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(registertimeout)</small>&nbsp;
@@ -503,7 +503,7 @@ echo '</ul>';
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Registration Times")?><span><?php echo _("Asterisk: minexpiry. Minimum length of registrations/subscriptions.<br /> Asterisk: maxepiry. Maximum allowed time of incoming registrations<br /> Asterisk: defaultexpiry. Default length of incoming and outgoing registrations.")?></span></a>
+      <a href="#" class="info"><?php echo __("Registration Times")?><span><?php echo __("Asterisk: minexpiry. Minimum length of registrations/subscriptions.<br /> Asterisk: maxepiry. Maximum allowed time of incoming registrations<br /> Asterisk: defaultexpiry. Default length of incoming and outgoing registrations.")?></span></a>
     </td>
     <td>
       <input type="text" class="input" style="width:4em;" id="minexpiry" name="minexpiry" class="validate-int" value="<?php echo $minexpiry ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(minexpiry)</small>&nbsp;
@@ -513,46 +513,46 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Jitter Buffer Settings") ?></h5></td>
+    <td colspan="2"><h5><?php echo __("Jitter Buffer Settings") ?></h5></td>
   </tr>
 
   <tr>
-    <td><a href="#" class="info"><?php echo _("Jitter Buffer")?><span><?php echo _("Asterisk: jbenable. Enables the use of a jitterbuffer on the receiving side of a SIP channel. An enabled jitterbuffer will be used only if the sending side can create and the receiving side can not accept jitter. The SIP channel can accept jitter, thus a jitterbuffer on the receive SIP side will be used only if it is forced and enabled. An example is if receiving from a jittery channel to voicemail, the jitter buffer will be used if enabled. However, it will not be used when sending to a SIP endpoint since they usually have their own jitter buffers. See jbforce to force it's use always.")?></span></a></td>
+    <td><a href="#" class="info"><?php echo __("Jitter Buffer")?><span><?php echo __("Asterisk: jbenable. Enables the use of a jitterbuffer on the receiving side of a SIP channel. An enabled jitterbuffer will be used only if the sending side can create and the receiving side can not accept jitter. The SIP channel can accept jitter, thus a jitterbuffer on the receive SIP side will be used only if it is forced and enabled. An example is if receiving from a jittery channel to voicemail, the jitter buffer will be used if enabled. However, it will not be used when sending to a SIP endpoint since they usually have their own jitter buffers. See jbforce to force it's use always.")?></span></a></td>
     <td>
-<?php echo ipbx_radio('jbenable',array(array('value'=>'yes','text'=>_("Enabled")),array('value'=>'no','text'=>_("Disabled"))),$jbenable,false); ?>
+<?php echo ipbx_radio('jbenable',array(array('value'=>'yes','text'=>__("Enabled")),array('value'=>'no','text'=>__("Disabled"))),$jbenable,false); ?>
     </td>
   </tr>
 
   <tr class="jitter-buffer">
     <td>
-      <a href="#" class="info"><?php echo _("Force Jitter Buffer")?><span><?php echo _("Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side of a SIP channel. Normally the jitter buffer will not be used if receiving a jittery channel but sending it off to another channel such as another SIP channel to an endpoint, since there is typically a jitter buffer at the far end. This will force the use of the jitter buffer before sending the stream on. This is not typically desired as it adds additional latency into the stream.")?></span></a>
+      <a href="#" class="info"><?php echo __("Force Jitter Buffer")?><span><?php echo __("Asterisk: jbforce. Forces the use of a jitterbuffer on the receive side of a SIP channel. Normally the jitter buffer will not be used if receiving a jittery channel but sending it off to another channel such as another SIP channel to an endpoint, since there is typically a jitter buffer at the far end. This will force the use of the jitter buffer before sending the stream on. This is not typically desired as it adds additional latency into the stream.")?></span></a>
     </td>
     <td>
-<?php echo ipbx_radio('jbforce',array(array('value'=>'yes','text'=>_("Yes")),array('value'=>'no','text'=>_("No"))),$jbforce,false); ?>
-    </td>
-  </tr>
-
-  <tr class="jitter-buffer">
-    <td>
-      <a href="#" class="info"><?php echo _("Implementation")?><span><?php echo _("Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of a SIP channel. Two implementations are currently available:<br /> fixed: size always equals to jbmaxsize;<br /> adaptive: with variable size (the new jb of IAX2).")?></span></a>
-    </td>
-    <td>
-<?php echo ipbx_radio('jbimpl',array(array('value'=>'fixed','text'=>_("Fixed")),array('value'=>'adaptive','text'=>_("Adaptive"))),$jbimpl,false); ?>
+<?php echo ipbx_radio('jbforce',array(array('value'=>'yes','text'=>__("Yes")),array('value'=>'no','text'=>__("No"))),$jbforce,false); ?>
     </td>
   </tr>
 
   <tr class="jitter-buffer">
     <td>
-      <a href="#" class="info"><?php echo _("Jitter Buffer Logging")?><span><?php echo _("Asterisk: jblog. Enables jitter buffer frame logging.")?></span></a>
+      <a href="#" class="info"><?php echo __("Implementation")?><span><?php echo __("Asterisk: jbimpl. Jitterbuffer implementation, used on the receiving side of a SIP channel. Two implementations are currently available:<br /> fixed: size always equals to jbmaxsize;<br /> adaptive: with variable size (the new jb of IAX2).")?></span></a>
     </td>
     <td>
-<?php echo ipbx_radio('jblog',array(array('value'=>'yes','text'=>_("Enabled")),array('value'=>'no','text'=>_("Disabled"))),$jblog,false); ?>
+<?php echo ipbx_radio('jbimpl',array(array('value'=>'fixed','text'=>__("Fixed")),array('value'=>'adaptive','text'=>__("Adaptive"))),$jbimpl,false); ?>
     </td>
   </tr>
 
   <tr class="jitter-buffer">
     <td>
-      <a href="#" class="info"><?php echo _("Jitter Buffer Size")?><span><?php echo _("Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the jitterbuffer is resynchronized. Useful to improve the quality of the voice, with big jumps in/broken timestamps, usually sent from exotic devices and programs. Can be set to -1 to disable.")?></span></a>
+      <a href="#" class="info"><?php echo __("Jitter Buffer Logging")?><span><?php echo __("Asterisk: jblog. Enables jitter buffer frame logging.")?></span></a>
+    </td>
+    <td>
+<?php echo ipbx_radio('jblog',array(array('value'=>'yes','text'=>__("Enabled")),array('value'=>'no','text'=>__("Disabled"))),$jblog,false); ?>
+    </td>
+  </tr>
+
+  <tr class="jitter-buffer">
+    <td>
+      <a href="#" class="info"><?php echo __("Jitter Buffer Size")?><span><?php echo __("Asterisk: jbmaxsize. Max length of the jitterbuffer in milliseconds.<br /> Asterisk: jbresyncthreshold. Jump in the frame timestamps over which the jitterbuffer is resynchronized. Useful to improve the quality of the voice, with big jumps in/broken timestamps, usually sent from exotic devices and programs. Can be set to -1 to disable.")?></span></a>
     </td>
     <td>
       <input type="text" class="input" style="width:5em;" id="jbmaxsize" name="jbmaxsize" class="jitter-buffer validate-int" value="<?php echo $jbmaxsize ?>" tabindex="<?php echo ++$tabindex;?>"><small>&nbsp;(jbmaxsize)</small>&nbsp;
@@ -561,12 +561,12 @@ echo '</ul>';
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Advanced General Settings") ?></h5></td>
+    <td colspan="2"><h5><?php echo __("Advanced General Settings") ?></h5></td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Language")?><span><?php echo _("Default Language for a channel, Asterisk: language")?></span></a>
+      <a href="#" class="info"><?php echo __("Language")?><span><?php echo __("Default Language for a channel, Asterisk: language")?></span></a>
     </td>
     <td>
       <input type="text" class="input" id="sip_language" name="sip_language" class="validate-alphanumeric" value="<?php echo $sip_language ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -575,7 +575,7 @@ echo '</ul>';
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Default Context")?><span><?php echo _("Asterisk: context. Default context for incoming calls if not specified. IssabelPBX sets this to from-sip-external which is used in conjunction with the Allow Anonymous SIP calls. If you change this you will effect that behavior. It is recommended to leave this blank.")?></span></a>
+      <a href="#" class="info"><?php echo __("Default Context")?><span><?php echo __("Asterisk: context. Default context for incoming calls if not specified. IssabelPBX sets this to from-sip-external which is used in conjunction with the Allow Anonymous SIP calls. If you change this you will effect that behavior. It is recommended to leave this blank.")?></span></a>
     </td>
     <td>
       <input type="text" class="input" id="default-context" name="context" class="validate-alphanumeric" value="<?php echo $context ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -583,15 +583,15 @@ echo '</ul>';
   </tr>
 
 <?php
-$tt = _("Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is recommended to leave this blank.");
+$tt = __("Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is recommended to leave this blank.");
 if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
-  $tt .= ' ' . _("Asterisk 1.8 all supports IPv6. An address of '::' will listen on both IPv4 and IPv6.");
+  $tt .= ' ' . __("Asterisk 1.8 all supports IPv6. An address of '::' will listen on both IPv4 and IPv6.");
 }
 
 ?>
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Bind Address")?><span><?php echo $tt?></span></a>
+      <a href="#" class="info"><?php echo __("Bind Address")?><span><?php echo $tt?></span></a>
     </td>
     <td>
       <input type="text" class="input" id="bindaddr" name="bindaddr" class="validate-ip" value="<?php echo $bindaddr ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -600,7 +600,7 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Bind Port")?><span><?php echo _("Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. The SIP standard is 5060 and in most cases this is what you want. It is recommended to leave this blank.")?></span></a>
+      <a href="#" class="info"><?php echo __("Bind Port")?><span><?php echo __("Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. The SIP standard is 5060 and in most cases this is what you want. It is recommended to leave this blank.")?></span></a>
     </td>
     <td>
       <input type="text" class="input" id="bindport" name="bindport" class="validate-ip-port" value="<?php echo $bindport ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -609,7 +609,7 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("TLS Bind Port")?><span><?php echo _("Asterisk: TLS bindport. Local incoming TLS Port that Asterisk will bind to and listen for SIP messages. The SIP standard is 5061 and in most cases this is what you want. It is recommended to leave this blank.")?></span></a>
+      <a href="#" class="info"><?php echo __("TLS Bind Port")?><span><?php echo __("Asterisk: TLS bindport. Local incoming TLS Port that Asterisk will bind to and listen for SIP messages. The SIP standard is 5061 and in most cases this is what you want. It is recommended to leave this blank.")?></span></a>
     </td>
     <td>
       <input type="text" class="input" id="tlsbindport" name="tlsbindport" class="validate-ip-port" value="<?php echo $tlsbindport ?>" tabindex="<?php echo ++$tabindex;?>">
@@ -619,47 +619,47 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Allow SIP Guests")?><span><?php echo _("Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span></a>
+      <a href="#" class="info"><?php echo __("Allow SIP Guests")?><span><?php echo __("Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span></a>
     </td>
     <td>
-<?php echo ipbx_radio('allowguest',array(array('value'=>'yes','text'=>_("Yes")),array('value'=>'no','text'=>_("No"))),$allowguest,false); ?>
+<?php echo ipbx_radio('allowguest',array(array('value'=>'yes','text'=>__("Yes")),array('value'=>'no','text'=>__("No"))),$allowguest,false); ?>
     </td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Allow Anonymous Inbound SIP Calls")?><span><?php echo _("Allowing Inbound Anonymous SIP calls means that you will allow any call coming in form an un-known IP source to be directed to the 'from-pstn' side of your dialplan. This is where inbound calls come in. Although IssabelPBX severely restricts access to the internal dialplan, allowing Anonymous SIP calls does introduced additional security risks. If you allow SIP URI dialing to your PBX or use services like ENUM, you will be required to set this to Yes for Inbound traffic to work. This is NOT an Asterisk sip.conf setting, it is used in the dialplan in conjuction with the Default Context. If that context is changed above to something custom this setting may be rendered useless as well as if 'Allow SIP Guests' is set to no.")?></span></a>
+      <a href="#" class="info"><?php echo __("Allow Anonymous Inbound SIP Calls")?><span><?php echo __("Allowing Inbound Anonymous SIP calls means that you will allow any call coming in form an un-known IP source to be directed to the 'from-pstn' side of your dialplan. This is where inbound calls come in. Although IssabelPBX severely restricts access to the internal dialplan, allowing Anonymous SIP calls does introduced additional security risks. If you allow SIP URI dialing to your PBX or use services like ENUM, you will be required to set this to Yes for Inbound traffic to work. This is NOT an Asterisk sip.conf setting, it is used in the dialplan in conjuction with the Default Context. If that context is changed above to something custom this setting may be rendered useless as well as if 'Allow SIP Guests' is set to no.")?></span></a>
     </td>
     <td>
-<?php echo ipbx_radio('ALLOW_SIP_ANON',array(array('value'=>'yes','text'=>_("Yes")),array('value'=>'no','text'=>_("No"))),$ALLOW_SIP_ANON,false); ?>
+<?php echo ipbx_radio('ALLOW_SIP_ANON',array(array('value'=>'yes','text'=>__("Yes")),array('value'=>'no','text'=>__("No"))),$ALLOW_SIP_ANON,false); ?>
     </td>
   </tr>
 
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("SRV Lookup")?><span><?php echo _("Enable Asterisk srvlookup. See current version of Asterisk for limitations on SRV functionality.")?></span></a>
+      <a href="#" class="info"><?php echo __("SRV Lookup")?><span><?php echo __("Enable Asterisk srvlookup. See current version of Asterisk for limitations on SRV functionality.")?></span></a>
     </td>
     <td>
-<?php echo ipbx_radio('srvlookup',array(array('value'=>'yes','text'=>_("Enabled")),array('value'=>'no','text'=>_("Disabled"))),$srvlookup,false); ?>
+<?php echo ipbx_radio('srvlookup',array(array('value'=>'yes','text'=>__("Enabled")),array('value'=>'no','text'=>__("Disabled"))),$srvlookup,false); ?>
     </td>
   </tr>
   
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Call Events")?><span><?php echo _("Generate manager events when sip ua performs events (e.g. hold).")?></span></a>
+      <a href="#" class="info"><?php echo __("Call Events")?><span><?php echo __("Generate manager events when sip ua performs events (e.g. hold).")?></span></a>
     </td>
     <td>
-<?php echo ipbx_radio('callevents',array(array('value'=>'yes','text'=>_("Yes")),array('value'=>'no','text'=>_("No"))),$callevents,false); ?>
+<?php echo ipbx_radio('callevents',array(array('value'=>'yes','text'=>__("Yes")),array('value'=>'no','text'=>__("No"))),$callevents,false); ?>
     </td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Enable Websocket")?><span><?php echo _("Enable websocket connection handling thorugh chan_sip. If you want to handle websockets/webrtc via PJSIP, set this to no")?></span></a>
+      <a href="#" class="info"><?php echo __("Enable Websocket")?><span><?php echo __("Enable websocket connection handling thorugh chan_sip. If you want to handle websockets/webrtc via PJSIP, set this to no")?></span></a>
     </td>
     <td>
-<?php echo ipbx_radio('websocket_enabled',array(array('value'=>'yes','text'=>_("Yes")),array('value'=>'no','text'=>_("No"))),$websocket_enabled,false); ?>
+<?php echo ipbx_radio('websocket_enabled',array(array('value'=>'yes','text'=>__("Yes")),array('value'=>'no','text'=>__("No"))),$websocket_enabled,false); ?>
     </td>
   </tr>
  
@@ -667,7 +667,7 @@ if (version_compare($amp_conf['ASTVERSION'],'1.8','ge')) {
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Other SIP Settings")?><span><?php echo _("You may set any other SIP settings not present here that are allowed to be configured in the General section of sip.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields. Blank boxes will be deleted when submitted.")?></span></a>
+      <a href="#" class="info"><?php echo __("Other SIP Settings")?><span><?php echo __("You may set any other SIP settings not present here that are allowed to be configured in the General section of sip.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields. Blank boxes will be deleted when submitted.")?></span></a>
     </td>
     <td>
       <input type="text" id="sip_custom_key_0" name="sip_custom_key_0" style="width:12em;" class="input sip-custom" value="<?php echo $sip_custom_key_0 ?>" tabindex="<?php echo ++$tabindex;?>"> =
@@ -747,7 +747,7 @@ $(function() {
         }
       },
       error: function(data) {
-        sweet_alert("<?php echo _("An Error occurred trying fetch network configuration and external IP address")?>");
+        sweet_alert("<?php echo __("An Error occurred trying fetch network configuration and external IP address")?>");
       },
     });
     return false;
@@ -887,11 +887,11 @@ function sipsettings_check_custom_files() {
         // If setting is an array, then it is a subsection
         //
         if (!is_array($item)) {
-          $msg =  sprintf(_("Settings in %s may override these. Those settings should be removed."),"<b>$file</b>");
+          $msg =  sprintf(__("Settings in %s may override these. Those settings should be removed."),"<b>$file</b>");
           $errors[] = array( 'js' => '', 'div' => $msg);
           break;
         } elseif ($main && is_array($item) && strtolower($section) == 'general' && !empty($item)) {
-          $msg =  sprintf(_("File %s should not have any settings in it. Those settings should be removed."),"<b>$file</b>");
+          $msg =  sprintf(__("File %s should not have any settings in it. Those settings should be removed."),"<b>$file</b>");
           $errors[] = array( 'js' => '', 'div' => $msg);
           break;
         }

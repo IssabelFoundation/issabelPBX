@@ -64,7 +64,7 @@ if (isset($_REQUEST["grplist"])) {
 if(isset($_POST['action'])){
     //check if the extension is within range for this user
     if (isset($account) && !checkRange($account)){
-        echo "<script>javascript:alert('". _("Warning! Extension")." ".$account." "._("is not allowed for your account").".');</script>";
+        echo "<script>javascript:alert('". __("Warning! Extension")." ".$account." ".__("is not allowed for your account").".');</script>";
     } else {
         //add group
         if ($action == 'addGRP') {
@@ -80,7 +80,7 @@ if(isset($_POST['action'])){
                 $this_dest = ringgroups_getdest($account);
                 fwmsg::set_dest($this_dest[0]);
                 needreload();
-                $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+                $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
                 $_SESSION['msgtype']='success';
                 $_SESSION['msgtstamp']=time();
                 redirect_standard();
@@ -91,7 +91,7 @@ if(isset($_POST['action'])){
         if ($action == 'delete') {
             ringgroups_del($account);
             needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
             $_SESSION['msgtstamp']=time();
             redirect_standard();
@@ -102,7 +102,7 @@ if(isset($_POST['action'])){
             ringgroups_del($account);
             ringgroups_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$description,$grppre,$annmsg_id,$alertinfo,$needsconf,$remotealert_id,$toolate_id,$ringing,$cwignore,$cfignore,$changecid,$fixedcid,$cpickup,$recording);
             needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
             redirect_standard('extdisplay');
@@ -119,7 +119,7 @@ drawListMenu($rnaventries, $type, $display, $extdisplay);
 ?>
 
 <!--div class="rnav"><ul>
-        <li><a class="<?php  echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add Ring Group")?></a></li>
+        <li><a class="<?php  echo ($extdisplay=='' ? 'current':'') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo __("Add Ring Group")?></a></li>
 <?php
 //get unique ring groups
 $gresults = ringgroups_list();
@@ -165,7 +165,7 @@ if(count($gresult)==0) {
         unset($grpliststr);
         unset($thisgrp);
 
-        echo "<h2>"._("Edit Ring Group").": ".ltrim($extdisplay,'GRP-')."</h2>";
+        echo "<h2>".__("Edit Ring Group").": ".ltrim($extdisplay,'GRP-')."</h2>";
 
         $usage_list = framework_display_destination_usage(ringgroups_getdest(ltrim($extdisplay,'GRP-')));
         if (!empty($usage_list)) {
@@ -190,7 +190,7 @@ if(count($gresult)==0) {
         $toolate_id = '';
         $ringing = '';
 
-        echo "<h2>"._("Add Ring Group")."</h2>";
+        echo "<h2>".__("Add Ring Group")."</h2>";
     }
     if (!empty($conflict_url)) {
         echo ipbx_extension_conflict($conflict_url);
@@ -200,7 +200,7 @@ if(count($gresult)==0) {
             <input type="hidden" name="display" value="<?php echo $dispnum?>">
             <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edtGRP' : 'addGRP'); ?>">
             <table class='table is-borderless is-narrow'>
-            <tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Ring Group") : _("Add Ring Group")) ?></h5></td></tr>
+            <tr><td colspan="2"><h5><?php  echo ($extdisplay ? __("Edit Ring Group") : __("Add Ring Group")) ?></h5></td></tr>
             <tr>
 <?php
     if ($extdisplay) {
@@ -208,25 +208,25 @@ if(count($gresult)==0) {
 ?>
                 <input size="5" type="hidden" name="account" value="<?php  echo ltrim($extdisplay,'GRP-'); ?>" tabindex="<?php echo ++$tabindex;?>">
 <?php         } else { ?>
-                <td><a href="#" class="info"><?php echo _("Ring-Group Number")?><span><?php echo _("The number users will dial to ring extensions in this ring group")?></span></a></td>
+                <td><a href="#" class="info"><?php echo __("Ring-Group Number")?><span><?php echo __("The number users will dial to ring extensions in this ring group")?></span></a></td>
                 <td><input class='input w100' type="text" data-extdisplay="" name="account" value="<?php  if ($gresult[0]==0) { echo "600"; } else { echo $gresult[0] + 1; } ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 <?php         } ?>
             </tr>
 
             <tr>
-            <td> <a href="#" class="info"><?php echo _("Group Description")?><span><?php echo _("Provide a descriptive title for this Ring Group.")?></span></a></td>
+            <td> <a href="#" class="info"><?php echo __("Group Description")?><span><?php echo __("Provide a descriptive title for this Ring Group.")?></span></a></td>
                 <td><input class='input w100' maxlength="35" type="text" name="description" value="<?php echo htmlspecialchars($description); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
             </tr>
 
             <tr>
-                <td> <a href="#" class="info"><?php echo _("Ring Strategy")?>
+                <td> <a href="#" class="info"><?php echo __("Ring Strategy")?>
                 <span>
-                    <b><?php echo _("ringall")?></b>:  <?php echo _("Ring all available channels until one answers (default)")?><br>
-                    <b><?php echo _("hunt")?></b>: <?php echo _("Take turns ringing each available extension")?><br>
-                    <b><?php echo _("memoryhunt")?></b>: <?php echo _("Ring first extension in the list, then ring the 1st and 2nd extension, then ring 1st 2nd and 3rd extension in the list.... etc.")?><br>
-                    <b><?php echo _("*-prim")?></b>:  <?php echo _("These modes act as described above. However, if the primary extension (first in list) is occupied, the other extensions will not be rung. If the primary is IssabelPBX DND, it won't be rung. If the primary is IssabelPBX CF unconditional, then all will be rung")?><br>
-                    <b><?php echo _("firstavailable")?></b>:  <?php echo _("ring only the first available channel")?><br>
-                    <b><?php echo _("firstnotonphone")?></b>:  <?php echo _("ring only the first channel which is not offhook - ignore CW")?><br>
+                    <b><?php echo __("ringall")?></b>:  <?php echo __("Ring all available channels until one answers (default)")?><br>
+                    <b><?php echo __("hunt")?></b>: <?php echo __("Take turns ringing each available extension")?><br>
+                    <b><?php echo __("memoryhunt")?></b>: <?php echo __("Ring first extension in the list, then ring the 1st and 2nd extension, then ring 1st 2nd and 3rd extension in the list.... etc.")?><br>
+                    <b><?php echo __("*-prim")?></b>:  <?php echo __("These modes act as described above. However, if the primary extension (first in list) is occupied, the other extensions will not be rung. If the primary is IssabelPBX DND, it won't be rung. If the primary is IssabelPBX CF unconditional, then all will be rung")?><br>
+                    <b><?php echo __("firstavailable")?></b>:  <?php echo __("ring only the first available channel")?><br>
+                    <b><?php echo __("firstnotonphone")?></b>:  <?php echo __("ring only the first channel which is not offhook - ignore CW")?><br>
                 </span>
                 </a></td>
                 <td>
@@ -235,7 +235,7 @@ if(count($gresult)==0) {
                         $default = (isset($strategy) ? $strategy : 'ringall');
                                                                                                 $items = array('ringall','ringall-prim','hunt','hunt-prim','memoryhunt','memoryhunt-prim','firstavailable','firstnotonphone');
                         foreach ($items as $item) {
-                            echo '<option value="'.$item.'" '.($default == $item ? 'SELECTED' : '').'>'._($item);
+                            echo '<option value="'.$item.'" '.($default == $item ? 'SELECTED' : '').'>'.__($item);
                         }
                     ?>
                     </select>
@@ -244,15 +244,15 @@ if(count($gresult)==0) {
 
             <tr>
                 <td>
-                    <a href=# class="info"><?php echo _("Ring Time (max 300 sec)")?><span>
-<?php echo _("Time in seconds that the phone(s) will ring. For all hunt style ring strategies, this is the time for each iteration of phones that are rung");?>
+                    <a href=# class="info"><?php echo __("Ring Time (max 300 sec)")?><span>
+<?php echo __("Time in seconds that the phone(s) will ring. For all hunt style ring strategies, this is the time for each iteration of phones that are rung");?>
 </span></a>
                 </td>
                 <td><input class='input w100' type="number" min="0" max="300" name="grptime" value="<?php  echo $grptime?$grptime:20 ?>" tabindex="<?php echo ++$tabindex;?>"></td>
             </tr>
 
             <tr>
-                <td valign="top"><a href="#" class="info"><?php echo _("Extension List")?><span><?php echo _("List extensions to ring, one per line, or use the Extension Quick Pick below to insert them here.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a '#'.  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing)<br><br>Extensions without a '#' will not ring a user's Follow-Me. To dial Follow-Me, Queues and other numbers that are not extensions, put a '#' at the end.");?></span></a></td>
+                <td valign="top"><a href="#" class="info"><?php echo __("Extension List")?><span><?php echo __("List extensions to ring, one per line, or use the Extension Quick Pick below to insert them here.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a '#'.  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing)<br><br>Extensions without a '#' will not ring a user's Follow-Me. To dial Follow-Me, Queues and other numbers that are not extensions, put a '#' at the end.");?></span></a></td>
                 <td valign="top">
 <?php
         $rows = count($grplist)+1;
@@ -263,11 +263,11 @@ if(count($gresult)==0) {
 
             <tr>
                 <td>
-                <a href=# class="info"><?php echo _("Extension Quick Pick")?><span><?php echo _("Choose an extension to append to the end of the extension list above.")?></span></a>
+                <a href=# class="info"><?php echo __("Extension Quick Pick")?><span><?php echo __("Choose an extension to append to the end of the extension list above.")?></span></a>
                 </td>
                 <td>
                     <select onChange="insertExten();" id="insexten" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
-                        <option value=""><?php echo _("(pick extension)")?></option>
+                        <option value=""><?php echo __("(pick extension)")?></option>
     <?php
                         $results = core_users_list();
                         foreach ($results as $result) {
@@ -281,14 +281,14 @@ if(count($gresult)==0) {
 <?php if(function_exists('recordings_list')) { //only include if recordings is enabled?>
             <tr>
                 <td>
-                    <a href="#" class="info"><?php echo _("Announcement")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a>
+                    <a href="#" class="info"><?php echo __("Announcement")?><span><?php echo __("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a>
                 </td>
                 <td>
                     <select name="annmsg_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
                         $tresults = recordings_list();
                         $default = (isset($annmsg_id) ? $annmsg_id : '');
-                        echo '<option value="">'._("None")."</option>";
+                        echo '<option value="">'.__("None")."</option>";
                         if (isset($tresults[0])) {
                             foreach ($tresults as $tresult) {
                                 echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
@@ -300,7 +300,7 @@ if(count($gresult)==0) {
             </tr>
 <?php }    else { ?>
             <tr>
-                <td><a href="#" class="info"><?php echo _("Announcement")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
+                <td><a href="#" class="info"><?php echo __("Announcement")?><span><?php echo __("Message to be played to the caller before dialing this group.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
                 <td>
                     <?php
                         $default = (isset($annmsg_id) ? $annmsg_id : '');
@@ -310,18 +310,18 @@ if(count($gresult)==0) {
             </tr>
 <?php } if (function_exists('music_list')) { ?>
             <tr>
-                <td><a href="#" class="info"><?php echo _("Play Music On Hold?")?><span><?php echo _("If you select a Music on Hold class to play, instead of 'Ring', they will hear that instead of Ringing while they are waiting for someone to pick up.")?></span></a></td>
+                <td><a href="#" class="info"><?php echo __("Play Music On Hold?")?><span><?php echo __("If you select a Music on Hold class to play, instead of 'Ring', they will hear that instead of Ringing while they are waiting for someone to pick up.")?></span></a></td>
                 <td>
                     <select name="ringing" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
                         $tresults = music_list();
                         $cur = (isset($ringing) ? $ringing : 'Ring');
-                        echo '<option value="Ring">'._("Ring")."</option>";
+                        echo '<option value="Ring">'.__("Ring")."</option>";
                         if (isset($tresults[0])) {
                             foreach ($tresults as $tresult) {
-                                ( $tresult == 'none' ? $ttext = _("none") : $ttext = $tresult );
-                                ( $tresult == 'default' ? $ttext = _("default") : $ttext = $tresult );
-                                echo '<option value="'.$tresult.'"'.($tresult == $cur ? ' SELECTED' : '').'>'._($ttext)."</option>\n";
+                                ( $tresult == 'none' ? $ttext = __("none") : $ttext = $tresult );
+                                ( $tresult == 'default' ? $ttext = __("default") : $ttext = $tresult );
+                                echo '<option value="'.$tresult.'"'.($tresult == $cur ? ' SELECTED' : '').'>'.__($ttext)."</option>\n";
                             }
                         }
                     ?>
@@ -331,52 +331,52 @@ if(count($gresult)==0) {
 <?php } ?>
 
             <tr>
-                <td><a href="#" class="info"><?php echo _("CID Name Prefix")?><span><?php echo _('You can optionally prefix the CallerID name when ringing extensions in this group. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span></a></td>
+                <td><a href="#" class="info"><?php echo __("CID Name Prefix")?><span><?php echo __('You can optionally prefix the CallerID name when ringing extensions in this group. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span></a></td>
                 <td><input class='input w100' type="text" name="grppre" value="<?php  echo $grppre ?>" tabindex="<?php echo ++$tabindex;?>"></td>
             </tr>
 
             <tr>
-                <td><a href="#" class="info"><?php echo _("Alert Info")?><span><?php echo _('ALERT_INFO can be used for distinctive ring with SIP devices.')?></span></a></td>
+                <td><a href="#" class="info"><?php echo __("Alert Info")?><span><?php echo __('ALERT_INFO can be used for distinctive ring with SIP devices.')?></span></a></td>
                 <td><input type="text" name="alertinfo" class='input w100' value="<?php echo ($alertinfo)?$alertinfo:'' ?>" tabindex="<?php echo ++$tabindex;?>"></td>
             </tr>
 
             <tr>
-        <td><a href="#" class="info"><?php echo _("Ignore CF Settings")?><span> <?php echo _("When checked, agents who attempt to Call Forward will be ignored, this applies to CF, CFU and CFB. Extensions entered with '#' at the end, for example to access the extension's Follow-Me, might not honor this setting .") ?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Ignore CF Settings")?><span> <?php echo __("When checked, agents who attempt to Call Forward will be ignored, this applies to CF, CFU and CFB. Extensions entered with '#' at the end, for example to access the extension's Follow-Me, might not honor this setting .") ?></span></a></td>
                 <td>
-                    <?php echo ipbx_radio('cfignore',array(array('value'=>'CHECKED','text'=>dgettext('amp','Yes')),array('value'=>'','text'=>dgettext('amp','No'))),$cfignore,false);?>
+                    <?php echo ipbx_radio('cfignore',array(array('value'=>'CHECKED','text'=>_dgettext('amp','Yes')),array('value'=>'','text'=>_dgettext('amp','No'))),$cfignore,false);?>
                 </td>
             </tr>
 
             <tr>
-        <td><a href="#" class="info"><?php echo _("Skip Busy Agent")?><span> <?php echo _("When checked, agents who are on an occupied phone will be skipped as if the line were returning busy. This means that Call Waiting or multi-line phones will not be presented with the call and in the various hunt style ring strategies, the next agent will be attempted.") ?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Skip Busy Agent")?><span> <?php echo __("When checked, agents who are on an occupied phone will be skipped as if the line were returning busy. This means that Call Waiting or multi-line phones will not be presented with the call and in the various hunt style ring strategies, the next agent will be attempted.") ?></span></a></td>
                 <td>
-                    <?php echo ipbx_radio('cwignore',array(array('value'=>'CHECKED','text'=>dgettext('amp','Yes')),array('value'=>'','text'=>dgettext('amp','No'))),$cwignore,false);?>
+                    <?php echo ipbx_radio('cwignore',array(array('value'=>'CHECKED','text'=>_dgettext('amp','Yes')),array('value'=>'','text'=>_dgettext('amp','No'))),$cwignore,false);?>
                 </td>
             </tr>
 
             <tr>
-                <td><a href="#" class="info"><?php echo _("Enable Call Pickup")?><span> <?php echo _("Checking this will allow calls to the Ring Group to be picked up with the directed call pickup feature using the group number. When not checked, individual extensions that are part of the group can still be picked up by doing a directed call pickup to the ringing extension, which works whether or not this is checked.") ?></span></a></td>
+                <td><a href="#" class="info"><?php echo __("Enable Call Pickup")?><span> <?php echo __("Checking this will allow calls to the Ring Group to be picked up with the directed call pickup feature using the group number. When not checked, individual extensions that are part of the group can still be picked up by doing a directed call pickup to the ringing extension, which works whether or not this is checked.") ?></span></a></td>
                 <td>
-                    <?php echo ipbx_radio('cpickup',array(array('value'=>'CHECKED','text'=>dgettext('amp','Yes')),array('value'=>'','text'=>dgettext('amp','No'))),$cpickup,false);?>
+                    <?php echo ipbx_radio('cpickup',array(array('value'=>'CHECKED','text'=>_dgettext('amp','Yes')),array('value'=>'','text'=>_dgettext('amp','No'))),$cpickup,false);?>
                 </td>
             </tr>
 
             <tr>
-                <td><a href="#" class="info"><?php echo _("Confirm Calls")?><span><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall ring strategy')?></span></a></td>
+                <td><a href="#" class="info"><?php echo __("Confirm Calls")?><span><?php echo __('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall ring strategy')?></span></a></td>
                 <td>
-                    <?php echo ipbx_radio('needsconf',array(array('value'=>'CHECKED','text'=>dgettext('amp','Yes')),array('value'=>'','text'=>dgettext('amp','No'))),$needsconf,false);?>
+                    <?php echo ipbx_radio('needsconf',array(array('value'=>'CHECKED','text'=>_dgettext('amp','Yes')),array('value'=>'','text'=>_dgettext('amp','No'))),$needsconf,false);?>
                 </td>
             </tr>
 
 <?php if(function_exists('recordings_list')) { //only include if recordings is enabled?>
             <tr>
-                <td><a href="#" class="info"><?php echo _("Remote Announce")?><span><?php echo _("Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
+                <td><a href="#" class="info"><?php echo __("Remote Announce")?><span><?php echo __("Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
                 <td>
                     <select name="remotealert_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
                         $tresults = recordings_list();
                         $default = (isset($remotealert_id) ? $remotealert_id : '');
-                        echo '<option value="">'._("Default")."</option>";
+                        echo '<option value="">'.__("Default")."</option>";
                         if (isset($tresults[0])) {
                             foreach ($tresults as $tresult) {
                                 echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
@@ -388,13 +388,13 @@ if(count($gresult)==0) {
             </tr>
 
             <tr>
-                <td><a href="#" class="info"><?php echo _("Too-Late Announce")?><span><?php echo _("Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
+                <td><a href="#" class="info"><?php echo __("Too-Late Announce")?><span><?php echo __("Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
                 <td>
                     <select name="toolate_id" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
                         $tresults = recordings_list();
                         $default = (isset($toolate_id) ? $toolate_id : '');
-                        echo '<option value="">'._("Default")."</option>";
+                        echo '<option value="">'.__("Default")."</option>";
                         if (isset($tresults[0])) {
                             foreach ($tresults as $tresult) {
                                 echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
@@ -405,16 +405,16 @@ if(count($gresult)==0) {
                 </td>
             </tr>
 <?php } ?>
-            <tr><td colspan="2"><h5><?php echo _("Change External CID Configuration") ?></h5></td></tr>
+            <tr><td colspan="2"><h5><?php echo __("Change External CID Configuration") ?></h5></td></tr>
             <tr>
                 <td>
-                <a href="#" class="info"><?php echo _("Mode")?>:
+                <a href="#" class="info"><?php echo __("Mode")?>:
                 <span>
-                    <b><?php echo _("Default")?></b>:  <?php echo _("Transmits the Callers CID if allowed by the trunk.")?><br>
-                    <b><?php echo _("Fixed CID Value")?></b>:  <?php echo _("Always transmit the Fixed CID Value below.")?><br>
-                    <b><?php echo _("Outside Calls Fixed CID Value")?></b>: <?php echo _("Transmit the Fixed CID Value below on calls that come in from outside only. Internal extension to extension calls will continue to operate in default mode.")?><br>
-                    <b><?php echo _("Use Dialed Number")?></b>: <?php echo _("Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This will be BLOCKED on trunks that block foreign CallerID")?><br>
-                    <b><?php echo _("Force Dialed Number")?></b>: <?php echo _("Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This WILL be transmitted on trunks that block foreign CallerID")?><br>
+                    <b><?php echo __("Default")?></b>:  <?php echo __("Transmits the Callers CID if allowed by the trunk.")?><br>
+                    <b><?php echo __("Fixed CID Value")?></b>:  <?php echo __("Always transmit the Fixed CID Value below.")?><br>
+                    <b><?php echo __("Outside Calls Fixed CID Value")?></b>: <?php echo __("Transmit the Fixed CID Value below on calls that come in from outside only. Internal extension to extension calls will continue to operate in default mode.")?><br>
+                    <b><?php echo __("Use Dialed Number")?></b>: <?php echo __("Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This will be BLOCKED on trunks that block foreign CallerID")?><br>
+                    <b><?php echo __("Force Dialed Number")?></b>: <?php echo __("Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This WILL be transmitted on trunks that block foreign CallerID")?><br>
                 </span>
                 </a>
                 </td>
@@ -422,11 +422,11 @@ if(count($gresult)==0) {
                     <select name="changecid" id="changecid" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
                     <?php
                         $default = (isset($changecid) ? $changecid : 'default');
-                        echo '<option value="default" '.($default == 'default' ? 'SELECTED' : '').'>'._("Default");
-                        echo '<option value="fixed" '.($default == 'fixed' ? 'SELECTED' : '').'>'._("Fixed CID Value");
-                        echo '<option value="extern" '.($default == 'extern' ? 'SELECTED' : '').'>'._("Outside Calls Fixed CID Value");
-                        echo '<option value="did" '.($default == 'did' ? 'SELECTED' : '').'>'._("Use Dialed Number");
-                        echo '<option value="forcedid" '.($default == 'forcedid' ? 'SELECTED' : '').'>'._("Force Dialed Number");
+                        echo '<option value="default" '.($default == 'default' ? 'SELECTED' : '').'>'.__("Default");
+                        echo '<option value="fixed" '.($default == 'fixed' ? 'SELECTED' : '').'>'.__("Fixed CID Value");
+                        echo '<option value="extern" '.($default == 'extern' ? 'SELECTED' : '').'>'.__("Outside Calls Fixed CID Value");
+                        echo '<option value="did" '.($default == 'did' ? 'SELECTED' : '').'>'.__("Use Dialed Number");
+                        echo '<option value="forcedid" '.($default == 'forcedid' ? 'SELECTED' : '').'>'.__("Force Dialed Number");
                         $fixedcid_disabled = ($default != 'fixed' && $default != 'extern') ? 'disabled = "disabled"':'';
                     ?>
                     </select>
@@ -434,15 +434,15 @@ if(count($gresult)==0) {
             </tr>
 
             <tr>
-                <td><a href="#" class="info"><?php echo _("Fixed CID Value")?><span><?php echo _('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".')?></span></a></td>
+                <td><a href="#" class="info"><?php echo __("Fixed CID Value")?><span><?php echo __('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".')?></span></a></td>
                 <td><input class='input w100' type="text" name="fixedcid" id="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>" <?php echo $fixedcid_disabled ?>></td>
             </tr>
 
-            <tr><td colspan="2"><h5><?php echo _("Call Recording") ?></h5></td></tr>
+            <tr><td colspan="2"><h5><?php echo __("Call Recording") ?></h5></td></tr>
             <tr>
-                <td><a href="#" class="info"><?php echo _("Record Calls")?><span><?php echo _('You can always record calls that come into this ring group, never record them, or allow the extension that answers to do on-demand recording. If recording is denied then one-touch on demand recording will be blocked.')?></span></a></td>
+                <td><a href="#" class="info"><?php echo __("Record Calls")?><span><?php echo __('You can always record calls that come into this ring group, never record them, or allow the extension that answers to do on-demand recording. If recording is denied then one-touch on demand recording will be blocked.')?></span></a></td>
                 <td>
-                    <?php echo ipbx_radio('recording',array(array('value'=>'always','text'=>_('Always')),array('value'=>'dontcare','text'=>_('On Demand')),array('value'=>'never','text'=>_('Never'))),$recording,false);?>
+                    <?php echo ipbx_radio('recording',array(array('value'=>'always','text'=>__('Always')),array('value'=>'dontcare','text'=>__('On Demand')),array('value'=>'never','text'=>__('Never'))),$recording,false);?>
                 </td>
             </tr>
 
@@ -452,7 +452,7 @@ if(count($gresult)==0) {
             echo process_tabindex($module_hook->hookHtml,$tabindex);
 ?>
 
-            <tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?></h5></td></tr>
+            <tr><td colspan="2"><br><h5><?php echo __("Destination if no answer")?></h5></td></tr>
 
 <?php
 //draw goto selects
@@ -497,12 +497,12 @@ function insertExten() {
 }
 
 function checkGRP(theForm) {
-    var msgInvalidGrpNum = "<?php echo _('Invalid Group Number specified'); ?>";
-    var msgInvalidExtList = "<?php echo _('Please enter an extension list.'); ?>";
-    var msgInvalidTime = "<?php echo _('Invalid time specified'); ?>";
-    var msgInvalidGrpTimeRange = "<?php echo _('Time must be between 1 and 300 seconds'); ?>";
-    var msgInvalidDescription = "<?php echo _('Please enter a valid Group Description'); ?>";
-    var msgInvalidRingStrategy = "<?php echo _('Only ringall, ringallv2, hunt and the respective -prim versions are supported when confirmation is checked'); ?>";
+    var msgInvalidGrpNum = "<?php echo __('Invalid Group Number specified'); ?>";
+    var msgInvalidExtList = "<?php echo __('Please enter an extension list.'); ?>";
+    var msgInvalidTime = "<?php echo __('Invalid time specified'); ?>";
+    var msgInvalidGrpTimeRange = "<?php echo __('Time must be between 1 and 300 seconds'); ?>";
+    var msgInvalidDescription = "<?php echo __('Please enter a valid Group Description'); ?>";
+    var msgInvalidRingStrategy = "<?php echo __('Only ringall, ringallv2, hunt and the respective -prim versions are supported when confirmation is checked'); ?>";
 
     // set up the Destination stuff
     setDestinations(theForm, 1);
@@ -518,7 +518,7 @@ function checkGRP(theForm) {
     <?php if (function_exists('module_get_field_size')) { ?>
     var sizeDisplayName = "<?php echo module_get_field_size('ringgroups', 'description', 35); ?>";
     if (!isCorrectLength(theForm.description.value, sizeDisplayName))
-        return warnInvalid(theForm.description, "<?php echo _('The Group Description provided is too long.'); ?>")
+        return warnInvalid(theForm.description, "<?php echo __('The Group Description provided is too long.'); ?>")
     <?php } ?>
     
     if (!isAlphanumeric(theForm.description.value))

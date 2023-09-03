@@ -6,9 +6,9 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //
 //for translation only
 if (false) {
-_("Call Waiting");
-_("Call Waiting - Activate");
-_("Call Waiting - Deactivate");
+__("Call Waiting");
+__("Call Waiting - Activate");
+__("Call Waiting - Deactivate");
 }
 
 // Register FeatureCode - Activate

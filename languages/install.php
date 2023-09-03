@@ -4,26 +4,27 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 global $db;
 
 $autoincrement=(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? "AUTOINCREMENT":"AUTO_INCREMENT";
-$sql[]="CREATE TABLE IF NOT EXISTS languages (
+
+$sql = array();
+
+$sql['languages']="CREATE TABLE IF NOT EXISTS languages (
 	language_id INTEGER NOT NULL PRIMARY KEY $autoincrement,
 	lang_code VARCHAR( 50 ) ,
 	description VARCHAR( 50 ) ,
 	dest VARCHAR( 255 )
 )";
-$rsql='CREATE TABLE IF NOT EXISTS language_incoming (
-			extension varchar(50),
-			cidnum varchar(50),
-			language varchar(10)
-            ) ';
 
-if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"]))  { $rsql.=" DEFAULT CHARSET=utf8mb4";   }
+$sql['language_incoming']='CREATE TABLE IF NOT EXISTS language_incoming (
+    extension varchar(50),
+    cidnum varchar(50),
+    language varchar(10)
+)';
 
-$sql[]=$rsql;
-
-foreach($sql as $s){
+foreach($sql as $t=>$s){
+    if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"]))  { $s.=" DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";   }
 	$check = $db->query($s);
 	if(DB::IsError($check)) {
-		die_issabelpbx("Can not create languages table\n");
+		die_issabelpbx("Can not create $t table\n");
 	}
 }
 

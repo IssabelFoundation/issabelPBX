@@ -36,7 +36,7 @@ function queues_add(
 	$ast_ge_16 = version_compare($amp_conf['ASTVERSION'] , '16', 'ge');
 
 	if (trim($account) == '') {
-		echo "<script>javascript:alert('"._("Bad Queue Number, can not be blank")."');</script>";
+		echo "<script>javascript:alert('".__("Bad Queue Number, can not be blank")."');</script>";
 		return false;
 	}
 

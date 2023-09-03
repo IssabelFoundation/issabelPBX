@@ -19,7 +19,7 @@ if(isset($_REQUEST['action'])) {
 		case "add":
 			cidlookup_add($_REQUEST);
 			needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been added'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
 			redirect_standard();
@@ -27,7 +27,7 @@ if(isset($_REQUEST['action'])) {
 		case "delete":
 			cidlookup_del($itemid);
 			needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been deleted'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
             $_SESSION['msgtype']='warning';
             $_SESSION['msgtstamp']=time();
 			redirect_standard();
@@ -35,7 +35,7 @@ if(isset($_REQUEST['action'])) {
 		case "edit":
 			cidlookup_edit($itemid,$_REQUEST);
 			needreload();
-            $_SESSION['msg']=base64_encode(dgettext('amp','Item has been saved'));
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
             $_SESSION['msgtype']='success';
             $_SESSION['msgtstamp']=time();
 			redirect_standard('extdisplay');
@@ -63,14 +63,14 @@ require_once('views/main.html.php');
 var cid_modules = <?php echo json_encode($cid_modules)?>
 
 
-errInvalidHTTPHost      = '<?php echo _('Please enter a valid HTTP(S) Host name');?>'; 
-errInvalidMysqlHost     = '<?php echo _('Please enter a valid MySQL Host name');?>';
-errInvalidMysqlDatabase = '<?php echo _('Please enter a valid MySQL Database name');?>';
-errInvalidMysqlQuery    = '<?php echo _('Please enter a valid MySQL Query string');?>';
-errInvalidMysqlUsername = '<?php echo _('Please enter a valid MySQL Username');?>';
-errInvalidAccountSID    = '<?php echo _('Please enter a valid Account SID');?>';
-errInvalidAuthToken     = '<?php echo _('Please enter a valid Auth Token');?>';
-errInvalidDescription   = '<?php echo _('Description cannot be blank!');?>';
+errInvalidHTTPHost      = '<?php echo __('Please enter a valid HTTP(S) Host name');?>'; 
+errInvalidMysqlHost     = '<?php echo __('Please enter a valid MySQL Host name');?>';
+errInvalidMysqlDatabase = '<?php echo __('Please enter a valid MySQL Database name');?>';
+errInvalidMysqlQuery    = '<?php echo __('Please enter a valid MySQL Query string');?>';
+errInvalidMysqlUsername = '<?php echo __('Please enter a valid MySQL Username');?>';
+errInvalidAccountSID    = '<?php echo __('Please enter a valid Account SID');?>';
+errInvalidAuthToken     = '<?php echo __('Please enter a valid Auth Token');?>';
+errInvalidDescription   = '<?php echo __('Description cannot be blank!');?>';
 
 
 </script>
