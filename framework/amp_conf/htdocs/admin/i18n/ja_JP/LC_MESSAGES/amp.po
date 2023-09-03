@@ -40,8 +40,6 @@ msgstr ""
 "POT-Creation-Date: 2015-04-10 07:39+1000\n"
 "PO-Revision-Date: 2014-05-22 11:08+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
-"Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/framework/"
-"ja/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5551,7 +5549,7 @@ msgstr "致命的なエラー"
 #: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:903
 #, php-format
 msgid "fatal error deleting rows from issabelpbx_settings, sql query: %s"
-msgstr "freepbx_settinsからの行削除における致命的なエラー、sql クエリー： %s"
+msgstr "issabelpbx_settinsからの行削除における致命的なエラー、sql クエリー： %s"
 
 #: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:205
 msgid "fatal error reading issabelpbx_settings"
