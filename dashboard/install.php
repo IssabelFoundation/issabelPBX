@@ -14,7 +14,7 @@ $stats_value = 6;
 $info_value = 30;
 
 if ($issabelpbx_conf->conf_setting_exists('DASHBOARD_STATS_UPDATE_TIME') || $issabelpbx_conf->conf_setting_exists('DASHBOARD_INFO_UPDATE_TIME')) {
-  $full_settings =& $issabelpbx_conf->get_conf_settings();
+  $full_settings = $issabelpbx_conf->get_conf_settings();
 
   if ($full_settings['DASHBOARD_STATS_UPDATE_TIME']['type'] != CONF_TYPE_SELECT) {
     $old_val = $full_settings['DASHBOARD_STATS_UPDATE_TIME']['value'];
