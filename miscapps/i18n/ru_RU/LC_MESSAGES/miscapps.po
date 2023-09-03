@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Misc Application: %s"
-msgstr "Приложения: %s
+msgstr "Приложения: %s"
 
 msgid "Misc Applications"
 msgstr "Приложения"

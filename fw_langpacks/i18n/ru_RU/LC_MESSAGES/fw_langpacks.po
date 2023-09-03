@@ -24,8 +24,7 @@ msgid "Admin"
 msgstr "Администратор"
 
 msgid "This module provides a facility to install new and updated localization translations for all components in IssabelPBX. Localization i18n translations are still kept with each module and other components such as the User Portal (ARI). This provides an easy ability to bring all components up-to-date without the need of publishing dozens of modules for every minor change. The localization updates used will be the latest available for all modules and will not consider the current version you are running."
-msgstr "Данный модуль позволяет устанавливать новые и обновлять локализационные переводы для всех компонентов IssabelPBX. Локализационные i18n-переводы по-прежнему хранятся в каждом модуле и других компонентах, таких как Портал пользователя (ARI). Это позволяет легко обновлять все компоненты без необходимости публикации десятков модулей для каждого незначительного изменения.
-Используемые обновления локализации будут самыми последними из доступных для всех модулей и не будут учитывать текущую версию, на которой вы работаете."
+msgstr "Данный модуль позволяет устанавливать новые и обновлять локализационные переводы для всех компонентов IssabelPBX. Локализационные i18n-переводы по-прежнему хранятся в каждом модуле и других компонентах, таких как Портал пользователя (ARI). Это позволяет легко обновлять все компоненты без необходимости публикации десятков модулей для каждого незначительного изменения.  Используемые обновления локализации будут самыми последними из доступных для всех модулей и не будут учитывать текущую версию, на которой вы работаете."
 
 msgid "No directory %s, install script not needed"
 msgstr "Нет каталога %s, сценарий установки не требуется"
