@@ -24,7 +24,7 @@
         *0.0.4* added time condition
         *0.0.3.3* bug fix
         *0.0.3.2* bug fix
-        *0.0.3* freePBX 2.6 dependency
+        *0.0.3* IssabelPBX 2.6 dependency
         *0.0.2* display bug with Freepbx 2.5; improved uninstall. 
         *0.0.1* alpha release
     </changelog>    
