@@ -13,9 +13,9 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2011 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2011.
 #
 # Use iconv iaxsettings.pot -f UTF-8 -t ISO-8859-5 -o iaxsettings.po
@@ -44,7 +44,7 @@ msgstr ""
 # This message is mistake. Probably penetrated from sipsettings (5060)
 #
 # msgid "Bind Port (bindport) must be between 1024..65535, default 5060"
-# msgstr "Порт (bindport) должен быть иметь значение между 1024 и 65535, дефолтное значение - 5060"
+# msgstr "Порт (bindport) должен быть иметь значение между 1024 и 65535, дефлтное значение - 5060"
 msgid "resyncthreshold must be a non-negative integer or -1 to disable"
 msgstr ""
 "resyncthreshold должен быть неотрицательным целым числом или указать -1 для "
@@ -63,7 +63,7 @@ msgstr ""
 "Используется для конфигурации различных дополнительных настроек Asterisk для "
 "IAX которые допусимы в секции [general] файла iax.conf. Модуль предполагает "
 "наличие Asterisk версий 1.4 и выше. Некоторые параметры просто не существуют "
-"в версии 1.2 и будут игнорироваться Asterisk."
+"в версии 1.2 и будт игнорироваться Asterisk."
 
 msgid "checking for iaxsettings table.."
 msgstr "проверка таблицы iaxsettings.."
@@ -118,7 +118,7 @@ msgid ""
 "requested format is available."
 msgstr ""
 "Параметр Asterisk: codecpriority. Контролирует распознавание кодеков для "
-"входящих IAX вызовов. Эта опция будет унаследована во всех настройках для "
+"входящих IAX вызовов. Эа опция будет унаследована во всех настройках для "
 "юзеров. А также порядок может быть определён для каждого юзера отдельно, и "
 "эти настроки будут перебивать те настроки, которорые указаны здесь. "
 "Разрешённые значения:<br />host - Разрешить хосту принимать решение о "
@@ -227,7 +227,7 @@ msgstr ""
 "есть типичная ситуация при использовании джиттер-буфера на удалённой "
 "стороне. Эта опция форсирует использование буфера перед отправкой речевого "
 "потока в канал. Это не типичная ситуация, и выбирая её понимаем, что тем "
-"самым вносим дополнительную задержку в поток."
+"самым вносим дополнительну задержку в поток."
 
 msgid "Yes"
 msgstr "Да"
@@ -275,7 +275,7 @@ msgstr ""
 "пауз в тишине."
 
 msgid "Advanced General Settings"
-msgstr "Дополнительные основные настройки"
+msgstr "Дополнительне основные настройки"
 
 msgid "Language"
 msgstr "Язык"
