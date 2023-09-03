@@ -75,7 +75,7 @@ msgid ""
 msgstr ""
 
 msgid "IssabelPBX System Status"
-msgstr "Status do freePBX"
+msgstr "Status do IssabelPBX"
 
 msgid "Dashboard Info Update Frequency"
 msgstr ""
@@ -164,7 +164,7 @@ msgid "transmit"
 msgstr "média tx"
 
 msgid "IssabelPBX Statistics"
-msgstr "Estatísticas do freePBX"
+msgstr "Estatísticas do IssabelPBX"
 
 msgid "Total active calls"
 msgstr "Total de chamadas ativas"
@@ -179,7 +179,7 @@ msgid "Total active channels"
 msgstr "Total de canais ativos"
 
 msgid "IssabelPBX Connections"
-msgstr "Conexões freePBX"
+msgstr "Conexões IssabelPBX"
 
 msgid "IP Phones Online"
 msgstr "Telefones IP Online"
@@ -228,7 +228,7 @@ msgid ""
 "Asterisk Manager Proxy is not running, IssabelPBX will fall back to using "
 "Asterisk directly, which may result in poor performance"
 msgstr ""
-"O Manager Proxy não está rodando, o freePBX acessará o Asterisk diretamente,"
+"O Manager Proxy não está rodando, o IssabelPBX acessará o Asterisk diretamente,"
 "o que pode resultar uma performance fraca"
 
 msgid "Op Panel"
@@ -291,7 +291,7 @@ msgid "Notice"
 msgstr "Notificação"
 
 msgid "IssabelPBX Notices"
-msgstr "Notificações do freePBX"
+msgstr "Notificações do IssabelPBX"
 
 msgid "Delete this"
 msgstr "Excluír este"
