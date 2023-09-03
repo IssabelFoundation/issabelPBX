@@ -13,9 +13,9 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2011 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2011.
 #
 # Использовать iconv cidlookup.pot -f UTF-8 -t ISO-8859-5 -o cidlookup.po
@@ -99,7 +99,7 @@ msgstr ""
 
 #: views/main.html.php:197
 msgid "Database name"
-msgstr "Имя базы данных"
+msgstr "Им базы данных"
 
 #: views/main.html.php:197
 msgid "Database"
@@ -371,7 +371,7 @@ msgstr "удалено"
 #~ "Allows CallerID Lookup of incoming calls against different sources "
 #~ "(MySQL, HTTP, ENUM, Phonebook Module)"
 #~ msgstr ""
-#~ "Даёт возможность выполнить поиск номера при входящем звонке и подставить "
+#~ "Даёт возможность выполнить поиск номера пи входящем звонке и подставить "
 #~ "имя абонента используя различные источники (MySQL, HTTP-запрос, сервис "
 #~ "ENUM, или внутренний модуль Телефонная книга Астериск."
 
@@ -392,7 +392,7 @@ msgstr "удалено"
 #~ "number as argument to retrieve the correct name</li><li>MySQL: It queries "
 #~ "a MySQL database to retrieve caller name</li></ul>"
 #~ msgstr ""
-#~ "Выберите тип источника. Можно выбрать из:<ul><li>Внутренний: используется "
+#~ "Выберите тип источника. Мжно выбрать из:<ul><li>Внутренний: используется "
 #~ "внутренняя база Астериск в качестве источника данных, используется модуль "
 #~ "Телефонная книга для отображения этих данных.</li><li>ENUM: используется "
 #~ "сервис ДНС для поиска имён, который, в свою очередь, просматривает "
