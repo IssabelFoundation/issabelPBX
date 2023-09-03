@@ -1,9 +1,7 @@
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2008 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
-#
-# fuzzy
 #
 msgid ""
 msgstr ""
@@ -14,83 +12,66 @@ msgstr ""
 "Last-Translator: Alexander Kozyrev\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-5\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#, php-format
 msgid "Misc Application: %s"
-msgstr "¥ﬁﬂﬁ€›ÿ‚’€Ï›ﬁ’ ﬂ‡ÿ€ﬁ÷’›ÿ’: %s"
+msgstr "–ü—Ä–∏–ª–æ–∂–µ–Ω–∏—è: %s
 
 msgid "Misc Applications"
-msgstr "¥ﬁﬂﬁ€›ÿ‚’€Ï›Î’ ﬂ‡ÿ€ﬁ÷’›ÿÔ"
+msgstr "–ü—Ä–∏–ª–æ–∂–µ–Ω–∏—è"
 
 msgid "Applications"
-msgstr ""
+msgstr "–ü—Ä–∏–ª–æ–∂–µ–Ω–∏—è"
 
-msgid ""
-"Adds the ability to create feature codes that can go to any IssabelPBX "
-"destination (such as an IVR or queue)"
-msgstr ""
+msgid "Adds the ability to create feature codes that can go to any IssabelPBX destination (such as an IVR or queue)"
+msgstr "–î–æ–±–∞–≤–ª—è–µ—Ç –≤–æ–∑–º–æ–∂–Ω–æ—Å—Ç—å —Å–æ–∑–¥–∞–Ω–∏—è —Ñ—É–Ω–∫—Ü–∏–æ–Ω–∞–ª—å–Ω—ã—Ö –∫–æ–¥–æ–≤, –∫–æ—Ç–æ—Ä—ã–µ –º–æ–≥—É—Ç –±—ã—Ç—å –Ω–∞–ø—Ä–∞–≤–ª–µ–Ω—ã –Ω–∞ –ª—é–±–æ–µ –Ω–∞–ø—Ä–∞–≤–ª–µ–Ω–∏–µ IssabelPBX (–Ω–∞–ø—Ä–∏–º–µ—Ä, IVR –∏–ª–∏ –æ—á–µ—Ä–µ–¥—å)"
 
 msgid "Add Misc Application"
-msgstr "¥ﬁ—–“ÿ‚Ï ¥ﬁﬂﬁ€›ÿ‚’€Ï›ﬁ’ ﬂ‡ÿ€ﬁ÷’›ÿ’"
+msgstr "–î–æ–±–∞–≤–∏—Ç—å –ø—Ä–∏–ª–æ–∂–µ–Ω–∏–µ"
 
 msgid "Edit Misc Application"
-msgstr "∏◊‹’›ÿ‚Ï ¥ﬁﬂﬁ€›ÿ‚’€Ï›ﬁ’ ﬂ‡ÿ€ﬁ÷’›ÿ’"
+msgstr "–†–µ–¥–∞–∫—Ç–∏—Ä–æ–≤–∞—Ç—å –ø—Ä–∏–ª–æ–∂–µ–Ω–∏–µ"
 
-msgid ""
-"Misc Applications are for adding feature codes that you can dial from "
-"internal phones that go to various destinations available in IssabelPBX. This "
-"is in contrast to the <strong>Misc Destinations</strong> module, which is "
-"for creating destinations that can be used by other IssabelPBX modules to dial "
-"internal numbers or feature codes."
-msgstr ""
-"¥ﬁﬂﬁ€›ÿ‚’€Ï›Î’ ﬂ‡ÿ€ﬁ÷’›ÿÔ ‘ﬁ—–“€ÔÓ‚ ⁄ﬁ‘Î ⁄ ‚–—€ÿÊ’ ¡’‡“ÿ·›ÎÂ ⁄ﬁ‘ﬁ“, · "
-"ﬂﬁ‹ﬁÈÏÓ ⁄ﬁ‚ﬁ‡ÎÂ ‹ﬁ÷›ﬁ ﬂﬁﬂ–‘–‚Ï “ﬁ “·’ “ﬁ◊‹ﬁ÷›Î’ ›–ﬂ‡–“€’›ÿÔ, ‘ﬁ·‚„ﬂ›Î’ “ﬁ "
-"IssabelPBX. Õ‚ﬁ ›’ ·ﬁ“·’‹ ‚ﬁ÷’, Á‚ﬁ ÿ ‹ﬁ‘„€Ï <strong>¥ﬁﬂﬁ€›ÿ‚’€Ï›Î’ "
-"›–ﬂ‡–“€’›ÿÔ</strong>, ⁄ﬁ‚ﬁ‡ÎŸ ·€„÷ÿ‚ ‘€Ô ·ﬁ◊‘–›ÿÔ ›–ﬂ‡–“€’›ÿŸ, ÿ·ﬂﬁ€Ï◊„’‹ÎÂ "
-"◊–‚’‹ “ ‘‡„”ÿÂ ‹ﬁ‘„€ÔÂ IssabelPBX, ›– ⁄ﬁ‚ﬁ‡Î’ ‹ﬁ÷›ﬁ “ÎÂﬁ‘ÿ‚Ï Á’‡’◊ “›„‚‡’››ÿ’ "
-"›ﬁ‹’‡– ÿ€ÿ ¡’‡“ÿ·›Î’ ⁄ﬁ‘Î."
+msgid "Misc Applications are for adding feature codes that you can dial from internal phones that go to various destinations available in IssabelPBX. This is in contrast to the <strong>Misc Destinations</strong> module, which is for creating destinations that can be used by other IssabelPBX modules to dial internal numbers or feature codes."
+msgstr "–ü—Ä–∏–ª–æ–∂–µ–Ω–∏—è –ø—Ä–µ–¥–Ω–∞–∑–Ω–∞—á–µ–Ω—ã –¥–ª—è –¥–æ–±–∞–≤–ª–µ–Ω–∏—è —Ñ—É–Ω–∫—Ü–∏–æ–Ω–∞–ª—å–Ω—ã—Ö –∫–æ–¥–æ–≤, –∫–æ—Ç–æ—Ä—ã–µ –º–æ–∂–Ω–æ –Ω–∞–±—Ä–∞—Ç—å —Å –≤–Ω—É—Ç—Ä–µ–Ω–Ω–∏—Ö —Ç–µ–ª–µ—Ñ–æ–Ω–æ–≤ –∏ –∫–æ—Ç–æ—Ä—ã–µ –Ω–∞–ø—Ä–∞–≤–ª—è—é—Ç –Ω–∞ —Ä–∞–∑–ª–∏—á–Ω—ã–µ –Ω–∞–ø—Ä–∞–≤–ª–µ–Ω–∏—è, –¥–æ—Å—Ç—É–ø–Ω—ã–µ –≤ IssabelPBX. –≠—Ç–æ –≤ –æ—Ç–ª–∏—á–∏–µ –æ—Ç –º–æ–¥—É–ª—è <strong>Misc Destinations</strong>, –∫–æ—Ç–æ—Ä—ã–π –ø—Ä–µ–¥–Ω–∞–∑–Ω–∞—á–µ–Ω –¥–ª—è —Å–æ–∑–¥–∞–Ω–∏—è –Ω–∞–ø—Ä–∞–≤–ª–µ–Ω–∏–π, –∫–æ—Ç–æ—Ä—ã–µ –º–æ–≥—É—Ç –±—ã—Ç—å –∏—Å–ø–æ–ª—å–∑–æ–≤–∞–Ω—ã –¥—Ä—É–≥–∏–º–∏ –º–æ–¥—É–ª—è–º–∏ IssabelPBX –¥–ª—è –Ω–∞–±–æ—Ä–∞ –≤–Ω—É—Ç—Ä–µ–Ω–Ω–∏—Ö –Ω–æ–º–µ—Ä–æ–≤ –∏–ª–∏ —Ñ—É–Ω–∫—Ü–∏–æ–Ω–∞–ª—å–Ω—ã—Ö –∫–æ–¥–æ–≤."
 
 msgid "Conflicting Extensions"
-msgstr "∫ﬁ›‰€ÿ⁄‚„ÓÈÿ’ “›„‚‡’››ÿ’ ›ﬁ‹’‡–"
+msgstr "–ö–æ–Ω—Ñ–ª–∏–∫—Ç—É—é—â–∏–µ –Ω–æ–º–µ—Ä–∞"
 
 msgid "Description"
-msgstr "æﬂÿ·–›ÿ’"
+msgstr "–û–ø–∏—Å–∞–Ω–∏–µ"
 
 msgid "The name of this application"
-msgstr "Ω–◊“–›ÿ’ ﬂ‡ÿ€ﬁ÷’›ÿÔ"
+msgstr "–ù–∞–∑–≤–∞–Ω–∏–µ –ø—Ä–∏–ª–æ–∂–µ–Ω–∏—è"
 
 msgid "Feature Code"
-msgstr "¡’‡“ÿ·›ÎŸ ⁄ﬁ‘"
+msgstr "–§—É–Ω–∫—Ü–∏–æ–Ω–∞–ª—å–Ω—ã–π –∫–æ–¥"
 
-msgid ""
-"The feature code/extension users can dial to access this application. This "
-"can also be modified on the Feature Codes page."
-msgstr ""
-"¡’‡“ÿ·›ÎŸ ⁄ﬁ‘ ÿ€ÿ “›„‚‡’››ÿŸ ›ﬁ‹’‡, Á’‡’◊ ⁄ﬁ‚ﬁ‡ÎŸ —„‘’‚ “Î◊Î“–‚Ï·Ô Ì‚ﬁ "
-"ﬂ‡ÿ€ﬁ÷’›ÿ’. Õ‚ﬁ ‹ﬁ÷’‚ ‡’‘–⁄‚ÿ‡ﬁ“–‚Ï·Ô “ ·’⁄Êÿÿ ¡’‡“ÿ·›Î’ ⁄ﬁ‘Î."
+msgid "The feature code/extension users can dial to access this application. This can also be modified on the Feature Codes page."
+msgstr "–§—É–Ω–∫—Ü–∏–æ–Ω–∞–ª—å–Ω—ã–π –∫–æ–¥/–Ω–æ–º–µ—Ä, –∫–æ—Ç–æ—Ä—ã–π –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª–∏ –º–æ–≥—É—Ç –Ω–∞–±—Ä–∞—Ç—å –¥–ª—è –¥–æ—Å—Ç—É–ø–∞ –∫ —ç—Ç–æ–º—É –ø—Ä–∏–ª–æ–∂–µ–Ω–∏—é. –≠—Ç–æ —Ç–∞–∫–∂–µ –º–æ–∂–µ—Ç –±—ã—Ç—å –∏–∑–º–µ–Ω–µ–Ω–æ –Ω–∞ —Å—Ç—Ä–∞–Ω–∏—Ü–µ –§—É–Ω–∫—Ü–∏–æ–Ω–∞–ª—å–Ω—ã–µ –∫–æ–¥—ã."
 
 msgid "Feature Status"
-msgstr "¡‚–‚„· ﬁﬂÊÿÿ"
+msgstr "–°—Ç–∞—Ç—É—Å —Ñ—É–Ω–∫—Ü–∏–æ–Ω–∞–ª—å–Ω–æ–≥–æ –∫–æ–¥–∞"
 
 msgid "If this code is enabled or not."
-msgstr "µ·€ÿ ⁄ﬁ‘ –⁄‚ÿ“ÿ‡ﬁ“–› ÿ€ÿ ›’‚"
+msgstr "–í–∫–ª—é—á–µ–Ω –ª–∏ —ç—Ç–æ—Ç –∫–æ–¥ –∏–ª–∏ –Ω–µ—Ç."
 
 msgid "Enabled"
-msgstr "≤⁄€ÓÁ’›"
+msgstr "–í–∫–ª—é—á–µ–Ω"
 
 msgid "Disabled"
-msgstr "≤Î⁄€ÓÁ’›"
+msgstr "–í—ã–∫–ª—é—á–µ–Ω"
 
 msgid "Destination"
-msgstr "Ω–ﬂ‡–“€’›ÿ’"
+msgstr "–ù–∞–ø—Ä–∞–≤–ª–µ–Ω–∏–µ"
 
 msgid "Submit Changes"
-msgstr "ø‡ÿ‹’›ÿ‚Ï ÿ◊‹’›’›ÿÔ"
+msgstr "–°–æ—Ö—Ä–∞–Ω–∏—Ç—å –∏–∑–º–µ–Ω–µ–Ω–∏—è"
 
 msgid "Delete"
-msgstr "√‘–€ÿ‚Ï"
+msgstr "–£–¥–∞–ª–∏—Ç—å"
 
 msgid "Invalid description specified"
-msgstr "√⁄–◊–›ﬁ ›’“’‡›ﬁ’ ﬁﬂÿ·–›ÿ’"
+msgstr "–£–∫–∞–∑–∞–Ω–æ –Ω–µ–≤–µ—Ä–Ω–æ–µ –æ–ø–∏—Å–∞–Ω–∏–µ"
+
