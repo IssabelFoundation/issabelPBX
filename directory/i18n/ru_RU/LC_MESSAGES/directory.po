@@ -1,6 +1,6 @@
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2012 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Alexander Anikin <may@postmet.com>, 2006-2012.
 msgid ""
 msgstr ""
@@ -111,7 +111,7 @@ msgid ""
 "unmatched responses (as determined by Invalid Retries)"
 msgstr ""
 "Сообщение, воспроизводимое позвонившему перед посылкой на альтернативное назначение при набраном 0 "
-"или достижении числа максимальных попыток неверно набранного номера (указанного в пункте Неверных попыток)."
+"или достижении числа максимальных ппыток неверно набранного номера (указанного в пункте Неверных попыток)."
 
 msgid "Invalid Destination"
 msgstr "Назначение для неверно набранных номеров"
@@ -127,7 +127,7 @@ msgid ""
 "selected, the call will be returned there instead of the Invalid destination."
 msgstr ""
 "Если отмечено, то при неверно набранных номерах вызов будет возвращаться в текущее интерактивное меню, вместо того, "
-"чтобы уйти по назначению для неверно набранных номеров."
+"чтобы уйти о назначению для неверно набранных номеров."
 
 msgid "Announce Extension"
 msgstr "Анонс внутреннего номера"
@@ -158,7 +158,7 @@ msgid "Choose One"
 msgstr "Выберите"
 
 msgid "All Users"
-msgstr "Все пользователи"
+msgstr "Все польователи"
 
 msgid "Custom"
 msgstr "Особое"
@@ -258,7 +258,7 @@ msgstr "Ошибка при миграции в новую директорию!
 
 msgid ""
 "Error migrating to new directory! ERROR: Could not populate new Directory "
-msgstr "Ошибка при миграции в новую директорию! ОШИБКА: невозможно расширить новую директорию."
+msgstr "Ошибка при миграции в новую директорию! ОШИБКА: невозмоно расширить новую директорию."
 
 msgid "Setting migrated directory as default"
 msgstr "Установить директорию для миграции как директорию по умолчанию"
@@ -300,4 +300,4 @@ msgid "dropping directory_details, directory_entries.."
 msgstr "сбрасываем directory_details, directory_entries.."
 
 msgid "deleting default_directory and migration tracking keys.."
-msgstr "удаляем default_directory и метки отслеживания миграции.."
+msgstr "удаляем default_directory и метки ослеживания миграции.."
