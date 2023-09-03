@@ -1,9 +1,8 @@
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2008 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
 #
-# ∏·ﬂﬁ€Ï◊ﬁ“–‚Ï iconv yourfile.new -f UTF-8 -t ISO-8859-5 -o yourfile.po
 # fuzzy
 msgid ""
 msgstr ""
@@ -14,150 +13,147 @@ msgstr ""
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
 "Language-Team: Russian <faq@postmet.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-5\n"
+"Content-Type: text/plain; charset=utf8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Asterisk Info"
-msgstr ""
+msgstr "–∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è Asterisk"
 
 msgid "Reports"
-msgstr ""
+msgstr "–û—Ç—á–µ—Ç—ã"
 
 msgid "Provides a snapshot of the current Asterisk configuration"
-msgstr ""
+msgstr "–ü—Ä–µ–¥–æ—Å—Ç–∞–≤–ª—è–µ—Ç –º–æ–º–µ–Ω—Ç–∞–ª—å–Ω—ã–π —Å–Ω–∏–º–æ–∫ —Ç–µ–∫—É—â–µ–π –∫–æ–Ω—Ñ–∏–≥—É—Ä–∞—Ü–∏–∏ Asterisk"
 
 msgid "Summary"
-msgstr "∫‡–‚⁄–Ô ·“ﬁ‘⁄–"
+msgstr "–°–≤–æ–¥–∫–∞"
 
 msgid "Registries"
-msgstr "¿’”ÿ·‚‡–Êÿÿ"
+msgstr "–†–µ–≥–∏—Å—Ç—Ä—ã"
 
 msgid "Channels"
-msgstr "∫–›–€ﬁ“"
+msgstr "–ö–∞–Ω–∞–ª—ã"
 
 msgid "Peers"
-msgstr "øÿ‡ﬁ“"
+msgstr "–ü–∏—Ä—ã"
 
 msgid "Sip Info"
-msgstr "∏›‰ﬁ‡‹–ÊÿÔ SIP"
+msgstr "SIP-–∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è"
 
 msgid "IAX Info"
-msgstr "∏›‰ﬁ‡‹–ÊÿÔ IAX"
+msgstr "–ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è IAX"
 
 msgid "Conferences"
-msgstr "∫ﬁ›‰’‡’›Êÿÿ"
+msgstr "–ö–æ–Ω—Ñ–µ—Ä–µ–Ω—Ü–∏–∏"
 
 msgid "Queues"
-msgstr ""
+msgstr "–û—á–µ—Ä–µ–¥–∏"
 
 msgid "Subscriptions"
-msgstr "øﬁ‘ﬂÿ·⁄ÿ"
+msgstr "–ü–æ–¥–ø–∏—Å–∫–∏"
 
 msgid "Full Report"
-msgstr "øﬁ€›ÎŸ ﬁ‚ÁÒ‚"
+msgstr "–ü–æ–ª–Ω—ã–π –æ—Ç—á–µ—Ç"
 
 msgid "Uptime"
-msgstr "Uptime"
+msgstr "–í—Ä–µ–º—è —Ä–∞–±–æ—Ç—ã"
 
 msgid "Active Channel(s)"
-msgstr "∞⁄‚ÿ“›ÎÂ ⁄–›–€ﬁ“"
+msgstr "–ê–∫—Ç–∏–≤–Ω—ã–µ –∫–∞–Ω–∞–ª—ã"
 
 msgid "Sip Channel(s)"
-msgstr "SIP ⁄–›–€Î"
+msgstr "SIP-–∫–∞–Ω–∞–ª—ã"
 
 msgid "IAX2 Channel(s)"
-msgstr "IAX2 ⁄–›–€Î"
+msgstr "IAX-–∫–∞–Ω–∞–ª—ã"
 
 msgid "IAX2 Peers"
-msgstr "IAX2 ﬂÿ‡Î"
+msgstr "IAX-–ø–∏—Ä—ã"
 
 msgid "Sip Registry"
-msgstr "SIP ‡’”ÿ·‚‡–Êÿÿ"
+msgstr "SIP-—Ä–µ–≥–∏—Å—Ç—Ä"
 
 msgid "Sip Peers"
-msgstr "SIP ﬂÿ‡Î"
+msgstr "SIP-–ø–∏—Ä—ã"
 
 msgid "IAX2 Registry"
-msgstr "IAX2 ‡’”ÿ·‚‡–Êÿÿ"
+msgstr "IAX-—Ä–µ–≥–∏—Å—Ç—Ä"
 
 msgid "Subscribe/Notify"
-msgstr "øﬁ‘ﬂÿ·⁄ÿ/√“’‘ﬁ‹€’›ÿÔ"
+msgstr "–ü–æ–¥–ø–∏—Å–∫–∞/–£–≤–µ–¥–æ–º–ª–µ–Ω–∏–µ"
 
 msgid "DAHDi driver info"
-msgstr ""
+msgstr "–ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –¥—Ä–∞–π–≤–µ—Ä–µ DAHDi"
 
 msgid "Zaptel driver info"
-msgstr "∏›‰ﬁ‡‹–ÊÿÔ ﬁ ‘‡–Ÿ“’‡’ Zaptel"
+msgstr "–ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –¥—Ä–∞–π–≤–µ—Ä–µ Zaptel"
 
 msgid "MeetMe Conference Info"
-msgstr ""
+msgstr "–ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –∫–æ–Ω—Ñ–µ—Ä–µ–Ω—Ü–∏–∏ MeetMe"
 
 msgid "Conference Bridge Info"
-msgstr ""
+msgstr "–ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –∫–æ–Ω—Ñ–µ—Ä–µ–Ω—Ü–∏–∏"
 
 msgid "Queues Info"
-msgstr ""
+msgstr "–ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ–± –æ—á–µ—Ä–µ–¥—è—Ö"
 
 msgid "Voicemail Users"
-msgstr "øﬁ€Ï◊ﬁ“–‚’€ÿ ”ﬁ€ﬁ·ﬁ“ﬁŸ ﬂﬁÁ‚Î"
+msgstr "–ü–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª–∏ –≥–æ–ª–æ—Å–æ–≤–æ–π –ø–æ—á—Ç—ã"
 
 msgid "Google Talk Channels"
-msgstr ""
+msgstr "–ö–∞–Ω–∞–ª—ã Google Talk"
 
 msgid "Jabber Connections"
-msgstr ""
+msgstr "–°–æ–µ–¥–∏–Ω–µ–Ω–∏—è Jabber"
 
 msgid "Asterisk (Ver. "
-msgstr "∞·‚’‡ÿ·⁄ (≤’‡·ÿÔ "
+msgstr "Asterisk (–í–µ—Ä—Å–∏—è "
 
 msgid "ASTERISK MANAGER ERROR"
-msgstr "æ»∏±∫∞ ºæ¥√ªœ ºµΩµ¥∂µ¿"
+msgstr "–û–®–ò–ë–ö–ê –ú–ï–ù–ï–î–ñ–ï–†–ê ASTERISK"
 
 msgid ""
 "The module was unable to connect to the Asterisk manager.<br>Make sure "
 "Asterisk is running and your manager.conf settings are proper.<br><br>"
-msgstr ""
-"ºﬁ‘„€Ï ›’ ‹ﬁ÷’‚ ·ﬁ’‘ÿ›ÿ‚Ï·Ô · „ﬂ‡–“€’›ÿ’‹ ∞·‚’‡ÿ·⁄<br>√—’‘ÿ‚’·Ï Á‚ﬁ ∞·‚’‡ÿ·⁄ "
-"‡–—ﬁ‚–’‚, ÿ ›–·‚‡ﬁŸ⁄ÿ manager.conf ⁄ﬁ‡‡’⁄‚›Î.<br><br>"
+msgstr "–ú–æ–¥—É–ª—é –Ω–µ —É–¥–∞–ª–æ—Å—å –ø–æ–¥–∫–ª—é—á–∏—Ç—å—Å—è –∫ –º–µ–Ω–µ–¥–∂–µ—Ä—É Asterisk. –£–±–µ–¥–∏—Ç–µ—Å—å, —á—Ç–æ Asterisk –∑–∞–ø—É—â–µ–Ω –∏ –Ω–∞—Å—Ç—Ä–æ–π–∫–∏ manager.conf –≤–µ—Ä–Ω—ã. "
 
 msgid "Refresh"
-msgstr "æ—›ﬁ“ÿ‚Ï"
+msgstr "–û–±–Ω–æ–≤–∏—Ç—å"
 
 msgid "Uptime: "
-msgstr "∂ÿ“: "
+msgstr "–í—Ä–µ–º—è —Ä–∞–±–æ—Ç—ã: "
 
 msgid "Active SIP Channel(s): "
-msgstr "∞⁄‚ÿ“›ÎÂ SIP ⁄–›–€ﬁ“: "
+msgstr "–ê–∫—Ç–∏–≤–Ω—ã–π –∫–∞–Ω–∞–ª(—ã) SIP:"
 
 msgid "Active IAX2 Channel(s): "
-msgstr "∞⁄‚ÿ“›ÎÂ IAX2 ⁄–›–€ﬁ“: "
+msgstr "–ê–∫—Ç–∏–≤–Ω—ã–π –∫–∞–Ω–∞–ª(—ã) IAX2:"
 
 msgid "Sip Registry: "
-msgstr "SIP ‡’”ÿ·‚‡–ÊÿŸ: "
+msgstr "–†–µ–≥–∏—Å—Ç—Ä SIP: "
 
 msgid "IAX2 Registry: "
-msgstr "IAX2 ‡’”ÿ·‚‡–ÊÿŸ: "
+msgstr "–†–µ–≥–∏—Å—Ç—Ä IAX2: "
 
 msgid "Sip Peers: "
-msgstr "SIP ﬂÿ‡ﬁ“: "
+msgstr "SIP-–ø–∏—Ä—ã: "
 
 msgid "IAX2 Peers: "
-msgstr "IAX2 ﬂÿ‡ﬁ“: "
+msgstr "IAX-–ø–∏—Ä—ã: "
 
 msgid "Online: "
-msgstr "æ›€–Ÿ›: "
+msgstr "–û–Ω–ª–∞–π–Ω: "
 
 msgid "Online-Unmonitored: "
-msgstr ""
+msgstr "–û–Ω–ª–∞–π–Ω-–Ω–µ–Ω–∞–±–ª—é–¥–∞–µ–º—ã–π: "
 
 msgid "Offline: "
-msgstr "æ‰€–Ÿ›: "
+msgstr "–û—Ñ—Ñ–ª–∞–π–Ω: "
 
 msgid "Offline-Unmonitored: "
-msgstr ""
+msgstr "–û—Ñ—Ñ–ª–∞–π–Ω-–Ω–µ–Ω–∞–±–ª—é–¥–∞–µ–º—ã–π: "
 
 msgid "Unmonitored: "
-msgstr "Ω’ ‹ﬁ›ÿ‚ﬁ‡ÿ‚·Ô: "
+msgstr "–ù–µ–Ω–∞–±–ª—é–¥–∞–µ–º—ã–π: "
 
-#~ msgid "Conference Info"
-#~ msgstr "∏›‰ﬁ‡‹–ÊÿÔ ﬂﬁ ⁄ﬁ›‰’‡’›ÊÿÔ‹"
+
