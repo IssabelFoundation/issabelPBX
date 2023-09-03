@@ -1,9 +1,9 @@
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2008 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
 #
-# ёбЯЮЫмЧЮТРвм iconv amp.new -f UTF-8 -t ISO-8859-5 -o amp.po
+#  iconv amp.new -f UTF-8 -t ISO-8859-5 -o amp.po
 # fuzzy
 msgid ""
 msgstr ""
@@ -18,253 +18,57 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Feature Code Admin"
-msgstr "ГЯаРТЫХЭШХ бХаТШбЭлЬШ ЪЮФРЬШ"
+msgstr "РљРѕРґ С„СѓРЅРєС†РёРё РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ"
 
 msgid "Admin"
-msgstr ""
+msgstr "РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ"
 
 msgid "Feature Codes"
-msgstr ""
+msgstr "РљРѕРґС‹ С„СѓРЅРєС†РёР№"
 
 msgid "Featurecode: "
-msgstr ""
+msgstr "РљРѕРґ С„СѓРЅРєС†РёРё: "
 
 msgid "featuredescription"
-msgstr ""
+msgstr "РѕРїРёСЃР°РЅРёРµ"
 
-msgid ""
-"You have feature code conflicts with extension numbers in other modules. "
-"This will result in unexpected and broken behavior."
-msgstr ""
+msgid "You have feature code conflicts with extension numbers in other modules. This will result in unexpected and broken behavior."
+msgstr "Р’С‹ РёРјРµРµС‚Рµ РєРѕРЅС„Р»РёРєС‚С‹ РєРѕРґРѕРІ С„СѓРЅРєС†РёР№ СЃ РЅРѕРјРµСЂР°РјРё РІ РґСЂСѓРіРёС… РјРѕРґСѓР»СЏС…. Р­С‚Рѕ РїСЂРёРІРµРґРµС‚ Рє РЅРµРѕР¶РёРґР°РЅРЅРѕРјСѓ Рё РЅРµРїСЂР°РІРёР»СЊРЅРѕРјСѓ РїРѕРІРµРґРµРЅРёСЋ."
 
 msgid "Feature Code Conflicts with other Extensions"
-msgstr ""
+msgstr "РљРѕРґ С„СѓРЅРєС†РёРё РєРѕРЅС„Р»РёРєС‚СѓРµС‚ СЃ РґСЂСѓРіРёРјРё РЅРѕРјРµСЂР°РјРё РІ РґСЂСѓРіРёС… РјРѕРґСѓР»СЏС…. Р­С‚Рѕ РїСЂРёРІРµРґРµС‚ Рє РЅРµРѕР¶РёРґР°РЅРЅРѕРјСѓ Рё РЅРµРїСЂР°РІРёР»СЊРЅРѕРјСѓ РїРѕРІРµРґРµРЅРёСЋ."
 
 msgid "Use"
-msgstr "ёбЯЮЫмЧгХвбп"
+msgstr "РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ"
 
 msgid "Default"
-msgstr "ЯЮ гЬЮЫзРЭШо"
+msgstr "РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ"
 
 msgid "Feature"
-msgstr "БХаТШб"
+msgstr "Р¤СѓРЅРєС†РёСЏ"
 
 msgid "Status"
-msgstr "БвРвгб"
+msgstr "РЎС‚Р°С‚СѓСЃ"
 
 msgid "moduledescription"
-msgstr ""
+msgstr "РѕРїРёСЃР°РЅРёРµ"
 
 msgid "Disabled"
-msgstr "ґХРЪвШТШаЮТРЭЮ"
+msgstr "РћС‚РєР»СЋС‡РµРЅРѕ"
 
 msgid "Enabled"
-msgstr "°ЪвШТШаЮТРЭЮ"
+msgstr "Р’РєР»СЋС‡РµРЅРѕ"
 
 msgid "Submit Changes"
-msgstr "їЮФвТХаФШвм ШЧЬХЭХЭШп"
+msgstr "РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ"
 
-msgid ""
-"Please enter a Feature Code or check Use Default for all Enabled Feature "
-"Codes"
-msgstr ""
+msgid "Please enter a Feature Code or check Use Default for all Enabled Feature Codes"
+msgstr "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РєРѕРґ С„СѓРЅРєС†РёРё РёР»Рё РѕС‚РјРµС‚СЊС‚Рµ \"РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ\" РґР»СЏ РІСЃРµС… РІРєР»СЋС‡РµРЅРЅС‹С… РєРѕРґРѕРІ С„СѓРЅРєС†РёР№"
 
 msgid "Feature Codes have been duplicated"
-msgstr ""
+msgstr "РљРѕРґС‹ С„СѓРЅРєС†РёР№ РґСѓР±Р»РёСЂСѓСЋС‚СЃСЏ"
 
 msgid "Are you sure you wish to proceed?"
-msgstr ""
+msgstr "Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ?"
 
-#~ msgid "Blacklist a number"
-#~ msgstr "ЅЮЬХа - Т ЗХаЭлЩ бЯШбЮЪ"
 
-#~ msgid "Blacklist the last caller"
-#~ msgstr "їЮбЫХФЭШЩ ЯЮЧТЮЭШТиШЩ - Т ЗХаЭлЩ бЯШбЮЪ"
-
-#~ msgid "Remove a number from the blacklist"
-#~ msgstr "ГФРЫШвм ЭЮЬХа ШЧ ЗХаЭЮУЮ бЯШбЪР"
-
-#~ msgid "Call Forward"
-#~ msgstr "їХаХТЮФ ЧТЮЭЪР"
-
-#~ msgid "Call Forward All Activate"
-#~ msgstr "їХаХТЮФ ЧТЮЭЪЮТ - РЪвШТШаЮТРвм ФЫп ТбХе"
-
-#~ msgid "Call Forward All Deactivate"
-#~ msgstr "їХаХТЮФ ЧТЮЭЪЮТ - ФХРЪвШТШаЮТРвм ФЫп ТбХе"
-
-#~ msgid "Call Forward All Prompting Deactivate"
-#~ msgstr "їаХФЫЮЦХЭШХ Ю ЯХаХТЮФХ ЧТЮЭЪЮТ - ФХРЪвШТШаЮТРвм ФЫп ТбХе"
-
-#~ msgid "Call Forward Busy Activate"
-#~ msgstr "їХаХТЮФ ЧТЮЭЪЮТ ЯаШ бЮбвЮпЭШШ ·РЭпвЮ"
-
-#~ msgid "Call Forward Busy Deactivate"
-#~ msgstr "їХаХТЮФ ЧТЮЭЪЮТ ЯаШ бЮбвЮпЭШШ ·РЭпвЮ - РЪвШТШаЮТРвм"
-
-#~ msgid "Call Forward Busy Prompting Deactivate"
-#~ msgstr ""
-#~ "їаХФЫЮЦХЭШЮ Ю ЯХаХТЮФХ ЧТЮЭЪЮТ ЯаШ бЮбвЮпЭШШ ·РЭпвЮ - ФХРЪвШТШаЮТРвм"
-
-#~ msgid "Call Forward No Answer/Unavailable Activate"
-#~ msgstr "їХаХТЮФ ЧТЮЭЪЮТ ЯаШ бЮбвЮпЭШШ ЅХ ЮвТХзХЭ/ЅХ ФЮбвгЯХЭ - РЪвШТШаЮТРвм"
-
-#~ msgid "Call Forward No Answer/Unavailable Deactivate"
-#~ msgstr ""
-#~ "їХаХТЮФ ЧТЮЭЪЮТ ЯаШ бЮбвЮпЭШШ ЅХ ЮвТХзХЭ/ЅХ ФЮбвгЯХЭ - ФХРЪвШТШаЮТРвм"
-
-#~ msgid "Call Waiting"
-#~ msgstr "ѕЦШФРЭШХ ЧТЮЭЪР (ТЮЧЬЮЦЭЮбвм ЯаШсЬР ТвЮаЮУЮ ЧТЮЭЪР)"
-
-#~ msgid "Call Waiting - Activate"
-#~ msgstr "ѕЦШФРЭШХ ЧТЮЭЪР - РЪвШаЮТРвм"
-
-#~ msgid "Call Waiting - Deactivate"
-#~ msgstr "ѕЦШФРЭШХ ЧТЮЭЪР - ФХРЪвШаЮТРвм"
-
-#~ msgid "Core"
-#~ msgstr "іЫРТЭлХ"
-
-#~ msgid "Call Pickup (Can be used with GXP-2000)"
-#~ msgstr "їХаХеТРв ЧТЮЭЪР (ЬЮЦЭЮ ШбЯЮЫмЧЮТРвм ЭР GXP-2000)"
-
-#~ msgid "ChanSpy"
-#~ msgstr "єРЭРЫ ФЫп ЯаЮбЫгиШТРЭШп"
-
-#~ msgid "Dial System FAX"
-#~ msgstr "ЅРСаРвм ТбваЮХЭЭлЩ бШбвХЬЭлЩ дРЪб"
-
-#~ msgid "Directed Call Pickup"
-#~ msgstr "їапЬЮЩ ЯХаХеТРв ЧТЮЭЪР"
-
-#~ msgid "Asterisk General Call Pickup"
-#~ msgstr "ѕСйШЩ ФЫп ТбХе - ЯХаХеТРв ЧТЮЭЪР"
-
-#~ msgid "In-Call Asterisk Blind Transfer"
-#~ msgstr "їХаХТЮФ ЧТЮЭЪР СХЧ гТХФЮЬЫХЭШп"
-
-#~ msgid "In-Call Asterisk Attended Transfer"
-#~ msgstr "їХаХТЮФ ЧТЮЭЪР б гТХФЮЬЫХЭШХЬ"
-
-#~ msgid "In-Call Asterisk Toggle Call Recording"
-#~ msgstr "ІЪЫозШвм ЧРЯШбм аРЧУЮТЮаР ТЮ ТаХЬп ЧТЮЭЪР"
-
-#~ msgid "In-Call Asterisk Disconnect Code"
-#~ msgstr "АРЧкХФХЭШвм ЫШЭШо ТЮ ТаХЬп аРЧУЮТЮаР"
-
-#~ msgid "Checking if directdids need migrating.."
-#~ msgstr "їаЮТХаШвм ЭгЦЭЮ ЫШ ЯХаХЭРЧЭРзШм ТеЮФпйШХ DID's"
-
-#~ msgid "starting migration"
-#~ msgstr "ЭРзРЫЮ ЬШУаРжШШ"
-
-#~ msgid "User: "
-#~ msgstr "їЮЫмЧЮТРвХЫм:"
-
-#~ msgid "ERROR: failed to insert %s for user %s"
-#~ msgstr "ѕИё±є°: ЭХ ЯЮЫгзШЫЮбм ЭРЧЭРзШвм %s ФЫп ЯЮЫмЧЮТРвХЫп %s"
-
-#~ msgid "Simulate Incoming Call"
-#~ msgstr "БШЬгЫпжШп ТеЮФпйХУЮ ЧТЮЭЪР"
-
-#~ msgid "Simulate Incoming FAX Call"
-#~ msgstr "БШЬгЫпжШп ТеЮФпйХУЮ дРЪбР"
-
-#~ msgid "User Logoff"
-#~ msgstr "ІлеЮФ ЯЮЫмЧЮТРвХЫп"
-
-#~ msgid "User Logon"
-#~ msgstr "ІеЮФ ЯЮЫмЧЮТРвХЫп"
-
-#~ msgid "Dictation"
-#~ msgstr "ЅРФШЪвЮТЪР"
-
-#~ msgid "Email completed dictation"
-#~ msgstr "ЅРФШЪвЮТЪР бЮЮСйХЭШп Т нЫХЪваЮЭЭго ЯЮзвг"
-
-#~ msgid "Perform dictation"
-#~ msgstr "ЅРзРвм ЭРФШЪвЮТЪг"
-
-#~ msgid "Do-Not-Disturb (DND)"
-#~ msgstr "ЅХ СХбЯЮЪЮШвм (DND)"
-
-#~ msgid "DND Activate"
-#~ msgstr "°ЪвШТШаЮТРвм аХЦШЬ ЅХ СХбЯЮЪЮШвм"
-
-#~ msgid "DND Deactivate"
-#~ msgstr "ґХРЪвШТШаЮТРвм аХЦШЬ ЅХ СХбЯЮЪЮШвм"
-
-#~ msgid "Info Services"
-#~ msgstr "ёЭдЮаЬРжШЮЭЭлЩ бХаТШб"
-
-#~ msgid "Call Trace"
-#~ msgstr "ВаРббШаЮТЪР ЧТЮЭЪР"
-
-#~ msgid "Directory"
-#~ msgstr "БХаТШб ФШаХЪвЮаШЩ"
-
-#~ msgid "Echo Test"
-#~ msgstr "НеЮ вХбв"
-
-#~ msgid "Speak Your Exten Number"
-#~ msgstr "ІРи ТЭгваХЭЭШЩ ЭЮЬХа..."
-
-#~ msgid "Speaking Clock"
-#~ msgstr "іЮТЮапйШХ зРбл"
-
-#~ msgid "Misc Applications"
-#~ msgstr "ґЮЯЮЫЭШвХЫмЭлХ ЯаШЫЮЦХЭШп"
-
-#~ msgid "Paging and Intercom"
-#~ msgstr "їХЩФЦШЭУ Ш ШЭвХаЪЮЬ"
-
-#~ msgid "Intercom prefix"
-#~ msgstr "їаХдШЪб ФЫп ШЭвХаЪЮЬР"
-
-#~ msgid "User Intercom Allow"
-#~ msgstr "АРЧаХиШвм ЯЮЫмЧЮТРвХЫо ШбЯЮЫмЧЮТРвм ШЭвХаЪЮЬ"
-
-#~ msgid "User Intercom Disallow"
-#~ msgstr "·РЯаХвШвм ЯЮЫмЧЮТРвХЫо ШбЯЮЫмЧЮТРвм ШЭвХаЪЮЬ"
-
-#~ msgid "Phonebook Directory"
-#~ msgstr "ВХЫХдЮЭЭРп ЪЭШУР"
-
-#~ msgid "Phonebook dial-by-name directory"
-#~ msgstr "ВХЫХдЮЭЭРп ЪЭШУР б ЭРСЮаЮЬ-ЯЮ-ШЬХЭШ"
-
-#~ msgid "Recordings"
-#~ msgstr "·РЯШбм бЮЮСйХЭШЩ"
-
-#~ msgid "Check Recording"
-#~ msgstr "їаЮТХаШвм ЧРЯШбм"
-
-#~ msgid "Save Recording"
-#~ msgstr "БЮеаРЭШвм ЧРЯШбм"
-
-#~ msgid "Speed dial functions"
-#~ msgstr "ДгЭЪжШШ СлбваЮУЮ ЭРСЮаР"
-
-#~ msgid "Set user speed dial"
-#~ msgstr "ГбвРЭЮТШвм СлбвалЩ ЭРСЮа ФЫп ЯЮЫмЧЮТРвХЫп"
-
-#~ msgid "Speeddial prefix"
-#~ msgstr "їаХдШЪб ФЫп СлбваЮУЮ ЭРСЮаР"
-
-#~ msgid "Voicemail"
-#~ msgstr "іЮЫЮбЮТРп ЯЮзвР"
-
-#~ msgid "Dial Voicemail"
-#~ msgstr "ґЮбвгЯ Т іЮЫЮбЮТго ЯЮзвг"
-
-#~ msgid "My Voicemail"
-#~ msgstr "ґЮбвгЯ Т пйШЪ УЮЫЮбЮТЮЩ ЯЮзвл"
-
-#~ msgid "Please select an extension!"
-#~ msgstr "ІлСХаШвХ ТЭгваХЭЭШЩ ЭЮЬХа!"
-
-#~ msgid "Day Night Mode"
-#~ msgstr "АХЦШЬ ФХЭм/ЭЮзм"
-
-#~ msgid "Day/Night Control Toggle"
-#~ msgstr "їХаХЪЫозХЭШХ аХЦШЬР ФХЭм/ЭЮзм"
