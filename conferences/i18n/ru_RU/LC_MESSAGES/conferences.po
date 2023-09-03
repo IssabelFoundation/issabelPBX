@@ -13,9 +13,9 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2008 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2011.
 #
 # Использовать iconv conferences.utf8.po -f UTF-8 -t ISO-8859-5 -o conferences.po
@@ -51,7 +51,7 @@ msgstr ""
 
 #, php-format
 msgid "Conference Room %s : %s"
-msgstr "Конференц-комната %s : %s"
+msgstr "Конфернц-комната %s : %s"
 
 #, php-format
 msgid "Conference: %s"
@@ -155,7 +155,7 @@ msgid ""
 "entered, the user will be prompted to enter a PIN."
 msgstr ""
 "Можно требовать ввести пароль для входя пользователей в конференцию."
-"<br><br>Это необязательный параметр.<br><br>Если указан PIN в этом поле, "
+"<br><br>Это необязательный параметр.<br><br>Если указан PIN в этом оле, "
 "пользователю будет предложено набрать его."
 
 msgid "Admin PIN"
@@ -226,7 +226,7 @@ msgstr ""
 "Включает оптимизацию для выступающего. При включеной опции Астериск "
 "распознаёт пассивных слушателей и приглушает им микрофон, тем самым уменьшая "
 "нагрузку на декодирование незадействованных каналов и снижая тем самым общий "
-"шум заднего плана."
+"шум заднго плана."
 
 msgid "Talker Detection"
 msgstr "Распознавание выступающего"
@@ -248,7 +248,7 @@ msgstr "Тихий режим"
 
 msgid "Quiet mode (do not play enter/leave sounds)"
 msgstr ""
-"Тихий режим (не воспроизводятся сообщения о том кто вошёл или вышел из "
+"Тихий режим (не воспроизводятся сообщения о том кто вошл или вышел из "
 "конференции)"
 
 msgid "User Count"
@@ -321,7 +321,7 @@ msgid ""
 "you do not have 'Leader Wait' set to yes you must have 'Allow Menu' set to "
 "Yes to unmute yourself"
 msgstr ""
-"Отключать микрофон у каждого кто присоединяется к конференции. Пожалуйста заметьте"
+"Отключать мкрофон у каждого кто присоединяется к конференции. Пожалуйста заметьте"
 "если опция 'Ждать организатора' не установлена у вас в значение 'Yes',значит у вас должна быть"
 "установленна опция 'Разрешить меню', что бы вы могли включить микрофон"
 
@@ -338,7 +338,7 @@ msgid ""
 "You must set an admin PIN for the Conference Leader when selecting the "
 "leader wait option"
 msgstr ""
-"Вы должны ввести пин-код администратора если хотите использовать опцию "
+"Вы должны ввести пин-код администратора если хотите использовть опцию "
 "ожидания модератора"
 
 msgid ""
