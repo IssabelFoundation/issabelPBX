@@ -1,6 +1,6 @@
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2008 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
 #
 
@@ -64,7 +64,7 @@ msgid ""
 "configured such a destination, it will still work but the Feature Code short "
 "cuts select list is not longer provided."
 msgstr ""
-"Если вам необдим доступ к сервисныс кодам, таким как *98 для набора Голосовой почты, "
+"Если вам необим доступ к сервисныс кодам, таким как *98 для набора Голосовой почты, "
 "или настройки Праивил по времени, эти возможности на текущий момент предствленны как "
 "сервисные коды административного назначения, они так же будут работать, но список"
 "этих кодов больше не предоставляется."
@@ -83,7 +83,7 @@ msgid "Description"
 msgstr "Описание:"
 
 msgid "Give this Misc Destination a brief name to help you identify it."
-msgstr "Присвойте этому направленю ороткое название для идентификации."
+msgstr "Присвойте этому направленю ооткое название для идентификации."
 
 msgid "Dial"
 msgstr "Набирать:"
