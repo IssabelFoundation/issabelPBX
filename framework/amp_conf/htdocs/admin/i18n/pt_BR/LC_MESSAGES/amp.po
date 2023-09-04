@@ -648,7 +648,7 @@ msgstr "Qualquer DDR"
 
 #: amp.i18n.php:30
 msgid "Applications"
-msgstr ""
+msgstr "Aplicações"
 
 #: ../core/page.ampusers.php:232
 msgid "Apply Changes Bar"
@@ -656,7 +656,7 @@ msgstr "Barra de Confirmação de alterações"
 
 #: amp_conf/htdocs/admin/views/menu.php:168
 msgid "Apply Config"
-msgstr ""
+msgstr "Aplicar Configuração"
 
 #: amp_conf/htdocs/admin/views/footer.php:88
 msgid ""
@@ -1067,15 +1067,15 @@ msgstr "Congestionado"
 
 #: amp.i18n.php:40
 msgid "Connectivity"
-msgstr ""
+msgstr "Conectividade"
 
 #: amp_conf/htdocs/admin/views/footer.php:78
 msgid "Continue"
-msgstr ""
+msgstr "Continuar"
 
 #: ../core/page.trunks.php:578
 msgid "Continue if Busy"
-msgstr ""
+msgstr "Continuar se Ocupado"
 
 #: upgrades/2.8.0/custom-context.php:86
 #: upgrades/2.8.0rc1/custom-context.php:87
@@ -2615,7 +2615,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/views/menu.php:140
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #: ../core/page.routing.php:478
 #, php-format
@@ -3158,6 +3158,9 @@ msgstr "Opções"
 #: ../core/functions.inc.php:7663
 msgid "Other (Custom) Device"
 msgstr "Outro dispositivo (personalizado)"
+
+msgid "Other"
+msgstr "Outro"
 
 #: ../core/functions.inc.php:7160
 msgid "Outbound CID"
@@ -3724,7 +3727,7 @@ msgstr ""
 
 #: amp.i18n.php:50
 msgid "Settings"
-msgstr ""
+msgstr "Configurações"
 
 #: ../core/page.trunks.php:685 ../core/page.trunks.php:693
 msgid "Setup directory assistance"
@@ -5698,8 +5701,8 @@ msgstr ""
 #~ msgid "Management"
 #~ msgstr "Gerenciamento"
 
-#~ msgid "Reports"
-#~ msgstr "Relatórios"
+msgid "Reports"
+msgstr "Relatórios"
 
 #~ msgid "Panel"
 #~ msgstr "Painel"
