@@ -104,7 +104,7 @@ foreach ($sql as $dengine=>$q){
 		}
 }
 
-if($amp_conf['AMBDBENGINE']=='mysql' || $amp_conf['AMPDBENGINE']=='mysqli') {
+if($amp_conf['AMPDBENGINE']=='mysql' || $amp_conf['AMPDBENGINE']=='mysqli') {
     $sql = "ALTER TABLE customcontexts_includes ADD index sort(sort)";
 } else {
     // for sqlite3/rqlite
