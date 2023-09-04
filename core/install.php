@@ -1535,7 +1535,8 @@ $tables = array(
         $chr = $parts[1];
         $res = $db->query("DESC $tbl");
         if (!DB::IsError($res)) {
-            $sql = "ALTER TABLE $tbl CONVERT TO CHARACTER SET $chr COLLATE ${chr}_unicode_ci";
+            //$sql = "ALTER TABLE $tbl CONVERT TO CHARACTER SET $chr COLLATE ${chr}_unicode_ci";
+            $sql = "ALTER TABLE $tbl CONVERT TO CHARACTER SET $chr";
             $res2 = $db->query($sql);
             if (DB::IsError($res2)) {
                 out(__("error occured converting table $tbl"));
