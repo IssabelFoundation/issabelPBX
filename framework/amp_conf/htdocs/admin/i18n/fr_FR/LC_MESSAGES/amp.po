@@ -6444,3 +6444,6 @@ msgstr ""
 
 #~ msgid "The Zap Channel number to map to a DID"
 #~ msgstr "Le numéro de canal Zap pour associer un SDA"
+
+msgid "Back"
+msgstr "Retour"

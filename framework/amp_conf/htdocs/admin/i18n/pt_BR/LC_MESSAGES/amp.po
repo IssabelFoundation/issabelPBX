@@ -5590,6 +5590,9 @@ msgstr ""
 msgid "zap devices migrated"
 msgstr ""
 
+msgid "Back"
+msgstr "Voltar"
+
 #~ msgid "Tools"
 #~ msgstr "Ferramentas"
 

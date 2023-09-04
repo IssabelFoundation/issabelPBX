@@ -7698,3 +7698,6 @@ msgstr "retrieve_conf falló al realizar enlaces simbólicos: %s<br>Esto puede r
 
 msgid "Unable to write to %s"
 msgstr "No fue posible escribir en %s"
+
+msgid "Back"
+msgstr "Volver"
