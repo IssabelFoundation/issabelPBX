@@ -5,6 +5,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 <script src='/admin/modules/core/assets/js/extensions/copy2clipboard.js'></script>
 <?php 
 $extens = core_users_list();
+if($extens===null) $extens=array();
 $rnaventries = array();
 foreach($extens as $idx=>$data) {
     $midev = core_devices_get($data[0]);
