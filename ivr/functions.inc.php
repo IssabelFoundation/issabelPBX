@@ -349,7 +349,6 @@ function ivr_get_details($id = '') {
     if($db->IsError($res)) {
         die_issabelpbx($res->getDebugInfo());
     }
-
     return $id && isset($res[0]) ? $res[0] : $res;
 }
 
@@ -409,7 +408,31 @@ function ivr_configpageload() {
         }
     } else {
         $ivr = ivr_get_details($id);
+        if(count($ivr)==0) {
 
+            $ivr = array(
+                'name'=>'',
+                'description'=>'',
+                'invalid_ivr_ret'=>0,
+                'invalid_recording'=>0,
+                'invalid_destination'=>0,
+                'timeout_loops'=>3,
+                'timeout_retry_recording'=>'default',
+                'invalid_retry_recording'=>0,
+                'timeout_ivr_ret'=>10,
+                'timeout_destination'=>0,
+                'timeout_recording'=>0,
+                'retvm'=>0,
+                'announcement'=>0,
+                'directdial'=>0,
+                'timeout_time'=>10,
+                'invalid_loops'=>3,
+                'id'=>''
+            );
+
+        } else if(count($ivr)==1) {
+            $ivr = $ivr[0];
+        }
         $label = sprintf(__("Edit IVR: %s"), $ivr['name'] ? $ivr['name'] : 'ID '.$ivr['id']);
         $currentcomponent->addguielem('_top', new gui_pageheading('title', $label), 0);
 
@@ -421,7 +444,6 @@ function ivr_configpageload() {
             $currentcomponent->addguielem('_top',
                 new gui_link_label('usage', $usage_list_text, $usage_list_tooltip), 0);
         }
-
     }
 
     //general options
