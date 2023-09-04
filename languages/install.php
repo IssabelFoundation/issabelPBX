@@ -21,7 +21,7 @@ $sql['language_incoming']='CREATE TABLE IF NOT EXISTS language_incoming (
 )';
 
 foreach($sql as $t=>$s){
-    if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"]))  { $s.=" DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";   }
+    if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"]))  { $s.=" DEFAULT CHARSET=utf8mb4";   }
 	$check = $db->query($s);
 	if(DB::IsError($check)) {
 		die_issabelpbx("Can not create $t table\n");
