@@ -313,7 +313,7 @@ CREATE TABLE `dahdichandids` (
 CREATE TABLE `pjsipsettings` (
 `keyword` varchar(50) NOT NULL,
 `data` varchar(255) NOT NULL,
-`seq` tinyint(1) NOT NULL,
+`seq` tinyint(1) NOT NULL DEFAULT '1',
 `type` tinyint(1) DEFAULT '0' NOT NULL,
 PRIMARY KEY (`keyword`,`seq`,`type`)
 ) DEFAULT CHARSET=utf8mb4;
