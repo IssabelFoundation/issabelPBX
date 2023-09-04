@@ -64,6 +64,18 @@ class modgettext {
 
     /**
      * 
+     * get_stack
+     * gets the textdomain stack
+     *
+     * @access static public
+     * @return array
+     */
+    static public function get_stack() {
+        return self::$textdomain_stack;
+    }
+
+    /**
+     *
      * push_textdomain
      * short sets the textdomain while saving the current domain on a stack
      *
@@ -71,8 +83,12 @@ class modgettext {
      * @param string
      * @return string
      */
-    static public function push_textdomain($module) {
-        array_push(self::$textdomain_stack, _textdomain(null));
+    static public function push_textdomain($module,$fromgettext=0) {
+        // if we call push_textdomain from gettextinc.php we do not want to enter a recursion loop by calling the caller fnction _textdomain
+        array_push(self::$textdomain_stack, $module);
+        if($fromgettext==0) {
+            _textdomain($module);
+        }
         return self::textdomain($module);
     }
 
@@ -86,7 +102,9 @@ class modgettext {
      */
     static public function pop_textdomain() {
         // if array is empty then null is returned to textdomain() which is the desired affect
-        return _textdomain(array_pop(self::$textdomain_stack));
+        $module =  array_pop(self::$textdomain_stack);
+        _textdomain(end(self::$textdomain_stack));
+        return $module;
     }
 
     /**

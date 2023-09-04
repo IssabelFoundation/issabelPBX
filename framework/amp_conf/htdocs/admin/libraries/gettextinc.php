@@ -267,11 +267,23 @@ function _bind_textdomain_codeset($domain, $codeset) {
  */
 function _textdomain($domain) {
     global $default_domain;
+
+    $stack =  modgettext::get_stack();
+    if(count($stack)==0) {
+        modgettext::push_textdomain($domain,1);
+    } else {
+        if(end($stack)!=$domain) {
+            modgettext::push_textdomain($domain,1);
+        }
+    }
+
     if($domain!='') {
         $default_domain = $domain;
     } else {
         $default_domain = 'amp';
     }
+
+    return $default_domain;
 }
 
 /**
