@@ -373,6 +373,7 @@ function form_action_bar($extdisplay, $formname='', $delete_disabled=false, $res
         $extratext = ($delete_text!='')? ' data-text="'.base64_encode($delete_text).'" ' : '';
         $out .= " <input $disabled name='delete' ".$tabindexhtml.$target.$extratext." type='submit' id='mainformdelete' value='"._dgettext('amp','Delete')."' class='button is-rounded is-light is-small is-danger'> ";
     }
+    $out.= "&nbsp;<input name='hback' ${tabindexhtml}${target} type='button' onClick='javascript:history.back()' value='"._dgettext('amp','Back')."' class='button is-rounded is-light is-small is-link'>";
     $out .= "
         </div>
       </div>
