@@ -1434,6 +1434,7 @@ case "mysql":
     out("Reconnecting as $datasource with asterisk user ");
 
     $db = DB::connect($datasource); // attempt connection
+    $db->query('SET NAMES utf8mb4');
     break;
 
 case "rqlite":
