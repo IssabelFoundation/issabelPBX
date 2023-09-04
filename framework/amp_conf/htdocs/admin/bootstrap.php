@@ -145,7 +145,6 @@ if (!$bootstrap_settings['skip_astman']) {
 if (!$bootstrap_settings['issabelpbx_auth'] || (php_sapi_name() == 'cli')) {
     if (!defined('ISSABELPBX_IS_AUTH')) {
         define('ISSABELPBX_IS_AUTH', 'TRUE');
-        define('FREEPBX_IS_AUTH', 'TRUE');
     }
 } else {
     require($dirname . '/libraries/gui_auth.php');
