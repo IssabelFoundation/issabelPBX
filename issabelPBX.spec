@@ -34,10 +34,10 @@ pear install DB >/dev/null 2>&1 || :
 
 PODIR=/usr/src/issabelPBX
 
-systemctl is-active --quiet asterisk
+killall -q -0 asterisk
 if [ $? -eq 0 ]; then
 echo "asterisk is up and running"
-systemctl is-active --quiet mysql
+killall -q -0 mysqld
 if [ $? -eq 0 ]; then
 echo "mariadb is up and running"
 echo "perform installation"
