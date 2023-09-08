@@ -944,6 +944,8 @@ foreach ($args[0] as $arg) {
     }
 }
 
+if($new_username=='') $new_username='root';
+
 if($installamp_clean || $uninstallamp) {
     global $webroot;
     global $asterisk_user;
@@ -1167,7 +1169,7 @@ out("running with PID: ".$pid_val[0]."..OK");
 // TODO: Check if issabelpbx_settings has been setup, if so then we don't even want to mess with amportal.conf, that
 //       should only be first time install.
 //
-outn("Checking for ".AMP_CONF."..");
+out("Checking for ".AMP_CONF."..");
 
 if (!file_exists(AMP_CONF)) {
     out(AMP_CONF." does not exist, copying default");
@@ -1183,18 +1185,18 @@ if (!file_exists(AMP_CONF)) {
     $install_moh = true;
 
     $amp_conf = install_parse_amportal_conf(AMP_CONF);
+    if (count($amp_conf) == 0) {
+        fatal("FAILED parsing/reading ".AMP_CONF);
+    }
 
 } else {
 
     $amp_conf = install_parse_amportal_conf(AMP_CONF);
+    if (count($amp_conf) == 0) {
+        fatal("FAILED parsing/reading ".AMP_CONF);
+    }
     $manager_pass= $amp_conf['AMPMGRPASS'];
     $database_pass= $amp_conf['AMPDBPASS'];
-}
-out("OK");
-
-$amp_conf = install_parse_amportal_conf(AMP_CONF);
-if (count($amp_conf) == 0) {
-    fatal("FAILED parsing/reading ".AMP_CONF);
 }
 
 // TODO: if we boostrapped I think we can count on ALL of these being set but maybe it's
@@ -1407,6 +1409,9 @@ case "mysql":
     out("Connecting as: $datasource");
 
     $db = DB::connect($datasource); // attempt connection
+    if (DB::isError($db)) {
+        fatal("Could not connect to database with supplied credentials (user: $new_username, pass: $new_password)");
+    }
 
     $query = "SHOW DATABASES LIKE 'asterisk'";
     $q = $db->query($query);
