@@ -908,11 +908,13 @@ function install_cron_scheduler() {
     global $amp_conf;
     global $nt;
 
+    $user = get_current_user();
+
     // crontab appears to return an error when no entries, os only fail if error returned AND a list of entries.
     // Don't know if this will ever happen, but a failure and a list could indicate something wrong.
     //
     $outlines = array();
-    exec("/usr/bin/crontab -l", $outlines, $ret);
+    exec("/usr/bin/crontab -l -u $user 2>/dev/null", $outlines, $ret);
     if ($ret && count($outlines)) {
         $nt->add_error('retrieve_conf', 'CRONMGR', _("Failed to check crontab for cron manager"), sprintf(_("crontab returned %s error code when checking for crontab entries to start issabelpbx-cron-scheduler.php crontab manager"),$ret));
     } else {
@@ -925,7 +927,7 @@ function install_cron_scheduler() {
              *  this code was taken from the backup module for the most part. But seems to work...
              */
             $outlines = array();
-            exec("/usr/bin/crontab -l | grep -v ^#\ DO\ NOT | grep -v ^#\ \( |  grep -v issabelpbx-cron-scheduler.php", $outlines, $ret);
+            exec("/usr/bin/crontab -l -u $user 2>/dev/null | grep -v ^#\ DO\ NOT | grep -v ^#\ \( |  grep -v issabelpbx-cron-scheduler.php", $outlines, $ret);
             $crontab_entry = "";
             foreach ($outlines as $line) {
                 $crontab_entry .= $line."\n";
@@ -935,7 +937,7 @@ function install_cron_scheduler() {
             // that it is to run
             //
             $crontab_entry .= rand(0,59)." * * * * ".$amp_conf['AMPBIN']."/issabelpbx-cron-scheduler.php";
-            system("/bin/echo '$crontab_entry' | /usr/bin/crontab -");
+            system("/bin/echo '$crontab_entry' | /usr/bin/crontab -u $user -");
             break;
         case 1:
             // already running, nothing to do
