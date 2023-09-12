@@ -937,7 +937,7 @@ function install_cron_scheduler() {
             // that it is to run
             //
             $crontab_entry .= rand(0,59)." * * * * ".$amp_conf['AMPBIN']."/issabelpbx-cron-scheduler.php";
-            system("/bin/echo '$crontab_entry' | /usr/bin/crontab -u $user -");
+            system("/bin/echo '$crontab_entry' | /usr/bin/crontab -u $user - >/dev/null 2>&1");
             break;
         case 1:
             // already running, nothing to do
