@@ -432,6 +432,12 @@ function set_base_version() {
     }
 }
 
+function compile_gettext() {
+    outn("Compiling gettext language files");
+    system('find /var/www/html/admin -name "*.po" -exec sh -c \'POFILE="$1"; MOFILE="${POFILE%.po}.mo"; sudo -u asterisk msgfmt "$POFILE" -o "$MOFILE" || :\' sh {} \;');
+    out("..OK");
+}
+
 /** Install all modules packaged with the install. We use the force flag because the
  *  the assumption is that the dependencies are met and the package is able to have
  *  the modules installed.
@@ -762,6 +768,7 @@ $longopts = array(
     "update-links",
     "dbuser=",
     "webroot=",
+    "compile-gettext"
 );
 
 $args = Console_Getopt::getopt(Console_Getopt::readPHPArgv(), $shortopts, $longopts);
@@ -780,6 +787,7 @@ $scripted = false;
 $install_moh = false;
 $make_links = false;
 $update_links = false;
+$compile_gettext = false;
 $module_install = true;
 $set_issabelpbx_settings = false;
 
@@ -873,6 +881,9 @@ foreach ($args[0] as $arg) {
     case "--install-fop":
         out("install-fop: depricated setting, does nothing.");
         break;
+    case "--compile-gettext":
+        $compile_gettext = true;
+        break;
     case "--update-links":
         $update_links = true;
     case "--make-links-devel":
@@ -944,6 +955,10 @@ foreach ($args[0] as $arg) {
     }
 }
 
+if($compile_gettext) {
+    compile_gettext();
+    exit;
+}
 if($new_username=='') $new_username='root';
 
 if($installamp_clean || $uninstallamp) {
@@ -1872,6 +1887,7 @@ $version = install_getversion();
 //
 if ($module_install && !$update_links) {
     install_modules();
+    compile_gettext();
 } else {
     out("bypassing packaged module installation because --skip-module-install or --update-links flag");
 }
