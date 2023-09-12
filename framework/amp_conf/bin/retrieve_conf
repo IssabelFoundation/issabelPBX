@@ -908,46 +908,11 @@ function install_cron_scheduler() {
     global $amp_conf;
     global $nt;
 
-    $user = get_current_user();
-
-    // crontab appears to return an error when no entries, os only fail if error returned AND a list of entries.
-    // Don't know if this will ever happen, but a failure and a list could indicate something wrong.
-    //
-    $outlines = array();
-    exec("/usr/bin/crontab -l -u $user 2>/dev/null", $outlines, $ret);
-    if ($ret && count($outlines)) {
-        $nt->add_error('retrieve_conf', 'CRONMGR', _("Failed to check crontab for cron manager"), sprintf(_("crontab returned %s error code when checking for crontab entries to start issabelpbx-cron-scheduler.php crontab manager"),$ret));
-    } else {
-        $nt->delete('retrieve_conf', 'CRONMGR');
-        $outlines2 = preg_grep("/issabelpbx-cron-scheduler.php/",$outlines);
-        $cnt = count($outlines2);
-        switch ($cnt) {
-        case 0:
-            /** grab any other cronjobs that are running as asterisk and NOT associated with backups
-             *  this code was taken from the backup module for the most part. But seems to work...
-             */
-            $outlines = array();
-            exec("/usr/bin/crontab -l -u $user 2>/dev/null | grep -v ^#\ DO\ NOT | grep -v ^#\ \( |  grep -v issabelpbx-cron-scheduler.php", $outlines, $ret);
-            $crontab_entry = "";
-            foreach ($outlines as $line) {
-                $crontab_entry .= $line."\n";
-            }
-            // schedule to run hourly, at a random time. The random time is explicit to accomodate things like module_admin online update checking
-            // since we will want a random access to the server. In the case of module_admin, that will also be scheduled randomly within the hour
-            // that it is to run
-            //
-            $crontab_entry .= rand(0,59)." * * * * ".$amp_conf['AMPBIN']."/issabelpbx-cron-scheduler.php";
-            system("/bin/echo '$crontab_entry' | /usr/bin/crontab -u $user - >/dev/null 2>&1");
-            break;
-        case 1:
-            // already running, nothing to do
-            break;
-        default:
-            // error, there should never be more than one running
-            echo "TODO: deal with error here\n";
-            $nt->add_error('retrieve_conf', 'CRONMGR', _("Multiple issabelpbx-cron-scheduler.php running"), sprintf(_("There were %s issabelpbx-cron-scheduler.php instances running. There should be only 1."),$cnt));
-        }
+    if(!file_exists("/etc/cron.hourly/issabelPBX")) {
+        file_put_contents("/etc/cron.hourly/issabelPBX","sudo -u asterisk ".$amp_conf['AMPLOCALBIN']."/issabelpbx-cron-scheduler.php");
+        chmod("/etc/cron.hourly/issabelPBX", 0755);
     }
+    return;
 }
 
 // Check and install the issabelpbx-cron-scheduler.php manager
