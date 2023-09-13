@@ -9,7 +9,7 @@ if($extens===null) $extens=array();
 $rnaventries = array();
 foreach($extens as $idx=>$data) {
     $midev = core_devices_get($data[0]);
-    $rnaventries[]=array($data[0],$data[1],'<span class="tag is-white">'.$midev['tech'].'</span> '.$data[0]);
+    $rnaventries[]=array($data[0],$data[1],'<span class="tag is-white tagfixed">'.$midev['tech'].'</span> '.$data[0]);
 }
 drawListMenu($rnaventries, $type, $display, $extdisplay);
 ?>
