@@ -94,7 +94,7 @@ switch ($action) {
                 $filePath = str_replace($amp_conf['ASTDATADIR']."/sounds/","",$result['file']);
                 $extension = pathinfo($filePath, PATHINFO_EXTENSION); // Extract the extension
                 $addfile = preg_replace('/\.[^.]+$/', '', $filePath);
-                if(recordings_add($rname, $addfile, $description='')) {
+                if(recordings_add($rname, $addfile, $text)) {
                     $id = recordings_get_id($addfile);
                     recording_sidebar($id, null);
                     recording_editpage($id, null);
