@@ -25,80 +25,88 @@ if (!function_exists('json_last_error_msg')) {
     }
 }
 
-$AGI = new AGI();
-debug("TTS AGI Started", 1);
 
 $text       = $argv[1];
 $hash       = md5($text);
 $engine     = $argv[2];
 $cmd        = base64_decode($argv[3]);
 $parameters = base64_decode($argv[4]);
+$gui        = isset($argv[5])?$argv[5]:0;
+
+if($gui==0) {
+    $AGI = new AGI();
+    debug("TTS AGI Started", 1);
+}
 
 $json_parameters = json_decode($parameters,1);
 
-$f = $AGI->get_full_variable('${CHANNEL(audionativeformat)}');
-
-$nformat = $f['data'];
 $format = array(
     "ext" => "sln",
     "rate" => "8000"
 );
 
-switch(true) {
-    case preg_match('/(silk|sln)12/',$nformat):
-        $format = array(
-            "ext" => "sln12",
-            "rate" => "12000"
-        );
-    break;
-    case preg_match('/(speex|slin|silk)16|g722|siren7/',$nformat):
-        $format = array(
-            "ext" => "sln16",
-            "rate" => "16000"
-        );
-    break;
-    case preg_match('/(speex|slin|celt)32|siren14/',$nformat):
-        $format = array(
-            "ext" => "sln32",
-            "rate" => "32000"
-        );
-    break;
-    case preg_match('/(celt|slin)44/',$nformat):
-        $format = array(
-            "ext" => "sln44",
-            "rate" => "44000"
-        );
-    break;
-    case preg_match('/(celt|slin)48/',$nformat):
-        $format = array(
-            "ext" => "sln48",
-            "rate" => "48000"
-        );
-    break;
-    default;
-        $format = array(
-            "ext" => "sln",
-            "rate" => "8000"
-        );
-    break;
+
+if($gui==0) {
+    $f = $AGI->get_full_variable('${CHANNEL(audionativeformat)}');
+    $nformat = $f['data'];
+
+    switch(true) {
+        case preg_match('/(silk|sln)12/',$nformat):
+            $format = array(
+                "ext" => "sln12",
+                "rate" => "12000"
+            );
+        break;
+        case preg_match('/(speex|slin|silk)16|g722|siren7/',$nformat):
+            $format = array(
+                "ext" => "sln16",
+                "rate" => "16000"
+            );
+        break;
+            case preg_match('/(speex|slin|celt)32|siren14/',$nformat):
+            $format = array(
+                "ext" => "sln32",
+                "rate" => "32000"
+            );
+        break;
+        case preg_match('/(celt|slin)44/',$nformat):
+            $format = array(
+                "ext" => "sln44",
+                "rate" => "44000"
+            );
+        break;
+        case preg_match('/(celt|slin)48/',$nformat):
+            $format = array(
+                "ext" => "sln48",
+                "rate" => "48000"
+            );
+        break;
+        default;
+            $format = array(
+                "ext" => "sln",
+                "rate" => "8000"
+            );
+        break;
+    }
 }
 
-if (!isset($text))
-{
+if (!isset($text)) {
     return 0;
 }
 
+/*
 if ( $retval != 0 ) {
     debug("ERROR: TTS engine binary not found.", 1);
     return $retval;
 }
+*/
 
 if($engine == "azure") {
-     $format['ext']='alaw';
+    $format['ext']='alaw';
 }
 
 if($engine == "google") {
-     $format['ext']='alaw';
+    $format['ext']='alaw';
 }
 
 
@@ -129,44 +137,47 @@ if ( !file_exists($wavefile) ) {
             exec($cmd." -f $textfile -o $tmpwavefile");
             break;
         case 'pico':
-                        $finalcmd = $cmd." ";
-                        foreach($json_parameters as $key=>$val) {
-                            if($key=='language') { $key='l'; 
-                                $finalcmd .= "-$key $val ";
-                            }
-                        }
+            $finalcmd = $cmd." ";
+            foreach($json_parameters as $key=>$val) {
+                if($key=='language') { $key='l'; 
+                    $finalcmd .= "-$key $val ";
+                }
+            }
             $finalcmd.=" -w $tmpwavefile ".escapeshellarg(file_get_contents($textfile));
             exec($finalcmd);
             break;
         case 'azure':
             $finalcmd = $cmd." --text '$text' --file $soundsdir/$engine-tts-$hash ";
-                        foreach($json_parameters as $key=>$val) {
-                            $finalcmd .= "--$key $val ";
-                        }
+            foreach($json_parameters as $key=>$val) {
+                $finalcmd .= "--$key $val ";
+            }
             exec($finalcmd);
         case 'google':
             $finalcmd = $cmd." --text '$text' --file $soundsdir/$engine-tts-$hash ";
-                        foreach($json_parameters as $key=>$val) {
-                            $finalcmd .= "--$key $val ";
-                        }
+            foreach($json_parameters as $key=>$val) {
+                $finalcmd .= "--$key $val ";
+            }
             exec($finalcmd);
         case 'polly':
             $finalcmd = $cmd." --mp3=$soundsdir/$engine-tts-$hash.mp3 --text='$text' --wav=$soundsdir/$engine-tts-temp-$hash ";
-                        foreach($json_parameters as $key=>$val) {
-                            $finalcmd .= "--$key=".escapeshellarg($val)." ";
-                        }
+            foreach($json_parameters as $key=>$val) {
+                $finalcmd .= "--$key=".escapeshellarg($val)." ";
+            }
             exec($finalcmd);
         case 'custom':
             $finalcmd = $cmd;
-                        $finalcmd = preg_replace("/{TEXT}/",$text,$finalcmd);
-                        $finalcmd = preg_replace("/{OUTPUTFILE}/","$soundsdir/$engine-tts-$hash",$finalcmd);
+            $finalcmd = preg_replace("/{TEXT}/",$text,$finalcmd);
+            $finalcmd = preg_replace("/{OUTPUTFILE}/","$soundsdir/$engine-tts-$hash",$finalcmd);
             exec($finalcmd);
             break;
         default:
             debug("$engine is not a valid engine!", 1);
         break;
     }
+} else {
+    debug("File $wavefile exists!");
 }
+
 if(file_exists($tmpwavefile)) {
     exec("sox $tmpwavefile -q -r ".$format['rate']." -t raw $wavefile");
     unlink($tmpwavefile);
@@ -174,13 +185,22 @@ if(file_exists($tmpwavefile)) {
 
 if(file_exists($wavefile)) {
     // Adding a wait because the first time the wave file is generated, it was not played
-    $AGI->wait_for_digit(1000);
-    debug("Streaming the generated wave.", 1);
-    $AGI->stream_file("tts/".basename($wavefile,".".$format['ext']),'#');
+    if($gui==0) {
+        $AGI->wait_for_digit(1000);
+        debug("Streaming the generated wave.", 1);
+        $AGI->stream_file("tts/".basename($wavefile,".".$format['ext']),'#');
+    } else {
+        echo "{\"status\":\"success\",\"file\":\"$wavefile\"}";
+    }
 } else {
-    debug("File was not created! $wavefile", 1);
+    if($gui==0) {
+        debug("File was not created! $wavefile", 1);
+    } else {
+        echo "{\"status\":\"error\"}";
+    }
 }
-debug("TTS AGI end", 1);
+
+if($gui==0) debug("TTS AGI end", 1);
 
 function parse_amportal_conf($filename) {
     $file = file($filename);
@@ -195,6 +215,10 @@ function parse_amportal_conf($filename) {
 }
 
 function debug($string, $level=3) {
-    global $AGI;
-    $AGI->verbose($string, $level);
+    global $AGI, $gui;
+    if($gui==0) {
+        $AGI->verbose($string, $level);
+    } else {
+//        echo "$string\n";
+    }
 }
