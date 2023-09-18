@@ -45,6 +45,8 @@ include_once("crypt.php");
   elseif (is_file("$path.WAV")) { $path="$path.WAV"; }
   elseif (is_file("$path.mp3")) { $path="$path.mp3"; }
   elseif (is_file("$path.gsm")) { $path="$path.gsm"; }
+  elseif (is_file("$path.sln")) { $path="$path.sln"; }
+  elseif (is_file("$path.alaw")) { $path="$path.alaw"; }
   else {
 		echo("<br /><h1 class='popup_download'>".sprintf(__("No compatible wav, mp3 or gsm format found to play:<br /><br />%s"),$ufile)."</h1><br>");
 		exit;
