@@ -308,4 +308,25 @@ msgid ""
 msgstr ""
 
 msgid " if desired."
-msgstr ""
+msgstr " se desejado."
+
+msgid "make sure you uploaded or recorded a file with the entered extension"
+msgstr "certifique-se de ter enviado ou gravado um arquivo com a extensão inserida"
+
+msgid "Engine"
+msgstr "Motor"
+
+msgid "Text"
+msgstr "Texto"
+
+msgid "Generate"
+msgstr "Gerar"
+
+msgid  "The TTS engine to use for the text to speech entry"
+msgstr "O motor TTS a ser usado para a entrada de texto para fala"
+
+msgid "The text you want to be generated"
+msgstr "O texto que você deseja que seja gerado"
+
+msgid "There was a problem trying to generate the audio file using the TTS module"
+msgstr "Houve um problema ao tentar gerar o arquivo de áudio usando o módulo TTS"

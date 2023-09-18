@@ -425,4 +425,15 @@ function recordings_list_usage($id) {
 	return $full_usage_arr;
 }
 
+function ttsengines_list() {
+    global $active_modules;
+    if(isset($active_modules['tts'])) {
+        require_once("modules/tts/functions.inc.php");
+        $engines = ttsengine_list();
+        return $engines;
+    } else {
+        return array();
+    }
+}
+
 ?>

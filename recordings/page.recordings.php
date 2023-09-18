@@ -1,6 +1,6 @@
 <?php 
 /* $Id: page.recordings.php 1137 2006-03-14 17:04:46Z mheydon1973 $ */
-//Copyright (C) 2018 Issabel Foundation. (nicolas@issabel.com)
+//Copyright (C) 2023 Issabel Foundation. (nicolas@issabel.com)
 //Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
 
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
@@ -21,8 +21,8 @@ switch ($action) {
     case 'popup':
     case 'audio':
       include_once("$action.php");
-        exit;
-        break;
+      exit;
+      break;
     default:
         break;
 }
@@ -70,6 +70,53 @@ switch ($action) {
     case "system":
         recording_sidebar(-1, null);
         recording_sysfiles();
+        break;
+    case "generate":
+        if($rname=='') {
+            $id=0;
+            recording_sidebar($id, $usersnum);
+            recording_addpage($usersnum);
+        
+        } else {
+            require_once("modules/tts/functions.inc.php");
+            $engines      = ttsengine_list();
+            $cur_engine   = $_REQUEST['ttsengine_engine'];
+            $text         = $_REQUEST['tts_text'];
+            $tts_conf     = $engines[$cur_engine];
+            $tts_engine   = $tts_conf['ttsengine_engine'];
+            $tts_cmd      = $tts_conf['ttsengine_cmd'];
+            $tts_template = $tts_conf['ttsengine_template'];
+            $cmd = '/var/lib/asterisk/agi-bin/issabel-tts.agi "'.$text."\" $tts_engine ".base64_encode($tts_cmd).' '.base64_encode($tts_template)." 1";
+            $output = `$cmd`;
+            //$output="{\"result\":\"error\"}";
+            $result=json_decode($output,1);
+            if($result['status']=='success') {
+                $filePath = str_replace($amp_conf['ASTDATADIR']."/sounds/","",$result['file']);
+                $extension = pathinfo($filePath, PATHINFO_EXTENSION); // Extract the extension
+                $addfile = preg_replace('/\.[^.]+$/', '', $filePath);
+                if(recordings_add($rname, $addfile, $description='')) {
+                    $id = recordings_get_id($addfile);
+                    recording_sidebar($id, null);
+                    recording_editpage($id, null);
+                } else {
+                    $error .= __("There was a problem trying to generate the audio file using the TTS module");
+                    $_SESSION['msg']=base64_encode($error);
+                    $_SESSION['msgtype']='error';
+                    $_SESSION['msgtstamp']=time();
+                    $_SESSION['msgtimer']=6000;
+                    recording_sidebar($id, $usersnum);
+                    recording_addpage($usersnum,4);
+                }
+            }  else {
+                $error .= __("There was a problem trying to generate the audio file using the TTS module");
+                $_SESSION['msg']=base64_encode($error);
+                $_SESSION['msgtype']='error';
+                $_SESSION['msgtstamp']=time();
+                $_SESSION['msgtimer']=6000;
+                recording_sidebar($id, $usersnum);
+                recording_addpage($usersnum,4);
+            }
+        }
         break;
     case "newsysrec":
         $sysrecs = recordings_readdir($astsnd, strlen($astsnd)+1);
@@ -208,7 +255,7 @@ switch ($action) {
 
 }
 
-function recording_addpage($usersnum) {
+function recording_addpage($usersnum,$tab=1) {
     global $fc_save;
     global $fc_check;
     global $recordings_save_path;
@@ -231,13 +278,13 @@ function recording_addpage($usersnum) {
     if (!empty($usersnum)) {  $showtabs=0; }
     if (isset($_REQUEST['fname'])) {  $showtabs=0; }
 
+    $tts_engines =  ttsengines_list();
     if($showtabs==1) {
     
 ?>
     
-
 <div id="tabs" class="tabs is-boxed">
-  <ul>
+  <ul  style='font-size:0.8em; font-weight:800;'>
 <?php 
     $tab_content_active_1 = ' class="is-active" ';
     $tab_content_active_2 = ' class="is-hidden" ';
@@ -250,7 +297,14 @@ function recording_addpage($usersnum) {
 <?php } else { ?>
     <li class="is-active" data-tab="1"><a><?php echo __('Record using phone');?></a></li>
 <?php }?>
+
     <li data-tab="3"><a><?php echo __('Upload recording');?></a></li>
+
+<?php if(count($tts_engines)>0) { ?>
+    <li data-tab="4"><a><?php echo __('TTS');?></a></li>
+<?php }?>
+
+
   </ul>
 </div>
 <div id="tab-content">
@@ -324,7 +378,81 @@ function recording_addpage($usersnum) {
     </form>
  
   </div>
+
+
+  <div data-content="4" class="is-hidden">
+
+<?php
+    $engines=array();
+    foreach($tts_engines as $idx=>$tts) {
+        $engines[$idx]=$tts['ttsengine_description'];
+    }
+?>
+    <form name="generate" action="<?php echo $_SERVER['PHP_SELF']."?display=recordings";?>" method="POST" onsubmit='return tts_onsubmit(this);'>
+    <input type="hidden" name="action" value="generate">
+    <input type="hidden" name="display" value="recordings">
+    <table>
+    <tr>
+        <td><a href="#" class="info"><?php echo __("Engine")?><span><?php echo __("The TTS engine to use for the text to speech entry");?></span></a></td>
+        <td>
+            <select name="ttsengine_engine" id="ttsengine_engine" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
+            <?php
+                foreach ($engines as $key=>$name) {
+                    echo '<option value="'.$key.'">'.$name."</option>\n";
+                }
+            ?>
+            </select>
+
+        </td>
+    </tr>
+    <tr>
+        <td><a href="#" class="info"><?php echo __("Name")?><span><?php echo __("The name for this recording");?></span></a></td>
+        <td>
+            <input autofocus required class="input" type="text" name="rname" value="" tabindex="<?php echo ++$tabindex;?>">
+        </td>
+    </tr>
+
+ 
+    <tr>
+        <td colspan=2><a href="#" class="info"><?php echo __("Text")?><span><?php echo __("The text you want to be generated");?></span></a></td>
+    </tr>
+
+    <tr>
+        <td colspan=2><textarea class='textarea' id='ttstext'  name="tts_text" required tabindex="<?php echo ++$tabindex;?>"></textarea></td>
+    </tr>
+    <tr>
+    <td colspan=2>
+
+  <div class='control'><input type='submit' class='button is-info' value="<?php echo __("Generate")?>" tabindex="<?php echo ++$tabindex;?>"/></div>
+    </table>
+
+    <?php recordings_form_jscript(); ?>
+    </form>
+
+  </div>
+
+
 </div>
+
+        <script>
+
+function activate_tab(idx) {
+    $('#tabs li').removeClass('is-active');
+    $('li[data-tab="'+idx+'"]').addClass('is-active');
+    for(i=1;i<5;i++) {
+        $('#tab-content div[data-content="'+i+'"]').removeClass('is-active');
+        $('#tab-content div[data-content="'+i+'"]').addClass('is-hidden');
+    }
+    $('#tab-content div[data-content="'+idx+'"]').removeClass('is-hidden');
+}
+
+<?php
+        if($tab!="1") {
+echo "activate_tab($tab);\n";
+        }
+?>
+
+        </script>
 
 <?php } ?>
 
@@ -447,6 +575,7 @@ function recording_editpage($id, $num, $warn_message='') {
     global $asterisk_conf;
     $extdisplay=$id;
     $tabindex=1;
+    $allow_delete=true;
 ?>
 
     <div class="content" style="display:table;">
@@ -464,6 +593,7 @@ function recording_editpage($id, $num, $warn_message='') {
     <?php
     $usage_list = recordings_list_usage($id);
     if (count($usage_list)) {
+        $allow_delete = false;
 ?>
         <a href="#" class="info"><?php echo __("Usage List");?><span><?php echo __("This recording is being used in the following instances. You can not remove this recording while being used. To re-record, you can enable and use the feature code below if allowed.");?></span></a>
 <?php
@@ -645,7 +775,7 @@ function recording_editpage($id, $num, $warn_message='') {
 <?php
 
     $warn_msg = __("Note, does not delete file from computer");
-    echo form_action_bar($extdisplay,'formprompt',false,true,$warn_msg); 
+    echo form_action_bar($extdisplay,'formprompt',!$allow_delete,true,$warn_msg); 
 }
 
 function recording_sidebar($id, $num) {
@@ -696,6 +826,15 @@ function recordings_form_jscript() {
             if (!isFilename(theForm.rname.value)) {
                 return warnInvalid(theForm.rname, msgInvalidFilename);
             }
+        }
+        $.LoadingOverlay('show');
+        return true;
+    }
+
+    function tts_onsubmit(theForm) {
+        defaultEmptyOK = false;
+        if (isEmpty(theForm.rname.value)) {
+            return warnInvalid(theForm.rname, msgInvalidFilename);
         }
         $.LoadingOverlay('show');
         return true;

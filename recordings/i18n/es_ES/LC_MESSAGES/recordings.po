@@ -345,3 +345,24 @@ msgstr "Reanudar"
 
 msgid "File %s does not have a valid sound extension"
 msgstr "El archivo %s no tiene una extensión de archivo de sonido válida"
+
+msgid "make sure you uploaded or recorded a file with the entered extension"
+msgstr "asegúrese de que ha cargado o grabado un archivo con la extensión ingresada"
+
+msgid "Engine"
+msgstr "Motor"
+
+msgid "Text"
+msgstr "Texto"
+
+msgid "Generate"
+msgstr "Generar"
+
+msgid  "The TTS engine to use for the text to speech entry"
+msgstr "El motor de texto al habla a usar para este registro"
+
+msgid "The text you want to be generated"
+msgstr "El texto que desea generar"
+
+msgid "There was a problem trying to generate the audio file using the TTS module"
+msgstr "Hubo un problema al intentar generar el archivo de audio utilizando el módulo TTS"
