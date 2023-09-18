@@ -110,7 +110,7 @@ if($engine == "google") {
 }
 
 
-$soundsdir = $config["ASTDATADIR"]."/sounds/tts";
+$soundsdir = $config["ASTDATADIR"]."/sounds/custom/tts";
 if( !is_dir($soundsdir) ) mkdir($soundsdir, 0775);
 
 $wavefile = $soundsdir."/$engine-tts-$hash.".$format['ext'];
@@ -188,7 +188,7 @@ if(file_exists($wavefile)) {
     if($gui==0) {
         $AGI->wait_for_digit(1000);
         debug("Streaming the generated wave.", 1);
-        $AGI->stream_file("tts/".basename($wavefile,".".$format['ext']),'#');
+        $AGI->stream_file("custom/tts/".basename($wavefile,".".$format['ext']),'#');
     } else {
         echo "{\"status\":\"success\",\"file\":\"$wavefile\"}";
     }
