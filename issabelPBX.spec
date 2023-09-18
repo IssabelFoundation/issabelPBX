@@ -9,7 +9,7 @@ Source0:        issabelPBX-2.12.0.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  bash php php-cli
-Requires:       php php-mysqlnd php-mbstring asterisk mariadb perl-Digest-MD5 perl-URI perl-libwww-perl
+Requires:       php php-mysqlnd php-mbstring asterisk mariadb perl-Digest-MD5 perl-URI perl-libwww-perl sox mpg123 perl-LWP-Protocol-https
 
 %{?el8:Requires: php-pear php-pear-DB}
 
