@@ -406,7 +406,7 @@ function recording_addpage($usersnum,$tab=1) {
         </td>
     </tr>
     <tr>
-        <td><a href="#" class="info"><?php echo __("Name")?><span><?php echo __("The name for this recording");?></span></a></td>
+        <td><a href="#" class="info"><?php echo __("Name")?><span><?php echo __("Name this Recording");?></span></a></td>
         <td>
             <input autofocus required class="input" type="text" name="rname" value="" tabindex="<?php echo ++$tabindex;?>">
         </td>
