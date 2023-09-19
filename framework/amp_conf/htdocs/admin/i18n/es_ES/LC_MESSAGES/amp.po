@@ -7704,3 +7704,9 @@ msgstr "Volver"
 
 msgid "Added to globals: %s"
 msgstr "Añadido a globales: %s"
+
+msgid "Please update your modules and reload Asterisk by browsing to your server."
+msgstr "Actualice sus módulos y vuelva a cargar Asterisk navegando a su servidor."
+
+msgid "Please update your modules and reload Asterisk by visiting %s"
+msgstr "Actualice sus módulos y vuelva a cargar Asterisk navegando %s"

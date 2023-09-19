@@ -6318,3 +6318,10 @@ msgstr "Relatórios"
 
 msgid "Added to globals: %s"
 msgstr "Adicionado aos globais: %s"
+
+msgid "Please update your modules and reload Asterisk by browsing to your server."
+msgstr "Por favor atualize seus módulos e recarregue o Asterisk navegando até seu servidor."
+
+
+msgid "Please update your modules and reload Asterisk by visiting %s"
+msgstr "Por favor atualize seus módulos e recarregue o Asterisk navegando até %s"
