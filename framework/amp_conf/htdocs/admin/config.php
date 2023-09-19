@@ -273,6 +273,8 @@ if (!$quietmode && isset($ipbx_menu["extensions"])) {
     }
 }
 
+unset($ipbx_menu["wiki"]);
+
 ob_start();
 // load the component from the loaded modules
 if (!in_array($display, array('', 'badrefer')) 
