@@ -115,7 +115,7 @@ class connectdirs {
                             }
                         }
                     } else {
-                        out("found language dir $lang for ".basename($moduledir).", not installed on system, skipping");
+                        out(sprintf(__("Found language dir %s for %s, not installed on system, skipping."),$lang,basename($moduledir)));
                     }
                 }
             }

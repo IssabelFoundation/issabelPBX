@@ -7710,3 +7710,6 @@ msgstr "Actualice sus módulos y vuelva a cargar Asterisk navegando a su servido
 
 msgid "Please update your modules and reload Asterisk by visiting %s"
 msgstr "Actualice sus módulos y vuelva a cargar Asterisk navegando %s"
+
+msgid "Found language dir %s for %s, not installed on system, skipping."
+msgstr "Se encontró el directorio de idioma %s para %s, no instalado en el sistema, omitiendo."
