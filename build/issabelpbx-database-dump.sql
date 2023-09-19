@@ -1512,16 +1512,6 @@ CREATE TABLE `issabelpbx_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `issabelpbx_log`
---
-
-LOCK TABLES `issabelpbx_log` WRITE;
-/*!40000 ALTER TABLE `issabelpbx_log` DISABLE KEYS */;
-INSERT INTO `issabelpbx_log` VALUES (1,'2006-11-06 01:55:36','retrieve_conf','devel-debug',0,'Started retrieve_conf, DB Connection OK'),(2,'2006-11-06 01:55:36','retrieve_conf','devel-debug',0,'Writing extensions_additional.conf');
-/*!40000 ALTER TABLE `issabelpbx_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `issabelpbx_settings`
 --
 

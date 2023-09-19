@@ -142,9 +142,6 @@ CREATE TABLE `issabelpbx_log` (
 `message` TEXT NOT NULL
 ) DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `issabelpbx_log` VALUES("1","2006-11-06 01:55:36","retrieve_conf","devel-debug","0","Started retrieve_conf, DB Connection OK");
-INSERT INTO `issabelpbx_log` VALUES("2","2006-11-06 01:55:36","retrieve_conf","devel-debug","0","Writing extensions_additional.conf");
-
 CREATE TABLE `issabelpbx_settings` (
 `keyword` varchar(50) PRIMARY KEY NOT NULL,
 `value` varchar(255) ,
