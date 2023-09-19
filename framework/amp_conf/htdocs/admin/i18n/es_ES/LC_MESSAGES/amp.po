@@ -7701,3 +7701,6 @@ msgstr "No fue posible escribir en %s"
 
 msgid "Back"
 msgstr "Volver"
+
+msgid "Added to globals: %s"
+msgstr "Añadido a globales: %s"

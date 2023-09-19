@@ -2665,14 +2665,14 @@ function core_do_get_config($engine) {
                         $value = ($value) ? 'true':'false';
                     }
                     $ext->addGlobal($global, $value);
-                    out("Added to globals: $global = $value");
+                    out(sprintf(__("Added to globals: %s"),"$global = $value"));
                 }
             }
 
       // Put the MIXMON_DIR, it needs a trailing / so is special cased here
       $mixmon_dir = $amp_conf['MIXMON_DIR'] != '' ? $amp_conf['MIXMON_DIR'].'/' : '';
             $ext->addGlobal('MIXMON_DIR', $mixmon_dir);
-            out("Added to globals: MIXMON_DIR = $mixmon_dir");
+            out(sprintf(__("Added to globals: %s"),"MIXMON_DIR = $mixmon_dir"));
 
             // Add some globals that are used by the dialplan
             //
@@ -2688,7 +2688,7 @@ function core_do_get_config($engine) {
             );
             foreach ($add_globals as $g => $v) {
                 $ext->addGlobal($v, $amp_conf[$g]);
-                out("Added to globals: $v = ".$amp_conf[$g]);
+                out(sprintf(__("Added to globals: %s"),"$v = ".$amp_conf[$g]));
             }
             unset($add_globals);
 

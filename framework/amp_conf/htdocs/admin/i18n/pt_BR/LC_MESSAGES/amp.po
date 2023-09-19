@@ -6315,3 +6315,6 @@ msgstr "Relatórios"
 
 #~ msgid "The Zap Channel number to map to a DID"
 #~ msgstr "O número do canal Zap a mapear para um DDR"
+
+msgid "Added to globals: %s"
+msgstr "Adicionado aos globais: %s"
