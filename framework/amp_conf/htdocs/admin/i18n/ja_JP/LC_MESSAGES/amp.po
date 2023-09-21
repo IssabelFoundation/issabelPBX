@@ -423,7 +423,7 @@ msgstr "内線 %s を追加"
 #: ../core/page.trunks.php:464
 #, php-format
 msgid "Add %s Trunk"
-msgstr "%sトランクを追加"
+msgstr "%sンクを追加"
 
 #: ../core/page.ampusers.php:147
 msgid "Add Administrator"
@@ -526,7 +526,7 @@ msgstr "mISDNトランク追加"
 #: amp_conf/htdocs/admin/helpers/issabelpbx_helpers.php:114
 #, php-format
 msgid "Add new %s &#8230;"
-msgstr "%s &#8230;を新規追加"
+msgstr "%s &#8230;を規加"
 
 #: amp_conf/htdocs/admin/page.modules.php:76
 msgid ""
@@ -559,7 +559,7 @@ msgid ""
 "Admin Access<span>Select the Admin Sections this user should have access to."
 "</span>"
 msgstr ""
-"管理者アクセス<span>このユーザーがアクセスできる管理者セクションを選択しま"
+"管理アクス<span>このユーザーがアクセスできる管理者セクションを選択しま"
 "す。</span>"
 
 #: amp_conf/htdocs/admin/views/obe.php:54
@@ -655,7 +655,7 @@ msgid ""
 "external fax equipment or security systems are installed in parallel and you "
 "would like them to be able to seize the line."
 msgstr ""
-"このルートを進める前に待つためのオプションのディレイ。この値をセットすること"
+"このルトを進る前に待つためのオプションのディレイ。この値をセットすること"
 "によりチャネルがコールに応答するのを遅らせます。外部のFAX機器やセキュリティシ"
 "ステムが並列にインストールされている場合で、彼らがラインをつかむことができる"
 "ようにしたい場合にこれは便利かもしれません。"
@@ -747,7 +747,7 @@ msgid ""
 "Asterisk context this device will send calls to. Only change this is you "
 "know what you are doing."
 msgstr ""
-"このデバイスがコールを送信する対象のAsterisk コンテキスト。何をしようとしてい"
+"このバイスがールを送信する対象のAsterisk コンテキスト。何をしようとしてい"
 "るのかを知っている時だけ変更してください。"
 
 #: ../core/functions.inc.php:7642
@@ -879,7 +879,7 @@ msgstr ""
 "べます。記録ありのスクリーニングは最初の一度だけ発信者の発信者IDを検証しま"
 "す。記録なしのスクリーニングは発信者に対して常に自分の名前を名乗ることを要求"
 "します。どちらのモードも常に発信者IDとともに保存された最後の自己紹介に基づい"
-"て発信者を通知します。システム上のいづれかのユーザーが記録オプションを使用し"
+"発信者を通します。システム上のいづれかのユーザーが記録オプションを使用し"
 "た場合で、そのユーザーに着信があった場合は、発信者は再度自己紹介を要求され、"
 "システム上の全てのユーザーは、その発信者の発信者IDに関連付いた新しい自己紹介"
 "を使用することになります。"
@@ -952,7 +952,7 @@ msgstr "接続できません。Asteriskマネージャー "
 #: amp_conf/htdocs/admin/libraries/module.functions.php:1321
 #, php-format
 msgid "Cannot delete directory %s"
-msgstr "%s ディレクトリの削除ができません"
+msgstr "%s ディレクトリの除ができませ"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:1223
 #: amp_conf/htdocs/admin/libraries/module.functions.php:1252
@@ -1023,7 +1023,7 @@ msgstr "チェックで、次のトランクを常時試みる"
 #: ../core/install.php:495 ../core/install.php:511
 #, php-format
 msgid "Checking for %s field.."
-msgstr "%s フィールドをチェック中.."
+msgstr "%s フィードをチェック中.."
 
 #: ../core/install.php:807
 msgid "Checking for General Setting migrations.."
@@ -1075,7 +1075,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/views/menu.php:144
 msgid "Chinese"
-msgstr "中国語"
+msgstr "国語"
 
 #: amp_conf/htdocs/admin/page.modules.php:1178
 msgid ""
@@ -1143,7 +1143,7 @@ msgstr "接続"
 
 #: amp_conf/htdocs/admin/views/footer.php:78
 msgid "Continue"
-msgstr "再試行"
+msgstr "再行"
 
 #: ../core/page.trunks.php:578
 msgid "Continue if Busy"
@@ -1215,7 +1215,7 @@ msgstr "新バージョンをインストールするために、 %s を削除�
 #, php-format
 msgid "Could not remove old module %s to install new version"
 msgstr ""
-"新バージョンをインストールするために、古いモジュール %s を削除できませんでし"
+"新バージンをインストールるために、古いモジュール %s を削除できませんでし"
 "た"
 
 #: ../core/install.php:971
@@ -1331,7 +1331,7 @@ msgstr "DAHDiエコーキャンセル設定、詳細はDAHDiドキュメント�
 
 #: ../core/functions.inc.php:7411
 msgid "DAHDi immediate mode setting, see DAHDi documentation for details."
-msgstr "DAHDi即時モード設定、詳細はDAHDiドキュメントを参照ください。"
+msgstr "DAHDi即時モード設定、詳細はDAHDiドキュメント参照ください。"
 
 #: ../core/functions.inc.php:7414
 msgid ""
@@ -1419,7 +1419,7 @@ msgid ""
 "and Unavailable in order to catch these special cases if the Telco transmits "
 "them."
 msgstr ""
-"着信時にマッチする発信者番号を定義します。<br><br>全てに一致若しくはCID情報が"
+"着信時にマチする発信者番号を定義します。<br><br>全てに一致若しくはCID情報が"
 "ない場合は空白にしておきます。In addition to standard dial sequences, you "
 "can also put Private, Blocked, Unknown, Restricted, Anonymous and "
 "Unavailable in order to catch these special cases if the Telco transmits "
@@ -1436,7 +1436,7 @@ msgid ""
 "can also use a pattern match (eg _2[345]X) to match a range of numbers"
 msgstr ""
 "着信時にトランクがダイヤルインを通過する場合、期待するDIDを定義します。"
-"<br><br>全てに一致若しくはダイヤルイン情報がない場合は空白にしておきます。"
+"<br><br>全てに一致若しくはダイヤルイン情報がない場合は空白しておきます。"
 "<br><br>数値範囲にマッチさせるためにパターンマッチを使用することができます"
 "(例 _2[345]X)"
 
@@ -1521,7 +1521,7 @@ msgstr ""
 "このトランクから発信されるどのようなCIDが許可されるかを決定します。重要: 内"
 "線/デバイスで定義される緊急CIDは、もしこのトランクが緊急ルートの一部である場"
 "合はこれらの設定にかかわらず常に使用されます。<br />どのようなCIDも許可: 外部"
-"からの転送コールからの海外CIDを含む全てのCIDは送信されます。<br />不明なCIDを"
+"からの転送コールらの海外CIDを含む全てのCIDは送信されます。<br />不明なCIDを"
 "ブロック: システム外からのコールを転送された結果のいかなるCIDもブロックしま"
 "す。内線/ユーザーのために定義されたCIDは送信されます。<br />CNAMを削除: この"
 "トランク外から送信されたいかなるCIDからのCNAMも削除します。<br />トランクCID"
@@ -1599,7 +1599,7 @@ msgid ""
 "prepended before sending to the trunk."
 msgstr ""
 "一致した番号の前に付与する桁。ダイヤルされた番号が<b>プリフィックス</b>と<b>"
-"一致パターン</b>ボックスと一致した場合、トランクに送信する前に、前付与されま"
+"一致パタン</b>ボックスと一致した場合、トランクに送信する前に、前付与されま"
 "す。"
 
 #: ../core/install.php:12
@@ -1629,7 +1629,7 @@ msgstr "無効： オンラインバージョンより新しいバージョン (
 #: amp_conf/htdocs/admin/page.modules.php:774
 #, php-format
 msgid "Disabled; Online upgrade available (%s)"
-msgstr "無効： オンラインアップグレードが利用可能 (%s)"
+msgstr "無効： オラインアップグレードが利可能 (%s)"
 
 #: amp_conf/htdocs/admin/page.modules.php:785
 #, php-format
@@ -1687,7 +1687,7 @@ msgstr "全てダウンロード"
 
 #: amp_conf/htdocs/admin/page.modules.php:845
 msgid "Download and Install"
-msgstr "ダウンロードしインストール"
+msgstr "ウンロードしインストール"
 
 #: amp_conf/htdocs/admin/page.modules.php:873
 #: amp_conf/htdocs/admin/page.modules.php:895
@@ -1717,7 +1717,7 @@ msgid "ERROR - could not drop table"
 msgstr ""
 
 #: upgrades/2.10.0beta3/migration.php:48
-msgid "ERROR connectng to CDR DB to migrate, not done!"
+msgid "ERROR connecting to CDR DB to migrate, not done!"
 msgstr ""
 
 #: ../core/install.php:193
@@ -1725,7 +1725,7 @@ msgid ""
 "ERROR: could not access user table to migrate directdids to incoming table, "
 "aborting"
 msgstr ""
-"エラー： directdidsをincomingテーブルに移行する際に、userテーブルへアクセスで"
+"エラー directdidsをincomingテーブルに移行する際に、userテーブルへアクセスで"
 "きませんでした、中断"
 
 #: ../core/install.php:953
@@ -1755,7 +1755,7 @@ msgstr "エラー： %sが既に使用中かチェック試行"
 msgid ""
 "Echo training requirements of this card. See DAHDi documentation for details."
 msgstr ""
-"このカードのエコートレーニング要件。詳細はDAHDiドキュメントを参照ください。"
+"のカードのエコートレーニング件。詳細はDAHDiドキュメントを参照ください。"
 
 #: ../core/functions.inc.php:7374
 msgid ""
@@ -1793,7 +1793,7 @@ msgstr "DAHDIチャネル編集： "
 #: ../core/functions.inc.php:7738
 #, php-format
 msgid "Edit Default User: %s"
-msgstr "デフォルトユーザー編集： %s"
+msgstr "デフォルトユーザー集： %s"
 
 #: ../core/functions.inc.php:7085
 msgid "Edit Extension"
@@ -1917,7 +1917,7 @@ msgstr "ディレクトリ %s の削除エラー (コード %d)"
 
 #: ../core/page.routing.php:278 ../core/page.trunks.php:280
 msgid "Error fetching prefix list for: "
-msgstr "エラー プリフィックスリスト取得： "
+msgstr "エラー プリフィックスリスト取得 "
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:1011
 msgid ""
@@ -2049,7 +2049,7 @@ msgid ""
 "Experimental and un-reliable setting to try and detect call progress tones. "
 "See DAHDi documentation for details."
 msgstr ""
-"コールプログレストーンを検知しようと試みる実験的で不安定な設定。詳細はDAHDiド"
+"コールプログレストーを検知しようと試みる実験的で不安定な設定。詳細はDAHDiド"
 "キュメントを参照ください。"
 
 #: ../core/functions.inc.php:7386
@@ -2105,7 +2105,7 @@ msgid ""
 "Groups, and Queues within this range.</span>"
 msgstr ""
 "内線範囲<span>ユーザーの閲覧をここで指定した範囲の内線、リンググループ、"
-"キューのみに限定します。</span>"
+"キューのみに限定ます。</span>"
 
 #: ../core/functions.inc.php:7123
 msgid "Extension number conflict, please choose another."
@@ -2204,7 +2204,7 @@ msgid ""
 "Failed to open %s for writing, aborting attempt to write the country "
 "indications. The file may be readonly or the permissions may be incorrect."
 msgstr ""
-"%s を書き込み用にオープンするのに失敗、国識別子を書き込むのを中止します。この"
+"%s を書き込み用にオープするのに失敗、国識別子を書き込むのを中止します。この"
 "ファイルは読み込み専用か権限が正しくない可能性があります。"
 
 #: upgrades/2.10.1/migration.php:66
@@ -2226,7 +2226,7 @@ msgstr "インストールスクリプトの実行に失敗"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:1279
 msgid "Failed to run un-installation scripts"
-msgstr "アンインストールスクリプトの実行に失敗しました"
+msgstr "アンインストールスクリトの実行に失敗しました"
 
 #: amp_conf/bin/issabelpbx-cron-scheduler.php:59
 msgid "Failed to send online update email"
@@ -2355,7 +2355,7 @@ msgid ""
 "contexts and generated by IssabelPBX."
 msgstr ""
 "IssabelPBXはDUNDiトランクへの限定サポートを提供し、追加の手動設定が必要です。ト"
-"ランク名はリモートのdundi.confシステムの[mappings]セクションと一致しなければ"
+"ランク名はリモートのdundi.confシステの[mappings]セクションと一致しなければ"
 "なりません。例えば、リモートシステム上でマッピングを持ち、ローカルのdundi."
 "confで一致し、次のように見えます。:<br /><br />[mappings]<br />priv => dundi-"
 "extens,0,IAX2,priv:${SECRET}@218.23.42.26/${NUMBER},nopartial<br /><br />この"
@@ -2365,8 +2365,8 @@ msgstr ""
 "用することにより可能です。<br />この例のdundi-exetns コンテキストは"
 "extensions_custom.conf内で作成されなければなりません。これは単純に ext-"
 "local, ext-intercom-users, ext-pagingなど、様々なコンテキストによって提供され"
-"る一致した内線や機能へのアクセスを提供するようにコンテキストを含めることがで"
-"きます。This can simply include contexts such as ext-local, ext-intercom-"
+"る一致した内線や機能へのアクセスを提供るようにコンテキストを含めることがで"
+"ます。This can simply include contexts such as ext-local, ext-intercom-"
 "users, ext-paging and so forth to provide access to the corresponding "
 "extensions and features provided by these various contexts and generated by "
 "IssabelPBX."
@@ -2398,7 +2398,7 @@ msgstr "一般設定"
 
 #: ../core/install.php:850
 msgid "General Settings migrated"
-msgstr "一般設定が移行されました"
+msgstr "一般設が移行されました"
 
 #: ../core/functions.inc.php:7662
 msgid "Generic DAHDi Device"
@@ -2434,7 +2434,7 @@ msgid ""
 "Give your device a unique integer ID.  The device will use this ID to "
 "authenticate to the system."
 msgstr ""
-"デバイスにユニークな整数のIDを付与します。デバイスはシステムへの認証にこのID"
+"デバイスにユニークな整数のIDを付与します。デバイスはシテムへの認証にこのID"
 "を使用します。"
 
 #: ../core/functions.inc.php:797
@@ -2571,8 +2571,8 @@ msgid ""
 "times specified in that Time Group. If left as default of Permanent Route "
 "then it will always be available."
 msgstr ""
-"このルートを特定の時間のみ利用可能にしたい場合、時間グループの下に作成された"
-"時間グループを選択します。そのタイムグループで指定された時間外のルートは無視"
+"このルートを特定の時間のみ利用可能にたい場合、時間グループの下に作成された"
+"間グループを選択します。そのタイムグループで指定された時間外のルートは無視"
 "されます。デフォルトの永続的なルートのままにしておくと、常に利用可能になりま"
 "す。"
 
@@ -2608,7 +2608,7 @@ msgstr ""
 msgid ""
 "If you're new to IssabelPBX, Welcome. Here are some quick instructions to get "
 "you started"
-msgstr "IssabelPBX新人の方、ようこそ。始める前に簡単な説明を読んでください"
+msgstr "IssabelPBX新人方、ようこそ。始める前に簡単な説明を読んでださい"
 
 #: ../core/functions.inc.php:7517
 msgid "In band audio"
@@ -2649,7 +2649,7 @@ msgstr "インバウンドルート： %s (%s)"
 
 #: amp.i18n.php:38
 msgid "Inbound Routes"
-msgstr "インバウンドルート"
+msgstr "インバウンドート"
 
 #: ../core/page.trunks.php:956
 msgid "Incoming Settings"
@@ -2963,7 +2963,7 @@ msgid ""
 "Module %s is required, but yours is broken. You should reinstall it and try "
 "again."
 msgstr ""
-"モジュール %s が必要ですが、ご利用のモジュールは壊れています。再インストール"
+"モジュール %s が必要でが、ご利用のモジュールは壊れています。再イントール"
 "した上で再度お試しください。"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:607
@@ -3035,7 +3035,7 @@ msgstr ""
 "たいていのVoIPプロバイダーではあなたのお使いのシステムが彼らにレジストするこ"
 "とが必要です。レジスト行をここに入力してください。<br><br>例:"
 "<br><br>username:password@switch.voipprovider.com.<br><br>多くのプロバイダー"
-"ではあなたがDID番号を提供することが必要です、例:ex: username:password@switch."
+"ではあなたDID番号を提供することが必要です、例:ex: username:password@switch."
 "voipprovider.com/didnumber どのようなDIDマッチングでも機能する順番で。"
 
 #: ../core/page.routing.php:709
@@ -3132,7 +3132,7 @@ msgstr "説明がありません"
 
 #: ../core/functions.inc.php:6966
 msgid "No Limit"
-msgstr "無制限"
+msgstr "制限"
 
 #: ../core/page.did.php:229
 msgid "No Music"
@@ -3161,7 +3161,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:985
 msgid "No modules to display."
-msgstr "表示するモジュールがありません。"
+msgstr "表示するモジュールがありませ。"
 
 #: ../core/functions.inc.php:7666
 msgid "None (virtual exten)"
@@ -3186,7 +3186,7 @@ msgstr ""
 #: amp_conf/htdocs/admin/page.modules.php:767
 #, php-format
 msgid "Not Installed (Available online: %s)"
-msgstr "未インストール(オンライン版が利用可能： %s)"
+msgstr "未インストール(オンライン版が利用可： %s)"
 
 #: amp_conf/htdocs/admin/page.modules.php:765
 msgid "Not Installed (Locally available)"
@@ -3241,7 +3241,7 @@ msgstr "オブジェクト"
 
 #: amp_conf/htdocs/admin/libraries/usage_registry.functions.php:253
 msgid "Objects"
-msgstr "オブジェクト"
+msgstr "ブジェクト"
 
 #: ../core/functions.inc.php:6926
 msgid "On Demand"
@@ -3272,7 +3272,7 @@ msgstr "オンラインアップグレードが利用可能 (%s)"
 #: amp_conf/htdocs/admin/libraries/module.functions.php:707
 #, php-format
 msgid "Only %s version %s is compatible, you have %s"
-msgstr "%s バージョン %s のみ互換性があります。あなたのお持ちのもの %s"
+msgstr "%s バージョン %s の互換性があります。あなたのお持ちのもの %s"
 
 #: amp_conf/htdocs/admin/views/login.php:38
 msgid "Operator Panel"
@@ -3295,7 +3295,7 @@ msgstr ""
 
 #: ../core/page.routing.php:755
 msgid "Optional Destination on Congestion"
-msgstr "混線時の任意宛先"
+msgstr "混線時任意宛先"
 
 #: ../core/functions.inc.php:7242
 msgid "Optional Destinations"
@@ -3334,7 +3334,7 @@ msgid ""
 "Optional destination the call is routed to when the phone is busy or the "
 "call is rejected by the user."
 msgstr ""
-"電話がビジーの時や、ユーザーによって拒絶された際にコールがルーティングされる"
+"電話がビジーの時や、ユーザーによって拒絶された際にコールがルーティンされる"
 "オプションの宛先。"
 
 #: ../core/functions.inc.php:7261
@@ -3462,7 +3462,7 @@ msgstr "ピア詳細"
 #: amp_conf/htdocs/admin/libraries/module.functions.php:566
 #, php-format
 msgid "PHP Component %s is required but missing from you PHP installation."
-msgstr "PHPコンポーネント %s が必要ですが、インストールされておりません。"
+msgstr "PHPンポーネント %s が必要ですが、インストールされておりません。"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:568
 #, php-format
@@ -3540,7 +3540,7 @@ msgstr "デバイスIDを入力してください。"
 
 #: amp_conf/htdocs/admin/libraries/view.functions.php:538
 msgid "Please enter a password"
-msgstr "パスワードを入力してください"
+msgstr "パスワードを入力してくださ"
 
 #: amp_conf/htdocs/admin/libraries/view.functions.php:535
 msgid "Please enter a username"
@@ -3615,7 +3615,7 @@ msgstr "数字のみで有効なユーザーパスワードを入力してくだ
 msgid ""
 "Please provide the core credentials that will be used to administer your "
 "system"
-msgstr "システム管理で使われるユーザ名とパスワードを入力してください。"
+msgstr "システム管理で使われるユーザ名とパスワードを入力してださい。"
 
 #: amp_conf/htdocs/admin/views/footer.php:91
 msgid "Please select a \"Destination\""
@@ -3665,7 +3665,7 @@ msgid ""
 "plus the <b>match pattern</b> box, this prefix is removed before adding the "
 "optional <b>prepend</b> box and sending the results to the trunk."
 msgstr ""
-"一致した番号から削除されるプリフィックス。ダイヤルされた番号がこれプラス<b>一"
+"一致した番号から削除されるプリィックス。ダイヤルされた番号がこれプラス<b>一"
 "致パターン</b>ボックスと一致した場合、このプリフィックスはオプションの<b>前付"
 "与</b>ボックスを追加して結果をトランクに送信する前に削除されます。"
 
@@ -3984,7 +3984,7 @@ msgid ""
 "the msec threshold. Setting to no will turn this off. Can also be helpful to "
 "keep NAT pinholes open."
 msgstr ""
-"これを「はい」(200ミリ秒と等価)に設定することで、エンドポイントへ周期的に(デ"
+"これをはい」(200ミリ秒と等価)に設定することで、エンドポイントへ周期的に(デ"
 "フォルト毎分)オプションのパケットを送出します。エンドポイントの死活状態をモニ"
 "ターするのに使用されます。qualifyの時間よりディレイが長い場合、エンドポイント"
 "はオフラインで到達不能とみなされます。ミリ秒閾値の値に設定可能です。「いい"
@@ -4102,8 +4102,8 @@ msgid ""
 "on external calls."
 msgstr ""
 "内線番号と異なる場合に、内部の通話に使用されるCID番号です。これは、別のユー"
-"ザーに成りすますために使用されます。一般的な使用例としては、内部の発信者IDに"
-"普段使用しているサポート電話番号(リンググループやキュー)を表示させたいサポー"
+"ザーに成りすますために使用されます。一般的な使用例としては、内部の発者IDに"
+"普段使用しているサポート電話番号(リンググループやキー)を表示させたいサポー"
 "トチームなどです。外線通話には効果を発揮しません。"
 
 #: ../core/functions.inc.php:994
@@ -4126,7 +4126,7 @@ msgid ""
 "The CallerID name for this device will be set to this description until it "
 "is logged into."
 msgstr ""
-"ログインするまでの間、このデバイスへの発信者ID名がこの説明にセットされます。"
+"ログインするまでの間、このデバイスへの発信者ID名がこの説明にセットされす。"
 
 #: amp_conf/htdocs/admin/page.modules.php:1180
 msgid ""
@@ -4247,8 +4247,8 @@ msgstr ""
 "ば、このトランクが他のPBXの配下にある場合や、セントレックスラインの場合、アウ"
 "トバウンドラインにアクセスするためにここで9を押します。他の一般的な使用方法"
 "は、桁数の欠落を防ぐためにダイヤルトーンを取得する時間が必要なPOTSライン上"
-"で'w'オプションを使用してコールにプリフィックスを付与します。<br><br>ほとんど"
-"のユーザーは、このオプションを空白のままにする必要があります。"
+"で'w'オプションを使用してコールにプリフィックスを付与しす。<br><br>ほとんど"
+"のユーザーは、このオプションを空白のままにる必要があります。"
 
 #: amp_conf/htdocs/admin/views/footer.php:93
 msgid "The secret must be at minimum six characters in length."
@@ -4327,7 +4327,7 @@ msgstr "セキュリティ上脆弱性のあるモジュールが1つありま�
 #: amp_conf/htdocs/admin/views/welcome.php:67
 #, php-format
 msgid ""
-"There is also a community based <a href='%s' target='_new'>IssabelPBX Web "
+"If you are having any problems there is a community based <a href='%s' target='_new'>IssabelPBX Web "
 "Forum</a> where you can post\n"
 "questions and search for answers for any problems you may be having."
 msgstr ""
@@ -4369,7 +4369,7 @@ msgid ""
 msgstr ""
 "このルールはトランク外に送信する前にダイヤル番号を制御できます。予め設定され"
 "た番号に該当しない番号は変更されません。最初にダイヤルされた番号はいくつかの"
-"操作が既に発生したルートから渡されます。トランクは番号を処理する為のオプショ"
+"操作が既に発生したルートから渡されます。ランクは番号を処理する為のオプショ"
 "ンがあります。もし番号が<b>プリフィックス</b>＋<b>パターン</b>ボックスで組み"
 "合わした番号に該当した場合、後続する残りの番号にはこのルールが適用されませ"
 "ん。<br/>ルールと一致し、<b>プリフィックス</b>が設定されていると破棄されま"
@@ -4404,7 +4404,7 @@ msgstr ""
 "これはDIDが指定されていないCIDのみのルートで効果を発揮します。チェックされた"
 "場合、呼び出されたDIDのルートがあったとしても、このCIDを持つコールはこのルー"
 "トにルーティングされます。通常の動きではDIDルートがコールを取得します。もしこ"
-"のCIDに対して特定の DID/CIDルートがある場合、DIDが呼び出された時に、そのルー"
+"のCIDに対して特定の DID/CIDルートがある合、DIDが呼び出された時に、そのルー"
 "トは依然コールを取得します。"
 
 #: ../core/page.trunks.php:961
@@ -4424,7 +4424,7 @@ msgid ""
 "configuration of DUNDi to use this trunk."
 msgstr ""
 "これはリモートdundi.confピアの[mappings]セクションに定義されたDUNDiマッピング"
-"の名前です。これは、ローカルのdundi.confファイル内ピアの詳細の'include'セク"
+"の名前です。これは、ローカのdundi.confファイル内ピアの詳細の'include'セク"
 "ションと一致します。このトランクを使用するにはDUNDiの手動設定が必要です。"
 
 #: ../core/page.trunks.php:686
@@ -4438,7 +4438,7 @@ msgstr ""
 "地域番号をwww.localcallingguide.com (NA-only)で調べ、このルートへアクセスでき"
 "るよう、地域トランク上(長距離通話の際は1+エリアコードを、ローカルコールは555-"
 "1234(7桁ダイヤル)または613-555-1234(10桁ダイヤル)で7桁または10桁のどちらか"
-"(PSTN番号に関係なく)でダイヤルできるようにセットアップします"
+"(PSTN番号に関係なく)でダイヤルできるようにセットアップしす"
 
 #: ../core/page.routing.php:575
 msgid ""
@@ -4469,7 +4469,7 @@ msgstr ""
 "録）の間、もしピアがそうリクエストする場合には、転送タイプは他のサポートされ"
 "た転送タイプに変更される可能性があります。ほとんどの共通ケースでは、ほとんど"
 "のデバイスの登録はhost=dynamic設定と競合する為、これを変更する必要はありませ"
-"ん。もしTCP とTLS、または TLS を使用している場合、一般のSIP設定でシステムがそ"
+"ん。もしTCP とTLS、または TLS を使用している場合、一般のSIP設定システムがそ"
 "れらのモードで動作するように、またTLSについても設定されており、適切な証明書が"
 "生成され設定されているかどうかを確認する必要があります。もしwebsockets(WebRTC"
 "等）を使用している場合には、WSのオプションを選択する必要があります"
@@ -4485,7 +4485,7 @@ msgid ""
 msgstr ""
 "このトランクは経路設定でトランクを使用するよう設定されるまで、アウトバウンド"
 "コールで使用できません。<b>アウトバウンド経路</b>をクリックしてルーティングの"
-"セットアップを行ってください。"
+"セトアップを行ってください。"
 
 #: ../core/functions.inc.php:5442
 #, php-format
@@ -4594,7 +4594,7 @@ msgstr "未使用のダイヤルイン"
 #: amp_conf/htdocs/admin/views/footer.php:81
 #: amp_conf/htdocs/admin/views/welcome.php:11
 msgid "Update"
-msgstr "アップデート"
+msgstr "ップデート"
 
 #: amp_conf/htdocs/admin/views/footer.php:84
 msgid "Update Notifications"
@@ -4667,7 +4667,7 @@ msgstr "%sによって宛先として使用されています。 %s"
 #: ../core/functions.inc.php:7050 ../core/page.did.php:165
 #: ../core/page.users.php:12
 msgid "User"
-msgstr "ユーザー"
+msgstr "ユザー"
 
 #: ../core/page.trunks.php:1171
 msgid "User Context was left blank and User Details will not be saved!"
@@ -4769,8 +4769,8 @@ msgid ""
 "interface requires Javascript to run properly. Please enable javascript or "
 "switch to another  browser that supports it."
 msgstr ""
-"WARNING: あなたのブラウザでJavascriptが無効になっております。IssabelPBX管理イン"
-"ターフェイスを正しく動かすにはJavascriptが必要です。javascriptを有効にする"
+"WARNING: あなたのブラウザでJavascriptが無効になております。IssabelPBX管理イン"
+"ターフェイスを正しく動かにはJavascriptが必要です。javascriptを有効にする"
 "か、javascriptをサポートしているブラウザに変更してください。"
 
 #: ../core/functions.inc.php:7600
@@ -4891,8 +4891,8 @@ msgid ""
 msgstr ""
 "インターコムに設定された場合、他の内部ユーザーから新規内線/ユーザーへのコール"
 "は、エンドポイントがこの機能をサポートし、システムがこのモードで操作するよう"
-"に設定されている場合は、それらが自動応答されることを意味するインターコムコー"
-"ルかのように動作します。それらが設定されている場合は、全ての通常のホワイトリ"
+"に設定されている場合は、それら自動応答されることを意味するインターコムコー"
+"ルかのよに動作します。それらが設定されている場合は、全ての通常のホワイトリ"
 "ストとブラックリスト設定が尊重されます。ある特定の状況下、例えばブラインド転"
 "送やフォローミーが設定され有効になっている場合は、外部からのコールはまだ通常"
 "どおり着信します。無効にされた場合、電話は普通の電話機として着信します。"
@@ -4929,7 +4929,7 @@ msgid ""
 "default profile in use by Asterisk. As a result the following must be "
 "enabled to use WebRTC"
 msgstr ""
-"AVPFを有効にするかどうか。デフォルトは無効です。WebRTC標準では、メディアスト"
+"AVPFを有効にするかどうか。デフォルトは無効です。WebRTC標準で、メディアスト"
 "リームに使用されるオーディオ・ビデオプロファイルとして、AVPFが選択されていま"
 "す。しかしこれはAsteriskにおいてはデフォルトプロファイルではない為、WebRTCを"
 "使う場合は有効に設定する必要があります"
@@ -4943,7 +4943,7 @@ msgid ""
 msgstr ""
 "ICEのサポートを有効にするかどうか。デフォルトは無効です。ICE (Interactive "
 "Connectivity Establishment)とは、offer/answerモデルをベースに成立するUDPマル"
-"チメディアセッションで使用するNATトラバーサルのプロトコルです。WebRTCを使うシ"
+"チメディアセッションで使用するNATトラバーサルのプロトコルで。WebRTCを使うシ"
 "ステム設定では有効になっていることが多い"
 
 #: ../core/functions.inc.php:7624
@@ -5046,7 +5046,7 @@ msgid ""
 "blank."
 msgstr ""
 "<b>プリフィックス</b>の一致のみによって番号を完全に置き換えることができ、<b>"
-"前付与</b>と置き換えて<b>一致パターン</b>は空白のままにしておきます。"
+"前付与</b>と置き換えて<b>一致パターン</b>は空白のままにしておきます"
 
 #: ../core/page.did.php:215
 msgid ""
@@ -5065,7 +5065,7 @@ msgid ""
 "overwritten."
 msgstr ""
 "ローカルシステムからIssabelPBXモジュールを含むtar gzipファイルをアップロー>ドす"
-"ることができます。同じ名前のモジュールが既に存在する場合は、上書きされます。"
+"ることができます。同じ名前のモジュールが既に存在する合は、上書きされます。"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:1763
 #, php-format
@@ -5114,7 +5114,7 @@ msgid ""
 "is generally bad practice to not assign a Secret to a device. Are you sure "
 "you want to leave the Secret empty?"
 msgstr ""
-"あなたはこのデバイスのシークレットを入力してません、このままにしておくことも"
+"あなたはこのデバイスのシークレットを入力してせん、このままにしておくことも"
 "可能ですが、一般的にデバイスにシークレットを割り当てないのは悪い例です。帆本"
 "当にシークレットを空のままにしておきますか？"
 
@@ -5133,7 +5133,7 @@ msgid ""
 "You have un-saved changes, press OK to disregard changes and reload page or "
 "Cancel to abort."
 msgstr ""
-"保存されていない変更があります、変更を無視してページを再読み込みまたはキャン"
+"保されていない変更があります、変更を無視してページを再読み込みたはキャン"
 "セルして中断するにはOKを押してください。"
 
 #: amp_conf/htdocs/admin/page.modules.php:573
@@ -5152,7 +5152,7 @@ msgid ""
 msgstr ""
 "お使いのプロバイダーによっては以下にリストアップされたデフォルトラインに追加"
 "する必要がある可能性があります..<br /><br />警告: 順番が保持されるので重要で"
-"す。例えば、\"allow/deny\"ディレクティブを使用した場合、denyが先にくることに"
+"す。例えば、\"allow/deny\"ディレクティブを使用した場合、denyが先にくること"
 "注意してください。"
 
 #: ../core/page.trunks.php:1172
@@ -5178,7 +5178,7 @@ msgid ""
 "You must run 'amportal restart' from the Linux command line before you can "
 "save setting here."
 msgstr ""
-"ここで設定を保存する前に、Linuxコマンドラインより 'amportal restart' を実行す"
+"ここで設定を保存する前に、Linuxコマンドラインより 'amportal restart' を実す"
 "る必要があります。"
 
 #: amp_conf/htdocs/admin/page.modules.php:622
@@ -5203,7 +5203,7 @@ msgid ""
 "are still un-confirmed."
 msgstr ""
 "あなたのディスプレイ設定は変更されました、まだ確認できていない目立った変更を"
-"一度保存した後に、あなたの変更の結果を閲覧するには'ページを更新'をクリックし"
+"度保存した後に、あなたの変更の結果を閲覧するには'ページを更新'をクリックし"
 "てください。"
 
 #: amp_conf/htdocs/admin/libraries/view.functions.php:19
@@ -5223,7 +5223,7 @@ msgid ""
 "you php.ini config file"
 msgstr ""
 "現在のmemory_limit値 %sM が低く、問題発生する可能性があります。IssabelPBXはこの"
-"値を変更できない為、php.ini設定ファイル内のこの値を %sM に増加してください"
+"値を変更できない為、php.ini設定ァイル内のこの値を %sM に増加してください"
 
 #: ../core/page.trunks.php:861
 msgid ""
@@ -5271,7 +5271,7 @@ msgstr ""
 #, php-format
 msgid "[WARNING]: Menu Item: %s is disabled because asterisk is not running"
 msgstr ""
-"[警告]：メニューアイテム： %sはasteriskが実行されてないため無効になってます"
+"[警告]：メニューアイテム： %sはasteriskが実行されてないため無効になてます"
 
 #: upgrades/2.10.0beta3/migration.php:61 upgrades/2.10.0beta3/migration.php:76
 #: upgrades/2.9.0alpha1/tables.php:48 upgrades/2.9.0alpha1/tables.php:64
@@ -5409,11 +5409,11 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:407
 msgid "custom modifications, details at:"
-msgstr "カスタム修正、詳細："
+msgstr "カスタム修正、詳細"
 
 #: ../core/install.php:994
 msgid "dahdi table not empty, can't migrate zap data there"
-msgstr "dahdiテーブルが空でないため、zapデータをそこに移行できません"
+msgstr "dahdiーブルが空でないため、zapデータをそこに移行できません"
 
 #: ../core/page.routing.php:442
 msgid "default"
@@ -5539,7 +5539,7 @@ msgstr "%s を %s 中に、%s モジュールの取り込みに失敗しまし�
 #, php-format
 msgid "failed to open %s module archive into _cache directory."
 msgstr ""
-"モジュールアーカイブ %s を _cacheディレクトリにオープンできませんでした。"
+"モジュールアーカイブ %s を _cacheディレクトにオープンできませんでした。"
 
 #: ../core/install.php:240 ../core/install.php:256
 msgid "fatal error"
@@ -5561,7 +5561,7 @@ msgstr "フィールドを追加中に致命的なエラーが発生しました
 
 #: amp_conf/htdocs/admin/libraries/issabelpbx_conf.class.php:949
 msgid "fatal error updating issabelpbx_settings table"
-msgstr "issabelpbx_settingsテーブルのアップデートにおける致命的なエラー"
+msgstr "issabelpbx_settingsテーブルのアップデートにおける致的なエラー"
 
 #: ../core/page.advancedsettings.php:90
 msgid "field can be left blank"
@@ -5588,7 +5588,7 @@ msgid ""
 "issabelpbx setting  ZAP2DAHDICOMPAT not found, somethng is corrupt in the conf "
 "database?"
 msgstr ""
-"IssabelPBX設定ZAP2DAHDICOMPATが見つかりませんでした。confデータベースは破損して"
+"IssabelPBX設定ZAP2DAHDICOMPATが見つかりませんでした。confデーベースは破損して"
 "いませんか？"
 
 #: ../core/page.trunks.php:653 ../core/page.trunks.php:666
@@ -5623,7 +5623,7 @@ msgid ""
 "is useful for VoIP trunks, where if a number is dialed as \"5551234\", it "
 "can be converted to \"16135551234\"."
 msgstr ""
-"もし番号が\"5551234\"とダイヤルされた場合、\"16135551234\"と変換されるといっ"
+"もし号が\"5551234\"とダイヤルされた場合、\"16135551234\"と変換されるといっ"
 "たような形でVoIPトランクに役に立ちます。"
 
 #: ../core/page.trunks.php:684
@@ -5648,7 +5648,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:628
 msgid "local module administration"
-msgstr "ローカルモジュール管理"
+msgstr "ーカルモジュール管理"
 
 #: upgrades/2.9.0beta2/logger_migrate.php:75
 msgid "logger file removed, core upgrade will provide new file"
@@ -5788,11 +5788,11 @@ msgstr ""
 #: amp_conf/htdocs/admin/views/obe.php:36
 #: amp_conf/htdocs/admin/views/obe.php:48
 msgid "password"
-msgstr "パスワード"
+msgstr "スワード"
 
 #: ../core/page.routing.php:514 ../core/page.trunks.php:628
 msgid "prefix"
-msgstr "プリフィックス"
+msgstr "プリフィクス"
 
 #: ../core/page.routing.php:504 ../core/page.trunks.php:618
 msgid "prefix:"
@@ -5868,7 +5868,7 @@ msgstr "route - NAT no rport"
 
 #: ../core/page.trunks.php:423
 msgid "routes"
-msgstr "経路"
+msgstr "路"
 
 #: upgrades/2.9.0alpha1/migrate_ampconf.php:115
 msgid "setting AMP_ACCESS_DB_CREDS to true"
@@ -5998,8 +5998,8 @@ msgstr "zapでバイスが移行されました"
 #~ "新しいモジュールを確認するリポジトリを選択してください。既にインストールさ"
 #~ "れているモジュールに対する利用可能な更新データがある場合、リポジトリに"
 #~ "チェックが入っていない場合でも自動的に検出されます。もしあなたが新しくシス"
-#~ "テムをインストールしたばかりの場合は、基本リポジトリを選択して全てのモ"
-#~ "ジュールをアップロードし、次に他のモジュールを確認しましょう。"
+#~ "テムをインストールしたばかりの場合は、基本リジトリを選択して全てのモ"
+#~ "ジュールをアップロードし、次に他のモジュールを認しましょう。"
 
 #~ msgid ""
 #~ "Online updates are disabled in Module Admin. When disabled, you will not "
@@ -6012,8 +6012,8 @@ msgstr "zapでバイスが移行されました"
 #~ "いると、手動でアップデートを確認しない限り、バグ修正やセキュリティ問題の通"
 #~ "知がされません。オンラインアップデートの確認を有効にすることをお勧めしま"
 #~ "す。アップデートの確認が有効になっている場合、それらはアップデート内容の確"
-#~ "認と、通知パネルへの通知を行い、ログに記録されますが、自動的にダウンロード"
-#~ "されることはありません。"
+#~ "認と、通知パネルの通知を行い、ログに記録されますが、自動的にダウンロード"
+#~ "されることはありせん。"
 
 #~ msgid "1800NXXXXXX,1888NXXXXXX,1877NXXXXXX,1866NXXXXXX,1855NXXXXXX"
 #~ msgstr "1800NXXXXXX,1888NXXXXXX,1877NXXXXXX,1866NXXXXXX,1855NXXXXXX"
@@ -6083,7 +6083,7 @@ msgstr "zapでバイスが移行されました"
 #~ "them. Take extreme caution when electing to make such changes."
 #~ msgstr ""
 #~ "これをtrueに設定することにより、隠されていない読み込み専用の設定を変更する"
-#~ "ために上書きすることが許可されます。読み込み専用を設定変更することは非常に"
+#~ "ために上書きすること許可されます。読み込み専用を設定変更することは非常に"
 #~ "揮発的で、変更した場合は高い確率であなたのシステムを破壊する可能性がありま"
 #~ "す。そのような変更をする際は最大限の注意を払ってください。"
 
@@ -6107,7 +6107,7 @@ msgstr "zapでバイスが移行されました"
 #~ "は、manager.conf内で自動的に更新されます。"
 
 #~ msgid "Asterisk Manager Port"
-#~ msgstr "Asteriskマネージャーポート"
+#~ msgstr "Asteriskマネージャポート"
 
 #~ msgid "Port for the Asterisk Manager"
 #~ msgstr "Asteriskマネージャーのポート"
@@ -6153,7 +6153,7 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr ""
 #~ "IssabelPBXはCSSとjavascriptファイルと、いくつかのメインロゴイメージにバージョ"
 #~ "ンタグを追加します。バージョニングは、モジュールバージョンがアップグレード"
-#~ "された際に、強制的にブラウザに新しいバージョンのファイルを読み込ませるのに"
+#~ "された際に、強制的にブラウザに新しバージョンのファイルを読み込ませるのに"
 #~ "役立っています。この値をtrueにすると、全ての強制的にこれらをバージョン情報"
 #~ "内に追加されたタイムスタンプによって読み込まれた全てのページでブラウザに読"
 #~ "み込まれるようにします。これは、javascriptやCSSファイルが変更される開発や"
@@ -6168,8 +6168,8 @@ msgstr "zapでバイスが移行されました"
 #~ "included after other processing thus having full access to the current "
 #~ "environment for additional customization."
 #~ msgstr ""
-#~ "ディレクトリが定義された場合、retrieve_conf は、"
-#~ "<i>retrieve_conf_post_custom</i>というファイルがあるかをチェックし、その"
+#~ "ディレクトリが定義された場、retrieve_conf は、"
+#~ "<i>retrieve_conf_post_custom</i>というファイルがあるかをチェックし、そ"
 #~ "ファイルが存在する場合、他の処理の後に含まれ、このように現環境への追加カス"
 #~ "タマイズのためにフルアクセスを持ちます。"
 
@@ -6192,8 +6192,8 @@ msgstr "zapでバイスが移行されました"
 #~ "Admin, use of original CSS files and other future capabilities will be "
 #~ "enabled."
 #~ msgstr ""
-#~ "これは、ページのロード時間情報や、モジュールアドミンのデバッグ情報を含む開"
-#~ "発者向けのいくつかのデバッグ機能を有効にし、、オリジナルのCSSファイルの使"
+#~ "これは、ページのロード時間情報や、モジュールアドミンデバッグ情報を含む開"
+#~ "発者向けのいくつかのデバッグ機能を有効にし、、オリジナルCSSファイルの使"
 #~ "用や他の将来的な機能が有効になります。"
 
 #~ msgid "Disable IssabelPBX dbug Logging"
@@ -6230,11 +6230,11 @@ msgstr "zapでバイスが移行されました"
 #~ "キュメントのコピーをキャッシュします。もしキャッシュが5分以内であれば、後"
 #~ "続のオンライン·アップデートチェックはキャッシュされた情報を使用します。"
 #~ "キャッシュをバイパスし、強制的にそれがサーバに毎回行くようにするには、これ"
-#~ "をtrueに設定してください。これは通常、falseにする必要がありますが、テスト"
+#~ "をtrueに設定してください。これは通常、falseにする必要がありすが、テスト"
 #~ "時に役立ちます。"
 
 #~ msgid "Display Monitor Trunk Failures Option"
-#~ msgstr "トランクが落ちた場合のモニターオプション"
+#~ msgstr "トランク落ちた場合のモニターオプション"
 
 #~ msgid "Setting this to true will expose the "
 #~ msgstr "この設定を true にすることで、その表示をさせます "
@@ -6278,10 +6278,10 @@ msgstr "zapでバイスが移行されました"
 #~ "in the GUI."
 #~ msgstr ""
 #~ "GUI上で設定変更を実行を押した後に、マネージャーを通じてAsteriskに対して内"
-#~ "線の再読み込みを実行する直前に走らせる、オプションスクリプト。"
+#~ "線の再読み込みを実行する直前に走らせ、オプションスクリプト。"
 
 #~ msgid "Provide Verbose Tracebacks"
-#~ msgstr "冗長トレースバックを提供する"
+#~ msgstr "冗長トレースバックを提供す"
 
 #~ msgid ""
 #~ "Provides a very verbose traceback when die_issabelpbx() is called including "
@@ -6336,7 +6336,7 @@ msgstr "zapでバイスが移行されました"
 #~ "actually considers weak when it may not be."
 #~ msgstr ""
 #~ "SIPとIAXデバイスに対して少なくとも2つ以上の数値と数値ではない文字の組み合"
-#~ "わせと、6文字以上の文字強いシークレットを要求します。これは、もしこれらの"
+#~ "わせと、6文字以上の字強いシークレットを要求します。これは、もしこれらの"
 #~ "ニーズを満たせないデバイスを使用している場合や、それがないかもしれない時に"
 #~ "このルールが実際に弱いとみなして、より厳密な制約を含む他の制約を設けたい場"
 #~ "合には無効にすることができます。"
@@ -6380,7 +6380,7 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr ""
 #~ "SIP sendrpidのデフォルト設定。'yes'の値は'rpid'と同じで、'Remote-Party-"
 #~ "ID'ヘッダーが送信されます。'pal'の値はAsterisk 1.8スタートからのみ有効"
-#~ "で、'P-Asserted-Identity'ヘッダーが送信されます。詳細はAsteriskドキュメン"
+#~ "で、'P-Asserted-Identity'ヘッダーが送信されす。詳細はAsteriskドキュメン"
 #~ "トを参照ください。"
 
 #~ msgid "SIP nat"
@@ -6423,7 +6423,7 @@ msgstr "zapでバイスが移行されました"
 #~ "client firewalls. See Asterisk documentation for details."
 #~ msgstr ""
 #~ "SIP qualifyfreqのデフォルト設定。Asterisk 1.6以上でのみ有効で"
-#~ "す。'qualify'オプションメッセージがデバイスに送信される頻度です。NATホール"
+#~ "す。'qualify'オプションメッセージがデバイスに信される頻度です。NATホール"
 #~ "を開いたままに持続するのに役立ちますが、リモートクライアントのファイヤー"
 #~ "ウォールによっては維持できません。詳細はAsteriskドキュメントを参照くださ"
 #~ "い。"
@@ -6439,8 +6439,8 @@ msgstr "zapでバイスが移行されました"
 #~ "for remote client firewalls. See Asterisk documentation for details."
 #~ msgstr ""
 #~ "SIP と IAX qualifyのデフォルト設定。 (SIPのための)周期的なオプションメッ"
-#~ "セージを送信するかどうか、もしくはチャネルをモニターするかどうか、そしてど"
-#~ "の時点でチャネルが利用不可能と見なすか。'はい'の値は、 2000ミリ秒と同じで"
+#~ "セージを送信るかどうか、もしくはチャネルをモニターするかどうか、そしてど"
+#~ "の時点でチャネルが利用不可と見なすか。'はい'の値は、 2000ミリ秒と同じで"
 #~ "す。NATホールを開いたままに持続するのに役立ちますが、リモートクライアント"
 #~ "のファイヤーウォールによっては維持できません。詳細はAsteriskドキュメントを"
 #~ "参照ください。"
@@ -6456,7 +6456,7 @@ msgstr "zapでバイスが移行されました"
 #~ "details."
 #~ msgstr ""
 #~ "SIP と IAX 許可(codecに対する)のデフォルト設定。明示的にデバイスに対し"
-#~ "て'禁止'する場合を除き、一般設定で設定されたコーデックに加えて許可するコー"
+#~ "て'禁止'する場合を除き、一般設で設定されたコーデックに加えて許可するコー"
 #~ "デック。値は'&'で区切ることができます。例:  'ulaw&g729&g722' 優先度の順番"
 #~ "は保持されます。詳細はAsteriskドキュメントを参照ください。"
 
@@ -6543,7 +6543,7 @@ msgstr "zapでバイスが移行されました"
 #~ "ローバルに加えて各個別のトランクで実行されます。"
 
 #~ msgid "Call Forward Ringtimer Default"
-#~ msgstr "コール転送リングタイマーデフォルト"
+#~ msgstr "コール転送リングタイマーデフォト"
 
 #~ msgid ""
 #~ "This is the default time in seconds to try and connect a call that has "
@@ -6557,7 +6557,7 @@ msgstr "zapでバイスが移行されました"
 #~ "extension."
 #~ msgstr ""
 #~ "これは、サーバーサイドのCF,CFUとCFBオプションによって転送されたコールを接"
-#~ "続しようとするデフォルト秒数です。(もしあなたの電話がSIPリダイレクトなどの"
+#~ "続しようとするデフォルト秒数です。(もしあなたの電話がSIPリダイレトなどの"
 #~ "クライアントサイドのCFを使用している場合、これは何の効果も発揮しません。)"
 #~ "もしデフォルトの0が設定された場合、それは標準のリングタイマーを使用しま"
 #~ "す。もし -1が設定された場合、それは転送された番号を無制限に鳴らし、これは"
@@ -6573,8 +6573,8 @@ msgstr "zapでバイスが移行されました"
 #~ "extensions when one wants a call recorded and the other does not, if both "
 #~ "their priorities are also the same."
 #~ msgstr ""
-#~ "通話録音要求する時に内線の間に競合が起きった時、または相手は通話録音を拒否"
-#~ "した時の内線へのレコード優先度のポリシー。"
+#~ "通話録音要求す時に内線の間に競合が起きった時、または相手は通話録音を拒否"
+#~ "した時の内線へのレコード優先度のポシー。"
 
 #~ msgid "Conference Room App"
 #~ msgstr "カンファレンスルームのアプリ"
@@ -6622,7 +6622,7 @@ msgstr "zapでバイスが移行されました"
 #~ "ない場合は、<b>いいえ</b>に設定してください。そうすれば、ユーザーはかれら"
 #~ "の電話を有効にしたい場合は、CWのキーコード(デフォルトで *70)にダイヤルする"
 #~ "ことが要求されるようになります。たいていの場合はこのままにしておくべきで"
-#~ "す。それにより複数回線対応の電話は複数のコールが出現した際に複数受けること"
+#~ "す。それにより複数回線対応の電話は複数のールが出現した際に複数受けること"
 #~ "ができるようになります。"
 
 #~ msgid "Disable -custom Context Includes"
@@ -6639,8 +6639,8 @@ msgstr "zapでバイスが移行されました"
 #~ "revert to legacy behavior and include the contexts."
 #~ msgstr ""
 #~ "普通は、IssabelPBXは通常の動作を修正するためにカスタムダイヤルプランを追加す"
-#~ "るのに役に立つcustomコンテキストを自動生成します。それにより、Asteriskがこ"
-#~ "れらを使用するためにはどのようにこれらのincludesを処理するのかが分かりやす"
+#~ "るのに役に立つcustomコンテキストを自動成します。それにより、Asteriskがこ"
+#~ "れらを使用するためにはどのようにこれらのincludesを処理するのかが分かやす"
 #~ "くなり、大抵の場合は役立つ適用はありません。全てのincludesは、エラーにはな"
 #~ "りませんが、includeするコンテキストが見つからない場合はAsteriskのログで警"
 #~ "告を出すようになります。もしあなたが、includesがほしいとわかっている場合"
@@ -6656,7 +6656,7 @@ msgstr "zapでバイスが移行されました"
 #~ "application VQA' at the Asterisk CLI will show the different settings."
 #~ msgstr ""
 #~ "Ditech社のVQA、音声品質アプリケーションがインストールされている場合、この"
-#~ "設定は全てのインバウンドコールで使用されます。より多くの情報を入手するに"
+#~ "設は全てのインバウンドコールで使用されます。より多くの情報を入手するに"
 #~ "は、Asterisk CLIで'core show application VQA' をすると、他の設定も見れま"
 #~ "す。"
 
@@ -6670,7 +6670,7 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr ""
 #~ "Ditech社のVQA、音声品質アプリケーションがインストールされている場合、この"
 #~ "設定は全てのアウトバウンドコールで使用されます。より多くの情報を入手するに"
-#~ "は、Asterisk CLIで'core show application VQA' をすると、他の設定も見れま"
+#~ "は、Asterisk CLIで'core show application VQA' をすると、他の設定も見ま"
 #~ "す。"
 
 #~ msgid "Dynamically Generate Hints"
@@ -6713,7 +6713,7 @@ msgstr "zapでバイスが移行されました"
 #~ "limit."
 #~ msgstr ""
 #~ "内線から発信できる同時アウトバウンドコールのデフォルトの最大数。これは、危"
-#~ "険にさらされたシステムに対するセキュリティ保護としてもとても役に立ちます。"
+#~ "険にさらされシステムに対するセキュリティ保護としてもとても役に立ちます。"
 #~ "それは、危険にさらされた内線から発信される同時コールの数を制限します。内線"
 #~ "が作成された時にこのデフォルトが使用されます。デフォルトの0は無制限を意味"
 #~ "します。"
@@ -6753,7 +6753,7 @@ msgstr "zapでバイスが移行されました"
 #~ "assuming there is a DID available. This is useful with some carriers that "
 #~ "may require this under certain circumstances."
 #~ msgstr ""
-#~ "もしこの値がtrueに設定されている場合、あなたのPBXの外から生成され、コール"
+#~ "もしこの値trueに設定されている場合、あなたのPBXの外から生成され、コール"
 #~ "転送や、リンググループ、フォローミーや他の方法を通じてその後、転送されたア"
 #~ "ウトバウンドルートで発信されるコールは、利用可能なDIDが存在することが想定"
 #~ "された、オリジナルの着信DIDが追加されたSIPの宛先変更ヘッダーを持つようにな"
@@ -6777,8 +6777,8 @@ msgstr "zapでバイスが移行されました"
 #~ "ムがこのモードで操作するように設定されている場合は、それらが自動応答される"
 #~ "ことを意味するインターコムコールかのように動作します。それらが設定されてい"
 #~ "る場合は、全ての通常のホワイトリストとブラックリスト設定が尊重されます。あ"
-#~ "る特定の状況下、例えばブラインド転送やフォローミーが設定され有効になってい"
-#~ "る場合は、外部からのコールはまだ通常どおり着信します。無効にされた場合、電"
+#~ "る特定の状況下、例えばラインド転送やフォローミーが設定され有効になってい"
+#~ "る場合は、外部からのコールはまだ通常どおり着信しま。無効にされた場合、電"
 #~ "話は普通の電話機として着信します。"
 
 #~ msgid "NoOp Traces in Dialplan"
@@ -6794,7 +6794,7 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr ""
 #~ "いくつかのモジュールでは、開発中やコールフローのトレース時に使用される"
 #~ "[TRACE](trace_level)によって進行する多くの NoOp()コマンドを生成します。こ"
-#~ "れらの NoOp() コマンドは他の目的を果たさない為、ダイヤルプラン内で膨大な "
+#~ "れらの NoOp() コマドは他の目的を果たさない為、ダイヤルプラン内で膨大な "
 #~ "NoOp() を表示させない場合は、0に設定します。設定数が大きい程、 NoOp()は詳"
 #~ "細なのトレースを生成します"
 
@@ -6849,7 +6849,7 @@ msgstr "zapでバイスが移行されました"
 #~ "timeout parameter."
 #~ msgstr ""
 #~ "トランクでの発信を諦めるまでの秒数。これは通常、大変長い時間であるべきで、"
-#~ "通常はトランクのトラブルがあった場合に限って変更を行います。これはAsterisk"
+#~ "通常はトランクのトラルがあった場合に限って変更を行います。これはAsterisk"
 #~ "ダイヤルコマンドのタイムアウトの変数です。"
 
 #~ msgid "Use bad-number Context"
@@ -6931,7 +6931,7 @@ msgstr "zapでバイスが移行されました"
 #~ "パスするオプション。詳細オプションはAsteriskマニュアルに記載されており、そ"
 #~ "の一部をここに記載しています。デフォルトオプションのT及びtでは、ハッシュ#"
 #~ "を2回押すと発信者及び受信者から転送ができます。rのオプションは、PSTNから初"
-#~ "期メディアの受信を防ぐため、外部のIVRをできる限り使用しないことをおすすめ"
+#~ "期メディアの受信を防ぐため、外部のIVRをできる限り用しないことをおすすめ"
 #~ "します"
 
 #~ msgid "Country Indication Tones"
@@ -6955,7 +6955,7 @@ msgstr "zapでバイスが移行されました"
 #~ "you know what is being presented to the caller if the outbound trunk "
 #~ "supports and honors setting the transmitted CID."
 #~ msgstr ""
-#~ "送受話器でtrueとCONNECTEDLINE()機能が設定された場合、このコールで送られた"
+#~ "送話器でtrueとCONNECTEDLINE()機能が設定された場合、このコールで送られた"
 #~ "CID値はあなたの送受話器のCIDが付いているCNAMフィールドにアップデートしま"
 #~ "す：そうすると転送されたCIDをサポートできるアウトバウンドトランク発信者に"
 #~ "送ったCID値を参照できます。"
@@ -6980,7 +6980,7 @@ msgstr "zapでバイスが移行されました"
 #~ "アウトバウンドルートの後に最後に操作した番号を見ることができます。トランク"
 #~ "ダイヤル操作ルールも実行されます。例えば、北アメリカのダイヤルプランに７桁"
 #~ "に設定した場合、最終的に10または11桁は反映されます。トランクレベルに設定さ"
-#~ "れた'アウトバウンドダイヤルプリフィックス'は表示されないです。なぜなら、そ"
+#~ "れた'アウトバウンドダイヤルプリフィックス'は表示されないです。ななら、そ"
 #~ "れはアナログ線の停止（w) またはCNUMフィールドのアップデートによる文字化け"
 #~ "です。"
 
@@ -7009,7 +7009,7 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr "Asterisk bin ディレクトリ"
 
 #~ msgid "This is the default directory for Asterisks lib files."
-#~ msgstr "Asterisk libファイルのデフォルトディレクトリ。"
+#~ msgstr "Asterisk libファイルのデフォルトディクトリ。"
 
 #~ msgid "Asterisk etc Dir"
 #~ msgstr "Asterisk etc ディレクトリ"
@@ -7147,7 +7147,7 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr "ブラウザタイトル前にサーバー名を含む。"
 
 #~ msgid "Report Unknown Dest as Error"
-#~ msgstr "不明な宛先をエラーとしてレポート"
+#~ msgstr "明な宛先をエラーとしてレポート"
 
 #~ msgid ""
 #~ "If false, then the Destination Registry will not report unknown "
@@ -7168,7 +7168,7 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr "言語設定を表示する"
 
 #~ msgid "Show Language setting on menu . Defaults = false"
-#~ msgstr "メニューで言語の設定を表示する。デフォルトはfalse"
+#~ msgstr "メニューで言語の設定を表示する。デォルトはfalse"
 
 #~ msgid "Use issabelpbx_menu.conf Configuration"
 #~ msgstr "issabelpbx_menu.confの設定を使用する"
@@ -7185,7 +7185,7 @@ msgstr "zapでバイスが移行されました"
 #~ "い。"
 
 #~ msgid "Use wget For Module Admin"
-#~ msgstr "モジュールアドミンでwgetを使用する"
+#~ msgstr "モジューアドミンでwgetを使用する"
 
 #~ msgid ""
 #~ "Module Admin normally tries to get its online information through direct "
@@ -7200,7 +7200,7 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr ""
 #~ "モジュールアドミンはissabel.orgサーバーへ戻るURLに対して、通常ダイレクトな"
 #~ "ファイルオープンタイプの呼出しを通じてオンライン情報の取得を試みます。これ"
-#~ "が失敗する場合は、一般的にPHPが形式のリクエスト方式を好まないファイヤー"
+#~ "が失敗する場合は、一般的にPHPが式のリクエスト方式を好まないファイヤー"
 #~ "ウォールのコンテンツフィルターによるもので、コードはフォールバックし情報を"
 #~ "入手するためにwgetを試みます。これはよく問題を解決します。しかし、そのよう"
 #~ "な環境では、URLにたいする失敗したファイルオープン呼出しが戻ってくるまで膨"
@@ -7218,7 +7218,7 @@ msgstr "zapでバイスが移行されました"
 #~ "Set to the application name if the application is present in this "
 #~ "Asterisk install"
 #~ msgstr ""
-#~ "アプリケーションがこのAsteriskインストールに存在する場合は、アプリケーショ"
+#~ "アプリケーションがこのAsteriskインストールに存在する場合、アプリケーショ"
 #~ "ン名にセットしてください"
 
 #~ msgid "Asterisk Function CONNECTEDLINE"
@@ -7288,8 +7288,8 @@ msgstr "zapでバイスが移行されました"
 #~ "not use the default values provided by IssabelPBX.<br>Hostname of db server "
 #~ "if not the same as AMPDBHOST."
 #~ msgstr ""
-#~ "使い方が不明な場合は設定しないでください。IssabelPBXのデフォルト値を使用しな"
-#~ "い時だけ使用してください。<br>AMPDBHOSTとDBサーバーが異なる場合のDBサー"
+#~ "使い方が不な場合は設定しないでください。IssabelPBXのデフォルト値を使用しな"
+#~ "い時だけ使用してください。<br>AMPDBHOSTとDBサーバーが異なる合のDBサー"
 #~ "バーホスト名。"
 
 #~ msgid "Remote CDR DB Name"
@@ -7312,7 +7312,7 @@ msgstr "zapでバイスが移行されました"
 #~ "connecting to db if its not the same as AMPDBPASS."
 #~ msgstr ""
 #~ "使い方がわからない場合は設定しないでください。IssabelPBXによって提供されてい"
-#~ "るデフォルト値を使用しない時だけ使用します。<br>AMDBPASSと異なる場合のdb接"
+#~ "るデフォルト値を使用しない時だけ用します。<br>AMDBPASSと異なる場合のdb接"
 #~ "続パスワード。"
 
 #~ msgid "Remote CDR DB Port"
@@ -7335,7 +7335,7 @@ msgstr "zapでバイスが移行されました"
 #~ "db where the cdr is stored. cdr is default."
 #~ msgstr ""
 #~ "使い方がわからない場合は設定しないでください。IssabelPBXによって提供されてい"
-#~ "るデフォルト値を使用しない時だけ使用します。<br>cdrが保存されるdbのテーブ"
+#~ "るデフォルトを使用しない時だけ使用します。<br>cdrが保存されるdbのテーブ"
 #~ "ル名。cdrはデフォルトです。"
 
 #~ msgid "Remote CDR DB Type"
@@ -7448,7 +7448,7 @@ msgstr "zapでバイスが移行されました"
 #~ "Optional custom CSS style sheet included after the primary one and any "
 #~ "module specific ones are loaded, relative to admin."
 #~ msgstr ""
-#~ "メインのCSSとモジュール独自のCSSが読み込まれた後にインクルードされるオプ"
+#~ "メインのCSSとモジュール独自のCSSが読み込まれた後にインクルードされオプ"
 #~ "ションのカスタムCSSスタイルシート、adminからの相対パス。"
 
 #~ msgid "View: issabelpbx_admin.php"
@@ -7477,7 +7477,7 @@ msgstr "zapでバイスが移行されました"
 #~ "issabelpbx_reload.php view. This should never be changed except for very "
 #~ "advanced layout changes."
 #~ msgstr ""
-#~ "issabelpbx_reload.phpビュー。システム開発責任者以外は、一切変更しないでくださ"
+#~ "issabelpbx_reload.phpビュー。システム開発責者以外は、一切変更しないでくださ"
 #~ "い。"
 
 #~ msgid "View: issabelpbx_reloadbar.php"
@@ -7564,7 +7564,7 @@ msgstr "zapでバイスが移行されました"
 #~ "panel.php view. This should never be changed except for very advanced "
 #~ "layout changes."
 #~ msgstr ""
-#~ "panel.phpビュー。システム開発責任者以外は、一切変更しないでください。"
+#~ "panel.phpビュー。システ開発責任者以外は、一切変更しないでください。"
 
 #~ msgid "View: reports.php"
 #~ msgstr "ビュー： reports.php"
@@ -7598,7 +7598,7 @@ msgstr "zapでバイスが移行されました"
 #~ "beta_notice.php view. This should never be changed except for very "
 #~ "advanced layout changes"
 #~ msgstr ""
-#~ "beta_notice.php ビュー。システム開発責任者以外は、一切変更しないでください"
+#~ "beta_notice.php ビュー。システム開発責任者以外は、一切変更しいでください"
 
 #~ msgid "jQuery UI css"
 #~ msgstr "jQuery UI css"
@@ -7745,7 +7745,7 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr ""
 #~ "Syslogのレベル(AMPSYSLOGLEVEL)が'FILE'に設定された際のIssabelPBXのログファイ"
 #~ "ルフルパス名。インストール初期時にはいくつかのログは/tmp/"
-#~ "issabelpbx_pre_install.logに出力されます。"
+#~ "issabelpbx_pre_install.logに出力さます。"
 
 #~ msgid "PHP Error Log Output"
 #~ msgstr "PHPエラーログ出力"
@@ -7834,9 +7834,9 @@ msgstr "zapでバイスが移行されました"
 #~ "ARI bypassing all security. Change this to whatever you want, do not "
 #~ "forget to change the User Portal Admin Password as well. Default = not set"
 #~ msgstr ""
-#~ "管理者がARIへログインして全てのセキュリティを通過できることが許可されたデ"
+#~ "管理者がARIへログインして全のセキュリティを通過できることが許可されたデ"
 #~ "フォルトのadmin 名。これを好きな名前に変更してください、忘れずにユーザー"
-#~ "ポータルの管理者パスワードも変更してください。デフォルト = 設定なし"
+#~ "ポタルの管理者パスワードも変更してください。デフォルト = 設定なし"
 
 #~ msgid "User Portal Admin Password"
 #~ msgstr "ユーザーポータル管理者パスワード"
@@ -7931,7 +7931,7 @@ msgstr "zapでバイスが移行されました"
 #~ "The user group Asterisk should be running as, used by issabelpbx_engine. "
 #~ "Most systems should not change this."
 #~ msgstr ""
-#~ "Asteriskを実行するユーザーグループ。issabelpbx_engineに使用されます。ほとんど"
+#~ "Asteriskを実行するユーザーグループ。issabelpbx_engineに使用さます。ほとんど"
 #~ "のシステムではこの値を変更する必要はありません。"
 
 #~ msgid "System Asterisk User"
@@ -8144,13 +8144,13 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr "月間トラフィック"
 
 #~ msgid "Daily load"
-#~ msgstr "日別の負荷"
+#~ msgstr "日別の負"
 
 #~ msgid "it and try again."
 #~ msgstr "再試行してください。"
 
 #~ msgid "be upgraded. Please upgrade %s first, and then try again."
-#~ msgstr "%s を最初にアップグレードして再試行してください。"
+#~ msgstr "%s を最初にアップグレードて再試行してください。"
 
 #~ msgid " is already enabled"
 #~ msgstr "は既に有効です。"
@@ -8179,7 +8179,7 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr "サードパーティーアドオン"
 
 #~ msgid "click to expand/collapse section"
-#~ msgstr "クリックして選択したものを　展開する/折りたたむ"
+#~ msgstr "クリックして選したものを　展開する/折りたたむ"
 
 #~ msgid "category"
 #~ msgstr "カテゴリー"
@@ -8251,9 +8251,9 @@ msgstr "zapでバイスが移行されました"
 #~ "プションセットを持っている場合のコールの最中、オンとオフに切り替えることが"
 #~ "できます。これがtrueに設定された時、'通話中Asterisk通話録音切り替え"
 #~ "は'automon'オプションの代わりにasteriskの 'automixmon' オプションを使用し"
-#~ "てこれをセットします。どちらか片方のみGUIから設定可能です。これを使用して"
+#~ "てこれをセットします。どらか片方のみGUIから設定可能です。これを使用して"
 #~ "いるときは'x'と/または'X'の適切なオプションを設定する必要があり、または古"
-#~ "い'automon'バージョンを使用している場合は'w'と/または'W'を設定する必要があ"
+#~ "い'automon'ージョンを使用している場合は'w'と/または'W'を設定する必要があ"
 #~ "ります。これをtrueに設定してもAsterisk1.4またはそれ以前では何の効果も出ま"
 #~ "せん。"
 
@@ -8274,7 +8274,7 @@ msgstr "zapでバイスが移行されました"
 #~ "Password for performing transfers and hangups in the Flash Operator Panel "
 #~ "(FOP)."
 #~ msgstr ""
-#~ "Flashオペレータパネル(FOP)にて、転送とハングアップを実行するためのパスワー"
+#~ "Flashオペレータパル(FOP)にて、転送とハングアップを実行するためのパスワー"
 #~ "ド"
 
 #~ msgid "FOP Sort Mode"
@@ -8374,7 +8374,7 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr "右ロゴを非表示にする。"
 
 #~ msgid "Hide Left IssabelPBX Version"
-#~ msgstr "左のIssabelPBXバージョンを非表示にする。"
+#~ msgstr "左のIssabelPBXバージンを非表示にする。"
 
 #, fuzzy
 #~ msgid ""
@@ -8405,7 +8405,7 @@ msgstr "zapでバイスが移行されました"
 
 #~ msgid ""
 #~ "The path to ssh as auto-determined by the system. Overwrite as necessary."
-#~ msgstr "システムのデフォルトsshへのパス。必要で上書きします。"
+#~ msgstr "システムのデフォトsshへのパス。必要で上書きします。"
 
 #~ msgid "AMPBACKUPSUDO"
 #~ msgstr "AMPBACKUPSUDO"
@@ -8465,14 +8465,14 @@ msgstr "zapでバイスが移行されました"
 #~ msgid ""
 #~ "x or w: Allow the called user to start recording using One-Touch Recording"
 #~ msgstr ""
-#~ "x または w: 着信ユーザーがワンタッチ録音を使用して録音を開始することを許可"
+#~ "x または w: 着信ユーザーがワンタッチ録音を使用して録音を始することを許可"
 #~ "する"
 
 #~ msgid ""
 #~ "X or W: Allow the calling user to start recording using One-Touch "
 #~ "Recording"
 #~ msgstr ""
-#~ "X または W: 発信ユーザーがワンタッチ録音を使用して録音を開始することを許可"
+#~ "X または W: 発信ユーザーがワンタッチ録音使用して録音を開始することを許可"
 #~ "する"
 
 #~ msgid ""
@@ -8505,7 +8505,7 @@ msgstr "zapでバイスが移行されました"
 #~ "テムは全ての「常に録音」設定を無視し、録音をオンにしません。これは、上記"
 #~ "の 'w' と 'W' ダイヤルオプションによって制御されるオンデマンド録音には影響"
 #~ "しません。キューやカンファレンスのような他のモジュールの録音設定にも影響し"
-#~ "ません。もし録音を使用しない場合は、これを設定すると、チェックを省略するた"
+#~ "ません。もし録音を使用しない場合は、これを設定すと、チェックを省略するた"
 #~ "めシステムのパフォーマンスに有益で、そうしないと全てのシグナルコールに"
 #~ "チェックが入ります。"
 
@@ -8541,7 +8541,7 @@ msgstr "zapでバイスが移行されました"
 #~ "taken in choosing this prefix to avoid conflicts with featurecodes."
 #~ msgstr ""
 #~ "誰かのボイスメールに直通ダイヤルする際に使用するプリフィックス。キーコード"
-#~ "との競合を避けるためにこのプリフィックスを選択する際は注意が必要です。"
+#~ "との競合を避けるためにこのプリフックスを選択する際は注意が必要です。"
 
 #~ msgid "Direct Dial to Voicemail message type:"
 #~ msgstr "ボイスメールメッセージタイプへの直通ダイヤル"
@@ -8592,7 +8592,7 @@ msgstr "zapでバイスが移行されました"
 #~ "number."
 #~ msgstr ""
 #~ "発信者が'0'を押した際にダイヤルするデフォルト番号、またはビルトインIVRディ"
-#~ "レクトリ(ディレクトリモジュールには影響しません)。これは内線番号である必要"
+#~ "レクトリ(ディレクトリモジュールは影響しません)。これは内線番号である必要"
 #~ "はありません、リンググループや外線番号でも大丈夫です。"
 
 #~ msgid "Voicemail VmX Locator"
@@ -8615,7 +8615,7 @@ msgstr "zapでバイスが移行されました"
 #~ msgstr "ビープ音のみ"
 
 #~ msgid "Max Loop VM Msg:"
-#~ msgstr "ボイスメッセ―ジの最大ループ:"
+#~ msgstr "ボスメッセ―ジの最大ループ:"
 
 #~ msgid "Direct VM Option"
 #~ msgstr "ダイレクトVMオプション"
@@ -8679,7 +8679,7 @@ msgstr "zapでバイスが移行されました"
 #~ "format"
 #~ msgstr ""
 #~ "もし 24-時間 フォーマットを使用する場合は はい を、12-時間 am/pm フォー"
-#~ "マットを使用する場合は いいえ を選択してください。"
+#~ "マットを使用する場合は いいえ を選択しください。"
 
 #~ msgid "no"
 #~ msgstr "いいえ"
@@ -8726,9 +8726,9 @@ msgstr "zapでバイスが移行されました"
 #~ "maintenance efforts. No private information is transmitted."
 #~ msgstr ""
 #~ "「はい」を選択した場合は、システムは深夜に自動的にアップデートをチェックす"
-#~ "るようになります。結果の情報はダッシュボードに表示され、提供されている場合"
+#~ "るようになります。結果の情報はダッシボードに表示され、提供されている場合"
 #~ "はオプションでEメール送信します。<br />これは固有でランダムな識別子ととも"
-#~ "にIssabelPBXとAsteriskバージョン番号を送信します。これは、適切なアップデート"
+#~ "にIssabelPBXとAsteriskバージョン番号を送します。これは、適切なアップデート"
 #~ "情報を提供するためと、開発とメンテナンス効果に焦点を当ててバージョンの使用"
 #~ "状況をトラックするのに使用されます。私的な情報は送られません。"
 

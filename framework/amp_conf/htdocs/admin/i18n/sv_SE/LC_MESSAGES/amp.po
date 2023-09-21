@@ -1615,7 +1615,7 @@ msgid "ERROR - could not drop table"
 msgstr ""
 
 #: upgrades/2.10.0beta3/migration.php:48
-msgid "ERROR connectng to CDR DB to migrate, not done!"
+msgid "ERROR connecting to CDR DB to migrate, not done!"
 msgstr ""
 
 #: ../core/install.php:193
@@ -3169,7 +3169,7 @@ msgid ""
 "an Authenticate password file can be used.<br><br>Leave this field blank to "
 "not prompt for password."
 msgstr ""
-"Valbart: En väg kan fråga efter ett lösenord innan samtalet skickas igenom. "
+"Valbart: En väg kan frga efter ett lösenord innan samtalet skickas igenom. "
 "Detta är användbart för att begränsa utlandssamtal eller samtal till "
 "betaltjänster.<br><br>Ett numeriskt lösenord, eller en sökväg till en fil "
 "innehållande lösenord kan användas.<br><br>Lämnas detta fält tomt för "
@@ -4087,7 +4087,7 @@ msgstr ""
 #: amp_conf/htdocs/admin/views/welcome.php:67
 #, php-format
 msgid ""
-"There is also a community based <a href='%s' target='_new'>IssabelPBX Web "
+"If you are having any problems there is a community based <a href='%s' target='_new'>IssabelPBX Web "
 "Forum</a> where you can post\n"
 "questions and search for answers for any problems you may be having."
 msgstr ""

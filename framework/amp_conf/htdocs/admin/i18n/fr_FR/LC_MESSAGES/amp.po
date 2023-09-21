@@ -1622,7 +1622,7 @@ msgid "ERROR - could not drop table"
 msgstr ""
 
 #: upgrades/2.10.0beta3/migration.php:48
-msgid "ERROR connectng to CDR DB to migrate, not done!"
+msgid "ERROR connecting to CDR DB to migrate, not done!"
 msgstr ""
 
 #: ../core/install.php:193
@@ -3405,7 +3405,7 @@ msgstr ""
 
 #: ../core/functions.inc.php:7345
 msgid "Please enter the channel for this device"
-msgstr "SVP, entrez un canal valide pour ce péripherique."
+msgstr "SVP, entrez un canal valide pour ce pripherique."
 
 #: ../core/functions.inc.php:7073
 msgid "Please enter valid User Password using numbers only"
@@ -3982,7 +3982,7 @@ msgstr "Echecs des commandes suivantes avec les erreurs suivantes"
 #, php-format
 msgid "The following error(s) occurred processing the uploaded file: %s"
 msgstr ""
-"L'erreur suivante s'est produite pendant le téléchargement du fichier : %s"
+"L'erreur suivante s'est produite pendant le télchargement du fichier : %s"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:1764
 msgid "The following modules are disabled because they are broken:"
@@ -4089,7 +4089,7 @@ msgstr ""
 #: amp_conf/htdocs/admin/views/welcome.php:67
 #, php-format
 msgid ""
-"There is also a community based <a href='%s' target='_new'>IssabelPBX Web "
+"If you are having any problems there is a community based <a href='%s' target='_new'>IssabelPBX Web "
 "Forum</a> where you can post\n"
 "questions and search for answers for any problems you may be having."
 msgstr ""
@@ -6398,7 +6398,7 @@ msgstr ""
 #~ msgstr "Mode compatibilité DAHDI"
 
 #~ msgid "DAHDI compatibility Mode"
-#~ msgstr "Mode compatibilité DAHDI"
+#~ msgstr "Mode compatibilit DAHDI"
 
 #~ msgid "Outbound Caller ID"
 #~ msgstr "CID Sortant"
