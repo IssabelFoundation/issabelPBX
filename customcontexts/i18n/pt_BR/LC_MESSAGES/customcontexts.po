@@ -29,16 +29,16 @@ msgid " v"
 msgstr "v"
 
 msgid "Add Class"
-msgstr "Adicionar turma"
+msgstr "Adicionar classe"
 
 msgid "Delete Class"
-msgstr "Excluir turma"
+msgstr "Excluir classe"
 
 msgid "Add"
 msgstr "Adicionar"
 
 msgid "Class"
-msgstr "Aula"
+msgstr "Classe"
 
 msgid "Description"
 msgstr "Descrição"
@@ -59,7 +59,7 @@ msgid "Edit Class"
 msgstr "Modificar classe"
 
 msgid "Remove Class"
-msgstr "Remover turma"
+msgstr "Remover classe"
 
 msgid "Time Conditions Module required and not present .. aborting install"
 msgstr ""
@@ -380,7 +380,7 @@ msgstr ""
 "permitir acesso a TODOS os outros contextos!"
 
 msgid "Class %s cannot be removed"
-msgstr "A turma %s não pode ser excluída"
+msgstr "A classe %s não pode ser excluída"
 
 msgid ""
 "The context which contains includes which you would like to make available "
