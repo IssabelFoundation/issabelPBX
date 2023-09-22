@@ -3163,7 +3163,7 @@ msgid "Trace Back"
 msgstr ""
 
 msgid "True"
-msgstr "verdadeiro"
+msgstr "Verdadeiro"
 
 msgid "Trunk Name"
 msgstr "Nome do Tronco"
