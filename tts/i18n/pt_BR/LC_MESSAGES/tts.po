@@ -1,0 +1,149 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Text to Speech %s: "
+msgstr "Texto para fala %s:"
+
+msgid "Text to Speech"
+msgstr "Texto para fala"
+
+msgid "Text To Speech"
+msgstr "Texto para fala"
+
+msgid "Text to Speech Engines"
+msgstr "Mecanismos de conversão de texto em fala"
+
+msgid "Text To Speech Engines"
+msgstr "Mecanismos de conversão de texto em fala"
+
+msgid "Add Text to Speech"
+msgstr "Adicionar texto à fala"
+
+msgid "Add Text to Speech Instance"
+msgstr "Adicionar instância de texto à fala"
+
+msgid "Text"
+msgstr "Texto"
+
+msgid "Edit: "
+msgstr "Modificar:"
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid ""
+"The Text To Speech Engine module allows you to add different engines to "
+"convert text to speech"
+msgstr ""
+"O módulo Text to Speech Engines permite adicionar diferentes mecanismos para "
+"converter texto em fala"
+
+msgid "Edit Text to Speech Engine"
+msgstr "Modifique o mecanismo de conversão de texto em fala:"
+
+msgid "Edit Text to Speech"
+msgstr "Modificar texto em fala:"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Engine"
+msgstr "Motor"
+
+msgid "Template"
+msgstr "Modelo"
+
+msgid "Command"
+msgstr "Comando"
+
+msgid "Submit Changes"
+msgstr "Enviar alterações"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Add Text to Speech Engine"
+msgstr "Adicionar texto ao mecanismo de fala"
+
+msgid ""
+"The descriptive name of this text to speech engine. For example \"new name "
+"here\""
+msgstr ""
+"Nome amigável para este mecanismo de conversão de texto em fala, por exemplo "
+"\"novo nome\""
+
+msgid ""
+"The descriptive name of this text to speech instance. For example \"new name "
+"here\""
+msgstr ""
+"O nome amigável desta instância de conversão de texto em fala. Por exemplo, "
+"\"novo nome aqui\""
+
+msgid "The TTS engine to use for the text to speech entry"
+msgstr ""
+"O mecanismo de conversão de texto em fala a ser usado para este registro"
+
+msgid ""
+"Set of key=value pairs needed for the TTS engine. Usually API credentials, "
+"voice name, etc."
+msgstr ""
+"Lista de pares chave=valor necessários para este mecanismo de conversão de "
+"texto em fala. Geralmente usado para configurar credenciais de API, nome de "
+"voz, etc."
+
+msgid ""
+"The actual command line to run the engine.<br/><br/>There are two variables "
+"you must use within the command if you select a <strong>custom</strong> "
+"engine: <dl><dt>{TEXT}</dt><dd>The actual text to convert to speech</"
+"dd><dt>{OUTPUTFILE}</dt><dd>The file name where the sound file will be saved."
+"</dd></dl>"
+msgstr ""
+"Comando a ser usado para executar a conversão para este mecanismo.<br/><br/"
+">Existem duas variáveis que devem ser usadas neste comando se você escolher "
+"o mecanismo <strong>personalizado</strong>: <dl><dt> {TEXT }</dt><dd>O texto "
+"a ser convertido em fala</dd><dt>{OUTPUTFILE}</dt><dd>O arquivo onde será "
+"salvo o arquivo de som produzido pelo comando.</dd >< /dl>"
+
+msgid ""
+"The Text to Speech module allows you to add text to speech (TTS) instances "
+"on your PBX. You enter text to be read by a computer voice. When a TTS "
+"instance is entered as a destination in your call path, the system will play "
+"the text entered using the selected TTS engine. Then the call will then "
+"continue on to the target destination defined in the instance."
+msgstr ""
+"O módulo Text to Speech permite adicionar instâncias de texto para fala "
+"(TTS) em seu PBX. Você pode inserir texto para ser lido por uma voz "
+"artificial. Quando uma instância TTS é inserida como destino em sua rota de "
+"chamada, o sistema reproduzirá o texto inserido usando o mecanismo TTS "
+"selecionado. A chamada continuará então para o destino definido na instância."
+
+msgid ""
+"The actual text to be spoken by the engine. You can use channel variables in "
+"the format %{variable}."
+msgstr ""
+"O texto real que o mecanismo irá falar. Você pode usar variáveis de canal no "
+"formato %{variable}."

@@ -1,0 +1,116 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Write Queue Log %s: "
+msgstr "Gravar registro de fila %s"
+
+msgid "Add Field"
+msgstr "Adicionar campo"
+
+msgid "Add Write Queue Log"
+msgstr "Adicionar gravação ao log da fila"
+
+msgid "Edit Write Queue Log"
+msgstr "Modificar gravação no log da fila"
+
+msgid "Edit: "
+msgstr "Modificar:"
+
+msgid ""
+"Write queue log lets you append a line into the queue_log file for call "
+"center tracking purposes"
+msgstr ""
+"Gravar no Queue Log permite adicionar uma linha ao arquivo de log asterisco "
+"queue_log, com a finalidade de registrar informações que podem ser usadas "
+"pelo software de estatísticas de filas"
+
+msgid "Edit Queue Log Instance"
+msgstr "Modificar instância de gravação no log de fila"
+
+msgid "Add Queue Log Instance"
+msgstr "Adicionar instância de gravação ao log de fila"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid ""
+"The descriptive name of this queue log instance. For example \"new name here"
+"\""
+msgstr ""
+"O nome amigável para esta instância de Write to Queue Log. Por exemplo "
+"'Pesquisa'"
+
+msgid "Uniqueid"
+msgstr ""
+
+msgid "The uniqueid field for the queue log entry"
+msgstr "O campo uniqueid na entrada queue_log"
+
+msgid "Queue"
+msgstr "Cola"
+
+msgid "The queue field for the queue log entry"
+msgstr "O campo queue na entrada queue_log"
+
+msgid "Agent"
+msgstr "Agente"
+
+msgid "The agent field for the queue log entry"
+msgstr "O campo do agente na entrada queue_log"
+
+msgid "Event"
+msgstr "Evento"
+
+msgid "The event field for the queue log entry"
+msgstr "O campo de evento na entrada queue_log"
+
+msgid "Extra"
+msgstr "Extra"
+
+msgid "The rest of extra data info1|info2|info3 for the queue log entry"
+msgstr "O restante dos dados queue_log como campos info1|info2|info3"
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Submit Changes"
+msgstr "Guardar mudanças"
+
+msgid "Delete"
+msgstr "Excluir"
+
+msgid "Invalid description specified"
+msgstr "Descrição inválida"
+
+msgid "Write in Queue Log"
+msgstr "Gravar no registro da fila"
+
+msgid "Write In Queue Log"
+msgstr "Gravar no registro da fila"
+
+msgid "Write a line into queue log"
+msgstr "Escreva uma linha no log da fila"

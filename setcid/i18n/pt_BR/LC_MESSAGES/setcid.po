@@ -1,0 +1,133 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, php-format
+msgid "Set CallerID %s: "
+msgstr "Definir identificador de chamada %s:"
+
+msgid "Add CallerID"
+msgstr "Adicionar identificador de chamada"
+
+msgid "Edit: "
+msgstr "Modificar:"
+
+msgid ""
+"Set CallerID allows you to change the caller id of the call and then "
+"continue on to the desired destination. For example, you may want to change "
+"the caller id form \"John Doe\" to \"Sales: John Doe\". Please note, the "
+"text you enter is what the callerid is changed to. To append to the current "
+"callerid, use the proper asterisk variables, such as \"${CALLERID(name)}\" "
+"for the currently set callerid name and \"${CALLERID(num)}\" for the "
+"currently set callerid number. You may also set any number of additional "
+"channel variables from here."
+msgstr ""
+"Definir o CallerID permite alterar o ID do chamador e depois continuar para "
+"o destino desejado. Por exemplo, você pode alterar o identificador de “Juan "
+"Perez” para “Vendas: Juan Perez”. Observe que o texto inserido será o usado "
+"para identificação. Se quiser adicionar ao CallerID existente, você pode "
+"usar variáveis como \"${CALLERID(name)}\" para o nome do ID atual ou "
+"\"${CALLERID(num)}\" para o número. Você também pode definir o canal "
+"variáveis deste módulo."
+
+msgid "Edit CallerID"
+msgstr "Modificar identificador de chamada"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid ""
+"The descriptive name of this CallerID instance. For example \"new name here\""
+msgstr "Um nome amigável para esta instância do CallerID."
+
+msgid "CallerID Name"
+msgstr "Nome do identificador"
+
+msgid ""
+"The CallerID Name that you want to change to. If you are appending to the "
+"current callerid, dont forget to include the appropriate asterisk variables. "
+"If you leave this box blank, the CallerID name will be blanked"
+msgstr ""
+"O nome do CallerID que você deseja alterar. Se quiser adicionar algo ao já "
+"existente, não se esqueça de incluir a variável correspondente "
+"\"${CALLERID(nome)}\". Se você deixar este campo em branco, o identificador "
+"do nome será esvaziado."
+
+msgid "CallerID Number"
+msgstr "Número de identificação"
+
+msgid ""
+"The CallerID Number that you want to change to. If you are appending to the "
+"current callerid, dont forget to include the appropriate asterisk variables. "
+"If you leave this box blank, the CallerID number will be blanked"
+msgstr ""
+"O número CallerID que você deseja alterar. Se quiser adicionar algo ao já "
+"existente, não se esqueça de incluir a variável correspondente "
+"\"${CALLERID(num)}\". Se você deixar este campo em branco, o identificador "
+"do nome será esvaziado."
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Submit Changes"
+msgstr "Guardar mudanças"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Edit"
+msgstr "Modificar"
+
+msgid "Invalid description specified"
+msgstr "Descrição inválida"
+
+msgid "Set CallerID"
+msgstr "Definir identificador de chamadas"
+
+msgid "Applications"
+msgstr "Formulários"
+
+msgid "Adds the ability to change the CallerID within a call flow."
+msgstr "Permite alterar o identificador (CallerID) em um fluxo de chamada."
+
+msgid "Other Variables"
+msgstr "Outras variáveis"
+
+msgid "Add Variable"
+msgstr "Adicionar variável"
+
+msgid ""
+"You may set any other variables that will be set for the channel, with any "
+"name and value you want, as using Set() directly from the dialplan. They "
+"should be entered as:<br /> [variable] = [value]<br /> in the boxes below. "
+"Click the Add Variable box to add additional variables. Blank boxes will be "
+"deleted when submitted."
+msgstr ""
+"Você pode definir qualquer variável de canal, com qualquer nome e valor, da "
+"mesma forma que usaria Set() no plano de discagem. Eles devem ser inseridos "
+"como:<br /> [variável] = [valor]<br /> nas caixas abaixo. Clique em "
+"Adicionar variável para adicionar variáveis adicionais. Se você deixá-los em "
+"branco, eles serão excluídos quando você enviar as alterações."

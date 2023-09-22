@@ -13,81 +13,76 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright 2009, Marcelo Araujo
+#  Copyright 2023 Issabel Foundation
 #
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX 2.5.1\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-05-11 20:09-0300\n"
-"Last-Translator: Marcelo Araujo <marcelo.araujo@voffice.com.br>\n"
-"Language-Team: midiVTS team <team@midivts.org.br>\n"
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Portuguese\n"
-"X-Poedit-Country: BRAZIL\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Feature Code Admin"
-msgstr "Administrador do Códigos de Facilidades"
+msgstr "Códigos de função"
 
 msgid "Admin"
 msgstr ""
 
 msgid "Feature Codes"
-msgstr "Códigos de Facilidades"
+msgstr "Códigos de função"
 
 msgid "Featurecode: "
-msgstr "Código de facilidade:"
+msgstr "Código de função:"
 
 msgid "featuredescription"
-msgstr "descrição da facilidade"
+msgstr "Descrição da função"
 
 msgid ""
 "You have feature code conflicts with extension numbers in other modules. "
 "This will result in unexpected and broken behavior."
 msgstr ""
-"Você tem um código de facilidade que conflita com os números de extensão nos "
-"outros módulos. Isto irá resultar em um comportamento errado inesperado."
+"Você tem conflitos de código de recurso com números de ramal em outros "
+"módulos. Isso causará resultados inesperados e comportamento errôneo."
 
 msgid "Feature Code Conflicts with other Extensions"
-msgstr "Código de Facilidade conflita com outras extensões"
+msgstr "Os códigos de recurso entram em conflito com outras extensões"
 
 msgid "Use"
 msgstr "Usar"
 
 msgid "Default"
-msgstr "Padrão"
+msgstr "Por padrão"
 
 msgid "Feature"
-msgstr "Facilidade"
+msgstr "Função"
 
 msgid "Status"
-msgstr "Status"
+msgstr "Estado"
 
 msgid "moduledescription"
-msgstr "descrição do módulo"
+msgstr "Descrição do módulo"
 
 msgid "Disabled"
-msgstr "Desabilitado"
+msgstr "Parado"
 
 msgid "Enabled"
-msgstr "Habilitado"
+msgstr "Ativo"
 
 msgid "Submit Changes"
-msgstr "Submeter mudanças"
+msgstr "Enviar alterações"
 
 msgid ""
 "Please enter a Feature Code or check Use Default for all Enabled Feature "
 "Codes"
 msgstr ""
-"Por favor, entre com o Código da Facilidade ou selecione Usar Padrão para "
-"todos os Códigos de Facilidades. "
+"Insira um código de recurso ou selecione \"Padrão\" para todos os códigos de "
+"recurso habilitados"
 
 msgid "Feature Codes have been duplicated"
-msgstr "Códigos de Facilidades foram duplicados"
+msgstr "Existem códigos de função duplicados"
 
 msgid "Are you sure you wish to proceed?"
-msgstr "Tem certeza que deseja continuar?"
+msgstr "Você tem certeza que quer continuar?"

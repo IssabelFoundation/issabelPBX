@@ -1,0 +1,49 @@
+msgid "Call Forward"
+msgstr "Desvio de chamada"
+
+msgid "Applications"
+msgstr ""
+
+msgid "Provides callforward featurecodes"
+msgstr ""
+
+msgid "Call Forward All Activate"
+msgstr "Ative todos os encaminhamentos de chamadas"
+
+msgid "Call Forward All Deactivate"
+msgstr "Desative todo encaminhamento de chamadas"
+
+msgid "Call Forward All Prompting Deactivate"
+msgstr "Sempre desative as instrues de encaminhamento de chamadas"
+
+msgid "Call Forward All Prompting Activate"
+msgstr "Sempre ative as instrues de encaminhamento de chamadas"
+
+msgid "Call Forward Busy Activate"
+msgstr "Ative o encaminhamento de chamadas quando ocupado"
+
+msgid "Call Forward Busy Deactivate"
+msgstr "Desative o encaminhamento de chamadas quando ocupado"
+
+msgid "Call Forward Busy Prompting Deactivate"
+msgstr "Desativar instrues de encaminhamento de chamada quando ocupado"
+
+msgid "Call Forward Busy Prompting Activate"
+msgstr "Ative instrues de encaminhamento de chamadas quando ocupado"
+
+msgid "Call Forward No Answer/Unavailable Activate"
+msgstr ""
+"Ative o encaminhamento de chamadas quando voc no atender ou no estiver "
+"disponvel"
+
+msgid "Call Forward No Answer/Unavailable Deactivate"
+msgstr ""
+"Desative o encaminhamento de chamadas quando voc no atender ou no estiver "
+"disponvel"
+
+msgid "Call Forward Toggle"
+msgstr "Alternar encaminhamento de chamadas"
+
+msgid "Call Forward No Answer/Unavailable Prompting Activate"
+msgstr ""
+"Ativar instrues de encaminhamento de chamadas no atende ou no est disponvel"

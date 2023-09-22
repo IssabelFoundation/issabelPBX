@@ -1,0 +1,399 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid ""
+"A Lookup Source let you specify a source for resolving numeric CallerIDs of "
+"incoming calls, you can then link an Inbound route to a specific CID source. "
+"This way you will have more detailed CDR reports with information taken "
+"directly from your CRM. You can also install the phonebook module to have a "
+"small number <-> name association. Pay attention, name lookup may slow down "
+"your PBX"
+msgstr ""
+"Uma fonte de pesquisa permite que você use uma fonte para identificar o "
+"número do chamador nas chamadas recebidas. Dessa forma você terá relatórios "
+"mais detalhados com as informações extraídas do seu CRM. Se você escolher a "
+"fonte Interna, ela será verificada no catálogo de endereços de Issabel para "
+"o número de relacionamento <-> nome. Tenha cuidado, pois a pesquisa de nomes "
+"pode penalizar o desempenho do seu PBX"
+
+msgid "Account SID"
+msgstr "Conta SID"
+
+msgid "Add CID Lookup Source"
+msgstr "Adicionar fonte de pesquisa CID"
+
+msgid "Add Source"
+msgstr "Adicionar fonte"
+
+msgid "Adding opencnam account columns to the cidlookup table..."
+msgstr ""
+
+msgid "Auth Token"
+msgstr "Token de autenticação"
+
+msgid "CID Lookup Source"
+msgstr "Pesquisa CID"
+
+msgid "Cache results"
+msgstr "Cachear resultados"
+
+msgid "Character Set"
+msgstr "Conjunto de caracteres"
+
+msgid "Checking for cidlookup field in core's incoming table.."
+msgstr "Verificando o campo cidlookup na tabela de kernel recebida"
+
+msgid "Cleaning up duplicate OpenCNAM CallerID Lookup Sources..."
+msgstr ""
+"Removendo fontes duplicadas de pesquisa de identificador de chamadas "
+"OpenCNAM..."
+
+msgid "Could not add opencnam_account_sid column to cidlookup table."
+msgstr ""
+"Não foi possível adicionar a coluna opencnam_account_sid à tabela cidlookup."
+
+msgid "Could not add opencnam_auth_token column to cidlookup table."
+msgstr ""
+"Não foi possível adicionar a coluna opencnam_auth_token à tabela cidlookup."
+
+msgid "Database name"
+msgstr "Nome do banco de dados"
+
+msgid "Database"
+msgstr "Base de datos"
+
+msgid ""
+"Decide whether or not cache the results to astDB; it will overwrite present "
+"values. It does not affect Internal source behavior"
+msgstr ""
+"Decide se deseja armazenar em cache os resultados do astDB ou não; "
+"substituirá os valores atuais. Isso não afeta o comportamento da fonte "
+"interna."
+
+msgid "Delete CID Lookup source"
+msgstr "Excluir fonte de pesquisa CID"
+
+msgid "Done!"
+msgstr "Lista!"
+
+msgid "ERROR: failed: "
+msgstr "ERRO"
+
+msgid "Edit Source"
+msgstr "Modificar fonte"
+
+msgid "Enter a description for this source."
+msgstr "Insira uma descrição para esta fonte."
+
+msgid "FATAL: failed to transform old routes: "
+msgstr "FATAL: Não foi possível transformar rotas antigas:"
+
+msgid "Failed to add OpenCNAM CallerID Lookup Source: "
+msgstr ""
+
+msgid "Host name or IP address"
+msgstr "Nome do servidor ou IP"
+
+msgid "Host"
+msgstr "Servidor"
+
+msgid "Installing OpenCNAM CallerID Lookup Sources..."
+msgstr ""
+
+msgid "Internal"
+msgstr ""
+
+msgid "Migrating channel routing to Zap DID routing.."
+msgstr "Migrando roteamento de canal para roteamento DID Zap..."
+
+msgid "MySQL"
+msgstr "MySQL"
+
+msgid "MySQL Character Set. Leave blank for MySQL default latin1"
+msgstr ""
+"Conjunto de caracteres MySQL. Deixe em branco para usar o padrão do MySQL"
+
+msgid "MySQL Host"
+msgstr "Servidor MySQL"
+
+msgid "MySQL Password"
+msgstr "Senha MySQL"
+
+msgid "MySQL Username"
+msgstr "Nome de usuário MySQL"
+
+msgid "None"
+msgstr "Nenhum"
+
+msgid "Not Needed"
+msgstr "Não é necessário"
+
+msgid "Not yet implemented"
+msgstr "Este método ainda não foi implementado."
+
+msgid "OK"
+msgstr "OK"
+
+msgid "OpenCNAM"
+msgstr ""
+
+msgid "OpenCNAM Throttle Reached!"
+msgstr "Limite OpenCNAM atingido!"
+
+msgid ""
+"OpenCNAM's Professional Tier lets you do as many real-time CNAM queries as "
+"you want, for a small fee. This is recommended for business users."
+msgstr ""
+"A camada profissional OpenCNAM permite fazer quantas consultas quiser sem "
+"limites, por uma assinatura mensal. Isso é recomendado para usuários "
+"corporativos."
+
+msgid "Password to use in HTTP authentication"
+msgstr "Senha a ser usada para autenticação HTTP"
+
+msgid "Password"
+msgstr "Senha"
+
+msgid "Path of the file to GET<br/>e.g.: /cidlookup.php"
+msgstr "Caminho do arquivo a ser obtido<br/>Por exemplo, /cidlookup.php"
+
+msgid "Path"
+msgstr "Ruta"
+
+msgid "Port HTTP server is listening at (default 80)"
+msgstr "Porta na qual o servidor HTTP está escutando (geralmente 80)"
+
+msgid "Port"
+msgstr "Porto"
+
+msgid ""
+"Query string, special token '[NUMBER]' will be replaced with caller "
+"number<br/>e.g.: number=[NUMBER]&source=crm"
+msgstr ""
+"String de consulta, o campo \"[NUMBER]\" será substituído pelo número do "
+"chamador. Por exemplo, number=[NUMBER]&source=crm"
+
+msgid ""
+"Query, special token '[NUMBER]' will be replaced with caller number<br/>e."
+"g.: SELECT name FROM phonebook WHERE number LIKE '%[NUMBER]%'"
+msgstr ""
+"String de consulta, o campo \"[NUMBER]\" será substituído pelo número do "
+"chamador. Por exemplo, SELECT name FROM phonebook WHERE number LIKE "
+"'%[NUMBER]%'"
+
+msgid "Query"
+msgstr "Consulta"
+
+msgid "Removing deprecated channel field from incoming.."
+msgstr "Removendo campo de canal obsoleto da entrada..."
+
+msgid ""
+"Select the source type, you can choose between:<ul>\n"
+"                    <li>OpenCNAM: Use OpenCNAM [https://www.opencnam.com/]</"
+"li>\n"
+"                    <li>Internal: use astdb as lookup source, use Issabel "
+"address book to populate it</li>\n"
+"                    <li>ENUM: Use DNS to lookup caller names, it uses ENUM "
+"lookup zones as configured in enum.conf</li>\n"
+"                    <li>HTTP: It executes an HTTP GET passing the caller "
+"number as argument to retrieve the correct name</li>\n"
+"                    <li>MySQL: It queries a MySQL database to retrieve "
+"caller name</li>\n"
+"                    </ul>"
+msgstr ""
+"Escolha o tipo de fonte entre as seguintes opções:<ul> <li>OpenCNAM: Use "
+"OpenCNAM [https://www.opencnam.com/]</li> <li>Interno: use a agenda interna "
+"de Issabel usando ASTDB</li> <li>ENUM: Use DNS para procurar nomes usando "
+"zonas ENUM configuradas em enum.conf</li> <li>HTTP: Execute uma solicitação "
+"HTTP GET passando o número para obter o nome</li> <li> MySQL: Consulta um "
+"banco de dados MySQL para obter o nome</li> </ul>"
+
+msgid "Source"
+msgstr "Fonte"
+
+msgid "Source Description"
+msgstr "Descrição da fonte"
+
+msgid "Source type"
+msgstr "Tipo de fonte"
+
+msgid "Source: %s (id %s)"
+msgstr "Fonte: %s (id %s)"
+
+msgid "Sources can be added in Caller Name Lookup Sources section"
+msgstr ""
+"As fontes podem ser adicionadas na seção Fontes de pesquisa do nome do "
+"chamador"
+
+msgid "Submit Changes"
+msgstr "Enviar alterações"
+
+msgid "SugarCRM"
+msgstr "SugarCRM"
+
+msgid "Superfecta"
+msgstr ""
+
+msgid ""
+"There are %s DIDs using this source that will no longer have lookups if "
+"deleted."
+msgstr ""
+
+msgid "Use Professional Tier?"
+msgstr "Use casaco profissional"
+
+msgid "Username to use in HTTP authentication"
+msgstr "Nome de usuário a ser usado para autenticação HTTP"
+
+msgid "Username"
+msgstr "Nome de usuário"
+
+msgid ""
+"You have gone past the free OpenCNAM usage limits.<br/><br/>To continue "
+"getting caller ID name information, you need to create an OpenCNAM "
+"Professional Account.<br/><br/>You can create an OpenCNAM account at: <a "
+"href=\"https://www.opencnam.com/register\">https://www.opencnam.com/"
+"register</a>.<br/><br/>Once you have created an account, visit the CallerID "
+"Lookup Sources menu and enter your OpenCNAM Professional Tier credentials."
+"<br/>"
+msgstr ""
+"Você excedeu o limite de consultas gratuitas do OpenCPAM.<br><br> Para "
+"continuar consultando informações, você deve criar uma conta profissional."
+"<br><br>Você pode criar uma em href=\"https://www. opencnam.com /register"
+"\">https://www.opencnam.com/register</a>.<br/><br/>Depois que a conta for "
+"criada, faça login novamente para completar as credenciais de acesso ao "
+"OpenCNAM Professional.< br/>"
+
+msgid ""
+"Your OpenCNAM Account SID. This can be found on your OpenCNAM dashboard "
+"page: https://www.opencnam.com/dashboard"
+msgstr ""
+"O SID da sua conta OpenCNAM. Você pode encontrá-lo no painel em https://www."
+"opencnam.com/dashboard"
+
+msgid ""
+"Your OpenCNAM Auth Token. This can be found on your OpenCNAM dashboard page: "
+"https://www.opencnam.com/dashboard"
+msgstr ""
+"O token de autenticação OpenCNAM. Você pode encontrá-lo no painel em https://"
+"www.opencnam.com/dashboard"
+
+msgid "not present"
+msgstr "Ele não está presente"
+
+msgid "removed"
+msgstr "eliminado"
+
+msgid "CallerID Lookup"
+msgstr "Pesquisa de identificador de chamadas"
+
+msgid "CallerID Lookup Sources"
+msgstr "Fontes de identificação de chamadas"
+
+msgid "NOTE:"
+msgstr "USAR:"
+
+msgid ""
+"OpenCNAM's Hobbyist Tier only allows you to do 60 cached CID lookups per "
+"hour. If you get more than 60 incoming calls per hour, or want real-time CID "
+"information (which is more accurate), you should use the Professional Tier, "
+"which is configurable via the CallerID Lookup Sources menu."
+msgstr ""
+"A camada Hobista do OpenCNAM permite realizar 60 consultas por hora. Se você "
+"recebe mais de 60 chamadas por hora, ou deseja informações de identificação "
+"mais precisas, deverá adquirir o nível Profissional, que pode ser ativado no "
+"menu Fonte de pesquisa do CallerID."
+
+msgid ""
+"OpenCNAM's Hobbyist Tier (default) only allows you to do 60 cached CallerID "
+"lookups per hour. If you get more than 60 incoming calls per hour, or want "
+"real-time CallerID information (more accurate), you should use the "
+"Professional Tier."
+msgstr ""
+"A camada Hobista do OpenCNAM permite realizar 60 consultas por hora. Se você "
+"recebe mais de 60 ligações por hora, ou deseja informações de identificação "
+"mais precisas, deverá adquirir a camada Profissional, que pode ser ativada "
+"marcando a opção abaixo."
+
+msgid ""
+"If you'd like to create an OpenCNAM Professional Tier account, you can do so "
+"on their website: <a href='https://www.opencnam.com/register' "
+"target='_blank'>https://www.opencnam.com/register</a>"
+msgstr ""
+"Se você deseja criar uma conta na camada profissional, pode fazê-lo no site: "
+"<a href='https://www.opencnam.com/register' target='_blank'>https://www."
+"opencnam. com/registrar< /a>"
+
+msgid "Please enter a valid HTTP(S) Host name"
+msgstr "Por favor insira um servidor válido"
+
+msgid "Please enter a valid MySQL Host name"
+msgstr "Por favor insira um servidor válido"
+
+msgid "Please enter a valid MySQL Database name"
+msgstr "Por favor insira um banco de dados válido"
+
+msgid "Please enter a valid MySQL Query string"
+msgstr "Por favor insira uma consulta válida"
+
+msgid "Please enter a valid MySQL Username"
+msgstr "Por favor insira um nome de usuário válido"
+
+msgid "Please enter a valid Account SID"
+msgstr "Insira uma conta SID válida"
+
+msgid "Please enter a valid Auth Token"
+msgstr "Insira um token de autenticação válido"
+
+msgid "Description cannot be blank!"
+msgstr "A descrição não pode ficar em branco!"
+
+#~ msgid "CID Lookup source"
+#~ msgstr "Fonte de pesquisa CID"
+
+#~ msgid "deleted"
+#~ msgstr "eliminado"
+
+#~ msgid ""
+#~ "Select the source type, you can choose between:<ul><li>Internal: use "
+#~ "astdb as lookup source, use phonebook module to populate it</li><li>ENUM: "
+#~ "Use DNS to lookup caller names, it uses ENUM lookup zones as configured "
+#~ "in enum.conf</li><li>HTTP: It executes an HTTP GET passing the caller "
+#~ "number as argument to retrieve the correct name</li><li>MySQL: It queries "
+#~ "a MySQL database to retrieve caller name</li></ul>"
+#~ msgstr ""
+#~ "Selecione o tipo de fonte. Você pode escolher entre:<ul><li>Interno: usa "
+#~ "astdb como fonte de pesquisa, usa o módulo \"Agenda Telefônica\".</"
+#~ "li><li>ENUM: usa DNS para pesquisar os nomes dos chamadores. ENUM utiliza "
+#~ "como zonas de busca aquelas configuradas em enum.conf.</li><li>HTTP: "
+#~ "executa uma solicitação HTTP GET passando o número do chamador como "
+#~ "argumento para recuperar o nome da pessoa a quem pertence.</li>< "
+#~ "li>MySQL: consulta um banco de dados MySQL para extrair o nome do "
+#~ "chamador.</li></ul>"
+
+#~ msgid "HTTP"
+#~ msgstr "HTTP:"

@@ -13,8 +13,17 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright (C) 2008, 2009 Bandwith.com
+#  Copyright 2023 Issabel Foundation
 #
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Asterisk Logfiles"
 msgstr "Archivos de registro de Asterisk"

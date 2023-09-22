@@ -13,22 +13,17 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright 2009, Marcelo Araujo
+#  Copyright 2023 Issabel Foundation
 #
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX 2.5.1\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-05-11 20:08-0300\n"
-"Last-Translator: Marcelo Araujo <marcelo.araujo@voffice.com.br>\n"
-"Language-Team: MidiVTS Team <team@midivts.org>\n"
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Portuguese\n"
-"X-Poedit-Country: BRAZIL\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Info Services"
 msgstr "Serviços de informação"
@@ -43,16 +38,16 @@ msgid ""
 msgstr ""
 
 msgid "Directory"
-msgstr "Diretório"
+msgstr "diretório"
 
 msgid "Call Trace"
-msgstr "Rastreamento de Chamadas"
+msgstr "Rastreamento de chamada"
 
 msgid "Echo Test"
-msgstr "Teste de Eco"
+msgstr "teste de eco"
 
 msgid "Speaking Clock"
-msgstr "Falar o horário"
+msgstr "Diga data e hora"
 
 msgid "Speak Your Exten Number"
-msgstr "Faler número de seu ramal"
+msgstr "Diga o número do ramal"

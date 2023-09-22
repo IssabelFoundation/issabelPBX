@@ -1,0 +1,109 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Route Congestion Messages"
+msgstr "Mensagens de rota congestionada"
+
+msgid "Can not create outroutemsg table"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"Configures message or congestion tones played when all trunks are busy in a "
+"route. Allows different messages for Emergency Routes and Intra-Company "
+"Routes"
+msgstr ""
+
+msgid "No Routes Available"
+msgstr "Não há rotas disponíveis"
+
+msgid "Standard Routes"
+msgstr "Rotas Padrão"
+
+msgid "Message or Tone"
+msgstr "Mensagem ou tom"
+
+msgid "Message or tone to be played if no trunks are available."
+msgstr "Mensagem ou tom para reproduzir se não houver troncos disponíveis."
+
+msgid "Default Message"
+msgstr "Mensagem padrão"
+
+msgid "Congestion Tones"
+msgstr "Tom de congestionamento"
+
+msgid "Intra-Company Routes"
+msgstr "Rotas intra-empresa"
+
+msgid ""
+"Message or tone to be played if no trunks are available. Used on routes "
+"marked as intra-company only."
+msgstr ""
+"Mensagem ou tom a ser reproduzido se não houver troncos disponíveis. Usado "
+"apenas em rotas marcadas como intra-empresa"
+
+msgid "Emergency Routes"
+msgstr "Rotas de Emergência"
+
+msgid ""
+"Message or tone to be played if no trunks are available. Used on all "
+"emergency routes. Consider a message instructing callers to find an "
+"alternative means of calling emergency services such as a cell phone or "
+"alarm system panel."
+msgstr ""
+
+msgid "Trunk Failures"
+msgstr "Falhas de tronco"
+
+msgid "No Answer"
+msgstr "Sem resposta"
+
+msgid ""
+"Message or tone to be played if there was no answer. Default message is:<br>"
+"\"The number is not answering.\"<br> Hangupcause is 18 or 19"
+msgstr ""
+
+msgid "Number or Address Incomplete"
+msgstr "Número ou endereço incompleto"
+
+msgid ""
+"Message or tone to be played if trunk reports Number or Address Incomplete. "
+"Usually this means that the number you have dialed is to short. Default "
+"message is:<br>\"The number you have dialed is not in service. Please check "
+"the number and try again.\"<br>Hangupcause is 28"
+msgstr ""
+
+msgid "Submit Changes"
+msgstr "Guardar mudanças"
+
+msgid "Info Tone"
+msgstr "Solicite informações"
+
+msgid "Unallocated Numbers"
+msgstr "Números não atribuídos"

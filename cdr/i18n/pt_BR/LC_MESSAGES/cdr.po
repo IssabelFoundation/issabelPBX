@@ -1,19 +1,29 @@
-# IssabelPBX language template for cdr
-# Copyright 2013 Schmooze Com Inc
+# This file is part of IssabelPBX.
 #
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 07:28+1000\n"
-"PO-Revision-Date: 2014-07-25 23:49+0200\n"
-"Last-Translator: Rafael <rafael@ibinetwork.com.br>\n"
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
 
 msgid "10 Minutes"
 msgstr "10 Minutos"
@@ -64,19 +74,15 @@ msgstr "Numero da Conta"
 msgid "Account Information"
 msgstr "Informação da Conta"
 
-#: install.php:50
 msgid "Added field did to cdr"
 msgstr ""
 
-#: install.php:66
 msgid "Added field recordingfile to cdr"
 msgstr ""
 
-#: install.php:43
 msgid "Adding did field to cdr"
 msgstr ""
 
-#: install.php:59
 msgid "Adding recordingfile field to cdr"
 msgstr ""
 
@@ -116,7 +122,6 @@ msgstr "Tempo tarifado"
 msgid "Busy"
 msgstr "Ocupado"
 
-#: cdr.i18n.php:16
 msgid "CDR Report Module"
 msgstr ""
 
@@ -135,7 +140,6 @@ msgstr ""
 msgid "CSV file"
 msgstr "Arquivo CSV"
 
-#: cdr.i18n.php:8
 msgid "Call Data Record report tools for viewing reports of your calls"
 msgstr "Ferramentas para visualizar os relatórios de suas chamadas"
 
@@ -146,9 +150,6 @@ msgid "Call Detail Record - Call Graph by"
 msgstr ""
 
 msgid "Call Detail Record - Concurrent Calls by"
-msgstr ""
-
-msgid "Call Detail Record - Search Returned"
 msgstr ""
 
 msgid "Call Detail Record Search"
@@ -181,11 +182,9 @@ msgstr "Chamadas"
 msgid "Channel"
 msgstr "Canal"
 
-#: install.php:39
 msgid "Checking if field did is present in cdr table.."
 msgstr ""
 
-#: install.php:55
 msgid "Checking if field recordingfile is present in cdr table.."
 msgstr ""
 
@@ -237,7 +236,6 @@ msgstr ""
 msgid "Duration"
 msgstr "Duração"
 
-#: cdr.i18n.php:14
 msgid "Enable CEL Reporting"
 msgstr ""
 
@@ -322,7 +320,6 @@ msgstr "Exceto"
 msgid "November"
 msgstr "Novembro"
 
-#: install.php:134
 msgid "OK"
 msgstr ""
 
@@ -418,13 +415,12 @@ msgstr ""
 msgid "September"
 msgstr "Setembro"
 
-#: cdr.i18n.php:18
 msgid ""
 "Setting this true will enable the CDR module to drill down on CEL data for "
 "each CDR. Although the CDR module will assure there is a CEL table "
 "available, the reporting functionality in Asterisk and associated ODBC "
-"database and CEL configuration must be done outside of IssabelPBX either by the "
-"user or at the Distro level."
+"database and CEL configuration must be done outside of IssabelPBX either by "
+"the user or at the Distro level."
 msgstr ""
 
 msgid "System"
@@ -436,7 +432,6 @@ msgstr "Informação Técnica"
 msgid "Telephone Number"
 msgstr "Numero Telefone"
 
-#: install.php:44
 msgid "This might take a while......"
 msgstr ""
 
@@ -452,7 +447,6 @@ msgstr "Total de Chamdas"
 msgid "Total Duration"
 msgstr "Duração Total"
 
-#: install.php:63
 msgid "Unable to add recordingfile field to cdr table"
 msgstr ""
 
@@ -477,40 +471,39 @@ msgstr ""
 msgid "context"
 msgstr ""
 
-#: install.php:52
 msgid "did field already present."
 msgstr ""
 
 msgid "exten"
 msgstr ""
 
-#: install.php:69
 msgid "recordingfile field already present."
 msgstr ""
 
-#~ msgid "Src Channel"
-#~ msgstr "Canal de Origem"
+msgid "Apply"
+msgstr "Aplicar"
 
-#~ msgid "Source"
-#~ msgstr "Origem"
+msgid "Sort direction"
+msgstr "direção do pedido"
 
-#~ msgid "Dst Channel"
-#~ msgstr "Canal de Destino"
+msgid "Group by"
+msgstr "Agrupar por"
 
-#~ msgid "Source Number"
-#~ msgstr "Numero de Origem"
+msgid "Call Event Log - Search returned %s events"
+msgstr "Log de eventos de chamada - A pesquisa retornou %s eventos"
 
-#~ msgid "File"
-#~ msgstr "Arquivo"
+msgid "Call Detail Record - Search returned %s calls"
+msgstr "Registro detalhado de chamadas - A pesquisa retornou %s chamadas"
 
-#~ msgid "Src Chan."
-#~ msgstr "Canal de Origem"
+msgid ""
+"Search for calls based on CallerID Number. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br><b>_2XXN, _562., _.0075</b> = search for any match of these "
+"numbers<br><b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> "
+"for these numbers<br>Asterisk pattern matching<br><b>X</b> = matches any "
+"digit from 0-9<br><b>Z</b> = matches any digit from 1-9<br><b>N</b> = "
+"matches any digit from 2-9<br><b>[1237-9]</b> = matches any digit or letter "
+"in the brackets<br>(in this example, 1,2,3,7,8,9)<br><b>.</b> = wildcard, "
+"matches one or more characters<br>"
+msgstr ""
 
-#~ msgid "App."
-#~ msgstr "App."
-
-#~ msgid "Dest."
-#~ msgstr "Dest."
-
-#~ msgid "Dst. Chan."
-#~ msgstr "Canal Dest."
