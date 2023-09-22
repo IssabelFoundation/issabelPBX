@@ -1,19 +1,29 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - voicemail module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2014-02-28 09:21+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language: es_ES\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 msgid ""
 "Voicemail is enabled but the Voicemail Password field is empty.  Are you "
@@ -69,7 +79,6 @@ msgstr "Estado"
 msgid "Voicemail Password"
 msgstr "Contraseña del buzón de voz"
 
-#, php-format
 msgid ""
 "This is the password used to access the Voicemail system.%sThis password can "
 "only contain numbers.%sA user can change the password you enter here after "
@@ -143,21 +152,18 @@ msgstr ""
 msgid "IMAP Username"
 msgstr ""
 
-#, php-format
 msgid "This is the IMAP username, if using IMAP storage"
 msgstr ""
 
 msgid "IMAP Password"
 msgstr ""
 
-#, php-format
 msgid "This is the IMAP password, if using IMAP storage"
 msgstr ""
 
 msgid "VM Options"
 msgstr "Opciones del buzón de voz"
 
-#, php-format
 msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
 msgstr ""
 "Separe las opciones con el símbolo de tubería (\"|\")%sPor ejemplo: "
@@ -275,11 +281,9 @@ msgstr ""
 "Recuerde que debe regrabar su saludo de buzón personal incluyendo "
 "instrucciones. Haga una prueba para asegurarse de que está todo en orden."
 
-#, php-format
 msgid "Failed to delete vmbox: %s@%s"
 msgstr "No se pudo eliminar el buzón %s@%s"
 
-#, php-format
 msgid "failed with retcode %s while removing %s:"
 msgstr "Fallo con código %s al eliminar %s:"
 

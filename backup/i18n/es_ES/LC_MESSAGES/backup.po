@@ -13,24 +13,17 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-#  Copyright 2008, 2009 Juan Asensio Sánchez <okelet@gmail.com>
+#  Copyright 2023 Issabel Foundation
 #
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo backup module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2014-02-28 09:21+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language: es_ES\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Backup & Restore"
 msgstr "Copias de seguridad"

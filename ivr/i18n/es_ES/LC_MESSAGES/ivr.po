@@ -1,28 +1,36 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo ivr module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2014-02-28 09:21+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language: es_ES\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Add IVR"
 msgstr "Añadir IVR"
 
-#, php-format
 msgid "Edit IVR: %s"
 msgstr "Modificar IVR: %s"
 
-#, php-format
 msgid "Delete IVR: %s"
 msgstr "Eliminar IVR: %s"
 
@@ -180,11 +188,9 @@ msgstr "Volver al IVR"
 msgid "Delete"
 msgstr "Eliminar"
 
-#, php-format
 msgid "IVR: %s / Option: %s"
 msgstr "IVR: %s / Opción: %s"
 
-#, php-format
 msgid "IVR: %s"
 msgstr "IVR: %s"
 
@@ -206,7 +212,6 @@ msgstr "ok"
 msgid "migrate to recording ids.."
 msgstr "Migrar a identificadores de grabación..."
 
-#, php-format
 msgid "migrated %s entries"
 msgstr "Migrados %s elementos"
 
@@ -234,7 +239,6 @@ msgstr "Comprobando campo invalid_id..."
 msgid "Checking for retvm.."
 msgstr "Comprobando campo retvm..."
 
-#, php-format
 msgid ""
 "There are %s IVRs that have the legacy Directory dialing enabled. This has "
 "been deprecated and will be removed from future releases. You should convert "
@@ -246,7 +250,6 @@ msgstr ""
 "función ha sido deprecada y será eliminada en el futuro. Debe convertir esos IVRs "
 "para usar el módulo de Directorio en su lugar."
 
-#, php-format
 msgid "Deprecated Directory used by %s IVRs"
 msgstr "Directorio Deprecado en uso por %s IVRs"
 

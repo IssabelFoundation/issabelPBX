@@ -1,32 +1,38 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo speeddial module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-13 20:11-0700\n"
-"PO-Revision-Date: 2015-03-30 10:47+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
-#: install.php:7
 msgid "Set user speed dial"
 msgstr "Establecer marcación rápida de usuario"
 
-#: speeddial.i18n.php:6
 msgid "Settings"
 msgstr "Configuración"
 
-#: install.php:5 speeddial.i18n.php:4
 msgid "Speed Dial Functions"
 msgstr "Funciones de marcación rápida"
 
-#: install.php:6
 msgid "Speeddial prefix"
 msgstr "Prefijo de marcación rápida"
