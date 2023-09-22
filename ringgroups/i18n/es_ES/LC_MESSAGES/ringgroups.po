@@ -500,3 +500,9 @@ msgstr ""
 
 msgid "Ring Group Module"
 msgstr "Módulo de Grupo de extensions"
+
+msgid "Display Extension Ring Group Members"
+msgstr "Mostrar miembros del grupo de timbre de extensión"
+
+msgid "When set to true extensions that belong to one or more Ring Groups will have a Ring Group section and link back to each group they are a member of."
+msgstr "Cuando se configura en verdadero, las extensiones que pertenecen a uno o más grupos de timbre tendrán una sección de grupo de timbre y se vincularán a cada grupo del que sean miembros."

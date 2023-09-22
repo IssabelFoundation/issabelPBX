@@ -1513,3 +1513,8 @@ msgstr "Día del Mes"
 msgid "Queue Members"
 msgstr "Miembros de Cola"
 
+msgid "Generate queuenum*/** Login/off Codes"
+msgstr "Generar códigos de inicio y cierre de sesión en cola numcola*/**"
+
+msgid "Queue login and out codes were historically queunum* and queunum**. These have been largely replaced by the *45 queue toggle codes. The legacy codes are required to login or out a third party user that is not the extension dialing. These can be removed from the system by setting this to false."
+msgstr "Los códigos de inicio y salida de cola históricamente eran queunum* y queunum**. Estos han sido reemplazados en gran medida por los códigos de alternancia de cola *45. Los códigos heredados son necesarios para iniciar sesión o cerrar sesión como usuario externo que no sea la extensión que marca. Estos se pueden eliminar del sistema estableciendo esto en falso."
