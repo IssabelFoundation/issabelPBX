@@ -265,14 +265,12 @@ if (!$astman) {
                   if ($value) {
 ?>
                 <h5><?php echo __("$key")?></h5>
-                <div>
-                            <pre>
+                <div class='box is-family-monospace has-text-light has-background-dark' style='white-space:pre;'>
                                 <?php
                                 $response = $astman->send_request('Command',array('Command'=>$value));
                                 $new_value = htmlentities($response['data']);
                                 echo ltrim($new_value,'Privilege: Command');
                                 ?>
-                            </pre>
                 </div>
         <?php
                           }
