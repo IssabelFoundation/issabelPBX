@@ -45,13 +45,14 @@ if (!isset($_SESSION['AMP_user'])) {
 	        if(is_array($password)) $password=$password[0];
             $_SESSION['AMP_user'] = new ampuser($username);
             if (!$_SESSION['AMP_user']->checkPassword(sha1($password))) {
-               // password failed and admin user fall-back failed
-               unset($_SESSION['AMP_user']);
-               $no_auth = true;
+                // password failed and admin user fall-back failed
+                unset($_SESSION['AMP_user']);
+                $no_auth = true;
+            } else {
+                $display='index';
             }
             break;
     }
-
 }
 
 if (isset($_SESSION['AMP_user'])) {
