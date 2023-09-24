@@ -40,7 +40,7 @@ msgid ""
 msgstr ""
 
 msgid "Convert Music Files to WAV"
-msgstr ""
+msgstr "Convertir archivos de música a WAV"
 
 msgid "System Setup"
 msgstr ""
@@ -51,7 +51,7 @@ msgid ""
 "loaded as well as sox and will convert MP3 files to WAV. This is highly "
 "recommended as MP3 files heavily tax the system and can cause instability on "
 "a busy phone system"
-msgstr ""
+msgstr "Cuando se establece en false, los archivos MP3 pueden ser cargados y los archivos WAV convertidos a MP3 en el módulo MoH. El comportamiento por defecto de true asume que tienes mpg123 cargado así como sox y convertirá los archivos MP3 a WAV. Esto es muy recomendable ya que los archivos MP3 sobrecargan el sistema y pueden causar inestabilidad en un sistema telefónico ocupado."
 
 msgid "Add Music on Hold Category"
 msgstr "Añadir categoría de música en espera"

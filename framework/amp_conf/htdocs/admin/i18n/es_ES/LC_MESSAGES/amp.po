@@ -5911,3 +5911,9 @@ msgstr "Actualice sus módulos y vuelva a cargar Asterisk navegando %s"
 
 msgid "Found language dir %s for %s, not installed on system, skipping."
 msgstr "Se encontró el directorio de idioma %s para %s, no instalado en el sistema, omitiendo."
+
+msgid "Enable Custom Device States for DND"
+msgstr "Habilitar estados de dispositivos personalizados para DND (no molestar)"
+
+msgid "If this is set, custom device states will include CUSTOMDND. This allows you to monitor DND on BLF, but it also means that you will not be able to track registration status accurately as the phone could be unregistered, but the custom dnd if set will override registration status"
+msgstr "Si se configura, los estados de dispositivo personalizados incluirán CUSTOMDND. Esto le permite monitorizar DND en BLF, pero también significa que no podrá realizar un seguimiento preciso del estado de registro, ya que el teléfono podría no estar registrado, pero el dnd personalizado, si se establece, anulará el estado de registro."

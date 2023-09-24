@@ -35,21 +35,17 @@ msgstr ""
 "grabaciones, por lo que sólo se usará la primera grabación. Debería corregir "
 "este problema.<br/>Detalles:<br/><br/>"
 
-#, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "Cola - %s (%s): %s<br/>"
 
 msgid "Compound Recordings in Queues Detected"
 msgstr "Se han detectado grabaciones compuestas en las colas"
 
-#, php-format
 msgid "Queue %s : %s"
 msgstr "Cola %s: %s"
 
-#, php-format
 msgid "Queue: %s"
 msgstr "Cola: %s"
-
 
 msgid "Edit Queue"
 msgstr "Modificar cola"
@@ -81,14 +77,12 @@ msgstr "Número de cola no válido; no puede estar vacío."
 msgid "INUSE"
 msgstr "EN USO"
 
-#, php-format
 msgid "Queue: %s (%s)"
 msgstr "Cola: %s (%s)"
 
 msgid "Agent Announce Msg"
 msgstr "Menaje de anuncio de agente"
 
-#, php-format
 msgid "IVR Announce: %s"
 msgstr "Anuncio de IVR: %s"
 
@@ -176,7 +170,6 @@ msgstr ""
 "ERROR: accediendo a la tabla de colas al obtener el listado de "
 "identificadores; abortando."
 
-#, php-format
 msgid "ERROR: inserting data for row %s: %s.."
 msgstr "ERROR: insertando datos para la fila %s: %s."
 
@@ -186,7 +179,6 @@ msgstr "Se han encontrado errores."
 msgid "Dropping old queues table.."
 msgstr "Eliminando tablas de colas antiguas... "
 
-#, php-format
 msgid "WARNING FAILED %s"
 msgstr "AVISO DE FALLO %s"
 
@@ -217,7 +209,6 @@ msgstr "Añadiendo campo 'joinannounce_id'... "
 msgid "migrate agentannounce to ids.."
 msgstr "Migrando tabla 'agentannounce' a identificadores... "
 
-#, php-format
 msgid "migrated %s entries"
 msgstr "Migrados %s elementos."
 
@@ -1389,7 +1380,6 @@ msgstr "Destino de continuación de Cola"
 msgid "Reset Queue Stats"
 msgstr "Resetear Estadísticas de Cola"
 
-
 msgid "Run"
 msgstr "Ejecución"
 
@@ -1404,93 +1394,6 @@ msgstr "Alternar Pausa en Cola"
 
 msgid "Queue Toggle"
 msgstr "Alternar Cola"
-
-
-#~ msgid ""
-#~ "You can optionally prefix the Caller ID name of callers to the queue. ie: "
-#~ "If you prefix with \"Sales:\", a call from John Doe would display as "
-#~ "\"Sales:John Doe\" on the extensions that ring."
-#~ msgstr ""
-#~ "Opcionalmente, puede añadir un prefijo a los usuarios que llamen a la "
-#~ "cola. Por ejemplo, si el prefijo es 'Ventas', una llamada del usuario "
-#~ "'John Doe' se mostraría como 'Ventas: John Doe' en la extensión que esté "
-#~ "sonando."
-
-#~ msgid ""
-#~ "If the call is subsequently transfered, the wait time will reflect the "
-#~ "time since it first entered the queue or reset if the call is transfered "
-#~ "to another queue with this feature set."
-#~ msgstr ""
-#~ "Si la llamada es transferida posteriormente, el tiempo de espera "
-#~ "reflejará el tiempo desde que el usuario entró en la cola, o será "
-#~ "reseteado (puesto a 0) si la llamada es transferida a otra cola que "
-#~ "disponga de esta característica."
-
-#~ msgid "Queue Options"
-#~ msgstr "Opciones de la cola"
-
-#~ msgid ""
-#~ "Announcement played to the Agent prior to bridging in the caller <br><br> "
-#~ "Example: \"the Following call is from the Sales Queue\" or \"This call is "
-#~ "from the Technical Support Queue\".<br><br>To add additional recordings "
-#~ "please use the \"System Recordings\" MENU to the left. Compound "
-#~ "recordings composed of 2 or more sound files are not displayed as options "
-#~ "since this feature can not accept such recordings."
-#~ msgstr ""
-#~ "Anuncio que será reproducido al agente antes de recibir al llamante.<br/"
-#~ "><br/>Por ejemplo: 'La siguiente llamada proviene de la cola de ventas' o "
-#~ "'Esta llamado proviene de la cola de soporte técnico'.<br/><br/>Para "
-#~ "añadir más grabaciones, use la opción 'Grabaciones del sistema' del menú "
-#~ "de la izquierda. Las grabaciones compuestas de 2 o más archivos de sonido "
-#~ "no se mostrarán como opción en la siguiente lista, ya que este tipo de "
-#~ "archivos no pueden ser reproducidos en las colas."
-
-#~ msgid ""
-#~ "Announcement played to callers once prior to joining the queue.<br><br>To "
-#~ "add additional recordings please use the \"System Recordings\" MENU to "
-#~ "the left"
-#~ msgstr ""
-#~ "Anuncio que será reproducido a los llamantes una vez que hayan entrado en "
-#~ "la cola.<br/><br/>Para añadir más grabaciones, use la opción 'Grabaciones "
-#~ "del sistema' del menú de la izquierda."
-
-#~ msgid ""
-#~ "Music (or Commercial) played to the caller while they wait in line for an "
-#~ "available agent. Choose \"inherit\" if you want the MoH class to be what "
-#~ "is currently selected, such as by the inbound route.<br><br>  This music "
-#~ "is defined in the \"Music on Hold\" Menu to the left."
-#~ msgstr ""
-#~ "Música (o anuncio) que será reproducido al llamante mientras esté en la "
-#~ "cola esperando a un agente. Seleccione 'Anterior' para conservar la "
-#~ "música en espera seleccionada previamente (por ejemplo, de un menú de voz "
-#~ "o de otra cola o de una ruta entrante).<br/><br/>Puede definir más clases "
-#~ "de música en espera en la opción 'Música en espera' del menú de la "
-#~ "izquierda."
-
-#~ msgid ""
-#~ "If you wish to allow callers to join queues that currently have no "
-#~ "agents, set this to yes. Set to strict if callers cannot join a queue "
-#~ "with no members or only unavailable members"
-#~ msgstr ""
-#~ "Indica si desea permitir que puedan entrar llamantes a colas que no "
-#~ "tengan agentes. Seleccione el valor 'Estricto' si los llamantes no pueden "
-#~ "entrar a la cola si no hay miembros o miembros disponibles."
-
-#~ msgid "Leave When Empty"
-#~ msgstr "Salir cuando vacía"
-
-#~ msgid ""
-#~ "If you wish to remove callers from the queue if there are no agents "
-#~ "present, set this to yes. Set to strict if callers cannot join a queue "
-#~ "with no members or only unavailable members"
-#~ msgstr ""
-#~ "Indica si desea hacer que los usuarios sean eliminados de la cola cuando "
-#~ "no haya agentes presentes. Seleccione el valor 'Estricto' si los "
-#~ "llamantes serán eliminados de la cola si no hay miembros o miembros "
-#~ "disponibles."
-
-#~ msgid "Member Status"
-#~ msgstr "Estado"
 
 msgid "Randomize"
 msgstr "Aleatorizar"
@@ -1518,3 +1421,13 @@ msgstr "Generar códigos de inicio y cierre de sesión en cola numcola*/**"
 
 msgid "Queue login and out codes were historically queunum* and queunum**. These have been largely replaced by the *45 queue toggle codes. The legacy codes are required to login or out a third party user that is not the extension dialing. These can be removed from the system by setting this to false."
 msgstr "Los códigos de inicio y salida de cola históricamente eran queunum* y queunum**. Estos han sido reemplazados en gran medida por los códigos de alternancia de cola *45. Los códigos heredados son necesarios para iniciar sesión o cerrar sesión como usuario externo que no sea la extensión que marca. Estos se pueden eliminar del sistema estableciendo esto en falso."
+
+msgid "Agent Called Events Default"
+msgstr "Eventos de Agente Llamado por defecto"
+
+msgid ""
+"Default state for AMI emit events related to an agent's call. This setting "
+"will only affect the default for NEW queues, it won't change existing queues "
+"or enfore the option on in new ones."
+msgstr "Estado por defecto para que AMI emita eventos relacionados con la llamada de un agente. Este ajuste sólo afectará al estado por defecto de las colas NUEVAS, no cambiará las colas existentes ni activará la opción en las nuevas."
+
