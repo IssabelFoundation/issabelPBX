@@ -196,10 +196,10 @@ function edit_onsubmit(theForm) {
         return warnInvalid(theForm.displayname, msgInvalidTimeCondName);
 
     if(typeof theForm.time == 'undefined') {
-        return confirm(msgInvalidTimeGroup)
+        return warnInvalid(theForm.time, msgInvalidTimeGroup);
     } else {
         if (isEmpty(theForm.time.value))
-            return confirm(msgInvalidTimeGroup)
+            return warnInvalid(theForm.time, msgInvalidTimeGroup);
     }
 
     if (!validateDestinations(edit,2,true))
