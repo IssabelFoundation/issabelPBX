@@ -93,6 +93,10 @@ if (isset($gresults)) {
 </ul></div-->
 <div class='content'>
 <?php
+
+    $helptext = __("Creates a group of extensions that calls a group of voicemail boxes and allows you to leave a message for them all at once.");
+    $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
+
 	if ($extdisplay != '') {
 		// We need to populate grplist with the existing extension list.
 		$thisgrp = vmblast_get($extdisplay);
@@ -103,7 +107,7 @@ if (isset($gresults)) {
 		$default_group = $thisgrp['default_group'];
 		unset($thisgrp);
 
-		echo "<h2>".__("VMBlast Group").": ".$extdisplay."</h2>";
+		echo "<div class='is-flex'><h2>".__("VMBlast Group").": ".$extdisplay."</h2>$help</div>";
 
 		$usage_list = framework_display_destination_usage(vmblast_getdest($extdisplay));
 		if (!empty($usage_list)) {
@@ -119,7 +123,7 @@ if (isset($gresults)) {
 			echo "<h5>".__("Conflicting Extensions")."</h5>";
 			echo implode('<br .>',$conflict_url);
 		}
-		echo "<h2>".__("Add VMBlast Group")."</h2>";
+		echo "<div class='is-flex'><h2>".__("Add VMBlast Group")."</h2>$help</div>";
 	}
 	?>
 	<form id="mainform" name="editGRP" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkGRP(editGRP);">
