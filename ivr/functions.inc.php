@@ -372,8 +372,11 @@ function ivr_configpageload() {
     $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
     $id     = isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay'] : null;
 
+    $helptext = __("Creates Digital Receptionist (aka Auto-Attendant, aka Interactive Voice Response) menus. These can be used to send callers to different locations (eg, Press 1 for sales) and/or allow direct-dialing of extension numbers.");
+    $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
+
     if ($action  == 'add' || ($action == '' && $id == null)) {
-        $currentcomponent->addguielem('_top', new gui_pageheading('title', __('Add IVR')), 0);
+        $currentcomponent->addguielem('_top', new gui_pageheading('title', __('Add IVR'),true, $help), 0);
 
         $deet = array('id', 'name', 'description', 'announcement', 'directdial',
                     'invalid_loops', 'invalid_retry_recording',
@@ -434,7 +437,7 @@ function ivr_configpageload() {
             $ivr = $ivr[0];
         }
         $label = sprintf(__("Edit IVR: %s"), $ivr['name'] ? $ivr['name'] : 'ID '.$ivr['id']);
-        $currentcomponent->addguielem('_top', new gui_pageheading('title', $label), 0);
+        $currentcomponent->addguielem('_top', new gui_pageheading('title', $label, true, $help), 0);
 
         //display usage
         $usage_list            = framework_display_destination_usage(ivr_getdest($ivr['id']));
