@@ -34,11 +34,8 @@ msgstr "Aplicaciones"
 msgid ""
 "Plays back one of the system recordings (optionally allowing the user to "
 "skip it) and then goes to another destination."
-msgstr ""
-"Reproduce una de las grabaciones del sistema (opcional que permite al "
-"usuario saltar él) y luego se va a otro destino."
+msgstr "Reproduce una de las grabaciones del sistema (permitiendo opcionalmente que el usuario la omita) y, a continuación, se dirige a otro destino."
 
-#, php-format
 msgid "Announcement: %s"
 msgstr "Anuncio: %s"
 
@@ -60,7 +57,6 @@ msgstr "ok"
 msgid "migrate to recording ids.."
 msgstr "migrar a identificadores de grabación (recording ids)"
 
-#, php-format
 msgid "migrated %s entries"
 msgstr "%s entradas migradas"
 

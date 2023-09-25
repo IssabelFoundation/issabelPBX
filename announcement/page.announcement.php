@@ -77,9 +77,12 @@ if ($extdisplay) {
     $tts_text     = $row['tts_text'];
 }
 
-echo "<h2>";
+$helptext = __("Plays back one of the system recordings (optionally allowing the user to skip it) and then goes to another destination.");
+$help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
+
+echo "<div class='is-flex'><h2>";
 echo ($extdisplay ? __("Edit Announcement").": $description" : __("Add Announcement"));
-echo "</h2>";
+echo "</h2>$help</div>";
 
 if ($extdisplay) {
     $usage_list = framework_display_destination_usage(announcement_getdest($extdisplay));
