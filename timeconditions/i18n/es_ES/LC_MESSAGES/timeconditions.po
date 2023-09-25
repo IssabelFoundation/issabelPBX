@@ -368,5 +368,6 @@ msgstr "Esta acción borrará todos los horarios configurados en este grupo y lo
 msgid "All: Time Condition Override"
 msgstr "Todas: Ignorar condiciones horarias"
 
-#~ msgid "text"
-#~ msgstr "texto"
+msgid "Creates a group of different date/times that can be used to match on a specific time condition"
+msgstr "Crea un grupo de fechas y horas diferentes que se pueden utilizar para coincidir con una condición temporal específica."
+

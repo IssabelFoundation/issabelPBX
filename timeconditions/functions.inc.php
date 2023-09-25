@@ -716,6 +716,9 @@ function timeconditions_timegroups_configpageinit($dispnum) {
 function timeconditions_timegroups_configpageload() {
     global $currentcomponent;
 
+    $helptext = __("Creates a group of different date/times that can be used to match on a specific time condition");
+    $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
+
     $descerr = __("Description must be alpha-numeric, and may not be left blank");
     $extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
     $action= isset($_REQUEST['action'])?$_REQUEST['action']:null;
@@ -728,7 +731,7 @@ function timeconditions_timegroups_configpageload() {
     $delURL = $_SERVER['PHP_SELF'].'?'.$query.'&action=del';
     $info = '';
     if (!$extdisplay) {
-        $currentcomponent->addguielem('_top', new gui_pageheading('title', __("Add Time Group"), false), 0);
+        $currentcomponent->addguielem('_top', new gui_pageheading('title', __("Add Time Group"), false, $help), 0);
         $currentcomponent->addguielem(__("Time Group"), new gui_textbox('description', '', __("Description"), __("This will display as the name of this Time Group."), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
     } else {
 
@@ -749,7 +752,7 @@ function timeconditions_timegroups_configpageload() {
         $timegroup = $savedtimegroup[0];
         $description = $savedtimegroup[1];
         $currentcomponent->addguielem('_top', new gui_hidden('extdisplay', $extdisplay));
-        $currentcomponent->addguielem('_top', new gui_pageheading('title', __("Edit Time Group").": $description", false), 0);
+        $currentcomponent->addguielem('_top', new gui_pageheading('title', __("Edit Time Group").": $description", false, $help), 0);
         //$tlabel = sprintf(__("Delete Time Group %s"),$extdisplay);
         //$label = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="images/core_delete.png"/>&nbsp;'.$tlabel.'</span>';
         //$currentcomponent->addguielem('_top', new gui_link('del', $label, $delURL, true, false), 0);

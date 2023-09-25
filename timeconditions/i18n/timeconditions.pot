@@ -482,3 +482,6 @@ msgstr ""
 #: functions.inc.php:292
 msgid "true goto"
 msgstr ""
+
+msgid "Creates a group of different date/times that can be used to match on a specific time condition"
+msgstr ""
