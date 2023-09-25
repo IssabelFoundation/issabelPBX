@@ -41,10 +41,10 @@ msgid "Applications"
 msgstr "Приложения"
 
 msgid ""
-"Allow creation of conference rooms (meet-me) where multiple people can talk "
+"Allow creation of conference rooms where multiple people can talk "
 "together."
 msgstr ""
-"Разрешить создание конференц-комнат (meet-me) для общения многих "
+"Разрешить создание конференц-комнат для общения многих "
 "пользователей "
 
 #, php-format

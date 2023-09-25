@@ -140,6 +140,10 @@ if(count($gresult)==0) {
 </ul></div-->
 <div class='content'>
 <?php
+
+    $helptext = __("Creates a group of extensions that all ring together. Extensions can be rung all at once, or in various 'hunt' configurations. Additionally, external numbers are supported, and there is a call confirmation option where the callee has to confirm if they actually want to take the call before the caller is transferred.");
+    $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
+
     if ($extdisplay) {
         // We need to populate grplist with the existing extension list.
         $thisgrp = ringgroups_get(ltrim($extdisplay,'GRP-'));
@@ -165,7 +169,7 @@ if(count($gresult)==0) {
         unset($grpliststr);
         unset($thisgrp);
 
-        echo "<h2>".__("Edit Ring Group").": ".ltrim($extdisplay,'GRP-')."</h2>";
+        echo "<div class='is-flex'><h2>".__("Edit Ring Group").": ".ltrim($extdisplay,'GRP-')."</h2>$help</div>";
 
         $usage_list = framework_display_destination_usage(ringgroups_getdest(ltrim($extdisplay,'GRP-')));
         if (!empty($usage_list)) {
@@ -190,7 +194,7 @@ if(count($gresult)==0) {
         $toolate_id = '';
         $ringing = '';
 
-        echo "<h2>".__("Add Ring Group")."</h2>";
+        echo "<div class='is-flex'><h2>".__("Add Ring Group")."</h2>$help</div>";
     }
     if (!empty($conflict_url)) {
         echo ipbx_extension_conflict($conflict_url);

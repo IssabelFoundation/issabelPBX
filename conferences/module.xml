@@ -8,7 +8,7 @@
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <embedcategory>Internal Options &amp; Configuration</embedcategory>
-	<description>Allow creation of conference rooms (meet-me) where multiple people can talk together.</description>
+	<description>Allow creation of conference rooms where multiple people can talk together.</description>
     <changelog>
         *2.12.0.0* Newer GUI, standarize module components
 		*2.11.0.6* Initial Issabel Foundation release

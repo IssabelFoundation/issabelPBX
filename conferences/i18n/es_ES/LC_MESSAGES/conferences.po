@@ -32,9 +32,9 @@ msgid "Applications"
 msgstr ""
 
 msgid ""
-"Allow creation of conference rooms (meet-me) where multiple people can talk "
+"Allow creation of conference rooms where multiple people can talk "
 "together."
-msgstr ""
+msgstr "Permiten crear salas de conferencias en las que pueden hablar varias personas a la vez."
 
 msgid "Conference Room %s : %s"
 msgstr "Sala de conferencia %s: %s"

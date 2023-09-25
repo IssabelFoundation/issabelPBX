@@ -114,10 +114,10 @@ msgid "Applications"
 msgstr "アプリケーション"
 
 msgid ""
-"Allow creation of conference rooms (meet-me) where multiple people can talk "
+"Allow creation of conference rooms where multiple people can talk "
 "together."
 msgstr ""
-"複数の人々が一緒に会話ができるカンファレンスルーム(meet-me)の作成を許可する。"
+"複数の人々が一緒に会話ができるカンファレンスルームの作成を許可する。"
 
 msgid "Warning! Extension"
 msgstr "警告! 内線"

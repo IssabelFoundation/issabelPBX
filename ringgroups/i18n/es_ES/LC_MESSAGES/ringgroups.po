@@ -496,7 +496,7 @@ msgid ""
 "numbers are supported, and there is a call confirmation option where the "
 "callee has to confirm if they actually want to take the call before the "
 "caller is transferred."
-msgstr ""
+msgstr "Crea un grupo de extensiones que suenan todas juntas. Las extensiones pueden sonar todas a la vez, o en varias configuraciones de 'caza'. Además, se admiten números externos, y hay una opción de confirmación de llamada en la que el interlocutor tiene que confirmar si realmente quiere coger la llamada antes de que se transfiera la llamada."
 
 msgid "Ring Group Module"
 msgstr "Módulo de Grupo de extensions"
