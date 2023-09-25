@@ -939,13 +939,17 @@ class gui_label extends guitext {
 
 // Main page header
 class gui_pageheading extends guitext {
-    function __construct($elemname, $text, $uselang = true) {
+    function __construct($elemname, $text, $uselang = true, $help='') {
         // call parent class contructor
         $parent_class = get_parent_class($this);
         parent::__construct($elemname, $text);
 
         // H2
-        $this->html_text = "<h2 id=\"$this->_elemname\">$text</h2>";
+        if($help!='') {
+            $this->html_text = "<div class='is-flex'><h2 id=\"$this->_elemname\">$text</h2>".$help."</div>";
+        } else {
+            $this->html_text = "<h2 id=\"$this->_elemname\">$text</h2>";
+        }
     }
 }
 
