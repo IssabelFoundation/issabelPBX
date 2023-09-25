@@ -64,7 +64,7 @@ msgid ""
 "extension, IVR, ring group..) based on the time and/or date. This can be "
 "used for example to ring a receptionist during the day, or go directly to an "
 "IVR at night."
-msgstr ""
+msgstr "Crea una condición en la que las llamadas irán a uno de dos destinos (por ejemplo, una extensión, IVR, grupo de llamada..) en función de la hora y/o la fecha. Esto se puede utilizar, por ejemplo, para llamar a una recepcionista durante el día, o ir directamente a un IVR por la noche."
 
 msgid "Current Override"
 msgstr "Anulación Actual"

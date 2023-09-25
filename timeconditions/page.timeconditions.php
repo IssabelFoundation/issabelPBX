@@ -59,7 +59,12 @@ drawListMenu($groups, $type, $display, $extdisplay);
         unset($fcc);
     }
 
-    echo '<h2>'.($itemid ? __("Edit Time Condition").": ". $code : __("Add Time Condition")).'</h2>';
+    $helptext = __("Creates a condition where calls will go to one of two destinations (eg, an extension, IVR, ring group..) based on the time and/or date. This can be used for example to ring a receptionist during the day, or go directly to an IVR at night.");
+    $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
+
+    echo "<div class='is-flex'><h2>";
+    echo ($itemid ? __("Edit Time Condition").": $code" : __("Add Time Condition"));
+    echo "</h2>$help</div>";
 
     if($itemid) {
 
