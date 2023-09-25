@@ -110,12 +110,14 @@ drawListMenu($meetmes, $type, $display, $extdisplay);
         $users       = "0";
     }
 
+$helptext = __("Allow creation of conference rooms where multiple people can talk together.");
+$help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
 ?>
 
 <?php if ($extdisplay != '') { ?>
-    <h2><?php echo __("Edit Conference").": ". $extdisplay; ?></h2>
+    <div class='is-flex'><h2><?php echo __("Edit Conference").": ". $extdisplay; ?></h2><?php echo $help;?></div>
 <?php } else { ?>
-    <h2><?php echo __("Add Conference"); ?></h2>
+    <div class='is-flex'><h2><?php echo __("Add Conference"); ?></h2><?php echo $help;?></div>
 <?php } ?>
 
 <?php
