@@ -726,16 +726,18 @@ if(isset($active_modules) && is_array($active_modules)){
 
     }
 
-    //sort the list based in priority
-    ksort($funclist);
+    if(is_array($funclist)) {
+        //sort the list based in priority
+        ksort($funclist);
 
-    //flatten the aray - will respect priority
-    $functions = call_user_func_array('array_merge', $funclist);
+        //flatten the aray - will respect priority
+        $functions = call_user_func_array('array_merge', $funclist);
 
-    //run functions if they exists
-    foreach ($functions as $function) {
-        if (function_exists($function)) {
-            $function($engine);
+        //run functions if they exists
+        foreach ($functions as $function) {
+            if (function_exists($function)) {
+                $function($engine);
+            }
         }
     }
 }
