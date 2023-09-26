@@ -8962,10 +8962,12 @@ function core_devices_configpageload() {
             if ( $display != 'extensions' ) {
                 $currentcomponent->addguielem('_top', new gui_pageheading('title', __("Device").": $extdisplay", false), 0);
 
+                /*
                 $delURL = $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'].'&action=del';
                 $tlabel = sprintf(__("Delete Device %s"),$extdisplay);
                 $label = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="images/telephone_delete.png"/>&nbsp;'.$tlabel.'</span>';
                 $currentcomponent->addguielem('_top', new gui_link('del', $label, $delURL, true, false), 0);
+                 */
 
                 if ($deviceInfo['device_user'] != 'none') {
                     $editURL = $_SERVER['PHP_SELF'].'?display=users&skip=0&extdisplay='.$deviceInfo['user'];
