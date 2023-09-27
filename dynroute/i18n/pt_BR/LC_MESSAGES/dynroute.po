@@ -25,7 +25,7 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-msgid "There is a problem with installation Contact support\n"
+msgid "There is a problem with installation Contact support"
 msgstr "Houve um problema com a instalação"
 
 #, php-format
