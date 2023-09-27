@@ -28,6 +28,10 @@ issabelPBX
 mkdir -p %{buildroot}/usr/src/issabelPBX
 cp -a * %{buildroot}/usr/src/issabelPBX
 
+mkdir -p  %{buildroot}/etc/logrotate.d/
+cp        %{buildroot}/usr/src/issabelPBX/build/5.0/files/issabelpbx.logrotate  %{buildroot}/etc/logrotate.d/
+chmod 644 %{buildroot}/etc/logrotate.d/*
+
 %post
 
 pear install DB >/dev/null 2>&1 || :
@@ -61,9 +65,11 @@ PODIR=${A%$POFILE}
 sudo -u asterisk msgfmt $POFILE -o $MOFILE || :
 done
 
+chmod 644 /etc/logrotate.d/issabelpbx.logrotate
 
 %files
 /usr/src/issabelPBX/
+%config(noreplace) /etc/logrotate.d/issabelpbx.logrotate
 
 %doc
 
