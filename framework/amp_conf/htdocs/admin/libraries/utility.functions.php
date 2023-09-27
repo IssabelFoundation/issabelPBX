@@ -98,6 +98,14 @@ function issabelpbx_log($level, $message) {
                 date_default_timezone_set($tz);
                 $tstamp        = date("Y-m-d H:i:s");
 
+                $dir = dirname($log_file);
+                if(!file_exists($dir)) {
+                    if (mkdir($dir, 0777, true)) {
+                       chown($dir,'asterisk');
+                       chgrp($dir,'asterisk');
+                    }
+                }
+
                 // Create file if it does not exist
                 if(!file_exists($log_file)) {
                     file_put_contents($log_file,"");
