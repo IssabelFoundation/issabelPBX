@@ -14,7 +14,10 @@ $email = isset($_REQUEST['email'])?$_REQUEST['email']:'';
 ?>
 <p>
 <?php
-	echo "<table class='table'><tr><td colspan=4><div class='content'><h2>".__("Weak Password Detection")."</h2></td></tr>\n";
+    $helptext = __("This module detects weak SIP secrets and sets security notifications accordingly");
+    $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
+
+	echo "<table class='table'><tr><td colspan=4><div class='content'><div class='is-flex'><h2>".__("Weak Password Detection")."</h2>$help</div></td></tr>\n";
 	echo "<tr><td><b>".__("Type")."</b></td><td><b>".__("Name")."</b></td><td><b>".__("Secret")."</b></td><td><b>".__("Message")."</b></td></tr>";
 	$weak = weakpasswords_get_users();
 	if(sizeof($weak) > 0)  {
