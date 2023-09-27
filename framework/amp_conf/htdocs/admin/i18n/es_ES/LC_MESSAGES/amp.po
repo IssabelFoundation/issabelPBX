@@ -5917,3 +5917,9 @@ msgstr "Habilitar estados de dispositivos personalizados para DND (no molestar)"
 
 msgid "If this is set, custom device states will include CUSTOMDND. This allows you to monitor DND on BLF, but it also means that you will not be able to track registration status accurately as the phone could be unregistered, but the custom dnd if set will override registration status"
 msgstr "Si se configura, los estados de dispositivo personalizados incluirán CUSTOMDND. Esto le permite monitorizar DND en BLF, pero también significa que no podrá realizar un seguimiento preciso del estado de registro, ya que el teléfono podría no estar registrado, pero el dnd personalizado, si se establece, anulará el estado de registro."
+
+msgid "Device & User Hints Issue"
+msgstr "Problema con Hints en modo Dispositivos & Usuarios"
+
+msgid "You are set to Device and User mode but are not set to 'Dynamically Generate Hints' which can result in improper phone state behavior. This can be changed on the Advanced Settings page, check the tooltip for specific configuration details."
+msgstr "Está configurado en modo Dispositivo y Usuario pero no está configurado en 'Generar Hints Dinámicamente', lo que puede dar lugar a un comportamiento incorrecto del estado del teléfono. Esto se puede cambiar en la página de Configuración Avanzada, compruebe la información sobre herramientas para obtener detalles específicos de configuración."
