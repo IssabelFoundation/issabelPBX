@@ -704,8 +704,14 @@ function edit_crontab($remove = '', $add = array()) {
     }
 
     //get all crontabs
-    $exec = '/usr/bin/crontab -l ' . $cron_user;
+    $exec = '/usr/bin/crontab -l ' . $cron_user. ' 2>&1';
     exec($exec, $cron_out, $ret);
+
+    // empty crontab is ok
+    if(preg_match("/no crontab for/",implode(" ",$cron_out))) {
+        $cron_out=array();
+        $ret=0;
+    }
 
     //make sure the command was executed successfully before continuing
     if ($ret > 0) {
@@ -1377,7 +1383,7 @@ function ipbx_ami_update($user=false, $pass=false, $writetimeout = false) {
             }
         }
 
-	if(!is_array($db->tableInfo('issabelpbx_settings'))) {
+        if(!is_array($db->tableInfo('issabelpbx_settings'))) {
             // We've changed the password, let's update the notification
             //
             require_once $amp_conf['AMPWEBROOT'] . '/admin/libraries/notifications.class.php';
