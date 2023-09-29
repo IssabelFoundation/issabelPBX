@@ -425,7 +425,7 @@ class Backup {
 		$ret['backup_version']			= modules_getversion('backup');
 		$ret['pbx_version']				= getversion();
 		$ret['file_list']				= scandirr($this->b['_tmpdir']);
-		$ret['mysql']					= '';
+		$ret['mysql']					= array();
 		$ret['astdb']					= '';
 
 
@@ -489,7 +489,7 @@ class Backup {
 		$ret['hostname']	= php_uname("n");
 		$ret['file_count']	= count($ret['file_list'], COUNT_RECURSIVE);
 		$ret['mysql_count']	= $ret['mysql'] ? count($ret['mysql']) : 0;
-		$ret['astdb_count']	= $ret['astdb'] ? count($ret['astdb']) : 0;
+        $ret['astdb_count'] = $ret['astdb']!='' ? 1 : 0;
 		$ret['ftime']		= time();//finish time
 
 		$this->b['manifest'] = $ret;
