@@ -76,19 +76,7 @@ if($rnavsort=='description') {
 } else {
     $newsort='description';
 }
-/*
-$rnaventries[] = array('',__("All DIDs").' '.$toggle_sort,'','','&rnavsort='.$newsort.'&didfilter=',0);
-$rnaventries[] = array('directdid',__("User DIDs"),'','','&didfilter=directdid',0);
-$rnaventries[] = array('incoming',__("General DIDs"),'','','&didfilter=incoming',0);
-$rnaventries[] = array('unassigned',__("Unused DIDs"),'','','&didfilter=unnasigned',0);
- */
 
-/*
-	<li><a <?php echo ($didfilter=='' ? 'class="current"':'') ?> href="<?php echo ($didfilter==''?$display_link_current:$display_link)?>"><?php echo __("All DIDs").($didfilter==''?$toggle_sort:"")?></a></li>
-	<li><a <?php echo ($didfilter=='directdid' ? 'class="current"':'') ?> href="<?php echo ($didfilter=='directdid'?$display_link_current:$display_link).'&didfilter=directdid'?>"><?php echo __("User DIDs").($didfilter=='directdid'?$toggle_sort:"")?></a></li>
-	<li><a <?php echo ($didfilter=='incoming' ? 'class="current"':'') ?> href="<?php echo ($didfilter=='incoming'?$display_link_current:$display_link).'&didfilter=incoming'?>"><?php echo __("General DIDs").($didfilter=='incoming'?$toggle_sort:"")?></a></li>
-    <li><a <?php echo ($didfilter=='unassigned' ? 'class="current"':'') ?> href="<?php echo ($didfilter=='unassigned'?$display_link_current:$display_link).'&didfilter=unassigned'?>"><?php echo __("Unused DIDs").($didfilter=='unassigned'?$toggle_sort:"")?></a></li>
- */
 
 $inroutes = core_did_list($rnavsort);
 switch ($didfilter) {
@@ -137,7 +125,6 @@ if (isset($inroutes)) {
  		$displaycid = ( (trim($inroute['cidnum']) == "") ? __("any CID") : $inroute['cidnum'] );
         $desc = ( empty($inroute['description'])? "" : htmlspecialchars($inroute['description'])."<br />" );
         $rnaventries[]=array(urlencode($inroute['extension'])."/".urlencode($inroute['cidnum']),"{$desc} <span class='is-size-7'>{$displaydid} / {$displaycid}</span><span class='is-hidden'>${didtype}</span>","");
-//		echo "\t<li><a ".($extdisplay==$inroute['extension']."/".$inroute['cidnum'] ? 'class="current"':'')." href=\"config.php?display=$dispnum&didfilter=$didfilter&rnavsort=$rnavsort&extdisplay=".urlencode($inroute['extension'])."/".urlencode($inroute['cidnum'])."\">{$desc} {$displaydid} / {$displaycid} </a></li>\n";
 	}
 }
 
