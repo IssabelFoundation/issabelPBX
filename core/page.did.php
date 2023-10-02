@@ -136,7 +136,7 @@ if (isset($inroutes)) {
 		$displaydid = ( (trim($inroute['extension']) == "") ? __("any DID") : $inroute['extension'] );
  		$displaycid = ( (trim($inroute['cidnum']) == "") ? __("any CID") : $inroute['cidnum'] );
         $desc = ( empty($inroute['description'])? "" : htmlspecialchars($inroute['description'])."<br />" );
-        $rnaventries[]=array($inroute['extension']."/".$inroute['cidnum'],"{$desc} <span class='is-size-7'>{$displaydid} / {$displaycid}</span><span class='is-hidden'>${didtype}</span>","");
+        $rnaventries[]=array(urlencode($inroute['extension'])."/".urlencode($inroute['cidnum']),"{$desc} <span class='is-size-7'>{$displaydid} / {$displaycid}</span><span class='is-hidden'>${didtype}</span>","");
 //		echo "\t<li><a ".($extdisplay==$inroute['extension']."/".$inroute['cidnum'] ? 'class="current"':'')." href=\"config.php?display=$dispnum&didfilter=$didfilter&rnavsort=$rnavsort&extdisplay=".urlencode($inroute['extension'])."/".urlencode($inroute['cidnum'])."\">{$desc} {$displaydid} / {$displaycid} </a></li>\n";
 	}
 }
