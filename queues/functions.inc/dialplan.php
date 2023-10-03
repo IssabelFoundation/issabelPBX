@@ -244,6 +244,7 @@ function queues_get_config($engine) {
 				}
 				$ext->add($c, $exten, '', new ext_execif('$["${QJOINMSG}"!=""' . $cplay . ']', 'Playback', '${QJOINMSG}, ' . $joinansw));
 				$ext->add($c, $exten, '', new ext_queuelog($exten,'${UNIQUEID}','NONE','DID', '${FROM_DID}')); 
+				$ext->add($c, $exten, '', new ext_set('__FROMQ',$exten));
 
 				$ext->add($c, $exten, '', new ext_set('QAANNOUNCE', '${IF($[${LEN(${VQ_AANNOUNCE})}>0]?${IF($["${VQ_AANNOUNCE}"!="0"]?${VQ_AANNOUNCE}: )}:' . $agentannounce . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_AANNOUNCE', ''));
