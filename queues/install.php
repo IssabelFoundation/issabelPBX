@@ -796,3 +796,18 @@ $set['name'] = 'Member Status Event Default';
 $set['description'] = 'Default state for AMI to emit the QueueMemberStatus event. This setting will only affect the default for NEW queues, it won\'t change existing queues or enfore the option on in new ones.';
 $set['type'] = CONF_TYPE_BOOL;
 $issabelpbx_conf->define_conf_setting('QUEUES_EVENTS_MEMBER_STATUS_DEFAULT', $set, true);
+
+// QUEUES_LOG_TRANSFERS
+$set['value'] = true;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'queues';
+$set['category'] = 'Queues Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 120;
+$set['name'] = 'Log Transfers';
+$set['description'] = 'Register a TRANSFER event in the queue_log file if a Blind Transfer is detected. Useful for queue reporting tools like Asternic Call Center Stats PRO. Set it to false if you use direct device queue members instead of the default local channels.';
+$set['type'] = CONF_TYPE_BOOL;
+$issabelpbx_conf->define_conf_setting('QUEUES_LOG_TRANSFERS', $set, true);

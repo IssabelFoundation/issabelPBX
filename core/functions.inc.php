@@ -3770,7 +3770,7 @@ function core_do_get_config($engine) {
             // make sure AMPUSER is set if it doesn't get set below
             $ext->add($context, $exten, '', new ext_set('AMPUSER', '${IF($["${AMPUSER}" = ""]?${CALLERID(number)}:${AMPUSER})}'));
 
-            if ($amp_conf['QUEUELOGTRANSFER'] !== false) {
+            if ($amp_conf['QUEUES_LOG_TRANSFER'] !== false) {
                 // Log TRANSFER in queue_log if a BLINDTRANSFER is detected from a queue call
                 $ext->add($context, $exten, '', new ext_gotoif('$["${BLINDTRANSFER}" != "" & "${FROMQ}" != ""]', 'trq'));
                 $ext->add($context, $exten, '', new ext_goto('1','resume'));
