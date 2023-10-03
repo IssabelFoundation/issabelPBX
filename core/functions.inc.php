@@ -3769,7 +3769,21 @@ function core_do_get_config($engine) {
             $ext->add($context, $exten, '', new ext_set('TOUCH_MONITOR','${UNIQUEID}'));
             // make sure AMPUSER is set if it doesn't get set below
             $ext->add($context, $exten, '', new ext_set('AMPUSER', '${IF($["${AMPUSER}" = ""]?${CALLERID(number)}:${AMPUSER})}'));
-            $ext->add($context, $exten, '', new ext_gotoif('$["${CUT(CHANNEL,@,2):5:5}"="queue" | ${LEN(${AMPUSERCIDNAME})}]', 'report'));
+
+            if ($amp_conf['QUEUELOGTRANSFER'] !== false) {
+                // Log TRANSFER in queue_log if a BLINDTRANSFER is detected from a queue call
+                $ext->add($context, $exten, '', new ext_gotoif('$["${BLINDTRANSFER}" != "" & "${FROMQ}" != ""]', 'trq'));
+                $ext->add($context, $exten, '', new ext_goto('1','resume'));
+                $ext->add($context, $exten, 'trq', new ext_gotoif('$["x${NODEST}" = "x"]', 'resume'));
+                $ext->add($context, $exten, '', new ext_set('AGCHAN', '${CUT(BLINDTRANSFER,-,1)}'));
+                $ext->add($context, $exten, '', new ext_set('VIRTUAL', '${CUT(AGCHAN,/,2)}'));
+                $ext->add($context, $exten, '', new ext_set('__AGNAME', '${DB(AMPUSER/${VIRTUAL}/cidname)}'));
+                $ext->add($context, $exten, '', new ext_gotoif('$["x${AGNAME}" = "x"]', 'resume'));
+                $ext->add($context, $exten, '', new ext_set('TDEST', '${IF($["${MACRO_EXTEN}" = "s"]?${ARG2}:${MACRO_EXTEN})}'));
+                $ext->add($context, $exten, '', new ext_queuelog('${NODEST}','${CHANNEL(LINKEDID)}','${AGNAME}','TRANSFER','${TDEST}'));
+            }
+
+            $ext->add($context, $exten, 'resume', new ext_gotoif('$["${CUT(CHANNEL,@,2):5:5}"="queue" | ${LEN(${AMPUSERCIDNAME})}]', 'report'));
             $ext->add($context, $exten, '', new ext_execif('$["${REALCALLERIDNUM:1:2}" = ""]', 'Set', 'REALCALLERIDNUM=${CALLERID(number)}'));
             $ext->add($context, $exten, '', new ext_set('AMPUSER', '${DB(DEVICE/${REALCALLERIDNUM}/user)}'));
 
