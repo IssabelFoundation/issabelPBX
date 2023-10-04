@@ -224,8 +224,8 @@ if($shield_class=='updates_partial') {
 	}
 	function showhide_upgrades() {
 		var upgradesonly = document.getElementById('show_upgradable_only').checked;
-		var module_re = /^module__([a-z0-9_-]+)$/;   // regex to match a module element id
-		var cat_re = /^category__([a-zA-Z0-9_]+)$/; // regex to match a category element id
+		var module_re = /^module_([a-z0-9_-]+)$/;   // regex to match a module element id
+		var cat_re = /^category_([a-zA-Z0-9_]+)$/; // regex to match a category element id
 		var elements = document.getElementById('modulelist').getElementsByTagName('li');
 		// loop through all modules, check if there is an upgrade_<module> radio box
 		for(i=0; i<elements.length; i++) {
