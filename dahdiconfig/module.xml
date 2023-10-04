@@ -17,8 +17,8 @@
         <version>2.12</version>
     </supported>
     <depends>
-        <phpversion>5.3.0</phpversion>
-        <version>2.10</version>
+        <phpversion>5.4.0</phpversion>
+        <version>2.12</version>
     </depends>
     <menuitems>
         <dahdi needsenginedb="yes">DAHDi Config</dahdi>
