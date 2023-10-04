@@ -3,13 +3,14 @@
 	<type>setup</type>
 	<category>Connectivity</category>
 	<name>Digium Phones Config</name>
-	<version>2.11.3.3</version>
+	<version>2.12.0.0</version>
 	<publisher>Digium</publisher>
 	<license>GPLv2</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<candisable>yes</candisable>
 	<canuninstall>yes</canuninstall>
 	<changelog>
+        *2.12.0.0* Issabel 5 release
         *2.11.3.3* Rebranding
 		*2.11.3.2* IssabelPBX initial release
 		*2.11.0.1* FreePBX/Schmoozecom Release
@@ -17,15 +18,15 @@
 	</changelog>
 	<depends>
 		<phpversion>5.2.0</phpversion>
-		<version>2.10</version>
-        <module>framework ge 2.11.0.47</module>
+		<version>2.12</version>
+        <module>framework ge 2.12.0.0</module>
     </depends>
 	<menuitems>
 		<digium_phones needsenginedb="yes">Digium Phones</digium_phones>
 	</menuitems>
 	<supported>
-		<version>2.11.0</version>
+		<version>2.12</version>
 	</supported>
-    <location>release/2.11/digium_phones-2.11.3.2.tgz</location>
+    <location>release/2.12/digium_phones-2.12.0.0.tgz</location>
     <md5sum>0</md5sum>
 </module>

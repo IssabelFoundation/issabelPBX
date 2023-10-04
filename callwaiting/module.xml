@@ -4,17 +4,18 @@
 	<name>Call Waiting</name>
 	<description>Provides an option to turn on/off call waiting</description>
 	<category>Applications</category>
-	<version>2.11.0.4</version>
+	<version>2.12.0.0</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+        *2.12.0.0* Issabel 5 release
 		*2.11.0.4* Initial Issabel Foundation release
 		*1.1* First release for 2.2
 	</changelog>
 	<supported>
-		<version>2.10</version>
+		<version>2.12</version>
 	</supported>
-	<location>release/2.11/callwaiting-2.11.0.2.tgz</location>
+	<location>release/2.12/callwaiting-2.12.0.0.tgz</location>
 	<md5sum>0</md5sum>
 </module>
