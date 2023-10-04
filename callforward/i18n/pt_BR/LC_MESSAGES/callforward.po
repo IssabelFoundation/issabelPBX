@@ -18,7 +18,7 @@
 
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - Spanish translation\n"
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,46 +26,52 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Call Forward"
-msgstr "Desvío de llamada"
+msgstr "Desvio de chamada"
 
 msgid "Applications"
 msgstr ""
 
 msgid "Provides callforward featurecodes"
-msgstr "Provee códigos de funcionalidad para desvío de llamadas"
+msgstr ""
 
 msgid "Call Forward All Activate"
-msgstr "Activar todos los desvíos de llamada"
+msgstr "Ative todos os encaminhamentos de chamadas"
 
 msgid "Call Forward All Deactivate"
-msgstr "Desactivar todos los desvíos de llamada"
+msgstr "Desative todo encaminhamento de chamadas"
 
 msgid "Call Forward All Prompting Deactivate"
-msgstr "Desactivar las instrucciones de desvío de llamada siempre"
+msgstr "Sempre desative as instruções de encaminhamento de chamadas"
 
 msgid "Call Forward All Prompting Activate"
-msgstr "Activar las instrucciones de desvío de llamada siempre"
+msgstr "Sempre ative as instruções de encaminhamento de chamadas"
 
 msgid "Call Forward Busy Activate"
-msgstr "Activar desvío de llamadas cuando está ocupado"
+msgstr "Ative o encaminhamento de chamadas quando ocupado"
 
 msgid "Call Forward Busy Deactivate"
-msgstr "Desactivar desvío de llamadas cuando está ocupado"
+msgstr "Desative o encaminhamento de chamadas quando ocupado"
 
 msgid "Call Forward Busy Prompting Deactivate"
-msgstr "Desactivar las instrucciones de desvío de llamada cuando ocupado"
+msgstr "Desativar instruções de encaminhamento de chamada quando ocupado"
 
 msgid "Call Forward Busy Prompting Activate"
-msgstr "Activar las instrucciones de desvío de llamada cuando ocupado"
+msgstr "Ative instruções de encaminhamento de chamadas quando ocupado"
 
 msgid "Call Forward No Answer/Unavailable Activate"
-msgstr "Activar desvío de llamadas cuando no disponible"
+msgstr ""
+"Ative o encaminhamento de chamadas quando você não atender ou não estiver "
+"disponível"
 
 msgid "Call Forward No Answer/Unavailable Deactivate"
-msgstr "Desactivar desvío de llamadas cuando no disponible"
+msgstr ""
+"Desative o encaminhamento de chamadas quando você não atender ou não estiver "
+"disponível"
 
 msgid "Call Forward Toggle"
-msgstr "Alternar desvío de llamada"
+msgstr "Alternar encaminhamento de chamadas"
 
 msgid "Call Forward No Answer/Unavailable Prompting Activate"
-msgstr "Activar las instrucciones de desvío de llamada cuando no disponible"
+msgstr ""
+"Ativar instruções de encaminhamento de chamadas não atende ou não está "
+"disponível"
