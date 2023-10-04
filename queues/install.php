@@ -162,7 +162,7 @@ if(DB::IsError($results)) {
 	else  {
 		$sql = "
 		CREATE TABLE IF NOT EXISTS queues_config (
-		  extension varchar(20) NOT NULL default '',
+		  extension varchar(45) NOT NULL default '',
 		  descr varchar(35) NOT NULL default '',
 		  grppre varchar(100) NOT NULL default '',
 		  alertinfo varchar(254) NOT NULL default '',
