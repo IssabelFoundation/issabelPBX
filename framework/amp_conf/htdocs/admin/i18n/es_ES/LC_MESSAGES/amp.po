@@ -3491,10 +3491,10 @@ msgid "Upload from CSV"
 msgstr "Subir desde CSV"
 
 msgid "Upload module"
-msgstr "Enviar módulo"
+msgstr "Cargar módulo"
 
 msgid "Upload modules"
-msgstr "Enviar módulos"
+msgstr "Cargar módulos"
 
 msgid ""
 "Upload patterns from a CSV file replacing existing entries. If there are no "
