@@ -43,43 +43,44 @@ function customcontexts_hookGet_config($engine) {
     global $db;
     global $ext;
     switch($engine) {
-        case 'asterisk':
-            $sql = 'UPDATE customcontexts_includes_list SET missing = 1 WHERE context 
-                            NOT IN (SELECT context FROM customcontexts_contexts_list WHERE locked = 1)';
-            $db->query($sql);
-            $sql = 'SELECT context FROM customcontexts_contexts_list';
-            $sections = $db->getAll($sql);
-            if(DB::IsError($sections)) {
-                 $sections = null;
-            }
-            foreach ($sections as $section) {
-                $section = $section[0];
-                $i = 0;
-                if (isset($ext->_includes[$section])) {
-                    foreach ($ext->_includes[$section] as $include) {
-                        $i = $i + 1;
-                        if ($section == 'outbound-allroutes') {
-                            $sql = 'INSERT INTO customcontexts_includes_list 
-                                            (context, include, description, missing, sort)
-                                            VALUES ("'.$section.'", "'.$include['include'].'",
-                                            "'.$include['comment'].'", "0", "'.($i+100).'") 
-                                            ON DUPLICATE KEY UPDATE sort = "'.($i+100).'", missing = "0"';
-                            $db->query($sql);
-                        } else {
-                            $sql = 'UPDATE customcontexts_includes_list SET missing = "0", sort = "'.$i.'" 
-                                            WHERE context = "'.$section.'" and include = "'.$include['include'].'"';
-                            $db->query($sql);
-            }
-                        $sql = 'INSERT IGNORE INTO customcontexts_includes_list 
-                                        (context, include, description, sort) 
-                                        VALUES ("'.$section.'", "'.$include['include'].'", 
-                                        "'.$include['include'].'", "'.$i.'")';
+    case 'asterisk':
+        $sql = 'UPDATE customcontexts_includes_list SET missing = 1 WHERE context 
+            NOT IN (SELECT context FROM customcontexts_contexts_list WHERE locked = 1)';
+        $db->query($sql);
+        $sql = 'SELECT context FROM customcontexts_contexts_list';
+        $sections = $db->getAll($sql);
+        if(DB::IsError($sections)) {
+            $sections = null;
+        }
+        foreach ($sections as $section) {
+            $section = $section[0];
+            $i = 0;
+            if (isset($ext->_includes[$section])) {
+                foreach ($ext->_includes[$section] as $include) {
+                    $i = $i + 1;
+                    if ($section == 'outbound-allroutes') {
+                        $sql = 'INSERT INTO customcontexts_includes_list 
+                            (context, include, description, missing, sort)
+                            VALUES ("'.$section.'", "'.$include['include'].'",
+                                "'.$include['comment'].'", "0", "'.($i+100).'") 
+                                ON DUPLICATE KEY UPDATE sort = "'.($i+100).'", missing = "0"';
+                        $db->query($sql);
+                    } else {
+                        $sql = 'UPDATE customcontexts_includes_list SET missing = "0", sort = "'.$i.'" 
+                            WHERE context = "'.$section.'" and include = "'.$include['include'].'"';
                         $db->query($sql);
                     }
+                    $comment = ($include['comment']=='')?$include['include']:$include['comment'];
+                    $sql = 'INSERT IGNORE INTO customcontexts_includes_list 
+                        (context, include, description, sort) 
+                        VALUES ("'.$section.'", "'.$include['include'].'", 
+                        "'.$comment.'", "'.$i.'")';
+                    $db->query($sql);
                 }
             }
-            $sql = "delete from  customcontexts_includes_list where missing = 1";
-            $db->query($sql);
+        }
+        $sql = "delete from  customcontexts_includes_list where missing = 1";
+        $db->query($sql);
         break;
     }
 }
