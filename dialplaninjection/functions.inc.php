@@ -87,7 +87,7 @@ function dialplaninjection_get_config($engine) {
     switch($engine) {
     case 'asterisk':
         global $db;
-        $ext->addInclude('from-internal-additional','ext-injections');
+        $ext->addInclude('from-internal-additional','ext-injections',_dgettext('dialplaninjection','Dialplan Injection'));
         $sql = "select id, description, destination, exten from dialplaninjection_dialplaninjections";
         $results = $db->getAll($sql);
         if(DB::IsError($results))

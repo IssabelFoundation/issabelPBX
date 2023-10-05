@@ -376,3 +376,6 @@ msgstr "Añadir Lote de Parqueo"
 
 msgid "Default"
 msgstr "Por defecto"
+
+msgid "Park Hints"
+msgstr "Pistas de parqueo"

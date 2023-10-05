@@ -42,7 +42,7 @@ function callforward_get_config($engine) {
 		unset($fcc);
 
 		if ($amp_conf['USEDEVSTATE'] && $cf_code != '') {
-			$ext->addInclude('from-internal-additional','ext-cf-hints');
+			$ext->addInclude('from-internal-additional','ext-cf-hints',_dgettext('callforward','Call Forward Hints'));
 			$contextname = 'ext-cf-hints';
 			$device_list = core_devices_list("all", 'full', true);
 			$base_offset = strlen($cf_code);
@@ -70,7 +70,7 @@ function callforward_cf_toggle($c) {
 
 	$id = "app-cf-toggle"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('callforward','Call Forward Toggle')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
@@ -142,12 +142,14 @@ function callforward_add_cfon($c, $prompt = false) {
 	global $amp_conf;
 
 	if ($prompt) {
-		$id = "app-cf-prompting-on";
+        $id = "app-cf-prompting-on";
+        $desc = _dgettext('callforward','Call Forward Prompts On');
 	} else {
 		$id = "app-cf-on";
+        $desc = _dgettext('callforward','Activate Call Forward');
 	}
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, $desc); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
@@ -223,7 +225,7 @@ function callforward_cfoff_any($c) {
 
 	$id = "app-cf-off-any"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('callforward','Deactivate Call Forward Any')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
@@ -262,7 +264,7 @@ function callforward_cfoff($c) {
 
 	$id = "app-cf-off"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('callforward','Deactivate Call Forward')); // Add the include from from-internal
 
 	// for this extension
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
@@ -330,12 +332,14 @@ function callforward_add_cfbon($c, $prompt = false) {
 	global $amp_conf;
 
 	if ($prompt) {
-		$id = "app-cf-busy-prompting-on";
+        $id = "app-cf-busy-prompting-on";
+        $desc = _dgettext('callforward','Activate Call Forward on Busy Prompts');
 	} else {
 		$id = "app-cf-busy-on";
+        $desc = _dgettext('callforward','Activate Call Forward on Busy');
 	}
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, $desc); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
@@ -382,7 +386,7 @@ function callforward_cfboff_any($c) {
 
 	$id = "app-cf-busy-off-any"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('callforward','Deactivate Call Forward on Busy Any')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
@@ -403,7 +407,7 @@ function callforward_cfboff($c) {
 
 	$id = "app-cf-busy-off"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('callforward','Deactivate Call Forward on Busy')); // Add the include from from-internal
 
 	// for this extension
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
@@ -442,12 +446,14 @@ function callforward_add_cfuon($c, $prompt=false) {
 	global $amp_conf;
 
 	if ($prompt) {
-		$id = "app-cf-unavailable-prompt-on";
+        $id = "app-cf-unavailable-prompt-on";
+        $desc = _dgettext('callforward','Activate Call Forward on Unavailable Prompts');
 	} else {
 		$id = "app-cf-unavailable-on";
+        $desc = _dgettext('callforward','Activate Call Forward on Unavailable');
 	}
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, $desc); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
@@ -494,7 +500,7 @@ function callforward_cfuoff($c) {
 
 	$id = "app-cf-unavailable-off"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('callforward','Deactivate Call Forward on Unavailable')); // Add the include from from-internal
 
 	// for this extension
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer

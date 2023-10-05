@@ -228,7 +228,7 @@ function daynight_toggle() {
     }
 
     if ($got_code) {
-        $ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+        $ext->addInclude('from-internal-additional', $id, _dgettext('daynight','Call Flow')); // Add the include from from-internal
 
         $fcc = new featurecode('daynight', 'toggle-mode-all');
         $c = $fcc->getCodeActive();

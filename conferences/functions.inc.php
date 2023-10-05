@@ -208,7 +208,7 @@ function conferences_get_config($engine) {
 	
 	switch($engine) {
 		case "asterisk":
-			$ext->addInclude('from-internal-additional','ext-meetme');
+			$ext->addInclude('from-internal-additional','ext-meetme',_dgettext('conferences','Conferences'));
 			$contextname = 'ext-meetme';
 			if(is_array($conflist = conferences_list())) {
 

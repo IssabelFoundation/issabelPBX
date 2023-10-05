@@ -122,7 +122,7 @@ function speeddial_get_config($engine) {
 			$ext->add('app-speeddial-set', $lang, '', new ext_return());
 
 
-			$ext->addInclude('from-internal-additional', 'app-speeddial');
+			$ext->addInclude('from-internal-additional', 'app-speeddial', _dgettext('speeddial','Speed Dial Functions'));
 
 		break;
         }

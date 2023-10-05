@@ -42,3 +42,6 @@ msgstr "Desactivar no molestar"
 
 msgid "DND Toggle"
 msgstr "Cambiar no molestar"
+
+msgid "DND hints"
+msgstr "Pistas no molestar"

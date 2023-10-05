@@ -56,8 +56,8 @@ function findmefollow_get_config($engine) {
 				findmefollow_fmf_toggle($fmf_code);
 			}
 
-			$ext->addInclude('from-internal-additional','ext-findmefollow');
-			$ext->addInclude('from-internal-additional','fmgrps');
+			$ext->addInclude('from-internal-additional','ext-findmefollow',_dgettext('findmefollow','Follow Me'));
+			$ext->addInclude('from-internal-additional','fmgrps',_dgettext('findmefollow','Follow Me Groups'));
 			$contextname = 'ext-findmefollow';
 
 			// Before creating all the contexts, let's make a list of hints if needed
@@ -669,7 +669,7 @@ function findmefollow_fmf_toggle($c) {
 	global $version;
 
 	$id = "app-fmf-toggle"; // The context to be included
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('findmefollow','Findme Follow Toggle')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_goto('start','s',$id));
 	$c = 's';

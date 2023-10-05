@@ -128,7 +128,7 @@ function parking_get_config($engine) {
                 }
             }
     
-            $ext->addInclude('from-internal-additional', $ph);
+            $ext->addInclude('from-internal-additional', $ph, _dgettext('parking','Park Hints'));
             $ext->addInclude($ph, $hint_context, $lot['name']);
 
             // Each lot needs a routing table to handle orphaned calls in the event

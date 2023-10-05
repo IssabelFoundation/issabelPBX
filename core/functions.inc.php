@@ -1862,7 +1862,7 @@ function core_do_get_config($engine) {
 
             // Log on / off -- all in one context
             if ($fc_userlogoff != '' || $fc_userlogon != '') {
-                $ext->addInclude('from-internal-additional', 'app-userlogonoff'); // Add the include from from-internal
+                $ext->addInclude('from-internal-additional', 'app-userlogonoff', _dgettext('amp','User Logon Logoff')); // Add the include from from-internal
 
                 if ($fc_userlogoff != '') {
                     $ext->add('app-userlogonoff', $fc_userlogoff, '', new ext_macro('user-logoff'));
@@ -1932,7 +1932,7 @@ function core_do_get_config($engine) {
               ;------------------------------------------------------------------------
             */
             $context = 'ext-local-confirm';
-            $ext->addInclude('from-internal-additional', $context); // Add the include from from-internal
+            $ext->addInclude('from-internal-additional', $context, _dgettext('amp','Call Confirmation')); // Add the include from from-internal
             $exten = '_LC-.';
             $ext->add($context, $exten, '', new ext_noop_trace('IN '.$context.' with - RT: ${RT}, RG_IDX: ${RG_IDX}'));
             $ext->add($context, $exten, '', new ext_gosubif('$["${ALERT_INFO}"!="" & "${HASH(SIPHEADERS,Alert-Info)}"=""]', 'func-set-sipheader,s,1',false,'Alert-Info,${ALERT_INFO}',false));
@@ -1950,7 +1950,7 @@ function core_do_get_config($engine) {
               ;------------------------------------------------------------------------
              */
             $context = 'findmefollow-ringallv2';
-            $ext->addInclude('from-internal-additional', $context); // Add the include from from-internal
+            $ext->addInclude('from-internal-additional', $context, _dgettext('amp','Findme Follow Ringall')); // Add the include from from-internal
             $exten = '_FMPR-.';
 
             $fm_dnd = $amp_conf['AST_FUNC_SHARED'] ? 'SHARED(FM_DND,${FMUNIQUE})' : 'DB(FM/DND/${FMGRP}/${FMUNIQUE})';
@@ -2004,7 +2004,7 @@ function core_do_get_config($engine) {
             //         creating all the extnesions below. So those are "$ext_pickup" on purpose!
             //
             if ($fc_pickup != '' && $ast_ge_14) {
-                $ext->addInclude('from-internal-additional', 'app-pickup');
+                $ext->addInclude('from-internal-additional', 'app-pickup', _dgettext('amp','Call Pickup'));
                 $fclen = strlen($fc_pickup);
                 $ext_pickup = (strstr($engineinfo['raw'], 'BRI')) ? 'ext_dpickup' : 'ext_pickup';
 
@@ -2070,7 +2070,7 @@ function core_do_get_config($engine) {
                     }
                 }
             } elseif ($fc_pickup != '') {
-                $ext->addInclude('from-internal-additional', 'app-pickup');
+                $ext->addInclude('from-internal-additional', 'app-pickup', _dgettext('amp','Call Pickup'));
                 $fclen = strlen($fc_pickup);
                 $ext_pickup = (strstr($engineinfo['raw'], 'BRI')) ? 'ext_dpickup' : 'ext_pickup';
 
@@ -2147,7 +2147,7 @@ function core_do_get_config($engine) {
 
             // zap barge
             if ($fc_zapbarge != '') {
-                $ext->addInclude('from-internal-additional', 'app-zapbarge'); // Add the include from from-internal
+                $ext->addInclude('from-internal-additional', 'app-zapbarge', _dgettext('amp','Zap Barge')); // Add the include from from-internal
 
                 $ext->add('app-zapbarge', $fc_zapbarge, '', new ext_macro('user-callerid'));
                 $ext->add('app-zapbarge', $fc_zapbarge, '', new ext_setvar('GROUP()','${CALLERID(number)}'));
@@ -2159,7 +2159,7 @@ function core_do_get_config($engine) {
 
             // chan spy
             if ($fc_chanspy != '') {
-                $ext->addInclude('from-internal-additional', 'app-chanspy'); // Add the include from from-internal
+                $ext->addInclude('from-internal-additional', 'app-chanspy', _dgettext('amp','Spy Calls')); // Add the include from from-internal
                 $ext->add('app-chanspy', $fc_chanspy, '', new ext_macro('user-callerid'));
                 $ext->add('app-chanspy', $fc_chanspy, '', new ext_answer(''));
                 $ext->add('app-chanspy', $fc_chanspy, '', new ext_wait(1));
@@ -2192,7 +2192,7 @@ function core_do_get_config($engine) {
 
             // Simulate External call. (ext-test)
             if ($fc_simu_pstn != '') {
-                $ext->addInclude('from-internal-additional', 'ext-test'); // Add the include from from-internal
+                $ext->addInclude('from-internal-additional', 'ext-test', _dgettext('amp','Test')); // Add the include from from-internal
                 $ext->add('ext-test', $fc_simu_pstn, '', new ext_macro('user-callerid'));
 
                 if (ctype_digit($fc_simu_pstn)) {
@@ -2356,7 +2356,7 @@ function core_do_get_config($engine) {
             }
 
             /* user extensions */
-            $ext->addInclude('from-internal-additional','ext-local');
+            $ext->addInclude('from-internal-additional','ext-local',_dgettext('amp','Extensions'));
 
             // If running in Dynamic mode, this will insert the hints through an Asterisk #exec call.
             // which require "execincludes=yes" to be set in the [options] section of asterisk.conf
@@ -4059,7 +4059,7 @@ function core_do_get_config($engine) {
 
             // Combined from-zpatel / from-dahdi and all macros now from-dahdi-channum
             //
-            $ext->addInclude('from-zaptel', 'from-dahdi');
+            $ext->addInclude('from-zaptel', 'from-dahdi', _dgettext('amp','From DAHDI'));
             $ext->add('from-zaptel', 'foo','', new ext_noop('bar'));
 
             $context = 'from-dahdi';

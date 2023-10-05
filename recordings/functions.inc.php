@@ -33,7 +33,7 @@ function recordings_get_config($engine) {
 			unset($fcc);
 
 			if ($fc_save != '' || $fc_check != '') {
-				$ext->addInclude('from-internal-additional', 'app-recordings'); // Add the include from from-internal
+				$ext->addInclude('from-internal-additional', 'app-recordings', _dgettext('recordings','Recordings')); // Add the include from from-internal
 				
 				if ($fc_save != '') {
 					$ext->add($appcontext, $fc_save, '', new ext_macro('user-callerid'));

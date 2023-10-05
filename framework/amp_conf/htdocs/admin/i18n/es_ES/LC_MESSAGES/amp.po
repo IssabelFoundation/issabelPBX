@@ -5938,3 +5938,24 @@ msgstr "Ha instalado IssabelPBX?"
 
 msgid "IssabelPBX config file not found!"
 msgstr "No se encontró el archivo de configuración de IssabelPBX!"
+
+msgid "User Logon Logoff"
+msgstr "Inicio y Cierre de Sesión de Usuario"
+
+msgid "Call Confirmation"
+msgstr "Confirmación de Llamada"
+
+msgid "Findme Follow Ringal"
+msgstr "Sígueme Timbrar a Todos"
+
+msgid "Call Pickup"
+msgstr "Recogida de llamadas"
+
+msgid "Spy Calls"
+msgstr "Espiar llamadas"
+
+msgid "Test"
+msgstr "Testeo"
+
+msgid "From DAHDI"
+msgstr "DAHDI entrante"

@@ -68,4 +68,40 @@ msgid "Call Forward Toggle"
 msgstr "Alternar desvío de llamada"
 
 msgid "Call Forward No Answer/Unavailable Prompting Activate"
-msgstr "Activar las instrucciones de desvío de llamada cuando no disponible"
+msgstr "Activar las indicaciones de desvío de llamada cuando no disponible"
+
+msgid "Call Forward Hints"
+msgstr "Pistas de desvío de llamada"
+
+msgid "Activate Call Forward"
+msgstr "Activar desvío de llamada"
+
+msgid "Call Forward Prompts On"
+msgstr "Activar indicaciones de desvío de llamada"
+
+msgid "Deactivate Call Forward Any"
+msgstr "Desactivar desvío de llamadas siempre"
+
+msgid "Deactivate Call Forward"
+msgstr "Desactivar desvío de llamadas"
+
+msgid "Activate Call Forward on Busy"
+msgstr "Activar desvío de llamadas cuando de ocupado"
+
+msgid "Activate Call Forward on Busy Prompts"
+msgstr "Activar las indicaciones de desvío de llamada cuando de ocupado"
+
+msgid "Deactivate Call Forward on Busy Any"
+msgstr "Desactivar desvío de llamada cuando de ocupado siempre"
+
+msgid "Deactivate Call Forward on Busy"
+msgstr "Desactivar desvío de llamada cuando de ocupado"
+
+msgid "Activate Call Forward on Unavailable Prompts"
+msgstr "Activar las indicaciones de desvío de llamada cuando no esté disponible"
+
+msgid "Activate Call Forward on Unavailable"
+msgstr "Activar desvío de llamada cuando no esté disponible"
+
+msgid "Deactivate Call Forward on Unavailable"
+msgstr "Desactivar desvío de llamada cuando no esté disponible"

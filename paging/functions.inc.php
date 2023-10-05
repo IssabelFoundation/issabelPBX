@@ -202,7 +202,7 @@ function paging_get_config($engine) {
                 }
 
                 $context = $extintercomusers;
-                $ext->addInclude('from-internal-additional', $context);
+                $ext->addInclude('from-internal-additional', $context, _dgettext('paging','Paging and Intercom Users'));
             }
             
             $fcc = new featurecode('paging', 'intercom-on');
@@ -484,7 +484,7 @@ function paging_get_config($engine) {
                 //add ext-paging with goto's to our app-paging context and a hint for the page
                 $extpaging = 'ext-paging';
                 $ext->add($extpaging, $grp, '', new ext_goto($apppagegroups . ',' . $grp . ',1'));
-                $ext->addInclude('from-internal-noxfer-additional',$extpaging);
+                $ext->addInclude('from-internal-noxfer-additional',$extpaging, _dgettext('paging','Paging and Intercom'));
                 $ext->addHint($extpaging, $grp, 'Custom:PAGE' . $grp);
                     
                 //app-page dialplan

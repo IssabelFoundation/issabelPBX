@@ -311,3 +311,6 @@ msgstr "La descripción especificada no es válida"
 
 msgid "Invalid extension specified"
 msgstr "La extensión especificada no es válida"
+
+msgid "Paging and Intercom Users"
+msgstr "Usuarios de Intercom y Voceo"

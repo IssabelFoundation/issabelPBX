@@ -28,21 +28,21 @@ function bosssecretary_get_config($engine){
     case "asterisk":
 
         $fcc_toggle = bosssecretary_get_fcc_toggle();
-        $fcc_on  = bosssecretary_get_fcc_on();
-        $fcc_off  = bosssecretary_get_fcc_off();
-        $groups = bosssecretary_get_all_groups();
+        $fcc_on     = bosssecretary_get_fcc_on();
+        $fcc_off    = bosssecretary_get_fcc_off();
+        $groups     = bosssecretary_get_all_groups();
 
         $ctx_app_toggle =   BOSSSECRETARY_TOGGLE;
         $ctx_app_on     =   BOSSSECRETARY_ON;
         $ctx_app_off    =   BOSSSECRETARY_OFF;
-        $ctx_app_hints    =    BOSSSECRETARY_HINTS;
-        $ctx_bsc        =    BOSSSECRETARY_CONTEXT;
+        $ctx_app_hints  =   BOSSSECRETARY_HINTS;
+        $ctx_bsc        =   BOSSSECRETARY_CONTEXT;
 
-        $ext->addInclude('from-internal-additional', $ctx_bsc);
-        $ext->addInclude($ctx_bsc, $ctx_app_toggle);
-        $ext->addInclude($ctx_bsc, $ctx_app_on);
-        $ext->addInclude($ctx_bsc, $ctx_app_off);
-        $ext->addInclude($ctx_bsc, $ctx_app_hints);
+        $ext->addInclude('from-internal-additional', $ctx_bsc, _dgettext('bosssecretary','Boss Secretary'));
+        $ext->addInclude($ctx_bsc, $ctx_app_toggle, _dgettext('bosssecretary','Boss Secretary Toggle'));
+        $ext->addInclude($ctx_bsc, $ctx_app_on, _dgettext('bosssecretary','Boss Secretary On'));
+        $ext->addInclude($ctx_bsc, $ctx_app_off, _dgettext('bosssecretary','Boss Secretary Off'));
+        $ext->addInclude($ctx_bsc, $ctx_app_hints, _dgettext('bosssecretary','Boss Secretary Hints'));
 
         if (!empty($groups))
         {

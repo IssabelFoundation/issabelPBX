@@ -69,8 +69,8 @@ function ringgroups_get_config($engine) {
 	global $amp_conf;
 	switch($engine) {
 		case "asterisk":
-			$ext->addInclude('from-internal-additional','ext-group');
-			$ext->addInclude('from-internal-additional','grps');
+			$ext->addInclude('from-internal-additional','ext-group',_dgettext('ringgroups','Ring Groups'));
+			$ext->addInclude('from-internal-additional','grps',_dgettext('ringgroups','Ring Groups'));
 			$contextname = 'ext-group';
 			$ringlist = ringgroups_list(true);
 			if (is_array($ringlist)) {

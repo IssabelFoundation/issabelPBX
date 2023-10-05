@@ -28,6 +28,9 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Sígueme"
 
+msgid "Follow Me Groups"
+msgstr "Grupos Sígueme"
+
 msgid "Applications"
 msgstr "Aplicaciones"
 

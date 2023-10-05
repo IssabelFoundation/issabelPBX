@@ -1438,3 +1438,6 @@ msgstr "Registrar Transferencias"
 
 msgid "Register a TRANSFER event in the queue_log file if a Blind Transfer is detected. Useful for queue reporting tools like Asternic Call Center Stats PRO. Set it to false if you use direct device queue members instead of the default local channels."
 msgstr "Registrar un evento TRANSFER en el archivo queue_log si se detecta una Transferencia Ciega. Útil para herramientas de reporte de colas como Asternic Call Center Stats PRO. Establézcalo en false si utiliza miembros de cola directos del dispositivo en lugar de los canales locales predeterminados."
+
+msgid "Queue Caller Count"
+msgstr "Cantidad de llamantes en cola"

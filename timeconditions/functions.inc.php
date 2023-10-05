@@ -206,7 +206,7 @@ function timeconditions_get_config($engine) {
             if ($got_code_autoreset) {
                 $ext->add($fc_context, 'h', '', new ext_hangup());
 
-                $ext->addInclude('from-internal-additional', $fc_context); // Add the include from from-internal
+                $ext->addInclude('from-internal-additional', $fc_context, _dgettext('timeconditions','Time Conditions')); // Add the include from from-internal
                 $m_context = 'macro-toggle-tc';
 
                 $ext->add($m_context, 's', '', new ext_setvar('INDEXES', '${ARG1}'));

@@ -44,7 +44,7 @@ function queues_get_config($engine) {
 			}
 
 			/* queue extensions */
-			$ext->addInclude('from-internal-additional','ext-queues');
+			$ext->addInclude('from-internal-additional','ext-queues',_dgettext('queues','Queues'));
 			/* Trial DEVSTATE */
 			if ($amp_conf['USEDEVSTATE']) {
 				$ext->addGlobal('QUEDEVSTATE','TRUE');
@@ -477,7 +477,7 @@ function queues_get_config($engine) {
 			//
 			if ($que_callers_code != '') {
 				$id = "app-queue-caller-count";
-				$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+				$ext->addInclude('from-internal-additional', $id, _dgettext('queues','Queue Caller Count')); // Add the include from from-internal
 
 				$ext->add($id, 's', '', new ext_answer());
 				$ext->add($id, 's', '', new ext_wait(1));
@@ -767,7 +767,7 @@ function queue_app_toggle() {
 	global $version;
 
 	$id = "app-queue-toggle"; // The context to be included
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('queues','Queue Toggle')); // Add the include from from-internal
 
 	$c = 's';
 

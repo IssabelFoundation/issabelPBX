@@ -29,7 +29,7 @@ function miscapps_get_config($engine) {
 				}
 			}
       if ($addit) {
-        $ext->addInclude('from-internal-additional', 'app-miscapps');
+        $ext->addInclude('from-internal-additional', 'app-miscapps', _dgettext('miscapps','Misc Applications'));
       }
 		break;
 	}

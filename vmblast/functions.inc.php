@@ -51,7 +51,7 @@ function vmblast_get_config($engine) {
 	global $ext;  // is this the best way to pass this?
 	switch($engine) {
 		case "asterisk":
-			$ext->addInclude('from-internal-additional','vmblast-grp');
+			$ext->addInclude('from-internal-additional','vmblast-grp', _dgettext('vmblast','Voicemail Blasting'));
 			$contextname = 'vmblast-grp';
 			$vmlist = vmblast_list();
 
