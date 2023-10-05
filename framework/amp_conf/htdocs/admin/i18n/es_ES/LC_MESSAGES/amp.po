@@ -5923,3 +5923,18 @@ msgstr "Problema con Hints en modo Dispositivos & Usuarios"
 
 msgid "You are set to Device and User mode but are not set to 'Dynamically Generate Hints' which can result in improper phone state behavior. This can be changed on the Advanced Settings page, check the tooltip for specific configuration details."
 msgstr "Está configurado en modo Dispositivo y Usuario pero no está configurado en 'Generar Hints Dinámicamente', lo que puede dar lugar a un comportamiento incorrecto del estado del teléfono. Esto se puede cambiar en la página de Configuración Avanzada, compruebe la información sobre herramientas para obtener detalles específicos de configuración."
+
+msgid "Fetching IssabelPBX settings with gen_amp_conf.php.."
+msgstr "Recuperando configuraciones de IssabelPBX con gem_amp_conf.php.."
+
+msgid "Fetching settings from amportal.conf file.."
+msgstr "Recuperando configuraciones de IssabelPBX desde amportal.conf.."
+
+msgid "IssabelPBX settings could not be fetched and no backup config file found!"
+msgstr "No se pudieron recuperar las configuraciones de IssabelPBX!"
+
+msgid "Have you installed IssabelPBX?"
+msgstr "Ha instalado IssabelPBX?"
+
+msgid "IssabelPBX config file not found!"
+msgstr "No se encontró el archivo de configuración de IssabelPBX!"
