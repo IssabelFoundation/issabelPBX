@@ -207,7 +207,7 @@ function voicemail_myvoicemail($c) {
 
     $id = "app-vmmain"; // The context to be included
 
-    $ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+    $ext->addInclude('from-internal-additional', $id, _dgettext('voicemail','Voicemail')); // Add the include from from-internal
 
     $ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
     $ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
@@ -236,7 +236,7 @@ function voicemail_dialvoicemail($c) {
 
     $id = "app-dialvm"; // The context to be included
 
-    $ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+    $ext->addInclude('from-internal-additional', $id, _dgettext('voicemail','Dial Voicemail')); // Add the include from from-internal
 
     $ext->add($id, $c, '', new ext_macro('user-callerid'));
     $ext->add($id, $c, '', new ext_answer(''));
