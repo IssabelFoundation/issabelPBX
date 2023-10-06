@@ -701,7 +701,7 @@ class gui_textbox extends guiinput {
         $jsvalidationtest='';
         parent::__construct($elemname, $currentvalue, $prompttext, $helptext, $jsvalidation, $failvalidationmsg, $canbeempty, $jsvalidationtest);
                 $html_input_extra = '';
-                if(preg_match("/secret/",$elemname)) {
+                if(preg_match("/secret$/",$elemname)) {
                     $extraclass = ($extraclass<>'')?"$extraclass confidential":"confidential";
                     $html_input_extra = "<p class='js-copybtn' title='".__('Copy to Clipboard')."'><i class='fa fa-clipboard fa-fw'></i></p>";
                 } 
