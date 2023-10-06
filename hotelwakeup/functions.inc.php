@@ -52,7 +52,7 @@ function hotelwakeup_hotelwakeup($c) {
 
 	$id = "app-hotelwakeup"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('hotelwakeup','Wake Up Calls')); // Add the include from from-internal
 	$ext->add($id, $c, '', new ext_Macro('user-callerid'));
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait(1));
