@@ -1183,6 +1183,3 @@ msgstr "Ocupado"
 
 msgid "No Message"
 msgstr "Sin Mensaje"
-
-msgid "Dial Voicemail"
-msgstr "Marcar a Buzón de Voz"
