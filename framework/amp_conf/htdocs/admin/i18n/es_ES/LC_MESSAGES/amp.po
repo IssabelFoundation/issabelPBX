@@ -3961,8 +3961,8 @@ msgid ""
 "valid settings. See Zap and card documentation for details."
 msgstr "Señalización Zap, generalmente fxo_ks cuando se conecta a un teléfono analógico. Algunas aplicaciones especiales o conexiones de bancos de canales pueden requerir fxs_ks u otras configuraciones válidas. Consulte la documentación de Zap y tarjeta para obtener más detalles."
 
-msgid "ZapBarge"
-msgstr ""
+msgid "Zap Barge"
+msgstr "Irrupción Zap"
 
 msgid ""
 "[WARNING] this is a security risk, you should create an admin user and "

@@ -4617,7 +4617,7 @@ msgid ""
 msgstr ""
 
 #: ../core/install.php:9
-msgid "ZapBarge"
+msgid "Zap Barge"
 msgstr ""
 
 #: upgrades/2.9.0alpha1/migrate_ampconf.php:116

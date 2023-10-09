@@ -3694,8 +3694,8 @@ msgstr "Sinalização Zap, geralmente fxo_ks quando conectado a um telefone anal
 "fxs_ks ou outras configurações válidas. Consulte a documentação do Zap e do "
 "Card para obter mais detalhes."
 
-msgid "ZapBarge"
-msgstr "ZapBarge"
+msgid "Zap Barge"
+msgstr "Descoberta Zap"
 
 msgid "[WARNING] this is a security risk, you should create an admin user and "
 "disable this vulnerability."

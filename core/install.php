@@ -6,7 +6,7 @@ if (false) {
 __("Core");
 __("User Logon");
 __("User Logoff");
-__("ZapBarge");
+__("Zap Barge");
 __("ChanSpy");
 __("Simulate Incoming Call");
 __("Directed Call Pickup");
@@ -56,7 +56,7 @@ $fcc->update();
 unset($fcc);
 
 $fcc = new featurecode('core', 'zapbarge');
-$fcc->setDescription('ZapBarge');
+$fcc->setDescription('Zap Barge');
 $fcc->setDefault('888');
 $fcc->setProvideDest();
 $fcc->update();

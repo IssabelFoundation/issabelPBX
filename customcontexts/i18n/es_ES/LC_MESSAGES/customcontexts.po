@@ -290,6 +290,9 @@ msgstr "Captura de Llamada"
 msgid "app zapbarge"
 msgstr "ZapBarge"
 
+msgid "Zap Barge"
+msgstr "Irrupción Zap"
+
 msgid "app chanspy"
 msgstr "ChanSpy"
 
