@@ -197,12 +197,6 @@ msgstr "Sígueme"
 msgid "fmgrps"
 msgstr "Sígueme Grupo"
 
-msgid "Call Waiting Off"
-msgstr "Desactivar Llamada en Espera"
-
-msgid "Call Waiting On"
-msgstr "Activar Llamada en Espera"
-
 msgid "app dictate record"
 msgstr "Dictado - Grabación"
 
@@ -361,3 +355,63 @@ msgstr "Colas - Alternar Membresía"
 
 msgid "app-queue-caller-count"
 msgstr "Colas - Cantidad de Llamantes"
+
+msgid "DND Activate"
+msgstr "Activar no molestar"
+
+msgid "DND Deactivate"
+msgstr "Desactivar no molestar"
+
+msgid "DND hints"
+msgstr "Pistas no molestar"
+
+msgid "Call Waiting - Activate"
+msgstr "Activar llamada en espera"
+
+msgid "Call Waiting - Deactivate"
+msgstr "Desactivar llamada en espera"
+
+msgid "Speed Dial Functions"
+msgstr "Funciones de marcado rápido"
+
+msgid "Wake Up Calls"
+msgstr "Llamada despertador"
+
+msgid "Call Forward Toggle"
+msgstr "Alternar desvío de llamada"
+
+msgid "Call Forward Hints"
+msgstr "Pistas de desvío de llamada"
+
+msgid "Activate Call Forward"
+msgstr "Activar desvío de llamada"
+
+msgid "Call Forward Prompts On"
+msgstr "Activar indicaciones de desvío de llamada"
+
+msgid "Deactivate Call Forward Any"
+msgstr "Desactivar desvío de llamadas siempre"
+
+msgid "Deactivate Call Forward"
+msgstr "Desactivar desvío de llamadas"
+
+msgid "Activate Call Forward on Busy"
+msgstr "Activar desvío de llamadas cuando de ocupado"
+
+msgid "Activate Call Forward on Busy Prompts"
+msgstr "Activar las indicaciones de desvío de llamada cuando de ocupado"
+
+msgid "Deactivate Call Forward on Busy Any"
+msgstr "Desactivar desvío de llamada cuando de ocupado siempre"
+
+msgid "Deactivate Call Forward on Busy"
+msgstr "Desactivar desvío de llamada cuando de ocupado"
+
+msgid "Activate Call Forward on Unavailable Prompts"
+msgstr "Activar las indicaciones de desvío de llamada cuando no esté disponible"
+
+msgid "Activate Call Forward on Unavailable"
+msgstr "Activar desvío de llamada cuando no esté disponible"
+
+msgid "Deactivate Call Forward on Unavailable"
+msgstr "Desactivar desvío de llamada cuando no esté disponible"
