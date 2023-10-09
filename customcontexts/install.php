@@ -34,6 +34,13 @@ if (!function_exists('timeconditions_timegroups_add_group_timestrings')) {
   return false;
 }
 
+$park_desc = __('Call Parking');
+$allout_desc = __('ALL OUTBOUND ROUTES');
+$entire_internal_desc = __('ENTIRE Basic Internal Dialplan');
+$internal_desc = __('Internal Dialplan');
+$default_desc = __('Default Internal Context');
+$out_desc = __('Outbound Routes');
+
 $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_contexts` (
 				`context` varchar(100) NOT NULL default '',
 				`description` varchar(100) NOT NULL UNIQUE default '',
@@ -50,9 +57,9 @@ $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_contexts_list` (
 
 $sql[] ="INSERT IGNORE INTO `customcontexts_contexts_list` 
 				(`context`, `description`, `locked`) 
-				VALUES ('from-internal', 'Default Internal Context', 1),
-				('from-internal-additional', 'Internal Dialplan', 0),
-				('outbound-allroutes', 'Outbound Routes', 0)";
+				VALUES ('from-internal', '$default_desc', 1),
+				('from-internal-additional', '$internal_desc', 0),
+				('outbound-allroutes', '$out_desc', 0)";
 
 $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_includes` (
 				`context` varchar(100) NOT NULL default '',
@@ -74,15 +81,15 @@ $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_includes_list` (
 $sql[] ="ALTER IGNORE TABLE `customcontexts_includes_list` ADD `missing` BOOL NOT NULL DEFAULT '0'";
 
 
-$sql[] ="INSERT IGNORE INTO `customcontexts_includes_list` (`context`, `include`, `description`) VALUES ('from-internal', 'parkedcalls', 'Call Parking'),
+$sql[] ="INSERT IGNORE INTO `customcontexts_includes_list` (`context`, `include`, `description`) VALUES ('from-internal', 'parkedcalls', '$park_desc'),
 				('from-internal', 'from-internal-custom', 'Custom Internal Dialplan')";
 
 $sql[] ="INSERT IGNORE INTO `customcontexts_includes_list` 
 					(`context`, `include`, `description`) 
-					VALUES ('from-internal-additional', 'outbound-allroutes', 'ALL OUTBOUND ROUTES'),
-					('from-internal', 'from-internal-additional', 'ENTIRE Basic Internal Dialplan')";
+					VALUES ('from-internal-additional', 'outbound-allroutes', '$allout_desc'),
+					('from-internal', 'from-internal-additional', '$entire_internal_desc')";
 
-$sql[] ="UPDATE `customcontexts_includes_list` SET `description` = 'ALL OUTBOUND ROUTES' WHERE  `context` = 'from-internal-additional' AND `include` = 'outbound-allroutes'";
+$sql[] ="UPDATE `customcontexts_includes_list` SET `description` = '$allout_desc' WHERE  `context` = 'from-internal-additional' AND `include` = 'outbound-allroutes'";
 
 $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_module` (
 				`id` varchar(50) NOT NULL default '',
@@ -92,10 +99,10 @@ $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_module` (
 
 $sql[] ="INSERT IGNORE INTO `customcontexts_module` (`id`, `value`) VALUES ('modulerawname', 'customcontexts'),
 				('moduledisplayname', 'Class of Service'),
-				('moduleversion', '0.3.2'),
+				('moduleversion', '2.12.0'),
 				('displaysortforincludes', 1)";
 
-$sql[] ="UPDATE `customcontexts_module` set `value` = '0.3.2' where `id` = 'moduleversion';";
+$sql[] ="UPDATE `customcontexts_module` set `value` = '2.12.0' where `id` = 'moduleversion';";
 
 foreach ($sql as $dengine=>$q){
 	$db->query($q);
