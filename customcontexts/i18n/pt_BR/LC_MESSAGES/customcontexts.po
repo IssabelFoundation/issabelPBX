@@ -219,12 +219,6 @@ msgstr "me siga"
 msgid "fmgrps"
 msgstr "Grupo Siga-me"
 
-msgid "Call Waiting Off"
-msgstr "Desativar chamada em espera"
-
-msgid "Call Waiting On"
-msgstr "Ativar chamada em espera"
-
 msgid "app dictate record"
 msgstr "Ditado - Gravação"
 
@@ -410,3 +404,10 @@ msgstr "Filas - Alternar associação"
 
 msgid "app-queue-caller-count"
 msgstr "Filas - Número de chamadores"
+
+msgid "Call Waiting - Activate"
+msgstr "Ativar chamada em espera"
+
+msgid "Call Waiting - Deactivate"
+msgstr "Desativar chamada em espera"
+
