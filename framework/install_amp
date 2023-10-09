@@ -1833,8 +1833,16 @@ outn("Setting manager password..");
 exec($amp_conf["AMPBIN"]."/issabelpbx_setting AMPMGRPASS $manager_pass");
 out("..OK");
 
+
+$valid_langs = array("es_ES", "pt_BR", "bg_BG", "zh_CN", "de_DE", "fr_FR", "he_IL", "hu_HU", "it_IT", "pt_PT", "ru_RU", "sv_SE", "ja_JP");
+$langs = array('ipbxLang'=>'en');
+if(file_exists("/tmp/ipbx.lang")) {
+    $langs=parse_ini_file("/tmp/ipbx.lang");
+    $language = $langs['ipbxLang'];
+}
+
 if($language!="") {
-    if(in_array($language,array("es_ES", "pt_BR", "bg_BG", "zh_CN", "de_DE", "fr_FR", "he_IL", "hu_HU", "it_IT", "pt_PT", "ru_RU", "sv_SE", "ja_JP"))) {
+    if(in_array($language,$valid_langs)) {
         outn("Setting language to $language...");
         $issabelpbx_conf =& issabelpbx_conf::create();
         if ($issabelpbx_conf->conf_setting_exists('LANGUAGE')) {
