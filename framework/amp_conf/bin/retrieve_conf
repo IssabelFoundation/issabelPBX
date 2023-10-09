@@ -911,7 +911,7 @@ function install_cron_scheduler() {
     global $nt;
 
     if(!file_exists("/etc/cron.hourly/issabelPBX")) {
-        file_put_contents("/etc/cron.hourly/issabelPBX","sudo -u asterisk ".$amp_conf['AMPLOCALBIN']."/issabelpbx-cron-scheduler.php");
+        file_put_contents("/etc/cron.hourly/issabelPBX","sudo -u asterisk ".$amp_conf['AMPBIN']."/issabelpbx-cron-scheduler.php");
         chmod("/etc/cron.hourly/issabelPBX", 0755);
     }
     return;
@@ -924,7 +924,7 @@ install_cron_scheduler();
 
 // run retrieve_conf_post_custom
 // If the following file exists, it will be run. This allows customization to be run automatically after the normal
-// processing. Caution should be taken using this as it is only deisgned for expert usage. Errors in the code will
+// processing. Caution should be taken using this as it is only designed for expert usage. Errors in the code will
 // have bad consequences and can cripple the system.
 //
 if ($amp_conf['AMPLOCALBIN']) {
