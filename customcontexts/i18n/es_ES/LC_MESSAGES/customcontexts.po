@@ -415,3 +415,6 @@ msgstr "Activar desvío de llamada cuando no esté disponible"
 
 msgid "Deactivate Call Forward on Unavailable"
 msgstr "Desactivar desvío de llamada cuando no esté disponible"
+
+msgid "Boss Secretary"
+msgstr "Jefe Secretaria"
