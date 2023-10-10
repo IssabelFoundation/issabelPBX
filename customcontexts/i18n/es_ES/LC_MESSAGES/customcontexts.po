@@ -421,3 +421,9 @@ msgstr "Desactivar desvío de llamada cuando no esté disponible"
 
 msgid "Boss Secretary"
 msgstr "Jefe Secretaria"
+
+msgid "Remember to place all of your devices into local contexts or they will not have dialplan access!"
+msgstr "Recuerde colocar todos tus dispositivos en contextos locales o no tendrán acceso al plan de marcado."
+
+msgid "You have uninstalled the Class of Service Module!"
+msgstr "Ha desinstalado el módulo Clase de Servicio!"
