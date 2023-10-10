@@ -34,12 +34,12 @@ if (!function_exists('timeconditions_timegroups_add_group_timestrings')) {
   return false;
 }
 
-$park_desc = __('Call Parking');
-$allout_desc = __('ALL OUTBOUND ROUTES');
-$entire_internal_desc = __('ENTIRE Basic Internal Dialplan');
-$internal_desc = __('Internal Dialplan');
-$default_desc = __('Default Internal Context');
-$out_desc = __('Outbound Routes');
+$park_desc            = _dgettext('customcontexts','Call Parking');
+$allout_desc          = _dgettext('customcontexts','ALL OUTBOUND ROUTES');
+$entire_internal_desc = _dgettext('customcontexts','ENTIRE Basic Internal Dialplan');
+$internal_desc        = _dgettext('customcontexts','Internal Dialplan');
+$default_desc         = _dgettext('customcontexts','Default Internal Context');
+$out_desc             = _dgettext('customcontexts','Outbound Routes');
 
 $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_contexts` (
 				`context` varchar(100) NOT NULL default '',
