@@ -5959,3 +5959,9 @@ msgstr "Testeo"
 
 msgid "From DAHDI"
 msgstr "DAHDI entrante"
+
+msgid "SECURITY NOTICE"
+msgstr "AVISO DE SEGURIDAD"
+
+msgid "UPDATE NOTICE"
+msgstr "AVISO DE ACTUALIZACIÓN"
