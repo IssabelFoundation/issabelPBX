@@ -22,6 +22,8 @@ foreach ($sql as $q){
 	$db->query($q);
 }
 
+modgettext::push_textdomain('customcontexts');
+
 if( php_sapi_name() != 'cli' ) {
     echo '<font color="red"><strong>';
     echo __('You have uninstalled the Class of Service Module!');

@@ -15,6 +15,8 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 global $db;
 global $amp_conf;
 
+modgettext::push_textdomain('customcontexts');
+
 if (! function_exists("out")) {
 	function out($text) {
 		echo $text."<br />";
@@ -40,6 +42,7 @@ $entire_internal_desc = _dgettext('customcontexts','ENTIRE Basic Internal Dialpl
 $internal_desc        = _dgettext('customcontexts','Internal Dialplan');
 $default_desc         = _dgettext('customcontexts','Default Internal Context');
 $out_desc             = _dgettext('customcontexts','Outbound Routes');
+$custom_internal      = _dgettext('customcontexts','Custom Internal Dialplan');
 
 $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_contexts` (
 				`context` varchar(100) NOT NULL default '',
@@ -82,7 +85,7 @@ $sql[] ="ALTER IGNORE TABLE `customcontexts_includes_list` ADD `missing` BOOL NO
 
 
 $sql[] ="INSERT IGNORE INTO `customcontexts_includes_list` (`context`, `include`, `description`) VALUES ('from-internal', 'parkedcalls', '$park_desc'),
-				('from-internal', 'from-internal-custom', 'Custom Internal Dialplan')";
+				('from-internal', 'from-internal-custom', '$custom_internal')";
 
 $sql[] ="INSERT IGNORE INTO `customcontexts_includes_list` 
 					(`context`, `include`, `description`) 
