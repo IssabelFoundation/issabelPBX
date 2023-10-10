@@ -51,14 +51,16 @@ function hotelwakeup_hotelwakeup($c) {
 	global $asterisk_conf;
 
 	$id = "app-hotelwakeup"; // The context to be included
-
+	$txtdomain = _textdomain('');
+	modgettext::push_textdomain('hotelwakeup');
 	$ext->addInclude('from-internal-additional', $id, _dgettext('hotelwakeup','Wake Up Calls')); // Add the include from from-internal
 	$ext->add($id, $c, '', new ext_Macro('user-callerid'));
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait(1));
 	$ext->add($id, $c, '', new ext_AGI('wakeupphp'));
 	$ext->add($id, $c, '', new ext_Hangup);
-	}
+	modgettext::pop_textdomain();
+}
 
 
 function hotelwakeup_saveconfig() {
