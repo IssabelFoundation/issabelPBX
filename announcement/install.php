@@ -157,7 +157,7 @@ if(DB::IsError($check)) {
     $result = $db->query($sql);
     if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }
 
-    $sql = "ALTER TABLE announcement ADD `tts_text` TEXT NOT NULL DEFAULT ''";
+    $sql = "ALTER TABLE announcement ADD `tts_text` TEXT NOT NULL DEFAULT ('')";
     $result = $db->query($sql);
     if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }
 }
