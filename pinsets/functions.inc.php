@@ -135,7 +135,8 @@ function pinsets_add($post){
 		return false;
 	extract($post);
 	$passwords = pinsets_clean($passwords);
-	if(empty($description)) $description = __('Unnamed');
+    if(empty($description)) $description = __('Unnamed');
+    if(empty($addtocdr)) $addtocdr = 0;
 	$results = sql("INSERT INTO pinsets (description,passwords,addtocdr,deptname) values (\"$description\",\"$passwords\",\"$addtocdr\",\"$deptname\")");
 }
 
@@ -144,7 +145,8 @@ function pinsets_edit($id,$post){
 		return false;
 	extract($post);
 	$passwords = pinsets_clean($passwords);
-	if(empty($description)) $description = __('Unnamed');
+    if(empty($description)) $description = __('Unnamed');
+    if(empty($addtocdr)) $addtocdr = 0;
 	$results = sql("UPDATE pinsets SET description = \"$description\", passwords = \"$passwords\", addtocdr = \"$addtocdr\", deptname = \"$deptname\" WHERE pinsets_id = \"$id\"");
 }
 
