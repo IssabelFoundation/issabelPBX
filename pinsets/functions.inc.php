@@ -136,6 +136,7 @@ function pinsets_add($post){
 	extract($post);
 	$passwords = pinsets_clean($passwords);
 	if(empty($description)) $description = _('Unnamed');
+	if(empty($addtocdr)) $addtocdr = 0;
 	$results = sql("INSERT INTO pinsets (description,passwords,addtocdr,deptname) values (\"$description\",\"$passwords\",\"$addtocdr\",\"$deptname\")");
 }
 
