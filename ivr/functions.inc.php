@@ -65,6 +65,8 @@ function ivr_get_config($engine) {
                 $ivr = ivr_get_details($ivr['id']);
                 $ext->addSectionComment($c, $ivr['name'] ? $ivr['name'] : 'IVR ' . $ivr['id']);
 
+                $ext->addInclude($c, 'ivr-global-custom');
+
                 if ($ivr['directdial']) {
                     if ($ivr['directdial'] == 'ext-local') {
                         $ext->addInclude($c, 'from-did-direct-ivr'); //generated in core module
