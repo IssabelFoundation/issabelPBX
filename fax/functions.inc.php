@@ -400,8 +400,9 @@ function fax_get_config($engine){
         } else if ($ast_ge_16 && isset($core_conf) && is_a($core_conf, "core_conf")) {
             $core_conf->addSipGeneral('faxdetect','yes');
       }
-
+        $ext->add('ext-did-0001', 'fax', '', new ext_setvar('__DIRECTION',($amp_conf['INBOUND_NOTRANS'] ? 'INBOUND' : '')));
         $ext->add('ext-did-0001', 'fax', '', new ext_goto('${CUT(FAX_DEST,^,1)},${CUT(FAX_DEST,^,2)},${CUT(FAX_DEST,^,3)}'));
+        $ext->add('ext-did-0002', 'fax', '', new ext_setvar('__DIRECTION',($amp_conf['INBOUND_NOTRANS'] ? 'INBOUND' : '')));
         $ext->add('ext-did-0002', 'fax', '', new ext_goto('${CUT(FAX_DEST,^,1)},${CUT(FAX_DEST,^,2)},${CUT(FAX_DEST,^,3)}'));
 
     // Add fax extension to ivr and announcement as inbound controle may be passed quickly to them and still detection is desired

@@ -1932,11 +1932,16 @@ function core_do_get_config($engine) {
               ;------------------------------------------------------------------------
             */
             $context = 'ext-local-confirm';
-            $ext->addInclude('from-internal-additional', $context, _dgettext('amp','Call Confirmation')); // Add the include from from-internal
+            $ext->addInclude('from-internal-additional', $context); // Add the include from from-internal
             $exten = '_LC-.';
             $ext->add($context, $exten, '', new ext_noop_trace('IN '.$context.' with - RT: ${RT}, RG_IDX: ${RG_IDX}'));
-            $ext->add($context, $exten, '', new ext_gosubif('$["${ALERT_INFO}"!="" & "${HASH(SIPHEADERS,Alert-Info)}"=""]', 'func-set-sipheader,s,1',false,'Alert-Info,${ALERT_INFO}',false));
-            $ext->add($context, $exten, '', new ext_dial('${DB(DEVICE/${EXTEN:3}/dial)}', '${RT},${DIAL_OPTIONS}b(func-apply-sipheaders^s^1)M(auto-confirm^${RG_IDX})'));
+            //dont allow inbound callers to transfer around inside the system
+            $ext->add($context, $exten, '', new ext_execif('$["${DIRECTION}" = "INBOUND"]', 'Set', 'DIAL_OPTIONS=${STRREPLACE(DIAL_OPTIONS,T)}'));
+            $ext->add($context, $exten,'', new ext_set('THISDIAL', '${DB(DEVICE/${EXTEN:3}/dial)}'));
+            $ext->add($context, $exten,'', new ext_gotoif('$["${THISDIAL:0:5}"!="PJSIP"]', 'dial'));
+            $ext->add($context, $exten,'', new ext_noop('Debug: Found PJSIP Destination ${THISDIAL}, updating with PJSIP_DIAL_CONTACTS'));
+            $ext->add($context, $exten,'', new ext_set('THISDIAL', '${PJSIP_DIAL_CONTACTS(${EXTEN:3})}'));
+            $ext->add($context, $exten, 'dial', new ext_dial('${THISDIAL}', '${RT},${DIAL_OPTIONS}M(auto-confirm^${RG_IDX})b(func-apply-sipheaders^s^1)'));
 
             /* This needs to be before outbound-routes since they can have a wild-card in them
              *
@@ -2238,6 +2243,8 @@ function core_do_get_config($engine) {
 
                     $exten = (($exten == "")?"s":$exten);
                     $exten = $exten.(($cidnum == "")?"":"/".$cidnum); //if a CID num is defined, add it
+
+                    $ext->add($context, $exten, '', new ext_setvar('__DIRECTION',($amp_conf['INBOUND_NOTRANS'] ? 'INBOUND' : '')));
 
                     if ($cidroute) {
                         $ext->add($context, $exten, '', new ext_setvar('__FROM_DID','${EXTEN}'));
@@ -3441,6 +3448,7 @@ function core_do_get_config($engine) {
             if (!empty($trunk_type_needed[$context])) {
             $exten = 's';
             $ext->add($context, $exten, '', new ext_set('DIAL_TRUNK', '${ARG1}'));
+            $ext->add($context, $exten, '', new ext_execif('$["${DIRECTION}" = "INBOUND"]', 'Set', 'DIAL_OPTIONS=${STRREPLACE(DIAL_OPTIONS,T)}'));
             $ext->add($context, $exten, '', new ext_gosubif('$[$["${ARG3}" != ""] & $["${DB(AMPUSER/${AMPUSER}/pinless)}" != "NOPASSWD"]]','sub-pincheck,s,1'));
             $ext->add($context, $exten, '', new ext_gotoif('$["x${OUTDISABLE_${DIAL_TRUNK}}" = "xon"]', 'disabletrunk,1'));
             $ext->add($context, $exten, '', new ext_set('DIAL_NUMBER', '${ARG2}')); // fixlocalprefix depends on this
@@ -3475,6 +3483,7 @@ function core_do_get_config($engine) {
             }
 
             $ext->add($context, $exten, '', new ext_gotoif('$["${custom}" = "AMP"]', 'customtrunk'));
+            $ext->add($context, $exten, '', new ext_execif('$["${DIRECTION}" = "INBOUND"]', 'Set', 'DIAL_TRUNK_OPTIONS=${STRREPLACE(DIAL_TRUNK_OPTIONS,T)}'));
 
             $ext->add($context, $exten, '', new ext_set('DIALSTR', '${OUT_${DIAL_TRUNK}}/${OUTNUM}')); 
             $ext->add($context, $exten, '', new ext_gosubif('$["${DIALSTR:0:5}" = "PJSIP"]','pjsipdial,1'));
@@ -4706,6 +4715,7 @@ function core_do_get_config($engine) {
       $ext->add($mcontext,$exten,'docfu', new ext_execif('$["${DB(AMPUSER/${EXTTOCALL}/cfringtimer)}"="-1"|("${ARG1}"="novm"&"${ARG3}"="1")]', 'StackPop'));
       $ext->add($mcontext,$exten,'', new ext_gotoif('$["${DB(AMPUSER/${EXTTOCALL}/cfringtimer)}"="-1"|("${ARG1}"="novm"&"${ARG3}"="1")]', 'from-internal,${DB(CFU/${EXTTOCALL})},1'));
       $ext->add($mcontext,$exten,'', new ext_set("RTCF", '${IF($["${DB(AMPUSER/${EXTTOCALL}/cfringtimer)}"="0"]?${RT}:${DB(AMPUSER/${EXTTOCALL}/cfringtimer)})}'));
+            $ext->add($mcontext,$exten,'', new ext_execif('$["${DIRECTION}" = "INBOUND"]', 'Set', 'DIAL_OPTIONS=${STRREPLACE(DIAL_OPTIONS,T)}'));
             $ext->add($mcontext,$exten,'', new ext_dial('Local/${DB(CFU/${EXTTOCALL})}@from-internal/n', '${RTCF},${DIAL_OPTIONS}'));
             if ($amp_conf['DIVERSIONHEADER']) $ext->add($mcontext,$exten,'', new ext_set('__DIVERSION_REASON', ''));
             $ext->add($mcontext,$exten,'', new ext_return(''));
@@ -4715,6 +4725,7 @@ function core_do_get_config($engine) {
       $ext->add($mcontext,$exten,'docfu', new ext_execif('$["${DB(AMPUSER/${EXTTOCALL}/cfringtimer)}"="-1"|("${ARG1}"="novm"&"${ARG4}"="1")]', 'StackPop'));
       $ext->add($mcontext,$exten,'', new ext_gotoif('$["${DB(AMPUSER/${EXTTOCALL}/cfringtimer)}"="-1"|("${ARG1}"="novm"&"${ARG4}"="1")]', 'from-internal,${DB(CFB/${EXTTOCALL})},1'));
       $ext->add($mcontext,$exten,'', new ext_set("RTCF", '${IF($["${DB(AMPUSER/${EXTTOCALL}/cfringtimer)}"="0"]?${RT}:${DB(AMPUSER/${EXTTOCALL}/cfringtimer)})}'));
+            $ext->add($mcontext,$exten,'', new ext_execif('$["${DIRECTION}" = "INBOUND"]', 'Set', 'DIAL_OPTIONS=${STRREPLACE(DIAL_OPTIONS,T)}'));
             $ext->add($mcontext,$exten,'', new ext_dial('Local/${DB(CFB/${EXTTOCALL})}@from-internal/n', '${RTCF},${DIAL_OPTIONS}'));
             if ($amp_conf['DIVERSIONHEADER']) $ext->add($mcontext,$exten,'', new ext_set('__DIVERSION_REASON', ''));
             $ext->add($mcontext,$exten,'', new ext_return(''));
@@ -4814,14 +4825,16 @@ function core_do_get_config($engine) {
             $ext->add($mcontext,$exten,'', new ext_gotoif('$["${DB(AMPUSER/${CFUEXT}/device)}" = "" ]','chlocal'));
             $ext->add($mcontext,$exten,'', new ext_dial('Local/${CFUEXT}@ext-local', '${RT},${DIAL_OPTIONS}'));
             $ext->add($mcontext,$exten,'', new ext_return(''));
-            $ext->add($mcontext,$exten,'chlocal', new ext_dial('Local/${CFUEXT}@from-internal/n', '${RT},${DIAL_OPTIONS}'));
+            $ext->add($mcontext,$exten,'chlocal', new ext_execif('$["${DIRECTION}" = "INBOUND"]', 'Set', 'DIAL_OPTIONS=${STRREPLACE(DIAL_OPTIONS,T)}'));
+            $ext->add($mcontext,$exten,'', new ext_dial('Local/${CFUEXT}@from-internal/n', '${RT},${DIAL_OPTIONS}'));
             $ext->add($mcontext,$exten,'', new ext_return(''));
 
       $exten = 'docfb';
             $ext->add($mcontext,$exten,'', new ext_gotoif('$["${DB(AMPUSER/${CFBEXT}/device)}" = "" ]','chlocal'));
             $ext->add($mcontext,$exten,'', new ext_dial('Local/${CFBEXT}@ext-local', '${RT},${DIAL_OPTIONS}'));
             $ext->add($mcontext,$exten,'', new ext_return(''));
-            $ext->add($mcontext,$exten,'chlocal', new ext_dial('Local/${CFBEXT}@from-internal/n', '${RT},${DIAL_OPTIONS}'));
+            $ext->add($mcontext,$exten,'chlocal', new ext_execif('$["${DIRECTION}" = "INBOUND"]', 'Set', 'DIAL_OPTIONS=${STRREPLACE(DIAL_OPTIONS,T)}'));
+            $ext->add($mcontext,$exten,'', new ext_dial('Local/${CFBEXT}@from-internal/n', '${RT},${DIAL_OPTIONS}'));
             $ext->add($mcontext,$exten,'', new ext_return(''));
 
       /*
@@ -5064,7 +5077,9 @@ function core_do_get_config($engine) {
           $ext->add($mcontext,$exten,'', new ext_set('CONNECTEDLINE(num)', '${EXTTOCALL}'));
           $ext->add($mcontext,$exten,'', new ext_set('D_OPTIONS', '${D_OPTIONS}I'));
         }
-        $ext->add($mcontext,$exten,'godial', new ext_dial('${DSTRING}', '${ARG1},${D_OPTIONS}b(func-apply-sipheaders^s^1)'));
+
+        $ext->add($mcontext,$exten,'godial', new \ext_execif('$["${DIRECTION}" = "INBOUND"]', 'Set', 'D_OPTIONS=${STRREPLACE(D_OPTIONS,T)}'));
+        $ext->add($mcontext,$exten,'', new ext_dial('${DSTRING}', '${ARG1},${D_OPTIONS}b(func-apply-sipheaders^s^1)'));
         $ext->add($mcontext,$exten,'', new ext_execif('$["${DIALSTATUS}"="ANSWER" & "${CALLER_DEST}"!=""]', 'MacroExit'));
 
         $ext->add($mcontext,$exten,'', new ext_execif('$["${DIALSTATUS_CW}"!=""]', 'Set', 'DIALSTATUS=${DIALSTATUS_CW}'));

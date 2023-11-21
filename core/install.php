@@ -794,6 +794,22 @@ $set['description'] = "Options to be passed to the Asterisk Dial Command when ma
 $set['type'] = CONF_TYPE_TEXT;
 $issabelpbx_conf->define_conf_setting('TRUNK_OPTIONS',$set);
 
+// INBOUND_NOTRANS
+//
+$set['value'] = true;
+$set['defaultval'] =& $set['value'];
+$set['options'] = '';
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 0;
+$set['module'] = '';
+$set['category'] = 'Dialplan and Operational';
+$set['emptyok'] = 0;
+$set['name'] = 'Disallow transfer features for inbound callers';
+$set['description'] = "Disallow transfer features (Normally ## and *2) for callers who passthrough inbound routes (Such as external callers)";
+$set['type'] = CONF_TYPE_BOOL;
+$issabelpbx_conf->define_conf_setting('INBOUND_NOTRANS',$set);
+
 // RINGTIMER
 $opts = array();
 for ($i=0;$i<=120;$i++) {

@@ -5965,3 +5965,9 @@ msgstr "AVISO DE SEGURIDAD"
 
 msgid "UPDATE NOTICE"
 msgstr "AVISO DE ACTUALIZACIÓN"
+
+msgid "Disallow transfer features (Normally ## and *2) for callers who passthrough inbound routes (Such as external callers)"
+msgstr "Desactivar las funciones de transferencia (normalmente ## y *2) para las personas que pasan a través de las rutas de entrada (como las llamadas externas)."
+
+msgid "Disallow transfer features for inbound callers"
+msgstr "No permitir transferencias en llamadas entrantes"

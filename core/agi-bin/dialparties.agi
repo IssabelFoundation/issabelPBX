@@ -71,7 +71,7 @@ $AGI->set_variable('__KEEPCID','TRUE');
 //
 $AGI->set_variable('DIALSTATUS_CW','');                        
 
-$timer        = get_var( $AGI, "ARG1" );
+$timer       = get_var( $AGI, "ARG1" );
 $dialopts    = get_var( $AGI, "ARG2" );
 $rgmethod    = get_var( $AGI, "RingGroupMethod" );
 $rgmethod = trim($rgmethod);
