@@ -32,7 +32,7 @@ if(DB::IsError($check)) {
 }
 
 if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
-    $db->query("ALTER TABLE custom_destinations CHANGE description description VARCHAR( 250 ) NOT NULL default''");
-    $db->query("ALTER TABLE custom_extensions CHANGE description description VARCHAR( 250 ) NOT NULL default''");
+    $db->query("ALTER TABLE custom_destinations CHANGE description description VARCHAR( 250 ) NOT NULL default ''");
+    $db->query("ALTER TABLE custom_extensions CHANGE description description VARCHAR( 250 ) NOT NULL default ''");
 }
 ?>
