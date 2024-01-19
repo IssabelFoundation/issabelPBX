@@ -267,6 +267,13 @@ function engine_getinfo($force_read=false) {
             if (preg_match('/No such command/',$response['data'])) {
                 $verinfo = exec('asterisk -V');
             }
+
+            if(isset($response['Response'])) {
+                if ($response['Response']=='Error' ) {
+                    $verinfo = exec('asterisk -V');
+                }
+            }
+
         } else {
             // could not connect to asterisk manager, try console
             $verinfo = exec('asterisk -V');
