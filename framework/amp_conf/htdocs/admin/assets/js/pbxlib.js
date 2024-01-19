@@ -1461,6 +1461,12 @@ function rnavSelected() {
     if($('.rnav').length>0) {
         let params = new URLSearchParams(window.location.search);
         selected_rnav_option = params.get('extdisplay');
+        selected_rnav_option_extension = 'axxxxxxxxxxxz';
+        display = params.get('display');
+        if(display=='did') {
+            // Inbound Routes special case where selected option is a combination of two request parameters
+            selected_rnav_option_extension = params.get('extension')+"/"+params.get('cidnum');
+        }
         let original_href = $('#rnavadd').attr('href');
         $('#rnavadd').attr('disabled',true);
         $('#rnavadd').attr('href','javascript:void(0)');
@@ -1470,7 +1476,7 @@ function rnavSelected() {
                 $(ele).removeClass('current');
                 let params = new URLSearchParams($(ele).attr('href'));
                 current_rnav_option = params.get('extdisplay');
-                if(selected_rnav_option == current_rnav_option) {
+                if(selected_rnav_option == current_rnav_option || selected_rnav_option_extension == current_rnav_option) {
                     $(ele).addClass('current');
                     $('#rnavadd').attr('disabled',false);
                     $('#rnavadd').attr('href',original_href);
