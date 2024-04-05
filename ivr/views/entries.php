@@ -1,4 +1,5 @@
 <?php
+global $astman;
 $table = new CI_Table;
 $table->set_template(array('table_open' => '<table class="table is-striped is-narrow notfixed IVREntries" id="ivr_entries">'));
 //build header
@@ -12,6 +13,8 @@ $show_spoken=0;
 if(file_exists("/etc/asterisk/res-speech-vosk.conf")) {
     $show_spoken=1;
 }
+$rt = $astman->send_request("Command", array("Command" => "aeap show clients"));
+if($rt['Response']=='Success') { $show_spoken=1; }
 
 $count = 0;
 foreach ($entries as $e) {

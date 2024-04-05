@@ -30,7 +30,7 @@ function ivr_destinations() {
 
 //dialplan generator
 function ivr_get_config($engine) {
-    global $ext, $amp_conf;
+    global $ext, $amp_conf, $astman;
 
     $show_spoken=0;
     $engineinfo = engine_getinfo();
@@ -39,6 +39,8 @@ function ivr_get_config($engine) {
     if(file_exists("/etc/asterisk/res-speech-vosk.conf") && $ast_ge_1616) {
         $show_spoken=1;
     }
+    $rt = $astman->send_request("Command", array("Command" => "aeap show clients"));
+    if($rt['Response']=='Success') { $show_spoken=1; }
 
     switch($engine) {
         case "asterisk":
@@ -714,9 +716,9 @@ function ivr_save_entries($id, $entries){
     return true;
 }
 
-//draw uvr entires table header
+//draw ivr entires table header
 function ivr_draw_entries_table_header_ivr() {
-
+    global $astman;
     $show_spoken=0;
     $engineinfo = engine_getinfo();
     $astver     = $engineinfo['version'];
@@ -724,6 +726,8 @@ function ivr_draw_entries_table_header_ivr() {
     if(file_exists("/etc/asterisk/res-speech-vosk.conf") && $ast_ge_1616) {
         $show_spoken=1;
     }
+    $rt = $astman->send_request("Command", array("Command" => "aeap show clients"));
+    if($rt['Response']=='Success') { $show_spoken=1; }
 
     $headers = array();
     $headers[] = ipbx_label(__('Ext'),__('Any digit selection will be saved in the IVR_DIGIT_PRESSED chanel variable'));
