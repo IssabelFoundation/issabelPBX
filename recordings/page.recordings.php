@@ -501,7 +501,7 @@ echo "activate_tab($tab);\n";
     <form id="formprompt2" data-target="formprompt2" name="formprompt2" action="<?php echo $self."?".$final_query;?>" method="post" onsubmit="return rec_onsubmit(this);">
     <input type="hidden" name="action" value="recorded">
     <input type="hidden" name="display" value="recordings">
-    <!--input type="hidden" name="usersnum" value="<?php echo $usersnum ?>"-->
+    <input type="hidden" name="usersnum" value="<?php echo $usersnum ?>">
     <?php
 
     if (!empty($usersnum)) { 
