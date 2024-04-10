@@ -132,7 +132,7 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, '', new ext_set('QCIDPP', '${IF($[${LEN(${VQ_CIDPP})}>0]?${VQ_CIDPP}' . ':' . ($grppre == '' ? ' ':$grppre) . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_CIDPP', ''));
 				//$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Macro', 'prepend-cid,${QCIDPP}')); // MACRO DEPRECATION
-				$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Gosub', 'sub-prepend-cid,1,s,${QCIDPP}'));
+				$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Gosub', 'sub-prepend-cid,s,1(${QCIDPP})'));
 
 				// Set Alert_Info
 				$ainfo = $alertinfo != '' ? str_replace(';', '\;', $alertinfo) : ' ';
