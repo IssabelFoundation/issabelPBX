@@ -128,7 +128,7 @@ function ringgroups_get_config($engine) {
 					// deal with group CID prefix
 					if ($grppre != '') {
 						// $ext->add($contextname, $grpnum, '', new ext_macro('prepend-cid', $grppre)); // MACRO DEPRECATION
-						$ext->add($contextname, $grpnum, '', new ext_gosub('sub-prepend-cid', '1','s',$grppre));
+						$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-prepend-cid',$grppre));
 					}
 					
 					// Set Alert_Info
