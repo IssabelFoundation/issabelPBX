@@ -3038,9 +3038,11 @@ function core_do_get_config($engine) {
         $ext->add($mcontext, $exten, '', new ext_noop_trace('Current RGPREFIX is ${RGPREFIX}....stripping from CallerID'));
         $ext->add($mcontext, $exten, '', new ext_set('CALLERID(name)', '${CALLERID(name):${LEN(${RGPREFIX})}}'));
         $ext->add($mcontext, $exten, '', new ext_set('_RGPREFIX', ''));
+        $ext->add($mcontext, $exten, '', new ext_return(''));
       }
       $ext->add($mcontext, $exten, 'REPCID', new ext_set('_RGPREFIX', '${ARG1}'));
       $ext->add($mcontext, $exten, '', new ext_set('CALLERID(name)','${RGPREFIX}${CALLERID(name)}'));
+      $ext->add($mcontext, $exten, '', new ext_return(''));
 
 
             /* outbound routes */
