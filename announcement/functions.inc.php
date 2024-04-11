@@ -227,9 +227,10 @@ function announcement_delete($announcement_id) {
 function announcement_edit($announcement_id, $description, $recording_id, $allow_skip, $post_dest, $return_ivr, $noanswer, $repeat_msg, $tts_lang, $tts_text) { 
     global $db;
     check_alter_table();
+    $recording_id = intval($recording_id);
     $sql = "UPDATE announcement SET ".
         "description = '".$db->escapeSimple($description)."', ".
-        "recording_id = '".$recording_id."', ".
+        "recording_id = ".$recording_id.", ".
         "allow_skip = '".($allow_skip ? 1 : 0)."', ".
         "post_dest = '".$db->escapeSimple($post_dest)."', ".
         "return_ivr = '".($return_ivr ? 1 : 0)."', ".
