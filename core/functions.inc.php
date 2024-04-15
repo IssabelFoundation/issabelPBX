@@ -932,6 +932,8 @@ class core_conf {
                $endp[$channelid]['from_domain']=$data;
            } else if ($keyword == "from_user") {
                $endp[$channelid]['from_user']=$data;
+           } else if ($keyword == "media_encryption") {
+               $endp[$channelid]['media_encryption']=$data;
            }
         }
 

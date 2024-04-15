@@ -78,6 +78,7 @@ $pjsip_retry_interval           = isset($_REQUEST['pjsip_retry_interval'])?$_REQ
 $pjsip_expiration               = isset($_REQUEST['pjsip_expiration'])?$_REQUEST['pjsip_expiration']:'3600';
 $pjsip_transport                = isset($_REQUEST['pjsip_transport'])?$_REQUEST['pjsip_transport']:'transport-udp';
 $pjsip_rtp_symmetric            = isset($_REQUEST['pjsip_rtp_symmetric'])?$_REQUEST['pjsip_rtp_symmetric']:'yes';
+$pjsip_media_encryption         = isset($_REQUEST['pjsip_media_encryption'])?$_REQUEST['pjsip_media_encryption']:'no';
 $pjsip_rewrite_contact          = isset($_REQUEST['pjsip_rewrite_contact'])?$_REQUEST['pjsip_rewrite_contact']:'yes';
 $pjsip_dtmf_mode                = isset($_REQUEST['pjsip_dtmf_mode'])?$_REQUEST['pjsip_dtmf_mode']:'auto';
 $pjsip_trust_id_inbound         = isset($_REQUEST['pjsip_trust_id_inbound'])?$_REQUEST['pjsip_trust_id_inbound']:'no';
@@ -1333,6 +1334,30 @@ END;
 
 <tr> 
 <td> 
+ <a href=# class="info"><?php echo __("Media Encryption")?><span><?php echo __("Enable if you want SRTP")?></span></a>
+</td>
+<td>
+<select name="pjsip_media_encryption" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/>
+<?php
+     $select = array();
+     $select['dtls'] = 'dtls';
+     $select['sdes'] = 'sdes';
+     $select['no'] = __('No');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'";
+         if ($key == $pjsip_media_encryption) {
+             echo ' selected="1"';
+         }
+         echo ">$val</option>\n";
+     }
+?>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
  <a href=# class="info"><?php echo __("Symmetric RTP")?><span><?php echo __("Enforce that RTP must be symmetric. This should almost always be on.")?></span></a>
 </td> 
 <td> 
@@ -1343,19 +1368,19 @@ END;
      $select['no']  = __('No');
 
      foreach($select as $key=>$val) {
-         echo "<option value='$key'"; 
-         if ($key == $pjsip_rtp_symmetric) { 
-             echo ' selected="1"'; 
+         echo "<option value='$key'";
+         if ($key == $pjsip_rtp_symmetric) {
+             echo ' selected="1"';
          }
-         echo ">$val</option>\n"; 
+         echo ">$val</option>\n";
      }
 ?>
 </select>
-</td> 
+</td>
 </tr>
 
-<tr> 
-<td> 
+<tr>
+<td>
  <a href=# class="info"><?php echo __("Rewrite Contact")?><span><?php echo __("Allow Contact header to be rewritten with the source IP address-port.")?></span></a>
 </td> 
 <td> 
