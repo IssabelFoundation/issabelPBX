@@ -15,6 +15,7 @@ $pjsip_settings['externhost_val']    = isset($_POST['externhost_val']) ? htmlspe
 $pjsip_settings['externrefresh']     = isset($_POST['externrefresh']) ? htmlspecialchars($_POST['externrefresh']) : '120';
 $pjsip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'no';
 $pjsip_settings['ALLOW_SIP_ANON']    = isset($_POST['ALLOW_SIP_ANON']) ? $_POST['ALLOW_SIP_ANON'] : 'no';
+$pjsip_settings['method']            = isset($_POST['method']) ? htmlspecialchars($_POST['method']) : 'tlsv1_2';
 
 $post_codec = isset($_POST['codec']) ? $_POST['codec'] : array(); 
 
@@ -352,6 +353,24 @@ $tt = __("Asterisk: bindaddr. The IP address to bind to and listen for calls on 
     </td>
     <td>
       <input class="input" type="text" id="certfile" name="certfile" style="width:30em;" value="<?php echo $certfile ?>" tabindex="<?php echo ++$tabindex;?>">
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <a href="#" class="info"><?php echo __("Method")?><span><?php echo __("TLS Method")?></span></a>
+    </td>
+    <td>
+    <select name="method" class='componentSelect' tabindex="<?php echo ++$tabindex;?>">
+        <?php
+        $methods = array('tlsv1','tlsv1_1','tlsv1_2','tlsv1_3','sslv2','sslv3','sslv23');
+        foreach($methods as $curmethod) {
+          echo "<option value='{$curmethod}' ";
+          if($method == $curmethod) echo " selected ";
+          echo ">{$curmethod}</option>\n";
+        }
+        ?>
+      </select>
     </td>
   </tr>
 
