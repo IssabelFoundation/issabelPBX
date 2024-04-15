@@ -358,7 +358,7 @@ $tt = __("Asterisk: bindaddr. The IP address to bind to and listen for calls on 
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo __("Method")?><span><?php echo __("TLS Method")?></span></a>
+      <a href="#" class="info"><?php echo __("Method")?><span><?php echo __("Method of SSL transport")?></span></a>
     </td>
     <td>
     <select name="method" class='componentSelect' tabindex="<?php echo ++$tabindex;?>">

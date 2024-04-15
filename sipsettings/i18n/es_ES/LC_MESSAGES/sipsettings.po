@@ -598,3 +598,9 @@ msgstr "Certificado"
 
 msgid "Enable Websocket"
 msgstr "Habilitar Websocket"
+
+msgid "Method"
+msgstr "Método"
+
+msgid "Method of SSL transport"
+msgstr "Método para el transporte SSL"
