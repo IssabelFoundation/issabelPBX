@@ -469,8 +469,12 @@ class core_conf {
             if($kw=='tlsbindport') {
                 $tlsbindport = ($value<>'')?$value:$tlsbindport_df; 
             } else 
+            if($kw=='method') {
+               $output3[]="method=$value";
+            } else
             if($kw=='certfile') {
                 $output3[]="cert_file=$value";
+                $output3[]="priv_key_file=$value";
                 $cert_file=$value;
             } else
             if(substr($kw,0,8)=="localnet") {
@@ -503,6 +507,7 @@ class core_conf {
 
         if($cert_file=='') {
             $output3[]="cert_file=/etc/asterisk/keys/asterisk.pem";
+            $output3[]="priv_key_file=/etc/asterisk/keys/asterisk.key";
         }
 
         $output1[]="bind=$bindaddr:$bindport";
