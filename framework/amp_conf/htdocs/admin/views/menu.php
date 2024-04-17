@@ -169,6 +169,12 @@ if (isset($ipbx_menu) && is_array($ipbx_menu)) {    // && issabelpbx_menu.conf n
 
 $out.='</div><div class="navbar-end">';
 
+$out.='
+  <div class="navbar-item">
+    <input class="input" size=10 id="menusearch" type="search" placeholder="'.__('Search').'">
+  </div>
+';
+
 $current_lang = $_COOKIE['lang'];
 
 $aval_lang = array();

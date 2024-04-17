@@ -719,6 +719,9 @@ function doready() {
 
     bind_close_alerts();
 
+    $('#menusearch').on('search',function() { searchMenu($(this).val());});
+    $('#menusearch').on('keyup',function() { searchMenu($(this).val());});
+
     // Help info tooltips
     $("a.info").each(function() {
         $(this).after('<span class="infohelp">?<span>' + $(this).find('span').html() + '</span></span>');
@@ -1634,4 +1637,38 @@ function handleErrors(response) {
         throw Error(response.statusText);
     }
     return response;
+}
+
+function cleanMenu() {
+  const $dropdownItems = $('.navbar-dropdown .navbar-item');
+  $dropdownItems.each(function() {
+    const $item = $(this);
+    const $parentMenuItem = $item.closest('.navbar-item.has-dropdown');
+    const $container = $item.parent();
+    $item.removeClass('is-active');
+    $parentMenuItem.removeClass('show-dropdown');
+    $parentMenuItem.removeClass('is-active');
+    $('.singlecolumn').addClass('multicolumn').removeClass('singlecolumn');
+  });
+}
+
+function searchMenu(search) {
+  cleanMenu();
+  if(search.length < 3) { return;}
+  $('.multicolumn').addClass('singlecolumn').removeClass('multicolumn');
+  const $dropdownItems = $('.navbar-dropdown .navbar-item');
+  $dropdownItems.each(function() {
+    const $item = $(this);
+    const $parentMenuItem = $item.closest('.navbar-item.has-dropdown');
+    const $container = $item.parent();
+    const text = $item.text();
+    if ($item.text().toLowerCase().includes(search)) {
+      $item.addClass('is-active');
+      $parentMenuItem.addClass('show-dropdown');
+      $parentMenuItem.addClass('is-active');
+      $container.removeClass('multicolumn');
+    } else {
+      $item.removeClass('is-active');
+    }
+  })
 }
