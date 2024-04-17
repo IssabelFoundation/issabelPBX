@@ -961,7 +961,7 @@ function timeconditions_timegroups_drawgroupselect($elemname, $currentvalue = ''
     $output = '';
     $onchange = ($onchange != '') ? " onchange=\"$onchange\"" : '';
 
-    $output .= "\n\t\t\t<select class='componentSelect' name=\"$elemname\" tabindex=\"".++$tabindex."\" id=\"$elemname\"$onchange>\n";
+    $output .= "\n\t\t\t<select class='componentSelect100' name=\"$elemname\" tabindex=\"".++$tabindex."\" id=\"$elemname\"$onchange>\n";
     // include blank option if required
     if ($canbeempty) {
         $output .= '<option value="">'.($default_option == '' ? __("--Select a Group--") : $default_option).'</option>';
@@ -1019,7 +1019,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
             $minute_finish = $minute_start;
         }
     }
-    $html = $html.'<select class="componentSelectAutoWidthNoSearch" name="'.$name.'[hour_start]">';
+    $html = $html.'<select class="componentSelect100" name="'.$name.'[hour_start]">';
     $default = '';
     if ( $hour_start === '-' ) {
         $default = ' selected';
@@ -1034,7 +1034,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     }
     $html = $html.'</select>';
     $html = $html.'<nbsp>:<nbsp>';
-    $html = $html.'<select class="componentSelectAutoWidthNoSearch" name="'.$name.'[minute_start]">';
+    $html = $html.'<select class="componentSelect100" name="'.$name.'[minute_start]">';
     $default = '';
     if ( $minute_start === '-' ) {
         $default = ' selected';
@@ -1053,7 +1053,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'<tr>';
     $html = $html.'<td>'.__("Time to finish").'</td>';
     $html = $html.'<td>';
-    $html = $html.'<select class="componentSelectAutoWidthNoSearch" name="'.$name.'[hour_finish]">';
+    $html = $html.'<select class="componentSelect100" name="'.$name.'[hour_finish]">';
     $default = '';
     if ( $hour_finish === '-' ) {
         $default = ' selected';
@@ -1068,7 +1068,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     }
     $html = $html.'</select>';
     $html = $html.'<nbsp>:<nbsp>';
-    $html = $html.'<select class="componentSelectAutoWidthNoSearch" name="'.$name.'[minute_finish]">';
+    $html = $html.'<select class="componentSelect100" name="'.$name.'[minute_finish]">';
     $default = '';
     if ( $minute_finish === '-' ) {
         $default = ' selected';
@@ -1103,7 +1103,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     }
     $html = $html.'<td>'.__("Week Day start").'</td>';
     $html = $html.'<td>';
-    $html = $html.'<select class="componentSelect" name="'.$name.'[wday_start]">';
+    $html = $html.'<select class="componentSelect200" name="'.$name.'[wday_start]">';
     if ( $wday_start == '-' ) {
         $default = ' selected';
     } else {
@@ -1165,7 +1165,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'<tr>';
     $html = $html.'<td>'.__("Week Day finish").'</td>';
     $html = $html.'<td>';
-    $html = $html.'<select class="componentSelect" name="'.$name.'[wday_finish]">';
+    $html = $html.'<select class="componentSelect200" name="'.$name.'[wday_finish]">';
 
     if ( $wday_finish == '-' ) {
         $default = ' selected';
@@ -1245,7 +1245,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     }
 
     $html = $html.'<td>';
-    $html = $html.'<select class="componentSelectAutoWidthNoSearch" name="'.$name.'[mday_start]">';
+    $html = $html.'<select class="componentSelect100" name="'.$name.'[mday_start]">';
     $default = '';
     if ( $mday_start == '-' ) {
         $default = ' selected';
@@ -1263,7 +1263,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'<tr>';
     $html = $html.'<td>'.__("Month Day finish").'</td>';
     $html = $html.'<td>';
-    $html = $html.'<select class="componentSelectAutoWidthNoSearch" name="'.$name.'[mday_finish]">';
+    $html = $html.'<select class="componentSelect100" name="'.$name.'[mday_finish]">';
     $default = '';
     if ( $mday_finish == '-' ) {
         $default = ' selected';
@@ -1298,7 +1298,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
         $month_start = $month_finish = '-';
     }
     $html = $html.'<td>';
-    $html = $html.'<select class="componentSelect" name="'.$name.'[month_start]">';
+    $html = $html.'<select class="componentSelect200" name="'.$name.'[month_start]">';
 
     if ( $month_start == '-' ) {
         $default = ' selected';
@@ -1397,7 +1397,7 @@ function timeconditions_timegroups_drawtimeselects($name, $time, $displayname) {
     $html = $html.'<tr>';
     $html = $html.'<td>'.__("Month finish").'</td>';
     $html = $html.'<td>';
-    $html = $html.'<select class="componentSelect" name="'.$name.'[month_finish]">';
+    $html = $html.'<select class="componentSelect200" name="'.$name.'[month_finish]">';
 
     if ( $month_finish == '-' ) {
         $default = ' selected';
