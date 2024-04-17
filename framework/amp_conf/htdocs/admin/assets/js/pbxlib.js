@@ -881,6 +881,8 @@ function doready() {
     });
 
     $('.componentSelect').chosen({width:'100%', disable_search: true, placeholder_text_single: ipbx.msg.framework.selectoption, placeholder_text_multiple: ipbx.msg.framework.selectoptions});
+    $('.componentSelect100').chosen({width:'100px', disable_search: true, placeholder_text_single: ipbx.msg.framework.selectoption, placeholder_text_multiple: ipbx.msg.framework.selectoptions});
+    $('.componentSelect200').chosen({width:'200px', disable_search: true, placeholder_text_single: ipbx.msg.framework.selectoption, placeholder_text_multiple: ipbx.msg.framework.selectoptions});
     $('.componentSelectSearch').chosen({width:'100%', disable_search: false, placeholder_text_single: ipbx.msg.framework.selectoption, placeholder_text_multiple: ipbx.msg.framework.selectoptions});
     $('.componentSelectAutoWidth').chosen({disable_search: false, width: 'auto', placeholder_text_single: ipbx.msg.framework.selectoption, placeholder_text_multiple: ipbx.msg.framework.selectoptions});
     $('.componentSelectAutoWidthNoSearch').chosen({disable_search: true, width: 'auto', placeholder_text_single: ipbx.msg.framework.selectoption, placeholder_text_multiple: ipbx.msg.framework.selectoptions});
