@@ -703,7 +703,7 @@ body.swal2-shown > [aria-hidden="true"] {
 }
 
 .navbar {
-	background-color: #7d48ad !important;
+	background-color: #562d7b !important;
 }
 
 .navbar-dropdown {
@@ -994,7 +994,7 @@ table.table.notfixed {
 }
 
 .ui-corner-all { border-radius:5px; }
-.ui-widget-header { background-color: #7d48ad; }
+.ui-widget-header { background-color: #562d7b; }
 
 .draggable, li.draggable > a {
   cursor: move;
