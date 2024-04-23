@@ -201,7 +201,7 @@ function manager_add($p_name, $p_secret, $p_deny, $p_permit, $p_read, $p_write) 
 		}
 	}
 
-	$query = 'INSERT INTO manager (name,secret,deny,permit,read,write) values (?,?,?,?,?,?)';
+	$query = 'INSERT INTO manager (`name`,`secret`,`deny`,`permit`,`read`,`write`) values (?,?,?,?,?,?)';
 	$result = $db->query($query,array($p_name,$p_secret,$p_deny,$p_permit,$p_read,$p_write));
         if(DB::IsError($result)) {
             die_issabelpbx($result->getDebugInfo()."<br><br>".'error adding to manager table');
