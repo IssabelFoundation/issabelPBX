@@ -759,6 +759,10 @@ class core_conf {
                         case 'qualifyfreq':
                             $output3[] = "qualify_frequency=".$result2['data'];
                             break;
+                        case 'outbound_proxy':
+                            $output1[] = "outbound_proxy=".$result2['data'];
+                            $output3[] = "outbound_proxy=".$result2['data'];
+                            break;
                         case 'type':
                             $output1[] = "type=endpoint";
                             break;
@@ -837,6 +841,7 @@ class core_conf {
         $reg      = array();
         $endp     = array();
         $match    = array();
+        $oproxy   = array();
         $authentication = array();
         $registration = array();
         $server = array();
@@ -893,6 +898,9 @@ class core_conf {
                $aor[$channelid]['qualify_frequency']=$data;
            } else if ($keyword == "support_path") {
                $aor[$channelid]['support_path']=$data;
+           } else if ($keyword == "outbound_proxy") {
+               $oproxy[$channelid]=$data;
+               $reg[$channelid]['outbound_proxy']=$data;
            } else if ($keyword == "match") {
                $match[$channelid]=$data;
            } else if ($keyword == "retry_interval") {
@@ -1002,6 +1010,9 @@ class core_conf {
                 }
             }
             $output_identify[]="match=".$thismatch;
+            if(isset($oproxy[$id])) {
+                $output_identify[]="outbound_proxy=".$oproxy[$id];
+            }
             $output_identify[]="";
         }
  

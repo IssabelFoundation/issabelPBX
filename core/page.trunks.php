@@ -87,6 +87,7 @@ $pjsip_t38_udptl                = isset($_REQUEST['pjsip_t38_udptl'])?$_REQUEST[
 $pjsip_t38_udptl_nat            = isset($_REQUEST['pjsip_t38_udptl_nat'])?$_REQUEST['pjsip_t38_udptl_nat']:'no';
 $pjsip_t38_udptl_ec             = isset($_REQUEST['pjsip_t38_udptl_ec'])?$_REQUEST['pjsip_t38_udptl_ec']:'none';
 $pjsip_support_path             = isset($_REQUEST['pjsip_support_path'])?$_REQUEST['pjsip_support_path']:'no';
+$pjsip_outbound_proxy           = isset($_REQUEST['pjsip_outbound_proxy'])?$_REQUEST['pjsip_outbound_proxy']:'';
 
 $post_codec = isset($_REQUEST['codec']) ? $_REQUEST['codec'] : array(); 
 
@@ -1604,7 +1605,6 @@ END;
 </td> 
 </tr>
 
-
 <tr> 
 <td> 
  <a href=# class="info"><?php echo __("Support Path")?><span><?php echo __("When this option is enabled, outbound REGISTER requests will advertise support for Path headers so that intervening proxies can add to the Path header as necessary..")?></span></a>
@@ -1626,6 +1626,15 @@ END;
 ?>
 </select>
 </td> 
+</tr>
+
+<tr>
+<td>
+ <a href=# class="info"><?php echo __("Outbound Proxy")?><span><?php echo __("Outbound Proxy")?></span></a>
+</td>
+<td>
+<input type="text" class="input" name="pjsip_outbound_proxy" value="<?php echo htmlspecialchars($pjsip_outbound_proxy) ?>" tabindex="<?php echo ++$tabindex;?>"/>
+</td>
 </tr>
 
 
