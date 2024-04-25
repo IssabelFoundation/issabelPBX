@@ -8877,6 +8877,9 @@ function core_devices_configpageinit($dispnum) {
         $tt = __("Determines whether res_pjsip will use the media transport received in the offer SDP in the corresponding answer SDP.");
         $tmparr['media_use_received_transport'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
 
+        $tt = __("Outbound Proxy.");
+        $tmparr['outbound_proxy'] = array('value' => '', 'tt' => $tt, 'level' => 1);
+
         $currentcomponent->addgeneralarrayitem('devtechs', 'pjsip', $tmparr);
         unset($tmparr);
 
