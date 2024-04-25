@@ -760,8 +760,10 @@ class core_conf {
                             $output3[] = "qualify_frequency=".$result2['data'];
                             break;
                         case 'outbound_proxy':
-                            $output1[] = "outbound_proxy=sip:".$result2['data'].'\;lr';
-                            $output3[] = "outbound_proxy=sip:".$result2['data'].'\;lr';
+                            if(trim($result2['data'])!='') {
+                                $output1[] = "outbound_proxy=sip:".$result2['data'].'\;lr';
+                                $output3[] = "outbound_proxy=sip:".$result2['data'].'\;lr';
+                            }
                             break;
                         case 'type':
                             $output1[] = "type=endpoint";
@@ -898,7 +900,9 @@ class core_conf {
            } else if ($keyword == "support_path") {
                $aor[$channelid]['support_path']=$data;
            } else if ($keyword == "outbound_proxy") {
-               $reg[$channelid]['outbound_proxy']="sip:".$data.'\;lr';
+               if(trim($data)!='') {
+                   $reg[$channelid]['outbound_proxy']="sip:".$data.'\;lr';
+               }
            } else if ($keyword == "match") {
                $match[$channelid]=$data;
            } else if ($keyword == "retry_interval") {
