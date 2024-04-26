@@ -943,7 +943,7 @@ if ($amp_conf['AMPLOCALBIN']) {
  */
 
 $output = array();
-exec("grep '#include' ".$amp_conf['ASTETCDIR']."/*.conf | sed 's/;.*//; s/#include//'",$output,$retcode);
+exec("grep '#include' ".$amp_conf['ASTETCDIR']."/*.conf | sed 's/;.*//; s/#include//; ; s/\"//g;'",$output,$retcode);
 if ($retcode != 0) {
     error("Error code $retcode: trying to search for missing #include files");
 }
@@ -958,7 +958,9 @@ foreach($output as $file) {
     if ($rawfile == '') {
         continue;
     }
-
+    if(preg_match("/\*\.conf/",$rawfile)) {
+        continue;
+    }
     $target = ($rawfile[0] == '/') ? $rawfile : $amp_conf['ASTETCDIR']."/$rawfile";
 
     if (!file_exists($target)) {
