@@ -53,7 +53,7 @@ if ($action != 'delete') {
         $dids_using = count($dids_using_arr);
         $thisItem_description = isset($thisItem['description']) ? htmlspecialchars($thisItem['description']):'';
     } else {
-        $thisItem = Array( 'description' => '', 'sourcetype' => null, 'cache' => null);
+        $thisItem = Array( 'description' => '', 'sourcetype' => null, 'setvariable' => null, 'cache' => null);
     }
 }
 

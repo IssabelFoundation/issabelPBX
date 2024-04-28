@@ -11,6 +11,7 @@ $sql = "CREATE TABLE IF NOT EXISTS cidlookup (
 	cidlookup_id INTEGER NOT NULL PRIMARY KEY $autoincrement,
 	description varchar(50) NOT NULL,
 	sourcetype varchar(100) NOT NULL,
+	setvariable varchar(20) NOT NULL default 'cidname',
 	cache tinyint(1) NOT NULL default '0',
 	deptname varchar(30) default NULL,
 	http_host varchar(30) default NULL,
@@ -40,7 +41,7 @@ if (DB::IsError($check)) {
 	// Install a default OpenCNAM Caller ID lookup source, if we're installing this
 	// module for the very first time.
 	outn(__("Installing OpenCNAM CallerID Lookup Sources..."));
-	$sql = "INSERT INTO cidlookup (description, sourcetype) VALUES ('OpenCNAM', 'opencnam')";
+	$sql = "INSERT INTO cidlookup (description, sourcetype, setvariable) VALUES ('OpenCNAM', 'opencnam', 'cidname')";
 	$results = $db->query($sql);
 	if (DB::IsError($results)) {
 		out(__("Failed to add OpenCNAM CallerID Lookup Source: ").$results->getMessage());
@@ -72,6 +73,17 @@ $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if (DB::IsError($check)) {
 	// add new field
 	$sql = "ALTER TABLE cidlookup ADD cache INTEGER NOT NULL DEFAULT 0;";
+	$result = $db->query($sql);
+	if(DB::IsError($result)) {
+		die_issabelpbx($result->getMessage());
+	}
+}
+
+$sql = "SELECT setvariable FROM cidlookup";
+$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if (DB::IsError($check)) {
+	// add new field
+	$sql = "ALTER TABLE cidlookup ADD setvariable VARCHAR(20) not null default 'cidname';";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
 		die_issabelpbx($result->getMessage());
@@ -141,7 +153,7 @@ if (!array_key_exists('opencnam_account_sid',$fields) && !array_key_exists('open
 	out(__("Done!"));
 
 	outn(__("Installing OpenCNAM CallerID Lookup Sources..."));
-	$sql = "INSERT INTO cidlookup (description, sourcetype) VALUES ('OpenCNAM', 'opencnam')";
+	$sql = "INSERT INTO cidlookup (description, sourcetype, setvariable) VALUES ('OpenCNAM', 'opencnam', 'cidname')";
 	$results = @$db->query($sql);
 	if (DB::IsError($results)) {
 		out(__("Failed to add OpenCNAM CallerID Lookup Source: ").$results->getMessage());

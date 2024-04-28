@@ -75,17 +75,31 @@ $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span>
             </td>
             <td>
                 <select id="sourcetype" name="sourcetype" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
-                    <option value="opencnam" <?php echo ($thisItem['sourcetype'] == 'opencnam' ? 'selected' : '')?>><?php echo __("OpenCNAM")?></option>
+                    <!--option value="opencnam" <?php echo ($thisItem['sourcetype'] == 'opencnam' ? 'selected' : '')?>><?php echo __("OpenCNAM")?></option-->
                     <option value="internal" <?php echo ($thisItem['sourcetype'] == 'internal' ? 'selected' : '')?>><?php echo __("Internal")?></option>
                     <option value="enum" <?php echo ($thisItem['sourcetype'] == 'enum' ? 'selected' : '')?>>ENUM</option>
                     <option value="http" <?php echo ($thisItem['sourcetype'] == 'http' ? 'selected' : '')?>>HTTP</option>
                     <option value="https" <?php echo ($thisItem['sourcetype'] == 'https' ? 'selected' : '')?>>HTTPS</option>
                     <option value="mysql" <?php echo ($thisItem['sourcetype'] == 'mysql' ? 'selected' : '')?>>MySQL</option>
-                    <option value="sugarcrm" <?php echo ($thisItem['sourcetype'] == 'sugarcrm' ? 'selected' : '')?>>SugarCRM</option>
-                    <option value="superfecta" <?php echo ($thisItem['sourcetype'] == 'superfecta' ? 'superfecta' : '')?>>Superfecta</option>
+                    <!--option value="sugarcrm" <?php echo ($thisItem['sourcetype'] == 'sugarcrm' ? 'selected' : '')?>>SugarCRM</option>
+                    <option value="superfecta" <?php echo ($thisItem['sourcetype'] == 'superfecta' ? 'superfecta' : '')?>>Superfecta</option-->
                 </select>
             </td>
         </tr>
+        <tr>
+            <td>
+                <a href="#" class="info"><?php echo __("Variable to set")?>
+                    <span><?php echo __("Select which variable you want to set, either CallerID Name or CDR userfield")?></span>
+                </a>
+            </td>
+            <td>
+                <select id="setvariable" name="setvariable" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
+                    <option value="cidname" <?php echo ($thisItem['setvariable'] == 'cidname' ? 'selected' : '')?>><?php echo __("CallerID Name")?></option>
+                    <option value="userfield" <?php echo ($thisItem['setvariable'] == 'userfield' ? 'selected' : '')?>><?php echo __("CDR userfield")?></option>
+                </select>
+            </td>
+        </tr>
+ 
         <tr id="cache_results">
             <td>
                 <a href="#" class="info"><?php echo __("Cache results")?><span><?php echo __("Decide whether or not cache the results to astDB; it will overwrite present values. It does not affect Internal source behavior")?></span></a>

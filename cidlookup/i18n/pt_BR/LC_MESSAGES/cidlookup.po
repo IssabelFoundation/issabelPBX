@@ -372,6 +372,12 @@ msgstr "Insira um token de autenticação válido"
 msgid "Description cannot be blank!"
 msgstr "A descrição não pode ficar em branco!"
 
+msgid "Variable to set"
+msgstr "Variável para definir"
+
+msgid "Select which variable you want to set, either CallerID Name or CDR userfield"
+msgstr "Selecione a variável que deseja definir: CallerID Name ou campo de usuário CDR (userfield)"
+
 #~ msgid "CID Lookup source"
 #~ msgstr "Fonte de pesquisa CID"
 
