@@ -448,11 +448,11 @@ function install_modules() {
     global $runas_uid;
     global $runas_gid;
 
-
     // Check if its an upgrade
     $installed_modules = array();
-    if(is_dir($amp_conf['AMPWEBROOT'].'/admin/modules/')) {
-        out("/admin/modules exists, upgrading instead of installing");
+    if(is_dir($amp_conf['AMPWEBROOT'].'/admin/modules/framework')) {
+        out("/admin/modules/framework exists, assume upgrading instead of installing");
+        out(`ls -la $amp_conf['AMPWEBROOT'].'/admin/modules`);
         $dir = opendir($amp_conf['AMPWEBROOT'].'/admin/modules/');
         while ($file = readdir($dir)) {
             if ($file[0] != "." && $file[0] != "_" && is_dir($amp_conf['AMPWEBROOT'].'/admin/modules/'.$file)) {
