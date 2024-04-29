@@ -452,6 +452,7 @@ function install_modules() {
     // Check if its an upgrade
     $installed_modules = array();
     if(is_dir($amp_conf['AMPWEBROOT'].'/admin/modules/')) {
+        out("/admin/modules exists, upgrading instead of installing");
         $dir = opendir($amp_conf['AMPWEBROOT'].'/admin/modules/');
         while ($file = readdir($dir)) {
             if ($file[0] != "." && $file[0] != "_" && is_dir($amp_conf['AMPWEBROOT'].'/admin/modules/'.$file)) {
@@ -464,6 +465,8 @@ function install_modules() {
         $elementsToRemove = array('framework', 'core', 'recordings', 'timeconditions', 'announcement');
         $filteredArray = array_diff($installed_modules, $elementsToRemove);
         $base_modules = array_merge($elementsToRemove, $filteredArray);
+        out(print_r($base_modules,1));
+
     } else {
         // Or a new installation
 
