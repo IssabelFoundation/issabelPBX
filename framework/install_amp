@@ -448,11 +448,13 @@ function install_modules() {
     global $runas_uid;
     global $runas_gid;
 
+    $directories = glob($amp_conf['AMPWEBROOT'].'/admin/modules/*', GLOB_ONLYDIR);
+    $numDirectories = count($directories);
+    out("Num directories under ".$amp_conf['AMPWEBROOT']."/admin/modules = $numDirectories");
+
     // Check if its an upgrade
     $installed_modules = array();
     if(is_dir($amp_conf['AMPWEBROOT'].'/admin/modules/framework')) {
-        $directories = glob($amp_conf['AMPWEBROOT'].'/admin/modules/*', GLOB_ONLYDIR);
-        $numDirectories = count($directories);
         out($amp_conf['AMPWEBROOT']."/admin/modules/framework exists, assume upgrading instead of installing, number of directories $numDirectories");
         $dir = opendir($amp_conf['AMPWEBROOT'].'/admin/modules/');
         while ($file = readdir($dir)) {
@@ -462,7 +464,7 @@ function install_modules() {
         }
         closedir($dir);
 
-	// Use particular order to reinstall existing modules
+        // Use particular order to reinstall existing modules
         $elementsToRemove = array('framework', 'core', 'recordings', 'timeconditions', 'announcement');
         $filteredArray = array_diff($installed_modules, $elementsToRemove);
         $base_modules = array_merge($elementsToRemove, $filteredArray);
