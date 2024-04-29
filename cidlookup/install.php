@@ -39,7 +39,8 @@ if (DB::IsError($check)) {
 } else {
 
 	// Install a default OpenCNAM Caller ID lookup source, if we're installing this
-	// module for the very first time.
+    // module for the very first time.
+    /*
 	outn(__("Installing OpenCNAM CallerID Lookup Sources..."));
 	$sql = "INSERT INTO cidlookup (description, sourcetype, setvariable) VALUES ('OpenCNAM', 'opencnam', 'cidname')";
 	$results = $db->query($sql);
@@ -48,7 +49,8 @@ if (DB::IsError($check)) {
 		return false;
 	} else {
 		out(__("Done!"));
-	}
+    }
+    */
 
 }
 
