@@ -454,7 +454,6 @@ function install_modules() {
         $directories = glob($amp_conf['AMPWEBROOT'].'/admin/modules/*', GLOB_ONLYDIR);
         $numDirectories = count($directories);
         out($amp_conf['AMPWEBROOT']."/admin/modules/framework exists, assume upgrading instead of installing, number of directories $numDirectories");
-        out(`ls -la $amp_conf['AMPWEBROOT'].'/admin/modules`);
         $dir = opendir($amp_conf['AMPWEBROOT'].'/admin/modules/');
         while ($file = readdir($dir)) {
             if ($file[0] != "." && $file[0] != "_" && is_dir($amp_conf['AMPWEBROOT'].'/admin/modules/'.$file)) {
