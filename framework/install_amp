@@ -451,7 +451,9 @@ function install_modules() {
     // Check if its an upgrade
     $installed_modules = array();
     if(is_dir($amp_conf['AMPWEBROOT'].'/admin/modules/framework')) {
-        out("/admin/modules/framework exists, assume upgrading instead of installing");
+        $directories = glob($amp_conf['AMPWEBROOT'].'/admin/modules/*', GLOB_ONLYDIR);
+        $numDirectories = count($directories);
+        out($amp_conf['AMPWEBROOT']."/admin/modules/framework exists, assume upgrading instead of installing, number of directories $numDirectories");
         out(`ls -la $amp_conf['AMPWEBROOT'].'/admin/modules`);
         $dir = opendir($amp_conf['AMPWEBROOT'].'/admin/modules/');
         while ($file = readdir($dir)) {
