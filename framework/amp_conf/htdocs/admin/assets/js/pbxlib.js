@@ -525,6 +525,7 @@ function ipbx_reload() {
         dataType: 'json',
         success: function(data) {
 
+            ipbx.conf.reload_needed=false;
             $('body').css('pointerEvents','');
             $('#button_reload').removeClass('is-loading');
 
