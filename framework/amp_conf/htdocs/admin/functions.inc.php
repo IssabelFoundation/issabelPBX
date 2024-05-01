@@ -285,6 +285,9 @@ function engine_getinfo($force_read=false) {
         } elseif (preg_match('/Asterisk SVN-(\d+(\.\d+)*)(-?(\S*))/', $verinfo, $matches)) {
             $engine_info = array('engine'=>'asterisk', 'version' => $matches[1], 'additional' => $matches[4], 'raw' => $verinfo);
             $gotinfo = true;
+         } elseif (preg_match('/Asterisk certified\/(\d+(\.\d+)*)(-?(.*))$/', $verinfo, $matches)) {
+            $engine_info = array('engine'=>'asterisk', 'version' => $matches[1], 'additional' => $matches[4], 'raw' => $verinfo);
+            $gotinfo = true;
         } elseif (preg_match('/Asterisk SVN-branch-(\d+(\.\d+)*)-r(-?(\S*))/', $verinfo, $matches)) {
             $engine_info = array('engine'=>'asterisk', 'version' => $matches[1].'.'.$matches[4], 'additional' => $matches[4], 'raw' => $verinfo);
             $gotinfo = true;
