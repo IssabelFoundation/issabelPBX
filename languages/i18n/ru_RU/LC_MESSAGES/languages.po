@@ -1,6 +1,6 @@
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2010 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2010.
 #
 # Использовать iconv language.pot -f UTF-8 -t ISO-8859-5 -o language.po
@@ -75,7 +75,7 @@ msgstr ""
 "перенаправить по соответственному назначению. Например, можно иметь опцию "
 "выбора языка в Интерактивном меню - \"For French Press 2 now\". Для этого "
 "нужно создать подменю на французском языке, на которое будет направлен этот "
-"звонок по нажатию 2. Для этого нужно установить необходимые французские "
+"звонок по нажатию 2. Для этого нужно установить необходимые фрацузские "
 "звуковые файлы."
 
 msgid "Edit Language Instance"
@@ -109,7 +109,7 @@ msgid "Delete"
 msgstr "Удалить"
 
 msgid "Invalid description specified"
-msgstr "Неверно выбрано описание"
+msgstr "Неверно выбрно описание"
 
 #~ msgid ""
 #~ "Internal Options \n"

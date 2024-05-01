@@ -1,0 +1,2 @@
+div.content { min-width:490px; width: calc(100% - 300px); max-width:1000px;}
+.rules td { font-size:.8em; }

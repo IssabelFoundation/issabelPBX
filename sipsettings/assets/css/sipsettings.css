@@ -1,3 +1,6 @@
+.validate-ip, .validate-netmask {
+    width:10em;
+}
 input.validation-error {
 	border:2px solid red;
 }
@@ -10,4 +13,13 @@ div.sip-errors p {
 	color:red;
 	font-weight:bold;
 	text-decoration:underline;
+}
+.sortable {
+    list-style: none !important;
+    margin:0 !important;
+}
+
+.sortable > li {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding: 2px 5px;
 }

@@ -1,8 +1,8 @@
 <p><div class="clsError">
-<b><?php echo _("Warning:"); ?></b>
+<b><?php echo __("Warning:"); ?></b>
 <br>
 <br>
-<?php echo _("Cannot connect to Asterisk Manager with "). "<i>" .$mgruser . "</i>"; ?>
+<?php echo __("Cannot connect to Asterisk Manager with "). "<i>" .$mgruser . "</i>"; ?>
 <br>
-<?php echo _("Asterisk may not be running."); ?>
+<?php echo __("Asterisk may not be running."); ?>
 </div></p>

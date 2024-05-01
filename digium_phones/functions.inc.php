@@ -194,29 +194,29 @@ function digium_phones_configpageload() {
 	if ($action != 'del') {
 		$line = $digium_phones->get_extension_settings($extdisplay);
 
-		$section = _("Digium Phones Contacts Options");
-		$currentcomponent->addguielem($section, new gui_textbox('dp_prefix', $line['settings']['prefix'], _('Prefix'), _("The Prefix for use in Contacts application."), '', '', true, 0, false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_first_name', $line['settings']['first_name'], _('First Name'), _("The First Name for use in Contacts application."), '', '', true, 0, false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_second_name', $line['settings']['second_name'], _('Middle Name'), _("The Middle Name for use in Contacts application."), '', '', true, 0, false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_last_name', $line['settings']['last_name'], _('Last Name'), _("The Last Name for use in Contacts application."), '', '', true, 0, false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_suffix', $line['settings']['suffix'], _('Suffix'), _("The Suffix for use in Contacts application."), '', '', true, 0, false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_organization', $line['settings']['organization'], _('Organization'), _("The Organization for use in Contacts application."), '', '', true, 0, false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_job_title', $line['settings']['job_title'], _('Job Title'), _("The Job Title for use in Contacts application."), '', '', true, 0, false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_location', $line['settings']['location'], _('Location'), _("The Location for use in Contacts application."), '', '', true, 0, false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_email', $line['settings']['email'], _('E-Mail Address'), _("The E-Mail Address for use in Contacts application."), '', '', true, 0, false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_notes', $line['settings']['notes'], _('Notes'), _("Notes about the user, for use in Contacts application."), '', '', true, 0, false));
+		$section = __("Digium Phones Contacts Options");
+		$currentcomponent->addguielem($section, new gui_textbox('dp_prefix', $line['settings']['prefix'], __('Prefix'), __("The Prefix for use in Contacts application."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_first_name', $line['settings']['first_name'], __('First Name'), __("The First Name for use in Contacts application."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_second_name', $line['settings']['second_name'], __('Middle Name'), __("The Middle Name for use in Contacts application."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_last_name', $line['settings']['last_name'], __('Last Name'), __("The Last Name for use in Contacts application."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_suffix', $line['settings']['suffix'], __('Suffix'), __("The Suffix for use in Contacts application."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_organization', $line['settings']['organization'], __('Organization'), __("The Organization for use in Contacts application."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_job_title', $line['settings']['job_title'], __('Job Title'), __("The Job Title for use in Contacts application."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_location', $line['settings']['location'], __('Location'), __("The Location for use in Contacts application."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_email', $line['settings']['email'], __('E-Mail Address'), __("The E-Mail Address for use in Contacts application."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_notes', $line['settings']['notes'], __('Notes'), __("Notes about the user, for use in Contacts application."), '', '', true, 0, false));
 
-		$section = _("Digium Phones Line Options");
-		$currentcomponent->addguielem($section, new gui_textbox('dp_line_label', $line['settings']['line_label'], _('Line Label'), _("The Line Label for this extension."), '', '', true, 0, false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_digit_map', $line['settings']['digit_map'], _('Digit Map'), _("The Digit Map for this extension."), '', '', true, 0, false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_voicemail_uri', $line['settings']['voicemail_uri'], _('Voicemail URI'), _("The Voicemail URI for this extension.  Note that setting this option on a phone's primary line will disable visual voicemail."), '', '', true, 0, false));
-		$currentcomponent->addoptlistitem('dp_transport', '', _("UDP (Default)"));
-		$currentcomponent->addoptlistitem('dp_transport', 'tcp', _("TCP"));
+		$section = __("Digium Phones Line Options");
+		$currentcomponent->addguielem($section, new gui_textbox('dp_line_label', $line['settings']['line_label'], __('Line Label'), __("The Line Label for this extension."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_digit_map', $line['settings']['digit_map'], __('Digit Map'), __("The Digit Map for this extension."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_voicemail_uri', $line['settings']['voicemail_uri'], __('Voicemail URI'), __("The Voicemail URI for this extension.  Note that setting this option on a phone's primary line will disable visual voicemail."), '', '', true, 0, false));
+		$currentcomponent->addoptlistitem('dp_transport', '', __("UDP (Default)"));
+		$currentcomponent->addoptlistitem('dp_transport', 'tcp', __("TCP"));
 		$currentcomponent->setoptlistopts('dp_transport', 'sort', false);
-		$currentcomponent->addguielem($section, new gui_selectbox('dp_transport', $currentcomponent->getoptlist('dp_transport'), $line['settings']['transport'], _('Transport'), _("The Transport for this extension."), false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_reregistration_timeout', $line['settings']['reregistration_timeout'], _('Re-registration TImeout'), _("The Re-registration Timeout for this extension."), '', '', true, 0, false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_registration_retry_interval', $line['settings']['registration_retry_interval'], _('Registration Retry Interval'), _("The Registration Retry Interval for this extension."), '', '', true, 0, false));
-		$currentcomponent->addguielem($section, new gui_textbox('dp_registration_max_retries', $line['settings']['registration_max_retries'], _('Registration Max Retries'), _("The Registration Max Retries for this extension."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_selectbox('dp_transport', $currentcomponent->getoptlist('dp_transport'), $line['settings']['transport'], __('Transport'), __("The Transport for this extension."), false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_reregistration_timeout', $line['settings']['reregistration_timeout'], __('Re-registration TImeout'), __("The Re-registration Timeout for this extension."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_registration_retry_interval', $line['settings']['registration_retry_interval'], __('Registration Retry Interval'), __("The Registration Retry Interval for this extension."), '', '', true, 0, false));
+		$currentcomponent->addguielem($section, new gui_textbox('dp_registration_max_retries', $line['settings']['registration_max_retries'], __('Registration Max Retries'), __("The Registration Max Retries for this extension."), '', '', true, 0, false));
 	}
 }
 

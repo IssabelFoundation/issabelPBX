@@ -6,28 +6,28 @@ global $db;
 $sql = "SELECT * FROM `queuemetrics_options` LIMIT 1";
 $check = $db->query($sql);
 if(!DB::IsError($check)) {
-	out(_("queuemetrics table already exists, exiting"));
+	out(__("queuemetrics table already exists, exiting"));
 } else {
 
 	unset($sql);
 	$sql[] = "CREATE TABLE IF NOT EXISTS `queuemetrics_options` (
-	                `keyword` VARCHAR(25),
-	                `value` TEXT,
-	                UNIQUE KEY `keyword` (`keyword`)
+	                `keyword` VARCHAR(25) UNIQUE,
+	                `value` TEXT
 	                )";
 	
 	foreach ($sql as $q) {
 	        $result = $db->query($q);
-	        if($db->IsError($result)){
-	                die_issabelpbx($result->getDebugInfo());
+            if($db->IsError($result)){
+	                //die_issabelpbx($result->getDebugInfo());
+	                die_issabelpbx('could not create table');
 	        }
 	}
 
-	outn(_("creating queuemetrics...ok"));
+	outn(__("creating queuemetrics...ok"));
 }
 
 // sysadmin migration
-outn(_("checking for ivr_logging field..."));
+outn(__("checking for ivr_logging field..."));
 $sql = "SELECT `keyword` FROM `queuemetrics_options` where `keyword` = 'ivr_logging'";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if($db->IsError($check) || empty($check)) {
@@ -37,8 +37,8 @@ if($db->IsError($check) || empty($check)) {
         if($db->IsError($result)) {
                 die_issabelpbx($result->getDebugInfo());
         }
-        out(_("OK"));
+        out(__("OK"));
 } else {
-        out(_("already exists"));
+        out(__("already exists"));
 }
 ?>

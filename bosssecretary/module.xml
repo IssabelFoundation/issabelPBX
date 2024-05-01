@@ -1,19 +1,21 @@
 <module>
-	<rawname>bosssecretary</rawname>
-	<name>Boss Secretary</name>
-	<version>1.1</version>
-	<changelog>
-		*1.1* Make it translatable
-		*1.0* Module changed to new dialpan. Module is now compatible with Asterisk 1.6X and newer with all BLF functionality.
-	</changelog>
+    <rawname>bosssecretary</rawname>
+    <name>Boss Secretary</name>
+    <version>1.22</version>
+    <changelog>
+        *1.2* Revised to work with IssabelPBX 2.12. Refactor code
+        *1.1* Make it translatable
+        *1.0* Module changed to new dialpan. Module is now compatible with Asterisk 1.6X and newer with all BLF functionality.
+    </changelog>
     <repo>extended</repo>
-	<publisher>Issabel Foundation</publisher>
-	<category>Applications</category>
+    <publisher>Issabel Foundation</publisher>
+    <category>Applications</category>
     <embedcategory>Internal Options &amp; Configuration</embedcategory>
-	<description>
-		The boss-secretary module creates a special ring group which includes one or more "bosses" and one or more secretaries". When someone calls the boss extension, the secretary (or secretaries) extension will ring only, allowing the secretary to answer his or her boss call. Only secretary ( or secretaries ) or "chief extensions" are authorized to call directly to boss extension. With feature code you can turn on or off secretary group. 
-	</description>
-	<menuitems>
-		<bosssecretary>Boss Secretary</bosssecretary>
-	</menuitems>
+    <description>
+        The boss-secretary module creates a special ring group which includes one or more "bosses" and one or more secretaries". When someone calls the boss extension, the secretary (or secretaries) extension will ring only, allowing the secretary to answer his or her boss call. Only secretary ( or secretaries ) or "chief extensions" are authorized to call directly to boss extension. With feature code you can turn on or off secretary group. 
+    </description>
+    <menuitems>
+        <bosssecretary>Boss Secretary</bosssecretary>
+    </menuitems>
+        <md5sum>0</md5sum>
 </module>

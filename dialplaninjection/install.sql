@@ -24,8 +24,10 @@ CREATE TABLE IF NOT EXISTS `dialplaninjection_commands` (
 
 CREATE TABLE IF NOT EXISTS `dialplaninjection_commands_list` (
   `id` INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `description` varchar(100) NOT NULL default '',
-  `command` text NOT NULL
+  `description` varchar(100) UNIQUE NOT NULL default '',
+  `command` text NOT NULL,
+  `info` VARCHAR(255) NULL, 
+  `url` VARCHAR(255) NULL
 );
 
 --

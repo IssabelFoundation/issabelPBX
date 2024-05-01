@@ -63,13 +63,13 @@ msgstr ""
 msgid "Edit Misc Destination"
 msgstr ""
 
-msgid "Description:"
+msgid "Description"
 msgstr ""
 
 msgid "Give this Misc Destination a brief name to help you identify it."
 msgstr ""
 
-msgid "Dial:"
+msgid "Dial"
 msgstr ""
 
 msgid ""

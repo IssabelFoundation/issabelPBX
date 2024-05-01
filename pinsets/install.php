@@ -27,11 +27,11 @@ foreach($sql as $q){
     die_issabelpbx("Can not create pinset tables\n".$check->getDebugInfo());
 	}
 }
-outn(_("checking if migration required.."));
+outn(__("checking if migration required.."));
 $sql = "SELECT `used_by` FROM pinsets WHERE used_by != ''";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(!DB::IsError($check)) {
-	outn(_("migrating.."));
+	outn(__("migrating.."));
   /* We need to now migrate from from the old format of dispname_id where the only supported dispname
      so far has been "routing" and the "id" used was the imperfect nnn-name. As it truns out, it was
      possible to have the same route name perfiously so we will try to detect that. This was really ugly
@@ -40,8 +40,8 @@ if(!DB::IsError($check)) {
   $sql = "SELECT * FROM pinsets";
   $pinsets = $db->getAll($sql, DB_FETCHMODE_ASSOC);
   if(DB::IsError($result)) { 
-    out(_("unknown error fetching table data"));
-    out(_("migration aborted"));
+    out(__("unknown error fetching table data"));
+    out(__("migration aborted"));
   } else {
     /* If there are any rows then lets get our route information. We will force this module to depend on
      * the new core, so we can count on the APIs being available. If there are indentical names, then
@@ -69,8 +69,8 @@ if(!DB::IsError($check)) {
         }
         if ($foreign_id === false) {
 	        out();
-          out(_("FAILED migrating route $lookup NOT FOUND"));
-	        outn(_("continuing.."));
+          out(__("FAILED migrating route $lookup NOT FOUND"));
+	        outn(__("continuing.."));
         } else {
           $pinset_usage[] = array($pinset['pinsets_id'],$dispname,$foreign_id);
         }
@@ -83,20 +83,20 @@ if(!DB::IsError($check)) {
     if(DB::IsError($result)) {
       out("FATAL: ".$result->getDebugInfo()."\n".'error inserting into pinsets_uage table');	
     } else {
-      out(_("done"));
+      out(__("done"));
 
-      outn(_("dropping used_by field.."));
+      outn(__("dropping used_by field.."));
       $sql = "ALTER TABLE `pinsets` DROP `used_by`";
       $result = $db->query($sql);
       if(DB::IsError($result)) { 
-        out(_("no used_by field???"));
+        out(__("no used_by field???"));
       } else {
-        out(_("ok"));
+        out(__("ok"));
       }
     }
   }
 } else {
-	out(_("already done"));
+	out(__("already done"));
 }
 
 ?>

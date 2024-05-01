@@ -4,10 +4,10 @@ global $db, $amp_conf;
 
 $autoincrement=(preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? "AUTOINCREMENT":"AUTO_INCREMENT";
 
-out(_('Adding directory tables if needed'));
+out(__('Adding directory tables if needed'));
 
 $sql[] = "CREATE TABLE IF NOT EXISTS directory_details (
-    id INT NOT NULL PRIMARY KEY $autoincrement,
+    id INTEGER PRIMARY KEY $autoincrement NOT NULL,
     dirname varchar(50),
     description varchar(150),    
     announcement INT,
@@ -24,6 +24,7 @@ $sql[] = "CREATE TABLE IF NOT EXISTS directory_details (
 
 $sql[] = "CREATE TABLE IF NOT EXISTS directory_entries (
     id INT NOT NULL,
+    e_id INTEGER,
     name varchar(50),
     type varchar(25),
     foreign_id varchar(25),
@@ -34,7 +35,7 @@ $sql[] = "CREATE TABLE IF NOT EXISTS directory_entries (
 foreach ($sql as $s) {
 	$do = $db->query($s);
 	if (DB::IsError($do)) {
-		out(_('Can not create table: ') . $check->getMessage());
+		out(__('Can not create table: ') . $do->getMessage());
 		return false;
 	}
 }
@@ -43,27 +44,27 @@ $sql = "SELECT say_extension FROM directory_details";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
   // add new field
-  outn(_("adding say_extension field to directory_details.."));
+  outn(__("adding say_extension field to directory_details.."));
   $sql = "ALTER TABLE directory_details ADD say_extension VARCHAR(5)";
   $result = $db->query($sql);
   if(DB::IsError($result)) { 
-    out(_("fatal error"));
+    out(__("fatal error"));
     die_issabelpbx($result->getDebugInfo()); 
   } else {
-    out(_("ok"));
+    out(__("ok"));
   }
 }
 
 $sql = "SELECT valid_recording FROM directory_details";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(!DB::IsError($check)) {
-	outn(_("dropping valid_details field.."));
+	outn(__("dropping valid_details field.."));
 	$sql = "ALTER TABLE `directory_details` DROP `valid_recording`";
  	$result = $db->query($sql);
  	if(DB::IsError($result)) { 
-		out(_("no valid_recording field???"));
+		out(__("no valid_recording field???"));
 	} else {
-		out(_("ok"));
+		out(__("ok"));
 	}
 }
 
@@ -78,9 +79,9 @@ if (count($res) == 0) {
 	$sql = 'ALTER TABLE directory_entries ADD COLUMN e_id INT AFTER id';
 	$do = $db->query($sql);
 	if(DB::IsError($do)) { 
-		out(_("cannot add field e_id to table directory_entries \n" . $do->getDebugInfo()));
+		out(__("cannot add field e_id to table directory_entries \n" . $do->getDebugInfo()));
 	} else {
-		out(_("e_id added to table directory_entries"));
+		out(__("e_id added to table directory_entries"));
 	}
 	//get ALL directory entires
 	$sql = 'SELECT * FROM directory_entries';
@@ -99,7 +100,7 @@ if (count($res) == 0) {
 		$sql = 'INSERT INTO directory_entries (id, e_id, name, type, foreign_id, audio, dial) VALUES (?, ?, ?, ?, ?, ?, ?)';
 		$do = $db->query($sql, $de[$d]);
 		if(DB::IsError($do)) { 
-			out(_('cannot set e_id for directory_id = ' . $e['id'] . '. Please resubmit this directory manually to correct this issue.'));
+			out(__('cannot set e_id for directory_id = ' . $e['id'] . '. Please resubmit this directory manually to correct this issue.'));
 		}
 	}
 }
@@ -125,7 +126,7 @@ if (!$migrated) {
 
 	//create a new directory if we have voicemail users
 	if (isset($vmusers) && $vmusers) {
-		out(_("Migrating Directory"));
+		out(__("Migrating Directory"));
 		//TODO: make this the default directory
 		$vals = array('Migrated Directory', '', '0', '', '', '2', 
 						'0', '0', 'app-blackhole,hangup,1', '', '1');
@@ -135,10 +136,10 @@ if (!$migrated) {
 					VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 		$new = $db->query($sql, $vals);
 		if(DB::IsError($new)) { 
-			die_issabelpbx(_('Error migrating to new directory! ERROR: Could not create new Directory.' . $new->getDebugInfo()));
+			die_issabelpbx(__('Error migrating to new directory! ERROR: Could not create new Directory.' . $new->getDebugInfo()));
 		}
 		//get the id of the new directory
-		$sql = ((preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
+		$sql = ( ($amp_conf["AMPDBENGINE"] == "sqlite3") ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
 		$newdir = $db->getOne($sql);
 		$dirdest = 'directory,' . $newdir  . ',1';
 	
@@ -151,13 +152,13 @@ if (!$migrated) {
 					VALUES (?, ?, ?, ?, ?)';
 			$q = $db->query($sql, $vals);
 			if(DB::IsError($q)) { 
-				die_issabelpbx(_('Error migrating to new directory! ERROR: Could not populate new Directory ' . $q->getDebugInfo()));
+				die_issabelpbx(__('Error migrating to new directory! ERROR: Could not populate new Directory ' . $q->getDebugInfo()));
 			}
 		}
 	
 		//set as default directory
 		if (!isset($def_dir) || !$def_dir) {
-			out(_("Setting migrated directory as default"));
+			out(__("Setting migrated directory as default"));
 			$sql = 'REPLACE INTO `admin` (`variable`, value) VALUES ("default_directory", ?)';
 			$db->query($sql, $newdir);
 		}
@@ -167,8 +168,8 @@ if (!$migrated) {
 	$migrated_dir = (isset($newdir) && $newdir != "") ? $newdir : 'true';
 	$q = $db->query("REPLACE INTO `admin` (`variable`, value) VALUES ('directory28_migrated', '$migrated_dir')");
 	if(DB::IsError($q)) { 
-		die_issabelpbx(_('Error migrating to new directory! ERROR: Unable to mark Directory as migrated. Migration will probably be run again at next install/upgrade of this module. ' . $q->getDebugInfo()));
+		die_issabelpbx(__('Error migrating to new directory! ERROR: Unable to mark Directory as migrated. Migration will probably be run again at next install/upgrade of this module. ' . $q->getDebugInfo()));
 	}
-	out(_('Migration Complete!'));
+	out(__('Migration Complete!'));
 }
 ?>

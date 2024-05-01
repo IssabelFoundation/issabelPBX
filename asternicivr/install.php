@@ -18,6 +18,6 @@ $set['description'] = "When enabled, IVR selections will be reported by Asternic
 $set['type'] = CONF_TYPE_BOOL;
 $issabelpbx_conf->define_conf_setting('IVR_REGISTER_OPTIONS_ASTERNIC',$set,true);
 
-out(_("done"));
+out(__("done"));
 
 ?>

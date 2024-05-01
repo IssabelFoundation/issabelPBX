@@ -1,11 +1,11 @@
-<h2><?php echo _('Analog Hardware')?></h2>
-<hr style="width: 75%; margin-left:0;" />
+<div class='box my-5'>
+<h2><?php echo __('Analog Hardware')?></h2>
 <table class="alt_table" id="digital_cards_table" cellpadding="5" cellspacing="1" border="0">
         <thead>
         <tr>
-                <th><?php echo _('Type')?></th>
-                <th><?php echo _('Ports')?></th>
-                <th><?php echo _('Action')?></th>
+                <th><?php echo __('Type')?></th>
+                <th><?php echo __('Ports')?></th>
+                <th><?php echo __('Action')?></th>
         </tr>
         </thead>
         <tbody>
@@ -14,7 +14,7 @@
 		$fxs = $dahdi_cards->get_fxs_ports();
 	?>
 	<tr>
-		<td><?php echo sprintf(_('%s Ports'),'FXO')?></td>
+		<td><?php echo sprintf(__('%s Ports'),'FXO')?></td>
 		<td><?php
 		$c = count($fxo);
 		if($c) {
@@ -28,12 +28,13 @@
 	        echo "--";
 	    }
 		?></td>
-		<td><?php echo ((count($fxo))?'<a href="#" onclick="dahdi_modal_settings(\'analog\',\'fxo\');">'._('Edit').'</a>':'')?></td>
+		<td><?php echo ((count($fxo))?'<a href="#" onclick="dahdi_modal_settings(\'analog\',\'fxo\');">'.__('Edit').'</a>':'')?></td>
 	</tr>
 	<tr>
-		<td><?php echo sprintf(_('%s Ports'),'FXS')?></td>
+		<td><?php echo sprintf(__('%s Ports'),'FXS')?></td>
 		<td><?php echo ((count($fxs))?implode(',', $fxs):'--')?></td>
-		<td><?php echo ((count($fxs))?'<a href="#" onclick="dahdi_modal_settings(\'analog\',\'fxs\');">'._('Edit').'</a>':'')?></td>
+		<td><?php echo ((count($fxs))?'<a href="#" onclick="dahdi_modal_settings(\'analog\',\'fxs\');">'.__('Edit').'</a>':'')?></td>
 	</tr>
         </tbody>
 </table>
+</div>

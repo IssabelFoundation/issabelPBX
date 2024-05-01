@@ -50,7 +50,7 @@ msgstr ""
 "Это крайне рекомендуется т.к. mp3 файлы сильно нагружают систему и могут привести "
 "к ее не стабильной работе"
 
-msgid "Add Music Category"
+msgid "Add Music on Hold Category"
 msgstr "Добавить категорию музыки"
 
 msgid "Add Streaming Category"
@@ -71,7 +71,7 @@ msgstr ""
 msgid "On Hold Music"
 msgstr "Музыка в ожидании"
 
-msgid "Category Name:"
+msgid "Category Name"
 msgstr "Название категории:"
 
 msgid ""
@@ -140,7 +140,7 @@ msgstr "Удалить категорию потокового вещания"
 msgid "Edit Streaming Category"
 msgstr "Редактировать категорию потокового вещания"
 
-msgid "Upload a .wav or .mp3 file:"
+msgid "Upload a .wav or .mp3 file"
 msgstr "Загрузить файл .wav или .mp3:"
 
 msgid "Upload"

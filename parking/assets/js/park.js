@@ -24,29 +24,28 @@ $(function() {
             }
         }
         
-        $('#parkform').submit(function() {
+        $('#mainform').on('submit',function() {
             if(!$('#parkext').val()) {
-                alert('Parking Lot Extension can not be blank!');
-                return false;
+                return warnInvalid($('#parkext')[0], ipbx.msg.framework.notblank);
             }
             if(!$('#name').val()) {
-                alert('Parking Lot Name can not be blank!');
-                return false;
+                return warnInvalid($('#name')[0], ipbx.msg.framework.notblank);
             }
             if(!$('#parkpos').val()) {
-                alert('Parking Lot Starting Position can not be blank!');
-                return false;
+                return warnInvalid($('#parkpos')[0], ipbx.msg.framework.notblank);
             }
 			
 			if(!$('#goto0').val()) {
-				alert('You must select a valid destination')
+                return warnInvalid($('goto0')[0], ipbx.msg.framework.validateSingleDestination.required);
 				return false;
 			}
+            $.LoadingOverlay('show');
+            return true;
         });
     }
     
     $('input[type=text][name=parkext],input[type=text][name=parkpos],input[type=number][name=numslots]')
-    .after(" <span style='display:none'><a href='#'><img src='images/notify_critical.png'/></a></span>").bind("keyup change", function(){
+    .after(" <span style='display:none'><a href='javascript:void(0)'><i class='fa fa-exclamation-circle has-text-danger-dark'></i></a></span>").on("keyup change", function(){
         //Recalc
         var new_parkext = Number($('#parkext').val());        
         var new_parkpos = Number($('#parkpos').val());
@@ -59,11 +58,11 @@ $(function() {
             switch(true) {
                 case new_parkext == i:
                     var type = this.id == 'parkext' ? 'Parking Slot: ' : 'Parking Lot Extension: ';
-                    $(this).addClass('duplicate-exten').next('span').not('#slotslist').show().children('a').attr('title',type+i);
+                    $(this).addClass('duplicate-exten').next('span').not('#slotslist').show().children('a').attr('data-tooltip',type+i);
                     reset = false
                     break;
                 case (typeof extmap[i] != "undefined"):
-                    $(this).addClass('duplicate-exten').next('span').not('#slotslist').show().children('a').attr('title',extmap[i]);
+                    $(this).addClass('duplicate-exten').next('span').not('#slotslist').show().children('a').attr('data-tooltip',extmap[i]);
                     reset = false
                     break;
                 default:
@@ -83,11 +82,11 @@ $(function() {
         }
         switch(true) {
             case (new_parkext == this.id) && (this.id != 'parkext'):
-                $(this).addClass('duplicate-exten').next('span').not('#slotslist').show().children('a').attr('title','Parking Lot Extension: '+i);
+                $(this).addClass('duplicate-exten').next('span').not('#slotslist').show().children('a').attr('data-tooltip','Parking Lot Extension: '+i);
                 reset = false
                 break;
             case (typeof extmap[this.value] !== "undefined"):
-                $(this).addClass('duplicate-exten').next('span').not('#slotslist').show().children('a').attr('title',extmap[this.value]);
+                $(this).addClass('duplicate-exten').next('span').not('#slotslist').show().children('a').attr('data-tooltip',extmap[this.value]);
                 reset = false
                 break;
             default:

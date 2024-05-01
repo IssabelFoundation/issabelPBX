@@ -1,157 +1,149 @@
  <?php /* $Id */
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
-//    License for all code of this IssabelPBX module can be found in the license file inside the module directory
-//    Copyright 2013 Schmooze Com Inc.
-//
-$tabindex = 0;
-$action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
-$itemid = isset($_REQUEST['itemid'])?$_REQUEST['itemid']:'';
-$dispnum = "disa"; //used for switch on config.php
+//  License for all code of this IssabelPBX module can be found in the license file inside the module directory
+//  Copyright 2013 Schmooze Com Inc.
+//  Copyright 2022 Issabel Foundation
 
-//if submitting form, update database
+$tabindex = 0;
+$action   = isset($_REQUEST['action'])?$_REQUEST['action']:'';
+$itemid   = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
+$dispnum  = "disa";
+
 switch ($action) {
     case "add":
         $_REQUEST['itemid'] = disa_add($_POST);
         needreload();
-        redirect_standard('itemid');
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
+        $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
+        redirect_standard();
     break;
     case "delete":
         $oldItem = disa_get($itemid);
         disa_del($itemid);
         needreload();
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
+        $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
         redirect_standard();
     break;
     case "edit":  //just delete and re-add
         disa_edit($itemid,$_POST);
         needreload();
-        redirect_standard('itemid');
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
+        redirect_standard('extdisplay');
     break;
 }
 
-
 $disas = disa_list();
+$rnavitems=array();
+foreach($disas as $d) {
+    $rnavitems[]=array($d['disa_id'],$d['displayname'],'');
+}
+drawListMenu($rnavitems, $type, $display, $extdisplay);
 ?>
 
-<div class="rnav"><ul>
-        <li><a class="<?php echo ($itemid=='' ? 'current':'std') ?>" href="config.php?display=<?php echo urlencode($dispnum)?>"><?php echo _("Add DISA") ?></a></li>
+<div class='content'>
+
 <?php
-if (isset($disas)) {
-    foreach ($disas as $d) {
-        echo "<li><a class=\"".($itemid==$d['disa_id'] ? 'current':'std')."\" href=\"config.php?display=".urlencode($dispnum)."&itemid=".urlencode($d['disa_id'])."\">{$d['displayname']} ({$d['disa_id']})</a></li>";
+
+$thisItem = disa_get($itemid);
+
+if(is_null($thisItem)) {
+    $thisItem['hangup']='';
+    $thisItem['needconf']='';
+    $thisItem['keepcid']=1;
+}
+
+$helptext = __('DISA is used to allow people from the outside world to call into your PBX and then be able to dial out of the PBX so it appears that their call is coming from the office which can be handy when traveling. You can set a destination in an IVR that points to the DISA or set a DID. Make sure you password protect this to keep people from dialing in and using your PBX to make calls out.');
+$help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
+
+echo "<div class='is-flex'><h2>".($itemid ? __('Edit DISA').': '.$thisItem["displayname"] : __("Add DISA"))."</h2>$help</div>\n";
+
+if ($itemid) {
+    $usage_list = framework_display_destination_usage(disa_getdest($itemid));
+    if (!empty($usage_list)) {
+        echo "<div class='tag is-success is-light ml-2'><a href='#' class='info'>${usage_list['text']}:<span>${usage_list['tooltip']}</span></a></div>";
     }
 }
+// Get hangup code for tooltip
+//
+$fcc = new featurecode('core', 'disconnect');
+$hangup_code = $fcc->getCodeActive();
+unset($fcc);
+if ($hangup_code == "") {
+    $hangup_code = '*';
+}
 ?>
-</ul></div>
+<form autocomplete="off" id="mainform" name="edit" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return edit_onsubmit(this);">
+<input type="hidden" name="display" value="<?php echo $dispnum?>">
+<input type="hidden" name="action" value="<?php echo ($itemid ? 'edit' : 'add') ?>">
+<input type="hidden" name="deptname" value="<?php echo $_SESSION["AMP_user"]->_deptname ?>">
+<table class='table is-borderless is-narrow'>
 
-<?php
+<tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
 
-if ($action == 'delete') {
-    echo '<br><h3>DISA '.$oldItem["displayname"].' '._("deleted").'!</h3>';
-} else {
-    //get details for this time condition
-    $thisItem = disa_get($itemid);
+<tr>
+    <td><a href="#" class="info"><?php echo __("DISA name:")?><span><?php echo __("Give this DISA a brief name to help you identify it.")?></span></a></td>
+    <td><input autofocus type="text" name="displayname" value="<?php echo htmlspecialchars(isset($thisItem['displayname']) ? $thisItem['displayname'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'></td>
+</tr>
+<tr>
+    <td><a href="#" class="info"><?php echo __("PIN"); ?><span><?php echo __("The user will be prompted for this number.")." ".__("If you wish to have multiple PIN's, separate them with commas"); ?></span></a></td>
+    <td><input type="text" name="pin" value="<?php echo htmlspecialchars(isset($thisItem['pin']) ? $thisItem['pin'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'></td>
+</tr>
+<tr>
+    <td><a href="#" class="info"><?php echo __("Response Timeout"); ?><span><?php echo __("The maximum amount of time it will wait before hanging up if the user has dialed an incomplete or invalid number. Default of 10 seconds"); ?></span></a></td>
+    <td><input type="text" name="resptimeout" value="<?php echo htmlspecialchars(isset($thisItem['resptimeout']) ? $thisItem['resptimeout'] : '10'); ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'></td>
+</tr>
+<tr>
+    <td><a href="#" class="info"><?php echo __("Digit Timeout"); ?><span><?php echo __("The maximum amount of time permitted between digits when the user is typing in an extension. Default of 5"); ?></span></a></td>
+    <td><input type="text" name="digittimeout" value="<?php echo htmlspecialchars(isset($thisItem['digittimeout']) ? $thisItem['digittimeout'] : '5'); ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'></td>
+</tr>
+<tr>
+    <td><a href="#" class="info"><?php echo __("Require Confirmation"); ?><span><?php echo __("Require Confirmation before prompting for password. Used when your PSTN connection appears to answer the call immediately"); ?></span></a></td>
+    <td>
+        <?php echo ipbx_yesno_checkbox("needconf",$thisItem['needconf'],false); ?>
+    </td>
+</tr>
+<tr>
+    <td><a href="#" class="info"><?php echo __("Caller ID"); ?><span><?php echo __("(Optional) When using this DISA, the users CallerID will be set to this. Format is \"User Name\" <5551234>"); ?></span></a></td>
+    <td><input type="text" name="cid" value="<?php echo htmlspecialchars(isset($thisItem['cid']) ? $thisItem['cid'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'></td>
+</tr>
+<tr>
+    <td><a href="#" class="info"><?php echo __("Context"); ?><span><?php echo __("(Experts Only) Sets the context that calls will originate from. Leave this as from-internal unless you know what you're doing."); ?></span></a></td>
+    <td><input type="text" name="context" value="<?php echo htmlspecialchars(isset($thisItem['context']) ? $thisItem['context'] : 'from-internal'); ?>" tabindex="<?php echo ++$tabindex;?>" class='input w100'></td>
+</tr>
+<tr>
+    <td><a href="#" class="info"><?php echo __("Allow Hangup"); ?><span><?php echo sprintf(__("Allow the current call to be disconnected and dial tone presented for a new call by pressing the Hangup feature code: %s while in a call"),$hangup_code); ?></span></a></td>
+    <td>
+        <?php echo ipbx_yesno_checkbox("hangup",$thisItem['hangup'],false); ?>
+    </td>
+</tr>
+<tr>
+    <td><a href="#" class="info"><?php echo __("Caller ID Override"); ?><span><?php echo __("Determine if we keep the Caller ID being presented or if we override it. Default is Enable"); ?></span></a></td>
+    <td>
+        <?php echo ipbx_radio('keepcid',array(array('value'=>'0','text'=>__('Disable')),array('value'=>'1','text'=>__('Enable'))),$thisItem['keepcid'],false); ?>
+    </td>
+</tr>
+</table>
+</form>
 
-    if(is_null($thisItem)) {
-        $thisItem['hangup']='';
-        $thisItem['needconf']='';
-        $thisItem['keepcid']='';
-    }
+<script>
 
-    echo "<h2>".($itemid ? "DISA: ".$thisItem["displayname"]." ($itemid)" : _("Add DISA"))."</h2>\n";
-
-    echo "<p>"._('DISA is used to allow people from the outside world to call into your PBX and then be able to dial out of the PBX so it appears that their call is coming from the office which can be handy when traveling. You can set a destination in an IVR that points to the DISA or set a DID. Make sure you password protect this to keep people from dialing in and using your PBX to make calls out.')."</p>\n"; 
-
-    if ($itemid) {
-        $delURL = $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'].'&action=delete';
-        $tlabel = sprintf(_("Delete DISA %s"),$thisItem["displayname"]);
-        $label = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="images/core_delete.png"/>&nbsp;'.$tlabel.'</span>';
-        echo "<a href='$delURL'>$label</a>";
-        $usage_list = framework_display_destination_usage(disa_getdest($itemid));
-        if (!empty($usage_list)) {
-            echo "<br /><a href='#' class='info'>${usage_list['text']}:<span>${usage_list['tooltip']}</span></a>";
-        }
-    }
-    // Get hangup code for tooltip
-    //
-    $fcc = new featurecode('core', 'disconnect');
-    $hangup_code = $fcc->getCodeActive();
-    unset($fcc);
-    if ($hangup_code == "") {
-        $hangup_code = '*';
-    }
-?>
-    <form autocomplete="off" name="edit" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return edit_onsubmit();">
-    <input type="hidden" name="display" value="<?php echo $dispnum?>">
-    <input type="hidden" name="action" value="<?php echo ($itemid ? 'edit' : 'add') ?>">
-    <input type="hidden" name="deptname" value="<?php echo $_SESSION["AMP_user"]->_deptname ?>">
-    <table>
-    <tr><td colspan="2"><h5><?php echo ($itemid ? _("Edit DISA") : _("Add DISA")) ?></h5></td></tr>
-
-    <tr>
-        <td><a href="#" class="info"><?php echo _("DISA name:")?><span><?php echo _("Give this DISA a brief name to help you identify it.")?></span></a></td>
-
-        <td><input type="text" name="displayname" value="<?php echo htmlspecialchars(isset($thisItem['displayname']) ? $thisItem['displayname'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
-    </tr>
-    <tr>
-        <td><a href="#" class="info"><?php echo _("PIN"); ?><span><?php echo _("The user will be prompted for this number.")." "._("If you wish to have multiple PIN's, separate them with commas"); ?></span></a></td>
-        <td><input type="text" name="pin" value="<?php echo htmlspecialchars(isset($thisItem['pin']) ? $thisItem['pin'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
-    </tr>
-    <tr>
-        <td><a href="#" class="info"><?php echo _("Response Timeout"); ?><span><?php echo _("The maximum amount of time it will wait before hanging up if the user has dialed an incomplete or invalid number. Default of 10 seconds"); ?></span></a></td>
-        <td><input type="text" name="resptimeout" value="<?php echo htmlspecialchars(isset($thisItem['resptimeout']) ? $thisItem['resptimeout'] : '10'); ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
-    </tr>
-    <tr>
-        <td><a href="#" class="info"><?php echo _("Digit Timeout"); ?><span><?php echo _("The maximum amount of time permitted between digits when the user is typing in an extension. Default of 5"); ?></span></a></td>
-        <td><input type="text" name="digittimeout" value="<?php echo htmlspecialchars(isset($thisItem['digittimeout']) ? $thisItem['digittimeout'] : '5'); ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
-    </tr>
-    <tr>
-        <td><a href="#" class="info"><?php echo _("Require Confirmation"); ?><span><?php echo _("Require Confirmation before prompting for password. Used when your PSTN connection appears to answer the call immediately"); ?></span></a></td>
-        <td><input type="checkbox" name="needconf" value="CHECKED" <?php echo $thisItem['needconf'] ?>   tabindex="<?php echo ++$tabindex;?>"/></td>
-    </tr>
-    <tr>
-        <td><a href="#" class="info"><?php echo _("Caller ID"); ?><span><?php echo _("(Optional) When using this DISA, the users CallerID will be set to this. Format is \"User Name\" <5551234>"); ?></span></a></td>
-        <td><input type="text" name="cid" value="<?php echo htmlspecialchars(isset($thisItem['cid']) ? $thisItem['cid'] : ''); ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
-    </tr>
-    <tr>
-        <td><a href="#" class="info"><?php echo _("Context"); ?><span><?php echo _("(Experts Only) Sets the context that calls will originate from. Leave this as from-internal unless you know what you're doing."); ?></span></a></td>
-        <td><input type="text" name="context" value="<?php echo htmlspecialchars(isset($thisItem['context']) ? $thisItem['context'] : 'from-internal'); ?>" tabindex="<?php echo ++$tabindex;?>" class='w100'></td>
-    </tr>
-    <tr>
-        <td><a href="#" class="info"><?php echo _("Allow Hangup"); ?><span><?php echo sprintf(_("Allow the current call to be disconnected and dial tone presented for a new call by pressing the Hangup feature code: %s while in a call"),$hangup_code); ?></span></a></td>
-        <td><input type="checkbox" name="hangup" value="CHECKED" <?php echo $thisItem['hangup'] ?>   tabindex="<?php echo ++$tabindex;?>"/></td>
-    </tr>
-                <tr>
-        <td><a href="#" class="info"><?php echo _("Caller ID Override"); ?><span><?php echo _("Determine if we keep the Caller ID being presented or if we override it. Default is Enable"); ?></span></a></td>
-                                <td>
-            <span class="radioset">
-                <input type="radio" name="keepcid" id="keepcid0" tabindex="" value="0" <?php echo (isset($thisItem['keepcid']) && $thisItem['keepcid']!=true)?'CHECKED':''; ?>><label for="keepcid0"><?php echo _('Disable');?></label>
-                <input type="radio" name="keepcid" id="keepcid1" tabindex="" value="1" <?php echo ($thisItem['keepcid'] || !isset($thisItem['keepcid']))?'CHECKED':''; ?>><label for="keepcid1"><?php echo _('Enable');?></label>
-            </span>
-        </td>
-    </tr>
-    <tr>
-                                <td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
-                </tr>
-                </table>
-
-<script language="javascript">
-<!--
-
-var theForm = document.edit;
-theForm.displayname.focus();
-
-function edit_onsubmit() {
-    var msgInvalidDISAName = "<?php echo _('Please enter a valid DISA Name'); ?>";
-    var msgInvalidDISAPIN = "<?php echo _('Please enter a valid DISA PIN'); ?>";
-    var msgInvalidCID = "<?php echo _('Please enter a valid Caller ID or leave it blank'); ?>";
-    var msgInvalidContext = "<?php echo _('Context cannot be blank'); ?>";
+function edit_onsubmit(theForm) {
+    var msgInvalidDISAName = "<?php echo __('Please enter a valid DISA Name'); ?>";
+    var msgInvalidDISAPIN = "<?php echo __('Please enter a valid DISA PIN'); ?>";
+    var msgInvalidCID = "<?php echo __('Please enter a valid Caller ID or leave it blank'); ?>";
+    var msgInvalidContext = "<?php echo __('Context cannot be blank'); ?>";
 
     defaultEmptyOK = false;
 
     <?php if (function_exists('module_get_field_size')) { ?>
         var sizeDisplayName = "<?php echo module_get_field_size('disa', 'displayname', 50); ?>";
         if (!isCorrectLength(theForm.displayname.value, sizeDisplayName))
-            return warnInvalid(theForm.displayname, "<?php echo _('The DISA Name provided is too long.'); ?>")
+            return warnInvalid(theForm.displayname, "<?php echo __('The DISA Name provided is too long.'); ?>")
     <?php } ?>
 
     if (!isAlphanumeric(theForm.displayname.value))
@@ -169,13 +161,13 @@ function edit_onsubmit() {
     if (isEmpty(theForm.context.value))
         return warnInvalid(theForm.context, msgInvalidContext);
 
+    $.LoadingOverlay('show');
     return true;
 }
 
-//-->
+<?php echo js_display_confirmation_toasts(); ?>
 </script>
 
-    </form>
-<?php
-}
-?>
+</div> <!-- end div content, be sure to include script tags before -->
+
+<?php echo form_action_bar($extdisplay); ?>

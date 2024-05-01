@@ -44,12 +44,12 @@ function donotdisturb_get_config($engine) {
 			// Create hints context for DND codes so a device can subscribe to the DND state
 			//
 			if ($amp_conf['USEDEVSTATE'] && $dnd_code != '') {
-				$ext->addInclude('from-internal-additional','ext-dnd-hints');
+				$ext->addInclude('from-internal-additional','ext-dnd-hints',_dgettext('donotdisturb','DND hints'));
 				$contextname = 'ext-dnd-hints';
 				$device_list = core_devices_list("all", 'full', true);
 				if(is_array($device_list)) {
 					foreach ($device_list as $device) {
-    			      if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
+    			      if ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip') {
 						  $ext->add($contextname, $dnd_code.$device['id'], '', new ext_goto("1",$dnd_code,"app-dnd-toggle"));
 						  $ext->addHint($contextname, $dnd_code.$device['id'], "Custom:DEVDND".$device['id']);
 			          }
@@ -70,7 +70,7 @@ function donotdisturb_dnd_on($c) {
 
 	$id = "app-dnd-on"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('donotdisturb','DND Activate')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
@@ -109,7 +109,7 @@ function donotdisturb_dnd_off($c) {
 
 	$id = "app-dnd-off"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('donotdisturb','DND Deactivate')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
@@ -147,7 +147,7 @@ function donotdisturb_dnd_toggle($c) {
 	$DEVSTATE = $amp_conf['AST_FUNC_DEVICE_STATE'];
 
 	$id = "app-dnd-toggle"; // The context to be included
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('donotdisturb','DND Toggle')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));

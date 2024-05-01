@@ -14,7 +14,7 @@ $stats_value = 6;
 $info_value = 30;
 
 if ($issabelpbx_conf->conf_setting_exists('DASHBOARD_STATS_UPDATE_TIME') || $issabelpbx_conf->conf_setting_exists('DASHBOARD_INFO_UPDATE_TIME')) {
-  $full_settings =& $issabelpbx_conf->get_conf_settings();
+  $full_settings = $issabelpbx_conf->get_conf_settings();
 
   if ($full_settings['DASHBOARD_STATS_UPDATE_TIME']['type'] != CONF_TYPE_SELECT) {
     $old_val = $full_settings['DASHBOARD_STATS_UPDATE_TIME']['value'];
@@ -27,7 +27,7 @@ if ($issabelpbx_conf->conf_setting_exists('DASHBOARD_STATS_UPDATE_TIME') || $iss
       $stats_value = $val;
     }
     if ($stats_value != $old_val) {
-      out(sprintf(_("%s changed from %s to %s"),'DASHBOARD_STATS_UPDATE_TIME',$old_val,$stats_value));
+      out(sprintf(__("%s changed from %s to %s"),'DASHBOARD_STATS_UPDATE_TIME',$old_val,$stats_value));
     }
   }
   if ($full_settings['DASHBOARD_INFO_UPDATE_TIME']['type'] != CONF_TYPE_SELECT) {
@@ -41,7 +41,7 @@ if ($issabelpbx_conf->conf_setting_exists('DASHBOARD_STATS_UPDATE_TIME') || $iss
       $info_value = $val;
     }
     if ($info_value != $old_val) {
-      out(sprintf(_("%s changed from %s to %s"),'DASHBOARD_INFO_UPDATE_TIME',$old_val,$info_value));
+      out(sprintf(__("%s changed from %s to %s"),'DASHBOARD_INFO_UPDATE_TIME',$old_val,$info_value));
     }
   }
   unset($full_settings);
@@ -91,7 +91,7 @@ $set['module'] = 'dashboard';
 $set['category'] = 'System Setup';
 $set['emptyok'] = 1;
 $set['name'] = 'Dashboard Non-Std SSH Port';
-$set['description'] = 'SSH port number configured on your system if not using the default port 22, this allows the dashboard monitoring to watch the poper port.';
+$set['description'] = 'SSH port number configured on your system if not using the default port 22, this allows the dashboard monitoring to watch the proper port.';
 $set['type'] = CONF_TYPE_INT;
 $issabelpbx_conf->define_conf_setting('SSHPORT',$set);
 

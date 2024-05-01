@@ -14,18 +14,21 @@ $email = isset($_REQUEST['email'])?$_REQUEST['email']:'';
 ?>
 <p>
 <?php
-	echo "<table cellpadding=5><tr><td colspan=3><div class='content'><h2>"._("Weak Password Detection")."</h2></td></tr>\n";
-	echo "<tr><td><b>"._("Type")."</b></td><td><b>"._("Name")."</b></td><td><b>"._("Secret")."</b></td><td><b>"._("Message")."</b></td></tr>";
+    $helptext = __("This module detects weak SIP secrets and sets security notifications accordingly");
+    $help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
+
+	echo "<table class='table'><tr><td colspan=4><div class='content'><div class='is-flex'><h2>".__("Weak Password Detection")."</h2>$help</div></td></tr>\n";
+	echo "<tr><td><b>".__("Type")."</b></td><td><b>".__("Name")."</b></td><td><b>".__("Secret")."</b></td><td><b>".__("Message")."</b></td></tr>";
 	$weak = weakpasswords_get_users();
 	if(sizeof($weak) > 0)  {
 		foreach ($weak as $details) {
 			echo '<tr><td>'.$details['deviceortrunk'].'</td><td>'.$details['name'].'</td><td>'.$details['secret'].'</td><td>'.$details['message']."</td></tr>";
 		}
 	} else  {
-		echo "<tr><td colspan=3>"._("No weak secrets detected on this system.")."</td></tr>";
+		echo "<tr><td colspan=4>".__("No weak secrets detected on this system.")."</td></tr>";
 	}
 	// implementation of module hook
-	// object was initialized in config.php
-	echo $module_hook->hookHtml;
+    // object was initialized in config.php
+    echo process_tabindex($module_hook->hookHtml,$tabindex);
 ?>
 	</table>

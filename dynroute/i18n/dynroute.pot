@@ -14,7 +14,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-#    This file was originally a derived work of the freepbx ivr 
+#    This file was originally a derived work of the issabelpbx ivr 
 #    and calleridlookup modules in September 2009
 #, fuzzy
 msgid ""
@@ -199,4 +199,13 @@ msgid "Invalid destination"
 msgstr ""
 
 msgid "Leave blank to remove"
+msgstr ""
+
+msgid "Enter a name for this dynamic route"
+msgstr ""
+
+msgid "Add Dynamic Route"
+msgstr ""
+
+msgid "Edit Dynamic Route"
 msgstr ""

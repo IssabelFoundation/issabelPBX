@@ -155,17 +155,17 @@ timeconditions_updatedb();
  */
 // sqlite3 support as of 2.5 has correct table structure built into the CREATE
 if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
-	outn(_("converting timeconditions time field to int.."));
+	outn(__("converting timeconditions time field to int.."));
 	$sql = "ALTER TABLE `timeconditions` CHANGE `time` `time` INT (11)";
 	$results = $db->query($sql);
 	if(DB::IsError($results)) {
-		out(_("ERROR: failed to convert field ").$results->getMessage());
+		out(__("ERROR: failed to convert field ").$results->getMessage());
 	} else {
-		out(_("OK"));
+		out(__("OK"));
 	}
 }
 
-outn(_("checking for generate_hint field.."));
+outn(__("checking for generate_hint field.."));
 $sql = "SELECT `generate_hint` FROM timeconditions";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
@@ -175,14 +175,14 @@ if(DB::IsError($check)) {
 	if(DB::IsError($result)) {
 		die_issabelpbx($result->getDebugInfo());
 	}
-	out(_("OK"));
+	out(__("OK"));
 } else {
-	out(_("already exists"));
+	out(__("already exists"));
 }
 
   // Generate feature codes for all configured time conditions in case this is being transitioned
   //
-outn(_("generating feature codes if needed.."));
+outn(__("generating feature codes if needed.."));
 $results = sql("SELECT timeconditions_id, displayname FROM timeconditions","getAll",DB_FETCHMODE_ASSOC);
 if (is_array($results)) foreach ($results as $item) {
   $id = $item['timeconditions_id'];
@@ -191,7 +191,7 @@ if (is_array($results)) foreach ($results as $item) {
   if ($displayname) {
     $fcc->setDescription("$id: $displayname");
   } else {
-    $fcc->setDescription($id._(": Time Condition Override"));
+    $fcc->setDescription($id.__(": Time Condition Override"));
   }
   $fcc->setDefault('*27'.$id);
   $fcc->update();
@@ -203,7 +203,7 @@ $fcc->setDescription("All: Time Condition Override");
 $fcc->setDefault('*27');
 $fcc->update();
 unset($fcc);	
-out(_("OK"));
+out(__("OK"));
 
 
 // bring db up to date on install/upgrade
@@ -211,25 +211,25 @@ out(_("OK"));
 function timeconditions_updatedb() {
 	$ver = modules_getversion('timeconditions');
 	if ($ver !== null && version_compare_issabel($ver,'2.5','lt')) { 
-		outn(_("Checking for old timeconditions to upgrade.."));
+		outn(__("Checking for old timeconditions to upgrade.."));
 		$upgradelist = timeconditions_list_forupgrade();
 		if (isset($upgradelist)) { 
 			// we have old conditions to upgrade
 			//
-			out(_("starting migration"));
+			out(__("starting migration"));
 			foreach($upgradelist as $upgrade) {
 				$times[] = $upgrade['time'];
 				$newid = _timeconditions_timegroups_add_group_timestrings('migrated-'.$upgrade['displayname'],$times);
 				timeconditions_set_timegroupid($upgrade['timeconditions_id'],$newid);
 				$newtimes = _timeconditions_timegroups_get_times($newid);
-				out(sprintf(_("Upgraded %s and created group %s"), $upgrade['displayname'], 'migrated-'.$upgrade['displayname']));
+				out(sprintf(__("Upgraded %s and created group %s"), $upgrade['displayname'], 'migrated-'.$upgrade['displayname']));
 				if (!is_array($newtimes)) {
-					out(sprintf(_("%sWARNING:%s No time defined for this condition, please review"),"<font color='red'>","</font>"));
+					out(sprintf(__("%sWARNING:%s No time defined for this condition, please review"),"<font color='red'>","</font>"));
 				}
 				unset($times);
 			}
 		} else {
-			out(_("no upgrade needed"));
+			out(__("no upgrade needed"));
 		}
 	}
 }

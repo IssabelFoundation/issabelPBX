@@ -24,6 +24,16 @@ fi
 
 # get settings from db/config file
 
+if [ -f /etc/amportal.conf ]; then
+eval `grep ^LANGUAGE /etc/amportal.conf`
+else
+	LANGUAGE=en_US
+fi
+
+function echotr() {
+TEXTDOMAIN=amp TEXTDOMAINDIR=/var/www/html/admin/i18n LC_ALL=$LANGUAGE.UTF-8 gettext "$1"
+}
+
 if [[ -e $ISSABELPBX_CONF && -w "/etc/amportal.conf" && -z "$FORCE_AMPORTAL_CONF" ]]; then        # Check if file exists.
 
 	php -r > /dev/null 2>&1
@@ -47,23 +57,29 @@ if [[ -e $ISSABELPBX_CONF && -w "/etc/amportal.conf" && -z "$FORCE_AMPORTAL_CONF
 		}
 		'`
 	elif [ -e "/var/lib/asterisk/bin/gen_amp_conf.php" ]; then
-		echo "Fetching IssabelPBX settings with gen_amp_conf.php.."
+		echotr "Fetching IssabelPBX settings with gen_amp_conf.php.."
+		echo
 		`/var/lib/asterisk/bin/gen_amp_conf.php`
 	elif [ -e "/etc/amportal.conf" ]; then # Check if file exists.
-		echo "Fetching settings from amportal.conf file.."
+		echotr "Fetching settings from amportal.conf file.."
+		echo
 		. /etc/amportal.conf
 	else
 		echo;
-		echo "IssabelPBX settings could not be fetched and no backup config file found!";
-		echo "Have you installed IssabelPBX?";
+		echotr "IssabelPBX settings could not be fetched and no backup config file found!";
+		echo
+		echotr "Have you installed IssabelPBX?";
+		echo
 		exit;
 	fi
 elif [ -e "/etc/amportal.conf" ]; then # Check if file exists.
 	. /etc/amportal.conf
 else 
 	echo;
-	echo "IssabelPBX config file not found!";
-	echo "Have you installed IssabelPBX?";
+	echotr "IssabelPBX config file not found!";
+	echo
+	echotr "Have you installed IssabelPBX?";
+	echo
 	exit;
 fi
 
@@ -74,6 +90,6 @@ elif [ -x ${ASTVARLIBDIR}/bin/issabelpbx_engine ]; then
 elif [ -x /var/lib/asterisk/bin/issabelpbx_engine ]; then
 	/var/lib/asterisk/bin/issabelpbx_engine $@
 else
-	echo "FATAL: can not find issabelpbx_engine to start Asterisk"
+	echotr "FATAL: can not find issabelpbx_engine to start Asterisk"
 fi
 

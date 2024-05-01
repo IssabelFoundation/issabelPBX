@@ -65,10 +65,10 @@ msgstr "Nessun risultato trovato"
 msgid "Results from DUNDi trunk: %s"
 msgstr "Risultati dal fascio DUNDi: %s"
 
-msgid "Lookup Number:"
+msgid "Lookup Number"
 msgstr "Numero da trovare:"
 
-msgid "Lookup Another Number:"
+msgid "Lookup Another Number"
 msgstr "Trova un altro numero:"
 
 msgid "Lookup"

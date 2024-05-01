@@ -5,15 +5,19 @@
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 ?>
 
-<div class="rnav">
-<?php 
-// Eventually I recon the drawListMenu could be built into the new component class thus making
-// the relevent page.php file unnessassary
-
+<?php
 $extens = core_users_list();
-drawListMenu($extens, $skip, $type, $display, $extdisplay, _("User"));
+
+if($extens===null) $extens=array();
+$rnaventries = array();
+foreach($extens as $idx=>$data) {
+    $rnaventries[]=array($data[0],$data[1],$data[0]);
+}
+drawListMenu($rnaventries, $type, $display, $extdisplay);
+
 ?>
-</div>
+
+<div class='content'>
 
 <?php
 // Javascript functions could be put into the configpageinit function but I personally prefer
@@ -24,17 +28,18 @@ drawListMenu($extens, $skip, $type, $display, $extdisplay, _("User"));
 <!--
 
 function checkBlankUserPwd() {
-	msgConfirmBlankUserPwd = "<?php echo _('You have not entered a User Password.  While this is acceptable, this user will not be able to login to an AdHoc device.\n\nAre you sure you wish to leave the User Password empty?'); ?>";
+    msgConfirmBlankUserPwd = "<?php echo __('You have not entered a User Password.  While this is acceptable, this user will not be able to login to an AdHoc device.\n\nAre you sur
+e you wish to leave the User Password empty?'); ?>";
 
-	// check for password and warn if none entered
-	if (isEmpty(theForm.password.value)) {
-		var cnf = confirm(msgConfirmBlankUserPwd);
-		if (!cnf) {
-			theForm.password.focus();
-			return false;
-		}
-	}
-	return true;
+    // check for password and warn if none entered
+    if (isEmpty(theForm.password.value)) {
+        var cnf = confirm(msgConfirmBlankUserPwd);
+        if (!cnf) {
+            theForm.password.focus();
+            return false;
+        }
+    }
+    return true;
 }
 
 //-->

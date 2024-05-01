@@ -1,26 +1,38 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo callforward module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-01-22 01:10+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Call Forward"
-msgstr "Desvío de llamadas"
+msgstr "Desvío de llamada"
 
 msgid "Applications"
 msgstr ""
 
 msgid "Provides callforward featurecodes"
-msgstr ""
+msgstr "Provee códigos de funcionalidad para desvío de llamadas"
 
 msgid "Call Forward All Activate"
 msgstr "Activar todos los desvíos de llamada"
@@ -29,33 +41,67 @@ msgid "Call Forward All Deactivate"
 msgstr "Desactivar todos los desvíos de llamada"
 
 msgid "Call Forward All Prompting Deactivate"
-msgstr "Desactivar instrucciones de Desvío de Llamada siempre"
+msgstr "Desactivar las instrucciones de desvío de llamada siempre"
 
 msgid "Call Forward All Prompting Activate"
-msgstr "Activar instrucciones de Desvío de Llamada siempre"
+msgstr "Activar las instrucciones de desvío de llamada siempre"
 
 msgid "Call Forward Busy Activate"
-msgstr "Activar desvío de llamada cuando esté ocupado"
+msgstr "Activar desvío de llamadas cuando está ocupado"
 
 msgid "Call Forward Busy Deactivate"
-msgstr "Desactivar desvío de llamada cuando esté ocupado"
+msgstr "Desactivar desvío de llamadas cuando está ocupado"
 
 msgid "Call Forward Busy Prompting Deactivate"
-msgstr "Desactivar instrucciones de Desvío de Llamada cuando ocupado"
+msgstr "Desactivar las instrucciones de desvío de llamada cuando ocupado"
 
 msgid "Call Forward Busy Prompting Activate"
-msgstr "Activar instrucciones de Desvío de Llamada cuando ocupado"
+msgstr "Activar las instrucciones de desvío de llamada cuando ocupado"
 
 msgid "Call Forward No Answer/Unavailable Activate"
-msgstr "Activar desvío de llamada cuando no conteste o no esté disponible"
+msgstr "Activar desvío de llamadas cuando no disponible"
 
 msgid "Call Forward No Answer/Unavailable Deactivate"
-msgstr "Desactivar desvío de llamada cuando no conteste o no esté disponible"
+msgstr "Desactivar desvío de llamadas cuando no disponible"
 
 msgid "Call Forward Toggle"
-msgstr "Alternar Desvío de Llamada"
+msgstr "Alternar desvío de llamada"
 
 msgid "Call Forward No Answer/Unavailable Prompting Activate"
-msgstr "Activar instrucciones de Desvío de Llamada no conteste o no disponible"
+msgstr "Activar las indicaciones de desvío de llamada cuando no disponible"
 
+msgid "Call Forward Hints"
+msgstr "Pistas de desvío de llamada"
 
+msgid "Activate Call Forward"
+msgstr "Activar desvío de llamada"
+
+msgid "Call Forward Prompts On"
+msgstr "Activar indicaciones de desvío de llamada"
+
+msgid "Deactivate Call Forward Any"
+msgstr "Desactivar desvío de llamadas siempre"
+
+msgid "Deactivate Call Forward"
+msgstr "Desactivar desvío de llamadas"
+
+msgid "Activate Call Forward on Busy"
+msgstr "Activar desvío de llamadas cuando de ocupado"
+
+msgid "Activate Call Forward on Busy Prompts"
+msgstr "Activar las indicaciones de desvío de llamada cuando de ocupado"
+
+msgid "Deactivate Call Forward on Busy Any"
+msgstr "Desactivar desvío de llamada cuando de ocupado siempre"
+
+msgid "Deactivate Call Forward on Busy"
+msgstr "Desactivar desvío de llamada cuando de ocupado"
+
+msgid "Activate Call Forward on Unavailable Prompts"
+msgstr "Activar las indicaciones de desvío de llamada cuando no esté disponible"
+
+msgid "Activate Call Forward on Unavailable"
+msgstr "Activar desvío de llamada cuando no esté disponible"
+
+msgid "Deactivate Call Forward on Unavailable"
+msgstr "Desactivar desvío de llamada cuando no esté disponible"

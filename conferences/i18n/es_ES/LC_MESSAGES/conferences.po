@@ -13,26 +13,17 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright (C) 2008, 2009 Juan Asensio Sánchez <okelet@gmail.com>
+#  Copyright 2023 Issabel Foundation
 #
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo conferences module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2014-02-28 09:21+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: Spanish "
-"<http://example.com/projects/freepbx-211/conferences/es/>\n"
-"Language: es_ES\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Conferences"
 msgstr "Conferencias"
@@ -41,15 +32,13 @@ msgid "Applications"
 msgstr ""
 
 msgid ""
-"Allow creation of conference rooms (meet-me) where multiple people can talk "
+"Allow creation of conference rooms where multiple people can talk "
 "together."
-msgstr ""
+msgstr "Permiten crear salas de conferencias en las que pueden hablar varias personas a la vez."
 
-#, php-format
 msgid "Conference Room %s : %s"
 msgstr "Sala de conferencia %s: %s"
 
-#, php-format
 msgid "Conference: %s"
 msgstr "Conferencia: %s"
 
@@ -57,10 +46,10 @@ msgid "Conference: "
 msgstr "Conferencia: "
 
 msgid "Checking if music field present.."
-msgstr ""
+msgstr "Verificando si existe el campo music.."
 
 msgid "adding music field.."
-msgstr ""
+msgstr "añadiendo campo music.."
 
 msgid "fatal error"
 msgstr "error fatal"
@@ -69,7 +58,7 @@ msgid "ok"
 msgstr "ok"
 
 msgid "already present"
-msgstr ""
+msgstr "ya existe"
 
 msgid "Checking if recordings need migration.."
 msgstr "Comprobando si las grabaciones necesitan migrarse..."
@@ -83,7 +72,6 @@ msgstr "Añadiendo campo joinmsgid"
 msgid "migrate to recording ids.."
 msgstr "Migrando a identificadores de grabación..."
 
-#, php-format
 msgid "migrated %s entries"
 msgstr "Migrados %s elementos"
 
@@ -97,13 +85,13 @@ msgid "already migrated"
 msgstr "Ya se ha migrado"
 
 msgid "Checking for users field.."
-msgstr ""
+msgstr "Verificando si existe el campo users"
 
 msgid "adding.."
-msgstr ""
+msgstr "añadiendo.."
 
 msgid "FATAL error"
-msgstr ""
+msgstr "error FATAL"
 
 msgid "Warning! Extension"
 msgstr "¡Atención! La extensión"
@@ -120,7 +108,6 @@ msgstr "Conferencia"
 msgid "deleted"
 msgstr "Eliminado"
 
-#, php-format
 msgid "Delete Conference %s"
 msgstr "Eliminar conferencia %s"
 
@@ -154,7 +141,7 @@ msgid ""
 msgstr ""
 "Puede solicitar a los usuarios que introduzcan una contraseña antes de que "
 "puedan entrar a esta conferencia.<br/><br/>Este parámetro es opcional."
-"<br>7<br/>Si se indica un valor en este campo, se le solicitará al usuario "
+"<br><br/>Si se indica un valor en este campo, se le solicitará al usuario "
 "que introduzca el PIN."
 
 msgid "Admin PIN"
@@ -166,7 +153,7 @@ msgid ""
 "leader."
 msgstr ""
 "Introduzca un PIN para el administrador.<br/><br/>Este parámetro es opcional "
-"a menos que se seleccione la opción 'Esperar al administrador'."
+"a menos que se seleccione la opción 'Esperar al líder'."
 
 msgid "Conference Options"
 msgstr "Opciones de conferencia"
@@ -195,12 +182,12 @@ msgstr ""
 "editar esta opción."
 
 msgid "Leader Wait"
-msgstr "Esperar al administrador"
+msgstr "Esperar al líder"
 
 msgid ""
 "Wait until the conference leader (admin user) arrives before starting the "
 "conference"
-msgstr "Esperar hasta que el administrador se una para iniciar la conferencia."
+msgstr "Esperar hasta que el líder se una para iniciar la conferencia."
 
 msgid "No"
 msgstr "No"
@@ -234,7 +221,7 @@ msgid ""
 "the channel that is talking. The talker will also be identified on the "
 "output of\n"
 "the meetme list CLI command."
-msgstr ""
+msgstr "Establece la detección del hablante. Asterisk enviará eventos en la interfaz del administrador identificando el canal que está hablando. El hablante también se identificará en la salida del comando CLI meetme list."
 
 msgid "Quiet Mode"
 msgstr "Modo silencioso"
@@ -264,20 +251,23 @@ msgstr ""
 "Habilita la música en espera mientras la conferencia sólo tiene un asistente"
 
 msgid "Music on Hold Class"
-msgstr ""
+msgstr "Clase de Música en Espera"
 
 msgid ""
 "Music (or Commercial) played to the caller while they wait in line for the "
 "conference to start. Choose \"inherit\" if you want the MoH class to be what "
 "is currently selected, such as by the inbound route.<br><br>  This music is "
 "defined in the \"Music on Hold\" to the left."
-msgstr ""
+msgstr "Se reproduce música (o comercial) para la persona que llama mientras esperan en la fila para que comience la conferencia. Elija \"heredar\" si desea que la clase MoH sea la que estuviera seleccionada previamente, como por ejemplo, por la ruta de entrada.<br><br> Esta música se define en \"Música en espera\" a la izquierda."
 
 msgid "inherit"
-msgstr ""
+msgstr "heredar"
+
+msgid "none"
+msgstr "ninguna"
 
 msgid "default"
-msgstr ""
+msgstr "predeterminada"
 
 msgid "Allow Menu"
 msgstr "Permitir menú"
@@ -309,7 +299,7 @@ msgid ""
 "Mute everyone when they initially join the conference. Please note that if "
 "you do not have 'Leader Wait' set to yes you must have 'Allow Menu' set to "
 "Yes to unmute yourself"
-msgstr ""
+msgstr "Silencie a todos cuando se unan inicialmente a la conferencia. Tenga en cuenta que si no tiene 'Esperar al líder' configurado en Sí, debe tener 'Permitir menú' configurado en Sí para poder dessilenciarse a si mismo."
 
 msgid "Submit Changes"
 msgstr "Enviar cambios"
@@ -325,7 +315,7 @@ msgid ""
 "leader wait option"
 msgstr ""
 "Debe establecer un PIN de administración para el administrador de la "
-"conferencia cuando se seleccione la opción 'Esperar al administrador'"
+"conferencia cuando se seleccione la opción 'Esperar al líder'"
 
 msgid ""
 "You must set Allow Menu to Yes when not using a Leader or Admin in your "

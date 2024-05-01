@@ -1,17 +1,29 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - music module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-01-21 11:57+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Cannot write to file"
 msgstr "No se pudo escribir en el archivo"
@@ -28,7 +40,7 @@ msgid ""
 msgstr ""
 
 msgid "Convert Music Files to WAV"
-msgstr ""
+msgstr "Convertir archivos de música a WAV"
 
 msgid "System Setup"
 msgstr ""
@@ -39,10 +51,10 @@ msgid ""
 "loaded as well as sox and will convert MP3 files to WAV. This is highly "
 "recommended as MP3 files heavily tax the system and can cause instability on "
 "a busy phone system"
-msgstr ""
+msgstr "Cuando se establece en false, los archivos MP3 pueden ser cargados y los archivos WAV convertidos a MP3 en el módulo MoH. El comportamiento por defecto de true asume que tienes mpg123 cargado así como sox y convertirá los archivos MP3 a WAV. Esto es muy recomendable ya que los archivos MP3 sobrecargan el sistema y pueden causar inestabilidad en un sistema telefónico ocupado."
 
-msgid "Add Music Category"
-msgstr "Añadir categoría de música"
+msgid "Add Music on Hold Category"
+msgstr "Añadir categoría de música en espera"
 
 msgid "Add Streaming Category"
 msgstr "Añadir categoría de música en directo"
@@ -55,13 +67,13 @@ msgstr "Eliminar"
 
 msgid ""
 "sox failed to convert file and original could not be copied as a fall back"
-msgstr ""
+msgstr "sox falló al intentar convertir el archivo y no se ha podido copiar el original como último recurso"
 
 msgid "On Hold Music"
 msgstr "Música en espera"
 
-msgid "Category Name:"
-msgstr "Nombre de la categoría:"
+msgid "Category Name"
+msgstr "Nombre de la categoría"
 
 msgid ""
 "Allows you to Set up Different Categories for music on hold.  This is useful "
@@ -133,8 +145,8 @@ msgstr "Eliminar categoría de música en directo"
 msgid "Edit Streaming Category"
 msgstr "Modificar categoría de música en directo"
 
-msgid "Upload a .wav or .mp3 file:"
-msgstr "Enviar archivo WAV o MP3:"
+msgid "Upload a .wav or .mp3 file"
+msgstr "Enviar archivo WAV o MP3"
 
 msgid "Upload"
 msgstr "Enviar"
@@ -165,7 +177,7 @@ msgid "Volume 10%"
 msgstr "Volumen 10%"
 
 msgid "Volume Adjustment"
-msgstr "Ajuste de Volumen"
+msgstr "Ajustar Volumen"
 
 msgid ""
 "The volume adjustment is a linear value. Since loudness is logarithmic, the "
@@ -241,3 +253,11 @@ msgstr "Error al eliminar %s"
 #~ "no tiene el programa \"mpg123\" instalado, puede establecer el parámetro "
 #~ "<strong>AMPMPG123=false</strong> en el archivo de configuración de "
 #~ "amportal.conf."
+msgid "Edit Music on Hold Category"
+msgstr "Modificar categoría de música en espera"
+
+msgid "Choose a file..."
+msgstr "Escoja un archivo..."
+
+msgid "Music Files"
+msgstr "Archivos de Música"

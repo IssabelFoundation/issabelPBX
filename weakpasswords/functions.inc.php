@@ -18,16 +18,16 @@ function weakpasswords_get_config($engine) {
 			// Generate new notifications
 			$weak = weakpasswords_get_users();
 			if(sizeof($weak) > 0)  {
-				$extended_text = _("Warning: The use of weak SIP/IAX passwords can compromise this system resulting in toll theft of your telephony service.  You should change the reported devices and trunks to use strong secrets.")."<br /><br />"; 
+				$extended_text = __("Warning: The use of weak SIP/IAX passwords can compromise this system resulting in toll theft of your telephony service.  You should change the reported devices and trunks to use strong secrets.")."<br /><br />"; 
 				$count = 0;
 				foreach($weak as $details)  {
-					$extended_text .= sprintf(_("%s: %s / %s<br>"), $details['deviceortrunk'], $details['name'], $details['message']);
+					$extended_text .= sprintf(__("%s: %s / %s<br>"), $details['deviceortrunk'], $details['name'], $details['message']);
 					$count++;
 				}
 				if ($count == 1) {
-					$nt->add_security("weakpasswords", "all", $count." "._("extension/trunk has weak secret"),$extended_text);
+					$nt->add_security("weakpasswords", "all", $count." ".__("extension/trunk has weak secret"),$extended_text);
 				} else {
-					$nt->add_security("weakpasswords", "all", $count." "._("extensions/trunks have weak secrets"),$extended_text);
+					$nt->add_security("weakpasswords", "all", $count." ".__("extensions/trunks have weak secrets"),$extended_text);
 				}
 			}
 		break;
@@ -50,28 +50,28 @@ function weakpasswords_get_users()  {
 		$tech = $arr['tech'];
 
 		if($id == $name)  {
-			$deviceortrunk = _("Extension");
+			$deviceortrunk = __("Extension");
 		}
 		else  {
-			$deviceortrunk = sprintf(_("%s Trunk"), $tech);
+			$deviceortrunk = sprintf(__("%s Trunk"), $tech);
 		}
 		$reversed = strrev($secret);
 		$match = "0123456789";
 		if($secret == '')
 		{
-			$weak[] = array("deviceortrunk" => $deviceortrunk, "name" => $name, "message" => _("Secret is empty"), "secret" => $secret);
+			$weak[] = array("deviceortrunk" => $deviceortrunk, "name" => $name, "message" => __("Secret is empty"), "secret" => $secret);
 		}
 		else if(strpos($match,$secret) || strpos($match,$reversed) && strlen($secret) < 10)  {
-			$weak[] = array("deviceortrunk" => $deviceortrunk, "name" => $name, "message" => _("Secret has sequential digits"), "secret" => $secret);
+			$weak[] = array("deviceortrunk" => $deviceortrunk, "name" => $name, "message" => __("Secret has sequential digits"), "secret" => $secret);
 		}
 		else if(isset($device) && $device == $secret)  {
-			$weak[] = array("deviceortrunk" => $deviceortrunk, "name" => $name, "message" => _("Secret same as device"), "secret" => $secret);
+			$weak[] = array("deviceortrunk" => $deviceortrunk, "name" => $name, "message" => __("Secret same as device"), "secret" => $secret);
 		}
 		else if(preg_match("/(.)\\1{3,}/",$secret,$regs) && strlen($secret) < 10)  {
-			$weak[] = array("deviceortrunk" => $deviceortrunk, "name" => $name, "message" => _("Secret has consecutive digit ").$regs[1], "secret" => $secret);
+			$weak[] = array("deviceortrunk" => $deviceortrunk, "name" => $name, "message" => __("Secret has consecutive digit ").$regs[1], "secret" => $secret);
 		}
 		else if(strlen($secret) < 6)  {
-			$weak[] = array("deviceortrunk" => $deviceortrunk, "name" => $name, "message" => _("Secret less than 6 digits"), "secret" => $secret);
+			$weak[] = array("deviceortrunk" => $deviceortrunk, "name" => $name, "message" => __("Secret less than 6 digits"), "secret" => $secret);
 		}
 	}
 	return $weak;

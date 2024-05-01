@@ -1,6 +1,6 @@
-$(document).ready(function(){
+$(function(){
 	//delete rows on click
-	$('.delete_entrie').on('click', function(){
+	$(document).on('click', '.delete_entrie', function(){
 		$(this).closest('tr').fadeOut('normal', function(){$(this).closest('tr').remove();})
 	});
 	
@@ -8,19 +8,19 @@ $(document).ready(function(){
 	$('select[name=add_tr_select]').insertAfter($('#add_entry'));
 	
 	//show select when add is clicked
-	$('#add_entry').click(function(){
+	$('#add_entry').on('click',function(){
 		$(this).hide();
 		$('select[name=add_tr_select]').val('').show();
 	});
 	
 	//hide select and add a new row when add_tr_select is selected
-	$('select[name=add_tr_select]').change(function(){
+	$('select[name=add_tr_select]').on('change',function(){
 		$(this).hide();
 		$('#add_entry').show();
 		add_template_row($(this).val());
 	});
 	
-	$('#template_table').closest('form').submit(function(){
+	$('#template_table').closest('form').on('submit',function(){
 		var table = [];
 		$('#template_table > tbody > tr:not(:first)').each(function(){
 			row = {};
@@ -32,7 +32,8 @@ $(document).ready(function(){
 			} else {
 				row.path = '';
 			}
-			
+		
+            if($(this).find('td').eq(2).find('textarea').length>0) {
 			//ensure all "excludes" are unique
 			row.exclude	= $(this).find('td').eq(2).find('textarea').val()
 								.split("\n")
@@ -44,6 +45,7 @@ $(document).ready(function(){
 									}
 								})
 								.join("\n");
+            }
 			$(this).find('td').eq(2).find('textarea').val(row.exclude);
 					
 			row.index = $(this).index();

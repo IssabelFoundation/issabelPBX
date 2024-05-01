@@ -123,13 +123,13 @@ msgstr "Röstgruppsnummer"
 msgid "The number users will dial to voicemail boxes in this VMBlast group"
 msgstr "Det nummer användare anger när dom ska ringa denna röstgrupp"
 
-msgid "Group Description:"
+msgid "Group Description"
 msgstr "Gruppbeskrivning:"
 
 msgid "Provide a descriptive title for this VMBlast Group."
 msgstr "Skriv in en giltig beskrivning för denna röstgrupp"
 
-msgid "Audio Label:"
+msgid "Audio Label"
 msgstr "Ljudetikett:"
 
 msgid ""
@@ -167,15 +167,11 @@ msgstr ""
 "Du kan valfritt inkludera ett lösenord som måste knappas in före tillgång "
 "till denna röstgrupp ges."
 
-msgid "Voicemail Box List:"
+msgid "Voicemail Box List"
 msgstr "Lista med röstbrevlådor:"
 
-msgid ""
-"Select voice mail boxes to add to this group. Use Ctrl key to select "
-"multiple.."
-msgstr ""
-"Välj vilka röstbrevlådor du vill ha i denna grupp. Använd Ctrl-tangenten för "
-"att välja flera.."
+msgid "Select voice mail boxes to add to this group."
+msgstr "Välj vilka röstbrevlådor du vill ha i denna grupp."
 
 msgid "Default VMBlast Group"
 msgstr "Standard röstgrupp"

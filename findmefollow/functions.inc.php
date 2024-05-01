@@ -16,7 +16,7 @@ function findmefollow_destinations() {
 	global $db;
 
 	if ($display == 'findmefollow' && $followme_exten != '') {
-		$extens[] = array('destination' => 'ext-local,'.$followme_exten.',dest', 'description' => _("Normal Extension Behavior"));
+		$extens[] = array('destination' => 'ext-local,'.$followme_exten.',dest', 'description' => __("Normal Extension Behavior"));
 		return $extens;
 	}
   if (($display != 'extensions' && $display != 'users') || !isset($extdisplay) || $extdisplay == '') {
@@ -32,7 +32,7 @@ function findmefollow_destinations() {
 	
 	// return an associative array with destination and description
 	if ($grpnum != '') {
-    $extens[] = array('destination' => 'ext-findmefollow,FM'.$grpnum.',1', 'description' => _("Force Follow Me"));
+    $extens[] = array('destination' => 'ext-findmefollow,FM'.$grpnum.',1', 'description' => __("Force Follow Me"));
 		return $extens;
 	} else {
 		return null;
@@ -56,8 +56,8 @@ function findmefollow_get_config($engine) {
 				findmefollow_fmf_toggle($fmf_code);
 			}
 
-			$ext->addInclude('from-internal-additional','ext-findmefollow');
-			$ext->addInclude('from-internal-additional','fmgrps');
+			$ext->addInclude('from-internal-additional','ext-findmefollow',_dgettext('findmefollow','Follow Me'));
+			$ext->addInclude('from-internal-additional','fmgrps',_dgettext('findmefollow','Follow Me Groups'));
 			$contextname = 'ext-findmefollow';
 
 			// Before creating all the contexts, let's make a list of hints if needed
@@ -151,7 +151,8 @@ function findmefollow_get_config($engine) {
 
 					// deal with group CID prefix
 					if ($grppre != '') {
-						$ext->add($contextname, $grpnum, '', new ext_macro('prepend-cid', $grppre));
+						// $ext->add($contextname, $grpnum, '', new ext_macro('prepend-cid', $grppre)); // MACRO DEPRECATION
+						$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-prepend-cid', $grppre));
 					}
 					// recording stuff
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RecordMethod','Group'));
@@ -537,28 +538,28 @@ function findmefollow_configpageinit($dispnum) {
 }
 
 function findmefollow_configpageload() {
-	global $currentcomponent;
+    global $currentcomponent;
 
-	$viewing_itemid =  isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
-	$action =  isset($_REQUEST['action'])?$_REQUEST['action']:null;
-	if ( $viewing_itemid != '' && $action != 'del') {
-		$set_findmefollow = findmefollow_list();
-		$grpURL = $_SERVER['PHP_SELF'].'?'.'display=findmefollow&extdisplay=GRP-'.$viewing_itemid;
-		if (is_array($set_findmefollow)) {
-			if (in_array($viewing_itemid,$set_findmefollow)) {
-				$grpTEXT = _("Edit Follow Me Settings");
-				$icon = "images/user_go.png";
-			} else {
-				$grpTEXT = _("Add Follow Me Settings");
-				$icon = "images/user_add.png";
-			}
-		} else {
-			$grpTEXT = _("Add Follow Me Settings");
-			$icon = "images/user_add.png";
-		}
-		$label = '<span><img title="'.$grpTEXT.'" alt="" src="'.$icon.'"/>&nbsp;'.$grpTEXT.'</span>';
-		$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $label, $grpURL));
-	}	
+    $viewing_itemid =  isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+    $action =  isset($_REQUEST['action'])?$_REQUEST['action']:null;
+    if ( $viewing_itemid != '' && $action != 'del') {
+        $set_findmefollow = findmefollow_list();
+        $grpURL = $_SERVER['PHP_SELF'].'?'.'display=findmefollow&extdisplay=GRP-'.$viewing_itemid;
+        if (is_array($set_findmefollow)) {
+            if (in_array($viewing_itemid,$set_findmefollow)) {
+                $grpTEXT = __("Edit Follow Me Settings");
+                $icon = "fa-user";
+            } else {
+                $grpTEXT = __("Add Follow Me Settings");
+                $icon = "fa-user-plus";
+            }
+        } else {
+            $grpTEXT = __("Add Follow Me Settings");
+            $icon = "fa-user-plus";
+        }
+        $label = '<span class="icon mr-1"><i class="fa '.$icon.'"></i></span>'.$grpTEXT;
+        $currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $label, $grpURL));
+    }
 }
 
 // If we are auto-creating a followme for each extension then add the hook funcitons for
@@ -602,7 +603,7 @@ function findmefollow_getdestinfo($dest) {
 		if (empty($thisgrp)) {
 			return array();
 		} else {
-			return array('description' => sprintf(_("Follow Me: %s"),urlencode($grp)),
+			return array('description' => sprintf(__("Follow Me: %s"),urlencode($grp)),
 			             'edit_url' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($grp),
 								  );
 		}
@@ -631,7 +632,7 @@ function findmefollow_check_destinations($dest=true) {
 		$thisid   = $result['grpnum'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => sprintf(_("Follow-Me: %s (%s)"),$thisid,$result['name']),
+			'description' => sprintf(__("Follow-Me: %s (%s)"),$thisid,$result['name']),
 			'edit_url' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($thisid),
 		);
 	}
@@ -655,7 +656,7 @@ function findmefollow_recordings_usage($recording_id) {
 		foreach ($results as $result) {
 			$usage_arr[] = array(
 				'url_query' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($result['grpnum']),
-				'description' => sprintf(_("Follow-Me User: %s"),$result['grpnum']),
+				'description' => sprintf(__("Follow-Me User: %s"),$result['grpnum']),
 			);
 		}
 		return $usage_arr;
@@ -668,7 +669,7 @@ function findmefollow_fmf_toggle($c) {
 	global $version;
 
 	$id = "app-fmf-toggle"; // The context to be included
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('findmefollow','Findme Follow Toggle')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_goto('start','s',$id));
 	$c = 's';

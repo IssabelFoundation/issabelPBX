@@ -137,3 +137,6 @@ msgstr ""
 
 msgid "Invalid description specified"
 msgstr ""
+
+msgid "Text to Speech"
+msgstr ""

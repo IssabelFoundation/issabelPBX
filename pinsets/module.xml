@@ -2,28 +2,29 @@
 	<rawname>pinsets</rawname>
 	<repo>standard</repo>
 	<name>PIN Sets</name>
-	<version>2.11.0.9</version>
+	<version>2.12.0.0</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Settings</category>
     <embedcategory>Internal Options &amp; Configuration</embedcategory>
 	<description>Allow creation of lists of PINs (numbers for passwords) that can be used by other modules (eg, trunks).</description>
-	<changelog>
+    <changelog>
+        *2.12.0.0* Newer GUI, standarize module components
 		*2.11.0.9* Initial Issabel Foundation release
 	</changelog>
 	<menuitems>
 		<pinsets>PIN Sets</pinsets>
 	</menuitems>
 	<supported>
-		<version>2.10</version>
+		<version>2.12</version>
 	</supported>
 	<depends>
 		<module>core</module>
 	</depends>
-	<location>release/2.11/pinsets-2.11.0.1.tgz</location>
+	<location>release/2.12/pinsets-2.12.0.0.tgz</location>
 	<methods>
 		<get_config pri="481">pinsets_get_config</get_config>
-	</methods>
-	<md5sum>7b1f3c1cd25ea74837a7a20034a2a416</md5sum>
+    </methods>
+        <md5sum>0</md5sum>
 </module>

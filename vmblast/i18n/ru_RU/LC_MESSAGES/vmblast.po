@@ -1,6 +1,6 @@
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2011 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2011.
 #
 # Использовать iconv vmblast.utf8.po -f UTF-8 -t ISO-8859-5 -o vmblast.po
@@ -114,13 +114,13 @@ msgstr ""
 "Внутренний номер для пользователей ипользующих дозвон в голосовую почту этой "
 "группы VMBlast"
 
-msgid "Group Description:"
+msgid "Group Description"
 msgstr "Описание группы:"
 
 msgid "Provide a descriptive title for this VMBlast Group."
 msgstr "Предложите понятное описание для этой группы VMBlast"
 
-msgid "Audio Label:"
+msgid "Audio Label"
 msgstr "Аудио анонс:"
 
 msgid ""
@@ -158,15 +158,11 @@ msgstr ""
 "Можно добавить пароль опционально, для аутентификации доступа в этот "
 "групповой ящик голосовой почты."
 
-msgid "Voicemail Box List:"
+msgid "Voicemail Box List"
 msgstr "Список голосовой почты:"
 
-msgid ""
-"Select voice mail boxes to add to this group. Use Ctrl key to select "
-"multiple.."
-msgstr ""
-"Отметить ящики голосовой почты, которые будут включены в групповой ящик. "
-"удерживайте Ctrl + клик мышкой для множественного выделения"
+msgid "Select voice mail boxes to add to this group."
+msgstr "Отметить ящики голосовой почты, которые будут включены в групповой ящик."
 
 msgid "Default VMBlast Group"
 msgstr "Дефолтная группа VMBlast"

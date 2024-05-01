@@ -46,7 +46,7 @@ msgid ""
 "a busy phone system"
 msgstr ""
 
-msgid "Add Music Category"
+msgid "Add Music on Hold Category"
 msgstr "添加音乐类别"
 
 msgid "Add Streaming Category"
@@ -65,7 +65,7 @@ msgstr ""
 msgid "On Hold Music"
 msgstr "等待音乐"
 
-msgid "Category Name:"
+msgid "Category Name"
 msgstr "类别名称"
 
 msgid ""
@@ -130,7 +130,7 @@ msgstr "删除流类别"
 msgid "Edit Streaming Category"
 msgstr "编辑流类别"
 
-msgid "Upload a .wav or .mp3 file:"
+msgid "Upload a .wav or .mp3 file"
 msgstr "上传.wav或.mp3文件："
 
 msgid "Upload"

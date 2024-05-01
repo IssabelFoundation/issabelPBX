@@ -11,7 +11,7 @@ if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc
 $mod_info = module_getinfo('queues', MODULE_STATUS_ENABLED);
 
 if (!isset($mod_info['queues'])) {
-        echo _('Queues module not found or is disabled. Aborting!' . PHP_EOL);
+        echo __('Queues module not found or is disabled. Aborting!' . PHP_EOL);
         exit(1);
 }
 

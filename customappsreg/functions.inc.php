@@ -6,7 +6,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 function customappsreg_destinations() {
     // return an associative array with destination and description
     foreach (customappsreg_customdests_list() as $row) {
-        $extens[] = array('destination' => $row['custom_dest'], 'description' => $row['description'], 'category' => _("Custom Destinations"), 'id' => 'customdests');
+        $extens[] = array('destination' => $row['custom_dest'], 'description' => $row['description'], 'category' => __("Custom Destinations"), 'id' => 'customdests');
     }
     return isset($extens)?$extens:null;
 
@@ -30,7 +30,7 @@ function customappsreg_getdestinfo($dest) {
         return false;
     } else {
         $type = isset($active_modules['customappsreg']['type'])?$active_modules['customappsreg']['type']:'tool';
-        return array('description' => sprintf(_("Custom Destination: %s"),$thisexten['description']),
+        return array('description' => sprintf(__("Custom Destination: %s"),$thisexten['description']),
                      'edit_url' => 'config.php?display=customdests&type='.$type.'&extdisplay='.urlencode($dest),
                               );
     }
@@ -53,7 +53,7 @@ function customappsreg_check_extensions($exten=true) {
 
     foreach ($results as $result) {
         $thisexten = $result['custom_exten'];
-        $extenlist[$thisexten]['description'] = _("Custom Extension: ").$result['description'];
+        $extenlist[$thisexten]['description'] = __("Custom Extension: ").$result['description'];
         $extenlist[$thisexten]['status'] = 'INUSE';
         $extenlist[$thisexten]['edit_url'] = 'config.php?display=customextens&extdisplay='.urlencode($thisexten);
     }
@@ -104,16 +104,16 @@ function customappsreg_customdests_add($custom_dest, $description, $notes) {
     global $db;
 
   if (!preg_match("/[^,]+,[^,]+,[^,]+/",$custom_dest)) {
-        echo "<script>javascript:alert('"._('Invalid Destination, must not be blank, must be formatted as: context,exten,pri')."')</script>";
+        echo "<script>javascript:alert('".__('Invalid Destination, must not be blank, must be formatted as: context,exten,pri')."')</script>";
         return false;
     }
     if (trim($description) == '') {
-        echo "<script>javascript:alert('"._('Invalid description specified, must not be blank')."')</script>";
+        echo "<script>javascript:alert('".__('Invalid description specified, must not be blank')."')</script>";
         return false;
     }
     $usage_list = framework_identify_destinations($custom_dest, $module_hash=false);
     if (!empty($usage_list[$custom_dest])) {
-        echo "<script>javascript:alert('"._('DUPLICATE Destination: This destination is already in use')."')</script>";
+        echo "<script>javascript:alert('".__('DUPLICATE Destination: This destination is already in use')."')</script>";
         return false;
     }
 
@@ -124,7 +124,7 @@ function customappsreg_customdests_add($custom_dest, $description, $notes) {
     $results = $db->query($sql);
     if (DB::IsError($results)) {
         if ($results->getCode() == DB_ERROR_ALREADY_EXISTS) {
-            echo "<script>javascript:alert('"._('DUPLICATE Destination: This destination is in use or potentially used by another module')."')</script>";
+            echo "<script>javascript:alert('".__('DUPLICATE Destination: This destination is in use or potentially used by another module')."')</script>";
             return false;
         } else {
             die_issabelpbx($results->getMessage()."<br><br>".$sql);
@@ -137,11 +137,11 @@ function customappsreg_customextens_add($custom_exten, $description, $notes) {
     global $db;
 
     if ($custom_exten == '') {
-        echo "<script>javascript:alert('"._('Invalid Extension, must not be blank')."')</script>";
+        echo "<script>javascript:alert('".__('Invalid Extension, must not be blank')."')</script>";
         return false;
     }
     if (trim($description) == '') {
-        echo "<script>javascript:alert('"._('Invalid description specified, must not be blank')."')</script>";
+        echo "<script>javascript:alert('".__('Invalid description specified, must not be blank')."')</script>";
         return false;
     }
 
@@ -152,7 +152,7 @@ function customappsreg_customextens_add($custom_exten, $description, $notes) {
     $results = $db->query($sql);
     if (DB::IsError($results)) {
         if ($results->getCode() == DB_ERROR_ALREADY_EXISTS) {
-            echo "<script>javascript:alert('"._('DUPLICATE Extension: This extension already in use')."')</script>";
+            echo "<script>javascript:alert('".__('DUPLICATE Extension: This extension already in use')."')</script>";
             return false;
         } else {
             die_issabelpbx($results->getMessage()."<br><br>".$sql);
@@ -187,7 +187,7 @@ function customappsreg_customdests_edit($old_custom_dest, $custom_dest,  $descri
     if ($old_custom_dest != $custom_dest) {
         $usage_list = framework_identify_destinations($custom_dest, $module_hash=false);
         if (!empty($usage_list[$custom_dest])) {
-            echo "<script>javascript:alert('"._('DUPLICATE Destination: This destination is in use or potentially used by another module')."')</script>";
+            echo "<script>javascript:alert('".__('DUPLICATE Destination: This destination is in use or potentially used by another module')."')</script>";
             return false;
         }
     }

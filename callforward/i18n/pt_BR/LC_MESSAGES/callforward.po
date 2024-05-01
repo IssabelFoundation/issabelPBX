@@ -1,0 +1,77 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Call Forward"
+msgstr "Desvio de chamada"
+
+msgid "Applications"
+msgstr ""
+
+msgid "Provides callforward featurecodes"
+msgstr ""
+
+msgid "Call Forward All Activate"
+msgstr "Ative todos os encaminhamentos de chamadas"
+
+msgid "Call Forward All Deactivate"
+msgstr "Desative todo encaminhamento de chamadas"
+
+msgid "Call Forward All Prompting Deactivate"
+msgstr "Sempre desative as instruções de encaminhamento de chamadas"
+
+msgid "Call Forward All Prompting Activate"
+msgstr "Sempre ative as instruções de encaminhamento de chamadas"
+
+msgid "Call Forward Busy Activate"
+msgstr "Ative o encaminhamento de chamadas quando ocupado"
+
+msgid "Call Forward Busy Deactivate"
+msgstr "Desative o encaminhamento de chamadas quando ocupado"
+
+msgid "Call Forward Busy Prompting Deactivate"
+msgstr "Desativar instruções de encaminhamento de chamada quando ocupado"
+
+msgid "Call Forward Busy Prompting Activate"
+msgstr "Ative instruções de encaminhamento de chamadas quando ocupado"
+
+msgid "Call Forward No Answer/Unavailable Activate"
+msgstr ""
+"Ative o encaminhamento de chamadas quando você não atender ou não estiver "
+"disponível"
+
+msgid "Call Forward No Answer/Unavailable Deactivate"
+msgstr ""
+"Desative o encaminhamento de chamadas quando você não atender ou não estiver "
+"disponível"
+
+msgid "Call Forward Toggle"
+msgstr "Alternar encaminhamento de chamadas"
+
+msgid "Call Forward No Answer/Unavailable Prompting Activate"
+msgstr ""
+"Ativar instruções de encaminhamento de chamadas não atende ou não está "
+"disponível"

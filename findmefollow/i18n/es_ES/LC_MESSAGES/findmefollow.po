@@ -1,21 +1,35 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo findmefollow module spanish "
-"translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-01-22 15:45+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Follow Me"
 msgstr "Sígueme"
+
+msgid "Follow Me Groups"
+msgstr "Grupos Sígueme"
 
 msgid "Applications"
 msgstr "Aplicaciones"
@@ -37,11 +51,9 @@ msgstr "Modificar configuración Sígueme"
 msgid "Add Follow Me Settings"
 msgstr "Añadir configuración Sígueme"
 
-#, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "Sígueme: %s (%s)"
 
-#, php-format
 msgid "Follow-Me User: %s"
 msgstr "Usuario Sígueme: %s"
 
@@ -75,7 +87,6 @@ msgstr ""
 msgid "migrate annmsg to ids.."
 msgstr ""
 
-#, php-format
 msgid "migrated %s entries"
 msgstr ""
 
@@ -112,8 +123,8 @@ msgstr "Atención! La extensión"
 msgid "is not allowed for your account"
 msgstr "no está permitido en su cuenta"
 
-msgid "Choose a user/extension"
-msgstr "Elija una extensión"
+msgid "Choose a user/extension from the navigation menu"
+msgstr "Elija una extensión del menú de navegación"
 
 msgid "deleted"
 msgstr "eliminadas"
@@ -127,11 +138,9 @@ msgstr "Usuario"
 msgid "Extension"
 msgstr "Extensión"
 
-#, php-format
 msgid "Edit %s"
 msgstr "Modificar %s"
 
-#, php-format
 msgid "Edit %s %s"
 msgstr "Modificar %s %S"
 
@@ -256,7 +265,7 @@ msgid ""
 "<br><br>You can include an extension on a remote system, or an external "
 "number by suffixing a number with a pound (#).  ex:  2448089# would dial "
 "2448089 on the appropriate trunk (see Outbound Routing)."
-msgstr ""
+msgstr "Enumere las extensiones para que suenen, una por línea, o use la selección rápida de extensiones a continuación.<br><br>Puede incluir una extensión en un sistema remoto o un número externo agregando un sufijo con una almohadilla (#). ej.: 2448089# marcaría 2448089 en la troncal correspondiente (consulte Enrutamiento de salida)."
 
 msgid "Extension Quick Pick"
 msgstr "Selección Rápida de Extensión"
@@ -308,7 +317,7 @@ msgid ""
 "You can optionally prefix the Caller ID name when ringing extensions in this "
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
 "as \"Sales:John Doe\" on the extensions that ring."
-msgstr ""
+msgstr "Opcionalmente, puede agregar un prefijo al nombre del identificador de llamadas cuando llame a las extensiones de este grupo. es decir: si agrega el prefijo \"Ventas:\", una llamada de Juan Perez se mostraría como \"Ventas: Juan Perez\" en las extensiones que suenan."
 
 msgid "Alert Info"
 msgstr ""
@@ -401,9 +410,9 @@ msgid ""
 "default mode. There must be a DID on the inbound route for this. This will "
 "be BLOCKED on trunks that block foreign CallerID"
 msgstr ""
-"Transmitir el número que fue marcado como el identificador de las llamadas "
-"que vienen desde fuera. Llamadas internas entre extensiones continuarán "
-"operando en modo por defecto. Debe haber un DID en la ruta entrante para esto. "
+"Transmite el número que se marcó como CID para llamadas provenientes del exterior."
+"Las llamadas internas de extensión a extensión seguirán funcionando en el modo predeterminado. "
+"Debe haber un DID en la ruta de entrada para esto. "
 "Este será bloqueado en los troncales donde se bloquee un CallerID foráneo"
 
 msgid "Force Dialed Number"
@@ -414,13 +423,10 @@ msgid ""
 "outside. Internal extension to extension calls will continue to operate in "
 "default mode. There must be a DID on the inbound route for this. This WILL "
 "be transmitted on trunks that block foreign CallerID"
-msgstr ""
+msgstr "Transmite el número que se marcó como CID para llamadas provenientes del exterior. Las llamadas internas de extensión a extensión seguirán funcionando en el modo predeterminado. Debe haber un DID en la ruta de entrada para esto. Esto se transmitirá en troncales que bloquean CallerID extranjero"
 
-msgid ""
-"Fixed value to replace the CID with used with some of the modes above. "
-"Should be in a format of digits only with an option of E164 format using a "
-"leading \"+\"."
-msgstr ""
+msgid  "Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading \"+\"."
+msgstr "Valor fijo para reemplazar el CID con el usado con algunos de los modos anteriores. Debe estar en un formato de dígitos solo con una opción de formato E164 usando un \"+\" inicial"
 
 msgid "Destination if no answer"
 msgstr "Destino si no contesta"
@@ -432,7 +438,7 @@ msgid "Please enter an extension list."
 msgstr "Por favor ingrese una lista de extensiones."
 
 msgid "Invalid time specified"
-msgstr "Duración inválida especificada"
+msgstr "Duracin inválida especificada"
 
 msgid "Time must be between 1 and 60 seconds"
 msgstr "La duración debe ser desde 1 a 60 segundos"
@@ -459,3 +465,42 @@ msgstr "(modificar)"
 
 msgid "Normal Extension Behavior"
 msgstr "Comportamiento Normal de Extensión"
+
+msgid "ring Extension for duration set in Initial Ring Time, and then, while continuing call to extension, ring Follow-Me List for duration set in Ring Time."
+msgstr "llamar a la extensión durante la duración establecida en Tiempo de timbre inicial y luego, mientras continúa llamando a la extensión, llamar a la lista Sígueme durante la duración establecida en Tiempo de timbre."
+
+msgid "ring Extension for duration set in Initial Ring Time, and then terminate call to Extension and ring Follow-Me List for duration set in Ring Time."
+msgstr "hacer sonar la extensión durante el tiempo establecido en el tiempo de timbre inicial y, a continuación, terminar la llamada a la extensión y hacer sonar la lista Sígueme durante el tiempo establecido en el tiempo de timbre."
+
+msgid "Follow Me Module"
+msgstr "Módulo Sígueme"
+
+msgid "Create Follow Me at Extension Creation Time"
+msgstr "Crear Sígueme al crear la extensión"
+
+msgid "Disable Follow Me Upon Creation"
+msgstr "Deshabilitar Sígueme al momento de la creación"
+
+msgid "When creating a new user or extension, setting this to true will automatically create a new Follow Me for that user using the default settings listed below"
+msgstr "Al crear un nuevo usuario o extensión, establecer esto en verdadero creará automáticamente un nuevo Sígueme para ese usuario utilizando la configuración predeterminada que se detalla a continuación."
+
+msgid "This is the default value for the Follow Me \"Disable\" setting. When first creating a Follow Me or if auto-created with a new extension, setting this to true will disable the Follow Me setting which can be changed by the user or admin in multiple locations."
+msgstr "Este es el valor predeterminado para la configuración \"Desactivar\" de Sígueme. Al crear por primera vez un Sígueme o si se crea automáticamente con una nueva extensión, establecerlo en verdadero desactivará la configuración de Sígueme, que el usuario o el administrador pueden cambiar en varias ubicaciones."
+
+msgid "Default Follow Me Ring Time"
+msgstr "Tiempo predeterminado de timbre"
+
+msgid "Default Follow Me Initial Ring Time"
+msgstr "Tiempo predeterminado de timbre inicial"
+
+msgid "Default Follow Me Ring Strategy"
+msgstr "Estrategia de timbrado predeterminada"
+
+msgid "The default Ring Time for a Follow Me set upon creation and used if auto-created with a new extension."
+msgstr "El tiempo de timbre predeterminado para un Sígueme se establece en el momento de la creación y se usa si se crea automáticamente con una nueva extensión."
+
+msgid "The default Initial Ring Time for a Follow Me set upon creation and used if auto-created with a new extension."
+msgstr "El tiempo de timbre inicial predeterminado para un Sígueme se establece en el momento de la creación y se usa si se crea automáticamente con una nueva extensión."
+
+msgid "The default Ring Strategy selected for a Follow Me set upon creation and used if auto-created with an extension."
+msgstr "La estrategia de timbre predeterminada seleccionada para un conjunto Sígueme en el momento de la creación y se usa si se crea automáticamente con una extensión."

@@ -7,7 +7,7 @@ class ampuser {
     var $_extension_low;
     var $_deptname;
     var $_sections;
-    
+
     function __construct($username) {
         $this->username = $username;
         if ($user = $this->getAmpUser($username)) {
@@ -25,7 +25,7 @@ class ampuser {
             $this->_sections = array();
         }
     }
-    
+
     /** Give this user full admin access
     */
     function setAdmin() {
@@ -34,17 +34,25 @@ class ampuser {
         $this->_deptname = "";
         $this->_sections = array("*");
     }
-    
+
     function checkPassword($password) {
         // strict checking so false will never match
         return ($this->_password === $password);
     }
-    
+
     function checkSection($section) {
         // if they have * then it means all sections
         return in_array("*", $this->_sections) || in_array($section, $this->_sections);
     }
-    
+
+    function clearSections() {
+        $this->_sections = array();
+    }
+
+    function allowSection($section) {
+        $this->_sections[] = $section;
+    }
+
     function getAmpUser($username) {
         global $db;
 

@@ -145,7 +145,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
+"SIP: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
 msgstr ""
 
@@ -157,7 +157,7 @@ msgstr ""
 msgid "NVFax"
 msgstr ""
 
-msgid "Sip"
+msgid "SIP"
 msgstr ""
 
 msgid "Fax Detection Time"
@@ -301,7 +301,7 @@ msgstr ""
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 
-msgid "Outgoing Email address:"
+msgid "Outgoing Email address"
 msgstr ""
 
 msgid ""
@@ -312,7 +312,7 @@ msgstr ""
 msgid "Fax Feature Code Options"
 msgstr ""
 
-msgid "Email address:"
+msgid "Email address"
 msgstr ""
 
 msgid ""
@@ -371,7 +371,7 @@ msgstr ""
 msgid "system default"
 msgstr ""
 
-msgid "Default Recipient Email address:"
+msgid "Default Recipient Email address"
 msgstr ""
 
 msgid ""

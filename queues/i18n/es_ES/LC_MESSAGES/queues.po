@@ -1,20 +1,29 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo queues module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2014-02-28 09:21+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: Spanish <http://example.com/projects/freepbx-211/queues/es/>\n"
-"Language: es_ES\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 msgid ""
 "Warning, there are compound recordings configured in one or more Queue "
@@ -26,20 +35,20 @@ msgstr ""
 "grabaciones, por lo que sólo se usará la primera grabación. Debería corregir "
 "este problema.<br/>Detalles:<br/><br/>"
 
-#, php-format
 msgid "Queue - %s (%s): %s<br />"
 msgstr "Cola - %s (%s): %s<br/>"
 
 msgid "Compound Recordings in Queues Detected"
 msgstr "Se han detectado grabaciones compuestas en las colas"
 
-#, php-format
 msgid "Queue %s : %s"
 msgstr "Cola %s: %s"
 
-#, php-format
 msgid "Queue: %s"
 msgstr "Cola: %s"
+
+msgid "Edit Queue"
+msgstr "Modificar cola"
 
 msgid "seconds"
 msgstr "segundos"
@@ -68,14 +77,12 @@ msgstr "Número de cola no válido; no puede estar vacío."
 msgid "INUSE"
 msgstr "EN USO"
 
-#, php-format
 msgid "Queue: %s (%s)"
 msgstr "Cola: %s (%s)"
 
 msgid "Agent Announce Msg"
 msgstr "Menaje de anuncio de agente"
 
-#, php-format
 msgid "IVR Announce: %s"
 msgstr "Anuncio de IVR: %s"
 
@@ -163,7 +170,6 @@ msgstr ""
 "ERROR: accediendo a la tabla de colas al obtener el listado de "
 "identificadores; abortando."
 
-#, php-format
 msgid "ERROR: inserting data for row %s: %s.."
 msgstr "ERROR: insertando datos para la fila %s: %s."
 
@@ -173,7 +179,6 @@ msgstr "Se han encontrado errores."
 msgid "Dropping old queues table.."
 msgstr "Eliminando tablas de colas antiguas... "
 
-#, php-format
 msgid "WARNING FAILED %s"
 msgstr "AVISO DE FALLO %s"
 
@@ -204,7 +209,6 @@ msgstr "Añadiendo campo 'joinannounce_id'... "
 msgid "migrate agentannounce to ids.."
 msgstr "Migrando tabla 'agentannounce' a identificadores... "
 
-#, php-format
 msgid "migrated %s entries"
 msgstr "Migrados %s elementos."
 
@@ -230,28 +234,28 @@ msgid "checking for queuewait field.."
 msgstr "Comprobando campo 'queuewait'... "
 
 msgid "checking for use_queue_context field.."
-msgstr ""
+msgstr "comprobando el campo use_queue_context.."
 
 msgid "checking for togglehint field.."
-msgstr ""
+msgstr "comprobando el cambo togglehint.."
 
 msgid "checking for qnoanswer field.."
-msgstr ""
+msgstr "comprobando el campo qnoanswer.."
 
 msgid "checking for callconfirm field.."
-msgstr ""
+msgstr "comprobando el campo callconfirm.."
 
 msgid "checking for callconfirm_id field.."
-msgstr ""
+msgstr "comprobando el campo callconfirm_id.."
 
 msgid "checking for monitor_type field.."
-msgstr ""
+msgstr "comprobando el campo monitor_type.."
 
 msgid "checking for monitor_heard field.."
-msgstr ""
+msgstr "comprobando el campo monitor_heard.."
 
 msgid "checking for monitor_spoken field.."
-msgstr ""
+msgstr "comprobando el campo monitor_spoken.."
 
 msgid "Warning! Extension"
 msgstr "Aviso: La extensión"
@@ -276,9 +280,6 @@ msgstr "Extensiones en conflicto"
 
 msgid "Queue"
 msgstr "Cola"
-
-msgid "Edit Queue"
-msgstr "Modificar cola"
 
 msgid "Queue Number"
 msgstr "Número de cola"
@@ -333,7 +334,7 @@ msgid ""
 "desired to not answer a call is when using Strict Join Empty queue policies "
 "where the caller will not be admitted to the queue unless there is a queue "
 "member immediately available to take the call."
-msgstr ""
+msgstr "Si está marcada, la cola no responderá a la llamada. En la mayoría de los casos, la cola debería responder siempre a las llamadas. Si no es así, es posible que las grabaciones y la MdH no sean escuchadas por los llamantes en espera, ya que las capacidades de los primeros medios varían y son inconsistentes. Algunos casos en los que puede ser deseable no responder a una llamada es cuando se utilizan políticas de cola Strict Join Empty en las que la persona que llama no será admitida en la cola a menos que haya un miembro de la cola inmediatamente disponible para atender la llamada."
 
 msgid "Generate Device Hints"
 msgstr "Generar Hints de Dispositivo"
@@ -351,7 +352,7 @@ msgstr ""
 "SIP o IAX que pueda ser miembro de esta cola. Esto es útil para usar en teléfonos "
 "que soporten suscripciones de estado (BLF) y permitan programar botones para "
 "agregarse o quitarse de una cola. El formato del hint es <br /"
-"><br />*45ddd*qqq<br /><br />donde *45 es el código de característica definido para alternar "
+"><br />*45ddd*qqq<br /><br />donde *45 es el código de función definido para alternar "
 "membresía de cola, ddd es el número de dispositivo, y qqq el número de cola."
 
 msgid "Call Confirm"
@@ -375,7 +376,7 @@ msgid "Call Confirm Announce"
 msgstr "Anuncio de Confirmación de Llamada"
 
 msgid ""
-"Announcement played to the Queue Memeber announcing the Queue call and "
+"Announcement played to the Queue Member announcing the Queue call and "
 "requesting confirmation prior to answering. If set to default, the standard "
 "call confirmation default message will be played unless the member is "
 "reached through a Follow-Me and there is an alternate message provided in "
@@ -392,16 +393,16 @@ msgstr ""
 "el menú \"Grabaciones del Sistema\""
 
 msgid "Default"
-msgstr ""
+msgstr "Por defecto"
 
 msgid "Call Confirm Announcement"
-msgstr ""
+msgstr "Anuncio de Confirmación de Llamada"
 
 msgid ""
 "Announcement played to anyone using an external follow-me to receive the "
 "queue call.<br><br>You must install and enable the \"Systems Recordings\" "
 "Module to edit this option"
-msgstr ""
+msgstr "Anuncio reproducido a cualquiera que utilice un 'sígueme' externo para recibir la llamada en cola.<br><br>Debe instalar y habilitar el módulo 'Grabaciones de sistemas' para editar esta opción."
 
 msgid "CID Name Prefix"
 msgstr "Prefijo del nombre del CID"
@@ -436,6 +437,9 @@ msgid ""
 "since it first entered the queue or reset if the call is transferred to "
 "another queue with this feature set."
 msgstr ""
+"Si la llamada se transfiere posteriormente, el tiempo de espera reflejará "
+"el tiempo transcurrido desde que ingresó por primera vez a la cola o se "
+"restablecerá si la llamada se transfiere a otra cola con esta opción activa"
 
 msgid "Yes"
 msgstr "Sí"
@@ -507,7 +511,6 @@ msgstr ""
 "y cerrar sesión en la cola. Cuando un miembro inicia sesión, lo hará con la penalidad "
 "indicada aquí (especificada luego del número de extensión, separado por coma). Las "
 "extensiones que agregue aquí NO iniciarán sesión en la cola de forma automática."
-
 
 msgid ""
 "Choose an extension to append to the end of the dynamic member list above."
@@ -727,7 +730,7 @@ msgid ""
 "Enabling this option make callers hear a ringing tone instead of Music on "
 "Hold.<br/>Enabling this ignores any Music on Hold Class selected as well as "
 "ignoring any configured periodic announcements configured."
-msgstr ""
+msgstr "La activación de esta opción hace que las personas que llaman oigan un tono de llamada en lugar de Música en espera.<br/>La activación de esta opción ignora cualquier Clase de Música en espera seleccionada, así como los anuncios periódicos configurados."
 
 msgid "Join Announcement"
 msgstr "Anuncio de entrada"
@@ -965,7 +968,7 @@ msgstr ""
 "para no poner un límite)."
 
 msgid "No Max"
-msgstr ""
+msgstr "Sin límite"
 
 msgid ""
 "Determines if new callers will be admitted to the Queue, if not, the "
@@ -1334,7 +1337,7 @@ msgid ""
 "to mimic chan_agents behavior of populating CDR dstchannel field of a call "
 "with an agent name, which is set if available at the login time with "
 "AddQueueMember membername parameter, or with static members."
-msgstr ""
+msgstr "Colas: updatecdr, sólo válido con Asterisk 1.6+. Esta opción se implementa para imitar el comportamiento de chan_agents de rellenar el campo CDR dstchannel de una llamada con un nombre de agente, que se establece si está disponible en el momento del inicio de sesión con el parámetro AddQueueMember membername, o con miembros estáticos."
 
 msgid "Use MixMonitor for Recordings"
 msgstr "Usar MixMonitor para Grabaciones"
@@ -1343,7 +1346,7 @@ msgid ""
 "Queues: monitor-type = MixMonitor. Setting true will use the MixMonitor "
 "application instead of Monitor so the concept of 'joining/mixing' the in/out "
 "files now goes away when this is enabled."
-msgstr ""
+msgstr "Colas: monitor-type = MixMonitor. Establecer true utilizará la aplicación MixMonitor en lugar de Monitor por lo que el concepto de 'unir/mezclar' los archivos de entrada/salida ahora desaparece cuando esto está habilitado."
 
 msgid "Hide Queue No Answer Option"
 msgstr "Ocultar opción de No Atender en Cola"
@@ -1356,10 +1359,10 @@ msgid ""
 "but this can be inconsistent and vary. Because of the volatility of this "
 "option, it is not displayed by default. If a queue is set to not answer, the "
 "setting will be displayed for that queue regardless of this setting."
-msgstr ""
+msgstr "Es posible que una cola NO conteste una llamada y aún así ingrese llamantes a la cola. El comportamiento normal es que todas las llamadas se contesten antes de entrar en la cola. Si la llamada no es contestada, es posible que alguna entrega temprana de medios aún permita a los llamantes escuchar grabaciones, MoH, etc. pero esto puede ser inconsistente y variar. Debido a la volatilidad de esta opción, no se muestra por defecto. Si una cola está configurada para no responder, la configuración se mostrará para esa cola independientemente de esta configuración."
 
 msgid "Asterisk Queues Patch 15168 Installed"
-msgstr ""
+msgstr "Parche de Colas para Asterisk Nro 15168 Instalado"
 
 msgid ""
 "Setting this flag will generate the required dialplan to integrate with the "
@@ -1368,14 +1371,13 @@ msgid ""
 "is now standard and always used. This asterisk patch is only available on "
 "Asterisk 1.4, trying to use this setting on Asterisk 1.6 will break some "
 "queue behavior and should be avoided"
-msgstr ""
+msgstr "Al establecer esta bandera se generará el dialplan necesario para integrarse con el siguiente parche de Asterisk: https://issues.asterisk.org/view.php?id=15168 . Esta configuración es obsoleta en sistemas Asterisk 1.8+ donde el estado hint es ahora estándar y siempre usado. Este parche de Asterisk sólo está disponible en Asterisk 1.4, tratar de utilizar esta configuración en Asterisk 1.6 romperá algunos comportamientos de cola y debe ser evitado."
 
 msgid "Queue Continue Destination"
 msgstr "Destino de continuación de Cola"
 
 msgid "Reset Queue Stats"
 msgstr "Resetear Estadísticas de Cola"
-
 
 msgid "Run"
 msgstr "Ejecución"
@@ -1392,89 +1394,50 @@ msgstr "Alternar Pausa en Cola"
 msgid "Queue Toggle"
 msgstr "Alternar Cola"
 
+msgid "Randomize"
+msgstr "Aleatorizar"
 
-#~ msgid ""
-#~ "You can optionally prefix the Caller ID name of callers to the queue. ie: "
-#~ "If you prefix with \"Sales:\", a call from John Doe would display as "
-#~ "\"Sales:John Doe\" on the extensions that ring."
-#~ msgstr ""
-#~ "Opcionalmente, puede añadir un prefijo a los usuarios que llamen a la "
-#~ "cola. Por ejemplo, si el prefijo es 'Ventas', una llamada del usuario "
-#~ "'John Doe' se mostraría como 'Ventas: John Doe' en la extensión que esté "
-#~ "sonando."
+msgid "Minutes"
+msgstr "Minutos"
 
-#~ msgid ""
-#~ "If the call is subsequently transfered, the wait time will reflect the "
-#~ "time since it first entered the queue or reset if the call is transfered "
-#~ "to another queue with this feature set."
-#~ msgstr ""
-#~ "Si la llamada es transferida posteriormente, el tiempo de espera "
-#~ "reflejará el tiempo desde que el usuario entró en la cola, o será "
-#~ "reseteado (puesto a 0) si la llamada es transferida a otra cola que "
-#~ "disponga de esta característica."
+msgid "Hour"
+msgstr "Hora"
 
-#~ msgid "Queue Options"
-#~ msgstr "Opciones de la cola"
+msgid "Day of Week"
+msgstr "Día de la Semana"
 
-#~ msgid ""
-#~ "Announcement played to the Agent prior to bridging in the caller <br><br> "
-#~ "Example: \"the Following call is from the Sales Queue\" or \"This call is "
-#~ "from the Technical Support Queue\".<br><br>To add additional recordings "
-#~ "please use the \"System Recordings\" MENU to the left. Compound "
-#~ "recordings composed of 2 or more sound files are not displayed as options "
-#~ "since this feature can not accept such recordings."
-#~ msgstr ""
-#~ "Anuncio que será reproducido al agente antes de recibir al llamante.<br/"
-#~ "><br/>Por ejemplo: 'La siguiente llamada proviene de la cola de ventas' o "
-#~ "'Esta llamado proviene de la cola de soporte técnico'.<br/><br/>Para "
-#~ "añadir más grabaciones, use la opción 'Grabaciones del sistema' del menú "
-#~ "de la izquierda. Las grabaciones compuestas de 2 o más archivos de sonido "
-#~ "no se mostrarán como opción en la siguiente lista, ya que este tipo de "
-#~ "archivos no pueden ser reproducidos en las colas."
+msgid "Month"
+msgstr "Mes"
 
-#~ msgid ""
-#~ "Announcement played to callers once prior to joining the queue.<br><br>To "
-#~ "add additional recordings please use the \"System Recordings\" MENU to "
-#~ "the left"
-#~ msgstr ""
-#~ "Anuncio que será reproducido a los llamantes una vez que hayan entrado en "
-#~ "la cola.<br/><br/>Para añadir más grabaciones, use la opción 'Grabaciones "
-#~ "del sistema' del menú de la izquierda."
+msgid "Day of Month"
+msgstr "Día del Mes"
 
-#~ msgid ""
-#~ "Music (or Commercial) played to the caller while they wait in line for an "
-#~ "available agent. Choose \"inherit\" if you want the MoH class to be what "
-#~ "is currently selected, such as by the inbound route.<br><br>  This music "
-#~ "is defined in the \"Music on Hold\" Menu to the left."
-#~ msgstr ""
-#~ "Música (o anuncio) que será reproducido al llamante mientras esté en la "
-#~ "cola esperando a un agente. Seleccione 'Anterior' para conservar la "
-#~ "música en espera seleccionada previamente (por ejemplo, de un menú de voz "
-#~ "o de otra cola o de una ruta entrante).<br/><br/>Puede definir más clases "
-#~ "de música en espera en la opción 'Música en espera' del menú de la "
-#~ "izquierda."
+msgid "Queue Members"
+msgstr "Miembros de Cola"
 
-#~ msgid ""
-#~ "If you wish to allow callers to join queues that currently have no "
-#~ "agents, set this to yes. Set to strict if callers cannot join a queue "
-#~ "with no members or only unavailable members"
-#~ msgstr ""
-#~ "Indica si desea permitir que puedan entrar llamantes a colas que no "
-#~ "tengan agentes. Seleccione el valor 'Estricto' si los llamantes no pueden "
-#~ "entrar a la cola si no hay miembros o miembros disponibles."
+msgid "Generate queuenum*/** Login/off Codes"
+msgstr "Generar códigos de inicio y cierre de sesión en cola numcola*/**"
 
-#~ msgid "Leave When Empty"
-#~ msgstr "Salir cuando vacía"
+msgid "Queue login and out codes were historically queunum* and queunum**. These have been largely replaced by the *45 queue toggle codes. The legacy codes are required to login or out a third party user that is not the extension dialing. These can be removed from the system by setting this to false."
+msgstr "Los códigos de inicio y salida de cola históricamente eran queunum* y queunum**. Estos han sido reemplazados en gran medida por los códigos de alternancia de cola *45. Los códigos heredados son necesarios para iniciar sesión o cerrar sesión como usuario externo que no sea la extensión que marca. Estos se pueden eliminar del sistema estableciendo esto en falso."
 
-#~ msgid ""
-#~ "If you wish to remove callers from the queue if there are no agents "
-#~ "present, set this to yes. Set to strict if callers cannot join a queue "
-#~ "with no members or only unavailable members"
-#~ msgstr ""
-#~ "Indica si desea hacer que los usuarios sean eliminados de la cola cuando "
-#~ "no haya agentes presentes. Seleccione el valor 'Estricto' si los "
-#~ "llamantes serán eliminados de la cola si no hay miembros o miembros "
-#~ "disponibles."
+msgid "Agent Called Events Default"
+msgstr "Eventos de Agente Llamado por defecto"
 
-#~ msgid "Member Status"
-#~ msgstr "Estado"
+msgid ""
+"Default state for AMI emit events related to an agent's call. This setting "
+"will only affect the default for NEW queues, it won't change existing queues "
+"or enfore the option on in new ones."
+msgstr "Estado por defecto para que AMI emita eventos relacionados con la llamada de un agente. Este ajuste sólo afectará al estado por defecto de las colas NUEVAS, no cambiará las colas existentes ni activará la opción en las nuevas."
+
+msgid "Default state for AMI to emit the QueueMemberStatus event. This setting will only affect the default for NEW queues, it won't change existing queues or enfore the option on in new ones."
+msgstr "Estado por defecto para que AMI emita el evento QueueMemberStatus. Este ajuste sólo afectará al estado por defecto de las colas NUEVAS, no cambiará las colas existentes ni activará la opción en las nuevas."
+
+msgid "Log Transfers"
+msgstr "Registrar Transferencias"
+
+msgid "Register a TRANSFER event in the queue_log file if a Blind Transfer is detected. Useful for queue reporting tools like Asternic Call Center Stats PRO. Set it to false if you use direct device queue members instead of the default local channels."
+msgstr "Registrar un evento TRANSFER en el archivo queue_log si se detecta una Transferencia Ciega. Útil para herramientas de reporte de colas como Asternic Call Center Stats PRO. Establézcalo en false si utiliza miembros de cola directos del dispositivo en lugar de los canales locales predeterminados."
+
+msgid "Queue Caller Count"
+msgstr "Cantidad de llamantes en cola"

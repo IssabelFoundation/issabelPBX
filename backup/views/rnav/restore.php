@@ -13,7 +13,7 @@ if (isset($servers)){
 			. ( $id == $s['id'] ? ' class="current" ' : '') 
 			. '" href="config.php?display=backup_restore&id=' 
 			. $s['id'] . '">' 
-			. $s['name'] 
+			. __($s['name']) 
 			. ' (' . $s['type'] . ')'
 			.'</a>';
 	}

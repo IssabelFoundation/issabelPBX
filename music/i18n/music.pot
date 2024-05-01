@@ -41,7 +41,7 @@ msgid ""
 "a busy phone system"
 msgstr ""
 
-msgid "Add Music Category"
+msgid "Add Music on Hold Category"
 msgstr ""
 
 msgid "Add Streaming Category"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "On Hold Music"
 msgstr ""
 
-msgid "Category Name:"
+msgid "Category Name"
 msgstr ""
 
 msgid ""
@@ -116,7 +116,7 @@ msgstr ""
 msgid "Edit Streaming Category"
 msgstr ""
 
-msgid "Upload a .wav or .mp3 file:"
+msgid "Upload a .wav or .mp3 file"
 msgstr ""
 
 msgid "Upload"
@@ -198,4 +198,13 @@ msgstr ""
 
 #, php-format
 msgid "Error Deleting %s"
+msgstr ""
+
+msgid "Edit Music on Hold Category"
+msgstr ""
+
+msgid "Choose a file..."
+msgstr ""
+
+msgid "Music Files"
 msgstr ""

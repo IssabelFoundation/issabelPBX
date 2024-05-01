@@ -6,7 +6,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
     $output = array();
     $fn = "http://myip.issabel.org:5060/whatismyip.php";
 
-    $json_array['status'] = _('Failed to auto-detect settings');
+    $json_array['status'] = __('Failed to auto-detect settings');
     $json_array['externip'] = '';
 
 
@@ -15,7 +15,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
     preg_match('|^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})$|',$ip_xml,$matches);
     if (isset($matches[1])) {
         $json_array['externip'] = $matches[1];
-        $json_array['status'] = _('Failed to auto-detect local network settings');
+        $json_array['status'] = __('Failed to auto-detect local network settings');
 
         // TODO: Still find a better way to find patch to route command?
         //
@@ -35,7 +35,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
             }
         }
     } else {
-        $json_array['status'] = _('Failed to auto-detect settings');
+        $json_array['status'] = __('Failed to auto-detect settings');
     }
     $json_array['localnet'] = $localnet;
 

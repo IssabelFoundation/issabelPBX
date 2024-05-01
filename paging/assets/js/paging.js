@@ -1,55 +1,54 @@
-$(document).ready(function() {
-	$('form[name=page_edit]').submit(function(){
-		if (!isInterger($('input[name=pagenbr]').val())) {
-			alert('Please enter a valid Paging Extension');
-			return false;
-		}
-	});
 
+up.compiler('.content', function(element,data) {
 
-	//style devices as buttons
-	$('.device_list > span').button();
+    if($('#selected_dev').length>0) {
 
-	//make devices dragable
-	$('.device_list').sortable({
-		connectWith: '.device_list',
-		items: ' > span',
-		deactivate: function(){dev_list_height();},
-		receive: function(i, ui) {
-			//if dev_limit returns false, cancel the move
-			dev_limit($(ui.item).parent().attr('id')) 
-				|| $(ui.sender).sortable('cancel');
-		}
-	}).disableSelection();
-	
-	//set device width so there all the same size
-	dev_list_item_width();
-	
-	//resize device lists, now that there 'sortabled' and 'buttoned'
-	dev_list_height();
+	    dev_list_height();
+        $('.device_list > div').each(function() { $(this).addClass('button');});
+        dev_list_item_width();
 
-	//allow devices to move between lists by double clicking on them
-	$('.device_list > span').dblclick(function(e){
-		var to = $(this).parent().attr('id') == 'selected_dev'
-					? 'notselected_dev'
-					: 'selected_dev';
-		
-		//dont transfer devices if at limit
-		if (!dev_limit(to)) {
-			return false;
-		}
-		$(this).appendTo($('#' + to));
-		dev_list_height();
-	});
+        el = document.getElementById('selected_dev');
+        Sortable.create( el, { 
+            group: { 
+                name: 'selected_dev', 
+                put: ['notselected_dev']
+            }, animation:100 
+        });
+        el = document.getElementById('notselected_dev');
+        Sortable.create(  el, { 
+            group: { 
+                name: 'notselected_dev', 
+                put: ['selected_dev']
+            },animation:100
+        });
+    }
 
 	//add devices to form on submit
-	$('#page_opts_form').submit(function(){
+	$('#mainform').on('submit',function(){
+
+        if(typeof msgInvalidExtension == 'undefined') {
+            // In General Settings Form we do not have invalid messages, do not validate form
+            $.LoadingOverlay('show');
+            return true;
+        }
+
 		var form = $(this);
 
-		$('#selected_dev > span').each(function(){
+        if (!isInteger($('input[name=pagenbr]').val())) {
+            return warnInvalid($('input[name=pagenbr]'), msgInvalidExtension);
+        }
+
+        if (isEmpty($('input[name=description]').val())) {
+            return warnInvalid($('input[name=description]'), msgInvalidDescription);
+        }
+
+		$('#selected_dev > div').each(function(){
+            console.log('agregado pagelist '+$(this).attr('data-ext'));
 			form.append('<input type="hidden" name="pagelist[]" value="' 
 				+ $(this).attr('data-ext') + '">');
 		});
+
+        $.LoadingOverlay('show');
 
 	});
 
@@ -66,20 +65,20 @@ function dev_list_height() {
 
 function dev_list_item_width() {
 	var width = 0;
-	$('.device_list > span').each(function(){
+	$('.device_list > div').each(function(){
 		width = $(this).width() > width ? $(this).width() : width;
 	});
 
-	$('.device_list > span').width(width);
+	$('.device_list > div').width(width);
 }
+
 function dev_list_sort() {
 	$('.device_list').each(function(){
 		var dev_list = $(this);
-		var list = dev_list.find('span').sort(function(a, b){
+		var list = dev_list.find('div').sort(function(a, b){
 			return $(a).data('ext') > $(b).data('ext') ? 1 : -1;
 		})
 		$.each(list, function(id, item){
-			console.log(item);
 			dev_list.append(item);
 		})
 	});

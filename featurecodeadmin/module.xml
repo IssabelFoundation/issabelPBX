@@ -2,7 +2,7 @@
 	<rawname>featurecodeadmin</rawname>
 	<repo>standard</repo>
 	<name>Feature Code Admin</name>
-	<version>2.11.0.2</version>
+	<version>2.12.0.0</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -13,15 +13,16 @@
 	<menuitems>
 		<featurecodeadmin>Feature Codes</featurecodeadmin>
 	</menuitems>
-	<location>release/2.11/featurecodeadmin-2.11.0.0.tgz</location>
-	<changelog>
+	<location>release/2.12/featurecodeadmin-2.12.0.0.tgz</location>
+    <changelog>
+        *2.12.0.0* Newer GUI, standarize module components
 		*2.11.0.2* Initial Issabel Foundation release
 	</changelog>
 	<depends>
-		<version>2.5.0alpha1</version>
+		<version>2.12.0</version>
 	</depends>
 	<supported>
-		<version>2.10</version>
-	</supported>
-	<md5sum>8d3a776210d49d0fd03b66cd51e5b23d</md5sum>
+		<version>2.12</version>
+    </supported>
+        <md5sum>0</md5sum>
 </module>

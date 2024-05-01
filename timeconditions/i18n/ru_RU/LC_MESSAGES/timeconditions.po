@@ -1,6 +1,6 @@
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2008 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Alexander Anikin <may@postmet.com>, 2006-2013.
 #
 msgid ""
@@ -10,8 +10,6 @@ msgstr ""
 "POT-Creation-Date: 2015-03-18 16:15-0500\n"
 "PO-Revision-Date: 2014-09-11 01:59+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: Russian <http://git.freepbx.org/projects/freepbx/"
-"timeconditions/ru_RU/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -77,7 +75,7 @@ msgstr ""
 "Создаёт условия, при котором вызов будет распределяться на одно и более "
 "назначение (например внутренний номер, Интеркативное меню, ринг-группа..) "
 "основываяь на текущем времени/дате. Это можно использовать например "
-"направляя входящие вызовы секретарю в рабочее время, и на Интерактивное меню "
+"направляя входящие вызовы секретарю в рабочее время, и на Интеактивное меню "
 "- в ночное."
 
 #: page.timeconditions.php:117
@@ -172,7 +170,7 @@ msgstr ""
 "подвижке по времени, ассоциированной с Временной группой. Если это "
 "постоянное состояние, то оно остаётся таким пока не будут сделаны изменения "
 "здесь или другие внешние приложения, такие как XML-скрипт на телефоне. Если "
-"стоит 'Не перезаписывать', то функционал базируется на стандартном временном "
+"стоит 'Не перезаписывать', то функционал базируется на стандартном временом "
 "расписании."
 
 #: functions.inc.php:1226 functions.inc.php:1325
@@ -498,7 +496,7 @@ msgstr ""
 #~ "resources are required to keep the hint updated. This Feature Code can be "
 #~ "found and enabled/disabled on the Feature Codes tab under Time Conditions."
 #~ msgstr ""
-#~ "Если установлено, будет сгененрирован хинт, который перепишет сервисный "
+#~ "Если установлено, будет сгененрирован хинт, который перепишет сервисый "
 #~ "код %s ассоциированный с этим Правилом по времени, который можно "
 #~ "использовать подсвечивая BLF кнопку телефона, запрограммированную для "
 #~ "включения/выключения этого Правила по времени. Если BLF не используются, "
@@ -549,7 +547,7 @@ msgstr ""
 #~ "интервал даёт более точное отображение статуса кнопок с BLF, Интервал "
 #~ "должен быть меньше, чем наименьший временной зазор между двумя "
 #~ "состояниями, тогда ручное изменение состояния в таком периоде "
-#~ "благополучно сбросится в начале следующего периода."
+#~ "благополучно сбросися в начале следующего периода."
 
 #~ msgid "text"
 #~ msgstr "текст"

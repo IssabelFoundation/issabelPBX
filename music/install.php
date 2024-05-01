@@ -7,7 +7,7 @@ require_once(dirname(__FILE__).'/functions.inc.php');
 // In case there is an old version as part of the upgrade process, we will derive the current path
 //
 $moh_subdir = isset($amp_conf['MOHDIR']) ? trim(trim($amp_conf['MOHDIR']),'/') : 'mohmp3';
-$path_to_moh_dir = $amp_conf['ASTVARLIBDIR']."/$moh_subdir";
+$path_to_moh_dir = $amp_conf['ASTDATADIR']."/$moh_subdir";
 
 $File_Write="";
 $tresults = music_list($path_to_moh_dir);
@@ -34,7 +34,7 @@ if (isset($tresults)) {
 $handle = fopen($amp_conf['ASTETCDIR']."/musiconhold_additional.conf", "w");
 
 if (fwrite($handle, $File_Write) === FALSE) {
-	echo _("Cannot write to file")." ($tmpfname)";
+	echo __("Cannot write to file")." ($tmpfname)";
 	exit;
 }
 

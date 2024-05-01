@@ -235,7 +235,7 @@ msgstr "הקלטות מובנות"
 msgid "Please enter a valid Name for this System Recording"
 msgstr "נא הזן שם תקין לקובץ ההקלטה"
 
-msgid "Select System Recording:"
+msgid "Select System Recording"
 msgstr "בחר הקלטת מערכת:"
 
 msgid "Click here to play this recording"

@@ -1,0 +1,200 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-31 17:36+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: page.hotelwakeup.php:53
+msgid ""
+"Cannot schedule the call, either due to insufficient data or the scheduled "
+"time was in the past"
+msgstr ""
+
+#: page.hotelwakeup.php:79 page.hotelwakeup.php:88
+msgid "Item has been saved"
+msgstr ""
+
+#: page.hotelwakeup.php:101
+msgid "Item has been deleted"
+msgstr ""
+
+#: page.hotelwakeup.php:106
+msgid "Could not find file to remove"
+msgstr ""
+
+#: page.hotelwakeup.php:195
+msgid "Hotel Wake Up Configuration"
+msgstr ""
+
+#: page.hotelwakeup.php:214
+msgid ""
+"Wake Up calls can be used to schedule a reminder or wakeup call to any valid "
+"destination. To schedule a call, dial the feature code assigned in "
+"IssabelPBX Feature Codes or use the form below."
+msgstr ""
+
+#: page.hotelwakeup.php:215
+msgid ""
+"By default, Wake Up calls are only made back to the Caller ID of the user "
+"which requests them. When the Operator Mode is enabled, certain extensions "
+"are identified to be able to request a Wake Up call for any valid internal "
+"or external destination."
+msgstr ""
+
+#: page.hotelwakeup.php:233
+msgid "Edit Wake Up Call"
+msgstr ""
+
+#: page.hotelwakeup.php:240
+msgid "Module configuration"
+msgstr ""
+
+#: page.hotelwakeup.php:252
+msgid "Add Wake Up Call"
+msgstr ""
+
+#: page.hotelwakeup.php:264 page.hotelwakeup.php:296
+msgid "General Settings"
+msgstr ""
+
+#: page.hotelwakeup.php:268
+msgid "Destination"
+msgstr ""
+
+#: page.hotelwakeup.php:268
+msgid "The destination extension for this call"
+msgstr ""
+
+#: page.hotelwakeup.php:276
+msgid "Date/Time"
+msgstr ""
+
+#: page.hotelwakeup.php:276
+msgid "The date"
+msgstr ""
+
+#: page.hotelwakeup.php:283
+msgid "System Settings"
+msgstr ""
+
+#: page.hotelwakeup.php:284
+msgid ""
+"For scheduled calls to be delivered at the correct time, the system time "
+"zone and current time must be set properly. The system is reporting the "
+"following time zone and time:"
+msgstr ""
+
+#: page.hotelwakeup.php:285
+msgid "Time zone"
+msgstr ""
+
+#: page.hotelwakeup.php:286
+msgid "System time"
+msgstr ""
+
+#: page.hotelwakeup.php:299
+msgid "Operator Mode"
+msgstr ""
+
+#: page.hotelwakeup.php:299
+msgid ""
+"<u>ENABLE</u> Operator Mode to allow designated extentions to create wake up "
+"calls for any valid destination.<br><u>DISABLE</u> Calls can only be placed "
+"back to the caller ID of the user scheduling the wakeup call."
+msgstr ""
+
+#: page.hotelwakeup.php:302
+msgid "Enabled"
+msgstr ""
+
+#: page.hotelwakeup.php:302
+msgid "Disabled"
+msgstr ""
+
+#: page.hotelwakeup.php:307
+msgid "Max Dest. Length"
+msgstr ""
+
+#: page.hotelwakeup.php:307
+msgid ""
+"This controls the maximum number of digits an operator can send a wakeup "
+"call to. Set to 10 or 11 to allow wake up calls to outside numbers."
+msgstr ""
+
+#: page.hotelwakeup.php:315
+msgid "Operator Extensions"
+msgstr ""
+
+#: page.hotelwakeup.php:315
+msgid ""
+"Enter the Caller ID's of each telephone you wish to be recognized as an "
+"`Operator`.  Operator extensions are allowed to create wakeup calls for any "
+"valid destination. Numbers can be extension numbers, full caller ID numbers "
+"or Asterisk dialing patterns."
+msgstr ""
+
+#: page.hotelwakeup.php:322
+msgid "(Use a comma separated list)"
+msgstr ""
+
+#: page.hotelwakeup.php:326
+msgid "Ring Time"
+msgstr ""
+
+#: page.hotelwakeup.php:326
+msgid ""
+"The number of seconds for the phone to ring. Consider setting lower than the "
+"voicemail threshold or the wakeup call can end up going to voicemail."
+msgstr ""
+
+#: page.hotelwakeup.php:334
+msgid "Retry Time"
+msgstr ""
+
+#: page.hotelwakeup.php:334
+msgid ""
+"The number of seconds to wait between retrys.  A 'retry' happens if the "
+"wakeup call is not answered."
+msgstr ""
+
+#: page.hotelwakeup.php:342
+msgid "Max Retries"
+msgstr ""
+
+#: page.hotelwakeup.php:342
+msgid ""
+"The maximum number of times the system should attempt to deliver the wakeup "
+"call when there is no answer.  Zero retries means only one call will be "
+"placed."
+msgstr ""
+
+#: page.hotelwakeup.php:350
+msgid "Caller ID"
+msgstr ""
+
+#: page.hotelwakeup.php:350
+msgid ""
+"<u>First Box:</u> Enter the CNAM (Caller ID Name) to be sent by the system "
+"when placing the wakeup calls.  Enclose this string with \" if required by "
+"your system.<br><u>Second Box:</u> Enter the CID (Caller ID number) of the "
+"Caller ID to be sent when the system places wake up calls."
+msgstr ""
+
+#: page.hotelwakeup.php:357
+msgid ""
+"*Some systems require quote marks around the textual caller ID. You may "
+"include the \" \" if needed by your system."
+msgstr ""

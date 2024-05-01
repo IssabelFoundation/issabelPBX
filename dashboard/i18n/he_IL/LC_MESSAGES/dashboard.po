@@ -112,7 +112,7 @@ msgstr ""
 
 msgid ""
 "SSH port number configured on your system if not using the default port 22, "
-"this allows the dashboard monitoring to watch the poper port."
+"this allows the dashboard monitoring to watch the proper port."
 msgstr ""
 
 #, php-format

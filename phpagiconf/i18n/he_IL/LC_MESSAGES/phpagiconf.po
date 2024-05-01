@@ -16,23 +16,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: page.phpagiconf.php:90
-msgid "Asterisk API settings:"
+msgid "Asterisk API settings"
 msgstr "הגדרות API של אסטריסק"
 
 #: page.phpagiconf.php:109
-msgid "Basedir:"
+msgid "Basedir"
 msgstr "ספריה בסיסית:"
 
 #: page.phpagiconf.php:112
-msgid "Cepstral config:"
+msgid "Cepstral config"
 msgstr "תצורת Cepstral:"
 
 #: page.phpagiconf.php:118
-msgid "Cepstral voice:"
+msgid "Cepstral voice"
 msgstr "קול Cepstral:"
 
 #: page.phpagiconf.php:60
-msgid "Debug:"
+msgid "Debug"
 msgstr "דיבאג:"
 
 #: page.phpagiconf.php:102
@@ -48,7 +48,7 @@ msgid "Enable PHPAGI debugging."
 msgstr "מפעיל פלט מורחב של PHPAGI לצורך מציאת באגים"
 
 #: page.phpagiconf.php:67
-msgid "Error handler:"
+msgid "Error handler"
 msgstr "מטפל בשגיאות:"
 
 #: functions.inc.php:38
@@ -56,15 +56,15 @@ msgid "Error writing the phpagi.conf file."
 msgstr "שגיאה בכתיבת קובץ phpagi.conf."
 
 #: page.phpagiconf.php:100
-msgid "Fast AGI config:"
+msgid "Fast AGI config"
 msgstr "תצורת AGI מהיר:"
 
 #: page.phpagiconf.php:85
-msgid "Festival config:"
+msgid "Festival config"
 msgstr "תצורת Festival"
 
 #: page.phpagiconf.php:78
-msgid "Hostname of the server:"
+msgid "Hostname of the server"
 msgstr "כתובת המארח של השרת:"
 
 #: page.phpagiconf.php:78
@@ -72,15 +72,15 @@ msgid "Hostname of this server."
 msgstr "כתובת המארח (הוסט) של השרת."
 
 #: page.phpagiconf.php:74
-msgid "Mail errors to:"
+msgid "Mail errors to"
 msgstr "שלח שגיאות אל:"
 
 #: page.phpagiconf.php:57
-msgid "Main config:"
+msgid "Main config"
 msgstr "תצורה ראשית:"
 
 #: page.phpagiconf.php:52
-msgid "PHPAGI Config:"
+msgid "PHPAGI Config"
 msgstr "תצורת PHPAGI:"
 
 #: page.phpagiconf.php:109
@@ -96,7 +96,7 @@ msgid "Path to text2wave binary."
 msgstr "נתיב לקובץ ההרצה של text2wave."
 
 #: page.phpagiconf.php:87
-msgid "Path to text2wave:"
+msgid "Path to text2wave"
 msgstr "נתיב ל text2wave:"
 
 #: page.phpagiconf.php:96
@@ -104,7 +104,7 @@ msgid "Port to connect to manager."
 msgstr "יציאה (פורט) שדרכה יש להתחבר לניהול."
 
 #: page.phpagiconf.php:96
-msgid "Port:"
+msgid "Port"
 msgstr "יציאה:"
 
 #: page.phpagiconf.php:92
@@ -112,7 +112,7 @@ msgid "Server to connect to."
 msgstr "שרת שיש להתחבר אליו."
 
 #: page.phpagiconf.php:92
-msgid "Server:"
+msgid "Server"
 msgstr "שרת:"
 
 #: page.phpagiconf.php:122
@@ -120,7 +120,7 @@ msgid "Submit Changes"
 msgstr ""
 
 #: page.phpagiconf.php:114
-msgid "Swift path:"
+msgid "Swift path"
 msgstr "נתיב ל Swift:"
 
 #: page.phpagiconf.php:118
@@ -132,7 +132,7 @@ msgid "Temporary directory for storing temporary output."
 msgstr "ספריה זמנית לאחסון פלטים זמניים."
 
 #: page.phpagiconf.php:82
-msgid "Temporary directory:"
+msgid "Temporary directory"
 msgstr "ספריה זמנית:"
 
 #: page.phpagiconf.php:67
@@ -144,7 +144,7 @@ msgid "false"
 msgstr "לא"
 
 #: page.phpagiconf.php:102
-msgid "setuid:"
+msgid "setuid"
 msgstr "שנה משתמש"
 
 #: page.phpagiconf.php:63 page.phpagiconf.php:70 page.phpagiconf.php:105
@@ -152,9 +152,6 @@ msgid "true"
 msgstr "כן"
 
 #, fuzzy
-#~ msgid "PHPAGI Config"
-#~ msgstr "תצורת PHPAGI:"
-
 #~ msgid "To use this module you need the Asterisk API module version >= 1.0.4"
 #~ msgstr ""
 #~ "כדי להשתמש במודול זה, אתה צריך מודול API של אסטריסק מגירסא 1.0.4 או חדשה "

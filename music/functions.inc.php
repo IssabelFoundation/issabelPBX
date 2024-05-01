@@ -14,7 +14,7 @@ class music_conf {
 	function generateConf() {
 		global $amp_conf;
 		global $version; //asterisk version
-		$path_to_moh_dir = $amp_conf['ASTVARLIBDIR'].'/'.$amp_conf['MOHDIR'];
+		$path_to_moh_dir = $amp_conf['ASTDATADIR'].'/'.$amp_conf['MOHDIR'];
 		$output = "";
 
 		$File_Write="";
@@ -69,7 +69,7 @@ function music_list($path=null) {
     if (!isset($amp_conf['MOHDIR'])) {
       $amp_conf['MOHDIR'] = '/mohmp3';
     }
-    $path = $amp_conf['ASTVARLIBDIR'].'/'.$amp_conf['MOHDIR'];
+    $path = $amp_conf['ASTDATADIR'].'/'.$amp_conf['MOHDIR'];
   }
 	$i = 1;
 	$arraycount = 0;

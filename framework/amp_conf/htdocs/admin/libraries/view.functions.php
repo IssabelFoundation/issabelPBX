@@ -16,9 +16,9 @@ function frameworkPasswordCheck() {
     $proper_memory_limit = '100';
     if ($current_memory_limit < $proper_memory_limit) {
         if (ini_set('memory_limit',$proper_memory_limit.'M') !== false) {
-            $nt->add_notice('core', 'MEMLIMIT', _("Memory Limit Changed"), sprintf(_("Your memory_limit, %sM, is set too low and has been increased to %sM. You may want to change this in you php.ini config file"),$current_memory_limit,$proper_memory_limit));
+            $nt->add_notice('core', 'MEMLIMIT', __("Memory Limit Changed"), sprintf(__("Your memory_limit, %sM, is set too low and has been increased to %sM. You may want to change this in you php.ini config file"),$current_memory_limit,$proper_memory_limit));
         } else {
-            $nt->add_warning('core', 'MEMERR', _("Low Memory Limit"), sprintf(_("Your memory_limit, %sM, is set too low and may cause problems. IssabelPBX is not able to change this on your system. You should increase this to %sM in you php.ini config file"),$current_memory_limit,$proper_memory_limit));
+            $nt->add_warning('core', 'MEMERR', __("Low Memory Limit"), sprintf(__("Your memory_limit, %sM, is set too low and may cause problems. IssabelPBX is not able to change this on your system. You should increase this to %sM in you php.ini config file"),$current_memory_limit,$proper_memory_limit));
         }
     } else {
         $nt->delete('core', 'MEMLIMIT');
@@ -28,7 +28,7 @@ function frameworkPasswordCheck() {
     //
     if (version_compare(PHP_VERSION, '7.0.0') <= 0) {
         if(get_magic_quotes_gpc()) {
-            $nt->add_error('core', 'MQGPC', _("Magic Quotes GPC"), _("You have magic_quotes_gpc enabled in your php.ini, http or .htaccess file which will cause errors in some modules. IssabelPBX expects this to be off and runs under that assumption"));
+            $nt->add_error('core', 'MQGPC', __("Magic Quotes GPC"), __("You have magic_quotes_gpc enabled in your php.ini, http or .htaccess file which will cause errors in some modules. IssabelPBX expects this to be off and runs under that assumption"));
         } else {
             $nt->delete('core', 'MQGPC');
         }
@@ -38,17 +38,35 @@ function frameworkPasswordCheck() {
 
 // setup locale
 function set_language() {
-    if (extension_loaded('gettext')) {
+    global $issabelpbx_conf;
+//    if (extension_loaded('gettext')) {
         if (empty($_COOKIE['lang']) || !preg_match('/^[\w\._@-]+$/', $_COOKIE['lang'])) {
             $_COOKIE['lang'] = 'en_US';
         }
-        setlocale(LC_ALL,  $_COOKIE['lang']);
+        T_setlocale(LC_MESSAGES, $_COOKIE['lang']);
         putenv("LANGUAGE=".$_COOKIE['lang']);
 
-        bindtextdomain('amp','./i18n');
-        bind_textdomain_codeset('amp', 'utf8');
-        textdomain('amp');
-    }
+        _bindtextdomain('amp','./i18n');
+        _bind_textdomain_codeset('amp', 'utf8');
+        _textdomain('amp');
+
+        if (!$issabelpbx_conf->conf_setting_exists('LANGUAGE')) {
+            $value = $_COOKIE['lang'];
+            $set['value'] = $value;
+            $set['defaultval'] = 'en_US';
+            $set['readonly'] = 0;
+            $set['hidden'] = 0;
+            $set['level'] = 3;
+            $set['module'] = '';
+            $set['category'] = 'GUI Behavior';
+            $set['emptyok'] = 0;
+            $set['sortorder'] = 10;
+            $set['name'] = 'Language';
+            $set['description'] = 'General Language Setting for Web Admin';
+            $set['type'] = CONF_TYPE_TEXT;
+            $issabelpbx_conf->define_conf_setting('LANGUAGE',$set,true);
+        } 
+//    }
 }
 
 //
@@ -530,15 +548,15 @@ function framework_add_amp_admin($username, $password, $extension_low = '', $ext
 function framework_obe_intialize_validate($username, $password, $confirm_password, $email, $confirm_email) {
     $errors = array();
     if (!$username){
-        $errors[] = _('Please enter a username');
+        $errors[] = __('Please enter a username');
     }
     if (!$password) {
-        $errors[] = _('Please enter a password');
+        $errors[] = __('Please enter a password');
     } elseif ($password != $confirm_password) {
-        $errors[] = _('Passwords dont match');
+        $errors[] = __('Passwords dont match');
     }
     if ($email && $email != $confirm_email) {
-        $errors[] = _('Emaill addresses dont match');
+        $errors[] = __('Emaill addresses dont match');
     }
 
     return $errors;

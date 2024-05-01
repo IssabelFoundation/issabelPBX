@@ -13,8 +13,7 @@ privacyman,,1 to enable,Privacy Manager,"If no Caller ID is sent, Privacy Manage
 pmmaxretries,,1 to 10,Max attempts,"Number of attempts the caller has to enter a valid callerID, only valid if privacyman is set to 1",
 pmminlength,,1 to 15,Min Length,"Minimum amount of digits callerID needs to contain in order to be considered valid, only valid if privacyman is set to 1",
 cidlookup,,Number,CID Lookup ID,Number representing the index id for Caller ID Lookup Source,
-langcode,,Language Code,Valid Language Code,"A valid Asterisk language code such as 'en', 'fr' or 'sv'
-",
+langcode,,Language Code,Valid Language Code,"A valid Asterisk language code such as 'en', 'fr' or 'sv'",
 faxdetect,,yes or no,Detect Faxes,Attempt to detect faxes on this DID,
 faxdetectiontype,,"dahdi, nvfax, sip",Fax Detection type,Type of fax detection to use,
 faxdetectiontime,,2 to 10,Fax Detection Time,"How long to wait and try to detect fax. Please note that callers to a Dahdi channel will hear ringing for this amount of time (i.e. the system wont ""answer"" the call, it will just play ringing).",

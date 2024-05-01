@@ -2,9 +2,13 @@
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed');}
 
 $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : '';
+$extdisplay = isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay'] : '';
+if($extdisplay!='' && $id=='')  $id=$extdisplay;
+
+//die($action);
 
 $parking_defaults = array(
-    "name" => "Lot Name",
+    "name" => "",
     "type" => "public",
     "parkext" => "",
     "parkpos" => "",
@@ -27,6 +31,47 @@ $parking_defaults = array(
 
 $data = array();
 
+if(!isset($action)) $action='add';
+
+switch ($action) {
+    case "add":
+    case "update":
+        $vars = array();
+        foreach(array_keys($parking_defaults) as $k) {
+            if(isset($_POST[$k]))
+                $vars[$k] = $_POST[$k];
+        }
+        if(!empty($vars)) {
+            $vars['dest'] = (isset($_POST['goto0']) && isset($_POST[$_POST['goto0']])) ? $_POST[$_POST['goto0']] : '';
+            if($action == 'update') {
+                needreload();
+                $vars['id'] = $_REQUEST['extdisplay'];
+                $id = parking_save($vars);
+                $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
+                $_SESSION['msgtype']='success';
+                $_SESSION['msgtstamp']=time();
+                redirect_standard('extdisplay');
+            } else {
+                needreload();
+                $id = parking_save($vars);
+                $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
+                $_SESSION['msgtype']='success';
+                $_SESSION['msgtstamp']=time();
+                redirect_standard();
+            }
+        }
+        break;
+    case "delete":
+        parking_delete($extdisplay);
+        needreload();
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
+        $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
+        redirect_standard();
+        break;
+}
+
+/*
 if(!empty($action) && ($action == 'update' || $action == 'add')) {
     $vars = array();
     foreach(array_keys($parking_defaults) as $k) {
@@ -34,7 +79,7 @@ if(!empty($action) && ($action == 'update' || $action == 'add')) {
             $vars[$k] = $_POST[$k];
     }
     if(!empty($vars)) {
-        $vars['dest'] = (isset($_POST['goto0']) && isset($_POST[$_POST['goto0'].'0'])) ? $_POST[$_POST['goto0'].'0'] : '';
+        $vars['dest'] = (isset($_POST['goto0']) && isset($_POST[$_POST['goto0']])) ? $_POST[$_POST['goto0']] : '';
         if($action == 'update') {
             $vars['id'] = $_REQUEST['id'];
         }
@@ -48,10 +93,20 @@ if(!empty($action) && ($action == 'update' || $action == 'add')) {
     needreload();
     redirect_standard();
 }
-   
+*/
+
+$all_pl = array();
+$all_pl['extdisplay']=$extdisplay;
 $all_pl['lots'] = parking_get('all');
 echo parking_views('header',$all_pl);
+if(!empty($extdisplay)) {
+    $data = parking_get($extdisplay);
+} else {
+    $data = $parking_defaults;
+}
+echo parking_views('lot',$data);
 
+/*
 if(!empty($action) && !empty($id)) {
     $data = !empty($id) ? parking_get($id) : parking_get('default');
     echo parking_views('lot',$data);
@@ -71,3 +126,7 @@ if(!empty($action) && !empty($id)) {
     $data['modules']['paging'] = $d[$m]['status'] == "2" ? TRUE : FALSE;
     echo parking_views('overview',$data);
 }
+
+*/
+
+

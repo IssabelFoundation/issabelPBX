@@ -84,13 +84,13 @@ msgstr "Supprimer Destination %s"
 msgid "Edit Misc Destination"
 msgstr "Editer Destination"
 
-msgid "Description:"
+msgid "Description"
 msgstr "Description :"
 
 msgid "Give this Misc Destination a brief name to help you identify it."
 msgstr "Donnez un nom court à cette Destination pour vous aider à l'identfier."
 
-msgid "Dial:"
+msgid "Dial"
 msgstr "Composer :"
 
 msgid ""

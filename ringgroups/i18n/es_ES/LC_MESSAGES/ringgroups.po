@@ -1,17 +1,29 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo ringgroups module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-01-23 13:10+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, php-format
 msgid "Ring Group %s: "
@@ -198,11 +210,8 @@ msgstr ""
 msgid "Ring Time (max 300 sec)"
 msgstr "Tiempo Timbre (máximo 300 segundos)"
 
-#, fuzzy
-msgid ""
-"Time in seconds that the phones will ring. For all hunt style ring "
-"strategies, this is the time for each iteration of phone(s) that are rung"
-msgstr "Tiempo en segundos que sonarán los teléfonos. *********************"
+msgid "Time in seconds that the phone(s) will ring. For all hunt style ring strategies, this is the time for each iteration of phones that are rung"
+msgstr "Tiempo en segundos que sonarán los teléfonos. Este es el tiempo entre cada iteración de llamada a teléfonos, para todas las estrategias"
 
 msgid "Extension List"
 msgstr "Lista de extensiones"
@@ -212,7 +221,7 @@ msgid ""
 "to insert them here.<br><br>You can include an extension on a remote system, "
 "or an external number by suffixing a number with a '#'.  ex:  2448089# would "
 "dial 2448089 on the appropriate trunk (see Outbound Routing)"
-"<br><br>Extensions (without a '#' will not ring a user's Follow-Me. To dial "
+"<br><br>Extensions without a '#' will not ring a user's Follow-Me. To dial "
 "Follow-Me, Queues and other numbers that are not extensions, put a '#' at "
 "the end."
 msgstr ""
@@ -285,13 +294,13 @@ msgid ""
 "You can optionally prefix the CallerID name when ringing extensions in this "
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
 "as \"Sales:John Doe\" on the extensions that ring."
-msgstr ""
+msgstr "Opcionalmente, puede agregar un prefijo al nombre del identificador de llamadas cuando llame a las extensiones de este grupo. es decir: si agrega el prefijo \"Ventas:\", una llamada de Juan Pérez se mostraría como \"Ventas:Juan Pérez\" en las extensiones que suenan."
 
 msgid "Alert Info"
 msgstr "Información de alerta"
 
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
-msgstr ""
+msgstr "ALERT_INFO puede ser utilizado para generar un timbrado distintivo en dispositivos SIP"
 
 msgid "Ignore CF Settings"
 msgstr "Ignorar Desvíos"
@@ -311,7 +320,6 @@ msgstr ""
 msgid "Skip Busy Agent"
 msgstr "Ignorar agentes ocupados"
 
-#, fuzzy
 msgid ""
 "When checked, agents who are on an occupied phone will be skipped as if the "
 "line were returning busy. This means that Call Waiting or multi-line phones "
@@ -321,7 +329,7 @@ msgstr ""
 "Cuando esté marcada esta opción, se ignorarán los agentes que estén ocupados "
 "como si la extensión estuviera ocupada. Esto significa que la en teléfonos "
 "con llamada en espera o multilínea no recibirán la llamada en varias de las "
-"estrategias de ***********ring*********; se intentará con el siguiente "
+"estrategias de timbrado y se intentará con el siguiente "
 "agente."
 
 msgid "Enable Call Pickup"
@@ -333,7 +341,7 @@ msgid ""
 "individual extensions that are part of the group can still be picked up by "
 "doing a directed call pickup to the ringing extension, which works whether "
 "or not this is checked."
-msgstr ""
+msgstr "Marcar esto permitirá que las llamadas al grupo de timbrado se respondan con la función de captura de llamadas dirigida usando el número de grupo. Cuando no está marcada, las extensiones individuales que forman parte del grupo aún se pueden capturar haciendo una captura de llamada dirigida a la extensión que suena, lo que funciona ya sea que esté marcada o no."
 
 msgid "Confirm Calls"
 msgstr "Confirmar llamadas"
@@ -429,10 +437,10 @@ msgid ""
 msgstr "Valor fijo para reemplazar el CID con el que se usa con algunos de los modos anteriores. Debe tener un formato de dígitos solo con una opción de formato E164 con un \"+\" inicial"
 
 msgid "Call Recording"
-msgstr "Grabación de Llamadas"
+msgstr "Grabación de llamadas"
 
 msgid "Record Calls"
-msgstr "Grabar Llamadas"
+msgstr "Grabar llamadas"
 
 msgid ""
 "You can always record calls that come into this ring group, never record "
@@ -488,7 +496,13 @@ msgid ""
 "numbers are supported, and there is a call confirmation option where the "
 "callee has to confirm if they actually want to take the call before the "
 "caller is transferred."
-msgstr ""
+msgstr "Crea un grupo de extensiones que suenan todas juntas. Las extensiones pueden sonar todas a la vez, o en varias configuraciones de 'caza'. Además, se admiten números externos, y hay una opción de confirmación de llamada en la que el interlocutor tiene que confirmar si realmente quiere coger la llamada antes de que se transfiera la llamada."
 
 msgid "Ring Group Module"
 msgstr "Módulo de Grupo de extensions"
+
+msgid "Display Extension Ring Group Members"
+msgstr "Mostrar miembros del grupo de timbre de extensión"
+
+msgid "When set to true extensions that belong to one or more Ring Groups will have a Ring Group section and link back to each group they are a member of."
+msgstr "Cuando se configura en verdadero, las extensiones que pertenecen a uno o más grupos de timbre tendrán una sección de grupo de timbre y se vincularán a cada grupo del que sean miembros."

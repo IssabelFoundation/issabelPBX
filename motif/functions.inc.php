@@ -18,7 +18,7 @@ function motif_get_config($engine) {
 			if(method_exists($core_conf, "addRtpAdditional")) {
 				$core_conf->addRtpAdditional('general', array("icesupport" => "yes"));
 			} else {
-				throw new \Exception(_("Please update the module named 'motif' or enable the module named 'core'."));
+				throw new \Exception(__("Please update the module named 'motif' or enable the module named 'core'."));
 			}
 			break;
 	}

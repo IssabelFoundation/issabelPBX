@@ -1,0 +1,146 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Directory"
+msgstr "Directorio"
+
+msgid "Add Directory"
+msgstr "Añadir Directorio"
+
+msgid "Edit Directory"
+msgstr "Modificar Directorio"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "CallerID Name Prefix"
+msgstr "Prefijo de CallerID"
+
+msgid "Alert Info"
+msgstr ""
+
+msgid "Announcement"
+msgstr "Anuncio"
+
+msgid "Invalid Retries"
+msgstr "Reintentos opción inválida"
+
+msgid "Invalid Retry Recording"
+msgstr "Grabación reintento opción inválida"
+
+msgid "Invalid Recording"
+msgstr "Grabación opción inválida"
+
+msgid "Invalid Destination"
+msgstr "Destino opción inválida"
+
+msgid "Return to IVR"
+msgstr "Retornar al IVR"
+
+msgid "Announce Extension"
+msgstr "Anunciar extensión"
+
+msgid "Default Directory"
+msgstr "Directorio por defecto"
+
+msgid "Directory Entries"
+msgstr "Entradas de Directorio"
+
+msgid "Add new entry"
+msgstr "Añadir nueva entrada"
+
+msgid "Name Announcement"
+msgstr "Anuncio de nombre"
+
+msgid "Dial"
+msgstr "Marcar"
+
+msgid "Directory Options (DTMF)"
+msgstr "Opciones de Directorio (DTMF)"
+
+msgid "Name of this directory."
+msgstr "Nombre de este directorio."
+
+msgid "Description of this directory."
+msgstr "Descripción de este directorio."
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Prefix to be appended to current CallerID Name."
+msgstr "Prefijo que se agregará al nombre del identificador de llamadas actual."
+
+msgid "ALERT_INFO to be sent when called from this Directory. Can be used for distinctive ring for SIP devices."
+msgstr "ALERT_INFO que se enviará cuando se llame desde este directorio. Puede usarse para timbre distintivo para dispositivos SIP."
+
+msgid "Greeting to be played on entry to the directory."
+msgstr "Saludo que se reproducirá al entrar en el directorio."
+
+msgid "Number of times to retry when receiving an invalid/unmatched response from the caller"
+msgstr "Número de veces que se debe volver a intentar cuando se recibe una respuesta no válida/no coincidente de la persona que llama"
+
+msgid "Prompt to be played when an invalid/unmatched response is received, before prompting the caller to try again"
+msgstr "Aviso que se reproducirá cuando se reciba una respuesta no válida o no coincidente, antes de pedirle a la persona que llama que lo intente de nuevo"
+
+msgid "Prompt to be played before sending the caller to an alternate destination due to the caller pressing 0 or receiving the maximum amount of invalid/unmatched responses (as determined by Invalid Retries)"
+msgstr "Aviso que se reproducirá antes de enviar a la persona que llama a un destino alternativo debido a que la persona que llama presiona 0 o recibe la cantidad máxima de respuestas no válidas/no coincidentes (según lo determinado por Reintentos opción inválida)"
+
+msgid "Destination to send the call to after Invalid Recording is played."
+msgstr "Destino al que enviar la llamada después de que se reproduzca Grabación no válida."
+
+msgid "When selected, if the call passed through an IVR that had \"Return to IVR\" selected, the call will be returned there instead of the Invalid destination."
+msgstr "Cuando se selecciona, si la llamada pasó a través de un IVR que tenía seleccionado \"Volver a IVR\", la llamada se devolverá allí en lugar del destino Inválido."
+
+msgid "When checked, the extension number being transferred to will be announced prior to the transfer"
+msgstr "Cuando se marca, el número de extensión al que se transfiere se anunciará antes de la transferencia"
+
+msgid "When checked, this becomes the default directory and replaces any other directory as the default directory. This has the effect of exposing entries for this directory into the Extension/User page"
+msgstr "Cuando está marcado, se convierte en el directorio predeterminado y reemplaza a cualquier otro directorio como directorio predeterminado. Esto tiene el efecto de exponer entradas para este directorio en la página Extensión/Usuario"
+
+msgid "All Users"
+msgstr "Todos los usuarios"
+
+msgid "Custom"
+msgstr "Personalizado"
+
+msgid "Voicemail Greeting"
+msgstr "Saludo de buzón de voz"
+
+msgid "Text to Speech"
+msgstr "Texto a voz"
+
+msgid "Spell Name"
+msgstr "Deletrear nombre"
+
+msgid "System Recordings"
+msgstr "Grabaciones de sistema"
+
+msgid "Edit %s: %s"
+msgstr "Modificar %s: %s"
+
+msgid "Delete"
+msgstr "Eliminar"

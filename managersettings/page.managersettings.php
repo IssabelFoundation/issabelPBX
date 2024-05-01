@@ -34,12 +34,15 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   if(!isset($manager_custom_val_0)) { $manager_custom_val_0=''; }
 
   switch ($action) {
-    case "edit":  //just delete and re-add
+      case "edit":  //just delete and re-add
       if (($errors = managersettings_edit($manager_settings)) !== true) {
-        $error_displays = process_errors($errors);
+          $error_displays = process_errors($errors);
       } else {
-        needreload();
-        //redirect_standard();
+          needreload();
+          $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
+          $_SESSION['msgtype']='success';
+          $_SESSION['msgtstamp']=time();
+          redirect_standard();
       }
       break;
     default:
@@ -48,7 +51,8 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   }
 
 ?>
-  <h2><?php echo _("Edit Asterisk Manager Settings"); ?></h2>
+<div class='content'>
+  <h2><?php echo __("Asterisk Manager Settings"); ?></h2>
 
 <?php
 
@@ -56,9 +60,10 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   extract($manager_settings);
 
 ?>
-  <form autocomplete="off" name="editMgr" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+
+  <form id="mainform" autocomplete="off" name="editMgr" method="post">
   <input type="hidden" name="action" value="edit">
-  <table width="690px">
+  <table class='table is-borderless is-narrow'>
 
 <?php
   /* if there were erros on the submit then create error box */
@@ -67,7 +72,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   <tr>
     <td colspan="2">
       <div class="manager-errors">
-        <p><?php echo _("ERRORS") ?></p>
+        <p><?php echo __("ERRORS") ?></p>
         <ul>
 <?php
     foreach ($error_displays as $div_disp) {
@@ -82,86 +87,85 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
   }
 ?>
   <tr>
-    <td colspan="2"><h5><?php echo _("General Asterisk Manager Settings")?></h5></td>
+    <td colspan="2"><h5><?php echo _dgettext("amp","General Settings")?></h5></td>
   </tr>
-  <tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Web Enabled")?><span><?php echo _("You can  make the manager interface available over http/https if Asterisk's http server is enabled in  http.conf")?></span></a>
+      <a href="#" class="info"><?php echo __("Web Enabled")?><span><?php echo __("You can  make the manager interface available over http/https if Asterisk's http server is enabled in  http.conf")?></span></a>
     </td>
     <td>
-      <table width="100%">
-        <tr>
-          <td>
-            <span class="radioset">
-            <input id="webenabled-yes" type="radio" name="webenabled" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $webenabled=="yes"?"checked=\"yes\"":""?>/>
-            <label for="webenabled-yes"><?php echo _('yes');?></label>
-            <input id="webenabled-no" type="radio" name="webenabled" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $webenabled=="no"?"checked=\"no\"":""?>/>
-            <label for="webenabled-no"><?php echo _('no');?></label>
-            </span>
-          </td>
-        </tr>
-      </table>
+            <fieldset class="radioset">
+              <div class='radiotoggle'>
+                <input id="webenabled-yes" type="radio" name="webenabled" value="yes" tabindex="<?php echo ++$tabindex;?>" <?php echo $webenabled=="yes"?"checked=\"checked\"":""?>/>
+                <label for="webenabled-yes"><?php echo __('yes');?></label>
+                <input id="webenabled-no" type="radio" name="webenabled" value="no" tabindex="<?php echo ++$tabindex;?>" <?php echo $webenabled=="no"?"checked=\"checked\"":""?>/>
+                <label for="webenabled-no"><?php echo __('no');?></label>
+              </div>
+            </fieldset>
     </td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Display Connects")?><span><?php echo _("If enabled, any AMI connection will display a message in the Asterisk CLI")?></span></a>
+      <a href="#" class="info"><?php echo __("Display Connects")?><span><?php echo __("If enabled, any AMI connection will display a message in the Asterisk CLI")?></span></a>
     </td>
     <td>
-      <table width="100%">
-        <tr>
-          <td>
-            <span class="radioset">
-            <input id="displayconnects-yes" type="radio" name="displayconnects" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $displayconnects=="yes"?"checked=\"yes\"":""?>/>
-            <label for="displayconnects-yes"><?php echo _('yes');?></label>
-            <input id="displayconnects-no" type="radio" name="displayconnects" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $displayconnects=="no"?"checked=\"no\"":""?>/>
-            <label for="displayconnects-no"><?php echo _('no');?></label>
-            </span>
-          </td>
-        </tr>
-      </table>
+            <fieldset class="radioset">
+              <div class='radiotoggle'>
+                <input id="displayconnects-yes" type="radio" name="displayconnects" value="yes" tabindex="<?php echo ++$tabindex;?>" <?php echo $displayconnects=="yes"?"checked=\"checked\"":""?>/>
+                <label for="displayconnects-yes"><?php echo __('yes');?></label>
+                <input id="displayconnects-no" type="radio" name="displayconnects" value="no" tabindex="<?php echo ++$tabindex;?>" <?php echo $displayconnects=="no"?"checked=\"checked\"":""?>/>
+                <label for="displayconnects-no"><?php echo __('no');?></label>
+              </div>
+            </fieldset>
     </td>
   </tr>
  
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Timestamp Events")?><span><?php echo _("Add a Unix epoch timestamp to events (not action responses)")?></span></a>
+      <a href="#" class="info"><?php echo __("Timestamp Events")?><span><?php echo __("Add a Unix epoch timestamp to events (not action responses)")?></span></a>
     </td>
     <td>
-      <table width="100%">
-        <tr>
-          <td>
-            <span class="radioset">
-            <input id="timestampevents-yes" type="radio" name="timestampevents" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $timestampevents=="yes"?"checked=\"yes\"":""?>/>
-            <label for="timestampevents-yes"><?php echo _('yes');?></label>
-            <input id="timestampevents-no" type="radio" name="timestampevents" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $timestampevents=="no"?"checked=\"no\"":""?>/>
-            <label for="timestampevents-no"><?php echo _('no');?></label>
-            </span>
-          </td>
-        </tr>
-      </table>
+            <fieldset class="radioset">
+              <div class='radiotoggle'>
+                <input id="timestampevents-yes" type="radio" name="timestampevents" value="yes" tabindex="<?php echo ++$tabindex;?>" <?php echo $timestampevents=="yes"?"checked=\"checked\"":""?>/>
+                <label for="timestampevents-yes"><?php echo __('yes');?></label>
+                <input id="timestampevents-no" type="radio" name="timestampevents" value="no" tabindex="<?php echo ++$tabindex;?>" <?php echo $timestampevents=="no"?"checked=\"checked\"":""?>/>
+                <label for="timestampevents-no"><?php echo __('no');?></label>
+              </div>
+            </fieldset>
     </td>
   </tr>
  
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Channel Variables")?><span><?php echo _("Comma separated list of channel variables to broadcast inside AMI events")?></span></a>
+      <a href="#" class="info"><?php echo __("Channel Variables")?><span><?php echo __("Comma separated list of channel variables to broadcast inside AMI events")?></span></a>
     </td>
     <td>
-      <textarea id="channelvars" name="channelvars" class='form-control' tabindex="<?php echo ++$tabindex;?>"><?php echo $channelvars; ?></textarea>
+      <textarea id="channelvars" name="channelvars" class='textarea' tabindex="<?php echo ++$tabindex;?>"><?php echo $channelvars; ?></textarea>
     </td>
   </tr>
 
   <tr>
+<td></td><td><div class='columns'>
+<div class='column'><?php echo __('Configuration');?></div>
+<div class='column'><?php echo __('Value');?></div>
+</div>
+</td</tr>
+  <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Other Manager Settings")?><span><?php echo _("You may set any other Manager settings not present here that are allowed to be configured in the General section of manager.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields. Blank boxes will be deleted when submitted.")?></span></a>
+      <a href="#" class="info"><?php echo __("Other Manager Settings")?><span><?php echo __("You may set any other Manager settings not present here that are allowed to be configured in the General section of manager.conf. There will be no error checking against these settings so check them carefully. They should be entered as:<br /> [setting] = [value]<br /> in the boxes below. Click the Add Field box to add additional fields. Blank boxes will be deleted when submitted.")?></span></a>
     </td>
     <td>
-      <input type="text" id="manager_custom_key_0" name="manager_custom_key_0" class="manager-custom" value="<?php echo $manager_custom_key_0 ?>" tabindex="<?php echo ++$tabindex;?>"> =
-      <input type="text" id="manager_custom_val_0" name="manager_custom_val_0" value="<?php echo $manager_custom_val_0 ?>" tabindex="<?php echo ++$tabindex;?>">
+<div class='columns'>
+<div class='column'>
+      <input type="text" class="manager-custom input" id="manager_custom_key_0" name="manager_custom_key_0" value="<?php echo $manager_custom_key_0 ?>" tabindex="<?php echo ++$tabindex;?>">
+</div>
+<div class='column'>
+      <input type="text" class="input" id="manager_custom_val_0" name="manager_custom_val_0" value="<?php echo $manager_custom_val_0 ?>" tabindex="<?php echo ++$tabindex;?>">
+</div>
+</div>
     </td>
   </tr>
 
@@ -177,11 +181,16 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
     <td>
     </td>
     <td>
-      <input type="text" id="manager_custom_key_$idx" name="manager_custom_key_$idx" class="manager-custom" value="{$$var_manager_custom_key}" tabindex="$tabindex"> =
+    <div class='columns'>
+<div class='column'>
+<input type="text" class="manager-custom input" id="manager_custom_key_$idx" name="manager_custom_key_$idx" value="{$$var_manager_custom_key}" tabindex="$tabindex">
+</div>
 END;
       $tabindex++;
       echo <<< END
-      <input type="text" id="manager_custom_val_$idx" name="manager_custom_val_$idx" value="{$$var_manager_custom_val}" tabindex="$tabindex">
+<div class='column'>
+      <input type="text" class="input" id="manager_custom_val_$idx" name="manager_custom_val_$idx" value="{$$var_manager_custom_val}" tabindex="$tabindex">
+</div></div>
     </td>
   </tr>
 END;
@@ -194,22 +203,24 @@ END;
 ?>
   <tr id="manager-custom-buttons">
     <td></td>
-    <td><br \>
-      <input type="button" id="manager-custom-add"  value="<?php echo _("Add Field")?>" />
+    <td><br>
+      <input type="button" id="manager-custom-add" class="button is-small is-rounded" value="<?php echo __("Add Field")?>" />
+ 
     </td>
   </tr>
 
-  <tr>
-    <td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
-  </tr>
 </table>
-<script language="javascript">
-<!--
-$(document).ready(function(){
+</form>
 
+<!--button class='fixed-submit button is-link' name="Submit" type="submit" tabindex="<?php echo ++$tabindex;?>"><?php echo __("Submit Changes");?></button-->
+
+<script>
+$(function(){
+
+  $('#mainform').on('submit',function() { $.LoadingOverlay('show'); })
   /* Add a Custom Var / Val textbox */
-  $("#manager-custom-add").click(function(){
-    addCustomField("","");
+  $("#manager-custom-add").on('click',function(){
+      addCustomField("","");
   });
 
 <?php
@@ -226,7 +237,7 @@ var theForm = document.editMgr;
 
 /* Insert a manager_setting/manager_value pair of text boxes */
 function addCustomField(key, val) {
-  var idx = $(".manager-custom").size();
+  var idx = $(".manager-custom").length;
   var idxp = idx - 1;
   var tabindex = parseInt($("#manager_custom_val_"+idxp).attr('tabindex')) + 1;
   var tabindexp = tabindex + 1;
@@ -235,16 +246,21 @@ function addCustomField(key, val) {
   <tr>\
     <td>\
     </td>\
-    <td>\
-      <input type="text" id="manager_custom_key_'+idx+'" name="manager_custom_key_'+idx+'" class="manager-custom" value="'+key+'" tabindex="'+tabindex+'"> =\
-      <input type="text" id="manager_custom_val_'+idx+'" name="manager_custom_val_'+idx+'" value="'+val+'" tabindex="'+tabindexp+'">\
+        <td>\
+            <div class="columns"><div class="column"> \
+      <input type="text" class="input manager-custom" id="manager_custom_key_'+idx+'" name="manager_custom_key_'+idx+'" value="'+key+'" tabindex="'+tabindex+'"></div>\
+      <div class="column"><input type="text" class="input" id="manager_custom_val_'+idx+'" name="manager_custom_val_'+idx+'" value="'+val+'" tabindex="'+tabindexp+'"></div></div>\
     </td>\
   </tr>\
   ');
 }
-//-->
+
+<?php echo js_display_confirmation_toasts(); ?>
 </script>
-</form>
+</div>
+
+<?php echo form_action_bar(''); ?>
+
 <?php		
 
 /********** UTILITY FUNCTIONS **********/

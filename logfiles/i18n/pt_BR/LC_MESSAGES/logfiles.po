@@ -1,0 +1,193 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Asterisk Logfiles"
+msgstr "Arquivos de log do Asterisk"
+
+msgid "Reports"
+msgstr ""
+
+msgid "Log File Settings"
+msgstr "Configuração de log do Asterisk"
+
+msgid "General Settings"
+msgstr "Configurações Gerais"
+
+msgid "Date Format"
+msgstr "Formato de data"
+
+msgid "Log rotation"
+msgstr "Rotação de arquivos"
+
+msgid "Append Hostname"
+msgstr "Adicionar nome de host"
+
+msgid "Appends the hostname to the name of the log files"
+msgstr "Acrescenta o nome do host ao nome do arquivo de log"
+
+msgid "Log Queues"
+msgstr "Registrar atividade da fila"
+
+msgid "Log Files"
+msgstr "Arquivos de registro"
+
+msgid "Save"
+msgstr "Manter"
+
+msgid ""
+"Customize the display of debug message time stamps. See strftime(3) Linux "
+"manual for format specifiers. Note that there is also a fractional second "
+"parameter which may be used in this field.  Use %1q for tenths, %2q for "
+"hundredths, etc."
+msgstr ""
+"Personalize rótulos de tempo no log. Veja o manual strftime(3) para mais "
+"detalhes. Observe que há um parâmetro de segundo fracionário que você pode "
+"usar neste campo. Use %1q para décimos, %2q para centésimos, etc."
+
+msgid ""
+"Leave blank for default: ISO 8601 date format yyyy-mm-dd HH:MM:SS (%F %T)"
+msgstr ""
+"Deixe em branco para o valor padrão: ISO 8601 aaaa-mm-dd HH:MM:SS (%F %T)"
+
+msgid "Log queue events to a file"
+msgstr "Registrar eventos de fila em um arquivo"
+
+msgid "Log rotation strategy: "
+msgstr "Estratégia de rotação de arquivos:"
+
+msgid ""
+"Sequential: Rename archived logs in order, such that the newest has the "
+"highest sequence number."
+msgstr ""
+"Sequencial: Renomeie os arquivos em ordem. O mais novo terá o número de "
+"sequência mais alto."
+
+msgid ""
+"Rotate: Rotate all the old files, such that the oldest has the highest "
+"sequence number (expected behavior for Unix administrators)."
+msgstr ""
+"Rotação: Gira os arquivos mais antigos, de forma que o mais antigo tenha o "
+"número mais alto (comportamento esperado em sistemas Unix)."
+
+msgid ""
+"Timestamp: Rename the logfiles using a timestamp instead of a sequence "
+"number when \"logger rotate\" is executed."
+msgstr ""
+"Timestamp: Renomeie arquivos rotacionados usando um carimbo de data/hora em "
+"vez de um número sequencial ao executar o comando \"logger rotate\"."
+
+msgid "Yes"
+msgstr "E"
+
+msgid "No"
+msgstr "Não"
+
+msgid "File Name"
+msgstr "Nome do arquivo"
+
+msgid "file path/name"
+msgstr "caminho/nome"
+
+msgid "On"
+msgstr "E"
+
+msgid "Off"
+msgstr "Não"
+
+msgid ""
+"Messages used for debuging. Do not report these as error's unless you have a "
+"specific issue that you are attempting to debug. Also note that Debug "
+"messages are also very verbose and can and do fill up logfiles (and disk "
+"storage) quickly."
+msgstr ""
+"Mensagens usadas para depuração. Não relate isso como bug, a menos que eu "
+"tenha um problema específico que estou tentando depurar. Observe que o "
+"número de mensagens de depuração é muito alto e pode preencher o espaço de "
+"armazenamento muito rapidamente."
+
+msgid "Name of file. Use absolute path for a different location."
+msgstr ""
+"Nome do arquivo. Use um caminho absoluto para especificar um destino "
+"diferente."
+
+msgid ""
+"Keypresses as understood by asterisk. Usefull for debuging IVR and VM issues."
+msgstr ""
+"Dígitos marcados e interpretados por Asterisk. Útil para depurar problemas "
+"de IVR e correio de voz"
+
+msgid "Critical errors and issues"
+msgstr "Bugs e problemas críticos"
+
+msgid "Transmition and receiving of faxes"
+msgstr "Transmissão e recepção de fax"
+
+msgid ""
+"Messages of specific actions, such as a phone registration or call completion"
+msgstr ""
+"Mensagens específicas para ações, como registros telefônicos ou chamadas "
+"concluídas"
+
+msgid ""
+"Step-by-step messages of every step of a call flow. Always enable and review "
+"if calls dont flow as expected"
+msgstr ""
+"Preencha os detalhes da chamada passo a passo. Ative sempre se tiver "
+"problemas com o fluxo de suas chamadas"
+
+msgid "Possible issues with dialplan syntaxt or call flow, but not critical."
+msgstr ""
+"Possíveis problemas com a sintaxe do plano de discagem e o fluxo de "
+"chamadas, mas não críticos."
+
+msgid ""
+"Notification of security related events such as authentication attempts."
+msgstr "Notificação de eventos de segurança, como tentativas de autenticação"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Sequential"
+msgstr "Sequencial"
+
+msgid "Rotate"
+msgstr "Rotação"
+
+msgid "Timestamp"
+msgstr "Carimbo de data e hora"
+
+msgid "Asterisk Log Files"
+msgstr "Arquivos de log do Asterisk"
+
+msgid "Show"
+msgstr "Mostrar"
+
+msgid "Asterisk Logfile Settings"
+msgstr "Configuração do arquivo de log"
+
+msgid "New Log File"
+msgstr "Novo arquivo de registro"

@@ -5,9 +5,9 @@ global $amp_conf;
 
 // For translation only
 if (false) {
-	_("Queue Toggle");
-	_("Queue Pause Toggle");
-	_("Queue Callers");
+	__("Queue Toggle");
+	__("Queue Pause Toggle");
+	__("Queue Callers");
 }
 
 // Add Feature Codes for Toggle Queues - Using *45
@@ -65,16 +65,16 @@ if(DB::IsError($results)) {
 
 	$return_code = true;
 
-	outn(_("Checking for legacy queues table.."));
+	outn(__("Checking for legacy queues table.."));
 	$sql = "SELECT * FROM `queues`";
 	$results = $db->query($sql);
 	if (DB::IsError($results)) {
-		out(_("NO table found, no migration to do just create tables"));
+		out(__("NO table found, no migration to do just create tables"));
 		// Must not be a table so don't try to migrate
 		$migrate_queues_config = false;
 		$migrate_queues_details = false;
 	} else {
-		out(_("OK"));
+		out(__("OK"));
 		$migrate_queues_config = true;
 		$migrate_queues_details = true;
 	}
@@ -91,18 +91,18 @@ if(DB::IsError($results)) {
 		PRIMARY KEY ( `id` , `keyword` , `data` )
 	)";
 
-	outn(_("Creating queues_details.."));
+	outn(__("Creating queues_details.."));
 	$results = $db->query($sql);
 	if (DB::IsError($results)) {
 		$migrate_queues_details = false;
 		if ($results->getCode() == DB_ERROR_ALREADY_EXISTS) {
-			out(_("already exists"));
+			out(__("already exists"));
 		} else {
-			out(_("ERROR: could not create table"));
+			out(__("ERROR: could not create table"));
 			$return_code = false;
 		}
 	} else if ($migrate_queues_details) {
-		out(_("OK"));
+		out(__("OK"));
 		// Successfully created table so migrate the data next
 		//
 		$sql = "
@@ -113,16 +113,16 @@ if(DB::IsError($results)) {
 		keyword NOT IN ('rtone', 'account', 'context')
 		";
 
-		outn(_("Migrating to queues_details.."));
+		outn(__("Migrating to queues_details.."));
 		$results = $db->query($sql);
 		if (DB::IsError($results)) {
-			out(_("ERROR: could not migrate to queues_details"));
+			out(__("ERROR: could not migrate to queues_details"));
 			$return_code = false;
 		} else {
-			out(_("OK"));
+			out(__("OK"));
 		}
 	} else {
-		out(_("OK"));
+		out(__("OK"));
 	}
 	// Finished migrating to queues_details
 
@@ -135,7 +135,7 @@ if(DB::IsError($results)) {
 
 		$sql = "
 		CREATE TABLE IF NOT EXISTS queues_config (
-		  extension varchar(20) NOT NULL default '',
+		  extension varchar(45) NOT NULL default '',
 		  descr varchar(35) NOT NULL default '',
 		  grppre varchar(100) NOT NULL default '',
 		  alertinfo varchar(254) NOT NULL default '',
@@ -162,7 +162,7 @@ if(DB::IsError($results)) {
 	else  {
 		$sql = "
 		CREATE TABLE IF NOT EXISTS queues_config (
-		  extension varchar(20) NOT NULL default '',
+		  extension varchar(45) NOT NULL default '',
 		  descr varchar(35) NOT NULL default '',
 		  grppre varchar(100) NOT NULL default '',
 		  alertinfo varchar(254) NOT NULL default '',
@@ -187,33 +187,33 @@ if(DB::IsError($results)) {
 
 	}
 
-	outn(_("Creating queues_config.."));
+	outn(__("Creating queues_config.."));
 	$results = $db->query($sql);
 	if (DB::IsError($results)) {
 		$migrate_queues_config = false;
 		if ($results->getCode() == DB_ERROR_ALREADY_EXISTS) {
-			out(_("already exists"));
+			out(__("already exists"));
 		} else {
-			out(_("ERROR: could not create table"));
+			out(__("ERROR: could not create table"));
 			$return_code = false;
 		}
 	} else if ($migrate_queues_config) {
-		out(_("OK"));
+		out(__("OK"));
 		// Successfully created table so migrate the data next
 		//
 		$got_items = true;
-		outn(_("Migrating data to queues_config.."));
+		outn(__("Migrating data to queues_config.."));
 		$sql = "SELECT id, data context FROM queues WHERE keyword = 'context'";
 		$context_results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 		if(DB::IsError($context_results)) {
-			out(_("ERROR: accessing queues table obtaining context info, aborting"));
+			out(__("ERROR: accessing queues table obtaining context info, aborting"));
 			$return_code = false;
 			$got_items = false;
 		} 
 		$sql = "SELECT id, data rtone FROM queues WHERE keyword = 'rtone'";
 		$rtone_results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 		if(DB::IsError($context_results)) {
-			out(_("ERROR: accessing queues table obtaining rtone info, aborting"));
+			out(__("ERROR: accessing queues table obtaining rtone info, aborting"));
 			$return_code = false;
 			$got_items = false;
 		} 
@@ -231,7 +231,7 @@ if(DB::IsError($results)) {
 			$sql = "SELECT DISTINCT id FROM `queues`";
 			$queue_ids = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 			if(DB::IsError($queue_ids)) {
-				out(_("ERROR: accessing queues table obtaining id list, aborting"));
+				out(__("ERROR: accessing queues table obtaining id list, aborting"));
 				$return_code = false;
 			} else {
 				// Got ids, now we need to go through and get info from legacy table
@@ -319,48 +319,48 @@ if(DB::IsError($results)) {
 					('$account', '$descr', '$grppre', '$alertinfo', '$joinannounce', '$rtone', '$agentannounce', '$maxwait', '$password', '$ivr_id', '$dest', '$cwignore')";
 					$results = $db->query($sql);
 					if (DB::IsError($results)) {
-						outn(sprintf(_("ERROR: inserting data for row %s: %s.."),$account,$results->getMessage()));
+						outn(sprintf(__("ERROR: inserting data for row %s: %s.."),$account,$results->getMessage()));
 						$return_code = false;
 					}
 				}
 			}
 			if ($return_code) {
-				out(_("OK"));
+				out(__("OK"));
 			} else {
-				out(_("ERROR were encountered"));
+				out(__("ERROR were encountered"));
 			}
 		}
 	} else {
-		out(_("OK"));
+		out(__("OK"));
 	}
 	// Finished migrating to queues_config
 
 	// Now if all went well, we will remove the old queues table and entries in the extensions table
 	//
 	if ($return_code) {
-		outn(_("Dropping old queues table.."));
+		outn(__("Dropping old queues table.."));
 		$sql = "DROP TABLE IF EXISTS queues";
 		$results = $db->query($sql);
 		if (DB::IsError($results)) {
-			out(sprintf(_("WARNING FAILED %s"),$results->getMessage()));
+			out(sprintf(__("WARNING FAILED %s"),$results->getMessage()));
 		} else {
-			out(_("OK"));
+			out(__("OK"));
 		}
 
-		outn(_("removing queues data extensions table.."));
+		outn(__("removing queues data extensions table.."));
 		$sql = "DELETE FROM extensions WHERE context = 'ext-queues'";
 		$results = $db->query($sql);
 		if (DB::IsError($results)) {
-			out(sprintf(_("WARNING FAILED %s"),$results->getMessage()));
+			out(sprintf(__("WARNING FAILED %s"),$results->getMessage()));
 		} else {
-			out(_("OK"));
+			out(__("OK"));
 		}
 	} else {
 		return $return_code;
 	}
 
 	// Version 2.5 upgrade
-	outn(_("checking for qregex field.."));
+	outn(__("checking for qregex field.."));
 	$sql = "SELECT `qregex` FROM queues_config";
 	$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($check)) {
@@ -370,11 +370,11 @@ if(DB::IsError($results)) {
 		if(DB::IsError($result)) {
 			die_issabelpbx($result->getDebugInfo());
 		}
-		out(_("OK"));
+		out(__("OK"));
 	} else {
-		out(_("already exists"));
+		out(__("already exists"));
 	}
-	outn(_("checking for destcontinue field.."));
+	outn(__("checking for destcontinue field.."));
         $sql = "SELECT `destcontinue` FROM queues_config";
         $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
         if(DB::IsError($check)) {
@@ -384,9 +384,9 @@ if(DB::IsError($results)) {
                 if(DB::IsError($result)) {
                         die_issabelpbx($result->getDebugInfo());
                 }
-                out(_("OK"));
+                out(__("OK"));
         } else {
-                out(_("already exists"));
+                out(__("already exists"));
         }
 
 
@@ -396,39 +396,39 @@ if(DB::IsError($results)) {
 //       migration code to simply stick with what works and
 //       then convert it here even if new.
 //
-outn(_("Checking if recordings need migration.."));
+outn(__("Checking if recordings need migration.."));
 $sql = "SELECT agentannounce_id FROM queues_config";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
 	//  Add recording_id field
 	//
-	out(_("migrating"));
-	outn(_("adding agentannounce_id field.."));
+	out(__("migrating"));
+	outn(__("adding agentannounce_id field.."));
   $sql = "ALTER TABLE queues_config ADD agentannounce_id INTEGER";
   $result = $db->query($sql);
   if(DB::IsError($result)) {
-		out(_("fatal error"));
+		out(__("fatal error"));
 		die_issabelpbx($result->getDebugInfo()); 
 	} else {
-		out(_("ok"));
+		out(__("ok"));
 	}
-	outn(_("adding joinannounce_id field.."));
+	outn(__("adding joinannounce_id field.."));
   $sql = "ALTER TABLE queues_config ADD joinannounce_id INTEGER";
   $result = $db->query($sql);
   if(DB::IsError($result)) {
-		out(_("fatal error"));
+		out(__("fatal error"));
 		die_issabelpbx($result->getDebugInfo()); 
 	} else {
-		out(_("ok"));
+		out(__("ok"));
 	}
 
 	// Get all the valudes and replace them with recording_id
 	//
-	outn(_("migrate agentannounce to ids.."));
+	outn(__("migrate agentannounce to ids.."));
   $sql = "SELECT `extension`, `agentannounce` FROM `queues_config`";
 	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($results)) {
-		out(_("fatal error"));
+		out(__("fatal error"));
 		die_issabelpbx($results->getDebugInfo());	
 	}
 	$migrate_arr = array();
@@ -444,17 +444,17 @@ if(DB::IsError($check)) {
 		$compiled = $db->prepare('UPDATE `queues_config` SET `agentannounce_id` = ? WHERE `extension` = ?');
 		$result = $db->executeMultiple($compiled,$migrate_arr);
 		if(DB::IsError($result)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($result->getDebugInfo());	
 		}
 	}
-	out(sprintf(_("migrated %s entries"),$count));
+	out(sprintf(__("migrated %s entries"),$count));
 
-	outn(_("migrate joinannounce to ids.."));
+	outn(__("migrate joinannounce to ids.."));
   $sql = "SELECT `extension`, `joinannounce` FROM `queues_config`";
 	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($results)) {
-		out(_("fatal error"));
+		out(__("fatal error"));
 		die_issabelpbx($results->getDebugInfo());	
 	}
 	$migrate_arr = array();
@@ -470,38 +470,38 @@ if(DB::IsError($check)) {
 		$compiled = $db->prepare('UPDATE `queues_config` SET `joinannounce_id` = ? WHERE `extension` = ?');
 		$result = $db->executeMultiple($compiled,$migrate_arr);
 		if(DB::IsError($result)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($result->getDebugInfo());	
 		}
 	}
-	out(sprintf(_("migrated %s entries"),$count));
+	out(sprintf(__("migrated %s entries"),$count));
 
 	// Now remove the old recording field replaced by new id field
 	//
-	outn(_("dropping agentannounce field.."));
+	outn(__("dropping agentannounce field.."));
   // sqlite doesn't support drop syntax, but since we already CREATE'd the table properly, these don't need to be executed anyway
   if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
 	  $sql = "ALTER TABLE `queues_config` DROP `agentannounce`";
  	 $result = $db->query($sql);
 	  if(DB::IsError($result)) { 
-			out(_("no agentannounce field???"));
+			out(__("no agentannounce field???"));
 		} else {
-			out(_("ok"));
+			out(__("ok"));
 		}
-		outn(_("dropping joinannounce field.."));
+		outn(__("dropping joinannounce field.."));
 	  $sql = "ALTER TABLE `queues_config` DROP `joinannounce`";
 	  $result = $db->query($sql);
 	  if(DB::IsError($result)) { 
-			out(_("no joinannounce field???"));
+			out(__("no joinannounce field???"));
 		} else {
-			out(_("ok"));
+			out(__("ok"));
 		}
 	} else {
-		out(_("already migrated"));
+		out(__("already migrated"));
 	}
   }
 
-outn(_("checking for queuewait field.."));
+outn(__("checking for queuewait field.."));
 $sql = "SELECT `queuewait` FROM queues_config";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
@@ -511,12 +511,12 @@ if(DB::IsError($check)) {
 	if(DB::IsError($result)) {
 		die_issabelpbx($result->getDebugInfo());
 	}
-	out(_("OK"));
+	out(__("OK"));
 } else {
-	out(_("already exists"));
+	out(__("already exists"));
 }
 
-outn(_("checking for use_queue_context field.."));
+outn(__("checking for use_queue_context field.."));
 $sql = "SELECT `use_queue_context` FROM queues_config";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
@@ -526,12 +526,12 @@ if(DB::IsError($check)) {
 	if(DB::IsError($result)) {
 		die_issabelpbx($result->getDebugInfo());
 	}
-	out(_("OK"));
+	out(__("OK"));
 } else {
-	out(_("already exists"));
+	out(__("already exists"));
 }
 
-outn(_("checking for togglehint field.."));
+outn(__("checking for togglehint field.."));
 $sql = "SELECT `togglehint` FROM queues_config";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
@@ -541,12 +541,12 @@ if(DB::IsError($check)) {
 	if(DB::IsError($result)) {
 		die_issabelpbx($result->getDebugInfo());
 	}
-	out(_("OK"));
+	out(__("OK"));
 } else {
-	out(_("already exists"));
+	out(__("already exists"));
 }
 
-outn(_("checking for qnoanswer field.."));
+outn(__("checking for qnoanswer field.."));
 $sql = "SELECT `qnoanswer` FROM queues_config";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
@@ -556,12 +556,12 @@ if(DB::IsError($check)) {
         if(DB::IsError($result)) {
                 die_issabelpbx($result->getDebugInfo());
         }
-        out(_("OK"));
+        out(__("OK"));
 } else {
-        out(_("already exists"));
+        out(__("already exists"));
 }
 
-outn(_("checking for callconfirm field.."));
+outn(__("checking for callconfirm field.."));
 $sql = "SELECT `callconfirm` FROM queues_config";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
@@ -571,12 +571,12 @@ if(DB::IsError($check)) {
         if(DB::IsError($result)) {
                 die_issabelpbx($result->getDebugInfo());
         }
-        out(_("OK"));
+        out(__("OK"));
 } else {
-        out(_("already exists"));
+        out(__("already exists"));
 }  
 
-outn(_("checking for callconfirm_id field.."));
+outn(__("checking for callconfirm_id field.."));
 $sql = "SELECT `callconfirm_id` FROM queues_config";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
@@ -586,12 +586,12 @@ if(DB::IsError($check)) {
         if(DB::IsError($result)) {
                 die_issabelpbx($result->getDebugInfo());
         }
-        out(_("OK"));
+        out(__("OK"));
 } else {
-        out(_("already exists"));
+        out(__("already exists"));
 }
 
-outn(_("checking for monitor_type field.."));
+outn(__("checking for monitor_type field.."));
 $sql = "SELECT `monitor_type` FROM queues_config";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
@@ -601,12 +601,12 @@ if(DB::IsError($check)) {
         if(DB::IsError($result)) {
                 die_issabelpbx($result->getDebugInfo());
         }
-        out(_("OK"));
+        out(__("OK"));
 } else {
-        out(_("already exists"));
+        out(__("already exists"));
 }
 
-outn(_("checking for monitor_heard field.."));
+outn(__("checking for monitor_heard field.."));
 $sql = "SELECT `monitor_heard` FROM queues_config";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
@@ -616,12 +616,12 @@ if(DB::IsError($check)) {
         if(DB::IsError($result)) {
                 die_issabelpbx($result->getDebugInfo());
         }
-        out(_("OK"));
+        out(__("OK"));
 } else {
-        out(_("already exists"));
+        out(__("already exists"));
 }
 
-outn(_("checking for monitor_spoken field.."));
+outn(__("checking for monitor_spoken field.."));
 $sql = "SELECT `monitor_spoken` FROM queues_config";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
@@ -631,12 +631,12 @@ if(DB::IsError($check)) {
         if(DB::IsError($result)) {
                 die_issabelpbx($result->getDebugInfo());
         }
-        out(_("OK"));
+        out(__("OK"));
 } else {
-        out(_("already exists"));
+        out(__("already exists"));
 }
 
-outn(_("checking for callback_id field.."));
+outn(__("checking for callback_id field.."));
 $sql = "SELECT `callback_id` FROM queues_config";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
@@ -646,9 +646,9 @@ if(DB::IsError($check)) {
         if(DB::IsError($result)) {
                 die_issabelpbx($result->getDebugInfo());
         }
-        out(_("OK"));
+        out(__("OK"));
 } else {
-        out(_("already exists"));
+        out(__("already exists"));
 }
 
 $issabelpbx_conf =& issabelpbx_conf::create();
@@ -767,7 +767,7 @@ $issabelpbx_conf->define_conf_setting('GENERATE_LEGACY_QUEUE_CODES',$set,true);
 
 
 // QUEUES_EVENTS_WHEN_CALLED_DEFAULT
-$set['value'] = false;
+$set['value'] = true;
 $set['defaultval'] =& $set['value'];
 $set['readonly'] = 0;
 $set['hidden'] = 0;
@@ -792,7 +792,22 @@ $set['module'] = 'queues';
 $set['category'] = 'Queues Module';
 $set['emptyok'] = 0;
 $set['sortorder'] = 120;
-$set['name'] = 'Memeber Status Event Default';
+$set['name'] = 'Member Status Event Default';
 $set['description'] = 'Default state for AMI to emit the QueueMemberStatus event. This setting will only affect the default for NEW queues, it won\'t change existing queues or enfore the option on in new ones.';
 $set['type'] = CONF_TYPE_BOOL;
 $issabelpbx_conf->define_conf_setting('QUEUES_EVENTS_MEMBER_STATUS_DEFAULT', $set, true);
+
+// QUEUES_LOG_TRANSFERS
+$set['value'] = true;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'queues';
+$set['category'] = 'Queues Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 120;
+$set['name'] = 'Log Transfers';
+$set['description'] = 'Register a TRANSFER event in the queue_log file if a Blind Transfer is detected. Useful for queue reporting tools like Asternic Call Center Stats PRO. Set it to false if you use direct device queue members instead of the default local channels.';
+$set['type'] = CONF_TYPE_BOOL;
+$issabelpbx_conf->define_conf_setting('QUEUES_LOG_TRANSFERS', $set, true);

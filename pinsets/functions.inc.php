@@ -135,8 +135,8 @@ function pinsets_add($post){
 		return false;
 	extract($post);
 	$passwords = pinsets_clean($passwords);
-	if(empty($description)) $description = _('Unnamed');
-	if(empty($addtocdr)) $addtocdr = 0;
+    if(empty($description)) $description = __('Unnamed');
+    if(empty($addtocdr)) $addtocdr = 0;
 	$results = sql("INSERT INTO pinsets (description,passwords,addtocdr,deptname) values (\"$description\",\"$passwords\",\"$addtocdr\",\"$deptname\")");
 }
 
@@ -145,8 +145,8 @@ function pinsets_edit($id,$post){
 		return false;
 	extract($post);
 	$passwords = pinsets_clean($passwords);
-	if(empty($description)) $description = _('Unnamed');
-	if(empty($addtocdr)) $addtocdr = 0;
+    if(empty($description)) $description = __('Unnamed');
+    if(empty($addtocdr)) $addtocdr = 0;
 	$results = sql("UPDATE pinsets SET description = \"$description\", passwords = \"$passwords\", addtocdr = \"$addtocdr\", deptname = \"$deptname\" WHERE pinsets_id = \"$id\"");
 }
 
@@ -241,10 +241,10 @@ function pinsets_hook_core($viewing_itemid, $target_menuid) {
 
 			$hookhtml = '
         <tr>
-          <td><a href="#" class="info">'._("PIN Set").'<span>'._('Optional: Select a PIN set to use. If using this option, leave the Route Password field blank.').'</span></a>:</td>
+          <td><a href="#" class="info">'.__("PIN Set").'<span>'.__('Optional: Select a PIN set to use. If using this option, leave the Route Password field blank.').'</span></a></td>
           <td>
-            <select name="pinsets" class="componentSelect">
-              <option value="">'._('None').'</option>
+            <select name="pinsets" class="componentSelect" tabindex="{tabindex}">
+              <option value="">'.__('None').'</option>
       ';
       if (is_array($pinsets)) {
         foreach($pinsets as $item) {

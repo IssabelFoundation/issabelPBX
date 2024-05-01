@@ -15,6 +15,8 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 global $db;
 global $amp_conf;
 
+modgettext::push_textdomain('customcontexts');
+
 if (! function_exists("out")) {
 	function out($text) {
 		echo $text."<br />";
@@ -30,9 +32,17 @@ if (! function_exists("outn")) {
 // TODO: returning false will fail the install with #4345 checked in
 //
 if (!function_exists('timeconditions_timegroups_add_group_timestrings')) {
-  out(_('Time Conditions Module required and not present .. aborting install'));
+  out(__('Time Conditions Module required and not present .. aborting install'));
   return false;
 }
+
+$park_desc            = _dgettext('customcontexts','Call Parking');
+$allout_desc          = _dgettext('customcontexts','ALL OUTBOUND ROUTES');
+$entire_internal_desc = _dgettext('customcontexts','ENTIRE Basic Internal Dialplan');
+$internal_desc        = _dgettext('customcontexts','Internal Dialplan');
+$default_desc         = _dgettext('customcontexts','Default Internal Context');
+$out_desc             = _dgettext('customcontexts','Outbound Routes');
+$custom_internal      = _dgettext('customcontexts','Custom Internal Dialplan');
 
 $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_contexts` (
 				`context` varchar(100) NOT NULL default '',
@@ -50,9 +60,9 @@ $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_contexts_list` (
 
 $sql[] ="INSERT IGNORE INTO `customcontexts_contexts_list` 
 				(`context`, `description`, `locked`) 
-				VALUES ('from-internal', 'Default Internal Context', 1),
-				('from-internal-additional', 'Internal Dialplan', 0),
-				('outbound-allroutes', 'Outbound Routes', 0)";
+				VALUES ('from-internal', '$default_desc', 1),
+				('from-internal-additional', '$internal_desc', 0),
+				('outbound-allroutes', '$out_desc', 0)";
 
 $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_includes` (
 				`context` varchar(100) NOT NULL default '',
@@ -74,15 +84,15 @@ $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_includes_list` (
 $sql[] ="ALTER IGNORE TABLE `customcontexts_includes_list` ADD `missing` BOOL NOT NULL DEFAULT '0'";
 
 
-$sql[] ="INSERT IGNORE INTO `customcontexts_includes_list` (`context`, `include`, `description`) VALUES ('from-internal', 'parkedcalls', 'Call Parking'),
-				('from-internal', 'from-internal-custom', 'Custom Internal Dialplan')";
+$sql[] ="INSERT IGNORE INTO `customcontexts_includes_list` (`context`, `include`, `description`) VALUES ('from-internal', 'parkedcalls', '$park_desc'),
+				('from-internal', 'from-internal-custom', '$custom_internal')";
 
 $sql[] ="INSERT IGNORE INTO `customcontexts_includes_list` 
 					(`context`, `include`, `description`) 
-					VALUES ('from-internal-additional', 'outbound-allroutes', 'ALL OUTBOUND ROUTES'),
-					('from-internal', 'from-internal-additional', 'ENTIRE Basic Internal Dialplan')";
+					VALUES ('from-internal-additional', 'outbound-allroutes', '$allout_desc'),
+					('from-internal', 'from-internal-additional', '$entire_internal_desc')";
 
-$sql[] ="UPDATE `customcontexts_includes_list` SET `description` = 'ALL OUTBOUND ROUTES' WHERE  `context` = 'from-internal-additional' AND `include` = 'outbound-allroutes'";
+$sql[] ="UPDATE `customcontexts_includes_list` SET `description` = '$allout_desc' WHERE  `context` = 'from-internal-additional' AND `include` = 'outbound-allroutes'";
 
 $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_module` (
 				`id` varchar(50) NOT NULL default '',
@@ -92,10 +102,10 @@ $sql[] ="CREATE TABLE IF NOT EXISTS `customcontexts_module` (
 
 $sql[] ="INSERT IGNORE INTO `customcontexts_module` (`id`, `value`) VALUES ('modulerawname', 'customcontexts'),
 				('moduledisplayname', 'Class of Service'),
-				('moduleversion', '0.3.2'),
+				('moduleversion', '2.12.0'),
 				('displaysortforincludes', 1)";
 
-$sql[] ="UPDATE `customcontexts_module` set `value` = '0.3.2' where `id` = 'moduleversion';";
+$sql[] ="UPDATE `customcontexts_module` set `value` = '2.12.0' where `id` = 'moduleversion';";
 
 foreach ($sql as $dengine=>$q){
 	$db->query($q);
@@ -104,7 +114,7 @@ foreach ($sql as $dengine=>$q){
 		}
 }
 
-if($amp_conf['AMBDBENGINE']=='mysql' || $amp_conf['AMPDBENGINE']=='mysqli') {
+if($amp_conf['AMPDBENGINE']=='mysql' || $amp_conf['AMPDBENGINE']=='mysqli') {
     $sql = "ALTER TABLE customcontexts_includes ADD index sort(sort)";
 } else {
     // for sqlite3/rqlite
@@ -145,20 +155,20 @@ function customcontexts_updatedb() {
 
 $tgs = $db->getAll('SELECT * FROM customcontexts_timegroups',DB_FETCHMODE_ASSOC);
 if(!DB::IsError($tgs)) {
-  outn(_("migrating customcontexts_timegroups if needed.."));			    
+  outn(__("migrating customcontexts_timegroups if needed.."));			    
   foreach ($tgs as $tg) {
     $tg_strings = sql('SELECT time FROM customcontexts_timegroups_detail WHERE timegroupid = '.$tg['id'].' ORDER BY id','getCol','time');
     $tg_id = timeconditions_timegroups_add_group_timestrings($tg['description'],$tg_strings);
     sql("UPDATE customcontexts_includes set timegroupid = $tg_id WHERE timegroupid = {$tg['id']}");
   }
-  out(_("done"));			    
-  outn(_("removing customcontexts_timegroups and customcontexts_tiemgroups_detail tables.."));			    
+  out(__("done"));			    
+  outn(__("removing customcontexts_timegroups and customcontexts_tiemgroups_detail tables.."));			    
   unset($sql);
   $sql[] = "DROP TABLE IF EXISTS `customcontexts_timegroups`";
   $sql[] = "DROP TABLE IF EXISTS `customcontexts_timegroups_detail`";
   foreach ($sql as $q){
 	  $db->query($q);
   }
-  out(_("done"));			    
+  out(__("done"));			    
 }
 ?>

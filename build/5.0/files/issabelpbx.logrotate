@@ -1,0 +1,6 @@
+/var/log/asterisk/issabelpbx.log {
+   missingok
+   rotate 5
+   weekly
+   create 0640 asterisk asterisk
+}

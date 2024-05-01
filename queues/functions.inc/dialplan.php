@@ -44,7 +44,7 @@ function queues_get_config($engine) {
 			}
 
 			/* queue extensions */
-			$ext->addInclude('from-internal-additional','ext-queues');
+			$ext->addInclude('from-internal-additional','ext-queues',_dgettext('queues','Queues'));
 			/* Trial DEVSTATE */
 			if ($amp_conf['USEDEVSTATE']) {
 				$ext->addGlobal('QUEDEVSTATE','TRUE');
@@ -131,7 +131,8 @@ function queues_get_config($engine) {
 				// deal with group CID prefix
 				$ext->add($c, $exten, '', new ext_set('QCIDPP', '${IF($[${LEN(${VQ_CIDPP})}>0]?${VQ_CIDPP}' . ':' . ($grppre == '' ? ' ':$grppre) . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_CIDPP', ''));
-				$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Macro', 'prepend-cid,${QCIDPP}'));
+				//$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Macro', 'prepend-cid,${QCIDPP}')); // MACRO DEPRECATION
+				$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Gosub', 'sub-prepend-cid,s,1(${QCIDPP})'));
 
 				// Set Alert_Info
 				$ainfo = $alertinfo != '' ? str_replace(';', '\;', $alertinfo) : ' ';
@@ -243,6 +244,7 @@ function queues_get_config($engine) {
 				}
 				$ext->add($c, $exten, '', new ext_execif('$["${QJOINMSG}"!=""' . $cplay . ']', 'Playback', '${QJOINMSG}, ' . $joinansw));
 				$ext->add($c, $exten, '', new ext_queuelog($exten,'${UNIQUEID}','NONE','DID', '${FROM_DID}')); 
+				$ext->add($c, $exten, '', new ext_set('__FROMQ',$exten));
 
 				$ext->add($c, $exten, '', new ext_set('QAANNOUNCE', '${IF($[${LEN(${VQ_AANNOUNCE})}>0]?${IF($["${VQ_AANNOUNCE}"!="0"]?${VQ_AANNOUNCE}: )}:' . $agentannounce . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_AANNOUNCE', ''));
@@ -354,7 +356,7 @@ function queues_get_config($engine) {
 					foreach ($device_list as $device) {
 						if (
 							(!$dynmemberonly || $device['devicetype'] == 'adhoc' || isset($mem[$device['user']]))
-							&& ($device['tech'] == 'sip' || $device['tech'] == 'iax2')
+							&& ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip')
 							) {
 							$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_setvar('QUEUENO',$exten));
 							$ext->add($c, $que_code.$device['id'].'*'.$exten, '', new ext_goto('start','s','app-queue-toggle'));
@@ -422,7 +424,7 @@ function queues_get_config($engine) {
 					$ext->addExec($c,$amp_conf['AMPBIN'].'/generate_queue_hints.php '.$que_code);
 				} else {
 					foreach ($device_list as $device) {
-						if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
+						if ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip') {
 							$ext->add($c, $que_code . '*' . $device['id'], '', new ext_goto('start','s','app-all-queue-toggle'));
 							if ($device['user'] != '' &&  isset($qc[$device['user']])) {
 								$hlist = 'Custom:QUEUE' . $device['id'] . '*' . implode('&Custom:QUEUE' . $device['id'] . '*', $qc[$device['user']]);
@@ -458,7 +460,7 @@ function queues_get_config($engine) {
 						$pause_all_hints = array();
 						if (isset($qc[$device['user']])) foreach($qc[$device['user']] as $q) {
 							$ext->add($c, $que_pause_code . '*' . $device['id'] . '*' . $q, '', new ext_gosub('1','s','app-queue-pause-toggle',$q));
-							if (!$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
+							if (!$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip')) {
 								$hint = "qpause:$q:Local/{$device['user']}@from-queue/n";
 								$ext->addHint($c, $que_pause_code . '*' . $device['id'] . '*' . $q, $hint);
 								$pause_all_hints[] = $hint;
@@ -475,7 +477,7 @@ function queues_get_config($engine) {
 			//
 			if ($que_callers_code != '') {
 				$id = "app-queue-caller-count";
-				$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+				$ext->addInclude('from-internal-additional', $id, _dgettext('queues','Queue Caller Count')); // Add the include from from-internal
 
 				$ext->add($id, 's', '', new ext_answer());
 				$ext->add($id, 's', '', new ext_wait(1));
@@ -531,7 +533,7 @@ function queues_get_config($engine) {
 								$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_gosub('1', 's', 'app-queue-caller-count', $item[0]));
 								$ext->add($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], '', new ext_hangup());
 
-								if ($ast_ge_11 && !$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2')) {
+								if ($ast_ge_11 && !$amp_conf['DYNAMICHINTS'] && ($device['tech'] == 'sip' || $device['tech'] == 'iax2' || $device['tech'] == 'pjsip')) {
 									$hint = "Queue:$item[0]";
 									$ext->addHint($c, $que_callers_code . '*' . $device['id'] . '*' . $item[0], $hint);
 									$callers_all_hints[] = $hint;
@@ -705,8 +707,20 @@ function app_queue_pause_toggle() {
 	$ext->add($c, $e, 'start', new ext_answer(''));
 	$ext->add($c, $e, '', new ext_wait('1'));
 	$ext->add($c, $e, '', new ext_macro('user-callerid'));
-	$ext->add($c, $e, '', new ext_set('MEMBR', 'Local/${AMPUSER}@from-queue/n'));
-	$ext->add($c, $e, '', new ext_set('PAUSE_STATE', '${QUEUE_MEMBER(${ARG1},paused,${MEMBR})}'));
+    $ext->add($c, $e, '', new ext_set('QAG','${DB_KEYS(QPENALTY/${ARG1}/agents)}'));
+    $ext->add($c, $e, '', new ext_set('LOOPCNTALL','${FIELDQTY(QAG,\,)}'));
+    $ext->add($c, $e, '', new ext_set('ITERALL','1'));
+    $ext->add($c, $e, 'begin', new ext_set('CURMEM','${CUT(QAG,\,,${ITERALL})}'));
+    $ext->add($c, $e, '', new ext_execif('$["${CURMEM:0:1}"="S"]','Set','MEMBR=SIP/${CURMEM:1}'));
+    $ext->add($c, $e, '', new ext_execif('$["${CURMEM:0:1}"="P"]','Set','MEMBR=PJSIP/${CURMEM:1}'));
+    $ext->add($c, $e, '', new ext_execif('$["${CURMEM:0:1}"="X"]','Set','MEMBR=IAX2/${CURMEM:1}'));
+    $ext->add($c, $e, '', new ext_execif('$["${CURMEM:0:1}"="D"]','Set','MEMBR=DAHDI/${CURMEM:1}'));
+    $ext->add($c, $e, '', new ext_execif('$["${MEMBR}"=""]','Set','EXTN=${CURMEM}):Set(EXTN=${CURMEM:1}'));
+    $ext->add($c, $e, '', new ext_execif('$["${EXTN}"="${AMPUSER}"]','Set','ITERALL=${LOOPCNTALL}'));
+    $ext->add($c, $e, '', new ext_set('ITERALL', '$[${ITERALL}+1]'));
+    $ext->add($c, $e, '', new ext_gotoif('$[${ITERALL} <= ${LOOPCNTALL}]', 'begin'));
+    $ext->add($c, $e, '', new ext_execif('$["${MEMBR}"=""]','Set','MEMBR=Local/${AMPUSER}@from-queue/n'));
+    $ext->add($c, $e, '', new ext_set('PAUSE_STATE', '${QUEUE_MEMBER(${ARG1},paused,${MEMBR})}'));
 	$ext->add($c, $e, '', new ext_set('QUEUE_MEMBER(${ARG1},paused,${MEMBR})', '${IF($[${PAUSE_STATE}]?0:1)}'));
 	$ext->add($c, $e, '', new ext_playback('dictate/pause&${IF($[${PAUSE_STATE}]?de-activated:activated)}'));
 	$ext->add($c, $e, '', new ext_execif('$[${ARG2}]', 'Return'));
@@ -731,7 +745,9 @@ function queue_app_all_toggle() {
 	}
 	$ext->add($c, $e, '', new ext_set('LOOPCNTALL', '${FIELDQTY(USERQUEUES,-)}'));
 	$ext->add($c, $e, '', new ext_set('ITERALL', '1'));
-	$ext->add($c, $e, 'begin', new ext_set('QUEUENO', '${CUT(USERQUEUES,-,${ITERALL})}'));
+	$ext->add($c, $e, 'begin', new ext_set('QUEUEANDTECH', '${CUT(USERQUEUES,-,${ITERALL})}'));
+	$ext->add($c, $e, '', new ext_set('QUEUENO', '${CUT(QUEUEANDTECH,~,1)}'));
+	$ext->add($c, $e, '', new ext_set('MEMBERTECH', '${CUT(QUEUEANDTECH,~,2)}'));
 	$ext->add($c, $e, '', new ext_set('ITERALL', '$[${ITERALL}+1]'));
 	$ext->add($c, $e, '', new ext_macro('${TOGGLE_MACRO}'));
 	if ($amp_conf['USEDEVSTATE']) {
@@ -751,7 +767,7 @@ function queue_app_toggle() {
 	global $version;
 
 	$id = "app-queue-toggle"; // The context to be included
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('queues','Queue Toggle')); // Add the include from from-internal
 
 	$c = 's';
 
@@ -822,19 +838,33 @@ function queue_agent_add_toggle() {
 	$ext->add($id, $c, '', new ext_setvar('CALLBACKNUM','${AMPUSER}'));
 	//TODO: check if it's not a user for some reason and abort?
 	$ext->add($id, $c, '', new ext_gotoif('$["${DB(QPENALTY/${QUEUENO}/dynmemberonly)}" = "yes" & ${DB_EXISTS(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})} != 1]', 'invalid'));
+
+	$ext->add($id, $c, '', new ext_gotoif('$["${MEMBERTECH}" != "Local"]', 'notlocal'));
+
 	if ($ast_ge_18 || $amp_conf['USEQUEUESTATE']) {
 		$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" != "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},hint:${CALLBACKNUM}@ext-local'));
 		$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" = "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)}'));
-
 	} else if ($ast_ge_14_25) {
 		$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" != "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},${DB(DEVICE/${REALCALLERIDNUM}/dial)}'));
 		$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" = "ignorestate"]', 'AddQueueMember', '${QUEUENO},Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)}'));
 	} else {
 		$ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n,${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})}'));
 	}
+    $ext->add($id, $c, '', new ext_goto('cont'));
 
-	$ext->add($id, $c, '', new ext_userevent('AgentLogin','Agent: ${CALLBACKNUM}'));
-	$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${IF($[${LEN(${AMPUSERCIDNAME})}>0]?${AMPUSERCIDNAME}:${AMPUSER})}','ADDMEMBER'));
+	$ext->add($id, $c, 'notlocal', new ext_noop('Not Local Member'));
+	if ($ast_ge_18 || $amp_conf['USEQUEUESTATE']) {
+		$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" != "ignorestate"]', 'AddQueueMember', '${QUEUENO},${MEMBERTECH}/${CALLBACKNUM},${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},hint:${CALLBACKNUM}@ext-local'));
+		$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" = "ignorestate"]', 'AddQueueMember', '${QUEUENO},${MEMBERTECH}/${CALLBACKNUM},${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)}'));
+	} else if ($ast_ge_14_25) {
+		$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" != "ignorestate"]', 'AddQueueMember', '${QUEUENO},${MEMBERTECH}/${CALLBACKNUM},${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)},${DB(DEVICE/${REALCALLERIDNUM}/dial)}'));
+		$ext->add($id, $c, '', new ext_execif('$["${DB(AMPUSER/${CALLBACKNUM}/queues/qnostate)}" = "ignorestate"]', 'AddQueueMember', '${QUEUENO},${MEMBERTECH}/${CALLBACKNUM},${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})},,${DB(AMPUSER/${CALLBACKNUM}/cidname)}'));
+	} else {
+		$ext->add($id, $c, '', new ext_addqueuemember('${QUEUENO}','${MEMBERTECH}/${CALLBACKNUM},${DB(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})}'));
+	}
+
+	$ext->add($id, $c, 'cont', new ext_userevent('AgentLogin','Agent: ${CALLBACKNUM}'));
+	//$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${IF($[${LEN(${AMPUSERCIDNAME})}>0]?${AMPUSERCIDNAME}:${AMPUSER})}','ADDMEMBER'));
 	$ext->add($id, $c, '', new ext_macroexit());
 	$ext->add($id, $c, 'invalid', new ext_playback('pbx-invalid'));
 	$ext->add($id, $c, '', new ext_set('QAGENT_UNAUTHORIZED','1'));
@@ -853,7 +883,7 @@ function queue_agent_del_toggle() {
 	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
 	$ext->add($id, $c, '', new ext_setvar('CALLBACKNUM','${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n'));
-	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-internal/n'));
+	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','${MEMBERTECH}/${CALLBACKNUM}'));
 	$ext->add($id, $c, '', new ext_userevent('RefreshQueue'));
 	$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${IF($[${LEN(${AMPUSERCIDNAME})}>0]?${AMPUSERCIDNAME}:${AMPUSER})}','REMOVEMEMBER'));
 	$ext->add($id, $c, '', new ext_macroexit());

@@ -24,7 +24,7 @@ msgstr "写入管理员附加文件时出错。"
 msgid "This manager already exists"
 msgstr "此管理器已存在"
 
-msgid "Choose Manager:"
+msgid "Choose Manager"
 msgstr "选择管理员"
 
 msgid "Choose the user that PHPAGI will use to connect the Asterisk API."
@@ -57,39 +57,36 @@ msgstr "管理员"
 msgid "deleted"
 msgstr "以删除"
 
-msgid "Manager:"
-msgstr "管理员："
-
 msgid "Delete Manager"
 msgstr "删除管理员"
 
 msgid "Edit Manager"
 msgstr "编辑管理员"
 
-msgid "Manager name:"
-msgstr "管理员用户名："
+msgid "Manager name"
+msgstr "管理员用户名"
 
 msgid "Name of the manager without space."
 msgstr "管理员的用户名，不能包含空格。"
 
-msgid "Manager secret:"
-msgstr "管理员密码："
+msgid "Manager secret"
+msgstr "管理员密码"
 
 msgid "Password for the manager."
 msgstr "管理员用户的密码。"
 
-msgid "Deny:"
+msgid "Deny"
 msgstr "拒绝"
 
 msgid ""
 "If you want to deny many hosts or networks, use & char as separator.<br/><br/"
 ">Example: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
 msgstr ""
-"如果你希望拒绝多个主机或者网络，使用&字符作为分隔符。<br/><br/>例如："
+"如果你希望拒绝多或者网，使用&字符作为分隔符。<br/><br/>例如："
 "192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
 
-msgid "Permit:"
-msgstr "允许："
+msgid "Permit"
+msgstr "允许"
 
 msgid ""
 "If you want to permit many hosts or networks, use & char as separator. Look "

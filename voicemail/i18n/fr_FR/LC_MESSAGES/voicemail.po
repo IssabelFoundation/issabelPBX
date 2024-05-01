@@ -161,7 +161,7 @@ msgstr ""
 msgid "Please enter a valid phone number using number digits only"
 msgstr "Entrez un numéro de téléphone valide composé uniquement de chiffres."
 
-msgid "Use When:"
+msgid "Use When"
 msgstr "Utilisé quand"
 
 msgid ""
@@ -175,7 +175,7 @@ msgstr "Non disponible"
 msgid "busy"
 msgstr "Occupé"
 
-msgid "Voicemail Instructions:"
+msgid "Voicemail Instructions"
 msgstr "Instructions boîte vocale"
 
 msgid "Uncheck to play a beep after your personal Voicemail greeting."
@@ -814,13 +814,13 @@ msgid ""
 "configuration entry. (System default will be used.)"
 msgstr ""
 
-msgid "Number of Accounts:"
+msgid "Number of Accounts"
 msgstr ""
 
 msgid "Total ( Activated / Unactivated / Disabled )"
 msgstr ""
 
-msgid "Number of Messages:"
+msgid "Number of Messages"
 msgstr ""
 
 msgid "Total ( Messages in inboxes / Messages in other folders )"
@@ -829,7 +829,7 @@ msgstr ""
 msgid "Remove all messages"
 msgstr ""
 
-msgid "Recorded Names:"
+msgid "Recorded Names"
 msgstr ""
 
 msgid "Number of recorded name greetings"
@@ -838,7 +838,7 @@ msgstr ""
 msgid "Remove all recorded names"
 msgstr ""
 
-msgid "Unavailable Greetings:"
+msgid "Unavailable Greetings"
 msgstr ""
 
 msgid "Number of recorded unavailable greetings"
@@ -847,7 +847,7 @@ msgstr ""
 msgid "Remove all unavailable greetings"
 msgstr ""
 
-msgid "Busy Greetings:"
+msgid "Busy Greetings"
 msgstr ""
 
 msgid "Number of recorded busy greetings"
@@ -856,7 +856,7 @@ msgstr ""
 msgid "Remove all busy greetings"
 msgstr ""
 
-msgid "Temporary Greetings:"
+msgid "Temporary Greetings"
 msgstr ""
 
 msgid "Number of recorded temporary greetings"
@@ -865,7 +865,7 @@ msgstr ""
 msgid "Remove all temporary greetings"
 msgstr ""
 
-msgid "Abandoned Greetings:"
+msgid "Abandoned Greetings"
 msgstr ""
 
 msgid ""
@@ -886,7 +886,7 @@ msgstr ""
 msgid "File timestamp: "
 msgstr ""
 
-msgid "Recorded Name:"
+msgid "Recorded Name"
 msgstr ""
 
 msgid "Has a recorded name greeting?"
@@ -895,7 +895,7 @@ msgstr ""
 msgid "Remove recorded name"
 msgstr ""
 
-msgid "Unavailable Greeting:"
+msgid "Unavailable Greeting"
 msgstr ""
 
 msgid "Has a recorded unavailable greeting?"
@@ -910,7 +910,7 @@ msgstr ""
 msgid "Remove busy greeting"
 msgstr ""
 
-msgid "Temporary Greeting:"
+msgid "Temporary Greeting"
 msgstr ""
 
 msgid "Has a recorded temporary greeting?"

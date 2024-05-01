@@ -1,9 +1,9 @@
 <?php
 $list = array(
-			'backup' 			=> _('Backups'),
-			'backup_restore'	=> _('Restore'),
-			'backup_servers'	=> _('Servers'),
-			'backup_templates'	=>  _('Templates')
+			'backup' 			=> __('Backups'),
+			'backup_restore'	=> __('Restore'),
+			'backup_servers'	=> __('Servers'),
+			'backup_templates'	=>  __('Templates')
 		);
 		
 foreach ($list as $k => $v) {

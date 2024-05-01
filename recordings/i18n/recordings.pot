@@ -92,11 +92,9 @@ msgstr ""
 msgid "System Recordings"
 msgstr ""
 
-msgid "Add Recording"
+msgid "Add System Recording"
 msgstr ""
 
-msgid "Step 1: Record or upload"
-msgstr ""
 
 msgid "Using your phone,"
 msgstr ""
@@ -133,7 +131,28 @@ msgstr ""
 msgid "Successfully uploaded"
 msgstr ""
 
-msgid "Step 2: Verify"
+msgid "Step 1"
+msgstr ""
+
+msgid "Record or upload"
+msgstr ""
+
+msgid "Step 2"
+msgstr ""
+
+msgid "Step 3"
+msgstr ""
+
+msgid "Step 4"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Verify"
 msgstr ""
 
 msgid "After recording or uploading,"
@@ -148,22 +167,13 @@ msgstr ""
 msgid "If you wish to re-record your message, dial"
 msgstr ""
 
-msgid "Step 3: Name"
-msgstr ""
-
-msgid "Step 2: Name"
-msgstr ""
-
 msgid "Name this Recording"
 msgstr ""
 
 msgid "Click \"SAVE\" when you are satisfied with your recording"
 msgstr ""
 
-msgid "Save"
-msgstr ""
-
-msgid "Edit Recording"
+msgid "Edit System Recording"
 msgstr ""
 
 msgid "Usage List"
@@ -232,7 +242,7 @@ msgstr ""
 msgid "Please enter a valid Name for this System Recording"
 msgstr ""
 
-msgid "Select System Recording:"
+msgid "Select System Recording"
 msgstr ""
 
 msgid "Click here to play this recording"
@@ -270,4 +280,22 @@ msgid ""
 msgstr ""
 
 msgid " if desired."
+msgstr ""
+
+msgid "Format: start recording to see sample rate"
+msgstr ""
+
+msgid "Format: 1 channel pcm @"
+msgstr ""
+
+msgid "Choose a file..."
+msgstr ""
+
+msgid "File %s successfully uploaded"
+msgstr ""
+
+msgid "Resume"
+msgstr ""
+
+msgid "File %s does not have a valid sound extension"
 msgstr ""

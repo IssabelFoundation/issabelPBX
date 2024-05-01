@@ -104,7 +104,7 @@ msgstr ""
 "Skriv in numret (För att nummerpresentationen ska fungera måste detta nummer "
 "vara samma som presenteras vid inkommande samtal)"
 
-msgid "Speed dial code:"
+msgid "Speed dial code"
 msgstr "Kortnummer"
 
 msgid ""
@@ -126,7 +126,7 @@ msgstr "Spara ändringar"
 msgid "Import from CSV"
 msgstr "Importera från CSV"
 
-msgid "File:"
+msgid "File"
 msgstr "Filnamn:"
 
 msgid ""

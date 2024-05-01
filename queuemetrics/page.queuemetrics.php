@@ -5,25 +5,26 @@ $settings = queuemetrics_get_details();
 
 foreach ($settings as $key => $val) {
 	$var[$val['keyword']] = isset($_REQUEST[$val['keyword']]) ? $_REQUEST[$val['keyword']] : $val['value'];
-	$$val['keyword'] = $var[$val['keyword']];
 }
 
-$checked = (isset($ivr_logging) && $ivr_logging == 'true')?'CHECKED':'';
+$checked = (isset($var['ivr_logging']) && $var['ivr_logging'] == 'true')?'CHECKED':'';
 
+echo '<div class="content">';
 echo '<h2 id="title">QueueMetrics</h2>';
-echo '<form action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
+echo '<form id="mainform" method="post" onsubmit="$.LoadingOverlay(\'show\')">';
 echo '<input type="hidden" name="action" value="save">'; 
-echo '<br /><br />';
 
 $table = new CI_Table();
+$table->add_row(array('colspan' => 2, 'data' => heading(_dgettext('amp','General Settings'), 5) ));
 
-$table->add_row( _('Settings'));
-$table->add_row('<hr class="qmhr">');
-$table->add_row('<a href="javascript:void(null)" class="info">Log IVR Selections <span style="left: -18px; display: none; ">' . _('When checked, IVR selections will be reported by QueueMetrics') . '</span></a>', '<input type="checkbox" name="ivr_logging" value="true" ' . $checked . '>');	
-$table->add_row('');
-$table->add_row('');
-$table->add_row('<input type="submit" name="' . _("Submit Changes"). '">');
+$checkbox = "<div class='field'><input type='checkbox' class='switch' id='ivr_logging' name='ivr_logging' value='true' $checked/><label style='height:auto; line-height:2em; padding-left:3em;' for='ivr_logging'>&nbsp;</label></div>";
 
+//$table->add_row('<a href="javascript:void(null)" class="info">Log IVR Selections <span style="left: -18px; display: none; ">' . __('When checked, IVR selections will be reported by QueueMetrics') . '</span></a>', '<input type="checkbox" name="ivr_logging" value="true" ' . $checked . '>');	
+$table->add_row('<a href="javascript:void(null)" class="info">'.__('Log IVR Selections').' <span style="left: -18px; display: none; ">' . __('When checked, IVR selections will be reported by QueueMetrics') . '</span></a>', $checkbox);	
 echo $table->generate();	
 
-echo '</form><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />';
+echo '</form></div>';
+echo '<script>';
+echo js_display_confirmation_toasts();
+echo '</script>';
+echo form_action_bar(''); 

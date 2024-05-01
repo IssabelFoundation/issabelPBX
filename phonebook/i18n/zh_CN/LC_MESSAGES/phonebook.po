@@ -88,7 +88,7 @@ msgid ""
 "received from network)"
 msgstr ""
 
-msgid "Speed dial code:"
+msgid "Speed dial code"
 msgstr "快速拨号代码："
 
 msgid ""
@@ -108,7 +108,7 @@ msgstr "提交更改"
 msgid "Import from CSV"
 msgstr "从CSV文件导入"
 
-msgid "File:"
+msgid "File"
 msgstr "文件："
 
 msgid ""

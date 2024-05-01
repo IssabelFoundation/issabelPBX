@@ -1,26 +1,51 @@
-$(document).ready(function(){
+$(function(){
 	//remote
 	remote();
-	$('select[name=bu_server]').change(remote);
+	$('select[name=bu_server]').on('change',remote);
 	restore();
-	$('input[type=checkbox][name=restore]').change(restore);
+	$('input[type=checkbox][name=restore]').on('change',restore);
 	//cron_custom
 	cron_custom();
-	$('select[name=cron_schedule]').change(cron_custom);
-
+	$('select[name=cron_schedule]').on('change',cron_custom);
 	//cron_schedule
 	cron_random();
-	$('select[name=cron_schedule]').change(cron_random);
+	$('select[name=cron_schedule]').on('change',cron_random);
 
-	//storage servers
-	$('#storage_used_servers').sortable({
-		connectWith: '.storage_servers',
-		update: save_storage_servers,
-	}).disableSelection();
+    original_templates_items_over = $('#items_over').html();
 
-	$('#storage_avail_servers').sortable({
-		connectWith: '.storage_servers'
-	}).disableSelection();
+    Sortable.create( $('#storage_used_servers')[0], {
+        group: { name: 'storage_servers' },
+        sort: false,
+        onEnd: save_storage_servers,
+        animation: 100
+    });
+
+    Sortable.create( $('#storage_avail_servers')[0], {
+        group: { name: 'storage_servers' },
+        sort: false,
+        onEnd: save_storage_servers,
+        animation: 100
+    });
+
+    Sortable.create( $('#templates')[0], {
+        group: { name: 'templates', put: false, pull: 'clone', onEnd: function(evt) { console.log(evt); return false; } },
+        sort: false,
+        animation: 100
+    });
+
+    Sortable.create( $('#items_over')[0], {
+        group: { name: 'itemsover', put: ['templates'], pull: false },
+        onAdd: function(evt) {
+            var data = JSON.parse(decodeURIComponent($(evt.item).data('template')));
+            add_template(data);
+            $('#items_over').html(original_templates_items_over);
+        },
+        sort: false,
+        animation: 100
+    });
+
+    /*
+    
 
 	//templates
 	$('#templates > li').draggable({
@@ -41,34 +66,32 @@ $(document).ready(function(){
 			current_items_over_helper('show');
 		}
 	});
-	//run backup
-	$('#run_backup').click(function(){
+*/
 
-		id = $('#backup_form').find('[name=id]').val();
+	//run backup
+	$('#run_backup').on('click',function(){
+
+		id = $('#mainform').find('[name=id]').val();
 		if (typeof id == 'undefined' || !id) {
 			return false;
 		}
-		 box = $('<div></div>')
-			.html('<div class="backup_status"></div>'
-				+ '<progress style="width: 100%">'
-				+ 'Please wait...'
-				+ '</progress>')
-			.dialog({
-				title: 'Run backup',
-				resizable: false,
-				modal: true,
-				position: ['center', 50],
-				width: 500,
-				close: function (e) {
-					$(e.target).dialog("destroy").remove();
-				}
-			});
+
+        Swal.fire({
+            html: '<div class="box" style="height:100%;"><div class="backup_status"></div><progress style="width: 100%">'+ipbx.msg.framework.pleasewait+'</progres></div>',
+            title: ipbx.msg.framework.backupstart,
+            focusConfirm: false,
+            showConfirmButton: true,
+            showCancelButton: false,
+            heightAuto: true,
+            customClass: {'popup':'backup-popover','actions':'popover_actions'},
+        });
+
 
 		//first, save the backup
-		backup_log($('.backup_status'), 'Saving Backup ' + id + '...');
+		backup_log($('.backup_status'), ipbx.msg.framework.savingbackup + ' ' + id + '...');
 
 		//get form data and change action to 'ajax_save'
-		var data = $('#backup_form').serializeArray();
+		var data = $('#mainform').serializeArray();
 		for(var i=0; i < data.length; i++) {
 			if (data[i].name == 'action') {
 				data[i].value = 'ajax_save';
@@ -77,11 +100,11 @@ $(document).ready(function(){
 		}
 
 		$.ajax({
-			type: $('#backup_form').attr('method'),
-			url: $('#backup_form').attr('action'),
+			type: $('#mainform').attr('method'),
+			url: $('#mainform').attr('action'),
 			data: data,
 			success: function() {
-				backup_log($('.backup_status'),'done!' + '<br>');
+				backup_log($('.backup_status'), ipbx.msg.framework.done + '<br>');
 
 			},
 			error: function() {
@@ -96,7 +119,7 @@ $(document).ready(function(){
 
 		if (!window.EventSource) {
 			$.get(url, function(){
-				$('.backup_status').next('progress').append('done!');
+				$('.backup_status').next('progress').append(ipbx.msg.framework.done);
 				setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
 			});
 			return false;
@@ -119,10 +142,10 @@ $(document).ready(function(){
 	});
 
 	//style cron custom times
-	$('#crondiv').find('input[type=checkbox]').button();
+	//$('#crondiv').find('input[type=checkbox]').button();
 
 	//highlight save when run is hovered
-	$('#run_backup').hover(
+	$('#run_backup').on('hover',
 		function(){
 			$('#save_backup').addClass('ui-state-hover');
 		},
@@ -132,7 +155,7 @@ $(document).ready(function(){
 	);
 
 	//Ensure we don't have a custom cron schedule with nothing selected
-	$('form#backup_form').on('submit', function() {
+	$('form#mainform').on('submit', function() {
 		var custom_schedule = 0 + $("input[name='cron_minute[]']:checked").length + $("input[name='cron_hour[]']:checked").length + $("input[name='cron_month[]']:checked").length + $("input[name='cron_dom[]']:checked").length + $("input[name='cron_dow[]']:checked").length;
 		if ($("select[name='cron_schedule']").val() === 'custom' && custom_schedule <= 0) {
 			alert('You must choose a backup schedule');
@@ -143,7 +166,7 @@ $(document).ready(function(){
 
 function remote() {
 	if ($('select[name=bu_server]').val() == 0) {
-		$('#restore').removeAttr("checked");
+		$('#restore').prop("checked",false);
 		$('.remote').hide()
 	} else {
 		$('.remote').show()
@@ -173,7 +196,7 @@ function cron_random() {
 		case 'custom':
 		case 'reboot':
 			$('label[for=cron_random]').hide();
-			$('#cron_random').removeAttr("checked").hide();
+			$('#cron_random').prop("checked",false).hide();
 			break;
 		default:
 			$('label[for=cron_random]').show();
@@ -183,13 +206,13 @@ function cron_random() {
 }
 
 function save_storage_servers(){
-	$('#backup_form > input[name^=storage_servers]').remove();
+	$('#mainform > input[name^=storage_servers]').remove();
 	$('#storage_used_servers > li').each(function(){
 		field		= document.createElement('input');
 		field.name	= 'storage_servers[]';
 		field.type	= 'hidden';
 		field.value	= $(this).data('server-id');
-		$('#backup_form').append(field);
+		$('#mainform').append(field);
 	})
 }
 
@@ -217,7 +240,6 @@ function current_items_over_helper(action) {
 	}
 }
 function add_template(template) {
-
 
 	//clone the object so that we dont destroy the origional when we delete from it
 	var template = $.extend({}, template);

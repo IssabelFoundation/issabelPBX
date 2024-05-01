@@ -104,13 +104,13 @@ msgstr ""
 msgid "The number users will dial to voicemail boxes in this VMBlast group"
 msgstr ""
 
-msgid "Group Description:"
+msgid "Group Description"
 msgstr ""
 
 msgid "Provide a descriptive title for this VMBlast Group."
 msgstr ""
 
-msgid "Audio Label:"
+msgid "Audio Label"
 msgstr ""
 
 msgid ""
@@ -140,12 +140,10 @@ msgid ""
 "access to this group voicemail list."
 msgstr ""
 
-msgid "Voicemail Box List:"
+msgid "Voicemail Box List"
 msgstr ""
 
-msgid ""
-"Select voice mail boxes to add to this group. Use Ctrl key to select "
-"multiple.."
+msgid "Select voice mail boxes to add to this group."
 msgstr ""
 
 msgid "Default VMBlast Group"

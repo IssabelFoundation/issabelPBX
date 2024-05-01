@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `outroutemsg`
 ";
 $check = $db->query($sql);
 if(DB::IsError($check)) {
-	die_issabelpbx(_("Can not create outroutemsg table"));
+	die_issabelpbx(__("Can not create outroutemsg table"));
 }
 
 ?>

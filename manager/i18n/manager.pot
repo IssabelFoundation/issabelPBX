@@ -19,7 +19,7 @@ msgstr ""
 msgid "This manager already exists"
 msgstr ""
 
-msgid "Choose Manager:"
+msgid "Choose Manager"
 msgstr ""
 
 msgid "Choose the user that PHPAGI will use to connect the Asterisk API."
@@ -52,28 +52,25 @@ msgstr ""
 msgid "deleted"
 msgstr ""
 
-msgid "Manager:"
-msgstr ""
-
 msgid "Delete Manager"
 msgstr ""
 
 msgid "Edit Manager"
 msgstr ""
 
-msgid "Manager name:"
+msgid "Manager name"
 msgstr ""
 
 msgid "Name of the manager without space."
 msgstr ""
 
-msgid "Manager secret:"
+msgid "Manager secret"
 msgstr ""
 
 msgid "Password for the manager."
 msgstr ""
 
-msgid "Deny:"
+msgid "Deny"
 msgstr ""
 
 msgid ""
@@ -81,7 +78,7 @@ msgid ""
 ">Example: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
 msgstr ""
 
-msgid "Permit:"
+msgid "Permit"
 msgstr ""
 
 msgid ""

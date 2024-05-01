@@ -988,7 +988,7 @@ class superfecta_base {
         }
 
         //now make sure all HTML tags are correctly written (> not in between quotes)
-        for ($x = 0, $goodStr = '', $is_open_tb = false, $is_open_sq = false, $is_open_dq = false; isset($badStr{$x}) && strlen($chr = $badStr{$x}); $x++) {
+        for ($x = 0, $goodStr = '', $is_open_tb = false, $is_open_sq = false, $is_open_dq = false; isset($badStr[$x]) && strlen($chr = $badStr[$x]); $x++) {
             //take each letter in turn and check if that character is permitted there
             switch ($chr) {
                 case '<':
