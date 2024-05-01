@@ -472,7 +472,7 @@ class core_conf {
             if($kw=='method') {
                $output3[]="method=$value";
             } else
-            if($kw=='certfile') {
+            if($kw=='certfile' && file_exists($certlistfile)) {
                 $output3[]="cert_file=$value";
                 $output3[]="priv_key_file=$value";
                 $cert_file=$value;
@@ -505,14 +505,16 @@ class core_conf {
         if(!isset($tlsbindaddr)) $tlsbindaddr = $tlsbindaddr_df;
         if(!isset($tlsbindport)) $tlsbindport = $tlsbindport_df;
 
-        if($cert_file=='') {
+        if($cert_file=='' && file_exists($certlistfile)) {
             $output3[]="cert_file=/etc/asterisk/keys/asterisk.pem";
             $output3[]="priv_key_file=/etc/asterisk/keys/asterisk.key";
         }
 
         $output1[]="bind=$bindaddr:$bindport";
         $output2[]="bind=$bindaddr:$bindport";
-        $output3[]="bind=$tlsbindaddr:$tlsbindport";
+        if(file_exists($certlistfile)) {
+            $output3[]="bind=$tlsbindaddr:$tlsbindport";
+        }
         $output4[]="bind=$bindaddr:$bindport";
         $output5[]="bind=$bindaddr:$bindport";
 
