@@ -6739,7 +6739,7 @@ function core_users_cleanastdb($extension) {
         $astman->database_del("CF",$extension);
         $astman->database_del("CFB",$extension);
         $astman->database_del("CFU",$extension);
-
+        $astman->database_del("DND",$extension);
     } else {
         die_issabelpbx("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
     }
