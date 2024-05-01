@@ -108,7 +108,7 @@ function logfiles_get_logfile($lines = 500, $file) {
     $logfile = $amp_conf['ASTLOGDIR'] . '/' . $files[$file];
 
     if (!file_exists($logfile) || !is_file($logfile)) {
-        echo _('Error parsing log file or file not found!');
+        echo __('Error parsing log file or file not found!');
         return;
     }
 
@@ -325,7 +325,11 @@ function logfiles_put_opts($opts) {
         $logData[] = array_values($data);
     }
 
-    sql('TRUNCATE logfile_logfiles');
+    if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
+        sql('DELETE FROM logfile_logfiles');
+    } else {
+        sql('TRUNCATE TABLE logfile_logfiles');
+    }
 
     $sql = $db->prepare('INSERT INTO logfile_logfiles
             (name, debug, dtmf, error, fax, notice, verbose, warning, security)
@@ -343,8 +347,8 @@ function logfiles_put_opts($opts) {
 function logfiles_rnav() {
     $html = '';
     $html .= '<div class="rnav"><ul>'."\n";
-    $html .= '<li><a href="config.php?display=logfiles">'._('View Logs').'</a></li>';
-    $html .= '<li><a href="config.php?display=logfiles&view=opts">'._('Log file settings').'</a></li>';
+    $html .= '<li><a href="config.php?display=logfiles">'.__('View Logs').'</a></li>';
+    $html .= '<li><a href="config.php?display=logfiles&view=opts">'.__('Log file settings').'</a></li>';
     $html .= "</ul><br /></div>";
 
     return $html;

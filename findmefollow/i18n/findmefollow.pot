@@ -111,7 +111,7 @@ msgstr ""
 msgid "is not allowed for your account"
 msgstr ""
 
-msgid "Choose a user/extension:"
+msgid "Choose a user/extension from the navigation menu:"
 msgstr ""
 
 msgid "deleted"

@@ -1,6 +1,6 @@
 var myCodeMirror;
 
-$(document).ready(function() {
+up.compiler('.content', function(element,data) {
     if($('#ttstext').length>0) {
         myCodeMirror = CodeMirror.fromTextArea($('#ttstext')[0],{
           lineNumbers: true,
@@ -25,7 +25,7 @@ $(document).ready(function() {
     }
 });
 
-$('#ttsengine_engine').change(function(){
+$('#ttsengine_engine').on('change',function(){
     updateTemplate(0);
 });
 

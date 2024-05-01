@@ -1,0 +1,170 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Wake Up Calls"
+msgstr "Despertador de hotel"
+
+#: page.hotelwakeup.php:53
+msgid "Cannot schedule the call, either due to insufficient data or the scheduled time was in the past"
+msgstr "No se puede programar la llamada, ya sea porque no hay datos suficientes o porque la hora programada ya pasó"
+
+#: page.hotelwakeup.php:106
+msgid "Could not find file to remove"
+msgstr "No se pudo encontrar el archivo para eliminar"
+
+#: page.hotelwakeup.php:195
+msgid "Module configuration"
+msgstr "Configuración del módulo"
+
+#: page.hotelwakeup.php:214
+msgid "Wake Up calls can be used to schedule a reminder or wakeup call to any valid destination. To schedule a call, dial the feature code assigned in IssabelPBX Feature Codes or use the form below."
+msgstr "Las llamadas de despertador se pueden usar para programar un recordatorio o una llamada de despertador a cualquier destino válido. Para programar una llamada, marque el código de función asignado en Códigos de función de Issabel PBX o use el formulario a continuación."
+
+
+#: page.hotelwakeup.php:215
+msgid "By default, Wake Up calls are only made back to the Caller ID of the user which requests them. When the Operator Mode is enabled, certain extensions are identified to be able to request a Wake Up call for any valid internal or external destination."
+msgstr "De forma predeterminada, las llamadas de despertador solo se devuelven al identificador de llamadas del usuario que las solicita. Cuando el modo de operador está habilitado, ciertas extensiones se identifican para poder solicitar una llamada de despertador para cualquier destino interno o externo válido."
+
+#: page.hotelwakeup.php:233
+msgid "Edit Wake Up Call"
+msgstr "Modificar llamada de despertador"
+
+#: page.hotelwakeup.php:240
+msgid "Hotel Wake Up Configuration"
+msgstr "Configuración del despertador de hotel"
+
+#: page.hotelwakeup.php:252
+msgid "Add Wake Up Call"
+msgstr "Añadir llamada de despertador"
+
+#: page.hotelwakeup.php:268
+msgid "Destination"
+msgstr "Destino"
+
+#: page.hotelwakeup.php:268
+msgid "The destination extension for this call"
+msgstr "La extensión de destino para esta llamada"
+
+#: page.hotelwakeup.php:276
+msgid "Date/Time"
+msgstr "Fecha/Hora"
+
+#: page.hotelwakeup.php:276
+msgid "The date"
+msgstr "La fecha"
+
+#: page.hotelwakeup.php:283
+msgid "System Settings"
+msgstr "Configuración del sistema"
+
+#: page.hotelwakeup.php:284
+msgid "For scheduled calls to be delivered at the correct time, the system time zone and current time must be set properly. The system is reporting the following time zone and time:"
+msgstr "Para que las llamadas programadas se entreguen a la hora correcta, la zona horaria del sistema y la hora actual deben configurarse correctamente. El sistema informa la siguiente zona horaria y hora:"
+
+#: page.hotelwakeup.php:285
+msgid "Time zone"
+msgstr "Zona horaria"
+
+#: page.hotelwakeup.php:286
+msgid "System time"
+msgstr "Hora del sistema"
+
+#: page.hotelwakeup.php:299
+msgid "Operator Mode"
+msgstr "Modo de operador"
+
+#: page.hotelwakeup.php:299
+msgid "<u>ENABLE</u> Operator Mode to allow designated extentions to create wake up calls for any valid destination.<br><u>DISABLE</u> Calls can only be placed back to the caller ID of the user scheduling the wakeup call."
+msgstr "<u>HABILITAR</u> Modo de operador para permitir que las extensiones designadas creen llamadas de despertador para cualquier destino válido.<br><u>DESHABILITAR</u> Las llamadas solo se pueden volver a realizar al identificador de llamadas del usuario programar la llamada de atención."
+
+#: page.hotelwakeup.php:302
+msgid "Enabled"
+msgstr "Habilitado"
+
+#: page.hotelwakeup.php:302
+msgid "Disabled"
+msgstr "Deshabilitado"
+
+#: page.hotelwakeup.php:307
+msgid "Max Dest. Length"
+msgstr "Largo máximo destino"
+
+
+#: page.hotelwakeup.php:307
+msgid "This controls the maximum number of digits an operator can send a wakeup call to. Set to 10 or 11 to allow wake up calls to outside numbers."
+msgstr "Esto controla el número máximo de dígitos a los que un operador puede enviar una llamada de despertador. Establézcalo en 10 u 11 para permitir llamadas de despertador a números externos."
+
+#: page.hotelwakeup.php:315
+msgid "Operator Extensions"
+msgstr "Extensiones de operador"
+
+#: page.hotelwakeup.php:315
+msgid "Enter the Caller ID's of each telephone you wish to be recognized as an `Operator`.  Operator extensions are allowed to create wakeup calls for any valid destination. Numbers can be extension numbers, full caller ID numbers or Asterisk dialing patterns."
+msgstr "Ingrese los identificadores de llamadas de cada teléfono que desea que se reconozca como `Operador`. Las extensiones de operadores pueden crear llamadas de despertador para cualquier destino válido. Los números pueden ser números de extensión, números completos de identificación de llamadas o patrones de marcación de Asterisk."
+
+#: page.hotelwakeup.php:322
+msgid "(Use a comma separated list)"
+msgstr "(Utilice una lista separada por comas)"
+
+#: page.hotelwakeup.php:326
+msgid "Ring Time"
+msgstr "Tiempo de timbre"
+
+#: page.hotelwakeup.php:326
+msgid "The number of seconds for the phone to ring. Consider setting lower than the voicemail threshold or the wakeup call can end up going to voicemail."
+msgstr "La cantidad de segundos para que suene el teléfono. Considere configurar un valor inferior al umbral del correo de voz o la llamada de despertador puede terminar yendo al correo de voz."
+
+#: page.hotelwakeup.php:334
+msgid "Retry Time"
+msgstr "Tiempo de reintento"
+
+#: page.hotelwakeup.php:334
+msgid "The number of seconds to wait between retrys.  A 'retry' happens if the wakeup call is not answered."
+msgstr "El número de segundos de espera entre reintentos. Y ocurre 'reintento' si no se responde a la llamada de activación."
+
+#: page.hotelwakeup.php:342
+msgid "Max Retries"
+msgstr "Reintentos máximos"
+
+#: page.hotelwakeup.php:342
+msgid "The maximum number of times the system should attempt to deliver the wakeup call when there is no answer.  Zero retries means only one call will be placed."
+msgstr "El número máximo de veces que el sistema debe intentar entregar la llamada de activación cuando no hay respuesta. Cero reintentos significa que solo se realizará una llamada."
+
+#: page.hotelwakeup.php:350
+msgid "Caller ID"
+msgstr "Identificador de llamadas"
+
+#: page.hotelwakeup.php:350
+msgid "<u>First Box:</u> Enter the CNAM (Caller ID Name) to be sent by the system when placing the wakeup calls.  Enclose this string with \" if required by your system.<br><u>Second Box:</u> Enter the CID (Caller ID number) of the Caller ID to be sent when the system places wake up calls."
+msgstr "<u>Primera casilla:</u> Ingrese el CNAM (Nombre del identificador de llamadas) que enviará el sistema al realizar las llamadas de activación. Adjunte esta cadena con \" si su sistema lo requiere.<br><u> Segunda casilla:</u> Ingrese el CID (número de identificación de llamadas) de la identificación de llamadas que se enviará cuando el sistema realice llamadas de despertador."
+
+#: page.hotelwakeup.php:357
+msgid "*Some systems require quote marks around the textual caller ID. You may include the \" \" if needed by your system."
+msgstr "*Algunos sistemas requieren comillas alrededor del identificador de llamadas textual. Puede incluir \" \" si su sistema lo necesita."
+
+msgid "Please enter a valid extension"
+msgstr "Por favor ingrese una extensión válida"

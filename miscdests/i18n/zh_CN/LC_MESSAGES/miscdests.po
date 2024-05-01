@@ -71,13 +71,13 @@ msgstr "删除杂项目的地 %s"
 msgid "Edit Misc Destination"
 msgstr "编辑杂项目的地"
 
-msgid "Description:"
+msgid "Description"
 msgstr "描述："
 
 msgid "Give this Misc Destination a brief name to help you identify it."
 msgstr "为此杂项目的取一个简略的名字，以帮助你辨识它。"
 
-msgid "Dial:"
+msgid "Dial"
 msgstr "拨号："
 
 msgid ""
@@ -87,7 +87,7 @@ msgid ""
 "phone."
 msgstr ""
 "输入此目的地将要模拟拨号的号码，它要与你将要从内线电话上拨打的号码完全一样。"
-"当你将一个呼叫引导到这个目的地时，它就好象主叫是从一部内线电话拨打了此号码一"
+"当你将一个呼叫引导到这个目时，它就好象主叫是从一部内线电话拨打了此号码一"
 "样。"
 
 msgid "Submit Changes"

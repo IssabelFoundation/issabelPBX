@@ -33,8 +33,8 @@ function queues_set_qnostate($exten,$qnostate) {
 function queues_applyhooks() {
 	global $currentcomponent;
 
-    $currentcomponent->addoptlistitem('qnostate', 'usestate', dgettext('queues','Use State'));
-    $currentcomponent->addoptlistitem('qnostate', 'ignorestate',dgettext('queues','Ignore State'));
+    $currentcomponent->addoptlistitem('qnostate', 'usestate', _dgettext('queues','Use State'));
+    $currentcomponent->addoptlistitem('qnostate', 'ignorestate',_dgettext('queues','Ignore State'));
 	$currentcomponent->setoptlistopts('qnostate', 'sort', false);
 
 	// Add the 'process' function - this gets called when the page is loaded, to hook into 
@@ -49,20 +49,21 @@ function queues_configpageload() {
 
 	// Init vars from $_REQUEST[]
 	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
-	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+    $extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+    $display = isset($_REQUEST['display'])?$_REQUEST['display']:null;
 	
 	// Don't display this stuff it it's on a 'This xtn has been deleted' page.
-	if ($action != 'del') {
+	if ($action != 'del' && $display=='extensions') {
 
 		$qnostate = queues_get_qnostate($extdisplay);
 
-		$section = _('Extension Options');
+		$section = __('Extension Options');
 		$currentcomponent->addguielem($section, 
 			new gui_selectbox('qnostate', 
 				$currentcomponent->getoptlist('qnostate'), 
 				$qnostate, 
-				_('Queue State Detection'), 
-				_("If this extension is part of a Queue then the Queue will "
+				__('Queue State Detection'), 
+				__("If this extension is part of a Queue then the Queue will "
 				. "attempt to use the user's extension state or device state "
 				. "information when determining if this queue member should be "
 				. "called. In some uncommon situations such as a Follow-Me with no "

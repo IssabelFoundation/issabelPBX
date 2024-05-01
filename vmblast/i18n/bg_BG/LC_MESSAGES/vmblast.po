@@ -114,13 +114,13 @@ msgstr ""
 "Номерът който потребителите ще избират за изпращане на гласово съобщение в "
 "тази ГП Разпращане Група."
 
-msgid "Group Description:"
+msgid "Group Description"
 msgstr "Описание на Групата:"
 
 msgid "Provide a descriptive title for this VMBlast Group."
 msgstr "Дайте описващо наименование на тази ГП Разпращане Група"
 
-msgid "Audio Label:"
+msgid "Audio Label"
 msgstr "Определи Аудио:"
 
 msgid ""
@@ -158,15 +158,11 @@ msgstr ""
 "Допълнително можете да включите парола за оторизиране преди да се даде "
 "достъп до тази ГП Разпращане Група."
 
-msgid "Voicemail Box List:"
+msgid "Voicemail Box List"
 msgstr "Списък на Кутии с Гласова Поща:"
 
-msgid ""
-"Select voice mail boxes to add to this group. Use Ctrl key to select "
-"multiple.."
-msgstr ""
-"Изберете кутиите на гласови пощи за добавяне в тази група. Изолзвайте Ctrl "
-"за избиране на няколко."
+msgid "Select voice mail boxes to add to this group."
+msgstr "Изберете кутиите на гласови пощи за добавяне в тази група."
 
 msgid "Default VMBlast Group"
 msgstr "ГП Разпращане Група По-Подразбиране"

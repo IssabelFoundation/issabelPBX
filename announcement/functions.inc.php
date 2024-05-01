@@ -28,7 +28,7 @@ function announcement_getdestinfo($dest) {
 			return array();
 		} else {
 			$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
-			return array('description' => sprintf(_("Announcement: %s"),$thisexten['description']),
+			return array('description' => sprintf(__("Announcement: %s"),$thisexten['description']),
 			             'edit_url' => 'config.php?display=announcement&type='.$type.'&extdisplay='.urlencode($exten),
 								  );
 		}
@@ -48,7 +48,7 @@ function announcement_recordings_usage($recording_id) {
 		foreach ($results as $result) {
 			$usage_arr[] = array(
 				'url_query' => 'config.php?display=announcement&type='.$type.'&extdisplay='.urlencode($result['announcement_id']),
-				'description' => sprintf(_("Announcement: %s"),$result['description']),
+				'description' => sprintf(__("Announcement: %s"),$result['description']),
 			);
 		}
 		return $usage_arr;
@@ -227,9 +227,10 @@ function announcement_delete($announcement_id) {
 function announcement_edit($announcement_id, $description, $recording_id, $allow_skip, $post_dest, $return_ivr, $noanswer, $repeat_msg, $tts_lang, $tts_text) { 
     global $db;
     check_alter_table();
+    $recording_id = intval($recording_id);
     $sql = "UPDATE announcement SET ".
         "description = '".$db->escapeSimple($description)."', ".
-        "recording_id = '".$recording_id."', ".
+        "recording_id = ".$recording_id.", ".
         "allow_skip = '".($allow_skip ? 1 : 0)."', ".
         "post_dest = '".$db->escapeSimple($post_dest)."', ".
         "return_ivr = '".($return_ivr ? 1 : 0)."', ".
@@ -264,7 +265,7 @@ function announcement_check_destinations($dest=true) {
 		$thisid   = $result['announcement_id'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => sprintf(_("Announcement: %s"),$result['description']),
+			'description' => sprintf(__("Announcement: %s"),$result['description']),
 			'edit_url' => 'config.php?display=announcement&type='.$type.'&extdisplay='.urlencode($thisid),
 		);
 	}
@@ -277,7 +278,8 @@ function announcement_change_destination($old_dest, $new_dest) {
 }
 
 function tts_enabled() {
-    if(file_exists('/var/lib/asterisk/agi-bin/picotts.agi')) {
+    global $amp_conf;
+    if(file_exists($amp_conf['ASTDATADIR'].'/agi-bin/picotts.agi')) {
         return true;
     } else {
         return false;

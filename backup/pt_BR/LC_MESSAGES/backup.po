@@ -1,0 +1,1090 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid "Backup & Restore"
+msgstr "Cópias de segurança"
+
+msgid "Admin"
+msgstr ""
+
+msgid "Backup & Restore for your IssabelPBX environment"
+msgstr ""
+
+msgid "Can not create backup tables"
+msgstr ""
+
+msgid "Can't check for Backup table"
+msgstr ""
+
+msgid ""
+"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgstr ""
+
+msgid "This error can result from a previous incomplete/failed install of"
+msgstr ""
+
+msgid "this module. You should probably uninstall and reinstall this module"
+msgstr ""
+
+msgid ""
+"doing so will result in a loss of all your backup settings though previous"
+msgstr ""
+
+msgid "backup data will be preserved."
+msgstr ""
+
+msgid "Failure Message:"
+msgstr ""
+
+msgid "Can not migrate Backup table"
+msgstr ""
+
+msgid "Backup migration completed"
+msgstr ""
+
+msgid "Nothing to migrate"
+msgstr "Nada para restaurar"
+
+msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+msgstr ""
+
+msgid "and then re-install this module. Settings will be lost but old"
+msgstr ""
+
+msgid "backup data will be retained."
+msgstr ""
+
+msgid "Old Backup table removed"
+msgstr ""
+
+msgid "Replacing ampbackup.pl in db.."
+msgstr ""
+
+msgid "an error has occurred, update not done"
+msgstr ""
+
+msgid "ok"
+msgstr "OK"
+
+msgid "removing retrieve_backup_cron_from_mysql.pl.."
+msgstr "eliminando retrieve_backup_cron_from_mysql.pl.."
+
+msgid "removed"
+msgstr "eliminado"
+
+msgid "failed"
+msgstr "fracassado"
+
+msgid "Migrating backup table..."
+msgstr ""
+
+msgid "WARNING: backup table not migrated"
+msgstr ""
+
+msgid "Successfully migrated backup table!"
+msgstr ""
+
+msgid "Creating backups directory.."
+msgstr ""
+
+#, php-format
+msgid "WARNING: failed to create backup directory: %s"
+msgstr ""
+
+msgid "Location of backups pre 2.10"
+msgstr ""
+
+msgid "Storage location for backups"
+msgstr ""
+
+msgid "PBX config server, generally a local database server"
+msgstr ""
+
+msgid "CDR server, generally a local database server"
+msgstr ""
+
+msgid "added default backup servers"
+msgstr ""
+
+msgid "A full backup of core settings and web files"
+msgstr ""
+
+msgid ""
+"All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
+"VOICEMAIL"
+msgstr ""
+"Todo o áudio do sistema, incluindo avisos de IVR e música em espera. NÃO FAZ "
+"BACKUP DE CORREIO DE VOZ"
+
+msgid " DOES NOT BACKUP VOICEMAIL"
+msgstr ""
+
+msgid "Doesn't backup Backup's settings so that they dont get restored"
+msgstr ""
+
+msgid "added default backup templates"
+msgstr ""
+
+msgid "MIGRATED"
+msgstr ""
+
+msgid "migrated backup"
+msgstr ""
+
+msgid "Migrated FTP server for backup "
+msgstr ""
+
+msgid "Migrated SSH server for backup "
+msgstr ""
+
+msgid "Migrated EMAIL server for backup "
+msgstr ""
+
+msgid "Migrated remote SSH server for backup "
+msgstr ""
+
+msgid "Default backup; automatically installed"
+msgstr ""
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Run now"
+msgstr ""
+
+msgid "Download"
+msgstr "Descargar"
+
+msgid "Backup Module"
+msgstr "Módulo de Backup"
+
+msgid "Template Name"
+msgstr "Nome do modelo"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Path/DB"
+msgstr "Rota/BD"
+
+msgid "Exclude"
+msgstr "Excluir"
+
+msgid "Edit Backup Template"
+msgstr "Modificar modelo de backup"
+
+msgid "Add Backup Template"
+msgstr "Adicionar modelo de backup"
+
+msgid "Add Entry"
+msgstr "Adicionar entrada"
+
+msgid "Directory"
+msgstr "diretório"
+
+msgid "File"
+msgstr "Arquivo"
+
+msgid "PATTERNs, one per line"
+msgstr "Padrões, um por linha"
+
+msgid "Description or notes for this server"
+msgstr "Descrição ou notas para este servidor"
+
+msgid "Templates"
+msgstr "Modelos"
+
+msgid "Backups"
+msgstr "Cópias de segurança"
+
+msgid "Restore"
+msgstr "Restaurar"
+
+msgid "Servers"
+msgstr "Servidores"
+
+msgid ""
+"Upload a backup file to restore from it. Or, pick a saved backup by "
+"selecting a server from the list on the right."
+msgstr ""
+"Carregue um arquivo de backup para restaurar. Ou escolha um backup salvo "
+"selecionando um servidor na lista à direita."
+
+msgid "Choose a file..."
+msgstr "Escolha um arquivo..."
+
+msgid "Go!"
+msgstr "¡Vamos!"
+
+msgid "Add Backup"
+msgstr "Adicionar cópia de segurança"
+
+msgid "Edit Backup"
+msgstr "Modificar backup"
+
+msgid "Backup Name"
+msgstr "Nome para este backup"
+
+msgid "Status Email"
+msgstr "Direção de e-mail"
+
+msgid "Email to send status messages to when this task is run"
+msgstr ""
+"Endereço de e-mail que receberá mensagens de status quando esta tarefa for "
+"executada"
+
+msgid "Description or notes for this backup"
+msgstr "Descrição ou notas para este backup"
+
+msgid "Backup Items"
+msgstr "Itens de backup"
+
+msgid "Hooks"
+msgstr "Ganchos"
+
+msgid "Backup Server"
+msgstr "Servidor de backup"
+
+msgid "Backup Schedule"
+msgstr "Programa de backup"
+
+msgid "Storage Locations"
+msgstr "Locais de armazenamento"
+
+msgid "Storage Servers"
+msgstr "Servidores de armazenamento"
+
+msgid "Available Servers"
+msgstr "Servidores disponíveis"
+
+msgid "Run Automatically"
+msgstr "Execução automática"
+
+msgid "Never"
+msgstr "Nunca"
+
+msgid "Hourly"
+msgstr "Cada hora"
+
+msgid "Weekly"
+msgstr "Cada semana"
+
+msgid "Daily"
+msgstr "Diariamente"
+
+msgid "Monthly"
+msgstr "Por mês"
+
+msgid "Annually"
+msgstr "Anualmente"
+
+msgid "Custom"
+msgstr "Personalizado"
+
+msgid "Reboot"
+msgstr "Ao reiniciar"
+
+msgid "Maintenance"
+msgstr "Manutenção"
+
+msgid "Delete after"
+msgstr "Excluir depois"
+
+msgid " runs"
+msgstr "execuções"
+
+msgid "Minutes"
+msgstr "Minutos"
+
+msgid "Hours"
+msgstr "Horas"
+
+msgid "Days"
+msgstr "Dias"
+
+msgid "Weeks"
+msgstr "Semanas"
+
+msgid "Months"
+msgstr "Meses"
+
+msgid "Years"
+msgstr "Anos"
+
+msgid "chose"
+msgstr "selecione"
+
+msgid "Family, one per line"
+msgstr "Família, um por linha"
+
+msgid "Pre-backup Hook"
+msgstr "Gancho pré-encosto"
+
+msgid "Post-backup Hook"
+msgstr "Gancho de encosto"
+
+msgid "Pre-restore Hook"
+msgstr "Gancho de pré-restauração"
+
+msgid "Post-restore Hook"
+msgstr "Gancho pós-restauração"
+
+msgid "Backup Servers"
+msgstr "Servidores de backup"
+
+msgid "New Email server"
+msgstr "Novo servidor de e-mail"
+
+msgid "New FTP server"
+msgstr "Novo servidor FTP"
+
+msgid "New Local server"
+msgstr "Novo servidor local"
+
+msgid "New Mysql server"
+msgstr "Novo servidor MySQL"
+
+msgid "New SSH server"
+msgstr "Novo servidor SSH"
+
+msgid "Server Name"
+msgstr "Nome do servidor"
+
+msgid "Email Address"
+msgstr "Direção de e-mail"
+
+msgid "Max Email Size"
+msgstr "Tamanho máximo do e-mail"
+
+msgid "Add FTP Server"
+msgstr "Adicionar servidor FTP"
+
+msgid "Add Local Server"
+msgstr "Adicionar servidor local"
+
+msgid "Add Mysql Server"
+msgstr "Adicionar servidor MySQL"
+
+msgid "Add SSH Server"
+msgstr "Adicionar servidor SSH"
+
+msgid "Add Email Server"
+msgstr "Adicionar servidor de e-mail"
+
+msgid "Edit FTP Server"
+msgstr "Modificar servidor FTP"
+
+msgid "Edit Local Server"
+msgstr "Modificar servidor local"
+
+msgid "Edit Mysql Server"
+msgstr "Modificar servidor MySQL"
+
+msgid "Edit SSH Server"
+msgstr "Modificar servidor SSH"
+
+msgid "Edit Email Server"
+msgstr "Modificar servidor de e-mail"
+
+msgid "Port"
+msgstr "Porto"
+
+msgid "User Name"
+msgstr "Do utilizador"
+
+msgid "Key"
+msgstr "Chave"
+
+msgid "Path"
+msgstr "Ruta"
+
+msgid "Location of ssh private key to be used when connecting to a host"
+msgstr ""
+"Localização da chave privada ssh a ser usada ao conectar-se a um servidor"
+
+msgid "Path on server where files are stored"
+msgstr "Caminho no servidor onde os arquivos estão armazenados"
+
+msgid "IP address or FQDN of remote ssh host"
+msgstr "Endereço IP ou FQDN do servidor ssh remoto"
+
+msgid "IP address or FQDN of remote mysql host"
+msgstr "Endereço IP ou FQDN do servidor mysql remoto"
+
+msgid "Hostname"
+msgstr "nome de anfitrião"
+
+msgid "remote ssh port"
+msgstr "porta ssh remota"
+
+msgid "remote mysql port"
+msgstr "porto mysql remoto"
+
+msgid "Email address where backups should be emailed to"
+msgstr "Endereço de e-mail para o qual os backups devem ser enviados"
+
+msgid ""
+"The maximum size a backup can be and still be emailed. Some email servers "
+"limit the size of email attachments, this will make sure that files larger "
+"than the max size are not sent."
+msgstr ""
+"O tamanho máximo que um backup pode ter e ainda ser enviado por e-mail. "
+"Alguns servidores de e-mail limitam o tamanho dos anexos de e-mail, o que "
+"garantirá que arquivos maiores que o tamanho máximo não sejam enviados."
+
+msgid "Path where files are stored"
+msgstr "Caminho onde os arquivos são armazenados"
+
+msgid "Password"
+msgstr "Senha"
+
+msgid "DB Name"
+msgstr "Nome do banco de dados"
+
+msgid "Database name"
+msgstr "Nome do banco de dados para conectar"
+
+msgid "System Audio"
+msgstr "Áudios do sistema"
+
+msgid "Voice Mail"
+msgstr "Correio de voz"
+
+msgid "Full Backup"
+msgstr "Backup completo"
+
+msgid "Exclude Backup Settings"
+msgstr "Excluir configuração de backup"
+
+msgid "Config Backup"
+msgstr "Apenas configurações"
+
+msgid "table names, one per line"
+msgstr "nomes de tabelas, um por linha"
+
+msgid "Save and Run"
+msgstr "Save e corra"
+
+msgid "Select a file and click go"
+msgstr "Escolha um arquivo e pressione Ir!"
+
+msgid "Hour"
+msgstr "Hora"
+
+msgid "Day of Week"
+msgstr "Dia da semana"
+
+msgid "Month"
+msgstr "Mes"
+
+msgid "Day of Month"
+msgstr "Dia do mês"
+
+msgid "Randomize"
+msgstr "Aleatória"
+
+msgid ""
+"You can add files, directories, MySQL databases and Asterisk databases by "
+"clicking the Add Entry button, or just drop templates on the drop zone"
+msgstr ""
+"Você pode adicionar arquivos, diretórios, bancos de dados MySQL e bancos de "
+"dados Asterisk clicando no botão Adicionar entrada ou simplesmente soltar "
+"modelos na zona para soltar."
+
+msgid ""
+"Drag templates and drop them in the Backup Items table. Add as many "
+"templates as you need"
+msgstr ""
+"Arraste os modelos e solte-os na zona para soltar. Você pode adicionar "
+"quantos modelos precisar"
+
+msgid "drop zone"
+msgstr "zona de posicionamento"
+
+msgid "Local Storage"
+msgstr "Armazenamento local"
+
+msgid "Legacy Backup"
+msgstr "Backup legado"
+
+msgid ""
+"Drag servers from the Available Servers list to add them as Storage Servers"
+msgstr ""
+"Arraste servidores da lista Servidores Disponíveis para adicioná-los como "
+"Servidores de Armazenamento"
+
+msgid "This server"
+msgstr "Este servidor"
+
+msgid ""
+"Select the server to be backed up (this server, or any other SSH server)"
+msgstr ""
+"Selecione o servidor do qual deseja fazer backup (este servidor ou qualquer "
+"outro servidor SSH)"
+
+msgid ""
+"Select how often to run this backup. The following schedule will be followed "
+"for all but custom:<br/>Hourly &nbsp&nbspRun once an hour, beginning of "
+"hour<br/>Daily &nbsp&nbsp&nbsp&nbspRun once a day, at midnight<br/>Weekly "
+"&nbsp&nbspRun once a week, midnight on Sun<br/>Monthly &nbsp&nbspRun once a "
+"month, midnight, first of month<br/>Annually &nbspRun once a year, midnight, "
+"Jan. 1<br/>Reboot &nbsp&nbspRun at startup of the server OR of the cron "
+"deamon (i.e. after every <code>service cron restart</code>)<br/><br/>If "
+"Randomize is selcted, a similar frequency will be followed, only the exact "
+"times will be randomized (avoiding peak business hours, when possible). "
+"Please note: randomized schedules will be rescheduled (randomly) every time "
+"ANY backup is saved<br/><br/>Never will never run the backup "
+"automatically<br/><br/>If a custom schedule is selected, any section not "
+"specficed will be considered to be 'any' (aka: wildcard).I.e. if Day of "
+"Month is set to 12 and Day of Week is not set, the Backup will be run on ANY "
+"12th of the month - regardless of the day of the week. If Day of Week is set "
+"to, say, Monday, the Backup will run ONLY on a Monday, and ONLY if it's the "
+"12th of the month."
+msgstr ""
+"Selecione com que frequência executar esse backup. A programação a seguir "
+"será seguida para todos, exceto os personalizados:<br/> De hora em hora "
+"&nbsp&nbspExecutar uma vez por hora, no início da hora<br/"
+">Diariamente&nbsp&nbsp&nbsp&nbsp&nbspExecutar uma vez por dia, à meia-"
+"noite<br/> Semanalmente &nbsp&nbspExecutar uma vez por semana, à meia-noite "
+"no domingo<br/> Mensalmente &nbsp&nbspExecutar uma vez por mês, à meia-"
+"noite, no primeiro dia do mês<br/> Anualmente &nbspExecutar uma vez por ano, "
+"à meia-noite, 1º de janeiro<br/>Ao Reiniciar &nbsp&nbspExecutar na "
+"inicialização do servidor ou do cron daemon (ou seja, após cada "
+"<code>reinicialização do serviço cron</code>)<br/> <br/> Se Randomize for "
+"selecionado, uma frequência semelhante será seguida, apenas os horários "
+"exatos (evitando horários de pico de trabalho, quando possível). Observação: "
+"horários aleatórios serão reprogramados (aleatoriamente) toda vez que "
+"QUALQUER backup for salvo <br/><br/> Nunca nunca executará o backup "
+"automaticamente <br/><br/> Se um backup for selecionado por um programa "
+"personalizado, qualquer programa não especificado seção será considerada "
+"'qualquer' (também conhecido como curinga). Quer dizer. se o Dia do Mês "
+"estiver definido como 12 e o Dia da Semana não estiver definido, o backup "
+"será executado em QUALQUER 12º dia do mês. mês, independentemente do dia da "
+"semana. Se o dia da semana estiver definido como, por exemplo, segunda-"
+"feira, o backup será executado SOMENTE na segunda-feira e SOMENTE se for o "
+"dia 12 do mês."
+
+msgid ""
+"Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
+"Please note that deletes aren't time based and will only happen after a "
+"backup was run. Setting the value to 0 will disable any deleting"
+msgstr ""
+"Exclua este backup após X minutos/horas/dias/semanas/meses/anos. Observe que "
+"as exclusões não são baseadas no tempo e só ocorrerão após a execução de um "
+"backup. Definir o valor como 0 desabilitará qualquer exclusão"
+
+msgid ""
+"Delete this backup after X amount of runs. Setting the value to 0 will "
+"disable any deleting"
+msgstr ""
+"Exclua este backup após X número de execuções. Definir o valor como 0 "
+"desabilitará qualquer exclusão"
+
+msgid "A script to be run BEFORE a backup is started."
+msgstr "Um script que será executado ANTES de um backup ser iniciado."
+
+msgid "A script to be run AFTER a backup is completed."
+msgstr "Um script que será executado APÓS o início de um backup."
+
+msgid "A script to be run BEFORE a backup is restored."
+msgstr "Um script para ser executado ANTES de um backup ser restaurado"
+
+msgid "A script to be run AFTER a backup is restored."
+msgstr "Um script que será executado APÓS a restauração de um backup"
+
+msgid "Voice Mail Storage"
+msgstr "Armazenamento de correio de voz"
+
+msgid "Call Detail Records"
+msgstr "Registro de detalhes da chamada"
+
+msgid "Configurations only"
+msgstr "Apenas configurações"
+
+msgid ""
+"Exclude Backup's settings so that they dont get restored, usefull for a "
+"remote restore"
+msgstr ""
+"Exclui a configuração de backups de serem restaurados, útil para uma "
+"restauração remota"
+
+msgid ""
+"A full backup of core settings and web files, doesn't include system sounds "
+"or recordings."
+msgstr ""
+"Um backup completo da configuração principal e dos arquivos da web, não "
+"inclui gravações ou sons do sistema."
+
+msgid "Select files and databases to restore"
+msgstr "Selecione os arquivos e bancos de dados para restaurar"
+
+msgid "Starting backup"
+msgstr "Iniciando backup"
+
+msgid "Starting restore"
+msgstr "Iniciando restauração"
+
+msgid "Initialized!"
+msgstr "Inicializado!"
+
+msgid "Nothing to restore!"
+msgstr "Não há nada para restaurar!"
+
+msgid "Created"
+msgstr "Creación"
+
+msgid "Files"
+msgstr "arquivos"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Mysql DB's"
+msgstr "BDs Mysql"
+
+msgid "Initializing Backup"
+msgstr "Inicializando backup"
+
+msgid "Backup Lock acquired!"
+msgstr "Bloqueio de backup adquirido!"
+
+msgid "Running pre-backup hooks..."
+msgstr "Executando ganchos de pré-backup..."
+
+msgid "Adding items..."
+msgstr "Adicionando itens..."
+
+msgid "Building manifest..."
+msgstr "Gerando manifesto..."
+
+msgid "Creating backup..."
+msgstr "Criando backup..."
+
+msgid "Storing backup..."
+msgstr "Armazenando backup..."
+
+msgid "Running post-backup hooks..."
+msgstr "Executando ganchos pós-backup..."
+
+msgid "Backup successfully completed!"
+msgstr "Backup concluído com sucesso!"
+
+msgid "Saving Backup"
+msgstr "Salvando backup"
+
+msgid "Done!"
+msgstr "Lista!"
+
+msgid "Saving backup"
+msgstr "Salvando backup"
+
+msgid "Initializing Restore..."
+msgstr "Inicializando a restauração"
+
+msgid "Running pre-restore hooks, if any..."
+msgstr "Executando ganchos de pré-restauração, se existirem..."
+
+msgid "Running post-restore hooks, if any..."
+msgstr "Executando ganchos pós-restauração, se existirem..."
+
+msgid "Cleaning up..."
+msgstr "Fazendo limpeza..."
+
+msgid "Restore complete!"
+msgstr "Restauração completa!"
+
+msgid "Reloading..."
+msgstr "Recarregando..."
+
+msgid "Restoring files..."
+msgstr "Restaurando arquivos..."
+
+msgid "File restore complete!"
+msgstr "Restauração de arquivo concluída!"
+
+msgid "Restoring CDR's..."
+msgstr "Restaurando CDRs"
+
+msgid "Getting CDR size..."
+msgstr "Recuperando o tamanho do CDR"
+
+msgid "Processed "
+msgstr "indiciado"
+
+msgid "Processed 100% of CDR's!"
+msgstr "100% dos CDRs foram processados"
+
+msgid "CDR's restore complete'"
+msgstr "Restauração do CDR concluída"
+
+msgid "Restoring settings..."
+msgstr "Restaurando configurações..."
+
+msgid "Getting Settings size..."
+msgstr "Recuperando o tamanho da configuração"
+
+msgid "Processed 100% of Settings!"
+msgstr "100% das configurações foram processadas"
+
+msgid "Restoring astDB..."
+msgstr "Restaurando astDB"
+
+msgid "Settings restore complete"
+msgstr "Restauração das configurações concluída"
+
+msgid "Running post restore script..."
+msgstr "Executando o gancho pós-restauração..."
+
+msgid "No storage servers found! Aborting"
+msgstr "Nenhum servidor de armazenamento encontrado! abortando"
+
+msgid ""
+"Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
+"backup from server [%s]."
+msgstr ""
+"Falha no backup ao baixar o banco de dados SQL [%s] para o arquivo [%s], "
+"você tem um backup corrompido do servidor [%s]."
+
+msgid "Restore all setting stored in the database"
+msgstr "Restaure todas as configurações armazenadas no banco de dados"
+
+msgid "CDR's"
+msgstr "CDR"
+
+msgid "Restore CDR records stored in this backup"
+msgstr "Restaurar registros CDR armazenados neste backup"
+
+#~ msgid "Are you sure you want to delete this File Set?"
+#~ msgstr "Tem certeza de que deseja excluir este backup?"
+
+#~ msgid "DELETE ALL THE DATA IN THIS SET"
+#~ msgstr "EXCLUIR TODOS OS DADOS DESTE BACKUP"
+
+#~ msgid ""
+#~ "Delete this backup set and all data associated with this backup set.."
+#~ msgstr "Exclua este backup e todos os dados associados..."
+
+#~ msgid "Delete File Set"
+#~ msgstr "Excluir backup"
+
+#~ msgid "Delete this backup set."
+#~ msgstr "Exclua este backup"
+
+#~ msgid ""
+#~ "Are you sure you want to restore this COMPLETE file set?\\nDoing so will "
+#~ "permanently over-write all IssabelPBX and Asterisk files\\nYou will lose "
+#~ "all Your Call Detail Records and any Voicemail that was recorded between "
+#~ "the BACKUP DATE and NOW!"
+#~ msgstr ""
+#~ "Tem certeza de que deseja restaurar completamente este conjunto de "
+#~ "arquivos?\\nFazer isso excluirá permanentemente os arquivos de "
+#~ "configuração atuais do Asterisk.\\nVocê também perderá relatórios de "
+#~ "chamadas e quaisquer mensagens de correio de voz gravadas entre a data em "
+#~ "que realizou o backup e agora."
+
+#~ msgid "Restore Entire Backup Set"
+#~ msgstr "Restaurar backup completo"
+
+#~ msgid "Restore your Complete Backup set overwriting all files."
+#~ msgstr "Restaurar o backup completo substituirá todos os seus arquivos"
+
+#~ msgid ""
+#~ "Are you sure you want to Restore this file set?\\nDoing so will "
+#~ "permanently delete any new voicemail you have in your mailbox\\nsince "
+#~ "this backup on"
+#~ msgstr ""
+#~ "Tem certeza de que deseja restaurar este conjunto de arquivos?\\nEssa "
+#~ "ação excluirá permanentemente as mensagens do correio de voz da sua conta "
+#~ "desde o backup."
+
+#~ msgid "Restore VoiceMail Files"
+#~ msgstr "Restaurar arquivos de correio de voz"
+
+#~ msgid ""
+#~ "Restore your Voicemail files from this backup set.  NOTE! This will "
+#~ "delete any voicemail currently in the voicemail boxes."
+#~ msgstr ""
+#~ "Restaure os arquivos do correio de voz deste conjunto de arquivos deste "
+#~ "backup. Observe que isso excluirá todas as mensagens de correio de voz "
+#~ "atualmente em sua conta."
+
+#~ msgid ""
+#~ "Are you sure you want to Restore this file set?\\nNOTE! This will "
+#~ "OVERWRITE any voicerecordings currently on the system. It will NOT delete "
+#~ "new files not currently in the backup set"
+#~ msgstr ""
+#~ "Tem certeza de que deseja restaurar este conjunto de arquivos?\\nObserve "
+#~ "que isso substituirá todas as mensagens do correio de voz do sistema. Ele "
+#~ "não excluirá novos arquivos que estejam no sistema e que não estejam no "
+#~ "conjunto de arquivos de backup."
+
+#~ msgid "Restore System Recordings Files"
+#~ msgstr "Restaurar arquivos de gravações do sistema"
+
+#~ msgid ""
+#~ "Restore your system Voice Recordings including AutoAttendant files from "
+#~ "this backup set.  NOTE! This will OVERWRITE any voicerecordings  "
+#~ "currently on the system. It will NOT delete new files not currently in "
+#~ "the backup set"
+#~ msgstr ""
+#~ "Restaura gravações de voz, incluindo arquivos digitais de recepcionista, "
+#~ "deste conjunto de arquivos. Observe que isso substituirá todas as "
+#~ "gravações de voz atualmente no sistema. Ele não excluirá novos arquivos "
+#~ "que estejam no sistema e que não estejam no conjunto de arquivos de "
+#~ "backup."
+
+#~ msgid ""
+#~ "Are you sure you want to Restore this File Set?\\nDoing so will "
+#~ "Permanently Over-Write all IssabelPBX and Asterisk Files!"
+#~ msgstr ""
+#~ "Tem certeza de que deseja restaurar este conjunto de arquivos?\\nFazer "
+#~ "isso substituirá permanentemente todos os arquivos IssabelPBX e Asterisk."
+
+#~ msgid "Restore System Configuration"
+#~ msgstr "Restaurar configurações do sistema"
+
+#~ msgid ""
+#~ "Restore your system configuration from this backup set.  NOTE! This will "
+#~ "OVERWRITE any System changes you have made since this backup... ALL items "
+#~ "will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "Restaura as configurações do sistema deste conjunto de arquivos de "
+#~ "backup. Observe que isso substituirá quaisquer alterações feitas desde "
+#~ "que o backup foi feito. Todos os itens serão restaurados ao estado em que "
+#~ "estavam quando o backup foi feito."
+
+#~ msgid ""
+#~ "Are you sure you want to Restore the Operator Panel Files?\\nDoing so "
+#~ "will Permanently Over-Write all Operator Panel Files!"
+#~ msgstr ""
+#~ "Tem certeza de que deseja restaurar os arquivos do dispositivo IHM?"
+#~ "\\nIsso substituirá permanentemente todos os arquivos do dispositivo IHM."
+
+#~ msgid "Restore Operator Panel"
+#~ msgstr "Redefinir dispositivo IHM"
+
+#~ msgid ""
+#~ "Restore the Operator Panel from this backup set.  NOTE! This will "
+#~ "OVERWRITE any Operator Panel Changes you have made since this backup... "
+#~ "ALL items will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "Restaure os arquivos do dispositivo Flash HMI deste conjunto de arquivos "
+#~ "de backup. Observe que isso substituirá quaisquer alterações feitas no "
+#~ "dispositivo Flash HMI desde que o backup foi feito. Todos os itens serão "
+#~ "restaurados ao estado em que estavam quando o backup foi feito."
+
+#~ msgid ""
+#~ "Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will "
+#~ "Permanently DELETE all CALL RECORDS!"
+#~ msgstr ""
+#~ "Tem certeza de que deseja restaurar seus arquivos de registro de chamadas?"
+#~ "\\nEssa ação excluirá permanentemente todos os registros de chamadas "
+#~ "atualmente no banco de dados."
+
+#~ msgid "Restore Call Detail Report"
+#~ msgstr "Restaurar registro de chamadas"
+
+#~ msgid ""
+#~ "Restore the Call Detail Records from this backup set.  NOTE! This will "
+#~ "DELETE ALL CALL RECORDS that have been saved since this backup set."
+#~ msgstr ""
+#~ "Restaure o registro de chamadas deste conjunto de arquivos de backup. "
+#~ "Observe que isso excluirá todos os registros de chamadas feitos desde que "
+#~ "o backup foi feito."
+
+#~ msgid "ERROR its not a BACKUP SET file"
+#~ msgstr "ERRO: O arquivo não é um backup"
+
+#~ msgid "Restored All Files in Backup Set"
+#~ msgstr "Todos os arquivos foram restaurados"
+
+#~ msgid "Restored VoiceMail"
+#~ msgstr "O correio de voz foi restaurado"
+
+#~ msgid "Restored System Recordings"
+#~ msgstr "As gravações do sistema foram restauradas"
+
+#~ msgid "Restored System Configuration"
+#~ msgstr "As configurações do sistema foram restauradas"
+
+#~ msgid "Restored Operator Panel"
+#~ msgstr "O dispositivo Flash HMI foi restaurado"
+
+#~ msgid "Restored CDR logs"
+#~ msgstr "Os registros de chamadas foram restaurados"
+
+#~ msgid "Schedule Name:"
+#~ msgstr "Nome do programa:"
+
+#~ msgid "Give this Backup Schedule a brief name to help you identify it."
+#~ msgstr ""
+#~ "Dê um nome a esse agendamento de backup para ajudá-lo a identificá-lo"
+
+#~ msgid "CDR"
+#~ msgstr "Registro de chamadas"
+
+#~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
+#~ msgstr ""
+#~ "Faça backup do registro de chamadas (arquivos HTML e banco de dados)."
+
+#~ msgid "Operator Panel"
+#~ msgstr "Painel do operador flash"
+
+#~ msgid "Backup the Operator Panel (HTML and Database)"
+#~ msgstr ""
+#~ "Faça backup do dispositivo Flash HMI (arquivos HTML e banco de dados)"
+
+#~ msgid "System Recordings"
+#~ msgstr "Gravações do sistema"
+
+#~ msgid ""
+#~ "Backup the System Recordings (AutoAttendant, Music On Hold, System "
+#~ "Recordings)"
+#~ msgstr ""
+#~ "Faça backup das gravações do sistema (recepcionista digital, música em "
+#~ "espera, gravações do sistema)."
+
+#~ msgid "VoiceMail"
+#~ msgstr "Correio de voz"
+
+#~ msgid ""
+#~ "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+#~ msgstr ""
+#~ "Faça backup de seus correios de voz. Observe que isso pode fazer com que "
+#~ "o arquivo de backup fique muito grande."
+
+#~ msgid "System Configuration"
+#~ msgstr "Configuração do sistema"
+
+#~ msgid ""
+#~ "Backup the System Configurations (Database, etc files, SQL Database, "
+#~ "astdb)"
+#~ msgstr ""
+#~ "Faça backup da configuração do sistema (banco de dados, arquivos de "
+#~ "configuração, etc.)."
+
+#~ msgid "All"
+#~ msgstr "Todos"
+
+#~ msgid "Selected"
+#~ msgstr "Seleccionados"
+
+#~ msgid "January"
+#~ msgstr "Janeiro"
+
+#~ msgid "February"
+#~ msgstr "Fevereiro"
+
+#~ msgid "March"
+#~ msgstr "Marzo"
+
+#~ msgid "April"
+#~ msgstr "Abril"
+
+#~ msgid "May"
+#~ msgstr "maionese"
+
+#~ msgid "June"
+#~ msgstr "Junho"
+
+#~ msgid "July"
+#~ msgstr "Júlio"
+
+#~ msgid "August"
+#~ msgstr "Agosto"
+
+#~ msgid "September"
+#~ msgstr "Setembro"
+
+#~ msgid "October"
+#~ msgstr "Outubro"
+
+#~ msgid "November"
+#~ msgstr "novembro"
+
+#~ msgid "December"
+#~ msgstr "dezembro"
+
+#~ msgid "Monday"
+#~ msgstr "Segunda-feira"
+
+#~ msgid "Tuesday"
+#~ msgstr "Martes"
+
+#~ msgid "Wednesday"
+#~ msgstr "Quarta-feira"
+
+#~ msgid "Thursday"
+#~ msgstr "Quinta-feira"
+
+#~ msgid "Friday"
+#~ msgstr "Sexta-feira"
+
+#~ msgid "Saturday"
+#~ msgstr "Sábado"
+
+#~ msgid "Sunday"
+#~ msgstr "domingo"
+
+#~ msgid "Run Backup"
+#~ msgstr "Executar backup"
+
+#~ msgid "Follow Schedule Below"
+#~ msgstr "Acompanhe a seguinte programação"
+
+#~ msgid "Now"
+#~ msgstr "Agora"
+
+#~ msgid "Daily (at midnight)"
+#~ msgstr "Diariamente (à meia-noite)"
+
+#~ msgid "Weekly (on Sunday)"
+#~ msgstr "Semanalmente (aos domingos)"
+
+#~ msgid "Monthly (on the 1st)"
+#~ msgstr "Mensalmente (no dia 1)"
+
+#~ msgid "Yearly (on 1st Jan)"
+#~ msgstr "Anualmente (1º de janeiro)"
+
+#~ msgid "Weekdays"
+#~ msgstr "Semanas"
+
+#~ msgid "Add Backup Schedule"
+#~ msgstr "Adicionar agendamento de backup"
+
+#~ msgid "Restore from Backup"
+#~ msgstr "Restaurar do backup"
+
+#~ msgid "System Backup"
+#~ msgstr "Backup do sistema"
+
+#~ msgid "Run Schedule"
+#~ msgstr "Executar agendamento"
+
+#~ msgid "Submit Changes"
+#~ msgstr "Enviar alterações"
+
+#~ msgid "Delete Backup Schedule %s"
+#~ msgstr "Excluir agendamento de backup %s"
+
+#~ msgid "System Restore"
+#~ msgstr "Restaurar sistema"

@@ -139,7 +139,7 @@ if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
     $sql = "ALTER TABLE ringgroups ADD cwignore VARCHAR( 10 ) NULL ;";
     $result = $db->query($sql);
     if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }
-		out(_("added field cwignore to ringgroups table"));
+		out(__("added field cwignore to ringgroups table"));
 	}
 
 	$sql = "SELECT cfignore FROM ringgroups";
@@ -149,7 +149,7 @@ if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
     $sql = "ALTER TABLE ringgroups ADD cfignore VARCHAR( 10 ) NULL ;";
     $result = $db->query($sql);
     if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }
-		out(_("added field cfignore to ringgroups table"));
+		out(__("added field cfignore to ringgroups table"));
 	}
 
 	$sql = "SELECT cpickup FROM ringgroups";
@@ -159,7 +159,7 @@ if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
     $sql = "ALTER TABLE ringgroups ADD cpickup VARCHAR( 10 ) NULL ;";
     $result = $db->query($sql);
     if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }
-		out(_("added field cpickup to ringgroups table"));
+		out(__("added field cpickup to ringgroups table"));
 	}
 
 	$sql = "SELECT recording FROM ringgroups";
@@ -169,53 +169,53 @@ if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
     $sql = "ALTER TABLE ringgroups ADD recording VARCHAR( 10 ) default 'dontcare' ;";
     $result = $db->query($sql);
     if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }
-		out(_("added field recording to ringgroups table"));
+		out(__("added field recording to ringgroups table"));
 	}
 
 	// Version 2.5 migrate to recording ids
 	//
-	outn(_("Checking if recordings need migration.."));
+	outn(__("Checking if recordings need migration.."));
 	$sql = "SELECT annmsg_id FROM ringgroups";
 	$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($check)) {
 		//  Add recording_id field
 		//
-		out(_("migrating"));
-		outn(_("adding annmsg_id field.."));
+		out(__("migrating"));
+		outn(__("adding annmsg_id field.."));
   	$sql = "ALTER TABLE ringgroups ADD annmsg_id INTEGER";
   	$result = $db->query($sql);
   	if(DB::IsError($result)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($result->getDebugInfo()); 
 		} else {
-			out(_("ok"));
+			out(__("ok"));
 		}
-		outn(_("adding remotealert_id field.."));
+		outn(__("adding remotealert_id field.."));
   	$sql = "ALTER TABLE ringgroups ADD remotealert_id INTEGER";
   	$result = $db->query($sql);
   	if(DB::IsError($result)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($result->getDebugInfo()); 
 		} else {
-			out(_("ok"));
+			out(__("ok"));
 		}
-		outn(_("adding toolate_id field.."));
+		outn(__("adding toolate_id field.."));
   	$sql = "ALTER TABLE ringgroups ADD toolate_id INTEGER";
   	$result = $db->query($sql);
   	if(DB::IsError($result)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($result->getDebugInfo()); 
 		} else {
-			out(_("ok"));
+			out(__("ok"));
 		}
 
 		// Get all the valudes and replace them with recording_id
 		//
-		outn(_("migrate annmsg to ids.."));
+		outn(__("migrate annmsg to ids.."));
   	$sql = "SELECT `grpnum`, `annmsg` FROM `ringgroups`";
 		$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 		if(DB::IsError($results)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($results->getDebugInfo());	
 		}
 		$migrate_arr = array();
@@ -231,17 +231,17 @@ if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
 			$compiled = $db->prepare('UPDATE `ringgroups` SET `annmsg_id` = ? WHERE `grpnum` = ?');
 			$result = $db->executeMultiple($compiled,$migrate_arr);
 			if(DB::IsError($result)) {
-				out(_("fatal error"));
+				out(__("fatal error"));
 				die_issabelpbx($result->getDebugInfo());	
 			}
 		}
-		out(sprintf(_("migrated %s entries"),$count));
+		out(sprintf(__("migrated %s entries"),$count));
 
-		outn(_("migrate remotealert to  ids.."));
+		outn(__("migrate remotealert to  ids.."));
   	$sql = "SELECT `grpnum`, `remotealert` FROM `ringgroups`";
 		$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 		if(DB::IsError($results)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($results->getDebugInfo());	
 		}
 		$migrate_arr = array();
@@ -257,17 +257,17 @@ if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
 			$compiled = $db->prepare('UPDATE `ringgroups` SET `remotealert_id` = ? WHERE `grpnum` = ?');
 			$result = $db->executeMultiple($compiled,$migrate_arr);
 			if(DB::IsError($result)) {
-				out(_("fatal error"));
+				out(__("fatal error"));
 				die_issabelpbx($result->getDebugInfo());	
 			}
 		}
-		out(sprintf(_("migrated %s entries"),$count));
+		out(sprintf(__("migrated %s entries"),$count));
 
-		outn(_("migrate toolate to ids.."));
+		outn(__("migrate toolate to ids.."));
   	$sql = "SELECT `grpnum`, `toolate` FROM `ringgroups`";
 		$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 		if(DB::IsError($results)) {
-			out(_("fatal error"));
+			out(__("fatal error"));
 			die_issabelpbx($results->getDebugInfo());	
 		}
 		$migrate_arr = array();
@@ -283,41 +283,41 @@ if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) {
 			$compiled = $db->prepare('UPDATE `ringgroups` SET `toolate_id` = ? WHERE `grpnum` = ?');
 			$result = $db->executeMultiple($compiled,$migrate_arr);
 			if(DB::IsError($result)) {
-				out(_("fatal error"));
+				out(__("fatal error"));
 				die_issabelpbx($result->getDebugInfo());	
 			}
 		}
-		out(sprintf(_("migrated %s entries"),$count));
+		out(sprintf(__("migrated %s entries"),$count));
 
 		// Now remove the old recording field replaced by new id field
 		//
-		outn(_("dropping annmsg field.."));
+		outn(__("dropping annmsg field.."));
   	$sql = "ALTER TABLE `ringgroups` DROP `annmsg`";
   	$result = $db->query($sql);
   	if(DB::IsError($result)) { 
-			out(_("no annmsg field???"));
+			out(__("no annmsg field???"));
 		} else {
-			out(_("ok"));
+			out(__("ok"));
 		}
-		outn(_("dropping remotealert field.."));
+		outn(__("dropping remotealert field.."));
   	$sql = "ALTER TABLE `ringgroups` DROP `remotealert`";
   	$result = $db->query($sql);
   	if(DB::IsError($result)) { 
-			out(_("no remotealert field???"));
+			out(__("no remotealert field???"));
 		} else {
-			out(_("ok"));
+			out(__("ok"));
 		}
-		outn(_("dropping toolate field.."));
+		outn(__("dropping toolate field.."));
   	$sql = "ALTER TABLE `ringgroups` DROP `toolate`";
   	$result = $db->query($sql);
   	if(DB::IsError($result)) { 
-			out(_("no toolate field???"));
+			out(__("no toolate field???"));
 		} else {
-			out(_("ok"));
+			out(__("ok"));
 		}
 
 	} else {
-		out(_("already migrated"));
+		out(__("already migrated"));
 	}
 }
 

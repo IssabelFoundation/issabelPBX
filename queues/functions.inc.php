@@ -14,7 +14,7 @@ include_once(dirname(__FILE__) . '/functions.inc/cron.php');
 
 function queues_timeString($seconds, $full = false) {
 	if ($seconds == 0) {
-		return "0 ".($full ? _("seconds") : "s");
+		return "0 ".($full ? __("seconds") : "s");
 	}
 
 	$minutes = floor($seconds / 60);
@@ -28,10 +28,10 @@ function queues_timeString($seconds, $full = false) {
 
 	if ($full) {
  		return substr(
-		              ($days ? $days." "._("day").(($days == 1) ? "" : "s").", " : "").
-		              ($hours ? $hours." ".(($hours == 1) ? _("hour") : _("hours")).", " : "").
-		              ($minutes ? $minutes." ".(($minutes == 1) ? _("minute") : _("minutes")).", " : "").
-		              ($seconds ? $seconds." ".(($seconds == 1) ? _("second") : _("seconds")).", " : ""),
+		              ($days ? $days." ".__("day").(($days == 1) ? "" : "s").", " : "").
+		              ($hours ? $hours." ".(($hours == 1) ? __("hour") : __("hours")).", " : "").
+		              ($minutes ? $minutes." ".(($minutes == 1) ? __("minute") : __("minutes")).", " : "").
+		              ($seconds ? $seconds." ".(($seconds == 1) ? __("second") : __("seconds")).", " : ""),
 		              0, -2);
 	} else {
 		return substr(($days ? $days."d, " : "").($hours ? $hours."h, " : "").($minutes ? $minutes."m, " : "").($seconds ? $seconds."s, " : ""), 0, -2);
@@ -62,7 +62,7 @@ function queues_check_compoundrecordings() {
 			$compound_recordings[] = array(
 				                       	'extension' => $result['extension'],
 															 	'descr' => $result['descr'],
-															 	'error' => _("Agent Announce Msg"),
+															 	'error' => __("Agent Announce Msg"),
 														 	);
 		}
 		if ($result['ivr_id'] != 'none' && $result['ivr_id'] != '' && $check_ivr) {
@@ -72,7 +72,7 @@ function queues_check_compoundrecordings() {
 				$compound_recordings[] = array(
 				                       		'extension' => $result['extension'],
 															 		'descr' => $result['descr'],
-															 		'error' => sprintf(_("IVR Announce: %s"),$ivr_hash[$result['ivr_id']]['displayname']),
+															 		'error' => sprintf(__("IVR Announce: %s"),$ivr_hash[$result['ivr_id']]['displayname']),
 														 		);
 			}
 		}

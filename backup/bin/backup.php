@@ -11,7 +11,7 @@ if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc
 $mod_info = module_getinfo('backup', MODULE_STATUS_ENABLED);
 
 if (!isset($mod_info['backup'])) {
-	echo _('Backup module not found or is disabled. Aborting!' . PHP_EOL);
+	echo __('Backup module not found or is disabled. Aborting!' . PHP_EOL);
 	exit(1);
 }
 /**
@@ -25,6 +25,15 @@ if (!isset($mod_info['backup'])) {
 $getopt = (function_exists('_getopt') ? '_' : '') . 'getopt';
 $vars = $getopt($short = '', $long = array('opts::', 'id::', 'astdb::', 'data::'));
 
+$issabelpbx_conf =& issabelpbx_conf::create();
+$lang = $issabelpbx_conf->get_conf_setting('LANGUAGE');
+$module = 'backup';
+if($lang!='') {
+    T_setlocale(LC_MESSAGES,  $lang);
+    //putenv("LANGUAGE=".$lang);
+    $result_textdomain = modgettext::textdomain($module);
+}
+
 //if the id option was passed
 if (isset($vars['id']) && $vars['id']) {
 	//bu = backup settings
@@ -33,34 +42,34 @@ if (isset($vars['id']) && $vars['id']) {
 	if ($bu = backup_get_backup($vars['id'])) {
 		//dont run if no storage servers were found
 		if (!isset($bu['storage_servers']) || count($bu['storage_servers']) < 1) {
-			backup_log(_('No storage servers found! Aborting.'));
+			backup_log(__('No storage servers found! Aborting.'));
 			exit();
 		}
 		$s = backup_get_server('all_detailed');
 		$b = new Backup($bu, $s);
-		backup_log(_('Intializing Backup') . ' ' .$vars['id']);
+		backup_log(__('Initializing Backup') . ' ' .$vars['id']);
 		backup_clear_log();
 		$b->init();
 		if ($b->b['bu_server'] == "0") {
 			//get lock to prevent backups from being run cuncurently
 			while (!$b->acquire_lock()) {
-				backup_log(_('waiting for lock...'));
+				backup_log(__('waiting for lock...'));
 				sleep(10);
 			}
-			backup_log(_('Backup Lock acquired!'));
+			backup_log(__('Backup Lock acquired!'));
 
-			backup_log(_('Running pre-backup hooks...'));
+			backup_log(__('Running pre-backup hooks...'));
 			$b->run_hooks('pre-backup');
 
-			backup_log(_('Adding items...'));
+			backup_log(__('Adding items...'));
 			$b->add_items();
 
-			backup_log(_('Bulding manifest...'));
+			backup_log(__('Building manifest...'));
 			$b->build_manifest();
 			$b->save_manifest('local');
 			$b->save_manifest('db');
 
-			backup_log(_('Creating backup...'));
+			backup_log(__('Creating backup...'));
 			$b->create_backup_file();
 		} else {//run backup remotly
 			$opts = array(
@@ -71,18 +80,18 @@ if (isset($vars['id']) && $vars['id']) {
 
 			//dont run if there are no items to backup
 			if (!$opts['bu']['items']) {
-				backup_log(_('No items in backup set. Aborting.'));
+				backup_log(__('No items in backup set. Aborting.'));
 				exit();
 			}
-			backup_log(_('Connecting to remote server...'));
+			backup_log(__('Connecting to remote server...'));
 			$cmd[] = ipbx_which('ssh');
 			$cmd[] = '-o StrictHostKeyChecking=no -i';
-			$cmd[] = backup__($s[$b->b['bu_server']]['key']);
+			$cmd[] = backup___($s[$b->b['bu_server']]['key']);
 			$cmd[] = '-p';
 			$cmd[] = $s[$b->b['bu_server']]['port'];
-			$cmd[] = backup__($s[$b->b['bu_server']]['user'])
+			$cmd[] = backup___($s[$b->b['bu_server']]['user'])
 					. '\@'
-					. backup__($s[$b->b['bu_server']]['host']);
+					. backup___($s[$b->b['bu_server']]['host']);
 			$cmd[] = '\'php -r "';
 			$escape = '$bootstrap_settings["issabelpbx_auth"] = false;
 				$bootstrap_settings["skip_astman"] = true;
@@ -98,12 +107,12 @@ if (isset($vars['id']) && $vars['id']) {
 			//backup_log(implode(' ', $cmd));
 			exec(implode(' ', $cmd), $ret, $status);
 			if ($status !== 0) {
-				backup_log(_('Something went wrong when connecting to remote server. Aborting!'));
+				backup_log(__('Something went wrong when connecting to remote server. Aborting!'));
 				exit($status);
 			}
 			unset($cmd);
 
-			backup_log(_('Verifying received file...'));
+			backup_log(__('Verifying received file...'));
 			$cmd[] = ipbx_which('tar');
 			$cmd[] = '-zxOf';
 			$cmd[] = $b->b['_tmpfile'];
@@ -118,8 +127,8 @@ if (isset($vars['id']) && $vars['id']) {
 				//guarenties that we dont load more than 1 line at a time
 				$file = fopen($b->b['_tmpfile'], 'r');
 				$linecount = 0;
-				backup_log(_('File verification failed. '));
-				backup_log(_('Here are the first few lines of the file '
+				backup_log(__('File verification failed. '));
+				backup_log(__('Here are the first few lines of the file '
 				. 'as sent by the remote server:'));
 				backup_log('');
 
@@ -131,22 +140,22 @@ if (isset($vars['id']) && $vars['id']) {
 				exit(1);
 			}
 
-			backup_log(_('Processing received file...'));
+			backup_log(__('Processing received file...'));
 			$b->b['manifest'] = backup_get_manifest_tarball($b->b['_tmpfile']);
 			$b->save_manifest('db');
 		}
 
-		backup_log(_('Storing backup...'));
+		backup_log(__('Storing backup...'));
 		$b->store_backup();
 
-		backup_log(_('Running post-backup hooks...'));
+		backup_log(__('Running post-backup hooks...'));
 		$b->run_hooks('post-backup');
 
-		if ($b->b['bu_server'] == "0") { //local backup? Were done!
+		if ($b->b['bu_server'] == "0") { //local backup? We are done
 			if ($b->b['error'] !== false) {
-				backup_log(_('Backup completed with errors!'));
+				backup_log(__('Backup completed with errors!'));
 			} else {
-				backup_log(_('Backup successfully completed!'));
+				backup_log(__('Backup successfully completed!'));
 			}
 		} else {
 			if ($b->b['restore']) {
@@ -165,14 +174,14 @@ if (isset($vars['id']) && $vars['id']) {
 					$restore['cdr'] = true;
 				}
 
-				backup_log(_('Restoring backup...'));
+				backup_log(__('Restoring backup...'));
 				$cmd = $amp_conf['AMPBIN'] . '/restore.php '
 						. '--restore=' . $b->b['_tmpfile']
 						. ' --items=' . base64_encode(serialize($restore));
 				system($cmd);
 			}
 
-			backup_log(_('Running post-backup hooks...'));
+			backup_log(__('Running post-backup hooks...'));
 			$b->run_hooks('post-backup');
 
 			//disable registered trunks if requested
@@ -187,9 +196,9 @@ if (isset($vars['id']) && $vars['id']) {
 			}
 
 			if ($b->b['error'] !== false) {
-				backup_log(_('Backup completed with errors!'));
+				backup_log(__('Backup completed with errors!'));
 			} else {
-				backup_log(_('Backup successfully completed!'));
+				backup_log(__('Backup successfully completed!'));
 			}
 		}
 

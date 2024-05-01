@@ -146,7 +146,7 @@ msgid ""
 msgstr "传真检测，要求faxdetect 设置成 incoming 或者 both"
 
 msgid ""
-"Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
+"SIP: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
 msgstr ""
 
@@ -158,7 +158,7 @@ msgstr ""
 msgid "NVFax"
 msgstr ""
 
-msgid "Sip"
+msgid "SIP"
 msgstr "SIP协议"
 
 msgid "Fax Detection Time"
@@ -302,7 +302,7 @@ msgstr "默认终端"
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 
-msgid "Outgoing Email address:"
+msgid "Outgoing Email address"
 msgstr "出局邮件地址"
 
 msgid ""
@@ -313,7 +313,7 @@ msgstr ""
 msgid "Fax Feature Code Options"
 msgstr "传真快捷键选项"
 
-msgid "Email address:"
+msgid "Email address"
 msgstr "邮件地址"
 
 msgid ""
@@ -372,7 +372,7 @@ msgstr "关闭"
 msgid "system default"
 msgstr "系统默认"
 
-msgid "Default Recipient Email address:"
+msgid "Default Recipient Email address"
 msgstr "默认的接收邮件地址"
 
 msgid ""

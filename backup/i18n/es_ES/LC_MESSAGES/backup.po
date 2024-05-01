@@ -13,25 +13,17 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-#  Copyright 2008, 2009 Juan Asensio Sánchez <okelet@gmail.com>
+#  Copyright 2023 Issabel Foundation
 #
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo backup module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2014-02-28 09:21+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: Spanish <http://example.com/projects/freepbx-211/backup/es/>\n"
-"Language: es_ES\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Backup & Restore"
 msgstr "Copias de seguridad"
@@ -75,7 +67,7 @@ msgid "Backup migration completed"
 msgstr ""
 
 msgid "Nothing to migrate"
-msgstr ""
+msgstr "Nada que restaurar"
 
 msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
 msgstr ""
@@ -138,20 +130,11 @@ msgstr ""
 msgid "added default backup servers"
 msgstr ""
 
-msgid "Configurations only"
-msgstr ""
-
 msgid "A full backup of core settings and web files"
 msgstr ""
 
-msgid "Call Detail Records"
-msgstr ""
-
-msgid "Voice Mail Storage"
-msgstr ""
-
-msgid "All system audio - including IVR prompts and Music On Hold."
-msgstr ""
+msgid "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP VOICEMAIL"
+msgstr "Todo el audio del sistema, incluidas las indicaciones de IVR y Música en espera. NO HACE RESPALDO DEL CORREO DE VOZ"
 
 msgid " DOES NOT BACKUP VOICEMAIL"
 msgstr ""
@@ -184,13 +167,13 @@ msgid "Default backup; automatically installed"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "Run now"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "Descargar"
 
 msgid "Backup Module"
 msgstr "Módulo de Backup"
@@ -501,18 +484,6 @@ msgstr "Módulo de Backup"
 #~ msgid "Yearly (on 1st Jan)"
 #~ msgstr "Anualmente (el 1 de enero)"
 
-#~ msgid "Minutes"
-#~ msgstr "Minutos"
-
-#~ msgid "Hours"
-#~ msgstr "Horas"
-
-#~ msgid "Days"
-#~ msgstr "Días"
-
-#~ msgid "Months"
-#~ msgstr "Meses"
-
 #~ msgid "Weekdays"
 #~ msgstr "Semanas"
 
@@ -536,3 +507,513 @@ msgstr "Módulo de Backup"
 
 #~ msgid "System Restore"
 #~ msgstr "Restaurar sistema"
+
+msgid "Template Name"
+msgstr "Nombre de la plantilla"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Path/DB"
+msgstr "Ruta/BD"
+
+msgid "Exclude"
+msgstr "Excluir"
+
+msgid "Edit Backup Template"
+msgstr "Modificar plantilla de copia de seguridad"
+
+msgid "Add Backup Template"
+msgstr "Añadir plantilla de copia de seguridad"
+
+msgid "Add Entry"
+msgstr "Agregar Entrada"
+
+msgid "Directory"
+msgstr "Directorio"
+
+msgid "File"
+msgstr "Archivo"
+
+msgid "PATTERNs, one per line"
+msgstr "Patrones, uno por línea"
+
+msgid "Description or notes for this server"
+msgstr "Descripción o notas para este servidor"
+
+msgid "Templates"
+msgstr "Plantillas"
+
+msgid "Backups"
+msgstr "Copias de seguridad"
+
+msgid "Restore"
+msgstr "Restaurar"
+
+msgid "Servers"
+msgstr "Servidores"
+
+msgid "Upload a backup file to restore from it. Or, pick a saved backup by selecting a server from the list on the right."
+msgstr "Cargue un archivo de copia de seguridad para restaurarlo. O elija una copia de seguridad guardada seleccionando un servidor de la lista de la derecha."
+
+msgid "Choose a file..."
+msgstr "Escoja un archivo..."
+
+msgid "Go!"
+msgstr "¡Vamos!"
+
+msgid "Add Backup"
+msgstr "Añadir copia de seguridad"
+
+msgid "Edit Backup"
+msgstr "Modificar copia de seguridad"
+
+msgid "Backup Name"
+msgstr "Nombre para esta copia de seguridad"
+
+msgid "Status Email"
+msgstr "Dirección de Email"
+
+msgid "Email to send status messages to when this task is run"
+msgstr "Dirección de correo electrónico que recibirá mensajes de estado cuando se ejecute esta tarea"
+
+msgid "Description or notes for this backup"
+msgstr "Descripción o notas para esta copia de seguridad"
+
+msgid "Backup Items"
+msgstr "Items de copia de seguridad"
+
+msgid "Hooks"
+msgstr "Ganchos"
+
+msgid "Backup Server"
+msgstr "Servidor de copia de seguridad"
+
+msgid "Backup Schedule"
+msgstr "Programa de copia de seguridad"
+
+msgid "Storage Locations"
+msgstr "Ubicaciones de almacenamiento"
+
+msgid "Storage Servers"
+msgstr "Servidores de almacenamiento"
+
+msgid "Available Servers"
+msgstr "Servidores disponibles"
+
+msgid "Run Automatically"
+msgstr "Ejecución automática"
+
+msgid "Never"
+msgstr "Nunca"
+
+msgid "Hourly"
+msgstr "Cada hora"
+
+msgid "Weekly"
+msgstr "Cada semana"
+
+msgid "Daily"
+msgstr "Diariamente"
+
+msgid "Monthly"
+msgstr "Mensualmente"
+
+msgid "Annually"
+msgstr "Anualmente"
+
+msgid "Custom"
+msgstr "Personalizado"
+
+msgid "Reboot"
+msgstr "Al reiniciar"
+
+msgid "Maintenance"
+msgstr "Mantenimiento"
+
+msgid "Delete after"
+msgstr "Eliminar luego de"
+
+msgid " runs"
+msgstr " ejecuciones"
+
+msgid "Minutes"
+msgstr "Minutos"
+
+msgid "Hours"
+msgstr "Horas"
+
+msgid "Days"
+msgstr "Días"
+
+msgid "Weeks"
+msgstr "Semanas"
+
+msgid "Months"
+msgstr "Meses"
+
+msgid "Years"
+msgstr "Años"
+
+msgid "chose"
+msgstr "seleccione"
+
+msgid "Family, one per line"
+msgstr "Familia, una por línea"
+
+msgid "Pre-backup Hook"
+msgstr "Gancho previo al respaldo"
+
+msgid "Post-backup Hook"
+msgstr "Gancho posterior al respaldo"
+
+msgid "Pre-restore Hook"
+msgstr "Gancho previo a la restauración"
+
+msgid "Post-restore Hook"
+msgstr "Gancho posterior a la restauración"
+
+msgid "Backup Servers"
+msgstr "Servidores de respaldo"
+
+msgid "New Email server"
+msgstr "Nuevo servidor Email"
+
+msgid "New FTP server"
+msgstr "Nuevo servidor FTP"
+
+msgid "New Local server"
+msgstr "Nuevo servidor local"
+
+msgid "New Mysql server"
+msgstr "Nuevo servidor MySQL"
+
+msgid "New SSH server"
+msgstr "Nuevo servidor SSH"
+
+msgid "Server Name"
+msgstr "Nombre del Servidor"
+
+msgid "Email Address"
+msgstr "Dirección de Email"
+
+msgid "Max Email Size"
+msgstr "Tamaño máximo del correo"
+
+msgid "Add FTP Server"
+msgstr "Añadir Servidor FTP"
+
+msgid "Add Local Server"
+msgstr "Añadir Servidor local"
+
+msgid "Add Mysql Server"
+msgstr "Añadir Servidor MySQL"
+
+msgid "Add SSH Server"
+msgstr "Añadir Servidor SSH"
+
+msgid "Add Email Server"
+msgstr "Añadir Servidor Email"
+
+msgid "Edit FTP Server"
+msgstr "Modificar Servidor FTP"
+
+msgid "Edit Local Server"
+msgstr "Modificar Servidor local"
+
+msgid "Edit Mysql Server"
+msgstr "Modificar Servidor MySQL"
+
+msgid "Edit SSH Server"
+msgstr "Modificar Servidor SSH"
+
+msgid "Edit Email Server"
+msgstr "Modificar Servidor Email"
+
+msgid "Port"
+msgstr "Puerto"
+
+msgid "User Name"
+msgstr "Usuario"
+
+msgid "Key"
+msgstr "Llave"
+
+msgid "Path"
+msgstr "Ruta"
+
+msgid "Location of ssh private key to be used when connecting to a host"
+msgstr "Ubicación de la clave privada ssh que se usará al conectarse a un servidor"
+
+msgid "Path on server where files are stored"
+msgstr "Ruta en el servidor donde se almacenan los archivos"
+
+msgid "IP address or FQDN of remote ssh host"
+msgstr "Dirección IP o FQDN del servidor ssh remoto"
+
+msgid "IP address or FQDN of remote mysql host"
+msgstr "Dirección IP o FQDN del servidor mysql remoto"
+
+msgid "Hostname"
+msgstr "Nombre de host"
+
+msgid "remote ssh port"
+msgstr "puerto ssh remoto"
+
+msgid "remote mysql port"
+msgstr "puerto mysql remoto"
+
+msgid "Email address where backups should be emailed to"
+msgstr "Dirección de correo electrónico a la que se deben enviar las copias de seguridad"
+
+msgid "The maximum size a backup can be and still be emailed. Some email servers limit the size of email attachments, this will make sure that files larger than the max size are not sent."
+msgstr "El tamaño máximo que puede tener una copia de seguridad y aún así enviarse por correo electrónico. Algunos servidores de correo electrónico limitan el tamaño de los archivos adjuntos de correo electrónico, esto asegurará que no se envíen archivos más grandes que el tamaño máximo."
+
+msgid "Path where files are stored"
+msgstr "Ruta donde se almacenan los archivos"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "DB Name"
+msgstr "Nombre de BD"
+
+msgid "Database name"
+msgstr "Nombre de la base de datos a conectar"
+
+msgid "System Audio"
+msgstr "Audios del Sistema"
+
+msgid "Voice Mail"
+msgstr "Correo de Voz"
+
+msgid "Full Backup"
+msgstr "Copia de seguridad completa"
+
+msgid "Exclude Backup Settings"
+msgstr "Excluir configuración de backup"
+
+msgid "Config Backup"
+msgstr "Sólo configuraciones"
+
+msgid "table names, one per line"
+msgstr "nombre de tablas, una por línea"
+
+msgid "Save and Run"
+msgstr "Guardar y Ejecutar"
+
+msgid "Select a file and click go"
+msgstr "Elija un archivo y pulse Vamos!"
+
+msgid "Hour"
+msgstr "Hora"
+
+msgid "Day of Week"
+msgstr "Día de la Semana"
+
+msgid "Month"
+msgstr "Mes"
+
+msgid "Day of Month"
+msgstr "Día del Mes"
+
+msgid "Randomize"
+msgstr "Aleatorizar"
+
+msgid "You can add files, directories, MySQL databases and Asterisk databases by clicking the Add Entry button, or just drop templates on the drop zone"
+msgstr "Puede agregar archivos, directorios, bases de datos MySQL y bases de datos Asterisk haciendo clic en el botón Agregar entrada, o simplemente suelte plantillas en la zona de colocación."
+
+msgid "Drag templates and drop them in the Backup Items table. Add as many templates as you need"
+msgstr "Arrastre las plantillas y suéltelas en la zona de colocación. Puede añadir tantas plantillas como necesite"
+
+msgid "drop zone"
+msgstr "zona de colocación"
+
+msgid "Local Storage"
+msgstr "Almacenamiento local"
+
+msgid "Legacy Backup"
+msgstr "Backup Heredado"
+
+msgid "Drag servers from the Available Servers list to add them as Storage Servers"
+msgstr "Arrastre servidores de la lista de Servidores disponibles para agregarlos como Servidores de almacenamiento"
+
+msgid "This server"
+msgstr "Este servidor"
+
+msgid "Select the server to be backed up (this server, or any other SSH server)"
+msgstr "Seleccione el servidor del que desea realizar la copia de seguridad (este servidor o cualquier otro servidor SSH)"
+
+msgid "Select how often to run this backup. The following schedule will be followed for all but custom:<br/>Hourly &nbsp&nbspRun once an hour, beginning of hour<br/>Daily &nbsp&nbsp&nbsp&nbspRun once a day, at midnight<br/>Weekly &nbsp&nbspRun once a week, midnight on Sun<br/>Monthly &nbsp&nbspRun once a month, midnight, first of month<br/>Annually &nbspRun once a year, midnight, Jan. 1<br/>Reboot &nbsp&nbspRun at startup of the server OR of the cron deamon (i.e. after every <code>service cron restart</code>)<br/><br/>If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved<br/><br/>Never will never run the backup automatically<br/><br/>If a custom schedule is selected, any section not specficed will be considered to be 'any' (aka: wildcard).I.e. if Day of Month is set to 12 and Day of Week is not set, the Backup will be run on ANY 12th of the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the Backup will run ONLY on a Monday, and ONLY if it's the 12th of the month."
+msgstr "Seleccione con qué frecuencia ejecutar esta copia de seguridad. Se seguirá el siguiente cronograma para todos menos los personalizados:<br/> Cada hora &nbsp&nbspEjecutar una vez por hora, al comienzo de la hora<br/>Diario&nbsp&nbsp&nbsp&nbsp&nbspCorre una vez al día, a medianoche<br/> Semanal &nbsp&nbspEjecutar una vez a la semana, la medianoche del domingo<br/> Mensual &nbsp&nbspEjecutar una vez al mes, a medianoche, el primer día del mes<br/> Anualmente &nbspEjecutar una vez al año, medianoche, 1 de enero<br/>Al Reiniciar &nbsp&nbspSe ejecuta al arranque del servidor o del demonio cron (es decir, después de cada <code>reinicio del servicio de cron</code>)<br/> <br/> Si se selecciona Aleatorizar, se seguirá una frecuencia similar, solo se aleatorizarán las horas exactas (evitando las horas pico de trabajo, cuando sea posible). Tenga en cuenta: los horarios aleatorios se reprogramarán (al azar) cada vez que se guarde CUALQUIER copia de seguridad <br/><br/> Nunca nunca ejecutará la copia de seguridad automáticamente <br/><br/> Si se selecciona un programa personalizado, cualquier sección no especificada se considerará 'cualquiera' (también conocida como comodín).  Es decir. si el Día del mes está establecido en 12 y el Día de la semana no está establecido, la copia de seguridad se ejecutará CUALQUIER día 12 del mes.  el mes, independientemente del día de la semana. Si el día de la semana está configurado, por ejemplo, lunes, la copia de seguridad se ejecutará SOLAMENTE un lunes, y SOLO si es el día 12 del mes."
+
+msgid "Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren't time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting"
+msgstr "Eliminar esta copia de seguridad después de X cantidad de minutos/horas/días/semanas/meses/años. Tenga en cuenta que las eliminaciones no se basan en el tiempo y solo ocurrirán después de ejecutar una copia de seguridad. Establecer el valor en 0 deshabilitará cualquier eliminación"
+
+msgid "Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting"
+msgstr "Eliminar esta copia de seguridad después de X cantidad de ejecuciones. Establecer el valor en 0 deshabilitará cualquier eliminación"
+
+msgid "A script to be run BEFORE a backup is started."
+msgstr "Un script que se ejecutará ANTES de que se inicie una copia de seguridad."
+
+msgid "A script to be run AFTER a backup is completed."
+msgstr "Un script que se ejecutará DESPUÉS de que se inicie una copia de seguridad."
+
+msgid "A script to be run BEFORE a backup is restored."
+msgstr "Un script que se ejecutará ANTES de que se restaure una copia de seguridad"
+
+msgid "A script to be run AFTER a backup is restored."
+msgstr "Un script que se ejecutará DESPUÉS de que se restaure una copia de seguridad"
+
+msgid "Voice Mail Storage"
+msgstr "Almacenamiento de correo de voz"
+
+msgid "Call Detail Records"
+msgstr "Registro de detalle de llamadas"
+
+msgid "Configurations only"
+msgstr "Solamente configuraciones"
+
+msgid "Exclude Backup's settings so that they dont get restored, usefull for a remote restore"
+msgstr "Excluye la configuración de copias de seguridad para que no se restauren, útil para una restauración remota"
+
+msgid "A full backup of core settings and web files, doesn't include system sounds or recordings."
+msgstr "Una copia de seguridad completa de la configuración principal y los archivos web, no incluye grabaciones ni sonidos del sistema."
+
+msgid "Select files and databases to restore"
+msgstr "Seleccione los archivos y bases de datos a restaurar"
+
+msgid "Starting backup"
+msgstr "Iniciando copia de seguridad"
+
+msgid "Starting restore"
+msgstr "Iniciando restauración"
+
+msgid "Initialized!"
+msgstr "Inicializado!"
+
+msgid "Nothing to restore!"
+msgstr "No hay nada que restaurar!"
+
+msgid "Created"
+msgstr "Creación"
+
+msgid "Files"
+msgstr "Archivos"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Mysql DB's"
+msgstr "BDs Mysql"
+
+msgid "Initializing Backup"
+msgstr "Inicializando copia de seguridad"
+
+msgid "Backup Lock acquired!"
+msgstr "Bloqueo de copia de seguridad adquirido!"
+
+msgid "Running pre-backup hooks..."
+msgstr "Ejecutando ganchos previos a la copia de seguridad..."
+
+msgid "Adding items..."
+msgstr "Añadiendo items..."
+
+msgid "Building manifest..."
+msgstr "Generando manifiesto..."
+
+msgid "Creating backup..."
+msgstr "Creando copia de seguridad..."
+
+msgid "Storing backup..."
+msgstr "Almacenando copia de seguridad..."
+
+msgid "Running post-backup hooks..."
+msgstr "Ejecutando ganchos posteriores a la copia de seguridad..."
+
+msgid "Backup successfully completed!"
+msgstr "La copia de seguridad finalizó exitosamente!"
+
+msgid "Saving Backup"
+msgstr "Guardando copia de seguridad"
+
+msgid "Done!"
+msgstr "Listo!"
+
+msgid "Saving backup"
+msgstr "Guardando copia de segurdad"
+
+msgid "Initializing Restore..."
+msgstr "Inicializando restauración"
+
+msgid "Running pre-restore hooks, if any..."
+msgstr "Ejecutando ganchos previos a la restauración, si existen..."
+
+msgid "Running post-restore hooks, if any..."
+msgstr "Ejecutando ganchos posteriores a la restauración, si existen..."
+
+msgid "Cleaning up..."
+msgstr "Haciendo limpieza..."
+
+msgid "Restore complete!"
+msgstr "Restauración completa!"
+
+msgid "Reloading..."
+msgstr "Recargando..."
+
+msgid "Restoring files..."
+msgstr "Restaurando archivos..."
+
+msgid "File restore complete!"
+msgstr "Restauración de archivos finalizada!"
+
+msgid "Restoring CDR's..."
+msgstr "Restaurando CDRs"
+
+msgid "Getting CDR size..."
+msgstr "Recuperando tamaño de CDR"
+
+msgid "Processed "
+msgstr "Procesado"
+
+msgid "Processed 100% of CDR's!"
+msgstr "Se ha procesado el 100% de los CDR"
+
+msgid "CDR's restore complete'"
+msgstr "Restauración de CDR finalizada"
+
+msgid "Restoring settings..."
+msgstr "Restaurando configuraciones..."
+
+msgid "Getting Settings size..."
+msgstr "Recuperando tamanno de configuraciones"
+
+msgid "Processed 100% of Settings!"
+msgstr "Se ha procesado el 100% de las configuraciones"
+
+msgid "Restoring astDB..."
+msgstr "Restaurando astDB"
+
+msgid "Settings restore complete"
+msgstr "Se completó la restauración de configuraciones"
+
+msgid "Running post restore script..."
+msgstr "Ejecutando gancho post restauración..."
+
+msgid "No storage servers found! Aborting"
+msgstr "No se encontraron servidores de almacenamiento! Abortando"
+
+msgid "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted backup from server [%s]."
+msgstr "La copia de seguridad falló al descargar la base de datos SQL [%s] al archivo [%s], tiene una copia de seguridad dañada del servidor [%s]."
+
+msgid "Restore all setting stored in the database"
+msgstr "Restaurar todas las configuraciones almacenadas en la base de datos"
+
+msgid "CDR's"
+msgstr "CDRs"
+
+msgid "Restore CDR records stored in this backup"
+msgstr "Restaurar registros CDR almacenados en esta copia de seguridad"

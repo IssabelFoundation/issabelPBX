@@ -68,7 +68,7 @@ msgid "Search Unbounded Regex"
 msgstr ""
 
 #: page.printextensions.php:27
-msgid "Search:"
+msgid "Search"
 msgstr ""
 
 #: page.printextensions.php:28

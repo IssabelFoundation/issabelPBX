@@ -29,7 +29,7 @@ function miscapps_get_config($engine) {
 				}
 			}
       if ($addit) {
-        $ext->addInclude('from-internal-additional', 'app-miscapps');
+        $ext->addInclude('from-internal-additional', 'app-miscapps', _dgettext('miscapps','Misc Applications'));
       }
 		break;
 	}
@@ -86,8 +86,8 @@ function miscapps_add($description, $ext, $dest) {
 		die_issabelpbx($result->getMessage().$sql);
 	}
 	//get id..
-        $sql = ( (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
-        $miscapps_id = $db->getOne($sql);
+	$sql = ( preg_match("/qlite/",$amp_conf["AMPDBENGINE"]) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()');
+	$miscapps_id = $db->getOne($sql);
 
 	if (DB::IsError($miscapps_id)) {
 		//TODO -- handle this
@@ -150,7 +150,7 @@ function miscapps_check_destinations($dest=true) {
 		$thisid   = $result['miscapps_id'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => sprintf(_("Misc Application: %s"),$result['description']),
+			'description' => sprintf(__("Misc Application: %s"),$result['description']),
 			'edit_url' => 'config.php?display=miscapps&type='.$type.'&extdisplay='.urlencode($thisid),
 		);
 	}

@@ -13,21 +13,6 @@ switch ($amp_conf['AMPDBENGINE']) {
         die_issabelpbx("pgsql support is deprecated. Please use mysql or mysqli only.");
         break;
     case "mysqli":
-        /* datasource in in this style:
-        dbengine://username:password@host/database */
-
-        $dbengine = 'mysqli';
-
-        $datasource = $dbengine . '://'
-                    . $amp_conf['AMPDBUSER']
-                    . ':'
-                    . $amp_conf['AMPDBPASS']
-                    . '@'
-                    . $amp_conf['AMPDBHOST']
-                    . '/'
-                    . $amp_conf['AMPDBNAME'];
-        $db = issabelpbx_DB::connect($datasource); // attempt connection
-        break;
     case "mysql":
         /* datasource in in this style:
         dbengine://username:password@host/database */
@@ -44,6 +29,7 @@ switch ($amp_conf['AMPDBENGINE']) {
                     . $amp_conf['AMPDBNAME'];
         $db = issabelpbx_DB::connect($datasource); // attempt connection
         $db->query('SET NAMES utf8mb4');
+        //$db->query('SET collation_connection = utf8mb4_unicode_ci');
         break;
     case "sqlite":
         die_issabelpbx("SQLite2 support is deprecated. Please use sqlite3 only.");

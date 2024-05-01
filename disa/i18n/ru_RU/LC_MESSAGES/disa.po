@@ -13,9 +13,9 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2012 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Dmitry Kuznecov <dk@postmet.com>, 2006-2012.
 #
 msgid ""
@@ -69,7 +69,7 @@ msgid ""
 "make calls out."
 msgstr ""
 "Доступ в Asterisk извне (DISA) позволяет сотрудникам вне офиса звонить на ваш Asterisk "
-"и совершать с него звонки, так как будто звонок происходит из офиса, что может быть "
+"и совершать с него звонки, так как будто звонок происходит из оиса, что может быть "
 "удобно, если сотрудник находится в командировке. Вы можете указать направление или DID "
 "которые будут указывать на Доступ к Asterisk извне (DISA). Перед использованием этой функции "
 "убедитесь, что вы установили пароль для предотвращения набора и использования вашего Asterisk,"

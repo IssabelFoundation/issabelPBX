@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 
 #: amp_conf/htdocs/admin/views/footer.php:86
-msgid " extension number already in use by: "
+msgid "Extension %s already in use by: %s"
 msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:536
@@ -419,7 +419,7 @@ msgid "Add Incoming Route"
 msgstr ""
 
 #: ../core/page.routing.php:323 ../core/page.routing.php:369
-msgid "Add Route"
+msgid "Add Outbound Route"
 msgstr ""
 
 #: ../core/page.trunks.php:349
@@ -1525,7 +1525,7 @@ msgid "ERROR - could not drop table"
 msgstr ""
 
 #: upgrades/2.10.0beta3/migration.php:48
-msgid "ERROR connectng to CDR DB to migrate, not done!"
+msgid "ERROR connecting to CDR DB to migrate, not done!"
 msgstr ""
 
 #: ../core/install.php:193
@@ -1611,7 +1611,7 @@ msgid "Edit Incoming Route"
 msgstr ""
 
 #: ../core/page.routing.php:345 ../core/page.routing.php:363
-msgid "Edit Route"
+msgid "Edit Outbound Route"
 msgstr ""
 
 #: ../core/functions.inc.php:7087
@@ -3847,7 +3847,7 @@ msgstr ""
 #: amp_conf/htdocs/admin/views/welcome.php:67
 #, php-format
 msgid ""
-"There is also a community based <a href='%s' target='_new'>IssabelPBX Web "
+"If you are having any problems there is a community based <a href='%s' target='_new'>IssabelPBX Web "
 "Forum</a> where you can post\n"
 "questions and search for answers for any problems you may be having."
 msgstr ""
@@ -4617,7 +4617,7 @@ msgid ""
 msgstr ""
 
 #: ../core/install.php:9
-msgid "ZapBarge"
+msgid "Zap Barge"
 msgstr ""
 
 #: upgrades/2.9.0alpha1/migrate_ampconf.php:116
@@ -5359,7 +5359,7 @@ msgstr ""
 #~ msgstr "כלים"
 
 #~ msgid "Setup"
-#~ msgstr "הגדרות"
+#~ msgstr "הגדות"
 
 #~ msgid "Management"
 #~ msgstr "ניהול"

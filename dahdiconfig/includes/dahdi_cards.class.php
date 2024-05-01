@@ -125,7 +125,7 @@ class dahdi_cards {
 		foreach($check as $list) {
 			$o = posix_getpwuid(fileowner($list));
 			if($me != $o['name']) {
-				$nt->add_error('dahdiconfig', str_replace("/","",$list), sprintf(_('File %s is not owned by %s'), $list, $me), sprintf(_("Please run '%s', then go back into the DAHDi Config Module"),'amportal chown'), "", false, true);
+				$nt->add_error('dahdiconfig', str_replace("/","",$list), sprintf(__('File %s is not owned by %s'), $list, $me), sprintf(__("Please run '%s', then go back into the DAHDi Config Module"),'amportal chown'), "", false, true);
 			} else {
 				if($nt->exists('dahdiconfig', str_replace("/","",$list))) {
 					$nt->delete('dahdiconfig', str_replace("/","",$list));
@@ -1268,7 +1268,7 @@ class dahdi_cards {
 		global $db;
 		$nt =& notifications::create($db);
 		if ( ! is_writable($file)) {
-			$nt->add_error('dahdiconfig', 'SYSTEMCONF', sprintf(_('Unable to write to %s'),$file), sprintf(_("Please change permissions on %s"),$file), "", false, true);
+			$nt->add_error('dahdiconfig', 'SYSTEMCONF', sprintf(__('Unable to write to %s'),$file), sprintf(__("Please change permissions on %s"),$file), "", false, true);
 			return false;
 		} else {
 			if($nt->exists('dahdiconfig', 'SYSTEMCONF')) {
@@ -1433,6 +1433,7 @@ class dahdi_cards {
 
 		//Enable/disable modules already in the file
 		$previous_module = '';
+
 		foreach($settings as $key => $state) {
 			$state = ($state == 'true') ? true : false;
 			$key_split = explode('::',$key);
@@ -1546,7 +1547,7 @@ class dahdi_cards {
 		global $db;
 		$nt =& notifications::create($db);
 		if ( ! is_writable($file)) {
-			$nt->add_error('dahdiconfig', 'MODPROBECONF', sprintf(_('Unable to write to %s'),$file), sprintf(_("Please change permissions on %s"),$file), "", false, true);
+			$nt->add_error('dahdiconfig', 'MODPROBECONF', sprintf(__('Unable to write to %s'),$file), sprintf(__("Please change permissions on %s"),$file), "", false, true);
 			return false;
 		} else {
 			if($nt->exists('dahdiconfig', 'MODPROBECONF')) {

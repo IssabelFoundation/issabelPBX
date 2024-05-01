@@ -5,7 +5,7 @@
 	// Version 1.0
 
 	// all user settings come from the file wake.inc which is shared by both agi files
-	require 'wake.inc';
+	require 'wake.inc.php';
 
 	GLOBAL	$stdin, $stdout, $stdlog, $result, $parm_debug_on, $parm_test_mode;
     
@@ -334,22 +334,21 @@ function execute_agi( $command )
     }
 }
 
-function create_wakeup( $time_wakeup )
-{
-	GLOBAL $parm_chan_ext, $parm_temp_dir, $parm_call_dir, $parm_debug_on, $chan, $sta, $cidn, $agivar, $parm_maxretries, $parm_retrytime, $parm_waittime, $parm_wakeupcallerid, $parm_application, $parm_data, $stdin, $stdout, $stdlog;
+function create_wakeup( $time_wakeup ) {
+	global $parm_chan_ext, $parm_temp_dir, $parm_call_dir, $parm_debug_on, $chan, $sta, $cidn, $agivar, $parm_maxretries, $parm_retrytime, $parm_waittime, $parm_wakeupcallerid, $parm_application, $parm_data, $stdin, $stdout, $stdlog;
 
 	$w = getdate( $time_wakeup );
 
 	$foo = array(
-		time  => $time_wakeup,
-		date => 'unused',
-		ext => $cidn,
-		maxretries => $parm_maxretries,
-		retrytime => $parm_retrytime,
-		waittime => $parm_waittime,
-		callerid => $parm_wakeupcallerid,
-		application => $parm_application,
-		data => $parm_data,
+		'time'  => $time_wakeup,
+		'date' => 'unused',
+		'ext' => $cidn,
+		'maxretries' => $parm_maxretries,
+		'retrytime' => $parm_retrytime,
+		'waittime' => $parm_waittime,
+		'callerid' => $parm_wakeupcallerid,
+		'application' => $parm_application,
+		'data' => $parm_data,
 		);
 
 	hotelwakeup_gencallfile($foo);

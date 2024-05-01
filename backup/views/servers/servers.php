@@ -1,25 +1,36 @@
 <?php
 
-echo heading('Backup Servers', 3) . '<hr class="backup-hr"/>';
+echo '<div class="content">';
+
+echo heading(__('Backup Servers'), 2);
 
 echo '<a href="config.php?type=setup&display=backup_servers&action=edit&server_type=email">';
-echo '<input type="button" value="' . _('New Email server') . '"></a><br />';
+echo '<button class="button is-link is-light"><span class="icon is-small is-left"><i class="fa fa-plus"></i></span><span>'.__('New Email server').'</span></button>';
+echo '</a><br/><br/>';
 
 echo '<a href="config.php?type=setup&display=backup_servers&action=edit&server_type=ftp">';
-echo '<input type="button" value="' . _('New FTP server') . '"></a><br />';
+echo '<button class="button is-link is-light"><span class="icon is-small is-left"><i class="fa fa-plus"></i></span><span>'.__('New FTP server').'</span></button>';
+echo '</a><br/><br/>';
 
 //echo '<a href="config.php?type=setup&display=backup_servers&action=edit&server_type=http">';
-//echo '<input type="button" value="' . _('New HTTP server') . '"></a><br />';
+//echo '<input type="button" class="button is-link is-light mb-3" value="' . __('New HTTP server') . '"></a><br />';
 
 //echo '<a href="config.php?type=setup&display=backup_servers&action=edit&server_type=smb">';
-//echo '<input type="button" value="' . _('New Samba server') . '"></a><br />';
+//echo '<input type="button" class="button is-link is-light mb-3" value="' . __('New Samba server') . '"></a><br />';
 
 echo '<a href="config.php?type=setup&display=backup_servers&action=edit&server_type=local">';
-echo '<input type="button" value="' . _('New Local server') . '"></a><br />';
+echo '<button class="button is-link is-light"><span class="icon is-small is-left"><i class="fa fa-plus"></i></span><span>'.__('New Local server').'</span></button>';
+echo '</a><br/><br/>';
 
 echo '<a href="config.php?type=setup&display=backup_servers&action=edit&server_type=mysql">';
-echo '<input type="button" value="' . _('New Mysql server') . '"></a><br />';
+echo '<button class="button is-link is-light"><span class="icon is-small is-left"><i class="fa fa-plus"></i></span><span>'.__('New Mysql server').'</span></button>';
+echo '</a><br/><br/>';
 
 echo '<a href="config.php?type=setup&display=backup_servers&action=edit&server_type=ssh">';
-echo '<input type="button" value="' . _('New SSH server') . '"></a><br />';
-echo br(20);
+echo '<button class="button is-link is-light"><span class="icon is-small is-left"><i class="fa fa-plus"></i></span><span>'.__('New SSH server').'</span></button>';
+echo '</a><br/><br/>';
+
+
+echo '<script>';
+echo js_display_confirmation_toasts();
+echo '</script>';

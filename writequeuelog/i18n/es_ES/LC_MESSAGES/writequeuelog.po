@@ -1,40 +1,45 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# This file is part of IssabelPBX.
 #
-#, fuzzy
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-17 16:31-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ../functions.inc.php:142
-#, php-format
 msgid "Write Queue Log %s: "
 msgstr "Escribir Queue Log %s"
 
-#: ../page.writequeuelog.php:18
 msgid "Add Field"
 msgstr "Agregar Campo"
 
-#: ../page.writequeuelog.php:46 ../page.writequeuelog.php:81
 msgid "Add Write Queue Log"
-msgstr "Agregar Escribir en Queue Log"
+msgstr "Añadir Escribir en Queue Log"
 
-#: ../page.writequeuelog.php:69
+msgid "Edit Write Queue Log"
+msgstr "Modificar Escribir en Queue Log"
+
 msgid "Edit: "
 msgstr "Modificar:"
 
-#: ../page.writequeuelog.php:84
 msgid ""
 "Write queue log lets you append a line into the queue_log file for call "
 "center tracking purposes"
@@ -42,77 +47,59 @@ msgstr "Escribir en Queue Log le permite agregar una lína en el archivo de "
 "registro de asterisk queue_log, con el propósito de registrar información "
 "que pueda ser utilizada por software de estadísticas de cola"
 
-#: ../page.writequeuelog.php:96
 msgid "Edit Queue Log Instance"
 msgstr "Modificar Instancia de Escribir en Queue Log"
 
-#: ../page.writequeuelog.php:96
 msgid "Add Queue Log Instance"
 msgstr "Agregar Instancia de Escribir en Queue Log"
 
-#: ../page.writequeuelog.php:98
 msgid "Description"
 msgstr "Descripción"
 
-#: ../page.writequeuelog.php:98
 msgid ""
 "The descriptive name of this queue log instance. For example \"new name here"
 "\""
 msgstr "El nombre descriptivo para esta instancia de Escribir en Queue Log. Por ejemplo 'Encuesta'"
 
-#: ../page.writequeuelog.php:102
 msgid "Uniqueid"
 msgstr ""
 
-#: ../page.writequeuelog.php:102
 msgid "The uniqueid field for the queue log entry"
 msgstr "El campo uniqueid en la entrada de queue_log"
 
-#: ../page.writequeuelog.php:106
 msgid "Queue"
 msgstr "Cola"
 
-#: ../page.writequeuelog.php:106
 msgid "The queue field for the queue log entry"
 msgstr "El campo cola en la entrada de queue_log"
 
-#: ../page.writequeuelog.php:110
 msgid "Agent"
 msgstr "Agente"
 
-#: ../page.writequeuelog.php:110
 msgid "The agent field for the queue log entry"
 msgstr "El campo agente en la entrada de queue_log"
 
-#: ../page.writequeuelog.php:114
 msgid "Event"
 msgstr "Evento"
 
-#: ../page.writequeuelog.php:114
 msgid "The event field for the queue log entry"
 msgstr "El campo evento en la entrada de queue_log"
 
-#: ../page.writequeuelog.php:118
 msgid "Extra"
 msgstr "Extra"
 
-#: ../page.writequeuelog.php:118
 msgid "The rest of extra data info1|info2|info3 for the queue log entry"
 msgstr "El resto de los datos de queue_log como campos info1|info2|info3"
 
-#: ../page.writequeuelog.php:122
 msgid "Destination"
 msgstr "Destino"
 
-#: ../page.writequeuelog.php:131
 msgid "Submit Changes"
 msgstr "Guardar Cambios"
 
-#: ../page.writequeuelog.php:132
 msgid "Delete"
 msgstr "Borrar"
 
-#: ../page.writequeuelog.php:152
 msgid "Invalid description specified"
 msgstr "Descripción inválida"
 
@@ -121,3 +108,6 @@ msgstr "Escribir en Queue Log"
 
 msgid "Write In Queue Log"
 msgstr "Escribir en Queue Log"
+
+msgid "Write a line into queue log"
+msgstr "Escribir una línea en queue log"

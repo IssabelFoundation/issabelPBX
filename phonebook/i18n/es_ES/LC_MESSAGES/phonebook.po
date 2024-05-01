@@ -1,17 +1,29 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo phonebook module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-01-23 00:14+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Phonebook entry"
 msgstr "Elemento del listín telefónico"
@@ -26,18 +38,16 @@ msgid "lines of"
 msgstr "Líneas de"
 
 msgid "Phonebook emptied"
-msgstr "Listín telefónico vaciado"
+msgstr "Agenda telefónica vaciada"
 
 msgid "Are you sure you want to empty your phonebook ?"
 msgstr "¿Está seguro de que desea vaciar el listín telefónico?"
 
 msgid "Phone Book"
-msgstr ""
+msgstr "Agenda telefónica"
 
-msgid ""
-"Use this module to create system wide speed dial numbers that can be dialed "
-"from any phone."
-msgstr ""
+msgid "Use this module to create system wide speed dial numbers that can be dialed from any phone."
+msgstr "Utilice este módulo para crear números de marcación rápida para todo el sistema que se puedan marcar desde cualquier teléfono."
 
 msgid "Phonebook entries"
 msgstr "Elementos del listín telefónico"
@@ -78,20 +88,15 @@ msgstr "Introduzca el nombre."
 msgid "Number:"
 msgstr "Número:"
 
-msgid ""
-"Enter the number (For CallerID lookup to work it should match the CallerID "
-"received from network)"
-msgstr ""
-
-msgid "Speed dial code:"
-msgstr "Código de marcación rápida:"
+msgid "Speed dial code"
+msgstr "Código de marcación rápida"
 
 msgid ""
 "Enter a speed dial code<br/>Speeddial module is required to use speeddial "
 "codes"
 msgstr ""
-"Introduzca un código de marcación rápida.<br/>Es necesario el módulo de "
-"'Marcación rápida' para que funcione."
+"Introduzca un código de marcación rápida.<br/>Es necesario el módulo "
+"'Funciones de marcación rápida' para que funcione."
 
 msgid "Set Speed Dial?"
 msgstr "¿Crear código de marcación rápida?"
@@ -107,8 +112,8 @@ msgstr "Enviar cambios"
 msgid "Import from CSV"
 msgstr "Importar desde CSV"
 
-msgid "File:"
-msgstr "Archivo:"
+msgid "File"
+msgstr "Archivo"
 
 msgid ""
 "Import a CSV File formatted as follows:<br/>\"Name\";Number;Speeddial<br /> "
@@ -133,7 +138,7 @@ msgid "Please enter a valid Speeddial code or leave it empty"
 msgstr "Por favor, introduzca un código de marcación rápida válido."
 
 msgid "Phonebook"
-msgstr "Listín telefónico"
+msgstr "Agenda telefónica"
 
 msgid "Admin"
 msgstr ""
@@ -144,12 +149,19 @@ msgid ""
 msgstr ""
 
 msgid "Asterisk Phonebook"
-msgstr "Listín telefónico de Asterisk"
+msgstr "Agenda telefónica de Asterisk"
 
-#~ msgid ""
-#~ "Enter the number (For caller ID lookup to work it should match the caller "
-#~ "ID received from network)"
-#~ msgstr ""
-#~ "Introduzca el número (para que la búsqueda de identificador de llamante "
-#~ "funcione, este valor debería coincidir con el identificador de llamante "
-#~ "suministrado por la red)"
+msgid "Enter the number (For CallerID lookup to work it should match the CallerID received from network)"
+msgstr "Introduzca el número (para que la búsqueda de identificador de llamante funcione, este valor debería coincidir con el identificador de llamante suministrado por la red)"
+
+msgid "Add Phonebook Entry"
+msgstr "Añadir entrada en la agenda telefónica"
+
+msgid "Edit Phonebook Entry"
+msgstr "Modificar entrada en la agenda telefónica"
+
+msgid "Choose a file..."
+msgstr "Escoja un archivo..."
+
+msgid "Please select a file"
+msgstr "Por favor elija un archivo"

@@ -37,7 +37,7 @@ function callwaiting_cwon($c) {
 
 	$id = "app-callwaiting-cwon"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('callwaiting','Call Waiting - Activate')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
@@ -53,7 +53,7 @@ function callwaiting_cwoff($c) {
 
 	$id = "app-callwaiting-cwoff"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('callwaiting','Call Waiting - Deactivate')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)

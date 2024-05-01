@@ -113,13 +113,13 @@ msgstr ""
 "Il numero che gli utenti dovranno chiamare per questo Gruppo di Caselle "
 "Vocali"
 
-msgid "Group Description:"
+msgid "Group Description"
 msgstr "Descrizione Gruppo:"
 
 msgid "Provide a descriptive title for this VMBlast Group."
 msgstr "Titolo descrittivo per questo Gruppo di Caselle."
 
-msgid "Audio Label:"
+msgid "Audio Label"
 msgstr "Etichetta Audio:"
 
 msgid ""
@@ -158,7 +158,7 @@ msgstr ""
 "Si può impostare una password opzionale prima di accedere a questo Gruppo di "
 "Caselle."
 
-msgid "Voicemail Box List:"
+msgid "Voicemail Box List"
 msgstr "Lista Caselle Vocali:"
 
 msgid ""

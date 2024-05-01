@@ -1,0 +1,230 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "There is a problem with installation Contact support"
+msgstr "Houve um problema com a instalação"
+
+#, php-format
+msgid "Route: %s"
+msgstr "Rotas"
+
+#, php-format
+msgid "Dynamic route: %s"
+msgstr "Caminho dinâmico: %s"
+
+#, php-format
+msgid "Route: %s / Destination: %s"
+msgstr "Caminho: %s / Destino: %s"
+
+msgid "Dynamic Routing"
+msgstr "Rotas Dinâmicas"
+
+msgid "Dynamic Routes"
+msgstr "Rotas Dinâmicas"
+
+msgid "Instructions"
+msgstr "Instruções"
+
+msgid ""
+"You use the Dynamic Routing module to route calls based on the info returned "
+"from an sql lookup via mysql or odbc, from an agi script, web service or the "
+"value of an asterisk variable."
+msgstr ""
+"Este módulo permite decidir o roteamento com base nas informações retornadas "
+"através de consultas SQL via mysql ou odbc, a partir de scripts agi, web "
+"service ou valor de uma variável de canal."
+
+msgid "For configuration instructions see"
+msgstr "Para mais detalhes e instruções consulte:"
+
+msgid "Add Route"
+msgstr "Adicionar rota"
+
+msgid "Edit Menu"
+msgstr "Modificar"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Route"
+msgstr "Ruta"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "This changes the short name, visible on the right, of this Route"
+msgstr "Modifique o nome do caminho visível para o menu direito"
+
+msgid "Get DTMF input"
+msgstr "Capturar dígitos DTMF"
+
+msgid ""
+"If checked reads in DTMF digis, the value is available in the sql query with "
+"special name of [INPUT]."
+msgstr ""
+"Se selecionado, a entrada de dados será capturada via DTMF. O valor estará "
+"disponível na consulta sql com o nome [INPUT]"
+
+msgid "Timeout"
+msgstr "Hora de esperar"
+
+msgid "The amount of time (in seconds) to wait for input"
+msgstr "O tempo máximo de espera por entrada (em segundos)"
+
+msgid "Input Variable"
+msgstr "variável de entrada"
+
+msgid ""
+"Optional variable name if you want the dmtf input to be available later in "
+"the call (e.g. futher dynamic route query or to pass to agi script)"
+msgstr ""
+"Nome da variável opcional se desejar que a entrada DTMF esteja disponível "
+"como variável de canal, será utilizado o prefixo DYNROUTE_"
+
+msgid "Result Variable"
+msgstr "Variável de resultado"
+
+msgid ""
+"Optional variable name if you want the query result to be available later in "
+"the call (e.g. futher dynamic route query or to pass to agi script)"
+msgstr ""
+"Variável opcional se desejar que o resultado da consulta SQL esteja "
+"disponível como uma variável de canal"
+
+msgid "Announcement"
+msgstr "Anuncio"
+
+msgid ""
+"Message to be played to the caller. To add additional recordings please use "
+"the \"System Recordings\" MENU above"
+msgstr ""
+"Mensagem para jogar. Para adicionar novas gravações escolha \"System "
+"Recordings\" no menu IssabelPBX"
+
+msgid "None"
+msgstr "Nenhum"
+
+msgid ""
+"Message to be played to the caller.<br><br>You must install and enable the "
+"\"Systems Recordings\" Module to edit this option"
+msgstr "Mensagem a ser reproduzida para o chamador."
+
+msgid "Source type"
+msgstr "Tipo de fonte"
+
+msgid ""
+"Select the source type, you can choose between:<ul><li>MySQL: It queries a "
+"MySQL database to retrieve the routing information</li><li>ODBC: It queries "
+"an ODBC data source to retrieve the routing information</li></ul>"
+msgstr ""
+"Escolha o tipo de fonte da consulta, entre: <ul><li>MySQL: envia consulta ao "
+"banco de dados MySQL</li><li>ODBC: envia consulta usando ODBC</li></ul>"
+
+msgid "ODBC"
+msgstr "ODBC"
+
+msgid "Function"
+msgstr "Função"
+
+msgid ""
+"Name of the odbc function (excluding ODBC prefix) in /etc/asterisk/func_odbc."
+"conf"
+msgstr ""
+"Nome da função ODBC (excluindo o prefixo OBC) definida em /etc/asterisk/"
+"func_ocbc.conf"
+
+msgid "Query"
+msgstr "Consulta"
+
+msgid "The query which gets the result out of the database"
+msgstr "A consulta a ser enviada ao banco de dados"
+
+msgid "MySQL"
+msgstr "MySQL"
+
+msgid "Host"
+msgstr "Hospedar"
+
+msgid "Hostname or IP address of the server running the MySQL database"
+msgstr "Nome do host ou endereço IP do servidor MySQL"
+
+msgid "Database"
+msgstr "Base de dados"
+
+msgid "The name of the database out of wich the information is being queried"
+msgstr "O nome do banco de dados"
+
+msgid "Username"
+msgstr "Do utilizador"
+
+msgid "The user/login name for accessing the database"
+msgstr "O nome de usuário/login para se conectar ao banco de dados"
+
+msgid "Password"
+msgstr "Senha"
+
+msgid "The password wich is needed to access the database"
+msgstr "A senha para se conectar ao banco de dados"
+
+msgid "The query wich gets the result out of the database"
+msgstr "A consulta a ser enviada ao banco de dados"
+
+msgid "Increase Destinations"
+msgstr "Adicionar destinos"
+
+msgid "Save"
+msgstr "Manter"
+
+msgid "Decrease Destinations"
+msgstr "Diminuir destinos"
+
+msgid "Match"
+msgstr "Valor encontrado"
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Default destination"
+msgstr "Destino padrão"
+
+msgid "Invalid destination"
+msgstr "Destino inválido"
+
+msgid "Leave blank to remove"
+msgstr "Deixe em branco para excluir"
+
+msgid "Enter a name for this dynamic route"
+msgstr "Insira um nome para esta rota dinâmica"
+
+msgid "Add Dynamic Route"
+msgstr "Adicionar rota dinâmica"
+
+msgid "Edit Dynamic Route"
+msgstr "Modificar rota dinâmica"
+
+msgid "Invalid default destination"
+msgstr "Rota padrão inválida"

@@ -11,15 +11,15 @@ if(isset($_REQUEST['action'])) {
 }
 ?>
 
-<div class="rnav">
 <?php 
 $groups = timeconditions_timegroups_list_groups();
-drawListMenu($groups, $skip, $type, $display, $extdisplay, _("Time Group"));
+drawListMenu($groups, $type, $display, $extdisplay);
 ?>
-</div>
 
-<div class="rnav" style="margin:15px 10px; padding: 5px; background: #e0e0ff; border: #2E78A7 solid 1px; min-height: 1.2em !important;">
-	<?php echo _("Server time")?>: <span id="idTime">00:00:00</span>
+<div class='content' up-main>
+
+<div class="tag is-info servertime">
+	<?php echo __("Server time")?>: <span id="idTime">00:00:00</span>
 </div>
 
 <script>
@@ -69,8 +69,8 @@ function updateTime()
 
 updateTime();
 $(document).ready(function(){
-	$(".remove_section").click(function(){
-    if (confirm('<?php echo _("This section will be removed from this time group and all current settings including changes will be updated. OK to proceed?") ?>')) {
+	$(".remove_section").on('click',function(){
+    if (confirm('<?php echo __("This section will be removed from this time group and all current settings including changes will be updated. OK to proceed?") ?>')) {
       $(this).parent().parent().prev().remove();
       $(this).closest('form').submit();
     }
@@ -80,24 +80,35 @@ $(document).ready(function(){
 
        e.preventDefault();
 
-       if (window.confirm("<?php echo _("This action will remove all configured times in this groups and recreate them based on holiday calendars by Google and other providers. Are you sure you want to continue?") ?>")) {
+       msg = '<?php echo __("This action will remove all configured times in this groups and recreate them based on holiday calendars by Google and other providers. Are you sure you want to continue?") ?>"';
+       Swal.fire({
+           title: ipbx.msg.framework.areyousure,
+           text: msg,
+           icon: 'warning',
+           showCancelButton: true,
+           confirmButtonColor: '#3085d6',
+           cancelButtonColor: '#d33',
+           confirmButtonText: ipbx.msg.framework.yes,
+           cancelButtonText: ipbx.msg.framework.cancel
+       }).then((result) => {
+           if (result.isConfirmed) {
 
-           value = $('#countries').val();
-           issurl = window.location.href.split('#')[0];
-           issurl += '&action=holidayfill&country='+value; 
+               value = $('#countries').val();
+               issurl = window.location.href.split('#')[0];
+               issurl += '&action=holidayfill&country='+value;
 
-           $.ajax(issurl, {
-               success: function(data) {
-                   window.location.reload();
-               },
-               error: function() {
-                  alert('An Error Occured');
-               }
-           });
-       }
+               $.ajax(issurl, {
+                   success: function(data) {
+                       window.location.reload();
+                   },
+                   error: function() {
+                      sweet_alert(ipbx.msg.framework.invalid_response);
+                   }
+               });
+           }
+       });
   });
 
 
 });
 </script>
-

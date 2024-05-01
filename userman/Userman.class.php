@@ -97,7 +97,7 @@ class Userman implements BMO {
 					$default = !empty($_POST['defaultextension']) ? $_POST['defaultextension'] : 'none';
 					if(empty($password)) {
 						$this->message = array(
-							'message' => _('The Password Can Not Be blank!'),
+							'message' => __('The Password Can Not Be blank!'),
 							'type' => 'danger'
 						);
 						return false;
@@ -133,7 +133,7 @@ class Userman implements BMO {
 						}
 					} else {
 						$this->message = array(
-							'message' => _('Username Can Not Be Blank'),
+							'message' => __('Username Can Not Be Blank'),
 							'type' => 'danger'
 						);
 						return false;
@@ -145,7 +145,7 @@ class Userman implements BMO {
 				case 'general':
 					$this->setGlobalsetting('emailbody',$_POST['email']);
 					$this->message = array(
-						'message' => _('Saved'),
+						'message' => __('Saved'),
 						'type' => 'success'
 					);
 				break;
@@ -155,7 +155,7 @@ class Userman implements BMO {
 
 	public function myShowPage() {
 		if(!function_exists('core_users_list')) {
-			return _("Module Core is disabled. Please enable it");
+			return __("Module Core is disabled. Please enable it");
 		}
 		global $module_hook;
 		if (!defined('DASHBOARD_ISSABELPBX_BRAND')) {
@@ -307,7 +307,7 @@ class Userman implements BMO {
 	public function deleteUserByID($id) {
 		$user = $this->getUserByID($id);
 		if(!$user) {
-			return array("status" => false, "type" => "danger", "message" => _("User Does Not Exist"));
+			return array("status" => false, "type" => "danger", "message" => __("User Does Not Exist"));
 		}
 		$sql = "DELETE FROM ".$this->userTable." WHERE `id` = :id";
 		$sth = $this->db->prepare($sql);
@@ -317,7 +317,7 @@ class Userman implements BMO {
 		$sth = $this->db->prepare($sql);
 		$sth->execute(array(':uid' => $id));
 		$this->callHooks('delUser',array("id" => $id));
-		return array("status" => true, "type" => "success", "message" => _("User Successfully Deleted"));
+		return array("status" => true, "type" => "success", "message" => __("User Successfully Deleted"));
 	}
 
 	/**
@@ -336,10 +336,10 @@ class Userman implements BMO {
 	public function addUser($username, $password, $default='none', $description='', $extraData=array(), $encrypt = true) {
 		global $module_hook;
 		if(empty($username) || empty($password)) {
-			return array("status" => false, "type" => "danger", "message" => _("Username/Password Can Not Be Blank!"));
+			return array("status" => false, "type" => "danger", "message" => __("Username/Password Can Not Be Blank!"));
 		}
 		if($this->getUserByUsername($username)) {
-			return array("status" => false, "type" => "danger", "message" => sprintf(_("User '%s' Does Not Exist"),$username));
+			return array("status" => false, "type" => "danger", "message" => sprintf(__("User '%s' Does Not Exist"),$username));
 		}
 		$sql = "INSERT INTO ".$this->userTable." (`username`,`password`,`description`,`default_extension`) VALUES (:username,:password,:description,:default_extension)";
 		$sth = $this->db->prepare($sql);
@@ -349,7 +349,7 @@ class Userman implements BMO {
 		$id = $this->db->lastInsertId();
 		$this->updateUserExtraData($id,$extraData);
 		$this->callHooks('addUser',array("id" => $id, "username" => $username, "description" => $description, "password" => $password, "encrypted" => $encrypt, "extraData" => $extraData));
-		return array("status" => true, "type" => "success", "message" => _("User Successfully Added"), "id" => $id);
+		return array("status" => true, "type" => "success", "message" => __("User Successfully Added"), "id" => $id);
 	}
 
 	/**
@@ -368,7 +368,7 @@ class Userman implements BMO {
 	public function updateUser($prevUsername, $username, $default='none', $description='', $extraData=array(), $password=null) {
 		$user = $this->getUserByUsername($prevUsername);
 		if(!$user || empty($user)) {
-			return array("status" => false, "type" => "danger", "message" => sprintf(_("User '%s' Does Not Exist"),$user));
+			return array("status" => false, "type" => "danger", "message" => sprintf(__("User '%s' Does Not Exist"),$user));
 		}
 		if(isset($password) && (sha1($password) != $user['password'])) {
 			$sql = "UPDATE ".$this->userTable." SET `username` = :username, `password` = :password, `description` = :description, `default_extension` = :default_extension WHERE `username` = :prevusername";
@@ -376,13 +376,13 @@ class Userman implements BMO {
 			$sth->execute(array(':username' => $username, ':prevusername' => $prevUsername, ':description' => $description, ':password' => sha1($password), ':default_extension' => $default));
 		} elseif(($prevUsername != $username) || ($user['description'] != $description) || $user['default_extension'] != $default) {
 			if(($prevUsername != $username) && $this->getUserByUsername($username)) {
-				return array("status" => false, "type" => "danger", "message" => sprintf(_("User '%s' Already Exists"),$username));
+				return array("status" => false, "type" => "danger", "message" => sprintf(__("User '%s' Already Exists"),$username));
 			}
 			$sql = "UPDATE ".$this->userTable." SET `username` = :username, `description` = :description, `default_extension` = :default_extension WHERE `username` = :prevusername";
 			$sth = $this->db->prepare($sql);
 			$sth->execute(array(':username' => $username, ':prevusername' => $prevUsername, ':description' => $description, ':default_extension' => $default));
 		}
-		$message = _("Updated User");
+		$message = __("Updated User");
 
 		$this->updateUserExtraData($user['id'],$extraData);
 
@@ -640,7 +640,7 @@ class Userman implements BMO {
 		$user['host'] = 'http://'.$_SERVER["SERVER_NAME"];
 		$user['brand'] = $this->brand;
 
-		$user['password'] = !empty($password) ? $password : "<" . _('hidden') . ">";
+		$user['password'] = !empty($password) ? $password : "<" . __('hidden') . ">";
 
 		$user['modules'] = $this->callHooks('welcome',array('id' => $user['id'], 'brand' => $user['brand'], 'host' => $user['host']));
 		$user['services'] = '';
@@ -662,7 +662,7 @@ class Userman implements BMO {
 
 		$email->from($from);
 		$email->to($user['email']);
-		$email->subject(sprintf(_('Your %s Account'),$this->brand));
+		$email->subject(sprintf(__('Your %s Account'),$this->brand));
 		$email->message($template);
 		$email->send();
 	}

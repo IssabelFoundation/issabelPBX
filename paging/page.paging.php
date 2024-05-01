@@ -25,7 +25,7 @@ foreach ($get_vars as $k => $v) {
 	$vars[$k] = isset($_REQUEST[$k]) ? $_REQUEST[$k] : $v;
 }
 $vars['pagenbr'] = trim($vars['pagenbr']);
-if ($vars['Submit'] == _('Delete')) {
+if ($vars['Submit'] == __('Delete')) {
 	$vars['action'] = 'delete';
 	$_REQUEST['action'] = 'delete';
 }
@@ -33,8 +33,12 @@ if ($vars['Submit'] == _('Delete')) {
 //action actions
 switch ($vars['action']) {
 	case 'delete':
-		paging_del($vars['extdisplay']);
-		break;
+        paging_del($vars['extdisplay']);
+        needreload();
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
+        $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
+        redirect_standard();
 	case 'submit':
 		//TODO: issue, we are deleting and adding at the same time so remeber later to check
 		//      if we are deleting a destination
@@ -69,7 +73,11 @@ switch ($vars['action']) {
 			if ($vars['extdisplay'] === '') {
 				$_REQUEST['extdisplay'] =
 				$vars['extdisplay'] = $vars['pagenbr'];
-			}
+            }
+            needreload(); 
+            $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
+            $_SESSION['msgtype']='success';
+            $_SESSION['msgtstamp']=time();
 			redirect_standard('extdisplay', 'action');
 		}
 		break;
@@ -121,16 +129,30 @@ echo load_view(dirname(__FILE__) . '/views/rnav.php', $vars);
 
 //view actions
 switch ($vars['action']) {
+	case '':
 	case 'add':
 	case 'modify':
-	case 'submit':
-		if ($vars['extdisplay']) {
+    case 'submit':
+
+        /*
+        if($action=='') {
+            if($vars['extdisplay']=='' || $vars['extdisplay']==-1) {
+                overview();
+                break;
+            } else if(!$vars['extdisplay']) {
+                overview();
+                break;
+
+            }
+        }*/
+
+        if ($vars['extdisplay']) {
 			$vars = array_merge($vars, paging_get_pagingconfig($vars['extdisplay']));
 			$vars['devices'] = paging_get_devs($vars['extdisplay']);
-		} else {
+        } else {
 			$vars['devices'] = array();
 		}
-		$vars['hooks'] = $module_hook->hookHtml;
+        $vars['hooks'] = process_tabindex($module_hook->hookHtml,$tabindex);
 		foreach (core_devices_list() as $d) {
 			$vars['device_list'][$d[0]] = $d[0] . ' - ' . $d[1];
 		}
@@ -140,8 +162,8 @@ switch ($vars['action']) {
 	case 'settings':
 	case 'save_settings':
 		//build recordings list
-		$vars['rec_list']['none'] = _('None');
-		$vars['rec_list']['beep'] = _('Default');
+		$vars['rec_list']['none'] = __('None');
+		$vars['rec_list']['beep'] = __('Default');
 		
 		if (!function_exists('recordings_list')) {
 			$announce = 'default';
@@ -170,12 +192,20 @@ switch ($vars['action']) {
 					}
 				}
 			}
-		}
+        }
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
 		echo load_view(dirname(__FILE__) . '/views/settings.php', $vars);
 		break;
 	case 'delete':
-	default:
-		$disabled = '(' . _('Disabled') . ')';
+    default:
+        //overview();
+		break;
+}
+
+function overview() {
+		$disabled = '(' . __('Disabled') . ')';
 
 		$fcc = new featurecode('paging', 'intercom-prefix');
 		$vars['intercom_code'] = $fcc->getCodeActive();
@@ -196,6 +226,6 @@ switch ($vars['action']) {
 		}
 
 		echo load_view(dirname(__FILE__) . '/views/overview.php', $vars);
-		break;
+
 }
 ?>

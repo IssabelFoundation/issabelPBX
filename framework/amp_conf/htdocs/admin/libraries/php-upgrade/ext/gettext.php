@@ -172,7 +172,7 @@ if (!function_exists("gettext")) {
    function dcgettext($domain, $msg, $category) {
       return gettext($msg, NULL, $domain, $category);
    }
-   function dgettext($domain, $msg) {
+   function _dgettext($domain, $msg) {
       return gettext($msg, NULL, $domain);
    }
 
@@ -381,7 +381,7 @@ if (!function_exists("gettext")) {
 
 #-- define gettexts preferred function name _ separately
 if (!function_exists("_")) {
-   function _($str) {
+   function __($str) {
       return gettext($str);
    }
 }

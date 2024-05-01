@@ -40,8 +40,6 @@ msgstr ""
 "POT-Creation-Date: 2013-11-05 19:32+0900\n"
 "PO-Revision-Date: 2014-02-21 02:42+0200\n"
 "Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
-"Language-Team: Japanese "
-"<http://192.168.30.85/projects/freepbx/directory/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -159,13 +157,13 @@ msgstr "ディレクトリを削除 %s"
 msgid "Directory General Options"
 msgstr "ディレクトリ一般オプション"
 
-msgid "Directory Name"
+msgid "Name"
 msgstr "ディレクトリ名"
 
 msgid "Name of this directory."
 msgstr "このディレクトリの名前。"
 
-msgid "Directory Description"
+msgid "Description"
 msgstr "ディレクトリ説明"
 
 msgid "Description of this directory."
@@ -260,9 +258,6 @@ msgid ""
 msgstr ""
 "全てのエントリに直接ダイヤルする許可の権限を持つディレクトリが表示されます"
 
-msgid "Name"
-msgstr "名前"
-
 msgid "Name Announcement"
 msgstr "名前のアナウンス"
 
@@ -278,7 +273,7 @@ msgstr "全てのユーザー"
 msgid "Custom"
 msgstr "カスタム"
 
-msgid "Add new entry."
+msgid "Add new entry"
 msgstr "新規エントリーを追加。"
 
 msgid "Voicemail Greeting"
@@ -290,7 +285,7 @@ msgstr "テキスト to スピーチ(テキスト合成音声)"
 msgid "Spell Name"
 msgstr "名前のスペル"
 
-msgid "System Recordings:"
+msgid "System Recordings"
 msgstr "システム録音:"
 
 #, php-format

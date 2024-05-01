@@ -1,0 +1,397 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Bulk Extensions"
+msgstr "Extensiones a granel"
+
+msgid "Start by downloading the %s Template CSV file %s (right-click > save as) or clicking the Export Extensions button."
+msgstr "Comience descargando %sla plantilla CSV%s (haga clic con el botón derecho > guardar como) o haga clic en el botón Exportar extensiones."
+
+msgid "Manage Extensions in bulk using CSV files."
+msgstr "Administre extensiones de forma masiva utilizando archivos CSV."
+
+msgid "Modify the CSV file to add, edit, or delete Extensions as desired. Then load the CSV file. After the CSV file is processed, the action taken for each row will be displayed."
+msgstr "Modifique el archivo CSV para agregar, editar o eliminar extensiones según lo desee. Luego cargue el archivo CSV. Después de procesar el archivo CSV, se mostrará la acción realizada para cada fila."
+
+msgid "Export Extensions"
+msgstr "Exportar extensiones"
+
+msgid "Choose a CSV file..."
+msgstr "Seleccione un archivo CSV..."
+
+msgid "Upload"
+msgstr "Subir"
+
+msgid "Bulk extension changes can take a long time to complete. It can take 30-60 seconds to add 100 extensions on a small system. However, on a system with 2000 extensions it can take about 5 minutes to add 100 new extensions."
+msgstr "Los cambios masivos de extensión pueden tardar mucho tiempo en completarse. Puede tomar de 30 a 60 segundos agregar 100 extensiones en un sistema pequeño. Sin embargo, en un sistema con 2000 extensiones, puede tomar alrededor de 5 minutos agregar 100 nuevas extensiones."
+
+msgid "Email Notification for New Accounts"
+msgstr "Notificación por correo electrónico para cuentas nuevas"
+
+msgid "The settings below can be used to control the content and destination of the notification emails."
+msgstr "La configuración a continuación se puede utilizar para controlar el contenido y el destino de los correos electrónicos de notificación."
+
+msgid "By default, a notification email will be sent to the Voicemail email address set for each account added."
+msgstr "De manera predeterminada, se enviará un correo electrónico de notificación a la dirección de correo electrónico del correo de voz establecida para cada cuenta agregada."
+
+msgid "Default Address"
+msgstr "Dirección predeterminada"
+
+msgid "Override Address"
+msgstr "Dirección de anulación"
+
+msgid "Email From"
+msgstr "De"
+
+msgid "Email Reply-To"
+msgstr "Responder a"
+
+msgid "Email Subject"
+msgstr "Asunto del correo"
+
+msgid "Email Opening"
+msgstr "Apertura del correo"
+
+msgid "If an Override Address is specified, all notification emails will be sent to the Override Address only. Type \"noemail\" (without the quotes) as the Override Address to stop notification emails from being sent."
+msgstr "Si se especifica una dirección de anulación, todos los correos electrónicos de notificación se enviarán únicamente a la dirección de anulación. Escriba \"noemail\" (sin las comillas) como dirección de anulación para detener el envío de correos electrónicos de notificación."
+
+msgid "If a Default Address is specified, notification emails for new accounts without a Voicemail email address will be sent to the Default Address."
+msgstr "Si se especifica una dirección predeterminada, los correos electrónicos de notificación para cuentas nuevas sin una dirección de correo electrónico de correo de voz se enviarán a la dirección predeterminada."
+
+msgid "Email Closing"
+msgstr "Cierre del correo"
+
+msgid "The Email From header may be specified. If left blank, the system default will be used."
+msgstr "Se puede especificar el encabezado From del correo electrónico. Si se deja en blanco, se utilizará el valor predeterminado del sistema."
+
+msgid "The Email Reply-To header may be specified. If left blank, the system default will be used."
+msgstr "Se puede especificar el encabezado Reply-To (Responder a) del correo electrónico. Si se deja en blanco, se utilizará el valor predeterminado del sistema."
+
+msgid "The Email Subject may be specified. If left blank, the default subject, \"Voicemail Account Activated\", will be used."
+msgstr "Se puede especificar el asunto del mensaje. Si se deja en blanco, se utilizará el valor predeterminado \"Voicemail Account Activated\"."
+
+msgid "The Email Opening may be specified. If left blank, the default opening, \"Login information for your Voicemail account is as follows:\", will be used."
+msgstr "Se puede especificar la apertura del correo electrónico. Si se deja en blanco, se utilizará el valor predeterminado \"Login information for your Voicemail account is as follows:\"."
+
+msgid "The account name, extension, and Voicemail password will automatically be inserted after the opening."
+msgstr "El nombre de la cuenta, la extensión y la contraseña del correo de voz se insertarán automáticamente después de la apertura."
+
+msgid "The Email Closing may be specified. If any text is entered, it will be inserted at the end of the email."
+msgstr "Se puede especificar el cierre del correo electrónico. Si se ingresa algún texto, éste se insertará al final del correo electrónico."
+
+msgid "Bulk Extensions CSV File Columns"
+msgstr "Columnas CSV de archivo de extensiones masivas"
+
+msgid "The table below explains each column in the CSV file. You can change the column order of the CSV file as you like, however, the column names must be preserved."
+msgstr "La siguiente tabla explica cada columna en el archivo CSV. Puede cambiar el orden de las columnas del archivo CSV como desee; sin embargo, los nombres de las columnas deben conservarse."
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Default"
+msgstr "Defecto"
+
+msgid "Allowed"
+msgstr "Permitido"
+
+msgid "Details"
+msgstr "Detalles"
+
+msgid "On Extensions page"
+msgstr "En página de extensiones"
+
+msgid "The CID Number to use for internal calls, if different from the extension number. This is used to masquerade as a different user. A common example is a team of support people who would like their internal CallerID to display the general support number (a ringgroup or queue). There will be no effect on external calls."
+msgstr "El número CID que se usará para llamadas internas, si es diferente del número de extensión. Esto se usa para hacerse pasar por un usuario diferente. Un ejemplo común es un equipo de personas de soporte que desean que su identificador de llamadas interno muestre el número de soporte general ( un grupo de llamada o una cola). No habrá ningún efecto en las llamadas externas"
+
+msgid "The extension number to dial to reach this user."
+msgstr "El número de extensión a marcar para comunicarse con este usuario."
+
+msgid "Add, Delete, or Edit an Extension."
+msgstr "Agregar, eliminar o editar una extensión."
+
+msgid "The caller id name for calls from this user will be set to this name. Only enter the name, NOT the number."
+msgstr "El nombre del identificador de llamadas para las llamadas de este usuario se establecerá en este nombre. Solo ingrese el nombre, NO el número."
+
+msgid "If you want to support direct sip dialing of users internally or through anonymous sip calls, you can supply a friendly name that can be used in addition to the user's extension to call them."
+msgstr "Si desea admitir la marcación SIP directa de los usuarios internamente o mediante llamadas SIP anónimas, puede proporcionar un nombre descriptivo que se pueda usar además de la extensión del usuario para llamarlos."
+
+msgid "Overrides the caller id when dialing out a trunk. Any setting here will override the common outbound caller id set in the Trunks admin.<br><br>Format: <b>&quot;caller name&quot; &lt;#######&gt;</b><br><br>Leave this field blank to disable the outbound CallerID feature for this user."
+msgstr "Anula la identificación de la persona que llama cuando se marca un troncal. Cualquier configuración aquí anulará la identificación de la persona que llama saliente común establecida en el administrador de Trunks.<br><br>Formato: <b>\"nombre de la persona que llama\" <###### #></b><br><br>Deje este campo en blanco para desactivar la función de identificación de llamadas salientes para este usuario."
+
+msgid "Number of seconds to ring prior to going to Voicemail. 0 (Default) will use the value set in the General Tab. If no Voicemail is configured this will be ignored."
+msgstr "Número de segundos para sonar antes de ir al correo de voz. 0 (predeterminado) utilizará el valor establecido en la pestaña General. Si no se configura ningún correo de voz, se ignorará."
+
+msgid "Set the initial/current Call Waiting state for this user's extension."
+msgstr "Establecer el estado de llamada en espera inicial/actual para la extensión de este usuario."
+
+msgid "Call Screening requires external callers to say their name, which will be played back to the user and allow the user to accept or reject the call.  Screening with memory only verifies a caller for their caller-id once. Screening without memory always requires a caller to say their name. Either mode will always announce the caller based on the last introduction saved with that CallerID. If any user on the system uses the memory option, when that user is called, the caller will be required to re-introduce themselves and all users on the system will have that new introduction associated with the caller's CallerID.Set the initial/current Call Waiting state for this user's extension."
+msgstr "El filtrado de llamadas requiere que las personas que llaman externas digan su nombre, que se reproducirá para el usuario y le permitirá aceptar o rechazar la llamada. El filtrado con memoria solo verifica la identificación de la persona que llama una vez. El filtrado sin memoria siempre requiere una persona que llama diga su nombre. Cualquiera de los modos siempre anunciará a la persona que llama en función de la última presentación guardada con ese identificador de llamadas. Si algún usuario en el sistema usa la opción de memoria, cuando se llame a ese usuario, la persona que llama deberá volver a presentar ellos mismos y todos los usuarios del sistema tendrán esa nueva introducción asociada con el identificador de llamadas de la persona que llama. Establezca el estado de llamada en espera inicial/actual para la extensión de este usuario."
+
+msgid "Enabling Pinless Dialing will allow this extension to bypass any pin codes normally required on outbound calls"
+msgstr "Habilitar la marcación sin PIN permitirá que esta extensión omita los códigos PIN que normalmente se requieren en las llamadas salientes"
+
+msgid "For logging in and out of devices in deviceanduser mode, not available on Extensions page."
+msgstr "Para iniciar y cerrar sesión en dispositivos en modo dispositivo y usuario, no disponible en la página Extensiones."
+
+msgid "Optional: Setting a destination here where to send the call if the called extension was not answered"
+msgstr "Opcional: Establecer un destino aquí donde enviar la llamada si la extensión llamada no fue respondida"
+
+msgid "You can optionally prefix the Caller ID name when sending the call to the above destination. ie: If you prefix with 'No Answer:', a call to John Doe that was not answered would display as 'No Answer:John Doe' on the extensions belonging to the destination selected"
+msgstr "Opcionalmente, puede anteponer el nombre del identificador de llamadas al enviar la llamada al destino anterior. Es decir: si antepone 'Sin respuesta:', una llamada a John Doe que no fue respondida se mostraría como 'Sin respuesta: John Doe' en las extensiones pertenecientes al destino seleccionado"
+
+msgid "Optional: Setting a destination here where to send the call if the extension was busy"
+msgstr "Opcional: Establecer un destino aquí donde enviar la llamada si la extensión estaba ocupada"
+
+msgid "You can optionally prefix the Caller ID name when sending the call to the above destination. ie: If you prefix with 'Busy:', a call to John Doe that was busy would display as 'Busy:John Doe' on the extensions belonging to the destination selected"
+msgstr "Opcionalmente, puede anteponer el nombre del identificador de llamadas al enviar la llamada al destino anterior. Es decir: si antepone 'Ocupado:', una llamada a John Doe que estaba ocupada se mostraría como 'Ocupado: John Doe' en las extensiones perteneciente al destino seleccionado"
+
+msgid "Optional: Setting a destination here where to send the call if the extension was not reached"
+msgstr "Opcional: Establecer un destino aquí donde enviar la llamada si no se alcanzó la extensión"
+
+msgid "You can optionally prefix the Caller ID name when sending the call to the above destination. ie: If you prefix with 'Not Reached:', a call to John Doe that was busy would display as 'Not Reached:John Doe' on the extensions belonging to the destination selected"
+msgstr "Opcionalmente, puede anteponer el nombre del identificador de llamadas al enviar la llamada al destino anterior. Es decir: si antepone 'No contactado:', una llamada a John Doe que estaba ocupada se mostraría como 'No contactado: John Doe' en las extensiones pertenecientes al destino seleccionado"
+
+msgid "This caller id will always be set when dialing out an Outbound Route flagged as Emergency. The Emergency CID overrides all other caller id settings."
+msgstr "Este identificador de llamadas siempre se establecerá al marcar una ruta de salida marcada como emergencia. El CID de emergencia anula todas las demás configuraciones de identificación de llamadas."
+
+msgid "Device channel type."
+msgstr "Tipo de canal del dispositivo."
+
+msgid "See zapata.conf."
+msgstr "Ver zapata.conf."
+
+msgid "See sip.conf file or iax.conf file."
+msgstr "Ver el archivo sip.conf o el archivo iax.conf."
+
+msgid "See iax.conf file."
+msgstr "Ver el archivo iax.conf."
+
+msgid "See sip.conf file."
+msgstr "Ver el archivo sip.conf."
+
+msgid "Device context."
+msgstr "Contexto del dispositivo."
+
+msgid "See zapata.conf file."
+msgstr "Ver archivo zapata.conf."
+
+msgid "See sip.conf file or iax.conf file. Default for sip is 5060, iax2 is 4569."
+msgstr "Vea el archivo sip.conf o el archivo iax.conf. El valor predeterminado para sip es 5060, iax2 es 4569."
+
+msgid "See conf file for device tech. Codec(s) to disallow."
+msgstr "Ver el archivo conf para la tecnología del dispositivo. Códec(s) para no permitir."
+
+msgid "See conf file for device tech. Codec(s) to allow."
+msgstr "Ver el archivo conf para la tecnología del dispositivo. Códec(s) para permitir."
+
+msgid "See conf file for device tech. Default is TECH/exten, i.e SIP/101. For zap it is TECH/channel, i.e. ZAP/1."
+msgstr "Ver el archivo conf para la tecnología del dispositivo. El valor predeterminado es TECH/exten, es decir, SIP/101. Para zap es TECH/channel, es decir, ZAP/1."
+
+msgid "See conf file for device tech."
+msgstr "Ver el archivo conf para la tecnología del dispositivo."
+
+msgid "See conf file for device tech. Default is exten@device, i.e 101@device."
+msgstr "Ver el archivo conf para la tecnología del dispositivo. El valor predeterminado es exten@device, es decir, 101@device."
+
+msgid "Network/Mask of IP address range to deny.  Default is 0.0.0.0/0.0.0.0 (or everything)."
+msgstr "Red/Máscara del rango de direcciones IP para denegar. El valor predeterminado es 0.0.0.0/0.0.0.0 (o todo)."
+
+msgid "Network/Mask of IP address range to permit.  Default is 0.0.0.0/0.0.0.0 (or everything).  Valid examples would be: 192.168.1.0/255.255.255.0 (all IP addresses from 192.168.1.0-255) or 10.1.0.42/255.255.255.255 (a single address)."
+msgstr "Red/Máscara del rango de direcciones IP para permitir. El valor predeterminado es 0.0.0.0/0.0.0.0 (o todo). Los ejemplos válidos serían: 192.168.1.0/255.255.255.0 (todas las direcciones IP desde 192.168.1.0-255) o 10.1.0.42/255.255.255.255 (una sola dirección)."
+
+msgid "Extensions require that devicetype be fixed. If devicetype is adhoc, IssabelPBX must manage it in Device and Users mode, not Extensions mode."
+msgstr "Las extensiones requieren que el tipo de dispositivo sea fijo. Si el tipo de dispositivo es ad hoc, Issabel PBX debe administrarlo en modo Dispositivo y Usuarios, no en modo Extensiones."
+
+msgid "Defaults to be the value of extension (see item 2 of this table)."
+msgstr "El valor predeterminado es el valor de la extensión (consulte el elemento 2 de esta tabla)."
+
+msgid "Fixed devices will always be mapped to this user.  Adhoc devices will be mapped to this user by default.<br><br>If selecting 'New User', a new User Extension of the same Device ID will be set as the Default User."
+msgstr "Los dispositivos fijos siempre se asignarán a este usuario. Los dispositivos adhoc se asignarán a este usuario de forma predeterminada.<br><br>Si selecciona 'Nuevo usuario', se establecerá una nueva extensión de usuario del mismo ID de dispositivo como el Usuario predeterminado."
+
+msgid "The caller id name for this device will be set to this description (until it is logged into - possible when adhoc devicetype is used)."
+msgstr "El nombre del identificador de llamadas para este dispositivo se establecerá en esta descripción (hasta que se inicie sesión; es posible cuando se usa un tipo de dispositivo adhoc)."
+
+msgid "The email address that completed dictations are sent to."
+msgstr "La dirección de correo electrónico a la que se envían los dictados completados."
+
+msgid "The language code for this user. This will result in messages such as voiclangcode prompts to use the selected language if installed."
+msgstr "El código de idioma para este usuario. Esto resultará en mensajes tales como indicaciones de voiclangcode para usar el idioma seleccionado si está instalado."
+
+msgid "Set Voicemail status for this user."
+msgstr "Establecer el estado del correo de voz para este usuario."
+
+msgid "This is the password used to access the Voicemail system.<br><br>This password can only contain numbers.<br><br>A user can change the password you enter here after logging into the Voicemail system (*98) with a phone."
+msgstr "Esta es la contraseña utilizada para acceder al sistema de correo de voz.<br><br>Esta contraseña solo puede contener números.<br><br>Un usuario puede cambiar la contraseña que ingresa aquí después de iniciar sesión en el sistema de correo de voz (*98 ) con un teléfono."
+
+msgid "The email address that Voicemails are sent to."
+msgstr "La dirección de correo electrónico a la que se envían los mensajes de voz."
+
+msgid "Pager/mobile email address to which short Voicemail notifcations are sent."
+msgstr "Dirección de correo electrónico de buscapersonas/móvil a la que se envían notificaciones breves de correo de voz."
+
+msgid "Option to attach Voicemails to email."
+msgstr "Opción para adjuntar mensajes de voz al correo electrónico."
+
+msgid "Read back caller's telephone number prior to playing the incoming message, and just after announcing the date and time the message was left."
+msgstr "Lee el número de teléfono de la persona que llama antes de reproducir el mensaje entrante y justo después de anunciar la fecha y la hora en que se dejó el mensaje."
+
+msgid "Envelope controls whether or not the Voicemail system will play the message envelope (date/time) before playing the Voicemail message. This settng does not affect the operation of the envelope option in the advanced Voicemail menu."
+msgstr "Sobre controla si el sistema de correo de voz reproducirá o no el sobre del mensaje (fecha/hora) antes de reproducir el mensaje de correo de voz. Esta configuración no afecta la operación de la opción de sobre en el menú avanzado de correo de voz."
+
+msgid "If set to &quot;yes&quot; the message will be deleted from the Voicemailbox (after having been emailed).  Provides functionality that allows a user to receive their Voicemail via email alone, rather than having the Voicemail able to be retrieved from the Web interface or the Extension  handset. CAUTION: MUST HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER."
+msgstr "Si se establece en \"sí\", el mensaje se eliminará del buzón de correo de voz (después de haberlo enviado por correo electrónico). Proporciona una funcionalidad que permite a un usuario recibir su correo de voz solo por correo electrónico, en lugar de recuperar el correo de voz desde la interfaz web o el auricular de la Extensión. PRECAUCIÓN: DEBE ADJUNTAR el correo de voz al correo electrónico CONFIGURADO EN SÍ, DE LO CONTRARIO, SUS MENSAJES SE PERDERÁN PARA SIEMPRE."
+
+msgid "Separate options with pipe ( | ) <br><br>ie: review=yes|maxmessage=60"
+msgstr "Opciones separadas con canalización ( | ) <br><br>ej: review=yes|maxmessage=60"
+
+msgid "This is the Voicemail Context which is normally set to default. Do not change unless you understand the implications."
+msgstr "Este es el contexto del correo de voz que normalmente está configurado de manera predeterminada. No lo cambie a menos que comprenda las implicaciones."
+
+msgid "Enable/Disable the VmX Locater feature for this user. When enabled all settings are controlled by the user in the User Portal (ARI). Disabling will not delete any existing user settings but will disable access to the feature"
+msgstr "Habilitar/deshabilitar la función VmX Locater para este usuario. Cuando está habilitada, todas las configuraciones son controladas por el usuario en el Portal de usuario (ARI). Deshabilitar no eliminará ninguna configuración de usuario existente, pero deshabilitará el acceso a la función"
+
+msgid "Use When: unavailable"
+msgstr "Usar cuando: no disponible"
+
+msgid "Use When: busy"
+msgstr "Usar cuando: ocupado"
+
+msgid "Uncheck to play a beep after your personal Voicemail greeting."
+msgstr "Desmarque para reproducir un pitido después de su saludo de correo de voz personal."
+
+msgid "Pressing 0 during your personal Voicemail greeting goes to the Operator. Uncheck to enter another destination here. This feature can be used while still disabling VmX to allow an alternative Operator extension without requiring the VmX feature for the user."
+msgstr "Al presionar 0 durante su saludo de correo de voz personal, se dirige al Operador. Desmarque para ingresar otro destino aquí. Esta función se puede usar mientras se desactiva VmX para permitir una extensión de Operador alternativa sin requerir la función VmX para el usuario."
+
+
+msgid "The remaining options can have internal extensions, ringgroups, queues and external numbers that may be rung. It is often used to include your cell phone. You should run a test to make sure that the number is functional any time a change is made so you don't leave a caller stranded or receiving invalid number messages."
+msgstr "Las opciones restantes pueden tener extensiones internas, grupos de llamada, colas y números externos que pueden llamarse. A menudo se usa para incluir su teléfono celular. Debe ejecutar una prueba para asegurarse de que el número funcione cada vez que se realice un cambio para que no deje a la persona que llama varada o reciba mensajes de números no válidos."
+
+msgid "Use any extensions, ringgroups, queues or external numbers. <br/><br/>Remember to re-record your personal Voicemail greeting and include instructions. Run a test to make sure that the number is functional."
+msgstr "Use extensiones, grupos de llamada, colas o números externos. <br/><br/>Recuerde volver a grabar su saludo de correo de voz personal e incluir instrucciones. Ejecute una prueba para asegurarse de que el número funciona."
+
+msgid "Extension of account."
+msgstr "Extensión de cuenta."
+
+msgid "By default (not checked) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here."
+msgstr "De manera predeterminada (sin marcar), cualquier llamada a esta extensión irá a este Sígueme, incluidas las llamadas de directorio por nombre de los IVR. Si está marcada, las llamadas solo irán a la extensión.<BR>Sin embargo, los destinos que especifican Sígueme vendrá aquí.<BR>Marcar esta casilla se usa a menudo junto con VmX Locater, donde desea que una llamada suene en la extensión, y solo si la persona que llama elige encontrarlo, desea que venga aquí."
+
+msgid "This is the number of seconds to ring the primary extension prior to proceeding to the follow-me list. The extension can also be included in the follow-me list. A 0 setting will bypass this."
+msgstr "Este es el número de segundos para llamar a la extensión principal antes de pasar a la lista de seguimiento. La extensión también se puede incluir en la lista de seguimiento. Una configuración de 0 omitirá esto."
+
+msgid "<b>ringallv2</b>:  ring primary extension for initial ring time followed by all additional extensions until one answers<br><b>ringall</b>:  ring all available channels until one answers (default)<br><b>hunt</b>: take turns ringing each available extension<br><b>memoryhunt</b>: ring first extension in the list, then ring the 1st and 2nd extension, then ring 1st 2nd and 3rd extension in the list.... etc.<br><b>*-prim</b>:  these modes act as described above. However, if the primary extension (first in list) is occupied, the other extensions will not be rung. If the primary is IssabelPBX DND, it won't be rung. If the primary is IssabelPBX CF unconditional, then all will be rung<br><b>firstavailable</b>:  ring only the first available channel<br><b>firstnotonphone</b>:  ring only the first channel which is not off hook - ignore CW<br>"
+msgstr "<b>ringallv2</b>: llamar a la extensión principal para el tiempo de timbre inicial seguido de todas las extensiones adicionales hasta que uno responda<br><b>ringall</b>: llamar a todos los canales disponibles hasta que uno responda (predeterminado)<br ><b>buscar</b>: turnarse para llamar a cada extensión disponible<br><b>memoryhunt</b>: llamar a la primera extensión de la lista, luego llamar a la 1.ª y 2.ª extensión, luego llamar a la 1.ª, 2.ª y 3.ª extensión en la lista.... etc.<br><b>*-prim</b>: estos modos actúan como se describe anteriormente. Sin embargo, si la extensión principal (primera en la lista) está ocupada, las otras extensiones no lo estarán. peldaño. Si el primario es IssabelPBX DND, no se llamará. Si el primario es IssabelPBX CF incondicional, entonces todos se llamarán<br><b>primero disponible</b>: llamar solo al primer canal disponible<br> <b>firstnotonphone</b>: suena solo el primer canal que no está descolgado - ignora CW<br>"
+
+msgid "Time in seconds that the phones will ring. For all hunt style ring strategies, this is the time for each iteration of phone(s) that are rung"
+msgstr "Tiempo en segundos en que sonarán los teléfonos. Para todas las estrategias de timbre de estilo de búsqueda, este es el tiempo para cada iteración de teléfono(s) que suena(n)"
+
+msgid "extension-extension-extension-... (extension is numeric; multiple extensions separated by '-')<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing)."
+msgstr "extensión-extensión-extensión-... (la extensión es numérica; múltiples extensiones separadas por '-')<br><br>Puede incluir una extensión en un sistema remoto o un número externo agregando un sufijo a un número con un almohadilla (#). ej.: 2448089# marcaría 2448089 en la troncal correspondiente (consulte Enrutamiento de salida)."
+
+msgid "Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the 'System Recordings' MENU to the left"
+msgstr "Mensaje que se reproducirá para la persona que llama antes de marcar este grupo.<br><br>Para agregar grabaciones adicionales, use el MENÚ 'Grabaciones del sistema' a la izquierda"
+
+msgid "If you select a Music on Hold class to play, instead of 'Ring', they will hear that instead of Ringing while they are waiting for someone to pick up."
+msgstr "Si selecciona una clase de música en espera para reproducir, en lugar de 'Timbre', escucharán eso en lugar de Timbre mientras esperan que alguien conteste."
+
+msgid "You can optionally prefix the Caller ID name when ringing extensions in this group. ie: If you prefix with 'Sales:', a call from John Doe would display as 'Sales:John Doe' on the extensions that ring."
+msgstr "Opcionalmente, puede anteponer el nombre del identificador de llamadas cuando llame a las extensiones de este grupo. Es decir: si antepone 'Ventas:', una llamada de John Doe se mostraría como 'Ventas:John Doe' en las extensiones que suenan."
+
+msgid "You can optionally include an Alert Info which can create distinctive rings on SIP phones."
+msgstr "Opcionalmente, puede incluir una información de alerta que puede crear timbres distintivos en teléfonos SIP."
+
+msgid "Enable this if you're calling external numbers that need confirmation - eg, a mobile phone may go to Voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall/ringall-prim  ring strategy"
+msgstr "Habilite esto si está llamando a números externos que necesitan confirmación, por ejemplo, un teléfono móvil puede ir al correo de voz que atenderá la llamada. Habilitar esto requiere que el lado remoto presione 1 en su teléfono antes de que se realice la llamada. Esto función solo funciona con la estrategia de anillo ringall/ringall-prim"
+
+msgid "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the 'System Recordings' MENU to the left"
+msgstr "Mensaje que se reproducirá para la persona que RECIBE la llamada, si 'Confirmar llamadas' está habilitado.<br><br>Para agregar grabaciones adicionales, use el MENÚ 'Grabaciones del sistema' a la izquierda"
+
+msgid "Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the 'System Recordings' MENU to the left"
+msgstr "Mensaje que se reproducirá para la persona que RECIBE la llamada, si la llamada ya ha sido aceptada antes de presionar 1.<br><br>Para agregar grabaciones adicionales, use el MENÚ 'Grabaciones del sistema' a la izquierda"
+
+msgid "Destination if no answer: (Follow Me page)"
+msgstr "Destino si no hay respuesta: (página Sígueme)"
+
+msgid "Enables fax if setting is set to <b>true</b>. If left blank fax settings are removed"
+msgstr "Habilita el fax si la configuración se establece en <b>verdadero</b>. Si se deja en blanco, se eliminan las configuraciones de fax"
+
+msgid "Email address where fax should be emailed to"
+msgstr "Dirección de correo electrónico a la que debe enviarse el fax"
+
+msgid "Number of seconds to ring during a Call Forward, Call Forward Busy or Call Forward Unavailable call prior to continuing to voicemail or specified destination. Setting to Always will not return, it will just continue to ring. Default will use the current Ring Time. If voicemail is disabled and their is not destination specified, it will be forced into Always mode"
+msgstr "Número de segundos para sonar durante una llamada de desvío de llamada, desvío de llamada ocupada o desvío de llamada no disponible antes de continuar con el correo de voz o el destino especificado. Si se establece en Siempre, no regresará, solo seguirá sonando. De manera predeterminada, se usará el Tiempo de timbre actual Si el correo de voz está deshabilitado y no se especifica el destino, se forzará al modo Siempre"
+
+msgid "Maximum number of outbound simultaneous calls that an extension can make. This is also very useful as a Security Protection against a system that has been compromised. It will limit the number of simultaneous calls that can be made on the compromised extension."
+msgstr "Número máximo de llamadas salientes simultáneas que puede realizar una extensión. Esto también es muy útil como protección de seguridad contra un sistema que ha sido comprometido. Limitará la cantidad de llamadas simultáneas que se pueden realizar en la extensión comprometida."
+
+msgid "When set to Intercom, calls to this extension/user from other internal users act as if they were intercom calls meaning they will be auto-answered if the endpoint supports this feature and the system is configured to operate in this mode. All the normal white list and black list settings will be honored if they are set. External calls will still ring as normal, as will certain other circumstances such as blind transfers and when a Follow Me is configured and enabled. If Disabled, the phone rings as a normal phone."
+msgstr "Cuando se establece en Intercomunicador, las llamadas a esta extensión/usuario de otros usuarios internos actúan como si fueran llamadas de intercomunicador, lo que significa que se responderán automáticamente si el terminal es compatible con esta función y el sistema está configurado para operar en este modo. Todos los las configuraciones normales de la lista blanca y la lista negra se respetarán si están configuradas. Las llamadas externas seguirán sonando normalmente, al igual que otras circunstancias, como las transferencias ciegas y cuando un Sígueme está configurado y habilitado. Si está desactivado, el teléfono suena como un teléfono normal."
+
+msgid "If this extension is part of a Queue then the Queue will attempt to use the user's extension state or device state information when determining if this queue member should be called. In some uncommon situations such as a Follow-Me with no physical device, or some virtual extension scenarios, the state information will indicate that this member is not available when they are. Setting this to 'Ignore State' will make the Queue ignore all state information thus always trying to contact this member. Certain side affects can occur when this route is taken due to the nature of how Queues handle Local channels, such as subsequent transfers will continue to show the member as busy until the original call is terminated. In most cases, this SHOULD BE set to 'Use State'."
+msgstr "Si esta extensión es parte de una Cola, la Cola intentará usar el estado de la extensión del usuario o la información del estado del dispositivo para determinar si se debe llamar a este miembro de la cola. En algunas situaciones poco comunes, como un Sígueme sin dispositivo físico, o algunos escenarios de extensión virtual, la información de estado indicará que este miembro no está disponible cuando lo esté. Al establecer esto en 'Ignorar estado', la cola ignorará toda la información de estado, por lo que siempre intentará ponerse en contacto con este miembro. Ciertos efectos secundarios pueden ocurrir cuando esta ruta se toma debido a la naturaleza de cómo las colas manejan los canales locales, por ejemplo, las transferencias posteriores seguirán mostrando al miembro como ocupado hasta que finalice la llamada original. En la mayoría de los casos, esto DEBE establecerse en 'Usar estado'."
+
+msgid "Whether Asterisk should trust the RPID settings from this device. Usually should be yes for CONNECTEDLINE() functionality to work if supported by the endpoint."
+msgstr "Si Asterisk debe confiar en la configuración RPID de este dispositivo. Por lo general, debería ser sí para que la funcionalidad CONNECTEDLINE() funcione si es compatible con el punto final."
+
+msgid "Whether Asterisk should send RPID (or PAI) info to the device. Usually should be enabled to the settings used by your device for CONNECTEDLINE() functionality to work if supported by the endpoint."
+msgstr "Si Asterisk debe enviar información RPID (o PAI) al dispositivo. Por lo general, debe habilitarse en la configuración utilizada por su dispositivo para que funcione la funcionalidad CONNECTEDLINE() si es compatible con el punto final."
+
+msgid "Frequency in seconds to send qualify messages to the endpoint."
+msgstr "Frecuencia en segundos para enviar mensajes calificados al punto final."
+
+msgid "This sets the allowed transport settings for this device and the default (Primary) transport for outgoing. The default transport is only used for outbound messages until a registration takes place. During the peer registration the transport type may change to another supported type if the peer requests so. In most common cases, this does not have to be changed as most devices register in conjunction with the host=dynamic setting. If you are using TCP and/or TLS you need to make sure the general SIP Settings are configured for the system to operate in those modes and for TLS, proper certificates have been generated and configured."
+msgstr "Esto establece la configuración de transporte permitida para este dispositivo y el transporte predeterminado (Principal) para los mensajes salientes. El transporte predeterminado solo se usa para los mensajes salientes hasta que se lleva a cabo un registro. Durante el registro del par, el tipo de transporte puede cambiar a otro tipo admitido si el par lo solicita. En la mayoría de los casos comunes, esto no tiene que cambiarse ya que la mayoría de los dispositivos se registran junto con la configuración hostu003ddynamic. Si está utilizando TCP y/o TLS, debe asegurarse de que la configuración general de SIP esté configurada. para que el sistema funcione en esos modos y para TLS, se han generado y configurado los certificados adecuados."
+
+msgid "Whether to offer SRTP encrypted media (and only SRTP encrypted media) on outgoing calls to a peer. Calls will fail with HANGUPCAUSE=58 if the peer does not support SRTP. Defaults to no."
+msgstr "Si ofrecer medios cifrados con SRTP (y solo medios cifrados con SRTP) en llamadas salientes a un par. Las llamadas fallarán con HANGUPCAUSEu003d58 si el par no admite SRTP. El valor predeterminado es no."
+
+msgid "Asterisk dialplan extension to reach voicemail for this device. Some devices use this to auto-program the voicemail button on the endpoint. If left blank, the default vmexten setting is automatically configured by the voicemail module. Only change this on devices that may have special needs."
+msgstr "Extensión del plan de marcación de Asterisk para comunicarse con el correo de voz de este dispositivo. Algunos dispositivos usan esto para programar automáticamente el botón de correo de voz en el terminal. Si se deja en blanco, el módulo de correo de voz configura automáticamente la configuración predeterminada de vmexten. Cambie esto solo en dispositivos que pueden tienen necesidades especiales."
+
+msgid "Asterisk: cc_agent_policy. Used to enable Camp-On for this user and set the Technology Mode that will be used when engaging the feature. In most cases 'Generic Device' should be chosen unless you have phones designed to work with channel specific capabilities."
+msgstr "Asterisco: cc_agent_policy. Se usa para habilitar Camp-On para este usuario y configurar el Modo de tecnología que se usará al activar la función. En la mayoría de los casos, se debe elegir 'Dispositivo genérico' a menos que tenga teléfonos diseñados para funcionar con capacidades específicas del canal ."
+
+msgid "Asterisk: cc_monitor_policy. Used to control if other phones are allowed to Camp On to this extension. If so, it sets the technology mode used to monitor the availability of the extension. If no specific technology support is available then it should be set to a 'Generic Device'. In this mode, a callback will be initiated to this extension when it changes from an InUse state to NotInUse. If it was busy when first attempted, this will be when the current call has ended. If it simply did not answer, then this will be the next time this phone is used to make or answer a call and then hangs up. It is possible to set this to take advantage of 'Native Technology Support' if available and automatically fallback to the 'Generic Mode' when not."
+msgstr "Asterisco: cc_monitor_policy. Se usa para controlar si otros teléfonos pueden conectarse a esta extensión. Si es así, establece el modo de tecnología utilizado para monitorear la disponibilidad de la extensión. Si no hay soporte de tecnología específico disponible, entonces debe configurarse a un \"Dispositivo genérico.\" En este modo, se iniciará una devolución de llamada a esta extensión cuando cambie de un estado En uso a No en uso. Si estaba ocupado cuando se intentó por primera vez, será cuando la llamada actual haya terminado. Si simplemente no respondió, entonces esta será la próxima vez que se use este teléfono para hacer o contestar una llamada y luego cuelgue. Es posible configurar esto para aprovechar la 'Soporte de tecnología nativa' si está disponible y retroceder automáticamente a la 'Compatibilidad genérica'. Modo' cuando no."
+
+msgid "Recording of inbound calls from external sources."
+msgstr "Grabación de llamadas entrantes de fuentes externas."
+
+msgid "Recording of outbound calls to external sources."
+msgstr "Grabación de llamadas salientes a fuentes externas."
+
+msgid "Recording of calls received from other extensions on the system."
+msgstr "Grabación de llamadas recibidas de otras extensiones en el sistema."
+
+msgid "Recording of calls made to other extensions on the system."
+msgstr "Grabación de llamadas realizadas a otras extensiones del sistema."
+
+msgid "Enable or disable the ability to do on demand (one-touch) recording. The overall calling policy rules still apply and if calls are already being recorded they can not be paused."
+msgstr "Habilite o deshabilite la capacidad de realizar grabaciones a pedido (de un solo toque). Las reglas generales de la política de llamadas aún se aplican y, si las llamadas ya se están grabando, no se pueden pausar."
+
+msgid "Call recording policy priority relative to other extensions when there is a conflict between an extension wanting recording and the other not wanting it. The higher of the two determines the policy, on a tie the global policy (caller or callee) determines the policy."
+msgstr "Prioridad de la política de grabación de llamadas en relación con otras extensiones cuando hay un conflicto entre una extensión que desea grabar y la otra no. El mayor de los dos determina la política, en caso de empate, la política global (llamante o destinatario) determina la política ."
+

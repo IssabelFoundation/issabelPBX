@@ -3,9 +3,9 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 //for translation only
 if (false) {
-  _("Pickup ParkedCall Any");
-  _("Park Prefix");
-  _("Pickup ParkedCall Prefix");
+  __("Pickup ParkedCall Any");
+  __("Park Prefix");
+  __("Pickup ParkedCall Prefix");
 }
 
 $fcc = new featurecode('parking', 'parkedcall');
@@ -43,7 +43,7 @@ $sql['parkplus'] = "
 	)";
 
 foreach ($sql as $t => $s) {
-	out(sprintf(_("creating table %s if needed"), $t));
+	out(sprintf(__("creating table %s if needed"), $t));
 	$result = $db->query($s);
 	if(DB::IsError($result)) {
 		die_issabelpbx($result->getDebugInfo());
@@ -56,7 +56,7 @@ $default_lot = sql($sql,"getAll");
 // There should never be more than a single default lot so just blow them
 // all away if we or esomeone did something dumb.
 if (count($default_lot) > 1) {
-	out(_("ERROR: too many default lots detected, deleting and reinitializing"));
+	out(__("ERROR: too many default lots detected, deleting and reinitializing"));
 	$sql = "DELETE FROM parkplus WHERE defaultlot = 'yes'";
 	sql($sql);
 	//We deleted all default lots to we need to trick the system into reinstalling the default lot!
@@ -72,16 +72,16 @@ if(count($default_lot) == 1 && empty($default_lot[0]['dest'])) {
 //Add default parking lot or try to migrate the old one.
 if (count($default_lot) == 0) {
 
-	outn(_("Initializing default parkinglot.."));
+	outn(__("Initializing default parkinglot.."));
 	$sql = "INSERT INTO parkplus (id, defaultlot, name, parkext, parkpos, numslots) VALUES (1, 'yes', 'Default Lot', '70', '71', 8)";
 	sql($sql);
-	out(_("done"));
+	out(__("done"));
 
 	$sql = "SELECT keyword,data FROM parkinglot WHERE id = '1'";
 	$results = $db->getAssoc($sql);
 	if (!DB::IsError($results)) {
 
-		out(_("migrating old parkinglot data"));
+		out(__("migrating old parkinglot data"));
 
 		$var['name'] = "Default Lot";
 		$var['type'] = 'public';
@@ -142,7 +142,7 @@ if (count($default_lot) == 0) {
 					 adsipark
 					 parkingcontext
 				 */
-				out(sprintf(_("%s no longer supported"),$set));
+				out(sprintf(__("%s no longer supported"),$set));
 				break;
 			}
 		}
@@ -152,7 +152,7 @@ if (count($default_lot) == 0) {
 			sql($sql);
 		}
 
-		out(_("migrated ... dropping old table parkinglot"));
+		out(__("migrated ... dropping old table parkinglot"));
 		sql('DROP TABLE IF EXISTS parkinglot');
 		unset($var);
 		unset($results);

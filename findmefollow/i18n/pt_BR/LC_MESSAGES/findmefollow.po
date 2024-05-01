@@ -1,0 +1,562 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Follow Me"
+msgstr "Me siga"
+
+msgid "Applications"
+msgstr "Formulários"
+
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+
+msgid "Force Follow Me"
+msgstr "Forçar siga-me"
+
+msgid "Edit Follow Me Settings"
+msgstr "Modificar configurações Siga-me"
+
+msgid "Add Follow Me Settings"
+msgstr "Adicionar configurações Siga-me"
+
+msgid "Follow-Me: %s (%s)"
+msgstr "Siga-me: %s (%s)"
+
+msgid "Follow-Me User: %s"
+msgstr "Usuário siga-me: %s"
+
+msgid "Findme Follow Toggle"
+msgstr "Alternar Siga-me"
+
+msgid "Cannot connect to Asterisk Manager with "
+msgstr ""
+
+msgid "Checking if recordings need migration.."
+msgstr ""
+
+msgid "migrating"
+msgstr ""
+
+msgid "adding annmsg_id field.."
+msgstr ""
+
+msgid "fatal error"
+msgstr ""
+
+msgid "ok"
+msgstr ""
+
+msgid "adding remotealert_id field.."
+msgstr ""
+
+msgid "adding toolate_id field.."
+msgstr ""
+
+msgid "migrate annmsg to ids.."
+msgstr ""
+
+msgid "migrated %s entries"
+msgstr ""
+
+msgid "migrate remotealert to ids.."
+msgstr ""
+
+msgid "migrate toolate to  ids.."
+msgstr ""
+
+msgid "dropping annmsg field.."
+msgstr ""
+
+msgid "no annmsg field???"
+msgstr ""
+
+msgid "dropping remotealert field.."
+msgstr ""
+
+msgid "no remotealert field???"
+msgstr ""
+
+msgid "dropping toolate field.."
+msgstr ""
+
+msgid "no toolate field???"
+msgstr ""
+
+msgid "already migrated"
+msgstr ""
+
+msgid "Warning! Extension"
+msgstr "Atenção! A extensão"
+
+msgid "is not allowed for your account"
+msgstr "não é permitido em sua conta"
+
+msgid "Choose a user/extension from the navigation menu"
+msgstr "Escolha uma extensão no menu de navegação"
+
+msgid "deleted"
+msgstr "eliminadas"
+
+msgid "Delete Entries"
+msgstr "Excluir entradas"
+
+msgid "User"
+msgstr "Do utilizador"
+
+msgid "Extension"
+msgstr "Extensão"
+
+msgid "Edit %s"
+msgstr "Modificar %s"
+
+msgid "Edit %s %s"
+msgstr "Modificar %s %S"
+
+msgid "Edit Follow Me"
+msgstr "Modificar Siga-me"
+
+msgid "Add Follow Me"
+msgstr "Adicionar Siga-me"
+
+msgid "group number"
+msgstr "número do grupo"
+
+msgid "The number users will dial to ring extensions in this ring group"
+msgstr "O número que os usuários discarão para tocar nos ramais deste grupo"
+
+msgid "Disable"
+msgstr "Desativar"
+
+msgid ""
+"By default (not checked) any call to this extension will go to this Follow-"
+"Me instead, including directory calls by name from IVRs. If checked, calls "
+"will go only to the extension.<BR>However, destinations that specify "
+"FollowMe will come here.<BR>Checking this box is often used in conjunction "
+"with VmX Locater, where you want a call to ring the extension, and then only "
+"if the caller chooses to find you do you want it to come here."
+msgstr ""
+"Se esta opção não estiver ativada, as chamadas para este ramal irão para "
+"este Siga-me, incluindo chamadas de diretório por nome de um IVR. Se "
+"ativado, as chamadas irão apenas para o ramal.<br>No entanto, os destinos "
+"que especificam Siga-me virão aqui.<br>A discagem desta opção é "
+"frequentemente usada em conjunto com o Localizador VmX, onde você deseja que "
+"uma chamada toque uma vez. , e somente se o chamador quiser pesquisar ele "
+"virá aqui"
+
+msgid "Initial Ring Time"
+msgstr "Tempo de toque inicial"
+
+msgid ""
+"This is the number of seconds to ring the primary extension prior to "
+"proceeding to the follow-me list. The extension can also be included in the "
+"follow-me list. A 0 setting will bypass this."
+msgstr ""
+"Número em segundos que o ramal principal tocará antes de continuar com a "
+"lista Siga-me. A extensão também pode ser incluída na lista siga-me. Se você "
+"inserir 0, esta opção será ignorada."
+
+msgid "Ring Strategy"
+msgstr "Estratégia de toque"
+
+msgid "ringallv2"
+msgstr ""
+
+msgid ""
+"ring primary extension for initial ring time followed by all additional "
+"extensions until one answers"
+msgstr ""
+"ligue para o ramal principal pela duração inicial, seguido pelos seguintes "
+"ramais na lista até que um atenda"
+
+msgid "ringall"
+msgstr ""
+
+msgid "ring all available channels until one answers (default)"
+msgstr ""
+"ligar para todos os canais simultaneamente até que um atenda (opção padrão)"
+
+msgid "hunt"
+msgstr ""
+
+msgid "take turns ringing each available extension"
+msgstr "revezem-se para ligar para cada um dos ramais"
+
+msgid "memoryhunt"
+msgstr ""
+
+msgid ""
+"ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc."
+msgstr ""
+"ligue para o primeiro ramal da lista, depois para o 1º e 2º, depois para o "
+"1º, 2º e 3º da lista, etc."
+
+msgid "*-prim"
+msgstr ""
+
+msgid ""
+"these modes act as described above. However, if the primary extension (first "
+"in list) is occupied, the other extensions will not be rung. If the primary "
+"is IssabelPBX DND, it won't be rung. If the primary is IssabelPBX CF "
+"unconditional, then all will be rung"
+msgstr ""
+"Esses modos funcionam conforme descrito acima. Porém, se o ramal principal "
+"(o primeiro da lista) estiver ocupado, os outros ramais não tocarão. Se o "
+"primário estiver no modo DND, ele também não tocará. Se o principal tiver o "
+"encaminhamento incondicional ativado, todos eles tocarão."
+
+msgid "firstavailable"
+msgstr ""
+
+msgid "ring only the first available channel"
+msgstr "tocar apenas no primeiro canal disponível"
+
+msgid "firstnotonphone"
+msgstr ""
+
+msgid "ring only the first channel which is not off hook - ignore CW"
+msgstr ""
+"tocar apenas o primeiro canal que não estiver fora do gancho - ignora a "
+"chamada em espera"
+
+msgid "Ring Time (max 60 sec)"
+msgstr "Tempo de toque (máx. 60 segundos)"
+
+msgid ""
+"Time in seconds that the phones will ring. For all hunt style ring "
+"strategies, this is the time for each iteration of phone(s) that are rung"
+msgstr ""
+"Tempo em segundos que os telefones tocarão. Para todas as estratégias este "
+"será o horário em que cada telefone tocará."
+
+msgid "Follow-Me List"
+msgstr "Lista Siga-me"
+
+msgid ""
+"List extensions to ring, one per line, or use the Extension Quick Pick below."
+"<br><br>You can include an extension on a remote system, or an external "
+"number by suffixing a number with a pound (#).  ex:  2448089# would dial "
+"2448089 on the appropriate trunk (see Outbound Routing)."
+msgstr ""
+"Liste os ramais para tocar, um por linha, ou use a seleção rápida de ramais "
+"abaixo.<br><br>Você pode incluir um ramal em um sistema remoto ou número "
+"externo adicionando um sufixo com um hash (#). ex.: 2448089# discaria "
+"2448089 no tronco correspondente (veja Roteamento de Saída)."
+
+msgid "Extension Quick Pick"
+msgstr "Seleção rápida de extensão"
+
+msgid "Choose an extension to append to the end of the extension list above."
+msgstr "Escolha uma extensão para adicionar à lista de extensões acima."
+
+msgid "(pick extension)"
+msgstr "(escolha a extensão)"
+
+msgid "Announcement"
+msgstr "Anuncio"
+
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Mensagem a ser reproduzida para o chamador antes de tentar discar para o "
+"grupo.<br><br>Para adicionar mensagens adicionais, use \"Gravações do Sistema"
+"\" no menu esquerdo"
+
+msgid "None"
+msgstr "Nenhum"
+
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Mensagem a ser reproduzida para o chamador antes de tentar discar para o "
+"grupo.<br><br>Você deve instalar e ativar \"Gravações do Sistema\" para usar "
+"esta opção"
+
+msgid "Play Music On Hold?"
+msgstr "Tocar música em espera"
+
+msgid ""
+"If you select a Music on Hold class to play, instead of 'Ring', they will "
+"hear that instead of Ringing while they are waiting for someone to pick up."
+msgstr ""
+"Se você escolher um tipo de música em espera em vez de 'Tocar', você ouvirá "
+"a música em espera em vez de tocar enquanto espera alguém atender."
+
+msgid "Ring"
+msgstr "Estampagem"
+
+msgid "CID Name Prefix"
+msgstr "Prefixo do identificador de nome"
+
+msgid ""
+"You can optionally prefix the Caller ID name when ringing extensions in this "
+"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
+"as \"Sales:John Doe\" on the extensions that ring."
+msgstr ""
+"Opcionalmente, você pode adicionar um prefixo ao nome do identificador de "
+"chamada ao ligar para ramais deste grupo. ou seja: se você adicionar o "
+"prefixo \"Vendas:\", uma chamada de Juan Perez seria exibida como \"Vendas: "
+"Juan Perez\" nos ramais tocando."
+
+msgid "Alert Info"
+msgstr ""
+
+msgid ""
+"You can optionally include an Alert Info which can create distinctive rings "
+"on SIP phones."
+msgstr ""
+"Opcionalmente, você pode incluir informações de alerta que podem criar um "
+"toque distinto em um telefone SIP."
+
+msgid "Call Confirmation Configuration"
+msgstr "Configurações de confirmação"
+
+msgid "Confirm Calls"
+msgstr "Confirmar chamadas"
+
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through. This feature only works with the ringall/ringall-prim  ring strategy"
+msgstr ""
+"Ative esta opção se estiver ligando para números externos que requerem "
+"confirmação, por exemplo, um número de celular pode ir para o correio de voz "
+"que atenderá a chamada. A ativação desta opção exigirá que o braço remoto "
+"pressione 1 em seu telefone antes de conectar a chamada. Esta funcionalidade "
+"só funciona com estratégias ringall e ringall-prim"
+
+msgid "Remote Announce"
+msgstr "Anúncio remoto"
+
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled.<br><br>To add additional recordings use the \"System Recordings\" "
+"MENU to the left"
+msgstr ""
+"Mensagem a ser reproduzida para a pessoa que RECEBE a chamada se a "
+"Confirmação de Chamada estiver ativada.<br><br>Para adicionar gravações "
+"adicionais, use \"Gravações do Sistema\""
+
+msgid "Default"
+msgstr "Por padrão"
+
+msgid "Too-Late Announce"
+msgstr "Anúncio tarde demais"
+
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1.<br><br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Mensagem a ser reproduzida para a pessoa que RECEBE a chamada se a chamada "
+"tiver sido aceita anteriormente discando 1.<br><br>Para adicionar gravações "
+"adicionais use \"Gravações do Sistema\""
+
+msgid "Change External CID Configuration"
+msgstr "Alteração de CID externo de configuração"
+
+msgid "Mode"
+msgstr "Caminho"
+
+msgid "Transmits the Callers CID if allowed by the trunk."
+msgstr "Transmite o CID se o tronco permitir."
+
+msgid "Fixed CID Value"
+msgstr "Valor do identificador fixo"
+
+msgid "Always transmit the Fixed CID Value below."
+msgstr "Sempre transmita o CID Fixo especificado abaixo."
+
+msgid "Outside Calls Fixed CID Value"
+msgstr "Valor fixo do identificador para chamadas externas"
+
+msgid ""
+"Transmit the Fixed CID Value below on calls that come in from outside only. "
+"Internal extension to extension calls will continue to operate in default "
+"mode."
+msgstr ""
+"Transmitir o valor de ID fixo abaixo apenas em chamadas vindas de fora. As "
+"chamadas internas continuarão operando no modo padrão"
+
+msgid "Use Dialed Number"
+msgstr "Usar Número Marcado"
+
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This will "
+"be BLOCKED on trunks that block foreign CallerID"
+msgstr ""
+"Transmite o número discado como CID para chamadas vindas de fora. As "
+"chamadas internas de ramal a ramal continuarão operando no modo padrão. Deve "
+"haver um DID no caminho de entrada para isso. Isso será bloqueado em troncos "
+"onde um CallerID estrangeiro estiver bloqueado"
+
+msgid "Force Dialed Number"
+msgstr "Forçar número discado"
+
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This WILL "
+"be transmitted on trunks that block foreign CallerID"
+msgstr ""
+"Transmite o número discado como CID para ligações provenientes do exterior. "
+"As chamadas internas de ramal a ramal continuarão funcionando no modo "
+"padrão. Deve haver um DID no caminho de entrada para isso. Isso será "
+"transmitido em troncos que bloqueiam CallerID estrangeiro"
+
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading \"+\"."
+msgstr ""
+"Valor fixo para substituir o CID pelo utilizado em alguns dos modos acima. "
+"Deve estar em um formato somente de dígitos com uma opção de formato E164 "
+"usando um \"+\" inicial"
+
+msgid "Destination if no answer"
+msgstr "Destino se você não responder"
+
+msgid "Submit Changes"
+msgstr "Guardar mudanças"
+
+msgid "Please enter an extension list."
+msgstr "Insira uma lista de extensões."
+
+msgid "Invalid time specified"
+msgstr "Duração inválida especificada"
+
+msgid "Time must be between 1 and 60 seconds"
+msgstr "A duração deve ser de 1 a 60 segundos"
+
+msgid ""
+"Only ringall, ringallv2, hunt and the respective -prim versions are "
+"supported when confirmation is checked"
+msgstr ""
+"Apenas ringall, ringallv2, Hunt e suas respectivas versões -prim são "
+"permitidas quando o commit está habilitado"
+
+msgid ""
+"Invalid CID Number. Must be in a format of digits only with an option of "
+"E164 format using a leading \"+\""
+msgstr ""
+"Número CID inválido. Deve estar no formato somente numérico com a opção de "
+"formato E164 usando um \"+\" inicial"
+
+msgid "(add)"
+msgstr "(adicionar)"
+
+msgid "(edit)"
+msgstr "(Modificar)"
+
+msgid "Normal Extension Behavior"
+msgstr "Comportamento normal de extensão"
+
+msgid ""
+"ring Extension for duration set in Initial Ring Time, and then, while "
+"continuing call to extension, ring Follow-Me List for duration set in Ring "
+"Time."
+msgstr ""
+"ligue para o ramal pela duração definida em Tempo de toque inicial e, "
+"enquanto continua a chamar o ramal, ligue para a lista Siga-me pela duração "
+"definida em Tempo de toque."
+
+msgid ""
+"ring Extension for duration set in Initial Ring Time, and then terminate "
+"call to Extension and ring Follow-Me List for duration set in Ring Time."
+msgstr ""
+"ligar para o ramal pelo tempo definido no tempo de toque inicial e, em "
+"seguida, encerrar a chamada para o ramal e tocar na lista Siga-me pelo tempo "
+"definido no tempo de toque."
+
+msgid "Follow Me Module"
+msgstr "Módulo Siga-me"
+
+msgid "Create Follow Me at Extension Creation Time"
+msgstr "Crie Siga-me ao criar a extensão"
+
+msgid "Disable Follow Me Upon Creation"
+msgstr "Desative Siga-me na criação"
+
+msgid ""
+"When creating a new user or extension, setting this to true will "
+"automatically create a new Follow Me for that user using the default "
+"settings listed below"
+msgstr ""
+"Ao criar um novo usuário ou extensão, definir isso como verdadeiro criará "
+"automaticamente um novo Siga-me para esse usuário usando as configurações "
+"padrão detalhadas abaixo."
+
+msgid ""
+"This is the default value for the Follow Me \"Disable\" setting. When first "
+"creating a Follow Me or if auto-created with a new extension, setting this "
+"to true will disable the Follow Me setting which can be changed by the user "
+"or admin in multiple locations."
+msgstr ""
+"Este é o valor padrão para a configuração Siga-me \"Desligado\". Ao criar um "
+"Siga-me pela primeira vez ou se ele for criado automaticamente com uma nova "
+"extensão, defini-lo como verdadeiro desabilitará as configurações do Siga-"
+"me, que podem ser alteradas pelo usuário ou administrador em vários locais."
+
+msgid "Default Follow Me Ring Time"
+msgstr "Tempo de toque padrão"
+
+msgid "Default Follow Me Initial Ring Time"
+msgstr "Tempo de toque inicial padrão"
+
+msgid "Default Follow Me Ring Strategy"
+msgstr "Estratégia de toque padrão"
+
+msgid ""
+"The default Ring Time for a Follow Me set upon creation and used if auto-"
+"created with a new extension."
+msgstr ""
+"O tempo de toque padrão para um Siga-me é definido no momento da criação e é "
+"usado se for criado automaticamente com um novo ramal."
+
+msgid ""
+"The default Initial Ring Time for a Follow Me set upon creation and used if "
+"auto-created with a new extension."
+msgstr ""
+"O tempo de toque inicial padrão para um Siga-me é definido no momento da "
+"criação e é usado se for criado automaticamente com um novo ramal."
+
+msgid ""
+"The default Ring Strategy selected for a Follow Me set upon creation and "
+"used if auto-created with an extension."
+msgstr ""
+"A estratégia de toque padrão selecionada para um conjunto Siga-me no momento "
+"da criação e usada se for criado automaticamente com um ramal."

@@ -140,7 +140,7 @@ function setcid_check_destinations($dest=true) {
         $destlist[] = array(
             'dest' => $thisdest,
             'description' => 'Set CallerID: '.$result['description'],
-            'edit_url' => 'config.php?display=setcid&type=tool&id='.urlencode($thisid),
+            'edit_url' => 'config.php?display=setcid&type=tool&extdisplay='.urlencode($thisid),
         );
     }
     return $destlist;
@@ -158,8 +158,8 @@ function setcid_getdestinfo($dest) {
         if (empty($thiscid)) {
             return array();
         } else {
-            return array('description' => sprintf(_("Set CallerID %s: "),$thiscid['description']),
-                         'edit_url' => 'config.php?display=setcid&id='.urlencode($id),
+            return array('description' => sprintf(__("Set CallerID %s: "),$thiscid['description']),
+                         'edit_url' => 'config.php?display=setcid&extdisplay='.urlencode($id),
                                   );
         }
     } else {

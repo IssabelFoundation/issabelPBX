@@ -256,7 +256,7 @@ msgstr "Registrazioni interne"
 msgid "Please enter a valid Name for this System Recording"
 msgstr "Prego immettere un Nome valido per questa Registrazione di Sistema"
 
-msgid "Select System Recording:"
+msgid "Select System Recording"
 msgstr "Selezionare la Registrazione di Sistema:"
 
 msgid "Click here to play this recording"

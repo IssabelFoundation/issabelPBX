@@ -16,7 +16,6 @@
 # IssabelPBX language template for dictate
 # Copyright (C) 2010 PostMet corporaton
 #
-# ёбЯЮЫмЧЮТРвм iconv dictate.pot -f UTF-8 -t ISO-8859-5 -o dictate.po
 # fuzzy
 msgid ""
 msgstr ""
@@ -27,61 +26,51 @@ msgstr ""
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
 "Language-Team: Russian <faq@postmet.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-5\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 
 msgid "Dictation"
-msgstr "ґШЪвЮдЮЭ"
+msgstr "Р”РёРєС‚РѕРІРєР°"
 
 msgid "Applications"
-msgstr ""
+msgstr "РџСЂРёР»РѕР¶РµРЅРёСЏ"
 
 msgid ""
 "This uses the app_dictate module of Asterisk to let users record dictate "
 "into their phones. When complete, the dictations can be emailed to an email "
 "address specified in the extension page."
-msgstr ""
-"ёбЯЮЫмЧгХвбп ЬЮФгЫм app_dictate °бвХаШбЪ, ЪЮвЮалЩ ФРсв ТЮЧЬЮЦЭЮбвм "
-"ЯЮЫмЧЮТРвХЫпЬ ЭРФШЪвЮТлТРвм бЮЮСйХЭШп ЭР вХЫХдЮЭ. їЮбЫХ зХУЮ ЧРЯШбм ЬЮЦЭЮ "
-"ЯЮбЫРвм ЯЮ нЫ. ЯЮзвХ ЭР РФаХб, гЪРЧРЭЭлЩ ЭР бваРЭШжХ ЭРбваЮХЪ ТЭгваХЭЭХУЮ "
-"ЭЮЬХаР."
+msgstr "РњРѕРґСѓР»СЊ app_dictate, РёСЃРїРѕР»СЊР·СѓРµРјС‹Р№ РІ Asterisk, РїРѕР·РІРѕР»СЏРµС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРј Р·Р°РїРёСЃС‹РІР°С‚СЊ РґРёРєС‚РѕРІРєРё РЅР° СЃРІРѕРё С‚РµР»РµС„РѕРЅС‹. РџРѕСЃР»Рµ Р·Р°РІРµСЂС€РµРЅРёСЏ Р·Р°РїРёСЃРё РґРёРєС‚РѕРІРєРё РјРѕРіСѓС‚ Р±С‹С‚СЊ РѕС‚РїСЂР°РІР»РµРЅС‹ РїРѕ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕС‡С‚Рµ РЅР° Р°РґСЂРµСЃ, СѓРєР°Р·Р°РЅРЅС‹Р№ РЅР° СЃС‚СЂР°РЅРёС†Рµ СЂР°СЃС€РёСЂРµРЅРёСЏ."
 
 msgid "Enabled"
-msgstr "ІЪЫозХЭЮ"
+msgstr "Р’РєР»СЋС‡РµРЅРѕ"
+
 
 msgid "Disabled"
-msgstr "ІлЪЫозХЭЮ"
+msgstr "Р’С‹РєР»СЋС‡РµРЅРѕ"
 
 msgid "Dictation Services"
-msgstr "БХаТШбл ФШЪвЮдЮЭР"
+msgstr "РЎР»СѓР¶Р±Р° РґРёРєС‚РѕРІРєРё"
 
 msgid "Please enter a valid Email Address"
-msgstr "ІТХФШвХ ФХЩбвТШвХЫмЭлЩ РФаХб нЫ. ЯЮзвл"
+msgstr "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РїСЂР°РІРёР»СЊРЅС‹Р№ Р°РґСЂРµСЃ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕС‡С‚С‹"
 
 msgid "Dictation Service"
-msgstr "БХаТШб ФШЪвЮдЮЭР"
+msgstr "РЎР»СѓР¶Р±Р° РґРёРєС‚РѕРІРєРё"
 
 msgid "Dictation Format"
-msgstr "ДЮаЬРв ЭРФШЪвЮТРЭЭЮУЮ бЮЮСйХЭШп"
+msgstr "Р¤РѕСЂРјР°С‚ РґРёРєС‚РѕРІРєРё"
 
 msgid "Email Address"
-msgstr "°ФаХб нЫ. ЯЮзвл"
+msgstr "РђРґСЂРµСЃ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕС‡С‚С‹"
 
 msgid "The email address that completed dictations are sent to."
-msgstr "°ФаХб нЫ. ЯЮзвл, ЪгФР СгФгв ЯХаХблЫРвмбп ЭРФШЪвЮТРЭЭлХ бЮЮСйХЭШп."
+msgstr "РђРґСЂРµСЃ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕС‡С‚С‹, РЅР° РєРѕС‚РѕСЂС‹Р№ Р±СѓРґСѓС‚ РѕС‚РїСЂР°РІР»СЏС‚СЊСЃСЏ Р·Р°РІРµСЂС€РµРЅРЅС‹Рµ РґРёРєС‚РѕРІРєРё."
+
 
 msgid "Perform dictation"
-msgstr "ЅРзШЭРвм ЭРФШЪвЮТЪг"
+msgstr "Р’С‹РїРѕР»РЅРёС‚СЊ РґРёРєС‚РѕРІРєСѓ"
 
 msgid "Email completed dictation"
-msgstr "ѕвЮбЫРвм ЭРФШЪвЮТРЭЭЮХ бЮЮСйХЭШХ"
+msgstr "РћС‚РїСЂР°РІРёС‚СЊ Р·Р°РІРµСЂС€РµРЅРЅСѓСЋ РґРёРєС‚РѕРІРєСѓ РїРѕ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕС‡С‚Рµ"
 
-#~ msgid ""
-#~ "Internal Options \n"
-#~ "&\n"
-#~ " Configuration"
-#~ msgstr ""
-#~ "ІЭгваХЭЭШХ ЮЯжШШ \n"
-#~ "&\n"
-#~ " єЮЭдШУгаРжШп"

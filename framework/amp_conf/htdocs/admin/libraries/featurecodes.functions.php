@@ -67,7 +67,7 @@ function featurecodes_getFeatureCode($modulename, $featurename) {
 	$fc_code = $fcc->getCodeActive();
 	unset($fcc);
 
-	return $fc_code != '' ? $fc_code : _('** MISSING FEATURE CODE **');
+	return $fc_code != '' ? $fc_code : __('** MISSING FEATURE CODE **');
 }
 
 function featurecodes_delFeatureCode($modulename, $featurename) {

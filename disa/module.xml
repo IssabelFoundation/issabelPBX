@@ -2,7 +2,7 @@
 	<rawname>disa</rawname>
 	<repo>extended</repo>
 	<name>DISA</name>
-	<version>2.11.0.6</version>
+	<version>2.12.0.0</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,15 +17,16 @@
 		</disa>
  	</popovers>
 	<description>DISA Allows you "Direct Inward System Access". This gives you the ability to have an option on an IVR that gives you a dial tone, and you are able to dial out from the IssabelPBX machine as if you were connected to a standard extension. It appears as a Destination.</description>
-	<changelog>
+    <changelog>
+        *2.12.0.0* Newer GUI, standarize module components
 		*2.11.0.6* Initial Issabel Foundation release
 	</changelog>
 	<depends>
-		<version>2.4.0</version>
+		<version>2.12.0</version>
 	</depends>
 	<supported>
-		<version>2.10</version>
+		<version>2.12</version>
 	</supported>
-	<location>release/2.11/disa-2.11.0.0.tgz</location>
-	<md5sum>6a8d45072dd789d278a8bf42d083ebf0</md5sum>
+    <location>release/2.12/disa-2.12.0.0.tgz</location>
+        <md5sum>0</md5sum>
 </module>

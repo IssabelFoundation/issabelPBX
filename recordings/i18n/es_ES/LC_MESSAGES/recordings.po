@@ -1,29 +1,38 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - recordings module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2011-07-10 09:30+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#, php-format
 msgid "Missing Sound file auto-created from migration of %s module"
 msgstr ""
 "Se ha autocreado un archivo de sonido que no existía durante la migración "
 "del módulo %s"
 
-#, php-format
 msgid "Non-Existent Recording in module %s"
 msgstr "Grabación no existente en el módulo %s"
 
-#, php-format
 msgid ""
 "The %s referenced a recording file listed below that does not exists. An "
 "entry has been generated, named %s, with the referenced file(s) but you "
@@ -59,7 +68,7 @@ msgid "checking for fcode_pass field.."
 msgstr "comprobando campo fcode_pass..."
 
 msgid "** MISSING FEATURE CODE **"
-msgstr "** NO EXISTE CÓDIGO DE CARACTERÍSTICA **"
+msgstr "** NO EXISTE CÓDIGO DE FUNCIÓN **"
 
 msgid "Failed to create"
 msgstr "No se pudo crear"
@@ -97,11 +106,32 @@ msgstr "Actualizado"
 msgid "System Recordings"
 msgstr "Grabaciones del sistema"
 
-msgid "Add Recording"
-msgstr "Añadir grabación"
+msgid "Add System Recording"
+msgstr "Añadir grabación de sistema"
 
-msgid "Step 1: Record or upload"
-msgstr "Paso 1: Grabar o enviar"
+msgid "Step 1"
+msgstr "Paso 1"
+
+msgid "Record or upload"
+msgstr "Grabar o subir"
+
+msgid "Step 2"
+msgstr "Paso 2"
+
+msgid "Step 3"
+msgstr "Paso 3"
+
+msgid "Step 4"
+msgstr "Paso 4"
+
+msgid "Name"
+msgstr "Nombrar"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Verify"
+msgstr "Verificar"
 
 msgid "Using your phone,"
 msgstr "Usando su teléfono,"
@@ -110,7 +140,7 @@ msgid " dial"
 msgstr " llame al"
 
 msgid "Start speaking at the tone. Press # when finished."
-msgstr "Compience a hablar al escuchar el tono. Marque # para finalizar."
+msgstr "Comience a hablar al escuchar el tono. Marque # para finalizar."
 
 msgid "and speak the message you wish to record. Press # when finished."
 msgstr "y diga el mensaje que desea grabar. Marque # al finalizar."
@@ -144,9 +174,6 @@ msgstr "Por favor, espere mientras la página se recarga."
 msgid "Successfully uploaded"
 msgstr "Enviado correctamente"
 
-msgid "Step 2: Verify"
-msgstr "Paso 2: Verificar"
-
 msgid "After recording or uploading,"
 msgstr "Tras grabar o enviar,"
 
@@ -159,25 +186,16 @@ msgstr "para escuchar su grabación."
 msgid "If you wish to re-record your message, dial"
 msgstr "Si quiere volver a grabar su mensaje, llame al"
 
-msgid "Step 3: Name"
-msgstr "Paso 3: Nombre"
-
-msgid "Step 2: Name"
-msgstr "Paso 2: Nombre"
-
 msgid "Name this Recording"
 msgstr "Asigne un nombre a esta grabación"
 
 msgid "Click \"SAVE\" when you are satisfied with your recording"
 msgstr ""
 "Pulse \"Guardar\" cuando haya terminado de realizar la grabación desde su "
-"teléfono haya seleccionado un archivo a enviar"
+"teléfono o haya seleccionado un archivo a enviar"
 
-msgid "Save"
-msgstr "Guardar"
-
-msgid "Edit Recording"
-msgstr "Modificar grabación"
+msgid "Edit System Recording"
+msgstr "Modificar grabación de sistema"
 
 msgid "Usage List"
 msgstr "Lista de usos"
@@ -189,7 +207,7 @@ msgid ""
 msgstr ""
 "Esta grabación está siendo usada por las siguientes instancias. No puede "
 "eliminar esta grabación mientras esté siendo usada. Para volver a grabarla, "
-"puede usar el código de característica siguiente si está autorizado."
+"puede usar el código de función siguiente si está autorizado."
 
 msgid "Remove Recording"
 msgstr "Eliminar grabación"
@@ -216,37 +234,36 @@ msgstr ""
 "colas, recepcionista digital, etc."
 
 msgid "Link to Feature Code"
-msgstr "Enlace a código de característica"
+msgstr "Enlace a código de función"
 
 msgid ""
 "Check this box to create an options feature code that will allow this "
 "recording to be changed directly."
 msgstr ""
-"Marque esta casilla para crear las opciones de un código de característica "
+"Marque esta casilla para crear las opciones de un código de función "
 "que permitirá cambiar esta grabación directamente."
 
-#, php-format
 msgid "Optional Feature Code %s"
-msgstr "Código de característica opcional %s"
+msgstr "Código de función opcional %s"
 
 msgid "Feature Code Password"
-msgstr "Contraseña del código de característica"
+msgstr "Contraseña del código de función"
 
 msgid ""
 "Optional password to protect access to this feature code which allows a user "
 "to re-record it."
 msgstr ""
-"Contraseña opcional para proteger el acceso a este cósigo de característica "
+"Contraseña opcional para proteger el acceso a este código de función "
 "que permitirá a los usuarios volver a grabar la grabación."
 
 msgid "Direct Access Feature Code Not Available"
-msgstr "Código de característica para acceso directo no disponible"
+msgstr "Código de función para acceso directo no disponible"
 
 msgid ""
 "Direct Access Feature Codes for recordings are not available for built in "
 "system recordings or compound recordings made of multiple individual ones."
 msgstr ""
-"Los códigos de características para acceso directo para grabaciones no están "
+"Los códigos de función para acceso directo para grabaciones no están "
 "disponibles para grabaciones de sistema o grabaciones compuestas de varios "
 "archivos."
 
@@ -259,8 +276,8 @@ msgstr "Grabaciones del sistema"
 msgid "Please enter a valid Name for this System Recording"
 msgstr "Por favor, introduzca un nombre válido para esta grabación del sistema"
 
-msgid "Select System Recording:"
-msgstr "Seleccione una grabación del sistema:"
+msgid "Select System Recording"
+msgstr "Seleccione una grabación del sistema"
 
 msgid "Click here to play this recording"
 msgstr "Haga clic aquí para reproducir esta grabación"
@@ -274,7 +291,6 @@ msgstr "Mover abajo"
 msgid "Delete"
 msgstr "Eliminar"
 
-#, php-format
 msgid "No compatible wav, mp3 or gsm format found to play:<br /><br />%s"
 msgstr ""
 "No se pudo encontrar un formato compatible con WAV, MP3, o GSM para "
@@ -296,7 +312,7 @@ msgstr "Configuración del Sistema"
 msgid ""
 "Crypt key used by this recordings module when accessing the recording files. "
 "Change from the default of "
-msgstr "Llave de encriptación a usar cuando se accede a los archivos de grabación. Cambiar desde el valor por omisión "
+msgstr "Llave de encriptación a usar cuando se accede a los archivos de grabación. Cambiar desde el valor predeterminado "
 
 msgid " if desired."
 msgstr " si lo desea."
@@ -318,3 +334,42 @@ msgstr "Pausar"
 
 msgid "Stop"
 msgstr "Detener"
+
+msgid "Format: start recording to see sample rate"
+msgstr "Formato: inicie la grabación para ver la muestra de sampleo"
+
+msgid "Format: 1 channel pcm @"
+msgstr "Formato: PCM de 1 canal a @"
+
+msgid "Choose a file..."
+msgstr "Escoja un archivo..."
+
+msgid "File %s successfully uploaded"
+msgstr "El archivo %s fue subido correctamente"
+
+msgid "Resume"
+msgstr "Reanudar"
+
+msgid "File %s does not have a valid sound extension"
+msgstr "El archivo %s no tiene una extensión de archivo de sonido válida"
+
+msgid "make sure you uploaded or recorded a file with the entered extension"
+msgstr "asegúrese de que ha cargado o grabado un archivo con la extensión ingresada"
+
+msgid "Engine"
+msgstr "Motor"
+
+msgid "Text"
+msgstr "Texto"
+
+msgid "Generate"
+msgstr "Generar"
+
+msgid  "The TTS engine to use for the text to speech entry"
+msgstr "El motor de texto al habla a usar para este registro"
+
+msgid "The text you want to be generated"
+msgstr "El texto que desea generar"
+
+msgid "There was a problem trying to generate the audio file using the TTS module"
+msgstr "Hubo un problema al intentar generar el archivo de audio utilizando el módulo TTS"

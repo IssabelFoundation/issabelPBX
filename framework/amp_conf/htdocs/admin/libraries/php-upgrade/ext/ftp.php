@@ -1,13 +1,13 @@
 <?php
 /*
-   Provides the usual ftp_() functions (or at least work-alikes)
+   Provides the usual ftp__() functions (or at least work-alikes)
    for PHP versions compiled without.
 
    Hint: If you want to use it with PHP versions with compiled-in FTP
    support, then simply let your text editor replace all occourences
    of "ftp_" into "xftp_" or something similar.
 
-   Public Domain, 2004, milky*users·sf·net
+   Public Domain, 2004, milky*userssfnet
 */
 
 if (!function_exists("ftp_connect")) {
@@ -120,8 +120,8 @@ if (!function_exists("ftp_connect")) {
 
        #-- done
        if (FTP_DEBUG) {
-          echo "»»» $command";
-          echo "««« $r";
+          echo " $command";
+          echo " $r";
        }
        return($r);
     }

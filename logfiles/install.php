@@ -41,6 +41,8 @@ if (!$first_install) { //zero count (aka false) is a new install
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
 	$s = $db->query($sql, array('full', 'on', 'off', 'on', 'off', 'on', 'on', 'on', 'off'));
 	$db->query($sql, array('console', 'on', 'off', 'on', 'off', 'on', 'on', 'on', 'off'));
+	$db->query($sql, array('security', 'off', 'off', 'off', 'off', 'off', 'off', 'off', 'on'));
+	$db->query($sql, array('messages', 'off', 'off', 'on', 'off', 'on', 'off', 'on', 'on'));
 }
 
 // logger.conf used to be in core so let's make sure if there is a linked file it points to
@@ -50,13 +52,13 @@ $lf = $amp_conf['ASTETCDIR'] . '/logger.conf';
 if (file_exists($lf) && is_link($lf)) {
 	$l = readlink($lf);
 	if ($l != $amp_conf['AMPWEBROOT'] . "/admin/modules/logfiles/etc/logger.conf") {
-		out(_("logger.conf symlinked to incorrect file:"));
+		out(__("logger.conf symlinked to incorrect file:"));
 		out($l);
-		outn(_("removing.."));
+		outn(__("removing.."));
 		if (unlink($lf)) {
-			out(_('ok'));
+			out(__('ok'));
 		} else {
-			out(_('failed'));
+			out(__('failed'));
 		}
 	}
 }

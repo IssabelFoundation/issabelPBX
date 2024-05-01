@@ -4,19 +4,21 @@ $(document).ready(function(){
 		get_lines(500);
 	}
 
-	$('#show').click(function(){
+	$('#show').on('click',function(){
 		get_lines($('#lines').val());
 	});
 
-	$('select[name=logfile], #lines').change(function(){
+	$('select[name=logfile], #lines').on('change',function(){
 		get_lines($('#lines').val());
 	});
 
 	$('#log_view.pre').css('max-height',($(window).height() - $('#footer').height() - $('#logfiles_header').height() - 60));
 
-	$(window).resize(function() {
+	$(window).on('resize',function() {
 		$('#log_view.pre').css('max-height',($(window).height() - $('#footer').height() - $('#logfiles_header').height() - 60));
-	})
+	});
+
+    $('.componentSelectAutoWidth').chosen({disable_search: false});
 });
 
 function get_lines(lines) {

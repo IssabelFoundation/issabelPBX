@@ -31,7 +31,7 @@ function dynroute_init() {
     $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 
     if (DB::IsError($results)) {
-                    echo _("There is a problem with installation Contact support\n");
+                    echo __("There is a problem with installation Contact support\n");
                     die;
     } else {
 	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
@@ -79,8 +79,8 @@ function dynroute_getdestinfo($dest) {
 		if (empty($thisexten)) {
 			return array();
 		} else {
-			return array('description' => sprintf(_("Route: %s"),$thisexten['displayname']),
-			             'edit_url' => 'config.php?display=dynroute&action=edit&id='.urlencode($exten),
+			return array('description' => sprintf(__("Route: %s"),$thisexten['displayname']),
+			             'edit_url' => 'config.php?display=dynroute&action=edit&extdisplay='.urlencode($exten),
 								  );
 		}
 	} else {
@@ -97,8 +97,8 @@ function dynroute_recordings_usage($recording_id) {
                 //$type = isset($active_modules['dynroute']['type'])?$active_modules['dynroute']['type']:'setup';
                 foreach ($results as $result) {
                         $usage_arr[] = array(
-                                'url_query' => 'config.php?display=dynroute&action=edit&id='.urlencode($result['dynroute_id']),
-                                'description' => sprintf(_("Dynamic route: %s"),$result['displayname']),
+                                'url_query' => 'config.php?display=dynroute&action=edit&extdisplay='.urlencode($result['dynroute_id']),
+                                'description' => sprintf(__("Dynamic route: %s"),$result['displayname']),
                         );
                 }
                 return $usage_arr;
@@ -242,11 +242,8 @@ function dynroute_get_dynroute_id($name) {
 		// It's not there. Create it and return the ID
 		sql("INSERT INTO dynroute (displayname )  values('$name')");
 		$res = $db->getRow("SELECT dynroute_id from dynroute where displayname='$name'");
-
-                sql("INSERT INTO dynroute_dests (dynroute_id,selection,default_dest,dest) VALUES ($res[0],'','y','app-blackhole,hangup,1')");
-
+        sql("INSERT INTO dynroute_dests (dynroute_id,selection,default_dest,dest) VALUES ($res[0],'','y','app-blackhole,hangup,1')");
 	}
-
 	return ($res[0]);
 	
 }
@@ -255,7 +252,7 @@ function dynroute_add_command($id, $cmd, $dest, $default_dest) {
 	global $db;
 	// Does it already exist?
 	$res = $db->getRow("SELECT * from dynroute_dests where dynroute_id='$id' and selection='$cmd' and default_dest='$default_dest'");
-	if (count($res) == 0) {
+	if (is_null($res)) {
 		// Just add it.
 		sql("INSERT INTO dynroute_dests (dynroute_id, selection, default_dest, dest) VALUES('$id', '$cmd', '$default_dest', '$dest')");
 	} else {
@@ -284,10 +281,18 @@ function dynroute_do_edit($id, $post) {
         if (!empty($enable_dtmf_input)) {
                 $enable_dtmf_input='CHECKED';
         }
-        $timeout = isset($post['timeout'])?$post['timeout']:'';
+        $timeout = isset($post['timeout'])?$post['timeout']:10;
+        if($timeout=='') $timeout=10;
         $chan_var_name = isset($post['chan_var_name'])?$post['chan_var_name']:'';
         $chan_var_name_res = isset($post['chan_var_name_res'])?$post['chan_var_name_res']:'';
- 
+
+        // INSERT IF id is not supplied
+        if($id=='') {
+            sql("INSERT INTO dynroute (displayname )  values('$name')");
+            $res = $db->getRow("SELECT dynroute_id from dynroute where displayname='$name'");
+            sql("INSERT INTO dynroute_dests (dynroute_id,selection,default_dest,dest) VALUES ($res[0],'','y','app-blackhole,hangup,1')");
+            $id = $res[0];
+        }
 	
 	$sql = "
 	UPDATE dynroute 
@@ -324,16 +329,19 @@ function dynroute_do_edit($id, $post) {
 		if (preg_match('/goto(\d+)/', $var, $match)) {
 			// This is a really horrible line of code. take N, and get value of fooN. See above. Note we
 			// get match[1] from the preg_match above
-			$dest = $post[$post[$var].$match[1]];
-			$cmd = $post['option'.$match[1]];
+             $dest = $post[$post[$var]];
+             $option_field = 'option'.$match[1];
+			 $cmd = isset($post[$option_field])?$post[$option_field]:'';
 			// Debugging if it all goes pear shaped.
-			// print "I think pushing $cmd does $dest<br>\n";
+            // print "I think pushing $cmd does $dest<br>\n";
+
 			if ($first_option)  {
 				dynroute_add_command($id, $cmd, $dest, 'y');
 				$first_option=false;
 			}
-			if (strlen($cmd))
+			if (strlen($cmd)) {
 				dynroute_add_command($id, $cmd, $dest, 'n');
+		    }
 		}
 	}
 }
@@ -412,8 +420,8 @@ function dynroute_check_destinations($dest=true) {
 		if ($result['default_dest']=='y') $sel='Default'; else $sel=$result['selection'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => sprintf(_("Route: %s / Destination: %s"),$result['displayname'],$sel),
-			'edit_url' => 'config.php?display=dynroute&action=edit&id='.urlencode($thisid),
+			'description' => sprintf(__("Route: %s / Destination: %s"),$result['displayname'],$sel),
+			'edit_url' => 'config.php?display=dynroute&action=edit&extdisplay='.urlencode($thisid),
 		);
 	}
 	return $destlist;

@@ -34,8 +34,8 @@ function miscdests_getdestinfo($dest) {
 			return array();
 		} else {
 			//$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
-			return array('description' => sprintf(_("Misc Destination: %s"),$thisexten['description']),
-			             'edit_url' => 'config.php?display=miscdests&id='.urlencode($exten),
+			return array('description' => sprintf(__("Misc Destination: %s"),$thisexten['description']),
+			             'edit_url' => 'config.php?display=miscdests&extdisplay='.urlencode($exten),
 								  );
 		}
 	} else {

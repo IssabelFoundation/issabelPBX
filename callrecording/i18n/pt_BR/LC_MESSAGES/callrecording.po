@@ -1,0 +1,121 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid ""
+"Call Recordings provide the ability to force a call to be recorded or not "
+"recorded based on a call flow and override all other recording settings. If "
+"a call is to be recorded, it can start immediately which will incorporate "
+"any announcements, hold music, etc. prior to being answered, or it can have "
+"recording start at the time that call is answered."
+msgstr ""
+"Este recurso permite forçar ou não a gravação de uma chamada, com base em um "
+"fluxo de chamada especial, ignorando todas as outras opções de gravação. "
+"Você pode optar por gravar a partir do momento em que for atendido "
+"(excluindo música de espera ou outros anúncios) ou gravar desde o início, o "
+"que incluirá todos os sons, músicas ou anúncios anteriores ao atendimento."
+
+msgid "Add Call Recording"
+msgstr "Adicionar gravação"
+
+msgid "Add Call Recording Instance"
+msgstr "Adicionar instância de gravação"
+
+msgid "Edit Call Recording Instance"
+msgstr "Modificar instância de gravação"
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Submit Changes"
+msgstr "Guardar mudanças"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Call Recording Mode"
+msgstr "Modo de gravação"
+
+msgid "Allow"
+msgstr "Permitir"
+
+msgid "Never"
+msgstr "Nunca"
+
+msgid "Record on Answer"
+msgstr "Grave ao participar"
+
+msgid "Record Immediately"
+msgstr "Grave imediatamente"
+
+msgid "Edit: "
+msgstr "Modificar:"
+
+msgid "Delete"
+msgstr "Elimiar"
+
+msgid ""
+"The descriptive name of this call recording instance. For example \"French "
+"Main IVR\""
+msgstr ""
+"Nome amigável para esta instância de gravação. Por exemplo \"Menu Principal "
+"Francês\""
+
+msgid ""
+"Controls or overrides the call recording behavior for calls continuing "
+"through this call flow. Allow will honor the normal downstream call "
+"recording settings. Record on Answer starts recording when the call would "
+"otherwise be recorded ignoring any settings that say otherwise. Record "
+"Immediately will start recording right away capturing ringing, "
+"announcements, MoH, etc. Never will disallow recording regardless of "
+"downstream settings."
+msgstr ""
+"Inicia ou aborta a gravação de chamadas que continuam nesse fluxo de "
+"chamadas. Permitir respeitará as configurações de gravação subsequentes. "
+"Gravar quando atendido começará a gravar quando a chamada for atendida, "
+"ignorando outras configurações que possam contradizê-la. Gravar "
+"imediatamente começará a gravar imediatamente, capturando sons de progresso, "
+"toques, música em espera, anúncios, etc. Ele nunca proibirá gravações, não "
+"importa quais outras configurações de gravação continuem no downstream."
+
+msgid "Call Recording"
+msgstr "Gravação de chamadas"
+
+msgid ""
+"Controls or overrides the call recording behavior for calls coming into this "
+"DID. Allow will honor the normal downstream call recording settings. Record "
+"on Answer starts recording when the call would otherwise be recorded "
+"ignoring any settings that say otherwise. Record Immediately will start "
+"recording right away capturing ringing, announcements, MoH, etc. Never will "
+"disallow recording regardless of downstream settings."
+msgstr ""
+"Inicia ou cancela a gravação de chamadas que entram neste DID. Permitir "
+"respeitará as configurações de gravação subsequentes. Gravar quando atendido "
+"começará a gravar quando a chamada for atendida, ignorando outras "
+"configurações que possam contradizê-la. Gravar imediatamente começará a "
+"gravar imediatamente, capturando sons de progresso, toques, música em "
+"espera, anúncios, etc. Ele nunca proibirá gravações, não importa quais "
+"outras configurações de gravação continuem no downstream."

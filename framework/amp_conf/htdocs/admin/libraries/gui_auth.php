@@ -5,9 +5,12 @@ set_language();
 //promt for a password if there there is no user set
 if (!isset($_SESSION['AMP_user'])) {
 
+    if(!isset($username)) $username='';
+    if(!isset($password)) $password='';
+
     //|| (isset($_SESSION['AMP_user']->username) && $_SESSION['AMP_user']->username != $_SERVER['PHP_AUTH_USER'])) {
     //if we dont have a username/pass prompt for one
-    if (!$username || !$password || !count(getAmpAdminUsers())) {
+    if (($username!='' && $password!='') || !count(getAmpAdminUsers())) {
         switch(strtolower($amp_conf['AUTHTYPE'])) {
             case 'database':
                 $no_auth = true;
@@ -38,17 +41,18 @@ if (!isset($_SESSION['AMP_user'])) {
             break;
         case 'database':
         default:
-            if(is_array($password)) $password=$password[0];
             // not logged in, and have provided a user/pass
+	        if(is_array($password)) $password=$password[0];
             $_SESSION['AMP_user'] = new ampuser($username);
             if (!$_SESSION['AMP_user']->checkPassword(sha1($password))) {
-               // password failed and admin user fall-back failed
-               unset($_SESSION['AMP_user']);
-               $no_auth = true;
+                // password failed and admin user fall-back failed
+                unset($_SESSION['AMP_user']);
+                $no_auth = true;
+            } else {
+                $display='index';
             }
             break;
     }
-
 }
 
 if (isset($_SESSION['AMP_user'])) {

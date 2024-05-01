@@ -1,0 +1,208 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Voicemail Group %s: %s"
+msgstr ""
+
+msgid "Voicemail Group: "
+msgstr ""
+
+msgid "Exclude"
+msgstr ""
+
+msgid "Include"
+msgstr ""
+
+msgid "Default Group Inclusion"
+msgstr ""
+
+msgid "Default VMblast Group"
+msgstr ""
+
+msgid ""
+"You can include or exclude this extension/user from being part of the "
+"default voicemail blast group when creating or editing. Choosing this option "
+"will be ignored if the user does not have a voicemail box."
+msgstr ""
+
+msgid "Upgrading vmblast to add audio_label field.."
+msgstr ""
+
+msgid "Not Required"
+msgstr ""
+
+msgid "Done"
+msgstr ""
+
+msgid "Upgrading vmblast to add password field.."
+msgstr ""
+
+msgid "Dropping grplist.."
+msgstr ""
+
+msgid "error populating vmblast_groups table"
+msgstr ""
+
+msgid "populated new table"
+msgstr ""
+
+msgid "Dropping old grplist field.."
+msgstr ""
+
+msgid "failed to drop field"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Not Needed"
+msgstr "não é necessário"
+
+msgid "Warning! Extension"
+msgstr "Atenção! Extensão"
+
+msgid "is not allowed for your account"
+msgstr "não é permitido em sua conta"
+
+msgid "Add VMBlast Group"
+msgstr "Adicionar grupo de correio de voz em massa"
+
+msgid " [DEFAULT]"
+msgstr "[OMISSÃO]"
+
+msgid "VMBlast Group"
+msgstr "grupo de correio de voz"
+
+msgid "deleted"
+msgstr "apagado"
+
+msgid "Delete Group"
+msgstr "Excluir grupo"
+
+msgid "Conflicting Extensions"
+msgstr "Conflito de extensão"
+
+msgid "Edit VMBlast Group"
+msgstr "Modificar grupo de correio de voz"
+
+msgid "VMBlast Number"
+msgstr "Número"
+
+msgid "The number users will dial to voicemail boxes in this VMBlast group"
+msgstr ""
+"O número que os usuários discarão para enviar correio de voz em massa para "
+"este grupo"
+
+msgid "Group Description"
+msgstr "Descrição"
+
+msgid "Provide a descriptive title for this VMBlast Group."
+msgstr "Forneça um título descritivo para este grupo de correio de voz"
+
+msgid "Audio Label"
+msgstr "Etiqueta de áudio"
+
+msgid ""
+"Play this message to the caller so they can confirm they have dialed the "
+"proper voice mail group number, or have the system simply read the group "
+"number."
+msgstr "Anuncie esta mensagem ao chamador para confirmar o grupo."
+
+msgid "Read Group Number"
+msgstr "Ler número do grupo"
+
+msgid "Beep Only - No Confirmation"
+msgstr "Apenas bipe - sem confirmação"
+
+msgid ""
+"The group number will be played to the caller so they can confirm they have "
+"dialed the proper voice mail group number.<br><br>You must install and "
+"enable the \"Systems Recordings\" Module to edit this option and choose from "
+"recordings."
+msgstr "O número do grupo será anunciado ao chamador como confirmação."
+
+msgid "Optional Password"
+msgstr "Chave opcional"
+
+msgid ""
+"You can optionally include a password to authenticate before providing "
+"access to this group voicemail list."
+msgstr ""
+"Opcionalmente, você pode usar uma chave de autenticação antes de conceder "
+"acesso a este grupo."
+
+msgid "Voicemail Box List"
+msgstr "Lista de correio de voz"
+
+msgid "Select voice mail boxes to add to this group."
+msgstr "Escolha correios de voz para adicionar a este grupo."
+
+msgid "Default VMBlast Group"
+msgstr "Grupo padrão"
+
+msgid ""
+"Each PBX system can have a single Default Voicemail Blast Group. If "
+"specified, extensions can be automatically added (or removed) from this "
+"default group in the Extensions (or Users) tab.<br />Making this group the "
+"default will uncheck the option from the current default group if specified."
+msgstr ""
+"Só pode haver um grupo padrão. Se especificado, as extensões podem ser "
+"adicionadas ou removidas automaticamente deste grupo padrão diretamente nas "
+"configurações de extensão."
+
+msgid "Submit Changes"
+msgstr "Guardar mudanças"
+
+msgid "Invalid Group Number specified"
+msgstr "Número de grupo inválido"
+
+msgid "Group numbers with more than one digit cannot begin with 0"
+msgstr "O número do grupo não pode começar com cdero"
+
+msgid "Please enter an extension list."
+msgstr "Insira uma lista de extensões."
+
+msgid "Please enter a valid Group Description"
+msgstr "Insira um nome de grupo válido"
+
+msgid "Please enter a valid numeric password, only numbers are allowed"
+msgstr ""
+"Por favor insira uma senha numérica válida, apenas números são permitidos."
+
+msgid "Please select at least one extension"
+msgstr "Escolha pelo menos uma extensão"
+
+msgid "Voicemail Blasting"
+msgstr "Correio de voz em massa"
+
+msgid "Applications"
+msgstr "Formulários"
+
+msgid ""
+"Creates a group of extensions that calls a group of voicemail boxes and "
+"allows you to leave a message for them all at once."
+msgstr ""

@@ -111,13 +111,13 @@ msgstr "语音邮件多播号码"
 msgid "The number users will dial to voicemail boxes in this VMBlast group"
 msgstr "用户访问此语音邮件多播组中的语音邮箱时拨打的号码"
 
-msgid "Group Description:"
+msgid "Group Description"
 msgstr "小组描述："
 
 msgid "Provide a descriptive title for this VMBlast Group."
 msgstr "为语音邮件多播组提供一个描述性的标题"
 
-msgid "Audio Label:"
+msgid "Audio Label"
 msgstr "语音标签："
 
 msgid ""
@@ -152,13 +152,11 @@ msgid ""
 "access to this group voicemail list."
 msgstr "你可以为访问此小组语音邮件列表设置可选的密码。"
 
-msgid "Voicemail Box List:"
+msgid "Voicemail Box List"
 msgstr "语音邮件信箱列表："
 
-msgid ""
-"Select voice mail boxes to add to this group. Use Ctrl key to select "
-"multiple.."
-msgstr "选择要添加到这个小组的邮件信箱。要选择多个项目，请按住Ctrl键。"
+msgid "Select voice mail boxes to add to this group."
+msgstr "选择要添加到该组的语音邮箱。"
 
 msgid "Default VMBlast Group"
 msgstr "默认语音邮件多播组"

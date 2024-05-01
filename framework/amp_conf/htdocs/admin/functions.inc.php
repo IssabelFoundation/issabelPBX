@@ -64,6 +64,7 @@ require_once($dirname . '/helpers/html_helper.php');
 //form generation
 if (!defined('BASEPATH')){define('BASEPATH', '');}
 if (!function_exists('get_instance')) {
+    //function get_instance(){return new ci_def();}
     function &get_instance(){$def = new ci_def(); return $def;}
 }
 if (!class_exists('ci_def')) {
@@ -226,9 +227,9 @@ function ast_with_dahdi() {
         $issabelpbx_conf =& issabelpbx_conf::create();
         if ($issabelpbx_conf->conf_setting_exists('ZAP2DAHDICOMPAT')) {
             $issabelpbx_conf->set_conf_values(array('ZAP2DAHDICOMPAT' => true), true, true);
-            issabelpbx_log(IPBX_LOG_NOTICE, _("Auto set ZAP2DAHDICOMPAT to true because we are running a version of Asterisk greater than 1.4.21"));
+            issabelpbx_log(IPBX_LOG_NOTICE, __("Auto set ZAP2DAHDICOMPAT to true because we are running a version of Asterisk greater than 1.4.21"));
         } else {
-            issabelpbx_log(IPBX_LOG_ERROR, _("issabelpbx setting  ZAP2DAHDICOMPAT not found, somethng is corrupt in the conf database?"));
+            issabelpbx_log(IPBX_LOG_ERROR, __("issabelpbx setting  ZAP2DAHDICOMPAT not found, somethng is corrupt in the conf database?"));
         }
 
         $ast_with_dahdi = true;
@@ -266,6 +267,13 @@ function engine_getinfo($force_read=false) {
             if (preg_match('/No such command/',$response['data'])) {
                 $verinfo = exec('asterisk -V');
             }
+
+            if(isset($response['Response'])) {
+                if ($response['Response']=='Error' ) {
+                    $verinfo = exec('asterisk -V');
+                }
+            }
+
         } else {
             // could not connect to asterisk manager, try console
             $verinfo = exec('asterisk -V');
@@ -362,8 +370,8 @@ function do_reload($passthru=false) {
         exec( $setting_pre_reload, $output, $exit_val );
 
         if ($exit_val != 0) {
-            $desc = sprintf(_("Exit code was %s and output was: %s"), $exit_val, "\n\n".implode("\n",$output));
-            $notify->add_error('issabelpbx','reload_pre_script', sprintf(_('Could not run %s script.'), $setting_pre_reload), $desc);
+            $desc = sprintf(__("Exit code was %s and output was: %s"), $exit_val, "\n\n".implode("\n",$output));
+            $notify->add_error('issabelpbx','reload_pre_script', sprintf(__('Could not run %s script.'), $setting_pre_reload), $desc);
 
             $return['num_errors']++;
         } else {
@@ -380,17 +388,17 @@ function do_reload($passthru=false) {
 
     if ($exit_val != 0) {
         $return['status'] = false;
-        $return['message'] = sprintf(_('Reload failed because retrieve_conf encountered an error: %s'),$exit_val);
+        $return['message'] = sprintf(__('Reload failed because retrieve_conf encountered an error: %s'),$exit_val);
         $return['num_errors']++;
-        $notify->add_critical('issabelpbx','RCONFFAIL', _("retrieve_conf failed, config not applied"), $return['message']);
+        $notify->add_critical('issabelpbx','RCONFFAIL', __("retrieve_conf failed, config not applied"), $return['message']);
         return $return;
     }
 
     if (!isset($astman) || !$astman) {
         $return['status'] = false;
-        $return['message'] = _('Reload failed because IssabelPBX could not connect to the asterisk manager interface.');
+        $return['message'] = __('Reload failed because IssabelPBX could not connect to the asterisk manager interface.');
         $return['num_errors']++;
-        $notify->add_critical('issabelpbx','RCONFFAIL', _("retrieve_conf failed, config not applied"), $return['message']);
+        $notify->add_critical('issabelpbx','RCONFFAIL', __("retrieve_conf failed, config not applied"), $return['message']);
         return $return;
     }
     $notify->delete('issabelpbx', 'RCONFFAIL');
@@ -406,14 +414,14 @@ function do_reload($passthru=false) {
   }
 
     $return['status'] = true;
-    $return['message'] = _('Successfully reloaded');
+    $return['message'] = __('Successfully reloaded');
   $return['retrieve_conf'] = '';
 
     //store asterisk reloaded status
     $sql = "UPDATE admin SET value = 'false' WHERE variable = 'need_reload'";
     $result = $db->query($sql);
     if(DB::IsError($result)) {
-        $return['message'] = _('Successful reload, but could not clear reload flag due to a database error: ').$db->getMessage();
+        $return['message'] = __('Successful reload, but could not clear reload flag due to a database error: ').$db->getMessage();
         $return['num_errors']++;
     }
 
@@ -421,8 +429,8 @@ function do_reload($passthru=false) {
         exec( $setting_post_reload, $output, $exit_val );
 
         if ($exit_val != 0) {
-            $desc = sprintf(_("Exit code was %s and output was: %s"), $exit_val, "\n\n".implode("\n",$output));
-            $notify->add_error('issabelpbx','reload_post_script', sprintf(_('Could not run %s script.'), $setting_post_reload), $desc);
+            $desc = sprintf(__("Exit code was %s and output was: %s"), $exit_val, "\n\n".implode("\n",$output));
+            $notify->add_error('issabelpbx','reload_post_script', sprintf(__('Could not run %s script.'), $setting_post_reload), $desc);
 
             $return['num_errors']++;
         } else {
@@ -436,20 +444,47 @@ function do_reload($passthru=false) {
 
 // draw list for users and devices with paging
 // $skip has been deprecated, used to be used to page-enate
-function drawListMenu($results, $skip, $type, $dispnum, $extdisplay, $description=false) {
+// $description also deprecated, not i18n friendly, not needed
 
-    $index = 0;
-    echo "<ul>\n";
-    if ($description !== false) {
-         echo "\t<li><a ".($extdisplay=='' ? 'class="current"':'')." href=\"config.php?type=".$type."&display=".$dispnum."\">"._("Add")." ".$description."</a></li>\n";
+function drawListMenu($results, $type, $dispnum, $extdisplay, $add_extra_param='', $disable_add_button=false) {
+
+    echo '<nav class="rnav" up-nav>';
+    if($disable_add_button==false) {
+        echo "\t<a class='button is-small mt-2 is-link' id='rnavadd' href='javascript:void(0)' data-href=\"config.php?type=".$type."&display=".$dispnum.$add_extra_param."\" >"._dgettext('amp','Add')."</a>\n";
     }
+    echo "<div class='field has-addons mb0'><div class='control has-icons-left' style='width:100%;'>";
+    echo "<input type='search' id='rnavsearch' class='input is-rounded is-small mt-1 mb-1' name='search' onkeyup='filter_rnav()' placeholder='"._dgettext('amp','Search')."' autocomplete='off' role='presentation'/>";
+    echo "<span class='icon is-medium is-left'><i class='fa fa-search'></i></span>";
+    echo "</div></div>";
+
+    echo "<ul id='rnavul'>\n";
     if (isset($results)) {
         foreach ($results as $key=>$result) {
-            $index= $index + 1;
-            echo "\t<li><a".($extdisplay==$result[0] ? ' class="current"':''). " href=\"config.php?type=".$type."&display=".$dispnum."&extdisplay={$result[0]}\"><bdi>{$result[1]}</bdi> &lt;{$result[0]}&gt;</a></li>\n";
+            // result[0] = record id
+            // result[1] = record name
+            // result[2] = id to print
+            // result[3] = extra css class 
+            // result[4] = custom param
+            if(!isset($result[2])) $result[2]=$result[0];
+            if(!isset($result[3])) $result[3]="";
+            if(!isset($result[4])) { $extraparam=''; } else { $extraparam=$result[4]; }
+            if(!isset($result[5])) { $enable_unpoly=true; } else { $enable_unpoly=$result[5]; }
+            $extracss = (isset($result[3]))?$result[3]:"";
+            $label = ($result[2]!="")?"{$result[2]}: {$result[1]}":"{$result[1]}";
+            echo "\t<li>";
+            if($enable_unpoly==1) {
+                $unpoly_attributes = "up-transition='move-left' up-navigate=true up-cache=false up-follow up-target='.content, #action-bar'";
+            } else {
+                $unpoly_attributes = '';
+            }
+            $tooltipcontent = htmlspecialchars($result[1]);
+            $tooltip = " data-title=\"{$tooltipcontent}\" ";
+
+            echo "<a".(($extdisplay==$result[0]) ? " class='current $extracss'":" class='$extracss'"). " {$tooltip} href=\"config.php?type=".$type."&display=".$dispnum."&extdisplay={$result[0]}${extraparam}\" $unpoly_attributes>{$label}</a></li>\n";
         }
     }
     echo "</ul>\n";
+    echo "</nav>\n";
 }
 
 // this function returns true if $astman is defined and set to something (implying a current connection, false otherwise.
@@ -595,4 +630,20 @@ function issabelpbx_get_contexts() {
     return $contexts;
 }
 
+function process_tabindex($html,&$tabindex) {
+    do {
+        $pos = strpos($html, '{tabindex}');
+        if ($pos !== false) {
+            $tabindex++;
+            $html = substr_replace($html, $tabindex, $pos, 10);
+        }
+    } while($pos!==false);
+    return $html;
+}
+
+if(!function_exists('mb_strtolower')) {
+    function mb_strtolower($text) {
+        return strtolower($text);
+    }
+}
 ?>

@@ -2,7 +2,7 @@
 	<rawname>asterisk-cli</rawname>
 	<repo>extended</repo>
 	<name>Asterisk CLI</name>
-	<version>2.11.0.3</version>
+	<version>2.12.0.0</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,9 +17,11 @@
 	<location>release/2.11/asterisk-cli-2.11.0.0.tgz</location>
 	<md5sum>e575da7d4cc3a449e248bad57c66dcb5</md5sum>
 	<changelog>
+		*2.12.0.0* Newer GUI, standarize module components
 		*2.11.0.3* Initial Issabel Foundation release
 	</changelog>
 	<supported>
-		<version>2.10</version>
-	</supported>
+		<version>2.12</version>
+    </supported>
+    <md5sum>0</md5sum>
 </module>

@@ -33,7 +33,7 @@ function callback_getdestinfo($dest) {
 			return array();
 		} else {
 			//$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
-			return array('description' => sprintf(_("Callback: %s"),$thisexten['description']),
+			return array('description' => sprintf(__("Callback: %s"),$thisexten['description']),
 			             'edit_url' => 'config.php?display=callback&itemid='.urlencode($exten),
 								  );
 		}
@@ -62,7 +62,7 @@ function callback_check_destinations($dest=true) {
 		$thisid   = $result['callback_id'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => sprintf(_("Callback: %s"),$result['description']),
+			'description' => sprintf(__("Callback: %s"),$result['description']),
 			'edit_url' => 'config.php?display=callback&type='.$type.'&itemid='.urlencode($thisid),
 		);
 	}
@@ -147,8 +147,8 @@ function callback_add($post){
 	if(!callback_chk($post))
 		return false;
 	extract($post);
-	if(empty($description)) $description = ${$goto0.'0'};
-	$results = sql("INSERT INTO callback (description,callbacknum,destination,deptname,sleep) values (\"$description\",\"$callbacknum\",\"${$goto0.'0'}\",\"$deptname\",\"$sleep\")");
+	if(empty($description)) $description = ${$goto0};
+	$results = sql("INSERT INTO callback (description,callbacknum,destination,deptname,sleep) values (\"$description\",\"$callbacknum\",\"${$goto0}\",\"$deptname\",\"$sleep\")");
 	if(method_exists($db,'insert_id')) {
 		$id = $db->insert_id();
 	} else {
@@ -161,8 +161,8 @@ function callback_edit($id,$post){
 	if(!callback_chk($post))
 		return false;
 	extract($post);
-	if(empty($description)) $description = ${$goto0.'0'};
-	$results = sql("UPDATE callback SET description = \"$description\", callbacknum = \"$callbacknum\", destination = \"${$goto0.'0'}\", deptname = \"$deptname\", sleep = \"$sleep\" WHERE callback_id = \"$id\"");
+	if(empty($description)) $description = ${$goto0};
+	$results = sql("UPDATE callback SET description = \"$description\", callbacknum = \"$callbacknum\", destination = \"${$goto0}\", deptname = \"$deptname\", sleep = \"$sleep\" WHERE callback_id = \"$id\"");
 }
 
 // ensures post vars is valid

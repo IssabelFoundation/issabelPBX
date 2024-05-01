@@ -1,12 +1,12 @@
 <form id="dahdi_editspan_<?php echo $key?>" method="POST" action="config.php?quietmode=1&amp;handler=file&amp;module=dahdiconfig&amp;file=ajax.html.php&amp;type=digital&amp;id=<?php echo $key;?>">
     <input type="hidden" name="editspan_<?php echo $key?>_reserved_ch" value="<?php echo $span['reserved_ch'];?>">
     <input type="hidden" name="editspan_<?php echo $key?>_groupc" value="0">
-    <h2><?php echo _('General Settings')?></h2>
+    <h2><?php echo __('General Settings')?></h2>
     <hr>
     <table width="100%" style="text-align:left;" border="0" cellspacing="0">
         <tr>
             <td style="width:10px;">
-                <label for="editspan_<?php echo $key?>_alarm"><?php echo _('Alarms')?>:</label>
+                <label for="editspan_<?php echo $key?>_alarm"><?php echo __('Alarms')?>:</label>
             </td>
             <td>
                 <span id="editspan_<?php echo $key?>_alarms" name="editspan_<?php echo $key?>_alarms"><?php echo $span['alarms']?></span>

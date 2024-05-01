@@ -3,7 +3,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 global $db;
 global $amp_conf;
 
-if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
+if(preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
 	$sql = "
 	CREATE TABLE IF NOT EXISTS `phpagiconf` (
 		`phpagiid` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -42,7 +42,7 @@ else  {
 		`cepstral_voice` VARCHAR( 50 ) ,
 		`setuid` BOOL ,
 		`basedir` VARCHAR( 255 )
-	) ENGINE = MYISAM ;
+	);
 	";
 }
 sql($sql);

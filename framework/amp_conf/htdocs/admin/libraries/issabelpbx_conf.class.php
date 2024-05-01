@@ -30,8 +30,8 @@ define("CONF_TYPE_FSELECT",'fselect');
 // TODO: is there a better place to put these like in install script?
 //
 if (false) {
-  _('No Description Provided');
-  _('Undefined Category');
+  __('No Description Provided');
+  __('Undefined Category');
 }
 
 class issabelpbx_conf {
@@ -55,16 +55,17 @@ class issabelpbx_conf {
   'ARI_ADMIN_PASSWORD' => array(CONF_TYPE_TEXT, 'ari_password'),
   'CFRINGTIMERDEFAULT' => array(CONF_TYPE_SELECT, '0'),
 
-  'AMPASTERISKWEBUSER'	=> array(CONF_TYPE_TEXT, 'asterisk'),
-  'AMPASTERISKWEBGROUP'	=> array(CONF_TYPE_TEXT, 'asterisk'),
-  'AMPASTERISKUSER'	=> array(CONF_TYPE_TEXT, 'asterisk'),
-  'AMPASTERISKGROUP'	=> array(CONF_TYPE_TEXT, 'asterisk'),
-  'AMPDEVUSER'	   => array(CONF_TYPE_TEXT, 'apache'),
+  'AMPASTERISKWEBUSER'    => array(CONF_TYPE_TEXT, 'asterisk'),
+  'AMPASTERISKWEBGROUP'    => array(CONF_TYPE_TEXT, 'asterisk'),
+  'AMPASTERISKUSER'    => array(CONF_TYPE_TEXT, 'asterisk'),
+  'AMPASTERISKGROUP'    => array(CONF_TYPE_TEXT, 'asterisk'),
+  'AMPDEVUSER'       => array(CONF_TYPE_TEXT, 'apache'),
   'AMPDEVGROUP'    => array(CONF_TYPE_TEXT, 'apache'),
 
   'ASTETCDIR'      => array(CONF_TYPE_DIR, '/etc/asterisk'),
   'ASTMODDIR'      => array(CONF_TYPE_DIR, '/usr/lib/asterisk/modules'),
   'ASTVARLIBDIR'   => array(CONF_TYPE_DIR, '/var/lib/asterisk'),
+  'ASTDATADIR'     => array(CONF_TYPE_DIR, '/var/lib/asterisk'),
   'ASTAGIDIR'      => array(CONF_TYPE_DIR, '/var/lib/asterisk/agi-bin'),
   'ASTSPOOLDIR'    => array(CONF_TYPE_DIR, '/var/spool/asterisk/'),
   'ASTRUNDIR'      => array(CONF_TYPE_DIR, '/var/run/asterisk'),
@@ -73,7 +74,7 @@ class issabelpbx_conf {
   'AMPSBIN'        => array(CONF_TYPE_DIR, '/usr/sbin'),
   'AMPWEBROOT'     => array(CONF_TYPE_DIR, '/var/www/html'),
   'MOHDIR'         => array(CONF_TYPE_DIR, 'mohmp3'),
-  'IPBXDBUGFILE'	 => array(CONF_TYPE_DIR, '/tmp/issabelpbx_debug.log'),
+  'IPBXDBUGFILE'    => array(CONF_TYPE_DIR, '/tmp/issabelpbx_debug.log'),
 
   'ENABLECW'       => array(CONF_TYPE_BOOL, true),
   'CWINUSEBUSY'    => array(CONF_TYPE_BOOL, true),
@@ -235,7 +236,7 @@ class issabelpbx_conf {
     $sql = 'SELECT * FROM issabelpbx_settings ORDER BY category, sortorder, name';
     $db_raw = $db->getAll($sql, array(), DB_FETCHMODE_ASSOC);
     if(DB::IsError($db_raw)) {
-      die_issabelpbx(_('fatal error reading issabelpbx_settings'));
+      die_issabelpbx(__('fatal error reading issabelpbx_settings'));
     }
     unset($this->last_update_status);
     foreach($db_raw as $setting) {
@@ -291,136 +292,139 @@ class issabelpbx_conf {
    * @return array  returns the hash which is used for $amp_conf.
    */
   function parse_amportal_conf($filename, $bootstrap_conf = array(), $file_is_authority=false) {
-	  global $db;
+      global $db;
 
-    // if we have loaded for the db, then just return what we already have
-    if ($this->parsed_from_db && !$file_is_authority) {
-	    return $this->conf;
-    }
-
-	  /* defaults
-	  * This defines defaults and formatting to assure consistency across the system so that
-	  * components don't have to keep being 'gun shy' about these variables.
-	  *
-	  * we will read these settings out of the db, but only when $filename is writeable
-	  * otherwise, we read the $filename
-	  */
-    // If conf file is not writable, then we use it as the master so parse it.
-	  if (!is_writable($filename) || $file_is_authority) {
-		  $file = file($filename);
-		  if (is_array($file)) {
-        $write_back = false;
-			  foreach ($file as $line) {
-				  if (preg_match("/^\s*([a-zA-Z0-9_]+)=([a-zA-Z0-9 .&-@=_!<>\"\']+)\s*$/",$line,$matches)) {
-            // overrite anything that was initialized from the db with the conf file authoritative source
-            // if different from the db value then let's write it back to the db
-            // TODO: massage any data we read from the conf file with _preapre_conf_value since it is
-            //       written back to the DB here if different from the DB.
-            //
-            if (!isset($this->conf[$matches[1]]) || $this->conf[$matches[1]] != $matches[2]) {
-              if (isset($this->db_conf_store[$matches[1]])) {
-                $this->db_conf_store[$matches[1]]['value'] = $matches[2];
-                $this->db_conf_store[$matches[1]]['modified'] = true;
-					      $this->conf[$matches[1]] =& $this->db_conf_store[$matches[1]]['value'];
-                $write_back = true;
-              } else {
-					      $this->conf[$matches[1]] = $matches[2];
-              }
-            }
-				  }
- 			  }
-        $this->amportal_canwrite = false;
-        if ($write_back) {
-          $this->commit_conf_settings();
-        }
-		  } else {
-			  die_issabelpbx(sprintf(_("Missing or unreadable config file [%s]...cannot continue"), $filename));
-		  }
-      // Need to handle transitionary period where modules are adding new settings. So once we parsed the file
-      // we still go read from the database and add anything that isn't there from the conf file.
-      //
-	  } else {
-      $this->amportal_canwrite = true;
-      $this->parsed_from_db = true;
-    }
-    // If boostrap_conf settings are passed in, add them to the class
-    //
-    // TODO: Make a method that can do this as well (and maybe use here) so parse_amportal_conf isn't the
-    //       only way to do this.
-    foreach ($bootstrap_conf as $key => $value) {
-      if (!isset($this->conf[$key])) {
-        $this->conf[$key] = $value;
+      // if we have loaded for the db, then just return what we already have
+      if ($this->parsed_from_db && !$file_is_authority) {
+          return $this->conf;
       }
-    }
 
-    // We set defaults above from the database so anything that needed a default
-    // and had one available was set there. The only conflict here is if we did
-    // not specify emptyok and yet the legacy ones do have a default.
-    //
-    // it looks like the only ones that don't accept an empty but set variable are directories
-    //
-	  // set defaults
-    // TODO: change this to use _prepare_conf_value ?
-    // TODO: beware that these are all free-form entered (e.g. booleans) need pre-conditioning if from conf file
-	  foreach ($this->legacy_conf_defaults as $key=>$arr) {
+      /* defaults
+       * This defines defaults and formatting to assure consistency across the system so that
+       * components don't have to keep being 'gun shy' about these variables.
+       *
+       * we will read these settings out of the db, but only when $filename is writeable
+       * otherwise, we read the $filename
+       */
+      // If conf file is not writable, then we use it as the master so parse it.
+      if (!is_writable($filename) || $file_is_authority) {
+          $file = file($filename);
+          if (is_array($file)) {
+              $write_back = false;
+              foreach ($file as $line) {
+                  if (preg_match("/^\s*([a-zA-Z0-9_]+)=([a-zA-Z0-9 .&-@=_!<>\"\']+)\s*$/",$line,$matches)) {
+                      // overrite anything that was initialized from the db with the conf file authoritative source
+                      // if different from the db value then let's write it back to the db
+                      // TODO: massage any data we read from the conf file with _preapre_conf_value since it is
+                      //       written back to the DB here if different from the DB.
+                      //
+                      if (!isset($this->conf[$matches[1]]) || $this->conf[$matches[1]] != $matches[2]) {
+                          if (isset($this->db_conf_store[$matches[1]])) {
+                              $this->db_conf_store[$matches[1]]['value'] = $matches[2];
+                              $this->db_conf_store[$matches[1]]['modified'] = true;
+                              $this->conf[$matches[1]] =& $this->db_conf_store[$matches[1]]['value'];
+                              $write_back = true;
+                          } else {
+                              $this->conf[$matches[1]] = $matches[2];
+                          }
+                      }
+                  }
+              }
+              $this->amportal_canwrite = false;
+              if ($write_back) {
+                  $this->commit_conf_settings();
+              }
+          } else {
+              die_issabelpbx(sprintf(__("Missing or unreadable config file [%s]...cannot continue"), $filename));
+          }
+          // Need to handle transitionary period where modules are adding new settings. So once we parsed the file
+          // we still go read from the database and add anything that isn't there from the conf file.
+          //
+      } else {
+          $this->amportal_canwrite = true;
+          $this->parsed_from_db = true;
+      }
+      // If boostrap_conf settings are passed in, add them to the class
+      //
+      // TODO: Make a method that can do this as well (and maybe use here) so parse_amportal_conf isn't the
+      //       only way to do this.
+      foreach ($bootstrap_conf as $key => $value) {
+          if (!isset($this->conf[$key])) {
+              $this->conf[$key] = $value;
+          }
+      }
 
-		  switch ($arr[0]) {
-			  // for type dir, make sure there is no trailing '/' to keep consistent everwhere
-			  //
-        case CONF_TYPE_DIR:
-				  if (!isset($this->conf[$key]) || trim($this->conf[$key]) == '') {
-					  $this->conf[$key] = $arr[1];
-				  } else {
-					  $this->conf[$key] = rtrim($this->conf[$key],'/');
-				  }
-				  break;
-			  // booleans:
-			  // "yes", "true", "on", true, 1 (case-insensitive) will be treated as true, everything else is false
-			  //
-        case CONF_TYPE_BOOL:
-				  if (!isset($this->conf[$key])) {
-					  $this->conf[$key] = $arr[1];
-				  } else {
-					  $this->conf[$key] = ($this->conf[$key] === true || strtolower($this->conf[$key]) == 'true' || $this->conf[$key] === 1 || $this->conf[$key] == '1'
-					                                      || strtolower($this->conf[$key]) == 'yes' ||  strtolower($this->conf[$key]) == 'on');
-				  }
-				  break;
-			  default:
-				  if (!isset($this->conf[$key])) {
-					  $this->conf[$key] = $arr[1];
-				  } else {
-					  $this->conf[$key] = trim($this->conf[$key]);
-				  }
-		  }
-	  }
+      // We set defaults above from the database so anything that needed a default
+      // and had one available was set there. The only conflict here is if we did
+      // not specify emptyok and yet the legacy ones do have a default.
+      //
+      // it looks like the only ones that don't accept an empty but set variable are directories
+      //
+      // set defaults
+      // TODO: change this to use _prepare_conf_value ?
+      // TODO: beware that these are all free-form entered (e.g. booleans) need pre-conditioning if from conf file
+      foreach ($this->legacy_conf_defaults as $key=>$arr) {
 
-	  $convert = array(
-		  'astetcdir'    => 'ASTETCDIR',
-		  'astmoddir'    => 'ASTMODDIR',
-		  'astvarlibdir' => 'ASTVARLIBDIR',
-		  'astagidir'    => 'ASTAGIDIR',
-		  'astspooldir'  => 'ASTSPOOLDIR',
-		  'astrundir'    => 'ASTRUNDIR',
-		  'astlogdir'    => 'ASTLOGDIR'
-	  );
+          switch ($arr[0]) {
+              // for type dir, make sure there is no trailing '/' to keep consistent everwhere
+              //
+          case CONF_TYPE_DIR:
+              if (!isset($this->conf[$key]) || trim($this->conf[$key]) == '') {
+                  $this->conf[$key] = $arr[1];
+              } else {
+                  $this->conf[$key] = rtrim($this->conf[$key],'/');
+              }
+              break;
+              // booleans:
+              // "yes", "true", "on", true, 1 (case-insensitive) will be treated as true, everything else is false
+              //
+          case CONF_TYPE_BOOL:
+              if (!isset($this->conf[$key])) {
+                  $this->conf[$key] = $arr[1];
+              } else {
+                  $this->conf[$key] = ($this->conf[$key] === true || strtolower($this->conf[$key]) == 'true' || $this->conf[$key] === 1 || $this->conf[$key] == '1'
+                      || strtolower($this->conf[$key]) == 'yes' ||  strtolower($this->conf[$key]) == 'on');
+              }
+              break;
+          default:
+              if (!isset($this->conf[$key])) {
+                  $this->conf[$key] = $arr[1];
+              } else {
+                  $this->conf[$key] = trim($this->conf[$key]);
+              }
+          }
+      }
 
-	  $file = file($this->conf['ASTETCDIR'].'/asterisk.conf');
-	  foreach ($file as $line) {
-		  if (preg_match("/^\s*([a-zA-Z0-9]+)\s* => \s*(.*)\s*([;#].*)?/",$line,$matches)) {
-			  $this->asterisk_conf[ $matches[1] ] = rtrim($matches[2],"/ \t");
-		  }
-	  }
+      $convert = array(
+          'astetcdir'    => 'ASTETCDIR',
+          'astmoddir'    => 'ASTMODDIR',
+          'astvarlibdir' => 'ASTVARLIBDIR',
+          'astdatadir'   => 'ASTDATADIR',
+          'astagidir'    => 'ASTAGIDIR',
+          'astspooldir'  => 'ASTSPOOLDIR',
+          'astrundir'    => 'ASTRUNDIR',
+          'astlogdir'    => 'ASTLOGDIR'
+      );
 
-	  // Now that we parsed asterisk.conf, we need to make sure $amp_conf is consistent
-	  // so just set it to what we found, since this is what asterisk will use anyhow.
-	  //
-	  foreach ($convert as $ast_conf_key => $amp_conf_key) {
-		  if (isset($this->conf[$ast_conf_key])) {
-			  $this->conf[$amp_conf_key] = $this->asterisk_conf[$ast_conf_key];
-		  }
-	  }
+      if(is_readable($this->conf['ASTETCDIR'].'/asterisk.conf')) {
+          $file = file($this->conf['ASTETCDIR'].'/asterisk.conf');
+          foreach ($file as $line) {
+              if (preg_match("/^\s*([a-zA-Z0-9]+)\s* => \s*(.*)\s*([;#].*)?/",$line,$matches)) {
+              $this->asterisk_conf[ $matches[1] ] = rtrim($matches[2],"/ \t");
+              }
+          }
+      }
 
-	  return $this->conf;
+      // Now that we parsed asterisk.conf, we need to make sure $amp_conf is consistent
+      // so just set it to what we found, since this is what asterisk will use anyhow.
+      //
+      foreach ($convert as $ast_conf_key => $amp_conf_key) {
+          if (isset($this->conf[$ast_conf_key])) {
+              $this->conf[$amp_conf_key] = $this->asterisk_conf[$ast_conf_key];
+          }
+      }
+
+      return $this->conf;
   }
 
   /** Generate an amportal.conf file from the db_conf_store settings loaded.
@@ -429,60 +433,60 @@ class issabelpbx_conf {
    * @return string returns the amportal.conf text that can be written out to a file.
    */
   function amportal_generate($verbose=true) {
-    // purposely lcoalized the '---------' lines, if someone translates this, theymay want to keep it 'neat'
-    // Only localize text, not special characters, and dont add the end ";" as localized text can be of any length
-    $conf_string  = "#;--------------------------------------------------------------------------------\n";
-    $conf_string .= "#; ";
-    $conf_string .= _("Do NOT edit this file as it is auto-generated by IssabelPBX. All modifications to");
-    $conf_string .= "\n#; ";
-    $conf_string .= _("this file must be done via the Web GUI. There are alternative files to make");
-    $conf_string .= "\n#; ";
-    $conf_string .= _("custom modifications, details at:");
-    $conf_string .= " http://issabel.org/configuration_files\n";
-    $conf_string .= "#;--------------------------------------------------------------------------------\n\n\n";
-    $conf_string .= "#;--------------------------------------------------------------------------------\n#; ";
-    $conf_string .= _("All settings can be set from the Advanced Settings page accessible in IssabelPBX");
-    $conf_string .=  "\n#;--------------------------------------------------------------------------------\n\n\n\n";
-    $comments = '';
+      // purposely lcoalized the '---------' lines, if someone translates this, theymay want to keep it 'neat'
+      // Only localize text, not special characters, and dont add the end ";" as localized text can be of any length
+      $conf_string  = "#;--------------------------------------------------------------------------------\n";
+      $conf_string .= "#; ";
+      $conf_string .= __("Do NOT edit this file as it is auto-generated by IssabelPBX. All modifications to");
+      $conf_string .= "\n#; ";
+      $conf_string .= __("this file must be done via the Web GUI. There are alternative files to make");
+      $conf_string .= "\n#; ";
+      $conf_string .= __("custom modifications, details at:");
+      $conf_string .= " http://issabel.org/configuration_files\n";
+      $conf_string .= "#;--------------------------------------------------------------------------------\n\n\n";
+      $conf_string .= "#;--------------------------------------------------------------------------------\n#; ";
+      $conf_string .= __("All settings can be set from the Advanced Settings page accessible in IssabelPBX");
+      $conf_string .=  "\n#;--------------------------------------------------------------------------------\n\n\n\n";
+      $comments = '';
 
-    // Note, No localization of the name field, this is a conf file! DON'T MESS WITH THIS!
-    $category = '';
-    foreach ($this->conf as $keyword => $value) {
-      if ($this->conf_setting_exists($keyword)) {
-        if ($this->db_conf_store[$keyword]['hidden']) {
-          continue;
-        }
-        if ($this->db_conf_store[$keyword]['type'] == CONF_TYPE_BOOL) {
-          $default_val = $this->db_conf_store[$keyword]['defaultval'] ? 'TRUE' : 'FALSE';
-          $this_val    = $value ? 'TRUE' : 'FALSE';
-        } else {
-          $default_val = $this->db_conf_store[$keyword]['defaultval'];
-          $this_val    = $value;
-        }
-      } else {
-        $this_val = $value;
-      }
-      if ($verbose) {
-        if ($this->conf_setting_exists($keyword)) {
-          $comments = '';
-          if ($this->db_conf_store[$keyword]['category'] != $category) {
-            $category = $this->db_conf_store[$keyword]['category'];
-            $comments = "#\n# --- CATEGORY: $category ---\n#\n\n";
+      // Note, No localization of the name field, this is a conf file! DON'T MESS WITH THIS!
+      $category = '';
+      foreach ($this->conf as $keyword => $value) {
+          if ($this->conf_setting_exists($keyword)) {
+              if ($this->db_conf_store[$keyword]['hidden']) {
+                  continue;
+              }
+              if ($this->db_conf_store[$keyword]['type'] == CONF_TYPE_BOOL) {
+                  $default_val = $this->db_conf_store[$keyword]['defaultval'] ? 'TRUE' : 'FALSE';
+                  $this_val    = $value ? 'TRUE' : 'FALSE';
+              } else {
+                  $default_val = $this->db_conf_store[$keyword]['defaultval'];
+                  $this_val    = $value;
+              }
+          } else {
+              $this_val = $value;
           }
-          $comments .= "# " . $this->db_conf_store[$keyword]['name'] . "\n";
-          $comments .= "# Default Value: $default_val\n";
-        } else {
-          $comments = "#\n";
-          if ($category != 'Bootstrapped or Legacy Settings') {
-            $category = 'Bootstrapped or Legacy Settings';
-            $comments = "#\n# --- CATEGORY: $category ---\n#\n\n#\n";
+          if ($verbose) {
+              if ($this->conf_setting_exists($keyword)) {
+                  $comments = '';
+                  if ($this->db_conf_store[$keyword]['category'] != $category) {
+                      $category = $this->db_conf_store[$keyword]['category'];
+                      $comments = "#\n# --- CATEGORY: $category ---\n#\n\n";
+                  }
+                  $comments .= "# " . $this->db_conf_store[$keyword]['name'] . "\n";
+                  $comments .= "# Default Value: $default_val\n";
+              } else {
+                  $comments = "#\n";
+                  if ($category != 'Bootstrapped or Legacy Settings') {
+                      $category = 'Bootstrapped or Legacy Settings';
+                      $comments = "#\n# --- CATEGORY: $category ---\n#\n\n#\n";
+                  }
+              }
           }
-        }
+          $this_val = str_replace(' ','\ ',$this_val);
+          $conf_string .= $comments . "$keyword=$this_val\n\n";
       }
-			$this_val = str_replace(' ','\ ',$this_val);
-      $conf_string .= $comments . "$keyword=$this_val\n\n";
-    }
-    return $conf_string;
+      return $conf_string;
   }
 
 
@@ -519,7 +523,7 @@ class issabelpbx_conf {
    * @return array  returns the hash which is used for $asterisk_conf.
    */
   function get_asterisk_conf() {
-	  return $this->asterisk_conf;
+      return $this->asterisk_conf;
   }
 
   /** Returns a hash of the full $db_conf_store, getter for that object.
@@ -527,12 +531,12 @@ class issabelpbx_conf {
    * @return array   a copy of the db_conf_store
    */
   function get_conf_settings() {
-		$db_conf_store = $this->db_conf_store;
-		foreach ($db_conf_store as $k => $s) {
-			if ($s['type'] == CONF_TYPE_FSELECT) {
-				$db_conf_store[$k]['options'] = unserialize($s['options']);
-			}
-		}
+        $db_conf_store = $this->db_conf_store;
+        foreach ($db_conf_store as $k => $s) {
+            if ($s['type'] == CONF_TYPE_FSELECT) {
+                $db_conf_store[$k]['options'] = unserialize($s['options']);
+            }
+        }
     return $db_conf_store;
   }
 
@@ -555,18 +559,18 @@ class issabelpbx_conf {
    *                not exist.
    */
   function get_conf_setting($keyword, $passthru=false) {
-		if ($passthru) {
-			// This is a special case situation, do I need to confirm if the setting
-			// actually exists so I can return a boolean false if not?
-			//
-			global $db;
-			$sql = "SELECT `value` FROM issabelpbx_settings WHERE `keyword` = '$keyword'";
-			$value = $db->getOne($sql);
-			if (isset($this->db_conf_store[$keyword])) {
-				$this->db_conf_store[$keyword]['value'] = $value;
-			}
-			return $value;
-		} elseif (isset($this->db_conf_store[$keyword])) {
+        if ($passthru) {
+            // This is a special case situation, do I need to confirm if the setting
+            // actually exists so I can return a boolean false if not?
+            //
+            global $db;
+            $sql = "SELECT `value` FROM issabelpbx_settings WHERE `keyword` = '$keyword'";
+            $value = $db->getOne($sql);
+            if (isset($this->db_conf_store[$keyword])) {
+                $this->db_conf_store[$keyword]['value'] = $value;
+            }
+            return $value;
+        } elseif (isset($this->db_conf_store[$keyword])) {
             return $this->db_conf_store[$keyword]['value'];
         } else {
             return false;
@@ -618,15 +622,15 @@ class issabelpbx_conf {
    *                values and are marked dirty unless written out.
    */
   function set_conf_values($update_arr, $commit=false, $override_readonly=false) {
-		global $amp_conf;
+        global $amp_conf;
     $cnt = 0;
     if (!is_array($update_arr)) {
-      die_issabelpbx(_("called set_conf_values with a non-array"));
+      die_issabelpbx(__("called set_conf_values with a non-array"));
     }
     unset($this->last_update_status);
     foreach($update_arr as $keyword => $value) {
       if (!isset($this->db_conf_store[$keyword])) {
-        die_issabelpbx(sprintf(_("trying to set keyword [%s] to [%s] on uninitialized setting"),$keyword, $value));
+        die_issabelpbx(sprintf(__("trying to set keyword [%s] to [%s] on uninitialized setting"),$keyword, $value));
       }
       $this->last_update_status[$keyword]['validated'] = false;
       $this->last_update_status[$keyword]['saved'] = false;
@@ -653,12 +657,12 @@ class issabelpbx_conf {
         $cnt++;
       }
 
-			// Make sure it get's update in amp_conf
-			//
-			$amp_conf[$keyword] = $prep_value;
-			// Process some specific keywords that require further actions
-			//
-			$this->_setting_change_special($keyword, $prep_value);
+            // Make sure it get's update in amp_conf
+            //
+            $amp_conf[$keyword] = $prep_value;
+            // Process some specific keywords that require further actions
+            //
+            $this->_setting_change_special($keyword, $prep_value);
 
     }
     if ($commit) {
@@ -725,21 +729,21 @@ class issabelpbx_conf {
     $this->_last_update_status =& $this->last_update_status[$keyword];
 
     $attributes = array(
-	    'keyword' => '',
-	    'value' => '',
-	    'name' => '',
-	    'level' => 0,
-	    'description' => 'No Description Provided', // Don't gettext this
-	    'type' => '',
-	    'options' => '',
-	    'defaultval' => '',
-	    'readonly' => 0,
-	    'hidden' => 0,
-	    'category' => 'Undefined Category', // Don't gettext this
-	    'module' => '',
-	    'emptyok' => 1,
-	    'sortorder' => 0,
-	    'modified' => false, // set to false to compare against existing array
+        'keyword' => '',
+        'value' => '',
+        'name' => '',
+        'level' => 0,
+        'description' => 'No Description Provided', // Don't gettext this
+        'type' => '',
+        'options' => '',
+        'defaultval' => '',
+        'readonly' => 0,
+        'hidden' => 0,
+        'category' => 'Undefined Category', // Don't gettext this
+        'module' => '',
+        'emptyok' => 1,
+        'sortorder' => 0,
+        'modified' => false, // set to false to compare against existing array
       );
     // Got to have a type and value, if no type, _prepared_conf_value will throw an error
     $new_setting = !isset($this->db_conf_store[$keyword]);
@@ -778,10 +782,10 @@ class issabelpbx_conf {
       }
     }
     if (!$new_setting && $vars['type'] != $this->db_conf_store[$keyword]['type']) {
-      die_issabelpbx(sprintf(_("you can't convert an existing type, keyword [%s]"),$keyword));
+      die_issabelpbx(sprintf(__("you can't convert an existing type, keyword [%s]"),$keyword));
     }
     if (!isset($vars['value']) || !isset($vars['defaultval'])) {
-      die_issabelpbx(sprintf(_("missing value and/or defaultval required for [%s]"),$keyword));
+      die_issabelpbx(sprintf(__("missing value and/or defaultval required for [%s]"),$keyword));
     } else {
       $attributes['keyword'] = $keyword;
       $attributes['type'] = $vars['type'];
@@ -789,7 +793,7 @@ class issabelpbx_conf {
     switch ($vars['type']) {
     case CONF_TYPE_SELECT:
       if (!isset($vars['options']) || $vars['options'] == '') {
-        die_issabelpbx(sprintf(_("missing options for keyword [%s] required if type is select"),$keyword));
+        die_issabelpbx(sprintf(__("missing options for keyword [%s] required if type is select"),$keyword));
       } else {
         $opt_array =  is_array($vars['options']) ? $vars['options'] : explode(',',$vars['options']);
         foreach($opt_array as $av) {
@@ -802,16 +806,16 @@ class issabelpbx_conf {
     break;
     case CONF_TYPE_FSELECT:
       if (!isset($vars['options']) || !is_array($vars['options'])) {
-        die_issabelpbx(sprintf(_("missing options array for keyword [%s] required if type is select"),$keyword));
+        die_issabelpbx(sprintf(__("missing options array for keyword [%s] required if type is select"),$keyword));
       } else {
         $attributes['options'] = serialize($vars['options']);
-			}
+            }
     break;
     case CONF_TYPE_INT:
       if (isset($vars['options']) && $vars['options'] != '') {
         $validate_options = !is_array($vars['options']) ? explode(',',$vars['options']) : $vars['options'];
         if (count($validate_options) != 2 || !is_numeric($validate_options[0]) || !is_numeric($validate_options[1])) {
-          die_issabelpbx(sprintf(_("invalid validation options provided for keyword %s: %s"),$keyword,implode(',',$validate_options)));
+          die_issabelpbx(sprintf(__("invalid validation options provided for keyword %s: %s"),$keyword,implode(',',$validate_options)));
         } else {
           $attributes['options'] = (int) $validate_options[0] . ',' . (int) $validate_options[1];
         }
@@ -857,7 +861,7 @@ class issabelpbx_conf {
     //
     if (!$this->_last_update_status['validated']) {
       die_issabelpbx(
-        sprintf(_("method define_conf_setting() failed to pass validation for keyword [%s] setting value [%s], error msg if supplied [%s]"),
+        sprintf(__("method define_conf_setting() failed to pass validation for keyword [%s] setting value [%s], error msg if supplied [%s]"),
         $keyword, $vars['value'], $this->_last_update_status['msg'])
       );
     }
@@ -908,7 +912,7 @@ class issabelpbx_conf {
     $sql = "DELETE FROM issabelpbx_settings WHERE keyword in ('".implode("','",$settings)."')";
     $result = $db->query($sql);
     if(DB::IsError($result)) {
-      die_issabelpbx(_('fatal error deleting rows from issabelpbx_settings, sql query: %s').$sql);
+      die_issabelpbx(__('fatal error deleting rows from issabelpbx_settings, sql query: %s').$sql);
     }
   }
 
@@ -933,7 +937,7 @@ class issabelpbx_conf {
     $sql = "DELETE FROM issabelpbx_settings WHERE module = '$module'";
     $result = $db->query($sql);
     if(DB::IsError($result)) {
-      die_issabelpbx(_('fatal error deleting rows from issabelpbx_settings, sql query: %s').$sql);
+      die_issabelpbx(__('fatal error deleting rows from issabelpbx_settings, sql query: %s').$sql);
     }
   }
 
@@ -944,9 +948,9 @@ class issabelpbx_conf {
   function commit_conf_settings() {
     global $db;
     $update_array = array();
-	if(empty($this->db_conf_store)) {
-		return 0;
-	}
+    if(empty($this->db_conf_store)) {
+        return 0;
+    }
     foreach ($this->db_conf_store as $keyword => $atrib) {
       if (!$atrib['modified']) {
         continue;
@@ -979,7 +983,7 @@ class issabelpbx_conf {
     $compiled = $db->prepare($sql);
     $result = $db->executeMultiple($compiled,$update_array);
     if(DB::IsError($result)) {
-      die_issabelpbx(_('fatal error updating issabelpbx_settings table'));
+      die_issabelpbx(__('fatal error updating issabelpbx_settings table'));
     }
     return count($update_array);
   }
@@ -1019,7 +1023,7 @@ class issabelpbx_conf {
       } else {
         $ret = null;
         $this->_last_update_status['validated'] = false;
-        $this->_last_update_status['msg'] = _("Invalid value supplied to select");
+        $this->_last_update_status['msg'] = __("Invalid value supplied to select");
         $this->_last_update_status['saved_value'] = $ret;
         $this->_last_update_status['saved'] = false;
         //
@@ -1029,16 +1033,16 @@ class issabelpbx_conf {
       break;
 
     case CONF_TYPE_FSELECT:
-			if (!is_array($options)) {
-				$options = unserialize($options);
-			}
+            if (!is_array($options)) {
+                $options = unserialize($options);
+            }
       if (array_key_exists($value, $options)) {
         $ret = $value;
         $this->_last_update_status['validated'] = true;
       } else {
         $ret = null;
         $this->_last_update_status['validated'] = false;
-        $this->_last_update_status['msg'] = _("Invalid value supplied to select");
+        $this->_last_update_status['msg'] = __("Invalid value supplied to select");
         $this->_last_update_status['saved_value'] = $ret;
         $this->_last_update_status['saved'] = false;
         //
@@ -1057,7 +1061,7 @@ class issabelpbx_conf {
     case CONF_TYPE_TEXT:
       if ($value == '' && !$emptyok) {
         $this->_last_update_status['validated'] = false;
-        $this->_last_update_status['msg'] = _("Empty value not allowed for this field");
+        $this->_last_update_status['msg'] = __("Empty value not allowed for this field");
       } else if ($options != '' && $value != '') {
         if (preg_match($options,$value)) {
           $ret = $value;
@@ -1065,7 +1069,7 @@ class issabelpbx_conf {
         } else {
           $ret = null;
           $this->_last_update_status['validated'] = false;
-          $this->_last_update_status['msg'] = sprintf(_("Invalid value supplied violates the validation regex: %s"),$options);
+          $this->_last_update_status['msg'] = sprintf(__("Invalid value supplied violates the validation regex: %s"),$options);
           $this->_last_update_status['saved_value'] = $ret;
           $this->_last_update_status['saved'] = false;
           //
@@ -1088,12 +1092,12 @@ class issabelpbx_conf {
         case $ret < $range[0]:
           $ret = $range[0];
           $this->_last_update_status['validated'] = false;
-          $this->_last_update_status['msg'] = sprintf(_("Value [%s] out of range, changed to [%s]"),$value,$ret);
+          $this->_last_update_status['msg'] = sprintf(__("Value [%s] out of range, changed to [%s]"),$value,$ret);
         break;
         case $ret > $range[1]:
           $ret = $range[1];
           $this->_last_update_status['validated'] = false;
-          $this->_last_update_status['msg'] = sprintf(_("Value [%s] out of range, changed to [%s]"),$value,$ret);
+          $this->_last_update_status['msg'] = sprintf(__("Value [%s] out of range, changed to [%s]"),$value,$ret);
         break;
         default:
           $this->_last_update_status['validated'] = (string) $ret === (string) $value;
@@ -1105,7 +1109,7 @@ class issabelpbx_conf {
       break;
 
     default:
-      die_issabelpbx(sprintf(_("unknown type: [%s]"),$type));
+      die_issabelpbx(sprintf(__("unknown type: [%s]"),$type));
       break;
     }
     $this->_last_update_status['saved_value'] = $ret;
@@ -1113,31 +1117,31 @@ class issabelpbx_conf {
     return $ret;
   }
 
-	/** Deal with corner case Settings that change and need further actions
-	 *
-	 * Some settings require further actions when they change. Any time we set, reset,
-	 * etc the settings we should call this function.
-	 *
-	 * @param string $keyword the setting that needs to be addressed
-	 * @param string $value the new value for the setting that was just changed
-	 *
-	 * @return null
-	 */
-	function _setting_change_special($keyword, $prep_value) {
-		switch ($keyword) {
-			case 'AMPMGRPASS':
-				ipbx_ami_update(false, $prep_value);
-			break;
-			case 'AMPMGRUSER':
-				ipbx_ami_update($prep_value, false);
-			break;
-			case 'ASTMGRWRITETIMEOUT':
-				ipbx_ami_update(false, false, true);
-			break;
-			default:
-			break;
-		}
-	}
+    /** Deal with corner case Settings that change and need further actions
+     *
+     * Some settings require further actions when they change. Any time we set, reset,
+     * etc the settings we should call this function.
+     *
+     * @param string $keyword the setting that needs to be addressed
+     * @param string $value the new value for the setting that was just changed
+     *
+     * @return null
+     */
+    function _setting_change_special($keyword, $prep_value) {
+        switch ($keyword) {
+            case 'AMPMGRPASS':
+                ipbx_ami_update(false, $prep_value);
+            break;
+            case 'AMPMGRUSER':
+                ipbx_ami_update($prep_value, false);
+            break;
+            case 'ASTMGRWRITETIMEOUT':
+                ipbx_ami_update(false, false, true);
+            break;
+            default:
+            break;
+        }
+    }
 }
 
 /** DEPRECATED: $amp_conf provided by bootstrap or use issabelpbx_conf class.
@@ -1157,7 +1161,7 @@ if (!function_exists('parse_amportal_conf')) {
       $restrict_mods = true;
       $bootstrap_settings['skip_astman'] = true;
       if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc/issabelpbx.conf')) {
-	      include_once('/etc/asterisk/issabelpbx.conf');
+          include_once('/etc/asterisk/issabelpbx.conf');
       }
     }
 

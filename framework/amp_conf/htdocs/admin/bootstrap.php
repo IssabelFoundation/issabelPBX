@@ -34,6 +34,7 @@
 //
 //enable error reporting and start benchmarking
 error_reporting(E_ALL & ~E_STRICT); 
+require_once(dirname(__FILE__) . '/libraries/gettextinc.php');
 date_default_timezone_set(@date_default_timezone_get());
 function microtime_float() { list($usec,$sec) = explode(' ',microtime()); return ((float)$usec+(float)$sec); } 
 $benchmark_starttime = microtime_float();
@@ -144,7 +145,6 @@ if (!$bootstrap_settings['skip_astman']) {
 if (!$bootstrap_settings['issabelpbx_auth'] || (php_sapi_name() == 'cli')) {
     if (!defined('ISSABELPBX_IS_AUTH')) {
         define('ISSABELPBX_IS_AUTH', 'TRUE');
-        define('FREEPBX_IS_AUTH', 'TRUE');
     }
 } else {
     require($dirname . '/libraries/gui_auth.php');

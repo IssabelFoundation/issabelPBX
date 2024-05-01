@@ -319,3 +319,12 @@ msgstr ""
 
 msgid "Overview"
 msgstr ""
+
+msgid "Edit Parking Lot"
+msgstr ""
+
+msgid "Add Parking Lot"
+msgstr ""
+
+msgid "Default"
+msgstr ""

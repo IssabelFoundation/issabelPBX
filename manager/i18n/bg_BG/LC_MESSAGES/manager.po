@@ -24,12 +24,12 @@ msgstr "Грешка при запис на manager_additional файл."
 msgid "This manager already exists"
 msgstr "Този manager вече съществува"
 
-msgid "Choose Manager:"
-msgstr "Избери Manager:"
+msgid "Choose Manager"
+msgstr "Избери Manager"
 
 msgid "Choose the user that PHPAGI will use to connect the Asterisk API."
 msgstr ""
-"Изберете потребител който PHPAGI ще използва за свързване с Asterisk API."
+"Изберете ебител който PHPAGI ще използва за свързване с Asterisk API."
 
 msgid "Increasing read field size if needed.."
 msgstr ""
@@ -67,19 +67,19 @@ msgstr "Изтрий Manager"
 msgid "Edit Manager"
 msgstr "Редактирай Manager"
 
-msgid "Manager name:"
-msgstr "Manager име:"
+msgid "Manager name"
+msgstr "Manager име"
 
 msgid "Name of the manager without space."
 msgstr "Име на manager без интервали."
 
-msgid "Manager secret:"
-msgstr "Manager парола:"
+msgid "Manager secret"
+msgstr "Manager парола"
 
 msgid "Password for the manager."
 msgstr "Парола за този manager."
 
-msgid "Deny:"
+msgid "Deny"
 msgstr "Забрани:"
 
 msgid ""
@@ -89,7 +89,7 @@ msgstr ""
 "Ако искате да забраните няколко хоста или мрежи, използвайте символа & за "
 "разделител.<br/><br/>Например: 192.168.1.0/255.255.255.0&10.0.0.0/255.0.0.0"
 
-msgid "Permit:"
+msgid "Permit"
 msgstr "Разреши:"
 
 msgid ""
@@ -112,7 +112,7 @@ msgid "Check Asterisk documentation."
 msgstr "Консултирайте се с Asterisk документация."
 
 msgid "Check All/None."
-msgstr "Маркирайте Всички/Нищо."
+msgstr "Маркирайте Всички/Нщо."
 
 msgid "Submit Changes"
 msgstr "Приеми Промените"

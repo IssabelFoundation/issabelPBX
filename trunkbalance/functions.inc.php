@@ -13,7 +13,7 @@
 
 
 function trunkbalance_list() {
-	$allowed = array(array('trunkbalance_id' => 0, 'description' => _("None")));
+	$allowed = array(array('trunkbalance_id' => 0, 'description' => __("None")));
 	$results = sql("SELECT * FROM trunkbalance","getAll",DB_FETCHMODE_ASSOC);
 	if(is_array($results)){
 		foreach($results as $result){
@@ -24,9 +24,13 @@ function trunkbalance_list() {
 }
 
 function trunkbalance_listtrunk() {
-	$allowed = array(array('trunkid' => 0, 'name' => _("None"), 'tech' => _("None")));
-//	$sqlr = "SELECT * FROM `trunks` WHERE (name NOT LIKE 'BAL_%') AND (tech!='enum' AND tech!='dundi') ORDER BY tech, name";
-	$sqlr = "SELECT * FROM `trunks` WHERE (name NOT LIKE 'BAL_%') AND (tech!='enum' AND tech!='dundi' AND tech != 'dahdi') or (tech = 'dahdi' AND channelid  REGEXP '^[0-9]*$' )  ORDER BY tech, name";
+    global $amp_conf;
+	$allowed = array(array('trunkid' => 0, 'name' => __("None"), 'tech' => __("None")));
+    if(!preg_match("/qlite/",$amp_conf["AMPDBENGINE"]))  {
+	    $sqlr = "SELECT * FROM `trunks` WHERE (name NOT LIKE 'BAL_%') AND (tech!='enum' AND tech!='dundi' AND tech != 'dahdi') or (tech = 'dahdi' AND channelid  REGEXP '^[0-9]*$' )  ORDER BY tech, name";
+    } else {
+	    $sqlr = "SELECT * FROM `trunks` WHERE (name NOT LIKE 'BAL_%') AND (tech!='enum' AND tech!='dundi' AND tech != 'dahdi') or (tech = 'dahdi' AND printf('%d',channelid)=channelid )  ORDER BY tech, name";
+    }
 	$results = sql($sqlr,"getAll",DB_FETCHMODE_ASSOC);
 	if(is_array($results)){
 		foreach($results as $result){
@@ -37,7 +41,7 @@ function trunkbalance_listtrunk() {
 }
 
 function trunkbalance_listtimegroup() {
-	$allowed = array(array('id' => 0, 'description' => _("None")));
+	$allowed = array(array('id' => 0, 'description' => __("None")));
 	$sqlr = "SELECT * FROM `timegroups_groups`";
 	$results = sql($sqlr,"getAll",DB_FETCHMODE_ASSOC);
 	if(is_array($results)){

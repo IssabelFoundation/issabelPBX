@@ -48,7 +48,12 @@ class Send_to_PushBullet extends superfecta_base {
 
 		$sql = "SELECT `field`,`value` FROM `superfectaconfig` WHERE `source` LIKE '%PushBullet%'";
 		$run_param = $db->getAssoc($sql);
-		
+        if(!isset($run_param['API'])) {
+            $run_param['API']=false;
+        }	
+        if(!isset($run_param['Sync_Devices'])) {
+            $run_param['Sync_Devices']='off';
+        }
 		//tried using PHP class, but this just seems easier
 		if ($run_param['API'] && $run_param['Sync_Devices'] == 'on') {
 			$curl = curl_init();
@@ -64,13 +69,15 @@ class Send_to_PushBullet extends superfecta_base {
 			
 
 			
-			$content = serialize($response);
+            $content = serialize($response);
 			file_put_contents($cache_file, $content);
 
 			// add code here reset the sync_devices param back to off
 		}
 		
-		// load devices from cache
+        // load devices from cache
+        if(file_exists($cache_file)) {
+
 			$response = unserialize(file_get_contents($cache_file));
 			$devices = json_decode($response);
 			$bar = array();
@@ -80,6 +87,7 @@ class Send_to_PushBullet extends superfecta_base {
 				$bar[$bar2]=$bar1;
 			}
 			$this->source_param['Device']['option'] = $bar;
+        }
 	}
 
 	function post_processing($cache_found, $winning_source, $first_caller_id, $run_param, $thenumber) {

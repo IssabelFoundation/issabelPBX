@@ -79,7 +79,7 @@ switch($action) {
 <div class="rnav">
 <?php
 $customers=customerdb_list();
-drawListMenu($customers, $skip, $type, $dispnum, $extdisplay, _("Customer"));
+drawListMenu($customers, $skip, $type, $dispnum, $extdisplay, __("Customer"));
 ?>
 </div>
 
@@ -87,12 +87,12 @@ drawListMenu($customers, $skip, $type, $dispnum, $extdisplay, _("Customer"));
 <div class="content">
 <?php
 if($action=='del'){
-	echo "<br><h3>ID ".$extdisplay." "._("deleted")."!</h3><br><Br><br><br><br><br><br>";
+	echo "<br><h3>ID ".$extdisplay." ".__("deleted")."!</h3><br><Br><br><br><br><br><br>";
 }
 else if(!isset($extdisplay)) {
 
 		
-	echo "<h2>"._("Add a user")."</h2>";
+	echo "<h2>".__("Add a user")."</h2>";
 //	echo "<li><a href=\"".$_SERVER['PHP_SELF']."?$action=add\";>Add</a><br>";
 
 }
@@ -123,10 +123,10 @@ else {
 	if(isset($customerInfo) && is_array($customerInfo)){
 		$action="edit";
 		echo "<h2> ".$extdisplay." ".$name."</h2>";
-		echo "<p><a href=\"".$delURL."\">"._("Delete Customer")."</a></p>";
+		echo "<p><a href=\"".$delURL."\">".__("Delete Customer")."</a></p>";
 	}
 	else {
-		echo "<h2>"._("Add Customer")."</h2>";
+		echo "<h2>".__("Add Customer")."</h2>";
 	}
 
 }
@@ -142,15 +142,15 @@ echo "<input type=hidden name=display value=\"customerdb\">";
 echo "<table>";
 	
 echo "<tr><td colspan=2><h5>";
-echo ($extdisplay ? _('Edit Customer') : _('Add Customer'));
+echo ($extdisplay ? __('Edit Customer') : __('Add Customer'));
 echo "</h5></td></tr>\n";
 
 //Name
 echo "<tr ";
 echo ($extdisplay ? '' : '');
 echo "><td>";
-echo "<a href=\"#\" class=\"info\" >"._("Name")."\n";
-echo "<span>"._("Name of business or person (REQUIRED)")."</span></a>\n";
+echo "<a href=\"#\" class=\"info\" >".__("Name")."\n";
+echo "<span>".__("Name of business or person (REQUIRED)")."</span></a>\n";
 echo "</td>";
 echo "<td>";
 echo "<input type=text name=\"name\" value=\"$name\" tabindex=".++$tabindex.">\n";
@@ -158,32 +158,32 @@ echo "</td></tr>\n";
 
 //Address Line 1
 echo "<tr><td>\n";
-echo "<a href=\"#\" class=\"info\">"._("Address 1")."\n";
-echo "<span>"._("Address Line 1 (REQUIRED)")."</span></a>\n";
+echo "<a href=\"#\" class=\"info\">".__("Address 1")."\n";
+echo "<span>".__("Address Line 1 (REQUIRED)")."</span></a>\n";
 echo "</td><td>\n";
 echo "<input type=text tabindex=".++$tabindex." name=\"addr1\" value=\"$addr1\"\n";
 echo "</td></tr>\n";
 
 //Address Line 2
 echo "<tr><td>\n";
-echo "<a href=\"#\" class=\"info\">"._("Address 2")."\n";
-echo "<span>"._("Address Line 2")."</span></a>\n";
+echo "<a href=\"#\" class=\"info\">".__("Address 2")."\n";
+echo "<span>".__("Address Line 2")."</span></a>\n";
 echo "</td><td>\n";
 echo "<input type=text tabindex=".++$tabindex." name=\"addr2\" value=\"$addr2\">\n";
 echo "</td><tr>\n";
 
 //City
 echo "<tr><td>\n";
-echo "<a href=\"#\" class=\"info\">"._("City")."\n";
-echo "<span>"._("City (REQUIRED)")."</span></a>\n";
+echo "<a href=\"#\" class=\"info\">".__("City")."\n";
+echo "<span>".__("City (REQUIRED)")."</span></a>\n";
 echo "</td><td>\n";
 echo "<input type=text name=\"city\" value=\"$city\" tabindex=".++$tabindex.">\n";
 echo "</td></tr>\n";
 
 //State
 echo "<tr><td>\n";
-echo "<a href=\"#\" class=\"info\">"._("State")."\n";
-echo "<span>"._("State (REQUIRED)")."</span></a>\n";
+echo "<a href=\"#\" class=\"info\">".__("State")."\n";
+echo "<span>".__("State (REQUIRED)")."</span></a>\n";
 echo "</td><td>\n";
 $state=($extdisplay ? $state : "N/A");
 $states = array('N/A','AL', 'AK', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA','MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WV', 'WI', 'WY', 'TAS', 'VIC', 'NSW', 'ACT', 'QLD', 'NT', 'SA'); 
@@ -198,8 +198,8 @@ echo "</td></tr>\n";
 
 //Zip
 echo "<tr><td>\n";
-echo "<a href=\"#\" class=\"info\">"._("Zip/Post Code")."\n";
-echo "<span>"._("Zip (REQUIRED)")."</span></a>\n";
+echo "<a href=\"#\" class=\"info\">".__("Zip/Post Code")."\n";
+echo "<span>".__("Zip (REQUIRED)")."</span></a>\n";
 echo "</td><td>\n";
 echo "<input type=text name=\"zip\" value=\"$zip\" tabindex=".++$tabindex.">\n";
 echo "</td></tr>\n";
@@ -207,8 +207,8 @@ echo "</td></tr>\n";
 //Sip
 echo "<tr><td align=left>\n";
 echo "<input type=radio checked name=\"sipbtn\" onclick=\"switchit_sip();return true;\" tabindex=".++$tabindex."><a 
-href=\"#\" class=\"info\">"._("Sip Account")."\n";
-echo "<span>"._("Sip Account (must have this or a DID tied to the account)")."</span></a>\n";
+href=\"#\" class=\"info\">".__("Sip Account")."\n";
+echo "<span>".__("Sip Account (must have this or a DID tied to the account)")."</span></a>\n";
 echo "</td><td>\n";
 $sips=customerdb_getsip();
 echo "&nbsp;&nbsp;<select name=\"sip\" onchange=\"switchit_sip(); return true;\">\n";
@@ -223,8 +223,8 @@ echo "</td></tr>\n";
 
 //Did
 echo "<tr><td>\n";
-echo "<input type=radio name=\"didbtn\" onclick=\"switchit_did();return true;\"><a href=\"#\" class=\"info\">"._("DID Number")."\n";
-echo "<span>"._("DID Number (must have this or sip tied to the account)")."</span></a>\n";
+echo "<input type=radio name=\"didbtn\" onclick=\"switchit_did();return true;\"><a href=\"#\" class=\"info\">".__("DID Number")."\n";
+echo "<span>".__("DID Number (must have this or sip tied to the account)")."</span></a>\n";
 echo "</td><td>\n";
 $dids=customerdb_getdid();
 echo "&nbsp;&nbsp;<select name=\"did\" onchange=\"switchit_did(); return true;\">\n";
@@ -239,56 +239,56 @@ echo "</td></tr>\n";
 
 //Device
 echo "<tr><td>\n";
-echo "<a href=\"#\" class=\"info\">"._("Device")."\n";
-echo "<span>"._("Device (example... Linksys PAP-2, Sipura)")."</span></a>\n";
+echo "<a href=\"#\" class=\"info\">".__("Device")."\n";
+echo "<span>".__("Device (example... Linksys PAP-2, Sipura)")."</span></a>\n";
 echo "</td><td>\n";
 echo "<input type=text name=\"device\" value=\"$device\" tabindex=".++$tabindex.">\n";
 echo "</td></tr>\n";
 
 //Serial
 echo "<tr><td>\n";
-echo "<a href=\"#\" class=\"info\">"._("Serial")."\n";
-echo "<span>"._("Serial Number")."</span></a>\n";
+echo "<a href=\"#\" class=\"info\">".__("Serial")."\n";
+echo "<span>".__("Serial Number")."</span></a>\n";
 echo "</td><td>\n";
 echo "<input name=\"serial\" value=\"$serial\" tabindex=".++$tabindex.">\n";
 echo "</td></tr>\n";
 
 //IP
 echo "<tr><td>\n";
-echo "<a href=\"#\" class=\"info\">"._("IP Address")."\n";
-echo "<span>"._("IP Address")."</span></a>\n";
+echo "<a href=\"#\" class=\"info\">".__("IP Address")."\n";
+echo "<span>".__("IP Address")."</span></a>\n";
 echo "</td><td>\n";
 echo "<input type=text name=\"ip\" value=\"$ip\" tabindex=".++$tabindex.">\n";
 echo "</td></tr>\n";
 
 //Account
 echo "<tr><td>\n";
-echo "<a href=\"#\" class=\"info\">"._("Account")."\n";
-echo "<span>"._("Account Number (internal use)")."</span></a>\n";
+echo "<a href=\"#\" class=\"info\">".__("Account")."\n";
+echo "<span>".__("Account Number (internal use)")."</span></a>\n";
 echo "</td><td>\n";
 echo "<input name=\"account\" value=\"$account\" tabindex=".++$tabindex.">\n";
 echo "</td></tr>\n";
 
 //Email
 echo "<tr><td>\n";
-echo "<a href=\"#\" class=\"info\">"._("Email")."\n";
-echo "<span>"._("Email Address")."</span></a>\n";
+echo "<a href=\"#\" class=\"info\">".__("Email")."\n";
+echo "<span>".__("Email Address")."</span></a>\n";
 echo "</td><td>\n";
 echo "<input name=\"email\" value=\"$email\" tabindex=".++$tabindex.">\n";
 echo "</td></tr>\n";
 
 //Username
 echo "<tr><td>\n";
-echo "<a href=\"#\" class=\"info\">"._("Username")."\n";
-echo "<span>"._("Username for the device")."</span></a>\n";
+echo "<a href=\"#\" class=\"info\">".__("Username")."\n";
+echo "<span>".__("Username for the device")."</span></a>\n";
 echo "</td><td>\n";
 echo "<input name=\"username\" value=\"$username\" tabindex=".++$tabindex.">\n";
 echo "</td></tr>\n";
 
 //Password
 echo "<tr><td>\n";
-echo "<a href=\"#\" class=\"info\">"._("Password")."\n";
-echo "<span>"._("Password for device")."</span></a>\n";
+echo "<a href=\"#\" class=\"info\">".__("Password")."\n";
+echo "<span>".__("Password for device")."</span></a>\n";
 echo "</td><td>\n";
 echo "<input name=\"password\" value=\"$password\" tabindex=".++$tabindex.">\n";
 echo "</td></tr>\n";
@@ -320,11 +320,11 @@ else{
 
 function addNew_onsubmit() {
 
-	var msgInvalidName = "<?php echo _("Please enter a name for this customer");?>";
-	var msgInvalidAddr1 = "<?php echo  _("Please enter an address for this customer");?>";
-	var msgInvalidCity = "<?php echo _("Pleast enter a city for this customer");?>";
-	var msgInvalidZip = "<?php echo _("Please enter a zip for this customer");?>";
-	var msgInvalidSipDid = "<?php echo _("You must choose either a sip or did number for this customer.");?>";
+	var msgInvalidName = "<?php echo __("Please enter a name for this customer");?>";
+	var msgInvalidAddr1 = "<?php echo  __("Please enter an address for this customer");?>";
+	var msgInvalidCity = "<?php echo __("Pleast enter a city for this customer");?>";
+	var msgInvalidZip = "<?php echo __("Please enter a zip for this customer");?>";
+	var msgInvalidSipDid = "<?php echo __("You must choose either a sip or did number for this customer.");?>";
 
 	if(isEmpty(cform.name.value)){
 		return warnInvalid(cform.name, msgInvalidName);

@@ -18,12 +18,12 @@ $dispnum = 'customcontextsadmin'; //used for switch on config.php
 
 ?>
 
-<div class="rnav">
 <?php 
 $contexts = customcontexts_getcontextslist();
-drawListMenu($contexts, $skip, $type, $display, $extdisplay, _("Class"));
+$rnavitems=array();
+foreach($contexts as $idx=>$context) {
+   $rnavitems[]=array($context[0],$context[1],'');
+}
+drawListMenu($rnavitems, $type, $display, $extdisplay);
+echo "<div class='content'>";
 ?>
-</div>
-
-
-

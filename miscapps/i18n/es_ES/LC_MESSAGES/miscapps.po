@@ -1,19 +1,30 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo miscapps module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-01-22 01:41+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#, php-format
 msgid "Misc Application: %s"
 msgstr "Aplicación: %s"
 
@@ -42,11 +53,11 @@ msgid ""
 "internal numbers or feature codes."
 msgstr ""
 "Las aplicaciones varias pueden utilizarse para añadir códigos de "
-"características que pueden ser llamadas desde teléfonos internos que van a "
+"función que pueden ser llamadas desde teléfonos internos que van a "
 "varios destinos disponibles en IssabelPBX, en contraposición del módulo "
 "<strong>Destinos varios</strong> que permite crear destinos que pueden ser "
 "usados por otros módulos de IssabelPBX para llamar a números internos o códigos "
-"de características."
+"de función."
 
 msgid "Conflicting Extensions"
 msgstr "Extensiones en conflicto"
@@ -58,18 +69,18 @@ msgid "The name of this application"
 msgstr "El nombre de esta aplicación"
 
 msgid "Feature Code"
-msgstr "Código de característica"
+msgstr "Código de función"
 
 msgid ""
 "The feature code/extension users can dial to access this application. This "
 "can also be modified on the Feature Codes page."
 msgstr ""
-"El código de característica o extensión que los usuarios deben marcar para "
+"El código de función o extensión que los usuarios deben marcar para "
 "acceder a esta aplicación. Este valor también puede ser modificado desde la "
-"sección de \"Códigos de características\"."
+"sección de \"Códigos de función\"."
 
 msgid "Feature Status"
-msgstr "Estado de característica"
+msgstr "Estado de función"
 
 msgid "If this code is enabled or not."
 msgstr "Indica si este código está habilitado o no."

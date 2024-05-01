@@ -1,0 +1,413 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid " v"
+msgstr "v"
+
+msgid "Add Class"
+msgstr "Adicionar classe"
+
+msgid "Delete Class"
+msgstr "Excluir classe"
+
+msgid "Add"
+msgstr "Adicionar"
+
+msgid "Class"
+msgstr "Classe"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Class of Service: %s"
+msgstr "Classe de serviço: %s"
+
+msgid "Full Internal Access"
+msgstr "Acesso interno completo"
+
+msgid "Class of Service: %s (%s)"
+msgstr "Classe de serviço: %s (%s)"
+
+msgid "Duplicate Class"
+msgstr "Classe duplicada"
+
+msgid "Edit Class"
+msgstr "Modificar classe"
+
+msgid "Remove Class"
+msgstr "Remover classe"
+
+msgid "Time Conditions Module required and not present .. aborting install"
+msgstr ""
+"Tempo de condições do módulo necessário e não presente.. abortar a instalação"
+
+msgid "done"
+msgstr "Lista"
+
+msgid "migrating customcontexts_timegroups if needed.."
+msgstr "migre customcontexts _timegroups se necessário."
+
+msgid ""
+"removing customcontexts_timegroups and customcontexts_tiemgroups_detail "
+"tables.."
+msgstr ""
+"eliminando customcontexts_timegroups e tabelas "
+"customcontexts_tiemgroups_detail .."
+
+msgid "Class of Service"
+msgstr "Classe de serviço"
+
+msgid "Class of Service Admin"
+msgstr "Gerenciar classes de serviço"
+
+msgid "Class Of Service"
+msgstr "Classe de serviço"
+
+msgid "Class Of Service Admin"
+msgstr "Gerenciar classes de serviço"
+
+msgid "Dial Rules"
+msgstr "Regras de marcação"
+
+msgid "Submit"
+msgstr "Enviar alterações"
+
+msgid "Extension Options"
+msgstr "Opções de extensão"
+
+msgid ""
+"Class of service name. It will be available in your dialplan. These classes "
+"of service can be used as a context for a device/extension to allow them "
+"limited access to your dialplan."
+msgstr ""
+"Nome da Classe de Serviço. Ele será disponibilizado no dial plan. Classes de "
+"serviço podem ser usadas como contexto para dispositivo/ramal e conceder "
+"acesso limitado ao plano de discagem."
+
+msgid "This will display as the name of this class of service."
+msgstr "Insira uma descrição para esta classe de serviço."
+
+msgid "Set All"
+msgstr "Configurar todos"
+
+msgid "Set All To"
+msgstr "Configurar todos para"
+
+msgid "Default Internal Context"
+msgstr "Contexto interno padrão"
+
+msgid "Call Parking"
+msgstr "Estacionamento de chamadas"
+
+msgid "Custom Internal Dialplan"
+msgstr "Plano de discagem interna personalizado"
+
+msgid "ENTIRE Basic Internal Dialplan"
+msgstr "Plano Básico de Discagem Interna em sua TOTALIDADE"
+
+msgid ""
+"Choose allow to allow access to all includes, choose deny to deny access."
+msgstr ""
+"Escolha Permitir para permitir o acesso a todos os contextos incluídos, "
+"escolha Negar para proibi-lo."
+
+msgid ""
+"If defined, you will have the option for each portion of the dialplan to "
+"Allow Rule, and that include will only be available if the number dialed "
+"matches these rules, or Deny Rule, and that include will only be available "
+"if the dialed number does NOT match these rules. You may use a pipe | to "
+"strip the preceeding digits."
+msgstr ""
+"Se você configurar uma regra, cada contexto definido como 'Permitir regras' "
+"será permitido se o padrão corresponder ao usado, enquanto se o contexto "
+"estiver definido como 'Negar regras', será permitido se o número discado NÃO "
+"corresponder a essas regras. Você pode usar um cano | para remover os "
+"dígitos anteriores."
+
+msgid ""
+"Choose a priority with which to sort this option. Lower numbers have a "
+"higher priority."
+msgstr ""
+"Escolha uma prioridade. Números mais baixos terão prioridade mais alta."
+
+msgid "Failover Destination"
+msgstr "Destino em caso de falha"
+
+msgid "Outbound Routes"
+msgstr "Rotas de saída"
+
+msgid "Feature Code Failover Destination"
+msgstr "Código de função de destino em caso de falha"
+
+msgid "Internal Dialplan"
+msgstr "Plano de discagem interna"
+
+msgid "Allow"
+msgstr "Permitir"
+
+msgid "Deny"
+msgstr "Negar"
+
+msgid "Allow Rules"
+msgstr "Permitir regras"
+
+msgid "Deny Rules"
+msgstr "Negar regras"
+
+msgid ""
+": Choose allow to allow access to this include, choose deny to deny access."
+msgstr ""
+": escolha Permitir para permitir este contexto, escolha Negar para proibi-lo."
+
+msgid "Priority"
+msgstr "Prioridade"
+
+msgid "app pbdirectory"
+msgstr "Aplicativo de lista telefônica"
+
+msgid "app fax"
+msgstr "Fax do aplicativo"
+
+msgid "DND On"
+msgstr "Ative o Não perturbe"
+
+msgid "DND Off"
+msgstr "Desativar não perturbe"
+
+msgid "DND Toggle"
+msgstr "Alternar não perturbe"
+
+msgid "ext-injections"
+msgstr "Injeção de plano de discagem"
+
+msgid "ext-dnd-hints"
+msgstr "Não perturbe dicas"
+
+msgid "app recordings"
+msgstr "Gravações do sistema"
+
+msgid "Follow Me toggle"
+msgstr "Alternar Siga-me"
+
+msgid "Follow Me"
+msgstr "me siga"
+
+msgid "fmgrps"
+msgstr "Grupo Siga-me"
+
+msgid "app dictate record"
+msgstr "Ditado - Gravação"
+
+msgid "app dictate send"
+msgstr "Ditado - Envio"
+
+msgid "Call Forward toggle"
+msgstr "Alternar encaminhamento de chamadas"
+
+msgid "Call Forward Busy Off"
+msgstr "Desativar encaminhamento de ocupado"
+
+msgid "CF Busy any Off"
+msgstr "Desativar ocupado sempre encaminhar"
+
+msgid "Call Forward Off"
+msgstr "Desativar desvio"
+
+msgid "CF any Off"
+msgstr "Desativar Encaminhar sempre"
+
+msgid "Queues"
+msgstr "Colas"
+
+msgid "Conferences"
+msgstr "Conferencias"
+
+msgid "Call Forward Busy On"
+msgstr "Ativar encaminhamento ocupado"
+
+msgid "CF Busy prompt On"
+msgstr "Ativar anúncio de ocupado encaminhamento"
+
+msgid "Call Forward On"
+msgstr "Ativar encaminhamento de chamadas"
+
+msgid "CF prompt On"
+msgstr "Ativar anúncio de desvio"
+
+msgid "ext-cf-hints"
+msgstr "Dicas de desvio"
+
+msgid "app calltrace"
+msgstr "Aplicativo de rastreamento de chamadas"
+
+msgid "app echo test"
+msgstr "App Teste o Eco"
+
+msgid "app speakextennum"
+msgstr "Extensão App Say"
+
+msgid "app speakingclock"
+msgstr "App Relógio Parlante"
+
+msgid "park hints"
+msgstr "Dicas de estacionamento"
+
+msgid "Dial VM"
+msgstr "Acessar correio de voz"
+
+msgid "Voicemail Main"
+msgstr "Aplicativo de correio de voz"
+
+msgid "ext-bosssecretary"
+msgstr "Secretário chefe"
+
+msgid "app speeddial"
+msgstr "Discagem rápida"
+
+msgid "app blacklist"
+msgstr "Lista negra"
+
+msgid "Ring Groups"
+msgstr "Grupo de extensões"
+
+msgid "grps"
+msgstr "Grupo de Extensão Auxiliar"
+
+msgid "app user logonoff"
+msgstr "Logon/Logoff de Usuario"
+
+msgid "Extensions Confirm"
+msgstr "Confirmação de extensão"
+
+msgid "findmefollow ringallv2"
+msgstr "Ringall de Siga-me"
+
+msgid "app pickup"
+msgstr "Captura de chamada"
+
+msgid "app zapbarge"
+msgstr "ZapBarge"
+
+msgid "app chanspy"
+msgstr "ChanSpy"
+
+msgid "ext-test"
+msgstr ""
+
+msgid "Extensions"
+msgstr "Extensões"
+
+msgid "Call Forward Unavailable Off"
+msgstr "Desativar encaminhamento não disponível"
+
+msgid "Call Forward Unavailable On"
+msgstr "Ativar encaminhamento não disponível"
+
+msgid "CF Unavailable On"
+msgstr "Ativar encaminhamento não disponível"
+
+msgid "ALL OUTBOUND ROUTES"
+msgstr "TODAS AS ROTAS DE SAÍDA"
+
+msgid "PIN must be numeric!'"
+msgstr "O PIN deve ser numérico!"
+
+msgid ""
+"Enter a numeric PIN to require authentication before continuing to "
+"destination."
+msgstr ""
+"Insira um PIN numérico para autenticação antes de continuar para o destino."
+
+msgid "Are you sure you want to delete %s ?"
+msgstr "Tem certeza de que deseja excluir %s?"
+
+msgid ""
+"NOTE: Allowing this include may automatically allow another ENTIRE context!"
+msgstr ""
+"NOTA: Se você permitir este contexto, você permitirá automaticamente todos "
+"os contextos internos, independentemente do que você selecionar abaixo!"
+
+msgid "Class %s deleted"
+msgstr "Classe %s removida"
+
+msgid "Includes Descriptions"
+msgstr "Descrição das inclusões"
+
+msgid ""
+"This will display as a heading for the available includes on the %s page"
+msgstr ""
+"Este nome será exibido como cabeçalho na lista de contextos a serem "
+"incluídos na página %s"
+
+msgid "This will display as the name of the include on the %s page"
+msgstr "Este nome será exibido no contexto de inclusão na página %s"
+
+msgid ""
+"NOTE: This include should have a description denoting the fact that allowing "
+"it may allow another ENTIRE context!"
+msgstr ""
+"ATENÇÃO: O nome deve deixar claro que permitir este contexto poderia "
+"permitir acesso a TODOS os outros contextos!"
+
+msgid "Class %s cannot be removed"
+msgstr "A classe %s não pode ser excluída"
+
+msgid ""
+"The context which contains includes which you would like to make available "
+"to %s. Any context you enter here will be parsed for includes and you can "
+"then include them in your own %s. Removing them here does NOT delete the "
+"context, rather makes them unavailable to your %s."
+msgstr ""
+"O contexto que contém as inclusões que você deseja disponibilizar no %s. "
+"Qualquer contexto inserido aqui será verificado quanto a inclusões e você "
+"poderá incluí-los individualmente em sua %. Removê-los daqui NÃO remove o "
+"contexto, apenas o torna inacessível para seu %s."
+
+msgid ""
+"You have the %s  Module installed! You can select a class of service from "
+"this list to limit this user to portions of the dialplan you defined in the "
+"%s module."
+msgstr ""
+"Você tem o módulo %s instalado! Você pode selecionar uma classe de serviço "
+"nesta lista para limitar o acesso aos contextos de plano de discagem "
+"desejados, que podem ser definidos no módulo %s."
+
+msgid "ALLOW ALL (Default)"
+msgstr "PERMITIR TODOS (padrão)"
+
+msgid "app-queue-toggle"
+msgstr "Filas - Alternar associação"
+
+msgid "app-queue-caller-count"
+msgstr "Filas - Número de chamadores"
+
+msgid "Call Waiting - Activate"
+msgstr "Ativar chamada em espera"
+
+msgid "Call Waiting - Deactivate"
+msgstr "Desativar chamada em espera"
+

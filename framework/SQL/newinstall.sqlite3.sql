@@ -24,7 +24,7 @@ CREATE TABLE `admin` (
   PRIMARY KEY  (`variable`)
 );
 INSERT INTO "admin" VALUES('need_reload', 'true');
-INSERT INTO "admin" VALUES('version', '2.11.0.49');
+INSERT INTO "admin" VALUES('version', '2.12.0.0');
 CREATE TABLE `ampusers` (
   `username` varchar(20) NOT NULL default '',
   `password_sha1` varchar(20) NOT NULL default '',
@@ -80,12 +80,8 @@ CREATE TABLE `issabelpbx_log` (
 --   PRIMARY KEY  (`id`),
 --   KEY `time` (`time`,`level`)
 );
-INSERT INTO "issabelpbx_log" VALUES(1, '2006-11-06 01:55:36', 'retrieve_conf', 'devel-debug', 0, 'Started retrieve_conf, DB Connection OK');
-INSERT INTO "issabelpbx_log" VALUES(2, '2006-11-06 01:55:36', 'retrieve_conf', 'devel-debug', 0, 'Writing extensions_additional.conf');
 DELETE FROM sqlite_sequence;
-INSERT INTO "sqlite_sequence" VALUES('issabelpbx_log', 2);
 INSERT INTO "sqlite_sequence" VALUES('modules', 8);
-INSERT INTO "sqlite_sequence" VALUES('recordings', 20);
 CREATE TABLE `globals` (
   `variable` varchar(255) NOT NULL default '',
   `value` varchar(255) NOT NULL default '',

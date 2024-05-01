@@ -103,7 +103,7 @@ msgstr ""
 " Les paramètres ci-desous peuvent être utilisés pour controler le contenu "
 "et la description des nofications par e-mail."
 
-msgid "Default Address:"
+msgid "Default Address"
 msgstr "Adresse par défaut : "
 
 msgid ""
@@ -114,7 +114,7 @@ msgstr ""
 "nouveaux compte sans adresse e-mail Boîte Vocale seront envoyée à "
 "l'adresse par défaut."
 
-msgid "Override Address:"
+msgid "Override Address"
 msgstr "Adresse de remplacement : "
 
 msgid ""
@@ -126,7 +126,7 @@ msgstr ""
 "seront envoyée à cette adresse seulement. Tapez \"noemail\" (sans les guillemets"
 ") adresse de remplacement pour arrêter l'envoi des e-mail de notification."
 
-msgid "Email From:"
+msgid "Email From"
 msgstr "Adresse e-mail de provenance : "
 
 msgid ""
@@ -136,7 +136,7 @@ msgstr ""
 "L'adresse e-mail de provenance de peut être spécifiée. Si non renseigné, l'adresse par défaut "
 "du système sera utilisée."
 
-msgid "Email Reply-To:"
+msgid "Email Reply-To"
 msgstr "Adresse e-mail de réponse : "
 
 msgid ""
@@ -146,7 +146,7 @@ msgstr ""
 "L'adresse e-mail de réponse peut être spécifiée. Si non renseigné, l'adresse par défaut "
 "du système sera utilisée.
 
-msgid "Email Subject:"
+msgid "Email Subject"
 msgstr "Objet de l'email"
 
 msgid ""
@@ -156,7 +156,7 @@ msgstr ""
 "L'objet de l'e-mail peut être spécifié. Si non renseigné, l'objet par défaut, "
 "\"Compte boîte vocale activé\", sera utilisé."
 
-msgid "Email Opening:"
+msgid "Email Opening"
 msgstr "E-mail, début du message : "
 
 msgid ""
@@ -175,7 +175,7 @@ msgstr ""
 " Le nom du compte, extension et mot de passe seront automatiquement insérés "
 "après l'ouverture."
 
-msgid "Email Closing:"
+msgid "Email Closing"
 msgstr "E-mail, fin du message : "
 
 msgid ""

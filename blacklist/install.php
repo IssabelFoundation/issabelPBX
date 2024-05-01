@@ -6,10 +6,10 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //
 // For translations
 if (false) {
-_("Blacklist a number");
-_("Remove a number from the blacklist");
-_("Blacklist the last caller");
-_("Blacklist");
+__("Blacklist a number");
+__("Remove a number from the blacklist");
+__("Blacklist the last caller");
+__("Blacklist");
 }
 
 $fcc = new featurecode('blacklist', 'blacklist_add');

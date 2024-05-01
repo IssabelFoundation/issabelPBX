@@ -72,13 +72,13 @@ msgstr "Ta bort Övrig destination %s"
 msgid "Edit Misc Destination"
 msgstr "Redigera Övrig destination"
 
-msgid "Description:"
+msgid "Description"
 msgstr "Beskrivning:"
 
 msgid "Give this Misc Destination a brief name to help you identify it."
 msgstr "Skriv in en kortfattad beskrivning."
 
-msgid "Dial:"
+msgid "Dial"
 msgstr "Nummer:"
 
 msgid ""
@@ -89,7 +89,7 @@ msgid ""
 msgstr ""
 "Skriv in det nummer som denna destination ska slå, exakt som om du skulle "
 "slå den på din interna telefon. När du skickar samtal till denna "
-"destination, kommer det att se ut som om uppringaren slog numret från en "
+"destination, kommer det att se ut som om uppringaren slog numret frn en "
 "intern telefon."
 
 msgid "Submit Changes"

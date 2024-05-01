@@ -91,7 +91,7 @@ class digium_phones {
 			$this->dpma_version = 'unknown';
 			$response = $astman->send_request('Command',
 				array('Command' => 'digium_phones show version'));
-			if (preg_match('/Version [0-9.]+_([0-9.]+)/', $response['data'], $matches)) {
+			if (preg_match('/Version [0-9.]+__([0-9.]+)/', $response['data'], $matches)) {
 				$this->dpma_version = $matches[1];
 			}
 		}

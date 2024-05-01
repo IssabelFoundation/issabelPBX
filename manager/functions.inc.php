@@ -185,23 +185,24 @@ function manager_format_in($p_tab) {
 
 // Add a manager
 function manager_add($p_name, $p_secret, $p_deny, $p_permit, $p_read, $p_write) {
-	global $amp_conf;
+	global $db,$amp_conf;
 	$managers = manager_list();
 	$ampuser = $amp_conf['AMPMGRUSER'];
 	if($p_name == $ampuser) {
-		echo "<script>javascript:alert('"._("This manager already exists")."');</script>";
+		echo "<script>javascript:alert('".__("This manager already exists")."');</script>";
 		return false;
 	}
 	if (is_array($managers)) {
 		foreach ($managers as $manager) {
 			if ($manager['name'] === $p_name) {
-				echo "<script>javascript:alert('"._("This manager already exists")."');</script>";
+				echo "<script>javascript:alert('".__("This manager already exists")."');</script>";
 				return false;
 			}
 		}
 	}
-        $query = 'INSERT INTO manager (name,secret,deny,permit,read,write) values (?,?,?,?,?,?)';
-        $result = $db->query($query,array($p_name,$p_secret,$p_deny,$p_permit,$p_read,$p_write));
+
+	$query = 'INSERT INTO manager (`name`,`secret`,`deny`,`permit`,`read`,`write`) values (?,?,?,?,?,?)';
+	$result = $db->query($query,array($p_name,$p_secret,$p_deny,$p_permit,$p_read,$p_write));
         if(DB::IsError($result)) {
             die_issabelpbx($result->getDebugInfo()."<br><br>".'error adding to manager table');
         }
@@ -226,7 +227,7 @@ function manager_hook_phpagiconf($viewing_itemid, $target_menuid) {
 			$selectedmanager = $res['asman_user'];
 		break;
 	}
-	$output = "<tr><td><a href=\"#\" class=\"info\">"._("Choose Manager:")."<span>"._("Choose the user that PHPAGI will use to connect the Asterisk API.")."</span></a></td><td><select name=\"asmanager\">";
+	$output = "<tr><td><a href=\"#\" class=\"info\">".__("Choose Manager")."<span>".__("Choose the user that PHPAGI will use to connect the Asterisk API.")."</span></a></td><td><select name=\"asmanager\" class=\"componentSelect\" >";
 	$selected = "";
 	$managers = manager_list();
 	foreach ($managers as $manager) {

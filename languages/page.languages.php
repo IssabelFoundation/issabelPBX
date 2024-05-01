@@ -1,51 +1,53 @@
 <?php 
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 $tabindex = 0;
-$type = isset($_REQUEST['type']) ? $_REQUEST['type'] : 'setup';
-$action = isset($_REQUEST['action']) ? $_REQUEST['action'] :  '';
+$type        = isset($_REQUEST['type'])        ? $_REQUEST['type']        : 'setup';
+$action      = isset($_REQUEST['action'])      ? $_REQUEST['action']      : '';
+$language_id = isset($_REQUEST['language_id']) ? $_REQUEST['language_id'] :  false;
+$description = isset($_REQUEST['description']) ? $_REQUEST['description'] : '';
+$lang_code   = isset($_REQUEST['lang_code'])   ? $_REQUEST['lang_code']   : '';
+$dest        = isset($_REQUEST['dest'])        ? $_REQUEST['dest']        : '';
 if (isset($_REQUEST['delete'])) $action = 'delete'; 
 
-$language_id = isset($_REQUEST['language_id']) ? $_REQUEST['language_id'] :  false;
-$description = isset($_REQUEST['description']) ? $_REQUEST['description'] :  '';
-$lang_code = isset($_REQUEST['lang_code']) ? $_REQUEST['lang_code'] :  '';
-$dest = isset($_REQUEST['dest']) ? $_REQUEST['dest'] :  '';
-
 if (isset($_REQUEST['goto0']) && $_REQUEST['goto0']) {
-	$dest = $_REQUEST[ $_REQUEST['goto0'].'0' ];
+	$dest = $_REQUEST[ $_REQUEST['goto0'] ];
 }
 
 switch ($action) {
 	case 'add':
 		$_REQUEST['extdisplay'] = languages_add($description, $lang_code, $dest);
-		needreload();
+        needreload();
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
+        $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
 		redirect_standard('extdisplay');
 	break;
 	case 'edit':
 		languages_edit($language_id, $description, $lang_code, $dest);
-		needreload();
+        needreload();
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
 		redirect_standard('extdisplay');
 	break;
 	case 'delete':
 		languages_delete($language_id);
-		needreload();
+        needreload();
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
+        $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
 		redirect_standard();
 	break;
 }
 
-?> 
-
-<div class="rnav"><ul>
-<?php 
-
-echo '<li><a href="config.php?display=languages&amp;type='.$type.'">'._('Add Language').'</a></li>';
-
-foreach (languages_list() as $row) {
-	echo '<li><a href="config.php?display=languages&amp;type='.$type.'&amp;extdisplay='.$row['language_id'].'" class="">'.$row['description'].'</a></li>';
+$rnavitems = array();
+$languages = languages_list();
+foreach ($languages as $row) {
+    $rnavitems[]=array($row['language_id'],$row['description'],'','');
 }
-
-?>
-</ul></div>
-
+drawListMenu($rnavitems, $type, $display, $extdisplay);
+?> 
+<div class='content'>
 <?php
 
 if ($extdisplay) {
@@ -56,61 +58,48 @@ if ($extdisplay) {
 	$lang_code   = $row['lang_code'];
 	$dest        = $row['dest'];
 
-	echo "<h2>"._("Edit: ")."$description ($lang_code)"."</h2>";
-} else {
-	echo "<h2>"._("Add Language")."</h2>";
 }
 
-$helptext = _("Languages allow you to change the language of the call flow and then continue on to the desired destination. For example, you may have an IVR option that says \"For French Press 5 now\". You would then create a French language instance and point it's destination at a French IVR. The language of the call's channel will now be in French. This will result in French sounds being chosen if installed.");
-echo $helptext;
+$helptext = __("Languages allow you to change the language of the call flow and then continue on to the desired destination. For example, you may have an IVR option that says \"For French Press 5 now\". You would then create a French language instance and point it's destination at a French IVR. The language of the call's channel will now be in French. This will result in French sounds being chosen if installed.");
+$help = '<div class="infohelp">?<span style="display:none;">'.$helptext.'</span></div>';
+echo "<div class='is-flex'><h2>".($extdisplay ? __('Edit Language').': '.$description.' ('.$lang_code.')': __("Add Language"))."</h2>$help</div>\n";
+
+if ($extdisplay) {
+    $usage_list = framework_display_destination_usage(languages_getdest($extdisplay));
+    if (!empty($usage_list)) {
+        echo ipbx_usage_info($usage_list['text'],$usage_list['tooltip']);
+    }
+}
+
 ?>
 
-<form name="editLanguage" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkLanguage(editLanguage);">
+<form id="mainform" name="editLanguage" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkLanguage(this);">
 	<input type="hidden" name="extdisplay" value="<?php echo $extdisplay; ?>">
 	<input type="hidden" name="language_id" value="<?php echo $extdisplay; ?>">
-	<input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
-	<table>
-	<tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Language Instance") : _("Add Language Instance")) ?></h5></td></tr>
+    <input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edit' : 'add'); ?>">
+    <table class='table is-borderless is-narrow'>
+    <tr><td colspan="2"><h5><?php echo _dgettext('amp','General Settings');?></h5></td></tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Description")?>:<span><?php echo _("The descriptive name of this language instance. For example \"French Main IVR\"")?></span></a></td>
-		<td><input class='w100' type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+		<td><a href="#" class="info"><?php echo __("Description")?><span><?php echo __("The descriptive name of this language instance. For example \"French Main IVR\"")?></span></a></td>
+		<td><input autofocus class='input w100' type="text" name="description" value="<?php  echo $description; ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Language Code")?>:<span><?php echo _("The Asterisk language code you want to change to. For example \"fr\" for French, \"de\" for German")?></span></a></td>
-		<td><input class="w100" type="text" name="lang_code" value="<?php echo $lang_code; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td> </tr>
-	<tr><td colspan="2"><br><h5><?php echo _("Destination")?>:</h5></td></tr>
+		<td><a href="#" class="info"><?php echo __("Language Code")?><span><?php echo __("The Asterisk language code you want to change to. For example \"fr\" for French, \"de\" for German")?></span></a></td>
+		<td><input class="input w100" type="text" name="lang_code" value="<?php echo $lang_code; ?>"  tabindex="<?php echo ++$tabindex;?>"/></td> </tr>
+	<tr><td colspan="2"><br><h5><?php echo __("Destination")?></h5></td></tr>
 
 <?php 
 //draw goto selects
 echo drawselects($dest,0);
 ?>
 			
-	<tr>
-		<td colspan="2"><br><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>">
-			<?php if ($extdisplay) { echo '&nbsp;<input name="delete" type="submit" value="'._("Delete").'">'; } ?>
-		</td>		
-
-		<?php
-		if ($extdisplay) {
-			$usage_list = framework_display_destination_usage(languages_getdest($extdisplay));
-			if (!empty($usage_list)) {
-			?>
-				<tr><td colspan="2">
-				<a href="#" class="info"><?php echo $usage_list['text']?>:<span><?php echo $usage_list['tooltip']?></span></a>
-				</td></tr>
-			<?php
-			}
-		}
-		?>
-	</tr>
 </table>
 </form>
 
-<script language="javascript">
-<!--
+<script>
 
 function checkLanguage(theForm) {
-	var msgInvalidDescription = "<?php echo _('Invalid description specified'); ?>";
+	var msgInvalidDescription = "<?php echo __('Invalid description specified'); ?>";
 
 	// set up the Destination stuff
 	setDestinations(theForm, '_post_dest');
@@ -123,7 +112,10 @@ function checkLanguage(theForm) {
 	if (!validateDestinations(theForm, 1, true))
 		return false;
 
+    $.LoadingOverlay('show');
 	return true;
 }
-//-->
+<?php echo js_display_confirmation_toasts(); ?>
 </script>
+</div> <!-- end div content, be sure to include script tags before -->
+<?php echo form_action_bar($extdisplay); ?>

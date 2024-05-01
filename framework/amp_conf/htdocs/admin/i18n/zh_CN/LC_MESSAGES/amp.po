@@ -50,7 +50,7 @@ msgid ""
 msgstr ""
 
 #: amp_conf/htdocs/admin/views/footer.php:86
-msgid " extension number already in use by: "
+msgid "Extension %s already in use by: %s"
 msgstr ""
 
 #: amp_conf/htdocs/admin/page.modules.php:536
@@ -442,8 +442,8 @@ msgid "Add Incoming Route"
 msgstr "添加入局线路"
 
 #: ../core/page.routing.php:323 ../core/page.routing.php:369
-msgid "Add Route"
-msgstr "添加线路"
+msgid "Add Outbound Route"
+msgstr "添加"
 
 #: ../core/page.trunks.php:349
 msgid "Add SIP Trunk"
@@ -1146,7 +1146,7 @@ msgstr "严重"
 #: amp_conf/htdocs/admin/libraries/cronmanager.class.php:156
 #, php-format
 msgid "Cronmanager encountered %s Errors"
-msgstr "Cronmanager遇到了 %s 个错误"
+msgstr "Cronmanager遇到了 %s 错误"
 
 #: ../core/functions.inc.php:7165
 msgid ""
@@ -1246,7 +1246,7 @@ msgid ""
 "advanced users, a valid Asterisk Dial Pattern\\n\\nYou have entered a non "
 "standard DID pattern.\\n\\nAre you sure this is correct?"
 msgstr ""
-"DID信息一般只是一个来电号码，或者对于高级用户来说，只是一个有效的Asterisk拨号"
+"DID息般只是一个来电号码，或者对于高级用户来说，只是一个有效的Asterisk拨号"
 "模式\\n\\n你输入的DID模式不是标准的拨号模式。\\n\\n你确定输入的拨号模式是正确"
 "的吗？"
 
@@ -1572,7 +1572,7 @@ msgid "ERROR - could not drop table"
 msgstr ""
 
 #: upgrades/2.10.0beta3/migration.php:48
-msgid "ERROR connectng to CDR DB to migrate, not done!"
+msgid "ERROR connecting to CDR DB to migrate, not done!"
 msgstr ""
 
 #: ../core/install.php:193
@@ -1595,7 +1595,7 @@ msgstr ""
 #: ../core/install.php:173
 #, php-format
 msgid "ERROR: failed to insert %s for user %s"
-msgstr "错误：无法插入 %s （用户 %s）"
+msgstr "错误：无插入 %s （用户 %s）"
 
 #: ../core/install.php:32
 #, php-format
@@ -1658,7 +1658,7 @@ msgid "Edit Incoming Route"
 msgstr "编辑入局线路"
 
 #: ../core/page.routing.php:345 ../core/page.routing.php:363
-msgid "Edit Route"
+msgid "Edit Outbound Route"
 msgstr "编辑线路"
 
 #: ../core/functions.inc.php:7087
@@ -1754,7 +1754,7 @@ msgstr "在创建临时目录时发生了错误：%s"
 #: amp_conf/htdocs/admin/libraries/module.functions.php:1328
 #, php-format
 msgid "Error deleting directory %s (code %d)"
-msgstr "无法删除目录 %s （错误代码 %d）"
+msgstr "无法删除目录 %s （误代码 %d）"
 
 #: ../core/page.routing.php:278 ../core/page.trunks.php:280
 msgid "Error fetching prefix list for: "
@@ -1811,7 +1811,7 @@ msgstr "在下载 %s 时发生了一项或更多的错误"
 #: amp_conf/htdocs/admin/page.modules.php:389
 #, php-format
 msgid "Error(s) enabling %s"
-msgstr "在启用 %s 时发生了一项或更多的错误"
+msgstr "在启用 %s 时发生了一项或更的错误"
 
 #: amp_conf/htdocs/admin/page.modules.php:367
 #: amp_conf/htdocs/admin/page.modules.php:379
@@ -1836,7 +1836,7 @@ msgstr ""
 
 #: amp_conf/htdocs/admin/views/footer.php:89
 msgid "Error: Did not receive valid response from server"
-msgstr "错误：没有从服务器收到正确的响应"
+msgstr "错误：没有从务器收到正的响应"
 
 #: amp_conf/htdocs/admin/page.modules.php:564
 msgid "Errors with selection:"
@@ -2018,7 +2018,7 @@ msgid ""
 "indications. The file may be readonly or the permissions may be incorrect."
 msgstr ""
 "无法为写入而打开 %s ，取消向文件写入国家信息的操作。文件可能具有只读属性或其"
-"访问权限没有被正确的设置。"
+"访问限没有被正确设置。"
 
 #: upgrades/2.10.1/migration.php:66
 msgid "Failed to read manager file to add writetimeout"
@@ -2232,7 +2232,7 @@ msgstr "为这个中继取一个唯一的名字。例如：myiaxtel"
 msgid ""
 "Give your device a unique integer ID.  The device will use this ID to "
 "authenticate to the system."
-msgstr "为你的设备设置一个唯一的整数ID。这个设备会使用此ID来登录系统。"
+msgstr "为你的设备设置一唯一的整数ID。个设备会使用此ID来登录系统。"
 
 #: ../core/functions.inc.php:797
 msgid "Hangup"
@@ -2526,7 +2526,7 @@ msgstr ""
 
 #: ../core/page.trunks.php:756 ../core/page.trunks.php:775
 msgid "Invalid pattern. Only 0-9, #, *, Z, N, X and . are allowed."
-msgstr "无效拨号模式。只能输入0-9、#、*、Z、N、X和.（小数点）。"
+msgstr "无效拨号模式。能输入0-9、#、*、Z、N、X和.（小数点）。"
 
 #: ../core/page.trunks.php:770
 msgid "Invalid prefix. Only 0-9, #, *, Z, N, and X are allowed."
@@ -2820,7 +2820,7 @@ msgid ""
 "Name of this route. Should be used to describe what type of calls this route "
 "matches (for example, 'local' or 'longdistance')."
 msgstr ""
-"这条线路的名字。一般用来表示这条线路所匹配的呼叫的类型，例如"
+"这条线路的名字。一般用来表示这条线路所匹配的呼的类型，例如"
 "（'local'或'longdistance'）。"
 
 #: ../core/functions.inc.php:6928 ../core/functions.inc.php:6933
@@ -3423,7 +3423,7 @@ msgstr "注册字符串"
 
 #: ../core/page.trunks.php:979
 msgid "Registration"
-msgstr "注册"
+msgstr "册"
 
 #: amp_conf/htdocs/admin/page.modules.php:1028
 msgid "Related Tickets"
@@ -3684,7 +3684,7 @@ msgid ""
 "send it to an IVR, it won't connect the call."
 msgstr ""
 "一些设备或服务提供商要求在应答（ANSWER）之前发送振铃（RINGING）信号。你会发现"
-"这发生在直接把呼叫发送到电话上的情况，但如果你把呼叫发送给自动语音应答"
+"这发生在直接把呼叫发到电话上的情况，但果你把呼叫发送给自动语音应答"
 "（IVR），呼叫会无法连接。"
 
 #: ../core/page.advancedsettings.php:43
@@ -3710,7 +3710,7 @@ msgstr "无法找到指定的模块"
 #: amp_conf/htdocs/admin/libraries/components.class.php:399
 #: ../core/page.did.php:298
 msgid "Submit"
-msgstr "提交"
+msgstr "提"
 
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
@@ -3957,7 +3957,7 @@ msgstr ""
 #: amp_conf/htdocs/admin/views/welcome.php:67
 #, php-format
 msgid ""
-"There is also a community based <a href='%s' target='_new'>IssabelPBX Web "
+"If you are having any problems there is a community based <a href='%s' target='_new'>IssabelPBX Web "
 "Forum</a> where you can post\n"
 "questions and search for answers for any problems you may be having."
 msgstr ""
@@ -4020,7 +4020,7 @@ msgid ""
 msgstr ""
 "这个设置仅仅对没有指定DID的线路起作用。如果钩选，具有主叫ID（CID）的呼叫会被"
 "引导到这条线路，即使主叫原本呼叫的是某DID，同时也有线路通往此DID，其结果也一"
-"样。一般来说呼叫是送到DID线路上的。但是，如果对于此CID，有专门指定的DID/CID线"
+"样。一般来说呼叫是送到DID线路的。但是，如果对于此CID，有专门指定的DID/CID线"
 "路的话，当DID被呼叫时，呼叫就会传送到那条线路上。"
 
 #: ../core/page.trunks.php:961
@@ -4040,7 +4040,7 @@ msgid ""
 msgstr ""
 "这是DUNDi映射名，与dundi.conf的[mappings]小节中关于远程端点的定义有关。具体的"
 "说，DUNDi映射名应该与dundi.conf中'include'小节中的端点详细定义相关。要在此中"
-"继上使用DUNDi，需要进行手工配置。"
+"上使用DUNDi，需要进行手工配置。"
 
 #: ../core/page.trunks.php:686
 msgid ""
@@ -4060,7 +4060,7 @@ msgid ""
 "sets up so you can dial either 7, 10 or 11 digits (5551234, 6135551234, "
 "16135551234) to access this route."
 msgstr ""
-"系统为你在www.localcallingguid.com查找你的本地号码（仅限于NA），并且允许你拨"
+"系统为你在www.localcallingguid.com查找你的本地号码仅限于NA），并且允许你拨"
 "打7位、10位和11位号码（如5551234、6135551234、16135551234）来访问这条线路。"
 
 #: ../core/functions.inc.php:7602
@@ -4449,7 +4449,7 @@ msgid ""
 "What prefix should be added to the dialing pattern?\\n\\n(ie. for US/CAN, 1"
 "+areacode, ie, \\'1613\\')?"
 msgstr ""
-"请输入添加到此拨号模式的前缀：\\n\\n（例如，对于美国/加拿大拨号，需要输入1+地"
+"请输入添加到此拨号模式的前缀：\\n\\n（例如，对于美国/加拿大拨号，要输入1+地"
 "区码，那么请输入\\'1613\\'之类的前缀）"
 
 #: ../core/page.trunks.php:768
@@ -4548,7 +4548,7 @@ msgid ""
 "make changes in the Inbound Routes tab. Do you want to continue?"
 msgstr ""
 "你似乎使用了一种转换后的DID（类似于zapchanNN的形式），它可能是在升级中自动生"
-"成的。请考虑分配与此频道相联系的普通的DID，以让入局线路规则能更好的工作。改变"
+"成的。请考虑分配与此频道相联系的普通的DID，以让入局线路规则能更好的工作。变"
 "此处的DID需要你在入局线路标签处进行相应的更改。继续吗？"
 
 #: amp_conf/htdocs/admin/views/bad_refferer.php:17
@@ -4602,7 +4602,7 @@ msgid ""
 "system. If a module with the same name already exists, it will be "
 "overwritten."
 msgstr ""
-"你可以从本地系统上传包含了一个IssabelPBX模块的tar+gzip文件。如果有同名的模块存"
+"你可以从本地系上传包含了一个IssabelPBX模块的tar+gzip文件。如果有同名的模块存"
 "在，它将被覆盖。"
 
 #: amp_conf/htdocs/admin/libraries/module.functions.php:1763
@@ -4758,7 +4758,7 @@ msgid ""
 "(which is defined in zapata.conf).  <br><br>The default setting is <b>g0</b> "
 "(group zero)."
 msgstr ""
-"ZAP频道可以以一个组号或者频道号（在zapata.conf中定义）引用。<br /><br />默认"
+"ZAP频道以以一个组号或者频道号（在zapata.conf中定义）引用。<br /><br />默认"
 "设置是<b>g0</b>（第0组）。"
 
 #: ../core/page.trunks.php:861
@@ -4781,8 +4781,8 @@ msgid ""
 msgstr ""
 
 #: ../core/install.php:9
-msgid "ZapBarge"
-msgstr "ZapBarge"
+msgid "Zap Barge"
+msgstr "Zap Barge"
 
 #: upgrades/2.9.0alpha1/migrate_ampconf.php:116
 msgid ""
@@ -5526,7 +5526,7 @@ msgstr ""
 #~ msgstr "呼叫记录"
 
 #~ msgid "Compare Calls"
-#~ msgstr "呼叫比较"
+#~ msgstr "呼叫比"
 
 #~ msgid "Monthly Traffic"
 #~ msgstr "月度流量"
@@ -5608,7 +5608,7 @@ msgstr ""
 #~ msgid ""
 #~ "Reloading will apply all configuration changes made in IssabelPBX to your "
 #~ "PBX engine and make them active."
-#~ msgstr "重载会使所有对PBX引擎的配置的更改生效。"
+#~ msgstr "重载使所有对PBX引擎的配置的更改生效。"
 
 #~ msgid "Accept"
 #~ msgstr "接受"
@@ -5667,7 +5667,7 @@ msgstr ""
 #~ "the value set in the General Tab. If no voicemail is configured this will "
 #~ "be ignored."
 #~ msgstr ""
-#~ "在没有被接听的呼叫被转移到语音邮件之前，电话振铃的时间，单位为秒。默认使用"
+#~ "在没有被接听的呼叫被转移到语邮件之前，电话振铃的时间，单位为秒。默认使用"
 #~ "的是“一般设置”标签中设置的值。如果没有启用语音邮件，这项设置会被忽略。"
 
 #~ msgid ""
@@ -5682,7 +5682,7 @@ msgstr ""
 #~ "introduction associated with the caller's CallerID."
 #~ msgstr ""
 #~ "来电显示要求外线的主叫发送他们的姓名信息，这个信息会显示给被叫用户，被叫用"
-#~ "户可以选择接听或挂断。有记忆功能的来电显示只验证一次主叫的CID。没有记忆功"
+#~ "户可以选择接听挂断。有记忆能的来电显示只验证一次主叫的CID。没有记忆功"
 #~ "能的来电显示，总是要求主叫发送他们的姓名。两种模式都总是会把新主叫ID通告给"
 #~ "用户。比如说，某个用户启用了有记忆的来电显示，记住了某主叫的信息，而局内的"
 #~ "另一用户要求此主叫再次输入姓名信息，这次主叫方输入了不同的名字，这之后系统"
@@ -5703,7 +5703,7 @@ msgstr ""
 #~ msgid ""
 #~ "The following extension numbers are in conflict, you can click on the item"
 #~ "(s) below to edit the conflicting entity."
-#~ msgstr "以下的分机号码有冲突，你可以点击下面的项目来更正错误。"
+#~ msgstr "以下的分机号码有冲突，你以点击下面的项来更正错误。"
 
 #~ msgid "Configure user again:"
 #~ msgstr "再次配置用户设置："
@@ -5781,7 +5781,7 @@ msgstr ""
 #~ msgstr "拨号选项"
 
 #~ msgid "Asterisk Dial command options:"
-#~ msgstr "Asterisk拨号命令选项："
+#~ msgstr "Asterisk拨命令选项："
 
 #~ msgid "t: Allow the called user to transfer the call by hitting #"
 #~ msgstr "t：允许被叫用户按#键以转移呼叫"
@@ -5868,7 +5868,7 @@ msgstr ""
 #~ "Prefix used to dial directly to someone's voicemail. Caution should be "
 #~ "taken in choosing this prefix to avoid conflicts with featurecodes."
 #~ msgstr ""
-#~ "此前缀用于直接拨打到某人的语音邮件信箱中。请小心设定此前缀以避免与功能代码"
+#~ "此前缀用于直接拨打到某人的语音邮件信箱中。请小心设此前缀以避免与功能代码"
 #~ "相冲突。"
 
 #~ msgid "Direct Dial to Voicemail message type:"
@@ -6074,7 +6074,7 @@ msgstr ""
 #~ msgid ""
 #~ "Email address where online updates will be sent. Leaving blank will "
 #~ "result in no updates being sent."
-#~ msgstr "发送更新的目的电子邮件地址。此项留空则不会发送任何更新。"
+#~ msgstr "发送更新的目的电子邮件地址。项留空则不会发送任何更新。"
 
 #~ msgid "Please enter a valid Number of Seconds"
 #~ msgstr "请输入有效的秒数"
