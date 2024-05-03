@@ -797,6 +797,12 @@ function customcontexts_customcontexts_edit($context,$newcontext,$description,$d
     }
     $sql = "update customcontexts_contexts set context = '$newcontext', description = '$description', dialrules = '$dialrules', faildestination = '$faildest', featurefaildestination = '$featurefaildest', failpin = '$failpin', featurefailpin = '$featurefailpin' where context = '$context'";
     $db->query($sql);
+
+    if($newcontext != $context) {
+        // Update context on sip/pjsip extensions if renamed
+        $sql = "UPDATE sip SET data='".$db->escapeSimple($newcontext)."' WHERE keyword='context' AND data='".$db->escapeSimple($context)."'";
+        $db->query($sql);
+    }
     needreload();
 }
 
