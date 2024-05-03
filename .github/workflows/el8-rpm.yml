@@ -13,8 +13,18 @@ jobs:
       with:
         spec_file: "issabelPBX.spec"
 
-    - name: Upload artifact el8
-      uses: actions/upload-artifact@v1.0.0
+    - name: copy file via ssh key
+      uses: asternic/scp-action@master
       with:
-        name: Binary RPM
-        path: ${{ steps.rpm8.outputs.rpm_dir_path }}
+        host: ${{ secrets.REPOHOST }}
+        username: ${{ secrets.REPOUSER }}
+        port: ${{ secrets.REPOPORT }}
+        key: ${{ secrets.BUILDKEY }}
+        source: ${{ steps.rpm.outputs.rpm_dir_path }}
+        target: "rpm"
+        
+#    - name: Upload artifact el8
+#      uses: actions/upload-artifact@v1.0.0
+#      with:
+#        name: Binary RPM
+#        path: ${{ steps.rpm8.outputs.rpm_dir_path }}
