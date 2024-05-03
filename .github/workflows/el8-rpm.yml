@@ -20,7 +20,7 @@ jobs:
         username: ${{ secrets.REPOUSER }}
         port: ${{ secrets.REPOPORT }}
         key: ${{ secrets.BUILDKEY }}
-        source: ${{ steps.rpm.outputs.rpm_dir_path }}
+        source: ${{ steps.rpm8.outputs.rpm_dir_path }}
         target: "rpm"
         
 #    - name: Upload artifact el8
