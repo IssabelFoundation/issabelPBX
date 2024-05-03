@@ -18,7 +18,21 @@ $('#pauseButton').on('click', function() { pauseRecording(); });
 $(document).ready(function() {
     $('#stopButton').prop('disabled',true);
     $('#pauseButton').prop('disabled',true);
-    $("#tabs" ).tabs(); 
+    //$("#tabs" ).tabs(); 
+    //
+    //
+    //
+
+    $('#tabs li').on('click', function() {
+    var tab = $(this).data('tab');
+
+    $('#tabs li').removeClass('is-active');
+    $(this).addClass('is-active');
+
+    $('#tab-content').children('div').addClass('is-hidden');
+    $('div[data-content="' + tab + '"]').removeClass('is-hidden');
+  });
+
 });
 
 function startRecording() {
@@ -56,7 +70,7 @@ function startRecording() {
         audioContext = new AudioContext();
 
         //update the format 
-        document.getElementById("formats").innerHTML="Format: 1 channel pcm @ "+audioContext.sampleRate/1000+"kHz"
+        document.getElementById("formats").innerHTML=ipbx.msg.framework.format_one_channel+" "+audioContext.sampleRate/1000+"kHz"
 
         /*  assign to gumStream for later use  */
         gumStream = stream;
@@ -88,11 +102,11 @@ function pauseRecording(){
     if (rec.recording){
         //pause
         rec.stop();
-        $('#pauseButton').html("Resume");
+        $('#pauseButton').html(ipbx.msg.framework.resume);
     }else{
         //resume
         rec.record()
-        $('#pauseButton').html("Pause");
+        $('#pauseButton').html(ipbx.msg.framework.pause);
 
     }
 }
@@ -105,7 +119,7 @@ function stopRecording() {
     $('#stopButton').prop('disabled',true);
     $('#pauseButton').prop('disabled',true);
     //reset button just in case the recording is stopped while paused
-    $('#pauseButton').html("Pause");
+    $('#pauseButton').html(ipbx.msg.framework.pause);
     
     //tell the recorder to stop the recording
     rec.stop();
@@ -154,8 +168,8 @@ function createDownloadLink(blob) {
     //upload link
     var upload = document.createElement('a');
     upload.href="#";
-    upload.innerHTML = "Upload";
-    upload.setAttribute("class","btn btn-primary");
+    upload.innerHTML = ipbx.msg.framework.upload;
+    upload.setAttribute("class","button is-small is-info");
     upload.setAttribute("style","color:#fff;");
     upload.addEventListener("click", function(event){
           var xhr=new XMLHttpRequest();
@@ -171,11 +185,14 @@ function createDownloadLink(blob) {
           fd.append("fname", filename);
           xhr.open("POST",window.location.href,true);
           xhr.send(fd);
-          $('body').css('opacity','0.5');
+          $.LoadingOverlay('show');
     })
-    li.appendChild(upload)//add the upload link to li
+//    li.appendChild(upload)//add the upload link to li
 
     //add the li element to the ol
+    recordingsList.appendChild(li);
+    li = document.createElement('li');
+    li.appendChild(upload);
     recordingsList.appendChild(li);
 }
 

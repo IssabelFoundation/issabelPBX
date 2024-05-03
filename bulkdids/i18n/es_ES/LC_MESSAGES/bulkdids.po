@@ -1,0 +1,153 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Add, Edit, or Delete an Inbound Route."
+msgstr "Agregar, editar o eliminar una ruta de entrada."
+
+msgid "Bulk DIDs"
+msgstr "DIDs a granel"
+
+msgid "Manage DIDs in bulk using CSV files."
+msgstr "Administre DID de forma masiva utilizando archivos CSV."
+
+msgid "Start by downloading the %s (right-click > save as) or clicking the Export DIDs button."
+msgstr "Comience descargando el %s (haga clic con el botón derecho > guardar como) o haga clic en el botón Exportar DID."
+
+msgid "Modify the CSV file to add, edit, or delete DIDs as desired. Then load the CSV file. After the CSV file is processed, the action taken for each row will be displayed."
+msgstr "Modifique el archivo CSV para agregar, editar o eliminar DID según lo desee. Luego cargue el archivo CSV. Después de procesar el archivo CSV, se mostrará la acción realizada para cada fila."
+
+msgid "Template CSV file"
+msgstr "Plantilla CSV"
+
+msgid "Export DIDs"
+msgstr "Exportar DIDs"
+
+msgid "Load File"
+msgstr "Cargar archivo"
+
+msgid "Bulk DIDs CSV File Columns"
+msgstr "Columnas CSV de archivo de DID masivos"
+
+msgid "The table below explains each column in the CSV file. You can change the column order of the CSV file as you like, however, the column names must be preserved."
+msgstr "La siguiente tabla explica cada columna en el archivo CSV. Puede cambiar el orden de las columnas del archivo CSV como desee; sin embargo, los nombres de las columnas deben conservarse."
+
+msgid "Field"
+msgstr "Campo"
+
+msgid "Default"
+msgstr "Defecto"
+
+msgid "Allowed"
+msgstr "Permitido"
+
+msgid "Field Details"
+msgstr "Detalles"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Choose a CSV file..."
+msgstr "Seleccione un archivo CSV..."
+
+msgid "Upload"
+msgstr "Subir"
+
+msgid "Row %s: Headers parsed."
+msgstr "Fila %s: Encabezados analizados"
+
+msgid "Error: %s %s (see error above)."
+msgstr "Error: %s %s (revise el error arriba)."
+
+msgid "Row %s: Edited: %s"
+msgstr "Fila %s: Modificada: %s"
+
+msgid "Warning: Row %s: %s CID Lookup NOT added, index %s does not exist"
+msgstr "Advertencia: Fila %s: %s Fuente de búsqueda CID no agregada, el indice %s no existe"
+
+msgid "Finished"
+msgstr "Finalizado"
+
+msgid "Row %s: DID (%s) not found, skipping..."
+msgstr "Fila %s: DID (%s) no encontrado, ignorando..."
+
+msgid "The incoming DID to match"
+msgstr "El DID entrante para que coincida"
+
+msgid "Provide a meaningful description of what this incoming route is"
+msgstr "Proporcione una descripción significativa de lo que es esta ruta entrante"
+
+msgid "The context, extension, priority to go to when this DID is matched.  Example: app-daynight,0,1"
+msgstr "El contexto, la extensión, la prioridad a la que ir cuando este DID coincida. Ejemplo: aplicación-día-noche,0,1"
+
+msgid "Define the Caller ID Number to be matched on incoming calls. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put Private, Blocked, Unknown, Restricted, Anonymous and Unavailable in order to catch these special cases if the Telco transmits them."
+msgstr "Defina el número de identificación de la persona que llama para que coincida con las llamadas entrantes. Deje este campo en blanco para que coincida con cualquier información de CID o ninguna. Además de las secuencias de marcación estándar, también puede poner Privado, Bloqueado, Desconocido, Restringido, Anónimo y No disponible para detectar estos casos especiales si la empresa de telecomunicaciones los transmite."
+
+msgid "This effects CID ONLY routes where no DID is specified. If checked, calls with this CID will be routed to this route, even if there is a route to the DID that was called. Normal behavior is for the DID route to take the calls. If there is a specific DID/CID route for this CID, that route will still take the call when that DID is called"
+msgstr "Esto afecta SOLAMENTE a las rutas CID donde no se especifica DID. Si está marcado, las llamadas con este CID se enrutarán a esta ruta, incluso si hay una ruta al DID al que se llamó. El comportamiento normal es que la ruta DID tome las llamadas. Si hay una ruta DID/CID específica para este CID, esa ruta aún tomará la llamada cuando se llame a ese DID"
+
+msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+msgstr "ALERT_INFO se puede utilizar para timbre distintivo con dispositivos SIP."
+
+msgid "You can optionally prefix the Caller ID name. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring."
+msgstr "Opcionalmente, puede prefijar el nombre del identificador de llamadas. es decir: si agrega el prefijo \"Ventas:\", una llamada de José Pérez se mostraría como \"Ventas:José Pérez\" en las extensiones que suenan."
+
+msgid "Defaults to \"default\""
+msgstr "El valor predeterminado es \"default\""
+
+msgid "Some devices or providers require RINGING to be sent before ANSWER. You'll notice this happening if you can send calls directly to a phone, but if you send it to an IVR, it won't connect the call."
+msgstr "Algunos dispositivos o proveedores requieren que se envíe LLAMADA antes de RESPONDER. Notará que esto sucede si puede enviar llamadas directamente a un teléfono, pero si las envía a un IVR, no conectará la llamada."
+
+msgid "An optional delay to wait before processing this route. Setting this value will delay the channel from answering the call. This may be handy if external fax equipment or security systems are installed in parallel and you would like them to be able to seize the line"
+msgstr "Un retraso opcional para esperar antes de procesar esta ruta. Establecer este valor retrasará que el canal responda la llamada. Esto puede ser útil si se instalan equipos de fax externos o sistemas de seguridad en paralelo y desea que puedan aprovechar la línea."
+
+msgid "If no Caller ID is sent, Privacy Manager will asks the caller to enter their 10 digit phone number. The caller is given 3 attempts. The number of digits and attempts can be defined in privacy.conf. If a user has Call Screening enabled, the incoming caller will be asked to enter their CallerId here if enabled, and then to say their name once determined that the called user requires it."
+msgstr "Si no se envía un identificador de llamadas, el Administrador de privacidad le pedirá a la persona que llama que ingrese su número de teléfono de 10 dígitos. La persona que llama tiene 3 intentos. El número de dígitos e intentos se puede definir en privacy.conf. Si un usuario tiene habilitada la detección de llamadas, se le pedirá a la persona que llama que ingrese su ID de llamada aquí si está habilitada, y luego que diga su nombre una vez que se determine que el usuario llamado lo requiere."
+
+msgid "Number of attempts the caller has to enter a valid callerID, only valid if privacyman is set to 1"
+msgstr "Número de intentos que tiene la persona que llama para ingresar un identificador de llamada válido, solo válido si privacyman está configurado en 1"
+
+msgid "Minimum amount of digits callerID needs to contain in order to be considered valid, only valid if privacyman is set to 1"
+msgstr "La cantidad mínima de dígitos que debe contener el identificador de llamadas para que se considere válido, solo es válido si privacyman se establece en 1"
+
+msgid "Number representing the index id for Caller ID Lookup Source"
+msgstr "Número que representa la identificación de índice para la fuente de búsqueda de identificación de llamadas"
+
+msgid "A valid Asterisk language code such as 'en', 'fr' or 'sv'"
+msgstr "Un código de idioma Asterisk válido, como 'en', 'fr' o 'sv'"
+
+msgid "Attempt to detect faxes on this DID"
+msgstr "Intento de detectar faxes en este DID"
+
+msgid "Type of fax detection to use"
+msgstr "Tipo de detección de fax a utilizar"
+
+msgid "How long to wait and try to detect fax. Please note that callers to a Dahdi channel will hear ringing for this amount of time (i.e. the system wont \"answer\" the call, it will just play ringing)."
+msgstr "Cuánto tiempo esperar e intentar detectar el fax. Tenga en cuenta que las personas que llamen a un canal Dahdi escucharán un timbre durante este período de tiempo (es decir, el sistema no \"responderá\" a la llamada, solo reproducirá el timbre)."
+
+msgid "Where to send the call if we detect that its a fax."
+msgstr "Dónde enviar la llamada si detectamos que es un fax."
+

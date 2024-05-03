@@ -183,16 +183,16 @@ function managersettings_edit($manager_settings) {
   $save_settings = array();
   $vd = new  managersettings_validate();
 
-  $integer_msg = _("%s must be a non-negative integer");
+  $integer_msg = __("%s must be a non-negative integer");
   foreach ($manager_settings as $key => $val) {
     switch ($key) {
       case 'bindaddr':
-        $msg = _("Bind Address (bindaddr) must be an IP address.");
+        $msg = __("Bind Address (bindaddr) must be an IP address.");
         $save_settings[] = array($key,$db->escapeSimple($vd->is_ip($val,$key,$msg)),'2',MANAGER_NORMAL);
       break;
 
       case 'port':
-        $msg = _("Port (port) must be between 1024..65535, default 5038");
+        $msg = __("Port (port) must be between 1024..65535, default 5038");
         $save_settings[] = array($key,$db->escapeSimple($vd->is_ip_port($val, $key, $msg)),'1',MANAGER_NORMAL);
       break;
 

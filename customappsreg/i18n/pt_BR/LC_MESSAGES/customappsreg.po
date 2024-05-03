@@ -13,22 +13,18 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright 2009, Marcelo Araujo
+#  Copyright 2023 Issabel Foundation
+#  Copyright 2009, Marcelo Araujo
 #
+
 msgid ""
 msgstr ""
-"Project-Id-Version: freePBX 2.5.1\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-05-11 20:05-0300\n"
-"Last-Translator: Marcelo Araujo <marcelo.araujo@voffice.com.br>\n"
-"Language-Team: MidiVTS Team <team@midivts.org>\n"
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Portuguese\n"
-"X-Poedit-Country: BRAZIL\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Custom Applications"
 msgstr ""
@@ -47,7 +43,6 @@ msgstr "Extensões personalizadas"
 msgid "Custom Destinations"
 msgstr "Destinos personalizados"
 
-#, php-format
 msgid "Custom Destination: %s"
 msgstr "Destino personalizado: %s"
 
@@ -184,7 +179,7 @@ msgid ""
 msgstr ""
 "Extensões personalizadas permitem a você registar quaisquer extensões "
 "personalizadas ou códigos de recurso que você tenha criado no arquivo custom "
-"e o freePBX não saiba a respeito deles. Isto permite que o registro da "
+"e o IssabelPBX não saiba a respeito deles. Isto permite que o registro da "
 "extensão esteja a par das suas próprias extensões, de forma que ele possa "
 "detectar conflitos e relatar de volta as informações sobre as extensões "
 "personalizadas para outros módulos que podem fazer uso da informação. Você "
@@ -205,7 +200,7 @@ msgid ""
 "you want the IssabelPBX Extension Registry to be aware of."
 msgstr ""
 "Esta é a extensão ou código de recurso que você está usando no seu plano de "
-"discage, e que você quer que o registro de extensões do freePBX esteja a "
+"discage, e que você quer que o registro de extensões do IssabelPBX esteja a "
 "par. "
 
 msgid ""

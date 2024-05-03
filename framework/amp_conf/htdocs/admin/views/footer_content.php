@@ -13,23 +13,27 @@ if ($amp_conf['FORCE_JS_CSS_IMG_DOWNLOAD']) {
 
 // Brandable logos in footer
 //ipbx logo
-/*
+
 $html .= '<a target="_blank" href="' 
 		. $amp_conf['BRAND_IMAGE_ISSABELPBX_LINK_FOOT']
 		. '" class ="footer-float-left">'
  	 	. '<img id="footer_logo1" src="'.$amp_conf['BRAND_IMAGE_ISSABELPBX_FOOT'].$version_tag
 		. '" alt="'.$amp_conf['BRAND_ISSABELPBX_ALT_FOOT'] .'"/></a>';
-*/
+
 //text
+
 $html .= '<span class="footer-float-left" id="footer_text">';
 $html .= '<a href="http://www.issabel.org" target="_blank">IssabelPBX</a> ' . br();
-$html .= _('IssabelPBX') . ' ' . $version . ' ' . _('is licensed under the')
+$html .= __('IssabelPBX') . ' ' . $version . ' ' . __('is licensed under the')
 		. '<a href="http://www.gnu.org/copyleft/gpl.html" target="_blank"> GPL</a>' . br();
-$html .= '<a href="http://www.issabel.org/copyright.html" target="_blank">Copyright&copy; 2004-'.date('Y',time()).'</a>';
+$html .= 'Copyright&copy; 2004-'.date('Y',time());
+
+
+
 
 //module license
 if (!empty($active_modules[$module_name]['license'])) {
-  $html .= br() . sprintf(_('Current module licensed under %s'),
+  $html .= br() . sprintf(__('Current module licensed under %s'),
   trim($active_modules[$module_name]['license']));
 }
 

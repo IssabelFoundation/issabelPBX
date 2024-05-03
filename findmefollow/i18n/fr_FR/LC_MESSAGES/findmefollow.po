@@ -126,7 +126,7 @@ msgstr "Attention ! L'Extension"
 msgid "is not allowed for your account"
 msgstr "n'est pas autorisée pour votre compte"
 
-msgid "Choose a user/extension"
+msgid "Choose a user/extension from the navigation menu"
 msgstr "Choisissez un utilisateur/une extension"
 
 msgid "deleted"

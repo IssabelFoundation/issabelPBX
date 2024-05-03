@@ -59,13 +59,13 @@ msgstr "Ta bort katalog %s"
 msgid "Directory General Options"
 msgstr ""
 
-msgid "Directory Name"
+msgid "Name"
 msgstr "Katalognamn"
 
 msgid "Name of this directory."
 msgstr "Ge denna katalog ett beskrivande namn"
 
-msgid "Directory Description"
+msgid "Description"
 msgstr "Beskrivning"
 
 msgid "Description of this directory."
@@ -157,9 +157,6 @@ msgstr ""
 msgid "Directory&nbsp;Entries"
 msgstr "Katalogval"
 
-msgid "Name"
-msgstr ""
-
 msgid "Name Announcement"
 msgstr ""
 
@@ -175,7 +172,7 @@ msgstr "Alla användare"
 msgid "Custom"
 msgstr "Anpassad"
 
-msgid "Add new entry."
+msgid "Add new entry"
 msgstr "Lägg till ny post."
 
 msgid "Voicemail Greeting"
@@ -187,7 +184,7 @@ msgstr "Text-till-tal"
 msgid "Spell Name"
 msgstr "Stava namn"
 
-msgid "System Recordings:"
+msgid "System Recordings"
 msgstr "Systeminspelning:"
 
 #, php-format

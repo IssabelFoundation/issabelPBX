@@ -120,7 +120,7 @@ msgstr ""
 "Inställningarna nedan kan användas för att ändra innehållet och "
 "destinationen för detta meddelande."
 
-msgid "Default Address:"
+msgid "Default Address"
 msgstr "E-postadress:"
 
 msgid ""
@@ -128,7 +128,7 @@ msgid ""
 "without a Voicemail email address will be sent to the Default Address."
 msgstr ""
 
-msgid "Override Address:"
+msgid "Override Address"
 msgstr "Åsidosätt e-postadress:"
 
 msgid ""
@@ -141,7 +141,7 @@ msgstr ""
 "\"noemail\" (utan dubbelappostrof) skrivs in kommer inga e-postmeddelanden "
 "att skickas."
 
-msgid "Email From:"
+msgid "Email From"
 msgstr "E-postavsändare:"
 
 msgid ""
@@ -151,7 +151,7 @@ msgstr ""
 "Skriv in avsändaradressen för e-postmeddelanden. Om inget skrivs in kommer "
 "systemets standardavsändare att användas."
 
-msgid "Email Reply-To:"
+msgid "Email Reply-To"
 msgstr "Svarsadress:"
 
 msgid ""
@@ -161,7 +161,7 @@ msgstr ""
 "Svarsadressen för e-postmeddelanden kan anges här. Om inget skrivs in kommer "
 "systemets standardavsändare att användas."
 
-msgid "Email Subject:"
+msgid "Email Subject"
 msgstr "Ämne:"
 
 msgid ""
@@ -171,7 +171,7 @@ msgstr ""
 "Skriv in ämnet för e-postmeddelanden. Om inget skrivs in kommer texten "
 "\"Voicemail Account Activated\" att användas."
 
-msgid "Email Opening:"
+msgid "Email Opening"
 msgstr "Välkomsttext:"
 
 msgid ""
@@ -185,7 +185,7 @@ msgid ""
 "inserted after the opening."
 msgstr ""
 
-msgid "Email Closing:"
+msgid "Email Closing"
 msgstr "Avslutande text:"
 
 msgid ""

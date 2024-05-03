@@ -132,6 +132,15 @@ function ttsengine_add($description, $ttsengine_engine, $ttsengine_cmd, $ttsengi
     }
 }
 
+function ttsengine_delete($tts_id) {
+    global $db;
+    $sql = "DELETE FROM tts_engines WHERE ttsengine_id = ".$db->escapeSimple($tts_id);
+    $result = $db->query($sql);
+    if($db->IsError($result)) {
+        die_issabelpbx($result->getMessage().$sql);
+    }
+}
+
 function tts_delete($tts_id) {
     global $db;
     $sql = "DELETE FROM tts WHERE tts_id = ".$db->escapeSimple($tts_id);
@@ -193,7 +202,7 @@ function tts_check_destinations($dest=true) {
         $destlist[] = array(
             'dest' => $thisdest,
             'description' => 'Text to Speech: '.$result['description'],
-            'edit_url' => 'config.php?display=tts&type=tool&id='.urlencode($thisid),
+            'edit_url' => 'config.php?display=tts&type=tool&extdisplay='.urlencode($thisid),
         );
     }
     return $destlist;
@@ -211,8 +220,8 @@ function tts_getdestinfo($dest) {
         if (empty($thisqid)) {
             return array();
         } else {
-            return array('description' => sprintf(_("Text to Speech %s: "),$thisqid['description']),
-                         'edit_url'    => 'config.php?display=tts&id='.urlencode($id),
+            return array('description' => sprintf(__("Text to Speech %s: "),$thisqid['description']),
+                         'edit_url'    => 'config.php?display=tts&extdisplay='.urlencode($id),
                         );
         }
     } else {

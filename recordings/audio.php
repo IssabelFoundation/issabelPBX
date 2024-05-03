@@ -30,6 +30,8 @@ if (isset($_REQUEST['recording'])) {
     case "Wav": $ctype="audio/x-wav"; break;
     case "WAV": $ctype="audio/x-wav"; break;
     case "gsm": $ctype="audio/x-gsm"; break;
+    case "sln": $ctype="audio/x-sln"; break;
+    case "alaw": $ctype="audio/x-alaw"; break;
 
     // not downloadable
     default: die_issabelpbx("<b>404 File not found! foo</b>"); break ;

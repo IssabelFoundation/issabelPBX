@@ -37,7 +37,7 @@ msgid "Applications"
 msgstr ""
 
 msgid ""
-"Allow creation of conference rooms (meet-me) where multiple people can talk "
+"Allow creation of conference rooms where multiple people can talk "
 "together."
 msgstr ""
 

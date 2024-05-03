@@ -40,7 +40,7 @@ function infoservices_directory($c) {
 	$id = "app-directory"; // The context to be included. This must be unique.
 
 	// Start creating the dialplan
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('infoservices','Directory')); // Add the include from from-internal
 	// Build the context
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,1,Wait(1)
@@ -59,7 +59,7 @@ function infoservices_calltrace($c) {
 
 	$id = "app-calltrace"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('infoservices','Call Trace')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_goto('1', 's', 'app-calltrace-perform')); 
 
@@ -96,7 +96,7 @@ function infoservices_echotest($c) {
 
 	$id = "app-echo-test"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('infoservices','Echo Test')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); 
@@ -157,7 +157,7 @@ function infoservices_speakingclock($c) {
 
 	$id = "app-speakingclock"; // The context to be included
 
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('infoservices','Speaking Clock')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
@@ -219,7 +219,7 @@ function infoservices_speakextennum($c) {
 	
 	$id = "app-speakextennum";
 	
-	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	$ext->addInclude('from-internal-additional', $id, _dgettext('infoservices','Speak Your Exten Number')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)

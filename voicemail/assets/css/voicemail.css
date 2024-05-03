@@ -1,0 +1,16 @@
+div.content { min-width:490px; width: calc(100% - 300px); max-width:1000px;}
+@media screen and (max-width: 1200px) {
+    div.content { max-width:800px; }
+}
+textarea.textarea {
+    width: calc(100% - 300px); max-width:1000px;
+    height: 20em;
+}
+.content table {
+    width: 100%;
+}
+.voicemail-disabled {
+    opacity: .8;
+    background-color: #FFC;
+    text-decoration: line-through !important;
+}

@@ -13,22 +13,17 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright (C) 2009 Juan Asensio Sánchez <okelet@gmail.com>
+#  Copyright 2023 Issabel Foundation
 #
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo cidlookup module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-05 21:35-0400\n"
-"PO-Revision-Date: 2011-04-14 00:00+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: views/main.html.php:19
 msgid ""
@@ -48,7 +43,7 @@ msgstr ""
 
 #: views/main.html.php:99
 msgid "Account SID"
-msgstr ""
+msgstr "Cuenta SID"
 
 #: views/main.html.php:3
 msgid "Add CID Lookup Source"
@@ -64,7 +59,7 @@ msgstr ""
 
 #: views/main.html.php:107
 msgid "Auth Token"
-msgstr ""
+msgstr "Token de Autenticación"
 
 #: functions.inc.php:12
 msgid "CID Lookup Source"
@@ -72,11 +67,11 @@ msgstr "Búsqueda de CID"
 
 #: views/main.html.php:76
 msgid "Cache results"
-msgstr "Resultados de la caché"
+msgstr "Cachear resultados"
 
 #: views/main.html.php:229
 msgid "Character Set"
-msgstr ""
+msgstr "Conjunto de caracteres"
 
 #: install.php:103
 msgid "Checking for cidlookup field in core's incoming table.."
@@ -84,15 +79,15 @@ msgstr "Comprobando el campo cidlookup en la table entrante del núcleo"
 
 #: install.php:144
 msgid "Cleaning up duplicate OpenCNAM CallerID Lookup Sources..."
-msgstr ""
+msgstr "Eliminando fuentes duplicadas de búsqueda de identificador de llamadas de OpenCNAM..."
 
 #: install.php:125
 msgid "Could not add opencnam_account_sid column to cidlookup table."
-msgstr ""
+msgstr "No se pudo agregar la columna opencnam_account_sid a la tabla cidlookup."
 
 #: install.php:131
 msgid "Could not add opencnam_auth_token column to cidlookup table."
-msgstr ""
+msgstr "No se pudo agregar la columna opencnam_auth_token a la tabla cidlookup."
 
 #: views/main.html.php:197
 msgid "Database name"
@@ -116,7 +111,7 @@ msgstr "Eliminar fuente de búsqueda de CID"
 
 #: install.php:44 install.php:133 install.php:141 install.php:161
 msgid "Done!"
-msgstr ""
+msgstr "Listo!"
 
 #: install.php:90
 msgid "ERROR: failed: "
@@ -164,7 +159,7 @@ msgstr "MySQL"
 
 #: views/main.html.php:229
 msgid "MySQL Character Set. Leave blank for MySQL default latin1"
-msgstr ""
+msgstr "Conjunto de caracteres MySQL. Dejar en blanco para usar el valor predeterminado de MySQL"
 
 #: views/main.html.php:189
 msgid "MySQL Host"
@@ -363,7 +358,7 @@ msgid ""
 "Your OpenCNAM Account SID. This can be found on your OpenCNAM dashboard "
 "page: https://www.opencnam.com/dashboard"
 msgstr ""
-"El CID de su cuenta OpenCNAM. Puede encontrarlo en el dashboard en "
+"El SID de su cuenta OpenCNAM. Puede encontrarlo en el dashboard en "
 "https://www.opencnam.com/dashboard"
 
 #: views/main.html.php:107
@@ -383,8 +378,8 @@ msgstr "no está presente"
 msgid "removed"
 msgstr "eliminado"
 
-#~ msgid "CallerID Lookup"
-#~ msgstr "Búsqueda de identificador de llamante"
+msgid "CallerID Lookup"
+msgstr "Búsqueda de identificador de llamadas"
 
 msgid "CallerID Lookup Sources"
 msgstr "Fuentes de CallerID"
@@ -426,3 +421,33 @@ msgstr "Si desea crear un cuenta en la capa profesional puede hacerlo desde el s
 
 #~ msgid "HTTP"
 #~ msgstr "HTTP:"
+
+msgid "Please enter a valid HTTP(S) Host name"
+msgstr "Por favor ingrese un servidor válido"
+
+msgid "Please enter a valid MySQL Host name"
+msgstr "Por favor ingrese un servidor válido"
+
+msgid "Please enter a valid MySQL Database name"
+msgstr "Por favor ingrese una base de datos válida"
+
+msgid "Please enter a valid MySQL Query string"
+msgstr "Por favor ingrese una consulta válida"
+
+msgid "Please enter a valid MySQL Username"
+msgstr "Por favor ingrese un usuario válido"
+
+msgid "Please enter a valid Account SID"
+msgstr "Por favor ingrese una cuenta SID válida"
+
+msgid "Please enter a valid Auth Token"
+msgstr "Por favor ingrese una token de autenticación válido"
+
+msgid "Description cannot be blank!"
+msgstr "La descripción no puede estar en blanco!"
+
+msgid "Variable to set"
+msgstr "Variable a definir"
+
+msgid "Select which variable you want to set, either CallerID Name or CDR userfield"
+msgstr "Seleccione qué variable quiere definir, entre CallerID Name o el campo de usuario de CDR (userfield)"

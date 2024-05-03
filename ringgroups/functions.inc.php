@@ -34,7 +34,7 @@ function ringgroups_getdestinfo($dest) {
 		if (empty($thisgrp)) {
 			return array();
 		} else {
-			return array('description' => sprintf(_("Ring Group %s: "),$grp).$thisgrp['description'],
+			return array('description' => sprintf(__("Ring Group %s: "),$grp).$thisgrp['description'],
 			             'edit_url' => 'config.php?display=ringgroups&extdisplay=GRP-'.urlencode($grp),
 								  );
 		}
@@ -54,7 +54,7 @@ function ringgroups_recordings_usage($recording_id) {
 		foreach ($results as $result) {
 			$usage_arr[] = array(
 				'url_query' => 'config.php?display=ringgroups&extdisplay=GRP-'.urlencode($result['grpnum']),
-				'description' => sprintf(_("Ring Group: %s"),$result['description']),
+				'description' => sprintf(__("Ring Group: %s"),$result['description']),
 			);
 		}
 		return $usage_arr;
@@ -69,8 +69,8 @@ function ringgroups_get_config($engine) {
 	global $amp_conf;
 	switch($engine) {
 		case "asterisk":
-			$ext->addInclude('from-internal-additional','ext-group');
-			$ext->addInclude('from-internal-additional','grps');
+			$ext->addInclude('from-internal-additional','ext-group',_dgettext('ringgroups','Ring Groups'));
+			$ext->addInclude('from-internal-additional','grps',_dgettext('ringgroups','Ring Groups'));
 			$contextname = 'ext-group';
 			$ringlist = ringgroups_list(true);
 			if (is_array($ringlist)) {
@@ -127,7 +127,8 @@ function ringgroups_get_config($engine) {
 					
 					// deal with group CID prefix
 					if ($grppre != '') {
-						$ext->add($contextname, $grpnum, '', new ext_macro('prepend-cid', $grppre));
+						// $ext->add($contextname, $grpnum, '', new ext_macro('prepend-cid', $grppre)); // MACRO DEPRECATION
+						$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-prepend-cid',$grppre));
 					}
 					
 					// Set Alert_Info
@@ -259,7 +260,7 @@ function ringgroups_add($grpnum,$strategy,$grptime,$grplist,$postdest,$desc,$grp
 	if(is_array($extens)) {
 		foreach($extens as $exten) {
 			if ($exten[0]===$grpnum) {
-				echo "<script>javascript:alert('"._("This ringgroup")." ({$grpnum}) "._("is already in use")."');</script>";
+				echo "<script>javascript:alert('".__("This ringgroup")." ({$grpnum}) ".__("is already in use")."');</script>";
 				return false;
 			}
 		}
@@ -326,8 +327,8 @@ function ringgroups_check_extensions($exten=true) {
 
 	foreach ($results as $result) {
 		$thisexten = $result['grpnum'];
-		$extenlist[$thisexten]['description'] = sprintf(_("Ring Group: %s"),$result['description']);
-		$extenlist[$thisexten]['status'] = _('INUSE');
+		$extenlist[$thisexten]['description'] = sprintf(__("Ring Group: %s"),$result['description']);
+		$extenlist[$thisexten]['status'] = __('INUSE');
 		$extenlist[$thisexten]['edit_url'] = 'config.php?display=ringgroups&extdisplay=GRP-'.urlencode($thisexten);
 	}
 	return $extenlist;
@@ -353,7 +354,7 @@ function ringgroups_check_destinations($dest=true) {
 		$thisid   = $result['grpnum'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => sprintf(_("Ring Group: %s (%s)"),$result['description'],$thisid),
+			'description' => sprintf(__("Ring Group: %s (%s)"),$result['description'],$thisid),
 			'edit_url' => 'config.php?display=ringgroups&extdisplay=GRP-'.urlencode($thisid),
 		);
 	}
@@ -450,7 +451,7 @@ if ($amp_conf['EXTENSION_LIST_RINGGROUPS']) {
 		$extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
 	
 		if ($display == 'extensions' || $display == 'users') {
-			$section = _('Ring Group Membership');
+			$section = __('Ring Group Membership');
 		
 			$sql = "SELECT grpnum, description FROM ringgroups WHERE grplist LIKE '$extdisplay-%' OR grplist LIKE '%-$extdisplay-%' OR grplist LIKE '%-$extdisplay' OR grplist = '$extdisplay'";
 			$results = sql($sql,"getAll",DB_FETCHMODE_ASSOC);

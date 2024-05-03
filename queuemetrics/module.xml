@@ -1,7 +1,7 @@
 <module>
 	<rawname>queuemetrics</rawname>
 	<name>QueueMetrics</name>
-	<version>2.11.0.3</version>
+	<version>2.12.0.0</version>
 	<repo>unsupported</repo>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
@@ -16,7 +16,8 @@
 	<menuitems>
 		<queuemetrics>QueueMetrics</queuemetrics>
 	</menuitems>
-	<changelog>
+    <changelog>
+        *2.12.0.0* Newer GUI, standarize module components
 		*2.11.0.3* Initial Issabel Foundation release
 		*2.11.0.2* Include license file
 		*2.11.0.1* Packaging of ver 2.11.0.1
@@ -27,8 +28,8 @@
 		*2.10.0.0* First Implementation
 	</changelog>
 	<supported>
-		<version>2.11</version>
+		<version>2.12</version>
 	</supported>
-	<location>release/2.11/queuemetrics-2.11.0.1.tgz</location>
-	<md5sum>241405bdd47b1c4f5f53cfd8f2cc72d1</md5sum>
+    <location>release/2.12/queuemetrics-2.12.0.0.tgz</location>
+        <md5sum>0</md5sum>
 </module>

@@ -153,7 +153,7 @@ function bulkdids_generate_table_rows() {
 		return NULL;
 	}
 	$k = 0;
-	$table = "";
+	$table = array();
 	while (($csv_data = fgetcsv($fh, 1000, ",", "\"")) !== FALSE) {
 		$k++;
 		for ($i = 0; $i < 5; $i++) {

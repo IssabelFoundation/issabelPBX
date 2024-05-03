@@ -11,6 +11,7 @@ $sql = "CREATE TABLE IF NOT EXISTS cidlookup (
 	cidlookup_id INTEGER NOT NULL PRIMARY KEY $autoincrement,
 	description varchar(50) NOT NULL,
 	sourcetype varchar(100) NOT NULL,
+	setvariable varchar(20) NOT NULL default 'cidname',
 	cache tinyint(1) NOT NULL default '0',
 	deptname varchar(30) default NULL,
 	http_host varchar(30) default NULL,
@@ -27,7 +28,10 @@ $sql = "CREATE TABLE IF NOT EXISTS cidlookup (
 	mysql_charset varchar(30) default NULL,
 	opencnam_account_sid varchar(34) default NULL,
 	opencnam_auth_token varchar(34) default NULL
-);";
+) ";
+
+if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"]))  { $sql.=" DEFAULT CHARSET=utf8mb4 ";  }
+
 $check = $db->query($sql);
 if (DB::IsError($check)) {
 	die_issabelpbx( "Can not create `cidlookup` table: " . $check->getMessage() .  "\n");
@@ -35,16 +39,18 @@ if (DB::IsError($check)) {
 } else {
 
 	// Install a default OpenCNAM Caller ID lookup source, if we're installing this
-	// module for the very first time.
-	outn(_("Installing OpenCNAM CallerID Lookup Sources..."));
-	$sql = "INSERT INTO cidlookup (description, sourcetype) VALUES ('OpenCNAM', 'opencnam')";
+    // module for the very first time.
+    /*
+	outn(__("Installing OpenCNAM CallerID Lookup Sources..."));
+	$sql = "INSERT INTO cidlookup (description, sourcetype, setvariable) VALUES ('OpenCNAM', 'opencnam', 'cidname')";
 	$results = $db->query($sql);
 	if (DB::IsError($results)) {
-		out(_("Failed to add OpenCNAM CallerID Lookup Source: ").$results->getMessage());
+		out(__("Failed to add OpenCNAM CallerID Lookup Source: ").$results->getMessage());
 		return false;
 	} else {
-		out(_("Done!"));
-	}
+		out(__("Done!"));
+    }
+    */
 
 }
 
@@ -54,7 +60,10 @@ $sql = "CREATE TABLE IF NOT EXISTS cidlookup_incoming (
 	cidlookup_id INT NOT NULL,
 	extension VARCHAR(50),
 	cidnum VARCHAR(30)
-);";
+) ";
+if(preg_match("/mysql/",$amp_conf["AMPDBENGINE"]))  { $sql.=" DEFAULT CHARSET=utf8mb4 ";  }
+
+
 $check = $db->query($sql);
 if (DB::IsError($check)) {
         die_issabelpbx( "Can not create `cidlookup_incomming` table: " . $check->getMessage() .  "\n");
@@ -72,7 +81,18 @@ if (DB::IsError($check)) {
 	}
 }
 
-outn(_("Migrating channel routing to Zap DID routing.."));
+$sql = "SELECT setvariable FROM cidlookup";
+$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if (DB::IsError($check)) {
+	// add new field
+	$sql = "ALTER TABLE cidlookup ADD setvariable VARCHAR(20) not null default 'cidname';";
+	$result = $db->query($sql);
+	if(DB::IsError($result)) {
+		die_issabelpbx($result->getMessage());
+	}
+}
+
+outn(__("Migrating channel routing to Zap DID routing.."));
 $sql = "SELECT channel FROM cidlookup_incoming";
 $check = @$db->query($sql);
 if (!DB::IsError($check)) {
@@ -80,35 +100,35 @@ if (!DB::IsError($check)) {
 	$sql = "UPDATE cidlookup_incoming SET extension=CONCAT('$chan_prefix',channel), channel='' WHERE channel != ''";
 	$results = $db->query($sql);
 	if (DB::IsError($results)) {
- 		out(_("FATAL: failed to transform old routes: ").$results->getMessage());
+ 		out(__("FATAL: failed to transform old routes: ").$results->getMessage());
 	} else {
-		out(_("OK"));
+		out(__("OK"));
 		// ALTER...DROP is not supported by sqlite3.  This table was setup properly in the CREATE anyway
 		if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
-			outn(_("Removing deprecated channel field from incoming.."));
+			outn(__("Removing deprecated channel field from incoming.."));
 			$sql = "ALTER TABLE cidlookup_incoming DROP channel";
 			$results = $db->query($sql);
 			if (DB::IsError($results)) {
- 			out(_("ERROR: failed: ").$results->getMessage());
+ 			out(__("ERROR: failed: ").$results->getMessage());
 			} else {
-				out(_("OK"));
+				out(__("OK"));
 			}
 		}
 	}
 } else {
-	out(_("Not Needed"));
+	out(__("Not Needed"));
 }
 
 // This field had been wrongfully added to incoming quite some time ago
 // this should maybe be added to core as well.
 // NOTE: ALTER / DROP isn't supported in SQLite3 prior to 3.1.3.
-outn(_("Checking for cidlookup field in core's incoming table.."));
+outn(__("Checking for cidlookup field in core's incoming table.."));
 $sql = "ALTER TABLE incoming DROP cidlookup";
 $results = $db->query($sql);
 if (DB::IsError($results)) {
-	out(_("not present"));
+	out(__("not present"));
 } else {
-	out(_("removed"));
+	out(__("removed"));
 }
 
 // Add the new opencnam_account_sid and opencnam_auth_token columns
@@ -120,30 +140,30 @@ $fields=$db->getAssoc($sql);
 if (!array_key_exists('opencnam_account_sid',$fields) && !array_key_exists('opencnam_auth_token',$fields)) {
 
 	// NOTE: ALTER / DROP isn't supported in SQLite3 prior to 3.1.3.
-	outn(_("Adding opencnam account columns to the cidlookup table..."));
+	outn(__("Adding opencnam account columns to the cidlookup table..."));
 	$sql = "ALTER TABLE cidlookup ADD opencnam_account_sid VARCHAR(34) DEFAULT NULL";
 	$results = $db->query($sql);
 	if (DB::IsError($results)) {
-		out(_("Could not add opencnam_account_sid column to cidlookup table."));
+		out(__("Could not add opencnam_account_sid column to cidlookup table."));
 	}
 
 	$sql = "ALTER TABLE cidlookup ADD opencnam_auth_token VARCHAR(34) DEFAULT NULL";
 	$results = $db->query($sql);
 	if (DB::IsError($results)) {
-		out(_("Could not add opencnam_auth_token column to cidlookup table."));
+		out(__("Could not add opencnam_auth_token column to cidlookup table."));
 	}
-	out(_("Done!"));
+	out(__("Done!"));
 
-	outn(_("Installing OpenCNAM CallerID Lookup Sources..."));
-	$sql = "INSERT INTO cidlookup (description, sourcetype) VALUES ('OpenCNAM', 'opencnam')";
+	outn(__("Installing OpenCNAM CallerID Lookup Sources..."));
+	$sql = "INSERT INTO cidlookup (description, sourcetype, setvariable) VALUES ('OpenCNAM', 'opencnam', 'cidname')";
 	$results = @$db->query($sql);
 	if (DB::IsError($results)) {
-		out(_("Failed to add OpenCNAM CallerID Lookup Source: ").$results->getMessage());
+		out(__("Failed to add OpenCNAM CallerID Lookup Source: ").$results->getMessage());
 	} else {
-		out(_("Done!"));
+		out(__("Done!"));
 	}
 } else {
-	outn(_("Cleaning up duplicate OpenCNAM CallerID Lookup Sources..."));
+	outn(__("Cleaning up duplicate OpenCNAM CallerID Lookup Sources..."));
 	$sql = "SELECT * FROM cidlookup WHERE description = 'OpenCNAM' AND sourcetype = 'opencnam'";
 	$sources = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
 
@@ -160,7 +180,7 @@ if (!array_key_exists('opencnam_account_sid',$fields) && !array_key_exists('open
 			sql($sql);
 		}
 	}
-	out(_("Done!"));
+	out(__("Done!"));
 }
 
 if (!$db->getAll('SHOW COLUMNS FROM cidlookup WHERE FIELD = "mysql_charset"')) {

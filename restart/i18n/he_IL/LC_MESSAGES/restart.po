@@ -37,7 +37,7 @@ msgid "Bulk Phone Restart"
 msgstr " העפלה טלפון מחדש גורפת"
 
 #: page.restart.php:40
-msgid "Device List:"
+msgid "Device List"
 msgstr "רשימת מכשירים:"
 
 #: install.php:13
@@ -57,7 +57,7 @@ msgid "Restart requests sent!"
 msgstr " בקשות הפעל מחדש שנשלחו!"
 
 #: page.restart.php:58
-msgid "SELECT ALL"
+msgid "Select All"
 msgstr "בחר הכל "
 
 #: page.restart.php:40

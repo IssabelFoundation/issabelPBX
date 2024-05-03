@@ -8,10 +8,20 @@ if (!@include_once(getenv('ISSABELPBX_CONF') ? getenv('ISSABELPBX_CONF') : '/etc
 }
 
 if (!$bootstrap_settings['astman_connected']) {
-    fatal(sprintf(_("Unable to connect to Asterisk Manager from %s, aborting"),__FILE__));
+    fatal(sprintf(__("Unable to connect to Asterisk Manager from %s, aborting"),__FILE__));
 }
 
 $issabelpbx_conf =& issabelpbx_conf::create();
+
+// Set language
+$lang = $issabelpbx_conf->get_conf_setting('LANGUAGE');
+if($lang!='') {
+    T_setlocale(LC_MESSAGES,  $lang);
+    //putenv("LANGUAGE=".$lang);
+    _bindtextdomain('amp',$amp_conf['AMPWEBROOT'].'/admin/i18n');
+    _bind_textdomain_codeset('amp', 'utf8');
+    _textdomain('amp');
+}
 
 class connectdirs {
 
@@ -34,15 +44,11 @@ class connectdirs {
     function __construct() {
         global $amp_conf;
         global $db;
-        $this->symlink_dirs['bin']            = $amp_conf['AMPBIN'];
-        $this->symlink_dirs['etc']            = $amp_conf['ASTETCDIR'];
-        $this->symlink_dirs['images']         = $amp_conf['AMPWEBROOT'] . "/admin/images";
-        $this->symlink_dirs['ari/modules']    = $amp_conf['AMPWEBROOT'] . "/recordings/modules";
-        $this->symlink_dirs['ari/theme']     = $amp_conf['AMPWEBROOT'] . "/recordings/theme";
-        $this->symlink_dirs['ari/js']        = $amp_conf['AMPWEBROOT'] . "/recordings/theme/js";
-        $this->symlink_dirs['ari/images']    = $amp_conf['AMPWEBROOT'] . "/recordings/theme/images";
+        $this->symlink_dirs['bin']           = $amp_conf['AMPBIN'];
+        $this->symlink_dirs['etc']           = $amp_conf['ASTETCDIR'];
+        $this->symlink_dirs['images']        = $amp_conf['AMPWEBROOT'] . "/admin/images";
 
-        $this->symlink_sound_dirs['sounds']         = $amp_conf['ASTVARLIBDIR'] . '/sounds';
+        $this->symlink_sound_dirs['sounds']         = $amp_conf['ASTDATADIR'] . '/sounds';
 
         $this->cp_dirs['agi-bin']             = $amp_conf['ASTAGIDIR'];
         $this->cp_dirs['odbc']                = "/etc/asterisk/odbc";
@@ -109,7 +115,7 @@ class connectdirs {
                             }
                         }
                     } else {
-                        out("found language dir $lang for ".basename($moduledir).", not installed on system, skipping");
+                        out(sprintf(__("Found language dir %s for %s, not installed on system, skipping."),$lang,basename($moduledir)));
                     }
                 }
             }
@@ -145,22 +151,24 @@ class connectdirs {
                     $f = $amp_conf['ASTETCDIR'].'/backup/'.basename($dest).".bk.".time();
                     rename($dest,$f);
                     if (!symlink($src, $dest)) {
-                        issabelpbx_log(IPBX_LOG_ERROR, 'Cannot symlink '.$src.' to '.$dest.'. Check Permissions?');
+                        issabelpbx_log(IPBX_LOG_ERROR, sprintf(__("Cannot symlink %s to %s. Check Permissions."),$src,$dest));
                     } else {
                         $this->symlink_notice_modules .= "<br />&nbsp;&nbsp;&nbsp;".$dest;
                     }
                 } else {
-                    issabelpbx_log(IPBX_LOG_ERROR, $dest.' already exists, and is not a symlink!');
-                    $this->symlink_error_modules .= "<br />&nbsp;&nbsp;&nbsp;".$dest." from ".basename($moduledir)."/".$subdir." (Already exists, not a link)";
+                    issabelpbx_log(IPBX_LOG_ERROR, sprintf(__("%s already exists, and it is not a symlink!"),$dest));
+                    $this->symlink_error_modules .= "<br />&nbsp;&nbsp;&nbsp;";
+                    $this->symlink_error_modules .= sprintf(__("%s from %s/%s (Already exists, not a link)"),$dest,basename($moduledir),$subdir);
                 }
             } else if (readlink($dest) != $src) {
                 //users need to be aware of symlink conflicts. We should attempt to resolve them properly though. So lets do that.
-                issabelpbx_log(IPBX_LOG_ERROR, $dest.' already exists, and is linked to something else!');
-                $this->symlink_error_modules .= "<br />&nbsp;&nbsp;&nbsp;".$dest." from ".basename($moduledir)."/".$subdir." (Already exists, linked to something else)";
+                issabelpbx_log(IPBX_LOG_ERROR, sprintf(__('%s already exists, and is linked to something else!'),$dest));
+                $this->symlink_error_modules .= "<br />&nbsp;&nbsp;&nbsp;";
+                $this->symlink_error_modules .= sprintf(__("%s from %s/%s (Already exists, linked to something else)"),$dest,basename($moduledir),$subdir);
             }
         } else {
             if (!symlink($src, $dest)) {
-                issabelpbx_log(IPBX_LOG_ERROR, 'Cannot symlink '.$src.' to '.$dest.'. Check Permissions?');
+                issabelpbx_log(IPBX_LOG_ERROR, sprintf(__("Cannot symlink %s to %s. Check Permissions."),$src,$dest));
             }
         }
     }
@@ -168,12 +176,12 @@ class connectdirs {
     function symlink_check_errors() {
         global $amp_conf;
         if ($this->symlink_error_modules) {
-            $this->nt->add_error('retrieve_conf', 'SYMLINK', _("Symlink from modules failed"), sprintf(_("retrieve_conf failed to sym link: %s<br \>This can result in FATAL failures to your PBX. If the target file exists and not identical, the symlink will not occur and you should rename the target file to allow the automatic sym link to occur and remove this error, unless this is an intentional customization."),$this->symlink_error_modules));
+            $this->nt->add_error('retrieve_conf', 'SYMLINK', __("Symlink from modules failed"), sprintf(__("retrieve_conf failed to sym link: %s<br>This can result in FATAL failures to your PBX. If the target file exists and not identical, the symlink will not occur and you should rename the target file to allow the automatic sym link to occur and remove this error, unless this is an intentional customization."),$this->symlink_error_modules));
         } else {
             $this->nt->delete('retrieve_conf', 'SYMLINK');
         }
         if($this->symlink_notice_modules) {
-            $this->nt->add_notice('retrieve_conf', 'SYMLINKNOTICE', _("Symlink Conflict Resolved"),sprintf(_("retrieve_conf resolved a symlink with %s<br \>This is a notice to let you know that the original file was moved to %s, there is nothing more you need to do"),$this->symlink_notice_modules,$amp_conf['ASTETCDIR'].'/backup'));
+            $this->nt->add_notice('retrieve_conf', 'SYMLINKNOTICE', __("Symlink Conflict Resolved"),sprintf(__("retrieve_conf resolved a symlink with %s<br>This is a notice to let you know that the original file was moved to %s, there is nothing more you need to do"),$this->symlink_notice_modules,$amp_conf['ASTETCDIR'].'/backup'));
         }
     }
 
@@ -209,7 +217,7 @@ class connectdirs {
     }
     function cp_check_errors() {
         if ($this->cp_errors) {
-            $this->nt->add_error('retrieve_conf', 'CPAGIBIN', _("Failed to copy from module agi-bin"), sprintf(_("Retrieve conf failed to copy file(s) from a module's agi-bin dir: %s"),$this->cp_errors));
+            $this->nt->add_error('retrieve_conf', 'CPAGIBIN', __("Failed to copy from module agi-bin"), sprintf(__("Retrieve conf failed to copy file(s) from a module's agi-bin dir: %s"),$this->cp_errors));
         } else {
             $this->nt->delete('retrieve_conf', 'CPAGIBIN');
         }
@@ -258,13 +266,13 @@ function report_errors($errno, $errstr, $errfile, $errline) {
 }
 
 //define("ASTERISK_CONF", "/etc/asterisk/asterisk.conf");
-define("WARNING_BANNER", _(";--------------------------------------------------------------------------------;\n; Do NOT edit this file as it is auto-generated by IssabelPBX. All modifications ;\n; to this file must be done via the web gui. There are alternative files to make ;\n; custom modifications, details at: http://issabel.org/configuration_files       ;\n;--------------------------------------------------------------------------------;\n;\n\n"));
+define("WARNING_BANNER", __(";--------------------------------------------------------------------------------;\n; Do NOT edit this file as it is auto-generated by IssabelPBX. All modifications ;\n; to this file must be done via the web gui. There are alternative files to make ;\n; custom modifications, details at: http://issabel.org/configuration_files       ;\n;--------------------------------------------------------------------------------;\n;\n\n"));
 
 function showHelp() {
-    out(_("Optional parameters:"),false);
-    out(_("  --help, -h, -?           Show this help"),false);
-    out(_("  --debug                  Enable debug output"),false);
-    out(_("  --dry-run                Don't actually do anything"),false);
+    out(__("Optional parameters:"),false);
+    out(__("  --help, -h, -?           Show this help"),false);
+    out(__("  --debug                  Enable debug output"),false);
+    out(__("  --dry-run                Don't actually do anything"),false);
 }
 
 /** Adds a trailing slash to a directory, if it doesn't already have one
@@ -283,12 +291,12 @@ $skip_registry_checks = false;
 // **** Make sure we have PEAR's GetOpts.php, and include it if we need to parse
 //
 if ($argc > 1) {
-    outn(_("Checking for PEAR Console::Getopt.."));
+    outn(__("Checking for PEAR Console::Getopt.."));
     if (! @ include("Console/Getopt.php")) {
-        out(_("FAILED"));
-        fatal(sprintf(_("PEAR must be installed (requires Console/Getopt.php). Include path: %s"), ini_get("include_path")),true);
+        out(__("FAILED"));
+        fatal(sprintf(__("PEAR must be installed (requires Console/Getopt.php). Include path: %s"), ini_get("include_path")),true);
     }
-    out(_("OK"));
+    out(__("OK"));
 
     // **** Parse out command-line options
     $shortopts = "h?u:p:";
@@ -308,26 +316,26 @@ if ($argc > 1) {
             exit(10);
             break;
         case "--dry-run":
-            out(_("Dry-run only, no files will be written"),false);
+            out(__("Dry-run only, no files will be written"),false);
             $dryrun = true;
             break;
         case "--debug":
             // set to false temporarily, not with issabelpbx_conf as we don't want it subsequently committed
             //
             $amp_conf['IPBXDBUGDISABLE'] = false;
-            debug(_("Debug mode enabled"),false);
+            debug(__("Debug mode enabled"),false);
             break;
         case "--run-install":
             $run_install = true;
-            out(_("Running module install.php and install.sql scripts"),true);
+            out(__("Running module install.php and install.sql scripts"),true);
             break;
         case "--amportalconf":
             $amportalconf = $arg[1];
-            out(sprintf(_("Using %s configuration file"), $amportalconf),false);
+            out(sprintf(__("Using %s configuration file"), $amportalconf),false);
             break;
         case "--skip-registry-checks":
             $skip_registry_checks = true;
-            out(_("Skipping extension and destination registry checks"),true);
+            out(__("Skipping extension and destination registry checks"),true);
             break;
         }
     }
@@ -347,9 +355,9 @@ $current_memory_limit = rtrim(ini_get('memory_limit'),'M');
 $proper_memory_limit = '100';
 if ($current_memory_limit < $proper_memory_limit) {
     if (ini_set('memory_limit',$proper_memory_limit.'M') !== false) {
-        $nt->add_notice('core', 'MEMLIMIT', _("Memory Limit Changed"), sprintf(_("Your memory_limit, %sM, is set too low and has been increased to %sM. You may want to change this in you php.ini config file"),$current_memory_limit,$proper_memory_limit));
+        $nt->add_notice('core', 'MEMLIMIT', __("Memory Limit Changed"), sprintf(__("Your memory_limit, %sM, is set too low and has been increased to %sM. You may want to change this in you php.ini config file"),$current_memory_limit,$proper_memory_limit));
     } else {
-        $nt->add_warning('core', 'MEMERR', _("Low Memory Limit"), sprintf(_("Your memory_limit, %sM, is set too low and may cause problems. IssabelPBX is not able to change this on your system. You should increase this to %sM in you php.ini config file"),$current_memory_limit,$proper_memory_limit));
+        $nt->add_warning('core', 'MEMERR', __("Low Memory Limit"), sprintf(__("Your memory_limit, %sM, is set too low and may cause problems. IssabelPBX is not able to change this on your system. You should increase this to %sM in you php.ini config file"),$current_memory_limit,$proper_memory_limit));
     }
 } else {
     $nt->delete('core', 'MEMLIMIT');
@@ -430,7 +438,7 @@ if(isset($module_list) && is_array($module_list)){
 
 $engineinfo = engine_getinfo();
 if($engineinfo['version'] == 0){
-    fatal(_("retreive_conf failed to get engine information and cannot configure up a softwitch with out it. Error: {$engineinfo['engine']}"),true);
+    fatal(__("retreive_conf failed to get engine information and cannot configure up a softwitch with out it. Error: {$engineinfo['engine']}"),true);
 }
 // was setting these variables before, assume we still need them
 $engine = $engineinfo['engine'];
@@ -440,7 +448,7 @@ $chan_dahdi = ast_with_dahdi();
 // If BROWSER_STATS is set to true (default) and we have never provided a notice (NOTICE_BROWSER_STATS false) then do so one time only so
 // they are aware and can choose to opt out.
 if (!$amp_conf['NOTICE_BROWSER_STATS'] && $amp_conf['BROWSER_STATS']) {
-    $nt->add_notice('framework', 'BROWSER_STATS', _("Collecting Anonymous Browser Stats"), _("The IssabelPBX project is collecting anonymous browser statistics using google analytics. These are used to focus development efforts based on real user input. All information is anonymous. You can disable this in Advanced Settings with the Browser Stats setting."));
+    $nt->add_notice('framework', 'BROWSER_STATS', __("Collecting Anonymous Browser Stats"), __("The IssabelPBX project is collecting anonymous browser statistics using google analytics. These are used to focus development efforts based on real user input. All information is anonymous. You can disable this in Advanced Settings with the Browser Stats setting."));
     $issabelpbx_conf->set_conf_values(array('NOTICE_BROWSER_STATS' => true), true, true);
 }
 
@@ -590,11 +598,11 @@ $issabelpbx_conf->set_conf_values($update_arr, true, true);
 
 $nt = notifications::create($db);
 
-$conf_change = _("Conference Room App Changed");
-$conf_change_desc = _("Your Conference Room App (ASTCONFAPP) was automatically changed from %s to %s because %s is not installed on your Asterisk installation");
+$conf_change = __("Conference Room App Changed");
+$conf_change_desc = __("Your Conference Room App (ASTCONFAPP) was automatically changed from %s to %s because %s is not installed on your Asterisk installation");
 
-$conf_missing = _("No Conference Room App");
-$conf_missing_desc = _("Neither app_meetme nor app_confbridge is configured in Asterisk, conferencing, paging and other functionality will not work properly");
+$conf_missing = __("No Conference Room App");
+$conf_missing_desc = __("Neither app_meetme nor app_confbridge is configured in Asterisk, conferencing, paging and other functionality will not work properly");
 
 if (!$bootstrap_settings['astman_connected']) {
     if ($amp_conf['ASTCONFAPP'] == 'app_meetme' && !$astman->app_exists('meetme')) {
@@ -643,7 +651,7 @@ if (empty($my_prob_extens)) {
             $previous = $exten;
         }
     }
-    $nt->add_error('retrieve_conf', 'XTNCONFLICT', sprintf(_("There are %s conflicting extensions"),$count), $str);
+    $nt->add_error('retrieve_conf', 'XTNCONFLICT', sprintf(__("There are %s conflicting extensions"),$count), $str);
     $extens_ok = false;
 }
 
@@ -663,18 +671,18 @@ if (empty($my_probs)) {
         $count++;
     }
     foreach ($results as $status => $subjects) {
-        $str .= sprintf(_("DEST STATUS: %s%s"),$status,"\n");
+        $str .= sprintf(__("DEST STATUS: %s%s"),$status,"\n");
         foreach ($subjects as $subject) {
             //$str .= $subject."<br />";
             $str .= "   ".$subject."\n";
         }
     }
-    $nt->add_error('retrieve_conf', 'BADDEST', sprintf(_("There are %s bad destinations"),$count), $str);
+    $nt->add_error('retrieve_conf', 'BADDEST', sprintf(__("There are %s bad destinations"),$count), $str);
     $dests_ok = false;
 }
 
 if ((!$extens_ok && $amp_conf['XTNCONFLICTABORT']) || (!$dests_ok && $amp_conf['BADDESTABORT'])) {
-    out(_("Aborting reload because extension conflicts or bad destinations"));
+    out(__("Aborting reload because extension conflicts or bad destinations"));
     exit(20);
 }
 
@@ -718,16 +726,18 @@ if(isset($active_modules) && is_array($active_modules)){
 
     }
 
-    //sort the list based in priority
-    ksort($funclist);
+    if(is_array($funclist)) {
+        //sort the list based in priority
+        ksort($funclist);
 
-    //flatten the aray - will respect priority
-    $functions = call_user_func_array('array_merge', $funclist);
+        //flatten the aray - will respect priority
+        $functions = call_user_func_array('array_merge', $funclist);
 
-    //run functions if they exists
-    foreach ($functions as $function) {
-        if (function_exists($function)) {
-            $function($engine);
+        //run functions if they exists
+        foreach ($functions as $function) {
+            if (function_exists($function)) {
+                $function($engine);
+            }
         }
     }
 }
@@ -782,7 +792,7 @@ if ($issabelpbx_conf->amportal_canwrite()) {
     file_put_contents('/etc/amportal.conf',$issabelpbx_conf->amportal_generate(true));
     $nt->delete('framework', 'AMPORTAL_NO_WRITE');
 } elseif (!$nt->exists('framework', 'AMPORTAL_NO_WRITE')) {
-    $nt->add_error('framework', 'AMPORTAL_NO_WRITE', _("amportal.conf not writeable"), _("Your amportal.conf file is not writeable. IssabelPBX is running in a crippled mode until changed. You can run 'amportal chown' from the Linux command line to rectify this."),true);
+    $nt->add_error('framework', 'AMPORTAL_NO_WRITE', __("amportal.conf not writeable"), __("Your amportal.conf file is not writeable. IssabelPBX is running in a crippled mode until changed. You can run 'amportal chown' from the Linux command line to rectify this."),true);
 }
 
 // Let's move some more of our checks to retrieve_conf so that we are not constantly checking these on page loads
@@ -792,7 +802,7 @@ if ($issabelpbx_conf->amportal_canwrite()) {
 //
 if ($amp_conf['AMPMGRPASS'] == $issabelpbx_conf->get_conf_default_setting('AMPMGRPASS')) {
     if (!$nt->exists('core', 'AMPMGRPASS')) {
-        $nt->add_warning('core', 'AMPMGRPASS', _("Default Asterisk Manager Password Used"), _("You are using the default Asterisk Manager password that is widely known, you should set a secure password"));
+        $nt->add_warning('core', 'AMPMGRPASS', __("Default Asterisk Manager Password Used"), __("You are using the default Asterisk Manager password that is widely known, you should set a secure password"));
     }
 } else {
     $nt->delete('core', 'AMPMGRPASS');
@@ -802,7 +812,7 @@ if ($amp_conf['AMPMGRPASS'] == $issabelpbx_conf->get_conf_default_setting('AMPMG
 //
 if ($amp_conf['ARI_ADMIN_PASSWORD'] == $issabelpbx_conf->get_conf_default_setting('ARI_ADMIN_PASSWORD')) {
     if (!$nt->exists('ari', 'ARI_ADMIN_PASSWORD')) {
-        $nt->add_warning('ari', 'ARI_ADMIN_PASSWORD', _("Default ARI Admin password Used"), _("You are using the default ARI Admin password that is widely known, you should change to a new password. Do this in Advanced Settings"));
+        $nt->add_warning('ari', 'ARI_ADMIN_PASSWORD', __("Default ARI Admin password Used"), __("You are using the default ARI Admin password that is widely known, you should change to a new password. Do this in Advanced Settings"));
     }
 } else {
     $nt->delete('ari', 'ARI_ADMIN_PASSWORD');
@@ -812,7 +822,7 @@ if ($amp_conf['ARI_ADMIN_PASSWORD'] == $issabelpbx_conf->get_conf_default_settin
 //
 if ($amp_conf['AMPDBPASS'] == $issabelpbx_conf->get_conf_default_setting('AMPDBPASS')) {
     if (!$nt->exists('core', 'AMPDBPASS')) {
-        $nt->add_warning('core', 'AMPDBPASS', _("Default SQL Password Used"), _("You are using the default SQL password that is widely known, you should set a secure password"));
+        $nt->add_warning('core', 'AMPDBPASS', __("Default SQL Password Used"), __("You are using the default SQL password that is widely known, you should set a secure password"));
     }
 } else {
     $nt->delete('core', 'AMPDBPASS');
@@ -822,7 +832,7 @@ if ($amp_conf['AMPDBPASS'] == $issabelpbx_conf->get_conf_default_setting('AMPDBP
 //
 if ($amp_conf['AMPEXTENSIONS'] == 'deviceanduser' && !$amp_conf['DYNAMICHINTS']) {
     if (!$nt->exists('framework', 'NO_DYNAMICHINTS')) {
-        $nt->add_warning('framework', 'NO_DYNAMICHINTS', _("Device & User Hints Issue"), _("You are set to Device and User mode but are not set to 'Dynamically Generate Hints' which can result in improper phone state behavior. This can be changed on the Advanced Settings page, check the tooltip for specific configuration details."));
+        $nt->add_warning('framework', 'NO_DYNAMICHINTS', __("Device & User Hints Issue"), __("You are set to Device and User mode but are not set to 'Dynamically Generate Hints' which can result in improper phone state behavior. This can be changed on the Advanced Settings page, check the tooltip for specific configuration details."));
     }
 } else {
     $nt->delete('framework', 'NO_DYNAMICHINTS');
@@ -900,44 +910,11 @@ function install_cron_scheduler() {
     global $amp_conf;
     global $nt;
 
-    // crontab appears to return an error when no entries, os only fail if error returned AND a list of entries.
-    // Don't know if this will ever happen, but a failure and a list could indicate something wrong.
-    //
-    $outlines = array();
-    exec("/usr/bin/crontab -l", $outlines, $ret);
-    if ($ret && count($outlines)) {
-        $nt->add_error('retrieve_conf', 'CRONMGR', _("Failed to check crontab for cron manager"), sprintf(_("crontab returned %s error code when checking for crontab entries to start issabelpbx-cron-scheduler.php crontab manager"),$ret));
-    } else {
-        $nt->delete('retrieve_conf', 'CRONMGR');
-        $outlines2 = preg_grep("/issabelpbx-cron-scheduler.php/",$outlines);
-        $cnt = count($outlines2);
-        switch ($cnt) {
-        case 0:
-            /** grab any other cronjobs that are running as asterisk and NOT associated with backups
-             *  this code was taken from the backup module for the most part. But seems to work...
-             */
-            $outlines = array();
-            exec("/usr/bin/crontab -l | grep -v ^#\ DO\ NOT | grep -v ^#\ \( |  grep -v issabelpbx-cron-scheduler.php", $outlines, $ret);
-            $crontab_entry = "";
-            foreach ($outlines as $line) {
-                $crontab_entry .= $line."\n";
-            }
-            // schedule to run hourly, at a random time. The random time is explicit to accomodate things like module_admin online update checking
-            // since we will want a random access to the server. In the case of module_admin, that will also be scheduled randomly within the hour
-            // that it is to run
-            //
-            $crontab_entry .= rand(0,59)." * * * * ".$amp_conf['AMPBIN']."/issabelpbx-cron-scheduler.php";
-            system("/bin/echo '$crontab_entry' | /usr/bin/crontab -");
-            break;
-        case 1:
-            // already running, nothing to do
-            break;
-        default:
-            // error, there should never be more than one running
-            echo "TODO: deal with error here\n";
-            $nt->add_error('retrieve_conf', 'CRONMGR', _("Multiple issabelpbx-cron-scheduler.php running"), sprintf(_("There were %s issabelpbx-cron-scheduler.php instances running. There should be only 1."),$cnt));
-        }
+    if(!file_exists("/etc/cron.hourly/issabelPBX")) {
+        file_put_contents("/etc/cron.hourly/issabelPBX","sudo -u asterisk ".$amp_conf['AMPBIN']."/issabelpbx-cron-scheduler.php");
+        chmod("/etc/cron.hourly/issabelPBX", 0755);
     }
+    return;
 }
 
 // Check and install the issabelpbx-cron-scheduler.php manager
@@ -947,15 +924,15 @@ install_cron_scheduler();
 
 // run retrieve_conf_post_custom
 // If the following file exists, it will be run. This allows customization to be run automatically after the normal
-// processing. Caution should be taken using this as it is only deisgned for expert usage. Errors in the code will
+// processing. Caution should be taken using this as it is only designed for expert usage. Errors in the code will
 // have bad consequences and can cripple the system.
 //
 if ($amp_conf['AMPLOCALBIN']) {
     $post_custom = $amp_conf['AMPLOCALBIN'].'/retrieve_conf_post_custom';
     if (file_exists($post_custom)) {
-        outn(sprintf(_("Found script %s, executing.."), $post_custom));
+        outn(sprintf(__("Found script %s, executing.."), $post_custom));
         include($post_custom);
-        out(_("OK"));
+        out(__("OK"));
     }
 }
 
@@ -966,7 +943,7 @@ if ($amp_conf['AMPLOCALBIN']) {
  */
 
 $output = array();
-exec("grep '#include' ".$amp_conf['ASTETCDIR']."/*.conf | sed 's/;.*//; s/#include//'",$output,$retcode);
+exec("grep '#include' ".$amp_conf['ASTETCDIR']."/*.conf | sed 's/;.*//; s/#include//; ; s/\"//g;'",$output,$retcode);
 if ($retcode != 0) {
     error("Error code $retcode: trying to search for missing #include files");
 }
@@ -981,7 +958,9 @@ foreach($output as $file) {
     if ($rawfile == '') {
         continue;
     }
-
+    if(preg_match("/\*\.conf/",$rawfile)) {
+        continue;
+    }
     $target = ($rawfile[0] == '/') ? $rawfile : $amp_conf['ASTETCDIR']."/$rawfile";
 
     if (!file_exists($target)) {
@@ -1013,11 +992,11 @@ if (!file_exists($target)) {
 needreload();
 if (isset($amp_conf["AMPWEBADDRESS"]) && $amp_conf["AMPWEBADDRESS"])
 {
-    out(sprintf(_("Please update your modules and reload Asterisk by visiting %s"), "http://".$amp_conf["AMPWEBADDRESS"]."/admin"),false);
+    out(sprintf(__("Please update your modules and reload Asterisk by visiting %s"), "http://".$amp_conf["AMPWEBADDRESS"]."/admin"),false);
 }
 else
 {
-    out(_("Please update your modules and reload Asterisk by browsing to your server."),false);
+    out(__("Please update your modules and reload Asterisk by browsing to your server."),false);
 }
 $nt->delete('retrieve_conf', 'FATAL');
 ?>

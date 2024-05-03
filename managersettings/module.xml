@@ -2,7 +2,7 @@
 	<rawname>managersettings</rawname>
 	<repo>standard</repo>
 	<name>Asterisk Manager Settings</name>
-	<version>2.11.0.0</version>
+	<version>2.12.0.0</version>
 	<publisher>Issabel Foundation</publisher>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
 	<license>AGPLv3</license>
@@ -14,12 +14,13 @@
 	<description>
 		Use to configure Various Asterisk Manager Settings in the General section of manager.conf. The module assumes Asterisk version 11 or higher.
 	</description>
-	<changelog>
+    <changelog>
+        *2.12.0.0* Newer GUI, standarize module components
 		*2.11.0.0* Initial Issabel Foundation release
 	</changelog>
 	<supported>
-		<version>2.10</version>
+		<version>2.12</version>
 	</supported>
-	<location>release/2.11/managersettings-2.11.0.0.tgz</location>
-	<md5sum>cb70c12fe397182a6a27dd785c90e0c4</md5sum>
+    <location>release/2.12/managersettings-2.12.0.0.tgz</location>
+        <md5sum>0</md5sum>
 </module>

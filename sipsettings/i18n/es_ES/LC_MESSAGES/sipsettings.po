@@ -1,17 +1,29 @@
-# IssabelPBX language template
-# Copyright 2013 Schmooze Com Inc
+# This file is part of IssabelPBX.
 #
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, php-format
 msgid "%s must be a non-negative integer"
@@ -78,17 +90,17 @@ msgstr "Agregar Red Local"
 msgid "Submit Changes"
 msgstr "Guardar Cambios"
 
-msgid "Edit SIP Settings"
-msgstr "Modificar Configuraciones SIP"
+msgid "SIP Settings"
+msgstr "Configuración SIP"
 
-msgid "Edit PJSIP Settings"
-msgstr "Modificar Configuraciones PJSIP"
+msgid "PJSIP Settings"
+msgstr "Configuración PJSIP"
 
 msgid "ERRORS"
 msgstr "ERRORES"
 
 msgid "NAT Settings"
-msgstr "Configuraciones NAT"
+msgstr "Configuración NAT"
 
 msgid "NAT"
 msgstr ""
@@ -330,7 +342,7 @@ msgid ""
 msgstr "Controla si suscripciones de estensiones en uso mostrarán hold. Util si utiliza BLF."
 
 msgid "Registration Settings"
-msgstr "Configuraciones de Registro"
+msgstr "Configuración de Registro"
 
 msgid "Registrations"
 msgstr "Registros"
@@ -416,19 +428,19 @@ msgid ""
 "a SIP channel. Two implementations are currently available:<br /> fixed: "
 "size always equals to jbmaxsize;<br /> adaptive: with variable size (the new "
 "jb of IAX2)."
-msgstr ""
+msgstr "Asterisk: jbimpl. Implementación de Jitterbuffer, utilizada en el lado receptor de un canal SIP. Actualmente hay dos implementaciones disponibles:<br /> fijo: el tamaño siempre es igual a jbmaxsize;<br /> adaptativo: con tamaño variable (el nuevo jb de IAX2)."
 
 msgid "Fixed"
-msgstr ""
+msgstr "Fijo"
 
 msgid "Adaptive"
-msgstr ""
+msgstr "Adaptativo"
 
 msgid "Jitter Buffer Logging"
-msgstr ""
+msgstr "Registro de Jitterbuffer"
 
 msgid "Asterisk: jblog. Enables jitter buffer frame logging."
-msgstr ""
+msgstr "Asterisk: jblog. Habilita el registro de tramas de búfer de Jitterbuffer"
 
 msgid "Enable"
 msgstr "Habilitado"
@@ -445,10 +457,10 @@ msgid ""
 "jitterbuffer is resynchronized. Useful to improve the quality of the voice, "
 "with big jumps in/broken timestamps, usually sent from exotic devices and "
 "programs. Can be set to -1 to disable."
-msgstr ""
+msgstr "Asterisk: jbmaxsize. Longitud máxima del jitterbuffer en milisegundos.<br /> Asterisk: jbresyncthreshold. Salta en las marcas de tiempo del cuadro sobre las que se resincroniza el jitterbuffer. Útil para mejorar la calidad de la voz, con grandes saltos/marcas de tiempo rotas, generalmente enviadas desde dispositivos y programas exóticos. Se puede establecer en -1 para deshabilitar."
 
 msgid "Advanced General Settings"
-msgstr "Configuraciones Avanzadas"
+msgstr "Configuración Avanzada"
 
 msgid "Language"
 msgstr "Idioma"
@@ -586,3 +598,9 @@ msgstr "Certificado"
 
 msgid "Enable Websocket"
 msgstr "Habilitar Websocket"
+
+msgid "Method"
+msgstr "Método"
+
+msgid "Method of SSL transport"
+msgstr "Método para el transporte SSL"

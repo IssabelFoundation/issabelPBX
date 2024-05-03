@@ -1,19 +1,30 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo vmblast module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-01-21 16:10+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#, php-format
 msgid "Voicemail Group %s: %s"
 msgstr ""
 
@@ -104,14 +115,14 @@ msgstr "Número"
 msgid "The number users will dial to voicemail boxes in this VMBlast group"
 msgstr "El número que los usuarios marcarán para enviar correo de voz masivo a este grupo"
 
-msgid "Group Description:"
+msgid "Group Description"
 msgstr "Descripción"
 
 msgid "Provide a descriptive title for this VMBlast Group."
 msgstr "Porvea un título descriptivo para este grupo de correo de voz"
 
-msgid "Audio Label:"
-msgstr "Etiqueta de Audio:"
+msgid "Audio Label"
+msgstr "Etiqueta de Audio"
 
 msgid ""
 "Play this message to the caller so they can confirm they have dialed the "
@@ -140,25 +151,23 @@ msgid ""
 "access to this group voicemail list."
 msgstr "Opcionalmente puede utilizar una clave de autenticación antes de dar acceso a este grupo."
 
-msgid "Voicemail Box List:"
-msgstr "Lista de buzones de voz:"
+msgid "Voicemail Box List"
+msgstr "Lista de buzones de voz"
 
-msgid ""
-"Select voice mail boxes to add to this group. Use Ctrl key to select "
-"multiple.."
-msgstr "Elija buzones de voz a agregar a este grupo. Use Ctrl para elegir varios"
+msgid "Select voice mail boxes to add to this group."
+msgstr "Elija buzones de voz a agregar a este grupo."
 
 msgid "Default VMBlast Group"
-msgstr "Grupo por omisión"
+msgstr "Grupo predeterminado"
 
 msgid ""
 "Each PBX system can have a single Default Voicemail Blast Group. If "
 "specified, extensions can be automatically added (or removed) from this "
 "default group in the Extensions (or Users) tab.<br />Making this group the "
 "default will uncheck the option from the current default group if specified."
-msgstr "Puede haber un sólo grupo por omisión. Si se especifica, "
+msgstr "Puede haber un sólo grupo predeterminado. Si se especifica, "
 "extensiones pueden ser agregadas o quitadas automáticamente de este "
-"grupo por omisión directamente desde la configuración de Extensión. "
+"grupo predeterminado directamente desde la configuración de Extensión. "
 
 msgid "Submit Changes"
 msgstr "Guardar Cambios"
@@ -190,4 +199,4 @@ msgstr "Aplicaciones"
 msgid ""
 "Creates a group of extensions that calls a group of voicemail boxes and "
 "allows you to leave a message for them all at once."
-msgstr ""
+msgstr "Crea un grupo de extensiones que llama a un grupo de buzones de voz y permite dejarles un mensaje a todos a la vez."

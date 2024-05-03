@@ -7,7 +7,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 global $recordings_astsnd_path; // PHP5 needs extra convincing of a global
 global $amp_conf;
 $recordings_save_path = $amp_conf['ASTSPOOLDIR']."/tmp/";
-$recordings_astsnd_path = isset($asterisk_conf['astvarlibdir'])?$asterisk_conf['astvarlibdir']:'/var/lib/asterisk';
+$recordings_astsnd_path = isset($asterisk_conf['astdatadir'])?$asterisk_conf['astdatadir']:'/var/lib/asterisk';
 $recordings_astsnd_path .= "/sounds/";
 
 function recordings_get_config($engine) {
@@ -33,7 +33,7 @@ function recordings_get_config($engine) {
 			unset($fcc);
 
 			if ($fc_save != '' || $fc_check != '') {
-				$ext->addInclude('from-internal-additional', 'app-recordings'); // Add the include from from-internal
+				$ext->addInclude('from-internal-additional', 'app-recordings', _dgettext('recordings','Recordings')); // Add the include from from-internal
 				
 				if ($fc_save != '') {
 					$ext->add($appcontext, $fc_save, '', new ext_macro('user-callerid'));
@@ -97,7 +97,7 @@ function recordings_get_config($engine) {
 			//
 			// If we get here from *77 then we don't have ARG2, so just skip the remove, otherwise we have two paths
 			$ext->add($context, $exten, '', new ext_gotoif('$["${ARG2}" = ""]','skipremove'));
-			$ext->add($context, $exten, '', new ext_system('rm ${ASTVARLIBDIR}/sounds/${RECFILE}.*'));
+			$ext->add($context, $exten, '', new ext_system('rm ${ASTDATADIR}/sounds/${RECFILE}.*'));
 			if ($ast_ge_16) {
 				// Added in Asterisk 1.6: "If the user hangs up during a recording, all data is lost".
 				// Third option - k: Keep recorded file upon hangup.
@@ -155,7 +155,7 @@ function recordings_get_or_create_id($fn, $module) {
 		$dname = explode('&',$displayname);
 		$displayname = 'auto-created: ';
 		$displayname .= count($dname) == 1 ? $fn : $dname[0]."&...";
-		$description = sprintf(_("Missing Sound file auto-created from migration of %s module"),$module);
+		$description = sprintf(__("Missing Sound file auto-created from migration of %s module"),$module);
 		recordings_add($displayname, $fn, $description='');
 
 		// get the id we just created
@@ -165,8 +165,8 @@ function recordings_get_or_create_id($fn, $module) {
 		// Notify of issue
 		//
 		$nt =& notifications::create($db);
-		$text = sprintf(_("Non-Existent Recording in module %s"),$module);
-		$extext = sprintf(_("The %s referenced a recording file listed below that does not exists. An entry has been generated, named %s, with the referenced file(s) but you should confirm that it really works and the real files exist. The file(s) referenced: %s "),$module, $displayname, $fn);
+		$text = sprintf(__("Non-Existent Recording in module %s"),$module);
+		$extext = sprintf(__("The %s referenced a recording file listed below that does not exists. An entry has been generated, named %s, with the referenced file(s) but you should confirm that it really works and the real files exist. The file(s) referenced: %s "),$module, $displayname, $fn);
 		$nt->add_error('recordings', 'NEWREC-'.$id, $text, $extext, '', true, true);
 		unset($nt);
 
@@ -251,7 +251,7 @@ function recordings_add($displayname, $filename, $description='') {
 	} else {
 		$fname = $filename;
 	}
-	$description = ($description != '') ? $db->escapeSimple($description) : _("No long description available");
+	$description = ($description != '') ? $db->escapeSimple($description) : __("No long description available");
 	$displayname = $db->escapeSimple($displayname);
 	sql("INSERT INTO recordings (displayname, filename, description) VALUES ( '$displayname', '$fname', '$description')");
 
@@ -423,6 +423,17 @@ function recordings_list_usage($id) {
 		}
 	}
 	return $full_usage_arr;
+}
+
+function ttsengines_list() {
+    global $active_modules;
+    if(isset($active_modules['tts'])) {
+        require_once("modules/tts/functions.inc.php");
+        $engines = ttsengine_list();
+        return $engines;
+    } else {
+        return array();
+    }
 }
 
 ?>

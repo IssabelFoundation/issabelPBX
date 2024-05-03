@@ -158,7 +158,7 @@ msgstr ""
 msgid "Please enter a valid phone number using number digits only"
 msgstr "请输入一个有效的电话号码，只能输入数字"
 
-msgid "Use When:"
+msgid "Use When"
 msgstr "在何时使用："
 
 msgid ""
@@ -172,7 +172,7 @@ msgstr "不可用"
 msgid "busy"
 msgstr "忙"
 
-msgid "Voicemail Instructions:"
+msgid "Voicemail Instructions"
 msgstr "语音邮件说明："
 
 msgid "Uncheck to play a beep after your personal Voicemail greeting."
@@ -810,13 +810,13 @@ msgid ""
 "configuration entry. (System default will be used.)"
 msgstr ""
 
-msgid "Number of Accounts:"
+msgid "Number of Accounts"
 msgstr ""
 
 msgid "Total ( Activated / Unactivated / Disabled )"
 msgstr ""
 
-msgid "Number of Messages:"
+msgid "Number of Messages"
 msgstr ""
 
 msgid "Total ( Messages in inboxes / Messages in other folders )"
@@ -825,7 +825,7 @@ msgstr ""
 msgid "Remove all messages"
 msgstr ""
 
-msgid "Recorded Names:"
+msgid "Recorded Names"
 msgstr ""
 
 msgid "Number of recorded name greetings"
@@ -834,7 +834,7 @@ msgstr ""
 msgid "Remove all recorded names"
 msgstr ""
 
-msgid "Unavailable Greetings:"
+msgid "Unavailable Greetings"
 msgstr ""
 
 msgid "Number of recorded unavailable greetings"
@@ -843,7 +843,7 @@ msgstr ""
 msgid "Remove all unavailable greetings"
 msgstr ""
 
-msgid "Busy Greetings:"
+msgid "Busy Greetings"
 msgstr ""
 
 msgid "Number of recorded busy greetings"
@@ -852,7 +852,7 @@ msgstr ""
 msgid "Remove all busy greetings"
 msgstr ""
 
-msgid "Temporary Greetings:"
+msgid "Temporary Greetings"
 msgstr ""
 
 msgid "Number of recorded temporary greetings"
@@ -861,7 +861,7 @@ msgstr ""
 msgid "Remove all temporary greetings"
 msgstr ""
 
-msgid "Abandoned Greetings:"
+msgid "Abandoned Greetings"
 msgstr ""
 
 msgid ""
@@ -882,7 +882,7 @@ msgstr ""
 msgid "File timestamp: "
 msgstr ""
 
-msgid "Recorded Name:"
+msgid "Recorded Name"
 msgstr ""
 
 msgid "Has a recorded name greeting?"
@@ -891,7 +891,7 @@ msgstr ""
 msgid "Remove recorded name"
 msgstr ""
 
-msgid "Unavailable Greeting:"
+msgid "Unavailable Greeting"
 msgstr ""
 
 msgid "Has a recorded unavailable greeting?"
@@ -906,7 +906,7 @@ msgstr ""
 msgid "Remove busy greeting"
 msgstr ""
 
-msgid "Temporary Greeting:"
+msgid "Temporary Greeting"
 msgstr ""
 
 msgid "Has a recorded temporary greeting?"
@@ -973,7 +973,7 @@ msgstr ""
 #~ "MESSAGES WILL BE LOST FOREVER."
 #~ msgstr ""
 #~ "如果设置为“是”，消息将错语音邮箱中删除（在发送电子邮件之后）。这个设置使用"
-#~ "户可以仅接收通告邮件，而不是从Web界面或者分机上接收语音邮件。警告：必须启"
+#~ "户可以仅接收通告邮件，而不是从Web或者分机上接收语音邮件。警告：必须启"
 #~ "用了将语音邮件作为邮件附件的选项，否则你的语音邮件会丢失。"
 
 #~ msgid ""
@@ -995,7 +995,7 @@ msgstr ""
 #~ "still disabling VmX to allow an alternative Operator extension without "
 #~ "requiring the VmX feature for the user."
 #~ msgstr ""
-#~ "在播放你的个人语音邮件问候语时按下0以转到接线员。不钩选则进入其他的目的"
+#~ "在播放你的人语音邮件问候语时按下0以转到接线员。不钩选则进入其他的目的"
 #~ "地。这个功能即使在禁用了VmX后仍有效，而禁用VmX是为了启用别的接线员分机号而"
 #~ "不要求此用户启用VmX功能。"
 

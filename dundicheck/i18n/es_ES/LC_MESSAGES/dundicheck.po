@@ -1,17 +1,29 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo dundicheck module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-01-22 01:15+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "DUNDi Lookup Registry"
 msgstr ""
@@ -29,7 +41,7 @@ msgstr ""
 
 #, php-format
 msgid "DUNDi Lookup"
-msgstr ""
+msgstr "Búsqueda DUNDi"
 
 msgid "DUNDi: "
 msgstr "DUNDi:"
@@ -48,20 +60,20 @@ msgid ""
 "setup, disable the DUNDi trunk in question, or disable this module to avoid "
 "the checks. Otherwise, remove %s from the remote system before creating this "
 "one."
-msgstr ""
+msgstr "El número que intenta utilizar, %s, está siendo utilizado actualmente en una de las rutas DUNDi que ha configurado en su sistema. Como resultado, no puede usar este número en este sistema. Incluso si la configuración de la ruta no pasa este número, aún no podrá crearla. Si esto no es un error, tendrá que anular la publicación de este número en su configuración DUNDi remota, deshabilitar el troncal DUNDi en cuestión o deshabilitar este módulo para evitar las comprobaciones. De lo contrario, elimine %s del sistema remoto antes de crear este."
 
 msgid "No matches found"
-msgstr ""
+msgstr "No se encontraron resultados"
 
 #, php-format
 msgid "Results from DUNDi trunk: %s"
-msgstr ""
+msgstr "Resultados desde troncal DUNDi: %s"
 
-msgid "Lookup Number:"
-msgstr ""
+msgid "Lookup Number"
+msgstr "Número a buscar"
 
-msgid "Lookup Another Number:"
-msgstr ""
+msgid "Lookup Another Number"
+msgstr "Buscar otro número"
 
 msgid "Lookup"
-msgstr ""
+msgstr "Buscar"

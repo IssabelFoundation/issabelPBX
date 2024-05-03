@@ -175,7 +175,7 @@ function outroutemsg_recordings_usage($recording_id) {
 		$type = isset($active_modules['outroutemsg']['type'])?$active_modules['outroutemsg']['type']:'tool';
 		$usage_arr[] = array(
 			'url_query' => 'config.php?type='.$type.'&display=outroutemsg',
-			'description' => _("Route Congestion Messages"),
+			'description' => __("Route Congestion Messages"),
 		);
 		return $usage_arr;
 	}

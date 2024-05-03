@@ -88,7 +88,7 @@ msgid ""
 "received from network)"
 msgstr ""
 
-msgid "Speed dial code:"
+msgid "Speed dial code"
 msgstr "Код за бързо избиране:"
 
 msgid ""
@@ -110,7 +110,7 @@ msgstr "Приеми Промените"
 msgid "Import from CSV"
 msgstr "Въведи от CSV"
 
-msgid "File:"
+msgid "File"
 msgstr "Файл:"
 
 msgid ""

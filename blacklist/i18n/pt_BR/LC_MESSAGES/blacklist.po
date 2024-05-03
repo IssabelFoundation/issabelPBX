@@ -1,0 +1,91 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Blacklist"
+msgstr "Lista de bloqueios"
+
+msgid "Add Blacklist"
+msgstr "Adicionar à lista de bloqueios"
+
+msgid "Edit Blacklist"
+msgstr "Modificar lista de bloqueios"
+
+msgid "Admin"
+msgstr ""
+
+msgid "Blacklist a number"
+msgstr "Bloquear um número"
+
+msgid "Remove a number from the blacklist"
+msgstr "Remover um número da lista de bloqueio"
+
+msgid "Blacklist the last caller"
+msgstr "Adicione o último número chamado à lista de bloqueio"
+
+msgid "Blacklist entry"
+msgstr "Item da lista de bloqueios"
+
+msgid "deleted"
+msgstr "eliminada"
+
+msgid "Blacklist entries"
+msgstr "Itens da lista de bloqueios"
+
+msgid "Number/CallerID"
+msgstr "Número/CallerID"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Number"
+msgstr "Número"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Edit"
+msgstr "Modificar"
+
+msgid "Add or replace entry"
+msgstr "Adicionar ou modificar elemento"
+
+msgid "Enter the number/CallerID you want to block"
+msgstr "Digite um número/CallerID que você deseja bloquear"
+
+msgid "Enter a description for the number you want to block"
+msgstr "Insira uma descrição para o número que você deseja bloquear"
+
+msgid "Block Unknown/Blocked Caller ID"
+msgstr "Bloquear identificadores de chamadas desconhecidos"
+
+msgid "Check here to catch Unknown/Blocked Caller ID"
+msgstr ""
+"Marque esta opção para incluir números com identificador de chamadas "
+"bloqueado ou desconhecido."
+
+msgid "Submit Changes"
+msgstr "Enviar alterações"

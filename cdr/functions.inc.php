@@ -58,7 +58,8 @@ function cdr_get_config($engine) {
 			}
 			/*
 			 */
-	    if (isset($core_conf) && is_a($core_conf, "core_conf")) {
+        if (isset($core_conf) && is_a($core_conf, "core_conf")) {
+            /*  We will add this in core, reports module should not be a condition for cdr records from being stored via odbc
 				$section = 'asteriskcdrdb';
 				$core_conf->addResOdbc($section, array('enabled' => 'yes'));
 				$core_conf->addResOdbc($section, array('dsn' => 'MySQL-asteriskcdrdb'));
@@ -66,7 +67,8 @@ function cdr_get_config($engine) {
 				$core_conf->addResOdbc($section, array('limit' => '1'));
 				$core_conf->addResOdbc($section, array('pre-connect' => 'yes'));
 				$core_conf->addResOdbc($section, array('username' => $amp_conf['AMPDBUSER']));
-				$core_conf->addResOdbc($section, array('password' => $amp_conf['AMPDBPASS']));
+                $core_conf->addResOdbc($section, array('password' => $amp_conf['AMPDBPASS']));
+             */
 			}
     break;
   }

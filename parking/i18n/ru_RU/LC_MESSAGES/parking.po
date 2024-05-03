@@ -1,6 +1,6 @@
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2012 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Alexander Anikin <mayy@postmet.com>, 2006-2012.
 #
 msgid ""
@@ -71,7 +71,7 @@ msgstr "Внутренний номер парковки"
 
 msgid "This is the extension where you will transfer a call to park it."
 msgstr ""
-"Этот внутренний номер будет использоваться для того, чтобы перенаправлять "
+"Этот внутренний номер будет использоваться для того, чтобы перенаправлят "
 "входящие звонки на парковку."
 
 msgid "Number of Slots"
@@ -180,7 +180,7 @@ msgid ""
 "Asterisk: parkedcalltransfers. Enables or disables DTMF based transfers when "
 "picking up a parked call."
 msgstr ""
-"Asterisk: parkedcalltransfers. Включает или выключает возможность трансфера посредством "
+"Asterisk: parkedcalltransfers. Включает или выключет возможность трансфера посредством "
 "сигналов DTMF после перехвата запаркованного вызова."
 
 msgid "Neither"
@@ -255,7 +255,7 @@ msgid ""
 "recipients that the call is from an Orphaned parked call"
 msgstr ""
 "Метка, добавляемая к текущему Caller ID, ассоциируемая с текущим вызовом (если установлено "
-"любой), прежде чем отправить его по назначению, указанному ниже. Это помогает в обслуживании "
+"любой), пржде чем отправить его по назначению, указанному ниже. Это помогает в обслуживании "
 "уведомлений получателям таких вызовов, которые поступают как забытые на парковке."
 
 msgid "Announcement"
@@ -364,7 +364,7 @@ msgstr ""
 #~ "the recipients that the call is from an Orphaned parked call"
 #~ msgstr ""
 #~ "Ярлык в виде префикса перед Caller ID, который будет отображаться при "
-#~ "звонке прежде, чем он будет перенаправлен по направлению, указанному "
+#~ "звонке прежде, чем он бует перенаправлен по направлению, указанному "
 #~ "ниже. Это также поможет в обслуживании забытых звонков на парковке."
 
 #~ msgid ""

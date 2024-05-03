@@ -1,7 +1,9 @@
-td.action button {
-	background: none;
-	padding: 0px;
+td.action { width: 2em; }
+@media screen and (max-width: 600px) {
+    #tabs>ul {
+        width:100% !important;
+        max-width:100% !important;
+    }
 }
-td.action img {
-	width:20px;
-}
+
+div.content { max-width:1000px; }

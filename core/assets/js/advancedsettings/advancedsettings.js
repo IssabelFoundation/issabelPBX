@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(function() {
 	//save settings
 	function savebinder(e) {
 		if (!can_write_amportalconf) {
-			alert(amportalconf_error);
+			sweet_alert(amportalconf_error);
 			return false;
 		}
 		var mythis = $(this);
@@ -36,14 +36,17 @@ $(document).ready(function() {
 					value: myval
 					},
 			beforeSend: function(XMLHttpRequest, set) {
-				mythis.attr({src: '/admin/images/spinner.gif'})
+                                saveclass = $(mythis).attr('class');
+                                $(mythis).attr('class','fa fa-spinner fa-spin');
+				//mythis.attr({src: '/admin/images/spinner.gif'})
 			},
 			dataType: 'json',
 			success: function(data, textStatus, XMLHttpRequest) {
 				//console.log(data);
 				mythis.attr({src: '/admin/images/accept.png'});
+                                $(mythis).attr('class',saveclass);
 				if (!data.validated) {
-					alert(data.msg);
+					sweet_alert(data.msg);
 				}
 				if (!data.validated && data.saved) {
 				  $('#' + mykey).val(data.saved_value);
@@ -53,19 +56,9 @@ $(document).ready(function() {
 					mythis.off('click');
 					mythis.data('isbound', false);
 					mythis.fadeOut('normal', function(){
-						mythis.closest('tr').find('.savetd').hide();
+						mythis.closest('.columns').find('.savetd').css('visibility','hidden');
 					});
 					
-					//hide retor to defualt if its we have reverted to defualt
-					//should not be nesesary -MB
-					/*
-					input = mythis.closest('tr').find('input.valueinput').val() ;
-					defval = mythis.closest('tr').find('input.adv_set_default').attr('data-default')
-					console.log(input, defval)
-					if(input == defval){
-						mythis.closest('tr').find('input.adv_set_default').fadeOut()
-					}
-					*/
 					// If they changed the page layout
 					switch (mykey) {
 						case 'AS_DISPLAY_HIDDEN_SETTINGS':
@@ -75,7 +68,7 @@ $(document).ready(function() {
 							if (page_reload_check()) {
 								location.href=location.href;
 							} else {
-								alert(msgChangesRefresh);
+								sweet_alert(msgChangesRefresh);
 							}
 							break;
 						default:
@@ -94,16 +87,16 @@ $(document).ready(function() {
 				}
 			},
 			error: function(data, textStatus, XMLHttpRequest) {
-				alert('Ajax Web ERROR: When saving key ' + mykey + ': ' + textStatus);
+				sweet_alert('Ajax Web ERROR: When saving key ' + mykey + ': ' + textStatus);
 			}
 		})
 	}
 	//set defualt values
-	$('.adv_set_default').click(function(){
+	$('.adv_set_default').on('click',function(){
 		switch ($(this).attr('data-type')) {
 		case 'BOOL':
-			$('input[name="' + $(this).attr('data-key')).removeAttr("checked");
-			$('input[name="' + $(this).attr('data-key') + '"]').filter('[value=' + $(this).attr('data-default') + ']').attr("checked","checked").trigger('change');
+			$('input[name="' + $(this).attr('data-key')).attr("checked",false);
+			$('input[name="' + $(this).attr('data-key') + '"]').filter('[value=' + $(this).attr('data-default') + ']').attr("checked",true).trigger('change');
 			break;
 		default:
 			$('#'+$(this).attr('data-key')).val($(this).attr('data-default')).trigger('change');
@@ -113,27 +106,27 @@ $(document).ready(function() {
 	});
 
 	//show save button
-	$('.valueinput').bind('keyup keypress keydown paste change', function(){
-		var save = $(this).closest('tr').find('input.save');
-		var savetd = $(this).closest('tr').find('.savetd');
-		var adv_set_default = $(this).closest('tr').find('input.adv_set_default');
+	$('.valueinput').on('keyup keypress keydown paste change', function(){
+		var save = $(this).closest('.columns').find('i.save');
+		var savetd = $(this).closest('.columns').find('.savetd');
+		var adv_set_default = $(this).closest('.columns').find('i.adv_set_default');
 		
 		//if the value was changed since the last page refresh
 		if($(this).val() != $(this).attr('data-valueinput-orig')){
-			if (savetd.is(':hidden')) {
-				savetd.show();
+			if (savetd.css('visibility')=='hidden') {
+				savetd.css('visibility','visible');
 			}
 			save.stop(true, true).delay(100).fadeIn();
 			//only bind if not already bound
 			if (typeof(save.data("isbound")) == 'undefined' || !save.data('isbound')) {
 				save.data("isbound", true);
-				save.bind('click', savebinder);
+				save.on('click', savebinder);
 			}
 		} else {
 			save.data("isbound", false);
 			save.stop(true, true).delay(100).fadeOut('normal', function(){
-				if (!savetd.is(':hidden')) {
-					savetd.hide();
+				if (!savetd.css('visibility')=='hidden') {
+					savetd.css('visibility','hidden');
 				}
 			}).off('click'); 
 		}
@@ -148,7 +141,7 @@ $(document).ready(function() {
 		}
 	})
 
-	$("#page_reload").click(function(){
+	$("#page_reload").on('click',function(){
 		if (!page_reload_check()) {
 			if (!confirm(msgUnsavedChanges)) {
 				return false;
@@ -161,7 +154,7 @@ $(document).ready(function() {
 function page_reload_check(msgUnsavedChanges) {
 	var reload = true;
 	$(".save").each(function() {
-		if ($(this).data("events") != undefined) {
+        if($._data($(this)[0],"events") != undefined) {
 			reload = false;
 			return false;
 		}

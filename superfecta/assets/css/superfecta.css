@@ -1,0 +1,44 @@
+div.content { min-width:490px; width: calc(100% - 300px); max-width:1000px; }
+
+.xdisabled, .xdisabled a {
+   color: #999 !important;
+}
+
+.text-align-left {
+    text-align:left;
+}
+
+.swal2-html-container h3 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.swal2-html-container input[type=submit] {
+    display:none;
+}
+
+.swal2-html-container input {
+    margin-bottom: .5em;
+}
+
+.swal2-html-container input[type="checkbox"], .swal2-html-container select {
+    height: 2.5em;
+}
+
+.swal2-html-container input[type="text"], .swal2-html-container input[type="number"], .swal2-html-container input[type="password"]  {
+    line-height: 1.5em;
+    height: 2.5em;
+    font-size: 1em;
+    padding: 1px 2px;
+    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+box-shadow: inset 0 0.0625em 0.125em rgb(10 10 10 / 5%);
+    background-color: #fff;
+    border-color: #dbdbdb;
+    border-radius: 4px;
+    color: #363636;
+}
+
+.rnavdisabled {
+    opacity: 0.5;
+    text-decoration: line-through !important;
+}

@@ -1,27 +1,28 @@
 <module>
-	<rawname>dahdiconfig</rawname>
-	<repo>extended</repo>
-	<category>Connectivity</category>
-	<name>DAHDi Config</name>
-	<version>2.11.53</version>
-	<publisher>Issabel Foundation</publisher>
-	<license>GPLv3+</license>
-	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<candisable>yes</candisable>
-	<canuninstall>yes</canuninstall>
-	<changelog>
-			*2.11.53* Initial Issabel Foundation release
-	</changelog>
-	<supported>
-		<version>2.10</version>
-	</supported>
-	<depends>
-		<phpversion>5.3.0</phpversion>
-		<version>2.10</version>
-	</depends>
-	<menuitems>
-		<dahdi needsenginedb="yes">DAHDi Config</dahdi>
-	</menuitems>
-	<location>release/2.11/dahdiconfig-2.11.28.tgz</location>
-	<md5sum>5ae07e1ac73fbafacaa8f66666d9a70e</md5sum>
+    <rawname>dahdiconfig</rawname>
+    <repo>extended</repo>
+    <category>Connectivity</category>
+    <name>DAHDi Config</name>
+    <version>2.12.0.0</version>
+    <publisher>Issabel Foundation</publisher>
+    <license>GPLv3+</license>
+    <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+    <candisable>yes</candisable>
+    <canuninstall>yes</canuninstall>
+    <changelog>
+        *2.12.0.0* Newer GUI, standarize module components
+        *2.11.53* Initial Issabel Foundation release
+    </changelog>
+    <supported>
+        <version>2.12</version>
+    </supported>
+    <depends>
+        <phpversion>5.4.0</phpversion>
+        <version>2.12</version>
+    </depends>
+    <menuitems>
+        <dahdi needsenginedb="yes">DAHDi Config</dahdi>
+    </menuitems>
+    <location>release/2.12/dahdiconfig-2.12.0.0.tgz</location>
+    <md5sum>0</md5sum>
 </module>

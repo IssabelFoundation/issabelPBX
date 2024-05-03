@@ -11,21 +11,13 @@
 //GNU General Public License for more details.
 
 $dispnum = 'dialplaninjection'; //used for switch on config.php
+$rnaventries = array();
+$contexts    = dialplaninjection_getinjections();
+foreach ($contexts as $row) {
+    $rnaventries[] = array($row[0],$row[1],'');
+}
+drawListMenu($rnaventries, $type, $display, $extdisplay);
 
+//drawListMenu($contexts, $skip, $type, $display, $extdisplay, __("Injection"));
 ?>
-
-
-<div class="rnav">
-<?php 
-$contexts = dialplaninjection_getinjections();
-drawListMenu($contexts, $skip, $type, $display, $extdisplay, _("Injection"));
-?>
-</div>
-
-<!--
-			<tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?>:</h5></td></tr>
--->
-<?php 
-//draw goto selects
-//echo drawselects($goto,0);
-?>
+<div class='content'>

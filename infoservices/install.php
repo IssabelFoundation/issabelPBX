@@ -2,12 +2,12 @@
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //for translation only
 if (false) {
-_("Info Services");
-_("Directory");
-_("Call Trace");
-_("Echo Test");
-_("Speaking Clock");
-_("Speak Your Exten Number");
+__("Info Services");
+__("Directory");
+__("Call Trace");
+__("Echo Test");
+__("Speaking Clock");
+__("Speak Your Exten Number");
 }
 
 //removed # to call directory in 2.10, this doesnt make sense with the current directory module
@@ -52,13 +52,13 @@ if(!DB::IsError($globals)) {
 	if (count($globals)) {
 		$current_format = trim($globals[0]['value']);
 		$sql = "DELETE FROM globals WHERE `variable` = 'TIMEFORMAT'";
-		out(_("migrated TIMEFORMAT to Advanced Settings"));
-		outn(_("deleting TIMEFORMAT from globals.."));
+		out(__("migrated TIMEFORMAT to Advanced Settings"));
+		outn(__("deleting TIMEFORMAT from globals.."));
 		$res = $db->query($sql);
 		if(!DB::IsError($globals)) {
-			out(_("done"));
+			out(__("done"));
 		} else {
-			out(_("could not delete"));
+			out(__("could not delete"));
 		}
 	}
 }

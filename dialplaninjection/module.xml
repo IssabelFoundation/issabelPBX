@@ -1,7 +1,7 @@
 <module>
     <rawname>dialplaninjection</rawname>
     <name>Dialplan Injection</name>
-    <version>0.1.1n</version>
+    <version>1.0.0</version>
     <type>setup</type>
     <publisher>POSSA</publisher>
     <category>Advanced</category>
@@ -10,15 +10,21 @@
     <menuitems>
         <dialplaninjection>Dialplan Injection</dialplaninjection>
     </menuitems>
-        <depends>
-                <module>core</module>
-        </depends>
-        <changelog>
-            Lorne Gaetz: Initial commit
+    <changelog>
+        *1.0.0* Issabel Foundation release for IssabelPBX 2.12
+        Lorne Gaetz: Initial commit
     </changelog>
     <attention>
         This is an advanced module, and you should not use it without understanding asterisk dialplans!
         This is meant as a convenience tool for someone who would have had to resort to config editing.
         If you experience problems with it, just disable it and no harm done.
     </attention>
+    <depends>
+        <version>2.12.0</version>
+    </depends>
+    <location>release/2.12/dialplaninjection-1.0.0.tgz</location>
+    <supported>
+        <version>2.12</version>
+    </supported>
+        <md5sum>0</md5sum>
 </module>

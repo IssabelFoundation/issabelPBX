@@ -1,41 +1,59 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo blacklist module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-01-22 01:08+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Blacklist"
-msgstr "Lista negra"
+msgstr "Lista de bloqueo"
+
+msgid "Add Blacklist"
+msgstr "Añadir a Lista de bloqueo"
+
+msgid "Edit Blacklist"
+msgstr "Modificar Lista de bloqueo"
 
 msgid "Admin"
 msgstr ""
 
 msgid "Blacklist a number"
-msgstr "Añadir un número a la lista negra"
+msgstr "Bloquear un número"
 
 msgid "Remove a number from the blacklist"
-msgstr "Eliminar un número de la lista negra"
+msgstr "Eliminar un número de la lista de bloqueo"
 
 msgid "Blacklist the last caller"
-msgstr "Añadir a la lista negra el último número llamado"
+msgstr "Añadir a la lista de bloqueo el último número llamado"
 
 msgid "Blacklist entry"
-msgstr "Elemento de la lista negra"
+msgstr "Elemento de la lista de bloqueo"
 
 msgid "deleted"
 msgstr "eliminada"
 
 msgid "Blacklist entries"
-msgstr "Elementos de la lista negra"
+msgstr "Elementos de la lista de bloqueo"
 
 msgid "Number/CallerID"
 msgstr "Número/CallerID"

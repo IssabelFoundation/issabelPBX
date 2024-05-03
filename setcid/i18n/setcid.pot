@@ -33,10 +33,7 @@ msgid ""
 "currently set callerid number."
 msgstr ""
 
-msgid "Edit CallerID Instance"
-msgstr ""
-
-msgid "Add CallerID Instance"
+msgid "Edit CallerID"
 msgstr ""
 
 msgid "Description"

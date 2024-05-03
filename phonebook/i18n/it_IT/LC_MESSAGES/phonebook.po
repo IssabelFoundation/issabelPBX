@@ -87,7 +87,7 @@ msgid ""
 "received from network)"
 msgstr ""
 
-msgid "Speed dial code:"
+msgid "Speed dial code"
 msgstr "Codice Selezione rapida:"
 
 msgid ""
@@ -111,8 +111,8 @@ msgstr "Applica"
 msgid "Import from CSV"
 msgstr "Importa dal CSV"
 
-msgid "File:"
-msgstr "File:"
+msgid "File"
+msgstr "File"
 
 msgid ""
 "Import a CSV File formatted as follows:<br/>\"Name\";Number;Speeddial<br /> "

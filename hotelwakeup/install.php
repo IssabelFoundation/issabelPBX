@@ -98,7 +98,7 @@ foreach($cols as $key=>$val)
 		$check = $db->query($sql);
 		if (DB::IsError($check))
 		{
-			die_issabelpbx( "Can not add column ".$key.": " . $check->getMessage());
+			// die_issabelpbx( "Can not add column ".$key.": " . $check->getMessage());
 		}
 		else
 		{
@@ -148,7 +148,7 @@ foreach($sc_cols as $key=>$val)
 		$check = $db->query($sql);
 		if (DB::IsError($check))
 		{
-			die_issabelpbx( "Can not add column ".$key.": " . $check->getMessage() .  "<br>");
+			//die_issabelpbx( "Can not add column ".$key.": " . $check->getMessage() .  "<br>");
 		}
 		else
 		{

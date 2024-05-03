@@ -13,7 +13,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2008 PostMet Corporation
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
 # Dmitry Luznetsov <dk@postmet.ru>, 2012.
@@ -25,7 +25,6 @@ msgstr ""
 "POT-Creation-Date: 2012-10-30 00:04+0400\n"
 "PO-Revision-Date: 2014-02-28 04:51+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: Russian <http://example.com/projects/freepbx-211/ivr/ru/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +51,7 @@ msgid "IVR Name"
 msgstr "Название Интерактивного меню"
 
 msgid "Name of this IVR."
-msgstr "Название этого Интерактивного меню"
+msgstr "Название этого Интерактвного меню"
 
 msgid "IVR Description"
 msgstr "Описание Интерактивного меню"
@@ -139,7 +138,7 @@ msgid ""
 "due to the caller pressing 0 or receiving the maximum amount of invalid/"
 "unmatched responses (as determined by Invalid Retries)"
 msgstr ""
-"Сообщение воспроизводимое перед отправкой звонящего на альетрнативное назначение "
+"Сообщение воспризводимое перед отправкой звонящего на альетрнативное назначение "
 "при нажатии звонящим 0 или при достижении максимального количества неудачных "
 "попыток ввода. "
 
@@ -231,7 +230,7 @@ msgstr "переход к id записей.."
 
 #, php-format
 msgid "migrated %s entries"
-msgstr "перемещено %s записей"
+msgstr "еремещено %s записей"
 
 msgid "dropping announcement field.."
 msgstr "сброс поля объявления.."
@@ -265,7 +264,7 @@ msgid ""
 "IVR destination to a desired Directory. You can install the Directory module "
 "from the Online Module Repository"
 msgstr ""
-"В Интерактивном меню %s активирован набор Каталога. Эта функция устарела "
+"В Интерактивном меню %s активировн набор Каталога. Эта функция устарела "
 "и будет удалена из будущих релизов. Вам следует конвертировать ваше "
 "Интерактивное меню, что бы использовать модуль Каталога для этой "
 "функциональности и присвоить назначение Интерактивного меню на выбранный каталог. "
@@ -326,7 +325,7 @@ msgstr ""
 #~ "#, you can also use 'i' and 't' destinations."
 #~ msgstr ""
 #~ "При создании меню используйте стандартные символы 0-9, *, и #. Есть "
-#~ "возможность также использовать опцию 'i' (invalid number) и 't' (timeout) "
+#~ "возможность также использоать опцию 'i' (invalid number) и 't' (timeout) "
 #~ "в качестве назначения."
 
 #~ msgid ""
@@ -389,7 +388,7 @@ msgstr ""
 #~ "the \"Systems Recordings\" Module to edit this option"
 #~ msgstr ""
 #~ "Сообщение, которое услышит позвонивший.<br><br>Нужно инсталлировать и "
-#~ "активировать модуль Запись сообщений чтобы изменять что либо в этой опции."
+#~ "ативировать модуль Запись сообщений чтобы изменять что либо в этой опции."
 
 #~ msgid ""
 #~ "The amount of time (in seconds) before the 't' option, if specified, is "
@@ -455,7 +454,7 @@ msgstr ""
 #~ "цикл перенаправляется в invalid (i) destination."
 
 #~ msgid "Invalid Message"
-#~ msgstr "Сообщение об ошибке"
+#~ msgstr "ообщение об ошибке"
 
 #~ msgid ""
 #~ "If an invalid extension is pressed and a message is selected, it will be "

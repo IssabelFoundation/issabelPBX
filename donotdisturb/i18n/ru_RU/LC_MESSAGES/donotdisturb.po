@@ -1,9 +1,9 @@
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2008 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
 #
-# ∏·ﬂﬁ€Ï◊ﬁ“–‚Ï iconv amp.new -f UTF-8 -t ISO-8859-5 -o amp.po
+#  iconv amp.new -f UTF-8 -t ISO-8859-5 -o amp.po
 # fuzzy
 msgid ""
 msgstr ""
@@ -14,23 +14,24 @@ msgstr ""
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
 "Language-Team: Russian <faq@postmet.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-5\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Do-Not-Disturb (DND)"
-msgstr "¿’÷ÿ‹ Ω’ —’·ﬂﬁ⁄ﬁÿ‚Ï (DND)"
+msgstr "–ù–µ –±–µ—Å–ø–æ–∫–æ–∏—Ç—å (DND)"
 
 msgid "Applications"
-msgstr ""
+msgstr "–ü—Ä–∏–ª–æ–∂–µ–Ω–∏—è"
 
 msgid "Provides donotdisturb featurecodes"
-msgstr ""
+msgstr "–ü—Ä–µ–¥–æ—Å—Ç–∞–≤–ª—è–µ—Ç —Ñ—É–Ω–∫—Ü–∏–æ–Ω–∞–ª –∫–æ–¥–æ–≤ —Ñ—É–Ω–∫—Ü–∏–π –Ω–µ –±–µ—Å–ø–æ–∫–æ–∏—Ç—å"
 
-msgid "DND Activate"
-msgstr "∞⁄‚ÿ“ÿ‡ﬁ“–‚Ï ‡’÷ÿ‹ Ω’ —’·ﬂﬁ⁄ﬁÿ‚Ï "
+msgid "DND Activate" 
+msgstr "–í–∫–ª—é—á–∏—Ç—å DND"
 
 msgid "DND Deactivate"
-msgstr "¥’–⁄‚ÿ“ÿ‡ﬁ“–‚Ï ‡’÷ÿ‹ Ω’ —’·ﬂﬁ⁄ﬁÿ‚Ï "
+msgstr "–û—Ç–∫–ª—é—á–∏—Ç—å DND"
 
 msgid "DND Toggle"
-msgstr "ø’‡’⁄€ÓÁÿ‚Ï ‡’÷ÿ‹ Ω’ —’·ﬂﬁ⁄ﬁÿ‚Ï "
+msgstr "–ü–µ—Ä–µ–∫–ª—é—á–∏—Ç—å DND"
+

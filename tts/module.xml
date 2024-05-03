@@ -2,7 +2,7 @@
         <rawname>tts</rawname>
         <repo>standard</repo>
         <name>Text to Speech</name>
-        <version>2.11.1.0</version>
+        <version>2.12.0.0</version>
         <category>Applications</category>
         <embedcategory>Internal Options &amp; Configuration</embedcategory>
         <publisher>Issabel Foundation</publisher>
@@ -13,16 +13,17 @@
         </description>
         <menuitems>
                 <tts>Text to Speech</tts>
-                <ttsadmin>Text to Speech Engines</ttsadmin>
+                <ttsadmin category="Admin">Text to Speech Engines</ttsadmin>
         </menuitems>
         <changelog>
-                *2.11.1.0*  Initial Release
+                *2.12.0.0*  Initial Release
         </changelog>
         <depends>
-                <version>2.5.0</version>
+                <version>2.12.0</version>
         </depends>
         <supported>
-                <version>2.10</version>
+                <version>2.12</version>
         </supported>
-        <location>release/2.11/tts-2.11.1.0.tgz</location>
+        <location>release/2.12/tts-2.12.0.0.tgz</location>
+            <md5sum>0</md5sum>
 </module>

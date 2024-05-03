@@ -43,43 +43,44 @@ function customcontexts_hookGet_config($engine) {
     global $db;
     global $ext;
     switch($engine) {
-        case 'asterisk':
-            $sql = 'UPDATE customcontexts_includes_list SET missing = 1 WHERE context 
-                            NOT IN (SELECT context FROM customcontexts_contexts_list WHERE locked = 1)';
-            $db->query($sql);
-            $sql = 'SELECT context FROM customcontexts_contexts_list';
-            $sections = $db->getAll($sql);
-            if(DB::IsError($sections)) {
-                 $sections = null;
-            }
-            foreach ($sections as $section) {
-                $section = $section[0];
-                $i = 0;
-                if (isset($ext->_includes[$section])) {
-                    foreach ($ext->_includes[$section] as $include) {
-                        $i = $i + 1;
-                        if ($section == 'outbound-allroutes') {
-                            $sql = 'INSERT INTO customcontexts_includes_list 
-                                            (context, include, description, missing, sort)
-                                            VALUES ("'.$section.'", "'.$include['include'].'",
-                                            "'.$include['comment'].'", "0", "'.($i+100).'") 
-                                            ON DUPLICATE KEY UPDATE sort = "'.($i+100).'", missing = "0"';
-                            $db->query($sql);
-                        } else {
-                            $sql = 'UPDATE customcontexts_includes_list SET missing = "0", sort = "'.$i.'" 
-                                            WHERE context = "'.$section.'" and include = "'.$include['include'].'"';
-                            $db->query($sql);
-            }
-                        $sql = 'INSERT IGNORE INTO customcontexts_includes_list 
-                                        (context, include, description, sort) 
-                                        VALUES ("'.$section.'", "'.$include['include'].'", 
-                                        "'.$include['include'].'", "'.$i.'")';
+    case 'asterisk':
+        $sql = 'UPDATE customcontexts_includes_list SET missing = 1 WHERE context 
+            NOT IN (SELECT context FROM customcontexts_contexts_list WHERE locked = 1)';
+        $db->query($sql);
+        $sql = 'SELECT context FROM customcontexts_contexts_list';
+        $sections = $db->getAll($sql);
+        if(DB::IsError($sections)) {
+            $sections = null;
+        }
+        foreach ($sections as $section) {
+            $section = $section[0];
+            $i = 0;
+            if (isset($ext->_includes[$section])) {
+                foreach ($ext->_includes[$section] as $include) {
+                    $i = $i + 1;
+                    if ($section == 'outbound-allroutes') {
+                        $sql = 'INSERT INTO customcontexts_includes_list 
+                            (context, include, description, missing, sort)
+                            VALUES ("'.$section.'", "'.$include['include'].'",
+                                "'.$include['comment'].'", "0", "'.($i+100).'") 
+                                ON DUPLICATE KEY UPDATE sort = "'.($i+100).'", missing = "0"';
+                        $db->query($sql);
+                    } else {
+                        $sql = 'UPDATE customcontexts_includes_list SET missing = "0", sort = "'.$i.'" 
+                            WHERE context = "'.$section.'" and include = "'.$include['include'].'"';
                         $db->query($sql);
                     }
+                    $comment = ($include['comment']=='')?$include['include']:$include['comment'];
+                    $sql = 'INSERT IGNORE INTO customcontexts_includes_list 
+                        (context, include, description, sort) 
+                        VALUES ("'.$section.'", "'.$include['include'].'", 
+                        "'.$comment.'", "'.$i.'")';
+                    $db->query($sql);
                 }
             }
-            $sql = "delete from  customcontexts_includes_list where missing = 1";
-            $db->query($sql);
+        }
+        $sql = "delete from  customcontexts_includes_list where missing = 1";
+        $db->query($sql);
         break;
     }
 }
@@ -102,8 +103,8 @@ function customcontexts_hook_core($viewing_itemid, $target_menuid) {
 //from any contexts the user entered in admin - information was saved to database on the last reload
 
 function customcontexts_getincludeslist($context) {
-    global $db;
-    $tmparray=array();
+	global $db;
+	$tmparray=array();
 //    $sql = "select include, description from customcontexts_includes_list where context = '".$context."' order by description";
     $sql = "SELECT include, customcontexts_includes_list.description, 
                     COUNT(customcontexts_contexts_list.context) AS preemptcount  
@@ -140,7 +141,7 @@ function customcontexts_getcontextslist() {
 
 //these are the users selections of includes for the selected custom context
 function customcontexts_getincludes($context) {
-    global $db;
+	global $db, $amp_conf;
 //    $sql = "select customcontexts_contexts_list.context, customcontexts_contexts_list.description as contextdescription, customcontexts_includes_list.include, customcontexts_includes_list.description, if(saved.include is null, 'no', if(saved.timegroupid is null, 'yes', saved.timegroupid)) as allow, saved.sort from customcontexts_contexts_list inner join customcontexts_includes_list on customcontexts_contexts_list.context = customcontexts_includes_list.context left outer join (select * from customcontexts_includes where context = '$context') saved on customcontexts_includes_list.include = saved.include order by customcontexts_contexts_list.description, customcontexts_includes_list.description";
     $sql = "SELECT customcontexts_contexts_list.context, 
                     customcontexts_contexts_list.description AS contextdescription, 
@@ -172,12 +173,11 @@ function customcontexts_getincludes($context) {
                     customcontexts_includes_list.sort,
           outbound_route_sequence.seq,
                     customcontexts_contexts_list.description, 
-                    customcontexts_includes_list.description";
+		    customcontexts_includes_list.description";
 
-    if(preg_match("/qlite/i",$amp_conf['AMPDBENGINE'])) {
-        $sql = str_replace("IF(","IIF(",$sql);
-    }
-
+	if(preg_match("/qlite/i",$amp_conf['AMPDBENGINE'])) {
+	    $sql = str_replace("IF(","IIF(",$sql);
+        }
     $results = sql($sql,'getAll');
     foreach ($results as $val){
         $tmparray[] = array($val[0], $val[1], $val[2], $val[3], $val[4], $val[5], $val[6]);
@@ -233,10 +233,11 @@ function customcontexts_get_config($engine) {
             if ($dialpattern[$key] == "") {
                 unset($dialpattern[$key]);
             } else {
-                // remove leading underscores (we do that on backend)
-                if ($dialpattern[$key][0] == "_") {
-                    $dialpattern[$key] = substr($dialpattern[$key],1);
-                }
+            
+	    // remove leading underscores (we do that on backend)
+            if ($dialpattern[$key][0] == "_") {
+                $dialpattern[$key] = substr($dialpattern[$key],1);
+            }
             }
         }
         // check for duplicates, and re-sequence
@@ -332,7 +333,7 @@ function customcontexts_get_config($engine) {
 //this may seem a bit strange, but it works simply it sends the user to the EXTEN he dialed (or IVR option) within the selected context
 function customcontexts_destinations() {
     $contexts =  customcontexts_getcontexts();
-    $extens[] = array('destination' => 'from-internal,${EXTEN},1', 'description' => dgettext('customcontexts','Full Internal Access'));
+    $extens[] = array('destination' => 'from-internal,${EXTEN},1', 'description' => _dgettext('customcontexts','Full Internal Access'));
     if (is_array($contexts)) {
         foreach ($contexts as $r) {
             $extens[] = array('destination' => $r[0].',${EXTEN},1', 'description' => $r[1]);
@@ -376,7 +377,7 @@ function customcontexts_configpageinit($dispnum) {
   }
 
     $contextssel  = customcontexts_getcontexts();
-    $currentcomponent->addoptlistitem('contextssel', 'from-internal', dgettext('customcontexts','ALLOW ALL (Default)'));
+    $currentcomponent->addoptlistitem('contextssel', 'from-internal', _dgettext('customcontexts','ALLOW ALL (Default)'));
     foreach ($contextssel as $val) {
         $currentcomponent->addoptlistitem('contextssel', $val[0], $val[1]);
     }
@@ -400,12 +401,12 @@ function customcontexts_devices_configpageload() {
   $tech = $_REQUEST['tech'];
   $curcontext = $_REQUEST['customcontext'];
 
-    $hlp = dgettext('customcontexts','You have the %s  Module installed! You can select a class of service from this list to limit this user to portions of the dialplan you defined in the %s module.');
+    $hlp = _dgettext('customcontexts','You have the %s  Module installed! You can select a class of service from this list to limit this user to portions of the dialplan you defined in the %s module.');
 
-    $currentcomponent->addguielem(_('Extension Options'), new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, _('Class of Service'), sprintf($hlp,customcontexts_getmodulevalue('moduledisplayname'),customcontexts_getmodulevalue('moduledisplayname')),true, "javascript:if (document.frm_devices.customcontext.value) {document.frm_devices.devinfo_context.value = document.frm_devices.customcontext.value} else {document.frm_devices.devinfo_context.value = 'from-internal'}"),2);
+    $currentcomponent->addguielem(__('Extension Options'), new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, __('Class of Service'), sprintf($hlp,customcontexts_getmodulevalue('moduledisplayname'),customcontexts_getmodulevalue('moduledisplayname')),true, "javascript:if (document.frm_devices.customcontext.value) {document.frm_devices.devinfo_context.value = document.frm_devices.customcontext.value} else {document.frm_devices.devinfo_context.value = 'from-internal'}"),2);
 
   $js = '<script>$(document).ready(function(){$("#devinfo_context").parent().parent().hide();});</script>';
-  $currentcomponent->addguielem(_('Extension Options'), new guielement('test-html', $js, ''));
+  $currentcomponent->addguielem(__('Extension Options'), new guielement('test-html', $js, ''));
 }
 
 //hook gui function
@@ -416,12 +417,12 @@ function customcontexts_extensions_configpageload() {
   $tech = $_REQUEST['tech'];
   $curcontext = $_REQUEST['customcontext'];
 
-    $hlp = dgettext('customcontexts','You have the %s  Module installed! You can select a class of service from this list to limit this user to portions of the dialplan you defined in the %s module.');
+    $hlp = _dgettext('customcontexts','You have the %s  Module installed! You can select a class of service from this list to limit this user to portions of the dialplan you defined in the %s module.');
 
-    $currentcomponent->addguielem(_('Extension Options'), new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, _('Class of Service'), sprintf($hlp,customcontexts_getmodulevalue('moduledisplayname'),customcontexts_getmodulevalue('moduledisplayname')) ,true, "javascript:if (document.frm_extensions.customcontext.value) {document.frm_extensions.devinfo_context.value = document.frm_extensions.customcontext.value} else {document.frm_extensions.devinfo_context.value = 'from-internal'}"),2);
+    $currentcomponent->addguielem(__('Extension Options'), new gui_selectbox('customcontext', $currentcomponent->getoptlist('contextssel'), $curcontext, __('Class of Service'), sprintf($hlp,customcontexts_getmodulevalue('moduledisplayname'),customcontexts_getmodulevalue('moduledisplayname')) ,true, "javascript:if (document.frm_extensions.customcontext.value) {document.frm_extensions.devinfo_context.value = document.frm_extensions.customcontext.value} else {document.frm_extensions.devinfo_context.value = 'from-internal'}"),2);
 
   $js = '<script>$(document).ready(function(){$("#devinfo_context").parent().parent().hide();});</script>';
-  $currentcomponent->addguielem(_('Extension Options'), new guielement('test-html', $js, ''));
+  $currentcomponent->addguielem(__('Extension Options'), new guielement('test-html', $js, ''));
 }
 
 /*
@@ -442,45 +443,46 @@ global $currentcomponent;
 
 //this is the dirty work displaying the admin page
 function customcontexts_customcontextsadmin_configpageload() {
-global $currentcomponent;
+    global $currentcomponent;
     $contexterr = 'Class may not be left blank and must contain only letters, numbers and a few select characters!';
     $descerr = 'Description must be alpha-numeric, and may not be left blank';
     $extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
     $action= isset($_REQUEST['action'])?$_REQUEST['action']:null;
     if ($action == 'del') {
-        $currentcomponent->addguielem('_top', new gui_pageheading('title', sprintf(_("Class %s deleted"),$extdisplay), false), 0);
+        $currentcomponent->addguielem('_top', new gui_pageheading('title', sprintf(__("Class %s deleted"),$extdisplay), false), 0);
     } else {
         //need to get module name/type dynamically
         $query = ($_SERVER['QUERY_STRING'])?$_SERVER['QUERY_STRING']:'type=tool&display=customcontextsadmin&extdisplay='.$extdisplay;
         $delURL = $_SERVER['PHP_SELF'].'?'.$query.'&action=del';
-        $info = sprintf(_('The context which contains includes which you would like to make available to %s. Any context you enter here will be parsed for includes and you can then include them in your own %s. Removing them here does NOT delete the context, rather makes them unavailable to your %s.'),customcontexts_getmodulevalue('moduledisplayname'),customcontexts_getmodulevalue('moduledisplayname'),customcontexts_getmodulevalue('moduledisplayname'));
+        $info = sprintf(__('The context which contains includes which you would like to make available to %s. Any context you enter here will be parsed for includes and you can then include them in your own %s. Removing them here does NOT delete the context, rather makes them unavailable to your %s.'),customcontexts_getmodulevalue('moduledisplayname'),customcontexts_getmodulevalue('moduledisplayname'),customcontexts_getmodulevalue('moduledisplayname'));
       $currentcomponent->addguielem('_top', new gui_hidden('action', ($extdisplay ? 'edit' : 'add')));
-//        $currentcomponent->addguielem('_bottom', new gui_link('help', _(customcontexts_getmodulevalue('moduledisplayname')." v".customcontexts_getmodulevalue('moduleversion')), 'http://www.issabel.org/support/documentation/module-documentation/classofservice', true, false), 0);
+//        $currentcomponent->addguielem('_bottom', new gui_link('help', __(customcontexts_getmodulevalue('moduledisplayname')." v".customcontexts_getmodulevalue('moduleversion')), 'http://www.issabel.org/support/documentation/module-documentation/classofservice', true, false), 0);
         if (!$extdisplay) {
-            $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Add Class"), false), 0);
-            $currentcomponent->addguielem('Class', new gui_textbox('extdisplay', '', _('Class'), $info, 'isWhitespace() || !isFilename()', $contexterr, false), 3);
-            $currentcomponent->addguielem('Class', new gui_textbox('description', '', _('Description'), sprintf(_('This will display as a heading for the available includes on the %s page'),_(customcontexts_getmodulevalue('moduledisplayname'))), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+            $currentcomponent->addguielem('_top', new gui_pageheading('title', __("Add Class"), false), 0);
+            $currentcomponent->addguielem('Class', new gui_textbox('extdisplay', '', __('Class'), $info, 'isWhitespace() || !isFilename()', $contexterr, false), 3);
+            $currentcomponent->addguielem('Class', new gui_textbox('description', '', __('Description'), sprintf(__('This will display as a heading for the available includes on the %s page'),__(customcontexts_getmodulevalue('moduledisplayname'))), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
         }    else {
             $savedcontext = customcontexts_customcontextsadmin_get($extdisplay);
             $context = $savedcontext[0];
             $description = $savedcontext[1];
             $locked = $savedcontext[2];
             $currentcomponent->addguielem('_top', new gui_hidden('extdisplay', $extdisplay));
-            $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Edit Class").": $description", false), 0);
+            $currentcomponent->addguielem('_top', new gui_pageheading('title', __("Edit Class").": $description", false), 0);
             if ($locked == false) {            
-                $currentcomponent->addguielem('_top', new gui_link('del', _("Remove Class").": $context", $delURL, true, false), 0);
+                //$currentcomponent->addguielem('_top', new gui_link('del', __("Remove Class").": $context", $delURL, true, false), 0);
             }
             else
             {
-                $currentcomponent->addguielem('_top', new gui_label('del', sprintf(_("Class %s cannot be removed"),$context), $delURL, true, false), 0);
+                $currentcomponent->disableDelete();
+                $currentcomponent->addguielem('_top', new gui_label('del', sprintf(__("Class %s cannot be removed"),$context), true, 'has-background-warning'), 0);
             }
-            $currentcomponent->addguielem('Class', new gui_textbox('description', $description, _('Description'), sprintf(_('This will display as a heading for the available includes on the %s page'),_(customcontexts_getmodulevalue('moduledisplayname'))), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+            $currentcomponent->addguielem('Class', new gui_textbox('description', $description, __('Description'), sprintf(__('This will display as a heading for the available includes on the %s page'),__(customcontexts_getmodulevalue('moduledisplayname'))), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
             $inclist = customcontexts_getincludeslist($extdisplay);
             foreach ($inclist as $val) {
                 if ($val[2] > 0) {
-                    $currentcomponent->addguielem('Includes Descriptions', new gui_textbox('includes['.$val[0].']', $val[1], '<font color="red"><strong>'.$val[0].'</strong></font>', sprintf(_('This will display as the name of the include on the %s page'),_(customcontexts_getmodulevalue('moduledisplayname'))).'<BR><font color="red"><strong>'._('NOTE: This include should have a description denoting the fact that allowing it may allow another ENTIRE context!').'</strong></font>', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+                    $currentcomponent->addguielem('Includes Descriptions', new gui_textbox('includes['.$val[0].']', $val[1], '<font color="red"><strong>'.$val[0].'</strong></font>', sprintf(__('This will display as the name of the include on the %s page'),__(customcontexts_getmodulevalue('moduledisplayname'))).'<BR><font color="red"><strong>'.__('NOTE: This include should have a description denoting the fact that allowing it may allow another ENTIRE context!').'</strong></font>', '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
                 } else {
-                    $currentcomponent->addguielem('Includes Descriptions', new gui_textbox('includes['.$val[0].']', $val[1], $val[0], sprintf(_('This will display as the name of the include on the %s page'),_(customcontexts_getmodulevalue('moduledisplayname'))), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+                    $currentcomponent->addguielem('Includes Descriptions', new gui_textbox('includes['.$val[0].']', $val[1], $val[0], sprintf(__('This will display as the name of the include on the %s page'),__(customcontexts_getmodulevalue('moduledisplayname'))), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
                 }
 
             }
@@ -491,21 +493,34 @@ global $currentcomponent;
 
 //handle the admin submit button
 function customcontexts_customcontextsadmin_configprocess() {
-    $action= isset($_REQUEST['action'])?$_REQUEST['action']:null;
-    $context= isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
-    $description= isset($_REQUEST['description'])?$_REQUEST['description']:null;
-//addslashes    
+    $action      = isset($_REQUEST['action'])      ? $_REQUEST['action']      : null;
+    $context     = isset($_REQUEST['extdisplay'])  ? $_REQUEST['extdisplay']  : null;
+    $description = isset($_REQUEST['description']) ? $_REQUEST['description'] : null;
+
     switch ($action) {
     case 'add':
         customcontexts_customcontextsadmin_add($context,$description);
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
+        $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
+        redirect_standard();
     break;
     case 'edit':
         customcontexts_customcontextsadmin_edit($context,$description);
         $includes = isset($_REQUEST['includes'])?$_REQUEST['includes']:null;
         customcontexts_customcontextsadmin_editincludes($context,$includes);
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
+        redirect_standard('extdisplay');
     break;
     case 'del':
+    case 'delete':
         customcontexts_customcontextsadmin_del($context);
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
+        $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
+        redirect_standard();
     break;
     }
 }
@@ -571,11 +586,11 @@ function customcontexts_customcontextsadmin_editincludes($context,$includes) {
 function customcontexts_customcontexts_configpageinit($dispnum) {
     global $currentcomponent;
     switch ($dispnum) {
-        case 'customcontexts':
-            $currentcomponent->addoptlistitem('includeyn', 'yes', dgettext('customcontexts','Allow'));
-            $currentcomponent->addoptlistitem('includeyn', 'no', dgettext('customcontexts','Deny'));
-            $currentcomponent->addoptlistitem('includeyn', 'allowmatch', dgettext('customcontexts','Allow Rules'));
-            $currentcomponent->addoptlistitem('includeyn', 'denymatch', dgettext('customcontexts','Deny Rules'));
+    case 'customcontexts':
+            $currentcomponent->addoptlistitem('includeyn', 'yes', _dgettext('customcontexts','Allow'));
+            $currentcomponent->addoptlistitem('includeyn', 'no', _dgettext('customcontexts','Deny'));
+            $currentcomponent->addoptlistitem('includeyn', 'allowmatch', _dgettext('customcontexts','Allow Rules'));
+            $currentcomponent->addoptlistitem('includeyn', 'denymatch', _dgettext('customcontexts','Deny Rules'));
             $timegroups = timeconditions_timegroups_list_groups();
             foreach ($timegroups as $val) {
                 $currentcomponent->addoptlistitem('includeyn', $val[0], $val[1]);
@@ -602,7 +617,7 @@ global $currentcomponent;
         customcontexts_setmodulevalue('displaysortforincludes', $showsort);
     }
     if ($action == 'del') {
-        $currentcomponent->addguielem('_top', new gui_pageheading('title', sprintf(_("Class %s deleted"),$extdisplay), false), 0);
+        $currentcomponent->addguielem('_top', new gui_pageheading('title', sprintf(__("Class %s deleted"),$extdisplay), false), 0);
     } else {
         //need to get page name/type dynamically
         //caused trouble on dup or del after dup or rename
@@ -610,12 +625,12 @@ global $currentcomponent;
         $query = 'type=setup&display=customcontexts&extdisplay='.$extdisplay;
         $delURL = $_SERVER['PHP_SELF'].'?'.$query.'&action=del';
         $dupURL = $_SERVER['PHP_SELF'].'?'.$query.'&action=dup';
-        $info = _('Class of service name. It will be available in your dialplan. These classes of service can be used as a context for a device/extension to allow them limited access to your dialplan.');
-//        $currentcomponent->addguielem('_bottom', new gui_link('ver', _(customcontexts_getmodulevalue('moduledisplayname')." v".customcontexts_getmodulevalue('moduleversion')), 'http://www.issabel.org/support/documentation/module-documentation/classofservice', true, false), 0);
+        $info = __('Class of service name. It will be available in your dialplan. These classes of service can be used as a context for a device/extension to allow them limited access to your dialplan.');
+//        $currentcomponent->addguielem('_bottom', new gui_link('ver', __(customcontexts_getmodulevalue('moduledisplayname')." v".customcontexts_getmodulevalue('moduleversion')), 'http://www.issabel.org/support/documentation/module-documentation/classofservice', true, false), 0);
         if (!$extdisplay) {
-            $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Add Class"), false), 0);
-            $currentcomponent->addguielem('Class', new gui_textbox('extdisplay', '', _('Class'), $info, 'isWhitespace() || !isFilename()', $contexterr, false), 3);
-            $currentcomponent->addguielem('Class', new gui_textbox('description', '', _('Description'), _('This will display as the name of this class of service.'), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
+            $currentcomponent->addguielem('_top', new gui_pageheading('title', __("Add Class"), false), 0);
+            $currentcomponent->addguielem('Class', new gui_textbox('extdisplay', '', __('Class'), $info, 'isWhitespace() || !isFilename()', $contexterr, false), 3);
+            $currentcomponent->addguielem('Class', new gui_textbox('description', '', __('Description'), __('This will display as the name of this class of service.'), '!isAlphanumeric() || isWhitespace()', $descerr, false), 3);
         }    else {
             $savedcontext = customcontexts_customcontexts_get($extdisplay);
             $context = $savedcontext[0];
@@ -626,12 +641,22 @@ global $currentcomponent;
             $failpin  = $savedcontext[5];
             $featurefailpin  = $savedcontext[6];
             $currentcomponent->addguielem('_top', new gui_hidden('extdisplay', $extdisplay));
-            $currentcomponent->addguielem('_top', new gui_pageheading('title', _("Edit Class").": $description", false), 0);
-            //$currentcomponent->addguielem('_top', new gui_link('del', _("Delete Class")." $context", $delURL, true, false), 0);
+            $currentcomponent->addguielem('_top', new gui_pageheading('title', __("Edit Class").": $description", false), 0);
+            //$currentcomponent->addguielem('_top', new gui_link('del', __("Delete Class")." $context", $delURL, true, false), 0);
 
-            $confirm_msg = sprintf(_('Are you sure you want to delete %s ?'),$context);
-            $currentcomponent->addguielem('_top', new guielement('del', '<tr><td colspan ="2"><a href="'.$delURL.'" onclick="return confirm(\''.$confirm_msg.'\')"> <span><img width="16" height="16" border="0" title="'._('Delete Class').' '.$context.'" alt="" src="images/core_delete.png"></span> '._('Delete Class').' '.$context.'</a></td></tr>', ''),3);
-            $currentcomponent->addguielem('_top', new gui_link('dup', '<span><img width="16" height="16" border="0" title="'._('Duplicate Class').' '.$context.'" alt="" src="images/core_add.png"></span> '._("Duplicate Class")." $context", $dupURL, true, false), 3);
+//            $confirm_msg = sprintf(__('Are you sure you want to delete %s ?'),$context);
+            //            $currentcomponent->addguielem('_top', new guielement('del', '<tr><td colspan ="2"><a href="'.$delURL.'" onclick="return confirm(\''.$confirm_msg.'\')"> <span><img width="16" height="16" border="0" title="'.__('Delete Class').' '.$context.'" alt="" src="images/core_delete.png"></span> '.__('Delete Class').' '.$context.'</a></td></tr>', ''),3);
+            //
+            //
+            //
+            //
+            $label="<span class='icon is-small is-left'><i class='fa fa-plus'></i></span>";
+            $label .='<span>'.__('Duplicate Class').'</span>';
+            //echo "<a href='".$trunk['url']."'><button class='button is-link is-light'>".$label."</button></a><br /><br />";
+
+
+            //$currentcomponent->addguielem('_top', new gui_link('dup', '<span><img width="16" height="16" border="0" title="'.__('Duplicate Class').' '.$description.'" alt="" src="images/core_add.png"></span> '.__("Duplicate Class")." $context", $dupURL, true, false), 3);
+            $currentcomponent->addguielem('_top', new gui_link('dup', $label, true, false), 3);
             $showsort = customcontexts_getmodulevalue('displaysortforincludes');
             if ($showsort == 1) {
             //$sortURL = $_SERVER['PHP_SELF'].'?'.$query.'&showsort=0';
@@ -640,17 +665,17 @@ global $currentcomponent;
                 $sortURL = $_SERVER['PHP_SELF'].'?'.$query.'&showsort=1';
                 $currentcomponent->addguielem('_top', new gui_link('showsort', "Show Sort Option", $sortURL, true, false), 0);
             }
-            $currentcomponent->addguielem('Class', new gui_textbox('newcontext', $extdisplay, _('Class'), $info, 'isWhitespace() || !isFilename()', $contexterr, false), 2);
-            $currentcomponent->addguielem('Class', new gui_textbox('description', $description, _('Description'), _('This will display as the name of this class of service.'), '', '', false), 2);
-            $ruledesc = _('If defined, you will have the option for each portion of the dialplan to Allow Rule, and that include will only be available if the number dialed matches these rules, or Deny Rule, and that include will only be available if the dialed number does NOT match these rules. You may use a pipe | to strip the preceeding digits.');
-            $ruleshtml = '<tr><td valign="top"><a href="#" class="info">'._('Dial Rules').'<span>'.$ruledesc.'</span></a></td><td><textarea style="width:100%; height: 3em;" id="dialpattern" name="dialpattern">'.$rulestext.'</textarea></td></tr>';
+            $currentcomponent->addguielem('Class', new gui_textbox('newcontext', $extdisplay, __('Class'), $info, 'isWhitespace() || !isFilename()', $contexterr, false), 2);
+            $currentcomponent->addguielem('Class', new gui_textbox('description', $description, __('Description'), __('This will display as the name of this class of service.'), '', '', false), 2);
+            $ruledesc = __('If defined, you will have the option for each portion of the dialplan to Allow Rule, and that include will only be available if the number dialed matches these rules, or Deny Rule, and that include will only be available if the dialed number does NOT match these rules. You may use a pipe | to strip the preceeding digits.');
+            $ruleshtml = '<tr><td valign="top"><a href="#" class="info">'.__('Dial Rules').'<span>'.$ruledesc.'</span></a></td><td><textarea style="width:100%; height: 3em;" id="dialpattern" name="dialpattern">'.$rulestext.'</textarea></td></tr>';
             $currentcomponent->addguielem('Class', new guielement('rulesbox',$ruleshtml,''), 3);
 
-            $currentcomponent->addguielem('Failover Destination', new gui_textbox('failpin', $failpin, 'PIN', _('Enter a numeric PIN to require authentication before continuing to destination.'), '!isPINList()', _('PIN must be numeric!'), true), 4);
-            $currentcomponent->addguielem('Feature Code Failover Destination', new gui_textbox('featurefailpin', $featurefailpin, 'PIN', _('Enter a numeric PIN to require authentication before continuing to destination.'), '!isPINList()', _('PIN must be numeric!'), true), 4);
-            $currentcomponent->addguielem('Failover Destination', new gui_drawselects('dest0', 0, $faildest, _('Failover Destination')));
-            $currentcomponent->addguielem('Feature Code Failover Destination', new gui_drawselects('dest1', 1, $featurefaildest, _('Failover Destination')));
-            $currentcomponent->addguielem('Set All', new gui_selectbox('setall', $currentcomponent->getoptlist('includeyn'), '', _('Set All To'), _('Choose allow to allow access to all includes, choose deny to deny access.'),true,'javascript:for (i=0;i<document.forms[\'frm_customcontexts\'].length;i++) {if(document.forms[\'frm_customcontexts\'][i].type==\'select-one\' && document.forms[\'frm_customcontexts\'][i].name.indexOf(\'[allow]\') >= 0 ) {document.forms[\'frm_customcontexts\'][i].selectedIndex = document.forms[\'frm_customcontexts\'][\'setall\'].selectedIndex-1;}};$(\'.componentSelect\').trigger(\'chosen:updated\');'),2);
+            $currentcomponent->addguielem('Failover Destination', new gui_textbox('failpin', $failpin, 'PIN', __('Enter a numeric PIN to require authentication before continuing to destination.'), '!isPINList()', __('PIN must be numeric!'), true), 4);
+            $currentcomponent->addguielem('Feature Code Failover Destination', new gui_textbox('featurefailpin', $featurefailpin, 'PIN', __('Enter a numeric PIN to require authentication before continuing to destination.'), '!isPINList()', __('PIN must be numeric!'), true), 4);
+            $currentcomponent->addguielem('Failover Destination', new gui_drawselects('dest0', 0, $faildest, __('Failover Destination')));
+            $currentcomponent->addguielem('Feature Code Failover Destination', new gui_drawselects('dest1', 1, $featurefaildest, __('Failover Destination')));
+            $currentcomponent->addguielem('Set All', new gui_selectbox('setall', $currentcomponent->getoptlist('includeyn'), '', __('Set All To'), __('Choose allow to allow access to all includes, choose deny to deny access.'),true,'javascript:for (i=0;i<document.forms[\'frm_customcontexts\'].length;i++) {if(document.forms[\'frm_customcontexts\'][i].type==\'select-one\' && document.forms[\'frm_customcontexts\'][i].name.indexOf(\'[allow]\') >= 0 ) {document.forms[\'frm_customcontexts\'][i].selectedIndex = document.forms[\'frm_customcontexts\'][\'setall\'].selectedIndex-1;}};$(\'.componentSelect\').trigger(\'chosen:updated\');'),2);
             $inclist = customcontexts_getincludes($extdisplay);
             foreach ($inclist as $val) {
                 if ($showsort == 1) {
@@ -658,27 +683,27 @@ global $currentcomponent;
                         //$currentcomponent->addguielem($val[1], new gui_selectbox('includes['.$val[2].'][allow]', $currentcomponent->getoptlist('includeyn'), $val[4], '<font color="red"><strong>'.$val[3].'</strong></font>', $val[2].': Choose allow to allow access to this include, choose deny to deny access.<BR><font color="red"><strong>NOTE: Allowing this include may automatically allow another ENTIRE context!</strong></font>',false));
                         $gui1 = new gui_selectbox('includes['.$val[2].'][allow]', 
                         $currentcomponent->getoptlist('includeyn'), $val[4], 
-                        '<font color="red"><strong>'._($val[3]).'</strong></font>', 
-                        $val[2]._(': Choose allow to allow access to this include, choose deny to deny access.').'<BR><font color="red"><strong>'._('NOTE: Allowing this include may automatically allow another ENTIRE context!').'</strong></font>',false);
+                        '<font color="red"><strong>'.__($val[3]).'</strong></font>', 
+                        $val[2].__(': Choose allow to allow access to this include, choose deny to deny access.').'<BR><font color="red"><strong>'.__('NOTE: Allowing this include may automatically allow another ENTIRE context!').'</strong></font>',false);
                     } else {
                         //$currentcomponent->addguielem($val[1], new gui_selectbox('includes['.$val[2].'][allow]', $currentcomponent->getoptlist('includeyn'), $val[4], $val[3], $val[2].': Choose allow to allow access to this include, choose deny to deny access.',false));
                         $gui1 = new gui_selectbox('includes['.$val[2].'][allow]', 
-                        $currentcomponent->getoptlist('includeyn'), $val[4], _($val[3]), 
-                        $val[2]._(': Choose allow to allow access to this include, choose deny to deny access.'),false);
+                        $currentcomponent->getoptlist('includeyn'), $val[4], __($val[3]), 
+                        $val[2].__(': Choose allow to allow access to this include, choose deny to deny access.'),false);
                     }
                     //$currentcomponent->addguielem($val[1], new gui_selectbox('includes['.$val[2].'][sort]', $currentcomponent->getoptlist('includesort'), $val[5], '<div align="right">Priority</div>', 'Choose a priority with which to sort this option. Lower numbers have a higher priority.',false));
-                    $guisort = new gui_selectbox('includes['.$val[2].'][sort]', $currentcomponent->getoptlist('includesort'), $val[5], '<div style="float:left; margin-left:10px;">'._('Priority').'</div>', _('Choose a priority with which to sort this option. Lower numbers have a higher priority.'),false);
-                    $inchtml = '<tr><td><table style="width:100%; padding: 5px;"><tr><td></td><td width="50"></td></tr>'.$gui1->generatehtml().'</table></td><td><table style="width:100%; padding: 5px;">'.$guisort->generatehtml().'</table></td></tr>';
+                    $guisort = new gui_selectbox('includes['.$val[2].'][sort]', $currentcomponent->getoptlist('includesort'), $val[5], '<div style="float:left; margin-left:10px;">'.__('Priority').'</div>', __('Choose a priority with which to sort this option. Lower numbers have a higher priority.'),false);
+                    $inchtml = '<tr><td><table class="table notfixed"><tr><td></td><td width="50"></td></tr>'.$gui1->generatehtml().'</table></td><td><table style="width:100%; padding: 5px;">'.$guisort->generatehtml().'</table></td></tr>';
                     $currentcomponent->addguielem($val[1], new guielement('$val[0]',$inchtml,''),3);
                 } else {
                     if ($val[6] > 0) {
                         $currentcomponent->addguielem($val[1], new gui_selectbox('includes['.$val[2].'][allow]', 
                         $currentcomponent->getoptlist('includeyn'), $val[4], 
-                        '<font color="red"><strong>'._($val[3]).'</strong></font>', $val[2].': Choose allow to allow access to this include, choose deny to deny access.<BR><font color="red"><strong>NOTE: Allowing this include may automatically allow another ENTIRE context!</strong></font>',false));
+                        '<font color="red"><strong>'.__($val[3]).'</strong></font>', $val[2].': Choose allow to allow access to this include, choose deny to deny access.<BR><font color="red"><strong>NOTE: Allowing this include may automatically allow another ENTIRE context!</strong></font>',false));
                     } else {
                         $currentcomponent->addguielem($val[1], new gui_selectbox('includes['.$val[2].'][allow]', 
                         $currentcomponent->getoptlist('includeyn'), $val[4], 
-                        _($val[3]), $val[2]._(': Choose allow to allow access to this include, choose deny to deny access.'),false));
+                        __($val[3]), $val[2].__(': Choose allow to allow access to this include, choose deny to deny access.'),false));
                     }
                 }
             }
@@ -689,20 +714,22 @@ global $currentcomponent;
 
 //handle custom contexts page submit button
 function customcontexts_customcontexts_configprocess() {
-    $action= isset($_REQUEST['action'])?$_REQUEST['action']:null;
-    $context= isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
-    $newcontext= isset($_REQUEST['newcontext'])?$_REQUEST['newcontext']:null;
-    $description= isset($_REQUEST['description'])?$_REQUEST['description']:null;
-    $dialrules= isset($_REQUEST['dialpattern'])?$_REQUEST['dialpattern']:null;
-    $faildest= isset($_REQUEST["goto0"])?isset($_REQUEST[$_REQUEST['goto0'].'0'])?$_REQUEST[$_REQUEST['goto0'].'0']:null:null;
-    $featurefaildest= isset($_REQUEST["goto1"])?isset($_REQUEST[$_REQUEST['goto1'].'1'])?$_REQUEST[$_REQUEST['goto1'].'1']:null:null;
-    $failpin= isset($_REQUEST['failpin'])?$_REQUEST['failpin']:null;
-    $featurefailpin= isset($_REQUEST['featurefailpin'])?$_REQUEST['featurefailpin']:null;
+    $action          = isset($_REQUEST['action'])         ? $_REQUEST['action']         : null;
+    $context         = isset($_REQUEST['extdisplay'])     ? $_REQUEST['extdisplay']     : null;
+    $newcontext      = isset($_REQUEST['newcontext'])     ? $_REQUEST['newcontext']     : null;
+    $description     = isset($_REQUEST['description'])    ? $_REQUEST['description']    : null;
+    $dialrules       = isset($_REQUEST['dialpattern'])    ? $_REQUEST['dialpattern']    : null;
+    $failpin         = isset($_REQUEST['failpin'])        ? $_REQUEST['failpin']        : null;
+    $featurefailpin  = isset($_REQUEST['featurefailpin']) ? $_REQUEST['featurefailpin'] : null;
+    $faildest        = isset($_REQUEST["goto0"])          ? isset($_REQUEST[$_REQUEST['goto0']])?$_REQUEST[$_REQUEST['goto0']]:null:null;
+    $featurefaildest = isset($_REQUEST["goto1"])          ? isset($_REQUEST[$_REQUEST['goto1']])?$_REQUEST[$_REQUEST['goto1']]:null:null;
 
-//addslashes    
     switch ($action) {
     case 'add':
         customcontexts_customcontexts_add($context,$description,$dialrules,$faildest,$featurefaildest,$failpin,$featurefailpin);
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been added'));
+        $_SESSION['msgtype']='success';
+        redirect_standard();
     break;
     case 'edit':
         if ($context <> $newcontext) {
@@ -711,10 +738,17 @@ function customcontexts_customcontexts_configprocess() {
         customcontexts_customcontexts_edit($context,$newcontext,$description,$dialrules,$faildest,$featurefaildest,$failpin,$featurefailpin);
         $includes = isset($_REQUEST['includes'])?$_REQUEST['includes']:null;
         customcontexts_customcontexts_editincludes($context,$includes,$newcontext);
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
+        redirect_standard('extdisplay');
     break;
     case 'del':
+    case 'delete':
         customcontexts_customcontexts_del($context);
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
+        $_SESSION['msgtype']='warning';
         $_REQUEST['extdisplay'] = null;
+        redirect_standard();
     break;
     case 'dup':
         $newcontext = customcontexts_customcontexts_duplicatecontext($context);
@@ -849,7 +883,7 @@ function customcontexts_timegroups_usage($group_id) {
     foreach ($results as $result) {
       $usage_arr[] = array(
         "url_query" => "display=customcontexts&extdisplay=".$result['context'],
-        "description" => sprintf(_("Class of Service: %s"),$result['context']),
+        "description" => sprintf(__("Class of Service: %s"),$result['context']),
       );
     }
     return $usage_arr;
@@ -878,7 +912,7 @@ function customcontexts_check_destinations($dest=true) {
       continue;
     }
         $thisid      = $result['context'];
-        $description = sprintf(_("Class of Service: %s (%s)"),$result['description'],$result['context']);
+        $description = sprintf(__("Class of Service: %s (%s)"),$result['description'],$result['context']);
         $thisurl     = 'config.php?display=customcontexts&extdisplay='.urlencode($thisid);
         if ($dest === true || $dest = $thisdest) {
             $destlist[] = array(

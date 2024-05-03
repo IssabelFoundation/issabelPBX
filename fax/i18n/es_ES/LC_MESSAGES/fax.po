@@ -1,51 +1,53 @@
-# IssabelPBX language template
-# Copyright 2013 Schmooze Com Inc
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
 #
 
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Fax Configuration"
 msgstr "Configuración de Fax"
 
 msgid "Settings"
-msgstr ""
+msgstr "Configuración"
 
 msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr ""
+msgstr "Agrega configuraciones, opciones y GUI para el envío de faxes entrantes"
 
-#, php-format
 msgid "Fax user %s"
-msgstr ""
+msgstr "Usuario de fax %s"
 
-#, php-format
 msgid "Inbound Fax Detection: %s (%s)"
-msgstr ""
+msgstr "Detección de fax entrante: %s (%s)"
 
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
-msgid ""
-"ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
-"generated.<br>This module requires Fax for Asterisk or spandsp based app_fax "
-"or app_rxfax to function."
-msgstr ""
+msgid "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk or spandsp based app_fax or app_rxfax to function."
+msgstr "ERROR: ¡No se detectaron módulos de FAX!<br>El plan de marcación relacionado con fax <b>NO</b> se generará.<br>Este módulo requiere Fax para Asterisk o app_fax o app_rxfax basados en spandsp para funcionar."
 
-msgid ""
-"ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
-"generated!<br>This module has detected that Fax for Asterisk is installed "
-"without a license.<br>At least one license is required (it is available for "
-"free) and must be installed."
-msgstr ""
+msgid "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed."
+msgstr "ERROR: No se detectó ninguna licencia de fax.<br>¡El plan de marcación relacionado con el fax <b>NO</b> se generará!<br>Este módulo ha detectado que Fax for Asterisk está instalado sin licencia.<br>Al menos se requiere una licencia (está disponible de forma gratuita) y debe instalarse."
 
 msgid "Enabled"
 msgstr "Habilitado"
@@ -54,12 +56,12 @@ msgid "Enable this user to receive faxes"
 msgstr "Habilita a este usuario a recibir faxes"
 
 msgid "Fax Email"
-msgstr ""
+msgstr "Correo electrónico de fax"
 
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr "Formato a convertir el fax recibido antes de enviarlo por correo electrónico."
-msgid ""
-"Enter an email address where faxes sent to this extension will be delivered."
+
+msgid "Enter an email address where faxes sent to this extension will be delivered."
 msgstr "Ingrese una dirección de correo donde se enviarán los faxes enviados a esta extensión"
 
 msgid "Please Enter a valid email address for fax delivery."
@@ -69,15 +71,13 @@ msgid "Fax Recipient"
 msgstr "Destinatario del Fax"
 
 msgid "Dahdi"
-msgstr ""
+msgstr "Dahdi"
 
 msgid "Zaptel"
-msgstr ""
+msgstr "Zaptel"
 
-msgid ""
-"\"You have selected Fax Detection on this route. Please select a valid "
-"destination to route calls detected as faxes to.\""
-msgstr ""
+msgid "\"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to.\""
+msgstr "\"Ha seleccionado Detección de fax en esta ruta. Seleccione un destino válido para enrutar las llamadas detectadas como faxes.\""
 
 msgid "Fax Detect"
 msgstr "Detectar Fax"
@@ -88,39 +88,20 @@ msgstr "Detectar Fax"
 msgid "Attempt to detect faxes on this DID."
 msgstr "Intentar detectar señar de fax en este DID."
 
-msgid ""
-"No: No attempts are made to auto-determine the call type; all calls sent to "
-"destination below. Use this option if this DID is used exclusively for voice "
-"OR fax."
-msgstr ""
-"No: No se intentará detectar el tipo de llamada; todas las llamadas "
-"se enviarán al destino especificado abajo. Use esta opción si el DID se usa "
-"exclusivamente para voz o para fax, pero no ambos."
+msgid "No: No attempts are made to auto-determine the call type; all calls sent to destination below. Use this option if this DID is used exclusively for voice OR fax."
+msgstr "No: No se intentará detectar el tipo de llamada; todas las llamadas se enviarán al destino especificado abajo. Use esta opción si el DID se usa exclusivamente para voz o para fax, pero no ambos."
 
-msgid ""
-"Yes: try to auto determine the type of call; route to the fax destination if "
-"call is a fax, otherwise send to regular destination. Use this option if you "
-"receive both voice and fax calls on this line"
-msgstr ""
-"Si: intentar detectar el tipo de llamada y enrutar la misma al destino de fax "
-"si se detecta como tal, de otro modo enviar al destino regular. Use esta opción "
-"para recibir llamadas de voz o fax en esta línea."
+msgid "Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line"
+msgstr "Si: intentar detectar el tipo de llamada y enrutar la misma al destino de fax si se detecta como tal, de otro modo enviar al destino regular. Use esta opción para recibir llamadas de voz o fax en esta línea."
 
-msgid ""
-"Legacy: Same as YES, only you can enter an email address as the destination. "
-"This option is ONLY for supporting migrated legacy fax routes. You should "
-"upgrade this route by choosing YES, and selecting a valid destination!"
-msgstr ""
-"Legado: lo mismo que SI, sólo que podrá ingresar una dirección de email como "
-"el destino. Esta opción su usa solamente para rutas de fax migradas heredadas. "
-"Debería actualizar esta ruta eligiendo SI y eligiendo un destino válido!"
+msgid "Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!"
+msgstr "Legado: lo mismo que SI, sólo que podrá ingresar una dirección de email como el destino. Esta opción su usa solamente para rutas de fax migradas heredadas. Debería actualizar esta ruta eligiendo SI y eligiendo un destino válido!"
 
-msgid ""
-"No fax detection methods found or no valid license. Faxing cannot be enabled."
+msgid "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr "No se han detectado métodos de detección de fax. No es posible habilitar fax."
 
 msgid "No"
-msgstr ""
+msgstr "No"
 
 msgid "Yes"
 msgstr "Si"
@@ -137,25 +118,20 @@ msgstr "Tipo de Detección de fax a utilizar."
 msgid "use "
 msgstr "usar "
 
-msgid ""
-" fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
+msgid " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr " detección de fax; requiere que 'faxdetect=' se configure como 'incoming' o 'both' en "
 
-msgid ""
-"Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
-"'faxdetect=yes' in the sip config files"
-msgstr "Sip: usar detección de fax SIP (t38). Requiere asterisk 1.6.2 o superior y faxdetect=yes en sip.conf"
+msgid "SIP: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files"
+msgstr "SIP: usar detección de fax SIP (t38). Requiere asterisk 1.6.2 o superior y faxdetect=yes en sip.conf"
 
-msgid ""
-"NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
-"and recognized by asterisk"
+msgid "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk"
 msgstr "NV Fax Detect: Utilizar detección de Fax NV. Requiere que el módulo NV esté instalado y funcionando"
 
 msgid "NVFax"
-msgstr ""
+msgstr "NVFax"
 
-msgid "Sip"
-msgstr ""
+msgid "SIP"
+msgstr "SIP"
 
 msgid "Fax Detection Time"
 msgstr "Duración de Detección de Fax"
@@ -163,25 +139,13 @@ msgstr "Duración de Detección de Fax"
 msgid "How long to wait and try to detect fax. Please note that callers to a "
 msgstr "Que tanto tiempo esperar intentando detectar fax. Tenga en cuenta que usuarios llamando a canales "
 
-msgid ""
-" channel will hear ringing for this amount of time (i.e. the system wont "
-"\"answer\" the call, it will just play ringing)"
-msgstr ""
-" escucharán timbrar la extensión por esta cantidad de tiempo (el sistema no atenderá la linea, solo proveerá tono de timbre)"
+msgid " channel will hear ringing for this amount of time (i.e. the system wont \"answer\" the call, it will just play ringing)"
+msgstr " escucharán timbrar la extensión por esta cantidad de tiempo (el sistema no atenderá la linea, solo proveerá tono de timbre)"
 
 msgid "Fax Email Destination"
 msgstr "Email de Destino del Fax"
 
-msgid ""
-"Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
-"version of IssabelPBX, you can now set the fax destination from a list of "
-"destinations. Extensions/Users can be fax enabled in the user/extension "
-"screen and set an email address there. This will create a new destination "
-"type that can be selected. To upgrade this option to the full destination "
-"list, select YES to Detect Faxes and select a destination. After clicking "
-"submit, this route will be upgraded. This Legacy option will no longer be "
-"available after the change, it is provided to handle legacy migrations from "
-"previous versions of IssabelPBX only."
+msgid "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this version of IssabelPBX, you can now set the fax destination from a list of destinations. Extensions/Users can be fax enabled in the user/extension screen and set an email address there. This will create a new destination type that can be selected. To upgrade this option to the full destination list, select YES to Detect Faxes and select a destination. After clicking submit, this route will be upgraded. This Legacy option will no longer be available after the change, it is provided to handle legacy migrations from previous versions of IssabelPBX only."
 msgstr "Dirección para enviar faxes por correo electrónico cuando se detecte un fax. <br /> TENGA EN CUENTA: En esta versión de IssabelPBX, ahora puede configurar el destino del fax a partir de una lista de destinos. Las extensiones / usuarios pueden habilitarse por fax en la pantalla de usuario / extensión y establecer una dirección de correo electrónico allí. Esto creará un nuevo tipo de destino que se puede seleccionar. Para actualizar esta opción a la lista de destinos completa, seleccione SI para Detectar faxes y seleccione un destino. Después de hacer clic en enviar, esta ruta se actualizará. Esta opción heredada ya no estará disponible después del cambio, se proporciona para manejar migraciones heredadas de versiones anteriores de IssabelPBX solamente."
 
 msgid "Fax Destination"
@@ -194,217 +158,181 @@ msgid "Dial System FAX"
 msgstr "Marcar Fax del Sistema"
 
 msgid "Migrating fax_incoming table..."
-msgstr ""
+msgstr "Migrando tabla fax_entrante..."
 
 msgid "WARINING: fax_incoming table may still be using the 2.6 schema!"
-msgstr ""
+msgstr "ADVERTENCIA: ¡la tabla fax_incoming puede estar todavía usando el esquema 2.6!"
 
 msgid "Successfully migrated fax_incoming table!"
-msgstr ""
+msgstr "¡Se migró con éxito la tabla fax_incoming!"
 
 msgid "Moving simu_fax feature code from core.."
-msgstr ""
+msgstr "Moviendo el código de función simu_fax desde el núcleo.."
 
 msgid "duplicate, removing old from core.."
-msgstr ""
+msgstr "duplicar, eliminando el antiguo del núcleo..."
 
 msgid "unknown error"
-msgstr ""
+msgstr "error desconocido"
 
 msgid "removed"
-msgstr ""
+msgstr "eliminado"
 
 msgid "done"
-msgstr ""
+msgstr "hecho"
 
 msgid "Updating simu_fax in miscdest table.."
-msgstr ""
+msgstr "Actualizando simu_fax en la tabla miscdest.."
 
 msgid "not needed"
-msgstr ""
+msgstr "no necesario"
 
 msgid "Checking if legacy fax needs migrating.."
-msgstr ""
+msgstr "Comprobando si es necesario migrar el fax heredado..."
 
 msgid "starting migration"
-msgstr ""
+msgstr "iniciando migración"
 
 msgid "migrating defaults.."
-msgstr ""
+msgstr "migrando valores predeterminados.."
 
 msgid "failed"
-msgstr ""
+msgstr "fallido"
 
 msgid "migrated"
-msgstr ""
+msgstr "migrado"
 
-#, php-format
 msgid "Removing field %s from incoming table.."
-msgstr ""
+msgstr "Eliminando el campo %s de la tabla entrante..."
 
 msgid "not present"
-msgstr ""
+msgstr "no presente"
 
 msgid "Removing old globals.."
-msgstr ""
+msgstr "Eliminando globales antiguos.."
 
 msgid "Checking for failed migrations.."
-msgstr ""
+msgstr "Comprobando migraciones fallidas..."
 
-msgid ""
-"The following Inbound Routes had FAX processing that failed migration "
-"because they were accessing a device with no associated user. They have been "
-"disabled and will need to be updated. Click delete icon on the right to "
-"remove this notice."
-msgstr ""
+msgid "The following Inbound Routes had FAX processing that failed migration because they were accessing a device with no associated user. They have been disabled and will need to be updated. Click delete icon on the right to remove this notice."
+msgstr "Las siguientes rutas entrantes tuvieron un procesamiento de FAX que falló en la migración porque estaban accediendo a un dispositivo sin un usuario asociado. Han sido deshabilitadas y deberán actualizarse. Haga clic en el icono de eliminación a la derecha para eliminar este aviso."
 
 msgid "blank"
-msgstr ""
+msgstr "en blanco"
 
-#, php-format
 msgid "%s FAX Migrations Failed"
-msgstr ""
+msgstr "Fallaron las migraciones de FAX de %s"
 
-#, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
-msgstr ""
+msgstr "Fallaron las migraciones de FAX de %s, verifique el panel de notificaciones para obtener más detalles"
 
 msgid "all migrations succeeded successfully"
-msgstr ""
+msgstr "todas las migraciones se realizaron con éxito"
 
 msgid "No Inbound Routes to migrate"
-msgstr ""
+msgstr "No hay rutas de entrada para migrar"
 
 msgid "already done"
-msgstr ""
+msgstr "ya hecho"
 
 msgid "Fax Options"
-msgstr ""
+msgstr "Opciones de fax"
 
 msgid "Fax Presentation Options"
-msgstr ""
+msgstr "Opciones de presentación de fax"
 
 msgid "Default Fax header"
-msgstr ""
+msgstr "Encabezado de fax predeterminado"
 
-msgid ""
-"Header information that is passed to remote side of the fax transmission and "
-"is printed on top of every page. This usually contains the name of the "
-"person or entity sending the fax."
-msgstr ""
+msgid "Header information that is passed to remote side of the fax transmission and is printed on top of every page. This usually contains the name of the person or entity sending the fax."
+msgstr "Información de encabezado que se pasa al lado remoto de la transmisión de fax y se imprime en la parte superior de cada página. Por lo general, contiene el nombre de la persona o entidad que envía el fax."
 
 msgid "Default Local Station Identifier"
-msgstr ""
+msgstr "Identificador de estación local predeterminado"
 
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
-msgstr ""
+msgstr "El identificador de la máquina de fax saliente. Este suele ser su número de fax."
 
-msgid "Outgoing Email address:"
-msgstr ""
+msgid "Outgoing Email address"
+msgstr "Dirección de correo electrónico saliente"
 
-msgid ""
-"Email address that faxes appear to come from if 'system default' has been "
-"chosen as the default fax extension."
-msgstr ""
+msgid "Email address that faxes appear to come from if 'system default' has been chosen as the default fax extension."
+msgstr "Dirección de correo electrónico de la que parecen provenir los faxes si se ha elegido 'predeterminado del sistema' como la extensión de fax predeterminada."
 
 msgid "Fax Feature Code Options"
-msgstr ""
+msgstr "Opciones de código de función de fax"
 
-msgid "Email address:"
-msgstr ""
+msgid "Email address"
+msgstr "Dirección de correo electrónico"
 
-msgid ""
-"Email address that faxes are sent to when using the \"Dial System Fax\" "
-"feature code. This is also the default email for fax detection in legacy "
-"mode, if there are routes still running in this mode that do not have email "
-"addresses specified."
-msgstr ""
+msgid "Email address that faxes are sent to when using the \"Dial System Fax\" feature code. This is also the default email for fax detection in legacy mode, if there are routes still running in this mode that do not have email addresses specified."
+msgstr "Dirección de correo electrónico a la que se envían los faxes cuando se usa el código de función \"Marcar fax del sistema\". Este también es el correo electrónico predeterminado para la detección de fax en el modo heredado, si todavía hay rutas en ejecución en este modo que no tienen direcciones de correo electrónico especificado."
 
 msgid "Fax Transport Options"
-msgstr ""
+msgstr "Opciones de transporte de fax"
 
 msgid "Error Correction Mode"
-msgstr ""
+msgstr "Modo de corrección de errores"
 
-msgid ""
-"Error Correction Mode (ECM) option is used to specify whether\n"
-"\t\t\t\t to use ecm mode or not."
-msgstr ""
+msgid "Error Correction Mode (ECM) option is used to specify whether to use ecm mode or not."
+msgstr "La opción Modo de corrección de errores (ECM) se usa para especificar si usar el modo ecm o no."
 
 msgid "Maximum transfer rate"
-msgstr ""
+msgstr "Tasa de transferencia máxima"
 
 msgid "Maximum transfer rate used during fax rate negotiation."
-msgstr ""
+msgstr "Velocidad de transferencia máxima utilizada durante la negociación de la tasa de fax."
 
 msgid "Minimum transfer rate"
-msgstr ""
+msgstr "Tasa de transferencia mínima"
 
 msgid "Minimum transfer rate used during fax rate negotiation."
-msgstr ""
+msgstr "Velocidad de transferencia mínima utilizada durante la negociación de la tasa de fax."
 
 msgid "Modem"
-msgstr ""
+msgstr "Módem"
 
 msgid "Modem Type."
-msgstr ""
+msgstr "Tipo de módem."
 
 msgid "Fax Receive Options"
-msgstr ""
+msgstr "Opciones de recepción de fax"
 
 msgid "Default fax instance:"
-msgstr ""
+msgstr "Instancia de fax predeterminada:"
 
-msgid ""
-"Select 'system default' to have the system act as a fax instance. You can "
-"then route faxes to this instance and avoid having to route faxes to an "
-"instance associated with a specific entity. This can be the system using "
-"Asterisk's internal capabilities or it can be an external extension, such as "
-"a physical fax machine"
-msgstr ""
+msgid "Select 'system default' to have the system act as a fax instance. You can then route faxes to this instance and avoid having to route faxes to an instance associated with a specific entity. This can be the system using Asterisk's internal capabilities or it can be an external extension, such as a physical fax machine"
+msgstr "Seleccione 'predeterminado del sistema' para que el sistema actúe como una instancia de fax. Luego puede enrutar faxes a esta instancia y evitar tener que enrutar faxes a una instancia asociada con una entidad específica. Este puede ser el sistema que usa las capacidades internas de Asterisk o puede ser una extensión externa, como una máquina de fax física"
 
 msgid "disabled"
-msgstr ""
+msgstr "deshabilitado"
 
 msgid "system default"
-msgstr ""
+msgstr "predeterminado del sistema"
 
-msgid "Default Recipient Email address:"
-msgstr ""
+msgid "Default Recipient Email address"
+msgstr "Dirección de correo electrónico del destinatario predeterminado"
 
-msgid ""
-"Email address used if 'system default' has been chosen as the default fax "
-"extension."
-msgstr ""
+msgid "Email address used if 'system default' has been chosen as the default fax extension."
+msgstr "Dirección de correo electrónico utilizada si se ha elegido 'predeterminado del sistema' como la extensión de fax predeterminada."
 
 msgid "Fax Module Options"
-msgstr ""
+msgstr "Opciones del módulo de fax"
 
 msgid "Always Allow Legacy Mode"
-msgstr ""
+msgstr "Permitir siempre el modo heredado"
 
-msgid ""
-"In earlier versions, it was possible to provide an email address with the "
-"incoming FAX detection to route faxes that were being handled by fax-to-"
-"email detection. This has been deprecated in favor of Extension/User FAX "
-"destinations where an email address can be provided. During migration, the "
-"old email address remains present for routes configured this way but goes "
-"away once 'properly' configured. This options forces the Legacy Mode to "
-"always be present as an option."
-msgstr ""
+msgid "In earlier versions, it was possible to provide an email address with the incoming FAX detection to route faxes that were being handled by fax-to-email detection. This has been deprecated in favor of Extension/User FAX destinations where an email address can be provided. During migration, the old email address remains present for routes configured this way but goes away once 'properly' configured. This options forces the Legacy Mode to always be present as an option."
+msgstr "En versiones anteriores, era posible proporcionar una dirección de correo electrónico con la detección de FAX entrante para enrutar los faxes que estaban siendo manejados por la detección de fax a correo electrónico. Esto ha quedado obsoleto a favor de los destinos de FAX de extensión/usuario donde una dirección de correo electrónico se puede proporcionar. Durante la migración, la dirección de correo electrónico anterior permanece presente para las rutas configuradas de esta manera, pero desaparece una vez que se configura 'correctamente'. Esta opción obliga al modo heredado a estar siempre presente como una opción."
 
 msgid "Always Generate Detection Code"
-msgstr ""
+msgstr "Generar siempre código de detección"
 
-msgid ""
-"When no fax modules are detected the module will not generate any detection "
-"dialplan by default. If the system is being used with phyical FAX devices, "
-"hylafax + iaxmodem, or other outside fax setups you can force the dialplan "
-"to be generated here."
-msgstr ""
+msgid "When no fax modules are detected the module will not generate any detection dialplan by default. If the system is being used with phyical FAX devices, hylafax + iaxmodem, or other outside fax setups you can force the dialplan to be generated here."
+msgstr "Cuando no se detectan módulos de fax, el módulo no generará ningún plan de marcación de detección de manera predeterminada. Si el sistema se está utilizando con dispositivos de FAX físicos, hylafax + iaxmodem u otras configuraciones de fax externas, puede forzar la generación del plan de marcación aquí."
 
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 msgid "Attachment Format"
 msgstr "Formato de Adjunto"

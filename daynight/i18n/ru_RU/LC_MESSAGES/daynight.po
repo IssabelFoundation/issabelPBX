@@ -13,9 +13,9 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2009 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2011.
 #
 # Использовать iconv daynight.pot -f UTF-8 -t ISO-8859-5 -o daynight.po
@@ -73,7 +73,7 @@ msgstr ""
 "предыдущей версии при обновлении системы), то никакого дополнительного "
 "действия для Правил по времени для выполнения той же задачи предпринимать не "
 "нужно. Установка опции во 'Включено' (true) возвращает такое поведение "
-"версии 2.8 к сценарию включения этой возможности в предыдущих версиях, "
+"весии 2.8 к сценарию включения этой возможности в предыдущих версиях, "
 "включая связанное с этим Правило  по времени. Это можно использовать двумя "
 "разными вариантами. По первому - подавлять включение Правила по времени, "
 "которое происходило бы по встроенному в Правила по времени сценарию "
@@ -181,7 +181,7 @@ msgid ""
 "BLF on) state."
 msgstr ""
 "Если выбрано, то это правило по времени будет связано с соответствующим "
-"сервисным кодом, переключающим состояние прохождения вызовов. Это означает, "
+"сервисным кодом, переключаюим состояние прохождения вызовов. Это означает, "
 "что если сервисный код переключения вызовов установлен в режим подавления "
 "(Red/BLF on), то по текущему правилу по времени вызов пойдёт на конечное "
 "назначение, если выбрана опция Форсировать конечное назначения правила по "
@@ -296,7 +296,7 @@ msgstr ""
 
 #: install.php:77
 msgid "changing primary keys to all fields.."
-msgstr "изменить основные значения для всех полей.."
+msgstr "изменить основные значения для всех поей.."
 
 #~ msgid "Inbound Call Control"
 #~ msgstr "Входящие соединения"

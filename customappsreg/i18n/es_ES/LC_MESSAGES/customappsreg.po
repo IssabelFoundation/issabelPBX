@@ -1,17 +1,29 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - customappsreg module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-01-21 11:44+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Custom Applications"
 msgstr "Destinos Personalizados"
@@ -168,7 +180,7 @@ msgid ""
 "create in the Misc Apps Module as those are not custom."
 msgstr ""
 "Las extensiones personalizadas le facilitan registrar cualquier extensión o "
-"código de característica que haya creado en un archivo personalizado, pero "
+"código de función que haya creado en un archivo personalizado, pero "
 "IssabelPBX desconoce de su existencia. Esto permite al Registro de extensiones "
 "ser consciente de que existe tal extensión y pueda detectar conflictos o "
 "informar de extensiones personalizadas a otros módulos para que puedan hacer "
@@ -188,7 +200,7 @@ msgid ""
 "This is the Extension or Feature Code you are using in your dialplan that "
 "you want the IssabelPBX Extension Registry to be aware of."
 msgstr ""
-"Esta es la extensión o código de característica  que se usará en el plan de "
+"Esta es la extensión o código de función que se usará en el plan de "
 "marcado que usará el registro de extensiones de IssabelPBX para poder usarla."
 
 msgid ""

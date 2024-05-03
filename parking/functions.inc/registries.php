@@ -19,18 +19,18 @@ function parking_check_extensions($exten=true) {
 		$parkpos2	= $parkpos1 + $lot['numslots'] - 1;
 
 		if (!is_array($exten) || in_array($parkext, $exten)) {
-			$extenlist[$parkext]['description'] = sprintf(_("ParkPlus: ParkCall %s"), $lot['name']);
-			$extenlist[$parkext]['status'] = _('INUSE');
-			$extenlist[$parkext]['edit_url'] = 'config.php?display=parking&id=' . $id;
+			$extenlist[$parkext]['description'] = sprintf(__("ParkPlus: ParkCall %s"), $lot['name']);
+			$extenlist[$parkext]['status'] = __('INUSE');
+			$extenlist[$parkext]['edit_url'] = 'config.php?display=parking&extdisplay=' . $id;
 		}
 
 		for($thisexten = $parkpos1; $thisexten <= $parkpos2; $thisexten++) {
 			if (is_array($exten) && !in_array($thisexten, $exten)) {
 				continue;
 			}
-			$extenlist[$thisexten]['description'] = sprintf(_("ParkPlus: PickupSlot %s"),$lot['name']);
-			$extenlist[$thisexten]['status'] = _('INUSE');
-			$extenlist[$thisexten]['edit_url'] = 'config.php?display=parking&id=' . $id;
+			$extenlist[$thisexten]['description'] = sprintf(__("ParkPlus: PickupSlot %s"),$lot['name']);
+			$extenlist[$thisexten]['status'] = __('INUSE');
+			$extenlist[$thisexten]['edit_url'] = 'config.php?display=parking&extdisplay=' . $id;
 		}
 	}
 	return $extenlist;
@@ -55,8 +55,8 @@ function parking_recordings_usage($recording_id) {
 	} else {
 		foreach ($results as $result) {
 			$usage_arr[] = array(
-				'url_query' => 'config.php?display=parking&id='.urlencode($result['id']),
-				'description' => sprintf(_("Parking Lot: %s (%s)"),$result['name'], $result['parkext']),
+				'url_query' => 'config.php?display=parking&extdisplay='.urlencode($result['id']),
+				'description' => sprintf(__("Parking Lot: %s (%s)"),$result['name'], $result['parkext']),
 			);
 		}
 		return $usage_arr;
@@ -91,8 +91,8 @@ function parking_check_destinations($dest=true) {
 		$thisid   = $result['id'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => sprintf(_("Parking Lot: %s (%s)"),$result['name'],$result['parkext']),
-			'edit_url' => 'config.php?display=parking&id='.urlencode($thisid),
+			'description' => sprintf(__("Parking Lot: %s (%s)"),$result['name'],$result['parkext']),
+			'edit_url' => 'config.php?display=parking&extdisplay='.urlencode($thisid),
 		);
 	}
 	return $destlist;

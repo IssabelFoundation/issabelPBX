@@ -271,7 +271,7 @@ msgstr "Enregistrements intégrés"
 msgid "Please enter a valid Name for this System Recording"
 msgstr "Veuillez entrer un Nom valide pour cet Enregistrement Système"
 
-msgid "Select System Recording:"
+msgid "Select System Recording"
 msgstr "Sélectionner Enregistrement Système :"
 
 msgid "Click here to play this recording"

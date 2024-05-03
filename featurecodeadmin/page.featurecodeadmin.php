@@ -19,8 +19,9 @@ switch ($action) {
 
 $featurecodes = featurecodes_getAllFeaturesDetailed();
 ?>
+<div class='content'>
 
-	<form autocomplete="off" name="frmAdmin" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return frmAdmin_onsubmit();">
+	<form autocomplete="off" id="mainform" name="frmAdmin" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return frmAdmin_onsubmit(this);">
 	<input type="hidden" name="display" value="<?php echo $dispnum?>">
 	<input type="hidden" name="action" value="save">
 
@@ -44,9 +45,9 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 				$conflict_url = framework_display_extension_usage_alert($usage_arr,false,false);
 			}
 			if (!empty($conflict_url)) {
-				$str = _("You have feature code conflicts with extension numbers in other modules. This will result in unexpected and broken behavior.");
+				$str = __("You have feature code conflicts with extension numbers in other modules. This will result in unexpected and broken behavior.");
 				echo "<script>javascript:alert('$str')</script>";
-      	echo "<h4>"._("Feature Code Conflicts with other Extensions")."</h4>";
+      	echo "<h4>".__("Feature Code Conflicts with other Extensions")."</h4>";
       	echo implode('<br .>',$conflict_url);
 
 				// Create hash of conflicting extensions
@@ -66,12 +67,12 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 				}
       }
 	?>
-	<table>
-	<tr><td colspan="4"><h3><?php echo _("Feature Code Admin"); ?><hr></h3></td></tr>
+	<table class='table is-borderless is-narrow notfixed'>
+	<tr><td colspan="4"><h3><?php echo __("Feature Code Admin"); ?></h3></td></tr>
 	<tr>
 		<td colspan="2">&nbsp;</td>
-		<td align="center"><b><?php echo _("Use"); ?><br><?php echo _("Default"); ?>?</b></td>
-		<td align="center"><b><?php echo _("Feature"); ?><br><?php echo _("Status"); ?></b></td>
+		<td align="center"><b><?php echo __("Use"); ?><br><?php echo __("Default"); ?>?</b></td>
+		<td align="center"><b><?php echo __("Feature"); ?><br><?php echo __("Status"); ?></b></td>
 	</tr>
 	<?php 
 	$currentmodule = "(none)";
@@ -80,13 +81,13 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 		$moduledesc = isset($item['moduledescription']) ? modgettext::_($item['moduledescription'], $item['modulename']) : null;
 		// just in case the translator put the translation in featurcodes module:
 		if (($moduledesc !== null) && ($moduledesc == $item['moduledescription'])) {
-			$moduledesc = _($moduledesc);
+			$moduledesc = __($moduledesc);
 		}
 
 		$featuredesc = modgettext::_($item['featuredescription'], $item['modulename']);
 		// just in case the translator put the translation in featurcodes module:
 		if ($featuredesc == $item['featuredescription']) {
-			$featuredesc = _($featuredesc);
+			$featuredesc = __($featuredesc);
 		}
 
 		$moduleena = ($item['moduleenabled'] == 1 ? true : false);
@@ -105,7 +106,7 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 					<h5>
 					<?php echo $currentmodule; ?>
 					<?php if ($moduleena == false) {?>
-					<i>(<?php echo _("Disabled"); ?>)</i>
+					<i>(<?php echo __("Disabled"); ?>)</i>
 					<?php } ?>
 					</h5>
 				</td>
@@ -131,30 +132,30 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 				<?php echo $strong.$featuredesc.$endstrong; ?>
 			</td>
 			<td>
-				<input type="text" name="custom#<?php echo $featureid; ?>" value="<?php echo $featurecodecustom; ?>" <?php echo $background; ?> size="4" tabindex="<?php echo ++$tabindex;?>">
+				<input type="text" name="custom#<?php echo $featureid; ?>" value="<?php echo $featurecodecustom; ?>" <?php echo $background; ?> class="input" tabindex="<?php echo ++$tabindex;?>">
 			</td>
 			<td align="center">
-				<input type="checkbox" onclick="usedefault_onclick(this);" name="usedefault_<?php echo $featureid; ?>"<?php if ($featurecodecustom == '') echo "checked"; ?>>
+                <div class="field"><input id="id<?php echo $featureid?>" type="checkbox" class="switch" onclick="usedefault_onclick(this);" name="usedefault_<?php echo $featureid; ?>"<?php if ($featurecodecustom == '') echo "checked"; ?>><label for="id<?php echo $featureid?>"></label></div>
 				<input type="hidden" name="default_<?php echo $featureid; ?>" value="<?php echo $featurecodedefault; ?>">
 				<input type="hidden" name="origcustom_<?php echo $featureid; ?>" value="<?php echo $featurecodecustom; ?>">
 			</td>
-			<td>
-				<select name="ena#<?php echo $featureid; ?>" class='componentSelect'>
-				<option <?php if ($featureena == true) echo ("selected "); ?>value="1"><?php echo _("Enabled"); ?></option>
-				<option <?php if ($featureena == false) echo ("selected "); ?>value="0"><?php echo _("Disabled"); ?></option>
-				</select>
+            <td>
+            <?php 
+            $curvalue = ($featureena == true)?1:0;       
+            echo ipbx_radio('ena#'.$featureid,array(array('value'=>'1','text'=>__('Enabled')),array('value'=>'0','text'=>__('Disabled'))),$curvalue,false);
+            ?>
 			</td>
 		</tr>	
 		<?php
 	}
+    echo form_action_bar($extdisplay,'',true,true); 
  ?>
-	<tr>
-		<td colspan="4"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>"></h6></td>		
-	</tr>
+	 <!--tr>
+		<td colspan="4"><br><h6><input name="Submit" type="submit" value="<?php echo __("Submit Changes")?>"></h6></td>		
+	</tr-->
 	</table>
 
-	<script language="javascript">
-	<!--
+	<script>
 	
 	var theForm = document.frmAdmin;
 	
@@ -183,10 +184,10 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 	}
 	
 	// form validation
-	function frmAdmin_onsubmit() {
-                var msgErrorMissingFC = "<?php echo addslashes(_("Please enter a Feature Code or check Use Default for all Enabled Feature Codes")); ?>";
-		var msgErrorDuplicateFC = "<?php echo _("Feature Codes have been duplicated"); ?>";
-		var msgErrorProceedOK = "<?php echo _("Are you sure you wish to proceed?"); ?>";
+	function frmAdmin_onsubmit(theForm) {
+        var msgErrorMissingFC = "<?php echo addslashes(__("Please enter a Feature Code or check Use Default for all Enabled Feature Codes")); ?>";
+		var msgErrorDuplicateFC = "<?php echo __("Feature Codes have been duplicated"); ?>";
+		var msgErrorProceedOK = "<?php echo __("Are you sure you wish to proceed?"); ?>";
 		
 		for (var i=0; i<theForm.elements.length; i++) {
 			var theFld = theForm.elements[i];
@@ -218,7 +219,6 @@ $featurecodes = featurecodes_getAllFeaturesDetailed();
 		}
 	}
 	
-	//-->
 	</script>
 	
 	</form>

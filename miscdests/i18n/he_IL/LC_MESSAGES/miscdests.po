@@ -67,14 +67,14 @@ msgid "Edit Misc Destination"
 msgstr "ערוך יעד כללי"
 
 #, fuzzy
-msgid "Description:"
+msgid "Description"
 msgstr "תיאור:"
 
 msgid "Give this Misc Destination a brief name to help you identify it."
 msgstr "תן ליעד כללי זה שם קצר שיעזור לך לזהות אותו."
 
 #, fuzzy
-msgid "Dial:"
+msgid "Dial"
 msgstr "חייג:"
 
 msgid ""

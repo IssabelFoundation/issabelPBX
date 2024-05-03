@@ -29,7 +29,7 @@ foreach ($get_vars as $k => $v) {
 }
 
 //set action to delete if delete was pressed instead of submit
-if ($var['submit'] == _('Delete') && $var['action'] == 'save') {
+if ($var['submit'] == __('Delete') && $var['action'] == 'save') {
 	$var['action'] = 'delete';
 }
 
@@ -46,9 +46,17 @@ switch ($var['action']) {
 		$var['maxsize'] = string2bytes($var['maxsize'], $var['maxtype']);
 		unset($var['maxtype']);
 		$var['id'] = backup_put_server($var);
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
+        //$_REQUEST['action']='edit';
+        //redirect_standard('id','action');
 		break;
 	case 'delete':
-		$var['id'] = backup_del_server($var['id']);
+        $var['id'] = backup_del_server($var['id']);
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been deleted'));
+        $_SESSION['msgtype']='warning';
+        $_SESSION['msgtstamp']=time();
 		break;
 }
 

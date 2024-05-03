@@ -30,7 +30,7 @@ class Findmefollow extends Modules{
 		}
 		$out = array(
 			array(
-				"title" => _('Find Me/Follow Me'),
+				"title" => __('Find Me/Follow Me'),
 				"content" => $this->load_view(__DIR__.'/views/settings.php',$displayvars),
 				"size" => 6
 			)

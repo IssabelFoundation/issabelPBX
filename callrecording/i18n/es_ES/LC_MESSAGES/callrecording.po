@@ -1,3 +1,30 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
 msgid ""
 "Call Recordings provide the ability to force a call to be recorded or not "
 "recorded based on a call flow and override all other recording settings. "
@@ -13,13 +40,13 @@ msgstr ""
 "todo sonido, música o anuncio previo a ser atendido."
 
 msgid "Add Call Recording"
-msgstr "Añadir Grabación"
+msgstr "Añadir grabación"
 
 msgid "Add Call Recording Instance"
-msgstr "Añadir Instancia de Grabación"
+msgstr "Añadir instancia de grabación"
 
 msgid "Edit Call Recording Instance"
-msgstr "Modificar Instancia de Grabación"
+msgstr "Modificar instancia de grabación"
 
 msgid "Destination"
 msgstr "Destino"
@@ -40,7 +67,7 @@ msgid "Never"
 msgstr "Nunca"
 
 msgid "Record on Answer"
-msgstr "Grabar al Atender"
+msgstr "Grabar al atender"
 
 msgid "Record Immediately"
 msgstr "Grabar inmediatamente"

@@ -1,24 +1,25 @@
 <?php /* $Id:$ */
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
-  /* Determines how many columns per row for the codecs and formats the table */
-  $cols_per_row   = 4;
-  $width          = (100.0 / $cols_per_row);
-  $tabindex       = 0;
-  $dispnum        = "sipsettings";
-  $error_displays = array();
-  $action                              = isset($_POST['action'])?$_POST['action']:'';
-  $pjsip_settings['nat']               = isset($_POST['nat']) ? $_POST['nat'] : 'yes';
-  $pjsip_settings['nat_mode']          = isset($_POST['nat_mode']) ? $_POST['nat_mode'] : 'externip';
-  $pjsip_settings['externip_val']      = isset($_POST['externip_val']) ? htmlspecialchars($_POST['externip_val']) : '';
-  $pjsip_settings['externhost_val']    = isset($_POST['externhost_val']) ? htmlspecialchars($_POST['externhost_val']) : '';
-  $pjsip_settings['externrefresh']     = isset($_POST['externrefresh']) ? htmlspecialchars($_POST['externrefresh']) : '120';
-  $pjsip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'no';
-  $pjsip_settings['ALLOW_SIP_ANON']    = isset($_POST['ALLOW_SIP_ANON']) ? $_POST['ALLOW_SIP_ANON'] : 'no';
+/* Determines how many columns per row for the codecs and formats the table */
+$cols_per_row   = 4;
+$width          = (100.0 / $cols_per_row);
+$tabindex       = 0;
+$dispnum        = "sipsettings";
+$error_displays = array();
+$action                              = isset($_POST['action'])?$_POST['action']:'';
+$pjsip_settings['nat']               = isset($_POST['nat']) ? $_POST['nat'] : 'yes';
+$pjsip_settings['nat_mode']          = isset($_POST['nat_mode']) ? $_POST['nat_mode'] : 'externip';
+$pjsip_settings['externip_val']      = isset($_POST['externip_val']) ? htmlspecialchars($_POST['externip_val']) : '';
+$pjsip_settings['externhost_val']    = isset($_POST['externhost_val']) ? htmlspecialchars($_POST['externhost_val']) : '';
+$pjsip_settings['externrefresh']     = isset($_POST['externrefresh']) ? htmlspecialchars($_POST['externrefresh']) : '120';
+$pjsip_settings['allowguest']        = isset($_POST['allowguest']) ? $_POST['allowguest'] : 'no';
+$pjsip_settings['ALLOW_SIP_ANON']    = isset($_POST['ALLOW_SIP_ANON']) ? $_POST['ALLOW_SIP_ANON'] : 'no';
+$pjsip_settings['method']            = isset($_POST['method']) ? htmlspecialchars($_POST['method']) : 'tlsv1_2';
 
-  $post_codec = isset($_POST['codec']) ? $_POST['codec'] : array(); 
+$post_codec = isset($_POST['codec']) ? $_POST['codec'] : array(); 
 
- $codecs = array(
+$codecs = array(
     'ulaw'     => '',
     'alaw'     => '',
     'slin'     => '',
@@ -52,20 +53,19 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
     'silk24'   => '',
     );
 
-  // With the new sorting, the vars should come to us in the sorted order so just use that
-  //
-  $pri = 1;
-  foreach (array_keys($post_codec) as $codec) {
+// With the new sorting, the vars should come to us in the sorted order so just use that
+//
+$pri = 1;
+foreach (array_keys($post_codec) as $codec) {
     $codecs[$codec] = $pri++;
-  }
-  $pjsip_settings['codecs']=$codecs;
+}
+$pjsip_settings['codecs']=$codecs;
 
-
-  // QaD fix for localization, xgettext does not pickup the localization string in the code
-  $add_field = _("Add Field");
-  $auto_configure = _("Auto Configure");
-  $add_local_network_field = _("Add Local Network Field");
-  $submit_changes = _("Submit Changes");
+// QaD fix for localization, xgettext does not pickup the localization string in the code
+$add_field = __("Add Field");
+$auto_configure = __("Auto Configure");
+$add_local_network_field = __("Add Local Network Field");
+$submit_changes = __("Submit Changes");
 
   $p_idx = 0;
   $n_idx = 0;
@@ -116,31 +116,36 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
     $p_idx++;
   }
 
+$error_displays=array();
 switch ($action) {
   case "edit":  //just delete and re-add
     if (($errors = pjsipsettings_edit($pjsip_settings)) !== true) {
-      $error_displays = process_errors($errors);
+        $error_displays = process_errors($errors);
     } else {
-      needreload();
-      //redirect_standard();
+        needreload();
+        $_SESSION['msg']=base64_encode(_dgettext('amp','Item has been saved'));
+        $_SESSION['msgtype']='success';
+        $_SESSION['msgtstamp']=time();
     }
   break;
   default:
     /* only get them if first time load, if they pressed submit, use values from POST */
     $pjsip_settings = pjsipsettings_get();
 }
-$error_displays=array();
+
 $engineinfo = engine_getinfo();
 $astver =  $engineinfo['version'];
 $ast_ge_11 = version_compare($astver, '11.99.99', 'le');
 if($ast_ge_11) {
-    $nopjsipsupport = array(array("js"=>"","div"=>_("<b>PJSIP does not work with Asterisk 11<br/><br/>REPEAT</br><br/>PJSIP does not work with Asterisk 11, you must upgrade Asterisk if you want to use PJSIP</b><br><br>")));
+    $nopjsipsupport = array(array("js"=>"","div"=>__("<b>PJSIP does not work with Asterisk 11<br/><br/>REPEAT</br><br/>PJSIP does not work with Asterisk 11, you must upgrade Asterisk if you want to use PJSIP</b><br><br>")));
     $error_displays = array_merge($error_displays,$nopjsipsupport);
 }
 $error_displays = array_merge($error_displays,pjsipsettings_check_custom_files());
 
 ?>
-  <h2><?php echo _("Edit PJSIP Settings"); ?></h2>
+<div class='content'>
+
+  <h2><?php echo __("PJSIP Settings"); ?></h2>
 
 <?php
 
@@ -155,18 +160,19 @@ $error_displays = array_merge($error_displays,pjsipsettings_check_custom_files()
   extract($pjsip_settings);
 
 ?>
-  <form autocomplete="off" name="editSip" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+  <form id="mainform" autocomplete="off" name="editSip" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
   <input type="hidden" name="action" value="edit">
-  <table width="690px">
+  <table class="table is-narrow is-borderless">
 
 <?php
   /* if there were erros on the submit then create error box */
+  /*
   if (!empty($error_displays)) {
 ?>
   <tr>
     <td colspan="2">
       <div class="sip-errors">
-        <p><?php echo _("ERRORS") ?></p>
+        <p><?php echo __("ERRORS") ?></p>
         <ul>
 <?php
     foreach ($error_displays as $div_disp) {
@@ -178,27 +184,28 @@ $error_displays = array_merge($error_displays,pjsipsettings_check_custom_files()
     </td>
   </tr>
 <?php
-  }
+  }*/
 ?>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("NAT Settings") ?></h5></td>
+    <td colspan="2"><h5><?php echo __("NAT Settings") ?></h5></td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("NAT")?><span><?php echo _("Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no = Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT mode or RFC3581 <br /> route = Assume NAT, don't send rport")?></span></a>
+      <a href="#" class="info"><?php echo __("NAT")?><span><?php echo __("Asterisk NAT setting:<br /> yes = Always ignore info and assume NAT<br /> no = Use NAT mode only according to RFC3581 <br /> never = Never attempt NAT mode or RFC3581 <br /> route = Assume NAT, don't send rport")?></span></a>
     </td>
     <td>
       <table width="100%">
         <tr>
           <td>
-			<span class="radioset">
+<?php echo ipbx_radio('nat',array(array('value'=>'yes','text'=>_dgettext('amp','Yes')),array('value'=>'no','text'=>_dgettext('amp','No'))),$nat,false); ?>
+			<!--span class="radioset">
             <input id="nat-yes" type="radio" name="nat" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat=="yes"?"checked=\"yes\"":""?>/>
             <label for="nat-yes">yes</label>
             <input id="nat-no" type="radio" name="nat" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat=="no"?"checked=\"no\"":""?>/>
             <label for="nat-no">no</label>
-			</span>
+			</span-->
           </td>
         </tr>
       </table>
@@ -207,20 +214,21 @@ $error_displays = array_merge($error_displays,pjsipsettings_check_custom_files()
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("IP Configuration")?><span><?php echo _("Indicate whether the box has a public IP or requires NAT settings. Automatic configuration of what is often put in sip_nat.conf")?></span></a>
+      <a href="#" class="info"><?php echo __("IP Configuration")?><span><?php echo __("Indicate whether the box has a public IP or requires NAT settings. Automatic configuration of what is often put in sip_nat.conf")?></span></a>
     </td>
     <td>
       <table width="100%">
         <tr>
           <td>
-			<span class="radioset">
+<?php echo ipbx_radio('nat_mode',array(array('value'=>'public','text'=>__("Public IP")),array('value'=>'externip','text'=>__("Static IP")),array('value'=>'externhost','text'=>__("Dynamic IP"))),$nat_mode,false); ?>
+			<!--span class="radioset">
             <input id="nat-none" type="radio" name="nat_mode" value="public" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat_mode=="public"?"checked=\"public\"":""?>/>
-            <label for="nat-none"><?php echo _("Public IP") ?></label>
+            <label for="nat-none"><?php echo __("Public IP") ?></label>
             <input id="externip" type="radio" name="nat_mode" value="externip" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat_mode=="externip"?"checked=\"externip\"":""?>/>
-            <label for="externip"><?php echo _("Static IP") ?></label>
+            <label for="externip"><?php echo __("Static IP") ?></label>
             <input id="externhost" type="radio" name="nat_mode" value="externhost" tabindex="<?php echo ++$tabindex;?>"<?php echo $nat_mode=="externhost"?"checked=\"externhost\"":""?>/>
-            <label for="externhost"><?php echo _("Dynamic IP") ?></label>
-			</span>
+            <label for="externhost"><?php echo __("Dynamic IP") ?></label>
+			</span-->
           </td>
         </tr>
       </table>
@@ -228,27 +236,27 @@ $error_displays = array_merge($error_displays,pjsipsettings_check_custom_files()
   </tr>
 
   <tr class="nat-settings externip">
-    <td><a href="#" class="info"><?php echo _("External IP")?><span><?php echo _("External Static IP or FQDN as seen on the WAN side of the router. (asterisk: externip)")?></span></a></td>
-    <td><input type="text" id="externip_val" name="externip_val" value="<?php echo $externip_val ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+    <td><a href="#" class="info"><?php echo __("External IP")?><span><?php echo __("External Static IP or FQDN as seen on the WAN side of the router. (asterisk: externip)")?></span></a></td>
+    <td><input type="text" id="externip_val" class="input" name="externip_val" value="<?php echo $externip_val ?>" tabindex="<?php echo ++$tabindex;?>"></td>
   </tr>
 
   <tr class="nat-settings externhost">
     <td>
-      <a href="#" class="info"><?php echo _("Dynamic Host")?><span><?php echo _("External FQDN as seen on the WAN side of the router and updated dynamically, e.g. mydomain.dyndns.com. (asterisk: externhost)")?></span></a>
+      <a href="#" class="info"><?php echo __("Dynamic Host")?><span><?php echo __("External FQDN as seen on the WAN side of the router and updated dynamically, e.g. mydomain.dyndns.com. (asterisk: externhost)")?></span></a>
     </td>
     <td>
-      <input type="text" id="externhost_val" name="externhost_val" size="30" value="<?php echo $externhost_val ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input type="text" id="externhost_val" name="externhost_val" class="input" value="<?php echo $externhost_val ?>" tabindex="<?php echo ++$tabindex;?>">
       <!--input type="text" id="externrefresh" name="externrefresh" size="3" class="validate-int" value="<?php echo $externrefresh ?>" tabindex="<?php echo ++$tabindex;?>">
-      <a href="#" class="info"><small><?php echo _("Refresh Rate")?><span><?php echo _("Asterisk: externrefresh. How often to lookup and refresh the External Host FQDN, in seconds.")?></span></small></a-->
+      <a href="#" class="info"><small><?php echo __("Refresh Rate")?><span><?php echo __("Asterisk: externrefresh. How often to lookup and refresh the External Host FQDN, in seconds.")?></span></small></a-->
     </td>
   </tr>
   <tr class="nat-settings">
     <td>
-      <a href="#" class="info"><?php echo _("Local Networks")?><span><?php echo _("Local network settings (Asterisk: localnet) in the form of ip/mask such as 192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use the Add Local Network Field button for more fields. Blank fields will be removed upon submitting.")?></span></a>
+      <a href="#" class="info"><?php echo __("Local Networks")?><span><?php echo __("Local network settings (Asterisk: localnet) in the form of ip/mask such as 192.168.1.0/255.255.255.0. For networks with more 1 lan subnets, use the Add Local Network Field button for more fields. Blank fields will be removed upon submitting.")?></span></a>
     </td>
     <td>
-      <input type="text" id="localnet_0" name="localnet_0" class="localnet validate=ip" value="<?php echo $localnet_0 ?>" tabindex="<?php echo ++$tabindex;?>"> /
-      <input type="text" id="netmask_0" name="netmask_0" class="netmask validate-netmask" value="<?php echo $netmask_0 ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input type="text" id="localnet_0" name="localnet_0" class="input localnet validate-ip" value="<?php echo $localnet_0 ?>" tabindex="<?php echo ++$tabindex;?>"> /
+      <input type="text" id="netmask_0" name="netmask_0" class="input netmask validate-netmask" value="<?php echo $netmask_0 ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
@@ -264,11 +272,11 @@ $error_displays = array_merge($error_displays,pjsipsettings_check_custom_files()
     <td>
     </td>
     <td>
-      <input type="text" id="localnet_$idx" name="localnet_$idx" class="localnet validate-ip" value="{$$var_localnet}" tabindex="$tabindex"> /
+      <input type="text" id="localnet_$idx" name="localnet_$idx" class="input localnet validate-ip" value="{$$var_localnet}" tabindex="$tabindex"> /
 END;
       $tabindex++;
       echo <<< END
-      <input type="text" id="netmask_$idx" name="netmask_$idx" class="netmask validate-netmask" value="{$$var_netmask}" tabindex="$tabindex">
+      <input type="text" id="netmask_$idx" name="netmask_$idx" class="input netmask validate-netmask" value="{$$var_netmask}" tabindex="$tabindex">
     </td>
   </tr>
 END;
@@ -282,125 +290,144 @@ END;
   <tr class="nat-settings" id="auto-configure-buttons">
     <td></td>
     <td><br \>
-      <input type="button" id="nat-auto-configure"  value="<?php echo $auto_configure ?>" class="nat-settings" />
-      <input type="button" id="localnet-add"  value="<?php echo $add_local_network_field ?>" class="nat-settings" />
+      <input type="button" id="nat-auto-configure"  value="<?php echo $auto_configure ?>" class="nat-settings button is-small is-rounded" type="button"/>
+      <input type="button" id="localnet-add"  value="<?php echo $add_local_network_field ?>" class="nat-settingsi button is-small is-rounded" type="button"/>
     </td>
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("TCP/UDP Transport") ?></h5></td>
+    <td colspan="2"><h5><?php echo __("TCP/UDP Transport") ?></h5></td>
   </tr>
 
 
 <?php
-$tt = _("Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is recommended to leave this blank.");
+$tt = __("Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is recommended to leave this blank.");
 ?>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Bind Address")?><span><?php echo $tt?></span></a>
+      <a href="#" class="info"><?php echo __("Bind Address")?><span><?php echo $tt?></span></a>
     </td>
     <td>
-      <input type="text" id="bindaddr" name="bindaddr" class="validate-ip" value="<?php echo $bindaddr ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input class="input" type="text" id="bindaddr" name="bindaddr" class="validate-ip" value="<?php echo $bindaddr ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Bind Port")?><span><?php echo _("Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. The SIP standard is 5060 and in most cases this is what you want. It is recommended to leave this blank.")?></span></a>
+      <a href="#" class="info"><?php echo __("Bind Port")?><span><?php echo __("Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and listen for SIP messages. The SIP standard is 5060 and in most cases this is what you want. It is recommended to leave this blank.")?></span></a>
     </td>
     <td>
-      <input type="text" id="bindport" name="bindport" class="validate-ip-port" value="<?php echo $bindport ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input class="input" type="text" id="bindport" name="bindport" class="validate-ip-port" value="<?php echo $bindport ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("TLS Transport") ?></h5></td>
+    <td colspan="2"><h5><?php echo __("TLS Transport") ?></h5></td>
   </tr>
 
 <?php
-$tt = _("Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is recommended to leave this blank.");
+$tt = __("Asterisk: bindaddr. The IP address to bind to and listen for calls on the Bind Port. If set to 0.0.0.0 Asterisk will listen on all addresses. It is recommended to leave this blank.");
 ?>
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Bind Address")?><span><?php echo $tt?></span></a>
+      <a href="#" class="info"><?php echo __("Bind Address")?><span><?php echo $tt?></span></a>
     </td>
     <td>
-      <input type="text" id="tlsbindaddr" name="tlsbindaddr" class="validate-ip" value="<?php echo $tlsbindaddr ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input class="input" type="text" id="tlsbindaddr" name="tlsbindaddr" class="validate-ip" value="<?php echo $tlsbindaddr ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Bind Port")?><span><?php echo _("Asterisk: bindport. Local incoming Port for TLS connections in PJSIP, must be different than regular UDP/TCP bind port")?></span></a>
+      <a href="#" class="info"><?php echo __("Bind Port")?><span><?php echo __("Asterisk: bindport. Local incoming Port for TLS connections in PJSIP, must be different than regular UDP/TCP bind port")?></span></a>
     </td>
     <td>
-      <input type="text" id="tlsbindport" name="tlsbindport" class="validate-ip-port" value="<?php echo $tlsbindport ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input class="input" type="text" id="tlsbindport" name="tlsbindport" class="validate-ip-port" value="<?php echo $tlsbindport ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Certificate")?><span><?php echo _("TLS Certificate file to use")?></span></a>
+      <a href="#" class="info"><?php echo __("Certificate")?><span><?php echo __("TLS Certificate file to use")?></span></a>
     </td>
     <td>
-      <input type="text" id="certfile" name="certfile" style="width:30em;" value="<?php echo $certfile ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input class="input" type="text" id="certfile" name="certfile" style="width:30em;" value="<?php echo $certfile ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Audio Codecs")?></h5></td>
+    <td>
+      <a href="#" class="info"><?php echo __("Method")?><span><?php echo __("Method of SSL transport")?></span></a>
+    </td>
+    <td>
+    <select name="method" class='componentSelect' tabindex="<?php echo ++$tabindex;?>">
+        <?php
+        $methods = array('tlsv1','tlsv1_1','tlsv1_2','tlsv1_3','sslv2','sslv3','sslv23');
+        foreach($methods as $curmethod) {
+          echo "<option value='{$curmethod}' ";
+          if($method == $curmethod) echo " selected ";
+          echo ">{$curmethod}</option>\n";
+        }
+        ?>
+      </select>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2"><h5><?php echo __("Audio Codecs")?></h5></td>
   </tr>
   <tr>
-    <td valign='top'><a href="#" class="info"><?php echo _("Codecs")?><span><?php echo _("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration. Drag to re-order.")?></span></a></td>
+    <td valign='top'><a href="#" class="info"><?php echo __("Codecs")?><span><?php echo __("Check the desired codecs, all others will be disabled unless explicitly enabled in a device or trunks configuration. Drag to re-order.")?></span></a></td>
     <td>
 <?php
   $seq = 1;
-echo '<ul class="sortable">';
+  echo '<ul class="sortable">';
   foreach ($codecs as $codec => $codec_state) {
-    $tabindex++;
-    $codec_trans = _($codec);
-    $codec_checked = $codec_state ? 'checked' : '';
-        echo '<li><a href="#">'
-                . '<img src="assets/'.$dispnum.'/images/arrow_up_down.png" height="16" width="16" border="0" alt="move" style="float:none; margin-left:-6px; margin-bottom:-3px;cursor:move" /> '
-                . '<input type="checkbox" '
-                . ($codec_checked ? 'value="'. $seq++ . '" ' : '')
-                . 'name="codec[' . $codec . ']" '
-                . 'id="'. $codec . '" '
-                . 'class="audio-codecs" tabindex="' . $tabindex. '" '
-                . $codec_checked
-                . ' />'
-                . '<label for="'. $codec . '"> '
-                . '<small>' . $codec_trans . '</small>'
-                . ' </label></a></li>';
+      $tabindex++;
+      $codec_trans = __($codec);
+      $codec_checked = $codec_state ? 'checked' : '';
+      echo '<li class="draggable"><a href="javascript:void(0)">'
+      . '<i class="fa fa-arrows-v mx-2"></i>'
+      . '<input type="checkbox" '
+      . ($codec_checked ? 'value="'. $seq++ . '" ' : '')
+      . 'name="codec[' . $codec . ']" '
+      . 'id="'. $codec . '" '
+      . 'class="audio-codecs" tabindex="' . $tabindex. '" '
+      . $codec_checked
+      . ' />'
+      . '<label for="'. $codec . '"> '
+      . '<small>' . $codec_trans . '</small>'
+      . ' </label></a></li>';
   }
-echo '</ul>';
+  echo '</ul>';
 ?>
 
     </td>
   </tr>
 
   <tr>
-    <td colspan="2"><h5><?php echo _("Advanced General Settings")?></h5></td>
+    <td colspan="2"><h5><?php echo __("Advanced General Settings")?></h5></td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Allow SIP Guests")?><span><?php echo _("Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span></a>
+      <a href="#" class="info"><?php echo __("Allow SIP Guests")?><span><?php echo __("Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span></a>
     </td>
     <td>
-      <table width="100%">
+<?php echo ipbx_radio('allowguest',array(array('value'=>'yes','text'=>__("Yes")),array('value'=>'no','text'=>__("No"))),$allowguest,false); ?>
+      <!--table width="100%">
         <tr>
           <td>
-                        <span class="radioset">
+                        <!--span class="radioset">
             <input id="allowguest-yes" type="radio" name="allowguest" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $allowguest=="yes"?"checked=\"yes\"":""?>/>
-            <label for="allowguest-yes"><?php echo _("Yes") ?></label>
+            <label for="allowguest-yes"><?php echo __("Yes") ?></label>
             <input id="allowguest-no" type="radio" name="allowguest" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $allowguest=="no"?"checked=\"no\"":""?>/>
-            <label for="allowguest-no"><?php echo _("No") ?></label>
-                        </span>
+            <label for="allowguest-no"><?php echo __("No") ?></label>
+                        </span-->
           </td>
         </tr>
-      </table>
+      </table-->
     </td>
   </tr>
 
@@ -408,49 +435,31 @@ echo '</ul>';
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Allow Anonymous Inbound SIP Calls")?><span><?php echo _("Allowing Inbound Anonymous SIP calls means that you will allow any call coming in form an un-known IP source to be directed to the 'from-pstn' side of your dialplan. This is where inbound calls come in. Although IssabelPBX severely restricts access to the internal dialplan, allowing Anonymous SIP calls does introduced additional security risks. If you allow SIP URI dialing to your PBX or use services like ENUM, you will be required to set this to Yes for Inbound traffic to work. This is NOT an Asterisk sip.conf setting, it is used in the dialplan in conjuction with the Default Context. If that context is changed above to something custom this setting may be rendered useless as well as if 'Allow SIP Guests' is set to no.")?></span></a>
+      <a href="#" class="info"><?php echo __("Allow Anonymous Inbound SIP Calls")?><span><?php echo __("Allowing Inbound Anonymous SIP calls means that you will allow any call coming in form an un-known IP source to be directed to the 'from-pstn' side of your dialplan. This is where inbound calls come in. Although IssabelPBX severely restricts access to the internal dialplan, allowing Anonymous SIP calls does introduced additional security risks. If you allow SIP URI dialing to your PBX or use services like ENUM, you will be required to set this to Yes for Inbound traffic to work. This is NOT an Asterisk sip.conf setting, it is used in the dialplan in conjuction with the Default Context. If that context is changed above to something custom this setting may be rendered useless as well as if 'Allow SIP Guests' is set to no.")?></span></a>
     </td>
     <td>
-      <table width="100%">
-        <tr>
-          <td>
-            <span class="radioset">
-            <input id="ALLOW_SIP_ANON-YES" type="radio" name="ALLOW_SIP_ANON" value="yes" tabindex="<?php echo ++$tabindex;?>"<?php echo $ALLOW_SIP_ANON=="yes"?"checked=\"yes\"":""?>/>
-            <label for="ALLOW_SIP_ANON-YES"><?php echo _("Yes") ?></label>
-            <input id="ALLOW_SIP_ANON-NO" type="radio" name="ALLOW_SIP_ANON" value="no" tabindex="<?php echo ++$tabindex;?>"<?php echo $ALLOW_SIP_ANON=="no"?"checked=\"no\"":""?>/>
-            <label for="ALLOW_SIP_ANON-NO"><?php echo _("No") ?></label>
-            </span>
-          </td>
-        </tr>
-      </table>
+<?php echo ipbx_radio('ALLOW_SIP_ANON',array(array('value'=>'yes','text'=>__("Yes")),array('value'=>'no','text'=>__("No"))),$ALLOW_SIP_ANON,false); ?>
     </td>
   </tr>
 
   <tr>
     <td>
-      <a href="#" class="info"><?php echo _("Language")?><span><?php echo _("Default Language for a channel, Asterisk: language")?></span></a>
+      <a href="#" class="info"><?php echo __("Language")?><span><?php echo __("Default Language for a channel, Asterisk: language")?></span></a>
     </td>
     <td>
-      <input type="text" id="sip_language" name="sip_language" class="validate-alphanumeric" value="<?php echo $sip_language ?>" tabindex="<?php echo ++$tabindex;?>">
+      <input class="input" type="text" id="sip_language" name="sip_language" class="validate-alphanumeric" value="<?php echo $sip_language ?>" tabindex="<?php echo ++$tabindex;?>">
     </td>
   </tr>
 
-
-
-  <tr><td colspan="2"><br /></td></tr>
-
-  <tr>
-    <td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo $submit_changes ?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
-  </tr>
 </table>
-<script language="javascript">
-<!--
-$(document).ready(function(){
+</form>
+<script>
+$(function(){
   /* On click ajax to pbx and determine external network and localnet settings */
   $.ajaxSetup({
     timeout:10000
   });
-  $("#nat-auto-configure").click(function(){
+  $("#nat-auto-configure").on('click',function(){
     $.ajax({
       type: 'POST',
       url: "<?php echo $_SERVER["PHP_SELF"]; ?>",
@@ -464,7 +473,7 @@ $(document).ready(function(){
           /*  Iterate through each localnet:netmask pair. Put them into any fields on the form
            *  until we have no more, than create new ones
 					 */
-          var fields = $(".localnet").size();
+          var fields = $(".localnet").length;
           var cnt = 0;
           $.each(data.localnet, function(loc,mask){
             if (cnt < fields) {
@@ -476,42 +485,42 @@ $(document).ready(function(){
             cnt++;
           });
         } else {
-          alert(data.status);
+          sweet_alert(data.status);
         }
       },
       error: function(data) {
-        alert("<?php echo _("An Error occurred trying fetch network configuration and external IP address")?>");
+        sweet_alert("<?php echo __("An Error occurred trying fetch network configuration and external IP address")?>");
       },
     });
     return false;
   });
 
   /* Add a Local Network / Mask textbox */
-  $("#localnet-add").click(function(){
+  $("#localnet-add").on('click',function(){
     addLocalnet("","");
   });
 
   /* Add a Custom Var / Val textbox */
-  $("#sip-custom-add").click(function(){
+  $("#sip-custom-add").on('click',function(){
     addCustomField("","");
   });
 
   /* Initialize Nat GUI and respond to radio button presses */
-  if (document.getElementById("externhost").checked) {
+  if (document.getElementById("nat_mode2").checked) {
     $(".externip").hide();
-  } else if (document.getElementById("externip").checked) {
+  } else if (document.getElementById("nat_mode1").checked) {
     $(".externhost").hide();
   } else {
     $(".nat-settings").hide();
   }
-  $("#nat-none").click(function(){
+  $("#nat_mode0").on('click',function(){
     $(".nat-settings").hide();
   });
-  $("#externip").click(function(){
+  $("#nat_mode1").on('click',function(){
     $(".nat-settings").show();
     $(".externhost").hide();
   });
-  $("#externhost").click(function(){
+  $("#nat_mode2").on('click',function(){
     $(".nat-settings").show();
     $(".externip").hide();
   });
@@ -530,7 +539,7 @@ var theForm = document.editSip;
 
 /* Insert a localnet/netmask pair of text boxes */
 function addLocalnet(localnet, netmask) {
-  var idx = $(".localnet").size();
+  var idx = $(".localnet").length;
   var idxp = idx - 1;
   var tabindex = parseInt($("#netmask_"+idxp).attr('tabindex')) + 1;
   var tabindexp = tabindex + 1;
@@ -540,8 +549,8 @@ function addLocalnet(localnet, netmask) {
     <td>\
     </td>\
     <td>\
-      <input type="text" id="localnet_'+idx+'" name="localnet_'+idx+'" class="localnet" value="'+localnet+'" tabindex="'+tabindex+'"> /\
-      <input type="text" id="netmask_'+idx+'" name="netmask_'+idx+'" class="netmask validate-netmask" value="'+netmask+'" tabindex="'+tabindexp+'">\
+      <input type="text" class="localnet input validate-ip" id="localnet_'+idx+'" name="localnet_'+idx+'" value="'+localnet+'" tabindex="'+tabindex+'"> /\
+      <input type="text" id="netmask_'+idx+'" name="netmask_'+idx+'" class="netmask validate-netmask input" value="'+netmask+'" tabindex="'+tabindexp+'">\
     </td>\
   </tr>\
   ');
@@ -549,7 +558,7 @@ function addLocalnet(localnet, netmask) {
 
 /* Insert a sip_setting/sip_value pair of text boxes */
 function addCustomField(key, val) {
-  var idx = $(".sip-custom").size();
+  var idx = $(".sip-custom").length;
   var idxp = idx - 1;
   var tabindex = parseInt($("#sip_custom_val_"+idxp).attr('tabindex')) + 1;
   var tabindexp = tabindex + 1;
@@ -565,9 +574,10 @@ function addCustomField(key, val) {
   </tr>\
   ');
 }
-//-->
+<?php echo js_display_confirmation_toasts(); ?>
 </script>
-</form>
+</div>
+<?php echo form_action_bar(''); ?>
 <?php		
 
 /********** UTILITY FUNCTIONS **********/
@@ -575,7 +585,7 @@ function addCustomField(key, val) {
 function process_errors($errors) {
   foreach($errors as $error) {
     $error_display[] = array(
-      'js' => "$('#".$error['id']."').addClass('validation-error');\n",
+      'js' => "$('#".$error['id']."').addClass('validation-error').trigger('focus');sweet_toast('error','".$error['message']."')\n",
       'div' => $error['message'],
     );
   }
@@ -596,11 +606,11 @@ function pjsipsettings_check_custom_files() {
         // If setting is an array, then it is a subsection
         //
         if (!is_array($item)) {
-          $msg =  sprintf(_("Settings in %s may override these. Those settings should be removed."),"<b>$file</b>");
+          $msg =  sprintf(__("Settings in %s may override these. Those settings should be removed."),"<b>$file</b>");
           $errors[] = array( 'js' => '', 'div' => $msg);
           break;
         } elseif ($main && is_array($item) && strtolower($section) == 'general' && !empty($item)) {
-          $msg =  sprintf(_("File %s should not have any settings in it. Those settings should be removed."),"<b>$file</b>");
+          $msg =  sprintf(__("File %s should not have any settings in it. Those settings should be removed."),"<b>$file</b>");
           $errors[] = array( 'js' => '', 'div' => $msg);
           break;
         }

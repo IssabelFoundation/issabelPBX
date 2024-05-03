@@ -27,7 +27,7 @@ function phonebook_list() {
 			// Quite ugly, I know... should recode it
 			array_multisort($names, SORT_ASC, SORT_STRING, $numbers);
 			foreach ($numbers as $key => $value) {
-				$retnumbers[' '.substr($key, 3).' '] = $value;
+				$retnumbers[substr($key, 3)] = $value;
 			}
 		}
 

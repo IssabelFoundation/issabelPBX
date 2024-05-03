@@ -16,7 +16,7 @@
 # IssabelPBX language template for fax
 # Copyright (C) 2008, 2009, 2010 Bandwith.com
 #
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2012 PostMet Corporation
 # Alexander Kozyrev <ceo@postmet.com>, Alexander Anikin <may@postmet.com>, 2006-2012.
 #
@@ -70,7 +70,7 @@ msgstr ""
 "ОШИБКА: Не обнаружено лицензии на ФАКС.<br>Диал-план для факса <b>НЕ</b> "
 "сгенерирован.<br>Модуль обнаружил проинсталлированую аппликацию Fax for "
 "Asterisk без лицензии.<br>По крайней мере одна лицензия должна быть "
-"установлена (одну можно получить бесплатно)."
+"установна (одну можно получить бесплатно)."
 
 msgid "Enabled"
 msgstr "Включено"
@@ -175,25 +175,25 @@ msgstr ""
 "'incoming' (входящие) или 'both' (оба направления) в "
 
 msgid ""
-"Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
+"SIP: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
 msgstr ""
-"Sip: использовать распознавание факса в канале Sip (t38). Требуется asterisk "
+"SIP: использовать распознавание факса в канале SIP (t38). Требуется asterisk "
 "1.6.2 или выше и опция 'faxdetect=yes' в sip конфигурационных файлах"
 
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
 msgstr ""
-"NV Fax Detect: Использовать метод детектировани NV Fax; требуется "
+"NV Fax Detect: Использовать метод детектрвани NV Fax; требуется "
 "инсталлировать NV Fax Detect дополнительно, чтобы он распознавался в "
 "Asterisk."
 
 msgid "NVFax"
 msgstr "NVFax"
 
-msgid "Sip"
-msgstr "Sip"
+msgid "SIP"
+msgstr "SIP"
 
 msgid "Fax Detection Time"
 msgstr "Время для детектирования факса"
@@ -221,7 +221,7 @@ msgstr ""
 "версии IssabelPBX можно указать назначение для факса из списка всех назначений. "
 "Для внутренних номеров/пользователей использование факса доступно в модуле "
 "Внутренние номера, где указывается адрес их эл. почты. Это создаёт новый тип "
-"назначения, который может быть указан в дальнейшем.Чтобы обновить эту опцию "
+"назначения, который может быть указан в дальнейем.Чтобы обновить эту опцию "
 "до полного списка назначений выберите ДА в разделе Детектировать факсы и "
 "укажите назначение. После подтверждения изменений в вэб интерфейсе этот "
 "маршрут будет обновлён. Эта устаревшая опция не будет больше доступна после "
@@ -269,7 +269,7 @@ msgid "not needed"
 msgstr "не требуется"
 
 msgid "Checking if legacy fax needs migrating.."
-msgstr "Проверяем необходимость миграции устаревших факс приложений.."
+msgstr "Проверяем необходимость миграции устаревших факс прилоени.."
 
 msgid "starting migration"
 msgstr "начинаем миграцию"
@@ -302,7 +302,7 @@ msgid ""
 "disabled and will need to be updated. Click delete icon on the right to "
 "remove this notice."
 msgstr ""
-"Следующие входящие маршруты имеют опции обработки факсов, при миграции "
+"Следующие входящие маршруты имеют опции обработки фксов, при миграции "
 "которых возникли трудности в результатет того, что нет ассоциации указаного "
 "устройства и соответствующего пользователя. Маршруты выключены и требуют "
 "корректировки. Кликните на иконку Удалить справа чтобы удалить это сообщение."
@@ -323,7 +323,7 @@ msgid "all migrations succeeded successfully"
 msgstr "все миграции прошли успешно"
 
 msgid "No Inbound Routes to migrate"
-msgstr "Нет входящих маршрутов для миграций"
+msgstr "Нет входящих аршрутов для миграций"
 
 msgid "already done"
 msgstr "уже готово"
@@ -347,12 +347,12 @@ msgstr ""
 "компании, передающий это факсимильное сообщение."
 
 msgid "Default Local Station Identifier"
-msgstr "Идентификатор местонахождения станции"
+msgstr "Идентификатор местонахождения санции"
 
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "Идентификатор факс аппарата. Обычно это просто тел. номер факса."
 
-msgid "Outgoing Email address:"
+msgid "Outgoing Email address"
 msgstr "Адрес исходящей эл. почты:"
 
 msgid ""
@@ -365,7 +365,7 @@ msgstr ""
 msgid "Fax Feature Code Options"
 msgstr "Опции отсылки факса"
 
-msgid "Email address:"
+msgid "Email address"
 msgstr "Адрес эл. почты:"
 
 msgid ""
@@ -425,7 +425,7 @@ msgstr ""
 "устарело для дальнейшего использования назначений в модуле Внутренние номера/"
 "Пользователи, где также указывается адрес эл. почты. В процессе миграции "
 "старые адреса остаются на маршрутах, уже сконфигурированных таким образом, "
-"но пропадут если не будет включена эта опция и потребуется их снова "
+"но пропадут если не будет ключна эта опция и потребуется их снова "
 "правильно сконфигурировать. Эта опция служит для поддержки старого режима в "
 "текущей реализации."
 
@@ -484,7 +484,7 @@ msgstr "Сохранить"
 #~ msgid "system default"
 #~ msgstr "системный (по умолчанию)"
 
-#~ msgid "Default Recipient Email address:"
+#~ msgid "Default Recipient Email address"
 #~ msgstr "Адрес эл. почты получателя по умолчанию:"
 
 #~ msgid ""

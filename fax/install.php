@@ -3,7 +3,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 //for translation only
 if (false) {
-_("Dial System FAX");
+__("Dial System FAX");
 }
 
 global $db;
@@ -44,7 +44,7 @@ foreach ($sql as $statement){
 $sql='describe fax_incoming';
 $fields=$db->getAssoc($sql);
 if(array_key_exists('faxdestination',$fields)){
-	out(_('Migrating fax_incoming table...'));
+	out(__('Migrating fax_incoming table...'));
 	$sql='alter table fax_incoming 
 				change faxdetection detection varchar(20) default NULL, 
 				change faxdetectionwait detectionwait varchar(5) default NULL,
@@ -54,9 +54,9 @@ if(array_key_exists('faxdestination',$fields)){
 				modify extension varchar(50)';
 	$q=$db->query($sql);
 	if(DB::IsError($q)){
-    out(_('WARNING: fax_incoming table may still be using the 2.6 schema!'));
+    out(__('WARNING: fax_incoming table may still be using the 2.6 schema!'));
   } else {
-    out(_('Successfully migrated fax_incoming table!'));
+    out(__('Successfully migrated fax_incoming table!'));
   }
 }
 unset($sql);
@@ -65,29 +65,29 @@ unset($sql);
    this migration is a bit "messy" but assures that any simu_fax settings or destinations being used in the dialplan
    will migrate silently and continue to work.
  */
-outn(_("Moving simu_fax feature code from core.."));
+outn(__("Moving simu_fax feature code from core.."));
 $check = $db->query("UPDATE featurecodes set modulename = 'fax' WHERE modulename = 'core' AND featurename = 'simu_fax'");
 if (DB::IsError($check)){
   if ($check->getCode() == DB_ERROR_ALREADY_EXISTS) {
-    outn(_("duplicate, removing old from core.."));
+    outn(__("duplicate, removing old from core.."));
     $check = $db->query("DELETE FROM featurecodes WHERE modulename = 'core' AND featurename = 'simu_fax'");
     if (DB::IsError($check)){
-      out(_("unknown error"));
+      out(__("unknown error"));
     } else {
-      out(_("removed"));
+      out(__("removed"));
     }
   } else {
-    out(_("unknown error"));
+    out(__("unknown error"));
   }
 } else {
-  out(_("done"));
+  out(__("done"));
 }
-outn(_("Updating simu_fax in miscdest table.."));
+outn(__("Updating simu_fax in miscdest table.."));
 $check = $db->query("UPDATE miscdests set destdial = '{fax:simu_fax}' WHERE destdial = '{core:simu_fax}'");
 if (DB::IsError($check)){
-  out(_("not needed"));
+  out(__("not needed"));
 } else {
-  out(_("done"));
+  out(__("done"));
 }
 $fcc = new featurecode('fax', 'simu_fax');
 $fcc->setDescription('Dial System FAX');
@@ -129,11 +129,11 @@ legacy_email:
   blank or value -> in legacy mode
 
 */
-outn(_("Checking if legacy fax needs migrating.."));
+outn(__("Checking if legacy fax needs migrating.."));
 $sql = "SELECT `extension`, `cidnum`, `faxexten`, `faxemail`, `wait`, `answer` FROM `incoming`";
 $legacy_settings = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 if(!DB::IsError($legacy_settings)) {
-	out(_("starting migration"));
+	out(__("starting migration"));
 
   // First step, need to get global settings and if not present use defaults
   //
@@ -159,14 +159,14 @@ if(!DB::IsError($legacy_settings)) {
   $global_migrate[] = array('sender_address',$sender_address);
   $global_migrate[] = array('fax_rx_email',$fax_rx_email);
 
-	outn(_("migrating defaults.."));
+	outn(__("migrating defaults.."));
 	$compiled = $db->prepare("REPLACE INTO `fax_details` (`key`, `value`) VALUES (?,?)");
 	$result = $db->executeMultiple($compiled,$global_migrate);
 	if(DB::IsError($result)) {
-    out(_("failed"));
+    out(__("failed"));
 		die_issabelpbx( "Fatal error during migration: " . $result->getMessage() .  "\n");
 	} else {
-    out(_("migrated"));
+    out(__("migrated"));
   }
 
 	$detection_type = array(0 => 'dahdi', 1 => 'dahdi', 2 => 'nvfax');
@@ -231,71 +231,71 @@ if(!DB::IsError($legacy_settings)) {
 		} else {
 			$migrate_array = array('faxexten', 'faxemail', 'wait', 'answer');
 			foreach ($migrate_array as $field) {
-				outn(sprintf(_("Removing field %s from incoming table.."),$field));
+				outn(sprintf(__("Removing field %s from incoming table.."),$field));
 				$sql = "ALTER TABLE `incoming` DROP `".$field."`";
 				$results = $db->query($sql);
 				if (DB::IsError($results)) { 
-					out(_("not present"));
+					out(__("not present"));
 				} else {
-					out(_("removed"));
+					out(__("removed"));
 				}
 			}
-			outn(_("Removing old globals.."));
+			outn(__("Removing old globals.."));
       $sql = "DELETE FROM globals WHERE variable IN ('FAX_RX', 'FAX_RX_EMAIL', 'FAX_RX_FROM')";
 
 			$results = $db->query($sql);
 			if (DB::IsError($results)) { 
-				out(_("failed"));
+				out(__("failed"));
 			} else {
-				out(_("removed"));
+				out(__("removed"));
 			}
 
 	    $failed_faxes = count($non_converts);
-      outn(_("Checking for failed migrations.."));
+      outn(__("Checking for failed migrations.."));
 	    if ($failed_faxes) {
         $notifications = notifications::create($db);
-		    $extext = _("The following Inbound Routes had FAX processing that failed migration because they were accessing a device with no associated user. They have been disabled and will need to be updated. Click delete icon on the right to remove this notice.")."<br />";
+		    $extext = __("The following Inbound Routes had FAX processing that failed migration because they were accessing a device with no associated user. They have been disabled and will need to be updated. Click delete icon on the right to remove this notice.")."<br />";
 		    foreach ($non_converts as $did) {
-          $didval = trim($did['extension']) == '' ? _("blank") : $did['extension'];
-          $cidval = trim($did['cidnum']) == '' ? _("blank") : $did['cidnum'];
+          $didval = trim($did['extension']) == '' ? __("blank") : $did['extension'];
+          $cidval = trim($did['cidnum']) == '' ? __("blank") : $did['cidnum'];
 			    $extext .= "DID: ".$didval." CIDNUM: ".$cidval." PREVIOUS DEVICE: ".$did['device']."<br />";
 		    }
-		    $notifications->add_error('fax', 'FAXMIGRATE', sprintf(_('%s FAX Migrations Failed'),$failed_faxes), $extext, '', true, true);
-        out(sprintf(_('%s FAX Migrations Failed, check notification panel for details'),$failed_faxes));
+		    $notifications->add_error('fax', 'FAXMIGRATE', sprintf(__('%s FAX Migrations Failed'),$failed_faxes), $extext, '', true, true);
+        out(sprintf(__('%s FAX Migrations Failed, check notification panel for details'),$failed_faxes));
 	    } else {
-        out(_("all migrations succeeded successfully"));
+        out(__("all migrations succeeded successfully"));
       }
 		}
   } else {
-	  out(_("No Inbound Routes to migrate"));
+	  out(__("No Inbound Routes to migrate"));
   }
 } else {
-	out(_("already done"));
+	out(__("already done"));
 }
 
 //migrate the faxemail field to allow emails longer than 50 characters
 $sql = 'describe fax_users';
 $fields = $db->getAssoc($sql);
 if (array_key_exists('faxemail',$fields) && $fields['faxemail'][0] == 'varchar(50)') {
-	out(_('Migrating faxemail field in the fax_users table to allow longer emails...'));
+	out(__('Migrating faxemail field in the fax_users table to allow longer emails...'));
 	$sql = 'ALTER TABLE fax_users CHANGE faxemail faxemail text default NULL';
 	$q = $db->query($sql);
 	if (DB::isError($q)) {
-		out(_('WARNING: Failed migration. Email length is limited to 50 characters.'));
+		out(__('WARNING: Failed migration. Email length is limited to 50 characters.'));
 	} else {
-		out(_('Successfully migrated faxemail field'));
+		out(__('Successfully migrated faxemail field'));
 	}
 }
 
 //add attachformat field...
 if (!array_key_exists('faxattachformat', $fields)){
-	out(_('Migrating fax_users table to add faxattachformat...'));
+	out(__('Migrating fax_users table to add faxattachformat...'));
 	$sql = 'ALTER TABLE fax_users ADD faxattachformat varchar(10) default NULL';
 	$q = $db->query($sql);
 	if (DB::IsError($q)) {
-		out(_('WARINING: fax_users table may still be using the old schema!'));
+		out(__('WARINING: fax_users table may still be using the old schema!'));
 	} else {
-		out(_('Successfully migrated fax_users table!'));
+		out(__('Successfully migrated fax_users table!'));
 	}
 }
 

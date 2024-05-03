@@ -1,11 +1,12 @@
 <?php
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
-outn(_('dropping directory_details, directory_entries..'));
-sql('DROP TABLE IF EXISTS directory_details, directory_entries');
-out(_('ok'));
+outn(__('dropping directory_details, directory_entries..'));
+sql('DROP TABLE directory_details');
+sql('DROP TABLE directory_entries');
+out(__('ok'));
 
-outn(_('deleting default_directory and migration tracking keys..'));
+outn(__('deleting default_directory and migration tracking keys..'));
 sql("DELETE FROM `admin` WHERE `variable` = 'default_directory'");
 sql("DELETE FROM `admin` WHERE `variable` = 'directory28_migrated'");
-out(_('ok'));
+out(__('ok'));
 ?>

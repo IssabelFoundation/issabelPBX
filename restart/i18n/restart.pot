@@ -28,7 +28,7 @@ msgid "Bulk Phone Restart"
 msgstr ""
 
 #: page.restart.php:40
-msgid "Device List:"
+msgid "Device List"
 msgstr ""
 
 #: install.php:13
@@ -49,7 +49,7 @@ msgid "Restart requests sent!"
 msgstr ""
 
 #: page.restart.php:58
-msgid "SELECT ALL"
+msgid "Select All"
 msgstr ""
 
 #: page.restart.php:40

@@ -1,12 +1,29 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-12 19:24-0400\n"
-"Language: \n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "%s must be a non-negative integer"
 msgstr "%s debe ser un entero positivo (no negativo)"
@@ -43,10 +60,6 @@ msgstr "bindaddr, port, webenabled, displayconnects, timestampevents agregados"
 msgid "already exists"
 msgstr "ya existe"
 
-#: ../page.managersettings.php:48
-msgid "Edit Asterisk Manager Settings"
-msgstr "Modificar Configuraciones de Asterisk Manager"
-
 #: ../page.managersettings.php:67
 msgid "ERRORS"
 msgstr "ERRORES"
@@ -76,7 +89,7 @@ msgstr "Si se habilita, toda conexión a AMI mostrará un mensaje en la consola 
 
 #: ../page.managersettings.php:128
 msgid "Timestamp Events"
-msgstr "Datar Eventos"
+msgstr "Fechar Eventos"
 
 #: ../page.managersettings.php:128
 msgid "Add a Unix epoch timestamp to events (not action responses)"
@@ -149,4 +162,10 @@ msgid "no"
 msgstr "no"
 
 msgid "Asterisk Manager Settings"
-msgstr "Configuraciones de Asterisk Manager"
+msgstr "Configuración Asterisk Manager"
+
+msgid "Configuration"
+msgstr "Configuración"
+
+msgid "Value"
+msgstr "Valor"

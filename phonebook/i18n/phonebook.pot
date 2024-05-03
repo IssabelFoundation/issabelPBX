@@ -83,7 +83,7 @@ msgid ""
 "received from network)"
 msgstr ""
 
-msgid "Speed dial code:"
+msgid "Speed dial code"
 msgstr ""
 
 msgid ""
@@ -103,7 +103,7 @@ msgstr ""
 msgid "Import from CSV"
 msgstr ""
 
-msgid "File:"
+msgid "File"
 msgstr ""
 
 msgid ""

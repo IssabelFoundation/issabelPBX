@@ -2,7 +2,7 @@
 	<rawname>accountcodepreserve</rawname>
 	<repo>extended</repo>
 	<name>Preserve Accountcode</name>
-	<version>2.11.0.0</version>
+	<version>2.12.0.0</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv2</license>
 	<type>setup</type>
@@ -10,12 +10,13 @@
 	<description>This module preservers the first callee&apos;s account code, that has an accountcode, that it encounters. This preserved accoutcode will be used to set the CDR(accountcode) for any outbound calls that result from any type of redirected call (CF, VmX, Follow-Me, etc.). The account code for each user is pulled out of their associated device settings, which means this is only supported in extension mode and would have to be updated for deviceanduser mode, requiring a new accountcode field to be defined for the user on the extension/user screen.
 	</description>
 	<changelog>
+        *2.12.0.0* Issabel 5 release
 		*2.11.0.0* Initial Issabel Foundation release
 		*2.5.0* Initial Release
 	</changelog>
 	<supported>
-		<version>2.10</version>
+		<version>2.12</version>
 	</supported>
-	<location>release/2.11/accountcodepreserve-2.5.0.tgz</location>
-	<md5sum>241a31778c20d685c2dff317505b2269</md5sum>
+	<location>release/2.12/accountcodepreserve-2.12.0.0.tgz</location>
+	<md5sum>0</md5sum>
 </module>

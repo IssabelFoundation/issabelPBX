@@ -1,17 +1,29 @@
-# IssabelPBX language template
-# Copyright 2013 Schmooze Com Inc
+# This file is part of IssabelPBX.
 #
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-18 14:32+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Pickup ParkedCall Any"
 msgstr "Capturar Cualquier Parqueo"
@@ -22,7 +34,6 @@ msgstr "Prefijo Parqueo"
 msgid "Pickup ParkedCall Prefix"
 msgstr "Prefijo Captura Llamada Aparcada"
 
-#, php-format
 msgid "creating table %s if needed"
 msgstr ""
 
@@ -38,25 +49,21 @@ msgstr ""
 msgid "migrating old parkinglot data"
 msgstr ""
 
-#, php-format
 msgid "%s no longer supported"
 msgstr ""
 
 msgid "migrated ... dropping old table parkinglot"
 msgstr ""
 
-#, php-format
 msgid "ParkPlus: ParkCall %s"
 msgstr ""
 
 msgid "INUSE"
 msgstr ""
 
-#, php-format
 msgid "ParkPlus: PickupSlot %s"
 msgstr ""
 
-#, php-format
 msgid "Parking Lot: %s (%s)"
 msgstr "Lote de Parqueo: %s (%s)"
 
@@ -72,7 +79,10 @@ msgid ""
 msgstr ""
 
 msgid "Parking"
-msgstr ""
+msgstr "Parqueo"
+
+msgid "Field can not be blank!"
+msgstr "El campo no puede quedar vacío!"
 
 msgid "Parking Lot Options"
 msgstr "Opciones del Lote de Parqueo"
@@ -357,3 +367,15 @@ msgstr ""
 
 msgid "Overview"
 msgstr ""
+
+msgid "Edit Parking Lot"
+msgstr "Modificar Lote de Parqueo"
+
+msgid "Add Parking Lot"
+msgstr "Añadir Lote de Parqueo"
+
+msgid "Default"
+msgstr "Por defecto"
+
+msgid "Park Hints"
+msgstr "Pistas de parqueo"

@@ -1,17 +1,29 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
 msgid ""
 msgstr ""
-"Project-Id-Version: IssabelPBX - módulo paging module spanish translation\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-01-21 16:10+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "Page Group: "
 msgstr "Grupo de Voceo:"
@@ -34,13 +46,13 @@ msgid ""
 msgstr ""
 
 msgid "Intercom prefix"
-msgstr "Prefijo Intercom"
+msgstr "Prefijo Intercomunicador"
 
 msgid "User Intercom Allow"
-msgstr "Permitir Intercom a Usuario"
+msgstr "Permitir Intercomunicador a Usuario"
 
 msgid "User Intercom Disallow"
-msgstr "iDenegar Intercom a Usuario"
+msgstr "Denegar Intercomunicador a Usuario"
 
 msgid "Disabled"
 msgstr ""
@@ -58,20 +70,20 @@ msgid ""
 "configured)."
 msgstr ""
 "Este módulo permite configurar grupos de voceo e intercomunicador para dispositivos "
-"que soporten dicha funcionalidad. Intercom se configura mediante <b>Códigos de Características</b/. "
-"Intercom debe ser habilitado en los dispositivos para que acepte llamadas entrantes. Es "
+"que soporten dicha funcionalidad. Intercomunicador se configura mediante <b>Códigos de función</b/. "
+"Intercomunicador debe ser habilitado en los dispositivos para que acepte llamadas entrantes. Es "
 "posible restringir llamadas de intercomunicación a extensiones específicas, o permitirlo para "
 "todas pero restringirlo en algunas en particular.<br /><br /> Este módulo "
 "funciona con teléfonos Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, SNOM y otros. "
 "Cualquier teléfono que pueda configurarse para atender automáticamente puede ser usado también, "
-"como ser la extensión de consola si se configura aprpiadamente."
+"como ser la extensión de consola si se configura apropiadamente."
 
 #, php-format
 msgid "Example  usage:"
 msgstr "Ejemplo de uso:"
 
 msgid "Intercom extension nnn"
-msgstr "Extensión de Intercom nnn"
+msgstr "Extensión de Intercomunicador nnn"
 
 msgid "Enable all extensions to intercom you (except those explicitly denied)"
 msgstr "Permitir a todas las extensiones a intercomunicarse con usted (excepto las denegadas  explícitamente)"
@@ -89,8 +101,8 @@ msgid ""
 "Intercom mode is currently disabled, it can be enabled in the Feature Codes "
 "Panel."
 msgstr ""
-"El modo Intercom está actualmente desactivado. Puedo habilitarlo desde el menú "
-"Códigos de Características."
+"El modo Intercomunicador está actualmente desactivado. Puedo habilitarlo desde el menú "
+"Códigos de función."
 
 #, php-format
 msgid "Delete Group %s"
@@ -220,10 +232,10 @@ msgid "Paging"
 msgstr "Voceo e Intercomunicador"
 
 msgid "Paging and Intercom settings"
-msgstr "Configuración de Voceo e Intercom"
+msgstr "Configuración de Voceo e Intercomunicador"
 
 msgid "Auto-answer defaults"
-msgstr "Auto-atender por omisión"
+msgstr "Auto-atender de forma predeterminada"
 
 msgid "Announcement"
 msgstr "Anuncio"
@@ -290,3 +302,15 @@ msgstr "Forzar"
 
 msgid "Delete"
 msgstr "Eliminar"
+
+msgid "Example usage"
+msgstr "Ejemplo de uso"
+
+msgid "Invalid description specified"
+msgstr "La descripción especificada no es válida"
+
+msgid "Invalid extension specified"
+msgstr "La extensión especificada no es válida"
+
+msgid "Paging and Intercom Users"
+msgstr "Usuarios de Intercom y Voceo"

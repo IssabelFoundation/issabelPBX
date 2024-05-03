@@ -115,7 +115,7 @@ msgstr "Varning! Anknytning"
 msgid "is not allowed for your account"
 msgstr "är inte tillåtet för din anknytning"
 
-msgid "Choose a user/extension"
+msgid "Choose a user/extension from the navigation menu"
 msgstr "Välj en användare/anknytning"
 
 msgid "deleted"
@@ -250,7 +250,7 @@ msgid ""
 "strategies, this is the time for each iteration of phone(s) that are rung"
 msgstr ""
 "Tid i sekunder som telefonen kommer att ringa. För alla hunt-strategier är "
-"detta tiden för varje runda av telefoner som rings"
+"detta tiden fr varje runda av telefoner som rings"
 
 msgid "Follow-Me List"
 msgstr "Följ-mig lista"

@@ -1,54 +1,57 @@
-$(document).ready(function(){
+$(function(){
+
 	$.jstree._themes = 'modules/backup/assets/js/views/themes/';
-	
-	//backup picker
-	$('#list_tree').jstree({
-		'plugins': ['themes', 'json_data', 'ui', 'types'],
-		'themes': {
-			'theme': 'default',
-			'dots': false,
-			'icons': true
-		},
-		'json_data': { 
-			'ajax': {
-				'url': window.href,
-				'data': function (n) { 
-					return { 
-						'action': 'list_dir', 
-						'path': $(n).data('path')
-					}; 
-				}
-			}
-		},
-		'types': { 
-			'types': { 
-				'default': { 
-					'select_node': function(e) {
-						var info = e.data('manifest');
-						if (info && typeof info == 'object') {
-							$('#picker_name').text(info.name);
-							$('#picker_ctime').text(new Date(info.ctime * 1000).toString());
-							$('#picker_nfiles').text(info.file_count);
-							$('#picker_nmdb').text(info.mysql_count);
-							$('#picker_nadb').text(info.astdb_count);
-							$('#list_data').show();
-						} else {
-							$('#list_data').hide();
-							this.toggle_node(e);
-						}
-					} 
-				},	
-			} 
-		},
-	});
+
+    original_templates_items_over = $('#items_over').html();
+
+    //backup picker
+    $('#list_tree').jstree({
+        'plugins': ['themes', 'json_data', 'ui', 'types'],
+        'themes': {
+            'theme': 'default',
+            'dots': false,
+            'icons': true
+        },
+        'json_data': {
+            'ajax': {
+                'url': window.href,
+                'data': function (n) {
+                    return {
+                        'action': 'list_dir',
+                        'path': $(n).data('path')
+                    };
+                }
+            }
+        },
+        'types': {
+            'types': {
+                'default': {
+                    'select_node': function(e) {
+                        var info = e.data('manifest');
+                        if (info && typeof info == 'object') {
+                            $('#picker_name').text(info.name);
+                            $('#picker_ctime').text(new Date(info.ctime * 1000).toString());
+                            $('#picker_nfiles').text(info.file_count);
+                            $('#picker_nmdb').text(info.mysql_count);
+                            $('#picker_nadb').text(info.astdb_count);
+                            $('#list_data').show();
+                        } else {
+                            $('#list_data').hide();
+                            this.toggle_node(e);
+                        }
+                    }
+                },
+            }
+        },
+    });
 	
 	//set path before clicking submit
-	$('#restore_browes_frm').submit(function(){
+	$('#restore_browes_frm').on('submit',function(){
 		file = $('#list_tree').jstree('get_selected');
 		if (file && file.hasClass('jstree-leaf')) {
 			$('input[name=restore_path]').val(file.data('path'));
 		} else {
-			alert('Please select a file!');
+			sweet_alert(ipbx.msg.framework.selectfile);
 			return false;
 		}
 	});
@@ -79,11 +82,12 @@ $(document).ready(function(){
 	}
 	
 	//include items to restore
-	$('#files_browes_frm').submit(function(){
+	$('#files_browes_frm').on('submit',function(){
 		prepare_post();
 		return false;
 	});
 
+    /*
 	//restore templates
 	$('#templates > li').draggable({
 		revert: true,
@@ -110,37 +114,64 @@ $(document).ready(function(){
 			current_items_over_helper('show');
 		}
 	});
+*/
+
+    if($('#templates').length > 0) {
+
+    Sortable.create( $('#templates')[0], {
+        group: { name: 'templates', put: false, pull: 'clone', onEnd: function(evt) { console.log(evt); return false; } },
+        sort: false,
+        animation: 100
+    });
+
+    Sortable.create( $('#items_over')[0], {
+        group: { name: 'itemsover', put: ['templates'], pull: false },
+        onAdd: function(evt) {
+            var data = JSON.parse(decodeURIComponent($(evt.item).data('template')));
+			for (var i in data) {
+				//console.log(data[i].type, data[i].path);
+				if (data[i].type == 'dir' || data[i].type == 'file') {
+					new check_node()($("#backup_files"), data[i].path);
+				}
+			}
+            //add_template(data);
+            $('#items_over').html(original_templates_items_over);
+        },
+        sort: false,
+        animation: 100
+    });
+    }
+
+
+
+
+
 
 	//restore
-	$('#run_restore').click(function(){
+	$('#run_restore').on('click',function(){
+
 		if (!window.EventSource) {
 			//this should allow the form to be submited as a post, only without proper
 			//visual status updates
 			var msg = 'For real-time status of the restore prosses, it is '
-					+ 'recommend that use a moder browser. Would you like '
+					+ 'recommend that use a modern browser. Would you like '
 					+ 'to continue anyway?';
 					
 			return confirm(msg);
 		}
-		
-		 box = $('<div></div>')
-			.html('<div class="restore_status"></div>'
-				+ '<progress style="width: 100%">'
-				+ 'Please wait...'
-				+ '</progress>')
-			.dialog({
-				title: 'Run restore',
-				resizable: false,
-				modal: true,
-				position: ['center', 50],
-				width: 500,
-				close: function (e) {
-					$(e.target).dialog("destroy").remove();
-				}
-			});
-		
+	
+        Swal.fire({
+            html: '<div class="box"><div class="restore_status"></div><progress style="width: 100%">'+ipbx.msg.framework.pleasewait+'</progres></div>',
+            title: ipbx.msg.framework.restorestart,
+            focusConfirm: false,
+            showConfirmButton: true,
+            showCancelButton: false,
+            heightAuto: false,
+            customClass: {'popup':'swal-popover','actions':'popover_actions'},
+        });
+
 		//first, save the backup
-		//backup_log($('.restore_status'), 'Intializing Backup...<br>');
+		//backup_log($('.restore_status'), 'Initializing Backup...<br>');
 		
 		//post data to server, as eventsource is a get request
 		//change action to restore_post
@@ -159,7 +190,7 @@ $(document).ready(function(){
 			url: $('#files_browes_frm').attr('action'),
 			data: data,
 			success: function() {
-				backup_log($('.restore_status'), 'Intialized!!' + '<br>');
+				backup_log($('.restore_status'), ipbx.msg.framework.initialized + '<br>');
 				restore_stage2();
 			},
 			error: function() {
@@ -172,6 +203,10 @@ $(document).ready(function(){
 		});
 	});	
 });
+
+function isFunction(func){
+    return typeof func === "function";
+}
 
 //
 function check_node() {

@@ -1,0 +1,98 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Dynamic Features"
+msgstr "Funcionalidades dinámicas"
+
+msgid "Add Dynamic Feature"
+msgstr "Adicione funcionalidade dinâmica"
+
+msgid "Edit Dynamic Feature"
+msgstr "Modificar funcionalidade dinâmica"
+
+msgid "Edit: "
+msgstr "Modificar:"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid ""
+"Dynamic Features allow you to define custom feature codes  mapped to "
+"Asterisk applications. In this way you can trigger some action over an "
+"active call by dialing the configured feature code"
+msgstr ""
+"Os recursos dinâmicos permitem definir um código personalizado para executar "
+"um aplicativo durante uma chamada ativa."
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "DTMF"
+msgstr "DTMF"
+
+msgid "Activate On"
+msgstr "Ativar"
+
+msgid "Application"
+msgstr "Aplicativo"
+
+msgid "Arguments"
+msgstr "Argumentos"
+
+msgid "Music on Hold"
+msgstr "Música em espera"
+
+msgid "Submit Changes"
+msgstr "Enviar alterações"
+
+msgid ""
+"The descriptive name of this dynamic feature. For example \"playback_rules\""
+msgstr ""
+"Nome amigável para esta funcionalidade dinâmica. Por exemplo: "
+"\"playback_rules\""
+
+msgid "The DTMF sequence to trigger this dynamic feature"
+msgstr "Sequência DTMF para acionar funcionalidade dinâmica"
+
+msgid ""
+"On what leg to execute the application, could be set to 'self' or 'peer'"
+msgstr ""
+"Em qual trecho da chamada para executar a aplicação, pode ser ‘self’ ou "
+"‘peer’"
+
+msgid "The application to run"
+msgstr "O aplicativo a ser executado"
+
+msgid "Arguments to pass to the application"
+msgstr "Argumentos para passar para a aplicação"
+
+msgid "Music on Hold class to play to other leg while application is being run"
+msgstr ""
+"Aula de música esperando para tocar enquanto o aplicativo está em execução"
+
+msgid "none"
+msgstr "nenhum"

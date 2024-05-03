@@ -1,6 +1,6 @@
-# Russian freePBX ver. translation
+# Russian IssabelPBX ver. translation
 # Copyright (c) 2006-2011 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
+# This file is distributed under the same license as the IssabelPBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2011.
 #
 # Использовать iconv ringgroups.pot -f UTF-8 -t ISO-8859-5 -o ringgroups.po
@@ -32,7 +32,7 @@ msgid "is already in use"
 msgstr "уже используется"
 
 msgid "INUSE"
-msgstr "ИСПОЛБЗУЕТСЯ"
+msgstr "ИПОЛБЗУЕТСЯ"
 
 #, php-format
 msgid "Ring Group: %s (%s)"
@@ -76,7 +76,7 @@ msgstr "перенос annmsg в ИД.."
 
 #, php-format
 msgid "migrated %s entries"
-msgstr "перенос %s записей"
+msgstr "перенс %s записей"
 
 msgid "migrate remotealert to  ids.."
 msgstr "перенос remotealert в ИД.."
@@ -149,7 +149,7 @@ msgid "ringall"
 msgstr "звонят-все"
 
 msgid "Ring all available channels until one answers (default)"
-msgstr "Звонят все каналы, пока один кто либо не ответит (по умолчанию)"
+msgstr "Звонят все каналы, пока один ко либо не ответит (по умолчанию)"
 
 msgid "hunt"
 msgstr "серийное-искание"
@@ -214,7 +214,7 @@ msgid ""
 "to insert them here.<br><br>You can include an extension on a remote system, "
 "or an external number by suffixing a number with a '#'.  ex:  2448089# would "
 "dial 2448089 on the appropriate trunk (see Outbound Routing)"
-"<br><br>Extensions (without a '#' will not ring a user's Follow-Me. To dial "
+"<br><br>Extensions without a '#' will not ring a user's Follow-Me. To dial "
 "Follow-Me, Queues and other numbers that are not extensions, put a '#' at "
 "the end."
 msgstr ""
@@ -245,7 +245,7 @@ msgid ""
 "additional recordings please use the \"System Recordings\" MENU to the left"
 msgstr ""
 "Сообщение, которое будет воспроизведено для входящего респондента, прежде "
-"чем пойдет звонок в эту группу.<br><br>Для создания такого приветствия "
+"ем пойдет звонок в эту группу.<br><br>Для создания такого приветствия "
 "используйте раздел меню Запись сообщений."
 
 msgid "None"
@@ -364,7 +364,7 @@ msgid ""
 msgstr ""
 "Сообщение воспроизводится для принявшего этот звонок, если включена опция "
 "Подтверждение звонков.<br><br>Для создания такого приветствия используйте "
-"раздел меню Запись сообщений."
+"раздел меню Запись сообщний."
 
 msgid "Default"
 msgstr "По умолчанию"
@@ -388,7 +388,7 @@ msgid "Mode"
 msgstr "Режим"
 
 msgid "Transmits the Callers CID if allowed by the trunk."
-msgstr "Передавать Callers ID если транк это разрешает"
+msgstr "Передавать Callers ID если транк это разрешет"
 
 msgid "Fixed CID Value"
 msgstr "Фиксированное значение Номера ИД"
@@ -476,7 +476,7 @@ msgid "Invalid Group Number specified"
 msgstr "Указан неверный номер группы"
 
 msgid "Please enter an extension list."
-msgstr "Укажите список внутренних номеров"
+msgstr "Укажите спиок внутренних номеров"
 
 msgid "Invalid time specified"
 msgstr "Указано неверное время"
@@ -515,4 +515,4 @@ msgstr ""
 "чем звонок будет туда перенаправлен."
 
 #~ msgid "Inbound Call Control"
-#~ msgstr "Контроль входящих вызовов"
+#~ msgstr "Контроль входящих вызовв"

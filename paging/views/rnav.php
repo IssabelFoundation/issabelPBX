@@ -1,12 +1,12 @@
 <?php
 $li[] = '<a href="config.php?display=paging">'
-		. _('Overview')
+		. __('Overview')
 		. '</a>';
 $li[] = '<a href="config.php?display=paging&action=settings">'
-		. _('General Settings')
+		. __('General Settings')
 		. '</a>';
 $li[] = '<a href="config.php?display=paging&action=add">'
-		. _('New Paging Group')
+		. __('New Paging Group')
 		. '</a>';
 $li[] = '<hr />';
 
@@ -20,12 +20,28 @@ foreach ($groups as $group) {
 			. '>' 
 			. ($group['description'] 
 				? $group['description'] 
-				: _('Page Group ') . $group['page_group'])
+				: __('Page Group ') . $group['page_group'])
 			. ($group['is_default']
-				? ' [' . _('Default') . ']'
+				? ' [' . __('Default') . ']'
 				: '')
 			. '</a>';
 }
 
-echo '<div class="rnav">' . ul($li) . '</div>';
+//echo '<div class="rnav">' . ul($li) . '</div>';
+
+
+
+$rnaventries = array();
+//$rnaventries[] = array('-1',__('Overview'),'','','');
+$rnaventries[] = array('',__('General Settings'),'','','&action=settings',false);
+
+foreach ($groups as $group) {
+    $rnaventries[] = array($group['page_group'],$group['description'],'');
+}
+
+if($extdisplay=="") { $extdisplay='-1'; }
+drawListMenu($rnaventries, $type, $display, $extdisplay, '&action=add');
+
+
 ?>
+<div class='content'>

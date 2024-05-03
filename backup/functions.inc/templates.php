@@ -172,9 +172,9 @@ function backup_put_template($var) {
 	if ($db->IsError($ret)){
 		die_issabelpbx($ret->getDebugInfo());
 	}
-	
-	$sql = (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()';
-	$var['id'] = $var['id'] ? $var['id'] : $db->getOne($sql);
+
+    // If we already have id (edit), use it, otherwise use PDO to retrieve last insert id
+    $var['id'] = $var['id'] ? $var['id'] : $db->insert_id();
 
 	//save server details
 	//first delete stale
@@ -230,12 +230,13 @@ function backup_template_generate_tr($c, $i, $immortal = 'false', $build_tr = fa
 	
 	switch ($i['type']) {
 		case 'file':
-			$type		= _('File') . form_hidden('type[' . $c . ']', 'file');
+			$type		= __('File') . form_hidden('type[' . $c . ']', 'file');
 			$path 		= array(
 							'name'			=> 'path[' . $c . ']', 
 							'value'			=> $i['path'],
 							'required'		=> '',
-							'placeholder'	=> _('/path/to/file')
+                            'placeholder'	=> __('/path/to/file'),
+                            'class'         => 'input'
 						);
 			$immortal ? $path['disabled'] = '' : '';
 			$path		= form_input($path);
@@ -243,12 +244,13 @@ function backup_template_generate_tr($c, $i, $immortal = 'false', $build_tr = fa
 			break;
 		
 		case 'dir':
-			$type		= _('Directory') . form_hidden('type[' . $c . ']', 'dir');
+			$type		= __('Directory') . form_hidden('type[' . $c . ']', 'dir');
 			$path 		= array(
 							'name'			=> 'path[' . $c . ']', 
 							'value'			=> $i['path'],
 							'required'		=> '',
-							'placeholder'	=> _('/path/to/dir')
+                            'placeholder'	=> __('/path/to/dir'),
+                            'class'         => 'input'
 						);
 			$immortal ? $path['disabled'] = '' : '';
 			$path		= form_input($path);
@@ -257,14 +259,15 @@ function backup_template_generate_tr($c, $i, $immortal = 'false', $build_tr = fa
 							'value'			=> implode("\n", $i['exclude']),
 							'rows'			=> count($i['exclude']),
 							'cols'			=> 20,
-							'placeholder'	=> _('PATTERNs, one per line')
+                            'placeholder'	=> __('PATTERNs, one per line'),
+                            'class' => 'textarea'
 						);
 			$immortal ? $exclude['disabled'] = '' : '';
 			$exclude	= form_textarea($exclude);
 			break;
 		
 		case 'mysql':
-			$type		= _('Mysql') . form_hidden('type[' . $c . ']', 'mysql');
+			$type		= __('Mysql') . form_hidden('type[' . $c . ']', 'mysql');
 			$servers	= backup_get_Server('all');
 			
 			//draw list of mysql servers for dorpdown
@@ -278,7 +281,7 @@ function backup_template_generate_tr($c, $i, $immortal = 'false', $build_tr = fa
 				$more 		= $immortal ? ' disabled ' : '';
 				$path		= form_dropdown('path[' . $c . ']', $server_list, $i['path'], $more);
 			} else {
-				$path		= _('{no servers available}');
+				$path		= __('{no servers available}');
 			}
 
 			$exclude 	= array(
@@ -286,32 +289,33 @@ function backup_template_generate_tr($c, $i, $immortal = 'false', $build_tr = fa
 							'value'			=> implode("\n", $i['exclude']),
 							'rows'			=> count($i['exclude']),
 							'cols'			=> 20,
-							'placeholder'	=> _('table names, one per line')
+							'placeholder'	=> __('table names, one per line')
 						);
 			$immortal || !$server_list ? $exclude['disabled'] = '' : '';
 			$exclude	= form_textarea($exclude);
 			break;
 		
 		case 'astdb':
-			$type		= _('Asterisk DB') . form_hidden('type[' . $c . ']', 'astdb');
+			$type		= __('Asterisk DB') . form_hidden('type[' . $c . ']', 'astdb');
 			$path 		= form_hidden('path[' . $c . ']', '');
 			$exclude 	= array(
 							'name'			=> 'exclude[' . $c . ']', 
 							'value'			=> implode("\n", $i['exclude']),
 							'rows'			=> count($i['exclude']),
 							'cols'			=> 20,
-							'placeholder'	=> _('Family, one per line')
+							'placeholder'	=> __('Family, one per line')
 						);
 			$immortal ? $exclude['disabled'] = '' : '';
 			$exclude	= form_textarea($exclude);
 			break;
 	}
 	
-	$del_txt	= _('Delete this entry. Don\'t forget to click Submit to save changes!');
-	$delete		= $immortal == 'true' ? ''
-				: '<img src="images/trash.png" style="cursor:pointer" title="' 
-				. $del_txt . '" class="delete_entrie">';
-				
+	$del_txt	= __('Delete this entry. Don\'t forget to click Submit to save changes!');
+    $delete		= $immortal == 'true' ? ''
+        : "<button type='button' class='button is-small is-danger delete_entrie' data-tooltip='".__('Delete')."'><span class='icon is-small'><i class='fa fa-trash'></i></span></button>";
+
+
+
 	if($build_tr) {
 		return '<tr><td>'	
 				. $type 	. '</td><td>' 

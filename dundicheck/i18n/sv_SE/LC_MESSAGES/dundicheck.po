@@ -68,10 +68,10 @@ msgstr "Inga resultat"
 msgid "Results from DUNDi trunk: %s"
 msgstr "Resultat från DUNDi-trunk: %s"
 
-msgid "Lookup Number:"
+msgid "Lookup Number"
 msgstr "Slå upp nummer:"
 
-msgid "Lookup Another Number:"
+msgid "Lookup Another Number"
 msgstr "Slå upp ett annat nummer:"
 
 msgid "Lookup"

@@ -115,7 +115,7 @@ msgstr "Attenzione! L'Interno"
 msgid "is not allowed for your account"
 msgstr "non possiede i permessi"
 
-msgid "Choose a user/extension"
+msgid "Choose a user/extension from the navigation menu"
 msgstr "Scegliere un utente/interno"
 
 msgid "deleted"

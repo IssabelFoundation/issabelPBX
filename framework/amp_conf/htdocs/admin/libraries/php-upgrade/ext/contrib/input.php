@@ -201,9 +201,9 @@ class input {
     
     # input variable is an array of integers
     function array_int($name) {
-        return $this->array_($name, "intval");
+        return $this->array__($name, "intval");
     }
-    function array_($name, $func) {
+    function array__($name, $func) {
         $tmp = (array)($this->vars[$name]);
         foreach ($tmp as $i=>$v) {
             $tmp[$i] = $func($v);

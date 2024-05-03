@@ -1,3 +1,5 @@
+div.content { min-width:490px; width: calc(100% - 300px); max-width:1000px;}
+
 /* HTML tag styles */
 a {
 	cursor : pointer;
@@ -53,15 +55,15 @@ img {
 
 
 .cdr {
-	margin : 0 5%;
 	border-width : 0;
 	width : 92%;
-	font-size: 8pt;
+	font-size: 0.8em;
 }
 
 
 .cdr th {
-	background-color : #5ebeff;
+	background-color : #666699;
+	color: #fff !important;
 	border-color : #000;
 	border-width : 2px;
 	text-align : center;
@@ -123,7 +125,7 @@ img {
 	text-align : center;
 }
 
-.right {
+.xright {
 	padding-right : 80px;
 	text-align : right;
 	font-size: 9pt;

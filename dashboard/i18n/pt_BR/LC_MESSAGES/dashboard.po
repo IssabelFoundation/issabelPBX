@@ -13,25 +13,24 @@
 #    You should have received a copy of the GNU General Public License
 #    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
 #
+# Copyright 2023, Issabel Foundation
 # Copyright 2009, Marcelo Arauj <marcelo.araujo@voffice.com.br>
 #
+
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2009-05-11 20:10-0300\n"
-"Last-Translator: Marcelo Araujo <marcelo.araujo@voffice.com.br>\n"
-"Language-Team: \n"
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "seconds"
 msgstr "segundos"
 
 msgid "second"
-msgstr ""
+msgstr "segundo"
 
 msgid "minutes"
 msgstr "minutos"
@@ -58,16 +57,13 @@ msgid "week"
 msgstr "semana"
 
 msgid "years"
-msgstr ""
+msgstr "anos"
 
 msgid "year"
-msgstr ""
+msgstr "ano"
 
 msgid "System Dashboard"
 msgstr "Painel do sistema"
-
-msgid "Reports"
-msgstr ""
 
 msgid ""
 "Provides a system information dashboard, showing information about Calls, "
@@ -75,13 +71,25 @@ msgid ""
 msgstr ""
 
 msgid "IssabelPBX System Status"
-msgstr "Status do freePBX"
+msgstr "Status do IssabelPBX"
+
+msgid "%s System Status"
+msgstr "Status do IssabelPBX"
+
+msgid "%s Statistics"
+msgstr "Estatísticas do sistema"
+
+msgid "%s Connections"
+msgstr "Conexões IssabelPBX"
+
+msgid "%s Notices"
+msgstr "Notificação"
 
 msgid "Dashboard Info Update Frequency"
-msgstr ""
+msgstr "Frequência de atualização das informações do painel"
 
 msgid "GUI Behavior"
-msgstr ""
+msgstr "Comportamento da GUI"
 
 msgid "Update rate in seconds of the Info section of the System Status panel."
 msgstr ""
@@ -111,12 +119,11 @@ msgstr ""
 
 msgid ""
 "SSH port number configured on your system if not using the default port 22, "
-"this allows the dashboard monitoring to watch the poper port."
+"this allows the dashboard monitoring to watch the proper port."
 msgstr ""
 
-#, php-format
 msgid "%s changed from %s to %s"
-msgstr ""
+msgstr "%s mudou de %s para %s"
 
 msgid "OK"
 msgstr "OK"
@@ -164,7 +171,7 @@ msgid "transmit"
 msgstr "média tx"
 
 msgid "IssabelPBX Statistics"
-msgstr "Estatísticas do freePBX"
+msgstr "Estatísticas do IssabelPBX"
 
 msgid "Total active calls"
 msgstr "Total de chamadas ativas"
@@ -179,7 +186,7 @@ msgid "Total active channels"
 msgstr "Total de canais ativos"
 
 msgid "IssabelPBX Connections"
-msgstr "Conexões freePBX"
+msgstr "Conexões IssabelPBX"
 
 msgid "IP Phones Online"
 msgstr "Telefones IP Online"
@@ -211,7 +218,6 @@ msgstr "Status do Servidor"
 msgid "Asterisk"
 msgstr "Asterisk"
 
-#, php-format
 msgid "Asterisk is running: %s"
 msgstr "Asterisk está rodando: %s"
 
@@ -228,8 +234,8 @@ msgid ""
 "Asterisk Manager Proxy is not running, IssabelPBX will fall back to using "
 "Asterisk directly, which may result in poor performance"
 msgstr ""
-"O Manager Proxy não está rodando, o freePBX acessará o Asterisk diretamente,"
-"o que pode resultar uma performance fraca"
+"O Manager Proxy não está rodando, o IssabelPBX acessará o Asterisk "
+"diretamente,o que pode resultar uma performance fraca"
 
 msgid "Op Panel"
 msgstr "Op Panel"
@@ -291,7 +297,7 @@ msgid "Notice"
 msgstr "Notificação"
 
 msgid "IssabelPBX Notices"
-msgstr "Notificações do freePBX"
+msgstr "Notificações do IssabelPBX"
 
 msgid "Delete this"
 msgstr "Excluír este"
@@ -299,7 +305,6 @@ msgstr "Excluír este"
 msgid "Ignore this"
 msgstr "Ignorar este"
 
-#, php-format
 msgid "Added %s ago"
 msgstr ""
 
@@ -318,5 +323,17 @@ msgstr "mostrar todos"
 msgid "loading..."
 msgstr "carregando..."
 
-#~ msgid "FOP Operator Panel is disabled in amportal.conf"
-#~ msgstr "FOP Operator Panel está desabilitado no amporta.conf"
+msgid "CRITICAL"
+msgstr "CRTICO"
+
+msgid "SECURITY"
+msgstr "SEGURANA"
+
+msgid "UPDATE"
+msgstr "ATUALIZAR"
+
+msgid "WARNING"
+msgstr "AVISO"
+
+msgid "NOTICE"
+msgstr "NOTIFICAO"

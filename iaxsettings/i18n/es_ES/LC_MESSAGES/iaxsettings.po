@@ -1,34 +1,44 @@
-# IssabelPBX language template
-# Copyright 2013 Schmooze Com Inc
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
 #
 
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-31 12:10-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: IssabelPBX - Spanish translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#, php-format
 msgid "%s must be a non-negative integer"
-msgstr ""
+msgstr "%s debe ser un número entero no negativo"
 
 msgid "Bind Address (bindaddr) must be an IP address."
-msgstr ""
+msgstr "Dirección IP de enlace (bindaddr) debe ser una dirección IP."
 
 msgid "Bind Port (bindport) must be between 1024..65535, default 4569"
-msgstr ""
+msgstr "Puerto de enlace (bindport) debe estar entre 1024..65535, por defecto 4569"
 
 msgid "resyncthreshold must be a non-negative integer or -1 to disable"
-msgstr ""
+msgstr "resyncthreshold debe ser un entero no negativo o -1 para desactivarlo"
 
 msgid "Asterisk IAX Settings"
-msgstr "Configuraciones IAX"
+msgstr "Configuración IAX"
 
 msgid "Settings"
 msgstr ""
@@ -37,31 +47,31 @@ msgid ""
 "Use to configure Various Asterisk IAX Settings in the General section of iax."
 "conf. The module assumes Asterisk version 1.4 or higher. Some settings may "
 "not exist in Asterisk 1.2 and will be ignored by Asterisk."
-msgstr ""
+msgstr "Se utiliza para configurar varios ajustes de Asterisk IAX en la sección General de iax.conf. El módulo asume Asterisk versión 1.4 o superior. Algunos ajustes pueden no existir en Asterisk 1.2 y serán ignorados por Asterisk."
 
 msgid "checking for iaxsettings table.."
-msgstr ""
+msgstr "comprobando la tabla iaxsettings.."
 
 msgid "none, creating table"
-msgstr ""
+msgstr "no existe, creando tabla"
 
 msgid "populating default codecs.."
-msgstr ""
+msgstr "rellenando los códecs por defecto"
 
 msgid "fatal error occurred populating defaults, check module"
-msgstr ""
+msgstr "ha ocurrido un error fatal al rellenar los valores por defecto, verifique el módulo"
 
 msgid "ulaw, alaw, gsm added"
-msgstr ""
+msgstr "ulaw, alaw, gsm añadidos"
 
 msgid "already exists"
 msgstr "ya existe"
 
-msgid "Edit IAX Settings"
-msgstr "Modificar Configuraciones IAX"
+msgid "IAX Settings"
+msgstr "Configuración IAX"
 
 msgid "ERRORS"
-msgstr ""
+msgstr "ERRORES"
 
 msgid "Audio Codecs"
 msgstr "Codecs de Audio"
@@ -102,7 +112,6 @@ msgstr ""
 "<br />reqonly  - Lo mismo que disabled, sólo considere las capacidades si el formato "
 "solicitado no está disponible, la llamada sólo se aceptará si el formato solicitado está "
 "disponible."
-
 
 msgid "Bandwidth"
 msgstr "Ancho de Banda"
@@ -217,7 +226,7 @@ msgid ""
 "up. The threshold for noticing a change in delay is measured as twice the "
 "measured jitter plus this resync threshold. Resyncing can be disabled by "
 "setting this parameter to -1."
-msgstr ""
+msgstr "Asterisk: maxjitterbuffer. Longitud máxima del jitterbuffer en milisegundos.<br /> Asterisk: resyncthreshold. Cuando el jitterbuffer nota un cambio significativo en el retardo que se prolonga durante unos pocos fotogramas, se resincronizará, asumiendo que el cambio en el retardo fue causado por una confusión en el timestamping. El umbral para notar un cambio en el retardo se mide como el doble del jitter medido más este umbral de resincronización. La resincronización puede desactivarse ajustando este parámetro a -1."
 
 msgid "Max Interpolations"
 msgstr "Interpolación Máxima"
@@ -228,7 +237,7 @@ msgid ""
 "frames to indicate silence, the jitterbuffer will assume silence has begun "
 "after returning this many interpolations. This prevents interpolating "
 "throughout a long silence."
-msgstr ""
+msgstr "Asterisk: maxjitterinterps. El número máximo de tramas de interpolación que el jitterbuffer debe devolver seguidas. Dado que algunos clientes no envían tramas CNG/DTX para indicar silencio, el jitterbuffer asumirá que el silencio ha comenzado después de devolver este número de interpolaciones. Esto evita interpolar durante un largo silencio."
 
 msgid "Advanced General Settings"
 msgstr "Configuraciones Generales Avanzadas"
@@ -240,7 +249,7 @@ msgid "Default Language for a channel, Asterisk: language"
 msgstr "Idioma por defecto en un canal."
 
 msgid "Bind Address"
-msgstr "Dirección IP"
+msgstr "Dirección IP de Enlace"
 
 msgid ""
 "Asterisk: bindaddr. The IP address to bind to and listen for calls on the "
@@ -256,7 +265,7 @@ msgstr ""
 "Otras Configuraciones IAX. Se recomienda dejar este campo en blanco."
 
 msgid "Bind Port"
-msgstr "Puerto"
+msgstr "Puerto de Enalce"
 
 msgid ""
 "Asterisk: bindport. Local incoming UDP Port that Asterisk will bind to and "
@@ -309,11 +318,9 @@ msgstr "Agregar Campo"
 msgid "Submit Changes"
 msgstr "Enviar Cambios"
 
-#, php-format
 msgid "Settings in %s may override these. Those settings should be removed."
 msgstr ""
 
-#, php-format
 msgid ""
 "File %s should not have any settings in it. Those settings should be removed."
 msgstr ""

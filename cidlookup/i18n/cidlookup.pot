@@ -343,3 +343,27 @@ msgstr ""
 #: install.php:109
 msgid "removed"
 msgstr ""
+
+msgid "Please enter a valid HTTP(S) Host name"
+msgstr ""
+
+msgid "Please enter a valid MySQL Host name"
+msgstr ""
+
+msgid "Please enter a valid MySQL Database name"
+msgstr ""
+
+msgid "Please enter a valid MySQL Query string"
+msgstr ""
+
+msgid "Please enter a valid MySQL Username"
+msgstr ""
+
+msgid "Please enter a valid Account SID"
+msgstr ""
+
+msgid "Please enter a valid Auth Token"
+msgstr ""
+
+msgid "Description cannot be blank!"
+msgstr ""

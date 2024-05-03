@@ -35,7 +35,7 @@ function phpagiconf_gen_conf() {
 	fwrite($fd, $content);
 	fclose($fd);
 	if (!rename($file, "/etc/asterisk/phpagi.conf")) {
-		echo "<script>javascript:alert('"._("Error writing the phpagi.conf file.")."');</script>";
+		echo "<script>javascript:alert('".__("Error writing the phpagi.conf file.")."');</script>";
 	}
 }
 

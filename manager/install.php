@@ -20,21 +20,21 @@ if (DB::IsError($check)) {
 	die_issabelpbx("Can not create `manager` table" .  $check->getMessage() .  "\n");
 }
 
-outn(_("Increasing read field size if needed.."));
+outn(__("Increasing read field size if needed.."));
 $sql = "ALTER TABLE `manager` CHANGE `read` `read` VARCHAR( 255 )";
 $result = $db->query($sql);
 if(DB::IsError($check)){
-	out(_("error encountered, not altered"));
+	out(__("error encountered, not altered"));
 } else {
-	out(_("ok"));
+	out(__("ok"));
 }
 
-outn(_("Increasing write field size if needed.."));
+outn(__("Increasing write field size if needed.."));
 $sql = "ALTER TABLE `manager` CHANGE `write` `write` VARCHAR( 255 )";
 $result = $db->query($sql);
 if(DB::IsError($check)){
-	out(_("error encountered, not altered"));
+	out(__("error encountered, not altered"));
 } else {
-	out(_("ok"));
+	out(__("ok"));
 }
 ?>

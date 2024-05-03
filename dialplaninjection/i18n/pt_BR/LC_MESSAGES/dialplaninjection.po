@@ -1,0 +1,83 @@
+# This file is part of IssabelPBX.
+#
+#    IssabelPBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    IssabelPBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with IssabelPBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2023 Issabel Foundation
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: IssabelPBX - Portuguese translation\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Add"
+msgstr "Adicionar"
+
+msgid "Add Injection"
+msgstr "Adicionar injeção"
+
+msgid "Edit Injection"
+msgstr "Modificar injeção"
+
+msgid "Delete Injection"
+msgstr "Excluir injeção"
+
+msgid "Injection"
+msgstr "Injeção"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "This will display as the name of this injection."
+msgstr "Nome para esta injeção de dialplan."
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Extension"
+msgstr "Extensão"
+
+msgid ""
+"If selected, will allow dialing this injection directly. (May be left blank "
+"and may be a pattern. You may use a pipe | to strip the preceeding digits.)"
+msgstr ""
+"Se concluído, permitirá marcar diretamente esta injeção. (Pode ser deixado "
+"em branco ou você pode usar um padrão. Você pode usar uma barra vertical | "
+"para remover prefixos.)"
+
+msgid "Description must be alpha-numeric and may not be left blank!'"
+msgstr "A descrição deve ser alfanumérica ou deixada em branco!"
+
+msgid ""
+"These command will be injected into the dialplan. There is no need to type "
+"the extension or priority, just type the commands."
+msgstr ""
+"Esses comandos serão injetados no dialplan. Não há necessidade de inserir a "
+"prioridade, apenas os comandos."
+
+msgid "Commands"
+msgstr "Comandos"
+
+msgid "New Command"
+msgstr "Novo Comando"
+
+msgid "Choose a command type from the list and submit to add a new command."
+msgstr "Escolha um tipo de comando da lista a ser adicionado."
+
+msgid "Dialplan Injection"
+msgstr "injeção de dialplan"

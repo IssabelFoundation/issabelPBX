@@ -1,6 +1,10 @@
-label {
-    width:160px;
-    float:left;
-}
 
-.modules-sortable{list-style-type:none;cursor:move}
+ul.modules-sortable li {list-style-type:none; cursor:move}
+
+#global div.column { padding:.2em .8em; }
+
+.height500 { height:500px; }
+
+div.content { min-width:490px; width: calc(100% - 300px); max-width:1400px;}
+
+

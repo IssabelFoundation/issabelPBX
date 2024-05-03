@@ -3,18 +3,18 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 //for translation only
 if (false) {
-_("Core");
-_("User Logon");
-_("User Logoff");
-_("ZapBarge");
-_("ChanSpy");
-_("Simulate Incoming Call");
-_("Directed Call Pickup");
-_("Asterisk General Call Pickup");
-_("In-Call Asterisk Blind Transfer");
-_("In-Call Asterisk Attended Transfer");
-_("In-Call Asterisk Toggle Call Recording");
-_("In-Call Asterisk Disconnect Code");
+__("Core");
+__("User Logon");
+__("User Logoff");
+__("Zap Barge");
+__("ChanSpy");
+__("Simulate Incoming Call");
+__("Directed Call Pickup");
+__("Asterisk General Call Pickup");
+__("In-Call Asterisk Blind Transfer");
+__("In-Call Asterisk Attended Transfer");
+__("In-Call Asterisk Toggle Call Recording");
+__("In-Call Asterisk Disconnect Code");
 }
 
 function did_migrate($incoming){
@@ -29,7 +29,7 @@ function did_migrate($incoming){
 	$sql = "SELECT * FROM incoming WHERE cidnum = '' AND extension = '$extension'";
 	$existing = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($existing)) {
-		outn(sprintf(_("ERROR: trying to check if %s already in use"),$extension));
+		outn(sprintf(__("ERROR: trying to check if %s already in use"),$extension));
 		return false;
 	}
 	if (empty($existing)) {
@@ -56,7 +56,7 @@ $fcc->update();
 unset($fcc);
 
 $fcc = new featurecode('core', 'zapbarge');
-$fcc->setDescription('ZapBarge');
+$fcc->setDescription('Zap Barge');
 $fcc->setDefault('888');
 $fcc->setProvideDest();
 $fcc->update();
@@ -146,11 +146,11 @@ $issabelpbx_conf->define_conf_setting('OUTBOUND_DIAL_UPDATE',$set);
 
 // Version 2.5 Upgrade needs to migrate directdid user info to incoming table
 //
-outn(_("Checking if directdids need migrating.."));
+outn(__("Checking if directdids need migrating.."));
 $sql = "SELECT `directdid` FROM `users`";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(!DB::IsError($check)) {
-	out(_("starting migration"));
+	out(__("starting migration"));
 	$errors = 0;
 	$sql = "SELECT * FROM `users` WHERE `directdid` != '' AND `directdid` IS NOT NULL";
 	$direct_dids_arr = $db->getAll($sql, DB_FETCHMODE_ASSOC);
@@ -167,38 +167,38 @@ if(!DB::IsError($check)) {
 			$did_vars['alertinfo']   = $direct_dids['didalert'];
 			$did_vars['ringing']     = '';
 			$did_vars['mohclass']    = $direct_dids['mohclass'];
-			$did_vars['description'] = _("User: ").$direct_dids['extension'];
+			$did_vars['description'] = __("User: ").$direct_dids['extension'];
 			$did_vars['grppre']      = '';
 			if (!did_migrate($did_vars)) {
-				out(sprintf(_("ERROR: failed to insert %s for user %s"),$direct_dids['directdid'],$direct_dids['extension']));
+				out(sprintf(__("ERROR: failed to insert %s for user %s"),$direct_dids['directdid'],$direct_dids['extension']));
 				$errors++;
 			}
 		}
 		if ($errors) {
-			out(sprintf(_("There were %s failures migrating directdids, users table not being changed"),$errors));
+			out(sprintf(__("There were %s failures migrating directdids, users table not being changed"),$errors));
 		} else {
 			$migrate_array = array('directdid', 'didalert', 'mohclass', 'faxexten', 'faxemail', 'answer', 'wait', 'privacyman');
 			foreach ($migrate_array as $field) {
-				outn(sprintf(_("Removing field %s from users table.."),$field));
+				outn(sprintf(__("Removing field %s from users table.."),$field));
 				$sql = "ALTER TABLE `users` DROP `".$field."`";
 				$results = $db->query($sql);
 				if (DB::IsError($results)) {
-					out(_("not present"));
+					out(__("not present"));
 				} else {
-					out(_("removed"));
+					out(__("removed"));
 				}
 			}
 		}
 	} else {
-		out(_("ERROR: could not access user table to migrate directdids to incoming table, aborting"));
+		out(__("ERROR: could not access user table to migrate directdids to incoming table, aborting"));
 	}
 } else {
-	out(_("already done"));
+	out(__("already done"));
 }
 
 // Add callgroup, pickupgroup to zap
 
-outn(_("updating zap callgroup, pickupgroup.."));
+outn(__("updating zap callgroup, pickupgroup.."));
 $sql = "SELECT `id` FROM `devices` WHERE `tech` = 'zap'";
 $results = $db->getCol($sql);
 if(DB::IsError($results)) {
@@ -223,43 +223,43 @@ if (isset($results) && !empty($results)) {
 	}
 }
 if ($count_callgroup || $count_pickup) {
-	out(sprintf(_("updated %s callgroups, %s pickupgroups"),$count_callgroup,$count_pickup));
+	out(sprintf(__("updated %s callgroups, %s pickupgroups"),$count_callgroup,$count_pickup));
 } else {
-	out(_("not needed"));
+	out(__("not needed"));
 }
 
 // 2.5 new field
 //
-outn(_("checking for delay_answer field .."));
+outn(__("checking for delay_answer field .."));
 $sql = "SELECT `delay_answer` FROM `incoming`";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
 	$sql = "ALTER TABLE `incoming` ADD `delay_answer` INT(2) DEFAULT NULL";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
-		out(_("fatal error"));
+		out(__("fatal error"));
 		die_issabelpbx($result->getDebugInfo());
 	} else {
-		out(_("added"));
+		out(__("added"));
 	}
 } else {
-	out(_("already exists"));
+	out(__("already exists"));
 }
 
-outn(_("checking for pricid field .."));
+outn(__("checking for pricid field .."));
 $sql = "SELECT `pricid` FROM `incoming`";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
 	$sql = "ALTER TABLE `incoming` ADD `pricid` VARCHAR(20) DEFAULT NULL";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
-		out(_("fatal error"));
+		out(__("fatal error"));
 		die_issabelpbx($result->getDebugInfo());
 	} else {
-		out(_("added"));
+		out(__("added"));
 	}
 } else {
-	out(_("already exists"));
+	out(__("already exists"));
 }
 
 // This next set of functions and code are used to migrate from the old
@@ -270,8 +270,8 @@ if(DB::IsError($check)) {
 //Sort trunks for sqlite
 function __sort_trunks($a,$b)  {
         global $unique_trunks;
-        preg_match("/OUT_([0-9]+)/",$unique_trunks[$a][0],$trunk_num1);
-        preg_match("/OUT_([0-9]+)/",$unique_trunks[$b][0],$trunk_num2);
+        preg_match("/OUT__([0-9]+)/",$unique_trunks[$a][0],$trunk_num1);
+        preg_match("/OUT__([0-9]+)/",$unique_trunks[$b][0],$trunk_num2);
         return ($trunk_num1[1] >= $trunk_num2[1]? 1:-1);
 }
 
@@ -428,10 +428,10 @@ function __migrate_trunks_to_table() {
 // __migrate_trunks_to_table will return false if the trunks table already exists and
 // no migration is needed
 //
-outn(_("Checking if trunk table migration required.."));
+outn(__("Checking if trunk table migration required.."));
 $trunks = __migrate_trunks_to_table();
 if ($trunks !== false) {
-	outn(_("migrating.."));
+	outn(__("migrating.."));
 	foreach ($trunks as $trunk) {
 		$tech = $trunk['tech'];
 		$trunkid = $trunk['trunkid'];
@@ -449,7 +449,7 @@ if ($trunks !== false) {
 				break;
 		}
 	}
-	outn(_("removing globals.."));
+	outn(__("removing globals.."));
 	// Don't do this above, in case something goes wrong
 	//
 	// At this point we have created our trunks table and update the sip and iax files
@@ -467,22 +467,22 @@ if ($trunks !== false) {
 		";
 		sql($sqlstr);
 	}
-	out(_("done"));
+	out(__("done"));
 } else {
-	out(_("not needed"));
+	out(__("not needed"));
 }
 
-outn(_("Checking if privacy manager options exists.."));
+outn(__("Checking if privacy manager options exists.."));
 $check = $db->query('SELECT pmmaxretries FROM incoming');
 if(DB::IsError($check)){
 	$result = $db->query('alter table incoming add pmmaxretries varchar(2), add pmminlength varchar(2);');
 	if(DB::IsError($result)) {
 		die_issabelpbx($result->getDebugInfo().'fatal error adding fields to incoming table');
 	} else {
-	  out(_("Added pmmaxretries and pmminlength"));
+	  out(__("Added pmmaxretries and pmminlength"));
   }
 }else{
-	out(_("already exists"));
+	out(__("already exists"));
 }
 
 // This has already been done in the framework upgrades but is repeated
@@ -491,7 +491,7 @@ if(DB::IsError($check)){
 //
 $new_cols = array('noanswer_cid','busy_cid','chanunavail_cid');
 foreach ($new_cols as $col) {
-  outn(sprintf(_("Checking for %s field.."),$col));
+  outn(sprintf(__("Checking for %s field.."),$col));
   $sql = "SELECT $col FROM `users`";
   $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
   if(DB::IsError($check)) {
@@ -499,15 +499,15 @@ foreach ($new_cols as $col) {
     $sql = "ALTER TABLE `users` ADD `$col` VARCHAR( 20 ) DEFAULT '';";
     $result = $db->query($sql);
     if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }
-    out(_("added"));
+    out(__("added"));
   } else {
-    out(_("already exists"));
+    out(__("already exists"));
   }
 }
 
 $new_cols = array('noanswer_dest','busy_dest','chanunavail_dest');
 foreach ($new_cols as $col) {
-  outn(sprintf(_("Checking for %s field.."),$col));
+  outn(sprintf(__("Checking for %s field.."),$col));
   $sql = "SELECT $col FROM `users`";
   $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
   if(DB::IsError($check)) {
@@ -515,9 +515,9 @@ foreach ($new_cols as $col) {
     $sql = "ALTER TABLE `users` ADD `$col` VARCHAR( 255 ) DEFAULT '';";
     $result = $db->query($sql);
     if(DB::IsError($result)) { die_issabelpbx($result->getDebugInfo()); }
-    out(_("added"));
+    out(__("added"));
   } else {
-    out(_("already exists"));
+    out(__("already exists"));
   }
 }
 
@@ -527,10 +527,10 @@ if (empty($check)) {
 	$sql = "ALTER TABLE devices ADD PRIMARY KEY `id` (`id`), ADD KEY `tech` (`tech`)";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
-		out(_("Unable to add index to tech field in devices"));
+		out(__("Unable to add index to tech field in devices"));
 		issabelpbx_log(IPBX_LOG_ERROR, "Failed to add index to tech field in the devices table");
 	} else {
-		out(_("Adding index to tech field in the devices"));
+		out(__("Adding index to tech field in the devices"));
 	}
 }
 
@@ -540,27 +540,27 @@ if (empty($check)) {
 	$sql = "ALTER TABLE users ADD PRIMARY KEY `extension` (`extension`)";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
-		out(_("Unable to add index to extensions field in users"));
+		out(__("Unable to add index to extensions field in users"));
 		issabelpbx_log(IPBX_LOG_ERROR, "Failed to add index to extensions field in the users table");
 	} else {
-		out(_("Adding index to extensions field in the users"));
+		out(__("Adding index to extensions field in the users"));
 	}
 }
 
 $result = $db->query("ALTER TABLE devices ADD PRIMARY KEY `id` (`id`)");
 if(DB::IsError($result)) {
-	out(_("No need to set primary index on devices table"));
+	out(__("No need to set primary index on devices table"));
 	issabelpbx_log(IPBX_LOG_ERROR, "No need to set primary index on devices table");
 } else {
-	out(_("Adding primary index to id field on devices table"));
+	out(__("Adding primary index to id field on devices table"));
 }
 
 $result = $db->query("ALTER TABLE users ADD PRIMARY KEY `extension` (`extension`)");
 if(DB::IsError($result)) {
-	out(_("No need to set primary index on users table"));
+	out(__("No need to set primary index on users table"));
 	issabelpbx_log(IPBX_LOG_ERROR, "No need to set primary index on users table");
 } else {
-	out(_("Adding primary index to extension field on users table"));
+	out(__("Adding primary index to extension field on users table"));
 }
 
 // The following are from General Settings that may need to be migrated.
@@ -794,6 +794,22 @@ $set['description'] = "Options to be passed to the Asterisk Dial Command when ma
 $set['type'] = CONF_TYPE_TEXT;
 $issabelpbx_conf->define_conf_setting('TRUNK_OPTIONS',$set);
 
+// INBOUND_NOTRANS
+//
+$set['value'] = true;
+$set['defaultval'] =& $set['value'];
+$set['options'] = '';
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 0;
+$set['module'] = '';
+$set['category'] = 'Dialplan and Operational';
+$set['emptyok'] = 0;
+$set['name'] = 'Disallow transfer features for inbound callers';
+$set['description'] = "Disallow transfer features (Normally ## and *2) for callers who passthrough inbound routes (Such as external callers)";
+$set['type'] = CONF_TYPE_BOOL;
+$issabelpbx_conf->define_conf_setting('INBOUND_NOTRANS',$set);
+
 // RINGTIMER
 $opts = array();
 for ($i=0;$i<=120;$i++) {
@@ -845,17 +861,17 @@ $globals = $db->getAll($sql,DB_FETCHMODE_ASSOC);
 if(DB::IsError($globals)) {
   die_issabelpbx($globals->getMessage());
 }
-outn(_("Checking for General Setting migrations.."));
+outn(__("Checking for General Setting migrations.."));
 if (count($globals)) {
-  out(_("preparing"));
+  out(__("preparing"));
   foreach ($globals as $global) {
     $update_arr[trim($global['variable'])] = $global['value'];
-    out(sprintf(_("%s prepared"),$global['variable']));
+    out(sprintf(__("%s prepared"),$global['variable']));
   }
   // Now set the values differently from the defaults, and commit
   $issabelpbx_conf->set_conf_values($update_arr,true);
 } else {
-  out(_("not needed"));
+  out(__("not needed"));
   // commit the previous defines if we didn't upate anything
   $issabelpbx_conf->commit_conf_settings();
 }
@@ -888,15 +904,15 @@ $globals_convert['RECORDEXTEN'] = true;
 $sql_where = " FROM globals WHERE `variable` IN ('".implode("','",array_keys($globals_convert))."')";
 
 if (count($globals)) {
-	out(_("General Settings migrated"));
+	out(__("General Settings migrated"));
 }
-outn(_("Deleting unused globals.."));
+outn(__("Deleting unused globals.."));
 $sql = "DELETE".$sql_where;
 $globals = $db->query($sql);
 if(DB::IsError($globals)) {
-	out(_("Fatal DB error trying to delete globals, trying to carry on"));
+	out(__("Fatal DB error trying to delete globals, trying to carry on"));
 } else {
-	out(_("done"));
+	out(__("done"));
 }
 
 // It's possible that SQL, LOG_SQL values could still bein in AMPSYSLOGLEVEL if amportal.conf
@@ -905,9 +921,9 @@ if(DB::IsError($globals)) {
 //
 $log_level = strtoupper($amp_conf['AMPSYSLOGLEVEL']);
 if ($log_level == 'SQL' || $log_level == 'LOG_SQL') {
-  outn(sprintf(_("Discontinued logging type %s changing to %s.."),$log_level,'FILE'));
+  outn(sprintf(__("Discontinued logging type %s changing to %s.."),$log_level,'FILE'));
   $issabelpbx_conf->set_conf_values(array('AMPSYSLOGLEVEL' => 'FILE'));
-  out(_("ok"));
+  out(__("ok"));
 }
 // AMPSYSLOGLEVEL
 unset($set);
@@ -917,7 +933,7 @@ $issabelpbx_conf->define_conf_setting('AMPSYSLOGLEVEL',$set,true);
 
 // Convert IAX notransfer to transfer (since 1.4)
 //
-outn(_("Converting IAX notransfer to transfer if needed.."));
+outn(__("Converting IAX notransfer to transfer if needed.."));
 $affected_rows = 0;
 sql("UPDATE iax SET keyword = 'transfer', data = 'yes' WHERE keyword = 'notransfer' AND LOWER(data) = 'no'");
 $affected_rows .= $db->affectedRows();
@@ -925,49 +941,49 @@ sql("UPDATE iax SET keyword = 'transfer', data = 'no' WHERE keyword = 'notransfe
 $affected_rows .= $db->affectedRows();
 sql("UPDATE iax SET keyword = 'transfer' WHERE keyword = 'notransfer' AND LOWER(data) = 'mediaonly'");
 $affected_rows .= $db->affectedRows();
-$affected_rows ? out(sprintf(_("updated %s records"),$affected_rows)) : out(_("not needed"));
+$affected_rows ? out(sprintf(__("updated %s records"),$affected_rows)) : out(__("not needed"));
 
 
 $tables = array('sip', 'iax', 'zap', 'dahdi');
-outn(_("deleting obsoleted record_in and record_out entries.."));
+outn(__("deleting obsoleted record_in and record_out entries.."));
 foreach ($tables as $table) {
   $sql = "DELETE FROM `$table` WHERE `keyword` in ('record_in', 'record_out')";
   $db->query($sql);
 }
-out(_("ok"));
+out(__("ok"));
 
 // Added 2.11
 //
-outn(_("checking for dest field in outbound_routes.."));
+outn(__("checking for dest field in outbound_routes.."));
 $sql = "SELECT `dest` FROM `outbound_routes`";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
 	$sql = "ALTER TABLE `outbound_routes` ADD `dest` VARCHAR(255) DEFAULT NULL";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
-		out(_("fatal error trying to add field"));
+		out(__("fatal error trying to add field"));
 		die_issabelpbx($result->getDebugInfo());
 	} else {
-		out(_("added"));
+		out(__("added"));
 	}
 } else {
-	out(_("already exists"));
+	out(__("already exists"));
 }
 
-outn(_("checking for continue field in trunks.."));
+outn(__("checking for continue field in trunks.."));
 $sql = "SELECT `continue` FROM `trunks`";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
 	$sql = "ALTER TABLE `trunks` ADD `continue` VARCHAR( 4 ) DEFAULT 'off'";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
-		out(_("fatal error trying to add field"));
+		out(__("fatal error trying to add field"));
 		die_issabelpbx($result->getDebugInfo());
 	} else {
-		out(_("added"));
+		out(__("added"));
 	}
 } else {
-	out(_("already exists"));
+	out(__("already exists"));
 }
 
 // Migrate ALLOW_SIP_ANON from globals if needed
@@ -978,22 +994,22 @@ if(!DB::IsError($globals)) {
 	if (count($globals)) {
 		$allow_sip_anon = trim($globals[0]['value']);
 		$sql = "DELETE FROM globals WHERE `variable` = 'ALLOW_SIP_ANON'";
-		out(_("migrated ALLOW_SIP_ANON Value: $allow_sip_anon to admin table"));
-		outn(_("deleting ALLOW_SIP_ANON from globals.."));
+		out(__("migrated ALLOW_SIP_ANON Value: $allow_sip_anon to admin table"));
+		outn(__("deleting ALLOW_SIP_ANON from globals.."));
 		$res = $db->query($sql);
 		if(!DB::IsError($globals)) {
-			out(_("done"));
+			out(__("done"));
 		} else {
-			out(_("could not delete"));
+			out(__("could not delete"));
 		}
 	}
 }
 if (!empty($allow_sip_anon)) {
 	$result = $db->query("INSERT INTO `admin` (`variable`, `value`) VALUES ('ALLOW_SIP_ANON', '$allow_sip_anon')");
 	if(DB::IsError($result)) {
-		out(_("ERROR: could not insert previous value for ALLOW_SIP_ANON, it may already exist"));
+		out(__("ERROR: could not insert previous value for ALLOW_SIP_ANON, it may already exist"));
 	} else {
-		out(_("Inserted ALLOW_SIP_ANON fine"));
+		out(__("Inserted ALLOW_SIP_ANON fine"));
 	}
 }
 
@@ -1003,13 +1019,13 @@ if (DB::IsError($dahditbl_res)) {
 	$sql = (preg_match("/qlite/",$amp_conf["AMPDBENGINE"])) ?
 		'ALTER TABLE zapchandids RENAME TO dahdichandids' :
 		'RENAME TABLE zapchandids to dahdichandids';
-	outn(_("renaming table zapchandids to dahdichandids.."));
+	outn(__("renaming table zapchandids to dahdichandids.."));
 	$result = $db->query($sql);
 	if (!DB::IsError($result)) {
-		out(_("ok"));
+		out(__("ok"));
 	} else {
-		out(_("CRITICAL ERROR"));
-		out(_("Could not rename table, if no dahdichandids table present FATAL errors will occur"));
+		out(__("CRITICAL ERROR"));
+		out(__("Could not rename table, if no dahdichandids table present FATAL errors will occur"));
 	}
 }
 
@@ -1019,75 +1035,75 @@ if (DB::IsError($dahditbl_res)) {
 $zaptbl_size = $db->getOne("SELECT COUNT(*) FROM zap");
 if (!DB::IsError($zaptbl_size)) {
 	if ($zaptbl_size == 0) {
-		outn(_("removing zap table.."));
+		outn(__("removing zap table.."));
 		$res = $db->query("DROP TABLE zap");
 		if (!DB::IsError($res)) {
-			out(_("ok"));
+			out(__("ok"));
 		} else {
-			out(_("error dropping table"));
+			out(__("error dropping table"));
 		}
 	} else {
 		$dahditbl_size = $db->getOne("SELECT COUNT(*) FROM dahdi");
 		if (DB::IsError($dahditbl_size)) {
-			out(_("error checking dahdi table size to determine if zap table contents can be migrated"));
+			out(__("error checking dahdi table size to determine if zap table contents can be migrated"));
 		} else {
 			if ($dahditbl_size > 0) {
-				out(_("dahdi table not empty, can't migrate zap data there"));
+				out(__("dahdi table not empty, can't migrate zap data there"));
 			} else {
-				outn(_("migrating zap table contents to dahdi table.."));
+				outn(__("migrating zap table contents to dahdi table.."));
 				$res = $db->query("INSERT INTO dahdi (id, keyword, data, flags) (SELECT id, keyword, data, flags FROM zap)");
 				if (!DB::IsError($res)) {
-					out(_("ok"));
-					outn(_("removing zap table.."));
+					out(__("ok"));
+					outn(__("removing zap table.."));
 					$res = $db->query("DROP TABLE zap");
 					if (!DB::IsError($res)) {
-						out(_("ok"));
+						out(__("ok"));
 					} else {
-						out(_("error dropping table"));
+						out(__("error dropping table"));
 					}
 					// Now migrate devices table and update AstDB DEVICES
 					//
 					$zap_devices = $db->getAll("SELECT id, dial FROM devices WHERE lower(tech) = 'zap'", DB_FETCHMODE_ASSOC);
 					if (DB::IsError($zap_devices)) {
-						out(_("Error converting zap to dahdi in devices table and AstDB"));
+						out(__("Error converting zap to dahdi in devices table and AstDB"));
 					} else if (count($zap_devices) > 0) {
 						$dahdi_update = array();
 						foreach ($zap_devices as $dev) {
 							$chan = explode($dev['dial'],2);
 							$dial = 'DAHDI/' . $chan[1];
-							out(sprintf(_("preparing device %s dial to %s"), $dev['id'], $dial));
+							out(sprintf(__("preparing device %s dial to %s"), $dev['id'], $dial));
 							$dahdi_update[] = array($dial, $dev['id']);
 							$astman->database_put("DEVICE", $dev['id'] . "/dial", $dial);
 						}
 						$compiled = $db->prepare("UPDATE devices SET tech = 'dahdi', dial = ? WHERE id = ?");
 						$result = $db->executeMultiple($compiled, $dahdi_update);
 						if (!DB::IsError($result)) {
-							out(_("zap devices migrated"));
+							out(__("zap devices migrated"));
 						} else {
-							out(_("error occured updating devices table"));
+							out(__("error occured updating devices table"));
 						}
 					}
 				} else {
-					out(_("error migrating table"));
+					out(__("error migrating table"));
 				}
 			}
 		}
 	}
 }
 // migrate any zap trunks to dahdi
-outn(_("upgrading any zap trunks to dahdi if found"));
+outn(__("upgrading any zap trunks to dahdi if found"));
 $res = $db->query("UPDATE trunks set tech = 'dahdi' WHERE lower(tech) = 'zap'");
 if (!DB::IsError($res)) {
-	out(_("ok"));
+	out(__("ok"));
 } else {
-	out(_("error occured"));
+	out(__("error occured"));
 }
 
 //migrate the username field in ampusers
 $res = $db->getAll('SHOW COLUMNS FROM ampusers WHERE FIELD = "username"', DB_FETCHMODE_ASSOC);
 if ($res[0]['Type'] == 'varchar(20)') {
         sql('ALTER TABLE ampusers CHANGE username username varchar(255) NOT NULL');
-		outn(_("migrated username column to allow for longer usernames"));
+		outn(__("migrated username column to allow for longer usernames"));
 }
 
 function _core_create_update_tonezones($tz = 'us', $commit = true) {
@@ -1416,16 +1432,16 @@ if (preg_match("/mysql/",$amp_conf["AMPDBENGINE"])) {
 $sql='SELECT default_character_set_name FROM information_schema.SCHEMATA S WHERE schema_name = "asterisk"';
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if($check['default_character_set_name']=='latin1') {
-    out(_("converting tables to utf8"));
-    $sql = "ALTER DATABASE asterisk CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci";
+    out(__("converting tables to utf8"));
+    $sql = "ALTER DATABASE asterisk CHARACTER SET = utf8mb4";
     $res = $db->query($sql);
     if (DB::IsError($res)) {
-	out(_("error occured"));
+	out(__("error occured"));
     }
 
 $tables = array(
 'admin,utf8mb4',
-'ampusers,utf8',
+'ampusers,utf8mb4',
 'announcement,utf8mb4',
 'backup,utf8mb4',
 'backup_cache,utf8mb4',
@@ -1457,7 +1473,7 @@ $tables = array(
 'customerdb,utf8mb4',
 'dahdi,utf8mb4',
 'dahdichandids,utf8mb4',
-'daynight,utf8',
+'daynight,utf8mb4',
 'devices,utf8mb4',
 'dialplaninjection_commands,utf8mb4',
 'dialplaninjection_commands_list,utf8mb4',
@@ -1473,7 +1489,7 @@ $tables = array(
 'featurecodes,utf8mb4',
 'findmefollow,utf8mb4',
 'gabcast,utf8mb4',
-'globals,utf8',
+'globals,utf8mb4',
 'iax,utf8mb4',
 'iaxsettings,utf8mb4',
 'incoming,utf8mb4',
@@ -1495,13 +1511,13 @@ $tables = array(
 'module_xml,utf8mb4',
 'modules,utf8mb4',
 'notifications,utf8mb4',
-'outbound_route_patterns,utf8',
+'outbound_route_patterns,utf8mb4',
 'outbound_route_sequence,utf8mb4',
 'outbound_route_trunks,utf8mb4',
 'outbound_routes,utf8mb4',
 'outroutemsg,utf8mb4',
-'paging_autoanswer,utf8',
-'paging_config,utf8',
+'paging_autoanswer,utf8mb4',
+'paging_config,utf8mb4',
 'paging_groups,utf8mb4',
 'parkplus,utf8mb4',
 'phpagiconf,utf8mb4',
@@ -1521,7 +1537,7 @@ $tables = array(
 'timegroups_details,utf8mb4',
 'timegroups_groups,utf8mb4',
 'trunk_dialpatterns,utf8mb4',
-'trunks,utf8',
+'trunks,utf8mb4',
 'users,utf8mb4',
 'vmblast,utf8mb4',
 'vmblast_groups,utf8mb4',
@@ -1535,10 +1551,11 @@ $tables = array(
         $chr = $parts[1];
         $res = $db->query("DESC $tbl");
         if (!DB::IsError($res)) {
-            $sql = "ALTER TABLE $tbl CONVERT TO CHARACTER SET $chr COLLATE ${chr}_unicode_ci";
+            //$sql = "ALTER TABLE $tbl CONVERT TO CHARACTER SET $chr COLLATE ${chr}_unicode_ci";
+            $sql = "ALTER TABLE $tbl CONVERT TO CHARACTER SET $chr";
             $res2 = $db->query($sql);
             if (DB::IsError($res2)) {
-                out(_("error occured converting table $tbl"));
+                out(__("error occured converting table $tbl"));
             }
         }
     }
