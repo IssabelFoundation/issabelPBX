@@ -16,7 +16,7 @@ jobs:
     - name: copy file via ssh key
       uses: asternic/scp-action@master
       with:
-        host: ${{ secrets.REPOHOST5 }}
+        host: ${{ secrets.REPOHOST }}
         username: ${{ secrets.REPOUSER }}
         port: ${{ secrets.REPOPORT }}
         key: ${{ secrets.BUILDKEY }}
