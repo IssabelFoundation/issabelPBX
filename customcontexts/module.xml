@@ -1,34 +1,35 @@
 <module>
-	<rawname>customcontexts</rawname>
-	<repo>unsupported</repo>
-	<name>Class of Service</name>
-	<version>2.12.0.0</version>
+    <rawname>customcontexts</rawname>
+    <repo>standard</repo>
+    <name>Class of Service</name>
+    <version>2.12.0.1</version>
     <category>Connectivity</category>
     <embedcategory>Basic</embedcategory>
-	<license>GPLv2+</license>
-	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
-	<description>
-		Creates custom contexts which can be used to allow limited access to dialplan applications. Allows for time restrictions on any dialplan access. Allows for pattern matching to allow/deny. Allows for failover destinations, and PIN protected failover. This can be very useful for multi-tennant systems. Inbound routing can be done using DID or zap channel routing, this module allows for selective outbound routing. House/public phones can be placed in a restricted context allowing them only internal calls.
-	</description>
-	<menuitems>
-		<customcontexts>Class of Service</customcontexts>
-		<customcontextsadmin category="Admin">Class of Service Admin</customcontextsadmin>
-	</menuitems>
-	<depends>
-		<version>2.12.0</version>
-		<module>core</module>
-		<module>timeconditions</module>
-	</depends>
+    <license>GPLv2+</license>
+    <licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
+    <description>
+        Creates custom contexts which can be used to allow limited access to dialplan applications. Allows for time restrictions on any dialplan access. Allows for pattern matching to allow/deny. Allows for failover destinations, and PIN protected failover. This can be very useful for multi-tennant systems. Inbound routing can be done using DID or zap channel routing, this module allows for selective outbound routing. House/public phones can be placed in a restricted context allowing them only internal calls.
+    </description>
+    <menuitems>
+        <customcontexts>Class of Service</customcontexts>
+        <customcontextsadmin category="Admin">Class of Service Admin</customcontextsadmin>
+    </menuitems>
+    <depends>
+        <version>2.12.0</version>
+        <module>core</module>
+        <module>timeconditions</module>
+    </depends>
     <changelog>
+        *2.12.0.1* Update context on devices when renaming a class
         *2.12.0.0* Newer GUI, standarize module components
-		*2.11.0.2* Initial Issabel Foundation release
-	</changelog>
-	<attention>
-		This is an advanced module, and you should not use it without understanding asterisk dialplans! This is meant as a convenience tool for someone who would have had to resort to config editing. If you experience problems with it, just disable it and no harm done. REMEMBER! Any device placed in a restricted context will have no access to the dialplan if this module is disabled until it is placed in a normal context!
-	</attention>
-	<supported>
-		<version>2.12</version>
-	</supported>
-    <location>release/2.12/customcontexts-2.12.0.0.tgz</location>
+        *2.11.0.2* Initial Issabel Foundation release
+    </changelog>
+    <attention>
+        This is an advanced module, and you should not use it without understanding asterisk dialplans! This is meant as a convenience tool for someone who would have had to resort to config editing. If you experience problems with it, just disable it and no harm done. REMEMBER! Any device placed in a restricted context will have no access to the dialplan if this module is disabled until it is placed in a normal context!
+    </attention>
+    <supported>
+        <version>2.12</version>
+    </supported>
+    <location>release/2.12/customcontexts-2.12.0.1.tgz</location>
         <md5sum>0</md5sum>
 </module>
