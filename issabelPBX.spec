@@ -1,6 +1,6 @@
 Name:           issabelPBX
 Version:        2.12.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        issabelPBX
 
 License:        GPL
@@ -46,7 +46,12 @@ killall -q -0 mysqld
 if [ $? -eq 0 ]; then
 echo "mariadb is up and running"
 echo "perform installation"
+if [ $? -eq 1 ]; then
 /usr/src/issabelPBX/framework/install_amp --dbuser=root --installdb --scripted --language=en || :
+else
+MYSQL_ROOTPWD=`grep mysqlrootpwd= /etc/issabel.conf | sed 's/^mysqlrootpwd=//'`
+/usr/src/issabelPBX/framework/install_amp --dbuser=root --dbpass=$MYSQL_ROOTPWD --scripted --language=en || :
+fi
 PODIR=/var/www/html/admin
 else
 echo "mariadb is not running, installation process has been skipped"
