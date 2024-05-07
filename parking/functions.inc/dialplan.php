@@ -354,14 +354,14 @@ function parking_generate_parkedcallstimeout() {
     $pc = 'parkedcallstimeout';
     $exten = '_[0-9a-zA-Z*#].';
 
-    $ext->add($pc, $exten, '', new ext_noop_trace('Slot: ${PARKINGSLOT} returned directed at ${EXTEN}'));
+    $ext->add($pc, $exten, '', new ext_noop_trace('Slot: ${PARKING_SPACE} returned directed at ${EXTEN}'));
     $ext->add($pc, $exten, '', new ext_set('PARK_TARGET','${REPLACE(EXTEN,_,/)}'));
     $ext->add($pc, $exten, '', new ext_gotoif('$["${REC_STATUS}" != "RECORDING"]','next'));
     if ($ast_le_11) {
         $ext->add($pc, $exten, '', new ext_set('AUDIOHOOK_INHERIT(MixMonitor)','yes'));
     }
     $ext->add($pc, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MIXMON_FORMAT}','a','${MIXMON_POST}'));
-    $ext->add($pc, $exten, 'next', new ext_goto('1','${PARKINGSLOT}','park-return-routing'));
+    $ext->add($pc, $exten, 'next', new ext_goto('1','${PARKING_SPACE}','park-return-routing'));
 }
 
 function parking_generate_park_dial($pd, $por) {
