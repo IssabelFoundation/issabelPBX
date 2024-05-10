@@ -1586,6 +1586,12 @@ msgstr "Dia do mês"
 msgid "Queue Members"
 msgstr "Membros da fila"
 
+msgid "Log Member Name"
+msgstr "Registrar nome do membro"
+
+msgid "Queues: log_membername_as_agent. Use member names on login/logout/pause/unapause events in queue_log"
+msgstr "Filas: log_membername_as_agent. Usar nomes de membros em eventos de login/logout/pausa/despausa em queue_log"
+
 #~ msgid ""
 #~ "You can optionally prefix the Caller ID name of callers to the queue. ie: "
 #~ "If you prefix with \"Sales:\", a call from John Doe would display as "

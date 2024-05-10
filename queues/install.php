@@ -669,6 +669,23 @@ $set['description'] = 'Queues: persistentmembers. Store each dynamic member in e
 $set['type'] = CONF_TYPE_BOOL;
 $issabelpbx_conf->define_conf_setting('QUEUES_PESISTENTMEMBERS',$set);
 
+// QUEUES_LOGMEMBERNAME
+//
+$set['value'] = true;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 1;
+$set['hidden'] = 0;
+$set['level'] = 0;
+$set['module'] = 'queues';
+$set['category'] = 'Queues Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 10;
+$set['name'] = 'Log Member Name';
+$set['description'] = 'Queues: log_membername_as_agent. Use member names on login/logout/pause/unapause events in queue_log';
+$set['type'] = CONF_TYPE_BOOL;
+$issabelpbx_conf->define_conf_setting('QUEUES_LOGMEMBERNAME',$set);
+
+
 // QUEUES_SHARED_LASTCALL
 //
 $set['value'] = true;

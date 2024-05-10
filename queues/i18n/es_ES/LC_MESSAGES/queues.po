@@ -1441,3 +1441,11 @@ msgstr "Registrar un evento TRANSFER en el archivo queue_log si se detecta una T
 
 msgid "Queue Caller Count"
 msgstr "Cantidad de llamantes en cola"
+
+msgid "Log Member Name"
+msgstr "Registrar nombre de miembro"
+
+msgid "Queues: log_membername_as_agent. Use member names on login/logout/pause/unapause events in queue_log"
+msgstr "Queues: log_membername_as_agent. Usar el nombre de miembro en eventos de login/logout/pausa en queue_log"
+
+

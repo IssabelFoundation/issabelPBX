@@ -33,6 +33,7 @@ function queues_get_config($engine) {
 			}
 			
 			if (isset($queues_conf) && is_a($queues_conf, "queues_conf")) {
+				$queues_conf->addQueuesGeneral('log_membername_as_agent',$amp_conf['QUEUES_LOGMEMBERNAME'] ? 'yes' : 'no');
 				$queues_conf->addQueuesGeneral('persistentmembers',$amp_conf['QUEUES_PESISTENTMEMBERS'] ? 'yes' : 'no');
 					if ($ast_ge_16) {
 					$queues_conf->addQueuesGeneral('shared_lastcall',$amp_conf['QUEUES_SHARED_LASTCALL'] ? 'yes' : 'no');
