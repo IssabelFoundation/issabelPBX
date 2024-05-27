@@ -195,11 +195,13 @@ function edit_onsubmit(theForm) {
     if (!isAlphanumeric(theForm.displayname.value))
         return warnInvalid(theForm.displayname, msgInvalidTimeCondName);
 
-    if(typeof theForm.time == 'undefined') {
-        return warnInvalid(theForm.time, msgInvalidTimeGroup);
-    } else {
-        if (isEmpty(theForm.time.value))
+    if($('input[name="action"]').val() != 'delete') {
+        if(typeof theForm.time == 'undefined') {
             return warnInvalid(theForm.time, msgInvalidTimeGroup);
+        } else {
+            if (isEmpty(theForm.time.value))
+                return warnInvalid(theForm.time, msgInvalidTimeGroup);
+        }
     }
 
     if (!validateDestinations(edit,2,true))
