@@ -65,7 +65,7 @@ function queues_add(
 		array($account,'eventwhencalled',($_REQUEST['eventwhencalled'])?$_REQUEST['eventwhencalled']:$amp_conf['QUEUES_EVENTS_MEMBER_STATUS_DEFAULT'],0),
 		array($account,'eventmemberstatus',($_REQUEST['eventmemberstatus'])?$_REQUEST['eventmemberstatus']:$amp_conf['QUEUES_EVENTS_MEMBER_STATUS_DEFAULT'],0),
 		array($account,'weight',(isset($_REQUEST['weight']))?$_REQUEST['weight']:'0',0),
-		array($account,'autofill',(isset($_REQUEST['autofill']))?'yes':'no',0),
+		array($account,'autofill',(isset($_REQUEST['autofill'])&&$_REQUEST['autofill']==1)?'yes':'no',0),
 		array($account,'ringinuse',($cwignore == 2 || $cwignore == 3)?'no':'yes',0),
 		array($account,'reportholdtime',(isset($_REQUEST['reportholdtime']))?$_REQUEST['reportholdtime']:'no',0),
 		array($account,'autopause',(isset($_REQUEST['autopause']))?$_REQUEST['autopause']:'no',0),
