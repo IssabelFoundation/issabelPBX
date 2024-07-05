@@ -3813,7 +3813,7 @@ function core_do_get_config($engine) {
             if ($amp_conf['QUEUES_LOG_TRANSFERS'] !== false) {
                 // Log TRANSFER in queue_log if a BLINDTRANSFER is detected from a queue call
                 $ext->add($context, $exten, '', new ext_gotoif('$["${BLINDTRANSFER}" != "" & "${FROMQ}" != ""]', 'trq'));
-                $ext->add($context, $exten, '', new ext_goto('1','resume'));
+                $ext->add($context, $exten, '', new ext_gotoif('$["x" = "x"]', 'resume'));
                 $ext->add($context, $exten, 'trq', new ext_gotoif('$["x${NODEST}" = "x"]', 'resume'));
                 $ext->add($context, $exten, '', new ext_set('AGCHAN', '${CUT(BLINDTRANSFER,-,1)}'));
                 $ext->add($context, $exten, '', new ext_set('VIRTUAL', '${CUT(AGCHAN,/,2)}'));
