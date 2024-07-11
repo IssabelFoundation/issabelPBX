@@ -483,7 +483,8 @@ function drawListMenu($results, $type, $dispnum, $extdisplay, $add_extra_param='
             $tooltipcontent = htmlspecialchars($result[1]);
             $tooltip = " data-title=\"{$tooltipcontent}\" ";
 
-            echo "<a".(($extdisplay==$result[0]) ? " class='current $extracss'":" class='$extracss'"). " {$tooltip} href=\"config.php?type=".$type."&display=".$dispnum."&extdisplay={$result[0]}${extraparam}\" $unpoly_attributes>{$label}</a></li>\n";
+            $extencoded = urlencode($result[0]);
+            echo "<a".(($extdisplay==$extencoded) ? " class='current $extracss'":" class='$extracss'"). " {$tooltip} href=\"config.php?type=".$type."&display=".$dispnum."&extdisplay={$extencoded}${extraparam}\" $unpoly_attributes>{$label}</a></li>\n";
         }
     }
     echo "</ul>\n";
