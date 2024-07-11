@@ -2,7 +2,7 @@
 	<rawname>cidlookup</rawname>
 	<repo>standard</repo>
 	<name>CallerID Lookup</name>
-	<version>2.12.0.0</version>
+	<version>2.12.0.1</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
     <category>Admin</category>
     <embedcategory>Inbound Call Control</embedcategory>
     <changelog>
+        *2.12.0.1* Allows to set any variables instead of just Callerid name
         *2.12.0.0* Newer GUI, standarize module components
 		*2.11.1.12* Initial Issabel Foundation release
 	</changelog>
@@ -18,11 +19,11 @@
 	</menuitems>
 	<depends>
 		<engine>asterisk 1.6</engine>
-		<module>framework ge 2.11.0.0rc1.6</module>
+		<module>framework ge 2.12.0.0</module>
 	</depends>
 	<supported>
 		<version>2.12</version>
 	</supported>
-    <location>release/2.12/cidlookup-2.12.0.0.tgz</location>
+    <location>release/2.12/cidlookup-2.12.0.1.tgz</location>
         <md5sum>0</md5sum>
 </module>
