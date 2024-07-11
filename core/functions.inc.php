@@ -3166,6 +3166,9 @@ function core_do_get_config($engine) {
           $ext->add($context, $exten, '', new ext_gosub('1','s','sub-record-check','out,${EXTEN},'));
 
           $password = $route['password'];
+          $TrunkOrder = 1;
+          $ArrFailoverTrunks = $trunks;
+          $TrunksTotal = count($trunks);
           foreach ($trunks as $trunk_id) {
             if (isset($trunk_table[$trunk_id])) {
               switch(strtolower($trunk_table[$trunk_id]['tech'])) {
@@ -3178,7 +3181,12 @@ function core_do_get_config($engine) {
                 default:
                   $trunk_macro = 'dialout-trunk';
                   break;
-              }
+          }
+          array_shift($ArrFailoverTrunks);
+          $FailoverTrunks = implode(",",$ArrFailoverTrunks);
+          $ext->add($context, $exten, '', new ext_set('__TrunkOrder',$TrunkOrder++));
+          $ext->add($context, $exten, '', new ext_set('__TrunksTotal',$TrunksTotal));
+          $ext->add($context, $exten, '', new ext_set('__FAILOVERTRUNKS',$FailoverTrunks));
               $ext->add($context, $exten, '', new ext_macro($trunk_macro, $trunk_id . ',' . $pattern['prepend_digits'] . '${EXTEN' . $offset . '},' . $password . ',' . $trunk_table[$trunk_id]['continue']));
               $password = '';
               $trunk_type_needed['macro-' . $trunk_macro] = true;
