@@ -36,7 +36,7 @@ foreach ($vars as $k => $v) {
     switch ($k) {
         case 'extdisplay':
             $extdisplay = (isset($extdisplay) && $extdisplay !== false) 
-                    ? htmlspecialchars($extdisplay, ENT_QUOTES) 
+                    ? htmlspecialchars(urldecode($extdisplay), ENT_QUOTES) 
                     : false;
             $_REQUEST['extdisplay'] = $extdisplay;
             break;
