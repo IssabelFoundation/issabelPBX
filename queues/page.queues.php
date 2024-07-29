@@ -25,7 +25,7 @@ $queuewait = isset($_REQUEST['queuewait'])?$_REQUEST['queuewait']:'0';
 $rtone = isset($_REQUEST['rtone'])?$_REQUEST['rtone']:'0';
 $qregex = isset($_REQUEST['qregex'])?$_REQUEST['qregex']:'';
 $weight = isset($_REQUEST['weight'])?$_REQUEST['weight']:'0';
-$autofill = isset($_REQUEST['autofill'])?$_REQUEST['autofill']:'no';
+$autofill = (isset($_REQUEST['autofill'])&&$_REQUEST['autofill']==1)?'yes':'no';
 $togglehint = isset($_REQUEST['togglehint'])?$_REQUEST['togglehint']:'0';
 $dynmemberonly = isset($_REQUEST['dynmemberonly'])?$_REQUEST['dynmemberonly']:'no';
 $use_queue_context = isset($_REQUEST['use_queue_context'])?$_REQUEST['use_queue_context']:'0';
@@ -478,7 +478,7 @@ if ($extdisplay != '') {
     <tr>
         <td><a href="#" class="info"><?php echo __("Autofill")?><span><?php echo __("Starting with Asterisk 1.4, if this is checked, and multiple agents are available, Asterisk will send one call to each waiting agent (depending on the ring strategy). Otherwise, it will hold all calls while it tries to find an agent for the top call in the queue making other calls wait. This was the behavior in Asterisk 1.2 and has no effect in 1.2. See Asterisk documentation for more details of this feature.")?></span></a></td>
         <td>
-            <?php echo ipbx_yesno_checkbox("autofill",$autofill,false); ?>
+            <?php echo ipbx_yesno_checkbox("autofill",($autofill==='yes'?1:0),false); ?>
         </td>
     </tr>
 
