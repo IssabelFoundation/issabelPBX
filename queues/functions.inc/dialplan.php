@@ -884,9 +884,9 @@ function queue_agent_del_toggle() {
 	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
 	$ext->add($id, $c, '', new ext_setvar('CALLBACKNUM','${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n'));
+	$ext->add($id, $c, '', new ext_gotoif('$["${MEMBERTECH}" = "Local"]', 'skiplocal'));
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','${MEMBERTECH}/${CALLBACKNUM}'));
-	$ext->add($id, $c, '', new ext_userevent('RefreshQueue'));
-	$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${IF($[${LEN(${AMPUSERCIDNAME})}>0]?${AMPUSERCIDNAME}:${AMPUSER})}','REMOVEMEMBER'));
+	$ext->add($id, $c, 'skiplocal', new ext_userevent('RefreshQueue'));
 	$ext->add($id, $c, '', new ext_macroexit());
 }
 
