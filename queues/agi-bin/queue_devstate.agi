@@ -187,8 +187,8 @@
                     }
                 }
             } else {
-                // If we have a parenthesis is a queue member line
-                if (strstr($item1,"(")) {
+                // If we have a parenthesis is a queue member line (and it does not have to have talktime as that is a queue line)
+                if (strstr($item1,"(") && strpos($item1, "talktime")===false) {
                     $channel='';
                     $parts = preg_split("/ /",$item1);
                     do {
