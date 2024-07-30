@@ -2,7 +2,7 @@
 	<rawname>queues</rawname>
 	<repo>standard</repo>
 	<name>Queues</name>
-	<version>2.12.0.2</version>
+	<version>2.12.0.3</version>
 	<publisher>Issabel Foundation</publisher>
 	<license>GPLv2+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-2.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		Creates a queue where calls are placed on hold and answered on a first-in, first-out basis. Many options are available, including ring strategy for agents, caller announcements, max wait times, etc.
 	</description>
     <changelog>
+        *2.12.0.3* Prevent endless loop in queue_devstate (fixes *45 getting stuck sometimes)
         *2.12.0.2* Fix saving/displaying autofill setting
         *2.12.0.1* Add log_membername_as_agent advanced setting
         *2.12.0.0* Newer GUI, standarize module components
