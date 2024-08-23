@@ -72,6 +72,7 @@ $pjsip_context                  = isset($_REQUEST['pjsip_context'])?$_REQUEST['p
 $pjsip_inband_progress          = isset($_REQUEST['pjsip_inband_progress'])?$_REQUEST['pjsip_inband_progress']:'no';
 $pjsip_auth_rejection_permanent = isset($_REQUEST['pjsip_auth_rejection_permanent'])?$_REQUEST['pjsip_auth_rejection_permanent']:'no';
 $pjsip_direct_media             = isset($_REQUEST['pjsip_direct_media'])?$_REQUEST['pjsip_direct_media']:'no';
+$pjsip_contact_user             = isset($_REQUEST['pjsip_contact_user'])?$_REQUEST['pjsip_contact_user']:'';
 $pjsip_qualify_frequency        = isset($_REQUEST['pjsip_qualify_frequency'])?$_REQUEST['pjsip_qualify_frequency']:'60';
 $pjsip_max_retries              = isset($_REQUEST['pjsip_max_retries'])?$_REQUEST['pjsip_max_retries']:'10';
 $pjsip_retry_interval           = isset($_REQUEST['pjsip_retry_interval'])?$_REQUEST['pjsip_retry_interval']:'60';
@@ -1292,6 +1293,15 @@ END;
 </td> 
 <td> 
 <input type="text" class="input" name="pjsip_from_user" value="<?php echo htmlspecialchars($pjsip_from_user) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
+</td> 
+</tr>
+
+<tr> 
+<td> 
+ <a href=# class="info"><?php echo __("Contact User")?><span><?php echo __("Extension/User to show on inbound matching. Default is 's'")?></span></a>
+</td> 
+<td> 
+<input type="text" class="input" name="pjsip_contact_user" value="<?php echo htmlspecialchars($pjsip_contact_user) ?>" tabindex="<?php echo ++$tabindex;?>"/> 
 </td> 
 </tr>
 
