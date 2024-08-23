@@ -1,6 +1,6 @@
 Name:           issabelPBX
 Version:        2.12.0
-Release:        4
+Release:        5
 Summary:        issabelPBX
 
 License:        GPL
