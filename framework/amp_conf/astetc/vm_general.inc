@@ -33,8 +33,8 @@
 ; If using Asterisk 1.6 and ARI or other sources for mail, you should set pollmailboxes to
 ; yes and pollfreq if you want to change the default 30 sec polling
 ; 
-;pollmailboxes=yes
-;pollfreq=30
+pollmailboxes=yes
+pollfreq=30
 ; If using IMAP storage, the username and password are specified in the user/extension  
 ; configuration, while the global settings are here 
 ;  
