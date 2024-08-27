@@ -123,6 +123,11 @@ function isUnicodeLetter(c) {
     return true;
   }
 
+  // Hypen
+  if (charCode === 45) {
+    return true;
+  }
+  
   // Apostrophe
   if (charCode === 39) {
     return true;
