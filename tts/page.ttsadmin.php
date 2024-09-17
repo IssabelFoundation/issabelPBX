@@ -48,7 +48,7 @@ $templates = array(
     "lang":"es-MX",
     "voice":"es-MX-DaliaNeural",
     "azurekey":"",
-    "region":"eastus",
+    "region":"eastus"
 }',
 'google'=>'{
     "languageCode":"es-US",
