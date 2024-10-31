@@ -29,6 +29,7 @@ if ($_REQUEST['submitclear']==1 && isset($_REQUEST['goto0'])) {
 
 if (isset($_REQUEST['extension']) && isset($_REQUEST['cidnum'])) {
 	$extdisplay = $_REQUEST['extension']."/".$_REQUEST['cidnum'];
+	$old_extdisplay = $_REQUEST['extension'];
 }
 
 
