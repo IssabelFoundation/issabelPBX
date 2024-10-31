@@ -4,13 +4,14 @@
     <category>Applications</category>
     <embedcategory>Basic</embedcategory>
     <name>Core</name>
-    <version>2.12.0.3</version>
+    <version>2.12.0.4</version>
     <publisher>Issabel Foundation</publisher>
     <license>GPLv3+</license>
     <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <candisable>no</candisable>
     <canuninstall>no</canuninstall>
     <changelog>
+        *2.12.0.4*  Fix edit inbound routes with plus sign
         *2.12.0.3*  Add FAILOVER trunk variable
         *2.12.0.2*  Fix registering cnum and cnam in CDR
         *2.12.0.1*  Bug fixes on cidlookup, class of service, park
