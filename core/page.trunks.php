@@ -89,6 +89,7 @@ $pjsip_t38_udptl_nat            = isset($_REQUEST['pjsip_t38_udptl_nat'])?$_REQU
 $pjsip_t38_udptl_ec             = isset($_REQUEST['pjsip_t38_udptl_ec'])?$_REQUEST['pjsip_t38_udptl_ec']:'none';
 $pjsip_support_path             = isset($_REQUEST['pjsip_support_path'])?$_REQUEST['pjsip_support_path']:'no';
 $pjsip_outbound_proxy           = isset($_REQUEST['pjsip_outbound_proxy'])?$_REQUEST['pjsip_outbound_proxy']:'';
+$pjsip_stir_shaken              = isset($_REQUEST['pjsip_stir_shaken'])?$_REQUEST['pjsip_stir_shaken']:'';
 
 $post_codec = isset($_REQUEST['codec']) ? $_REQUEST['codec'] : array(); 
 
@@ -1646,6 +1647,31 @@ END;
 <input type="text" class="input" name="pjsip_outbound_proxy" value="<?php echo htmlspecialchars($pjsip_outbound_proxy) ?>" tabindex="<?php echo ++$tabindex;?>"/>
 </td>
 </tr>
+
+<tr>
+<td>
+ <a href=# class="info"><?php echo __("Stir/Shaken")?><span><?php echo __("Stir/Shaken")?></span></a>
+</td>
+<td>
+<select name="pjsip_stir_shaken" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
+<?php
+     $select = array();
+     $select['yes'] = __('Yes');
+     $select['no']  = __('No');
+
+     foreach($select as $key=>$val) {
+         echo "<option value='$key'"; 
+         if ($key == $pjsip_stir_shaken) { 
+             echo ' selected="1"'; 
+         }
+         echo ">$val</option>\n"; 
+     }
+?>
+</select>
+
+</td>
+</tr>
+
 
 
   <tr>

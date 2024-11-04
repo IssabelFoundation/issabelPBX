@@ -949,6 +949,10 @@ class core_conf {
            } else if ($keyword == "contact_user") {
                $reg[$channelid]['contact_user']=$data;
                $endp[$channelid]['contact_user']=$data;
+           } else if ($keyword == "stir_shaken") {
+               if(file_exists("/etc/asterisk/stir_shaken.conf")) {
+                   $endp[$channelid]['stir_shaken'] = $data;
+               }
            }
         }
 
