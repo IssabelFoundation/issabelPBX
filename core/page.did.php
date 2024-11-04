@@ -2,8 +2,13 @@
 //Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
 
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
+
+if(isset($_GET['extdisplay'])) {
+    $_REQUEST['extdisplay']=$_GET['extdisplay'];
+}
+
 $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
-$extdisplay= htmlspecialchars(isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'');
+$extdisplay = isset($_GET['extdisplay'])?urldecode($_GET['extdisplay']):'';
 $old_extdisplay = $extdisplay;
 $dispnum = 'did'; //used for switch on config.php
 $account = isset($_REQUEST['account'])?$_REQUEST['account']:'';
@@ -29,7 +34,7 @@ if ($_REQUEST['submitclear']==1 && isset($_REQUEST['goto0'])) {
 
 if (isset($_REQUEST['extension']) && isset($_REQUEST['cidnum'])) {
 	$extdisplay = $_REQUEST['extension']."/".$_REQUEST['cidnum'];
-	$old_extdisplay = $_REQUEST['extension'];
+	//$old_extdisplay = $_REQUEST['extension'];
 }
 
 
