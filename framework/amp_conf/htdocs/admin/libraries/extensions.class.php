@@ -931,7 +931,11 @@ class ext_setcallerpres extends extension {
 		if (version_compare($version, "1.6", "lt")) {
 			return "SetCallerPres({$this->data})";
 		} else {
-			return "Set(CALLERPRES()={$this->data})";
+		    if (version_compare($version, "18", "ge")) {
+			    return "Set(CALLERID(pres)={$this->data})";
+            } else {
+			    return "Set(CALLERPRES()={$this->data})";
+            }
 		}
 	}
 }

@@ -1770,6 +1770,7 @@ function core_do_get_config($engine) {
             $ast_lt_161 = version_compare($version, '1.6.1', 'lt');
             $ast_ge_162 = version_compare($version, '1.6.2', 'ge');
             $ast_ge_10 = version_compare($version, '10', 'ge');
+            $ast_ge_18 = version_compare($version, '18', 'ge');
 
             if (isset($core_conf) && is_a($core_conf, "core_conf")) {
                 $section = 'asterisk';
@@ -2339,7 +2340,11 @@ function core_do_get_config($engine) {
                         if ($ast_lt_16) {
                             $ext->add($context, $exten, '', new ext_setvar('__CALLINGPRES_SV','${CALLINGPRES_${CALLINGPRES}}'));
                         } else {
-                            $ext->add($context, $exten, '', new ext_setvar('__CALLINGPRES_SV','${CALLERPRES()}'));
+                            if($ast_ge_18) {
+                                $ext->add($context, $exten, '', new ext_setvar('__CALLINGPRES_SV','${CALLERID(pres)}'));
+                            } else {
+                                $ext->add($context, $exten, '', new ext_setvar('__CALLINGPRES_SV','${CALLERPRES()}'));
+                            }
                         }
                         $ext->add($context, $exten, '', new ext_setcallerpres('allowed_not_screened'));
                     }
@@ -2543,7 +2548,11 @@ function core_do_get_config($engine) {
                             if ($ast_lt_16) {
                               $ext->add($tcontext,$trunkprops['trunkid'],'nomax',new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'SetCallerPres', '${CALLINGPRES_SV}'));
                             } else {
-                              $ext->add($tcontext,$trunkprops['trunkid'],'nomax',new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'Set', 'CALLERPRES()=${CALLINGPRES_SV}'));
+                              if($ast_ge_18) {
+                                  $ext->add($tcontext,$trunkprops['trunkid'],'nomax',new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'Set', 'CALLERID(pres)=${CALLINGPRES_SV}'));
+                              } else {
+                                  $ext->add($tcontext,$trunkprops['trunkid'],'nomax',new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'Set', 'CALLERPRES()=${CALLINGPRES_SV}'));
+                              }
                             }
                             $ext->add($tcontext,$trunkprops['trunkid'],'',new ext_set('DIAL_NUMBER','${FROM_DID}'));
                             $ext->add($tcontext,$trunkprops['trunkid'],'',new ext_gosubif('$["${PREFIX_TRUNK_'.$trunkprops['trunkid'].'}" != ""]','sub-flp-'.$trunkprops['trunkid'].',s,1'));
@@ -2594,7 +2603,11 @@ function core_do_get_config($engine) {
                     if ($ast_lt_16) {
                       $ext->add($tcontext,$tcustom,'nomax',new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'SetCallerPres', '${CALLINGPRES_SV}'));
                     } else {
-                      $ext->add($tcontext,$tcustom,'nomax',new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'Set', 'CALLERPRES()=${CALLINGPRES_SV}'));
+                      if($ast_ge_18) {
+                          $ext->add($tcontext,$tcustom,'nomax',new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'Set', 'CALLERID(pres)=${CALLINGPRES_SV}'));
+                      } else {
+                          $ext->add($tcontext,$tcustom,'nomax',new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'Set', 'CALLERPRES()=${CALLINGPRES_SV}'));
+                      }
                     }
                     $ext->add($tcontext,$tcustom,'',new ext_set('DIAL_NUMBER','${FROM_DID}'));
                     $ext->add($tcontext,$tcustom,'',new ext_gosubif('$["${PREFIX_TRUNK_${DIAL_TRUNK}}" != ""]','sub-flp-${DIAL_TRUNK},s,1'));
@@ -2618,7 +2631,11 @@ function core_do_get_config($engine) {
                     if ($ast_lt_16) {
                         $ext->add($tcontext,$texten,'nomax',new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'SetCallerPres', '${CALLINGPRES_SV}'));
                     } else {
+                      if($ast_ge_18) {
+                        $ext->add($tcontext,$texten,'nomax',new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'Set', 'CALLERID(pres)=${CALLINGPRES_SV}'));
+                      } else {
                         $ext->add($tcontext,$texten,'nomax',new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'Set', 'CALLERPRES()=${CALLINGPRES_SV}'));
+                      }
                     }
                     $ext->add($tcontext,$texten,'',new ext_set('DIAL_NUMBER','${FROM_DID}'));
                     $ext->add($tcontext,$texten,'',new ext_gosubif('$["${PREFIX_TRUNK_${DIAL_TRUNK}}" != ""]','sub-flp-${DIAL_TRUNK},s,1'));
@@ -4056,7 +4073,11 @@ function core_do_get_config($engine) {
             if ($ast_lt_16) {
                 $ext->add($context, $exten, '', new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'SetCallerPres', '${CALLINGPRES_SV}'));
             } else {
-                $ext->add($context, $exten, '', new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'Set', 'CALLERPRES()=${CALLINGPRES_SV}'));
+                if($ast_ge_18) {
+                  $ext->add($context, $exten, '', new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'Set', 'CALLERID(pres)=${CALLINGPRES_SV}'));
+                } else {
+                  $ext->add($context, $exten, '', new ext_execif('$["${CALLINGPRES_SV}" != ""]', 'Set', 'CALLERPRES()=${CALLINGPRES_SV}'));
+                }
             }
 
             // Keep the original CallerID number, for failover to the next trunk.
@@ -4097,7 +4118,11 @@ function core_do_get_config($engine) {
             if ($ast_lt_16) {
                 $ext->add($context, $exten, 'hidecid', new ext_execif('$["${CALLERID(name)}"="hidden"]', 'SetCallerPres', 'prohib_passed_screen'));
             } else {
-                $ext->add($context, $exten, 'hidecid', new ext_execif('$["${CALLERID(name)}"="hidden"]', 'Set', 'CALLERPRES()=prohib_passed_screen'));
+                if($ast_ge_18) {
+                  $ext->add($context, $exten, 'hidecid', new ext_execif('$["${CALLERID(name)}"="hidden"]', 'Set', 'CALLERID(pres)=prohib_passed_screen'));
+                } else {
+                  $ext->add($context, $exten, 'hidecid', new ext_execif('$["${CALLERID(name)}"="hidden"]', 'Set', 'CALLERPRES()=prohib_passed_screen'));
+                }
             }
             // $has_keepcid_cnum is checked and set when the globals are being generated above
             //
