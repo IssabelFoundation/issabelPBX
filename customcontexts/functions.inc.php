@@ -656,7 +656,7 @@ global $currentcomponent;
 
 
             //$currentcomponent->addguielem('_top', new gui_link('dup', '<span><img width="16" height="16" border="0" title="'.__('Duplicate Class').' '.$description.'" alt="" src="images/core_add.png"></span> '.__("Duplicate Class")." $context", $dupURL, true, false), 3);
-            $currentcomponent->addguielem('_top', new gui_link('dup', $label, true, false), 3);
+            $currentcomponent->addguielem('_top', new gui_link('dup', $label, $dupURL, false), 3);
             $showsort = customcontexts_getmodulevalue('displaysortforincludes');
             if ($showsort == 1) {
             //$sortURL = $_SERVER['PHP_SELF'].'?'.$query.'&showsort=0';
