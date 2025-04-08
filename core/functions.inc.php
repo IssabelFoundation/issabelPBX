@@ -8448,7 +8448,7 @@ function core_devices_configpageinit($dispnum) {
     $engineinfo = engine_getinfo();
     $astver =  $engineinfo['version'];
     $pjsip_enabled = version_compare($astver, '13.00.00', 'ge');
-    $sip_deprecated = version_compare($astver, '20.00.00', 'ge');
+    $sip_deprecated = version_compare($astver, '22.00.00', 'ge');
 
     if ( $dispnum == 'devices' || $dispnum == 'extensions' ) {
 
