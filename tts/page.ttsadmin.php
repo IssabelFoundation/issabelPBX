@@ -43,12 +43,19 @@ $templates = array(
 'pico'=>'{
       "language": "es-ES"
 }',
+'piper'=>'{
+   "voice": "es_MX-claude-high.onnx"
+}',
 'azure'=>'{
     "gender":"Female",
     "lang":"es-MX",
     "voice":"es-MX-DaliaNeural",
     "azurekey":"",
-    "region":"eastus"
+    "region":"eastus",
+}',
+'elevenlabs'=>'{
+    "voice":"",
+    "elevenlabskey":"",
 }',
 'google'=>'{
     "languageCode":"es-US",
@@ -63,8 +70,10 @@ $templates = array(
 $commands = array(
 'polly'=>'/usr/bin/node /opt/aws-nodejs/polly.js',
 'pico'=>'/usr/bin/pico2wave',
+'piper'=>'/usr/local/bin/piper',
 'flite'=>'/usr/bin/flite',
 'azure'=>$amp_conf['ASTDATADIR'].'/agi-bin/azuretts.php',
+'elevenlabs'=>$amp_conf['ASTDATADIR'].'/agi-bin/elevenlabstts.php',
 'google'=>$amp_conf['ASTDATADIR'].'/agi-bin/googlewave.php',
 'custom'=>$amp_conf['ASTDATADIR'].'/agi-bin/googletts.pl "{TEXT}" en 1.2 {OUTPUTFILE}'
 );
@@ -149,7 +158,7 @@ echo "</h2>$help</div>";
         <td>
             <select name="ttsengine_engine" id="ttsengine_engine" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'>
             <?php
-                $engines = array('pico'=>'Pico TTS','polly'=>'Amazon Polly','azure'=>'Microsoft Azure TTS','flite'=>'FLite','google'=>'Google Cloud TTS', 'custom'=>'Custom');
+                $engines = array('pico'=>'Pico TTS','piper'=>'Piper TTS','polly'=>'Amazon Polly','azure'=>'Microsoft Azure TTS','flite'=>'FLite','google'=>'Google Cloud TTS', 'elevenlabs'=>'Eleven Labs', 'custom'=>'Custom');
                 foreach ($engines as $key=>$name) {
                     echo '<option value="'.$key.'"'.($key == $ttsengine_engine ? ' SELECTED' : '').'>'.$name."</option>\n";
                 }

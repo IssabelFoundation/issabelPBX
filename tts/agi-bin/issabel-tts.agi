@@ -109,6 +109,9 @@ if($engine == "google") {
     $format['ext']='alaw';
 }
 
+if($engine == "elevenlabs") {
+    $format['ext']='ulaw';
+}
 
 $soundsdir = $config["ASTDATADIR"]."/sounds/custom/tts";
 if( !is_dir($soundsdir) ) mkdir($soundsdir, 0775);
@@ -146,6 +149,26 @@ if ( !file_exists($wavefile) ) {
             $finalcmd.=" -w $tmpwavefile ".escapeshellarg(file_get_contents($textfile));
             exec($finalcmd);
             break;
+        case 'piper':
+            foreach($json_parameters as $key=>$val) {
+                if($key=='voice') {  
+                    $voice = $val;
+                }
+            }
+            if(!isset($voice)) $voice = 'es_MX-claude-high.onnx';
+            $escapedText = escapeshellarg($text);
+            $escapedVoice = escapeshellarg($voice);
+            $finalcmd = sprintf('echo %s | %s --model /usr/local/piper/voices/%s --output_file %s', $escapedText, $cmd, $escapedVoice, escapeshellarg($tmpwavefile));
+            exec($finalcmd);
+            break;
+
+        case 'elevenlabs':
+            $finalcmd = $cmd." --text '$text' --file $soundsdir/$engine-tts-$hash ";
+            foreach($json_parameters as $key=>$val) {
+                $finalcmd .= "--$key $val ";
+            }
+            exec($finalcmd);
+ 
         case 'azure':
             $finalcmd = $cmd." --text '$text' --file $soundsdir/$engine-tts-$hash ";
             foreach($json_parameters as $key=>$val) {
