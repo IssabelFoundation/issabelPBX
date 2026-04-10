@@ -14,8 +14,8 @@ function queues_ivr_delete_event($id = '') {
 function queues_configprocess_ivr() {
 	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
 	$display = isset($_REQUEST['display'])?$_REQUEST['display']:null;
-	$id = isset($_REQUEST['id'])?$_REQUEST['id']:null;
-
+    $id = isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay'] : 
+      (isset($_REQUEST['id']) ? $_REQUEST['id'] : null);
 	
 	if($display == 'ivr' && $action == 'delete') {
 		queues_ivr_delete_event($id);
