@@ -949,6 +949,8 @@ class core_conf {
            } else if ($keyword == "contact_user") {
                $reg[$channelid]['contact_user']=$data;
                $endp[$channelid]['contact_user']=$data;
+           } else if ($keyword == "user_eq_phone") {
+               $endp[$channelid]['user_eq_phone']=$data;
            } else if ($keyword == "stir_shaken") {
                if(file_exists("/etc/asterisk/stir_shaken.conf")) {
                    $endp[$channelid]['stir_shaken'] = $data;
@@ -8448,7 +8450,7 @@ function core_devices_configpageinit($dispnum) {
     $engineinfo = engine_getinfo();
     $astver =  $engineinfo['version'];
     $pjsip_enabled = version_compare($astver, '13.00.00', 'ge');
-    $sip_deprecated = version_compare($astver, '22.00.00', 'ge');
+    $sip_deprecated = version_compare($astver, '20.00.00', 'ge');
 
     if ( $dispnum == 'devices' || $dispnum == 'extensions' ) {
 
@@ -8842,7 +8844,6 @@ function core_devices_configpageinit($dispnum) {
             $tmparr['use_avpf'] = array('value' => 'no', 'tt' => $tt, 'select' => $select, 'level' => 1);
         }
 
- 
         $tt = __("Path to certificate file to present");
         $tmparr['dtls_cert_file'] = array('value' => '', 'tt' => $tt, 'level' => 1);
 
