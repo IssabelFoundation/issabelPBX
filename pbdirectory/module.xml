@@ -1,26 +1,27 @@
 <module>
-  <rawname>pbdirectory</rawname>
-  <repo>extended</repo>
-  <name>Phonebook Directory</name>
-  <version>2.12.0.0</version>
-	<publisher>Issabel Foundation</publisher>
-	<license>GPLv3+</license>
-	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-  <category>Admin</category>
-  <location>release/2.11/pbdirectory-2.11.0.0.tgz</location>
-  <description>Provides a dial-by-name directory for phonebook entries</description>
-	<changelog>
+    <rawname>pbdirectory</rawname>
+    <repo>extended</repo>
+    <name>Phonebook Directory</name>
+    <version>2.13.0.0</version>
+    <publisher>Issabel Foundation</publisher>
+    <license>GPLv3+</license>
+    <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+    <category>Admin</category>
+    <location>release/2.11/pbdirectory-2.11.0.0.tgz</location>
+    <description>Provides a dial-by-name directory for phonebook entries</description>
+    <changelog>
+        *2.13.0.0* Initial version without Macro
         *2.12.0.0* Issabel 5 release
-		*2.11.0.5* Issabel Foundation release
-		*2.9.0.0* Forked from FreePBX modules, original publisher Sangoma Technologies
-	</changelog>
-  <depends>
-    <version>2.12.0.0</version>
-    <module>phonebook</module>
-    <module>speeddial</module>
-  </depends>
-  <supported>
-    <version>2.12</version>
-</supported>
+        *2.11.0.5* Issabel Foundation release
+        *2.9.0.0* Forked from FreePBX modules, original publisher Sangoma Technologies
+    </changelog>
+    <depends>
+        <version>2.13.0.0</version>
+        <module>phonebook</module>
+        <module>speeddial</module>
+    </depends>
+    <supported>
+        <version>2.13</version>
+    </supported>
     <md5sum>0</md5sum>
 </module>

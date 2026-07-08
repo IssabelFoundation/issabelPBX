@@ -216,7 +216,7 @@ function directory_get_config($engine) {
                 $ext->add($c, 'invalid', '', new ext_goto('${DIR_INVALID_PRI}','${DIR_INVALID_EXTEN}','${DIR_INVALID_CONTEXT}'));
                 $ext->add($c, 'retivr', 'retivr', new ext_playback('${DIR_INVALID_RECORDING}'));
                 $ext->add($c, 'retivr', '', new ext_goto('1','return','${IVR_CONTEXT}'));
-                $ext->add($c, 'h', '', new ext_macro('hangupcall'));
+                $ext->add($c, 'h', '', new ext_gosub('1','s','sub-hangupcall'));
             }
             break;
     }

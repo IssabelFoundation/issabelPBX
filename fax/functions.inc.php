@@ -306,7 +306,7 @@ function fax_get_config($engine){
       we try to trap and report on all cases.
     */
     $exten = 's';
-      $ext->add($context, $exten, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+    $ext->add($context, $exten, '', new ext_gosub('1','s','sub-user-callerid'));
     $ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
     $ext->add($context, $exten, 'receivefax', new ext_stopplaytones(''));
     switch ($fax['module']) {
@@ -364,13 +364,13 @@ function fax_get_config($engine){
         $ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${REPLACE(CALLERID(all),\', )}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
     }
 
-      $ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
+      $ext->add($context, $exten, 'end', new ext_gosub('1','s','sub-hangupcall'));
 
     $ext->add($context, $exten, 'noemail', new ext_noop('ERROR: No Email Address to send FAX: status: [${FAXSTATUS}],  From: [${CALLERID(all)}]'));
-      $ext->add($context, $exten, '', new ext_macro('hangupcall'));
+      $ext->add($context, $exten, '', new ext_gosub('1','s','sub-hangupcall'));
 
     $ext->add($context, $exten, 'failed', new ext_noop('FAX ${FAXSTATUS} for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'),'process',101);
-      $ext->add($context, $exten, '', new ext_macro('hangupcall'));
+      $ext->add($context, $exten, '', new ext_gosub('1','s','sub-hangupcall'));
 
 
         //write out res_fax.conf and res_fax_digium.conf
@@ -386,7 +386,7 @@ function fax_get_config($engine){
       $ext->addInclude('from-internal-additional', 'app-fax'); // Add the include from from-internal
       $ext->add('app-fax', $fc_simu_fax, '', new ext_setvar('FAX_RX_EMAIL', $default_address[0]));
       $ext->add('app-fax', $fc_simu_fax, '', new ext_goto('1', 's', 'ext-fax'));
-      $ext->add('app-fax', 'h', '', new ext_macro('hangupcall'));
+      $ext->add('app-fax', 'h', '', new ext_gosub('1','s','sub-hangupcall'));
     }
     // This is not really needed but is put here in case some ever accidently switches the order below when
     // checking for this setting since $fax['module'] will be set there and the 2nd part never checked
