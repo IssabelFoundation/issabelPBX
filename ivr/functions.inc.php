@@ -30,7 +30,6 @@ function ivr_destinations() {
 
 //dialplan generator
 function ivr_get_config($engine) {
-
     global $ext, $amp_conf, $astman;
 
     $show_spoken=0;
@@ -178,7 +177,7 @@ function ivr_get_config($engine) {
 
                         //only display these two lines if the ivr is included in any queues
                         if (function_exists('queues_list') && in_array($ivr['id'], $qivr)) {
-                            $ext->add($c, $e['selection'],'', new ext_macro('blkvm-clr'));
+                            $ext->add($c, $e['selection'],'', new ext_gosub('1','s','sub-blkvm-clr'));
                             $ext->add($c, $e['selection'], '', new ext_setvar('__NODEST', ''));
                         }
 
@@ -320,7 +319,7 @@ function ivr_get_config($engine) {
                         if ($exten == '' || $exten == 'custom') {
                             continue;
                         }
-                        $ext->add($c, $exten, '', new ext_macro('blkvm-clr'));
+                        $ext->add($c, $exten, '', new ext_gosub('1','s','sub-blkvm-clr'));
                         $ext->add($c, $exten, '', new ext_setvar('__NODEST', ''));
                         $ext->add($c, $exten, '', new ext_goto('1', $exten, 'from-internal'));
                     }

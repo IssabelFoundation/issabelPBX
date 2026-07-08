@@ -282,7 +282,7 @@ function conferences_get_config($engine) {
 						$hints[] = $hint_pre . ":" . $roomnum;
 					}
 					// entry point
-					$ext->add($contextname, $roomnum, '', new ext_macro('user-callerid'));
+					$ext->add($contextname, $roomnum, '', new ext_gosub('1','s','sub-user-callerid'));
 					$ext->add($contextname, $roomnum, '', new ext_setvar('MEETME_ROOMNUM',$roomnum));
 					$ext->add($contextname, $roomnum, '', new ext_setvar('MAX_PARTICIPANTS', $roomusers));
 					$ext->add($contextname, $roomnum, '', new ext_setvar('MEETME_MUSIC',$music));

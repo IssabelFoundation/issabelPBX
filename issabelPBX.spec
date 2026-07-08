@@ -1,11 +1,11 @@
 Name:           issabelPBX
-Version:        2.12.0
-Release:        6
+Version:        2.13.0
+Release:        0
 Summary:        issabelPBX
 
 License:        GPL
 URL:            www.issabel.org
-Source0:        issabelPBX-2.12.0.tar.gz
+Source0:        issabelPBX-2.13.0.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  bash php php-cli

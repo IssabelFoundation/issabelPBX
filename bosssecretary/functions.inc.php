@@ -75,7 +75,7 @@ function bosssecretary_get_config($engine){
 
             $ext->add($ctx_app_on, $fcc_on, '', new ext_noop("Bosssecretary on starts..."));
             $ext->add($ctx_app_on, $fcc_on, '', new ext_answer());
-            $ext->add($ctx_app_on, $fcc_on, '', new ext_macro ('user-callerid'));
+            $ext->add($ctx_app_on, $fcc_on, '', new ext_gosub('1','s','sub-user-callerid'));
             $ext->add($ctx_app_on, $fcc_on, '', new ext_wait ('2'));
             $ext->add($ctx_app_on, $fcc_on, '', new ext_gotoif('${DB_EXISTS(bosssecretary/group/member/${AMPUSER})}','on','exit'));
             $ext->add($ctx_app_on, $fcc_on, 'on', new ext_setvar('GROUP','${DB(bosssecretary/group/member/${AMPUSER})}'));
@@ -93,7 +93,7 @@ function bosssecretary_get_config($engine){
             // :::: BSC Off [app-bosssecretary-off] ::::
             $ext->add($ctx_app_off, $fcc_off, '', new ext_noop("Bosssecretary off starts..."));
             $ext->add($ctx_app_off, $fcc_off, '', new ext_answer());
-            $ext->add($ctx_app_off, $fcc_off, '', new ext_macro ('user-callerid'));
+            $ext->add($ctx_app_off, $fcc_off, '', new ext_gosub('1','s','sub-user-callerid'));
             $ext->add($ctx_app_off, $fcc_off, '', new ext_wait ('2'));
             $ext->add($ctx_app_off, $fcc_off, '', new ext_gotoif('${DB_EXISTS(bosssecretary/group/member/${AMPUSER})}','off','exit'));
             $ext->add($ctx_app_off, $fcc_off, 'off', new ext_setvar('GROUP','${DB(bosssecretary/group/member/${AMPUSER})}'));
@@ -110,7 +110,7 @@ function bosssecretary_get_config($engine){
             // :::: BSC Toggle [app-bosssecretary-toggle] ::::
             $ext->add($ctx_app_toggle, $fcc_toggle, '', new ext_noop("Bosssecretary toggle starts..."));
             $ext->add($ctx_app_toggle, $fcc_toggle, '', new ext_answer());
-            $ext->add($ctx_app_toggle, $fcc_toggle, '', new ext_macro ('user-callerid'));
+            $ext->add($ctx_app_toggle, $fcc_toggle, '', new ext_gosub('1','s','sub-user-callerid'));
             $ext->add($ctx_app_toggle, $fcc_toggle, '', new ext_wait ('2'));
             $ext->add($ctx_app_toggle, $fcc_toggle, '', new ext_gotoif('${DB_EXISTS(bosssecretary/group/member/${AMPUSER})}','check','exit' ));
             $ext->add($ctx_app_toggle, $fcc_toggle, 'check', new ext_setvar('GROUP','${DB(bosssecretary/group/member/${AMPUSER})}'));
@@ -162,7 +162,7 @@ function bosssecretary_get_config($engine){
                 foreach ($group["bosses"] as $extension)
                 {
                     $ext->add($ctx_bsc, $extension, '', new ext_noop("Bosssecretary: Checking  lock for $extension extension"));
-                    $ext->add($ctx_bsc, $extension, '', new ext_macro ('user-callerid'));
+                    $ext->add($ctx_bsc, $extension, '', new ext_gosub('1','s','sub-user-callerid'));
                     $ext->add($ctx_bsc, $extension, '', new ext_setvar('CALLER','${CALLERID(num)}'));
                     $ext->add($ctx_bsc, $extension, '', new ext_gotoif('${DB_EXISTS(bosssecretary/group/'.$id_group.'/member/${CALLER})}','exit_module'));
                     $ext->add($ctx_bsc, $extension, '', new ext_gotoif('${DB_EXISTS(bosssecretary/group/'.$id_group.'/locked)}','exit_module','run_module'));
@@ -176,8 +176,8 @@ function bosssecretary_get_config($engine){
                         $extensions[] = "$sip_extension";
                     }
                     //    $extensions[] = "$extension";
-                    $args = '${RINGTIMER},${DIAL_OPTIONS},' . implode ("-", $extensions);
-                    $ext->add($ctx_bsc, $extension, '', new ext_macro ("dial", $args));
+                    $args = '${RINGTIMER},${DIAL_OPTIONS},' . implode("-", $extensions);
+                    $ext->add($ctx_bsc, $extension, '', new ext_gosub('1','s',"sub-dial", $args));
                     $ext->add($ctx_bsc, $extension, 'exit_module', new ext_noop("Bosssecretary: Exit") );
                     $ext->add($ctx_bsc, $extension, '', new ext_goto(1, $extension, "ext-local") );
                     $extensions = "";

@@ -1,15 +1,16 @@
 <module>
-	<rawname>framework</rawname>
-	<modtype>framework</modtype>
-	<repo>standard</repo>
-	<name>IssabelPBX Framework</name>
-	<version>2.12.0.3</version>
-	<publisher>Issabel Foundation</publisher>
-	<license>GPLv3+</license>
-	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<candisable>no</candisable>
-	<canuninstall>no</canuninstall>
-	<changelog>
+    <rawname>framework</rawname>
+    <modtype>framework</modtype>
+    <repo>standard</repo>
+    <name>IssabelPBX Framework</name>
+    <version>2.13.0.0</version>
+    <publisher>Issabel Foundation</publisher>
+    <license>GPLv3+</license>
+    <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+    <candisable>no</candisable>
+    <canuninstall>no</canuninstall>
+    <changelog>
+        *2.13.0.0*  Initial version without Macro
         *2.12.0.3*  URI Decode parameters. Fixed plus sign on inbound routes not decoding.
         *2.12.0.2*  URI Encode parameters in right nav. Fixed problems with blacklist module.
         *2.12.0.1*  Support certified asterisk versions. Improve upgrade. Allow persian names on display names.
@@ -18,17 +19,17 @@
         *2.11.0.48* Multi Park, ODBC functions, Supports for Asterisk 16
         *2.11.0.47* Bump release for Aug 2018 iso and rebranding
         *2.11.0.46* Add default res_parking.conf used in asterisk 13
-		*2.11.0.45* Update release
-		*2.11.0.44* GitHub release
-		*2.11.0.43* Initial Issabel Foundation release
-	</changelog>
-	<description>
-		This module provides a facility to install bug fixes to the framework code that is not otherwise housed in a module
-	</description>
-	<supported>
-		<version>2.12</version>
-	</supported>
-	<category>Admin</category>
-	<location></location>
-	<md5sum>0</md5sum>
+        *2.11.0.45* Update release
+        *2.11.0.44* GitHub release
+        *2.11.0.43* Initial Issabel Foundation release
+    </changelog>
+    <description>
+        This module provides a facility to install bug fixes to the framework code that is not otherwise housed in a module
+    </description>
+    <supported>
+        <version>2.13</version>
+    </supported>
+    <category>Admin</category>
+    <location></location>
+    <md5sum>0</md5sum>
 </module>

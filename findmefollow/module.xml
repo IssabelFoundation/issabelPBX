@@ -1,30 +1,31 @@
 <module>
-	<rawname>findmefollow</rawname>
-	<repo>standard</repo>
-	<name>Follow Me</name>
-	<version>2.12.0.0</version>
-	<publisher>Issabel Foundation</publisher>
-	<license>GPLv3+</license>
-	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+    <rawname>findmefollow</rawname>
+    <repo>standard</repo>
+    <name>Follow Me</name>
+    <version>2.13.0.0</version>
+    <publisher>Issabel Foundation</publisher>
+    <license>GPLv3+</license>
+    <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <changelog>
+        *2.13.0.0* Initial version without Macro
         *2.12.0.0* Newer GUI, standarize module components
-		*2.11.0.6* Initial Issabel Foundation release
-	</changelog>
-	<depends>
-		<version>2.12.0</version>
-		<module>recordings ge 3.3.8</module>
-	</depends>
+        *2.11.0.6* Initial Issabel Foundation release
+    </changelog>
+    <depends>
+        <version>2.12.0</version>
+        <module>recordings ge 3.3.8</module>
+    </depends>
     <category>Applications</category>
     <embedcategory>Inbound Call Control</embedcategory>
-	<description>
-		Much like a ring group, but works on individual extensions. When someone calls the extension, it can be setup to ring for a number of seconds before trying to ring other extensions and/or external numbers, or to ring all at once, or in other various hunt configurations. Most commonly used to ring someone&apos;s cell phone if they don&apos;t answer their extension.
-	</description>
-	<menuitems>
-		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
-	</menuitems>
-	<supported>
-		<version>2.12</version>
-	</supported>
-    <location>release/2.12/findmefollow-2.12.0.0.tgz</location>
+    <description>
+        Much like a ring group, but works on individual extensions. When someone calls the extension, it can be setup to ring for a number of seconds before trying to ring other extensions and/or external numbers, or to ring all at once, or in other various hunt configurations. Most commonly used to ring someone&apos;s cell phone if they don&apos;t answer their extension.
+    </description>
+    <menuitems>
+        <findmefollow needsenginedb="yes">Follow Me</findmefollow>
+    </menuitems>
+    <supported>
+        <version>2.13</version>
+    </supported>
+    <location>release/2.13/findmefollow-2.13.0.0.tgz</location>
         <md5sum>0</md5sum>
 </module>

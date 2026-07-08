@@ -298,13 +298,13 @@ function customcontexts_get_config($engine) {
         }
         //these go in funny "exten => s,1,Macro(hangupcall,)"
         //i'd rather use the base extension class to type it normally, but there is a bug in the class see ticket http://www.issabel.org/trac/ticket/1453
-        $ext->add($context,'s', '', new ext_macro('hangupcall')); 
-        $ext->add($context,'h', '', new ext_macro('hangupcall'));
+        $ext->add($context,'s', '', new ext_gosub('1','s','sub-hangupcall')); 
+        $ext->add($context,'h', '', new ext_gosub('1','s','sub-hangupcall'));
         $ext->addInclude($context,$context.'_bad-number');
         $ext->addInclude($context,'bad-number');
         if (is_array($dialpattern)) {
-            $ext->add($context.'_rulematch','s', '', new ext_macro('hangupcall')); 
-            $ext->add($context.'_rulematch','h', '', new ext_macro('hangupcall'));
+            $ext->add($context.'_rulematch','s', '', new ext_gosub('1','s','sub-hangupcall')); 
+            $ext->add($context.'_rulematch','h', '', new ext_gosub('1','s','sub-hangupcall'));
             $ext->addInclude($context.'_rulematch',$context.'_bad-number');
             $ext->addInclude($context.'_rulematch','bad-number');
         }
@@ -797,12 +797,6 @@ function customcontexts_customcontexts_edit($context,$newcontext,$description,$d
     }
     $sql = "update customcontexts_contexts set context = '$newcontext', description = '$description', dialrules = '$dialrules', faildestination = '$faildest', featurefaildestination = '$featurefaildest', failpin = '$failpin', featurefailpin = '$featurefailpin' where context = '$context'";
     $db->query($sql);
-
-    if($newcontext != $context) {
-        // Update context on sip/pjsip extensions if renamed
-        $sql = "UPDATE sip SET data='".$db->escapeSimple($newcontext)."' WHERE keyword='context' AND data='".$db->escapeSimple($context)."'";
-        $db->query($sql);
-    }
     needreload();
 }
 

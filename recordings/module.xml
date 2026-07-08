@@ -2,7 +2,7 @@
     <rawname>recordings</rawname>
     <repo>standard</repo>
     <name>Recordings</name>
-    <version>3.5.0.0</version>
+    <version>3.5.0.1</version>
     <publisher>Issabel Foundation</publisher>
     <license>GPLv3+</license>
     <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -11,6 +11,7 @@
     <embedcategory>Internal Options &amp; Configuration</embedcategory>
     <description>Creates and manages system recordings, used by many other modules (eg, IVR).</description>
     <changelog>
+        *3.5.0.1* Initial version without Macro
         *3.5.0.0* Newer GUI, standarize module components
         *3.4.0.4* Adds recording from browser
         *3.4.0.3* Initial Issabel Foundation release
@@ -19,11 +20,11 @@
         <recordings>System Recordings</recordings>
     </menuitems>
     <depends>
-       <module>framework ge 2.12.0.0</module>
+       <module>framework ge 2.13.0.0</module>
     </depends>
     <supported>
-        <version>2.12</version>
+        <version>2.13</version>
     </supported>
-    <location>release/2.12/recordings-3.5.0.0.tgz</location>
+    <location>release/2.13/recordings-3.5.0.1.tgz</location>
         <md5sum>0</md5sum>
 </module>

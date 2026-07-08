@@ -152,7 +152,7 @@ function dialplaninjection_get_config($engine) {
             $goto = explode(',',$val[2]);
             //        $ext->add('dialplaninjections', 'injection-'.$injection, '', new ext_goto($goto[2],$goto[1],$goto[0]));
             $ext->add('injection-'.$injection, '_.', '', new ext_goto($goto[2],$goto[1],$goto[0]));
-            $ext->add('injection-'.$injection,'h', '', new ext_macro('hangupcall'));
+            $ext->add('injection-'.$injection,'h', '', new ext_gosub('1','s','sub-hangupcall'));
         }
         break;
     }

@@ -67,7 +67,7 @@ function vmblast_get_config($engine) {
 					$grpnum = ltrim($item['0']);
 					$grp = vmblast_get($grpnum);
 					$grplist = $grp['grplist'];
-					$ext->add($contextname, $grpnum, '', new ext_macro('user-callerid'));
+					$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-user-callerid'));
 					$ext->add($contextname, $grpnum, '', new ext_answer(''));
 					$ext->add($contextname, $grpnum, '', new ext_wait('1'));
 
@@ -77,7 +77,7 @@ function vmblast_get_config($engine) {
 
 					$ext->add($contextname, $grpnum, '', new ext_setvar('GRPLIST',''));
 					foreach ($grplist as $exten) {
-						$ext->add($contextname, $grpnum, '', new ext_macro('get-vmcontext',$exten));
+						$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-get-vmcontext',$exten));
 						$ext->add($contextname, $grpnum, '', new ext_setvar('GRPLIST','${GRPLIST}&'.$exten.'@${VMCONTEXT}'));
 					}
 

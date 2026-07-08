@@ -207,7 +207,7 @@ function daynight_toggle() {
         }
         $got_code = true;
         $ext->addHint($id, $c, 'Custom:DAYNIGHT'.$index);
-        $ext->add($id, $c, '', new ext_macro('user-callerid'));
+        $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
         $ext->add($id, $c, '', new ext_answer(''));
         $ext->add($id, $c, '', new ext_wait('1'));
         if (isset($passwords[$index]) && trim($passwords[$index]) != "" && ctype_digit(trim($passwords[$index]))) {
@@ -234,7 +234,7 @@ function daynight_toggle() {
         $c = $fcc->getCodeActive();
         unset($fcc);
         if ($c) {
-            $ext->add($id, $c, '', new ext_macro('user-callerid'));
+            $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
             $ext->add($id, $c, '', new ext_goto($id.',${EXTEN}*${AMPUSER},1'));
 
             $userFCs = array();

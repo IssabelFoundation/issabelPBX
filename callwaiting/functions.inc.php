@@ -41,10 +41,10 @@ function callwaiting_cwon($c) {
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_setvar('DB(CW/${AMPUSER})', 'ENABLED')); 
 	$ext->add($id, $c, 'hook_1', new ext_playback('call-waiting&activated')); // $cmd,n,Playback(...)
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 }
 
 
@@ -57,10 +57,10 @@ function callwaiting_cwoff($c) {
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_dbdel('CW/${AMPUSER}')); 
 	$ext->add($id, $c, 'hook_1', new ext_playback('call-waiting&de-activated')); // $cmd,n,Playback(...)
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 }
 
 function callwaiting_set($extension, $state = '') {

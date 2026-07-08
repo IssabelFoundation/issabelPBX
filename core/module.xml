@@ -4,13 +4,14 @@
     <category>Applications</category>
     <embedcategory>Basic</embedcategory>
     <name>Core</name>
-    <version>2.12.0.5</version>
+    <version>2.13.0.0</version>
     <publisher>Issabel Foundation</publisher>
     <license>GPLv3+</license>
     <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <candisable>no</candisable>
     <canuninstall>no</canuninstall>
     <changelog>
+        *2.13.0.0*  Initial version without Macro
         *2.12.0.5*  Add user_eq_phone to pjsip trunks. Deprecated chan sip on Asterisk 20 instead of 22
         *2.12.0.4*  Fix edit inbound routes with plus sign
         *2.12.0.3*  Add FAILOVER trunk variable
@@ -24,8 +25,8 @@
         *2.11.0.35* Initial Issabel Foundation release
     </changelog>
     <depends>
-        <module>framework ge 2.11.0.30</module>
-        <version>2.12.0.0</version>
+        <module>framework ge 2.13.0.0</module>
+        <version>2.13.0.0</version>
     </depends>
     <requirements>
         <file>/usr/sbin/asterisk</file>
@@ -53,8 +54,8 @@
         <get_config pri="480">core_do_get_config</get_config>
     </methods>
      <supported>
-         <version>2.12</version>
+         <version>2.13</version>
     </supported>
-    <location>release/2.12/core-2.12.0.1.tgz</location>
+    <location>release/2.13/core-2.13.0.0.tgz</location>
         <md5sum>0</md5sum>
 </module>

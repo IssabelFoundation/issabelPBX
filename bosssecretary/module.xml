@@ -1,8 +1,9 @@
 <module>
     <rawname>bosssecretary</rawname>
     <name>Boss Secretary</name>
-    <version>1.22</version>
+    <version>1.3</version>
     <changelog>
+        *1.3* Initial version without Macro
         *1.2* Revised to work with IssabelPBX 2.12. Refactor code
         *1.1* Make it translatable
         *1.0* Module changed to new dialpan. Module is now compatible with Asterisk 1.6X and newer with all BLF functionality.

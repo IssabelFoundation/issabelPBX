@@ -69,7 +69,7 @@ function infoservices_calltrace($c) {
 	$c = 's';
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); 
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid')); 
 	$ext->add($id, $c, '', new ext_playback('info-about-last-call&telephone-number'));
 	$ext->add($id, $c, '', new ext_setvar('lastcaller', '${DB(CALLTRACE/${AMPUSER})}'));
 	$ext->add($id, $c, '', new ext_gotoif('$[ $[ "${lastcaller}" = "" ] | $[ "${lastcaller}" = "unknown" ] ]', 'noinfo'));
@@ -79,15 +79,15 @@ function infoservices_calltrace($c) {
 	$ext->add($id, $c, '', new ext_background('to-call-this-number&press-1'));
 	$ext->add($id, $c, '', new ext_goto('fin'));
 	$ext->add($id, $c, 'noinfo', new ext_playback('from-unknown-caller'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); 
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall')); 
 	$ext->add($id, $c, 'fin', new ext_noop('Waiting for input'));
 	$ext->add($id, $c, '', new ext_waitexten(60));
 	$ext->add($id, $c, '', new ext_Playback('sorry-youre-having-problems&goodbye'));
 	$ext->add($id, '1', '', new ext_goto('1', '${lastcaller}', 'from-internal'));
 	$ext->add($id, 'i', '', new ext_playback('vm-goodbye')); 
-	$ext->add($id, 'i', '', new ext_macro('hangupcall')); 
+	$ext->add($id, 'i', '', new ext_gosub('1','s','sub-hangupcall')); 
 	$ext->add($id, 't', '', new ext_playback('vm-goodbye')); 
-	$ext->add($id, 't', '', new ext_macro('hangupcall')); 
+	$ext->add($id, 't', '', new ext_gosub('1','s','sub-hangupcall')); 
 
 }
 
@@ -99,12 +99,12 @@ function infoservices_echotest($c) {
 	$ext->addInclude('from-internal-additional', $id, _dgettext('infoservices','Echo Test')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); 
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid')); 
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_playback('demo-echotest')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_playback('demo-echotest'));
 	$ext->add($id, $c, '', new ext_echo('')); 
 	$ext->add($id, $c, '', new ext_playback('demo-echodone')); // $cmd,n,Playback(...)
-	$ext->add($id, $c, '', new ext_hangup('')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_hangup(''));
 }
 
 function infoservices_speakingclock($c) {
@@ -159,7 +159,7 @@ function infoservices_speakingclock($c) {
 
 	$ext->addInclude('from-internal-additional', $id, _dgettext('infoservices','Speaking Clock')); // Add the include from from-internal
 
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); 
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid')); 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_setvar('NumLoops','0'));
@@ -223,7 +223,7 @@ function infoservices_speakextennum($c) {
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_playback('your'));
 	$ext->add($id, $c, '', new ext_playback('extension'));
 	$ext->add($id, $c, '', new ext_playback('number'));

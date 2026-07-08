@@ -100,7 +100,7 @@ function queues_get_config($engine) {
 				$qregex = (isset($q['qregex'])?$q['qregex']:'');
 				str_replace(';','\;',$qregex);
 			
-				$ext->add($c, $exten, '', new ext_macro('user-callerid'));
+				$ext->add($c, $exten, '', new ext_gosub('1','s','sub-user-callerid'));
 			
 				if (isset($q['qnoanswer']) && $q['qnoanswer'] == FALSE) {
 					$ext->add($c, $exten, '', new ext_answer(''));
@@ -116,8 +116,8 @@ function queues_get_config($engine) {
 				}
 				// If extension_only don't do this and CFIGNORE
 				if($q['use_queue_context'] != '2') {
-					$ext->add($c, $exten, '', new ext_macro('blkvm-set', 'reset'));
-					$ext->add($c, $exten, '', new ext_execif('$["${REGEX("(M[(]auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}M(auto-blkvm)'));
+					$ext->add($c, $exten, '', new ext_gosub('1','s','sub-blkvm-set', 'reset'));
+					$ext->add($c, $exten, '', new ext_execif('$["${REGEX("(M[(]auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}M(auto-blkvm)')); // TODO MACRO DEPRECATED
 				}
 
 				// Inform all the children NOT to send calls to destinations or voicemail
@@ -271,7 +271,7 @@ function queues_get_config($engine) {
 				$ext->add($c, $exten, 'qcall', new ext_queue($exten, $options, $qurl, $agnc, $qmaxwait, $qagi, $qmacro, $qgosub, $qrule, $qposition));
 
 				if($q['use_queue_context'] != '2') {
-					$ext->add($c, $exten, '', new ext_macro('blkvm-clr'));
+					$ext->add($c, $exten, '', new ext_gosub('1','s','sub-blkvm-clr'));
 				}
 
 				// Reset CALLFILENAME if QUEUE CONTINUE to avoid delete the file  (venturinog)
@@ -320,11 +320,11 @@ function queues_get_config($engine) {
 				}
 				if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
 					if($q['use_queue_context'] == '2') {
-						$ext->add($c, $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password'].",EXTEN"));
+						$ext->add($c, $exten."*", '', new ext_gosub('1','s','sub-agent-add',$exten.",".$q['password'].",EXTEN"));
 					} else {
-						$ext->add($c, $exten."*", '', new ext_macro('agent-add',$exten.",".$q['password']));
+						$ext->add($c, $exten."*", '', new ext_gosub('1','s','sub-agent-add',$exten.",".$q['password']));
 					}
-					$ext->add($c, $exten."**", '', new ext_macro('agent-del',"$exten"));
+					$ext->add($c, $exten."**", '', new ext_gosub('1','s','sub-agent-del',"$exten"));
 				}
 				if ($que_code != '') {
 					$ext->add($c, $que_code.$exten, '', new ext_setvar('QUEUENO',$exten));
@@ -554,7 +554,7 @@ function queues_get_config($engine) {
 
 			// We need to have a hangup here, if call is ended by the caller during Playback it will end in the
 			// h context and do a proper hangup and clean the blkvm if set, see #4671
-			$ext->add($c, 'h', '', new ext_macro('hangupcall'));
+			$ext->add($c, 'h', '', new ext_gosub('1','s','sub-hangupcall'));
 			
 			
 			// NODEST will be the queue that this came from, so we will vector though an entry to determine the context the
@@ -580,14 +580,14 @@ function queues_get_config($engine) {
 
 					$ext->add($from_queue_exten_only, $item[0], 'checkrecord', new ext_gosub('1','s','sub-record-check',"exten," . $item[0]));
 					if ($has_extension_state) {
-						$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial-one',',${DIAL_OPTIONS}${QDOPTS},'.$item[0]));
+						$ext->add($from_queue_exten_only, $item[0], '', new ext_gosub('1','s','dial-one',',${DIAL_OPTIONS}${QDOPTS},'.$item[0]));
 					} else {
-						$ext->add($from_queue_exten_only, $item[0], '', new ext_macro('dial',',${DIAL_OPTIONS}${QDOPTS},'.$item[0]));
+						$ext->add($from_queue_exten_only, $item[0], '', new ext_gosub('1','s','dial',',${DIAL_OPTIONS}${QDOPTS},'.$item[0]));
 					}
 					$ext->add($from_queue_exten_only, $item[0], '', new ext_gotoif('$["${CALLER_DEST}"!=""]','${CUT(CALLER_DEST,^,1)},${CUT(CALLER_DEST,^,2)},${CUT(CALLER_DEST,^,3)}'));
  					$ext->add($from_queue_exten_only, $item[0], '', new ext_hangup());
 				}
- 				$ext->add($from_queue_exten_only, 'h', '', new ext_macro('hangupcall'));
+ 				$ext->add($from_queue_exten_only, 'h', '', new ext_gosub('1','s','sub-hangupcall'));
 			}
 
 			/*
@@ -597,12 +597,12 @@ function queues_get_config($engine) {
 
 			if ($amp_conf['GENERATE_LEGACY_QUEUE_CODES']) {
 
-			$c = 'macro-agent-add';
+			$c = 'sub-agent-add';
 			$exten = 's';
 			
 			$ext->add($c, $exten, '', new ext_wait(1));
 			$ext->add($c, $exten, '', new ext_set('QUEUENO', '${ARG1}'));
-			$ext->add($c, $exten, '', new ext_macro('user-callerid', 'SKIPTTL'));
+			$ext->add($c, $exten, '', new ext_gosub('1','s','sub-user-callerid', 'SKIPTTL'));
 			$ext->add($c, $exten, 'a3', new ext_read('CALLBACKNUM', 'agent-login'));  // get callback number from user
 			$ext->add($c, $exten, '', new ext_gotoif('$[${LEN(${CALLBACKNUM})}=0]','a5','a7'));  // if user just pressed # or timed out, use cidnum
 			$ext->add($c, $exten, 'a5', new ext_set('CALLBACKNUM', '${IF($[${LEN(${AMPUSER})}=0]?${CALLERID(number)}:${AMPUSER})}'));
@@ -644,7 +644,7 @@ function queues_get_config($engine) {
 			$ext->add($c, $exten, '', new ext_playback('agent-loginok&with&extension'));
 			$ext->add($c, $exten, '', new ext_saydigits('${CALLBACKNUM}'));
 			$ext->add($c, $exten, '', new ext_hangup());
-			$ext->add($c, $exten, '', new ext_macroexit());
+			$ext->add($c, $exten, '', new ext_return());
 			$ext->add($c, $exten, 'invalid', new ext_playback('pbx-invalid'));
 			$ext->add($c, $exten, '', new ext_goto('a3'));
 
@@ -653,11 +653,11 @@ function queues_get_config($engine) {
 			 * Prompts for call-back number - in not entered, uses CIDNum 
 			 */
 
-			$c = 'macro-agent-del';
+			$c = 'sub-agent-del';
 			
 			$ext->add($c, $exten, '', new ext_wait(1));
 			$ext->add($c, $exten, '', new ext_set('QUEUENO', '${ARG1}'));
-			$ext->add($c, $exten, '', new ext_macro('user-callerid', 'SKIPTTL'));
+			$ext->add($c, $exten, '', new ext_gosub('1','s','sub-user-callerid', 'SKIPTTL'));
 			$ext->add($c, $exten, 'a3', new ext_read('CALLBACKNUM', 'agent-logoff'));  // get callback number from user
 			$ext->add($c, $exten, '', new ext_gotoif('$[${LEN(${CALLBACKNUM})}=0]','a5','a7'));  // if user just pressed # or timed out, use cidnum
 			$ext->add($c, $exten, 'a5', new ext_set('CALLBACKNUM', '${IF($[${LEN(${AMPUSER})}=0]?${CALLERID(number)}:${AMPUSER})}'));
@@ -692,10 +692,10 @@ function app_all_queue_pause_toggle() {
 
 	$ext->add($c, $e, 'start', new ext_answer(''));
 	$ext->add($c, $e, '', new ext_wait('1'));
-	$ext->add($c, $e, '', new ext_macro('user-callerid'));
+	$ext->add($c, $e, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($c, $e, '', new ext_agi('queue_devstate.agi,toggle-pause-all,${AMPUSER}'));
 	$ext->add($c, $e, '', new ext_playback('dictate/pause&${IF($[${TOGGLEPAUSED}]?activated:de-activated)}'));
-	$ext->add($c, $e, '', new ext_macro('hangupcall'));
+	$ext->add($c, $e, '', new ext_gosub('1','s','sub-hangupcall'));
 }
 
 function app_queue_pause_toggle() {
@@ -707,7 +707,7 @@ function app_queue_pause_toggle() {
 
 	$ext->add($c, $e, 'start', new ext_answer(''));
 	$ext->add($c, $e, '', new ext_wait('1'));
-	$ext->add($c, $e, '', new ext_macro('user-callerid'));
+	$ext->add($c, $e, '', new ext_gosub('1','s','sub-user-callerid'));
     $ext->add($c, $e, '', new ext_set('QAG','${DB_KEYS(QPENALTY/${ARG1}/agents)}'));
     $ext->add($c, $e, '', new ext_set('LOOPCNTALL','${FIELDQTY(QAG,\,)}'));
     $ext->add($c, $e, '', new ext_set('ITERALL','1'));
@@ -725,7 +725,7 @@ function app_queue_pause_toggle() {
 	$ext->add($c, $e, '', new ext_set('QUEUE_MEMBER(${ARG1},paused,${MEMBR})', '${IF($[${PAUSE_STATE}]?0:1)}'));
 	$ext->add($c, $e, '', new ext_playback('dictate/pause&${IF($[${PAUSE_STATE}]?de-activated:activated)}'));
 	$ext->add($c, $e, '', new ext_execif('$[${ARG2}]', 'Return'));
-	$ext->add($c, $e, '', new ext_macro('hangupcall'));
+	$ext->add($c, $e, '', new ext_gosub('1','s','sub-hangupcall'));
 }
 
 function queue_app_all_toggle() {
@@ -737,10 +737,10 @@ function queue_app_all_toggle() {
 
 	$ext->add($c, $e, 'start', new ext_answer(''));
 	$ext->add($c, $e, '', new ext_wait('1'));
-	$ext->add($c, $e, '', new ext_macro('user-callerid'));
+	$ext->add($c, $e, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($c, $e, '', new ext_agi('queue_devstate.agi,getall,${AMPUSER}'));
 	$ext->add($c, $e, '', new ext_gotoif('$["${QUEUESTAT}" = "NOQUEUES"]', 'skip'));
-	$ext->add($c, $e, '', new ext_set('TOGGLE_MACRO', '${IF($["${QUEUESTAT}"="LOGGEDOUT"]?toggle-add-agent:toggle-del-agent)}'));
+	$ext->add($c, $e, '', new ext_set('TOGGLE_SUB', '${IF($["${QUEUESTAT}"="LOGGEDOUT"]?sub-toggle-add-agent:sub-toggle-del-agent)}'));
 	if ($amp_conf['USEDEVSTATE']) {
 		$ext->add($c, $e, '', new ext_set('STATE', '${IF($["${QUEUESTAT}"="LOGGEDOUT"]?INUSE:NOT_INUSE)}'));
 	}
@@ -750,7 +750,7 @@ function queue_app_all_toggle() {
 	$ext->add($c, $e, '', new ext_set('QUEUENO', '${CUT(QUEUEANDTECH,~,1)}'));
 	$ext->add($c, $e, '', new ext_set('MEMBERTECH', '${CUT(QUEUEANDTECH,~,2)}'));
 	$ext->add($c, $e, '', new ext_set('ITERALL', '$[${ITERALL}+1]'));
-	$ext->add($c, $e, '', new ext_macro('${TOGGLE_MACRO}'));
+	$ext->add($c, $e, '', new ext_gosub('1','s','${TOGGLE_SUB}'));
 	if ($amp_conf['USEDEVSTATE']) {
 		$ext->add($c, $e, '', new ext_gosub('1', 'sstate', 'app-queue-toggle'));
 	}
@@ -758,7 +758,7 @@ function queue_app_all_toggle() {
 	$ext->add($c, $e, 'skip', new ext_execif('$["${QUEUESTAT}"="LOGGEDIN" | "${QUEUESTAT}"="NOQUEUES"]', 'Playback', 'agent-loggedoff'));
 	$ext->add($c, $e, '', new ext_execif('$["${QUEUESTAT}"="LOGGEDOUT"]', 'Playback', 'agent-loginok'));
 	$ext->add($c, $e, '', new ext_execif('$["${QUEUESTAT}"="LOGGEDOUT"]', 'SayDigits', '${AMPUSER}'));
-	$ext->add($c, $e, '', new ext_macro('hangupcall'));
+	$ext->add($c, $e, '', new ext_gosub('1','s','sub-hangupcall'));
 }
 
 /* Trial DEVSTATE */
@@ -774,7 +774,7 @@ function queue_app_toggle() {
 
 	$ext->add($id, $c, 'start', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
-	$ext->add($id, $c, '', new ext_macro('user-callerid'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_setvar('QUEUESTAT', 'LOGGEDOUT'));
 	$ext->add($id, $c, '', new ext_agi('queue_devstate.agi,getqueues,${AMPUSER}'));
 
@@ -782,7 +782,7 @@ function queue_app_toggle() {
 	$ext->add($id, $c, '', new ext_gotoif('$["${QUEUESTAT}" = "LOGGEDIN"]', 'deactivate'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${QUEUESTAT}" = "STATIC"]', 'static','end'));
 	$ext->add($id, $c, 'deactivate', new ext_noop('Agent Logged out'));
-	$ext->add($id, $c, '', new ext_macro('toggle-del-agent'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-toggle-del-agent'));
 	$logout_label = 'logout';
 	if ($amp_conf['USEDEVSTATE']) {
 		$ext->add($id, $c, $logout_label, new ext_setvar('STATE', 'NOT_INUSE'));
@@ -790,10 +790,10 @@ function queue_app_toggle() {
 		$logout_label = '';
 	}
 	$ext->add($id, $c, $logout_label, new ext_playback('agent-loggedoff'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 	$ext->add($id, $c, 'activate', new ext_noop('Agent Logged In'));
-	$ext->add($id, $c, '', new ext_macro('toggle-add-agent'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-toggle-add-agent'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${QAGENT_UNAUTHORIZED}"="1"]', 'logout'));
 
 	if ($amp_conf['USEDEVSTATE']) {
@@ -802,7 +802,7 @@ function queue_app_toggle() {
 	}
 	$ext->add($id, $c, '', new ext_playback('agent-loginok'));
 	$ext->add($id, $c, '', new ext_saydigits('${CALLBACKNUM}'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 	$ext->add($id, $c, 'static', new ext_noop('User is a Static Agent'));
 	if ($amp_conf['USEDEVSTATE']) {
@@ -810,7 +810,7 @@ function queue_app_toggle() {
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate'));
 	}
 	$ext->add($id, $c, '', new ext_playback('agent-loginok'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 	if ($amp_conf['USEDEVSTATE']) {
 		$c = 'sstate';
@@ -830,12 +830,12 @@ function queue_agent_add_toggle() {
 
 	$ast_ge_14_25 = version_compare($version,'1.4.25','ge');
 	$ast_ge_18 = version_compare($version,'1.8','ge');
-	$id = "macro-toggle-add-agent"; // The context to be included
+	$id = "sub-toggle-add-agent"; // The context to be included
 
 	$c = 's';
 
 	$ext->add($id, $c, '', new ext_wait('1'));
-	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','SKIPTTL'));
 	$ext->add($id, $c, '', new ext_setvar('CALLBACKNUM','${AMPUSER}'));
 	//TODO: check if it's not a user for some reason and abort?
 	$ext->add($id, $c, '', new ext_gotoif('$["${DB(QPENALTY/${QUEUENO}/dynmemberonly)}" = "yes" & ${DB_EXISTS(QPENALTY/${QUEUENO}/agents/${CALLBACKNUM})} != 1]', 'invalid'));
@@ -866,28 +866,28 @@ function queue_agent_add_toggle() {
 
 	$ext->add($id, $c, 'cont', new ext_userevent('AgentLogin','Agent: ${CALLBACKNUM}'));
 	//$ext->add($id, $c, '', new ext_queuelog('${QUEUENO}','MANAGER','${IF($[${LEN(${AMPUSERCIDNAME})}>0]?${AMPUSERCIDNAME}:${AMPUSER})}','ADDMEMBER'));
-	$ext->add($id, $c, '', new ext_macroexit());
+	$ext->add($id, $c, '', new ext_return());
 	$ext->add($id, $c, 'invalid', new ext_playback('pbx-invalid'));
 	$ext->add($id, $c, '', new ext_set('QAGENT_UNAUTHORIZED','1'));
-	$ext->add($id, $c, '', new ext_macroexit());
+	$ext->add($id, $c, '', new ext_return());
 }
 
 function queue_agent_del_toggle() {
 	global $ext;
 	global $amp_conf;
 
-	$id = "macro-toggle-del-agent"; // The context to be included
+	$id = "sub-toggle-del-agent"; // The context to be included
 
 	$c = 's';
 
 	$ext->add($id, $c, '', new ext_wait('1'));
-	$ext->add($id, $c, '', new ext_macro('user-callerid,SKIPTTL'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','SKIPTTL'));
 	$ext->add($id, $c, '', new ext_setvar('CALLBACKNUM','${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','Local/${CALLBACKNUM}@from-queue/n'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${MEMBERTECH}" = "Local"]', 'skiplocal'));
 	$ext->add($id, $c, '', new ext_removequeuemember('${QUEUENO}','${MEMBERTECH}/${CALLBACKNUM}'));
 	$ext->add($id, $c, 'skiplocal', new ext_userevent('RefreshQueue'));
-	$ext->add($id, $c, '', new ext_macroexit());
+	$ext->add($id, $c, '', new ext_return());
 }
 
 ?>

@@ -36,15 +36,15 @@ function recordings_get_config($engine) {
 				$ext->addInclude('from-internal-additional', 'app-recordings', _dgettext('recordings','Recordings')); // Add the include from from-internal
 				
 				if ($fc_save != '') {
-					$ext->add($appcontext, $fc_save, '', new ext_macro('user-callerid'));
+					$ext->add($appcontext, $fc_save, '', new ext_gosub('1','s','sub-user-callerid'));
 					$ext->add($appcontext, $fc_save, '', new ext_wait('2'));
-					$ext->add($appcontext, $fc_save, '', new ext_macro('systemrecording', 'dorecord'));
+					$ext->add($appcontext, $fc_save, '', new ext_gosub('1','s','sub-systemrecording', 'dorecord'));
 				}
 
 				if ($fc_check != '') {
-					$ext->add($appcontext, $fc_check, '', new ext_macro('user-callerid'));
+					$ext->add($appcontext, $fc_check, '', new ext_gosub('1','s','sub-user-callerid'));
 					$ext->add($appcontext, $fc_check, '', new ext_wait('2'));
-					$ext->add($appcontext, $fc_check, '', new ext_macro('systemrecording', 'docheck'));
+					$ext->add($appcontext, $fc_check, '', new ext_gosub('1','s','sub-systemrecording', 'docheck'));
 				}
 			}
 
@@ -71,10 +71,9 @@ function recordings_get_config($engine) {
 					//
 					if (strpos($item['filename'], '&') === false && trim($item['filename']) != '') {
 						$fcode_pass = (trim($item['fcode_pass']) != '') ? ','.$item['fcode_pass'] : '';
-						$ext->add($appcontext, $fcode, '', new ext_macro('user-callerid'));
+						$ext->add($appcontext, $fcode, '', new ext_gosub('1','s','sub-user-callerid'));
 						$ext->add($appcontext, $fcode, '', new ext_wait('2'));
-						$ext->add($appcontext, $fcode, '', new ext_macro('systemrecording', 'docheck,'.$item['filename'].$fcode_pass));
-						//$ext->add($appcontext, $fcode, '', new ext_macro('hangup'));
+						$ext->add($appcontext, $fcode, '', new ext_gosub('1','s','sub-systemrecording', 'docheck,'.$item['filename'].$fcode_pass));
 					}
 				}
 			}

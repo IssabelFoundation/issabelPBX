@@ -2,7 +2,7 @@
     <rawname>outroutemsg</rawname>
     <repo>standard</repo>
     <name>Route Congestion Messages</name>
-    <version>2.12.0.0</version>
+    <version>2.13.0.0</version>
     <publisher>Issabel Foundation</publisher>
     <license>GPLv3+</license>
     <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -14,6 +14,7 @@
         <outroutemsg>Route Congestion Messages</outroutemsg>
     </menuitems>
     <changelog>
+        *2.13.0.0* Initial version without Macro
         *2.12.0.0* Newer GUI, standarize module components
         *2.11.0.3* Add HangupCause check for unallocated numbers and info tone
         *2.11.0.2* Initial Issabel Foundation release
@@ -21,9 +22,9 @@
     <depends>
         <module>recordings ge 3.3.8</module>
     </depends>
-    <location>release/2.12/outroutemsg-2.12.0.0.tgz</location>
+    <location>release/2.13/outroutemsg-2.13.0.0.tgz</location>
     <supported>
-        <version>2.12</version>
+        <version>2.13</version>
     </supported>
-        <md5sum>0</md5sum>
+    <md5sum>0</md5sum>
 </module>

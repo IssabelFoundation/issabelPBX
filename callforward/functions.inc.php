@@ -74,7 +74,7 @@ function callforward_cf_toggle($c) {
 
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
-	$ext->add($id, $c, '', new ext_macro('user-callerid'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 
 	$ext->add($id, $c, '', new ext_gotoif('$["${DB(CF/${fromext})}" = ""]', 'activate', 'deactivate'));
@@ -95,10 +95,10 @@ function callforward_cf_toggle($c) {
 		$ext->add($id, $c, '', new ext_playback('is-set-to'));
 		$ext->add($id, $c, '', new ext_saydigits('${toext}'));
 	}
-	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 	$ext->add($id, $c, 'setdirect', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
-	$ext->add($id, $c, '', new ext_macro('user-callerid'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_goto('toext'));
 
 	$ext->add($id, $c, 'deactivate', new ext_dbdel('CF/${fromext}')); 
@@ -111,7 +111,7 @@ function callforward_cf_toggle($c) {
 	} else {
 		$ext->add($id, $c, 'hook_off', new ext_playback('call-fwd-unconditional&de-activated')); // $cmd,n,Playback(...)
 	}
-	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 	if ($amp_conf['USEDEVSTATE']) {
 		$c = 'sstate';
@@ -153,7 +153,7 @@ function callforward_add_cfon($c, $prompt = false) {
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 
 	if ($prompt) {
 		$ext->add($id, $c, '', new ext_read('fromext', 'call-fwd-unconditional&please-enter-your&extension&then-press-pound'));
@@ -163,7 +163,7 @@ function callforward_add_cfon($c, $prompt = false) {
 		$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));	
 		$ext->add($id, $c, '', new ext_gotoif('$["${fromext}"!=""]', 'startread'));
 		$ext->add($id, $c, '', new ext_playback('agent-loggedoff'));
-		$ext->add($id, $c, '', new ext_macro('hangupcall'));
+		$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 	}
 	$ext->add($id, $c, 'startread', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
 	$ext->add($id, $c, '', new ext_gotoif('$["foo${toext}"="foo"]', 'startread'));
@@ -181,13 +181,13 @@ function callforward_add_cfon($c, $prompt = false) {
 		$ext->add($id, $c, '', new ext_playback('is-set-to'));
 		$ext->add($id, $c, '', new ext_saydigits('${toext}'));
 	}
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 	$clen = strlen($c);
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_setvar('toext', '${EXTEN:'.$clen.'}'));
 	$ext->add($id, $c, '', new ext_setvar('DB(CF/${fromext})', '${toext}')); 
@@ -203,7 +203,7 @@ function callforward_add_cfon($c, $prompt = false) {
 		$ext->add($id, $c, '', new ext_playback('is-set-to'));
 		$ext->add($id, $c, '', new ext_saydigits('${toext}'));
 	}
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 	if ($amp_conf['USEDEVSTATE']) {
 		$c = 'sstate';
@@ -228,7 +228,7 @@ function callforward_cfoff_any($c) {
 	$ext->addInclude('from-internal-additional', $id, _dgettext('callforward','Deactivate Call Forward Any')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 
 	$ext->add($id, $c, '', new ext_read('fromext', 'please-enter-your&extension&then-press-pound'));
@@ -242,7 +242,7 @@ function callforward_cfoff_any($c) {
 	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-unconditional&for&extension'));
 	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 	$ext->add($id, $c, '', new ext_playback('cancelled'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 	if ($amp_conf['USEDEVSTATE']) {
 		$c = 'sstate';
@@ -269,7 +269,7 @@ function callforward_cfoff($c) {
 	// for this extension
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_dbdel('CF/${fromext}')); 
 	if ($amp_conf['USEDEVSTATE']) {
@@ -281,7 +281,7 @@ function callforward_cfoff($c) {
 	} else {
 		$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-unconditional&de-activated')); // $cmd,n,Playback(...)
 	}
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 	// for any extension, dial *XX<exten>
 	$clen = strlen($c);
@@ -301,7 +301,7 @@ function callforward_cfoff($c) {
 		$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 		$ext->add($id, $c, '', new ext_playback('cancelled'));
 	}
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 	if ($amp_conf['USEDEVSTATE']) {
 		$c = 'sstate';
@@ -343,7 +343,7 @@ function callforward_add_cfbon($c, $prompt = false) {
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	if ($prompt) {
 		$ext->add($id, $c, '', new ext_read('fromext', 'call-fwd-on-busy&please-enter-your&extension&then-press-pound'));
 		$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["${fromext}"=""]?${AMPUSER}:${fromext})}'));
@@ -352,7 +352,7 @@ function callforward_add_cfbon($c, $prompt = false) {
 		$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 		$ext->add($id, $c, '', new ext_gotoif('$["${fromext}"!=""]', 'startread'));
 		$ext->add($id, $c, '', new ext_playback('agent-loggedoff'));
-		$ext->add($id, $c, '', new ext_macro('hangupcall'));
+		$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 	}
 
 	$ext->add($id, $c, 'startread', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
@@ -363,13 +363,13 @@ function callforward_add_cfbon($c, $prompt = false) {
 	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 	$ext->add($id, $c, '', new ext_playback('is-set-to'));
 	$ext->add($id, $c, '', new ext_saydigits('${toext}'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 	$clen = strlen($c);
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_setvar('toext', '${EXTEN:'.$clen.'}'));
 	$ext->add($id, $c, '', new ext_setvar('DB(CFB/${fromext})', '${toext}')); 
@@ -377,7 +377,7 @@ function callforward_add_cfbon($c, $prompt = false) {
 	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 	$ext->add($id, $c, '', new ext_playback('is-set-to'));
 	$ext->add($id, $c, '', new ext_saydigits('${toext}'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 }
 
 function callforward_cfboff_any($c) {
@@ -389,7 +389,7 @@ function callforward_cfboff_any($c) {
 	$ext->addInclude('from-internal-additional', $id, _dgettext('callforward','Deactivate Call Forward on Busy Any')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_read('fromext', 'please-enter-your&extension&then-press-pound'));
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["foo${fromext}"="foo"]?${AMPUSER}:${fromext})}'));	
@@ -398,7 +398,7 @@ function callforward_cfboff_any($c) {
 	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-on-busy&for&extension'));
 	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 	$ext->add($id, $c, '', new ext_playback('cancelled'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 }
 
 function callforward_cfboff($c) {
@@ -412,11 +412,11 @@ function callforward_cfboff($c) {
 	// for this extension
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_dbdel('CFB/${fromext}'));
 	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-on-busy&de-activated')); // $cmd,n,Playback(...)
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 	// for any extension, dial *XX<exten>
 	$clen = strlen($c);
@@ -428,7 +428,7 @@ function callforward_cfboff($c) {
 	$ext->add($id, $c, 'hook_2', new ext_playback('call-fwd-on-busy&for&extension'));
 	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 	$ext->add($id, $c, '', new ext_playback('cancelled'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 }
 
@@ -457,7 +457,7 @@ function callforward_add_cfuon($c, $prompt=false) {
 
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
-	$ext->add($id, $c, '', new ext_macro('user-callerid'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	if ($prompt) {
 		$ext->add($id, $c, '', new ext_read('fromext', 'call-fwd-no-ans&please-enter-your&extension&then-press-pound'));
 		$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["${fromext}"=""]?${AMPUSER}:${fromext})}'));
@@ -466,7 +466,7 @@ function callforward_add_cfuon($c, $prompt=false) {
 		$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 		$ext->add($id, $c, '', new ext_gotoif('$["${fromext}"!=""]', 'startread'));
 		$ext->add($id, $c, '', new ext_playback('agent-loggedoff'));
-		$ext->add($id, $c, '', new ext_macro('hangupcall'));
+		$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 	}
 	$ext->add($id, $c, 'startread', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${toext}"=""]', 'startread'));
@@ -476,14 +476,14 @@ function callforward_add_cfuon($c, $prompt=false) {
 	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 	$ext->add($id, $c, '', new ext_playback('is-set-to'));
 	$ext->add($id, $c, '', new ext_saydigits('${toext}'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 	// assume this extension and forward to number after the feature code
 	$clen = strlen($c);
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_setvar('toext', '${EXTEN:'.$clen.'}'));
 	$ext->add($id, $c, '', new ext_setvar('DB(CFU/${fromext})', '${toext}'));
@@ -491,7 +491,7 @@ function callforward_add_cfuon($c, $prompt=false) {
 	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 	$ext->add($id, $c, '', new ext_playback('is-set-to'));
 	$ext->add($id, $c, '', new ext_saydigits('${toext}'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 }
 
 function callforward_cfuoff($c) {
@@ -505,11 +505,11 @@ function callforward_cfuoff($c) {
 	// for this extension
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_dbdel('CFU/${fromext}'));
 	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-no-ans&de-activated')); // $cmd,n,Playback(...)
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 
 	// for any extension, dial *XX<exten>
 	$clen = strlen($c);
@@ -521,7 +521,7 @@ function callforward_cfuoff($c) {
 	$ext->add($id, $c, 'hook_2', new ext_playback('call-fwd-no-ans&for&extension'));
 	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 	$ext->add($id, $c, '', new ext_playback('cancelled'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 }
 
 function callforward_get_extension($extension = '') {

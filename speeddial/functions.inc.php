@@ -25,25 +25,25 @@ function speeddial_get_config($engine) {
 				$ext->add('app-pbdirectory', $code, '', new ext_goto(1,'pbdirectory'));
 			}
 
-			// [macro-speeddial-lookup]
+			// [sub-speeddial-lookup]
 			// arg1 is speed dial location,  arg2 (optional) is user caller ID
-			$ext->add('macro-speeddial-lookup', 's', '', new ext_gotoif('$["${ARG2}"=""]]','lookupsys'));
-			$ext->add('macro-speeddial-lookup', 's', '', new ext_set('SPEEDDIALNUMBER',''));
-			$ext->add('macro-speeddial-lookup', 's', 'lookupuser', new ext_dbget('SPEEDDIALNUMBER','AMPUSER/${ARG2}/speeddials/${ARG1}'));
-			$ext->add('macro-speeddial-lookup', 's', '', new ext_gotoif('$["${SPEEDDIALNUMBER}"=""]','lookupsys'));
-			$ext->add('macro-speeddial-lookup', 's', '', new ext_noop('Found speeddial ${ARG1} for user ${ARG2}: ${SPEEDDIALNUMBER}'));
-			$ext->add('macro-speeddial-lookup', 's', '', new ext_goto('end'));
-			$ext->add('macro-speeddial-lookup', 's', 'lookupsys', new ext_dbget('SPEEDDIALNUMBER','sysspeeddials/${ARG1}'), 'lookupuser',101);
-			$ext->add('macro-speeddial-lookup', 's', '', new ext_gotoif('$["${SPEEDDIALNUMBER}"=""]','failed'));
-			$ext->add('macro-speeddial-lookup', 's', '', new ext_noop('Found system speeddial ${ARG1}: ${SPEEDDIALNUMBER}'));
-			$ext->add('macro-speeddial-lookup', 's', '', new ext_goto('end'));
-			$ext->add('macro-speeddial-lookup', 's', 'failed', new ext_noop('No system or user speeddial found'), 'lookupsys',101);
-			$ext->add('macro-speeddial-lookup', 's', 'end', new ext_noop('End of Speeddial-lookup'));
+			$ext->add('sub-speeddial-lookup', 's', '', new ext_gotoif('$["${ARG2}"=""]]','lookupsys'));
+			$ext->add('sub-speeddial-lookup', 's', '', new ext_set('SPEEDDIALNUMBER',''));
+			$ext->add('sub-speeddial-lookup', 's', 'lookupuser', new ext_dbget('SPEEDDIALNUMBER','AMPUSER/${ARG2}/speeddials/${ARG1}'));
+			$ext->add('sub-speeddial-lookup', 's', '', new ext_gotoif('$["${SPEEDDIALNUMBER}"=""]','lookupsys'));
+			$ext->add('sub-speeddial-lookup', 's', '', new ext_noop('Found speeddial ${ARG1} for user ${ARG2}: ${SPEEDDIALNUMBER}'));
+			$ext->add('sub-speeddial-lookup', 's', '', new ext_goto('end'));
+			$ext->add('sub-speeddial-lookup', 's', 'lookupsys', new ext_dbget('SPEEDDIALNUMBER','sysspeeddials/${ARG1}'), 'lookupuser',101);
+			$ext->add('sub-speeddial-lookup', 's', '', new ext_gotoif('$["${SPEEDDIALNUMBER}"=""]','failed'));
+			$ext->add('sub-speeddial-lookup', 's', '', new ext_noop('Found system speeddial ${ARG1}: ${SPEEDDIALNUMBER}'));
+			$ext->add('sub-speeddial-lookup', 's', '', new ext_goto('end'));
+			$ext->add('sub-speeddial-lookup', 's', 'failed', new ext_noop('No system or user speeddial found'), 'lookupsys',101);
+			$ext->add('sub-speeddial-lookup', 's', 'end', new ext_noop('End of Speeddial-lookup'));
 
 			if (!empty($callcode)) {
-				$ext->add('app-speeddial', '_'.$callcode.'.', '', new ext_macro('user-callerid',''));
+				$ext->add('app-speeddial', '_'.$callcode.'.', '', new ext_gosub('1','s','sub-user-callerid',''));
 				$ext->add('app-speeddial', '_'.$callcode.'.', '', new ext_set('SPEEDDIALLOCATION','${EXTEN:'.(strlen($callcode)).'}'));
-				$ext->add('app-speeddial', '_'.$callcode.'.', 'lookup', new ext_macro('speeddial-lookup','${SPEEDDIALLOCATION},${AMPUSER}'));
+				$ext->add('app-speeddial', '_'.$callcode.'.', 'lookup', new ext_gosub('1','s','sub-speeddial-lookup','${SPEEDDIALLOCATION},${AMPUSER}'));
 				$ext->add('app-speeddial', '_'.$callcode.'.', '', new ext_gotoif('$["${SPEEDDIALNUMBER}"=""]','failed'));
 				$ext->add('app-speeddial', '_'.$callcode.'.', '', new ext_goto('1','${SPEEDDIALNUMBER}','from-internal'));
 
@@ -61,10 +61,10 @@ function speeddial_get_config($engine) {
 			$ext->add('app-speeddial-set', 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.'app-speeddial-set'.',${CHANNEL(language)})}]', 'app-speeddial-set'.',${CHANNEL(language)},${ARG1}', 'app-speeddial-set'.',en,${ARG1}'));
 			$ext->add('app-speeddial-set', 'lang-playback', '', new ext_return());
 
-			$ext->add('app-speeddial-set', 's', '', new ext_macro('user-callerid',''));
+			$ext->add('app-speeddial-set', 's', '', new ext_gosub('1','s','sub-user-callerid',''));
 			// "enter speed dial location number"
 			$ext->add('app-speeddial-set', 's', 'setloc', new ext_read('newlocation','speed-enterlocation'));
-			$ext->add('app-speeddial-set', 's', 'lookup', new ext_macro('speeddial-lookup','${newlocation},${AMPUSER}'));
+			$ext->add('app-speeddial-set', 's', 'lookup', new ext_gosub('1','s','sub-speeddial-lookup','${newlocation},${AMPUSER}'));
 			$ext->add('app-speeddial-set', 's', '', new ext_gotoif('$["${SPEEDDIALNUMBER}"!=""]', 'conflicts'));
 
 			// "enter phone number"

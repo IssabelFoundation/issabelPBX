@@ -161,7 +161,7 @@ function parking_get_config($engine) {
             $hv_all = '';
             for ($slot = $parkpos1; $slot <= $parkpos2; $slot++) {
     
-                $ext->add($ph, $slot, '', new ext_macro('parked-call',$slot . ',' . ($lot['defaultlot']=='no' ? $lotname : 'default'). ',' . $hint_context));
+                $ext->add($ph, $slot, '', new ext_gosub('1','s','sub-parked-call',$slot . ',' . ($lot['defaultlot']=='no' ? $lotname : 'default'). ',' . $hint_context));
     
                 if ($lot['generatehints'] == 'yes') {
                     $hv = "park:$slot@$hint_context";
@@ -171,8 +171,8 @@ function parking_get_config($engine) {
             }
             $hv_all = rtrim($hv_all,'&');
             if ($parkfetch_code != '') {
-                $ext->add($ph, $parkfetch_code, '', new ext_macro('parked-call', ',' . ($lot['defaultlot']=='no' ? $lotname : 'default'). ',' . $hint_context));
-                $ext->add($ph, $parkfetch_code.$lot['parkext'], '', new ext_macro('parked-call', ',' . ($lot['defaultlot']=='no' ? $lotname : 'default'). ',' . $hint_context));
+                $ext->add($ph, $parkfetch_code, '', new ext_gosub('1','s','sub-parked-call', ',' . ($lot['defaultlot']=='no' ? $lotname : 'default'). ',' . $hint_context));
+                $ext->add($ph, $parkfetch_code.$lot['parkext'], '', new ext_gosub('1','s','sub-parked-call', ',' . ($lot['defaultlot']=='no' ? $lotname : 'default'). ',' . $hint_context));
                 if ($lot['generatehints'] == 'yes') {
                     $ext->addHint($ph, $parkfetch_code, $hv_all);
                     $ext->addHint($ph, $parkfetch_code.$lot['parkext'], $hv_all);
@@ -183,7 +183,7 @@ function parking_get_config($engine) {
 					if(is_array($device_list)) {
 	                    foreach ($device_list as $device) {
     	                    if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
-        	                    $ext->add($ph, $parkfetch_code.$device['id'], '', new ext_macro('parked-call', ',' . ($lot['defaultlot']=='no' ? $lotname : 'default'). ',' . $hint_context));
+        	                    $ext->add($ph, $parkfetch_code.$device['id'], '', new ext_gosub('1','s','sub-parked-call', ',' . ($lot['defaultlot']=='no' ? $lotname : 'default'). ',' . $hint_context));
             	                $ext->addHint($ph, $parkfetch_code.$device['id'], "Custom:PARK".$device['id']);
                 	        }
                   	  }
@@ -296,12 +296,12 @@ function parking_generate_parked_call() {
     global $ext;
     global $version;
 
-    // macro-parked-call
+    // sub-parked-call
     // pickup a parked call from a specified slot
     //
     // NOTE: consider changing this to a subroutine
     //
-    $pc = 'macro-parked-call';
+    $pc = 'sub-parked-call';
     $exten = 's';
     $ast_ge_13 = version_compare($version,'13','gt');
     $ast_le_11 = version_compare($version,'11','le');
@@ -321,7 +321,7 @@ function parking_generate_parked_call() {
     $ext->add($pc, $exten, '', new ext_set('CDR(recordingfile)','${CALLFILENAME}.${MON_FMT}'));
     $ext->add($pc, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MIXMON_FORMAT}','a','${MIXMON_POST}'));
     $ext->add($pc, $exten, 'next', new ext_set('CCSS_SETUP','TRUE'));
-    $ext->add($pc, $exten, '', new ext_macro('user-callerid'));
+    $ext->add($pc, $exten, '', new ext_gosub('1','s','sub-user-callerid'));
     $ext->add($pc, $exten, '', new ext_gotoif('$["${ARG1}" = "" | ${DIALPLAN_EXISTS(${IF($["${ARG2}" = "default"]?parkedcalls:${ARG3})},${ARG1},1)} = 1]','pcall')); //fails here when ${ARG2} defined in ext_parkedcall
     $ext->add($pc, $exten, '', new ext_resetcdr(''));
     $ext->add($pc, $exten, '', new ext_nocdr(''));
@@ -339,7 +339,7 @@ function parking_generate_parked_call() {
     } else {
         $ext->add($pc, $exten, '', new ext_parkedcall('${ARG1},${ARG2}'));
     }
-    $ext->add($pc, 'h', '', new ext_macro('hangupcall'));
+    $ext->add($pc, 'h', '', new ext_gosub('1','s','sub-hangupcall'));
 }
 
 function parking_generate_parkedcallstimeout() {

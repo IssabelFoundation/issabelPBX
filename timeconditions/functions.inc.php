@@ -114,8 +114,8 @@ function timeconditions_get_config($engine) {
                     if ($amp_conf['USEDEVSTATE']) {
                         $ext->addHint($fc_context, $c, 'Custom:TC'.$time_id);
                     }
-                    $ext->add($fc_context, $c, '', new ext_macro('user-callerid'));
-                    $ext->add($fc_context, $c, '', new ext_macro('toggle-tc', $time_id));
+                    $ext->add($fc_context, $c, '', new ext_gosub('1','s','sub-user-callerid'));
+                    $ext->add($fc_context, $c, '', new ext_gosub('1','s','sub-toggle-tc', $time_id));
                     $ext->add($fc_context, $c, '', new ext_hangup());
 
                     // If using hints then we want to keep the current, if not, then we only need to update if it is
@@ -188,7 +188,7 @@ function timeconditions_get_config($engine) {
                         continue;
                     }
 
-                    $ext->add($fc_context, $c . '*' . $exten, '', new ext_macro('toggle-tc', $indexes));
+                    $ext->add($fc_context, $c . '*' . $exten, '', new ext_gosub('1','s','sub-toggle-tc', $indexes));
                 }
             }
 
