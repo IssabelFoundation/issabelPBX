@@ -187,11 +187,11 @@
                     }
                 }
             } else {
-                // If we have a parenthesis is a queue member line (and it does not have to have talktime as that is a queue line)
-                if (strstr($item1,"(") && strpos($item1, "talktime")===false) {
+                // If we have a parenthesis is a queue member line
+                if (strstr($item1,"(")) {
                     $channel='';
                     $parts = preg_split("/ /",$item1);
-                    do {
+                    while (!empty($parts) && $channel == '') {
                        // Find the channel line by looking the first word that has a forward slash (will discard member name if any)
                        $element = array_shift($parts);
                        if(strstr($element,"/")) {
@@ -201,9 +201,16 @@
                                $channel=$element;
                            }
                        }
-                    } while($channel=='');
-                    preg_match_all("/([^\/]*)\/([\d]*)/",$channel,$matches);
-                    $loggedagent = $matches[2][0];
+                    }
+                    if ($channel == '') {
+                        debug("Skipping queue line with no channel: $item1");
+                        continue;
+                    }
+                    if (!preg_match("/([^\/]*)\/([^,\s\)]*)/",$channel,$matches)) {
+                        debug("Skipping queue line with invalid channel: $item1");
+                        continue;
+                    }
+                    $loggedagent = $matches[2];
                     $item1='ADD';
                 }
 
