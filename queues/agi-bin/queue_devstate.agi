@@ -1,332 +1,262 @@
 #!/usr/bin/php -q
 <?php
 
-    require_once "phpagi.php";
-    require_once "phpagi-asmanager.php";
+require_once 'phpagi.php';
 
-    /* Usage:
-     *
-     * AGI(queue_dev_state.agi,getqueues|getall[,user][,queue])
-     *
-     * ARG1: action
-     * ARG2: user
-     * ARG3: queue
-     *
-     */
-    
-    $agi = new AGI();
+/*
+ * Usage:
+ *
+ * AGI(queue_devstate.agi,getqueues|getall|toggle-pause-all[,user])
+ *
+ * Queue and AstDB state is read through dialplan functions evaluated on the
+ * current channel.  Do not add an AMI connection here: this AGI runs in the
+ * call path for queue login/logout and must not wait on the manager socket.
+ */
 
-    // get manager credentials out of the channel
-    //
-    $ampmgruser   = get_var( "AMPMGRUSER" );
-    $ampmgrpass   = get_var( "AMPMGRPASS" );
-    $astspooldir  = get_var( "ASTSPOOLDIR" );
-    $ast_version  = get_var("ASTVERSION");
+$agi = new AGI();
+$action = isset($argv[1]) ? strtolower(trim($argv[1])) : '';
+$user = isset($argv[2]) ? trim($argv[2]) : '';
 
-    $ast_version14 = version_compare($ast_version, "1.4", "ge");
+switch ($action) {
+case 'getqueues':
+    get_queue_state($user, channel_var('QUEUENO'));
+    break;
+
+case 'getall':
+    get_all_queue_state($user);
+    break;
+
+case 'toggle-pause-all':
+    toggle_pause_all($user);
+    break;
+
+default:
+    debug("Unknown action '$action'");
+    break;
+}
+
+exit(0);
+
+function get_queue_state($user, $queue)
+{
+    global $agi;
+
+    $member = configured_member($queue, $user);
+    $tech = $member === null ? 'Local' : $member['tech'];
+    $interface = member_interface($user, $tech);
+    $logged_in = queue_has_interface($queue, $interface);
 
     /*
-    $ampmgruser  = 'admin';
-    $ampmgrpass  = 'amp111';
-    */
-    $astman = new AGI_AsteriskManager( );    
-    $queues=array();
-    $logged_agents_array=array();
-    $static_agents_array=array();
-    $queue_member_tech=array();
-    
-    if (!$astman->connect("127.0.0.1", $ampmgruser , $ampmgrpass)) {
-        exit (1);
+     * QUEUE_MEMBER_LIST() does not expose whether a member is static or
+     * dynamic.  A matching interface is therefore reported as logged in.
+     * RemoveQueueMember's RQMSTATUS must be used by the dialplan if static
+     * members need a distinct user-facing result.
+     */
+    $status = $logged_in ? 'LOGGEDIN' : 'LOGGEDOUT';
+
+    debug("Agent $user is $status in queue $queue as $interface");
+    $agi->set_variable('QUEUESTAT', $status);
+    $agi->set_variable('MEMBERTECH', $tech);
+}
+
+function get_all_queue_state($user)
+{
+    global $agi;
+
+    $assigned = assigned_queues($user);
+    if (empty($assigned)) {
+        debug("No configured queues for agent $user");
+        $agi->set_variable('QUEUESTAT', 'NOQUEUES');
+        $agi->set_variable('USERQUEUES', '');
+        return;
     }
 
-    $action = get_action();
-
-    switch ($action) {
-        case 'getqueues':
-            $new_user = get_login_user();
-            get_agent_queues($new_user);
-            $queueno=get_var('QUEUENO');
-            sortqueues();
-            debug("Getting Queue Status for user $new_user in queue $queueno");
-            $loggedvar=(array_search(trim($new_user),$logged_agents_array[$queueno]))?'LOGGEDIN':'LOGGEDOUT';
-            $queuestat=(array_search(trim($new_user),$static_agents_array[$queueno]))?'STATIC':$loggedvar;
-            debug("Agent $new_user is $queuestat");
-            $agi->set_variable('QUEUESTAT',$queuestat);
-            $tech = isset($queue_member_tech[$queueno][$new_user])?$queue_member_tech[$queueno][$new_user]:'Local';
-            $agi->set_variable('MEMBERTECH',$tech);
-        break;
-        case 'getall':
-            $new_user = get_login_user();
-            sortqueues();
-            debug("Looking up queues for agent: $new_user");
-            $agent_queues = get_agent_queues($new_user);
-            $agent_queues_tech = array();
-            foreach ($agent_queues as $q) {
-                $tech = $queue_member_tech[$q][$new_user];
-                debug("Agent is in queue $q with tech $tech");
-                $agent_queues_tech[]="$q~$tech";
-            }
-            $all_queues_state = get_agent_allqueue_state($new_user, $agent_queues);
-            debug("Agent $new_user is $all_queues_state for at least one of their queues");
-            put_agent_overall_status($all_queues_state, $agent_queues_tech);
-        break;
-        case 'toggle-pause-all':
-            $pause_user = get_login_user();
-            get_agent_queues($pause_user);
-            toggle_pause_all($pause_user);
-        break;
-        default:
-            debug("Got unknown action: $action, exiting");
-    }
-    exit;
-
-
-    // Get the requested action
-    //
-    function get_action() {
-        global $argv;
-        return strtolower(trim($argv['1']));
-    }
-
-    function get_agent_queues($user) {
-        global $astman;
-        global $queue_member_tech;
-        $this_agents_queues = array();
-        // possible QPENALTY prefixes
-        $member_prefix = array('A'=>'AGENT','S'=>'SIP','P'=>'PJSIP','X'=>'IAX2','Z'=>'ZAP','D'=>'DAHDI');
-
-        $get=$astman->database_show('QPENALTY');
-
-        if ($get) foreach($get as $key => $value){
-            //  0: QPENALTY
-            //  1: QueueNum
-            //  2: agents (or dynmembers)
-            //  3: AgentNum (if agents)
-            //
-            $key=explode('/',trim($key,'/')); // get rid of leading '/'
-            if(isset($key[3])) { // dynmemberonly does not have an agent field
-                if(array_key_exists(substr($key[3],0,1),$member_prefix)) {
-                    $exten = substr($key[3],1);
-                    $queue_member_tech[$key[1]][$exten]=$member_prefix[substr($key[3],0,1)];
-                } else {
-                    $exten = $key[3];
-                    $queue_member_tech[$key[1]][$exten]='Local';
-                }
-                if ($key[2] == 'agents' && $exten == $user) {
-                    $this_agents_queues[] = $key[1];
-                }
-//                debug("queue member tech [".$key[1]."][".$exten."]=".$queue_member_tech[$key[1]][$exten]);
-            }
+    $logged_in = false;
+    $queue_specs = array();
+    foreach ($assigned as $queue => $tech) {
+        $interface = member_interface($user, $tech);
+        if (queue_has_interface($queue, $interface)) {
+            $logged_in = true;
         }
-        return $this_agents_queues;
+        $queue_specs[] = $queue . '~' . $tech;
     }
 
-    // if they are logged into any of the queues provided, they are considered logged in and we will log them out of all
-    //
-    function get_agent_allqueue_state($user, $queues) {
-        global $logged_agents_array;
-        global $static_agents_array;
+    $status = $logged_in ? 'LOGGEDIN' : 'LOGGEDOUT';
+    debug("Agent $user is $status in configured queues");
+    $agi->set_variable('QUEUESTAT', $status);
+    $agi->set_variable('USERQUEUES', implode('-', $queue_specs));
+}
 
-        if (empty($queues)) {
-            debug("no queues for this agent");
-            return 'NOQUEUES';
+function toggle_pause_all($user)
+{
+    global $agi;
+
+    $memberships = current_memberships($user);
+    $paused = false;
+
+    foreach ($memberships as $queue => $interface) {
+        $paused = $paused || dialplan_function(
+            "QUEUE_MEMBER($queue,paused,$interface)"
+        ) === '1';
+    }
+
+    $new_state = $paused ? '0' : '1';
+    foreach ($memberships as $queue => $interface) {
+        $agi->set_variable("QUEUE_MEMBER($queue,paused,$interface)", $new_state);
+        debug("QUEUE_MEMBER($queue,paused,$interface)=$new_state");
+    }
+
+    $agi->set_variable('TOGGLEPAUSED', $new_state);
+}
+
+function assigned_queues($user)
+{
+    $assigned = array();
+
+    foreach (db_keys('QPENALTY') as $queue) {
+        $member = configured_member($queue, $user);
+        if ($member !== null) {
+            $assigned[$queue] = $member['tech'];
         }
-        foreach ($queues as $q) {
-            debug("checking if logged into queue: $q");
-            if (array_search($user,$logged_agents_array[$q]) && ! array_search($user,$static_agents_array[$q])) {
-                debug("Yes logged into queue: $q");
-                return 'LOGGEDIN';
-            }
+    }
+
+    ksort($assigned, SORT_NATURAL);
+    return $assigned;
+}
+
+function current_memberships($user)
+{
+    $memberships = array();
+
+    foreach (db_keys('QPENALTY') as $queue) {
+        $member = configured_member($queue, $user);
+        $tech = $member === null ? 'Local' : $member['tech'];
+        $interface = member_interface($user, $tech);
+        if (queue_has_interface($queue, $interface)) {
+            $memberships[$queue] = $interface;
         }
-        debug("Nothing found so logged out");
-        return 'LOGGEDOUT';
     }
 
-    function put_agent_overall_status($status, $queues) {
-        global $agi;
+    return $memberships;
+}
 
-        $agi->set_variable('QUEUESTAT',$status);
-        $queues_string = implode('-',$queues);
-        $agi->set_variable('USERQUEUES',$queues_string);
-    }
-
-    function sortqueues() {
-        global $agi;
-        global $astman;
-        global $queues;
-        global $logged_agents_array;
-        global $static_agents_array;
-        global $queue_member_tech;
-
-        $response = $astman->send_request('Command',array('Command'=>"queue show"));
-        $response1=explode("\n",trim($response['data']));
-        // Lets try and process our results here.
-        $inqueue='false';
-        $callers_list = false;
-        foreach ($response1 as $item) {
-            $item1=trim($item);
-            if ($callers_list) {
-                if (preg_match('/^\d+\./',$item1)) {
-                    debug("skipping caller $item1 in queue $inqueue", 6);
-                    continue;
-                } else {
-                    debug("Finished processing callers for $inqueue");
-                    $callers_list = false;
-                    $inqueue='false';
-                }
-            }
-            if ($inqueue == 'false') {
-                if (preg_match('/^(\d+)/',$item1)) {
-                    preg_match_all ("/(\\d+)/is", $item1,$matches);
-                    if (isset($matches[1][0]) && $matches[1][0] != '') {
-                        $queues[]=$matches[1][0];
-                        $inqueue=$matches[1][0];
-                        $logged_agents_array[$inqueue][]='';
-                        $static_agents_array[$inqueue][]='';
-                        debug("initiating queue: $inqueue");
-                    }
-                }
-            } else {
-                // If we have a parenthesis is a queue member line
-                if (strstr($item1,"(")) {
-                    $channel='';
-                    $parts = preg_split("/ /",$item1);
-                    while (!empty($parts) && $channel == '') {
-                       // Find the channel line by looking the first word that has a forward slash (will discard member name if any)
-                       $element = array_shift($parts);
-                       if(strstr($element,"/")) {
-                           if(substr($element,0,1)=="(") {
-                               $channel=substr($element,1);
-                           } else {
-                               $channel=$element;
-                           }
-                       }
-                    }
-                    if ($channel == '') {
-                        debug("Skipping queue line with no channel: $item1");
-                        continue;
-                    }
-                    if (!preg_match("/([^\/]*)\/([^,\s\)]*)/",$channel,$matches)) {
-                        debug("Skipping queue line with invalid channel: $item1");
-                        continue;
-                    }
-                    $loggedagent = $matches[2];
-                    $item1='ADD';
-                }
-
-                switch ($item1) {
-                case '':
-                    break;
-
-                case '\n':
-                    break;
-                
-                case 'No Members':
-                    debug("Queue $inqueue has no one logged in");
-                    $inqueue='false';
-                    break;
-
-                case 'No Callers':
-                    debug("Finished processing members for $inqueue");
-                    $inqueue='false';
-                    break;
-
-                case 'Callers':
-                case 'Callers:':
-                    debug("Getting ready to skip callers in $inqueue");
-                    $callers_list = true;
-                    break;
-
-                case 'ADD':
-                    $logged_agents_array[$inqueue][]=$loggedagent;
-                    if (strstr($item,'(dynamic)') !== false) {
-                        debug("Agent $loggedagent is dynamic");
-                    }else{
-                        debug("Agent $loggedagent is static");
-                        $static_agents_array[$inqueue][]=$loggedagent;
-                    }
-                    debug("Agent $loggedagent is assigned to queue $inqueue");
-                    break;
-                default:
-                    debug("No Matches");
-
-                }
-            }    
+function configured_member($queue, $user)
+{
+    foreach (db_keys("QPENALTY/$queue/agents") as $key) {
+        $member = decode_member_key($key);
+        if ($member['extension'] === $user) {
+            return $member;
         }
-        debug("Finished sorting");
     }
 
-    function get_current_queues($user) {
-        global $logged_agents_array;
-        $queues = array();
+    return null;
+}
 
-        foreach ($logged_agents_array as $q => $m) {
-            if (array_search($user,$logged_agents_array[$q])) {
-                $queues[] = $q;
-            }
+function decode_member_key($key)
+{
+    $prefixes = array(
+        'A' => 'AGENT',
+        'S' => 'SIP',
+        'P' => 'PJSIP',
+        'X' => 'IAX2',
+        'Z' => 'ZAP',
+        'D' => 'DAHDI',
+    );
+
+    $prefix = substr($key, 0, 1);
+    if (isset($prefixes[$prefix])) {
+        return array(
+            'extension' => substr($key, 1),
+            'tech' => $prefixes[$prefix],
+        );
+    }
+
+    return array('extension' => $key, 'tech' => 'Local');
+}
+
+function member_interface($user, $tech)
+{
+    if ($tech === 'Local') {
+        return "Local/$user@from-queue/n";
+    }
+
+    return "$tech/$user";
+}
+
+function queue_has_interface($queue, $interface)
+{
+    $wanted = normalize_interface($interface);
+    foreach (csv_values(dialplan_function("QUEUE_MEMBER_LIST($queue)")) as $member) {
+        if (normalize_interface($member) === $wanted) {
+            return true;
         }
-        return $queues;
     }
 
-    // Since we are pausing/unpausing specific queues, we only care about which queues they are logged into static or dynamic
-    // othewise we throw warnings
-    //
-    function toggle_pause_all($pause_user) {
-        global $agi;
-        global $queue_member_tech;
+    return false;
+}
 
-        sortqueues();
-        debug("Looking up queues for agent: $pause_user");
-        $agent_queues = get_current_queues($pause_user);
-        debug("got queues from logged in of: " . implode('-',$agent_queues));
+function normalize_interface($interface)
+{
+    $interface = strtolower(trim($interface));
 
-        $paused_state = 0;
-        foreach ($agent_queues as $q) {
-            $tech = isset($queue_member_tech[$q][$pause_user])?$queue_member_tech[$q][$pause_user]:'Local';
-            if($tech=='Local') {
-                $user_interface = "Local/$pause_user@from-queue/n";
-            } else {
-                $user_interface = "$tech/$pause_user";
-            }
-            $state = get_var("QUEUE_MEMBER($q,paused,$user_interface)");
-            $paused_state |= $state;
-        }
-        // If one was paused then treat as all paused and unpause all, otherwise pause all
-        // in all queues
-        $new_state = $paused_state ? '0' : '1';
-        foreach ($agent_queues as $q) {
-            $tech = isset($queue_member_tech[$q][$pause_user])?$queue_member_tech[$q][$pause_user]:'Local';
-            if($tech=='Local') {
-                $user_interface = "Local/$pause_user@from-queue/n";
-            } else {
-                $user_interface = "$tech/$pause_user";
-            }
-            $agi->set_variable("QUEUE_MEMBER($q,paused,$user_interface)", $new_state);
-            debug("QUEUE_MEMBER($q,paused,$user_interface)=$new_state");
-        }
-        $agi->set_variable("TOGGLEPAUSED", $new_state);
+    // Asterisk may omit Local's /n modifier when returning a member list.
+    if (substr($interface, 0, 6) === 'local/' && substr($interface, -2) === '/n') {
+        $interface = substr($interface, 0, -2);
     }
 
-    //
-    function get_login_user() {
-        global $argv;
-        return trim($argv['2']);
+    return $interface;
+}
+
+function db_keys($prefix)
+{
+    return csv_values(dialplan_function("DB_KEYS($prefix)"));
+}
+
+function csv_values($value)
+{
+    if ($value === '') {
+        return array();
     }
 
-    // Get a channel variable
-    //
-    function get_var($value) {
-        global $agi;
+    $values = array_map('trim', explode(',', $value));
+    return array_values(array_filter($values, 'strlen'));
+}
 
-        $r = $agi->get_variable( $value );
-        if ($r['result'] == 1) {
-            $result = $r['data'];
-            return trim($result);
-        }
-        return '';
+function dialplan_function($function)
+{
+    global $agi;
+
+    $expression = '${' . $function . '}';
+    if (method_exists($agi, 'get_full_variable')) {
+        $response = $agi->get_full_variable($expression);
+    } else {
+        // Older phpagi releases still ask Asterisk to resolve dialplan funcs
+        // through GET VARIABLE when the function name is supplied directly.
+        $response = $agi->get_variable($function);
     }
 
-    function debug($string, $level=3) {
-        global $agi;
-        $agi->verbose($string, $level);
+    if (isset($response['result']) && (int) $response['result'] === 1) {
+        return isset($response['data']) ? trim($response['data']) : '';
     }
+
+    debug("Unable to evaluate $function");
+    return '';
+}
+
+function channel_var($name)
+{
+    global $agi;
+
+    $response = $agi->get_variable($name);
+    if (isset($response['result']) && (int) $response['result'] === 1) {
+        return isset($response['data']) ? trim($response['data']) : '';
+    }
+
+    return '';
+}
+
+function debug($message, $level = 3)
+{
+    global $agi;
+    $agi->verbose($message, $level);
+}
