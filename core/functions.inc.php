@@ -2224,7 +2224,7 @@ function core_do_get_config($engine) {
                 $ext->add('targeted-chanspy', '_.', '', new ext_set('spy_target','${CHANNELS(${CHAN}-)}'));
                 $ext->add('targeted-chanspy', '_.', '', new ext_execif('$["${spy_target}"!=""]','ExitWhile'));
                 $ext->add('targeted-chanspy', '_.', '', new ext_endwhile(''));
-                $ext->add('targeted-chanspy', '_.', '', new ext_execif('$["${spy_target}"!=""]','ChanSpy(${spy_target},dnqE))'));
+                $ext->add('targeted-chanspy', '_.', '', new ext_execif('$["${spy_target}"!=""]','ChanSpy','${spy_target},dnqE'));
                 $ext->add('targeted-chanspy', '_.', '', new ext_hangup(''));
                 //$ext->add('targeted-chanspy', '_.', '', new ext_goto('once-upon-a-time');
                 $ext->add('targeted-chanspy', 'h', '', new ext_hangup(''));
@@ -5024,7 +5024,7 @@ function core_do_get_config($engine) {
       }
 
       $mcontext = 'sub-hangupcall';
-      $exten = 's';
+      $exten = '_.';
       /*
       ; Cleanup any remaining RG flag
       */
