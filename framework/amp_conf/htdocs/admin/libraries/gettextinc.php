@@ -175,9 +175,12 @@ function _get_codeset($domain=null) {
  */
 function _encode($text) {
     $target_encoding = _get_codeset();
+    if (empty($target_encoding)) {
+        $target_encoding = 'UTF-8';
+    }
     if (function_exists("mb_detect_encoding")) {
         $source_encoding = mb_detect_encoding($text);
-        if ($source_encoding != $target_encoding) {
+        if ($source_encoding && $source_encoding != $target_encoding) {
             $text = mb_convert_encoding($text, $target_encoding, $source_encoding);
         }
     }

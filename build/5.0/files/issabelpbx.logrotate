@@ -1,4 +1,5 @@
 /var/log/asterisk/issabelpbx.log {
+   su asterisk asterisk
    missingok
    rotate 5
    weekly

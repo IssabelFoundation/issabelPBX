@@ -8428,7 +8428,7 @@ function core_devices_configpageinit($dispnum) {
     $engineinfo = engine_getinfo();
     $astver =  $engineinfo['version'];
     $pjsip_enabled = version_compare($astver, '13.00.00', 'ge');
-    $sip_deprecated = version_compare($astver, '20.00.00', 'ge');
+    $sip_deprecated = version_compare($astver, '22.00.00', 'ge');
 
     if ( $dispnum == 'devices' || $dispnum == 'extensions' ) {
 
@@ -8974,7 +8974,9 @@ function core_devices_configpageinit($dispnum) {
                 $iax_port = "4569";
             }
             $currentcomponent->addoptlistitem('devicelist', 'iax2_generic', __("Generic IAX2 Device").__(" - Port:").$iax_port);
-            $currentcomponent->addoptlistitem('devicelist', 'dahdi_generic', __("Generic DAHDi Device"));
+            if (version_compare($astver, '22.00.00', 'lt')) {
+                $currentcomponent->addoptlistitem('devicelist', 'dahdi_generic', __("Generic DAHDi Device"));
+            }
             $currentcomponent->addoptlistitem('devicelist', 'custom_custom', __("Other (Custom) Device"));
         }
         if ( $dispnum != 'devices' ) {

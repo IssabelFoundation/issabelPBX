@@ -275,6 +275,12 @@ if (!$quietmode && isset($ipbx_menu["extensions"])) {
 
 unset($ipbx_menu["wiki"]);
 
+// On Asterisk 22+ chan_sip and chan_dahdi are no longer available
+if (version_compare($amp_conf['ASTVERSION'], '22', 'ge')) {
+    unset($ipbx_menu["sipsettings"]);
+    unset($ipbx_menu["dahdichandids"]);
+}
+
 ob_start();
 // load the component from the loaded modules
 if (!in_array($display, array('', 'badrefer')) 
