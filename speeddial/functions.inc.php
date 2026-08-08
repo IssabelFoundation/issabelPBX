@@ -41,7 +41,7 @@ function speeddial_get_config($engine) {
 			$ext->add('sub-speeddial-lookup', 's', 'end', new ext_noop('End of Speeddial-lookup'));
 
 			if (!empty($callcode)) {
-				$ext->add('app-speeddial', '_'.$callcode.'.', '', new ext_gosub('1','s','sub-user-callerid',''));
+				$ext->add('app-speeddial', '_'.$callcode.'.', '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 				$ext->add('app-speeddial', '_'.$callcode.'.', '', new ext_set('SPEEDDIALLOCATION','${EXTEN:'.(strlen($callcode)).'}'));
 				$ext->add('app-speeddial', '_'.$callcode.'.', 'lookup', new ext_gosub('1','s','sub-speeddial-lookup','${SPEEDDIALLOCATION},${AMPUSER}'));
 				$ext->add('app-speeddial', '_'.$callcode.'.', '', new ext_gotoif('$["${SPEEDDIALNUMBER}"=""]','failed'));
@@ -61,7 +61,7 @@ function speeddial_get_config($engine) {
 			$ext->add('app-speeddial-set', 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.'app-speeddial-set'.',${CHANNEL(language)})}]', 'app-speeddial-set'.',${CHANNEL(language)},${ARG1}', 'app-speeddial-set'.',en,${ARG1}'));
 			$ext->add('app-speeddial-set', 'lang-playback', '', new ext_return());
 
-			$ext->add('app-speeddial-set', 's', '', new ext_gosub('1','s','sub-user-callerid',''));
+			$ext->add('app-speeddial-set', 's', '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 			// "enter speed dial location number"
 			$ext->add('app-speeddial-set', 's', 'setloc', new ext_read('newlocation','speed-enterlocation'));
 			$ext->add('app-speeddial-set', 's', 'lookup', new ext_gosub('1','s','sub-speeddial-lookup','${newlocation},${AMPUSER}'));

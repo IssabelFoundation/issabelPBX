@@ -38,7 +38,7 @@ $trunk = $argv[1];            // asterisk ${ARG1} is the trunk number
 // if $exten is not passed as arguement 2 then use AGI request to attempt to get the dialed digits
 if (isset($argv[2]))
 	{
-		$exten = $argv[2];            // asterisk ${ARG2} is the $exten number passed to the dialout macro
+		$exten = $argv[2];            // asterisk ${ARG2} is the $exten number passed to the dialout sub
 	}
 	else
 	{

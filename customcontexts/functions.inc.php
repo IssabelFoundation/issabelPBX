@@ -296,7 +296,7 @@ function customcontexts_get_config($engine) {
                 break;
             }
         }
-        //these go in funny "exten => s,1,Macro(hangupcall,)"
+        //these go in funny "exten => s,1,Gosub(sub-hangupcall,s,1)"
         //i'd rather use the base extension class to type it normally, but there is a bug in the class see ticket http://www.issabel.org/trac/ticket/1453
         $ext->add($context,'s', '', new ext_gosub('1','s','sub-hangupcall')); 
         $ext->add($context,'h', '', new ext_gosub('1','s','sub-hangupcall'));

@@ -31,8 +31,8 @@ exten => 5678,4,Playback(/tmp/asterisk-recording)
 exten => 5678,5,Wait(2)
 exten => 5678,6,Hangup 
 
-; This macro is for dev purposes and just dumps channel/app variables.  Useful when designing new contexts.
-[macro-dumpvars]
+; This sub is for dev purposes and just dumps channel/app variables.  Useful when designing new contexts.
+[sub-dumpvars]
 exten => s,1,Noop(ACCOUNTCODE=${ACCOUNTCODE})
 exten => s,2,Noop(ANSWEREDTIME=${ANSWEREDTIME})
 exten => s,3,Noop(BLINDTRANSFER=${BLINDTRANSFER})
@@ -63,9 +63,9 @@ exten => s,27,Noop(SIPUSERAGENT=${SIPUSERAGENT})
 exten => s,29,Noop(TXTCIDNAME=${TXTCIDNAME})
 exten => s,30,Noop(UNIQUEID=${UNIQUEID})
 exten => s,31,Noop(TOUCH_MONITOR=${TOUCH_MONITOR})
-exten => s,32,Noop(MACRO_CONTEXT=${MACRO_CONTEXT})
-exten => s,33,Noop(MACRO_EXTEN=${MACRO_EXTEN})
-exten => s,34,Noop(MACRO_PRIORITY=${MACRO_PRIORITY})
+exten => s,32,Noop(GOSUB_RETVAL=${GOSUB_RETVAL})
+exten => s,33,Noop(SUB_RESULT=${SUB_RESULT})
+exten => s,34,Return()
 
 [weather-wakeup]
 exten => *61,1,Answer 

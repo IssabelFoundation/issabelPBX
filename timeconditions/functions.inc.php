@@ -114,7 +114,7 @@ function timeconditions_get_config($engine) {
                     if ($amp_conf['USEDEVSTATE']) {
                         $ext->addHint($fc_context, $c, 'Custom:TC'.$time_id);
                     }
-                    $ext->add($fc_context, $c, '', new ext_gosub('1','s','sub-user-callerid'));
+                    $ext->add($fc_context, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
                     $ext->add($fc_context, $c, '', new ext_gosub('1','s','sub-toggle-tc', $time_id));
                     $ext->add($fc_context, $c, '', new ext_hangup());
 
@@ -207,7 +207,7 @@ function timeconditions_get_config($engine) {
                 $ext->add($fc_context, 'h', '', new ext_hangup());
 
                 $ext->addInclude('from-internal-additional', $fc_context, _dgettext('timeconditions','Time Conditions')); // Add the include from from-internal
-                $m_context = 'macro-toggle-tc';
+                $m_context = 'sub-toggle-tc';
 
                 $ext->add($m_context, 's', '', new ext_setvar('INDEXES', '${ARG1}'));
                 $ext->add($m_context, 's', '', new ext_setvar('TCMAINT','RETURN'));
@@ -244,6 +244,7 @@ function timeconditions_get_config($engine) {
                 } else {
                     $ext->add($m_context, 's', 'playback', new ext_playback('beep&silence/1&time&${IF($["${TCSTATE}" = "true"]?de-activated:activated)}'));
                 }
+                $ext->add($m_context, 's', '', new ext_return(''));
             }
             if ($need_maint) {
                     /* 

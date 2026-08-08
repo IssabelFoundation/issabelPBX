@@ -53,8 +53,8 @@ CREATE TABLE `extensions` (
   `flags` int(1) NOT NULL default '0',
   PRIMARY KEY  (`context`,`extension`,`priority`)
 );
-INSERT INTO "extensions" VALUES('outrt-001-9_outside', '_9.', '1', 'Macro', 'dialout-trunk,1,${EXTEN:1}', NULL, 0);
-INSERT INTO "extensions" VALUES('outrt-001-9_outside', '_9.', '2', 'Macro', 'outisbusy', 'No available circuits', 0);
+INSERT INTO "extensions" VALUES('outrt-001-9_outside', '_9.', '1', 'Gosub', 'sub-dialout-trunk,s,1(1,${EXTEN:1})', NULL, 0);
+INSERT INTO "extensions" VALUES('outrt-001-9_outside', '_9.', '2', 'Gosub', 'sub-outisbusy,s,1', 'No available circuits', 0);
 INSERT INTO "extensions" VALUES('outbound-allroutes', 'include', '1', 'outrt-001-9_outside', '', '', 2);
 CREATE TABLE `featurecodes` (
   `modulename` varchar(50) NOT NULL default '',

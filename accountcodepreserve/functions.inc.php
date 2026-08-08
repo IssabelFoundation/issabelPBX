@@ -19,11 +19,11 @@ function accountcodepreserve_hookGet_config($engine) {
 
       /* set the inheritable channel variable to the callee's accountcode if there is one. Then it will be available in any outbound
          trunk calls replacing the code of the user who is making the call. This way a CF situation results in the CF user's account code.
-         With typical calls, the callee will be ARG2 of macro-exten-vm so if coming from there, use that. Otherwise it will be the
-         EXTEN that called this macro (such as a followme) so we use MACRO_EXTEN.
+         With typical calls, the callee will be ARG1 of sub-user-callerid when called from sub-exten-vm so if coming from there, use that.
+         Otherwise it will be the EXTEN that invoked this sub (such as a followme).
        */
 			$priority = 'report2';
-      $ext->splice('macro-user-callerid', 's', $priority,new ext_execif('$["${CALLEE_ACCOUNCODE}" = ""]', 'Set', '__CALLEE_ACCOUNCODE=${DB(AMPUSER/${IF($["${MACRO_CONTEXT}"="macro-exten-vm"]?${ARG2}:${MACRO_EXTEN})}/accountcode)}'));
+      $ext->splice('sub-user-callerid', 's', $priority,new ext_execif('$["${CALLEE_ACCOUNCODE}" = ""]', 'Set', '__CALLEE_ACCOUNCODE=${DB(AMPUSER/${ARG1}/accountcode)}'));
 
       /* check and set the account code in every route (so we don't have to do it in every trunk in case there are fail-over trunks
        */
@@ -65,7 +65,7 @@ function accountcodepreserve_hookGet_config($engine) {
          first device that we see associated with them. If multiple devices point to the same user, the code used will only be one of them.
 
          TODO: note this is fine for extension mode assuming there is always a 1-to-1 mapping of device/user. For deviceanduser mode
-               it would be necessary to have accountcodes stored with the user and not with the device. And then macro-user-callerid
+               it would be necessary to have accountcodes stored with the user and not with the device. And then sub-user-callerid
                would need to set the account code for each user on all calls, just like it does with the language module. (Meaning
                a need to splice a new field into the user. This would not be hard to do, basically an almost exact cut-and-paste of
                the language module code that handles the user gui hook for the language in extensions/users.

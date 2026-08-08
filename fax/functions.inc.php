@@ -306,7 +306,7 @@ function fax_get_config($engine){
       we try to trap and report on all cases.
     */
     $exten = 's';
-    $ext->add($context, $exten, '', new ext_gosub('1','s','sub-user-callerid'));
+    $ext->add($context, $exten, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
     $ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
     $ext->add($context, $exten, 'receivefax', new ext_stopplaytones(''));
     switch ($fax['module']) {

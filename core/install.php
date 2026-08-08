@@ -598,7 +598,7 @@ $set['module'] = '';
 $set['category'] = 'VmX Locater';
 $set['emptyok'] = 0;
 $set['name'] = 'VMX Default Context';
-$set['description'] = 'Used to do extremely advanced and customized changes to the macro-vm VmX locater. Check the dialplan for a thorough understanding of how to use this.';
+$set['description'] = 'Used to do extremely advanced and customized changes to the sub-vm VmX locater. Check the dialplan for a thorough understanding of how to use this.';
 $set['type'] = CONF_TYPE_TEXT;
 $issabelpbx_conf->define_conf_setting('VMX_CONTEXT',$set);
 
@@ -614,7 +614,7 @@ $set['module'] = '';
 $set['category'] = 'VmX Locater';
 $set['emptyok'] = 0;
 $set['name'] = 'VMX Default Priority';
-$set['description'] = 'Used to do extremely advanced and customized changes to the macro-vm VmX locater. Check the dialplan for a thorough understanding of how to use this.';
+$set['description'] = 'Used to do extremely advanced and customized changes to the sub-vm VmX locater. Check the dialplan for a thorough understanding of how to use this.';
 $set['type'] = CONF_TYPE_INT;
 $issabelpbx_conf->define_conf_setting('VMX_PRI',$set);
 
@@ -630,7 +630,7 @@ $set['module'] = '';
 $set['category'] = 'VmX Locater';
 $set['emptyok'] = 1;
 $set['name'] = 'VMX Default Timeout Context';
-$set['description'] = "Used to do extremely advanced and customized changes to the macro-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they don't press any key (timeout) or press # which is interpreted as a timeout. Set this to 'dovm' to go to voicemail (default).";
+$set['description'] = "Used to do extremely advanced and customized changes to the sub-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they don't press any key (timeout) or press # which is interpreted as a timeout. Set this to 'dovm' to go to voicemail (default).";
 $set['type'] = CONF_TYPE_TEXT;
 $issabelpbx_conf->define_conf_setting('VMX_TIMEDEST_CONTEXT',$set);
 
@@ -646,7 +646,7 @@ $set['module'] = '';
 $set['category'] = 'VmX Locater';
 $set['emptyok'] = 0;
 $set['name'] = 'VMX Default Timeout Extension';
-$set['description'] = "Used to do extremely advanced and customized changes to the macro-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they don't press any key (timeout) or press # which is interpreted as a timeout. Set this to 'dovm' to go to voicemail (default).";
+$set['description'] = "Used to do extremely advanced and customized changes to the sub-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they don't press any key (timeout) or press # which is interpreted as a timeout. Set this to 'dovm' to go to voicemail (default).";
 $set['type'] = CONF_TYPE_TEXT;
 $issabelpbx_conf->define_conf_setting('VMX_TIMEDEST_EXT',$set);
 
@@ -662,7 +662,7 @@ $set['module'] = '';
 $set['category'] = 'VmX Locater';
 $set['emptyok'] = 0;
 $set['name'] = 'VMX Default Timeout Priority';
-$set['description'] = "Used to do extremely advanced and customized changes to the macro-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they don't press any key (timeout) or press # which is interpreted as a timeout. Set this to 'dovm' to go to voicemail (default).";
+$set['description'] = "Used to do extremely advanced and customized changes to the sub-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they don't press any key (timeout) or press # which is interpreted as a timeout. Set this to 'dovm' to go to voicemail (default).";
 $set['type'] = CONF_TYPE_INT;
 $issabelpbx_conf->define_conf_setting('VMX_TIMEDEST_PRI',$set);
 
@@ -678,7 +678,7 @@ $set['module'] = '';
 $set['category'] = 'VmX Locater';
 $set['emptyok'] = 1;
 $set['name'] = 'VMX Default Loop Exceed Context';
-$set['description'] = "Used to do extremely advanced and customized changes to the macro-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they press an invalid options too many times, as defined by the Maximum Loops count.";
+$set['description'] = "Used to do extremely advanced and customized changes to the sub-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they press an invalid options too many times, as defined by the Maximum Loops count.";
 $set['type'] = CONF_TYPE_TEXT;
 $issabelpbx_conf->define_conf_setting('VMX_LOOPDEST_CONTEXT',$set);
 
@@ -694,7 +694,7 @@ $set['module'] = '';
 $set['category'] = 'VmX Locater';
 $set['emptyok'] = 0;
 $set['name'] = 'VMX Default Loop Exceed Extension';
-$set['description'] = "Used to do extremely advanced and customized changes to the macro-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they press an invalid options too many times, as defined by the Maximum Loops count.";
+$set['description'] = "Used to do extremely advanced and customized changes to the sub-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they press an invalid options too many times, as defined by the Maximum Loops count.";
 $set['type'] = CONF_TYPE_TEXT;
 $issabelpbx_conf->define_conf_setting('VMX_LOOPDEST_EXT',$set);
 
@@ -710,7 +710,7 @@ $set['module'] = '';
 $set['category'] = 'VmX Locater';
 $set['emptyok'] = 0;
 $set['name'] = 'VMX Default Loop Exceed Priority';
-$set['description'] = "Used to do extremely advanced and customized changes to the macro-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they press an invalid options too many times, as defined by the Maximum Loops count.";
+$set['description'] = "Used to do extremely advanced and customized changes to the sub-vm VmX locater. Check the dialplan for a thorough understanding of how to use this. The default location that a caller will be sent if they press an invalid options too many times, as defined by the Maximum Loops count.";
 $set['type'] = CONF_TYPE_INT;
 $issabelpbx_conf->define_conf_setting('VMX_LOOPDEST_PRI',$set);
 

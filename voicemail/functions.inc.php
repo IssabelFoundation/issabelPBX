@@ -187,7 +187,7 @@ function voicemail_directdialvoicemail($c) {
             if($vm != "novm") {
                 $context = 'ext-local';
                 $exten_num = $exten['extension'];
-                // This usually gets called from macro-exten-vm but if follow-me destination need to go this route
+                // This usually gets called from sub-exten-vm but if follow-me destination need to go this route
                 $ext->add($context, $c.$exten_num, '', new ext_gosub('1','s','sub-vm',$vm.',DIRECTDIAL,${IVR_RETVM}'));
                 $ext->add($context, $c.$exten_num, '', new ext_goto('1','vmret'));
 
@@ -211,7 +211,7 @@ function voicemail_myvoicemail($c) {
 
     $ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
     $ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-    $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
+    $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
     $ext->add($id, $c, '', new ext_gosub('1','s','sub-get-vmcontext','${AMPUSER}')); 
     $ext->add($id, $c, 'check', new ext_vmexists('${AMPUSER}@${VMCONTEXT}')); // n,VoiceMailMain(${VMCONTEXT})
     $ext->add($id, $c, '', new ext_gotoif('$["${VMBOXEXISTSSTATUS}" = "SUCCESS"]', 'mbexist'));
@@ -238,7 +238,7 @@ function voicemail_dialvoicemail($c) {
 
     $ext->addInclude('from-internal-additional', $id, _dgettext('voicemail','Dial Voicemail')); // Add the include from from-internal
 
-    $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
+    $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
     $ext->add($id, $c, '', new ext_answer(''));
     $ext->add($id, $c, 'start', new ext_wait('1'));
     $ext->add($id, $c, '', new ext_noop($id.': Asking for mailbox'));

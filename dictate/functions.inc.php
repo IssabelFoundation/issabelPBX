@@ -39,7 +39,7 @@ function dictate_dodictate($c) {
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 	$ext->add($id, $c, '', new ext_answer(''));
-        $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
+        $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 	$ext->add($id, $c, '', new ext_NoOp('CallerID is ${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_setvar('DICTENABLED','${DB(AMPUSER/${AMPUSER}/dictate/enabled)}'));
 	$ext->add($id, $c, '', new ext_gotoif('$[$["x${DICTENABLED}"="x"]|$["x${DICTENABLED}"="xdisabled"]]','nodict', 'dictok'));
@@ -56,7 +56,7 @@ function dictate_senddictate($c) {
 	$id = "app-dictate-send"; // The context to be included
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 	$ext->add($id, $c, '', new ext_answer(''));
-        $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
+        $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 	$ext->add($id, $c, '', new ext_NoOp('CallerID is ${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_setvar('DICTENABLED','${DB(AMPUSER/${AMPUSER}/dictate/enabled)}'));
 	$ext->add($id, $c, '', new ext_gotoif('$[$["x${DICTENABLED}"="x"]|$["x${DICTENABLED}"="xdisabled"]]','nodict', 'dictok'));

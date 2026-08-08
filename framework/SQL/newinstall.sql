@@ -57,8 +57,8 @@ CREATE TABLE `extensions` (
 PRIMARY KEY (`context`,`extension`,`priority`)
 ) DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `extensions` VALUES("outrt-001-9_outside","_9.","1","Macro","dialout-trunk,1,${EXTEN:1}","","0");
-INSERT INTO `extensions` VALUES("outrt-001-9_outside","_9.","2","Macro","outisbusy","No available circuits","0");
+INSERT INTO `extensions` VALUES("outrt-001-9_outside","_9.","1","Gosub","sub-dialout-trunk,s,1(1,${EXTEN:1})","","0");
+INSERT INTO `extensions` VALUES("outrt-001-9_outside","_9.","2","Gosub","sub-outisbusy,s,1","No available circuits","0");
 INSERT INTO `extensions` VALUES("outbound-allroutes","include","1","outrt-001-9_outside","","","2");
 
 CREATE TABLE `featurecodes` (

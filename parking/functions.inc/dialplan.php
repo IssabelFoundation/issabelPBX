@@ -321,7 +321,7 @@ function parking_generate_parked_call() {
     $ext->add($pc, $exten, '', new ext_set('CDR(recordingfile)','${CALLFILENAME}.${MON_FMT}'));
     $ext->add($pc, $exten, '', new ext_mixmonitor('${MIXMON_DIR}${YEAR}/${MONTH}/${DAY}/${CALLFILENAME}.${MIXMON_FORMAT}','a','${MIXMON_POST}'));
     $ext->add($pc, $exten, 'next', new ext_set('CCSS_SETUP','TRUE'));
-    $ext->add($pc, $exten, '', new ext_gosub('1','s','sub-user-callerid'));
+    $ext->add($pc, $exten, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
     $ext->add($pc, $exten, '', new ext_gotoif('$["${ARG1}" = "" | ${DIALPLAN_EXISTS(${IF($["${ARG2}" = "default"]?parkedcalls:${ARG3})},${ARG1},1)} = 1]','pcall')); //fails here when ${ARG2} defined in ext_parkedcall
     $ext->add($pc, $exten, '', new ext_resetcdr(''));
     $ext->add($pc, $exten, '', new ext_nocdr(''));

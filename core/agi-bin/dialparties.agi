@@ -228,7 +228,7 @@ if(($from_outside != '') && isset($ext[0]) && ($rgmethod == "none" || $fmgrp == 
     $screen_call = $AGI->database_get('AMPUSER', $ext[0]."/screen");
     $screen_call = $screen_call['data'];
     if (strlen($screen_call)) {
-        if($screen_call == 'nomemory' && $cidnum != '')  { // This can't go in the dialplan because macro-dial can get called multiple times
+        if($screen_call == 'nomemory' && $cidnum != '')  { // This can't go in the dialplan because sub-dial can get called multiple times
             // Do a security check, allow only alphanumeric callerid numbers, otherwise code could be injected in a cidnum field
             // that could result in an arbitrary command being executed in this remove operation.
       if (!preg_match('/[^ a-zA-Z\d]/',$cidnum)) {
@@ -294,8 +294,8 @@ foreach ($ext as $k) {
           // if we want to set diversion headers they should be set by the group.
           // 
           // For CF timer, we change the timer value if rgmethod is none meaning a single extension is being called.
-          // CFB and CFU are handled in macro-exten-vm for single extensions. (And this script is being phased out in
-          // favor of macro-dial-one for single extensions when function EXTENSION_STATE is available).
+          // CFB and CFU are handled in sub-exten-vm for single extensions. (And this script is being phased out in
+          // favor of sub-dial-one for single extensions when function EXTENSION_STATE is available).
           //
           if ($rgmethod == "none") {
             $AGI->set_variable('__DIVERSION_REASON','unconditional');
@@ -467,8 +467,8 @@ foreach ( $ext as $k ) {
                     // don't honor any CF settings when $cfignore is set
                     //
                     if ($exthascfb == 1 && !$cfignore && $exthascw == 0) {
-                        if ($rgmethod == 'none') {  // Calling an extension only, let macro-dial deal with cfb
-                            debug("Extension $extnum has call forward on busy set to $extcfb, dropping to macro-dial",1);
+                        if ($rgmethod == 'none') {  // Calling an extension only, let sub-dial deal with cfb
+                            debug("Extension $extnum has call forward on busy set to $extcfb, dropping to sub-dial",1);
                             $extnum = '';
                             $AGI->set_variable('DIALSTATUS','BUSY');
                             $AGI->set_variable('__DIVERSION_REASON','user-busy');
@@ -594,13 +594,13 @@ if (($rgmethod == "hunt") || ($rgmethod == "memoryhunt") || ($rgmethod == "first
 $ds = chop($ds," &");
 
 if ($nodest != '' && $use_confirmation == 'FALSE') {
-    if (strpos($dialopts,"M(auto-blkvm)") > 0  || strpos($dialopts,"M(auto-blkvm)") === 0 ||
-        strpos($dialopts,"M(auto-confirm") > 0 || strpos($dialopts,"M(auto-confirm") === 0 ||
-        strpos($dialopts,"M(confirm") > 0      || strpos($dialopts,"M(confirm") === 0) {
-        debug("NODEST: $nodest blkvm enabled macro already in dialopts: $dialopts",4);
+    if (strpos($dialopts,"U(sub-auto-blkvm)") > 0  || strpos($dialopts,"U(sub-auto-blkvm)") === 0 ||
+        strpos($dialopts,"U(sub-auto-confirm") > 0 || strpos($dialopts,"U(sub-auto-confirm") === 0 ||
+        strpos($dialopts,"U(sub-confirm") > 0      || strpos($dialopts,"U(sub-confirm") === 0) {
+        debug("NODEST: $nodest blkvm enabled sub already in dialopts: $dialopts",4);
     } else {
-        $dialopts .= "M(auto-blkvm)";
-        debug("NODEST: $nodest adding M(auto-blkvm) to dialopts: $dialopts",4);
+        $dialopts .= "U(sub-auto-blkvm)";
+        debug("NODEST: $nodest adding U(sub-auto-blkvm) to dialopts: $dialopts",4);
     }
 }
 
@@ -666,13 +666,13 @@ if ($rgmethod == 'ringallv2') {
 }
 
 if ($nodest != '' && $use_confirmation == 'FALSE') {
-    if (strpos($dialopts,"M(auto-blkvm)") > 0  || strpos($dialopts,"M(auto-blkvm)") === 0 ||
-        strpos($dialopts,"M(auto-confirm") > 0 || strpos($dialopts,"M(auto-confirm") === 0 ||
-        strpos($dialopts,"M(confirm") > 0      || strpos($dialopts,"M(confirm") === 0) {
-        debug("NODEST: $nodest blkvm enabled macro already in dialopts: $dialopts",4);
+    if (strpos($dialopts,"U(sub-auto-blkvm)") > 0  || strpos($dialopts,"U(sub-auto-blkvm)") === 0 ||
+        strpos($dialopts,"U(sub-auto-confirm") > 0 || strpos($dialopts,"U(sub-auto-confirm") === 0 ||
+        strpos($dialopts,"U(sub-confirm") > 0      || strpos($dialopts,"U(sub-confirm") === 0) {
+        debug("NODEST: $nodest blkvm enabled sub already in dialopts: $dialopts",4);
     } else {
-        $dialopts .= "M(auto-blkvm)";
-        debug("NODEST: $nodest adding M(auto-blkvm) to dialopts: $dialopts",4);
+        $dialopts .= "U(sub-auto-blkvm)";
+        debug("NODEST: $nodest adding U(sub-auto-blkvm) to dialopts: $dialopts",4);
     }
 }
 
@@ -758,7 +758,7 @@ function get_dial_string( $agi, $extnum, $use_confirmation, $ringgroup_index ) {
         // If using call confirmation, need to put the # back into the new dialstring
         // we then place all external calls (denoted with a # at the end) through
         // the [grps] extension for the RINGGROUP_INDEX that was called. This
-        // triggers the call confirmation macro along with the required messages
+        // triggers the call confirmation sub along with the required messages
         // that were set.
         //
         $extnum = str_replace("#", "", $extnum);

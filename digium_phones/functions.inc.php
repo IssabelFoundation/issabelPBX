@@ -113,8 +113,8 @@ function digium_phones_hookGet_config($engine) {
 	global $ext;
 
 	$execcond = '$[$["${REDIRECTING(reason)}" = "send_to_vm" | "${SIP_HEADER(X-Digium-Call-Feature)}" = "feature_send_to_vm"] & "${ARG1}" != "novm"]';
-	$ext->splice('macro-exten-vm', 's', 'checkrecord', new ext_execif($execcond, 'Macro', 'vm,${ARG1},DIRECTDIAL,${IVR_RETVM}'));
-	$ext->splice('macro-exten-vm', 's', 'checkrecord', new ext_execif($execcond, 'MacroExit'));
+	$ext->splice('sub-exten-vm', '_X.', 'checkrecord', new ext_execif($execcond, 'Gosub', 'sub-vm,s,1(${ARG1},DIRECTDIAL,${IVR_RETVM})'));
+	$ext->splice('sub-exten-vm', '_X.', 'checkrecord', new ext_execif($execcond, 'Return'));
 }
 
 /**

@@ -1959,7 +1959,7 @@ function core_do_get_config($engine) {
               ; If call confirm is being used in a ringgroup, then calls that do not require confirmation are sent
               ; to this extension instead of straight to the device.
               ;
-              ; The sole purpose of sending them here is to make sure we run Macro(auto-confirm) if this
+              ; The sole purpose of sending them here is to make sure we run U(sub-auto-confirm) if this
               ; extension answers the line. This takes care of clearing the database key that is used to inform
               ; other potential late comers that the extension has been answered by someone else.
               ;
@@ -2354,7 +2354,7 @@ function core_do_get_config($engine) {
                         $ext->add($context, $exten, '', new ext_setvar("__ALERT_INFO", str_replace(';', '\;', $item['alertinfo'])));
                     }
                     if (!empty($item['grppre'])) {
-                        // $ext->add($context, $exten, '', new ext_gosub('1','s','prepend-cid', $item['grppre'])); MACRO DEPRECATION
+                        // $ext->add($context, $exten, '', new ext_gosub('1','s','prepend-cid', $item['grppre']));
                         $ext->add($context, $exten, '', new ext_gosub('1','s','sub-prepend-cid', $item['grppre']));
                     }
 
@@ -3128,17 +3128,17 @@ function core_do_get_config($engine) {
           // CID part of the dialplan will not get executed
           if (!isset($add_extra_pri1[$fpattern['base_pattern']])) {
             if ($route['intracompany_route'] != '') {
-              $ext->add($context, $fpattern['base_pattern'], '', new ext_gosub('1','s','sub-user-callerid,LIMIT'));
+              $ext->add($context, $fpattern['base_pattern'], '', new ext_gosub('1','s','sub-user-callerid','LIMIT'));
             } else {
-              $ext->add($context, $fpattern['base_pattern'], '', new ext_gosub('1','s','sub-user-callerid,LIMIT,EXTERNAL'));
+              $ext->add($context, $fpattern['base_pattern'], '', new ext_gosub('1','s','sub-user-callerid','LIMIT,EXTERNAL'));
             }
             $add_extra_pri1[$fpattern['base_pattern']] = true;
           }
           if ($fpattern['base_pattern'] != $exten) {
             if ($route['intracompany_route'] != '') {
-              $ext->add($context, $exten, '', new ext_gosub('1','s','sub-user-callerid,LIMIT'));
+              $ext->add($context, $exten, '', new ext_gosub('1','s','sub-user-callerid','LIMIT'));
             } else {
-              $ext->add($context, $exten, '', new ext_gosub('1','s','sub-user-callerid,LIMIT,EXTERNAL'));
+              $ext->add($context, $exten, '', new ext_gosub('1','s','sub-user-callerid','LIMIT,EXTERNAL'));
             }
           }
           $ext->add($context, $exten, '', new ext_noop_trace(sprintf(__('Calling Out Route: %s'),'${SET(OUTBOUND_ROUTE_NAME='.$route['name'].')}'),1));
@@ -3839,7 +3839,7 @@ function core_do_get_config($engine) {
                 $ext->add($context, $exten, '', new ext_set('VIRTUAL', '${CUT(AGCHAN,/,2)}'));
                 $ext->add($context, $exten, '', new ext_set('__AGNAME', '${DB(AMPUSER/${VIRTUAL}/cidname)}'));
                 $ext->add($context, $exten, '', new ext_gotoif('$["x${AGNAME}" = "x"]', 'resume'));
-                $ext->add($context, $exten, '', new ext_set('TDEST', '${IF($["${MACRO_EXTEN}" = "s"]?${ARG2}:${MACRO_EXTEN})}'));
+                $ext->add($context, $exten, '', new ext_set('TDEST', '${IF($["${ARG1}" = "s"]?${ARG2}:${ARG1})}'));
                 $ext->add($context, $exten, '', new ext_queuelog('${NODEST}','${CHANNEL(LINKEDID)}','${AGNAME}','TRANSFER','${TDEST}'));
             }
 
@@ -4231,7 +4231,7 @@ function core_do_get_config($engine) {
 
             $ext->add($mcontext, $exten, '', new ext_set('FORCE_CONFIRM',''));
             $ext->add($mcontext, $exten, '', new ext_set('ARG4',''));
-            $ext->add($mcontext, $exten, '', new ext_gosub('1','s','dial','${ARG1},${ARG2},${ARG3}'));
+            $ext->add($mcontext, $exten, '', new ext_gosub('1','s','sub-dial','${ARG1},${ARG2},${ARG3}'));
             $ext->add($mcontext, $exten, '', new ext_dbdel('RG/${RINGGROUP_INDEX}/${CHANNEL}'));
             $ext->add($mcontext, $exten, '', new ext_set('USE_CONFIRMATION',''));
             $ext->add($mcontext, $exten, '', new ext_set('RINGGROUP_INDEX',''));
@@ -4939,11 +4939,8 @@ function core_do_get_config($engine) {
        * We check if the SHARED function is available and if so, we use that in our sub. If not, we
        * fall back to the shared DB variable and keep our cleanup code in hangupcall.
        *
-       * Note that we have chosen to use a Macro() in place of a GoSub() because in the legacy DB
-       * mode we must have the owning ${EXTEN} to create our unique key. Since GoSub() does not support
-       * passing arguments until 1.6 this would not be possible in 1.4 which is still mainstream.
-       * We have chosen to use the GOSUB_RETVAL in anticipation of a future point where we move to
-       * a GoSub() call which would be slightly more efficient.
+       * Note that we have chosen to use a GoSub() in place of a Macro() for these subs and rely on the
+       * GOSUB_RETVAL return value to communicate state back to the caller.
        */
 
       $exten = 's';
@@ -4992,8 +4989,8 @@ function core_do_get_config($engine) {
         $ext->add($mcontext,$exten,'', new ext_gotoif('$[!${EXISTS(${BLKVM_OVERRIDE})}]', 'init'));
         $ext->add($mcontext,$exten,'', new ext_set('GOSUB_RETVAL','${DB(${BLKVM_OVERRIDE})}'));
         $ext->add($mcontext,$exten,'', new ext_return(''));
-        $ext->add($mcontext,$exten,'init', new ext_set('__BLKVM_OVERRIDE','BLKVM/${MACRO_EXTEN}/${CHANNEL}'));
-        $ext->add($mcontext,$exten,'', new ext_set('__BLKVM_BASE','${MACRO_EXTEN}'));
+        $ext->add($mcontext,$exten,'init', new ext_set('__BLKVM_OVERRIDE','BLKVM/${ARG1}/${CHANNEL}'));
+        $ext->add($mcontext,$exten,'', new ext_set('__BLKVM_BASE','${ARG1}'));
         $ext->add($mcontext,$exten,'', new ext_set('DB(${BLKVM_OVERRIDE})','TRUE'));
 
         $ext->add($mcontext,$exten,'', new ext_set('GOSUB_RETVAL','TRUE'));
@@ -5002,8 +4999,8 @@ function core_do_get_config($engine) {
         // If BLKVM_OVERRIDE not set or 'reset' is passed, then initialize it to this channel then set and retrun TRUE
         //
         $mcontext = 'sub-blkvm-set';
-        $ext->add($mcontext,$exten,'', new ext_execif('$[!${EXISTS(${BLKVM_OVERRIDE})} | "{ARG1}" = "reset"]', 'Set','__BLKVM_BASE=${MACRO_EXTEN}'));
-        $ext->add($mcontext,$exten,'', new ext_execif('$[!${EXISTS(${BLKVM_OVERRIDE})} | "{ARG1}" = "reset"]', 'Set','__BLKVM_OVERRIDE=BLKVM/${MACRO_EXTEN}/${CHANNEL}'));
+        $ext->add($mcontext,$exten,'', new ext_execif('$[!${EXISTS(${BLKVM_OVERRIDE})} | "{ARG2}" = "reset"]', 'Set','__BLKVM_BASE=${ARG1}'));
+        $ext->add($mcontext,$exten,'', new ext_execif('$[!${EXISTS(${BLKVM_OVERRIDE})} | "{ARG2}" = "reset"]', 'Set','__BLKVM_OVERRIDE=BLKVM/${ARG1}/${CHANNEL}'));
         $ext->add($mcontext,$exten,'', new ext_set('DB(${BLKVM_OVERRIDE})','TRUE'));
         $ext->add($mcontext,$exten,'', new ext_set('GOSUB_RETVAL','TRUE'));
         $ext->add($mcontext,$exten,'', new ext_return(''));
@@ -5131,7 +5128,7 @@ function core_do_get_config($engine) {
 
         $ext->add($mcontext,$exten,'godial', new \ext_execif('$["${DIRECTION}" = "INBOUND"]', 'Set', 'D_OPTIONS=${STRREPLACE(D_OPTIONS,T)}'));
         $ext->add($mcontext,$exten,'', new ext_dial('${DSTRING}', '${ARG1},${D_OPTIONS}b(func-apply-sipheaders^s^1)'));
-        $ext->add($mcontext,$exten,'', new ext_execif('$["${DIALSTATUS}"="ANSWER" & "${CALLER_DEST}"!=""]', 'MacroExit'));
+        $ext->add($mcontext,$exten,'', new ext_execif('$["${DIALSTATUS}"="ANSWER" & "${CALLER_DEST}"!=""]', 'Return'));
 
         $ext->add($mcontext,$exten,'', new ext_execif('$["${DIALSTATUS_CW}"!=""]', 'Set', 'DIALSTATUS=${DIALSTATUS_CW}'));
         $ext->add($mcontext,$exten,'', new ext_gosubif('$[("${SCREEN}"!=""&("${DIALSTATUS}"="TORTURE"|"${DIALSTATUS}"="DONTCALL"))|"${DIALSTATUS}"="ANSWER"]','s-${DIALSTATUS},1'));
