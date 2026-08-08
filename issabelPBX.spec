@@ -11,6 +11,7 @@ BuildArch:      noarch
 BuildRequires:  bash php php-cli
 Requires(pre):  asterisk
 Requires:       php php-mysqlnd php-mbstring mariadb perl-Digest-MD5 perl-URI perl-libwww-perl sox mpg123 perl-LWP-Protocol-https
+Requires:       gettext
 
 %{?el8:Requires: php-pear php-pear-DB}
 
