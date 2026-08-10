@@ -162,8 +162,8 @@ function ringgroups_get_config($engine) {
 						$remotealert = recordings_get_file($remotealert_id);
 						$toolate = recordings_get_file($toolate_id);
 						$len=strlen($grpnum)+4;
-  					$ext->add("grps", "_RG-${grpnum}-.", '', new ext_nocdr(''));
-						$ext->add("grps", "_RG-${grpnum}-.", '', new ext_gosub('1','s','sub-dial', "$grptime,$dialopts" . "U(sub-confirm^${remotealert}^${toolate}^${grpnum})" . ',${EXTEN:' . $len . '}'));
+  					$ext->add("grps", "_RG-{$grpnum}-.", '', new ext_nocdr(''));
+						$ext->add("grps", "_RG-{$grpnum}-.", '', new ext_gosub('1','s','sub-dial', "$grptime,$dialopts" . "U(sub-confirm^{$remotealert}^{$toolate}^{$grpnum})" . ',${EXTEN:' . $len . '}'));
 						$ext->add($contextname, $grpnum, 'DIALGRP', new ext_gosub('1','s','sub-dial-confirm',"$grptime,$dialopts,$grplist,$grpnum"));
 					} else {
 						$ext->add($contextname, $grpnum, 'DIALGRP', new ext_gosub('1','s','sub-dial',$grptime.",$dialopts,".$grplist));
@@ -248,7 +248,7 @@ function ringgroups_get_config($engine) {
 	}
 }
 
-function ringgroups_add($grpnum,$strategy,$grptime,$grplist,$postdest,$desc,$grppre='',$annmsg_id='0',$alertinfo,$needsconf,$remotealert_id,$toolate_id,$ringing,$cwignore,$cfignore,$changecid='default',$fixedcid='',$cpickup='', $recording='dontcare') {
+function ringgroups_add($grpnum,$strategy,$grptime,$grplist,$postdest,$desc,$grppre,$annmsg_id,$alertinfo,$needsconf,$remotealert_id,$toolate_id,$ringing,$cwignore,$cfignore,$changecid='default',$fixedcid='',$cpickup='', $recording='dontcare') {
 	global $db;
 	global $astman;
 

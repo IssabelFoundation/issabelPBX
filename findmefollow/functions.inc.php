@@ -104,7 +104,7 @@ function findmefollow_get_config($engine) {
             if (!isset($sops)) {
 						  $sops = sql("SELECT value from globals where variable='DIAL_OPTIONS'", "getRow");
             }
-						$dialopts = "m(${ringing})".str_replace('r', '', $sops[0]);
+						$dialopts = "m({$ringing})".str_replace('r', '', $sops[0]);
 					}
 
 					// Direct target to Follow-Me come here bypassing the followme/ddial conditional check
@@ -192,8 +192,8 @@ function findmefollow_get_config($engine) {
 					$len=strlen($grpnum)+4;
 					$remotealert = recordings_get_file($remotealert_id);
 					$toolate = recordings_get_file($toolate_id);
-					$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_nocdr(''));
-					$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_gosub('1','s','sub-dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts" . "U(sub-confirm^${remotealert}^${toolate}^${grpnum})".',${EXTEN:'.$len.'}'));
+					$ext->add("fmgrps", "_RG-{$grpnum}.", '', new ext_nocdr(''));
+					$ext->add("fmgrps", "_RG-{$grpnum}.", '', new ext_gosub('1','s','sub-dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts" . "U(sub-confirm^{$remotealert}^{$toolate}^{$grpnum})".',${EXTEN:'.$len.'}'));
 
 					// If grpconf == ENABLED call with confirmation ELSE call normal
 					$ext->add($contextname, $grpnum, 'DIALGRP', new 
@@ -288,7 +288,7 @@ function findmefollow_get_config($engine) {
 	}
 }
 
-function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='') {
+function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='') {
 	global $amp_conf;
 	global $astman;
 	global $db;

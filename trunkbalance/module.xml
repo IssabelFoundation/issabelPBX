@@ -1,7 +1,7 @@
 <module>
     <rawname>trunkbalance</rawname>
     <name>Trunk Balance</name>
-    <version>1.1.7</version>
+    <version>2.13.0.0</version>
     <publisher>POSSA</publisher>
     <license>GPLv2+</license>
     <candisable>yes</candisable>
@@ -9,6 +9,7 @@
     <repo>extended</repo>
     <category>Advanced</category>
     <changelog>
+        *2.13.0.0* Initial version without Macro
         *1.1.7* Initial version without Macro
         *1.1.6* Revised to work with IssabelPBX 2.12.0.0
         *1.1.5* Accept Self Signed Certs in URL
@@ -39,6 +40,9 @@
     <menuitems>
         <trunkbalance>Trunk Balance</trunkbalance>
     </menuitems>
+    <supported>
+        <version>2.13</version>
+    </supported>
     <info>https://github.com/POSSA/freepbx-trunk-balancing</info>
     <location>http://pbxossa.org/files/trunkbalance/</location>
     <md5sum>0</md5sum>

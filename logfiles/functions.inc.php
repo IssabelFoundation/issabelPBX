@@ -102,7 +102,7 @@ function logfiles_highlight_asterisk($line,&$channels) {
 /**
  * Get last X lines of log file, with html tags to provide highlighting
  */
-function logfiles_get_logfile($lines = 500, $file) {
+function logfiles_get_logfile($lines, $file) {
     global $amp_conf;
     $files = logfiles_list();
     $logfile = $amp_conf['ASTLOGDIR'] . '/' . $files[$file];
