@@ -65,7 +65,7 @@ echo "<div class='is-flex'><h2>".($itemid ? __('Edit DISA').': '.$thisItem["disp
 if ($itemid) {
     $usage_list = framework_display_destination_usage(disa_getdest($itemid));
     if (!empty($usage_list)) {
-        echo "<div class='tag is-success is-light ml-2'><a href='#' class='info'>${usage_list['text']}:<span>${usage_list['tooltip']}</span></a></div>";
+        echo "<div class='tag is-success is-light ml-2'><a href='#' class='info'>{$usage_list['text']}:<span>{$usage_list['tooltip']}</span></a></div>";
     }
 }
 // Get hangup code for tooltip

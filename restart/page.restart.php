@@ -27,7 +27,7 @@ switch ($action) {
     echo "<h2>".__("Restart Phones")."</h2>";
 	echo "<form name='restart' action='".$_SERVER['PHP_SELF']."' method='post'>\n";
 	echo "<input type='hidden' name='action' value='restart'>\n";
-	echo "<input type='hidden' name='display' value='${display}'>\n";
+	echo "<input type='hidden' name='display' value='{$display}'>\n";
 
     echo "<table class='table is-borderless'>";
 	if($restarted)  {

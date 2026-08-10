@@ -712,7 +712,7 @@ class DB_rqlite extends DB_common
         if (DB::isError($result)) {
             return($result);
         }
-        $query   = "CREATE TRIGGER ${seqname}_cleanup AFTER INSERT ON $seqname
+        $query   = "CREATE TRIGGER {$seqname}_cleanup AFTER INSERT ON $seqname
                     BEGIN
                         DELETE FROM $seqname WHERE id<LAST_INSERT_ROWID();
                     END ";

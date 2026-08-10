@@ -257,13 +257,13 @@ switch($_REQUEST['type']) {
 
         $o = $dahdi_cards->calc_bchan_fxx($_REQUEST['span'],NULL,$s,$c);
         $html = <<<EOF
-        <table width="100%" id="editspan_{$span['id']}_group_settings_${groupc}" style="text-align:left;" border="0" cellspacing="0">
+        <table width="100%" id="editspan_{$span['id']}_group_settings_{$groupc}" style="text-align:left;" border="0" cellspacing="0">
             <tr>
                 <td style="width:10px;">
                     <label>Group: </label>
                 </td>
                 <td>
-            	    <input type="text" id="editspan_{$span['id']}_group_${groupc}" name="editspan_{$span['id']}_group_${groupc}" size="2" value="{$group_num}" />
+            	    <input type="text" id="editspan_{$span['id']}_group_{$groupc}" name="editspan_{$span['id']}_group_{$groupc}" size="2" value="{$group_num}" />
                 </td>
             </tr>
             <tr>
@@ -271,7 +271,7 @@ switch($_REQUEST['type']) {
                     <label>Context: </label>
                 </td>
                 <td>
-            	    <input type="text" id="editspan_{$span['id']}_context_${groupc}" name="editspan_{$span['id']}_context_${groupc}" value="$context" />
+            	    <input type="text" id="editspan_{$span['id']}_context_{$groupc}" name="editspan_{$span['id']}_context_{$groupc}" value="$context" />
                 </td>
             </tr>
             <tr>
@@ -279,11 +279,11 @@ switch($_REQUEST['type']) {
                     <label>Used Channels: </label>
                 </td>
                 <td>
-                    <select id="editspan_{$span['id']}_definedchans_${groupc}" name="editspan_{$span['id']}_definedchans_${groupc}">
+                    <select id="editspan_{$span['id']}_definedchans_{$groupc}" name="editspan_{$span['id']}_definedchans_{$groupc}">
                         $opts
                 	</select>
-                	From: <span id="editspan_{$span['id']}_from_${groupc}">{$o['fxx']}</span>
-                	Reserved: <span id="editspan_{$span['id']}_reserved_${groupc}">{$span['reserved_ch']}</span>
+                	From: <span id="editspan_{$span['id']}_from_{$groupc}">{$o['fxx']}</span>
+                	Reserved: <span id="editspan_{$span['id']}_reserved_{$groupc}">{$span['reserved_ch']}</span>
                 </td>
             </tr>
         </table>
