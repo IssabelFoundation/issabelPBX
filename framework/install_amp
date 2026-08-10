@@ -7,6 +7,8 @@
 // ./install_amp --dbengine=$engine --dbuser=root --dbpass=mysqlrootpassword --adminuser=admin --adminpass=asteriskpass --installdb --dbfile /etc/asterisk/sqldata.db --scripted
 chdir(__DIR__);
 
+error_reporting(E_ALL & ~E_DEPRECATED);
+
 date_default_timezone_set('America/Los_Angeles');
 require_once ("libissabelpbx.install.php");
 require_once(dirname(__FILE__) . '/amp_conf/htdocs/admin/libraries/php-upgrade.functions.php');
