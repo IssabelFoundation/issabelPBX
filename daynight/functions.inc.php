@@ -207,7 +207,7 @@ function daynight_toggle() {
         }
         $got_code = true;
         $ext->addHint($id, $c, 'Custom:DAYNIGHT'.$index);
-        $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
+        $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
         $ext->add($id, $c, '', new ext_answer(''));
         $ext->add($id, $c, '', new ext_wait('1'));
         if (isset($passwords[$index]) && trim($passwords[$index]) != "" && ctype_digit(trim($passwords[$index]))) {
@@ -216,8 +216,8 @@ function daynight_toggle() {
         $ext->add($id, $c, '', new ext_setvar('INDEXES', $index));
     // Depends on featurecode.sln which is provided in core's sound files
     //
-        $day_file = "beep&silence/1&featurecode&digits/${index}&de-activated";
-        $night_file = "beep&silence/1&featurecode&digits/${index}&activated";
+        $day_file = "beep&silence/1&featurecode&digits/{$index}&de-activated";
+        $night_file = "beep&silence/1&featurecode&digits/{$index}&activated";
         if (function_exists('recordings_get_file')) {
           if ($day_recording[$index] != 0 ) { $day_file = recordings_get_file ($day_recording[$index]); }
           if ($night_recording[$index] != 0 ) { $night_file = recordings_get_file ($night_recording[$index]); }
@@ -234,7 +234,7 @@ function daynight_toggle() {
         $c = $fcc->getCodeActive();
         unset($fcc);
         if ($c) {
-            $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
+            $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
             $ext->add($id, $c, '', new ext_goto($id.',${EXTEN}*${AMPUSER},1'));
 
             $userFCs = array();

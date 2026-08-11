@@ -104,7 +104,7 @@ function findmefollow_get_config($engine) {
             if (!isset($sops)) {
 						  $sops = sql("SELECT value from globals where variable='DIAL_OPTIONS'", "getRow");
             }
-						$dialopts = "m(${ringing})".str_replace('r', '', $sops[0]);
+						$dialopts = "m({$ringing})".str_replace('r', '', $sops[0]);
 					}
 
 					// Direct target to Follow-Me come here bypassing the followme/ddial conditional check
@@ -117,7 +117,7 @@ function findmefollow_get_config($engine) {
 					// to automatically be called but only if chosen by the caller as an alternative to going to voicemail
 					//
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[ "${DB(AMPUSER/'.$grpnum.'/followme/ddial)}" = "EXTENSION" ]', 'ext-local,'.$grpnum.',1'));
-					$ext->add($contextname, $grpnum, 'FM'.$grpnum, new ext_gosub('1','s','sub-user-callerid'));
+					$ext->add($contextname, $grpnum, 'FM'.$grpnum, new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 
 					$ext->add($contextname, $grpnum, '', new ext_set('DIAL_OPTIONS','${DIAL_OPTIONS}I'));
 					$ext->add($contextname, $grpnum, '', new ext_set('CONNECTEDLINE(num)', $grpnum));
@@ -131,13 +131,13 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, '', new ext_set('__EXTTOCALL','${EXTEN}'));
 					$ext->add($contextname, $grpnum, '', new ext_set('__PICKUPMARK','${EXTEN}'));
 
-					// block voicemail until phone is answered at which point a macro should be called on the answering
+					// block voicemail until phone is answered at which point a sub should be called on the answering
 					// line to clear this flag so that subsequent transfers can occur, if already set by a the caller
 					// then don't change.
 					//
-					$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-blkvm-setifempty'));
+					$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-blkvm-setifempty','${EXTEN}'));
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["${GOSUB_RETVAL}" = "TRUE"]', 'skipov'));
-					$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-blkvm-set','reset'));
+					$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-blkvm-set','${EXTEN},reset'));
 					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', ''));
 
 					// Remember if NODEST was set later, but clear it in case the call is answered so that subsequent
@@ -192,8 +192,8 @@ function findmefollow_get_config($engine) {
 					$len=strlen($grpnum)+4;
 					$remotealert = recordings_get_file($remotealert_id);
 					$toolate = recordings_get_file($toolate_id);
-					$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_nocdr(''));
-					$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_gosub('1','s','sub-dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts" . "M(confirm^${remotealert}^${toolate}^${grpnum})".',${EXTEN:'.$len.'}'));
+					$ext->add("fmgrps", "_RG-{$grpnum}.", '', new ext_nocdr(''));
+					$ext->add("fmgrps", "_RG-{$grpnum}.", '', new ext_gosub('1','s','sub-dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts" . "U(sub-confirm^{$remotealert}^{$toolate}^{$grpnum})".',${EXTEN:'.$len.'}'));
 
 					// If grpconf == ENABLED call with confirmation ELSE call normal
 					$ext->add($contextname, $grpnum, 'DIALGRP', new 
@@ -288,7 +288,7 @@ function findmefollow_get_config($engine) {
 	}
 }
 
-function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='') {
+function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='') {
 	global $amp_conf;
 	global $astman;
 	global $db;
@@ -675,7 +675,7 @@ function findmefollow_fmf_toggle($c) {
 
 	$ext->add($id, $c, 'start', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
-	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 
 	$ext->add($id, $c, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/followme/ddial)}" = "EXTENSION"]', 'activate'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/followme/ddial)}" = "DIRECT"]', 'deactivate','end'));

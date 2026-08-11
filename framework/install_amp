@@ -7,6 +7,8 @@
 // ./install_amp --dbengine=$engine --dbuser=root --dbpass=mysqlrootpassword --adminuser=admin --adminpass=asteriskpass --installdb --dbfile /etc/asterisk/sqldata.db --scripted
 chdir(__DIR__);
 
+error_reporting(E_ALL & ~E_DEPRECATED);
+
 date_default_timezone_set('America/Los_Angeles');
 require_once ("libissabelpbx.install.php");
 require_once(dirname(__FILE__) . '/amp_conf/htdocs/admin/libraries/php-upgrade.functions.php');
@@ -1365,8 +1367,8 @@ if ((preg_match('/^Asterisk (\d+(\.\d+)*)(-?(.*))$/', $verinfo, $matches)) ||
     if ((version_compare($matches[1], "1.6") < 0)) {
         fatal("Asterisk 1.6, 1.8 or 10 is required for this version of IssabelPBX. Detected version is: ".$matches[1]);
     }
-    if (version_compare($matches[1], "21", "ge")) {
-        fatal("Asterisk 1.6, 1.8, 10, 11, 12, 13, 16, 80 or 20 is required for this version of IssabelPBX. Detected version is: ".$matches[1]);
+    if (version_compare($matches[1], "23", "ge")) {
+        fatal("Asterisk 1.6, 1.8, 10, 11, 12, 13, 16, 18, 20, 21 or 22 is required for this version of IssabelPBX. Detected version is: ".$matches[1]);
     }
     out("{$matches[1]}");
     $asterisk_version = $matches[1];

@@ -8,7 +8,7 @@ if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
  * - Add outbound routes force recording (see pinssets for example similar code
  * - Move Extension Recording sections from core to here and add as hook
  *   see languages for similar code to implement
- * - Move the common macros from core to here
+ * - Move the common subs from core to here
  * - Make functionality in other modules conditional on this stuff being here or if not
  *   overly complex, maybe move some of their functionality into hooks provdied from here
  */

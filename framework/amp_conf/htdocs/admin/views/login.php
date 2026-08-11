@@ -7,7 +7,7 @@ if ($errors) {
          document.addEventListener('DOMContentLoaded', function(){
            Toast.fire({
              icon: 'error',
-             title: '${errors[0]}'
+             title: '{$errors[0]}'
            });
          });
        </script>";

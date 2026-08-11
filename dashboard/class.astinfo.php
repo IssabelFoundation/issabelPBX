@@ -33,9 +33,9 @@ class astinfo {
         $total_channels = 0;
         
         foreach ($astout as $line) {
-            if (preg_match('/s@macro-dialout/', $line)) {
+            if (preg_match('/s@sub-dialout/', $line)) {
                 $external_calls++;
-            } else if (preg_match('/s@macro-dial:/', $line)) {
+            } else if (preg_match('/s@sub-dial/', $line)) {
                 $internal_calls++;
             } else if (preg_match('/^(\d+) active channel/i', $line, $matches)) {
                 $total_channels = $matches[1];

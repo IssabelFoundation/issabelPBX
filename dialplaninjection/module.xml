@@ -1,7 +1,7 @@
 <module>
     <rawname>dialplaninjection</rawname>
     <name>Dialplan Injection</name>
-    <version>1.0.1</version>
+    <version>2.13.0.0</version>
     <type>setup</type>
     <publisher>POSSA</publisher>
     <category>Advanced</category>
@@ -11,6 +11,7 @@
         <dialplaninjection>Dialplan Injection</dialplaninjection>
     </menuitems>
     <changelog>
+        *2.13.0.0* Initial version without Macro
         *1.0.1* Initial version without Macro
         *1.0.0* Issabel Foundation release for IssabelPBX 2.12
         Lorne Gaetz: Initial commit
@@ -23,7 +24,7 @@
     <depends>
         <version>2.13.0</version>
     </depends>
-    <location>release/2.13/dialplaninjection-1.0.0.tgz</location>
+    <location>release/2.13/dialplaninjection-2.13.0.0.tgz</location>
     <supported>
         <version>2.13</version>
     </supported>

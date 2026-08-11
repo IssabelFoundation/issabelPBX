@@ -910,19 +910,26 @@ class ext_queue {
     }
     
     function output() {
+        global $version;
+        // The 'macro' argument to Queue() was removed in Asterisk 21, which shifts the
+        // gosub, rule and position arguments up one position.
+        $include_macro = !isset($version) || version_compare($version, '21', 'lt');
         // TODO: test blank: for some reason the Queue cmd takes an empty last param (timeout) as being 0
         // when really we want unlimited
-        return "Queue(" 
+        $q = "Queue(" 
             . $this->queuename . ","
             . $this->options . ","
             . $this->optionalurl . ","
             . $this->announceoverride . ","
             . $this->timeout . ","
-            . $this->agi . ","
-            . $this->macro . ","
-            . $this->gosub . ","
+            . $this->agi . ",";
+        if ($include_macro) {
+            $q .= $this->macro . ",";
+        }
+        $q .= $this->gosub . ","
             . $this->rule . ","
             . $this->position . ")";
+        return $q;
     }
 }
 

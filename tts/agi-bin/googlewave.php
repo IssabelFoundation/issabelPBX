@@ -84,7 +84,7 @@ function wavenet($text) {
     $responseDecoded = json_decode($response, true);
 
     if($responseDecoded['audioContent']){
-        $fp = fopen("${filename}.alaw", 'w');
+        $fp = fopen("{$filename}.alaw", 'w');
         fwrite($fp,base64_decode($responseDecoded['audioContent']));
         fclose($fp);
     } 

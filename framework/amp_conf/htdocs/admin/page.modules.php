@@ -1255,11 +1255,11 @@ function displayRepoSelect($buttons,$modify_notification='') {
       echo "
 <span class='control'>
     <label class='is-checkbox is-small is-link is-rounded'>
-        <input id='${repo['id']}_repo' name='${repo['name']}' tabindex='".++$tabindex."' $checked value='${repo['value']}' type='checkbox'>
+        <input id='{$repo['id']}_repo' name='{$repo['name']}' tabindex='".++$tabindex."' $checked value='{$repo['value']}' type='checkbox'>
         <span  class='icon is-small checkmark'>
             <i class='fa fa-check'></i>
         </span>
-        <span>${repo['label']}</span>
+        <span>{$repo['label']}</span>
     </label>
 </span>
 ";

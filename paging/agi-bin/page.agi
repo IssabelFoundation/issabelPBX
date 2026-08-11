@@ -36,7 +36,7 @@ $vars['STREAM'] = $vars['STREAM'] == 'NONE'
 
 // TODO: this deals with the mainstream ones. We could check in the dialplan if 
 //there are any others outside of these and only in that case evoke the
-//new custom macro that gets generated to otherwise deal with these???
+//new custom sub that gets generated to otherwise deal with these???
 
 //set channel variables
 $base_vars['__FORWARD_CONTEXT'] = 'block-cf';

@@ -100,7 +100,7 @@ function queues_get_config($engine) {
 				$qregex = (isset($q['qregex'])?$q['qregex']:'');
 				str_replace(';','\;',$qregex);
 			
-				$ext->add($c, $exten, '', new ext_gosub('1','s','sub-user-callerid'));
+				$ext->add($c, $exten, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 			
 				if (isset($q['qnoanswer']) && $q['qnoanswer'] == FALSE) {
 					$ext->add($c, $exten, '', new ext_answer(''));
@@ -109,15 +109,15 @@ function queues_get_config($engine) {
 					$ext->add($c, $exten, '', new ext_progress());
 				}
 
-				// block voicemail until phone is answered at which point a macro should be called on the answering
+				// block voicemail until phone is answered at which point a sub should be called on the answering
 				// line to clear this flag so that subsequent transfers can occur.
 				if ($q['queuewait']) {
 					$ext->add($c, $exten, '', new ext_execif('$["${QUEUEWAIT}" = ""]', 'Set', '__QUEUEWAIT=${EPOCH}'));
 				}
 				// If extension_only don't do this and CFIGNORE
 				if($q['use_queue_context'] != '2') {
-					$ext->add($c, $exten, '', new ext_gosub('1','s','sub-blkvm-set', 'reset'));
-					$ext->add($c, $exten, '', new ext_execif('$["${REGEX("(M[(]auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}M(auto-blkvm)')); // TODO MACRO DEPRECATED
+					$ext->add($c, $exten, '', new ext_gosub('1','s','sub-blkvm-set', '${EXTEN},reset'));
+					$ext->add($c, $exten, '', new ext_execif('$["${REGEX("(U[(]sub-auto-blkvm[)])" ${DIAL_OPTIONS})}" != "1"]', 'Set', '_DIAL_OPTIONS=${DIAL_OPTIONS}U(sub-auto-blkvm)'));
 				}
 
 				// Inform all the children NOT to send calls to destinations or voicemail
@@ -132,7 +132,7 @@ function queues_get_config($engine) {
 				// deal with group CID prefix
 				$ext->add($c, $exten, '', new ext_set('QCIDPP', '${IF($[${LEN(${VQ_CIDPP})}>0]?${VQ_CIDPP}' . ':' . ($grppre == '' ? ' ':$grppre) . ')}'));
 				$ext->add($c, $exten, '', new ext_set('VQ_CIDPP', ''));
-				//$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Macro', 'prepend-cid,${QCIDPP}')); // MACRO DEPRECATION
+				//$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Gosub', 'sub-prepend-cid,s,1(${QCIDPP})'));
 				$ext->add($c, $exten, '', new ext_execif('$["${QCIDPP}"!=""]', 'Gosub', 'sub-prepend-cid,s,1(${QCIDPP})'));
 
 				// Set Alert_Info
@@ -267,6 +267,7 @@ function queues_get_config($engine) {
 				$qurl = '${QURL}';
 
 				// Queue(queuename[,options[,URL[,announceoverride[,timeout[,AGI[,macro[,gosub[,rule[,position]]]]]]]]])
+				// NOTE: the 'macro' argument was removed in Asterisk 21 and is only emitted for older engines
 				//
 				$ext->add($c, $exten, 'qcall', new ext_queue($exten, $options, $qurl, $agnc, $qmaxwait, $qagi, $qmacro, $qgosub, $qrule, $qposition));
 
@@ -692,7 +693,7 @@ function app_all_queue_pause_toggle() {
 
 	$ext->add($c, $e, 'start', new ext_answer(''));
 	$ext->add($c, $e, '', new ext_wait('1'));
-	$ext->add($c, $e, '', new ext_gosub('1','s','sub-user-callerid'));
+	$ext->add($c, $e, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 	$ext->add($c, $e, '', new ext_agi('queue_devstate.agi,toggle-pause-all,${AMPUSER}'));
 	$ext->add($c, $e, '', new ext_playback('dictate/pause&${IF($[${TOGGLEPAUSED}]?activated:de-activated)}'));
 	$ext->add($c, $e, '', new ext_gosub('1','s','sub-hangupcall'));
@@ -707,7 +708,7 @@ function app_queue_pause_toggle() {
 
 	$ext->add($c, $e, 'start', new ext_answer(''));
 	$ext->add($c, $e, '', new ext_wait('1'));
-	$ext->add($c, $e, '', new ext_gosub('1','s','sub-user-callerid'));
+	$ext->add($c, $e, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
     $ext->add($c, $e, '', new ext_set('QAG','${DB_KEYS(QPENALTY/${ARG1}/agents)}'));
     $ext->add($c, $e, '', new ext_set('LOOPCNTALL','${FIELDQTY(QAG,\,)}'));
     $ext->add($c, $e, '', new ext_set('ITERALL','1'));
@@ -737,7 +738,7 @@ function queue_app_all_toggle() {
 
 	$ext->add($c, $e, 'start', new ext_answer(''));
 	$ext->add($c, $e, '', new ext_wait('1'));
-	$ext->add($c, $e, '', new ext_gosub('1','s','sub-user-callerid'));
+	$ext->add($c, $e, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 	$ext->add($c, $e, '', new ext_agi('queue_devstate.agi,getall,${AMPUSER}'));
 	$ext->add($c, $e, '', new ext_gotoif('$["${QUEUESTAT}" = "NOQUEUES"]', 'skip'));
 	$ext->add($c, $e, '', new ext_set('TOGGLE_SUB', '${IF($["${QUEUESTAT}"="LOGGEDOUT"]?sub-toggle-add-agent:sub-toggle-del-agent)}'));
@@ -774,7 +775,7 @@ function queue_app_toggle() {
 
 	$ext->add($id, $c, 'start', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
-	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 	$ext->add($id, $c, '', new ext_setvar('QUEUESTAT', 'LOGGEDOUT'));
 	$ext->add($id, $c, '', new ext_agi('queue_devstate.agi,getqueues,${AMPUSER}'));
 

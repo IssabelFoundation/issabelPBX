@@ -86,7 +86,7 @@ function azure_tts($text) {
     $content = curl_exec($ch);
     curl_close($ch);
     
-    $fp = fopen("${filename}.alaw", 'w');
+    $fp = fopen("{$filename}.alaw", 'w');
     fwrite($fp, $content);
     fclose($fp);
 

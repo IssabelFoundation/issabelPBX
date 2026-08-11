@@ -130,7 +130,7 @@ if (isset($inroutes)) {
 		$displaydid = ( (trim($inroute['extension']) == "") ? __("any DID") : $inroute['extension'] );
  		$displaycid = ( (trim($inroute['cidnum']) == "") ? __("any CID") : $inroute['cidnum'] );
         $desc = ( empty($inroute['description'])? "" : htmlspecialchars($inroute['description'])."<br />" );
-        $rnaventries[]=array(urlencode($inroute['extension'])."/".urlencode($inroute['cidnum']),"{$desc} <span class='is-size-7'>{$displaydid} / {$displaycid}</span><span class='is-hidden'>${didtype}</span>","");
+        $rnaventries[]=array(urlencode($inroute['extension'])."/".urlencode($inroute['cidnum']),"{$desc} <span class='is-size-7'>{$displaydid} / {$displaycid}</span><span class='is-hidden'>{$didtype}</span>","");
 	}
 }
 

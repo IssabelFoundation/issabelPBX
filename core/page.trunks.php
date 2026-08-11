@@ -454,9 +454,13 @@ if (!$tech && !$extdisplay) {
     <h2><?php echo __("Add a Trunk")?></h2>
 <?php
     $baseURL   = $_SERVER['PHP_SELF'].'?display='.urlencode($display).'&';
-    $trunks[] = array('url'=> $baseURL.'tech=SIP', 'tlabel' =>  __("Add SIP Trunk"));
+    if (version_compare($amp_conf['ASTVERSION'],'22','lt')) {
+        $trunks[] = array('url'=> $baseURL.'tech=SIP', 'tlabel' =>  __("Add SIP Trunk"));
+    }
     $trunks[] = array('url'=> $baseURL.'tech=PJSIP', 'tlabel' =>  __("Add PJSIP Trunk"));
-    $trunks[] = array('url'=> $baseURL.'tech=DAHDI', 'tlabel' =>  __("Add DAHDi Trunk"));
+    if (version_compare($amp_conf['ASTVERSION'],'22','lt')) {
+        $trunks[] = array('url'=> $baseURL.'tech=DAHDI', 'tlabel' =>  __("Add DAHDi Trunk"));
+    }
     $trunks[] = array('url'=> $baseURL.'tech=IAX2', 'tlabel' =>  __("Add IAX2 Trunk"));
     //--------------------------------------------------------------------------------------
     // Added to enable the unsupported misdn module

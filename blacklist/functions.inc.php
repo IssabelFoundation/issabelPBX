@@ -17,7 +17,7 @@ function blacklist_get_config($engine) {
         $id = "app-blacklist";
         $c  = "s";
         $ext->addInclude('from-internal-additional', $id, _dgettext('blacklist','Blacklist')); // Add the include from from-internal
-        $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
+        $ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 
         $id = "app-blacklist-check";
         // LookupBlackList doesn't seem to match empty astdb entry for "blacklist/", so we

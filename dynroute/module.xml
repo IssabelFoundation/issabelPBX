@@ -2,7 +2,7 @@
     <rawname>dynroute</rawname>
     <repo>standard</repo>
     <name>Dynamic Routes</name>
-    <version>2.12.0.0</version>
+    <version>2.13.0.0</version>
     <publisher>voipsupport.it</publisher>
     <license>GPLv3+</license>
     <type>setup</type>
@@ -12,6 +12,7 @@
         Allows to route call based on lookup in sql database and/or user input and to store results in channel variables
     </description>
     <changelog>
+        *2.13.0.0* Issabel 6 release
         See CHANGES.txt file in module directory for full details.
         *2.12.0.0* Newer GUI, standarize module components
         *2.11.3.2* Bug fix
@@ -35,7 +36,7 @@
         <dynroute>Dynamic Routes</dynroute>
     </menuitems>
     <supported>
-        <version>2.12</version>
+        <version>2.13</version>
     </supported>
     <popovers>
         <dynroute>
@@ -43,6 +44,6 @@
             <action>add</action>
         </dynroute>
     </popovers>
-    <location>release/2.12/dynroute-2.12.0.0.tgz</location>
+    <location>release/2.13/dynroute-2.13.0.0.tgz</location>
         <md5sum>0</md5sum>
 </module>

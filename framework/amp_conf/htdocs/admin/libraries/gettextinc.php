@@ -88,18 +88,18 @@ function get_list_of_locales($locale) {
       if ($modifier) {
         if ($country) {
           if ($charset)
-            array_push($locale_names, "${lang}_$country.$charset@$modifier");
-          array_push($locale_names, "${lang}_$country@$modifier");
+            array_push($locale_names, "{$lang}_$country.$charset@$modifier");
+          array_push($locale_names, "{$lang}_$country@$modifier");
         } elseif ($charset)
-            array_push($locale_names, "${lang}.$charset@$modifier");
+            array_push($locale_names, "{$lang}.$charset@$modifier");
         array_push($locale_names, "$lang@$modifier");
       }
       if ($country) {
         if ($charset)
-          array_push($locale_names, "${lang}_$country.$charset");
-        array_push($locale_names, "${lang}_$country");
+          array_push($locale_names, "{$lang}_$country.$charset");
+        array_push($locale_names, "{$lang}_$country");
       } elseif ($charset)
-          array_push($locale_names, "${lang}.$charset");
+          array_push($locale_names, "{$lang}.$charset");
       array_push($locale_names, $lang);
     }
 
@@ -175,9 +175,12 @@ function _get_codeset($domain=null) {
  */
 function _encode($text) {
     $target_encoding = _get_codeset();
+    if (empty($target_encoding)) {
+        $target_encoding = 'UTF-8';
+    }
     if (function_exists("mb_detect_encoding")) {
         $source_encoding = mb_detect_encoding($text);
-        if ($source_encoding != $target_encoding) {
+        if ($source_encoding && $source_encoding != $target_encoding) {
             $text = mb_convert_encoding($text, $target_encoding, $source_encoding);
         }
     }

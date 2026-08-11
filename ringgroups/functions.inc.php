@@ -97,7 +97,7 @@ function ringgroups_get_config($engine) {
 					// TODO: this looks potentially problematic given the new per-user DIAL_OPTIONS. Need to further
 					//       evaluate/understand if there are implications. The issue may be that we are trying to
 					//       avoid getting a 'polluted' version of the DIAL_OPTIONS in which case we may need to modify
-					//       macro-user-callerid (where it is set) to preserve the version we should be using.
+					//       sub-user-callerid (where it is set) to preserve the version we should be using.
 					//
 					if($ringing == 'Ring' || empty($ringing) ) {
 						$dialopts = '${DIAL_OPTIONS}';
@@ -106,15 +106,15 @@ function ringgroups_get_config($engine) {
 					}
 						
 
-					$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-user-callerid'));
+					$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 
-					// block voicemail until phone is answered at which point a macro should be called on the answering
+					// block voicemail until phone is answered at which point a sub should be called on the answering
 					// line to clear this flag so that subsequent transfers can occur, if already set by a the caller
 					// then don't change.
 					//
-					$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-blkvm-setifempty'));
+					$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-blkvm-setifempty','${EXTEN}'));
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["${GOSUB_RETVAL}" = "TRUE"]', 'skipov'));
-					$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-blkvm-set','reset'));
+					$ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-blkvm-set','${EXTEN},reset'));
 					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', ''));
 
 					// Remember if NODEST was set later, but clear it in case the call is answered so that subsequent
@@ -162,8 +162,8 @@ function ringgroups_get_config($engine) {
 						$remotealert = recordings_get_file($remotealert_id);
 						$toolate = recordings_get_file($toolate_id);
 						$len=strlen($grpnum)+4;
-  					$ext->add("grps", "_RG-${grpnum}-.", '', new ext_nocdr(''));
-						$ext->add("grps", "_RG-${grpnum}-.", '', new ext_gosub('1','s','sub-dial', "$grptime,$dialopts" . "M(confirm^${remotealert}^${toolate}^${grpnum})" . ',${EXTEN:' . $len . '}'));
+  					$ext->add("grps", "_RG-{$grpnum}-.", '', new ext_nocdr(''));
+						$ext->add("grps", "_RG-{$grpnum}-.", '', new ext_gosub('1','s','sub-dial', "$grptime,$dialopts" . "U(sub-confirm^{$remotealert}^{$toolate}^{$grpnum})" . ',${EXTEN:' . $len . '}'));
 						$ext->add($contextname, $grpnum, 'DIALGRP', new ext_gosub('1','s','sub-dial-confirm',"$grptime,$dialopts,$grplist,$grpnum"));
 					} else {
 						$ext->add($contextname, $grpnum, 'DIALGRP', new ext_gosub('1','s','sub-dial',$grptime.",$dialopts,".$grplist));
@@ -248,7 +248,7 @@ function ringgroups_get_config($engine) {
 	}
 }
 
-function ringgroups_add($grpnum,$strategy,$grptime,$grplist,$postdest,$desc,$grppre='',$annmsg_id='0',$alertinfo,$needsconf,$remotealert_id,$toolate_id,$ringing,$cwignore,$cfignore,$changecid='default',$fixedcid='',$cpickup='', $recording='dontcare') {
+function ringgroups_add($grpnum,$strategy,$grptime,$grplist,$postdest,$desc,$grppre,$annmsg_id,$alertinfo,$needsconf,$remotealert_id,$toolate_id,$ringing,$cwignore,$cfignore,$changecid='default',$fixedcid='',$cpickup='', $recording='dontcare') {
 	global $db;
 	global $astman;
 

@@ -69,7 +69,7 @@ function infoservices_calltrace($c) {
 	$c = 's';
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
-	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid')); 
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}')); 
 	$ext->add($id, $c, '', new ext_playback('info-about-last-call&telephone-number'));
 	$ext->add($id, $c, '', new ext_setvar('lastcaller', '${DB(CALLTRACE/${AMPUSER})}'));
 	$ext->add($id, $c, '', new ext_gotoif('$[ $[ "${lastcaller}" = "" ] | $[ "${lastcaller}" = "unknown" ] ]', 'noinfo'));
@@ -99,7 +99,7 @@ function infoservices_echotest($c) {
 	$ext->addInclude('from-internal-additional', $id, _dgettext('infoservices','Echo Test')); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
-	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid')); 
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}')); 
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_playback('demo-echotest'));
 	$ext->add($id, $c, '', new ext_echo('')); 
@@ -159,7 +159,7 @@ function infoservices_speakingclock($c) {
 
 	$ext->addInclude('from-internal-additional', $id, _dgettext('infoservices','Speaking Clock')); // Add the include from from-internal
 
-	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid')); 
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}')); 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_setvar('NumLoops','0'));
@@ -223,7 +223,7 @@ function infoservices_speakextennum($c) {
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 	$ext->add($id, $c, '', new ext_playback('your'));
 	$ext->add($id, $c, '', new ext_playback('extension'));
 	$ext->add($id, $c, '', new ext_playback('number'));

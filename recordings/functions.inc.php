@@ -36,13 +36,13 @@ function recordings_get_config($engine) {
 				$ext->addInclude('from-internal-additional', 'app-recordings', _dgettext('recordings','Recordings')); // Add the include from from-internal
 				
 				if ($fc_save != '') {
-					$ext->add($appcontext, $fc_save, '', new ext_gosub('1','s','sub-user-callerid'));
+					$ext->add($appcontext, $fc_save, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 					$ext->add($appcontext, $fc_save, '', new ext_wait('2'));
 					$ext->add($appcontext, $fc_save, '', new ext_gosub('1','s','sub-systemrecording', 'dorecord'));
 				}
 
 				if ($fc_check != '') {
-					$ext->add($appcontext, $fc_check, '', new ext_gosub('1','s','sub-user-callerid'));
+					$ext->add($appcontext, $fc_check, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 					$ext->add($appcontext, $fc_check, '', new ext_wait('2'));
 					$ext->add($appcontext, $fc_check, '', new ext_gosub('1','s','sub-systemrecording', 'docheck'));
 				}
@@ -71,7 +71,7 @@ function recordings_get_config($engine) {
 					//
 					if (strpos($item['filename'], '&') === false && trim($item['filename']) != '') {
 						$fcode_pass = (trim($item['fcode_pass']) != '') ? ','.$item['fcode_pass'] : '';
-						$ext->add($appcontext, $fcode, '', new ext_gosub('1','s','sub-user-callerid'));
+						$ext->add($appcontext, $fcode, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
 						$ext->add($appcontext, $fcode, '', new ext_wait('2'));
 						$ext->add($appcontext, $fcode, '', new ext_gosub('1','s','sub-systemrecording', 'docheck,'.$item['filename'].$fcode_pass));
 					}
@@ -81,9 +81,9 @@ function recordings_get_config($engine) {
 			// moved from modules/core to modules/recordings
 			// since it really belongs here and not there
 			// also provides direct access to $recordings_save_path
-			// which removes a hard-coded value in the macro
+			// which removes a hard-coded value in the sub
 
-			$context = 'macro-systemrecording';
+			$context = 'sub-systemrecording';
 			
 			$ext->add($context, 's', '', new ext_setvar('RECFILE','${IF($["${ARG2}" = ""]?'.$recordings_save_path.'${AMPUSER}-ivrrecording:${ARG2})}'));
 			$ext->add($context, 's', '', new ext_execif('$["${ARG3}" != ""]','Authenticate','${ARG3}'));
@@ -111,18 +111,18 @@ function recordings_get_config($engine) {
 			
 			$ext->add($context, $exten, '', new ext_playback('beep'));
 			if ($ast_ge_14) {
-				$ext->add($context, $exten, 'dc_start', new ext_background('${RECFILE},m,${CHANNEL(language)},macro-systemrecording'));
+				$ext->add($context, $exten, 'dc_start', new ext_background('${RECFILE},m,${CHANNEL(language)},sub-systemrecording'));
 			} else {
-				$ext->add($context, $exten, 'dc_start', new ext_background('${RECFILE},m,${LANGUAGE},macro-systemrecording'));
+				$ext->add($context, $exten, 'dc_start', new ext_background('${RECFILE},m,${LANGUAGE},sub-systemrecording'));
 			}
 			$ext->add($context, $exten, '', new ext_wait(1));
 			$ext->add($context, $exten, '', new ext_goto(1, 'confmenu'));
 
 			$exten = 'confmenu';
 			if ($ast_ge_14) {
-				$ext->add($context, $exten, '', new ext_background('to-listen-to-it&press-1&to-rerecord-it&press-star&astcc-followed-by-pound,m,${CHANNEL(language)},macro-systemrecording'));
+				$ext->add($context, $exten, '', new ext_background('to-listen-to-it&press-1&to-rerecord-it&press-star&astcc-followed-by-pound,m,${CHANNEL(language)},sub-systemrecording'));
 			} else {
-				$ext->add($context, $exten, '', new ext_background('to-listen-to-it&press-1&to-rerecord-it&press-star&astcc-followed-by-pound,m,${LANGUAGE},macro-systemrecording'));
+				$ext->add($context, $exten, '', new ext_background('to-listen-to-it&press-1&to-rerecord-it&press-star&astcc-followed-by-pound,m,${LANGUAGE},sub-systemrecording'));
 			}
 			$ext->add($context, $exten, '', new ext_read('RECRESULT', '', 1, '', '', 4));
 			$ext->add($context, $exten, '', new ext_gotoif('$["x${RECRESULT}"="x*"]', 'dorecord,1'));

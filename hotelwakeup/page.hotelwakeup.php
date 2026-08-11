@@ -292,7 +292,7 @@ if($extdisplay!='config') {
             <a href="#" class="info"><?php echo __("Date/Time")?><span><?php echo __("The date")?></span></a>
         </td>
         <td>
-            <input class='input' type="datetime-local" name="datetime" value="<?php  echo "$current_year-$current_month-${current_day}T$current_hour:$current_min"; ?>" tabindex="<?php echo ++$tabindex;?>">
+            <input class='input' type="datetime-local" name="datetime" value="<?php  echo "$current_year-$current_month-{$current_day}T$current_hour:$current_min"; ?>" tabindex="<?php echo ++$tabindex;?>">
         </td>
     </tr>
 

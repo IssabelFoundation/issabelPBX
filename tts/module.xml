@@ -2,7 +2,7 @@
         <rawname>tts</rawname>
         <repo>standard</repo>
         <name>Text to Speech</name>
-        <version>2.12.0.1</version>
+        <version>2.13.0.0</version>
         <category>Applications</category>
         <embedcategory>Internal Options &amp; Configuration</embedcategory>
         <publisher>Issabel Foundation</publisher>
@@ -16,6 +16,7 @@
                 <ttsadmin category="Admin">Text to Speech Engines</ttsadmin>
         </menuitems>
         <changelog>
+                *2.13.0.0* Issabel 6 release
                 *2.12.0.1*  Added Piper and ElevenLabs engines
                 *2.12.0.0*  Initial Release
         </changelog>
@@ -23,8 +24,8 @@
                 <version>2.12.0</version>
         </depends>
         <supported>
-                <version>2.12</version>
+                <version>2.13</version>
         </supported>
-        <location>release/2.12/tts-2.12.0.0.tgz</location>
+        <location>release/2.13/tts-2.13.0.0.tgz</location>
             <md5sum>0</md5sum>
 </module>

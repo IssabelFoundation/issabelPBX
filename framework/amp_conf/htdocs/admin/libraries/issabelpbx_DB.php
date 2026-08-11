@@ -20,12 +20,12 @@ class issabelpbx_db extends DB {
 
         if (isset($options['debug']) && $options['debug'] >= 2) {
             // expose php errors with sufficient debug level
-            include_once "DB/${type}.php";
+            include_once "DB/{$type}.php";
         } else {
-            @include_once "DB/${type}.php";
+            @include_once "DB/{$type}.php";
         }
 
-        $classname = "DB_${type}";
+        $classname = "DB_{$type}";
         if (!class_exists($classname)) {
             $tmp = PEAR::raiseError(null, DB_ERROR_NOT_FOUND, null, null,
                                     "Unable to include the DB/{$type}.php"

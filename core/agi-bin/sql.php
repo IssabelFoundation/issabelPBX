@@ -417,7 +417,7 @@ class AGIDB {
 			}
 
 			// Rename table
-			$this->rename_table($tablename, "${tablename}_temp");
+			$this->rename_table($tablename, "{$tablename}_temp");
 
 			// Create new table without $colname
 			if (!$this->sql($sqlStripped, "NONE", true)) {
@@ -432,13 +432,13 @@ class AGIDB {
 			$strAllCols = implode(",", $arrNewTableInfo[1]);
 
 			// Copy everything from the old table to the new
-			$sql = "INSERT INTO `$tablename` SELECT $strAllCols FROM ${tablename}_temp";
+			$sql = "INSERT INTO `$tablename` SELECT $strAllCols FROM {$tablename}_temp";
 			if (!$this->sql($sql, "NONE", true)) {
 				$this->debug("SQL Command Failed: $sqlStripped\n".$this->errstr."\n");
 			}
 
 			// Delete the old table
-			$sql = "DROP TABLE ${tablename}_temp";
+			$sql = "DROP TABLE {$tablename}_temp";
 			if (!$this->sql($sql, "NONE", true)) {
 				$this->debug("SQL Command Failed: $sql\n".$this->errstr."\n");
 			}
@@ -508,14 +508,14 @@ class AGIDB {
 			// Right. So we've got the new table definition in $sqlNewCreate, now all we need
 			// to do is move the old table out of the way, create the new table, and copy 
 			// everything across.
-			$this->rename_table($tablename, "${tablename}_temp");
+			$this->rename_table($tablename, "{$tablename}_temp");
 			$this->sql($sqlNewCreate, "NONE", true);
 
 			// Create the list of cols to use on the import.
 			$strAllCols = implode(",", $arrNewTableInfo[1]);
 
 			// Copy everything from the old table to the new
-			$sql = "INSERT INTO `$tablename` SELECT $strAllCols FROM ${tablename}_temp";
+			$sql = "INSERT INTO `$tablename` SELECT $strAllCols FROM {$tablename}_temp";
 			if (!$this->sql($sql, "NONE", true)) {
 				$this->debug("SQL Command Failed: $sql\n".$this->errstr."\n");
 			}

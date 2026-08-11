@@ -79,7 +79,7 @@ function paging_get_config($engine) {
             if (!empty($intercom_code)) {
                 $code = '_'.$intercom_code.'.';
                 $context = 'ext-intercom';
-                $ext->add($context, $code, '', new ext_gosub('1','s','sub-user-callerid',''));
+                $ext->add($context, $code, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
                 $ext->add($context, $code, '', new ext_setvar('dialnumber', '${EXTEN:'.strlen($intercom_code).'}'));
                 $ext->add($context, $code, '', new ext_setvar('INTERCOM_CALL', 'TRUE'));
                 $ext->add($context, $code, '', new ext_gosub('1','s','sub-record-check','exten,${dialnumber}'));
@@ -212,7 +212,7 @@ function paging_get_config($engine) {
             if ($oncode) {
                 $ext->add($context, $oncode, '', new ext_answer(''));
                 $ext->add($context, $oncode, '', new ext_wait('1'));
-                $ext->add($context, $oncode, '', new ext_gosub('1','s','sub-user-callerid'));
+                $ext->add($context, $oncode, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
                 $ext->add($context, $oncode, '', new ext_setvar('DB(AMPUSER/${AMPUSER}/intercom)', 'enabled'));
                 $ext->add($context, $oncode, '', new ext_playback('intercom&enabled'));
                 $ext->add($context, $oncode, '', new ext_gosub('1','s','sub-hangupcall'));
@@ -221,7 +221,7 @@ function paging_get_config($engine) {
                 $oncode = "_".$oncode.".";
                 $ext->add($context, $oncode, '', new ext_answer(''));
                 $ext->add($context, $oncode, '', new ext_wait('1'));
-                $ext->add($context, $oncode, '', new ext_gosub('1','s','sub-user-callerid'));
+                $ext->add($context, $oncode, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
                 $ext->add($context, $oncode, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/intercom/'.$target.')}" = "allow" ]}','unset'));
                 $ext->add($context, $oncode, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN:3}/device)} != 1]','invaliduser'));
                 $ext->add($context, $oncode, '', new ext_dbput('AMPUSER/${AMPUSER}/intercom/'.$target, 'allow'));
@@ -245,7 +245,7 @@ function paging_get_config($engine) {
             if ($offcode) {
                 $ext->add($context, $offcode, '', new ext_answer(''));
                 $ext->add($context, $offcode, '', new ext_wait('1'));
-                $ext->add($context, $offcode, '', new ext_gosub('1','s','sub-user-callerid'));
+                $ext->add($context, $offcode, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
                 $ext->add($context, $offcode, '', new ext_setvar('DB(AMPUSER/${AMPUSER}/intercom)', 'disabled'));
                 $ext->add($context, $offcode, '', new ext_playback('intercom&disabled'));
                 $ext->add($context, $offcode, '', new ext_gosub('1','s','sub-hangupcall'));
@@ -254,7 +254,7 @@ function paging_get_config($engine) {
                 $offcode = "_".$offcode.".";
                 $ext->add($context, $offcode, '', new ext_answer(''));
                 $ext->add($context, $offcode, '', new ext_wait('1'));
-                $ext->add($context, $offcode, '', new ext_gosub('1','s','sub-user-callerid'));
+                $ext->add($context, $offcode, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
                 $ext->add($context, $offcode, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/intercom/'.$target.')}" = "deny" ]}','unset2'));
                 $ext->add($context, $offcode, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN:3}/device)} != 1]','invaliduser2'));
                 $ext->add($context, $offcode, '', new ext_dbput('AMPUSER/${AMPUSER}/intercom/'.$target, 'deny'));
@@ -275,7 +275,7 @@ function paging_get_config($engine) {
                required parameters to handle paging. Eventually it will use
                  known device information.
 
-                This macro does the following:
+                This sub does the following:
 
                 Input:  IssabelPBX Device number to be called requiring autoanswer
                 Output: ${DIAL} Channel Variable with the dial string to be called
@@ -283,26 +283,26 @@ function paging_get_config($engine) {
                                 Other special requirements that may be custom for this device
 
                 1. Set ${DIAL} to the device's dial string
-                2. If there is a device specific macro defined in the DEVICE's object
-                   (DEVICE/<devicenum>/autoanswer/macro) then execute that macro and end
+                2. If there is a device specific sub defined in the DEVICE's object
+                   (DEVICE/<devicenum>/autoanswer/macro) then execute that sub and end
                 3. Try to identify endpoints by their useragents that may need known
                    changes and make those changes. These are generated from the
                      paging_autoanswer table so users can extend them, if any are present
                 5. Set the variables and end unless a useragent specific ANSWERFUNC is
                    defined in which case call it and end.
 
-                This macro is called for intercoming and paging to try and enable the
+                This sub is called for intercoming and paging to try and enable the
                 target device to auto-answer. Devices with special needs can be handled
-                with the device specific macro. For example, if you have a device that
+                with the device specific sub. For example, if you have a device that
                 can not auto-answer except by specifically configuring a line key on
-                the device that always answers, you could use a device specific macro
+                the device that always answers, you could use a device specific sub
                 to change the dialstring. If you had a set of such devices, you could
                 standardize on the device numbers (e.g. nnnn for normal calls and 2nnnn
-                for auto-answer calls). You could then create a general purpose macro
+                for auto-answer calls). You could then create a general purpose sub
                 to modify the dial string accordingly. Provisioning tools will be able
                 to take advantage of setting and creating such an ability.
                 If you have a set of devices that can be identified with a SIP useragent
-                then you can use a general macro without setting info in each device.
+                then you can use a general sub without setting info in each device.
              */
 
             $autoanswer_arr = paging_get_autoanswer_useragents();
@@ -322,7 +322,7 @@ function paging_get_config($engine) {
                 $ext->add($sub, "s", '', new ext_setvar('phone', '${SIPPEER(${CUT(DIAL,/,2)}:useragent)}'));
             }
             // We used to set all the variables here (ALERTINFO, CALLINFO, etc. That has been moved to each
-            // paging group and the intercom main macro, since it was redundant for every phone causing a lot
+            // paging group and the intercom main sub, since it was redundant for every phone causing a lot
             // of overhead with large page groups.
             //
 
@@ -365,7 +365,7 @@ function paging_get_config($engine) {
             }
 
 
-            // Macro to apply SIP Headers to channel.
+            // Sub to apply SIP Headers to channel.
             //   function ext_gosubif($condition, $true_priority, $false_priority = false, $true_args = '', $false_args = '') {
             //
             $ext->add("autoanswer", "s", '', new ext_gosubif('$["${ARG1}" != ""]', 'func-set-sipheader,s,1', false, 'Alert-Info,${ARG1}'));
@@ -489,7 +489,7 @@ function paging_get_config($engine) {
                     
                 //app-page dialplan
                     
-                $ext->add($apppagegroups, $grp, '', new ext_gosub('1','s','sub-user-callerid'));
+                $ext->add($apppagegroups, $grp, '', new ext_gosub('1','s','sub-user-callerid','${EXTEN}'));
                 $ext->add($apppagegroups, $grp, '', new ext_set('_PAGEGROUP', $grp));
                     
                 //if page group it in use, goto to busy

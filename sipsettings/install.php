@@ -76,8 +76,8 @@ if(DB::IsError($check)) {
 	// table does not exist, create it
 	sql($sql);
 
-	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('bindport','5066',1)");
-	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('tlsbindport','5067',1)");
+	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('bindport','5060',1)");
+	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('tlsbindport','5061',1)");
 	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('certtfile','/etc/asterisk/keys/asterisk.pem',1)");
 	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('ALLOW_SIP_ANON','no',1)");
 
@@ -87,13 +87,13 @@ out(__("Check for pjsipsettings values.."));
 $sql = "SELECT data FROM pjsipsettings WHERE keyword = 'bindport'";
 $PJbindport = sql($sql,'getOne');
 if (!$PJbindport) {
-	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('bindport','5066',1)");
+	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('bindport','5060',1)");
 	out(__("Add bindport.."));
 }
 $sql = "SELECT data FROM pjsipsettings WHERE keyword = 'tlsbindport'";
 $PJtlsbindport = sql($sql,'getOne');
 if (!$PJtlsbindport) {
-	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('tlsbindport','5067',1)");
+	sql("INSERT INTO pjsipsettings (keyword,data,seq) values ('tlsbindport','5061',1)");
 	out(__("Add tlsbindport.."));
 }
 $sql = "SELECT data FROM pjsipsettings WHERE keyword = 'certtfile'";
