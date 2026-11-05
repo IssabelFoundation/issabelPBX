@@ -17,7 +17,7 @@ Tech
 
 IssabelPBX uses a number of open source projects to work properly:
 
-* [Asterisk] - Asterisk is a software implementation of a telephone private branch exchange (PBX) (Supported Versions 1.8 through 12). License GPL
+* [Asterisk] - Asterisk is a software implementation of a telephone private branch exchange (PBX) (Supported Versions 1.8(?) through 18). License GPL
 * [Pear DB] - A database abstraction layer. License PHP License
 * [Pear Console::Getopt] - This is a PHP implementation of "getopt" supporting both short and long options. License PHP License
 * [jQuery] - A multi-browser JavaScript library designed to simplify the client-side scripting of HTML. License MIT

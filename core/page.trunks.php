@@ -1680,8 +1680,8 @@ END;
 <select name="pjsip_stir_shaken" tabindex="<?php echo ++$tabindex;?>" class='componentSelect'/> 
 <?php
      $select = array();
-     $select['yes'] = __('Yes');
-     $select['no']  = __('No');
+     $select['on'] = __('Yes');
+     $select['off']  = __('No');
 
      foreach($select as $key=>$val) {
          echo "<option value='$key'"; 
