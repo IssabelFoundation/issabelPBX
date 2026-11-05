@@ -591,7 +591,6 @@ class core_conf {
             $output0[]="type=endpoint";
             $output0[]="context=from-sip-external";
             $output0[]="allow=all";
-            $output0[]="transport=udp,tcp,ws,wss";
             $output0[]="";
         }
 
