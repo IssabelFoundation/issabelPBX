@@ -845,6 +845,7 @@ class core_conf {
         $reg      = array();
         $endp     = array();
         $match    = array();
+        $server_port = array();
         $authentication = array();
         $registration = array();
         $server = array();
@@ -897,6 +898,8 @@ class core_conf {
                $auth[$channelid]['secret']=$data;
            } else if ($keyword == "server") {
                $server[$channelid]=$data;
+           } else if ($keyword == "port") {
+               $server_port[$channelid] = trim($data);
            } else if ($keyword == "qualify_frequency") {
                $aor[$channelid]['qualify_frequency']=$data;
            } else if ($keyword == "support_path") {
@@ -907,6 +910,10 @@ class core_conf {
                }
            } else if ($keyword == "match") {
                $match[$channelid]=$data;
+           } else if ($keyword == "identify_by") {
+               if (trim($data) !== '') {
+                   $endp[$channelid]['identify_by'] = trim($data);
+               }
            } else if ($keyword == "retry_interval") {
                $reg[$channelid]['retry_interval']=$data;
            } else if ($keyword == "max_retries") {
@@ -958,6 +965,28 @@ class core_conf {
            }
         }
 
+        // Use the port in destination URIs and preserve host-only identify matches.
+        $server_destination = $server;
+        foreach ($server as $id => $host) {
+            if (!isset($server_port[$id]) || $server_port[$id] === '') {
+                continue;
+            }
+            $port = filter_var($server_port[$id], FILTER_VALIDATE_INT,
+                array('options' => array('min_range' => 1, 'max_range' => 65535)));
+            if ($port === false) {
+                continue;
+            }
+            // Preserve legacy destinations that already include their port.
+            if (preg_match('/^\[[^\]]+\]:[0-9]+$/', $host) ||
+                (substr_count($host, ':') === 1 && preg_match('/:[0-9]+$/', $host))) {
+                continue;
+            }
+            if (substr_count($host, ':') > 1 && substr($host, 0, 1) !== '[') {
+                $host = '['.$host.']';
+            }
+            $server_destination[$id] = $host.':'.$port;
+        }
+
         $output_aor = array();
         foreach($aor as $id=>$data) {
             $output_aor[]="[$id]";
@@ -967,7 +996,7 @@ class core_conf {
                     if($registration[$id]=='receive') {
                         $val=''; // we do not want contact in aor  
                     } else {
-                        $val = preg_replace("/#SERVER#/",$server[$id],$val);
+                        $val = str_replace("#SERVER#", $server_destination[$id], $val);
                         if($authentication[$id]=='outbound') {
                             $val = preg_replace("/#USER#/",$auth[$id]['username'],$val);
                         } else {
@@ -1012,6 +1041,14 @@ class core_conf {
  
         $output_identify = array();
         foreach($server as $id=>$value) {
+            // An explicit identification method controls whether an IP identify is needed.
+            // Preserve the existing IP matching behavior when identify_by is unset.
+            if (isset($endp[$id]['identify_by'])) {
+                $methods = array_map('trim', explode(',', $endp[$id]['identify_by']));
+                if (!in_array('ip', $methods, true)) {
+                    continue;
+                }
+            }
             $output_identify[]="[$id]";
             $output_identify[]="type=identify";
             $output_identify[]="endpoint=$id";
@@ -1034,11 +1071,11 @@ class core_conf {
                 $output_registration[]="endpoint=$id";
                 $output_registration[]="line=yes";
                 $output_registration[]="outbound_auth=$id";
-                $output_registration[]="server_uri=sip:".$server[$id];
+                $output_registration[]="server_uri=sip:".$server_destination[$id];
                 if($authentication[$id]=='outbound') {
-                    $output_registration[]="client_uri=sip:".$auth[$id]['username']."@".$server[$id];
+                    $output_registration[]="client_uri=sip:".$auth[$id]['username']."@".$server_destination[$id];
                 } else {
-                    $output_registration[]="client_uri=sip:".$id."@".$server[$id];
+                    $output_registration[]="client_uri=sip:".$id."@".$server_destination[$id];
                 }
                 foreach($reg[$id] as $key=>$val) {
                     if(trim($val)<>'') {

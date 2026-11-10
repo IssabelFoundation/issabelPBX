@@ -68,6 +68,8 @@ $continue     = isset($_REQUEST['continue'])?$_REQUEST['continue']:'off';
 $provider     = isset($_REQUEST['provider'])?$_REQUEST['provider']:'';
 $trunk_name   = isset($_REQUEST['trunk_name'])?$_REQUEST['trunk_name']:'';
 
+$pjsip_identify_by              = isset($_REQUEST['pjsip_identify_by'])?$_REQUEST['pjsip_identify_by']:'';
+$pjsip_port                     = isset($_REQUEST['pjsip_port'])?$_REQUEST['pjsip_port']:'';
 $pjsip_context                  = isset($_REQUEST['pjsip_context'])?$_REQUEST['pjsip_context']:'from-pstn';
 $pjsip_inband_progress          = isset($_REQUEST['pjsip_inband_progress'])?$_REQUEST['pjsip_inband_progress']:'no';
 $pjsip_auth_rejection_permanent = isset($_REQUEST['pjsip_auth_rejection_permanent'])?$_REQUEST['pjsip_auth_rejection_permanent']:'no';
@@ -1172,6 +1174,33 @@ END;
 </td> 
 </tr>
 
+
+<tr>
+<td>
+ <a href="#" class="info"><?php echo __("Identify By")?><span><?php echo __("Default preserves IP matching. Authentication username requires auth_username in the global endpoint identifier order.")?></span></a>
+</td>
+<td>
+<select name="pjsip_identify_by" id="pjsip_identify_by" tabindex="<?php echo ++$tabindex;?>" class="componentSelect">
+<?php
+    $identify_methods = array(
+        '' => __('Default (IP matching)'),
+        'ip' => __('IP address'),
+        'auth_username' => __('Authentication username'),
+        'auth_username,ip' => __('Authentication username and IP'),
+        'username' => __('From username')
+    );
+    if (!array_key_exists($pjsip_identify_by, $identify_methods)) {
+        $identify_methods[$pjsip_identify_by] = $pjsip_identify_by;
+    }
+    foreach ($identify_methods as $value => $label) {
+        echo '<option value="'.htmlspecialchars($value, ENT_QUOTES).'"';
+        if ($value === $pjsip_identify_by) echo ' selected="selected"';
+        echo '>'.htmlspecialchars($label).'</option>';
+    }
+?>
+</select>
+</td>
+</tr>
 
 <tr> 
 <td> 
