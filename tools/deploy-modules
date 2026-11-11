@@ -1,0 +1,46 @@
+#!/usr/bin/env php
+<?php
+if (PHP_SAPI !== 'cli') { http_response_code(403); exit; }
+require __DIR__.'/module-deploy/Deploy.php';
+
+try {
+    if (PHP_VERSION_ID < 70400 || !function_exists('posix_geteuid')) {
+        throw new RuntimeException('Requires PHP CLI 7.4+ with POSIX support.');
+    }
+    $command = $argv[1] ?? 'help';
+    if ($command === 'help' || $command === '--help') {
+        echo "Usage:\n  deploy-modules plan --repo DIR --to COMMIT --modules core,sipsettings [--from COMMIT]\n  deploy-modules apply --plan FILE\n  deploy-modules history\n  deploy-modules rollback --deployment ID\nOptions: --state-dir DIR (default /var/lib/issabelpbx-deploy), --bootstrap FILE\n";
+        exit(0);
+    }
+    if (posix_geteuid() !== 0) { throw new RuntimeException('Run as root on the PBX (including plan/history).'); }
+    $options = array();
+    for ($i = 2; $i < $argc; $i += 2) {
+        if (substr($argv[$i], 0, 2) !== '--' || !isset($argv[$i+1]) || isset($options[substr($argv[$i], 2)])) {
+            throw new RuntimeException('Options must be unique --name value pairs.');
+        }
+        $options[substr($argv[$i], 2)] = $argv[$i+1];
+    }
+    $allowed = array('state-dir', 'bootstrap');
+    $commands = array('plan'=>array('repo','from','to','modules'), 'apply'=>array('plan'), 'rollback'=>array('deployment'), 'history'=>array());
+    if (!isset($commands[$command]) || array_diff(array_keys($options), array_merge($allowed, $commands[$command]))) {
+        throw new RuntimeException('Unknown command or option. Use --help.');
+    }
+    $bootstrap = $options['bootstrap'] ?? '/etc/issabelpbx.conf';
+    $state = $options['state-dir'] ?? '/var/lib/issabelpbx-deploy';
+    $bridge = new IssabelDeploy\NativeBridge($bootstrap);
+    $deployer = new IssabelDeploy\Deployer($bridge, $state);
+    if ($command === 'plan') {
+        foreach (array('repo','to','modules') as $required) {
+            if (empty($options[$required])) { throw new RuntimeException('Missing --'.$required); }
+        }
+        $result = $deployer->plan($options['repo'], $options['from'] ?? null, $options['to'], explode(',', $options['modules']));
+    } elseif ($command === 'apply') {
+        $result = $deployer->apply($options['plan'] ?? '');
+    } elseif ($command === 'rollback') {
+        $result = $deployer->rollback($options['deployment'] ?? '');
+    } else { $result = $deployer->history(); }
+    echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n";
+} catch (Throwable $error) {
+    fwrite(STDERR, 'Deployment stopped: '.$error->getMessage()."\n");
+    exit(1);
+}
