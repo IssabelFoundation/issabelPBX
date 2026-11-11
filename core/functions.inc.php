@@ -1,6 +1,7 @@
 <?php
 // vim: :set filetype=php tabstop=4 shiftwidth=4 autoindent smartindent:
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
+require_once dirname(__FILE__).'/pjsip.functions.php';
 //    License for all code of this IssabelPBX module can be found in the license file inside the module directory
 //    Copyright 2006-2014 Schmooze Com Inc.
 //    Copyright 2018 Issabel Foundation
@@ -64,6 +65,7 @@ class core_conf {
         $files = array(
             'pjsip_additional.conf',
             'pjsip_transport_additional.conf',
+            'pjsip_global_additional.conf',
             'sip_additional.conf',
             'sip_registrations.conf',
             'iax_additional.conf',
@@ -91,6 +93,8 @@ class core_conf {
         global $amp_conf;
 
         switch ($file) {
+            case 'pjsip_global_additional.conf':
+                return core_pjsip_global_config((string) sql("SELECT data FROM pjsipsettings WHERE keyword='endpoint_identifier_order' AND type=0", 'getOne'));
             case 'sip_general_additional.conf':
                 return $this->generate_sip_general_additional($version);
                 break;
@@ -911,7 +915,12 @@ class core_conf {
            } else if ($keyword == "match") {
                $match[$channelid]=$data;
            } else if ($keyword == "identify_by") {
-               if (trim($data) !== '') {
+               $methods = core_pjsip_identify_methods($data);
+               if ($methods !== false && count($methods)) {
+                   $endp[$channelid]['identify_by'] = implode(',', $methods);
+               } elseif ($methods === false) {
+                   // Do not silently relax an unknown stored method to IP matching.
+                   // New saves are validated by the trunk form.
                    $endp[$channelid]['identify_by'] = trim($data);
                }
            } else if ($keyword == "retry_interval") {
@@ -968,23 +977,7 @@ class core_conf {
         // Use the port in destination URIs and preserve host-only identify matches.
         $server_destination = $server;
         foreach ($server as $id => $host) {
-            if (!isset($server_port[$id]) || $server_port[$id] === '') {
-                continue;
-            }
-            $port = filter_var($server_port[$id], FILTER_VALIDATE_INT,
-                array('options' => array('min_range' => 1, 'max_range' => 65535)));
-            if ($port === false) {
-                continue;
-            }
-            // Preserve legacy destinations that already include their port.
-            if (preg_match('/^\[[^\]]+\]:[0-9]+$/', $host) ||
-                (substr_count($host, ':') === 1 && preg_match('/:[0-9]+$/', $host))) {
-                continue;
-            }
-            if (substr_count($host, ':') > 1 && substr($host, 0, 1) !== '[') {
-                $host = '['.$host.']';
-            }
-            $server_destination[$id] = $host.':'.$port;
+            $server_destination[$id] = core_pjsip_destination($host, isset($server_port[$id]) ? $server_port[$id] : '');
         }
 
         $output_aor = array();
@@ -993,7 +986,7 @@ class core_conf {
             $output_aor[]="type=aor";
             foreach($data as $key=>$val) {
                 if($key=='contact') {
-                    if($registration[$id]=='receive') {
+                    if($registration[$id]=='receive' || empty($server_destination[$id])) {
                         $val=''; // we do not want contact in aor  
                     } else {
                         $val = str_replace("#SERVER#", $server_destination[$id], $val);
@@ -1040,7 +1033,8 @@ class core_conf {
         }
  
         $output_identify = array();
-        foreach($server as $id=>$value) {
+        foreach (array_unique(array_merge(array_keys($server), array_keys($match))) as $id) {
+            $value = isset($server[$id]) ? $server[$id] : '';
             // An explicit identification method controls whether an IP identify is needed.
             // Preserve the existing IP matching behavior when identify_by is unset.
             if (isset($endp[$id]['identify_by'])) {
@@ -1049,23 +1043,26 @@ class core_conf {
                     continue;
                 }
             }
-            $output_identify[]="[$id]";
-            $output_identify[]="type=identify";
-            $output_identify[]="endpoint=$id";
-
             $thismatch = $value;
             if(isset($match[$id])) {
                 if(trim($match[$id])<>"") {
                     $thismatch = $match[$id];
                 }
             }
+            if (trim($thismatch) === '') {
+                // Receive-registration trunks need no static IP identify object.
+                continue;
+            }
+            $output_identify[]="[$id]";
+            $output_identify[]="type=identify";
+            $output_identify[]="endpoint=$id";
             $output_identify[]="match=".$thismatch;
             $output_identify[]="";
         }
  
         $output_registration = array();
         foreach($registration as $id=>$value) {
-            if($value=='send') {
+            if($value=='send' && !empty($server_destination[$id])) {
                 $output_registration[]="[$id]";
                 $output_registration[]="type=registration";
                 $output_registration[]="endpoint=$id";

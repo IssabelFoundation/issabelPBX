@@ -5,6 +5,15 @@
 // Copyright 2020 Nicolas Gudino (nicolas@issabel.com)
 
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
+require_once dirname(__FILE__).'/pjsip.functions.php';
+
+$pjsip_validation_errors = array();
+foreach ($_REQUEST as $key => $value) {
+    if (strpos($key, 'pjsip_') === 0 && (!is_string($value) || preg_match('/[\r\n\x00]/', $value))) {
+        $pjsip_validation_errors[] = __('PJSIP fields must contain a single text value.');
+        $_REQUEST[$key] = ''; // Keep invalid input away from rendering and serialization.
+    }
+}
 
 $display='trunks'; 
 $warning_article='';
@@ -70,6 +79,12 @@ $trunk_name   = isset($_REQUEST['trunk_name'])?$_REQUEST['trunk_name']:'';
 
 $pjsip_identify_by              = isset($_REQUEST['pjsip_identify_by'])?$_REQUEST['pjsip_identify_by']:'';
 $pjsip_port                     = isset($_REQUEST['pjsip_port'])?$_REQUEST['pjsip_port']:'';
+$pjsip_server                   = isset($_REQUEST['pjsip_server'])?$_REQUEST['pjsip_server']:'';
+$pjsip_methods = core_pjsip_identify_methods($pjsip_identify_by);
+if ($pjsip_methods !== false) {
+    $pjsip_identify_by = implode(',', $pjsip_methods);
+    if (isset($_REQUEST['pjsip_identify_by'])) { $_REQUEST['pjsip_identify_by'] = $pjsip_identify_by; }
+}
 $pjsip_context                  = isset($_REQUEST['pjsip_context'])?$_REQUEST['pjsip_context']:'from-pstn';
 $pjsip_inband_progress          = isset($_REQUEST['pjsip_inband_progress'])?$_REQUEST['pjsip_inband_progress']:'no';
 $pjsip_auth_rejection_permanent = isset($_REQUEST['pjsip_auth_rejection_permanent'])?$_REQUEST['pjsip_auth_rejection_permanent']:'no';
@@ -120,8 +135,9 @@ $dialopts     = isset($_REQUEST['dialopts'])?$_REQUEST['dialopts']:false;
 
 $pjsipconfig='';
 foreach($_REQUEST as $key=>$val) {
-    if(substr($key,0,5)=='pjsip') {
+    if(strpos($key, 'pjsip_') === 0) {
         $newkey = substr($key,6);
+        if ($newkey === 'identify_by' && $val === '') { continue; }
         $pjsipconfig .="$newkey=$val\n";
     }
 }
@@ -221,6 +237,17 @@ if (!empty($csv_file)) {
 // TODO: remember old name, if new one is different the don't rename
 //
 //if submitting form, update database
+if ($tech === 'pjsip' && in_array($action, array('addtrunk', 'edittrunk', 'copytrunk'), true)) {
+    $fields = array();
+    foreach ($_REQUEST as $key => $value) {
+        if (strpos($key, 'pjsip_') === 0) { $fields[substr($key, 6)] = $value; }
+    }
+    $needs_auth_identifier = $pjsip_methods !== false && in_array('auth_username', $pjsip_methods, true);
+    $pjsip_validation_errors = array_merge($pjsip_validation_errors,
+        core_pjsip_trunk_errors($fields, core_pjsip_identifier_order(),
+            !$needs_auth_identifier || core_pjsip_auth_identifier_available()));
+    if (count($pjsip_validation_errors)) { $action = ''; }
+}
 switch ($action) {
 case "copytrunk":
 
@@ -450,6 +477,12 @@ drawListMenu($alltrunks, $type, $display, $extdisplay);
 ?>
 
 <div class="content">
+<?php if (count($pjsip_validation_errors)) { ?>
+<article class="message is-danger"><div class="message-body">
+<?php foreach (array_unique($pjsip_validation_errors) as $error) { echo '<p>'.htmlspecialchars($error, ENT_QUOTES).'</p>'; } ?>
+<a href="config.php?display=pjsipsettings"><?php echo __('PJSIP Settings'); ?></a>
+</div></article>
+<?php } ?>
 <?php 
 if (!$tech && !$extdisplay) {
 ?>
@@ -1177,16 +1210,16 @@ END;
 
 <tr>
 <td>
- <a href="#" class="info"><?php echo __("Identify By")?><span><?php echo __("Default preserves IP matching. Authentication username requires auth_username in the global endpoint identifier order.")?></span></a>
+ <a href="#" class="info"><?php echo __("Identify By")?><span><?php echo __("Default preserves existing identification. Authentication username requires auth_username in the global Endpoint Identifier Order, Inbound or Both authentication and a secret. The remote authentication username must be the trunk name. Multiple methods are alternatives; their priority is global.")?></span></a>
 </td>
 <td>
 <select name="pjsip_identify_by" id="pjsip_identify_by" tabindex="<?php echo ++$tabindex;?>" class="componentSelect">
 <?php
     $identify_methods = array(
-        '' => __('Default (IP matching)'),
+        '' => __('Default (existing behavior)'),
         'ip' => __('IP address'),
         'auth_username' => __('Authentication username'),
-        'auth_username,ip' => __('Authentication username and IP'),
+        'auth_username,ip' => __('Authentication username or IP'),
         'username' => __('From username')
     );
     if (!array_key_exists($pjsip_identify_by, $identify_methods)) {

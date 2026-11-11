@@ -1,6 +1,7 @@
 <?php
 /* $Id:$ */
 if (!defined('ISSABELPBX_IS_AUTH')) { die('No direct script access allowed'); }
+require_once dirname(__FILE__).'/../core/pjsip.functions.php';
 //    License for all code of this IssabelPBX module can be found in the license file inside the module directory
 //    Copyright 2018 Issabel Foundation.
 //    Copyright 2013 Schmooze Com Inc.
@@ -322,6 +323,7 @@ function pjsipsettings_get($raw=false) {
     $pjsip_settings['sip_language']      = '';
 
     $pjsip_settings['allowguest']        = 'no';
+    $pjsip_settings['endpoint_identifier_order'] = '';
 
     foreach ($raw_settings as $var) {
         switch ($var['type']) {
@@ -695,8 +697,34 @@ function pjsipsettings_edit($pjsip_settings) {
     global $db;
     global $amp_conf;
     $save_settings = array();
+    $video_codecs = array();
     $save_to_admin = array(); // Used only by ALLOW_SIP_ANON for now
     $vd = new  sipsettings_validate();
+
+    $order = isset($pjsip_settings['endpoint_identifier_order']) ? $pjsip_settings['endpoint_identifier_order'] : '';
+    if (!core_pjsip_order_valid($order)) {
+        return array(array('id' => 'endpoint_identifier_order', 'value' => '',
+            'message' => __('Endpoint Identifier Order must be empty or a comma-separated list of ip, username, auth_username, anonymous, header, request_uri.')));
+    }
+    $order = implode(',', array_map('trim', explode(',', trim($order))));
+    $pjsip_settings['endpoint_identifier_order'] = $order;
+    $previous_order = core_pjsip_identifier_order();
+    $effective_order = core_pjsip_identifier_order($order);
+    $removed_methods = array_diff($previous_order, $effective_order);
+    // Protect both explicit methods and the historical IP matching of trunks
+    // without identify_by. Do not block unrelated edits on pre-existing issues.
+    $sip_id = preg_match('/qlite/', $amp_conf['AMPDBENGINE']) ? "'pjsip-' || trunks.trunkid" : "CONCAT('pjsip-',trunks.trunkid)";
+    $rows = sql("SELECT trunks.channelid, sip.data FROM trunks LEFT JOIN sip ON sip.id=$sip_id AND sip.keyword='identify_by' WHERE trunks.tech='pjsip'", 'getAll', DB_FETCHMODE_ASSOC);
+    foreach ($rows as $row) {
+        $methods = core_pjsip_identify_methods($row['data'] === null ? '' : $row['data']);
+        if ($methods === array()) { $methods = array('ip'); }
+        if ($methods !== false && array_intersect($methods, $removed_methods)) {
+            $vd->log_error('', 'endpoint_identifier_order', sprintf(__('Endpoint Identifier Order would disable an identification method used by trunk %s.'), htmlspecialchars($row['channelid'], ENT_QUOTES)));
+        }
+    }
+    if (in_array('auth_username', array_diff($effective_order, $previous_order), true) && !core_pjsip_auth_identifier_available()) {
+        $vd->log_error('', 'endpoint_identifier_order', __('Cannot verify auth_username in Asterisk. Check the Asterisk connection and res_pjsip_endpoint_identifier_user module.'));
+    }
 
     $codecs = $pjsip_settings['codecs'];
 

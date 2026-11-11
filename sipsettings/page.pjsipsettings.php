@@ -7,6 +7,7 @@ $width          = (100.0 / $cols_per_row);
 $tabindex       = 0;
 $dispnum        = "sipsettings";
 $error_displays = array();
+$pjsip_settings['endpoint_identifier_order'] = isset($_POST['endpoint_identifier_order']) ? $_POST['endpoint_identifier_order'] : '';
 $action                              = isset($_POST['action'])?$_POST['action']:'';
 $pjsip_settings['nat']               = isset($_POST['nat']) ? $_POST['nat'] : 'yes';
 $pjsip_settings['nat_mode']          = isset($_POST['nat_mode']) ? $_POST['nat_mode'] : 'externip';
@@ -158,6 +159,10 @@ $error_displays = array_merge($error_displays,pjsipsettings_check_custom_files()
 
   /* EXTRACT THE VARIABLE HERE - MAKE SURE THEY ARE ALL MASSAGED ABOVE */
   extract($pjsip_settings);
+  // Invalid array submissions must not reach htmlspecialchars below.
+  if (!is_string($endpoint_identifier_order)) { $endpoint_identifier_order = ''; }
+  $pjsip_running_order = core_pjsip_running_identifier_order();
+  $pjsip_pending_order = implode(',', core_pjsip_identifier_order(core_pjsip_order_valid($endpoint_identifier_order) ? $endpoint_identifier_order : ''));
 
 ?>
   <form id="mainform" autocomplete="off" name="editSip" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
@@ -411,6 +416,14 @@ $tt = __("Asterisk: bindaddr. The IP address to bind to and listen for calls on 
   </tr>
 
   <tr>
+    <td><a href="#" class="info"><?php echo __('Endpoint Identifier Order'); ?><span><?php echo __('Global priority for identifying incoming PJSIP requests. Leave empty to preserve Asterisk defaults and custom files. Default: ip,username,anonymous. To enable authentication username while retaining existing priorities: ip,username,auth_username,anonymous. Custom files can override this setting; verify the effective order after Apply with pjsip show settings.'); ?></span></a></td>
+    <td><input class="input" type="text" id="endpoint_identifier_order" name="endpoint_identifier_order" placeholder="ip,username,anonymous" value="<?php echo htmlspecialchars($endpoint_identifier_order, ENT_QUOTES); ?>" tabindex="<?php echo ++$tabindex; ?>">
+      <p class="help"><?php echo __('Order from configuration (including custom files):').' '.htmlspecialchars($pjsip_pending_order, ENT_QUOTES); ?></p>
+      <p class="help"><?php echo __('Order currently loaded by Asterisk:').' '.htmlspecialchars($pjsip_running_order === null ? __('Unavailable') : $pjsip_running_order, ENT_QUOTES); ?></p>
+    </td>
+  </tr>
+
+  <tr>
     <td>
       <a href="#" class="info"><?php echo __("Allow SIP Guests")?><span><?php echo __("Asterisk: allowguest. When set Asterisk will allow Guest SIP calls and send them to the Default SIP context. Turning this off will keep anonymous SIP calls from entering the system. Doing such will also stop 'Allow Anonymous Inbound SIP Calls' from functioning. Allowing guest calls but rejecting the Anonymous SIP calls below will enable you to see the call attempts and debug incoming calls that may be mis-configured and appearing as guests.")?></span></a>
     </td>
@@ -585,7 +598,7 @@ function addCustomField(key, val) {
 function process_errors($errors) {
   foreach($errors as $error) {
     $error_display[] = array(
-      'js' => "$('#".$error['id']."').addClass('validation-error').trigger('focus');sweet_toast('error','".$error['message']."')\n",
+      'js' => '$('.json_encode('#'.$error['id']).").addClass('validation-error').trigger('focus');sweet_toast('error',".json_encode($error['message']).")\n",
       'div' => $error['message'],
     );
   }
