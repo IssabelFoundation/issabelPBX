@@ -2,32 +2,57 @@
 <?php
 if (PHP_SAPI !== 'cli') { http_response_code(403); exit; }
 require __DIR__.'/module-deploy/Deploy.php';
+require __DIR__.'/module-deploy/Inspect.php';
+require __DIR__.'/module-deploy/Interactive.php';
 
 try {
     if (PHP_VERSION_ID < 70400 || !function_exists('posix_geteuid')) {
         throw new RuntimeException('Requires PHP CLI 7.4+ with POSIX support.');
     }
-    $command = $argv[1] ?? 'help';
+    $command = $argv[1] ?? 'update';
     if ($command === 'help' || $command === '--help') {
-        echo "Usage:\n  deploy-modules plan --repo DIR --to COMMIT --modules core,sipsettings [--from COMMIT]\n  deploy-modules apply --plan FILE\n  deploy-modules history\n  deploy-modules rollback --deployment ID\nOptions: --state-dir DIR (default /var/lib/issabelpbx-deploy), --bootstrap FILE\n";
+        echo "Modo simple: sudo tools/deploy-modules [CARPETA_DEL_CLON]\nSin argumentos detecta el clon desde la carpeta tools y pregunta qué actualizar.\nTambién: deploy-modules update [--repo DIR]\n\n";
+        echo "Usage:\n  deploy-modules inspect --repo DIR --to COMMIT --modules core,sipsettings --output NEW_DIR [--modules-dir DIR] [--max-diff-bytes N]\n  deploy-modules plan --repo DIR --to COMMIT --modules core,sipsettings [--from COMMIT]\n  deploy-modules apply --plan FILE\n  deploy-modules history\n  deploy-modules rollback --deployment ID\n  deploy-modules recover --deployment ID\nOptions: --state-dir DIR (default /var/lib/issabelpbx-deploy), --bootstrap FILE\n";
         exit(0);
     }
     if (posix_geteuid() !== 0) { throw new RuntimeException('Run as root on the PBX (including plan/history).'); }
     $options = array();
-    for ($i = 2; $i < $argc; $i += 2) {
+    $start = 2;
+    if (isset($argv[1]) && is_dir($argv[1])) { $options['repo'] = $argv[1]; $command = 'update'; }
+    elseif (isset($argv[1]) && substr($argv[1],0,2) === '--') { $command = 'update'; $start = 1; }
+    for ($i = $start; $i < $argc; $i += 2) {
         if (substr($argv[$i], 0, 2) !== '--' || !isset($argv[$i+1]) || isset($options[substr($argv[$i], 2)])) {
             throw new RuntimeException('Options must be unique --name value pairs.');
         }
         $options[substr($argv[$i], 2)] = $argv[$i+1];
     }
     $allowed = array('state-dir', 'bootstrap');
-    $commands = array('plan'=>array('repo','from','to','modules'), 'apply'=>array('plan'), 'rollback'=>array('deployment'), 'history'=>array());
+    $commands = array('update'=>array('repo'),'inspect'=>array('repo','to','modules','output','modules-dir','max-diff-bytes'),'plan'=>array('repo','from','to','modules'), 'apply'=>array('plan'), 'rollback'=>array('deployment'), 'recover'=>array('deployment'), 'history'=>array());
     if (!isset($commands[$command]) || array_diff(array_keys($options), array_merge($allowed, $commands[$command]))) {
         throw new RuntimeException('Unknown command or option. Use --help.');
     }
-    $bootstrap = $options['bootstrap'] ?? '/etc/issabelpbx.conf';
+    if ($command === 'inspect') {
+        foreach (array('repo','to','modules','output') as $required) {
+            if (empty($options[$required])) { throw new RuntimeException('Missing --'.$required); }
+        }
+        $limit = $options['max-diff-bytes'] ?? '1048576';
+        if (!ctype_digit($limit)) { throw new RuntimeException('--max-diff-bytes must be a positive integer.'); }
+        $result = (new IssabelDeploy\Inspector())->inspect($options['repo'],$options['to'],explode(',',$options['modules']),
+            $options['modules-dir'] ?? '/var/www/html/admin/modules',$options['output'],(int)$limit);
+        echo json_encode($result,JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_INVALID_UTF8_SUBSTITUTE | JSON_THROW_ON_ERROR)."\n";
+        exit(0);
+    }
+    $bootstrap = $options['bootstrap'] ?? (is_file('/etc/issabelpbx.conf') ? '/etc/issabelpbx.conf' : '/etc/asterisk/issabelpbx.conf');
     $state = $options['state-dir'] ?? '/var/lib/issabelpbx-deploy';
     $bridge = new IssabelDeploy\NativeBridge($bootstrap);
+    if ($command === 'update') {
+        if (!posix_isatty(STDIN)) { throw new RuntimeException('El modo interactivo requiere una terminal. Si usás SSH, conectate con ssh -t.'); }
+        $question = function ($text) { fwrite(STDOUT,$text); return fgets(STDIN) ?: ''; };
+        $write = function ($text) { fwrite(STDOUT,$text); };
+        $result = (new IssabelDeploy\InteractiveUpdater($bridge,$state))->update($options['repo'] ?? dirname(__DIR__),$question,$write);
+        echo json_encode($result,JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n";
+        exit(0);
+    }
     $deployer = new IssabelDeploy\Deployer($bridge, $state);
     if ($command === 'plan') {
         foreach (array('repo','to','modules') as $required) {
@@ -38,6 +63,8 @@ try {
         $result = $deployer->apply($options['plan'] ?? '');
     } elseif ($command === 'rollback') {
         $result = $deployer->rollback($options['deployment'] ?? '');
+    } elseif ($command === 'recover') {
+        $result = $deployer->recover($options['deployment'] ?? '');
     } else { $result = $deployer->history(); }
     echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n";
 } catch (Throwable $error) {

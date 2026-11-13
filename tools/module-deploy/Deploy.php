@@ -26,15 +26,38 @@ class NativeBridge implements Bridge {
     private $bootstrap;
     private $user;
     private $logDirectory;
+    private $helperDirectory;
     public function logTo(string $directory): void { $this->logDirectory = $directory; }
     public function __construct(string $bootstrap) {
         $this->bootstrap = realpath($bootstrap);
         if (!$this->bootstrap) { throw new \RuntimeException('Issabel bootstrap not found: '.$bootstrap); }
     }
+    private function worker(): string {
+        if (!$this->helperDirectory) {
+            $path = tempnam(sys_get_temp_dir(),'issabel-deploy-helper-');
+            unlink($path);
+            if (!mkdir($path,0700)) { throw new \RuntimeException('Cannot stage the native helper.'); }
+            $this->helperDirectory = $path;
+            foreach (array('Deploy.php','NativeSupport.php','native.php','Interactive.php') as $file) {
+                $bytes = file_get_contents(__DIR__.'/'.$file);
+                if (file_put_contents($path.'/'.$file,$bytes) !== strlen($bytes) || !chmod($path.'/'.$file,0644)) { throw new \RuntimeException('Cannot stage native helper code.'); }
+            }
+            // Public code only. Credentials/requests/backups never go here.
+            if (!chmod($path,0755)) { throw new \RuntimeException('Cannot expose helper code to the Asterisk account.'); }
+        }
+        return $this->helperDirectory.'/native.php';
+    }
+    public function __destruct() {
+        if ($this->helperDirectory) {
+            foreach (glob($this->helperDirectory.'/*') as $file) { @unlink($file); }
+            @rmdir($this->helperDirectory);
+        }
+    }
     public function call(string $action, array $data = array()): array {
         $command = array(PHP_BINARY, __DIR__.'/native.php', $action, $this->bootstrap);
         if (in_array($action, array('validate','install','reload','health'), true)) {
             if (!$this->user) { throw new \RuntimeException('Inspect installation first.'); }
+            $command[1] = $this->worker();
             $command = array_merge(array('runuser','-u',$this->user,'--'), $command);
         }
         $result = process($command,json_encode($data,JSON_THROW_ON_ERROR));
@@ -54,6 +77,10 @@ class NativeBridge implements Bridge {
 }
 
 class Files {
+    public static function changePath(array $plan,array $change): string {
+        return self::path($change['destination_root'] ?? $plan['modules'][$change['module']]['destination'],
+            $change['destination_path'] ?? $change['path']);
+    }
     public static function path(string $root, string $relative): string {
         if ($relative === '' || $relative[0] === '/' || strpos($relative, "\0") !== false ||
             preg_match('~(?:^|/)\.\.?(/|$)~', $relative)) { throw new \RuntimeException('Unsafe path: '.$relative); }
@@ -81,6 +108,11 @@ class Files {
         return $actual === null || $expected === null ? $actual === $expected :
             $actual['type'] === $expected['type'] && $actual['sha256'] === $expected['sha256'] &&
             ($actual['type'] !== 'file' || (($actual['mode'] & 0111) !== 0) === (($expected['mode'] & 0111) !== 0));
+    }
+    public static function nativeCopyTarget(array $target,?array $before): array {
+        // cp -rf preserves the mode of an existing regular destination file.
+        if ($target['type'] === 'file' && ($before['type'] ?? null) === 'file') { $target['mode'] = $before['mode']; }
+        return $target;
     }
     public static function changeToken(string $path): ?string {
         clearstatcache(true,$path);
@@ -153,7 +185,15 @@ class GitSource {
         if (!preg_match('/^[a-f0-9]{40,64}$/D', $oid)) { throw new \RuntimeException('Invalid Git object.'); }
         return $this->git(array('cat-file','blob',$oid));
     }
-    public function tree(string $commit, string $module): array {
+    public function modules(string $commit): array {
+        $result = array();
+        foreach (explode("\n",trim($this->git(array('ls-tree','-d','--name-only',$commit)))) as $name) {
+            if (preg_match('/^[a-z][a-z0-9_-]*$/D',$name) && trim($this->git(array('ls-tree',$commit,'--',$name.'/module.xml'))) !== '') { $result[] = $name; }
+        }
+        sort($result);
+        return $result;
+    }
+    public function tree(string $commit, string $module, bool $validateLinks = true): array {
         $result = array();
         foreach (explode("\0", $this->git(array('ls-tree','-rz',$commit,'--',$module.'/'))) as $record) {
             if ($record === '') { continue; }
@@ -164,7 +204,7 @@ class GitSource {
             Files::path('/unused', $relative);
             $bytes = $this->blob($m[2]);
             $type = $m[1] === '120000' ? 'link' : 'file';
-            if ($type === 'link') {
+            if ($type === 'link' && $validateLinks) {
                 if ($bytes === '' || $bytes[0] === '/' || strpos($bytes, "\0") !== false) { throw new \RuntimeException('Unsafe repository symlink.'); }
                 $parts = explode('/', dirname($relative).'/'.$bytes);
                 $depth = 0;
@@ -236,11 +276,11 @@ class Deployer {
         return hash_hmac('sha256', json_encode($plan, JSON_THROW_ON_ERROR), file_get_contents($this->state.'/key'));
     }
     private function toolHash(): string {
-        return hash('sha256',file_get_contents(__FILE__).file_get_contents(__DIR__.'/native.php').file_get_contents(__DIR__.'/NativeSupport.php'));
+        return hash('sha256',file_get_contents(__FILE__).file_get_contents(__DIR__.'/native.php').file_get_contents(__DIR__.'/NativeSupport.php').file_get_contents(__DIR__.'/Interactive.php'));
     }
-    private function inventory(): array {
+    private function inventory(bool $allowPending = false): array {
         $live = $this->bridge->call('inspect');
-        if (!empty($live['pending_reload'])) { throw new \RuntimeException('Issabel has pending changes. Apply/review them before deployment.'); }
+        if (!empty($live['pending_reload']) && !$allowPending) { throw new \RuntimeException('Issabel has pending changes. Apply/review them before deployment.'); }
         foreach (array('modules_dir','config_dir') as $key) {
             if (!isset($live[$key]) || !is_dir($live[$key])) { throw new \RuntimeException('Invalid installation path: '.$key); }
             $live[$key] = realpath($live[$key]);
@@ -254,20 +294,79 @@ class Deployer {
         return is_file($this->state.'/current.json') ? json_decode(file_get_contents($this->state.'/current.json'), true, 512, JSON_THROW_ON_ERROR) : array();
     }
     private function verify(array $plan, array $live): void {
-        foreach (array('modules_dir','config_dir','webroot','user','uid','gid','php_version','asterisk_version','pbx_version','bootstrap_sha256') as $key) {
+        foreach (array('modules_dir','config_dir','webroot','bin_dir','agi_dir','user','uid','gid','php_version','asterisk_version','pbx_version','bootstrap_sha256','pending_reload') as $key) {
             if (($live[$key] ?? null) !== ($plan['installation'][$key] ?? null)) { throw new \RuntimeException('Installation changed since plan: '.$key); }
         }
         foreach ($plan['modules'] as $module => $details) {
-            if (!isset($live['modules'][$module]) || $live['modules'][$module] !== $plan['installation']['modules'][$module]) {
+            if (($live['modules'][$module] ?? null) !== ($plan['installation']['modules'][$module] ?? null)) {
                 throw new \RuntimeException('Installed module changed since plan: '.$module);
             }
-            if (realpath($live['modules_dir'].'/'.$module) !== $details['destination']) { throw new \RuntimeException('Module destination changed: '.$module); }
+            if (!empty($details['new'])) {
+                if (file_exists($details['destination']) || is_link($details['destination'])) { throw new \RuntimeException('New module destination appeared: '.$module); }
+            } elseif (realpath($live['modules_dir'].'/'.$module) !== $details['destination']) { throw new \RuntimeException('Module destination changed: '.$module); }
         }
         foreach ($plan['changes'] as $change) {
-            $path = Files::path($plan['modules'][$change['module']]['destination'], $change['path']);
+            $path = Files::changePath($plan,$change);
             if (Files::snapshot($path) !== $change['before'] || Files::changeToken($path) !== $change['before_token']) { throw new \RuntimeException('Local change/conflict: '.$path); }
         }
-        $this->bridge->call('validate', array('targets'=>array_column($plan['modules'], 'metadata')));
+        $this->bridge->call('validate', array('targets'=>array_column($plan['modules'], 'metadata'),'interactive'=>!empty($plan['interactive'])));
+    }
+    public function planInstalled(array $scan,array $selected): array {
+        $this->acquire();
+        try {
+            $this->ensureRecovered();
+            $allowPending = !empty($scan['pending_approved']) && !empty($scan['installation']['pending_reload']);
+            $live = $this->inventory($allowPending);
+            foreach (array('modules_dir','config_dir','webroot','bin_dir','agi_dir','uid','gid','php_version','asterisk_version','pbx_version','pending_reload') as $key) {
+                if (($live[$key] ?? null) !== ($scan['installation'][$key] ?? null)) { throw new \RuntimeException('La instalación cambió mientras elegías módulos. Volvé a ejecutar el comando.'); }
+            }
+            $repo = new GitSource($scan['repository']);
+            $plan = array('format'=>1,'interactive'=>true,'allow_pending_reload'=>$allowPending,'tool_sha256'=>$this->toolHash(),'created_at'=>gmdate('c'),
+                'repository'=>$repo->path,'target'=>$scan['target'],'installation'=>$live,'modules'=>array(),'changes'=>array(),'previous'=>$this->current());
+            $install = array(); $roots = array();
+            foreach ($selected as $module) {
+                $row = $scan['modules'][$module];
+                if (isset($row['error']) || ($live['modules'][$module] ?? null) !== $row['installed']) { throw new \RuntimeException('El módulo cambió: '.$module); }
+                if (isset($roots[$row['destination']])) { throw new \RuntimeException('Dos módulos comparten el mismo destino.'); }
+                $roots[$row['destination']] = true;
+                $plan['modules'][$module] = array('base'=>null,'destination'=>$row['destination'],'metadata'=>$row['metadata'],'new'=>$row['new']);
+                foreach ($row['changes'] as $change) { $plan['changes'][] = $change; }
+                if ($row['install_required']) { $install[] = $module; }
+                if ($module === 'framework') {
+                    $tree = $repo->tree($scan['target'],$module);
+                    if (is_dir($row['destination'])) {
+                        foreach (Files::tree($row['destination']) as $path=>$original) {
+                            if (InteractiveUpdater::frameworkTemporary($path) && !isset($tree[$path])) { throw new \RuntimeException('Framework tiene archivos locales dentro del paquete temporal: '.$path); }
+                        }
+                    }
+                    foreach ($tree as $path=>$target) {
+                        $change = InteractiveUpdater::change($module,$path,$target,$row['destination']);
+                        // module.xml/install.php were already included in the scan.
+                        if ($change && !in_array($path,array('module.xml','install.php'),true)) {
+                            if (InteractiveUpdater::frameworkTemporary($path)) { $change['removed_by_installer'] = true; }
+                            $plan['changes'][] = $change;
+                        }
+                    }
+                }
+            }
+            $validation = $this->bridge->call('validate',array('targets'=>array_column($plan['modules'],'metadata'),'interactive'=>true));
+            $plan['order'] = $validation['order'];
+            $plan['upgrades'] = array_values(array_unique(array_merge($validation['upgrades'],$install)));
+            $this->verify($plan,$live);
+            foreach ($plan['changes'] as $change) {
+                if ($change['after']['type'] === 'file' && substr($change['path'],-4) === '.php') {
+                    $temp = tempnam($this->state,'lint-');
+                    try { file_put_contents($temp,$repo->blob($change['after']['oid'])); run(array(PHP_BINARY,'-l',$temp)); }
+                    catch (\Throwable $error) { throw new \RuntimeException('PHP inválido en '.$change['module'].'/'.$change['path'].': '.$error->getMessage()); }
+                    finally { unlink($temp); }
+                }
+            }
+            $this->space($plan);
+            $plan['signature'] = $this->sign($plan);
+            $path = $this->state.'/plans/'.gmdate('Ymd\THis').'-'.substr($plan['signature'],0,12).'.json';
+            $this->save($path,$plan);
+            return array('plan'=>$path);
+        } finally { $this->release(); }
     }
     public function plan(string $repoPath, ?string $from, string $to, array $modules): array {
         $this->acquire();
@@ -339,6 +438,7 @@ class Deployer {
         $required = 64*1024*1024;
         $required += $this->bridge->call('backup-check',array('directory'=>$this->state))['estimated_bytes'] ?? 0;
         foreach ($plan['modules'] as $details) {
+            if (!is_dir($details['destination'])) { continue; }
             foreach (Files::tree($details['destination']) as $path=>$meta) {
                 if ($meta['type'] === 'file') { $required += filesize($details['destination'].'/'.$path)*2; }
             }
@@ -346,13 +446,19 @@ class Deployer {
         foreach (Files::tree($plan['installation']['config_dir']) as $path=>$meta) {
             if ($meta['type'] === 'file') { $required += filesize($plan['installation']['config_dir'].'/'.$path)*2; }
         }
+        if (!empty($plan['interactive']) && isset($plan['modules']['framework'])) {
+            foreach (InteractiveUpdater::frameworkRoots($plan['installation']) as $root) {
+                foreach (Files::tree($root) as $path=>$meta) { if ($meta['type'] === 'file') { $required += filesize($root.'/'.$path)*2; } }
+            }
+        }
         foreach (array_unique(array_merge(array($this->state),array_column($plan['modules'],'destination'))) as $path) {
+            while (!is_dir($path)) { $path = dirname($path); }
             if (disk_free_space($path) < $required) { throw new \RuntimeException('Insufficient free space: '.$path); }
         }
     }
     private function restoreFiles(array $plan, string $directory): void {
         foreach (array_reverse($plan['changes']) as $i=>$change) {
-            $path = Files::path($plan['modules'][$change['module']]['destination'],$change['path']);
+            $path = Files::changePath($plan,$change);
             if ($change['before'] === null) {
                 if ((file_exists($path) || is_link($path)) && !unlink($path)) { throw new \RuntimeException('Cannot remove '.$path); }
             } else {
@@ -401,8 +507,8 @@ class Deployer {
             if (($plan['format'] ?? null) !== 1 || !isset($plan['signature']) || !hash_equals($this->sign($plan),$plan['signature'])) { throw new \RuntimeException('Untrusted or modified plan. Generate a new plan on this PBX.'); }
             if (($plan['tool_sha256'] ?? '') !== $this->toolHash()) { throw new \RuntimeException('Deployment tool changed; generate a new plan.'); }
             if ($this->current() !== $plan['previous']) { throw new \RuntimeException('Deployment history changed; generate a new plan.'); }
-            if (!$plan['changes']) { return array('status'=>'unchanged','target'=>$plan['target']); }
-            $live = $this->inventory();
+            if (!$plan['changes'] && !$plan['upgrades']) { return array('status'=>'unchanged','target'=>$plan['target']); }
+            $live = $this->inventory(!empty($plan['interactive']) && !empty($plan['allow_pending_reload']));
             $this->verify($plan,$live);
             $this->space($plan);
             $repo = new GitSource($plan['repository']);
@@ -426,7 +532,7 @@ class Deployer {
                 }
                 foreach ($plan['changes'] as $change) {
                     $key = hash('sha256',$change['module'].'/'.$change['path']);
-                    $source = Files::path($plan['modules'][$change['module']]['destination'],$change['path']);
+                    $source = Files::changePath($plan,$change);
                     if ($change['before']) {
                         if ($change['before']['type'] === 'file') { Files::backupFile($source,$directory.'/files/'.$key); }
                         else { file_put_contents($directory.'/files/'.$key,readlink($source)); }
@@ -443,11 +549,12 @@ class Deployer {
                     if (($change['before'] && hash_file('sha256',$directory.'/files/'.$key) !== $change['before']['sha256']) ||
                         ($change['after'] && hash_file('sha256',$directory.'/staged/'.$key) !== $change['after']['sha256'])) { throw new \RuntimeException('Staging/backup checksum mismatch.'); }
                 }
-                $this->verify($plan,$this->inventory());
+                $this->verify($plan,$this->inventory(!empty($plan['interactive']) && !empty($plan['allow_pending_reload'])));
                 $record['status'] = 'writing';
                 $this->save($directory.'/record.json',$record);
                 foreach ($plan['changes'] as $index=>$change) {
-                    $dest = Files::path($plan['modules'][$change['module']]['destination'],$change['path']);
+                    if (!empty($change['installer_managed'])) { continue; }
+                    $dest = Files::changePath($plan,$change);
                     if (Files::snapshot($dest) !== $change['before'] || Files::changeToken($dest) !== $change['before_token']) { throw new \RuntimeException('File changed immediately before write: '.$dest); }
                     if (!$change['after']) { if (!unlink($dest)) { throw new \RuntimeException('Cannot delete '.$dest); } }
                     else {
@@ -460,41 +567,29 @@ class Deployer {
                     $record['written'][] = $index;
                     $this->save($directory.'/record.json',$record);
                 }
-                $this->bridge->call('permissions',array('modules'=>$destinations,'paths'=>array_map(function ($change) use ($plan) {
-                    return Files::path($plan['modules'][$change['module']]['destination'],$change['path']);
+                $this->bridge->call('permissions',array('modules'=>$destinations,'interactive'=>!empty($plan['interactive']),'paths'=>array_map(function ($change) use ($plan) {
+                    return Files::changePath($plan,$change);
                 },array_filter($plan['changes'],function ($change) { return $change['before'] === null && $change['after'] !== null; }))));
                 foreach ($plan['order'] as $module) {
                     if (!in_array($module,$plan['upgrades'],true)) { continue; }
                     $record['migration_started'] = true;
                     $record['status'] = 'installing:'.$module;
                     $this->save($directory.'/record.json',$record);
-                    $this->bridge->call('install',array('module'=>$module));
+                    $installed = $plan['installation']['modules'][$module]['version'] ?? null;
+                    $this->bridge->call('install',array('module'=>$module,'interactive'=>!empty($plan['interactive']),
+                        'reinstall'=>!empty($plan['interactive']) && ($installed === $plan['modules'][$module]['metadata']['version'] ||
+                            (isset($plan['installation']['modules'][$module]) && !$plan['installation']['modules'][$module]['enabled']))));
                 }
                 $record['status'] = 'reloading';
                 $this->save($directory.'/record.json',$record);
                 $record['reload'] = $this->bridge->call('reload');
-                $this->bridge->call('health',array('targets'=>array_column($plan['modules'],'metadata')));
+                $enabled = array();
+                foreach ($plan['modules'] as $module=>$details) { $enabled[$module] = $plan['installation']['modules'][$module]['enabled'] ?? true; }
+                $this->bridge->call('health',array('targets'=>array_column($plan['modules'],'metadata'),'enabled'=>$enabled));
                 foreach ($plan['changes'] as $change) {
-                    if (!Files::contentMatches(Files::snapshot(Files::path($plan['modules'][$change['module']]['destination'],$change['path'])),$change['after'])) {
-                        throw new \RuntimeException('Post-deployment file mismatch: '.$change['path']);
-                    }
+                    $this->verifyDeployedFile($plan,$change);
                 }
-                $record['config_after'] = Files::tree($live['config_dir']);
-                $record['config_after_tokens'] = Files::treeTokens($live['config_dir'],$record['config_after']);
-                $record['files_after'] = array();
-                $record['files_after_tokens'] = array();
-                foreach ($plan['changes'] as $change) {
-                    $file = Files::path($plan['modules'][$change['module']]['destination'],$change['path']);
-                    $record['files_after'][] = Files::snapshot($file);
-                    $record['files_after_tokens'][] = Files::changeToken($file);
-                }
-                $record['status'] = 'complete';
-                $record['completed_at'] = gmdate('c');
-                $this->save($directory.'/record.json',$record);
-                $current = $plan['previous'];
-                foreach ($plan['modules'] as $module=>$details) { $current[$module] = array('commit'=>$plan['target'],'deployment'=>$id); }
-                $this->save($this->state.'/current.json',$current);
-                return array('status'=>'complete','deployment'=>$id,'backup'=>$directory,'modules'=>$plan['order']);
+                return $this->completeDeployment($record,$directory,$live);
             } catch (\Throwable $error) {
                 $record['error'] = $error->getMessage();
                 if ($record['migration_started']) {
@@ -515,6 +610,70 @@ class Deployer {
                 $this->save($directory.'/record.json',$record);
                 throw new \RuntimeException($record['status'].': '.$error->getMessage().'; backup: '.$directory);
             }
+        } finally { $this->release(); }
+    }
+    private function verifyDeployedFile(array $plan,array $change): void {
+        $expected = !empty($change['removed_by_installer']) ? null : $change['after'];
+        if ($expected && !empty($change['installer_managed']) && $change['module'] === 'framework') {
+            $expected = Files::nativeCopyTarget($expected,$change['before']);
+        }
+        $file = Files::changePath($plan,$change);
+        $actual = Files::snapshot($file);
+        if (!Files::contentMatches($actual,$expected)) {
+            throw new \RuntimeException('Post-deployment file mismatch: '.$change['path'].'; destination: '.$file.
+                '; expected: '.json_encode($expected).'; actual: '.json_encode($actual));
+        }
+    }
+    private function completeDeployment(array $record,string $directory,array $live): array {
+        $plan = $record['plan']; $id = $record['id'];
+        $record['config_after'] = Files::tree($live['config_dir']);
+        $record['config_after_tokens'] = Files::treeTokens($live['config_dir'],$record['config_after']);
+        $record['files_after'] = array(); $record['files_after_tokens'] = array();
+        foreach ($plan['changes'] as $change) {
+            $file = Files::changePath($plan,$change);
+            $record['files_after'][] = Files::snapshot($file);
+            $record['files_after_tokens'][] = Files::changeToken($file);
+        }
+        $record['status'] = 'complete'; $record['completed_at'] = gmdate('c');
+        $this->save($directory.'/record.json',$record);
+        $current = $plan['previous'];
+        foreach ($plan['modules'] as $module=>$details) { $current[$module] = array('commit'=>$plan['target'],'deployment'=>$id); }
+        $this->save($this->state.'/current.json',$current);
+        return array('status'=>'complete','deployment'=>$id,'backup'=>$directory,'modules'=>$plan['order']);
+    }
+    public function recover(string $id): array {
+        $this->acquire();
+        try {
+            $directory = $this->recordPath($id);
+            $record = json_decode(file_get_contents($directory.'/record.json'),true,512,JSON_THROW_ON_ERROR);
+            $plan = $record['plan'];
+            if (($record['id'] ?? null) !== $id || !isset($plan['signature']) || !hash_equals($this->sign($plan),$plan['signature'])) { throw new \RuntimeException('Untrusted recovery plan.'); }
+            if ($record['status'] !== 'recovery-required' || strpos($record['error'] ?? '','Post-deployment file mismatch: ') !== 0 || ($record['reload']['status'] ?? '') !== 'success') {
+                throw new \RuntimeException('Recovery verification is only available after a file verification failure following a successful reload.');
+            }
+            foreach ($this->history() as $other) {
+                if ($other['id'] !== $id && !in_array($other['status'],array('complete','rolled-back','auto-rolled-back','aborted-before-write','manually-recovered'),true)) { throw new \RuntimeException('Another deployment requires recovery: '.$other['id']); }
+            }
+            if ($this->current() !== $plan['previous']) { throw new \RuntimeException('Deployment history changed; manual reconciliation required.'); }
+            $live = $this->inventory();
+            foreach (array('modules_dir','config_dir','webroot','bin_dir','agi_dir','user','uid','gid','bootstrap_sha256') as $key) {
+                if (($live[$key] ?? null) !== ($plan['installation'][$key] ?? null)) { throw new \RuntimeException('Recovery installation path/account changed: '.$key); }
+            }
+            $this->verifyBackups($record,$directory);
+            foreach ($plan['modules'] as $module=>$details) {
+                if (realpath($live['modules_dir'].'/'.$module) !== $details['destination']) { throw new \RuntimeException('Recovery module destination changed: '.$module); }
+            }
+            foreach ($plan['changes'] as $change) { $this->verifyDeployedFile($plan,$change); }
+            $enabled = array();
+            foreach ($plan['modules'] as $module=>$details) { $enabled[$module] = $plan['installation']['modules'][$module]['enabled'] ?? true; }
+            if ($this->bridge instanceof NativeBridge) { $this->bridge->logTo($directory); }
+            $this->bridge->call('health',array('targets'=>array_column($plan['modules'],'metadata'),'enabled'=>$enabled));
+            // Verify again after health checks, before updating the deployment journal.
+            foreach ($plan['changes'] as $change) { $this->verifyDeployedFile($plan,$change); }
+            $this->save($directory.'/record-before-recovery.json',$record);
+            $record['recovery'] = array('verified_at'=>gmdate('c'),'previous_error'=>$record['error'],'tool_sha256'=>$this->toolHash());
+            unset($record['error']);
+            return $this->completeDeployment($record,$directory,$live);
         } finally { $this->release(); }
     }
     public function history(): array {
@@ -543,7 +702,7 @@ class Deployer {
                 if (($current[$module]['deployment'] ?? null) !== $id || realpath($live['modules_dir'].'/'.$module) !== $details['destination']) { throw new \RuntimeException('Later deployment or changed module destination: '.$module); }
             }
             foreach ($plan['changes'] as $index=>$change) {
-                $file = Files::path($plan['modules'][$change['module']]['destination'],$change['path']);
+                $file = Files::changePath($plan,$change);
                 if (Files::snapshot($file) !== $record['files_after'][$index] || Files::changeToken($file) !== $record['files_after_tokens'][$index]) { throw new \RuntimeException('Files changed since deployment: '.$change['path']); }
             }
             $this->verifyBackups($record,$directory);

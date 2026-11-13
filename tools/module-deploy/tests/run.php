@@ -1,6 +1,8 @@
 <?php
 if (PHP_SAPI !== 'cli') { http_response_code(403); exit; }
 require dirname(__DIR__).'/Deploy.php';
+require dirname(__DIR__).'/Inspect.php';
+require dirname(__DIR__).'/Interactive.php';
 require dirname(__DIR__).'/NativeSupport.php';
 use IssabelDeploy\Deployer;
 use IssabelDeploy\Files;
@@ -53,32 +55,50 @@ class FixtureBridge implements IssabelDeploy\Bridge {
     public $installed = array();
     public $validateCalls = 0;
     public $lateConflict = false;
+    public $pbxVersion = '2.13.0.0';
+    public $installRequests = array();
     public function __construct($root) { $this->root = $root; }
     public function call(string $action,array $data = array()): array {
         global $installedRows;
         if ($action === 'inspect') {
             return array('modules_dir'=>$this->root.'/web/admin/modules','config_dir'=>$this->root.'/etc', 'webroot'=>$this->root.'/web',
                 'user'=>posix_getpwuid(posix_geteuid())['name'],'uid'=>posix_geteuid(),'gid'=>posix_getegid(),
-                'php_version'=>PHP_VERSION,'asterisk_version'=>'22.9.0','pbx_version'=>'2.13.0.0','modules'=>$installedRows,'pending_reload'=>$this->pending);
+                'bin_dir'=>$this->root.'/bin','agi_dir'=>$this->root.'/agi',
+                'php_version'=>PHP_VERSION,'asterisk_version'=>'22.9.0','pbx_version'=>$this->pbxVersion,'modules'=>$installedRows,'pending_reload'=>$this->pending);
         }
         if ($action === 'validate') {
             $this->validateCalls++;
             if ($this->lateConflict && $this->validateCalls === 3) { file_put_contents($this->root.'/web/admin/modules/core/etc/pjsip.conf','late operator edit'); }
-            return deploy_targets($data['targets']);
+            return deploy_targets($data['targets'],!empty($data['interactive']));
         }
         if ($action === 'backup-check') { return array('estimated_bytes'=>1024); }
         if ($action === 'permissions') { return array('ok'=>true); }
         if ($action === 'backup') {
             if ($this->failBackup) { throw new RuntimeException('Backup failed'); }
-            check(array_keys($data['modules']) === array('core','sipsettings'),'Backup must name both module destinations');
+            foreach ($data['modules'] as $name=>$path) { check(strpos($path,$this->root.'/web/admin/modules/') === 0,'Backup must name installed module destinations'); }
             file_put_contents($data['directory'].'/database.sql','fixture database snapshot');
             file_put_contents($data['directory'].'/astdb.sqlite3','fixture astdb snapshot');
             return array('ok'=>true);
         }
         if ($action === 'install') {
             $this->installed[] = $data['module'];
+            $this->installRequests[] = $data;
             if ($this->failInstall) { throw new RuntimeException('Simulated migration failure'); }
             $xml = simplexml_load_file($this->root.'/web/admin/modules/'.$data['module'].'/module.xml');
+            if ($data['module'] === 'framework') {
+                $package = $this->root.'/web/admin/modules/framework';
+                foreach (array('htdocs'=>$this->root.'/web','bin'=>$this->root.'/bin','agi-bin'=>$this->root.'/agi') as $kind=>$destination) {
+                    if (!is_dir($package.'/amp_conf/'.$kind)) { continue; }
+                    foreach (Files::tree($package.'/amp_conf/'.$kind) as $path=>$meta) {
+                        $meta = Files::nativeCopyTarget($meta,Files::snapshot(Files::path($destination,$path)));
+                        Files::write(Files::path($destination,$path),file_get_contents($package.'/amp_conf/'.$kind.'/'.$path),$meta);
+                    }
+                }
+                foreach (array('amp_conf','upgrades') as $dir) { if (is_dir($package.'/'.$dir)) { removeTree($package.'/'.$dir); } }
+                if (is_file($package.'/libissabelpbx.install.php')) { unlink($package.'/libissabelpbx.install.php'); }
+                $this->pbxVersion = (string)$xml->version;
+            }
+            if (!isset($installedRows[$data['module']])) { $installedRows[$data['module']] = array('enabled'=>true); }
             $installedRows[$data['module']]['version'] = (string)$xml->version;
             return array('ok'=>true);
         }
@@ -86,6 +106,7 @@ class FixtureBridge implements IssabelDeploy\Bridge {
             $this->reloads++;
             file_put_contents($this->root.'/etc/generated.conf',hash_file('sha256',$this->root.'/web/admin/modules/core/functions.inc.php'));
             if ($this->failReload-- > 0) { throw new RuntimeException('Simulated reload failure'); }
+            $this->pending = false;
             return array('status'=>'success');
         }
         if ($action === 'health') {
@@ -122,6 +143,7 @@ class Fixture {
         $externalMetadata = array();
         $this->root = sys_get_temp_dir().'/issabel-deploy-tests-'.bin2hex(random_bytes(6));
         mkdir($this->root,0700);
+        $this->root = realpath($this->root);
         $this->repo = $this->root.'/repo'; mkdir($this->repo);
         $this->git(array('init','-q'));
         foreach (array('core','sipsettings') as $module) {
@@ -141,6 +163,7 @@ class Fixture {
             }
         }
         mkdir($this->root.'/etc');
+        mkdir($this->root.'/bin'); mkdir($this->root.'/agi');
         symlink('../web/admin/modules/core/etc/pjsip.conf',$this->root.'/etc/pjsip.conf');
         file_put_contents($this->root.'/etc/pjsip_custom_post.conf',"; local configuration\n");
         file_put_contents($this->root.'/etc/generated.conf',hash_file('sha256',$this->root.'/web/admin/modules/core/functions.inc.php'));
@@ -237,6 +260,41 @@ scenario('backup failure before writes',function ($f) {
     rejects(function () use ($f,$plan) { $f->deployer->apply($plan['plan']); },'aborted-before-write');
     check($f->bridge->reloads === 0 && !file_exists($f->root.'/web/admin/modules/core/pjsip.functions.php'),'Backup failure must leave installation untouched');
 });
+scenario('mysqldump preserves diagnostics and removes failed dumps and credentials',function ($f) {
+    $directory = $f->root.'/mysql-backup'; mkdir($directory,0700);
+    $config = array('AMPDBUSER'=>'asteriskuser','AMPDBPASS'=>'private-test-secret','AMPDBHOST'=>'localhost','AMPDBNAME'=>'asterisk');
+    $script = $f->root.'/fake-dump.php';
+    file_put_contents($script,"<?php fwrite(STDOUT, '-- incomplete dump'); fwrite(STDERR, 'Access denied; RELOAD privilege required; private-test-secret'); exit(2);");
+    try {
+        deploy_mysql_backup($config,$directory,array(PHP_BINARY,$script));
+        throw new RuntimeException('Expected mysqldump failure');
+    } catch (RuntimeException $error) {
+        check(strpos($error->getMessage(),'RELOAD privilege required') !== false && strpos($error->getMessage(),'exit 2') !== false,'The actual dump failure and exit status must be reported');
+        check(strpos($error->getMessage(),'private-test-secret') === false && strpos($error->getMessage(),'[redacted]') !== false,'Backup errors must redact configured secrets');
+    }
+    check(!file_exists($directory.'/database.sql') && !glob($directory.'/mysql-*'),'Failed SQL dumps and temporary credentials must be removed');
+    check(strpos(file_get_contents($directory.'/mysqldump.stderr'),'RELOAD privilege required') !== false,'Diagnostics must survive a failed dump');
+    check(strpos(file_get_contents($directory.'/mysqldump.stderr'),'private-test-secret') === false && (fileperms($directory.'/mysqldump.stderr') & 0777) === 0600,'Diagnostic logs must be private and redact secrets');
+    file_put_contents($script, <<<'PHP'
+<?php
+$defaults = substr($argv[1],strlen('--defaults-extra-file='));
+if ((fileperms($defaults) & 0777) !== 0600 || strpos(file_get_contents($defaults),'private-test-secret') === false) { exit(3); }
+foreach (array('--skip-lock-all-tables','--lock-tables','--routines','--events','--triggers','--databases','asterisk') as $option) { if (!in_array($option,$argv,true)) { exit(4); } }
+foreach (array('--lock-all-tables','--skip-lock-tables','--single-transaction','--all-databases') as $option) { if (in_array($option,$argv,true)) { fwrite(STDERR,'Unexpected global or unlocked dump'); exit(6); } }
+if (strpos(implode(' ',$argv),'private-test-secret') !== false) { exit(5); }
+fwrite(STDOUT,'-- complete fixture SQL dump');
+fwrite(STDERR,'fixture warning');
+PHP
+    );
+    deploy_mysql_backup($config,$directory,array(PHP_BINARY,$script));
+    check(file_get_contents($directory.'/database.sql') === '-- complete fixture SQL dump','Successful SQL output must be retained with all consistency options');
+    check((fileperms($directory.'/database.sql') & 0777) === 0600 && !glob($directory.'/mysql-*'),'Successful backup must also remove credentials and protect SQL');
+    check(file_get_contents($directory.'/mysqldump.stderr') === 'fixture warning','Warnings from a successful dump must be retained');
+    unlink($directory.'/database.sql');
+    file_put_contents($script,'<?php exit(0);');
+    rejects(function () use ($config,$directory,$script) { deploy_mysql_backup($config,$directory,array(PHP_BINARY,$script)); },'Empty database backup');
+    check(!file_exists($directory.'/database.sql') && !glob($directory.'/mysql-*'),'Empty dumps must be rejected and cleaned up');
+});
 scenario('reload failure automatically restores patch',function ($f) {
     $before = Files::tree($f->root.'/etc');
     $plan = $f->plan(); $f->bridge->failReload = 1;
@@ -288,6 +346,303 @@ scenario('reverse dependency compatibility and downgrade',function ($f) {
     rejects(function () use ($f) { $f->plan(); },'break installed module');
     $externalMetadata = array(); $installedRows['core']['version'] = '9.0.0';
     rejects(function () use ($f) { deploy_targets(array(array('rawname'=>'core','version'=>'1.1.0'))); },'Downgrade');
+});
+scenario('inspection compares a hybrid install without a base or native operations',function ($f) {
+    global $installedRows;
+    $installedRows['core']['version'] = '0.12.0';
+    $f->bridge->pending = true;
+    $f->bridge->failBackup = true;
+    $root = $f->root.'/web/admin/modules';
+    file_put_contents($root.'/core/functions.inc.php',"<?php return 'local hybrid edit';\n");
+    file_put_contents($root.'/core/local-only.php',"<?php return 'preserve local';\n");
+    file_put_contents($root.'/core/local-binary',"\x00\x01\x02");
+    chmod($root.'/core/module.xml',0600);
+    $f->file('core/functions.inc.php',"<?php return 'dirty clone, not target';\n");
+    $before = Files::tree($root);
+    $stateBefore = Files::tree($f->root.'/state');
+    $output = $f->root.'/inspection';
+    $result = (new IssabelDeploy\Inspector())->inspect($f->repo,$f->target,array('core','sipsettings'),$root,$output);
+    check(Files::tree($root) === $before && $f->bridge->reloads === 0 && $f->bridge->installed === array(),'Inspection must not change installed files or use native operations');
+    check(Files::tree($f->root.'/state') === $stateBefore,'Inspection must not write deployment state');
+    $report = json_decode(file_get_contents($result['report']),true);
+    check($report['database_checked'] === false && $result['versions']['core']['installed_file_version'] === '1.0.0','Inspection must distinguish file version from database checks');
+    $differences = array_column($report['modules']['core']['differences'],null,'path');
+    check($differences['functions.inc.php']['status'] === 'content_changed','Local hybrid edits must be reported');
+    check($differences['local-only.php']['status'] === 'installed_only','Installed-only files must be reported');
+    check($differences['pjsip.functions.php']['status'] === 'target_only','Target additions must be reported');
+    check($differences['module.xml']['status'] === 'permissions_changed','Permission differences must be reported');
+    $diff = file_get_contents($result['diff']);
+    check(strpos($diff,"-<?php return 'local hybrid edit';") !== false && strpos($diff,"+<?php return 'new';") !== false,'Diff direction must be installed to target');
+    check(strpos($diff,'dirty clone') === false,'Inspection must read the committed target');
+    check((fileperms($output)&0777) === 0700 && (fileperms($result['diff'])&0077) === 0,'Reports must be private');
+    check(!file_exists($output.'/.compare'),'Diff staging contents must be removed');
+    rejects(function () use ($f,$root,$output) { (new IssabelDeploy\Inspector())->inspect($f->repo,$f->target,array('core'),$root,$output); },'already exists');
+});
+scenario('interactive declines every update without writing PBX files',function ($f) {
+    $before = Files::tree($f->root.'/web');
+    $result = (new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state'))->update($f->repo,function ($question) { return 'n'; },function ($text) {});
+    check($result['status'] === 'unchanged' && Files::tree($f->root.'/web') === $before && $f->bridge->reloads === 0,'Declining interactive updates must leave the PBX alone');
+});
+scenario('interactive includes approved pending changes in the one final reload',function ($f) {
+    $f->bridge->pending = true;
+    $questions = array();
+    $question = function ($text) use (&$questions) {
+        $questions[] = $text;
+        return strpos($text,'¿Incluir esos cambios') === 0 || strpos($text,'¿Actualizar core?') === 0 || strpos($text,'¿Aplicar') === 0 ? 's' : 'n';
+    };
+    $result = (new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state'))->update($f->repo,$question,function ($text) {});
+    check($result['status'] === 'complete' && $f->bridge->reloads === 1 && !$f->bridge->pending,'Approved pending changes must use the single final reload');
+    check(strpos($questions[0],'¿Incluir esos cambios') === 0,'Pending changes must be disclosed before module selection');
+    $record = json_decode(file_get_contents($result['backup'].'/record.json'),true);
+    check($record['plan']['allow_pending_reload'] === true,'Pending-change approval must be recorded in the signed plan');
+});
+scenario('interactive declining pending changes cancels without writes',function ($f) {
+    $f->bridge->pending = true;
+    $before = Files::tree($f->root.'/web');
+    $result = (new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state'))->update($f->repo,function ($text) { return 'n'; },function ($text) {});
+    check($result['status'] === 'cancelled' && Files::tree($f->root.'/web') === $before && $f->bridge->reloads === 0,'Declined pending changes must not be applied or written');
+});
+scenario('interactive rejects newly pending changes that were not approved',function ($f) {
+    $question = function ($text) use ($f) {
+        if (strpos($text,'¿Aplicar') === 0) { $f->bridge->pending = true; return 's'; }
+        return strpos($text,'¿Actualizar core?') === 0 ? 's' : 'n';
+    };
+    rejects(function () use ($f,$question) { (new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state'))->update($f->repo,$question,function ($text) {}); },'pending changes');
+    check($f->bridge->reloads === 0,'Unapproved pending changes must abort before reload');
+});
+scenario('interactive accepts local changes without requiring an installed commit',function ($f) {
+    $file = $f->root.'/web/admin/modules/core/functions.inc.php';
+    file_put_contents($file,"<?php return 'my local modification';\n");
+    $question = function ($text) { return strpos($text,'¿Actualizar core?') === 0 || strpos($text,'¿Aplicar') === 0 ? 's' : 'n'; };
+    $result = (new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state'))->update($f->repo,$question,function ($text) {});
+    check($result['status'] === 'complete' && $f->bridge->reloads === 1,'Interactive patch must reload once');
+    check(file_get_contents($file) === "<?php return 'new';\n",'Accepted local code must be replaced with the selected commit');
+    check(file_exists($f->root.'/web/admin/modules/core/remove.php'),'Unknown installed-only files must be retained');
+    $f->deployer->rollback($result['deployment']);
+    check(file_get_contents($file) === "<?php return 'my local modification';\n",'Rollback must restore the actual local baseline');
+});
+scenario('interactive catches edits made during confirmation',function ($f) {
+    $file = $f->root.'/web/admin/modules/core/functions.inc.php';
+    $question = function ($text) use ($file) {
+        if (strpos($text,'¿Aplicar') === 0) { file_put_contents($file,'operator changed it'); return 's'; }
+        return strpos($text,'¿Actualizar core?') === 0 ? 's' : 'n';
+    };
+    rejects(function () use ($f,$question) { (new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state'))->update($f->repo,$question,function ($text) {}); },'conflict');
+    check(file_get_contents($file) === 'operator changed it' && $f->bridge->reloads === 0,'Late interactive edits must not be overwritten');
+});
+scenario('interactive reruns changed installers at the same version',function ($f) {
+    $f->file('core/install.php',"<?php return true;\n"); $f->target = $f->commit();
+    $answers = array('t','s');
+    $result = (new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state'))->update($f->repo,function ($text) use (&$answers) { return array_shift($answers) ?? 'n'; },function ($text) {});
+    check($result['status'] === 'complete' && $f->bridge->installRequests[0]['reinstall'] === true,'Changed same-version installer must be explicitly reinstalled');
+    rejects(function () use ($f,$result) { $f->deployer->rollback($result['deployment']); },'Migration started');
+});
+scenario('interactive all omits and reports uninstalled modules before and after selection',function ($f) {
+    foreach (array('aaa','feature') as $module) {
+        $f->file($module.'/module.xml','<module><rawname>'.$module.'</rawname><version>1.0.0</version></module>');
+        $f->file($module.'/install.php',"<?php return true;\n");
+    }
+    // Extracted package files do not mean that a module is registered as installed.
+    mkdir($f->root.'/web/admin/modules/aaa');
+    file_put_contents($f->root.'/web/admin/modules/aaa/local.txt','keep');
+    $f->target = $f->commit();
+    $questions = array(); $output = '';
+    $result = (new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state'))->update($f->repo,function ($text) use (&$questions) {
+        $questions[] = $text;
+        return strpos($text,'¿Aplicar') === 0 ? 's' : 't';
+    },function ($text) use (&$output) { $output .= $text; });
+    check($result['status'] === 'complete' && $f->bridge->reloads === 1,'All installed modules must still be updated in one reload');
+    check(!is_dir($f->root.'/web/admin/modules/feature') && !file_exists($f->root.'/web/admin/modules/aaa/module.xml'),'All must never copy uninstalled module packages');
+    check($f->bridge->installed === array(),'All must never run installers for absent modules');
+    check(count($questions) === 2 && strpos($questions[0],'¿Actualizar core?') === 0,'Uninstalled modules must not be offered individually');
+    check(strpos($output,'no están instalados (omitidos): aaa, feature') !== false,'The final output must list absent modules');
+});
+scenario('interactive reports absent modules even when no updates are selected',function ($f) {
+    $f->file('feature/module.xml','<module><rawname>feature</rawname><version>1.0.0</version></module>'); $f->target = $f->commit();
+    $output = '';
+    $result = (new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state'))->update($f->repo,function ($text) { return 'n'; },function ($text) use (&$output) { $output .= $text; });
+    check($result['status'] === 'unchanged' && strpos($output,'no están instalados (omitidos): feature') !== false,'Absent modules must also be reported without a deployment');
+});
+scenario('interactive installs an absent dependency only after explicit approval',function ($f) {
+    $f->file('feature/module.xml','<module><rawname>feature</rawname><version>1.0.0</version></module>');
+    $f->file('feature/install.php',"<?php return true;\n");
+    $xml = file_get_contents($f->repo.'/core/module.xml');
+    $f->file('core/module.xml',str_replace('</depends>','<module>feature ge1.0</module></depends>',$xml)); $f->target = $f->commit();
+    $updater = new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state');
+    $declined = $updater->update($f->repo,function ($text) { return strpos($text,'¿Incluir feature?') === 0 ? 'n' : 't'; },function ($text) {});
+    check($declined['status'] === 'cancelled' && !is_dir($f->root.'/web/admin/modules/feature') && $f->bridge->reloads === 0,'All must not approve missing dependencies implicitly');
+    $question = function ($text) { return strpos($text,'¿Actualizar core?') === 0 || strpos($text,'¿Incluir feature?') === 0 || strpos($text,'¿Aplicar') === 0 ? 's' : 'n'; };
+    $result = (new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state'))->update($f->repo,$question,function ($text) {});
+    check($result['status'] === 'complete' && file_exists($f->root.'/web/admin/modules/feature/module.xml'),'New module must be copied and installed');
+    check($f->bridge->installed === array('feature') && $f->bridge->reloads === 1,'New module must use the native installer and one reload');
+});
+scenario('native validation accepts compact version operators and rejects incompatible versions',function ($f) {
+    global $installedRows,$externalMetadata;
+    $installedRows['timeconditions'] = array('version'=>'2.12.0.0','enabled'=>true);
+    $bulk = array('rawname'=>'bulkextensions','version'=>'2.13.0.0','depends'=>array('version'=>'ge2.11','module'=>array('timeconditions ge2.6')));
+    $framework = array('rawname'=>'framework','version'=>'2.13.0.0');
+    $validation = deploy_targets(array($bulk,$framework),true);
+    check($validation['order'] === array('framework','bulkextensions'),'Compact PBX and module requirements must accept compatible framework upgrades');
+    $bulk['depends']['version'] = 'GE 2.11';
+    check(deploy_targets(array($bulk,$framework),true)['order'] === $validation['order'],'Spaced and uppercase native version operators must also work');
+    $bulk['depends']['version'] = 'lt2.11';
+    rejects(function () use ($bulk,$framework) { deploy_targets(array($bulk,$framework),true); },'Target framework');
+    $bulk['depends']['version'] = 'ge2.11'; $bulk['depends']['module'] = array('timeconditions gt9.0');
+    rejects(function () use ($bulk,$framework) { deploy_targets(array($bulk,$framework),true); },'Dependencies failed');
+    $bulk['depends']['version'] = 'invalid'; $bulk['depends']['module'] = array();
+    rejects(function () use ($bulk,$framework) { deploy_targets(array($bulk,$framework),true); },'Target framework');
+    $externalMetadata['other'] = array('depends'=>array('module'=>array('framework lt2.13')));
+    $installedRows['other'] = array('version'=>'1.0','enabled'=>true);
+    rejects(function () use ($framework) { deploy_targets(array($framework),true); },'break installed module other');
+});
+scenario('native access checks allow missing interactive packages and identify inaccessible paths',function ($f) {
+    global $amp_conf;
+    $amp_conf = array('AMPWEBROOT'=>$f->root.'/web','ASTETCDIR'=>$f->root.'/etc');
+    try {
+        $framework = array('rawname'=>'framework','version'=>'2.13.0.0');
+        check(deploy_targets(array($framework),true)['order'] === array('framework'),'A registered framework with no package directory must be prepared by interactive deployment');
+        $core = array('rawname'=>'core','version'=>'1.0.0');
+        rename($f->root.'/web/admin/modules/core',$f->root.'/web/admin/modules/core-saved');
+        rejects(function () use ($core) { deploy_targets(array($core)); },'el módulo core: '.$f->root.'/web/admin/modules/core');
+        // An existing bad destination must not be treated as an absent package.
+        file_put_contents($f->root.'/web/admin/modules/core','not a directory');
+        rejects(function () use ($core) { deploy_targets(array($core),true); },'el módulo core:');
+        unlink($f->root.'/web/admin/modules/core');
+        symlink($f->root.'/missing',$f->root.'/web/admin/modules/core');
+        rejects(function () use ($core) { deploy_targets(array($core),true); },'el módulo core:');
+        unlink($f->root.'/web/admin/modules/core');
+        rename($f->root.'/web/admin/modules/core-saved',$f->root.'/web/admin/modules/core');
+        $amp_conf['ASTETCDIR'] = $f->root.'/missing-config';
+        rejects(function () use ($core) { deploy_targets(array($core),true); },'la configuración Asterisk: '.$f->root.'/missing-config');
+        rejects(function () use ($core) { deploy_targets(array($core),true); },'uid '.posix_geteuid());
+        check(!file_exists($amp_conf['ASTETCDIR']),'Access validation must not create directories or change permissions');
+    } finally { unset($GLOBALS['amp_conf']); }
+});
+scenario('interactive compact PBX requirement asks to include the framework upgrade',function ($f) {
+    global $installedRows;
+    $installedRows['framework']['version'] = '2.12.0.0'; $f->bridge->pbxVersion = '2.12.0.0';
+    mkdir($f->root.'/web/admin/modules/framework');
+    $f->file('framework/module.xml','<module><rawname>framework</rawname><version>2.13.0.0</version></module>');
+    $f->file('framework/install.php',"<?php return true;\n");
+    $f->file('core/module.xml','<module><rawname>core</rawname><version>1.0.0</version><depends><version>ge2.13</version></depends></module>');
+    $f->target = $f->commit();
+    $included = false;
+    $result = (new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state'))->update($f->repo,function ($text) use (&$included) {
+        if (strpos($text,'¿Incluir framework?') === 0) { $included = true; return 's'; }
+        return strpos($text,'¿Actualizar core?') === 0 || strpos($text,'¿Aplicar') === 0 ? 's' : 'n';
+    },function ($text) {});
+    check($result['status'] === 'complete' && $included,'Compact PBX version requirements must prompt for an unselected framework upgrade');
+    check($f->bridge->installed === array('framework') && $f->bridge->reloads === 1,'The approved framework upgrade must finish before the one final reload');
+});
+scenario('interactive upgrades disabled modules without enabling them',function ($f) {
+    global $installedRows;
+    $installedRows['core']['enabled'] = false;
+    $f->upgrade();
+    $question = function ($text) { return strpos($text,'¿Actualizar core?') === 0 || strpos($text,'¿Aplicar') === 0 ? 's' : 'n'; };
+    $result = (new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state'))->update($f->repo,$question,function ($text) {});
+    check($result['status'] === 'complete' && $installedRows['core']['enabled'] === false,'Disabled modules must remain disabled');
+    check($f->bridge->installRequests[0]['reinstall'] === true,'Disabled module installs must not be silently skipped by native status checks');
+});
+scenario('interactive framework upgrade uses its native payload and cleans staging',function ($f) {
+    global $installedRows;
+    $f->upgrade();
+    $installedRows['framework']['version'] = '2.12.0.0'; $f->bridge->pbxVersion = '2.12.0.0';
+    mkdir($f->root.'/web/admin/modules/framework');
+    file_put_contents($f->root.'/web/admin/modules/framework/module.xml','<module><rawname>framework</rawname><version>2.12.0.0</version></module>');
+    file_put_contents($f->root.'/etc/manager.conf','keep production credentials');
+    $f->file('framework/module.xml','<module><rawname>framework</rawname><version>2.13.0.0</version></module>');
+    $f->file('framework/install.php',"<?php return true;\n");
+    $f->file('framework/libissabelpbx.install.php',"<?php return true;\n");
+    $f->file('framework/upgrades/2.13.0.0/migration.php',"<?php return true;\n");
+    $f->file('framework/amp_conf/htdocs/admin/framework-marker.php',"<?php return 'framework target';\n");
+    $f->file('framework/amp_conf/bin/helper','framework bin');
+    $f->file('framework/amp_conf/agi-bin/helper.agi','framework agi');
+    $f->file('framework/amp_conf/astetc/manager.conf','do not deploy template');
+    $f->target = $f->commit();
+    $answers = array('t','s');
+    $updater = new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state');
+    $result = $updater->update($f->repo,function ($text) use (&$answers) { return array_shift($answers) ?? 'n'; },function ($text) {});
+    check($result['status'] === 'complete' && $f->bridge->installed === array('framework','core','sipsettings'),'Framework must be installed before dependent modules');
+    check(file_exists($f->root.'/web/admin/framework-marker.php') && file_exists($f->root.'/bin/helper') && file_exists($f->root.'/agi/helper.agi'),'Native framework payload must reach its deployed destinations');
+    check(file_get_contents($f->root.'/etc/manager.conf') === 'keep production credentials','Framework configuration templates must not replace active credentials');
+    check(!is_dir($f->root.'/web/admin/modules/framework/amp_conf'),'Framework installer may remove its packaging');
+    check($f->bridge->reloads === 1,'Combined framework/module update must reload only once');
+    $again = $updater->update($f->repo,function ($text) { throw new RuntimeException('Unchanged source should not ask for updates'); },function ($text) {});
+    check($again['status'] === 'unchanged','Framework packaging cleanup must not cause repeated updates');
+    $f->bridge->pbxVersion = '2.12.0.0';
+    $repair = $updater->update($f->repo,function ($text) { return 's'; },function ($text) {});
+    check($repair['status'] === 'complete' && $f->bridge->pbxVersion === '2.13.0.0','Hybrid framework must run outstanding PBX migrations even when its module version was changed manually');
+    check(end($f->bridge->installRequests)['reinstall'] === true,'Same-version framework migration must invoke the installer');
+});
+scenario('framework preserves native copy modes and recovers legacy post-check failures',function ($f) {
+    $file = $f->root.'/bin/libissabelpbx.confgen.php';
+    file_put_contents($file,"<?php return 'old';\n"); chmod($file,0775);
+    $f->file('framework/module.xml','<module><rawname>framework</rawname><version>2.13.0.0</version></module>');
+    $f->file('framework/install.php',"<?php return true;\n");
+    $bytes = "<?php return 'target';\n";
+    $f->file('framework/amp_conf/bin/libissabelpbx.confgen.php',$bytes); $f->target = $f->commit();
+    // Exercise real cp too: its overwrite behavior differs from writing a new file.
+    run(array('cp','-f',$f->repo.'/framework/amp_conf/bin/libissabelpbx.confgen.php',$file));
+    check((Files::snapshot($file)['mode'] & 0111) !== 0,'Real cp must preserve executable destination permissions');
+    file_put_contents($file,"<?php return 'old';\n");
+    $updater = new IssabelDeploy\InteractiveUpdater($f->bridge,$f->root.'/state');
+    $result = $updater->update($f->repo,function ($text) { return strpos($text,'¿Aplicar') === 0 ? 's' : 't'; },function ($text) {});
+    check($result['status'] === 'complete' && file_get_contents($file) === $bytes && Files::snapshot($file)['mode'] === 0775,'Framework copy must preserve installed modes while verifying target content');
+    check($updater->update($f->repo,function ($text) { throw new RuntimeException('Unchanged copy modes must not trigger another update'); },function ($text) {})['status'] === 'unchanged','Preserved executable modes must not cause repeated updates');
+    $directory = $result['backup']; $path = $directory.'/record.json';
+    $record = json_decode(file_get_contents($path),true);
+    // Reproduce the signed plan and journal produced by the older verifier.
+    foreach ($record['plan']['changes'] as &$change) {
+        if ($change['path'] === '@amp_conf/bin/libissabelpbx.confgen.php') { $change['after']['mode'] = 0644; }
+    }
+    unset($change);
+    unset($record['plan']['signature']);
+    $record['plan']['signature'] = hash_hmac('sha256',json_encode($record['plan'],JSON_THROW_ON_ERROR),file_get_contents($f->root.'/state/key'));
+    $record['status'] = 'recovery-required'; $record['error'] = 'Post-deployment file mismatch: @amp_conf/bin/libissabelpbx.confgen.php';
+    file_put_contents($path,json_encode($record));
+    file_put_contents($f->root.'/state/current.json',json_encode($record['plan']['previous']));
+    file_put_contents($file,'unexpected contents');
+    rejects(function () use ($f,$result) { $f->deployer->recover($result['deployment']); },'Post-deployment file mismatch');
+    check(json_decode(file_get_contents($path),true)['status'] === 'recovery-required','Content mismatch must leave recovery blocked');
+    file_put_contents($file,$bytes); chmod($file,0644);
+    rejects(function () use ($f,$result) { $f->deployer->recover($result['deployment']); },'Post-deployment file mismatch');
+    chmod($file,0775); $f->bridge->pending = true;
+    rejects(function () use ($f,$result) { $f->deployer->recover($result['deployment']); },'pending changes');
+    $f->bridge->pending = false; $f->bridge->failHealth = true;
+    rejects(function () use ($f,$result) { $f->deployer->recover($result['deployment']); },'health failure');
+    $f->bridge->failHealth = false;
+    $installs = $f->bridge->installed; $reloads = $f->bridge->reloads;
+    $recovered = $f->deployer->recover($result['deployment']);
+    check($recovered['status'] === 'complete' && $f->bridge->installed === $installs && $f->bridge->reloads === $reloads,'Verified recovery must not rerun installers or reload');
+    check(is_file($directory.'/record-before-recovery.json') && isset(json_decode(file_get_contents($path),true)['recovery']),'Recovery must preserve the original error and record its verification');
+    check(json_decode(file_get_contents($f->root.'/state/current.json'),true)['framework']['deployment'] === $result['deployment'],'Recovery must update deployment history');
+    rejects(function () use ($f,$result) { $f->deployer->recover($result['deployment']); },'only available');
+});
+scenario('inspection never follows local symlink directories',function ($f) {
+    $root = $f->root.'/web/admin/modules';
+    mkdir($f->root.'/outside');
+    file_put_contents($f->root.'/outside/secret','not included in report');
+    symlink($f->root.'/outside',$root.'/core/external');
+    mkdir($root.'/core/pjsip.functions.php');
+    file_put_contents($root.'/core/pjsip.functions.php/local.txt','local contents');
+    symlink('/root/never-open-source-link',$f->repo.'/core/absolute-source-link');
+    $f->file('core/external/secret','target code'); $f->target = $f->commit();
+    $result = (new IssabelDeploy\Inspector())->inspect($f->repo,$f->target,array('core'),$root,$f->root.'/links-inspection');
+    $report = json_decode(file_get_contents($result['report']),true);
+    $diffs = array_column($report['modules']['core']['differences'],null,'path');
+    check($diffs['external/secret']['status'] === 'blocked_by_parent','Source path through a local symlink must be blocked');
+    check($diffs['pjsip.functions.php']['status'] === 'type_changed','Directory/file type conflicts must be reported');
+    check($diffs['absolute-source-link']['target']['type'] === 'link','Inspection must compare source link bytes without following them');
+    check(strpos(file_get_contents($result['diff']),'not included in report') === false,'External linked contents must never be read');
+});
+scenario('inspection supports missing modules and limits large diffs',function ($f) {
+    $root = $f->root.'/web/admin/modules';
+    removeTree($root.'/sipsettings');
+    $result = (new IssabelDeploy\Inspector())->inspect($f->repo,$f->target,array('core','sipsettings'),$root,$f->root.'/missing-inspection',10);
+    check($result['versions']['sipsettings']['installed_file_version'] === null,'Missing module must have no installed version');
+    check(strpos(file_get_contents($result['diff']),'exceeds the size limit') !== false,'Large file diffs must be bounded');
+    rejects(function () use ($f,$root) { (new IssabelDeploy\Inspector())->inspect($f->repo,$f->target,array('core'),$root,$f->root.'/web/public-report'); },'outside');
+    rejects(function () use ($f,$root) { (new IssabelDeploy\Inspector())->inspect($f->repo,$f->target,array('core'),$root,$f->repo.'/private-report'); },'outside');
 });
 // Check the JSON/error contract of the real subprocess helper without a PBX.
 $reply = json_decode(run(array(PHP_BINARY,dirname(__DIR__).'/native.php','unknown','/missing'),'{}'),true);

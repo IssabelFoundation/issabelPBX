@@ -34,6 +34,7 @@ try {
     $restrict_mods = !in_array($action,array('install','reload'),true);
     if (!is_file($bootstrap)) { throw new RuntimeException('Bootstrap not found.'); }
     require $bootstrap;
+    if (!chdir($amp_conf['AMPWEBROOT'].'/admin')) { throw new RuntimeException('Cannot enter the installed admin directory.'); }
     if (function_exists('ipbx_framework_autoloader')) { ipbx_framework_autoloader(true); }
     elseif (function_exists('fpbx_framework_autoloader')) { fpbx_framework_autoloader(true); }
     deploy_db();
@@ -45,12 +46,13 @@ try {
         if (!$group) { throw new RuntimeException('Configured Asterisk group was not found.'); }
         $engine = engine_getinfo();
         deploy_reply(array('modules_dir'=>$amp_conf['AMPWEBROOT'].'/admin/modules','config_dir'=>$amp_conf['ASTETCDIR'],
+            'bin_dir'=>realpath($amp_conf['AMPBIN']),'agi_dir'=>realpath($asterisk_conf['astagidir'] ?? $amp_conf['ASTAGIDIR']),
             'webroot'=>realpath($amp_conf['AMPWEBROOT']), 'user'=>$account['name'],'uid'=>$account['uid'],'gid'=>$group['gid'],
             'php_version'=>PHP_VERSION, 'asterisk_version'=>$engine['version'],'pbx_version'=>getversion(),
             'bootstrap_sha256'=>hash_file('sha256',$bootstrap),
             'pending_reload'=>sql("SELECT value FROM admin WHERE variable='need_reload'",'getOne') === 'true', 'modules'=>deploy_modules()));
     } elseif ($action === 'validate') {
-        deploy_reply(deploy_targets($input['targets']));
+        deploy_reply(deploy_targets($input['targets'],!empty($input['interactive'])));
     } elseif ($action === 'backup-check') {
         deploy_reply(deploy_backup_check());
     } elseif ($action === 'backup') {
@@ -61,25 +63,18 @@ try {
         if ($amp_conf['AMPDBENGINE'] === 'sqlite3') {
             deploy_sqlite_backup($amp_conf['AMPDBFILE'],$directory.'/database.sqlite3');
         } else {
-            $defaults = tempnam($directory,'mysql-');
-            try {
-                $quote = function ($value) { return '"'.str_replace(array('\\','"',"\n","\r"),array('\\\\','\\"','\\n','\\r'),(string)$value).'"'; };
-                file_put_contents($defaults,"[client]\nuser=".$quote($amp_conf['AMPDBUSER'])."\npassword=".$quote($amp_conf['AMPDBPASS'])."\nhost=".$quote($amp_conf['AMPDBHOST'])."\n");
-                chmod($defaults,0600);
-                // Lock all tables: this also covers legacy MyISAM installations.
-                $output = fopen($directory.'/database.sql','xb');
-                $errors = tmpfile();
-                $process = proc_open(array('mysqldump','--defaults-extra-file='.$defaults,'--lock-all-tables','--hex-blob','--routines','--events','--triggers','--databases',$amp_conf['AMPDBNAME']),array(0=>array('file','/dev/null','r'),1=>$output,2=>$errors),$pipes);
-                if (!is_resource($process) || proc_close($process) !== 0) { throw new RuntimeException('mysqldump failed. Verify backup privileges; no files have been deployed.'); }
-                fclose($output);
-                fclose($errors);
-                if (filesize($directory.'/database.sql') === 0) { throw new RuntimeException('Empty database backup.'); }
-            } finally { unlink($defaults); }
+            deploy_mysql_backup($amp_conf,$directory);
         }
         \IssabelDeploy\run(array('tar','--acls','--xattrs','--selinux','-cpf',$directory.'/asterisk-config.tar','-C',$amp_conf['ASTETCDIR'],'.'));
         foreach ($input['modules'] as $name=>$path) {
+            if (!isset(deploy_modules()[$name]) && !file_exists($path)) { continue; }
             if (!preg_match('/^[a-z][a-z0-9_-]*$/D',$name) || realpath($amp_conf['AMPWEBROOT'].'/admin/modules/'.$name) !== $path) { throw new RuntimeException('Module backup path mismatch.'); }
             \IssabelDeploy\run(array('tar','--acls','--xattrs','--selinux','-cpf',$directory.'/module-'.$name.'.tar','-C',$path,'.'));
+        }
+        if (isset($input['modules']['framework'])) {
+            foreach (array('web'=>$amp_conf['AMPWEBROOT'],'bin'=>$amp_conf['AMPBIN'],'agi'=>$asterisk_conf['astagidir'] ?? $amp_conf['ASTAGIDIR']) as $label=>$root) {
+                \IssabelDeploy\run(array('tar','--acls','--xattrs','--selinux','-cpf',$directory.'/framework-'.$label.'.tar','-C',$root,'.'));
+            }
         }
         $manifest = array();
         foreach (glob($directory.'/*') as $path) {
@@ -94,14 +89,26 @@ try {
                 foreach ($input['modules'] as $module=>$root) {
                     if (realpath($amp_conf['AMPWEBROOT'].'/admin/modules/'.$module) === $root && strpos($path,$root.'/') === 0) { $contained = true; }
                 }
+                if (!empty($input['interactive']) && isset($input['modules']['framework'])) {
+                    foreach (array($amp_conf['AMPWEBROOT'],$amp_conf['AMPBIN'],$asterisk_conf['astagidir'] ?? $amp_conf['ASTAGIDIR']) as $root) {
+                        $root = realpath($root);
+                        if ($root && strpos($path,$root.'/') === 0) { $contained = true; }
+                    }
+                }
                 if (!$contained) { throw new RuntimeException('Invalid permission target.'); }
                 if (file_exists($path) || is_link($path)) { \IssabelDeploy\run(array('restorecon','--',$path)); }
             }
         }
         deploy_reply(array('status'=>'permissions-checked'));
     } elseif ($action === 'install') {
-        if (!preg_match('/^[a-z][a-z0-9_-]*$/D',$input['module']) || $input['module'] === 'framework') { throw new RuntimeException('Invalid module.'); }
-        $result = module_install($input['module'],false);
+        if (!preg_match('/^[a-z][a-z0-9_-]*$/D',$input['module']) || ($input['module'] === 'framework' && empty($input['interactive']))) { throw new RuntimeException('Invalid module.'); }
+        $force = !empty($input['interactive']) && !empty($input['reinstall']);
+        if ($force) {
+            $info = module_getinfo($input['module'],false,true);
+            $errors = module_checkdepends($info[$input['module']]);
+            if (is_array($errors) && $errors) { throw new RuntimeException('Dependency check failed before reinstall: '.strip_tags(implode('; ',$errors))); }
+        }
+        $result = module_install($input['module'],$force);
         if ($result !== true) { throw new RuntimeException('Native module install failed: '.strip_tags(implode('; ',(array)$result))); }
         deploy_reply(array('module'=>$input['module']));
     } elseif ($action === 'reload') {
@@ -118,7 +125,11 @@ try {
     } else {
         $installed = deploy_modules();
         foreach ($input['targets'] as $target) {
-            if (($installed[$target['rawname']]['version'] ?? null) !== $target['version'] || empty($installed[$target['rawname']]['enabled'])) { throw new RuntimeException('Installed version/state check failed: '.$target['rawname']); }
+            $expectedEnabled = $input['enabled'][$target['rawname']] ?? true;
+            if (($installed[$target['rawname']]['version'] ?? null) !== $target['version'] || $installed[$target['rawname']]['enabled'] !== $expectedEnabled) { throw new RuntimeException('Installed version/state check failed: '.$target['rawname']); }
+            if ($target['rawname'] === 'framework' && preg_match('/^(\d+\.\d+)/',$target['version'],$branch) && version_compare_issabel(getversion(),$branch[1].'.0.0','lt')) {
+                throw new RuntimeException('Framework installer did not advance the PBX schema version.');
+            }
         }
         deploy_reply(array('status'=>'healthy'));
     }

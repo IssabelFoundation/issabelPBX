@@ -18,21 +18,41 @@ function deploy_manager(): void {
 function deploy_db(): void {
     if ((string)sql('SELECT 1','getOne') !== '1') { throw new RuntimeException('Database health check failed.'); }
 }
-function deploy_targets(array $targets): array {
+function deploy_directory_access(string $path,string $purpose,bool $writable = false): void {
+    clearstatcache(true,$path);
+    $account = posix_getpwuid(posix_geteuid());
+    $user = $account['name'] ?? (string)posix_geteuid();
+    $missing = array();
+    if (!is_dir($path)) { $missing[] = 'directorio inexistente o inaccesible'; }
+    else {
+        if (!is_readable($path)) { $missing[] = 'lectura'; }
+        if (!is_executable($path)) { $missing[] = 'acceso al directorio'; }
+        if ($writable && !is_writable($path)) { $missing[] = 'escritura'; }
+    }
+    if ($missing) { throw new RuntimeException('Permisos insuficientes para '.$purpose.': '.$path.'; usuario '.$user.' (uid '.posix_geteuid().'); falta: '.implode(', ',$missing).'. No se modificaron los permisos.'); }
+}
+function deploy_targets(array $targets,bool $interactive = false): array {
     global $amp_conf;
     $targetsByName = array();
     $installed = deploy_modules();
     foreach ($targets as $target) {
         $name = $target['rawname'] ?? '';
-        if (!is_string($name) || !preg_match('/^[a-z][a-z0-9_-]*$/D',$name) || $name === 'framework' || !is_string($target['version'] ?? null)) {
+        if (!is_string($name) || !preg_match('/^[a-z][a-z0-9_-]*$/D',$name) || ($name === 'framework' && !$interactive) || !is_string($target['version'] ?? null)) {
             throw new RuntimeException('Invalid target metadata.');
         }
-        if (!isset($installed[$name]) || !$installed[$name]['enabled']) { throw new RuntimeException('Module not installed/enabled: '.$name); }
-        if (isset($amp_conf['AMPWEBROOT']) && (!is_readable($amp_conf['AMPWEBROOT'].'/admin/modules/'.$name) ||
-            !is_readable($amp_conf['ASTETCDIR']) || !is_writable($amp_conf['ASTETCDIR']))) {
-            throw new RuntimeException('Asterisk account cannot access the module or write its configuration directory.');
+        if ((!isset($installed[$name]) || !$installed[$name]['enabled']) && !$interactive) { throw new RuntimeException('Module not installed/enabled: '.$name); }
+        if (isset($amp_conf['AMPWEBROOT'])) {
+            $modulePath = $amp_conf['AMPWEBROOT'].'/admin/modules/'.$name;
+            // A registered module can have no package directory (notably framework).
+            // Interactive deployment prepares that directory as root before installation.
+            if (isset($installed[$name]) && (!$interactive || file_exists($modulePath) || is_link($modulePath))) {
+                deploy_directory_access($modulePath,'el módulo '.$name);
+            } elseif ($interactive) {
+                deploy_directory_access(dirname($modulePath),'el directorio de módulos');
+            }
+            deploy_directory_access((string)($amp_conf['ASTETCDIR'] ?? ''),'la configuración Asterisk',true);
         }
-        if (version_compare_issabel($target['version'],$installed[$name]['version'],'lt')) { throw new RuntimeException('Downgrade refused: '.$name); }
+        if (isset($installed[$name]) && version_compare_issabel($target['version'],$installed[$name]['version'],'lt')) { throw new RuntimeException('Downgrade refused: '.$name); }
         $targetsByName[$name] = $target;
     }
     $edges = array();
@@ -42,16 +62,17 @@ function deploy_targets(array $targets): array {
         $external = array();
         $deps = $target['depends']['module'] ?? array();
         foreach (is_array($deps) ? $deps : array($deps) as $dependency) {
-            if (!is_string($dependency) || !preg_match('/^([a-z0-9_-]+)(?:\s+(?:(lt|le|gt|ge|==|=|eq|!=|ne)\s+)?([0-9][^\s]*))?$/iD',trim($dependency),$m)) {
+            if (!is_string($dependency) || !preg_match('/^([a-z0-9_-]+)(?:\s+(?:(lt|le|gt|ge|==|=|eq|!=|ne)\s*)?([0-9][^\s]*))?$/iD',trim($dependency),$m)) {
                 throw new RuntimeException('Unrecognized module dependency on '.$name);
             }
             if (isset($targetsByName[$m[1]])) {
-                if (!empty($m[3]) && !version_compare_issabel($targetsByName[$m[1]]['version'],$m[3],$m[2] ?: 'ge')) {
+                if (isset($installed[$m[1]]) && !$installed[$m[1]]['enabled']) { throw new RuntimeException('Dependency is disabled: '.$m[1]); }
+                if (!empty($m[3]) && !version_compare_issabel($targetsByName[$m[1]]['version'],$m[3],strtolower($m[2] ?: 'ge'))) {
                     throw new RuntimeException('Selected target does not satisfy '.$dependency);
                 }
                 $edges[$name][] = $m[1];
             } else {
-                if (empty($installed[$m[1]]['enabled']) || (!empty($m[3]) && !version_compare_issabel($installed[$m[1]]['version'],$m[3],$m[2] ?: 'ge'))) {
+                if (empty($installed[$m[1]]['enabled']) || (!empty($m[3]) && !version_compare_issabel($installed[$m[1]]['version'],$m[3],strtolower($m[2] ?: 'ge')))) {
                     throw new RuntimeException('Dependencies failed for '.$name.': '.$dependency);
                 }
                 $external[] = $dependency;
@@ -59,12 +80,20 @@ function deploy_targets(array $targets): array {
         }
         $candidate = $target;
         $candidate['depends']['module'] = $external;
+        if ($interactive && isset($targetsByName['framework'])) {
+            foreach ((array)($candidate['depends']['version'] ?? array()) as $required) {
+                if (!is_string($required) || !preg_match('/^(?:(lt|le|gt|ge|==|=|eq|!=|ne)\s*)?([0-9][^\s]*)$/iD',trim($required),$m) ||
+                    !version_compare_issabel($targetsByName['framework']['version'],$m[2],strtolower($m[1] ?: 'ge'))) { throw new RuntimeException('Target framework does not satisfy the PBX version required by '.$name); }
+            }
+            unset($candidate['depends']['version']);
+            if ($name !== 'framework') { $edges[$name][] = 'framework'; }
+        }
         $errors = module_checkdepends($candidate);
         if (is_array($errors) && count($errors)) { throw new RuntimeException('Dependencies failed for '.$name.': '.strip_tags(implode('; ',$errors))); }
         foreach ((array)($target['requirements']['file'] ?? array()) as $required) {
             if (is_string($required) && !file_exists($required)) { throw new RuntimeException('Required file missing: '.$required); }
         }
-        if (version_compare_issabel($target['version'],$installed[$name]['version'],'gt')) { $upgrades[] = $name; }
+        if (!isset($installed[$name]) || version_compare_issabel($target['version'],$installed[$name]['version'],'gt')) { $upgrades[] = $name; }
     }
     $order = array();
     $visiting = array();
@@ -82,8 +111,8 @@ function deploy_targets(array $targets): array {
         if (isset($targetsByName[$name]) || empty($installed[$name]['enabled'])) { continue; }
         $requirements = $info['depends']['module'] ?? array();
         foreach (is_array($requirements) ? $requirements : array($requirements) as $requirement) {
-            if (is_string($requirement) && preg_match('/^([a-z0-9_-]+)\s+(?:(lt|le|gt|ge|==|=|eq|!=|ne)\s+)?([0-9][^\s]*)$/iD',trim($requirement),$m) &&
-                isset($targetsByName[$m[1]]) && !version_compare_issabel($targetsByName[$m[1]]['version'],$m[3],$m[2] ?: 'ge')) {
+            if (is_string($requirement) && preg_match('/^([a-z0-9_-]+)\s+(?:(lt|le|gt|ge|==|=|eq|!=|ne)\s*)?([0-9][^\s]*)$/iD',trim($requirement),$m) &&
+                isset($targetsByName[$m[1]]) && !version_compare_issabel($targetsByName[$m[1]]['version'],$m[3],strtolower($m[2] ?: 'ge'))) {
                 throw new RuntimeException('Target would break installed module '.$name.': '.$requirement);
             }
         }
@@ -99,6 +128,45 @@ function deploy_sqlite_backup(string $source, string $destination): void {
     $copy->close();
     $db->close();
     chmod($destination,0600);
+}
+function deploy_mysql_backup(array $config,string $directory,array $command = array('mysqldump')): void {
+    $defaults = tempnam($directory,'mysql-');
+    if ($defaults === false) { throw new RuntimeException('Cannot prepare private database credentials.'); }
+    $output = null; $errors = null; $complete = false;
+    try {
+        $quote = function ($value) { return '"'.str_replace(array('\\','"',"\n","\r"),array('\\\\','\\"','\\n','\\r'),(string)$value).'"'; };
+        $credentials = "[client]\nuser=".$quote($config['AMPDBUSER'])."\npassword=".$quote($config['AMPDBPASS'])."\nhost=".$quote($config['AMPDBHOST'])."\n";
+        if (!chmod($defaults,0600) || file_put_contents($defaults,$credentials) !== strlen($credentials)) { throw new RuntimeException('Cannot write private database credentials.'); }
+        $output = fopen($directory.'/database.sql','xb');
+        $errors = tmpfile();
+        if (!is_resource($output) || !is_resource($errors)) { throw new RuntimeException('Cannot prepare database backup output.'); }
+        if (!chmod($directory.'/database.sql',0600)) { throw new RuntimeException('Cannot protect database backup output.'); }
+        // Only one database is exported. Lock its tables, including legacy MyISAM,
+        // without requiring the global RELOAD privilege or blocking other databases.
+        $process = proc_open(array_merge($command,array('--defaults-extra-file='.$defaults,'--skip-lock-all-tables','--lock-tables','--hex-blob','--routines','--events','--triggers','--databases',$config['AMPDBNAME'])),array(0=>array('file','/dev/null','r'),1=>$output,2=>$errors),$pipes);
+        $code = is_resource($process) ? proc_close($process) : -1;
+        fflush($output);
+        rewind($errors);
+        $detail = stream_get_contents($errors,65536);
+        foreach (array('AMPDBPASS','AMPMGRPASS') as $key) {
+            if (!empty($config[$key])) { $detail = str_replace($config[$key],'[redacted]',$detail); }
+        }
+        $log = $directory.'/mysqldump.stderr';
+        if (file_put_contents($log,$detail) !== strlen($detail) || !chmod($log,0600)) { throw new RuntimeException('Cannot save protected mysqldump diagnostics.'); }
+        if ($code !== 0) {
+            $summary = trim(preg_replace('/[\x00-\x1f\x7f]+/',' ',$detail));
+            throw new RuntimeException('mysqldump failed (exit '.$code.'): '.($summary !== '' ? substr($summary,0,2000) : 'No diagnostic output.').'; log: '.$log.'; no files have been deployed.');
+        }
+        if (fstat($output)['size'] === 0) { throw new RuntimeException('Empty database backup; log: '.$log); }
+        $complete = true;
+    } finally {
+        if (is_resource($output)) {
+            fclose($output);
+            if (!$complete) { unlink($directory.'/database.sql'); }
+        }
+        if (is_resource($errors)) { fclose($errors); }
+        unlink($defaults);
+    }
 }
 function deploy_backup_check(): array {
     global $amp_conf, $asterisk_conf;
