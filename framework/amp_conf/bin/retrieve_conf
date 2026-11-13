@@ -943,8 +943,8 @@ if ($amp_conf['AMPLOCALBIN']) {
  */
 
 $output = array();
-exec("grep '#include' ".$amp_conf['ASTETCDIR']."/*.conf | sed 's/;.*//; s/#include//; ; s/\"//g;'",$output,$retcode);
-if ($retcode != 0) {
+exec("grep -H -E '^[[:space:]]*#include[[:space:]]+' ".escapeshellarg($amp_conf['ASTETCDIR'])."/*.conf",$output,$retcode);
+if ($retcode > 1) {
     error("Error code $retcode: trying to search for missing #include files");
 }
 
@@ -952,26 +952,29 @@ foreach($output as $file) {
     if (trim($file) == '') {
         continue;
     }
-    $parse1 = explode(':',$file);
-    $parse2 = explode(';',$parse1[1]);
-    $rawfile = trim($parse2[0]);
+    $parse1 = explode(':',$file,2);
+    if (count($parse1) != 2 || !preg_match('/^\s*#include\s+(?:"([^"]*)"|<([^>]*)>|([^;\s]+))/', $parse1[1], $matches)) {
+        continue;
+    }
+    $rawfile = isset($matches[3]) ? $matches[3] : (isset($matches[2]) ? $matches[2] : $matches[1]);
     if ($rawfile == '') {
         continue;
     }
-    if(preg_match("/\*\.conf/",$rawfile)) {
+    if (strpbrk($rawfile, '*?[') !== false) {
         continue;
     }
     $target = ($rawfile[0] == '/') ? $rawfile : $amp_conf['ASTETCDIR']."/$rawfile";
 
     if (!file_exists($target)) {
         $output = array();
-        exec("touch $target", $output, $retcode);
+        exec("touch -- ".escapeshellarg($target), $output, $retcode);
         if ($retcode != 0) {
             error("Error code $retcode: trying to create empty file $target");
+            continue;
         }
-        exec("chown asterisk.asterisk $target", $output, $retcode);
+        exec("chown asterisk:asterisk -- ".escapeshellarg($target), $output, $retcode);
         if ($retcode != 0) {
-            error("Error code $retcode: trying to create empty file $target");
+            error("Error code $retcode: trying to set ownership of $target");
         }
     }
 }
